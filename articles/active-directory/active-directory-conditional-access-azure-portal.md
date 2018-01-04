@@ -5,7 +5,7 @@ services: active-directory
 keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim
 
@@ -35,7 +35,7 @@ Koşullu erişim, belirli koşullara göre ortamınızda uygulamalar için eriş
 
 Genellikle, aşağıdaki deseni temel alınarak deyimleri kullanarak erişim gereksinimlerinizi tanımlayın:
 
-![denetimi](./media/active-directory-conditional-access-azure-portal/10.png)
+![Denetim](./media/active-directory-conditional-access-azure-portal/10.png)
 
 İki oluşumları yerine ne zaman "*bu*" gerçek bilgilerle bir örnek için büyük olasılıkla size tanıdık benzeyen bir ilke bildirimi vardır:
 
@@ -48,11 +48,11 @@ Azure Active Directory koşullu erişim bağlamında
 - "**Bu durumda**" olarak adlandırılır **koşul deyimi**
 - "**Sonra bunu**" olarak adlandırılır **denetimleri**
 
-![denetimi](./media/active-directory-conditional-access-azure-portal/11.png)
+![Denetim](./media/active-directory-conditional-access-azure-portal/11.png)
 
 Bir koşul deyimi, denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
 
-![denetimi](./media/active-directory-conditional-access-azure-portal/12.png)
+![Denetim](./media/active-directory-conditional-access-azure-portal/12.png)
 
 
 ## <a name="controls"></a>Denetimler
@@ -66,11 +66,11 @@ Erişim sağlayan bir ilkesi yapılandırdığınızda, en az bir gereksinim se�
 - **Verme denetimlerini** -verme denetimleri yöneten bir kullanıcı, kimlik doğrulamasını tamamlamak ve oturum için açmak için denediğiniz kaynak ulaşmak olup olmadığına bakılmaksızın. Seçilen birden çok denetim varsa, ilkenizi işlendiğinde, bunların tümünün gerekli olup olmadığını yapılandırabilirsiniz.
 Geçerli uygulama Azure Active Directory aşağıdaki grant denetimi gereksinimlerini yapılandırmanıza olanak sağlar:
 
-    ![denetimi](./media/active-directory-conditional-access-azure-portal/73.png)
+    ![Denetim](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **Oturum denetimleri** -oturum bir bulut uygulaması deneyiminde sınırlama etkinleştir denetler. Oturum denetimleri bulut uygulamaları tarafından zorunlu tutulmaz ve oturumla ilgili uygulama için Azure AD tarafından sağlanan ek bilgileri kullanır.
 
-    ![denetimi](./media/active-directory-conditional-access-azure-portal/31.png)
+    ![Denetim](./media/active-directory-conditional-access-azure-portal/31.png)
 
 
 Daha fazla bilgi için bkz: [Azure Active Directory koşullu erişim denetimleri](active-directory-conditional-access-controls.md).
@@ -82,14 +82,14 @@ Daha fazla bilgi için bkz: [Azure Active Directory koşullu erişim denetimleri
 
 Aşağıdaki atamaları, bir koşul deyimi içerebilir:
 
-![denetimi](./media/active-directory-conditional-access-azure-portal/07.png)
+![Denetim](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
 ### <a name="who"></a>Kim?
 
 Koşullu erişim ilkesi yapılandırdığınızda, kullanıcılar veya gruplar, ilkenin uygulandığı seçmeniz gerekir. Çoğu durumda, belirli bir kullanıcı kümesi için uygulanacak denetimlerinizi istiyor. Bir koşul deyimi gerekli kullanıcılar ve gruplar, ilkenin uygulandığı seçerek bu kümesi tanımlayabilirsiniz. Gerekirse, ilkeden muaf tutma tarafından bir kullanıcı kümesini açıkça dışlayabilirsiniz.  
 
-![denetimi](./media/active-directory-conditional-access-azure-portal/08.png)
+![Denetim](./media/active-directory-conditional-access-azure-portal/08.png)
 
 
 
@@ -99,7 +99,7 @@ Bir koşullu erişim ilkesi yapılandırdığınızda, ilkenin uygulandığı bu
 Genellikle, belirli uygulamalar vardır, koruma açısından bakıldığında, diğerlerinden daha fazla dikkat gerektiren ortamınızdaki. Bu, örneğin, hassas verilere erişimi uygulamaları etkiler.
 Bulut uygulamalarını seçerek, ilkenin uygulandığı bulut uygulamalarını kapsamını tanımlayın. Gerekirse, ilkeden uygulamaları kümesi de açıkça hariç tutabilirsiniz.
 
-![denetimi](./media/active-directory-conditional-access-azure-portal/09.png)
+![Denetim](./media/active-directory-conditional-access-azure-portal/09.png)
 
 Koşullu erişim ilkenizi kullanabileceğiniz bulut uygulamalarının tam listesi için bkz: [Azure Active Directory koşullu erişim teknik başvuru](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).
 
@@ -163,11 +163,11 @@ Daha fazla bilgi için bkz: [Azure Active Directory konumlarında adlı](active-
 
 Koşullu erişim ilkenizi şunları yapabilirsiniz:
 
-- İçerir
-    - Herhangi bir konumu
+- Ekle
+    - Herhangi bir konum
     - Tüm güvenilen konumları
     - Seçilen konumları
-- Hariç tutma
+- Dışla
     - Tüm güvenilen konumları
     - Seçilen konumları
      
@@ -200,7 +200,7 @@ Bu uygulamalar için bir başka koruma katmanı eklemek istiyorsanız, kullanıc
 
 Çok faktörlü kimlik doğrulama gereksinimini eklediğinden bu önceki senaryoya benzer bir senaryodur.
 Bununla birlikte, ikisi arasındaki temel fark bu gereksinim durumdur.  
-Önceki senaryoda odak sensitve verilere erişim uygulamalarını ederken güvenilen konumlarının bu senaryonun odak noktasıdır.  
+Önceki senaryoda odak hassas verilere erişim uygulamalarını ederken güvenilen konumlarının bu senaryonun odak noktasıdır.  
 Diğer bir deyişle, bir uygulama güvenmediğiniz bir ağdan bir kullanıcı tarafından erişilen, çok faktörlü kimlik doğrulama gereksinimini olabilir.
 
 
@@ -209,6 +209,9 @@ Diğer bir deyişle, bir uygulama güvenmediğiniz bir ağdan bir kullanıcı ta
 Ortamınızda Intune kullanıyorsanız, Azure konsolunda koşullu erişim ilkesi arabirimini kullanarak hemen başlatabilirsiniz.
 
 Birçok Intune müşterileri, yalnızca güvenilir cihazların Office 365 hizmetlerine erişmesini sağlamak için koşullu erişim kullanıyor. Bu, mobil cihazları Intune'a kayıtlı ve uyumluluk ilkesi gereksinimlerini ve Windows bilgisayarları için bir şirket içi etki alanına katılmış olan anlamına gelir. Önemli geliştirmelerden her Office 365 Hizmetleri için aynı ilkesini ayarlamanız gerekmez ' dir.  Yeni bir ilke oluşturduğunuzda, her biri, koşullu erişim ile korumak istediğiniz O365 uygulamalar dahil etmek için bulut uygulamalarını yapılandırın.
+
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Kendi cihazını getir (KCG için) şirkete ait bir CİHAZDAN geçiş yapma
+Cihaz sahipliği şirket için kişisel değiştirerek blok kayıtlı cihazlara istiyorsanız, bunu Azure Active Directory (AAD) koşullu erişim kullanarak gerçekleştirebilirsiniz. Önce bir koşullu erişim ilkesi oluşturmanız gerekir nerede **erişimi engelleme** erişim denetimlerini seçili **Grant** dikey. Ardından, oluşturun bir **dinamik cihaz** ayarlayarak grup **deviceOwnership** özelliğine **kişisel**. Ardından, yukarıdaki Yeni Grup İlkesine hedef.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

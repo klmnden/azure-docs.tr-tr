@@ -11,10 +11,10 @@ ACU: 180-240
 | Standart_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 10.000/250        | 2 / 4,000  | 
 | Standart_L8s   | 8    | 64   | 1,388 | 32   | 40,000 / 400   | 20.000/500       | 4 / 8,000  | 
 | Standart_L16s  | 16   | 128  | 2,807 | 64   | 80,000 / 800   | 40.000/1000       | 8 / 6,000 - 16,000 &#8224; | 
-| Standard_L32s* | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 80.000/2000     | 8 / 20,000 | 
+| Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 80.000/2000     | 8 / 20,000 | 
  
 
 Ls Serisi VM ile maksimum disk aktarım hızı, tüm ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). 
 
-*Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
+<sup>1</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış.
 

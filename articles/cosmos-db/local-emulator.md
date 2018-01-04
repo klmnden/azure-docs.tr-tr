@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma
 
@@ -64,7 +64,7 @@ Azure Cosmos DB öykünücüsü yüksek doğruluk öykünmesi Azure Cosmos DB hi
 Yüksek kaliteli yerel öykünme gerçek Azure Cosmos DB hizmetinin oluşturduğumuz olsa da, Azure Cosmos DB öykünücüsü hizmet farklı uygulamasıdır. Örneğin, Azure Cosmos DB öykünücüsü Kalıcılık ve HTTPS protokol yığını bağlantısı için yerel dosya sistemi gibi standart işletim sistemi bileşenlerini kullanır. Bu genel çoğaltma, okuma/yazma ve ince ayarlanabilir tutarlılık düzeyleri için tek basamaklı milisaniyelik gecikme süresi yok gibi Azure Cosmos DB öykünücüsü kullanılabilir Azure altyapı dayanan bazı işlevler anlamına gelir.
 
 > [!NOTE]
-> Şu anda öykünücü veri Explorer'da yalnızca DocumentDB API koleksiyonları ve MongoDB koleksiyonları oluşturmayı destekler. Öykünücü veri Explorer'da oluşturulmasını tablolar ve grafikler şu anda desteklemiyor. 
+> Şu anda öykünücü veri Explorer'da yalnızca SQL API koleksiyonları ve MongoDB koleksiyonları oluşturmayı destekler. Öykünücü veri Explorer'da oluşturulmasını tablolar ve grafikler şu anda desteklemiyor. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Öykünücü ve hizmet arasındaki farklar 
 Azure Cosmos DB öykünücüsü yerel geliştirici istasyonunda çalıştıran benzetilmiş bir ortam sağladığından, bazı arasındaki işlevsel farklılıklar öykünücüsü ve bir Azure Cosmos DB hesap bulutta vardır:
@@ -136,7 +136,7 @@ Yerel bir ağda öykünücü çalıştırabilirsiniz. Ağ erişimini etkinleşti
 İlk kez ağ erişimini etkinleştirmek için kullanıcı kapatma öykünücü gerekir ve öykünücüsü'nın veri dizini (C:\Users\user_name\AppData\Local\CosmosDBEmulator) silin.
 
 ## <a name="developing-with-the-emulator"></a>Öykünücü ile geliştirme
-Masaüstünde çalışan Azure Cosmos DB öykünücüsü olduktan sonra desteklenen herhangi biri kullanabilirsiniz [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) veya [Azure Cosmos DB REST API](/rest/api/documentdb/) öykünücü ile etkileşim kurmak için. Azure Cosmos DB öykünücüsü de DocumentDB ve MongoDB API'ları ve görünüm için koleksiyonları oluşturun ve hiçbir kod yazmadan belgeleri düzenlemesine olanak tanır yerleşik bir Veri Gezgini içerir.   
+Masaüstünde çalışan Azure Cosmos DB öykünücüsü olduktan sonra desteklenen herhangi biri kullanabilirsiniz [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) veya [Azure Cosmos DB REST API](/rest/api/documentdb/) öykünücü ile etkileşim kurmak için. Azure Cosmos DB öykünücüsü ayrıca SQL ve MongoDB API'ları ve görünüm için koleksiyonları oluşturun ve hiçbir kod yazmadan belgeleri düzenlemesine olanak tanır yerleşik bir Veri Gezgini içerir.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -195,7 +195,7 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
   <td></td>
 </tr>
 <tr>
-  <td>kapatma</td>
+  <td>Kapat</td>
   <td>Azure Cosmos DB öykünücüsü kapatır.</td>
   <td>CosmosDB.Emulator.exe Shutdown</td>
   <td></td>

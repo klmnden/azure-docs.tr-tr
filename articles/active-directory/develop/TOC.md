@@ -14,7 +14,8 @@
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web uygulamaları
 ### [Genel Bakış](active-directory-authentication-scenarios.md#web-browser-to-web-application)
-### [ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)
+### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
+### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -50,8 +51,8 @@
 ### [iOS’te SSO etkinleştirme](active-directory-sso-ios.md)
 ## [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)
 ## [SCIM ile kullanıcı sağlama](../active-directory-scim-provisioning.md)
-## [Azure AD Grafik API'si](active-directory-graph-api.md)
-### [AAD Grafik’i kullanmaya başlama](active-directory-graph-api-quickstart.md)
+## [Azure AD Graph API'si](active-directory-graph-api.md)
+### [AAD Graph’ı kullanmaya başlama](active-directory-graph-api-quickstart.md)
 ## [AppSource sertifikasyonu](active-directory-devhowto-appsource-certified.md)
 ## [Azure AD uygulama galerisi](active-directory-app-gallery-listing.md)
 ## [Office 365 Satıcı Panosu](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
@@ -62,6 +63,7 @@
 ### [Web API projeme ne oldu?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [ACS Geçişi](active-directory-acs-migration.md)
+## [ADAL hatalarıyla ilgili en iyi uygulamalar](active-directory-devhowto-adal-error-handling.md)
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Kimlik doğrulama kitaplıkları (ADAL)](active-directory-authentication-libraries.md)

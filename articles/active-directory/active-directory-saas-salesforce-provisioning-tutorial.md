@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ve Salesforce arasında
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 49384b8b-3836-4eb1-b438-1c46bb9baf6f
 ms.service: active-directory
 ms.workload: identity
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ba33399c9ea0f093de6c85328d6ec2b280da4a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Öğretici: Salesforce otomatik kullanıcı sağlamayı için yapılandırma
 
 Bu öğreticinin amacı otomatik olarak sağlamak için Salesforce ve Azure AD içinde gerçekleştirmek için gereken adımlar ve devre dışı bırakma sağlama kullanıcı Azure AD'den Salesforce hesapları göstermektir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -89,19 +89,21 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının Salesforce kul
 
 10. Belirteç kopyalama, Azure AD penceresine gidin ve yapıştırın **gizli belirteci** alan.
 
-11. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Salesforce uygulamanıza bağlanabilir.
+11. **Kiracı URL** Salesforce örneği üzerinde Salesforce Bulutu ise girilmesi gerekir. Aksi takdirde isteğe bağlıdır. Örnek bilgisayarınızı Salesforce örneğinizi adıyla değiştirerek https://your-instance.my.salesforce.com, biçimini kullanarak Kiracı URL'sini girin.
 
-12. İçinde **bildirim e-posta** alan, bir kişi veya grubun sağlama hata bildirimleri almak ve gerekir aşağıdaki onay e-posta adresini girin.
+12. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Salesforce uygulamanıza bağlanabilir.
 
-13. Tıklatın **kaydedin.**  
+13. İçinde **bildirim e-posta** alan, bir kişi veya grubun sağlama hata bildirimleri almak ve gerekir aşağıdaki onay e-posta adresini girin.
+
+14. Tıklatın **kaydedin.**  
     
-14.  Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Salesforce için.**
+15.  Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Salesforce için.**
 
-15. İçinde **öznitelik eşlemelerini** bölümünde, Salesforce Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler olarak Not **eşleşen** özellikleri Salesforce kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+16. İçinde **öznitelik eşlemelerini** bölümünde, Salesforce Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler olarak Not **eşleşen** özellikleri Salesforce kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-16. Salesforce hizmet sağlama Azure AD etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** ayarları bölümünde
+17. Salesforce hizmet sağlama Azure AD etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** ayarları bölümünde
 
-17. Tıklatın **kaydedin.**
+18. Tıklatın **kaydedin.**
 
 Bu, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Salesforce atanan ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Salesforce uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 

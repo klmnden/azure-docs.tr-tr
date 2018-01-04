@@ -4,25 +4,25 @@ description: "Coğrafi olarak yedekli depolamaya okuma erişimi uygulama veriler
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 547ca7843f53bd11fdb922af8e0ae77e38f813d9
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uygulama verilerinizi Azure storage ile yüksek oranda kullanılabilir yap
 
-Bu öğretici bir dizi birini bir parçasıdır. Bu öğretici, uygulama verilerini azure'da yüksek oranda kullanılabilir hale gösterilmiştir. İşlemi tamamladığınızda, bir blob alır ve yükler bir konsol uygulamasına sahip bir [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabı. RA-GRS işlemleri birincil sunucudan ikincil bölge'ye yineleyerek çalışır. Bu çoğaltma işlemi, verileri ikincil bölge sonuçta tutarlı olmasını sağlar. Uygulamanın kullandığı [devre kesici](/azure/architecture/patterns/circuit-breaker.md) bağlanmak için hangi uç noktaya belirlemek için desen. Hata benzetimi sırasında uygulama ikincil uç noktasına geçer.
+Bu öğretici bir dizi birini bir parçasıdır. Bu öğretici, uygulama verilerini azure'da yüksek oranda kullanılabilir hale gösterilmiştir. İşlemi tamamladığınızda, bir blob alır ve yükler .NET core konsol uygulaması sahip bir [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabı. RA-GRS işlemleri birincil sunucudan ikincil bölge'ye yineleyerek çalışır. Bu çoğaltma işlemi, verileri ikincil bölge sonuçta tutarlı olmasını sağlar. Uygulamanın kullandığı [devre kesici](/azure/architecture/patterns/circuit-breaker.md) bağlanmak için hangi uç noktaya belirlemek için desen. Hata benzetimi sırasında uygulama ikincil uç noktasına geçer.
 
 Bölümünde bir dizi öğrenin nasıl yapılır:
 
@@ -32,7 +32,7 @@ Bölümünde bir dizi öğrenin nasıl yapılır:
 > * Bağlantı dizesi ayarlama
 > * Konsol uygulamasını çalıştırın
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -63,7 +63,7 @@ Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşa�
    | Ayar       | Önerilen değer | Açıklama |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Ad** | mystorageaccount | Depolama hesabınız için benzersiz bir değer |
-   | **Dağıtım modeli** | Resource Manager  | Kaynak Yöneticisi'ni, en son özellikler içerir.  |
+   | **Dağıtım modeli** | Resource Manager  | Kaynak Yöneticisi'ni, en son özellikler içerir.|
    | **Hesap türü** | Genel amaçlı | Hesap türleri hakkında daha fazla bilgi için bkz: [türlerde depolama hesapları](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performans** | Standart | Standart Örnek senaryo için yeterli olur. |
    | **Çoğaltma**| Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) | Bu örnek çalışması gereklidir. |
@@ -83,17 +83,29 @@ Extract (sıkıştırmasını açın) storage-dotnet-circuit-breaker-pattern-ha-
 
 ## <a name="set-the-connection-string"></a>Bağlantı dizesi ayarlama
 
-Açık *storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs* konsol uygulaması Visual Studio'da.
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesi bir ortam değişkeni içinde uygulamayı çalıştıran yerel makinede depolamanız önerilir. Örnekler ortam değişkeni oluşturmak için işletim sistemine bağlı olarak birini izleyin.
 
-Altında **appSettings** düğümünde **App.config** dosya, değerini _StorageConnectionString_ depolama hesabı bağlantı dizesi ile. Bu değer seçerek alınır **erişim anahtarları** altında **ayarları** Azure portalında depolama hesabınızdaki. Kopya **bağlantı dizesi** birincil veya ikincil anahtarı ve yapıştırın **App.config** dosya. Seçin **kaydetmek**, tamamlandıktan sonra dosyayı kaydetmek için.
+Azure Portal'da depolama hesabınıza gidin. Seçin **erişim anahtarları** altında **ayarları** depolama hesabınızdaki. Kopya **bağlantı dizesi** birincil veya ikincil anahtarı. Değiştir \<yourconnectionstring\> gerçek bağlantınızla aşağıdaki komutlardan birini çalıştırarak dize tabanlıdır, işletim sisteminde. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Windows, ortam değişkeni yeniden kadar kullanılamaz **komut istemi** veya kullanmakta olduğunuz Kabuğu'nu. Değiştir  **\<storageConnectionString\>**  aşağıdaki örnekteki:
+
+### <a name="linux"></a>Linux
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+### <a name="windows"></a>Windows
+
+```cmd
+setx storageconnectionstring "<yourconnectionstring>"
+```
 
 ![Uygulama yapılandırma dosyası](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Konsol uygulamasını çalıştırın
 
-Visual Studio'da basın **F5** veya seçin **Başlat** uygulama hata ayıklama başlatılamıyor. Visual studio otomatik olarak eksik Nuget paketlerini geri yüklemeler yapılandırdıysanız, ziyaret etmek için [yükleme ve paket geri yüklemesi paketlerle yeniden yükleme](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) daha fazla bilgi için. 
+Visual Studio'da basın **F5** veya seçin **Başlat** uygulama hata ayıklama başlatılamıyor. Visual studio otomatik olarak eksik NuGet paketlerini geri yüklemeler yapılandırdıysanız, ziyaret etmek için [yükleme ve paket geri yüklemesi paketlerle yeniden yükleme](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) daha fazla bilgi için.
 
-Bir konsol penceresi açılır ve uygulama başlar çalışıyor. Uygulamayı yükler **HelloWorld.png** çözümü bir görüntüden depolama hesabı. Uygulama görüntüsü emin olmak için ikincil RA-GRS uç noktasına çoğaltıldığını denetler. Ardından, 999 kereye kadar görüntü yükleme başlar. Her okuma tarafından representated bir **P** veya **S**. Burada **P** birincil uç noktasını temsil eder ve **S** ikincil uç noktasını temsil eder.
+Bir konsol penceresi açılır ve uygulama başlar çalışıyor. Uygulamayı yükler **HelloWorld.png** çözümü bir görüntüden depolama hesabı. Uygulama görüntüsü emin olmak için ikincil RA-GRS uç noktasına çoğaltıldığını denetler. Ardından, 999 kereye kadar görüntü yükleme başlar. Her okuma tarafından temsil edilen bir **P** veya **S**. Burada **P** birincil uç noktasını temsil eder ve **S** ikincil uç noktasını temsil eder.
 
 ![Çalışan konsol uygulaması](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -101,10 +113,10 @@ Bir konsol penceresi açılır ve uygulama başlar çalışıyor. Uygulamayı y�
 
 ### <a name="retry-event-handler"></a>Olay işleyicisi yeniden deneyin
 
-`Operation_context_Retrying` Olay işleyicisi çağrılır görüntü yükleme başarısız olur ve çok rety ayarlayın. Uygulama içinde tanımlanmış olan yeniden deneme sayısı üst sınırına, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) isteği değiştirilir `SecondaryOnly`. Bu ayar, ikincil uç noktasından görüntü indirmeye uygulamaya zorlar. Bu yapılandırma, birincil endpoint süresiz olarak denenmez gibi görüntü istemek için harcanan süre azaltır.
+`OperationContextRetrying` Olay işleyicisi görüntü yükleme başarısız olur ve yeniden denemek için ayarlanmış olduğunda çağrılır. Uygulama içinde tanımlanan yeniden deneme sayısı üst sınırına, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) isteği değiştirilir `SecondaryOnly`. Bu ayar, ikincil uç noktasından görüntü indirmeye uygulamaya zorlar. Bu yapılandırma, birincil endpoint süresiz olarak denenmez gibi görüntü istemek için harcanan süre azaltır.
 
 ```csharp
-private static void Operation_context_Retrying(object sender, RequestEventArgs e)
+private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
     retryCount++;
     Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
@@ -129,10 +141,10 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### <a name="request-completed-event-handler"></a>Tamamlanan olay işleyicisi isteği
 
-`Operation_context_RequestCompleted` Olay işleyicisi görüntü yükleme başarılı olduğunda çağrılır. Uygulama ikincil uç kullanıyorsanız, uygulama Bu uç noktaya kadar 20 kez kullanmaya devam eder. 20 kez sonra uygulama ayarlar [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) geri `PrimaryThenSecondary` ve birincil uç nokta yeniden dener. İstek başarılı olursa, birincil uç noktasından okumak uygulama devam eder.
+`OperationContextRequestCompleted` Olay işleyicisi görüntü yükleme başarılı olduğunda çağrılır. Uygulama ikincil uç kullanıyorsanız, uygulama Bu uç noktaya kadar 20 kez kullanmaya devam eder. 20 kez uygulama kümeleri sonra [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) geri `PrimaryThenSecondary` ve birincil uç nokta yeniden dener. İstek başarılı olursa, uygulama birincil uç noktasından okumak devam eder.
 
 ```csharp
-private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {

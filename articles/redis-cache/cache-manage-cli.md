@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Oluşturma ve Azure komut satırı arabirimi (Azure CLI) kullanarak Azure Redis önbelleği yönetme
 > [!div class="op_single_selector"]
@@ -34,12 +34,12 @@ Azure CLI, Azure altyapınıza herhangi bir platform yönetmek için harika bir 
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Oluşturma ve Azure CLI kullanarak Azure Redis önbelleği örnekleri yönetmek için aşağıdaki adımları tamamlamanız gerekir.
 
 * Bir Azure hesabınızın olması gerekir. Yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika sonra.
 * [Azure CLI'yı yükleme](../cli-install-nodejs.md).
-* Kişisel bir Azure hesabı veya bir iş ile Azure CLI yüklemenizi bağlanmak veya Okul Azure hesabı ve oturum Azure CLI kullanımından `azure login` komutu. Farkları anlamak ve seçmek için bkz: [bir Azure aboneliğine bağlanma Azure komut satırı arabirimi (Azure CLI) gelen](../xplat-cli-connect.md).
+* Kişisel bir Azure hesabı veya bir iş ile Azure CLI yüklemenizi bağlanmak veya Okul Azure hesabı ve oturum Azure CLI kullanımından `azure login` komutu. Farkları anlamak ve seçmek için bkz: [bir Azure aboneliğine bağlanma Azure komut satırı arabirimi (Azure CLI) gelen](/cli/azure/authenticate-azure-cli).
 * Aşağıdaki komutlardan herhangi birini çalıştırmadan önce Azure CLI Resource Manager moduna çalıştırarak geçiş `azure config mode arm` komutu. Daha fazla bilgi için bkz: [Azure kaynakları ve kaynak gruplarını yönetmek için Azure CLI kullanma](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Redis önbelleği özellikleri
@@ -50,7 +50,7 @@ Aşağıdaki özellikleri oluşturma ve Redis önbelleği örnekleri güncelleş
 | ad |-n,--adı |Redis önbelleği adı. |
 | kaynak grubu |-g,--kaynak-grubu |Kaynak grubunun adı. |
 | location |-l,--konum |Önbellek oluşturmak için konum. |
-| Boyutu |-z,--boyutu |Redis önbelleği boyutu. Geçerli değerler: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| boyut |-z,--boyutu |Redis önbelleği boyutu. Geçerli değerler: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | SKU |-x,--sku |SKU redis. Şunlardan biri olmalıdır: [temel, standart, Premium] |
 | EnableNonSslPort |-e,--enable-olmayan-ssl-bağlantı noktası |Redis önbelleği EnableNonSslPort özelliği. Bu bayrak olmayan SSL bağlantı noktası önbelleğiniz için etkinleştirmek istiyorsanız ekleyin |
 | Yapılandırma redis |-c,--redis-yapılandırma |Yapılandırma redis. Yapılandırma anahtarları ve değerleri burada biçimlendirilmiş JSON dizesi girin. Biçim: "{" ":""," ":" "}" |

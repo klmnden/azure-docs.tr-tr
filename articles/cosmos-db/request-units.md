@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
 Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Daha fazla bilgi edinin [, üretilen iş gerektiğini tahmin etme](request-units.md#estimating-throughput-needs).
@@ -26,7 +26,7 @@ Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www
 ![Üretilen iş hesaplayıcısı][5]
 
 ## <a name="introduction"></a>Giriş
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft'un Genel dağıtılmış birden çok model veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralamak, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB işletilen ve sürekli olarak world sınıfı kullanılabilirliği, performansı ve veri koruma sağlamak üzere Microsoft üst mühendisleri tarafından izlenir. SQL gibi tercih ettiğiniz API'lerini kullanarak verilerinize erişebilir [DocumentDB API](documentdb-introduction.md), MongoDB API'leri [tablo API](table-introduction.md)ve Gremlin aracılığıyla [grafik API'si](graph-introduction.md) -tümü yerel desteklenir. Azure Cosmos DB para istek birimi (RU) birimidir. RUs ile okuma/yazma kapasiteleri veya sağlama CPU, bellek ve IOPS ayırmak gerekmez.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft'un Genel dağıtılmış birden çok model veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralamak, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB işletilen ve sürekli olarak world sınıfı kullanılabilirliği, performansı ve veri koruma sağlamak üzere Microsoft üst mühendisleri tarafından izlenir. Tercih ettiğiniz API'leri gibi kullanarak, verilerinizi erişebilirsiniz [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [tablo API](table-introduction.md)ve Gremlin aracılığıyla [grafik API'si](graph-introduction.md) - tüm yerel olarak desteklenir. Azure Cosmos DB para istek birimi (RU) birimidir. RUs ile okuma/yazma kapasiteleri veya sağlama CPU, bellek ve IOPS ayırmak gerekmez.
 
 Azure Cosmos DB Basit okuma arasında değişen farklı işlemlerle API'lerini destekler ve karmaşık grafik sorguları yazar. Tüm istekleri eşit olduğundan, normalleştirilmiş bir miktar atanan **istek birimleri** isteğe hizmet vermek için gerekli hesaplama miktarına göre. Bir işlem için istek birim sayısı belirleyici ve bir yanıt üstbilgisi aracılığıyla Azure Cosmos veritabanı herhangi bir işlem tarafından kullanılan istek birim sayısını izleyebilirsiniz. 
 
@@ -304,7 +304,7 @@ Aşağıdaki tabloda yaklaşık istek birimi giderleri (yaklaşık istek birimi 
 
 | İşlem | İstek birimi ücret |
 | --- | --- |
-| Öğesi oluşturma |~ 15 RU |
+| Öğe oluştur |~ 15 RU |
 | Öğe Okuma |~ 1 RU |
 | Sorgu öğesi kimliği |~2.5 RU |
 
@@ -326,7 +326,7 @@ Bu bilgi ile operations ve saniye başına beklediğiniz sorguları sayısını 
 
 | İşlem/sorgu | Saniye başına tahmini sayısı | Gerekli RUs |
 | --- | --- | --- |
-| Öğesi oluşturma |10 |150 |
+| Öğe oluştur |10 |150 |
 | Öğe Okuma |100 |100 |
 | Üretici tarafından foods seçin |25 |175 |
 | Yemek gruplandırma ölçütü seçin |10 |700 |

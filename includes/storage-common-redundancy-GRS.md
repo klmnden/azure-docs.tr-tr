@@ -1,13 +1,13 @@
-Coğrafi olarak yedekli depolama (GRS) verileriniz birincil bölge çıktığınızda mil yüzlerce olan ikincil bir bölgeye çoğaltır. Etkin GRS depolama hesabınız varsa, verilerinizi bile tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil söz konusu olduğunda dayanıklı.
+Coğrafi olarak yedekli depolama (GRS), en az %99.99999999999999 sağlamak için tasarlanmıştır (16 9'in) dayanıklılık verileriniz birincil bölge çıktığınızda mil yüzlerce olan bir ikincil bölge çoğaltma tarafından verilen bir yıl içinde nesne. Etkin GRS depolama hesabınız varsa, verilerinizi bile tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil söz konusu olduğunda dayanıklı.
 
-Etkin GRS ile bir depolama hesabı için bir güncelleştirme burada üç kez çoğaltılır birincil bölge için ilk kararlıdır. Daha sonra güncelleştirmeyi zaman uyumsuz olarak burada bunu da üç kez çoğaltılır ikincil bölgeye çoğaltılır.
+Etkin GRS ile bir depolama hesabı için bir güncelleştirme ilk birincil bölge kararlıdır. Daha sonra güncelleştirmeyi zaman uyumsuz olarak burada da çoğaltılana ikincil bölgeye çoğaltılır.
 
 GRS ile birincil ve ikincil bölgeler çoğaltmalar ayrı hata etki alanlarında yönetmek ve etki alanı ile LRS açıklandığı gibi bir depolama ölçek birimi içinde yükseltin.
 
 Dikkate alınacak noktalar:
 
 * Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, bölgesel bir olağanüstü durumda birincil bölgesinden veri kurtarılamazsa, ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolacak mümkündür.
-* Microsoft yük devretme ikincil bölge başlatır sürece çoğaltma kullanılamıyor. Microsoft bir yük devretme ikincil bölge başlatın varsa, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+* Microsoft yük devretme ikincil bölge başlatır sürece çoğaltma kullanılamıyor. Microsoft bir yük devretme ikincil bölge başlatın varsa, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](../articles/storage/common/storage-disaster-recovery-guidance.md).
 * Kullanıcı, bir uygulama ikincil bölgesinden okumak isterse, RA-GRS etkinleştirmeniz gerekir.
 
 Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İkincil bölge birincil bölgeye göre belirlenir ve değiştirilemez. Aşağıdaki tabloda birincil ve ikincil bölge eşleştirmeleri gösterilir.
@@ -50,6 +50,6 @@ Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İk
 Azure tarafından desteklenen bölgeler hakkında güncel bilgiler için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).
 
 >[!NOTE]  
-> ABD kamu Virginia ikincil BİZE kamu Texas bölgedir. Daha önce BİZE kamu Virginia BİZE kamu Iowa bir ikincil bölge ' kullanılan. Depolama hesapları hala bir ikincil bölge'olarak BİZE kamu Iowa yararlanan bir ikincil bölge BİZE kamu Texas Geçirilmekte olan. 
-> 
-> 
+> ABD kamu Virginia ikincil BİZE kamu Texas bölgedir. Daha önce BİZE kamu Virginia BİZE kamu Iowa bir ikincil bölge ' kullanılan. Depolama hesapları hala bir ikincil bölge'olarak BİZE kamu Iowa yararlanan bir ikincil bölge ' BİZE kamu Texas Geçirilmekte olan.
+>
+>

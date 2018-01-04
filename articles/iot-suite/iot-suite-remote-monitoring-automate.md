@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Eşik tabanlı kurallar kullanarak sorunlarını Algıla
 
@@ -40,7 +40,7 @@ Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, 
 
 ## <a name="view-the-rules-in-your-solution"></a>Çözümünüzde kuralları görüntülemek
 
-**Kuralları & eylemleri** çözümü sayfasında geçerli olan tüm kuralların listesini görüntüler:
+**Kurallar ve Eylemler** çözümü sayfasında geçerli olan tüm kuralların listesini görüntüler:
 
 ![Kurallar ve Eylemler sayfası](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -67,16 +67,16 @@ Kuralı oluşturmak için aşağıdaki değerleri kullanın:
 | Ayar          | Değer                                 |
 | ---------------- | ------------------------------------- |
 | Ad             | Soğutucu uyarı                       |
-| Kaynak           | **Soğutucu** cihaz grubu              |
-| Tetikleyici alan    | baskısı                              |
+| Kaynak           | **Chillers** cihaz grubu             |
+| Tetikleyici alan    | basınç                              |
 | Tetikleyici işleci | Şu değerden fazla:                          |
 | Tetikleyici değeri    | 150                                   |
-| Önem düzeyi   | Uyarı                               |
-| Uyarı olay metni | Soğutucu baskısı 150 PSI aştı |
+| Önem derecesi   | Uyarı                               |
+| Açıklama      | Soğutucu baskısı 150 PSI aştı |
 
 Yeni Kural kaydetmek üzere seçim yapın **Uygula**.
 
-Üzerinde kuralı tetiklendiğinde görüntüleyebileceğiniz **kuralları & eylemleri** sayfa veya **Pano** sayfası.
+Üzerinde kuralı tetiklendiğinde görüntüleyebileceğiniz **kurallar ve Eylemler** sayfa veya **Pano** sayfası.
 
 ## <a name="edit-an-existing-rule"></a>Mevcut bir kuralı Düzenle
 

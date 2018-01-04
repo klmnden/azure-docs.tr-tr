@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 32b72577002962f049f446d6f3c2353189867e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB gelen ve veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 Azure Cosmos DB Bağlayıcısı](../connector-azure-cosmos-db.md).
 
-Bu makalede kopya etkinliği Azure Data Factory'de öğesine/öğesinden Azure Cosmos DB (DocumentDB API) verileri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi. 
+Bu makalede kopya etkinliği Azure Data Factory'de öğesine/öğesinden Azure Cosmos DB (SQL API) verileri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi. 
 
 Verileri Azure Cosmos DB'de tüm desteklenen kaynak veri deposundan veya Azure Cosmos DB tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları veya havuzlarını olarak kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. 
 
 > [!IMPORTANT]
-> Azure Cosmos DB Bağlayıcısı yalnızca DocumentDB API destekler.
+> Azure Cosmos DB Bağlayıcısı, yalnızca SQL API destekler.
 
 Veri olarak kopyalamak için-olduğu için/JSON dosyalarında veya başka bir Cosmos DB koleksiyonu, bkz: [içeri/dışarı aktarma JSON belgeleri](#importexport-json-documents).
 
@@ -489,7 +489,7 @@ Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON be
 2. **Soru:** kayıtları kopyalanan nasıl bir kopya ile Azure Cosmos DB anlaşma için bir yeniden deneme zaten mu?
 
     **Yanıt:** kayıtları "ID" alanına sahipseniz ve aynı Kimliğe sahip bir kayıt eklemek kopyalama işlemi çalışırsa, kopyalama işlemi bir hata oluşturur.  
-3. **Soru:** Data Factory desteklemiyor [aralığı veya karma tabanlı veri bölümlendirme](../../cosmos-db/documentdb-partition-data.md)?
+3. **Soru:** Data Factory desteklemiyor [aralığı veya karma tabanlı veri bölümlendirme](../../cosmos-db/sql-api-partition-data.md)?
 
     **Yanıt:** No
 4. **Soru:** bir tablo için birden fazla Azure Cosmos DB koleksiyonu belirtin?

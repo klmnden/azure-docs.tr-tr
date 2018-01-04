@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Yük devretmenin ardından ikincil siteye erişim için IP adresini ayarlama
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Şirket içi Azure senaryoları için ağ arabirimi yönetimi
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Olağanüstü durum kurtarma
       items:
         - name: Hyper-V VM’lerinden Azure’a
@@ -139,24 +141,24 @@
           items:
             - name: Genel bakış ve ön koşullar
               href: site-recovery-deployment-planner.md
-            - name: Dağıtım planlayıcısını çalıştırma
+            - name: Dağıtım Planlayıcısı aracını çalıştırma
               href: site-recovery-vmware-deployment-planner-run.md
             - name: Oluşturulan raporu analiz etme
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: Olağanüstü durum kurtarma maliyet tahmini raporunu analiz etme
+            - name: Maliyet tahmini raporunu analiz etme
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: VMware çoğaltması için işlem sunucularının ölçeğini genişletme
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Dağıtım planlama ve Azure’a Hyper-V çoğaltması aracı
+        - name: Azure’a Hyper-V çoğaltması için Dağıtım Planlayıcısı aracı
           href: null
           items:
             - name: Genel bakış ve ön koşullar
               href: site-recovery-hyper-v-deployment-planner.md
-            - name: Dağıtım planlayıcısını çalıştırma
+            - name: Dağıtım Planlayıcısı aracını çalıştırma
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: Oluşturulan raporu analiz etme
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: Olağanüstü durum kurtarma maliyet tahmini raporunu analiz etme
+            - name: Maliyet tahmini raporunu analiz etme
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Şirket içi siteler arasında Hyper-V çoğaltması için performans ölçek testleri
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
@@ -176,8 +178,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: VMware’den Azure’a çoğaltma ayarlarını yapılandırma
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: Diskleri çoğaltmanın dışında tutma
+        - name: VMware’den Azure’a geçişte diskleri çoğaltmanın dışında tutma
           href: site-recovery-exclude-disk.md
+        - name: Hyper-V’den Azure’a geçişte diskleri çoğaltmanın dışında tutma
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: VMware çoğaltma için Mobility hizmetini dağıtma
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
@@ -193,6 +197,8 @@
               href: site-recovery-replicate-vmware-to-azure.md
     - name: Otomatikleştirme
       items:
+        - name: PowerShell kullanarak VMware sanal makinelerini Azure’a çoğaltma
+          href: site-recovery-vmware-to-azure-powershell.md
         - name: Azure’a Hyper-V çoğaltma işlemini (VMM olmadan) PowerShell kullanarak ayarlama
           href: site-recovery-deploy-with-powershell-resource-manager.md
         - name: Azure’a Hyper-V çoğaltma işlemini (VMM ile) PowerShell kullanarak ayarlama
@@ -209,7 +215,7 @@
       items:
         - name: Active Directory ve DNS
           href: site-recovery-active-directory.md
-        - name: SQL Server çoğaltma
+        - name: SQL Server
           href: site-recovery-sql.md
         - name: SharePoint
           href: site-recovery-sharepoint.md
@@ -239,6 +245,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: vCenter sunucularını yönetme
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: CSP ile çok kiracılı olma özelliğini yönetme
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Sunucuları kaldırma ve korumayı devre dışı bırakma
           href: site-recovery-manage-registration-and-protection.md
         - name: Bir kasayı silme
@@ -258,7 +266,7 @@
 - name: Başvuru
   items:
     - name: Azure PowerShell
-      href: /powershell/module/azurerm.siterecovery
+      href: /powershell/module/azurerm.recoveryservices.siterecovery
     - name: Azure PowerShell klasik
       href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: REST

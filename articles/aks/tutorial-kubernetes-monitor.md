@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>İzleyici Azure kapsayıcı hizmeti (AKS)
 
 İzleme Kubernetes küme ve kapsayıcıları özellikle bir üretim kümesi ölçekli olarak birden çok uygulama ile çalışırken, önemlidir.
 
-Bu öğreticide, AKS küme kullanarak İzlemeyi Yapılandır [günlük analizi için kapsayıcıları çözümü](../log-analytics/log-analytics-containers.md).
+Bu öğreticide, AKS küme kullanarak İzlemeyi Yapılandır [kapsayıcıları çözüm günlük analizi için][log-analytics-containers].
 
 Bu öğretici, parçası yedi sekiz, aşağıdaki görevleri içerir:
 
@@ -32,7 +32,7 @@ Bu öğretici, parçası yedi sekiz, aşağıdaki görevleri içerir:
 
 Önceki eğitimlerine uygulama kapsayıcı görüntüleri, Azure kapsayıcı kayıt defterine karşıya bu görüntüler ve oluşturulan Kubernetes küme paketlenmiştir.
 
-Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./tutorial-kubernetes-prepare-app.md).
+Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>İzleme çözümü yapılandırmak
 
@@ -58,7 +58,7 @@ Bu değerleri almaya seçin **OMS çalışma** kapsayıcı çözümleri sol tara
 
 ## <a name="configure-monitoring-agents"></a>İzleme aracıları yapılandırma
 
-Aşağıdaki Kubernetes bildirim dosyası, izleme aracıları Kubernetes kümede kapsayıcı yapılandırmak için kullanılabilir. Bir Kubernetes oluşturur [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), her küme düğümünde tek pod çalıştırır.
+Aşağıdaki Kubernetes bildirim dosyası, izleme aracıları Kubernetes kümede kapsayıcı yapılandırmak için kullanılabilir. Bir Kubernetes oluşturur [DaemonSet][kubernetes-daemonset], her küme düğümünde tek pod çalıştırır.
 
 Aşağıdaki metni adlı bir dosyaya kaydedin `oms-daemonset.yaml`ve yer tutucu değerlerini değiştirme `WSID` ve `KEY` günlük analizi çalışma alanı kimliği ve anahtarı.
 
@@ -98,6 +98,8 @@ spec:
           name: container-hostname
         - mountPath: /var/log
           name: host-log
+        - mountPath: /var/lib/docker/containers/
+          name: container-log
        livenessProbe:
         exec:
          command:
@@ -124,6 +126,9 @@ spec:
     - name: host-log
       hostPath:
        path: /var/log
+    - name: container-log
+      hostPath:
+       path: /var/lib/docker/containers/
 ```
 
 DaemonSet aşağıdaki komutla oluşturun:
@@ -153,7 +158,7 @@ Azure portalında portal panosuna sabitlendi günlük analizi çalışma alanın
 
 ![Pano](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Bkz: [Azure günlük analizi belgeleri](../log-analytics/index.yml) sorgulama ve izleme verilerini analiz etme konusunda ayrıntılı yönergeler için.
+Bkz: [Azure günlük analizi belgeleri] [ log-analytics-docs] sorgulama ve izleme verilerini analiz etme konusunda ayrıntılı yönergeler için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -167,4 +172,14 @@ Bu öğreticide, OMS Kubernetes kümenizle izlenen. Görevleri dahil ele:
 Kubernetes yeni bir sürüme yükseltme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Yükseltme Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Yükseltme Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

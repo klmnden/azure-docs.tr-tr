@@ -16,11 +16,17 @@ ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 76602f63f8b7fd7adc38353756387484f0af6493
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: fbc94734f3c49e7318734b05b30e0ef6b8767004
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Bir işlev uygulaması için özel bir SSL sertifikası bağlama
 
@@ -54,7 +60,7 @@ Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri 
 | [az functionapp oluşturma]() | Bir işlev uygulaması oluşturur. |
 | [az appservice web yapılandırma ana bilgisayar adı ekleyin](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Özel bir etki alanı işlev uygulaması eşler. |
 | [az appservice web yapılandırma ssl karşıya yükleme](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Bir SSL sertifikası bir işlev uygulaması yükler. |
-| [az appservice web yapılandırma ssl bağlama](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Karşıya yüklenen bir SSL sertifikası bir işlev uygulaması bağlar. |
+| [az appservice web yapılandırma ssl bağlama](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Karşıya yüklenen bir SSL sertifikası bir işlev uygulaması bağlar. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -4,7 +4,7 @@ description: "BT uzmanı için yazılmış, Azure uygulamalarını Active Direct
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76bb8d239b54b5236d077b98a5908c230cdc31a1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 30e070b6c7e7ace929e79ea579767cefa0c22321
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory için satır iş kolu uygulamaları geliştirme
 Bu kılavuz çizgi iş kolu (LoB) uygulamaları için Azure Active Directory (AD) geliştirme genel bir bakış sağlar. Hedef kitle Active Directory/Office 365 genel yönetici olur.
@@ -76,7 +76,7 @@ Güvendiğiniz uygulamalar için kuruluşunuz adına uygulama onaylıyorsunuz ta
 
 Kullanıcı izni hakkında daha fazla bilgi ve onay Azure'da deneyimi için bkz: [Azure Active Directory Tümleştirme uygulamalarla](active-directory-integrating-applications.md).
 
-## <a name="related-articles"></a>İlgili Makaleler
+## <a name="related-articles"></a>İlgili makaleler
 * [Azure AD uygulama proxy'si ile şirket içi uygulamalara güvenli uzaktan erişimi etkinleştir](active-directory-application-proxy-get-started.md)
 * [SaaS uygulamaları için Azure koşullu erişim önizlemesi](active-directory-conditional-access-azure-portal-get-started.md)
 * [Azure AD ile uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)

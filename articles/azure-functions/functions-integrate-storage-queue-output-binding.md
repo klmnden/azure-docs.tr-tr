@@ -1,5 +1,5 @@
 ---
-title: "İşlevler kullanılarak bir Azure depolama kuyruğu iletileri ekleme | Microsoft Docs"
+title: "İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme | Microsoft Docs"
 description: "Bir Azure Depolama kuyruğuna gönderilmiş iletiler tarafından çağrılan sunucusuz işlev oluşturmak için Azure İşlevlerini kullanın."
 services: azure-functions
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
@@ -38,7 +38,7 @@ Azure İşlevleri’nde giriş ve çıkış bağlamaları, işlevinizden dış h
  
 1. İşlev uygulamanızı ve işlevinizi genişletin.
 
-2. Seçin **tümleştir** ve **+ yeni çıktı**, ardından **Azure kuyruk depolama** ve **seçin**.
+2. **Tümleştir** ve **+ Yeni çıkış** seçeneklerini belirleyin ve ardından **Azure Kuyruk depolama**'ya ve **Seç**'e tıklayın.
     
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -60,7 +60,7 @@ Bir çıkış bağlaması tanımladığınıza göre, bir kuyruğa ileti eklemek
 
 1. İşlev kodunu düzenleyicide görüntülemek için işlevinizi seçin. 
 
-2. C#, bir işlev için aşağıdaki gibi eklemek için işlev tanımının güncelleştirme **outputQueueItem** depolama bağlama parametresi. JavaScript işlevi için bu adımı atlayın.
+2. Bir C# işlevi için, **outputQueueItem** depolama bağlama parametresini eklemek üzere işlev tanımınızı aşağıdaki gibi güncelleştirin. JavaScript işlevi için bu adımı atlayın.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
@@ -99,7 +99,7 @@ Bundan sonra, yeni kuyruğunuzu ve ona eklediğiniz iletiyi doğrulamak için de
 
 Depolama Gezgini’ni daha önce yükleyip depolama hesabınıza bağladıysanız, ilk üç adımı atlayın.    
 
-1. İşlevinde seçin **tümleştir** ve yeni **Azure kuyruk depolama** bağlama çıktı sonra genişletin **belgelerine**. Hem **Hesap adı** hem de **Hesap anahtarı** değerlerini kopyalayın. Depolama hesabına bağlanmak için bu kimlik bilgilerini kullanacaksınız.
+1. İşlevinizde **Tümleştir**’i ve yeni **Azure Kuyruk depolama** çıkış bağlamasını seçin, ardından **Belgeler**’i genişletin. Hem **Hesap adı** hem de **Hesap anahtarı** değerlerini kopyalayın. Depolama hesabına bağlanmak için bu kimlik bilgilerini kullanacaksınız.
  
     ![Depolama hesabı bağlantısı için kimlik bilgilerini alın.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -111,7 +111,7 @@ Depolama Gezgini’ni daha önce yükleyip depolama hesabınıza bağladıysanı
   
     ![Depolama kimlik bilgilerini yapıştırın ve bağlanın.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Bağlı depolama hesabı genişletin, **sıraları** ve bir sıraya adlı doğrulayın **Sıram öğeleri** bulunmaktadır. Ayrıca zaten kuyrukta olan bir ileti görmeniz gerekir.  
+4. Bağlı depolama hesabını genişletin, **Kuyruklar**’ı genişletin ve **myqueue-items** adlı bir kuyruğun var olduğunu doğrulayın. Ayrıca zaten kuyrukta olan bir ileti görmeniz gerekir.  
  
     ![Depolama kuyruğu oluşturun.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  

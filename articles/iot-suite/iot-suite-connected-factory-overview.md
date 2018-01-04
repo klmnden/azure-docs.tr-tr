@@ -1,6 +1,6 @@
 ---
 title: "Bağlı fabrika bakım çözümüne genel bakış - Azure | Microsoft Docs"
-description: "Azure IoT Paketi önceden yapılandırılmış bağlı fabrika çözümü açıklaması."
+description: "Azure IoT Paketi önceden yapılandırılmış Bağlı fabrika çözümü açıklaması."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,34 +13,32 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3b56c91accfb6fe6358032e1dd329a931abfc3c1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Önceden yapılandırılmış bağlı fabrika çözümlerini kullanmaya başlama
 
-Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *bağlı fabrika* çözümü endüstriyel cihazlarınıza bağlanır ve cihazları izler. Çözümü kullanarak cihazlarınızdan yapılan veri akışını analiz edebilir, operasyonel verimliliği ve karlılığı artırabilirsiniz.
+Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *Bağlı fabrika* çözümü endüstriyel cihazlarınıza bağlanır ve cihazları izler. Çözümü kullanarak cihazlarınızdan yapılan veri akışını analiz edebilir, operasyonel verimliliği ve karlılığı artırabilirsiniz.
 
-Bu öğretici, önceden yapılandırılmış bağlı fabrika çözümünün nasıl hazırlanacağını gösterir. Ayrıca, önceden yapılandırılmış çözümün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözümün bir parçası olarak dağıtılan çözüm *panosundan* erişebilirsiniz:
+Bu öğretici, önceden yapılandırılmış Bağlı fabrika çözümünün nasıl hazırlanacağını gösterir. Ayrıca, önceden yapılandırılmış çözümün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözümün bir parçası olarak dağıtılan çözüm *panosundan* erişebilirsiniz:
 
-![önceden yapılandırılmış bağlı fabrika çözümü panosu][img-cf-home]
+![Önceden yapılandırılmış bağlı fabrika çözümü panosu][img-cf-home]
 
 Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir.
 
 > [!NOTE]
 > Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk_free_trial].
-> 
-> 
 
 ## <a name="provision-the-solution"></a>Çözüm sağlama
 
 1. Azure hesabı kimlik bilgilerinizi kullanarak azureiotsuite.com adresinde oturum açın ve çözüm oluşturmak için “**+**” seçeneğine tıklayın.
 2. **Bağlı fabrika** kutucuğunda **Seç**’e tıklayın.
-3. Önceden yapılandırılmış bağlı fabrika çözümünüz için bir **Çözüm adı** girin.
+3. Önceden yapılandırılmış Bağlı fabrika çözümünüz için bir **Çözüm adı** girin.
 4. Çözümü hazırlarken kullanmak istediğiniz **Abonelik** ve **Bölge** seçimini yapın.
 5. Hazırlama işlemini başlatmak için **Çözümü Oluştur**'a tıklayın. Bu işlemin çalışması genellikle birkaç dakika sürer.
 
@@ -58,19 +56,19 @@ Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar m�
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
-Önceden yapılandırılmış bağlı fabrika çözümünü dağıttığınızda, genel bir endüstriyel senaryoyu adım adım görmenize olanak sağlayan kaynaklar ile önceden doldurulur. Bu senaryoda, çözüme bağlı çeşitli fabrikalar genel donanım verimliliğini (OEE) ve ana performans göstergelerini (KPI) hesaplamak için gereken veri değerlerini raporlar. Aşağıdaki bölümlerde şunları nasıl yapacağınız açıklanır:
+Önceden yapılandırılmış Bağlı fabrika çözümünü dağıttığınızda, genel bir endüstriyel senaryoyu adım adım görmenize olanak sağlayan kaynaklar ile önceden doldurulur. Bu senaryoda, çözüme bağlı çeşitli fabrikalar genel donanım verimliliğini (OEE) ve ana performans göstergelerini (KPI) hesaplamak için gereken veri değerlerini raporlar. Aşağıdaki bölümlerde şunları nasıl yapacağınız açıklanır:
 
 * Fabrikayı, üretim hatlarını, istasyon OEE ve KPI değerlerini izleme
 * Azure Zaman Serisi Görüşlerini kullanarak bu cihazlardan oluşturulan telemetri verilerini analiz etme
-* Sorunları gidermek için uyarılara göre işlem yapma
+* Sorunları gidermek için alarmlara göre işlem yapma
 
 Bu senaryonun temel bir özelliği, çözüm panosu kullanılarak tüm bu eylemlerin uzaktan gerçekleştirilebiliyor olmasıdır. Cihazlara fiziksel erişiminizin olması gerekmez.
 
 ## <a name="view-the-solution-dashboard"></a>Çözüm panosunu görüntüleme
 
-Çözüm panosu, dağıtılan çözümü yönetmenizi sağlar. Bu, genel fabrika yapılandırmasının hiyerarşik gösterimidir. Örneğin, OEE ve KPI’leri görüntüleyebilir, telemetri için yeni düğümler yayımlayabilir ve uyarıları eyleme dönüştürebilirsiniz.
+Çözüm panosu, dağıtılan çözümü yönetmenizi sağlar. Bu, genel fabrika yapılandırmasının hiyerarşik gösterimidir. Örneğin, OEE ve KPI’leri görüntüleyebilir, telemetri için yeni düğümler yayımlayabilir ve alarmları eyleme dönüştürebilirsiniz.
 
-1. Sağlama tamamlandığında ve önceden yapılandırılmış çözümünüzün kutucuğu **Hazır**’ı gösterdiğinde, bağlı fabrika çözümü portalınızı yeni bir sekmede açmak için **Başlat**’ı seçin.
+1. Sağlama tamamlandığında ve önceden yapılandırılmış çözümünüzün kutucuğu **Hazır**’ı gösterdiğinde, Bağlı fabrika çözümü portalınızı yeni bir sekmede açmak için **Başlat**’ı seçin.
 
     ![Önceden yapılandırılmış çözümü başlatma][img-launch-solution]
 
@@ -80,17 +78,17 @@ Bu senaryonun temel bir özelliği, çözüm panosu kullanılarak tüm bu eyleml
 
 Pano aşağıdaki bilgileri gösterir:
 
-* Çözümdeki durumu, konumu ve geçerli üretim yapılandırmasını gösteren bir **fabrika listesi** paneli. Çözümü ilk kez çalıştırdığınızda, bir dizi sanal cihaz bulunur. Üretim hattı benzetimi, üretim hattı başına benzetimi yapılan görevleri gerçekleştiren ve verileri paylaşan üç gerçek OPC UA sunucusundan oluşur. OPC UA hakkında daha fazla bilgi için bkz. [Connected factory SSS](iot-suite-faq-cf.md).
+* Çözümdeki durumu, konumu ve geçerli üretim yapılandırmasını gösteren bir **fabrika konumları** paneli. Çözümü ilk kez çalıştırdığınızda, bir dizi sanal cihaz bulunur. Üretim hattı benzetimi, üretim hattı başına benzetimi yapılan görevleri gerçekleştiren ve verileri paylaşan üç gerçek OPC UA sunucusundan oluşur. OPC UA hakkında daha fazla bilgi için bkz. [Connected factory SSS](iot-suite-faq-cf.md).
 * Çözüme bağlı olan her cihazın konumunu görüntüleyen bir **harita**. Çözüm, bilgileri haritaya çizmek için Bing Haritalar API’sini kullanabilir. Aboneliğiniz Bing Haritalar Kurumsal API’si için etkinleştirildiyse, bu özellik otomatik olarak kullanılır. Etkinleştirilmediyse, haritayı nasıl dinamik hale getireceğinizi öğrenmek için [SSS][lnk-faq] bölümüne bakın.
-* Telemetri veya OEE/KPI değeri belirli bir eşiği aştığında oluşturulan uyarıların gösterildiği **Uyarılar** paneli.
+* Telemetri veya OEE/KPI değeri belirli bir eşiği aştığında oluşturulan alarmların gösterildiği **Alarmlar** paneli.
 * Kuruluşun tamamı için veya görüntülediğiniz fabrika/üretim hattı/istasyon için OEE değerlerinin gösterildiği **Genel Donanım Verimliliği** paneli. Bu değer, kurumsal düzeyi bulmak için istasyon görünümünden toplanır. OEE şekli ve bu şekli oluşturan öğeler daha fazla analiz edilebilir.
 * Kuruluşun tamamında veya görüntülediğiniz fabrika/üretim hattı/istasyonda üretilen birimlerin ve kullanılan enerjinin görüntülendiği **Ana Performans Göstergeleri** paneli. Bu değerler, kurumsal düzeyi bulmak için istasyon görünümünden toplanır.
 
 ## <a name="view-factories"></a>Fabrikaları görüntüleme
 
-*Fabrikalar* paneli çözümdeki tüm fabrikaların coğrafi konumunu, durumlarını ve geçerli üretim yapılandırmasını gösterir. Konum listesinden, çözüm hiyerarşisindeki diğer düzeylere gidebilirsiniz. Listedeki satırlar, söz konusu konumdaki üretim hatlarının ayrıntılarına bağlanan birer köprüdür. Böylelikle, üretim hattının detaylarına ve istasyon düzeyi görünümüne gitmek mümkün olur. Ayrıca listeye filtre uygulayabilirsiniz.
+*Fabrika Konumları* paneli çözümdeki tüm fabrikaların coğrafi konumunu, durumlarını ve geçerli üretim yapılandırmasını gösterir. Konum listesinden, çözüm hiyerarşisindeki diğer düzeylere gidebilirsiniz. Listedeki satırlar, söz konusu konumdaki üretim hatlarının ayrıntılarına bağlanan birer köprüdür. Böylelikle, üretim hattının detaylarına ve istasyon düzeyi görünümüne gitmek mümkün olur. Ayrıca listeye filtre uygulayabilirsiniz.
 
-![Önceden yapılandırılmış bağlı fabrika çözümü fabrikaları][cf-img-factories] 
+![Önceden yapılandırılmış bağlı fabrika çözümü fabrikaları][cf-img-factories]
 
 1. **Fabrika paneli**’nde bu çözümün fabrika listesi gösterilir.
 
@@ -110,31 +108,31 @@ Aboneliğinizin Bing Haritalar API’sine erişimi varsa, *Fabrikalar* haritası
 
 ![Önceden yapılandırılmış bağlı fabrika çözümü haritası][cf-img-map]
 
-## <a name="view-alerts"></a>Uyarıları görüntüleme
+## <a name="view-alarms"></a>Uyarıları görüntüleme
 
-**Uyarı** panelinde, raporlanan bir değerin veya hesaplanan OEE/KPI değerinin yapılandırılmış eşiği aşmasından dolayı üretilen uyarılar gösterilir. Bu panelde, istasyon düzeyi görünümünden genel görünüme kadar her hiyerarşi düzeyindeki uyarılar görüntülenir. Uyarılar, uyarının açıklamasını, tarihini, saatini, konumunu ve tekrarlanma sayısını içerir. Zaman Serisi Görüşleri verilerini kullanarak uyarıya neden olan fikirlerle ilgili görüş sahibi olabilirsiniz. Zaman Serisi Görüşleri’nin verileri, uygun olduğunda uyarılarda görselleştirilir. Yöneticiyseniz, uyarılar üzerinde şu varsayılan eylemleri gerçekleştirebilirsiniz:
+**Alarmlar** panelinde, raporlanan bir değerin veya hesaplanan OEE/KPI değerinin yapılandırılmış eşiği aşmasından dolayı oluşturulan alarmlar gösterilir. Bu panelde, istasyon düzeyi görünümünden genel görünüme kadar her hiyerarşi düzeyindeki alarmlar görüntülenir. Alarmlar, alarmın açıklamasını, tarihini, saatini, konumunu ve tekrarlanma sayısını içerir. Time Series Insights verilerini kullanarak alarma neden olan fikirlerle ilgili görüş sahibi olabilirsiniz. Time Series Insights’ın verileri, uygun olduğunda alarmlarda görselleştirilir. Yöneticiyseniz alarmlar üzerinde şu varsayılan eylemleri gerçekleştirebilirsiniz:
 
-* Uyarıyı kapatma.
-* Uyarıyı kabul etme.
+* Alarmı kapatma.
+* Alarmı kabul etme.
 
 İsteğe bağlı olarak, daha karmaşık eylemler de gerçekleştirebilirsiniz. Örneğin, Montajın Basınç OPC UA Düğümü için şunları yapabilirsiniz:
 
 * Destek bilgilerini yeni bir tarayıcı penceresinde bir web sayfasında gösterme.
-* Cihazda OPC UA metodunu çağırarak uyarıya neden olan sorunu giderme.
+* Cihazda OPC UA metodunu çağırarak alarma olan sorunu giderme.
 * Varsayılan eylemlerin kullanılabilirliğini engelleme.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü uyarıları][cf-img-alerts]
+    ![Önceden yapılandırılmış Bağlı fabrika çözümü alarmları][cf-img-alerts]
 
 > [!NOTE]
-> Bu uyarılar, önceden yapılandırılmış çözümdeki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar, OEE veya KPI rakamları veya OPC UA Düğüm değerleri yapılandırılmış eşiği aştığında uyarılar oluşturur.
+> Bu alarmlar, önceden yapılandırılmış çözümdeki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar, OEE veya KPI rakamları veya OPC UA Düğüm değerleri yapılandırılmış eşiği aştığında alarmlar oluşturur.
 
-1. **Uyarılar panosunda**, bu çözümde oluşturulan uyarılar gösterilir.
+1. **Alarmlar panosunda**, bu çözümde oluşturulan alarmlar gösterilir.
 
-2. Uyarıların ayrıntılarını görüntülemek için, uyarılar panelinde uyarıya tıklayın.
+2. Alarmların ayrıntılarını görüntülemek için, alarmlar panelinde alarma tıklayın.
 
-3. Uyarı verilerinde daha fazla analiz yapmak için, uyarı panelindeki grafiğe tıklayarak Zaman Serisi Görüşleri gezgin ortamını açın.
+3. Alarm verilerinde daha fazla analiz yapmak için, alarm panelindeki grafiğe tıklayarak Time Series Insights gezgin ortamını açın.
 
-4. Uyarıya çözmek için, uyarı panelinde çeşitli eylemler sağlanır. Kendinize uygun seçeneği seçin ve eylemi yürütme komut düğmesine tıklayın.
+4. Alarmı adreslemek için, alarm panelinde çeşitli eylemler sağlanır. Kendinize uygun seçeneği seçin ve eylemi yürütme komut düğmesine tıklayın.
 
 ## <a name="view-overall-equipment-efficiency"></a>Genel donanım verimliliğini görüntüleme
 
@@ -148,7 +146,7 @@ OEE, üretimle ilgili önemli operasyonel parametreleri kullanarak üretim süre
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü TSI görselleştirmesi][cf-img-tsi-visualization]
 
-3. Uyarı verilerini daha fazla analiz etmek için, uyarı panelindeki grafiğe tıklayın. Bu eylem Zaman Serisi Görüşleri düzenleyici ortamını açar.
+3. Alarm verilerini daha fazla çözümlemek için, alarm panelindeki grafiğe tıklayın. Bu eylem Zaman Serisi Görüşleri düzenleyici ortamını açar.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü TSI gezgini][cf-img-tsi-explorer]
 
@@ -160,40 +158,40 @@ OEE, üretimle ilgili önemli operasyonel parametreleri kullanarak üretim süre
 
 1. Hiyerarşideki herhangi bir düzeyin saat başına birim sayısını veya kullanılan enerji miktarını görüntülemek için, ihtiyacınız olan görünüme gidin. Saat başına birim sayısı ve kullanılan enerji miktarı panelde görüntülenir.
 
-2. Hiyerarşinin herhangi bir düzeyinde saat başına birim sayısını ve kullanılan enerji miktarını daha ayrıntılı analiz etmek için **Önemli Performans Göstergeleri** panelindeki ölçere tıklayın. Son bir saatin, son 24 saatin ve son 7 günün verilerini görebilmenizi sağlayan Zaman Serisi Görüşleri ile desteklenen görselleştirmelerle bir bağlam paneli görüntülenir.
+2. Hiyerarşinin herhangi bir düzeyinde saat başına birim sayısını ve kullanılan enerji miktarını çözümleyebilmek için, **Önemli Performans Göstergeleri** panelindeki ölçere tıklayın. Son bir saatin, son 24 saatin ve son 7 günün verilerini görebilmenizi sağlayan Zaman Serisi Görüşleri ile desteklenen görselleştirmelerle bir bağlam paneli görüntülenir.
 
 ## <a name="scenario-review"></a>Senaryo gözden geçirme
 
-Bu senaryoda, panoda fabrikalarınızın OEE ve KPI değerlerini izlediniz. Ardından, anormallikleri saptayabilmek için OEE ve KPI’lerin telemetri verilerinde daha fazla detaya gitmenize yardımcı olacak daha fazla bilgi sağlamak üzere Zaman Serisi Görüşleri’ni kullandınız. Ayrıca, fabrikalarınızdaki sorunları görüntülemek üzere uyarı panosundan yararlandınız ve uyarının sorununu çözmek için size sağlanan eylemleri kullandınız.
+Bu senaryoda, panoda fabrikalarınızın OEE ve KPI değerlerini izlediniz. Ardından, anormallikleri saptayabilmek için OEE ve KPI’lerin telemetri verilerinde daha fazla detaya gitmenize yardımcı olacak daha fazla bilgi sağlamak üzere Zaman Serisi Görüşleri’ni kullandınız. Ayrıca, fabrikalarınızdaki sorunları görüntülemek üzere alarm panosundan yararlandınız ve alarmın sorununu çözmek için size sağlanan eylemleri kullandınız.
 
 ## <a name="other-features"></a>Diğer özellikler
 
-Aşağıdaki bölümlerde, bağlı fabrika çözümünün önceki senaryoda bahsedilmeyen bazı ek özellikleri açıklanmaktadır.
+Aşağıdaki bölümlerde, Bağlı fabrika çözümünün önceki senaryoda bahsedilmeyen bazı ek özellikleri açıklanmaktadır.
 
 ## <a name="apply-filters"></a>Filtreleri uygulama
 
-1. Fabrika konumları panelinde veya uyarılar panelinde kullanılabilir filtrelerin listesini görüntülemek için **köşeli çift ayraca** tıklayın.
+1. Fabrika konumları veya alarmlar panelinde kullanılabilir filtrelerin listesini görüntülemek için **huni** simgesine tıklayın.
 
-2. Sizin için filtreler paneli görüntülenir. 
+2. Sizin için filtreler paneli görüntülenir.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü filtreleri][cf-img-alert-filter]
 
 3. Gerek duyduğunuz filtreyi seçin. Filtre alanlarına serbest metin yazmak mümkündür.
 
-4. Ardından filtre sizin için uygulanır. Panoda, fabrikalar ve uyarılar tablolarının içinde görüntülenen bir huni aracılığıyla filtrenin durumu da gösterilir.
+4. Ardından filtre sizin için uygulanır. Panoda, fabrikalar ve alarmlar tablolarının içinde görüntülenen bir huni aracılığıyla filtrenin durumu da gösterilir.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü filtreleri][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Etkin bir filtre görüntülenen OEE ve KPI değerlerini etkilemez; yalnızca liste içeriğini filtreler.
 
-5. Filtreyi temizlemek için huniye tıklayın ve filtre bağlam panelinde filtreye tıklayın. Fabrikalar ve uyarılar tablolarında **Tümü** metni görüntülenir.
+5. Filtreyi temizlemek için huniye tıklayın ve filtre bağlam panelinde filtreye tıklayın. Fabrikalar ve alarmlar tablolarında **Tümü** metni görüntülenir.
 
 ## <a name="browse-an-opc-ua-server"></a>OPC UA sunucusuna göz atma
 
-Önceden yapılandırılmış çözümü dağıttığınızda, çözüm tarayıcısı üzerinden göz atabileceğiniz sanal OPC UA sunucularını otomatik olarak hazırlarsınız. Bu sunucular, *sanal OPC UA sunucularıdır*. Sanal sunucular herhangi bir gerçek ve fiziksel sunucuya dağıtmaya gerek kalmadan önceden yapılandırılmış çözümü denemenizi kolaylaştırır. Çözüme gerçek bir OPC UA sunucusu bağlamak istemiyorsanız [OPC UA cihazınızı önceden yapılandırılmış bağlı fabrika çözümüne bağlama][lnk-connect-cf] öğreticisine bakın.
+Önceden yapılandırılmış çözümü dağıttığınızda, çözüm tarayıcısı üzerinden göz atabileceğiniz sanal OPC UA sunucularını otomatik olarak hazırlarsınız. Bu sunucular, *sanal OPC UA sunucularıdır*. Sanal sunucular herhangi bir gerçek ve fiziksel sunucuya dağıtmaya gerek kalmadan önceden yapılandırılmış çözümü denemenizi kolaylaştırır. Çözüme gerçek bir OPC UA sunucusu bağlamak istemiyorsanız [OPC UA cihazınızı önceden yapılandırılmış Bağlı fabrika çözümüne bağlama][lnk-connect-cf] öğreticisine bakın.
 
-1. Pano gezinti çubuğunda **fabrika simgesine** tıklayın.
+1. Pano gezinti çubuğunda **tarayıcı simgesine** tıklayın.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü sunucu tarayıcısı][cf-img-server-browser]
 
@@ -223,11 +221,11 @@ Aşağıdaki bölümlerde, bağlı fabrika çözümünün önceki senaryoda bahs
 
 4. Yayımlama işleminin başarılı olduğunu bildiren bir bağlam paneli görüntülenir. Düğüm, istasyon düzeyi görünümünde yanında bir onay işaretiyle gösterilir.
 
-    ![Önceden yapılandırılmış bağlı fabrika çözümü yayımlama başarısı][cf-img-publish-success]
+    ![Önceden yapılandırılmış bağlı fabrika yayımlama başarısı][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Komut ve denetim
 
-Bağlı fabrika, endüstri cihazlarınızı doğrudan buluttan kumanda etmenize ve denetlemenize olanak tanır. Cihaz tarafından oluşturulan uyarıları yanıtlamak için bu özelliği kullanabilirsiniz. Örneğin, buluttan cihaza bir komut gönderebilirsiniz. Kullanılabilir komutları, OPC UA sunucuları tarayıcı ağacındaki **StationCommands** düğümünde bulabilirsiniz. Bu senaryoda, Münih’teki üretim hattının montaj istasyonundaki basınç tahliye vanasını açıyorsunuz. Kumanda etme ve denetleme işlevselliğini kullanmak için, önceden yapılandırılmış çözüm dağıtımında **Yönetici** rolünde olmanız gerekir.
+Bağlı fabrika, endüstri cihazlarınızı doğrudan buluttan kumanda etmenize ve denetlemenize olanak tanır. Cihaz tarafından oluşturulan alarmları yanıtlamak için bu özelliği kullanabilirsiniz. Örneğin, buluttan cihaza bir komut gönderebilirsiniz. Kullanılabilir komutları, OPC UA sunucuları tarayıcı ağacındaki **StationCommands** düğümünde bulabilirsiniz. Bu senaryoda, Münih’teki üretim hattının montaj istasyonundaki basınç tahliye vanasını açıyorsunuz. Kumanda etme ve denetleme işlevselliğini kullanmak için, önceden yapılandırılmış çözüm dağıtımında **Yönetici** rolünde olmanız gerekir.
 
 1. OPC UA sunucusu tarayıcı düğümünde **StationCommands** düğümüne göz atın.
 
@@ -249,7 +247,6 @@ Bağlı fabrika, endüstri cihazlarınızı doğrudan buluttan kumanda etmenize 
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü çağrı başarısı][cf-img-call-success]
 
-
 ## <a name="behind-the-scenes"></a>Arka planda
 
 Önceden yapılandırılmış bir çözümü dağıttığınızda, dağıtım işlemi seçtiğiniz Azure aboneliğinde birden çok kaynak oluşturur. Bu kaynakları Azure [portalında][lnk-portal] görüntüleyebilirsiniz. Dağıtım işlemi, önceden yapılandırılmış çözümünüz için seçtiğiniz adı temel alan bir ada sahip bir **kaynak grubu** oluşturur:
@@ -258,7 +255,7 @@ Bağlı fabrika, endüstri cihazlarınızı doğrudan buluttan kumanda etmenize 
 
 Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek görüntüleyebilirsiniz.
 
-Önceden yapılandırılmış çözüm için kaynak kodunu da görüntüleyebilirsiniz. Önceden yapılandırılmış bağlı fabrika çözümünün kaynak kodu [azure-iot-connected-factory][lnk-cfgithub] GitHub deposundadır:
+Önceden yapılandırılmış çözüm için kaynak kodunu da görüntüleyebilirsiniz. Önceden yapılandırılmış Bağlı fabrika çözümünün kaynak kodu [azure-iot-connected-factory][lnk-cfgithub] GitHub deposundadır:
 
 İşiniz bittiğinde önceden yapılandırılmış çözümü [azureiotsuite.com][lnk-azureiotsuite] sitesindeki Azure aboneliğinizden silebilirsiniz. Bu site, önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları kolayca silmenize imkan tanır.
 

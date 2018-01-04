@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 9a4502ecfd5471cc2a968f995e66e595f59384b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Azure Active Directory kullanarak Data Lake Store ile hizmet kimlik doğrulaması
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Azure Data Lake Store için yapılan her isteği iliştirilmiş bir OAuth 2.0 be
 
 Bu makalede ettiği nasıl oluşturulacağı hakkında bir **hizmeti için kimlik doğrulaması için Azure AD web uygulaması**. Son kullanıcı kimlik doğrulaması için Azure AD uygulama yapılandırma yönergeleri için bkz: [son kullanıcı kimlik doğrulaması Azure Active Directory kullanarak Data Lake Store ile](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>1. adım: bir Active Directory web uygulaması oluşturma
@@ -69,7 +69,7 @@ Program aracılığıyla oturum açarken, uygulamanız için kimliği gerekir. U
 5. Tıklatın **Ekle** açmak için simgesini **eklemek özel erişim** dikey. Bu dikey pencerede tıklatın **kullanıcı veya Grup Seç**ve ardından **kullanıcı veya Grup Seç** dikey penceresinde, önceden oluşturduğunuz Azure Active Directory Uygulama arayın. Gelen aramak için birçok gruplarınız varsa, metin kutusunun üstündeki grup adına filtrelemek için kullanın. Ekleyin ve ardından istediğiniz Grup tıklatın **seçin**.
    
     ![Grup ekleme](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "grup ekleme")
-6. Tıklatın **Select izinleri**, izinleri seçin ve varsayılan olarak ACL izinleri atamak istediğiniz olup olmadığını ACL ya da her ikisini de erişim. **Tamam** düğmesine tıklayın.
+6. Tıklatın **Select izinleri**, izinleri seçin ve varsayılan olarak ACL izinleri atamak istediğiniz olup olmadığını ACL ya da her ikisini de erişim. **Tamam**’a tıklayın.
    
     ![Grup için izinleri atayın](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "gruplandırmak için izinler atama")
    

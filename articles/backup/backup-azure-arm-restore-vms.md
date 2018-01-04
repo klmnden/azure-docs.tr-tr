@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineler geri yüklemek için Azure portalını kullanın
-> [!div class="op_single_selector"]
-> * [Sanal makineleri Klasik portalda geri yükleme](backup-azure-restore-vms.md)
-> * [Azure portalında sanal makineleri geri yükleme](backup-azure-arm-restore-vms.md)
->
->
-
 Verilerinizin anlık görüntüleri tanımlanan aralıklarla gerçekleştirerek verilerinizi koruyun. Bu anlık görüntüleri kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarının depolandıkları. Onarmak veya bir sanal makine (VM) yeniden oluşturmak gerekliyse, kaydedilmiş kurtarma noktaları hiçbirini VM geri yükleyebilirsiniz. Bir kurtarma noktası geri yüklediğinizde, şunları yapabilirsiniz:
 
 * Yedeklenen VM zaman içinde nokta gösterimidir yeni bir VM oluşturun.

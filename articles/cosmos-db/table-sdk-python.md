@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: mimig1
 ms.custom: 
 ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Cosmos DB tablo API Python için Azure SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/20/2017
 |**Geçerli desteklenen platformlar**|[Python 2.7](https://www.python.org/downloads/) veya [Python 3.3 3.4, 3.5 veya 3.6] (https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> Önizleme sırasında bir tablo API hesabı oluşturduysanız, lütfen oluşturun bir [yeni tablo API hesabı](create-table-dotnet.md#create-a-database-account) genel olarak kullanılabilir tablo API SDK'ları ile çalışmak için.
+> Önizleme sırasında bir Tablo API hesabı oluşturduysanız, genel kullanıma açık Tablo API SDK’ları ile çalışmak için lütfen [yeni Tablo API hesabı](create-table-dotnet.md#create-a-database-account) oluşturun.
 >
 
 ## <a name="release-notes"></a>Sürüm notları
@@ -56,7 +56,7 @@ Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yaln�
 
 <br/>
 
-| Sürüm | Sürüm tarihi | Sona erme tarihi |
+| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 Kasım 2017 |--- |
 | [0.37.1](#0.37.1) |05 Ekim 2017 |--- |

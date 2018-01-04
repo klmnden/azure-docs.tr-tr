@@ -3,7 +3,7 @@ title: "Azure automation'da Azure modülleri güncelleştirme | Microsoft Docs"
 description: "Bu makalede, Azure automation'da varsayılan olarak sağlanan ortak Azure PowerShell modülleri nasıl şimdi güncelleştirebilirsiniz açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5e7c66cfd26bd6927d48ffd8bc0f82e9a3e2d13
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure PowerShell modülleri Azure Automation güncelleştirme
 
@@ -28,11 +28,11 @@ Modüller ürün grubu tarafından düzenli olarak güncelleştirilen olduğunda
 
 ## <a name="updating-azure-modules"></a>Azure modülleri güncelleştiriliyor
 
-1. Modülleri Automation hesabınız var. dikey olarak adlandırılan bir seçenektir **Update Azure modülleri**.  Her zaman etkindir.<br><br> ![Azure modülleri seçeneği modülleri dikey penceresinde Güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. Otomasyon hesabınızı modülleri sayfasında adlı bir seçenek yoktur **Update Azure modülleri**. Her zaman etkindir.<br><br> ![Azure modülleri seçeneği modülleri sayfasındaki güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Tıklatın **Update Azure modülleri** ve devam etmek isteyip istemediğinizi soran bir onay bildirimi görürsünüz.<br><br> ![Azure modülleri bildirim güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. Tıklatın **Update Azure modülleri** ve devam etmek isteyip istemediğinizi soran bir onay bildirimi sunulur.<br><br> ![Azure modülleri bildirim güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Tıklatın **Evet** ve modül güncelleştirme işlemi başlar.  Güncelleştirme işlemini aşağıdaki modüller güncelleştirmek için yaklaşık 15-20 dakika sürer:
+3. Tıklatın **Evet** ve modül güncelleştirme işlemi başlar. Güncelleştirme işlemini aşağıdaki modüller güncelleştirmek için yaklaşık 15-20 dakika sürer:
 
   * Azure
   * Azure Depolama
@@ -43,12 +43,12 @@ Modüller ürün grubu tarafından düzenli olarak güncelleştirilen olduğunda
   * AzureRm.Sql
   * AzureRm.Storage
 
-    Modülleri zaten güncel olup olmadığını işlemini birkaç saniye içinde tamamlanır.  Güncelleştirme işlemi tamamlandığında size bildirilecek.<br><br> ![Azure modülleri güncelleştirme durumunu güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Modülleri zaten güncel olup olmadığını işlemi birkaç saniye içinde tamamlanır. Güncelleştirme işlemi tamamlandığında size bildirilecek.<br><br> ![Azure modülleri güncelleştirme durumunu güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
-> Yeni bir zamanlanan iş çalıştırdığınızda azure Automation Otomasyon hesabınızda son modülleri kullanın.    
+> Yeni bir zamanlanan iş çalıştırdığınızda azure Automation Otomasyon hesabınızda son modülleri kullanır.    
 
-Ardından Azure kaynaklarınızı yönetmek için runbook'larda bu Azure PowerShell modülleri cmdlet'leri kullanıyorsanız, her ay bu güncelleştirme işlemi gerçekleştirmek için veya son modülleri olmasını güvence altına almak için bu nedenle isteyeceksiniz.
+Azure kaynaklarınızı yönetmek için runbook'larda bu Azure PowerShell modülleri cmdlet'leri kullanın, sonra her ay bu güncelleştirme işlemini gerçekleştirmek için veya böylece son modülleri olmasını güvence altına almak için istediğiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

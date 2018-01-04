@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup Sunucusu kullanarak iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -239,12 +239,12 @@ Azure bağlantı ve Azure abonelik durumu öğrendikten sonra sunulan yedekleme/
 
 | Bağlantı durumu | Azure Aboneliği | Azure'a yedekleme | Diske yedekleme | Azure'dan geri yükleme | Disk, geri yükleme |
 | --- | --- | --- | --- | --- | --- |
-| bağlı |Etkin |İzin verilen |İzin verilen |İzin verilen |İzin verilen |
-| bağlı |Süresi dolmuş |Durduruldu |Durduruldu |İzin verilen |İzin verilen |
-| bağlı |Sağlaması kaldırılıyor. sağlaması |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
-| Kayıp bağlantısı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin verilen |İzin verilen |
-| Kayıp bağlantısı > 15 gün |Süresi dolmuş |Durduruldu |Durduruldu |İzin verilen |İzin verilen |
-| Kayıp bağlantısı > 15 gün |Sağlaması kaldırılıyor. sağlaması |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
+| Bağlanıldı |Etkin |İzin verildi |İzin verildi |İzin verildi |İzin verildi |
+| Bağlanıldı |Süresi Doldu |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
+| Bağlanıldı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
+| Kayıp bağlantısı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
+| Kayıp bağlantısı > 15 gün |Süresi Doldu |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
+| Kayıp bağlantısı > 15 gün |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Bağlantı kaybına karşı kurtarma
 Bir güvenlik duvarı veya Azure'a erişimi engelleyen bir proxy varsa, güvenlik duvarı/proxy profilinde aşağıdaki etki alanı adreslerini beyaz liste ile gerekir:

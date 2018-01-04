@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure kapsayıcı kayıt defterinde coğrafi çoğaltma
 
@@ -94,7 +94,7 @@ ACR görüntüleri genelinde yapılandırılmış çoğaltma eşitleme başlar. 
 
 ## <a name="geo-replication-pricing"></a>Coğrafi çoğaltma fiyatlandırma
 
-Coğrafi çoğaltma özelliğidir [Premium SKU](container-registry-skus.md#premium) Azure kapsayıcı kayıt defteri. Bir kayıt defteri, istenen bölgelere çoğalttığınızda, her bölge için Premium kayıt defteri ücretleri doğurur.
+Coğrafi çoğaltma özelliğidir [Premium SKU](container-registry-skus.md) Azure kapsayıcı kayıt defteri. Bir kayıt defteri, istenen bölgelere çoğalttığınızda, her bölge için Premium kayıt defteri ücretleri doğurur.
 
 Önceki örnekte, Doğu ABD, Orta Kanada ve Batı Avrupa çoğaltmaları ekleme Contoso iki kayıt defterleri, aşağıya doğru birleştirildi. Contoso dört kez Premium hiçbir ek yapılandırma veya yönetim ile aylık ödeme. Her bölge, performans, güvenilirlik ağ çıkış ücretleri Kanada Batı ABD ve Doğu ABD olmadan geliştirme yerel olarak resimlerinin şimdi çeker.
 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 9/06/2017
+ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Yüksek oranda kullanılabilir RA-GRS kullanarak uygulamalar tasarlama
 
@@ -26,7 +26,7 @@ Ortak bir Azure depolama gibi bulut tabanlı altyapılarının uygulamalarını 
 
 Azure depolama artıklığı depolama hesabınızdaki veriler için dört seçenek sunar:
 
-– LRS (yerel olarak Refdundant depolama)
+- LRS (yerel olarak yedekli depolama)
 - ZRS (bölge olarak yedekli depolama) 
 - GRS (coğrafi olarak yedekli depolama)
 - RA-GRS (coğrafi olarak yedekli depolamaya okuma erişimi). 
@@ -207,12 +207,12 @@ Aşağıdaki tabloda her bir üyesi yapmak için bir çalışan ayrıntıların�
 | **Saat** | **İşlem**                                            | **Çoğaltma**                       | **Son eşitleme zamanı** | **Sonuç** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | İşlem A: <br> Çalışanı Ekle <br> birincil varlık |                                   |                    | Birincil olarak eklenen bir işlem,<br> henüz çoğaltılmamış. |
-| T1       |                                                            | İşlem A <br> Çoğaltılan<br> İkincil | T1 | İşlem bir ikincil yinelenmiş. <br>Son eşitleme zamanı güncelleştirildi.    |
+| T1       |                                                            | İşlem A <br> Çoğaltılan<br> ikincil | T1 | İşlem bir ikincil yinelenmiş. <br>Son eşitleme zamanı güncelleştirildi.    |
 | T2       | İşlem B:<br>Güncelleştirme<br> çalışan varlık<br> birincil  |                                | T1                 | İşlem için birincil yazılmış B,<br> henüz çoğaltılmamış.  |
 | T3       | İşlem C:<br> Güncelleştirme <br>Yönetici<br>Rol varlığı<br>birincil |                    | T1                 | İşlem için birincil yazılmış C,<br> henüz çoğaltılmamış.  |
-| *T4*     |                                                       | İşlem C <br>Çoğaltılan<br> İkincil | T1         | İşlem için ikincil çoğaltılan C.<br>Olduğundan güncelleştirilmedi LastSyncTime <br>işlem B henüz çoğaltılmamış.|
+| *T4*     |                                                       | İşlem C <br>Çoğaltılan<br> ikincil | T1         | İşlem için ikincil çoğaltılan C.<br>Olduğundan güncelleştirilmedi LastSyncTime <br>işlem B henüz çoğaltılmamış.|
 | *T5*     | Varlıkların okuma <br>İkincil                           |                                  | T1                 | Çalışanın eski değer alma <br> Varlık işlem B kurmadı çünkü <br> henüz çoğaltılan. Yeni değerini alın<br> Yönetici rolü varlığı C olduğundan<br> Çoğaltılan. Son eşitleme zamanı hala tamamlanmamış<br> Silinmiş olduğundan güncelleştirilmiş işlem B<br> Çoğaltılan kurmadı. Size söyleyebilir<br>Yönetici rolü varlığı tutarsız. <br>Varlık tarih/saat sonra olduğundan <br>Son eşitleme zamanı. |
-| *T6*     |                                                      | İşlem B<br> Çoğaltılan<br> İkincil | T6                 | *T6* – C aracılığıyla tüm işlemlerin <br>edilmiş çoğaltılan, son eşitleme zamanı<br> güncelleştirilir. |
+| *T6*     |                                                      | İşlem B<br> Çoğaltılan<br> ikincil | T6                 | *T6* – C aracılığıyla tüm işlemlerin <br>edilmiş çoğaltılan, son eşitleme zamanı<br> güncelleştirilir. |
 
 Bu örnekte, istemci T5 konumunda ikincil bölgesinden okunurken geçer varsayalım. Başarıyla okuyabilirsiniz **Yönetici rolü** varlık şu anda, ancak varlık sayısı ile tutarlı değil yöneticiler sayısı için bir değer içeriyorsa **çalışan** şu anda ikincil bölge yöneticileri olarak işaretlenmiş varlıklar. İstemci, yalnızca bu değerle tutarsız bilgiler olduğunu risk görüntüleyebilirsiniz. Alternatif olarak, istemci belirleyen yararlanmaya **Yönetici rolü** güncelleştirmeleri sıralama dışında gerçekleşen ve sonra bu olgu kullanıcı bildirmeniz büyük olasılıkla tutarsız bir durumda olduğundan.
 

@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/26/2017
-ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 12/09/2017
+ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="limitations-in-azure-database-for-mysql-preview"></a>MySQL (Önizleme) Azure veritabanındaki sınırlamaları
-MySQL hizmeti için Azure veritabanı genel önizlemede değil. Aşağıdaki bölümlerde, kapasite ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
+# <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanındaki sınırlamaları
+MySQL hizmeti için Azure veritabanı genel önizlemede değil. Aşağıdaki bölümlerde, kapasite, depolama altyapısı desteği, ayrıcalık desteği, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
 
 ## <a name="service-tier-maximums"></a>Hizmet katmanı üst sınırlar
 Azure veritabanı MySQL için bir sunucu oluştururken seçebileceğiniz birden çok hizmet katmanı vardır. Daha fazla bilgi için bkz: [her hizmet katmanında nelerin kullanılabildiğini anlama](concepts-service-tiers.md).  
@@ -27,7 +27,7 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 | :------------------------- | :---------------- |
 | **En fazla bağlantı**        |                   |
 | Temel 50 işlem birimleri     | 50 bağlantıları    |
-| Temel 100 işlem birimleri    | 100 bağlantılar   |
+| Temel 100 işlem birimleri    | 100 bağlantı   |
 | Standart 100 işlem birimleri | 200 bağlantıları   |
 | Standart 200 işlem birimleri | 400 bağlantıları   |
 | Standart 400 işlem birimleri | 800 bağlantıları   |
@@ -42,6 +42,32 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 Çok fazla bağlantı erişildiğinde, aşağıdaki hata iletisini alabilirsiniz:
 > 1040 (08004). hata: Çok fazla bağlantı
 
+## <a name="storage-engine-support"></a>Depolama altyapısı desteği
+
+### <a name="supported"></a>Desteklenen
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [BELLEK](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+
+### <a name="unsupported"></a>Desteklenmiyor
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [KARA DELİK](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [ARŞİV](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDERASYON](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## <a name="privilege-support"></a>Ayrıcalık desteği
+
+### <a name="unsupported"></a>Desteklenmiyor
+- DBA rolünün birçok parametreleri sever ve ayarları, yanlışlıkla sunucu performansı düşebilir veya DBMS ACID özelliklerini negate. Bu nedenle, bizim hizmet bütünlüğü ve ürün düzeyinde SLA korumak için biz müşterilere DBA rolünün gösterme. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı yönetilen veritabanı örneğinde DDL ve DML deyimleri çoğunu gerçekleştirmek müşterilerin olanak tanır. 
+- Süper ayrıcalık benzer şekilde [Süper ayrıcalık](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) de sınırlıdır.
+
+## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
+
+### <a name="supported"></a>Desteklenen
+- Yük veri GİRİŞDOSYASI - desteklenir, ancak bir UNC yolu (Azure depolama XSMB bağlanan) yönlendirildiği [Yerel] parametresini belirtmeniz gerekir.
+
+### <a name="unsupported"></a>Desteklenmiyor
+- SEÇİN... ÇIKIŞDOSYASI
+
 ## <a name="preview-functional-limitations"></a>Önizleme işlevsel sınırlamaları
 
 ### <a name="scale-operations"></a>Ölçek işlemleri
@@ -52,12 +78,17 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 ### <a name="server-version-upgrades"></a>Sunucu sürüm yükseltme
 - Ana veritabanı altyapısı sürümleri arasında otomatik geçiş şu anda desteklenmiyor.
 
-### <a name="subscription-management"></a>Abonelik Yönetimi
-- Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
-
 ### <a name="point-in-time-restore"></a>belirli bir noktaya geri yükleme
 - Farklı bir hizmet katmanı ve/veya bir işlem birimleri ve depolama boyutu geri izin verilmiyor.
-- Bırakılan bir sunucuya geri yüklenmesi desteklenmez.
+- Silinen bir sunucuya geri yüklenmesi desteklenmez.
+
+## <a name="functional-limitations"></a>İşlev sınırlamaları
+
+### <a name="subscription-management"></a>Abonelik yönetimi
+- Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
+
+## <a name="current-known-issues"></a>Geçerli bilinen sorunlar:
+- Bağlantı kurulduktan sonra MySQL server örneği yanlış sunucu sürümünü görüntüler. Doğru sunucu örneği sürüm almak için select version() kullanın; MySQL isteminde komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Her hizmet katmanında nelerin kullanılabildiğini](concepts-service-tiers.md)

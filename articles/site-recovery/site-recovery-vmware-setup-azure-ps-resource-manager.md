@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Azure (Kaynak Yöneticisi) çalışan bir işlem sunucusu yönetme
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Yeniden çalışma sırasında Azure sanal ağ ve şirket içi ağınız arasın
 > [!NOTE]
 > Bu makalede kullandıysanız kullanılacak olan **Resource Manager** yük devretme sırasında sanal makineler için dağıtım modeli olarak. Kullandıysanız **Klasik** dağıtım modeli adımları [nasıl ayarlayın ve yeniden çalışma işlem sunucusu (Klasik) yapılandırma](./site-recovery-vmware-setup-azure-ps-classic.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 

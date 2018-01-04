@@ -1,55 +1,76 @@
 ---
-title: "Bir Azure API Management örneği oluşturma | Microsoft Docs"
-description: "Yeni bir Azure API Management örneği oluşturmak için Bu öğreticide adımları izleyin."
+title: "Azure API Management örneği oluşturma | Microsoft Docs"
+description: "Yeni bir Azure API Management örneği oluşturmak için bu öğreticideki adımları izleyin."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: anneta
+author: juliako
+manager: cflower
 editor: 
 ms.service: api-management
 ms.workload: integration
-ms.topic: article
-ms.date: 08/17/2017
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6433ea1f0eb6ad375402b998b4dfa80bded35c4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="create-a-new-azure-api-management-service-instance"></a>Yeni bir Azure API Management hizmet örneği oluşturma
+# <a name="create-a-new-azure-api-management-service-instance"></a>Yeni bir Azure API Management hizmeti örneği oluşturma
 
-Bu öğretici kullanarak yeni bir API Management örneği oluşturmak için gereken adımları açıklar [Azure portal](https://portal.azure.com/).
+Azure API Management (APIM), kuruluşların kendi veri ve hizmet potansiyellerini ortaya çıkarmak üzere API’leri dış, iş ortağı ve iç geliştiricilere yayımlamalarına yardımcı olur. API Management; geliştirici katılımı, iş öngörüleri, analizler, güvenlik ve koruma aracılığıyla başarılı bir API programı yürütmeye ilişkin temel uzmanlıklar sağlar. APIM, herhangi bir yerde barındırılan mevcut arka uç hizmetleri için modern API ağ geçitleri oluşturmanıza ve yönetmenize olanak sağlar. Daha fazla bilgi için [Genel Bakış](api-management-key-concepts.md) konusuna bakın.
 
-## <a name="prerequisites"></a>Ön koşullar
+Bu hızlı başlangıç, Azure portalını kullanarak yeni bir API Management örneği oluşturma adımlarını açıklar.
 
-+ Etkin bir Azure aboneliği.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+![yeni örnek](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
 
-## <a name="create-a-new-service"></a>Yeni bir hizmet oluşturun
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-1. İçinde [Azure portal](https://portal.azure.com/)seçin **yeni** > **Kurumsal tümleştirme** > **API management**.
+http://portal.azure.com sayfasından Azure portalda oturum açın.
 
-    Alternatif olarak, seçin **yeni**, türü `API management` arama kutusu ve Enter tuşuna basın. **Oluştur**'a tıklayın.
+## <a name="create-a-new-service"></a>Yeni hizmet oluşturma
 
-2. İçinde **API Management hizmeti** penceresinde, benzersiz bir girin **adı** API Management hizmetiniz için. Bu adı daha sonra değiştirilemez.
+1. [Azure portalı](https://portal.azure.com/)’nda **Yeni** > **Kurumsal Tümleştirme** > **API yönetimi**’ni seçin.
+
+    Alternatif olarak, **Yeni**’yi seçip arama kutusuna `API management` yazabilir ve Enter tuşuna basabilirsiniz. **Oluştur**'a tıklayın.
+
+2. **API Management hizmeti** penceresine ayarları girin.
+
+    ![yeni örnek](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
+
+    | Ayar      | Önerilen değer  | Açıklama              |
+    | ------------ |  ------- | ---------------------------------|
+    |**Ad**|API Management hizmetiniz için benzersiz bir ad| Ad daha sonra değiştirilemez. Hizmet adı, *{name}.azure-api.net* biçiminde varsayılan bir etki alanı adı oluşturmak için kullanılır. Özel bir etki alanı adı kullanmak istiyorsanız bkz. [Özel etki alanı yapılandırma](configure-custom-domain.md). <br/> Hizmet adı, hizmete ve ilgili Azure kaynağına başvurmak için kullanılır.|
+    |**Abonelik**|Aboneliğiniz | Bu yeni hizmet örneğini barındıran abonelik oluşturulur. Erişiminizin bulunduğu farklı Azure abonelikleri arasından abonelik seçebilirsiniz.|
+    |**Kaynak Grubu**|*apimResourceGroup*|Yeni veya var olan bir kaynak seçebilirsiniz. Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../azure-resource-manager/resource-group-overview.md#resource-groups) daha fazla bilgi edinin.|
+    |**Konum**|*Batı ABD*|Yakınınızdaki coğrafi bölgeyi seçin. Açılır listede yalnızca kullanılabilir API Management hizmet bölgeleri görünür. |
+    |**Kuruluş adı**|Kuruluşunuzun adı|Bu ad, geliştirici portalının başlığı ve bildirim e-postalarının göndereni gibi birkaç yerde kullanılır.|
+    |**Yönetici e-postası**|*admin@org.com*|**API Management**’tan tüm bildirimlerin gönderileceği e-posta adresini ayarlayın.|
+    |**Fiyatlandırma katmanı**|*Geliştirici*|Hizmeti değerlendirmek için **Geliştirici** katmanını ayarlayın. Bu katman, üretim kullanımı için değildir. API Management katmanlarını ölçeklendirme hakkında daha fazla bilgi için bkz. [yükseltme ve ölçeklendirme](upgrade-and-scale.md).|
+3. **Oluştur**’u seçin.
 
     > [!TIP]
-    > Hizmet adı biçiminde bir varsayılan etki alanı adı oluşturmak için kullanılan *{ad} .azure-api.net.* Özel etki alanı adınızı kullanmak istiyorsanız, bkz: [özel bir etki alanı yapılandırmak](configure-custom-domain.md). <br/>
-    > Hizmet adı, hizmet ve karşılık gelen Azure kaynak başvurmak için kullanılır.
+    > Bir API Management hizmetinin oluşturulması genellikle 20 ile 30 dakika arasında sürer. **Panoya Sabitle** öğesinin seçilmesi, yeni oluşturulan hizmetin bulunmasını kolaylaştırır.
 
-5. Seçin bir **abonelik** erişiminiz bulunan farklı Azure abonelikleri arasında.
-6. **Kaynak Grubu**’nda yeni veya mevcut bir kaynağı seçin.  Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../azure-resource-manager/resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
-7. İçinde **konumu**, API Management hizmeti oluşturulduğu coğrafi bölgeyi seçin. Yalnızca API Management hizmeti kullanılabilen bölgeler açılır liste kutusunda görüntülenir. 
-9. Girin bir **kuruluş adı**. Bu ad, bir basamak sayısını kullanılır. Örneğin, bildirim e-posta gönderen ve Geliştirici Portalı başlığı.
-10. İçinde **yönetici e-posta**ayarlayın e-posta adresi tüm bildirimleri **API Management** gönderilir.
-11. İçinde **fiyatlandırma katmanı**ayarlayın **Geliştirici** hizmet değerlendirmek için katmanı. Bu katman, üretim kullanımı için değildir. API Management katmanları ölçeklendirme hakkında daha fazla bilgi için bkz: [yükseltin ve ölçeklendirme](upgrade-and-scale.md).
-12. **Oluştur**’u seçin.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-    > [!TIP]
-    > Genellikle, bir API Management hizmeti oluşturmak için 20 ve 30 dakika arasında alır. Seçme **panoya Sabitle** yeni oluşturulan hizmet daha kolay bulmayı kolaylaştırır.
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse, aşağıdaki adımları izleyerek kaynak grubunu ve tüm ilgili kaynakları kaldırabilirsiniz:
+
+
+1. Azure portalında ![oku seçin](./media/get-started-create-service-instance/arrow.png).
+2. **Kaynak grupları**’nı seçin.
+3. Kaynak grubunuzu bulun.
+4. ". . ." öğesine tıklayıp grubunuzu silin.
+
+![temizle](./media/get-started-create-service-instance/cleanup.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir API Azure API Management ile yayımlama](#api-management-getstarted-publish-api.md)
+> [!div class="nextstepaction"]
+> [İlk API’nizi içeri aktarma ve yayımlama](import-and-publish.md)

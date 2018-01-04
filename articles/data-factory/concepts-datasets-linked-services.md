@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümelerini ve Azure Data Factory öğesinde bağlantılı hizmet 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Data factory'yi yeni istiyorsanız bkz [Azure Data Factory'ye giriş](introducti
 ## <a name="overview"></a>Genel Bakış
 Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. A **ardışık düzen** mantıksal bir gruplandırmasıdır **etkinlikleri** görev birlikte gerçekleştirin. Bir işlem hattındaki etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlar. Örneğin, bir şirket içi SQL Server'dan Azure Blob depolama alanına veri kopyalamak için kopyalama etkinliği kullanabilirsiniz. Ardından, veri işlemek için çıktı verileri üretemedi Blob depolama alanından gönderilmiş olan bir Azure Hdınsight kümesinde bir Hive betiği çalıştıran bir Hive etkinliği kullanabilir. Son olarak, çıktı verilerini Azure SQL Data Warehouse için çözümleri yerleşik raporlama hangi iş zekası üstünde (BI) kopyalamak için ikinci bir kopyalama etkinliği kullanabilirsiniz. Ardışık Düzen ve etkinlikleri hakkında daha fazla bilgi için bkz: [işlem hatlarının ve etkinliklerin](concepts-pipelines-activities.md) Azure veri fabrikası'nda.
 
-Şimdi, bir **dataset** adlandırılmış bir görünüm yalnızca işaret veya kullanmak istediğiniz verileri başvuruda bulunan verilerin, **etkinlikleri** girişleri ve çıkışları olarak. Veri kümeleri tablolar, dosyalar, klasörler ve belgeler gibi farklı veri depolarındaki verileri tanımlar. Örneğin, bir Azure Blob veri kümesini etkinlik verileri okumalısınız Blob depolama alanına blob kapsayıcısı ve klasörü belirtir.
+Şimdi, bir **dataset** adlandırılmış bir görünüm yalnızca işaret veya kullanmak istediğiniz verileri başvuruda bulunan verilerin, **etkinlikleri** girişleri ve çıkışları olarak. Veri kümeleri tablolar, dosyalar, klasörler ve belgeler gibi farklı veri depolarındaki verileri tanımlar. Örneğin Azure Blob veri kümesi, etkinliğin verileri okuması için gereken blob kapsayıcısını ve Blob depolama klasörünü belirtir.
 
 Bir veri kümesi oluşturmadan önce oluşturmanız gerekir bir **bağlantılı hizmeti** data factory veri deponuza bağlamak için. Bağlı hizmetler, dış kaynaklara bağlanmak için Data Factory’ye gereken bağlantı bilgilerini tanımlayan bağlantı dizelerine çok benzer. Bunu, bu şekilde düşünün; veri kümesi bağlantılı veri depoları içindeki verilerin yapısını temsil eder ve veri kaynağına bağlantı bağlantılı hizmet tanımlar. Örneğin, bir Azure depolama hizmeti bağlantıları bir depolama hesabı data factory bağlantılı. Bir Azure Blob dataset blob kapsayıcısında ve işlenmesi için girdi BLOB, Azure depolama hesabı klasördeki temsil eder.
 
@@ -43,6 +43,56 @@ Bir örnek senaryo aşağıda verilmiştir. Blob depolama alanından bir SQL ver
 Aşağıdaki diyagramda, veri fabrikasında ardışık düzen, etkinlik, veri kümesi ve bağlı hizmet arasındaki ilişkiler gösterilmektedir:
 
 ![Ardışık düzen, etkinlik, veri kümesi, bağlı hizmetler arasındaki ilişki](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>JSON bağlantılı hizmeti
+Veri fabrikasında bağlı hizmet JSON biçiminde şu şekilde tanımlanır:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:
+
+Özellik | Açıklama | Gerekli |
+-------- | ----------- | -------- |
+ad | Bağlı hizmetin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
+type | Bağlantılı hizmet türü. Örneğin: AzureStorage (veri deposu) veya AzureBatch (işlem). TypeProperties açıklamasına bakın. | Evet |
+typeProperties | Tür özellikleri için her bir veri deposu farklı veya işlem. <br/><br/> İçin desteklenen veri türlerini ve bunların türü özelliklerini depolamak için bkz: [veri kümesi türü](#dataset-type) bu makalede tablo. Bir veri depolama alanına belirli tür özellikleri hakkında bilgi edinmek için veri deposu bağlayıcı makale gidin. <br/><br/> Desteklenen işlem türlerini ve bunların tür özellikleri için bkz [işlem bağlı Hizmetleri](compute-linked-services.md). | Evet |
+connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Hayır
+
+## <a name="linked-service-example"></a>Bağlantılı hizmet örneği
+Aşağıdaki bağlantılı hizmeti bir Azure Storage bağlı hizmetidir. Türü için AzureStorage ayarlandığına dikkat edin. Tür özellikleri Azure Storage bağlı hizmeti için bir bağlantı dizesi içerir. Data Factory hizmetinin çalışma zamanında veri deposuna bağlanmak için bu bağlantı dizesini kullanır. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>JSON veri kümesi
 Veri fabrikasında bir veri kümesini JSON biçiminde şu şekilde tanımlanır:
@@ -72,12 +122,12 @@ Veri fabrikasında bir veri kümesini JSON biçiminde şu şekilde tanımlanır:
 ```
 Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:
 
-Özellik | Açıklama | Gerekli | Varsayılan
--------- | ----------- | -------- | -------
-ad | Veri kümesi adı. | Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). | Evet | NA
-type | Veri kümesi türü. | Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [Dataset türleri](#dataset-types). | Evet | NA
-yapısı | Veri kümesi şemasını. | Ayrıntılar için bkz [veri kümesi yapısı](#dataset-structure). | Hayır | NA
-typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#dataset-type). | Evet | NA
+Özellik | Açıklama | Gerekli |
+-------- | ----------- | -------- |
+ad | Veri kümesi adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
+type | Veri kümesi türü. Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [Dataset türleri](#dataset-types). | Evet |
+yapısı | Veri kümesi şemasını. Ayrıntılar için bkz [veri kümesi yapısı](#dataset-structure). | Hayır |
+typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#dataset-type). | Evet |
 
 ## <a name="dataset-example"></a>Veri kümesi örneği
 Aşağıdaki örnekte, bir SQL veritabanında MyTable adlı bir tablo veri kümesini temsil eder.
@@ -104,28 +154,6 @@ Aşağıdaki noktalara dikkat edin:
 - türü için AzureSqlTable ayarlanır.
 - tableName type özelliği (AzureSqlTable türüne belirli) MyTable için ayarlanır.
 - bağlı hizmet türü sonraki JSON parçacığında tanımlanan AzureSqlDatabase linkedServiceName başvurur.
-
-## <a name="linked-service-example"></a>Bağlantılı hizmet örneği
-AzureSqlLinkedService şu şekilde tanımlanır:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-Yukarıdaki JSON parçacığında:
-
-- **tür** AzureSqlDatabase için ayarlanır.
-- **connectionString** türü özelliği, bir SQL veritabanına bağlanmak için gereken bilgileri belirtir.
-
-Gördüğünüz gibi bağlantılı hizmet bir SQL veritabanına bağlanma tanımlar. Hangi tablo girdi olarak kullanılır ve bir ardışık düzen etkinliğin çıktı veri kümesi tanımlar.
 
 ## <a name="dataset-type"></a>Veri kümesi türü
 Kullandığınız veri deposu bağlı olarak veri kümeleri, birçok farklı türde vardır. Data Factory ile desteklenen veri depoları listesi için aşağıdaki tabloya bakın. Bağlı hizmet ve bir veri kümesi, veri deposu için nasıl oluşturulacağını öğrenmek için bir veri deposu'ı tıklatın.

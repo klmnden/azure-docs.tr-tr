@@ -3,7 +3,7 @@ title: "Azure karma kimlik çözümü seçme | Microsoft Docs"
 description: "Kullanılabilir karma kimlik çözümleri ve öneriler, kuruluşunuz için en iyi Kimlik Yönetimi karar vermeniz temel bir anlayış alın."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/5/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 5838e3276765f4f074bca2e3cae81b17edfa7c69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft karma kimlik çözümleri
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) karma kimlik çözümleri hala kullanıcıların şirket içi yönetme sırasında Azure AD ile şirket içi dizin nesneleri eşitleme olanak tanır. Şirket içi Windows Server Active Directory'nizi Azure AD ile eşitlemek planlama kullanmak isteyip istemediğinizi yapmak için ilk karar kimlik eşitlenen veya kimlik Federasyon. Eşitlenen kimlikler ve isteğe bağlı olarak parola karmaları şirket içi ve bulut tabanlı kurumsal kaynaklara erişmek için aynı parolayı kullanmalarına olanak sağlar. Çoklu oturum açma (SSO) veya şirket içi MFA gibi daha gelişmiş senaryo gereksinimleri için Active Directory Federasyon Hizmetleri (kimlikleri birleştirmek için AD FS) dağıtmanız gerekir. 
@@ -39,10 +39,10 @@ Yalnızca Office 365, SaaS uygulamaları ve diğer Azure AD tabanlı kaynaklara 
 > [!TIP]
 > Kullanıcı parolalarını şirket içi Windows Server Active Directory gerçek kullanıcı parolası temsil eden bir karma değer biçiminde depolanır. Bir karma değer, tek yönlü matematiksel işlevi (karma algoritma) sonucudur. Bir parola düz metin sürümü için tek yönlü işlevin sonucu dönmek için bir yöntem yoktur. Şirket içi ağınızda oturum açmak için parola karması kullanamazsınız. Parolalarını eşitlemek için opt, Azure AD Connect şirket içi Active Directory'den parola karmaları ayıklar ve Azure AD ile eşitlenmeden önce parola karması işleme ek güvenlik uygular. Parola Eşitleme, ayrıca Self Servis parola sıfırlama Azure AD'de etkinleştirmek için parola geri yazma ile birlikte kullanılabilir. Ayrıca, etki alanına katılmış bilgisayarlarda, şirket ağına bağlanan kullanıcılar için çoklu oturum açma (SSO) etkinleştirebilirsiniz. Çoklu oturum açma ile etkin kullanıcılar yalnızca güvenli bir şekilde bulut kaynaklarına erişmek için bir kullanıcı adı girmeniz gerekir. 
 
-## <a name="pass-through-authentication"></a>Doğrudan kimlik doğrulama
+## <a name="pass-through-authentication"></a>Geçişli kimlik doğrulaması
 [Azure AD doğrudan kimlik doğrulama](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) kullanarak şirket içi Active Directory'nizi Azure AD tabanlı hizmetler için bir basit parola doğrulama çözümü sağlar. Kuruluşunuz için güvenlik ve uyumluluk ilkeleri kullanıcıların parolalarını bile karma bir formda gönderme izin vermez ve etki alanına katılmış cihazlar için Masaüstü SSO desteklemek yeterlidir, geçişli kimlik doğrulaması kullanmayı değerlendir önerilir. Doğrudan kimlik doğrulaması, herhangi bir AD FS ile karşılaştırıldığında dağıtım altyapısı basitleştirir DMZ dağıtımında gerektirmez. Azure AD kullanarak kullanıcılar oturum açtığında, bu kimlik doğrulama yöntemi kullanıcıların parolalarını şirket içi Active Directory'nizi karşı doğrudan doğrular.
 
-![Doğrudan kimlik doğrulama](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
+![Geçişli kimlik doğrulaması](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
 
 Doğrudan kimlik doğrulama, karmaşık ağ altyapısı için gerek yoktur ve bulutta şirket içi parolaları depolamak gerekmez. Çoklu oturum açma ile birlikte geçişli kimlik doğrulaması için Azure AD oturum açarken gerçekten tümleşik bir deneyim sağlar ya da diğer bulut Hizmetleri.
 

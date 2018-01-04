@@ -3,7 +3,7 @@ title: "Bir sanal makineden Azure DevTest Labs özel görüntü oluşturma | Mic
 description: "Azure DevTest Labs Azure portalını kullanarak sağlanan bir VM'den içinde özel bir görüntü oluşturmayı öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Bir sanal makineden özel bir görüntü oluşturun
 
@@ -59,4 +59,4 @@ Sağlanan bir sanal makineden özel bir görüntü oluşturun ve daha sonra ayn�
 
 ##<a name="next-steps"></a>Sonraki adımlar
 
-- [Laboratuvarınızı için bir VM ekleme](./devtest-lab-add-vm-with-artifacts.md)
+- [Laboratuvarınızı için bir VM ekleme](devtest-lab-add-vm.md)

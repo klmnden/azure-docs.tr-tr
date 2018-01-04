@@ -1,6 +1,6 @@
 ---
-title: "Hızlı Başlangıç: bir Azure Azure portalını kullanarak Databricks üzerinde Spark çalıştırın | Microsoft Docs"
-description: "Hızlı Başlangıç Azure portalında bir Azure Databricks çalışma alanında, bir Apache Spark kümesi oluşturma ve Spark işi çalıştırmak için nasıl kullanılacağını gösterir."
+title: "Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma | Microsoft Docs"
+description: "Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Databricks çalışma alanı, bir Apache Spark kümesi oluşturma ve bir Spark işi çalıştırma işlemi gösterilmektedir."
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -10,96 +10,97 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: cffc78c06de6be252704c2a116d7ded2c7e8567f
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç:, Azure portalını kullanarak Azure Databricks üzerinde Spark işini çalıştır
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
-Bu hızlı başlangıç Azure Databricks çalışma ve bu çalışma alanı içindeki bir Apache Spark kümesi nasıl oluşturulacağını gösterir. Son olarak, Spark iş Databricks küme üzerinde çalışacak şekilde nasıl öğrenin. Azure Databricks hakkında daha fazla bilgi için bkz: [Azure Databricks nedir?](what-is-azure-databricks.md)
+Bu hızlı başlangıçta bir Azure Databricks çalışma alanı ve bu çalışma alanı içinde bir Apache Spark kümesi oluşturma işlemi gösterilir. Son olarak, Databricks kümesinde bir Spark işi çalıştırma hakkında bilgi edinirsiniz. Azure Databricks hakkında daha fazla bilgi için bkz. [Azure Databricks nedir?](what-is-azure-databricks.md)
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
-Oturum [Azure portal](https://portal.azure.com).
+[Azure portalı](https://portal.azure.com)’nda oturum açın.
 
 ## <a name="create-a-databricks-workspace"></a>Databricks çalışma alanı oluşturma
 
-Bu bölümde Azure Portalı'nı kullanarak bir Azure Databricks çalışma alanı oluşturun. 
+Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz. 
 
-1. Azure portalında tıklatın  **+** , tıklatın **veri + analiz**ve ardından **Azure Databricks (Önizleme)**. 
+1. Azure portalında **+** öğesine, **Veri ve Analiz**’e ve ardından **Azure Databricks (Önizleme)** öğesine tıklayın. 
 
-    ![Azure Portal'da Databricks](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks Azure portalında")
+    ![Azure portalında Databricks](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-2. Altında **Azure Databricks (Önizleme)**, tıklatın **oluşturma**.
+2. **Azure Databricks (Önizleme)** altında **Oluştur**’a tıklayın.
 
     > [!NOTE]
-    > Azure Databricks şu anda sınırlı önizlemede değil. Uygulamaları güvenilir listeye almayı Önizleme için kabul edilmesi için Azure aboneliğinizin istiyorsanız, doldurduğunuz gerekir [kayıt formu](https://databricks.azurewebsites.net/).
+    > Azure Databricks şu anda sınırlı önizleme aşamasındadır. Azure aboneliğinizin önizlemede güvenilir listeye alınmasını istiyorsanız [kayıt formunu](https://databricks.azurewebsites.net/) doldurmanız gerekir.
 
-2. Altında **Azure Databricks hizmet**, aşağıdaki değerleri girin:
+2. **Azure Databricks Hizmeti** altında aşağıdaki değerleri sağlayın:
 
-    ![Bir Azure Databricks çalışma alanı oluşturma](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Azure Databricks çalışma alanı oluşturma")
+    ![Azure Databricks çalışma alanı oluşturma](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    * İçin **çalışma alanı adı**, Databricks çalışma alanınız için bir ad sağlayın.
-    * İçin **abonelik**, açılan listeden, Azure aboneliğinizi seçin.
-    * İçin **kaynak grubu**, yeni bir kaynak grubu oluşturmak veya mevcut bir kullanmak isteyip istemediğinizi belirtin. Bir kaynak grubu Azure çözümünü ilgili kaynaklara tutan bir kapsayıcıdır. Daha fazla bilgi için bkz: [Azure kaynak grubu genel bakış](../azure-resource-manager/resource-group-overview.md).
-    * İçin **konumu**seçin **Doğu ABD 2**. Kullanılabilir diğer bölgeler için bkz: [kullanılabilir bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/services/).
+    * **Çalışma alanı adı** altında Databricks çalışma alanınız için bir ad sağlayın.
+    * **Abonelik** için açılan listeden Azure aboneliğinizi seçin.
+    * **Kaynak grubu** için yeni bir kaynak grubu oluşturmayı veya mevcut bir kaynak grubunu kullanmayı seçin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Daha fazla bilgi için bkz. [Azure Kaynak Grubuna genel bakış](../azure-resource-manager/resource-group-overview.md).
+    * **Konum** için **Doğu ABD 2**’yi seçin. Kullanılabilir diğer bölgeler için bkz. [Bölgeye göre kullanılabilir Azure hizmetleri](https://azure.microsoft.com/regions/services/).
 
 3. **Oluştur**'a tıklayın.
 
-## <a name="create-a-spark-cluster-in-databricks"></a>Databricks içinde bir Spark kümesi oluşturma
+## <a name="create-a-spark-cluster-in-databricks"></a>Databricks’te Spark kümesi oluşturma
 
-1. Azure portalında oluşturduğunuz Databricks çalışma alanına gidin ve ardından **başlatma çalışma**.
+1. Azure portalında, oluşturduğunuz Databricks çalışma alanına gidin ve sonra **Çalışma Alanını Başlat**’a tıklayın.
 
-2. Azure Databricks portalına yönlendirilirsiniz. Portaldan tıklatın **küme**.
+2. Azure Databricks portalına yönlendirilirsiniz. Portaldan **Küme**’ye tıklayın.
 
-    ![Azure üzerinde Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks Azure ile ilgili")
+    ![Azure’da Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
 
-3. İçinde **yeni küme** sayfasında, bir küme oluşturmak için değerleri girin.
+3. **Yeni küme** sayfasında, bir küme oluşturmak için değerleri girin.
 
-    ![Azure üzerinde Databricks Spark küme oluştur](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Azure oluşturmak Databricks Spark kümesinde")
+    ![Azure’da Databricks Spark kümesi oluşturma](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     * Küme için bir ad girin.
-    * Seçtiğinizden emin olun **Sonlandır etkinliği ___ dakika sonra** onay kutusu. Küme olmayan kullanılıyorsa, küme sonlandırmak için bir süre (dakika cinsinden) sağlayın.
-    * Tüm diğer varsayılan değerleri kabul edin. 
-    * Tıklatın **küme oluştur**. Kümenin çalışmaya başladıktan sonra dizüstü bilgisayarlar kümeye ekleyin ve Spark işleri çalıştırma.
+    * **___ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
+    * Diğer tüm varsayılan değerleri kabul edin. 
+    * **Küme oluştur**’a tıklayın. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
 
-Kümeleri oluşturma hakkında daha fazla bilgi için bkz: [Azure Databricks bir Spark kümesi oluşturma](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+Küme oluşturma hakkında daha fazla bilgi için bkz. [Azure Databricks üzerinde Spark kümesi oluşturma](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
-## <a name="run-a-spark-sql-job"></a>Spark SQL işini çalıştır
+## <a name="run-a-spark-sql-job"></a>Spark SQL işi çalıştırma
 
-Bu bölümde ile başlamadan önce aşağıdakileri tamamlamanız gerekir:
+Bu bölüme başlamadan önce aşağıdakileri tamamlamanız gerekir:
 
-* [Bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Örnek JSON dosyası indirmeniz [github'dan](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Örnek JSON dosyasını karşıya yükleyin, oluşturduğunuz Azure depolama hesabı. Kullanabileceğiniz [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) dosyaları karşıya yüklemek için.
+* [Bir Azure depolama hesabı oluşturun](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* Örnek JSON dosyasını [Github'dan](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) indirin. 
+* Örnek JSON dosyasını, oluşturduğunuz Azure depolama hesabına yükleyin. Dosyaları karşıya yüklemek için [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md)’ni kullanabilirsiniz.
 
-Databricks içinde bir not defteri oluşturun, dizüstü bilgisayarın bir Azure Blob Depolama hesabından veri okuma yapılandırın ve ardından Spark SQL verileri çalıştırın için aşağıdaki adımları gerçekleştirin.
+Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob depolama hesabındaki verileri okuyacak şekilde yapılandırmak ve sonra veriler üzerinde bir Spark SQL işi çalıştırmak için aşağıdaki adımları gerçekleştirin.
 
-1. Sol bölmede **çalışma**. Gelen **çalışma** açılır menüsünde tıklatın **oluşturma**ve ardından **not defteri**.
+1. Sol bölmedeki **Çalışma Alanı**'na tıklayın. **Çalışma Alanı** açılır listesinden **Oluştur**’a ve sonra **Not Defteri**’ne tıklayın.
 
-    ![Create not defterinde Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Databricks not defteri oluşturma")
+    ![Databricks’te not defteri oluşturma](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Create notebook in Databricks")
 
-2. İçinde **not defteri oluşturma** iletişim kutusunda, bir ad girin, seçin **Scala** dili ve daha önce oluşturduğunuz Spark kümesi seçin.
+2. **Not Defteri Oluşturma** iletişim kutusuna bir ad girin, dil olarak **Scala**’yı seçin ve daha önce oluşturduğunuz Spark kümesini seçin.
 
-    ![Create not defterinde Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Databricks not defteri oluşturma")
+    ![Databricks’te not defteri oluşturma](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Create notebook in Databricks")
 
     **Oluştur**'a tıklayın.
 
-3. Aşağıdaki kod parçacığında, yerini `{YOUR STORAGE ACCOUNT NAME}` Azure depolama hesabı adı ile oluşturduğunuz ve `{YOUR STORAGE ACCOUNT ACCESS KEY}` depolama hesabının erişim anahtarı ile. Kod parçacığını not defteri boş bir hücreye yapıştırın ve ardından kod hücresini çalıştırmak için SHIFT + ENTER tuşuna basın. Bu kod parçacığında, bir Azure blob depolama alanından verileri okumak için Not Defteri yapılandırır.
+3. Aşağıdaki kod parçacığında `{YOUR STORAGE ACCOUNT NAME}` değerini oluşturduğunuz Azure depolama hesabı adı ile, `{YOUR STORAGE ACCOUNT ACCESS KEY}` değerini ise depolama hesabı erişim anahtarınız ile değiştirin. Kod parçacığını not defterindeki boş bir hücreye yapıştırın ve sonra kod hücresini çalıştırmak için SHIFT + ENTER tuşlarına basın. Bu kod parçacığı, not defterini bir Azure blob depolama alanından verileri okuyacak şekilde yapılandırır.
 
        spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
     
-    Depolama hesabı anahtarı alma hakkında daha fazla yönerge için bkz: [depolama erişim tuşlarınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
+    Depolama hesabı anahtarınızı almaya ilişkin yönergeler için bkz. [Depolama erişim anahtarlarınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     > [!NOTE]
-    > Azure Data Lake Store, Azure Databricks Spark kümesinde ile de kullanabilirsiniz. Yönergeler için bkz: [kullanım Data Lake Store ile Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
+    > Azure Data Lake Store’u Azure Databricks üzerine bir Spark kümesi ile de kullanabilirsiniz. Yönergeler için bkz. [Data Lake Store’u Azure Databricks ile Kullanma](https://go.microsoft.com/fwlink/?linkid=864084).
 
-4. Örnek JSON veri dosyasından veri kullanarak geçici bir tablo oluşturmak için bir SQL deyimini çalıştırın **small_radio_json.json**. Aşağıdaki kod parçacığında, yer tutucu değerlerini kapsayıcı adı ve depolama hesabı adı ile değiştirin. Not Defteri kod hücresinde parçacığını yapıştırın ve sonra SHIFT + ENTER tuşuna basın. Parçacığında bulunan `path` , Azure Storage hesabınıza yüklediğiniz örnek JSON dosyasının konumunu gösterir.
+4. **small_radio_json.json** adlı örnek JSON veri dosyasındaki verileri kullanarak geçici tablo oluşturmak için bir SQL deyimi çalıştırın. Aşağıdaki kod parçacığında yer tutucu değerlerini kapsayıcınızın adı ve depolama hesabı adı ile değiştirin. Kod parçacığını not defterindeki bir kod hücresine yapıştırın ve sonra SHIFT + ENTER tuşlarına basın. Kod parçacığında `path` değeri, Azure Depolama hesabınıza yüklediğiniz örnek JSON dosyasının konumunu gösterir.
 
     ```sql
     %sql 
@@ -110,53 +111,53 @@ Databricks içinde bir not defteri oluşturun, dizüstü bilgisayarın bir Azure
     )
     ```
 
-    Komut başarıyla tamamlandığında, tablo Databricks küme olarak JSON dosyasından tüm verilere sahip.
+    Komut başarıyla tamamlandıktan sonra, JSON dosyasındaki tüm verileri Databricks kümesinde tablo olarak görüntüleyebilirsiniz.
 
-    `%sql` Dil Sihirli komut etkinleştirir, dizüstü bilgisayarınızı, bir SQL kodu çalıştırmak için Not Defteri başka türde olsa bile. Daha fazla bilgi için bkz: [bir not defteri dillerde karıştırma](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
+    `%sql` dili sihirli komutu, not defteri başka bir türde olsa bile not defterinden bir SQL kodu çalıştırmanızı sağlar. Daha fazla bilgi için bkz. [Bir not defterinde dilleri karıştırma](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-5. Verilerin bir anlık görüntüsünü çalıştıracağımız sorguyu daha iyi anlamak için örnek JSON bakalım. Kod hücresini ve tuşuna aşağıdaki kod parçacığını yapıştırın **SHIFT + ENTER**.
+5. Çalıştırdığımız sorguyu daha iyi anlamak için örnek JSON verilerinin bir anlık görüntüsüne bakalım. Kod hücresine aşağıdaki kod parçacığını yapıştırın ve **SHIFT + ENTER** tuşuna basın.
 
     ```sql
     %sql 
     SELECT * from radio_sample_data
     ```
 
-6. (Yalnızca bazı sütunları gösterilir) aşağıdaki ekran görüntüsünde gösterildiği gibi tablolu bir çıktı bakın:
+6. Aşağıdaki ekran görüntüsünde gösterildiği gibi bir tablo çıktısı görürsünüz (yalnızca bazı sütunlar gösterilmiştir):
 
-    ![Örnek JSON veri](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "örnek JSON verileri")
+    ![Örnek JSON verileri](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample JSON data")
 
-    Diğer Ayrıntılar arasında radyo kanal İzleyici cinsiyetiniz örnek verileri yakalar (sütun adı, **cinsiyetiniz**) ve aboneliğini ücretsiz veya Ücretli mi (sütun adı, **düzeyi**).
+    Diğer ayrıntılara ek olarak, örnek veriler bir radyo kanalının dinleyicilerinin cinsiyetini (sütun adı: **cinsiyet**) ve aboneliğin ücretsiz veya ücretli olduğunu (sütun adı: **düzey**) kaydeder.
 
-7. Şimdi bu verileri her cinsiyetiniz için Göster, boş hesapları kaç kullanıcınız ve aboneleri kaç ödenen görsel gösterimi yarat Tablo çıktısı aşağıdan tıklatın **çubuk grafik** simgesine ve ardından **Çizim Seçenekleri**.
+7. Bu durumda, bu verilerin her bir cinsiyet, ücretsiz hesaba sahip kullanıcı sayısı ve ücretli hesabı olan abone sayısı için gösterilecek görsel bir açıklamasını oluşturursunuz. Tablo çıktısının alt kısmında bulunan **Çubuk grafik** simgesine ve sonra **Çizim Seçenekleri**’ne tıklayın.
 
-    ![Çubuk grafik oluşturma](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "çubuk grafik oluşturma")
+    ![Çubuk grafik oluşturma](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Create bar chart")
 
-8. İçinde **özelleştirme çizim**, sürükle ve bırak değerleri ekran görüntüsünde gösterildiği gibi.
+8. **Çizimi Özelleştir** menüsünde, değerleri ekran görüntüsünde gösterilen şekilde sürükleyip bırakın.
 
-    ![Çubuk grafiği özelleştirme](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "çubuk grafiği özelleştirme")
+    ![Çubuk grafiği özelleştirme](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
 
-    * Ayarlama **anahtarları** için **cinsiyetiniz**.
-    * Ayarlama **seri gruplandırmaları** için **düzeyi**.
-    * Ayarlama **değerleri** için **düzeyi**.
-    * Ayarlama **toplama** için **sayısı**.
+    * **Anahtarlar**’ı **cinsiyet** olarak ayarlayın.
+    * **Seri gruplandırmalar**’ı **düzey** olarak ayarlayın.
+    * **Değerler**’ı **düzey** olarak ayarlayın.
+    * **Toplama**’yı **SAYI** olarak ayarlayın.
 
     **Uygula**'ya tıklayın.
 
-9. Çıktı aşağıdaki ekran görüntüsünde gösterildiği gibi görsel gösterimi gösterir:
+9. Çıktı aşağıdaki ekran görüntüsünde gösterildiği gibi görsel açıklamayı gösterir:
 
-     ![Çubuk grafiği özelleştirme](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "çubuk grafiği özelleştirme")
+     ![Çubuk grafiği özelleştirme](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Customize bar chart")
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Onay kutusunu seçtiyseniz, Spark kümesi oluşturma sırasında **Sonlandır etkinliği ___ dakika sonra**, belirtilen süre boyunca etkin olması durumunda kümeye otomatik olarak sona erdirir.
+Spark kümesini oluştururken **___ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiyseniz, küme belirtilen süre boyunca etkin olmazsa otomatik olarak sona erer.
 
-Onay kutusunu seçmediyseniz, küme el ile sonlanır gerekir. Bunu, sol bölmeden Azure Databricks çalışma alanından yapmak için tıklatın **kümeleri**. Altında üç nokta üzerinden sonlandırmak istediğinizden küme için imleci taşıma **Eylemler** sütun ve tıklatın **Sonlandır** simgesi.
+Onay kutusunu seçmediyseniz kümeyi el ile sonlandırmanız gerekir. Bunu yapmak için Azure Databricks çalışma alanında sol bölmedeki **Kümeler**’e tıklayın. Sonlandırmak istediğiniz küme için imleci **Eylemler** sütunu altındaki üç noktanın üzerine taşıyın ve **Sonlandır** simgesine tıklayın.
 
-![Sonlandırma Databricks küme](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "sonlandırmak Databricks küme")
+![Databricks kümesini sonlandırma](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Terminate Databricks cluster")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure Databricks bir Spark kümesi oluşturulur ve verileri Azure depolama alanında kullanarak Spark işi çalıştı. Ayrıca bakabilir [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) Azure Databricks diğer veri kaynaklarından veri içeri aktarma öğrenin. Azure Data Lake Store ile Azure Databricks kullanmayı öğrenmek için sonraki makalede ilerleyin.
+Bu makalede, Azure Databricks’te bir Spark kümesi oluşturdunuz ve Azure depolama alanındaki verileri kullanarak bir Spark işi çalıştırdınız. Diğer veri kaynaklarından Azure Databricks’e verileri aktarma hakkında bilgi almak için [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) bölümüne de bakabilirsiniz. Azure Data Lake Store’u Azure Databricks ile kullanma hakkında bilgi için sonraki makaleye geçin.
 
 > [!div class="nextstepaction"]
->[Kullanım Data Lake Store ile Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)
+>[Data Lake Store’u Azure Databricks ile Kullanma](https://go.microsoft.com/fwlink/?linkid=864084)

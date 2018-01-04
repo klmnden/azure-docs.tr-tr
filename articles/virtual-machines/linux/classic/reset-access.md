@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Bir Linux VM parola veya SSH anahtarı sıfırlama, SSH yapılandırmasını düzeltmek ve VMAccess uzantısını kullanarak disk tutarlılık denetimi hakkında
 Unutulmuş parola nedeniyle, yanlış bir güvenli Kabuk (SSH) anahtarını Azure Linux sanal makineye bağlanılamıyor veya SSH yapılandırması ile ilgili bir sorun VMAccessForLinux uzantısını Azure CLI ile parola veya SSH anahtarını sıfırlamak için kullanıyorsanız, SSH Düzelt Yapılandırma ve onay disk tutarlılık. 
@@ -44,7 +44,7 @@ Azure CLI ile bunu aşağıdaki görevleri gerçekleştirebilirsiniz:
 ## <a name="prerequisites"></a>Ön koşullar
 Aşağıdakileri yapmanız gerekir:
 
-* Etmeniz [Azure CLI yükleme](../../../cli-install-nodejs.md) ve [aboneliğinize bağlanma](../../../xplat-cli-connect.md) hesabınızla ilişkili Azure kaynaklarını kullanmak için.
+* Etmeniz [Azure CLI yükleme](../../../cli-install-nodejs.md) ve [aboneliğinize bağlanma](/cli/azure/authenticate-azure-cli) hesabınızla ilişkili Azure kaynaklarını kullanmak için.
 * Komut isteminde aşağıdakini yazarak Klasik dağıtım modeli için doğru moda ayarlayın:
     ``` 
         azure config mode asm

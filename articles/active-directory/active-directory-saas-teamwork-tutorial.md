@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ile Teamwork.com arası
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Öğretici: Azure Active Directory Tümleştirme Teamwork.com ile
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Öğretici: Azure Active Directory Tümleştirme ile [Teamwork.com](https://www.teamwork.com/projects)
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Teamwork.com tümleştirmek öğrenin.
 
@@ -37,7 +37,7 @@ Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek
 Azure AD tümleştirme Teamwork.com ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir Teamwork.com çoklu oturum açma abonelik etkin
+- A [Teamwork.com](https://www.teamwork.com/projects) abonelik Pro planı veya üzeri
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.

@@ -1,37 +1,42 @@
 ---
-title: "Azure portalında etkinlik raporları bulmak | Microsoft Docs"
-description: "Azure portalında Azure Active Directory etkinlik raporları bulmayı öğrenin."
+title: "Azure portalında Azure Active Directory kullanıcı etkinlik raporları bulmak | Microsoft Docs"
+description: "Azure portalında Azure Active Directory kullanıcı etkinlik raporları nerede olduğunu öğrenin."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
+<<<<<<< HEAD
 ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
 ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure portalında etkinlik raporları Bul
 
-Azure portalında Klasik Azure portalından taşıyorsanız, Azure Active Directory (Azure AD) etkinlik günlükleri yeni göz alın. En son içinde [blog gönderisi](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), etkinlik günlükleri üzerinde çalıştığınız Azure portalında kaynak bağlamında nasıl görebilirim açıklanmaktadır. Bu makalede, Azure portalında Klasik Azure Portalı'nda kullandığınız raporları bulmak nasıl açıklanmaktadır.
+Bu makalede, Azure portalında Azure Active Directory kullanıcı etkinlik raporları bulmak nasıl açıklanmaktadır.
 
 ## <a name="whats-new"></a>Yenilikler
 
-Azure Klasik portalında raporları kategoriye ayrılır:
-
-1.  Güvenlik raporları
-2.  Etkinlik raporları
-3.  Tümleşik uygulama raporları
+Azure Klasik portalında raporları kategorilere ayrılmış:
+* Güvenlik raporları
+* Etkinlik raporları
+* Tümleşik uygulama raporları
 
 ### <a name="activity-and-integrated-app-reports"></a>Etkinlik ve tümleşik uygulama raporları
 
@@ -43,14 +48,14 @@ Bu görünüm görmek için **Azure Active Directory** dikey altında **etkinlik
 
 Aşağıdaki raporlar bu görünümde birleştirilir:
 
--   Denetim raporu
--   Parola sıfırlama etkinliği
--   Parola sıfırlama kaydı etkinliği
--   Self Servis Grup etkinliği
--   Office365 grup adı değişikliği
--   Hesap etkinlik sağlama
--   Parola rollover durumu
--   Hesap hazırlama hataları
+* Denetim raporu
+* Parola sıfırlama etkinliği
+* Parola sıfırlama kaydı etkinliği
+* Self Servis Grup etkinliği
+* Office365 grup adı değişikliği
+* Hesap etkinlik sağlama
+* Parola rollover durumu
+* Hesap hazırlama hataları
 
 
 Uygulama kullanım raporu geliştirilmiştir ve dahil **oturum açma işlemleri** görünümü. Bu görünüm görmek için **Azure Active Directory** dikey altında **etkinlik**seçin **oturum açma işlemleri**.
@@ -98,7 +103,7 @@ Aşağıdaki tablo listeleri Azure AD anormal bir etkinliğin güvenlik raporlar
 | :--- | :--- |
 | Sızan kimlik bilgilerine sahip kullanıcılar | Sızan kimlik bilgileri |
 | Düzensiz oturum açma etkinliği | Alışılmadık konumlara imkansız seyahat |
-| Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri | Virüs bulaşmış cihazlardan oturum açma işlemleri|
+| Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri | Bulaşma olan cihazlardan oturum açma işlemleri|
 | Bilinmeyen kaynaklardan gerçekleştirilen oturum açma işlemleri | Anonim IP adreslerinden oturum açma işlemleri |
 | Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri | Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri |
 | - | Alışılmadık konumlardan oturum açma işlemleri |

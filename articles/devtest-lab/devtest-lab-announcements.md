@@ -3,7 +3,7 @@ title: "Azure DevTest Labs'de Laboratuvar için bir announcment gönderme | Micr
 description: "Duyuru Azure DevTest Labs laboratuvarda eklemeyi öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 67a09946-4584-425e-a94c-abe57c9cbb82
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: tarcher
-ms.openlocfilehash: db92caa497b3db6b3e05e59e169111cedc3c71c6
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: v-craic
+ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de Laboratuvar için bir duyuru sonrası
 

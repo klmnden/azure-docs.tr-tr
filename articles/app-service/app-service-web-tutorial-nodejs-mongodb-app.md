@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Azure'da Node.js ve MongoDB bir web uygulaması oluşturma
+
+> [!NOTE]
+> Bu makalede Windows App Service'e bir uygulama dağıtır. Üzerinde App Service'e dağıtmak için _Linux_, bkz: [Linux'ta Azure App Service'te bir Node.js ve MongoDB web uygulaması derleme](./containers/tutorial-nodejs-mongodb-app.md).
+>
 
 Azure Web Apps düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web barındırma hizmeti sağlar. Bu öğretici, Azure'da Node.js web uygulaması oluşturun ve bir MongoDB veritabanına bağlanmak gösterilmiştir. İşiniz bittiğinde, ortalama uygulama (MongoDB, Express, AngularJS ve Node.js) çalışan bir gerekir, [Azure App Service](app-service-web-overview.md). Kolaylık olması için örnek uygulama kullanır [MEAN.js web çerçevesi](http://meanjs.org/).
 
@@ -43,6 +47,7 @@ Bu öğreticiyi tamamlamak için:
 
 1. [Git'i yükleyin](https://git-scm.com/)
 1. [Node.js ve NPM'yi yükleyin](https://nodejs.org/)
+1. [Bower yükleme](https://bower.io/) (gerektirdiği [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Gulp.js yükleme](http://gulpjs.com/) (gerektirdiği [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Yükleyip çalıştırabilirsiniz MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
@@ -126,7 +131,7 @@ MongoDB için Bu öğretici kullanır [Azure Cosmos DB](/azure/documentdb/). Cos
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB hesabı oluşturma
 
-Cosmos DB hesabıyla bulut Kabuğu'nda oluşturma [az cosmosdb oluşturma](/cli/azure/cosmosdb#create) komutu.
+Cosmos DB hesabıyla bulut Kabuğu'nda oluşturma [az cosmosdb oluşturma](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) komutu.
 
 Aşağıdaki komutta için benzersiz bir Cosmos DB ad yerine  *\<cosmosdb_name >* yer tutucu. Bu ad Cosmos DB endpoint parçası olarak kullanılır `https://<cosmosdb_name>.documents.azure.com/`, adının Azure içindeki tüm Cosmos DB hesaplar arasında benzersiz olması gerekir. Ad yalnızca küçük harf, sayı ve tire (-) karakterini içermelidir ve 3 ila 50 karakter uzunluğunda olmalıdır.
 
@@ -160,7 +165,7 @@ Bu adımda, MongoDB bağlantı dizesi kullanarak oluşturduğunuz Cosmos DB veri
 
 ### <a name="retrieve-the-database-key"></a>Veritabanı anahtarı alma
 
-Cosmos DB veritabanına bağlanmak için veritabanı anahtarı gerekir. Bulut Kabuğu'nda kullanmak [az cosmosdb listesi anahtarlar](/cli/azure/cosmosdb#list-keys) birincil anahtarı almak için komutu.
+Cosmos DB veritabanına bağlanmak için veritabanı anahtarı gerekir. Bulut Kabuğu'nda kullanmak [az cosmosdb listesi anahtarlar](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) birincil anahtarı almak için komutu.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -256,7 +261,7 @@ Bu adımda, MongoDB bağlı Node.js uygulamanızı Azure App Service'e dağıtı
 
 Varsayılan olarak, MEAN.js proje tutar _config/env/local-production.js_ Git deposu dışında. Azure web uygulamanız için uygulama ayarları MongoDB bağlantı dizenizi tanımlamak için kullanın.
 
-Uygulama ayarlarını belirlemek için kullanın [az webapp config appsettings güncelleştirme](/cli/azure/webapp/config/appsettings#update) bulut Kabuğu'nda komutu. 
+Uygulama ayarlarını belirlemek için kullanın [az webapp config appsettings kümesi](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) bulut Kabuğu'nda komutu. 
 
 Aşağıdaki örnek yapılandırır bir `MONGODB_URI` , Azure web uygulaması uygulama ayarı. Değiştir  *\<app_name >*,  *\<cosmosdb_name >*, ve  *\<primary_master_key >* yer tutucuları.
 
@@ -460,7 +465,7 @@ Tüm makaleleri daha önce eklediyseniz, bunları yine görebilirsiniz. Cosmos v
 
 Node.js uygulamanızı Azure App Service'te çalışırken, terminal yöneltilen konsol günlükleri alabilirsiniz. Böylece, uygulama hatalarını hata ayıklama yardımcı olmak için aynı tanılama iletileri alabilirsiniz.
 
-Günlük akış başlatmak için kullanmak [az webapp günlük tail](/cli/azure/webapp/log#tail) bulut Kabuğu'nda komutu.
+Günlük akış başlatmak için kullanmak [az webapp günlük tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) bulut Kabuğu'nda komutu.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

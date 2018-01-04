@@ -4,7 +4,7 @@ description: "Bu yapılacaklar sonraki MFA ile açıklayan Azure multi-Factor au
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: joflore
-ms.openlocfilehash: 31b32079de19c6c9822c388f60269b07a8c70198
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a6064e33dca09a304074efa4029c0f96fc19b2a2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure çok faktörlü kimlik doğrulama ayarlarını yapılandırın
 Bu makalede Azure çok faktörlü kimlik doğrulaması ve çalışıyor olduğundan göre yönetmenize yardımcı olur.  En Azure multi-Factor Authentication dışında elde size yardımcı çeşitli konuları kapsar.  Tüm bu özellikler Azure çok faktörlü kimlik doğrulaması her sürümünde kullanılabilir.

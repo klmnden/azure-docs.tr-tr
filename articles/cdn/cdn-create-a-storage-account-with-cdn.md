@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Azure storage hesabı Azure CDN ile tümleştirme
 CDN önbellek içeriği Azure depolama hesabınızdan etkinleştirilebilir. Geliştiriciler BLOB'ları ve işlem örnekleri ABD, Avrupa, Asya, Avustralya ve Güney Amerika fiziksel düğümlerde, statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi için genel bir çözüm sunar.
@@ -35,12 +35,12 @@ Bir depolama hesabı oluşturmak için Hizmet Yöneticisi veya ilişkili aboneli
 
 **Bir Azure aboneliği için bir depolama hesabı oluşturmak için**
 
-1. [Azure Portal](https://portal.azure.com)'da oturum açın.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. Sol üst köşedeki seçin **yeni**. İçinde **yeni** iletişim kutusunda **veri + depolama**, ardından **depolama hesabı**.
     
     **Depolama hesabı oluşturma** dikey penceresi görünür.   
 
-    ![Depolama hesabı oluşturma][create-new-storage-account]  
+    ![Depolama Hesabı Oluştur][create-new-storage-account]  
 
 3. İçinde **adı** alanında, bir alt etki alanı adı yazın. Bu giriş, 3-24 küçük harfler ve sayılar içerebilir.
    
@@ -55,7 +55,7 @@ Bir depolama hesabı oluşturmak için Hizmet Yöneticisi veya ilişkili aboneli
 5. Seçin **abonelik** depolama hesabı ile kullanılacak.
 6. Bir **Kaynak Grubu** seçin veya oluşturun.  Kaynak Grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Depolama hesabınız için bir konum seçin.
-8. **Oluştur**'a tıklayın. Depolama hesabı oluşturma işleminin tamamlanması birkaç dakika sürebilir.
+8. **Oluştur**’a tıklayın. Depolama hesabı oluşturma işleminin tamamlanması birkaç dakika sürebilir.
 
 ## <a name="step-2-enable-cdn-for-the-storage-account"></a>2. adım: Depolama hesabı için CDN etkinleştirme
 
@@ -82,7 +82,7 @@ En yeni tümleştirmesi ile artık CDN depolama hesabınız için depolama porta
     ![CDN depolama yeni uç noktası][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> CDN etkinleştirmek için Azure CDN uzantısı de gidebilirsiniz. [Öğreticisi](#Tutorial-cdn-create-profile).
+> CDN etkinleştirmek için Azure CDN uzantısı de gidebilirsiniz. [Öğretici](#Tutorial-cdn-create-profile).
 > 
 > 
 

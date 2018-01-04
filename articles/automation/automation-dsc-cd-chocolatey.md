@@ -3,7 +3,7 @@ title: "Azure Otomasyonu DSC sürekli dağıtımı Chocolatey ile | Microsoft Do
 description: "Azure Otomasyonu DSC ve Chocolatey Paket Yöneticisi'ni kullanarak sürekli dağıtım DevOps.  Örnek tam JSON ARM şablonu ve PowerShell kaynağı."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Kullanım örneği: Automation DSC ve Chocolatey kullanarak sanal makineleri için sürekli dağıtım
 Bir DevOps dünyanın çeşitli noktalarıyla sürekli tümleştirme ardışık düzeninde yardımcı olmak üzere birçok araç vardır.  Azure Otomasyonu istenen durum yapılandırması (DSC) bir DevOps takımlar uygulayabileceğiniz seçeneklerine Hoş Geldiniz yeni ektir.  Bu makalede, bir Windows bilgisayar için yukarı sürekli dağıtımı (CD) ayarı gösterilmektedir.  (Bir web sitesi, örneğin gibi) rolü ve ek roller için buradan gerektiği kadar Windows bilgisayarlar dahil olmak üzere teknik kolayca genişletebilirsiniz.

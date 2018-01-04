@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>Örnek dönüştürme tarafından sütun türetilen
 
@@ -148,7 +148,7 @@ Bu durumda gerekli örnek sayısı: 1
 |Anne Başak|W|CAN|Anne Marie· W· CAN|
 |Riko||Ropp|Rico·· Ropp|
 |Lauren olabilir||Fullmer|Lauren May·· Fullmer|
-|Marc|T|Maine|Marc· T· Maine|
+|Marc|S|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie·· Adelman|
 |John Paul||Smith|John Paul·· Smith|
 |Şarkı|W|Staller|Song· W· Staller|
@@ -159,7 +159,7 @@ Bu durumda gerekli örnek sayısı: 1
 
 Bu durumda gerekli örnek sayısı: 2
 
-|Tam ad|Çıktı|
+|Tam Ad|Çıktı|
 |:-----|:-----|
 |Laquanda Lohmann|**L.L.**|
 |Claudio Chew|C.C.|
@@ -186,11 +186,11 @@ Bu durumda gerekli örnek sayısı: 3
 |:-----|:-----:|
 |Erkek|**0**|
 |Kadın|**1**|
-|Bilinmeyen|**2**|
+|Bilinmiyor|**2**|
 |Kadın|1|
 |Kadın|1|
 |Erkek|0|
-|Bilinmeyen|2|
+|Bilinmiyor|2|
 |Erkek|0|
 |Kadın|1|
 
@@ -286,34 +286,34 @@ Bu durumda gerekli örnek sayısı: 1
 
 Bu tarih kısımlarını aynı veri kümesi üzerinde farklı örnek tarafından dönüştürmeleri kullanma ayıklanan. Kalın dizeleri kendi ilgili dönüşümünde verildi örnekler temsil eder.
 
-|Tarih saat|Haftanın günü|Tarih|Ay|Yıl|Saat|Dakika|İkinci|
+|Tarih Saat|Haftanın günü|Tarih|Ay|Yıl|Saat|Dakika|İkinci|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31 Oca 2031 05:54:18|**Cuma**|**31**|**Oca**|**2031**|**5**|**54**|**18**|
-|17 Oca 1990 13:32:01|Wed|17|Oca|1990|13|32|01|
+|17 Oca 1990 13:32:01|Çar|17|Oca|1990|13|32|01|
 |14 Şub 2034 05:36:07|Sal|14|Şub|2034|5|36|07|
-|14 Mar 2002 13:16:16|Perşembe|14|Mart|2002|13|16|16|
-|21 Oca 1985 05:44:43|MON|21|Oca|1985|5|44|**43**|
-|16 Ağu 1985 01:11:56|Cuma|16|Ağu|1985|1|11|56|
+|14 Mar 2002 13:16:16|Per|14|Mar|2002|13|16|16|
+|21 Oca 1985 05:44:43|Pzt|21|Oca|1985|5|44|**43**|
+|16 Ağu 1985 01:11:56|Cum|16|Ağu|1985|1|11|56|
 |20 Ara 2033 18:36:29|Sal|20|Ara|2033|18|36|29|
-|16 Tem 1984 10:21:59|MON|16|Tem|1984|10|21|59|
-|13 Ocak 2038 10:59:36|Wed|13|Oca|2038|10|59|36|
-|14 Ağu 1982 15:13:54|Sat|14|Ağu|1982|15|13|54|
-|22 Kas 2030 08:18:08|Cuma|22|Kas|2030|8|18|08|
+|16 Tem 1984 10:21:59|Pzt|16|Tem|1984|10|21|59|
+|13 Ocak 2038 10:59:36|Çar|13|Oca|2038|10|59|36|
+|14 Ağu 1982 15:13:54|Cmt|14|Ağu|1982|15|13|54|
+|22 Kas 2030 08:18:08|Cum|22|Kas|2030|8|18|08|
 |21-1997 08:42:58|Sal|21|Eki|1997|8|42|58|
 |28 Kasım 2006 14:19:15|Sal|28|Kas|2006|14|19|15|
-|29 Apr 2031 04:59:45|Sal|29|Apr|2031|4|59|45|
-|29 Oca 2032 02:38:36|Perşembe|29|Oca|2032|2|38|36|
-|11 May 2028 15:31:52|Perşembe|11|Olabilir|2028|15|31|52|
-|15 Tem 1977 12:45:39|Cuma|15|Tem|1977|12|45|39|
-|27 Oca 2029 05:55:41|Sat|27|Oca|2029|5|55|41|
-|03 Mar 2024 10:17:49|Sun|3|Mart|2024|10|17|49|
-|14 Apr 2010 00:23:13|Wed|14|Apr|2010|0|23|13|
+|29 Apr 2031 04:59:45|Sal|29|Nis|2031|4|59|45|
+|29 Oca 2032 02:38:36|Per|29|Oca|2032|2|38|36|
+|11 May 2028 15:31:52|Per|11|May|2028|15|31|52|
+|15 Tem 1977 12:45:39|Cum|15|Tem|1977|12|45|39|
+|27 Oca 2029 05:55:41|Cmt|27|Oca|2029|5|55|41|
+|03 Mar 2024 10:17:49|Paz|3|Mar|2024|10|17|49|
+|14 Apr 2010 00:23:13|Çar|14|Nis|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Tarihleri biçimlendirme
 
 Bu tarih formattings yapıldığını aynı veri kümesi üzerinde farklı örnek tarafından dönüştürmeleri kullanma. Kalın dizeleri kendi ilgili dönüşümünde verildi örnekler temsil eder.
 
-|Tarih saat|Format1|Format2|Format3|Format4|Format5|
+|Tarih Saat|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31 Oca 2031 05:54:18|**1/31/2031**|**31 Ocak 2031, Cuma**|**01312031 5:54**|**31/1/2031 5:54 AM**|**S1 2031**|
 |17 Oca 1990 13:32:01|1/17/1990|17 Ocak 1990, Çarşamba|01171990 13:32|17/1/1990 1:32 PM|S1 1990|
@@ -341,7 +341,7 @@ Bu tarih formattings yapıldığını aynı veri kümesi üzerinde farklı örne
 
 Bu tarih saat dönem eşlemeleri yapıldığını aynı veri kümesi üzerinde farklı örnek tarafından dönüştürmeleri kullanma. Kalın dizeleri kendi ilgili dönüşümünde verildi örnekler temsil eder.
 
-|Tarih saat|Period(seconds)|Period(minutes)|Süre (iki saat)|Süre (30 dakika)|
+|Tarih Saat|Period(seconds)|Period(minutes)|Süre (iki saat)|Süre (30 dakika)|
 |-----:|-----:|-----:|-----:|-----:|
 |31 Oca 2031 05:54:18|**0-20**|**45-60**|**5 AM - 7 AM**|**5:30-6:00**|
 |17 Oca 1990 13:32:01|**0-20**|30-45|3 1 PM -PM|13:30-14:00|

@@ -1,4 +1,4 @@
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun.
+[az group create](/cli/azure/group?view=azure-cli-latest#az_group_create) komutuyla bir kaynak grubu oluşturun.
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

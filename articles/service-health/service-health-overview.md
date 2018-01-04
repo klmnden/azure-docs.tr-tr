@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-health"></a>Azure Hizmet Durumu
 Azure Hizmetleri sorunlarını hizmetlerinizi etkisi yüklediğinizde azure hizmet durumu zamanında ve kişiselleştirilmiş bilgileri sağlar.  Ayrıca, gelecek planlı bakım için hazırlanmanıza yardımcı olur.
@@ -57,5 +57,4 @@ Hizmet durumu, iş açısından kritik abonelikler, bölgeler ve kaynak türleri
 ## <a name="configure-service-health-alerts"></a>Hizmet durumu uyarıları yapılandırma
 Azure hizmet durumu izleme, iş açısından kritik kaynaklarınızı etkilenen olduğunda e-posta, metin iletileri ve Web kancası bildirimleri sizi uyarmak için Azure tümleştirir. Uygun hizmet durumu olay için bir etkinlik günlüğü uyarı ayarlayın. Bu uyarı Eylem grupları kullanarak kuruluşunuzdaki uygun kişilerin yönlendirmek. Daha fazla bilgi için bkz: [hizmet sistem durumu için uyarıları Yapılandır](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
 
-# <a name="next-steps"></a>Sonraki Adımlar
-Sistem durumu sorunları, bildirim almak için uyarıları ayarlayın. Daha fazla bilgi için bkz: [hizmet durumu uyarıları yapılandırmak](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+ 

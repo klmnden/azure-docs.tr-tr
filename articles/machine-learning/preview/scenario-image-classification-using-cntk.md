@@ -5,15 +5,17 @@ services: machine-learning
 documentationcenter: 
 author: PatrickBue
 ms.author: pabuehle
-ms.reviewer: mawah, marhamil, mldocs
+manager: mwinkle
+ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 
@@ -51,7 +53,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 3. Windows makine. Windows işletim sistemi, çalışma ekranı yalnızca Windows ve Microsoft Bilişsel Araç Seti sırasında MacOS desteklediğinden gereklidir (derin öğrenme kitaplık olarak kullanırız) yalnızca destekleyen Windows ve Linux.
 4. 2 bölümünde açıklanan DNN iyileştirme için gerekli ancak adanmış bir GPU SVM eğitim bölümü 1, yürütmek için gerekli değildir. Güçlü bir GPU olmadığı, üzerinde birden çok GPU eğitmek istediğiniz ya da bir Windows makinesine sahip değil, daha sonra Azure'nın derin öğrenme sanal makine Windows işletim sistemiyle birlikte kullanmayı düşünün. Bkz: [burada](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) 1-tıklatma dağıtım kılavuzu. Dağıtıldığında, bir Uzak Masaüstü bağlantısı üzerinden VM bağlanmak, çalışma ekranı var. yüklemek ve kod sanal makineden yerel olarak çalıştırmak.
 5. OpenCV gibi çeşitli Python kitaplıkları yüklü olması gerekir. Tıklatın *komut istemini açın* gelen *dosya* menüde çalışma ekranı ve bu bağımlılıklar yüklemek için aşağıdaki komutları çalıştırın:  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`(tam dosya adı ve sürümü değiştirebilirsiniz) http://www.lfd.uci.edu/~gohlke/pythonlibs/ OpenCV Tekerlek indirdikten sonra
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +63,11 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 ### <a name="troubleshooting--known-bugs"></a>Sorun giderme / bilinen hatalar
 - Bir GPU 2. bölüm için gereklidir ve aksi takdirde hata "toplu normalleştirme eğitim CPU üzerinde uygulanmadı" DNN iyileştirmek çalışırken atılır.
 - Bellek hataları DNN eğitim sırasında minibatch boyutunu azaltarak kaçınılabilir (değişken `cntk_mb_size` içinde `PARAMETERS.py`).
-- Kod CNTK 2.0 ve 2.1 kullanılarak test edilmiştir ve gereken tüm olmadan daha yeni sürümlerinde de çalıştırma (veya yalnızca küçük) değişiklikleri.
+- Kod CNTK 2.2 kullanılarak test edilmiştir ve çalıştırılacak de eski (yukarı) v2.0 için ve daha yeni sürümleri kalmaksızın veya yalnızca küçük değiştirir.
 - Yazma zaman Azure Machine Learning çalışma ekranı not defterlerini 5 MB büyük gösteren sorunlarla karşılaştı. Not Defteri ile kaydedilirse, bu büyük boyuttaki not defterlerini oluşabilir tüm görüntülenen çıktı hücre. Bu hatayla karşılaşırsanız, ardından çalışma ekranı içinde Dosya menüsünden komut istemini açın, yürütmeyi `jupyter notebook`, Not Defteri, Temizle tüm çıktı açıp not defteri kaydedin. Bu adımları gerçekleştirdikten sonra dizüstü bilgisayar düzgün bir şekilde Azure Machine Learning çalışma ekranı içinde yeniden açılır.
+- Bu örnekte sağlanan tüm komut dosyaları yerel olarak yürütülmesi sahip ve örneğin docker uzak ortamda üzerinde değil. Tüm not defterlerini yerel proje çekirdeğe "PROJECTNAME yerel" adıyla (örn. "myImgClassUsingCNTK yerel") ayarlamak çekirdek yürütülmesi gerekir.
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
 
 Bu örnek bir şablon kullanarak yeni bir proje oluşturmak için:
@@ -72,7 +75,7 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturmak için:
 2.  Üzerinde **projeleri** sayfasında,  **+**  oturum ve seçin **yeni proje**.
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun.
 4.  İçinde **arama proje şablonları** arama kutusu, "sınıflandırma görüntü" yazın ve şablonu seçin.
-5.  **Oluştur**'a tıklayın.
+5.  **Oluştur**’a tıklayın.
 
 Bu adımları gerçekleştiren aşağıda gösterilen Proje yapısı oluşturur. Proje dizinine, Azure Machine Learning çalışma ekranı (çalıştırma geçmişini etkinleştirmek için) her çalıştırmayı sonra bu klasör bir kopyasını oluşturduğundan MBayt'ı 25'ten az olacak şekilde sınırlıdır. Bu nedenle, tüm görüntü ve geçici dosyalar için ve dizinden kaydedilmiş *~/Desktop/imgClassificationUsingCntk_data* (olarak adlandırılan *DATA_DIR* bu belgedeki).
 
@@ -91,7 +94,7 @@ Bu adımları gerçekleştiren aşağıda gösterilen Proje yapısı oluşturur.
 
 Bu öğretici, en fazla 428 görüntülerini oluşan bir üst gövde giysisinin doku dataset örnek çalışıyor olarak kullanır. Her görüntü üç farklı dokuları (noktalı, şeritli, leopard) biri olarak işaretiyle gösterilir. Biz, görüntü sayısı küçük tutulur, böylece Bu öğretici hızlı yürütülebilir. Bununla birlikte, kod iyi test edilmiş ve binlerce görüntü veya daha fazla ile çalışır. Tüm görüntüleri scraped Bing görüntü arama'yı kullanarak ve el-açıklama başlığında açıklandığı gibi [bölümü 3](#using-a-custom-dataset). İlgili öznitelikleriyle URL'lerle içinde listelenen görüntü */resources/fashionTextureUrls.tsv* dosya.
 
-Komut dosyası `0_downloadData.py` tüm görüntülere indirmeleri *görüntüleri/DATA_DIR/fashionTexture/* dizin. Büyük olasılıkla bozuk 428 URL'leri bazılarıdır. Bu bir sorun değildir ve yalnızca eğitim ve test için biraz daha az resimler sağlanıncaya anlamına gelir.
+Komut dosyası `0_downloadData.py` tüm görüntülere indirmeleri *görüntüleri/DATA_DIR/fashionTexture/* dizin. Büyük olasılıkla bozuk 428 URL'leri bazılarıdır. Bu bir sorun değildir ve yalnızca eğitim ve test için biraz daha az resimler sağlanıncaya anlamına gelir. Bu örnekte sağlanan tüm komut dosyaları yerel olarak yürütülmesi sahip ve örneğin docker uzak ortamda üzerinde değil.
 
 Aşağıdaki şekilde şeritli (Orta) ve (sağdaki) leopard (soldaki), noktalı öznitelikleri için örnekler gösterilmektedir. Ek açıklamalar üst gövde giysisinin öğesi göre yapıldığını.
 
@@ -114,7 +117,7 @@ Tüm önemli parametreleri belirtilir ve kısa bir açıklama sağlanan, tek bir
 ### <a name="step-1-data-preparation"></a>1. adım: Verileri hazırlama
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Not Defteri `showImages.ipynb` görüntüleri görselleştirmek için ve gerektiğinde, ek açıklama düzeltmek için kullanılabilir. Not Defteri çalıştırmak için Azure Machine Learning çalışma açın, bu seçenek gösteriliyorsa "Not Defteri sunucusuna Başlat"'i tıklatın ve sonra tüm hücreleri not defterinde yürütün. Not Defteri görüntülenecek büyük olduğunu şikayetçi bir hata alırsanız, bu belgedeki sorun giderme bölümüne bakın.
+Not Defteri `showImages.ipynb` görüntüleri görselleştirmek için ve gerektiğinde, ek açıklama düzeltmek için kullanılabilir. Not Defteri çalıştırmak için Azure Machine Learning çalışma ekranındaki, üzerinde "Başlat not defteri sunucuyu" Bu seçeneği gösteriliyorsa, değiştirmek adlı "PROJECTNAME yerel" (örneğin "myImgClassUsingCNTK yerel"), yerel proje çekirdeğe tıklayın açın ve sonra tüm hücreleri yürütün dizüstü bilgisayar. Not Defteri görüntülenecek büyük olduğunu şikayetçi bir hata alırsanız, bu belgedeki sorun giderme bölümüne bakın.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +181,7 @@ Doğruluk ek olarak, ilgili alanı altında-eğrisini ile (soldaki); ROC eğrisi
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Son olarak, Not Defteri `showResults.py` test resimler arasında gezinmek ve ilgili sınıflandırma puanlarını görselleştirmek için sağlanır:
+Son olarak, Not Defteri `showResults.py` test resimler arasında gezinmek ve ilgili sınıflandırma puanlarını görselleştirmek için sağlanmıştır. 1. Adım ' açıklandığı gibi bu örnekteki her bir dizüstü bilgisayarın yerel proje çekirdek "PROJECTNAME yerel" adıyla kullanması gerekir:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +193,7 @@ Son olarak, Not Defteri `showResults.py` test resimler arasında gezinmek ve ilg
 ### <a name="step-6-deployment"></a>6. adım: dağıtım
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Eğitilmiş sistem artık olabilir bir REST API yayımlandı. Dağıtım not defterinde açıklandığı `deploy.ipynb`ve işlevselliği Azure Machine Learning çalışma ekranının içinden dayanır. Ayrıca bkz. mükemmel dağıtım bölümünü [IRIS Öğreticisi](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+Eğitilmiş sistem artık bir REST API yayımlanabilir. Dağıtım not defterinde açıklandığı `deploy.ipynb`ve Azure Machine Learning çalışma ekranının içinden işlevselliği temel ("PROJECTNAME yerel" adıyla yerel proje çekirdek çekirdek ayarlamayı unutmayın). Ayrıca mükemmel dağıtımı bölümüne bakın [IRIS öğretici](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) daha fazla dağıtım için ilgili bilgiler.
 
 Uygulama dağıtıldıktan sonra web hizmeti komut dosyası kullanılarak çağrılabilir `6_callWebservice.py`. Web hizmeti IP adresi (yerel veya Bulut üzerinde) ilk komut dosyasında ayarlanan gerektiğini unutmayın. Not Defteri `deploy.ipynb` bu IP adresini bulmak açıklanmaktadır.
 

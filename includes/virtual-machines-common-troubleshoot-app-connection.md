@@ -115,7 +115,7 @@ Uygulama erişebiliyorsanız, Internet kenar Cihazınızı izin verdiğinden emi
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Adım 4 uygulama erişemiyorsanız kullanan IP doğrulama ayarlarını denetlemek için. 
 
-Daha fazla bilgi için bkz: [izlemeye genel bakış Azure ağ](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Daha fazla bilgi için bkz: [izlemeye genel bakış Azure ağ](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 [Uzak Masaüstü bağlantıları için Windows tabanlı Azure sanal makine sorunlarını giderme](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

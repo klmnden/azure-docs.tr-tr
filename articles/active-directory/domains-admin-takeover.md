@@ -4,7 +4,7 @@ description: "Bir yönetilmeyen dizininde (gölge Kiracı) Azure Active Director
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak bir yönetilmeyen dizin üzerinde gerçekleştirin
 Bu makalede, Azure Active Directory (Azure AD) yönetilmeyen bir dizinde bir DNS etki alanı adı öncelikli iki yolu açıklanmaktadır. Azure AD kullanan bir bulut hizmeti için bir Self Servis kullanıcı kaydolduğunda yönetilmeyen bir Azure eklenen AD directory tabanlı kendi e-posta etki alanı üzerinde. Self Servis ya da "viral" için bir hizmet hakkında daha fazla bilgi için bkz: [Azure Active Directory için Self Servis kaydolma nedir?]()

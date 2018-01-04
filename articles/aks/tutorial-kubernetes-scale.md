@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9eba0de054b06233f2de7fb375010b4b40c6937f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) uygulamayı Ölçeklendir
 
@@ -32,7 +32,7 @@ Sonraki öğreticilerde, Azure oy uygulama güncelleştirilir ve Kubernetes küm
 
 Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine karşıya bu görüntü ve oluşturulan Kubernetes küme paketlenmiştir. Uygulama sonra Kubernetes kümede çalıştırıldı.
 
-Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./tutorial-kubernetes-prepare-app.md).
+Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
 
 ## <a name="scale-aks-nodes"></a>Ölçek AKS düğümler
 
@@ -64,7 +64,7 @@ az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
 
 ## <a name="manually-scale-pods"></a>Pod'ları el ile ölçeklendirin
 
-Bu nedenle şimdiye kadar Azure oy ön uç ve Redis örnek silinmiş dağıtıldı, her tek bir çoğaltma ile. Doğrulamak için çalıştırın [kubectl almak](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.
+Bu nedenle şimdiye kadar Azure oy ön uç ve Redis örnek silinmiş dağıtıldı, her tek bir çoğaltma ile. Doğrulamak için çalıştırın [kubectl almak] [ kubectl-get] komutu.
 
 ```azurecli
 kubectl get pods
@@ -78,13 +78,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-El ile pod'ları içinde sayısını değiştirme `azure-vote-front` dağıtım kullanarak [kubectl ölçek](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) komutu. Bu örnek 5 sayısını artırır.
+El ile pod'ları içinde sayısını değiştirme `azure-vote-front` dağıtım kullanarak [kubectl ölçek] [ kubectl-scale] komutu. Bu örnek 5 sayısını artırır.
 
 ```azurecli
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Çalıştırma [kubectl pod'ları alma](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) Kubernetes pod'ları oluşturmakta olduğunu doğrulayın. Bir dakika veya bunu sonra ek pod'ları çalıştırıyorsanız:
+Çalıştırma [kubectl pod'ları alma] [ kubectl-get] Kubernetes pod'ları oluşturmakta olduğunu doğrulayın. Bir dakika veya bunu sonra ek pod'ları çalıştırıyorsanız:
 
 ```azurecli
 kubectl get pods
@@ -104,7 +104,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Otomatik ölçeklendirme pod'ları
 
-Kubernetes destekleyen [yatay pod otomatik ölçeklendirmeyi](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) ayarlamak için pod'ları CPU kullanımına bağlı olarak bir dağıtımda sayısı veya diğer ölçümleri seçin.
+Kubernetes destekleyen [yatay pod otomatik ölçeklendirmeyi] [ kubernetes-hpa] ayarlamak için pod'ları CPU kullanımına bağlı olarak bir dağıtımda sayısı veya diğer ölçümleri seçin.
 
 Autoscaler kullanmak için pod'ları CPU istekleri ve tanımlanan sınırları olması gerekir. İçinde `azure-vote-front` dağıtım, ön uç kapsayıcı 0,5 sınırına sahip istekleri 0,25 CPU CPU. Ayarları gibi görünür:
 
@@ -116,7 +116,7 @@ resources:
      cpu: 500m
 ```
 
-Aşağıdaki örnek kullanır [kubectl otomatik ölçeklendirme](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) pod'ları içinde sayısı için otomatik ölçeklendirme komutu `azure-vote-front` dağıtım. Burada, CPU kullanımı % 50 aşarsa, en fazla 10 için pod'ları autoscaler artırır.
+Aşağıdaki örnek kullanır [kubectl otomatik ölçeklendirme] [ kubectl-autoscale] pod'ları içinde sayısı için otomatik ölçeklendirme komutu `azure-vote-front` dağıtım. Burada, CPU kullanımı % 50 aşarsa, en fazla 10 için pod'ları autoscaler artırır.
 
 
 ```azurecli
@@ -150,4 +150,14 @@ Bu öğreticide, farklı ölçekleme özelliklerini Kubernetes kümenizdeki kull
 Kubernetes uygulamada güncelleştirmek hakkında bilgi edinmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Bir uygulamada Kubernetes güncelleştir](./tutorial-kubernetes-app-update.md)
+> [Bir uygulamada Kubernetes güncelleştir][aks-tutorial-update-app]
+
+<!-- LINKS - external -->
+[kubectl-autoscale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
+[kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md

@@ -5,7 +5,7 @@ keywords: "Azure AD’ye giriş, uygulamalar, Azure AD Connect nedir, active dir
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 25897cc4-7687-49b6-b0d5-71f51302b6b1
 ms.service: active-directory
@@ -17,11 +17,11 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory’de uygulamalar, izinler ve onay
 Azure Active Directory’de dizininize uygulamalar ekleyebilirsiniz.  Uygulamalar, uygulama türüne bağlı olarak değişir.  Klasik portalda uygulamaları görüntülemek için bir dizin seçin ve uygulamaları belirleyin.

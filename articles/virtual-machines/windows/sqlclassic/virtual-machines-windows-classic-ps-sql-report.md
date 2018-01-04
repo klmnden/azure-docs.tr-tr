@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Yerel Mod Rapor Sunucusu ile Azure VM Oluşturmak için PowerShell Kullanma
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ Bu konuda açıklar ve SQL Server Reporting Services yerel mod rapor sunucusunun
 ## <a name="prerequisites-and-assumptions"></a>Önkoşullar ve varsayımlar
 * **Azure aboneliği**: Azure aboneliğinizde kullanılabilir çekirdek sayısı doğrulayın. Önerilen VM boyutu oluşturursanız **A3**, gereksinim duyduğunuz **4** kullanılabilir çekirdekler. Bir VM boyutu kullanırsanız **A2**, gereksinim duyduğunuz **2** kullanılabilir çekirdekler.
   
-  * Azure Klasik portalında aboneliğinizin çekirdek sınırına doğrulamak için üst menüde sol bölmesinde sonra tıklatın kullanım ayarları tıklatın.
+  * Azure portalında aboneliğinizin çekirdek sınırına doğrulamak için üst menüde sol bölmesinde sonra tıklatın kullanım ayarları tıklatın.
   * Çekirdek Kotayı artırmak için ilgili kişi [Azure Destek](https://azure.microsoft.com/support/options/). VM boyutu bilgi için bkz: [Azure için sanal makine boyutlarını](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell komut dosyası**: konu Windows PowerShell temel bilgiye sahip olduğunuzu varsayar. Windows PowerShell'i kullanma hakkında daha fazla bilgi için aşağıdakilere bakın:
   
@@ -43,7 +43,7 @@ Bu konuda açıklar ve SQL Server Reporting Services yerel mod rapor sunucusunun
   * [Windows PowerShell ile çalışmaya başlama](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>1. adım: bir Azure sanal makine sağlama
-1. Klasik Azure portalına göz atın.
+1. Azure Portalı'na göz atın.
 2. Tıklatın **sanal makineleri** sol bölmede.
    
     ![Microsoft azure sanal makineler](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -117,7 +117,7 @@ VM hazırlandığında kendinden imzalı bir sertifika VM oluşturuldu. Sertifik
 
 1. Sertifikayı yerel VM sertifikadaki kök CA'ya güvenmek ekleyin **güvenilen kök sertifika yetkilileri**. Gerekli adımlar bir özeti verilmiştir. CA güven konusunda ayrıntılı adımlar için bkz: [sunucu sertifikasını yüklemeniz](https://technet.microsoft.com/library/cc740068).
    
-   1. Azure Klasik portalından VM seçin ve Bağlan'a tıklayın. Tarayıcı yapılandırmanıza bağlı olarak, VM'ye bağlanmak için bir .rdp dosyası kaydetmek için istenebilir.
+   1. Azure portalından VM seçin ve Bağlan'a tıklayın. Tarayıcı yapılandırmanıza bağlı olarak, VM'ye bağlanmak için bir .rdp dosyası kaydetmek için istenebilir.
       
        ![Azure sanal makineye bağlanma](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Kullanıcı VM adı, kullanıcı adı ve parola VM oluştururken yapılandırılmış kullanın. 
       
@@ -153,7 +153,7 @@ Daha ayrıntılı adımları için bkz [sanal makineye bağlanın ve Raporlama H
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>HTTP ve rapor sunucusu yapılandırmak için komut dosyası kullan
 Rapor sunucusu yapılandırmak için Windows PowerShell Betiği kullanmak için aşağıdaki adımları tamamlayın. Yapılandırma, HTTP, HTTPS değil içerir:
 
-1. Azure Klasik portalından VM seçin ve Bağlan'a tıklayın. Tarayıcı yapılandırmanıza bağlı olarak, VM'ye bağlanmak için bir .rdp dosyası kaydetmek için istenebilir.
+1. Azure portalından VM seçin ve Bağlan'a tıklayın. Tarayıcı yapılandırmanıza bağlı olarak, VM'ye bağlanmak için bir .rdp dosyası kaydetmek için istenebilir.
    
     ![Azure sanal makineye bağlanma](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Kullanıcı VM adı, kullanıcı adı ve parola VM oluştururken yapılandırılmış kullanın. 
    
@@ -287,7 +287,7 @@ Rapor sunucusu yapılandırmak için Windows PowerShell Betiği kullanmak için 
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>HTTPS ve rapor sunucusu yapılandırmak için komut dosyası kullan
 Rapor sunucusu yapılandırmak için Windows PowerShell kullanmak için aşağıdaki adımları tamamlayın. Yapılandırma, HTTPS değil HTTP içerir.
 
-1. Azure Klasik portalından VM seçin ve Bağlan'a tıklayın. Tarayıcı yapılandırmanıza bağlı olarak, VM'ye bağlanmak için bir .rdp dosyası kaydetmek için istenebilir.
+1. Azure portalından VM seçin ve Bağlan'a tıklayın. Tarayıcı yapılandırmanıza bağlı olarak, VM'ye bağlanmak için bir .rdp dosyası kaydetmek için istenebilir.
    
     ![Azure sanal makineye bağlanma](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Kullanıcı VM adı, kullanıcı adı ve parola VM oluştururken yapılandırılmış kullanın. 
    
@@ -495,10 +495,10 @@ Sonuç aşağıdakileri içerir:
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>Rapor sunucusu yapılandırmak için Yapılandırma Yöneticisi'ni kullanın
 Rapor sunucusu yapılandırmak için PowerShell betiğini çalıştırmak istemiyorsanız, rapor sunucusu yapılandırmak için Reporting Services yerel mod Yapılandırma Yöneticisi'ni kullanmak için bu bölümdeki adımları izleyin.
 
-1. Azure Klasik portalından VM seçin ve Bağlan'a tıklayın. Kullanıcı adı ve parola VM oluştururken yapılandırılmış kullanın.
+1. Azure portalından VM seçin ve Bağlan'a tıklayın. Kullanıcı adı ve parola VM oluştururken yapılandırılmış kullanın.
    
     ![Azure sanal makineye bağlanma](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Windows Update'i çalıştırın ve VM güncelleştirmeleri yükleyin. VM yeniden başlatma gerekiyorsa, VM'yi yeniden başlatın ve klasik Azure portalından VM yeniden.
+2. Windows Update'i çalıştırın ve VM güncelleştirmeleri yükleyin. VM yeniden başlatma gerekiyorsa, VM'yi yeniden başlatın ve Azure portalından VM yeniden.
 3. VM Başlat menüsünden yazın **Reporting Services** açarak **Reporting Services Configuration Manager**.
 4. Varsayılan değerleri bırakın **sunucu adı** ve **rapor sunucusu örneği**. **Bağlan**'a tıklayın.
 5. Sol bölmede **Web hizmeti URL'si**.
@@ -546,7 +546,7 @@ Bağlantı noktasının açık olduğunu doğrulamak için bir Windows PowerShel
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Yapılandırmayı doğrulama
+## <a name="verify-the-configuration"></a>yapılandırıldığını doğrulayın
 Temel rapor sunucusu işlevselliği artık çalıştığını doğrulamak için tarayıcınızı yönetici ayrıcalıklarıyla açın ve aşağıdaki rapor sunucusu ad Rapor Yöneticisi için URL'leri göz atın:
 
 * VM, rapor sunucusu URL'sine gidin:
@@ -593,7 +593,7 @@ Aşağıdaki tabloda Microsoft Azure sanal makine üzerinde barındırılan bir 
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>VM kullanmıyorsanız maliyeti en aza indir
 > [!NOTE]
-> İçin Azure sanal makinelerinizi kullanılmadığında ücretleri en aza indirmek için Azure Klasik portalından VM kapatın. VM kapatma için bir VM içinde Windows güç seçenekleri kullanırsanız, hala aynı VM için ücretlendirilirsiniz. Giderlerini azaltmak için Klasik Azure portalındaki VM kapatmanız gerekir. Depolama ücretleri önlemek için VM ve ilişkili .vhd dosyaları silmek VM artık ihtiyacınız varsa, unutmayın. Daha fazla bilgi için SSS bölümüne bakın [sanal makineler fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> İçin Azure sanal makinelerinizi kullanılmadığında ücretleri en aza indirmek için Azure portalından VM'yi kapatın. VM kapatma için bir VM içinde Windows güç seçenekleri kullanırsanız, hala aynı VM için ücretlendirilirsiniz. Giderlerini azaltmak için Azure portalında VM kapatmanız gerekir. Depolama ücretleri önlemek için VM ve ilişkili .vhd dosyaları silmek VM artık ihtiyacınız varsa, unutmayın. Daha fazla bilgi için SSS bölümüne bakın [sanal makineler fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Daha Fazla Bilgi
 ### <a name="resources"></a>Kaynaklar

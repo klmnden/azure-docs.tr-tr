@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f0337002bbaf554a6a775464edefc032e6c7bab2
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ortak Internet dosya sistemi veya CIFS olarak da bilinir). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
@@ -80,7 +80,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 
 ## <a name="azure-file-sync"></a>Azure dosya eşitleme
 * <a id="afs-region-availability"></a>**Hangi bölgeleri Azure dosya eşitleme (Önizleme) destekleniyor mu?**  
-    Şu anda, Batı ABD, Batı Avrupa, Doğu Avustralya ve Güneydoğu Asya Azure dosya eşitleme kullanılabilir. Biz genel kullanılabilirlik doğru çalışırken daha fazla bölgeler için destek eklenecektir. Daha fazla bilgi için bkz: [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability).
+    Şu anda, Azure dosya eşitleme Doğu ABD, Batı ABD, Batı Avrupa, Doğu Avustralya ve Güneydoğu Asya kullanılabilir. Biz genel kullanılabilirlik doğru çalışırken daha fazla bölgeler için destek eklenecektir. Daha fazla bilgi için bkz: [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>**Etki alanına katılmış ve etki alanına katılmış sunucuları aynı eşitleme grubuna sahip olabilir?**  
     Evet. Bunlar etki alanına katılmış olmasa bile bir eşitleme grubu farklı Active Directory üyelikleri, yüklü sunucu uç noktaları içerebilir. Bu yapılandırma teknik kullanılabilse de, bir sunucu üzerindeki dosya ve klasörleri için tanımlanan erişim denetim listelerini (ACL'ler) eşitleme grubundaki diğer sunucular tarafından zorlanacak kuramamış olabilir çünkü bu normal bir yapılandırma önermiyoruz. En iyi sonuçlar için aynı Active Directory ormanında olan sunucular arasında farklı Active Directory ormanlarında olan ancak güven ilişkileri kurulmuş sunucular arasında ya da bir etki alanında olmayan sunucular arasında eşitleniyor öneririz. Bu yapılandırmalar bir karışımını kullanmaktan kaçının öneririz.

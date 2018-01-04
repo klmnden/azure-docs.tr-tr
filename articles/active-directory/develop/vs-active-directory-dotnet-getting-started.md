@@ -4,7 +4,7 @@ description: "Bağlanma ya da Visual Studio kullanarak Azure AD oluşturma hizme
 services: active-directory
 documentationcenter: 
 author: kraigb
-manager: ghogen
+manager: mtillman
 editor: 
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: c4d49cfc9887e422b3eaed2b96348c99eca48881
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efe12842cf0dd5ac865d95902f53e68affcbe54f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Bağlı hizmetler (MVC projeleri) Azure Active Directory ve Visual Studio ile çalışmaya başlama
 > [!div class="op_single_selector"]

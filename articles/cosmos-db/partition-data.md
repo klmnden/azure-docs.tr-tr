@@ -12,14 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+<<<<<<< HEAD
 ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
+=======
+ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/03/2018
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölüm ve ölçek Azure Cosmos veritabanı
 
@@ -60,7 +68,7 @@ Azure Cosmos DB karma tabanlı bölümleme kullanır. Bir öğe yazdığınızda
 > Birçok farklı değerleri (yüz binlerce en az) sahip bir bölüm anahtarı için en iyi bir uygulamadır.
 >
 
-Azure Cosmos DB kapsayıcılar olarak oluşturulabilir *sabit* veya *sınırsız*. Sabit boyutlu kapsayıcıları 10 GB ve 10. 000'ru / s işleme üst sınırına sahip. Bazı API'ler için sabit boyutlu kapsayıcılar atlanacak bölüm anahtarı izin verir. Sınırsız olarak bir kapsayıcı oluşturmak için en düşük işleme 2.500 RU/s belirtmeniz gerekir.
+Azure Cosmos DB kapsayıcılar olarak oluşturulabilir *sabit* veya *sınırsız*. Sabit boyutlu kapsayıcıları 10 GB ve 10. 000'ru / s işleme üst sınırına sahip. Sınırsız olarak bir kapsayıcı oluşturmak için en düşük işleme 1.000 RU/s belirtin ve bir bölüm anahtarı belirtmeniz gerekir.
 
 Verilerinizi bölümlerinde nasıl dağıtıldığını denetlemek için iyi bir fikirdir. Bu portalda denetlemek için Azure Cosmos DB hesabınıza gidin ve tıklayın **ölçümleri** içinde **izleme** bölümünde ve ardından Sağdaki bölmede üzerinde **depolama** verilerinizi nasıl olduğunu görmek için sekmesi farklı fiziksel bölümünde bölümlenmiş.
 
@@ -127,25 +135,18 @@ Sonuçları:
 
 ### <a name="table-api"></a>Tablo API’si
 
-Tablo API ile üretilen iş tablolar için uygulamanız için appSettings yapılandırmasında belirtin.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Ardından Azure Table depolama SDK'sını kullanarak bir tablo oluşturun. Bölüm anahtarı örtük olarak oluşturulmuş `PartitionKey` değeri. 
+Azure Cosmos DB tablo API'sini kullanarak bir tablo oluşturmak için CreateIfNotExists yöntemini kullanın. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Üretilen iş CreateIfNotExists bağımsız değişken olarak ayarlanır.
+
+Bölüm anahtarı örtük olarak oluşturulmuş `PartitionKey` değeri. 
 
 Aşağıdaki kod parçacığını kullanarak tek bir varlık alabilirsiniz:
 

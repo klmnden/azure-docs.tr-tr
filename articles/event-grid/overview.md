@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure olay kılavuzuna giriş
 
@@ -20,9 +20,18 @@ Azure olay kılavuz, olay tabanlı mimari ile uygulamaları kolayca oluşturman�
 
 Belirli olayları farklı uç noktalar, birden çok uç nokta için çok noktaya yayın yönlendirmek ve olaylarınızı güvenilir bir şekilde teslim emin olmak için filtreleri kullanabilirsiniz. Olay kılavuz, ayrıca özel ve üçüncü taraf olayları için destek oluşturdu.
 
-Önizleme sürümü için Event Grid tarafından **westus2** ve **westcentralus** konumları desteklenir. Diğer bölgeler eklenir.
+Şu anda, olay kılavuz aşağıdaki bölgeler destekler:
 
-Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başlamak istiyorsanız, bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).
+* Orta ABD
+*   Doğu ABD
+*   Doğu ABD 2
+*   Batı Orta ABD
+*   Batı ABD
+*   Batı ABD 2
+
+Diğer bölgeler eklenir.
+
+Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başlamak istiyorsanız, bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md). Aşağıdaki resimde Yayımcılar ve işleyicileri olayı kılavuz nasıl bağlanacağını gösterir, ancak desteklenen seçenekler kapsamlı bir listesini sağlamaz.
 
 ![Olay kılavuz işlevsel modeli](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başl
 
 Şu anda aşağıdaki Azure hizmetlerini olay kılavuz için yerleşik yayımcı desteğine sahiptir:
 
-* Kaynak grupları (yönetim işlemlerini)
 * Azure abonelikleri (yönetim işlemlerini)
-* Event Hubs
-* Depolama blobu
 * Özel konular
+* Event Hubs
+* Kaynak grupları (yönetim işlemlerini)
+* Depolama blobu
 
 Diğer Azure hizmetleriyle bu yıl eklenir.
 
@@ -42,11 +51,12 @@ Diğer Azure hizmetleriyle bu yıl eklenir.
 
 Şu anda aşağıdaki Azure hizmetlerini olay kılavuz yerleşik işleyici desteği vardır: 
 
-* Azure İşlevleri
-* Logic Apps
 * Azure Otomasyonu
-* Web kancaları
+* Azure İşlevleri
+* Event Hubs
+* Logic Apps
 * Microsoft Akış
+* WebHooks
 
 Diğer Azure hizmetleriyle bu yıl eklenir.
 

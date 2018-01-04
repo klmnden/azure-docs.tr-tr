@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Ortak Azure Cosmos DB kullanım durumları
 Bu makalede Azure Cosmos DB için birkaç ortak kullanım durumları genel bir bakış sağlar.  Bu makalede önerileri Cosmos DB ile Uygulamanızı geliştirirken bir başlangıç noktası olarak hizmet.   
@@ -33,9 +33,7 @@ Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacakt
 ## <a name="introduction"></a>Giriş
 [Azure Cosmos DB](../cosmos-db/introduction.md) Microsoft'un Genel dağıtılmış veritabanı hizmetidir. Hizmet özellikler esnek (ve bağımsız olarak) işleme ve depolama coğrafi bölgeler arasında herhangi bir sayı ölçeklendirme müşterilere izin verecek şekilde tasarlanmıştır. Azure Cosmos DB hizmettir ilk Genel dağıtılmış veritabanı pazardaki bugün kapsamlı sunmak için [hizmet düzeyi sözleşmelerine](https://azure.microsoft.com/support/legal/sla/cosmos-db/) verimlilik, gecikme, kullanılabilirlik ve tutarlılık. 
 
-Azure Cosmos DB proje 2011 içinde "proje Floransa" adresi Geliştirici-Microsoft içindeki büyük Internet ölçekli uygulamalar tarafından karşılaştığı kalınan başladı. Bu sorunları Microsoft'un uygulamalara benzersiz olmayan Gözlemleme, Azure Cosmos DB genellikle dış geliştiricilerine biçiminde 2015'te kullanılabilmesi karar [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). Hizmet ubiquitously içinde Microsoft dahili olarak kullanılır ve harici olarak Azure geliştiriciler tarafından kullanılan hızlı büyüyen hizmetlerden biridir. 
-
-Azure Cosmos DB çok çeşitli uygulamalar ve kullanım örnekleri içinde kullanılan genel bir dağıtılmış, birden çok model veri tabanıdır. Herhangi bir için iyi bir seçimdir olan [sunucusuz](http://azure.com/serverless) düşük milisaniyelik sipariş yanıt sürelerini gerekir ve hızlı bir şekilde ve genel olarak ölçeklendirmek gereken uygulama. Birden çok veri modelleri destekler (anahtar-değer, belgeler, grafikler ve sütun) ve veriler için birçok API'lere erişim dahil olmak üzere [MongoDB API](mongodb-introduction.md), [DocumentDB API (SQL)](documentdb-introduction.md), [grafik API'si (Gremlin)](graph-introduction.md), ve [tabloları API](table-introduction.md) yerel olarak ve Genişletilebilir bir biçimde. 
+Azure Cosmos DB çok çeşitli uygulamalar ve kullanım örnekleri içinde kullanılan genel bir dağıtılmış, birden çok model veri tabanıdır. Herhangi bir için iyi bir seçimdir olan [sunucusuz](http://azure.com/serverless) düşük milisaniyelik sipariş yanıt sürelerini gerekir ve hızlı bir şekilde ve genel olarak ölçeklendirmek gereken uygulama. Birden çok veri modelleri destekler (anahtar-değer, belgeler, grafikler ve sütun) ve veriler için birçok API'lere erişim dahil olmak üzere [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [grafik API'si (Gremlin)](graph-introduction.md), ve [tabloları API](table-introduction.md) yerel olarak ve Genişletilebilir bir biçimde. 
 
 Aşağıdaki genel ambition ile yüksek performanslı uygulamalar için oldukça uygun hale bazı Azure Cosmos DB öznitelikleridir.
 
@@ -107,7 +105,7 @@ JSON, Cosmos DB tarafından desteklenen bir biçim yalnızca basit değildir anc
 ![Azure Cosmos DB web uygulaması başvuru mimarisi](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Cosmos DB ile çalışmaya başlamak için izleyin bizim [hızlı başlangıçlar](create-documentdb-dotnet.md), hangi yol, bir hesap ve Cosmos DB ile çalışmaya başlama oluşturmada size. 
+Azure Cosmos DB ile çalışmaya başlamak için izleyin bizim [hızlı başlangıçlar](create-sql-api-dotnet.md), hangi yol, bir hesap ve Cosmos DB ile çalışmaya başlama oluşturmada size. 
 
 Veya daha fazla bilgi istiyorsanız aşağıdaki müşteri hikayeleri Cosmos DB kullanan müşteriler hakkında kullanılabilir:
 

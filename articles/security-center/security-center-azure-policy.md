@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure İlkesi ile Güvenlik Merkezi güvenlik ilkelerini tümleştirme
 Bu makale, Azure İlkesi ile desteklenen Azure Güvenlik Merkezi güvenlik ilkelerini yapılandırmanıza yardımcı olur. 
@@ -30,7 +30,7 @@ Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsay
 * İlke uyumluluğunu izleme.
 
 > [!NOTE]
-> Azure İlkesi sınırlı önizleme aşamasındadır. Katılmak için [Azure İlkesine kaydolma](https://aka.ms/getpolicy) bölümüne gidin. Azure İlkesi hakkında daha fazla bilgi için [Uyumluluğu zorlamak için ilke oluşturma ve yönetme](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy) konusunu inceleyin.
+> Azure İlkesi sınırlı önizleme aşamasındadır. Katılmak için [Azure İlkesine kaydolma](https://aka.ms/getpolicy) bölümüne gidin. Azure İlkesi hakkında daha fazla bilgi için [Uyumluluğu zorlamak için ilke oluşturma ve yönetme](http://docs.microsoft.com/azure/azure-policy/create-manage-policy) konusunu inceleyin.
 
 ## <a name="edit-security-policies"></a>Güvenlik ilkelerini düzenleme
 Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesini düzenleyebilirsiniz. Bir güvenlik ilkesini değiştirmek için abonelikte veya ilkeyi içeren yönetim grubunda sahip, katkıda bulunan veya güvenlik yöneticisi rolüne sahip olmanız gerekir. Güvenlik ilkelerinizi Güvenlik Merkezi'nde görüntülemek için aşağıdakileri yapın:
@@ -39,14 +39,14 @@ Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesin
 
 2. **Güvenlik Merkezi** panosunun **Genel** bölümünde **Güvenlik ilkesi**'ni seçin.
 
-    ![İlke Yönetimi bölmesi](./media/security-center-policies/security-center-policies-fig10.png)
+    ![İlke Yönetimi bölmesi](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Güvenlik ilkesini etkinleştirmek istediğiniz aboneliği seçin.  
 
 4. **İlke Bileşenleri** bölümünde **Güvenlik ilkesi**'ni seçin.  
     **Temel Bilgiler** penceresi açılır.
 
-    ![İlke bileşenleri](./media/security-center-policies/security-center-policies-fig12.png)
+    ![İlke bileşenleri](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Bir ilke tanımını silmek için **İlkeler ve Parametreler** altında, silmek istediğiniz tanımın yanındaki **Sil** öğesini seçin.
 
@@ -57,12 +57,12 @@ Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesin
 
     * Bir ilke tanımı eklemek için tanımın yanındaki artı işaretini (+) seçin.
 
-    ![Kullanılabilir ilke tanımları](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Kullanılabilir ilke tanımları](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Bir ilkenin ayrıntılı açıklaması için ilkeyi seçin.  
     Tanım **Önizleme** penceresi açılır. Tanımın bir açıklaması ve [ilke tanımı](../azure-policy/policy-definition.md) yapısını sağlayan JSON kodunun bağlantısı gösterilir.
 
-    ![Tanımın Önizleme penceresi](./media/security-center-policies/security-center-policies-fig14.png)
+    ![Tanımın Önizleme penceresi](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. Düzenlemeyi tamamladığınızda **Kaydet**'i seçin.
 

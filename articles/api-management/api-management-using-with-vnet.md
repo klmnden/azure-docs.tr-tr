@@ -13,11 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
+<<<<<<< HEAD
 ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
 ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
+=======
+ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -99,7 +105,7 @@ Sanal ağınıza API Management hizmeti dağıtırken oluşabilecek yaygın yete
 * **Özel DNS Sunucusu Kurulumu**: API Management hizmeti üzerinde çeşitli Azure hizmetlerine bağlıdır. API Management, özel bir DNS sunucusu ile bir VNET içinde barındırıldığında Azure hizmetlerin ana bilgisayar adları çözümlemek gerekir. Lütfen izleyin [bu](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) özel DNS kurulumu hakkında yönergeler. Aşağıdaki bağlantı noktaları tablo ve diğer ağ gereksinimleri başvuru için bkz.
 
 > [!IMPORTANT]
-> VNET için bir özel DNS sunucularını kullanıyorsanız, ayarladığınız, önerilen **önce** içine bir API Management hizmeti dağıtma. Aksi takdirde, DNS sunucuları (s) çalıştırarak her seferinde değiştirirseniz API Management hizmeti güncelleştirmeniz gerekir [ağ yapılandırma işlemi Uygula](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> VNET için bir özel DNS sunucularını kullanıyorsanız, ayarladığınız, önerilen **önce** içine bir API Management hizmeti dağıtma. Aksi takdirde, DNS sunucuları (s) çalıştırarak her seferinde değiştirirseniz API Management hizmeti güncelleştirmeniz gerekir [ağ yapılandırma işlemi Uygula](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **API yönetimi için gereken bağlantı noktaları**: gelen ve giden trafik API Management dağıtıldığı alt içine kullanılarak denetlenebilir [ağ güvenlik grubu][Network Security Group]. Bu bağlantı noktalarının hiçbirinde yoksa, API Management düzgün çalışmayabilir ve erişilemez duruma gelebilir. Bir veya daha fazla engellenen Bu bağlantı noktalarına sahip başka bir ortak yetersizliğini API Management bir VNET ile birlikte kullanırken bir sorundur.
 
@@ -148,7 +154,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
  > [!IMPORTANT]
  > Bağlantı doğrulandıktan sonra alt ağ API Management dağıtmadan önce alt ağda dağıtılan tüm kaynakları kaldırdığınızdan emin olun.
 
-* **Artımlı güncelleştirmeler**: ağınıza değişiklik yaparken başvurmak [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), API Management hizmeti herhangi birine bağlı olduğu kritik kaynaklara erişim kaybetti değil olduğunu doğrulayın. Bağlantı durumunun her 15 dakikada güncelleştirilmesi gerekir.
+* **Artımlı güncelleştirmeler**: ağınıza değişiklik yaparken başvurmak [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), API Management hizmeti herhangi birine bağlı olduğu kritik kaynaklara erişim kaybetti değil olduğunu doğrulayın. Bağlantı durumunun her 15 dakikada güncelleştirilmesi gerekir.
 
 * **Kaynak Gezinti Bağlantıları**: Resource Manager stili sanal alt dağıtırken, API Management alt kaynak Gezinti bağlantısı oluşturarak ayırır. Alt ağ zaten farklı bir sağlayıcı kaynağı içeriyorsa, dağıtım olacak **başarısız**. Benzer şekilde, bir API Management hizmeti farklı bir alt ağa taşıyın veya silin, biz bu kaynak Gezinti bağlantıyı kaldırır. 
 

@@ -1,10 +1,10 @@
 ---
-title: "Azure AD bir iOS uygulamanıza tümleştirmek | Microsoft Docs"
+title: "Azure AD iOS Başlarken | Microsoft Docs"
 description: "Oturum açma ve Azure AD aramalar için Azure AD ile tümleşen bir iOS uygulamasının nasıl oluşturulacağını, OAuth kullanılarak API'leri korunan."
 services: active-directory
 documentationcenter: ios
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Azure AD bir iOS uygulamanıza tümleştirmek
+# <a name="azure-ad-ios-getting-started"></a>Azure AD iOS Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Bizim yeni önizlemesini denemek [Geliştirici Portalı](https://identity.microsoft.com/Docs/iOS) yardımcı olan Azure Active Directory ile yalnızca birkaç dakika içinde başlamak ve çalıştırmak!  Geliştirici Portalı bir uygulamayı kaydetme ve Azure AD kodunuza tümleştirme işleminde size kılavuzluk eder.  İşiniz bittiğinde, bu belirteçleri kabul edebilir ve doğrulama gerçekleştirmek kullanıcılar, Kiracı ve arka uç kimlik doğrulaması yapabilir basit bir uygulama gerekir. 
-> 
-> 
 
 Azure Active Directory (Azure AD), korunan kaynaklara erişim için gereken iOS istemciler için Active Directory kimlik doğrulama kitaplığı ya da ADAL sağlar. ADAL erişim belirteci edinmek için uygulamanızın kullandığı işlemini basitleştirir. Ne kadar kolay olduğunu, göstermek için bu makaledeki biz bir hedefi C Yapılacaklar listesi uygulaması, oluşturma:
 

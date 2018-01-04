@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB ve işlevleri kullanarak yapılandırılmamış verileri depolamak | Microsoft Docs"
+title: "Azure Cosmos DB ve İşlevler’i kullanarak yapılandırılmamış verileri depolama | Microsoft Docs"
 description: "Azure İşlevleri ve Cosmos DB’yi kullanarak yapılandırılmamış verileri depolama"
 services: functions
 documentationcenter: functions
@@ -19,11 +19,11 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure işlevleri ve Azure Cosmos DB kullanarak yapılandırılmamış veri depolayın
+# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure İşlevleri ve Azure Cosmos DB’yi kullanarak yapılandırılmamış verileri depolama
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), yapılandırılmamış verileri ve JSON verilerini depolamanın harika bir yoludur. Cosmos DB, Azure İşlevleri ile birlikte kullanıldığında verilerin ilişkisel bir veritabanında depolanmasına göre çok daha az kodla verileri hızlı ve kolay bir şekilde depolar.
 
@@ -53,10 +53,10 @@ Bu öğreticiyi tamamlamak için:
     | ------------ | ---------------- | ------------------------------------------ |
     | **Belge parametre adı** | taskDocument | Kodda Cosmos DB nesnesine başvuran ad. |
     | **Veritabanı adı** | taskDatabase | Belgelerin kaydedileceği veritabanının adı. |
-    | **Koleksiyon adı** | TaskCollection | Veritabanı koleksiyonu adı. |
+    | **Koleksiyon adı** | TaskCollection | Veritabanı koleksiyonunun adı. |
     | **True ise, Cosmos DB veritabanı ve koleksiyonunu oluşturur** | İşaretli | Koleksiyon henüz mevcut değil, bu yüzden oluşturun. |
 
-4. Seçin **yeni** yanına **Azure Cosmos DB belge bağlantısı** etiket ve seçin **+ Yeni Oluştur**. 
+4. **Azure Cosmos DB belge bağlantısı** etiketinin yanındaki **Yeni**’yi ve **+ Yeni oluştur** öğesini seçin. 
 
 5. Tabloda belirtilen **Yeni hesap** ayarlarını kullanın: 
 
@@ -64,13 +64,13 @@ Bu öğreticiyi tamamlamak için:
 
     | Ayar      | Önerilen değer  | Açıklama                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **ID** | Veritabanının adı | Azure Cosmos DB veritabanı için benzersiz kimliği  |
+    | **ID** | Veritabanının adı | Azure Cosmos DB veritabanı için benzersiz kimlik  |
     | **API** | SQL (DocumentDB) | Belge veritabanı API’sini seçin.  |
     | **Abonelik** | Azure Aboneliği | Azure Aboneliği  |
     | **Kaynak Grubu** | myResourceGroup |  İşlevi uygulamanızı içeren mevcut kaynak grubunu kullanın. |
     | **Konum**  | WestEurope | İşlev uygulamanıza veya depolanmış belgeleri kullanan diğer uygulamalara yakın olan bir konum seçin.  |
 
-6. Veritabanını oluşturmak için **Tamam**’a tıklayın. Veritabanının oluşturulması birkaç dakika sürebilir. Veritabanı oluşturulduktan sonra, veritabanı bağlantı dizesi bir işlev uygulaması ayarı olarak depolanır. Bu uygulama ayarı adı eklenen **Azure Cosmos DB hesap bağlantı**. 
+6. Veritabanını oluşturmak için **Tamam**’a tıklayın. Veritabanının oluşturulması birkaç dakika sürebilir. Veritabanı oluşturulduktan sonra, veritabanı bağlantı dizesi bir işlev uygulaması ayarı olarak depolanır. Bu uygulama ayarı **Azure Cosmos DB hesap bağlantısına** eklenir. 
  
 8. Bağlantı dizesi ayarlandıktan sonra, bağlamayı oluşturmak için **Kaydet**’i seçin.
 
@@ -128,13 +128,13 @@ Bu kod örneği, HTTP İsteği sorgu dizelerini okur ve `taskDocument` nesnesind
 
     ![Cosmos DB hizmetini arama](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Azure Cosmos DB hesabınızı seçin ve ardından **Veri Gezgini**. 
+2. Azure Cosmos DB hesabınızı seçin ve ardından **Veri Gezgini**’ni seçin. 
 
 3. **Koleksiyonlar** düğümünü genişletin, yeni belgeyi seçin ve belgenin sorgu dizesi değerlerinizin yanı sıra bazı ek meta verileri içerdiğini onaylayın. 
 
     ![Cosmos DB girişini doğrulama](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-Bir Azure Cosmos DB'de yapılandırılmamış veri depolar, HTTP tetikleyici için bir bağlama başarıyla eklediniz.
+Yapılandırılmamış verileri bir Azure Cosmos DB’de depolayan HTTP tetikleyicinize başarıyla bir bağlama eklediniz.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

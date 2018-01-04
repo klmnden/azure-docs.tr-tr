@@ -7,18 +7,18 @@ author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: 50a965f9773524a36bedc3d040bf1a1ca391507f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 33ddfef1e23a6ff0c2cb8e359d408d2c42cbcf3a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure panoları paylaşmak
 Bir Pano yapılandırdıktan sonra yayımlayabilir ve kuruluşunuzdaki diğer kullanıcılarla paylaşmak. Diğerlerinin Azure kullanarak panonuz görüntülemesine izin vermek [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md). Bir kullanıcı veya kullanıcılar grubunun bir role atayın ve bu rol kullanıcılarla değiştirebilir veya görüntüleyebilirsiniz yayımlanan Pano olup olmadığını tanımlar. 
@@ -33,7 +33,7 @@ Tüm yayımlanan panolar Azure kaynakları yönetilebilir öğeleri aboneliğini
 ## <a name="understanding-access-control-for-dashboards"></a>Panolar için erişim Denetimi'ni anlama
 Rol tabanlı erişim denetimi (RBAC) ile kullanıcıları kapsamının üç farklı düzeylerde roller atayabilirsiniz:
 
-* abonelik
+* aboneliği
 * kaynak grubu
 * kaynak
 

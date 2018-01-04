@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB genel verilerle dağıtmak nasıl
 Azure bulunabilen - 30 + coğrafi bölgeler arasında genel ayak izini sahiptir ve sürekli genişleyen. Dünya çapında iletişim durumu ile Azure, geliştiricilere sunduğu farklı özellikleri oluşturmak, dağıtmak ve genel olarak dağıtılmış uygulamaları kolayca yönetin olanağı biridir. 
@@ -88,7 +88,7 @@ Azure Cosmos DB bir veya daha fazla bölgesel kesintiler durumunda otomatik yük
 ### <a id="MultiHomingAPIs"></a>Azure Cosmos DB çok girişli API'leri
 Azure Cosmos DB kullanarak veritabanıyla etkileşim olanak tanır mantıksal (bölge belirsiz) ya da fiziksel (bölgeye özgü) uç noktaları. Mantıksal uç noktalarını kullanarak çok konaklı yük devretme durumunda, uygulama saydam olabilir sağlar. İkincisi, fiziksel uç noktaları yeniden yönlendirmek için uygulamaya ayrıntılı denetim okur ve belirli bölgelerine Yazar sağlar.
 
-İçin okuma tercihlerinin nasıl yapılandırılacağı hakkında bilgi bulabilirsiniz [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md), [grafik API'si](../cosmos-db/tutorial-global-distribution-graph.md), [tablo API](../cosmos-db/tutorial-global-distribution-table.md), ve [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) kendi ilgili makaleler bağlı.
+İçin okuma tercihlerinin nasıl yapılandırılacağı hakkında bilgi bulabilirsiniz [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [grafik API'si](../cosmos-db/tutorial-global-distribution-graph.md), [tablo API](../cosmos-db/tutorial-global-distribution-table.md), ve [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) içinde kendi ilgili bağlantılı makaleler.
 
 ### <a id="TransparentSchemaMigration"></a>Saydam ve tutarlı veritabanı şeması ve dizin geçirme 
 Azure Cosmos DB olan tam olarak [şema belirsiz](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Veritabanı Altyapısı'nın benzersiz tasarım otomatik olarak izin verir ve zaman uyumlu olarak herhangi bir şemayı ya da ikincil dizinlerin sizden gerek kalmadan alır verilerin tümünü dizin. Bu, veritabanı şeması ve dizin geçiş hakkında kaygı veya şema değişiklikleri çok aşaması piyasaya sürülmeleri Eşgüdümleme Genel dağıtılmış uygulamanızı hızlı bir şekilde yinelemek sağlar. Azure Cosmos DB açıkça sizin tarafınızdan yapılan ilkelere dizin yapılan herhangi bir değişiklik neden olmaz, performans veya kullanılabilirlik düşüşü güvence altına alır.  
@@ -219,7 +219,7 @@ Azure Cosmos DB verimlilik, gecikme, tutarlılık ve kullanılabilirlik ölçüm
 ![Azure Cosmos DB müşteri görünür SLA ölçümlerini](./media/distribute-data-globally/customer-slas.png)
 
 ## <a id="Next Steps"></a>Sonraki adımlar
-* Azure portalını kullanarak Azure Cosmos DB hesabınızdaki genel çoğaltma uygulamak için bkz: [Azure portalını kullanarak Azure Cosmos DB genel veritabanı çoğaltmasını gerçekleştirme](tutorial-global-distribution-documentdb.md).
+* Azure portalını kullanarak Azure Cosmos DB hesabınızdaki genel çoğaltma uygulamak için bkz: [Azure portalını kullanarak Azure Cosmos DB genel veritabanı çoğaltmasını gerçekleştirme](tutorial-global-distribution-sql-api.md).
 * Azure Cosmos DB ile birden çok yöneticili mimarileri gerçekleştirme hakkında bilgi edinmek için [Azure Cosmos DB ile birden çok ana veritabanı mimarileri](multi-region-writers.md).
 * Azure Cosmos DB'de iş otomatik ve el ile yük devretme hakkında daha fazla bilgi edinmek için [bölgesel yük devretme işlemlerini Azure Cosmos veritabanı](regional-failover.md).
 

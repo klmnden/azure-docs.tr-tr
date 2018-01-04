@@ -4,7 +4,7 @@ description: "Bu makalede, Azure Active Directory (AD) şirket içi uygulamalar�
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 98468e430902ae0ad02ff7b4db6350bf70e3cb27
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: ffbc8af54ce542630f9bdc77a8823d3c2a22afd6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory alma uygulamaları ile tümleştirme Kılavuzu
 ## <a name="overview"></a>Genel Bakış
@@ -56,7 +56,7 @@ Uygulamaları Azure AD ile tümleştirmek için hemen önce nerede olduğunuza v
 
 Bu soruların yanıtlarını Önden belki yok ancak Tamam olmasıdır.  Bu kılavuz, bu sorulara yanıt ve bazı bilinçli kararlar almanıza yardımcı olabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Bir Azure aboneliği ve bir Azure Active Directory dizin.  Bir Azure aboneliğiniz yoksa, ücretsiz 30 gün boyunca Azure deneyebilirsiniz. [Deneyin!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Azure AD ile uygulama tümleştirmesi
@@ -88,7 +88,7 @@ Aşağıdaki makaleler Azure AD bağlayıcıları kullanarak Azure AD ve Azure A
 ## <a name="integrating-custom-applications"></a>Özel uygulamaları tümleştirme
 Yeni uygulama ve istediğiniz Azure AD, güç yararlanarak geliştiricilere yardımcı olmak için bkz: yazıyorsanız [Guiding geliştiriciler](active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Özel uygulamanızı Azure uygulama Galerisi eklemek istiyorsanız, bkz: ["kendi uygulamanızı Azure AD Self Servis SAML yapılandırmayla getir"](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Özel uygulamanızı Azure uygulama Galerisi eklemek istiyorsanız, bkz: ["kendi uygulamanızı Azure AD Self Servis SAML yapılandırmayla getir"](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)

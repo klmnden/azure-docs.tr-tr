@@ -14,25 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c709be1a509ce9ad6b6b494dea80419b3ea126c4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage Gezgini (Önizleme) sürüm notları
 
-Bu makalede Azure Storage Gezgini 0.9.2 için (Önizleme), önceki sürümler için sürüm notları yanı sıra sürüm notları sürüm içerir.
+Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler için sürüm notları yanı sıra sürüm notları sürüm içerir.
 
 [Microsoft Azure Storage Gezgini (Önizleme)](./vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
+
+## <a name="version-093"></a>Sürüm 0.9.3
+12/08/2017
+
+### <a name="download-azure-storage-explorer-093-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.3 indirin
+- [Windows için Azure Storage Gezgini 0.9.3 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac için Azure Storage Gezgini 0.9.3 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux için Azure Storage Gezgini 0.9.3 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Yeni
+* Var olan Depolama Gezgini penceresi ne zaman yeniden kullanılan olacaktır:
+    * Depolama Gezgini'nde oluşturulan doğrudan bağlantılar açılıyor.
+    * Depolama Gezgini portalından açılıyor.
+    * Depolama Gezgini (yakında) Azure depolama VS Code uzantısından açılıyor.
+* Yeni bir Depolama Gezgini penceresi öğesinden Depolama Gezgini içinde açmak için özelliği eklenmiştir.
+    * Windows için Dosya menüsü altında ve bağlam menüsünden görev çubuğunun 'Yeni pencere' seçeneği yoktur.
+    * Mac için uygulama menüsü altındaki 'Yeni pencere' seçeneği yoktur.
+
+### <a name="fixes"></a>Düzeltmeler
+* Eski etkinlikleri uygun şekilde temizlendi değil. Bu, uzun çalışan işleri performansını etkilenen. Bunlar artık doğru temizlenmesini.
+* Çok sayıda dosya ve dizinleri dahil eylemleri bazen dondurmak Depolama Gezgini neden olur. Azure dosya paylaşımları için isteklere sistem kaynak tüketimini sınırlamak için trottled sunulmuştur.
+
+### <a name="known-issues"></a>Bilinen sorunlar
+* Depolama Gezgini ADFS hesaplarını desteklemez.
+* Kısayol tuşları "Görünümü Gezgini" ve "Görünümü hesap yönetimi" Ctrl olmalıdır / Cmd + SHIFT + E ve Ctrl / Cmd + Shift + A sırasıyla.
+* Azure yığın hedeflerken ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
+* "İptal" görevde tıkladıktan sonra onu iptal etmek bu görev için biraz zaman alabilir. Açıklanan iptal filtre geçici çözüm burada kullanıyoruz olmasıdır.
+* Yanlış PIN/akıllı kart sertifika seçerseniz, Depolama Gezgini kararı unuttunuz olması için yeniden başlatmanız gerekir.
+* Hesap Ayarları panelini abonelikleri filtrelemek için kimlik bilgilerinizi yeniden girmeniz gerektiğini gösterebilir.
+* BLOB'lar (ayrı ayrı veya yeniden adlandırılmış blob kapsayıcısı içinde) yeniden adlandırma anlık görüntüleri korumaz. Diğer tüm özellikleri ve meta veri BLOB'lar, dosyalar ve varlıklar için bir yeniden adlandırma sırasında korunur.
+* Azure yığın şu anda dosya paylaşımlarını desteklemez ancak dosya paylaşımlarına düğümü ekli bir Azure yığın depolama hesabı altında görünmeye devam eder.
+* Depolama Gezgini tarafından kullanılan Elektron Kabuk bazı GPU (grafik işlem birimi) donanım hızlandırmasını sorun vardır. Depolama Gezgini boş bir (boş) ana penceresi görüntüleme, deneyebilirsiniz ekleyerek GPU hızlandırmasını devre dışı bırakma ve komut satırından Depolama Gezgini başlatılıyor `--disable-gpu` geçin:
+```
+./StorageExplorer --disable-gpu
+```
+* Ubuntu 14.04 üzerinde kullanıcıların için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 kullanıcıları, GConf yüklemeniz gerekecek - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-092"></a>Sürüm 0.9.2
 11/01/2017
 
 ### <a name="download-azure-storage-explorer-092-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.2 indirin
-- [Windows için Azure Storage Gezgini 0.9.2 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac için Azure Storage Gezgini 0.9.2 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux için Azure Storage Gezgini 0.9.2 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Windows Azure Depolama Gezgini (Önizleme) 0.9.2 indirin](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Mac için Azure Storage Gezgini (Önizleme) 0.9.2 indirin](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Linux için Azure Storage Gezgini (Önizleme) 0.9.2 indirin](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+
 
 ### <a name="hotfixes"></a>Düzeltmeleri
 * Beklenmeyen veri değişikliklerini Edm.DateTime değerlerini yerel saat dilimine bağlı olarak tablo varlıklar için düzenlerken mümkün. Düzenleyici bir düz metin kutusu Edm.DateTime değerleri üzerinde kesin, tutarlı denetim vermiş olarak kullanır.
@@ -95,13 +146,32 @@ Bu makalede Azure Storage Gezgini 0.9.2 için (Önizleme), önceki sürümler i�
 
 
 
+
+
+
+## <a name="previous-releases"></a>Önceki sürümler
+
+* [Sürüm 0.9.1 / 0.9.0'dan](#version-091)
+* [Sürüm 0.8.16](#version-0816)
+* [Sürüm 0.8.14](#version-0814)
+* [Sürüm 0.8.13](#version-0813)
+* [Sürüm 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Sürüm 0.8.9 / 0.8.8](#version-089--088)
+* [Sürüm 0.8.7](#version-087)
+* [Sürüm 0.8.6](#version-086)
+* [Sürüm 0.8.5](#version-085)
+* [Sürüm 0.8.4](#version-084)
+* [Sürüm 0.8.3](#version-083)
+* [Sürüm 0.8.2](#version-082)
+* [Sürüm 0.8.0](#version-080)
+* [Sürüm 0.7.20160509.0](#version-07201605090)
+* [Sürüm 0.7.20160325.0](#version-07201603250)
+* [Sürüm 0.7.20160129.1](#version-07201601291)
+* [Sürüm 0.7.20160105.0](#version-07201601050)
+* [Sürüm 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-091--090-preview"></a>Sürüm 0.9.1 / 0.9.0'dan (Önizleme)
 10/20/2017
-### <a name="download-azure-storage-explorer-091-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.1 indirin
-* [Windows Azure Depolama Gezgini (Önizleme) 0.9.1 indirin](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Mac için Azure Storage Gezgini (Önizleme) 0.9.1 indirin](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Linux için Azure Storage Gezgini (Önizleme) 0.9.1 indirin](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### <a name="new"></a>Yeni
 * Azure Cosmos DB desteği önizleme:
     * [Çevrimiçi belgeleri](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
@@ -153,28 +223,6 @@ Bu makalede Azure Storage Gezgini 0.9.2 için (Önizleme), önceki sürümler i�
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-## <a name="previous-releases"></a>Önceki sürümler
-
-* [Sürüm 0.8.16](#version-0816)
-* [Sürüm 0.8.14](#version-0814)
-* [Sürüm 0.8.13](#version-0813)
-* [Sürüm 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Sürüm 0.8.9 / 0.8.8](#version-089--088)
-* [Sürüm 0.8.7](#version-087)
-* [Sürüm 0.8.6](#version-086)
-* [Sürüm 0.8.5](#version-085)
-* [Sürüm 0.8.4](#version-084)
-* [Sürüm 0.8.3](#version-083)
-* [Sürüm 0.8.2](#version-082)
-* [Sürüm 0.8.0](#version-080)
-* [Sürüm 0.7.20160509.0](#version-07201605090)
-* [Sürüm 0.7.20160325.0](#version-07201603250)
-* [Sürüm 0.7.20160129.1](#version-07201601291)
-* [Sürüm 0.7.20160105.0](#version-07201601050)
-* [Sürüm 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-0816"></a>Sürüm 0.8.16
 8/21/2017

@@ -3,8 +3,8 @@ title: "Bir Azure tümleşik yığını sistemi bir ölçek birimi düğümünde
 description: "Bir Azure tümleşik yığını sistem fiziksel ölçek birimi düğümde Değiştir öğrenin."
 services: azure-stack
 documentationcenter: 
-author: troettinger
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
-ms.openlocfilehash: 63ba6cedd32bcf6ea3039bc80cc4a3f3407adfa7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: mabrigg
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Bir Azure tümleşik yığını sistemi bir ölçek birimi düğümünde değiştirin
 
@@ -51,6 +51,10 @@ Bir ölçek birimi düğümü kapalı ise, aşağıdaki tüm kritik uyarılar al
 Aşağıdaki adımlar, bir üst düzey genel bakış ölçek birimi düğümü değiştirme işlemini sağlanır. Sisteme özgü ayrıntılı adımlar için OEM donanım satıcısının FRU belgelerine bakın. OEM tarafından sağlanan belgelerinize bakarak olmadan adımları izlemeyin.
 
 1. Kullanım [boşaltma](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü bakım moduna eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
+
+   > [!NOTE]
+   > Herhangi bir durumda, yalnızca bir düğüm boşaltmış veya aynı anda (depolama alanları doğrudan) SSD bozmadan kapalı.
+
 2. Düğüme hala açık olduğundan kullanırsanız [kapatmak](azure-stack-node-actions.md#scale-unit-node-actions) eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
  
    > [!NOTE]

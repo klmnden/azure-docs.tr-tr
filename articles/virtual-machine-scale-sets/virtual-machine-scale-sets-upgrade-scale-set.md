@@ -3,8 +3,8 @@ title: "Bir Azure sanal makine ölçek kümesini yükseltme | Microsoft Docs"
 description: "Bir Azure sanal makine ölçek kümesini yükseltme"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
+<<<<<<< HEAD
 ms.author: guybo
 ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesini yükseltme
 Bu makalede, nasıl bir Azure sanal makine ölçek herhangi kesinti olmadan ayarlamak için bir işletim sistemi güncelleştirmeyi geri alabilirsiniz açıklanmaktadır. Bu bağlamda bir işletim sistemi güncelleştirme sürümü veya SKU işletim sisteminin değiştirme veya özel bir görüntü URI'si değiştirme içerir. Sanal makineleri birer birer birer veya gruplar (örneğin, bir seferde bir hata etki alanı) tüm aynı anda yerine güncelleştirme kapalı kalma süresi anlamına gelir olmadan güncelleştiriliyor. Bunu yaparak, değil yükseltilen tüm sanal makineleri çalışmaya devam.
@@ -31,7 +38,7 @@ Karışıklığı önlemek için şimdi gerçekleştirmek isteyebileceğiniz iş
 * Azure yönetilen diskleri kullanılarak oluşturulmuş bir ölçek kümesinin resim başvurusu değiştirme.
 * Sanal makine içinden OS düzeltme eki uygulama (Bu örnekleri arasında bir güvenlik düzeltme eki yükleme ve Windows Update çalıştıran). Bu senaryo desteklenir, ancak bu makalede ele alınan değil.
 
-Bir parçası olarak dağıtılan sanal makine ölçek kümeleri bir [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) küme ele alınmamıştır burada. Bkz: [düzeltme eki Windows işletim sisteminde, Service Fabric kümesi](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application) Service Fabric düzeltme eki uygulama hakkında daha fazla bilgi.
+Bir parçası olarak dağıtılan sanal makine ölçek kümeleri bir [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) küme ele alınmamıştır burada. Service Fabric düzeltme eki uygulama hakkında daha fazla bilgi için bkz: [düzeltme eki Windows işletim sisteminde, Service Fabric kümesi](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 Bir platform görüntüsü, işletim sistemi sürümü/SKU veya özel bir görüntü URI'si değiştirmek için temel sıralı şu şekilde görünür:
 
@@ -64,14 +71,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Platform görüntü sürümü değiştiğinde yerine özel bir görüntü için URI güncelleştiriyorsanız "yeni sürümü ayarlama" satırı kaynak görüntü URI güncelleştirecektir bir komutla değiştirin. Azure yönetilen diskleri kullanmadan ölçek kümesini oluşturulduysa, örneğin, güncelleştirme şöyle olabilir:
+Platform görüntü sürümü değiştiğinde yerine özel bir görüntü için URI güncelleştiriyorsanız "yeni sürümü ayarlama" satırı kaynak görüntü URI güncelleştiren bir komutu değiştirin. Azure yönetilen diskleri kullanmadan ölçek kümesini oluşturulduysa, örneğin, güncelleştirme şöyle olabilir:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Özel görüntü ölçek kümesini dayalı olarak, resim başvurusu güncelleştirilmiş sonra yönetilen Azure diskleri kullanılarak oluşturuldu. Örneğin:
+Özel görüntü tabanlı ölçek kümesi Azure yönetilen diskleri kullanılarak oluşturulduysa, sonra resim başvurusu güncelleştirilmesi. Örneğin:
 
 ```powershell
 # set the new version in the model data

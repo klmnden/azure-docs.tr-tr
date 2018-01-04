@@ -3,7 +3,7 @@ title: "Otomatik işletim sistemi yükseltme Azure sanal makine ölçek kümeler
 description: "İşletim sisteminde bir ölçek kümesi VM örnekleri otomatik olarak Yükselt öğrenin"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+<<<<<<< HEAD
 ms.date: 11/01/2017
 ms.author: guybo
 ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
 ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
+=======
+ms.date: 12/07/2017
+ms.author: negat
+ms.openlocfilehash: 60468860a8fe7d10bf0f25b92f4313aaa2614db3
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Otomatik işletim sistemi yükseltme Azure sanal makine ölçek kümesi
 
@@ -39,10 +47,10 @@ Otomatik işletim sistemi yükseltme, aşağıdaki özelliklere sahiptir:
 ## <a name="preview-notes"></a>Önizleme notları 
 Önizleme sırasında aşağıdaki sınırlamalar ve kısıtlamalar geçerlidir:
 
-- Otomatik işletim sistemi yükseltmeleri yalnızca Destek [üç OS SKU'ları](#supported-os-images). SLA veya garanti yoktur. Otomatik yükseltme üretim kritik iş yükleri üzerinde Önizleme sırasında kullanmamanızı öneririz.
+- Otomatik işletim sistemi yükseltmeleri yalnızca Destek [dört OS SKU'ları](#supported-os-images). SLA veya garanti yoktur. Otomatik yükseltme üretim kritik iş yükleri üzerinde Önizleme sırasında kullanmamanızı öneririz.
 - Service Fabric kümelerinde ölçek kümesi desteği yakında geliyor.
 - Azure disk şifrelemesi (şu anda önizlemede) **değil** sanal makine ölçek kümesi otomatik işletim sistemi yükseltme ile şu anda desteklenmiyor.
-- Portal deneyimi yakında kullanıma sunulacaktır.
+- Bir portal deneyimi yakında çıkıyor.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Otomatik işletim sistemi yükseltme kullanmak için kaydolun
@@ -78,9 +86,11 @@ Aşağıdaki SKU'ları şu anda desteklenen (daha fazla eklenir):
     
 | Yayımcı               | Sunduğu         |  Sku               | Sürüm  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04 LTS          | en son   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | en son   |
 | MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | en son   |
-| Canonical               | UbuntuServer  | 16.04 LTS          | en son   |
+| MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter Smalldisk | en son   |
+
 
 
 ## <a name="application-health"></a>Uygulama durumu
@@ -90,6 +100,15 @@ Bir işletim sistemi yükseltme sırasında bir ölçek kümesindeki VM örnekle
 
 Ölçek kümesini birden çok yerleştirme grupları kullanacak şekilde yapılandırılmışsa, kullanarak yoklamaları bir [standart yük dengeleyici](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) kullanılması gerekir.
 
+### <a name="important-keep-credentials-up-to-date"></a>Önemli: kimlik bilgileri güncel tutun
+Depolama hesabı için bir SAS belirteci kullanan bir VM uzantısı yapılandırılmışsa, örneğin dış kaynaklara erişmek için herhangi bir kimlik bilgisi ölçek kümesini kullanıyorsa, kimlik bilgilerinin güncel tutulduğundan emin olmak gerekir. Sertifikalar ve belirteçleri de dahil olmak üzere tüm kimlik bilgilerinin süresi dolmuş, yükseltme başarısız olur ve VM'lerin ilk batch başarısız durumda kalır.
+
+Sanal makineleri kurtarma ve kaynak kimlik doğrulama hatası varsa otomatik işletim sistemi yükseltme yeniden etkinleştirmek için önerilen adımları şunlardır:
+
+* Belirteç (veya diğer kimlik bilgilerini) geçirilen, uzantılarını yeniden.
+* VM içinde dış varlıklara konuşmaya kullanıldığında kimlik güncel olduğundan emin olun.
+* Ölçek kümesi modelinde uzantılarını herhangi yeni belirteçleri ile güncelleştirin.
+* Başarısız olanlar da dahil olmak üzere tüm VM örnekleri güncelleştirecektir güncelleştirilmiş ölçek kümesini dağıtın. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Bir özel yük dengeleyici araştırması uygulama sistem durumu araştırma bir ölçekte yapılandırma ayarlayın
 Sistem durumu ölçek kümesi için en iyi uygulama, yük dengeleyici araştırmasını açıkça oluşturun. Aynı uç nokta var olan HTTP araştırmasını veya TCP araştırması için kullanılabilir ancak bir sistem durumu araştırması geleneksel yük dengeleyici araştırması farklı davranışından gerektirebilir. Örneğin, geleneksel yük dengeleyici araştırmasını, örnek durumu otomatik işletim sistemi yükseltme sırasında belirlemek için uygun olmayabilir ancak örneği üzerindeki yükü çok yüksekse, sağlıksız döndürebilir. İki dakikadan kısa bir yüksek yoklama hızı için araştırma yapılandırın.

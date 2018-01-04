@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Kaynak Yöneticisi modunda Azure CLI komutları
 Bu makalede, sözdizimi ve yaygın olarak oluşturun ve Azure Resource Manager dağıtım modelinde Azure kaynaklarınızı yönetmek için kullanacağınız Azure komut satırı arabirimi (CLI) komutları için seçenekler sağlar. Bu komutlar, Resource Manager (arm) modunda CLI çalıştırarak erişin. Bu tam bir başvuru değildir ve CLI Sürüm biraz farklı komutları ya da parametreleri gösterebilir. Azure kaynakları ve kaynak gruplarını genel bir bakış için bkz: [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).  
@@ -29,7 +29,7 @@ Bu makalede, sözdizimi ve yaygın olarak oluşturun ve Azure Resource Manager d
 >Hakkında daha fazla bilgi bulmak [eski ve yeni Azure CLIs](/cli/azure/old-and-new-clis).
 >
 
-, İlk başlamak için [Azure CLI yükleme](../cli-install-nodejs.md) ve [Azure aboneliğinize bağlanmak](../xplat-cli-connect.md).
+, İlk başlamak için [Azure CLI yükleme](../cli-install-nodejs.md) ve [Azure aboneliğinize bağlanmak](/cli/azure/authenticate-azure-cli).
 
 Geçerli komut söz dizimi ve Kaynak Yöneticisi modunda komut satırı seçenekleri için yazın `azure help` veya belirli bir komut için Yardım görüntülemek üzere `azure help [command]`. Ayrıca CLI örnekleri oluşturma ve belirli Azure hizmetleri yönetmek için belgelerinde bulabilirsiniz.
 

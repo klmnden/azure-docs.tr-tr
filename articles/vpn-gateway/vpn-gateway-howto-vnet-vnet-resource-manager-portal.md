@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 406cb4faf53bde5f615593e2e904d91a1d90a729
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Azure portalı kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
@@ -41,15 +41,23 @@ Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve A
 
 ## <a name="about"></a>Sanal ağları bağlama hakkında
 
-Sanal ağlar arası bağlantı türünü kullanarak bir sanal ağı başka bir sanal ağa bağlama işlemi, şirket içi bir site konumu ile IPsec bağlantısı oluşturma işlemiyle benzerdir. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır ve her ikisi de iletişim kurarken aynı şekilde çalışır. Bağlantı türleri arasındaki fark, yerel ağ geçidini yapılandırma şeklidir. Sanal ağlar arası bağlantı oluşturduğunuzda yerel ağ geçidi adres alanını görmezsiniz. Bu alan otomatik olarak oluşturulup doldurulur. Ancak, bir sanal ağın adres alanını güncelleştirirseniz diğer sanal ağ, güncelleştirilmiş adres alanına yönlendireceğini otomatik olarak bilir.
+Sanal ağları bağlamanın birden çok yolu vardır. Aşağıdaki bölümlerde, sanal ağları bağlamak için farklı yollar açıklanmaktadır.
 
-Karmaşık bir yapılandırma ile çalışıyorsanız VNet-VNet yerine IPSec bağlantı türünü kullanmayı tercih edebilirsiniz. Bunun yapılması, trafiği yönlendirmek için yerel ağ geçidine ait ek bir adres alanı belirtmenize olanak sağlar. Sanal ağlarınızı IPsec bağlantı türü ile bağlıyorsanız, yerel ağ geçidini el ile oluşturup yapılandırmanız gerekir. Daha fazla bilgi için bkz. [Siteden Siteye yapılandırmalar](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+### <a name="vnet-to-vnet"></a>Sanal Ağdan Sanal Ağa
 
-Ayrıca, VNet’leriniz aynı bölgedeyse VNet Eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi bir VPN ağ geçidi kullanmaz ve fiyatlandırma ile işlevselliği biraz farklıdır. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
+Sanal ağlar arası bağlantı yapılandırma, sanal ağları kolayca bağlamanın güzel bir yoludur. Sanal ağlar arası bağlantı türünü (VNet2VNet) kullanarak bir sanal ağı başka bir sanal ağa bağlamak, bir şirket içi konumuna Siteden Siteye IPsec bağlantısı oluşturmaya benzerdir. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır ve her ikisi de iletişim kurarken aynı şekilde çalışır. Bağlantı türleri arasındaki fark, yerel ağ geçidini yapılandırma şeklidir. Sanal ağlar arası bağlantı oluşturduğunuzda yerel ağ geçidi adres alanını görmezsiniz. Bu alan otomatik olarak oluşturulup doldurulur. Bir sanal ağın adres alanını güncelleştirirseniz, diğer sanal ağ güncelleştirilmiş adres alanına yönlendireceğini otomatik olarak bilir. Sanal ağlar arası bağlantı oluşturma, genellikle sanal ağlar arasında Siteden Siteye bağlantı oluşturmadan daha hızlı ve kolaydır.
 
-### <a name="why"></a>Neden sanal ağdan sanal ağa bağlantı oluşturmalısınız?
+### <a name="site-to-site-ipsec"></a>Siteden Siteye (IPsec)
 
-Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
+Karmaşık bir ağ yapılandırmasıyla çalışıyorsanız, sanal ağlarınızı, bunun yerine [Siteden Siteye](vpn-gateway-howto-site-to-site-resource-manager-portal.md) adımlarını kullanarak bağlamayı tercih edebilirsiniz. Siteden Siteye IPsec adımlarını kullandığınızda, yerel ağ geçitlerini kendiniz oluşturup yapılandırırsınız. Her sanal ağa ait yerel ağ geçidi, diğer sanal ağa yerel bir site gibi davranır. Bunun yapılması, trafiği yönlendirmek için yerel ağ geçidine ait ek bir adres alanı belirtmenize olanak sağlar. Bir sanal ağın adres alanı değiştiğinde, değişimi yansıtmak için ona karşılık gelen yerel ağ geçidini güncelleştirmeniz gerekir. Otomatik olarak güncelleştirilmez.
+
+### <a name="vnet-peering"></a>VNet eşlemesi
+
+Sanal ağlarınızı, Sanal Ağ Eşleme kullanarak bağlamayı düşünebilirsiniz. Sanal ağ eşleme, bir VPN gateway kullanmadığından farklı kısıtlamaları vardır. Ayrıca, [sanal ağ eşleme fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-network), [Sanal Ağlar Arası VPN Gateway fiyatlandırmasından](https://azure.microsoft.com/pricing/details/vpn-gateway) farklı olarak hesaplanır. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>Neden sanal ağdan sanal ağa bağlantı oluşturmalısınız?
+
+Sanal ağları şu sebeplerden dolayı sanal ağlar arası bağlantıyı kullanarak bağlamak isteyebilirsiniz:
 
 * **Çapraz bölge coğrafi artıklığı ve coğrafi-durum**
 

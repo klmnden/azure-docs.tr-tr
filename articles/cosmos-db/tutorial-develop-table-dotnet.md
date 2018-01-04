@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET API tabloda geliştirin
 
@@ -65,7 +65,7 @@ Karmaşık Azure Table depolama görevleri hakkında daha fazla bilgi için bkz:
 ### <a name="about-this-tutorial"></a>Bu öğretici hakkında
 Bu öğretici Azure Table storage'ı SDK bilgi sahibiyseniz ve kullanılabilir premium özellikleri kullanmak istediğiniz geliştiriciler için Azure Cosmos DB kullanıyor. Bağlı olduğu [.NET kullanarak Azure Table storage ile çalışmaya başlama](table-storage-how-to-use-dotnet.md) ve ikincil dizinler, sağlanan işleme ve birden çok giriş gibi ek özellikler yararlanmak nasıl gösterir. Size bir Azure Cosmos DB hesabı oluşturun ve ardından derleme ve tablo uygulamayı dağıtmak için Azure portalını kullanmayı kapsar. Biz de .NET örnekleri oluşturma ve tablo, silme ve ekleme, güncelleştirme, silme ve tablo verileri Sorgulama yol. 
 
-Visual Studio yüklü 2017 yoksa kullanın karşıdan yükleyip **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -74,22 +74,22 @@ Visual Studio yüklü 2017 yoksa kullanın karşıdan yükleyip **ücretsiz** [V
 Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.  
  
 > [!IMPORTANT]  
-> Genel olarak kullanılabilir tablo API SDK'ları ile çalışmak için yeni bir tablo API hesabı oluşturmanız gerekir. Önizleme sırasında oluşturulan tablo API hesaplarını genel olarak kullanılabilir SDK'ları tarafından desteklenmez. 
+> Genel olarak kullanılabilir Tablo API’si SDK’ları ile çalışmak için yeni bir Tablo API’si hesabı oluşturmanız gerekir. Önizleme sırasında oluşturulan Tablo API’si hesapları genel olarak kullanılabilir SDK’lar tarafından desteklenmez. 
 >
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir Tablo uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi GitHub'dan bir Tablo uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve kullanmak `cd` örnek uygulamayı yüklemek için bir klasör olarak değiştirmek için komutu. 
+1. Git Bash gibi bir Git terminal penceresi açın ve örnek uygulamayı yüklemek üzere bir klasör olarak değiştirmek için `cd` komutunu kullanın. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur. 
+2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulamanın bir kopyasını oluşturur. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
@@ -99,30 +99,30 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, barındırılan veritabanıyla iletişim kurmak uygulamanızı sağlar. 
+Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır. 
 
-1. İçinde [Azure portal](http://portal.azure.com/), tıklatın **bağlantı dizesi**. 
+1. [Azure portalında](http://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
 
-    BİRİNCİL bağlantı DİZESİNİ kopyalayın için ekranın sağ tarafta kopyalama düğmelerini kullanın.
+    Ekranın sağ tarafındaki kopyala düğmesini kullanarak PRIMARY CONNECTION STRING’i kopyalayın.
 
-    ![Görüntüleyin ve bağlantı dizesi Bölmesi'nde bağlantı DİZESİNİ kopyalayın](./media/create-table-dotnet/connection-string.png)
+    ![Bağlantı Dizesi bölmesindeki CONNECTION STRING’i kopyalama ve görüntüleme](./media/create-table-dotnet/connection-string.png)
 
 2. Visual Studio'da app.config dosyasını açın. 
 
-3. Bu öğretici depolama öykünücüsünü kullanmaz gibi satır 8 ve yorum 7 satırındaki StorageConnectionString çıkışı StorageConnectionString açıklamadan çıkarın. Satır 7 ve 8 gibi görünmelidir:
+3. Bu öğretici Depolama Öykünücüsü kullanmadığından 8. satırdaki StorageConnectionString öğesini açıklama durumundan çıkarın ve 7. satırdaki StorageConnectionString öğesini açıklama yapın. 7. ve 8. satır artık şöyle görünmelidir:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. StorageConnectionString değerini satırında 8 Portalı'ndan birincil bağlantı DİZESİNİ yapıştırın. Tırnak işaretleri içine dizesini yapıştırın.
+4. Portaldan PRIMARY CONNECTION STRING öğesini 8. satırdaki StorageConnectionString değerine yapıştırın. Dizeyi tırnak işareti içinde yapıştırın.
    
     > [!IMPORTANT]
-    > Uç noktanız Önizleme hesabına sahip olduğunuz anlamına gelir, documents.azure.com, kullanıyorsa ve oluşturmak gereken bir [yeni tablo API hesabı](#create-a-database-account) genel olarak kullanılabilir tablo API SDK'sı ile çalışmak için. 
+    > Uç Noktanız documents.azure.com kullanıyorsa, bir önizleme hesabınız var demektir ve genel olarak kullanılabilir Tablo API’si SDK’ları ile çalışmak için [yeni bir Tablo API’si hesabı](#create-a-database-account) oluşturmanız gerekir. 
     >
 
-    Satır 8 benzer şekilde görünmelidir:
+    8. Satır şuna benzer şekilde görünmelidir:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -148,8 +148,6 @@ Diğer işlevleri aşağıdaki aracılığıyla etkinleştirilebilir `appSetting
 
 | Anahtar | Açıklama |
 | --- | --- |
-| TableThroughput | Saniye başına istek birimleri (RU) cinsinden tablo için ayrılmış işleme. Tek tablolar 100s-RU/s milyonlarca destekleyebilir. Bkz: [istek birimleri](request-units.md). Varsayılan değer`400` |
-| TableIndexingPolicy | Dizin oluşturma ilkesi belirtimine uygun JSON dizesi. Bkz: [dizin oluşturma ilkesi](indexing-policies.md) belirli sütunlardaki dahil etme/hariç tutma için dizin oluşturma ilkesi nasıl değiştiğini görmek için. |
 | TableQueryMaxItemCount | Tek gidiş dönüş tablosu sorgu başına döndürülen öğe sayısını yapılandırın. Varsayılan değer `-1`, Azure Cosmos değer çalışma zamanında dinamik olarak belirleyen DB olanak sağlar. |
 | TableQueryEnableScan | Sorgu için herhangi bir filtre dizini kullanamıyorsanız, ardından çalıştırın yine de bir tarama. Varsayılan değer `false`.|
 | TableQueryMaxDegreeOfParallelism | Çapraz bölüm sorgusu yürütme için paralellik derecesi. `0`hiçbir önceden getirme ile seri olduğu `1` olan seri önceden getirilirken ve daha yüksek değerlerle artırmak paralellik oranı. Varsayılan değer `-1`, Azure Cosmos değer çalışma zamanında dinamik olarak belirleyen DB olanak sağlar. |
@@ -164,10 +162,6 @@ Varsayılan değeri değiştirmek için açın `app.config` Visual Studio'daki �
       <add key="CosmosDBStorageConnectionString" 
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -194,13 +188,13 @@ Ardından, kullanarak bir tablo oluşturun `CloudTable`. Azure Cosmos DB tablola
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
-
-table.CreateIfNotExists();
+400
+table.CreateIfNotExists(throughput: 800);
 ```
 
 Tabloları nasıl oluşturulduğunu, önemli bir fark yoktur. Azure Cosmos DB işlemleri için Azure storage'nın tüketim tabanlı modeli farklı verimlilik ayırır. Üretilen iş ayrılmış /, istek hızı düzeyinde veya altında sağlanan işleme ise, hiçbir zaman kısıtlanan için ayrılmış.
 
-Varsayılan işleme ayarını yapılandırarak yapılandırabileceğiniz `TableThroughput` RU (istek birimleri) / saniye cinsinden. 
+Varsayılan işleme CreateIfNotExists parametresi olarak ekleyerek yapılandırabilirsiniz.
 
 Bir 1 KB varlığı okuma 1 olarak normalleştirilmiş RU ve diğer işlemlerin, CPU, bellek ve IOPS tüketime dayanarak sabit bir RU değere normalleştirilmiş. Daha fazla bilgi edinmek [istek birimleri Azure Cosmos veritabanı](request-units.md) ve özel olarak [anahtar değer depoları](key-value-store-cost.md).
 
@@ -301,7 +295,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB tablo API için Azure Table storage aynı sorgu işlevleri destekler. Azure Cosmos DB, sıralama, toplamalar, Jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevler de destekler. Ek işlevsellik gelecekteki hizmeti güncelleştirmesine tablo API'sindeki sağlanır. Bkz: [Azure Cosmos DB sorgusu](documentdb-sql-query.md) bu özelliklere genel bakış. 
+Azure Cosmos DB tablo API için Azure Table storage aynı sorgu işlevleri destekler. Azure Cosmos DB, sıralama, toplamalar, Jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevler de destekler. Ek işlevsellik gelecekteki hizmeti güncelleştirmesine tablo API'sindeki sağlanır. Bkz: [Azure Cosmos DB sorgusu](sql-api-sql-query.md) bu özelliklere genel bakış. 
 
 ## <a name="replace-an-entity"></a>Bir varlığı değiştirme
 Bir varlığı güncelleştirmek için Tablo hizmetinden alın, varlık nesnesini değiştirin ve değişiklikleri Tablo hizmetine geri kaydedin. Aşağıdaki kod mevcut bir müşterinin telefon numarasını değiştirir. 

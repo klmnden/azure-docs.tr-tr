@@ -3,16 +3,25 @@ title: "Havadan görüntü sınıflandırma | Microsoft Docs"
 description: "Havadan görüntü sınıflandırmasına gerçek dünya senaryoları için yönergeler sağlar"
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+<<<<<<< HEAD
 ms.date: 10/27/2017
 ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
 ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
+=======
+ms.workload: data-services
+ms.date: 12/13/2017
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>Havadan görüntü sınıflandırma
 
@@ -44,15 +53,15 @@ Bu örnekte, görüntü verilerini ve pretrained modelleri bir Azure depolama he
 
 ![Havadan görüntü sınıflandırma gerçek dünya senaryosu için şeması](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-[Adım adım yönergeler](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) , oluşturulmasını ve bir Azure depolama hesabı ve Spark kümesi, veri aktarımı ve bağımlılık yükleme de dahil olmak üzere hazırlama göstererek başlar. Bunlar ardından eğitim işlerini başlatma ve sonuçta elde edilen modelleri performansını karşılaştırır açıklar. Son olarak, Spark kümesi büyük görüntü kümesinde seçilen model uygulamak ve yerel olarak tahmin sonuçlarını analiz etmek nasıl gösterilmektedir.
+Bu adım adım yönergeler size oluşturulması ve bir Azure depolama hesabı ve Spark kümesi, veri aktarımı ve bağımlılık yükleme de dahil olmak üzere hazırlama göstererek başlar. Bunlar ardından eğitim işlerini başlatma ve sonuçta elde edilen modelleri performansını karşılaştırır açıklar. Son olarak, Spark kümesi büyük görüntü kümesinde seçilen model uygulamak ve yerel olarak tahmin sonuçlarını analiz etmek nasıl gösterilmektedir.
 
 
 ## <a name="set-up-the-execution-environment"></a>Yürütme ortamını ayarlama
 
 Aşağıdaki yönergeler bu örneğin yürütme ortamı ayarlama işleminde size kılavuzluk eder.
 
-### <a name="prerequisites"></a>Ön koşullar
-- Bir [Azure hesabı](https://azure.microsoft.com/en-us/free/) (ücretsiz deneme kullanılabilir)
+### <a name="prerequisites"></a>Önkoşullar
+- Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir)
     - Hdınsight Spark kümesinde 40 çalışan düğümleri (toplam 168 çekirdekler) oluşturur. "Kullanım + kotalar" inceleyerek hesabınızı yeterli kullanılabilir çekirdeğe sahip olduğundan emin olun aboneliğinizin Azure portalında sekmesi.
        - Daha az çekirdek kullanılabilir varsa, sağlanan çalışanların sayısını azaltmak için Hdınsight küme şablonu değiştirebilir. Bunun için yönergeler "Hdınsight Spark kümesi oluşturma" bölümünde görüntülenir.
     - Bu örnek bir Batch AI Eğitim kümesi ile iki NC6 oluşturur (1 GPU, 6 vCPU) VM'ler. Hesabınızın yeterli kullanılabilir çekirdekler Doğu ABD bölgesinde "kullanım + kotalar" inceleyerek sahip olduğundan emin olun aboneliğinizin Azure portalında sekmesi.
@@ -67,8 +76,8 @@ Aşağıdaki yönergeler bu örneğin yürütme ortamı ayarlama işleminde size
         - "Azure Python SDK Yükle"
     - Kayıt istemci kimliği, gizli ve Kiracı kimliği Azure Active Directory uygulamasının oluşturmak üzere yönlendirilir. Bu öğreticide daha sonra bu kimlik bilgilerini kullanır.
     - Bu makalenin yazıldığı sırada, Azure CLI 2.0 ayrı çatallarını Azure Machine Learning çalışma ekranı ve Azure Batch AI kullanın. Daha anlaşılır olması için biz "Azure Machine Learning çalışma ekranından başlatılan CLI" olarak CLI çalışma ekranı'nın sürümü ve (toplu AI içeren) genel yayın sürümü "Azure CLI 2.0." bakın
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), bir ücretsiz Azure depolama hesapları arasında dosya aktarımı Eşgüdümleme yardımcı programı
-    - AzCopy yürütülebilir içeren klasör, sisteminizin PATH ortam değişkeni üzerinde olduğundan emin olun. (Ortam değişkenleri değiştirme yönergeleri kullanılabilir [burada](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), bir ücretsiz Azure depolama hesapları arasında dosya aktarımı Eşgüdümleme yardımcı programı
+    - AzCopy yürütülebilir içeren klasör, sisteminizin PATH ortam değişkeni üzerinde olduğundan emin olun. (Ortam değişkenleri değiştirme yönergeleri kullanılabilir [burada](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Bir SSH istemcisi; öneririz [PuTTY](http://www.putty.org/).
 
 Bu örnek, bir Windows 10 PC'de test edilmiştir; Azure veri bilimi sanal makineler de dahil olmak üzere tüm Windows makineden çalıştırılabilmesi için olması gerekir. Azure CLI 2.0 göre bir MSI yüklendiği [bu yönergeleri](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Küçük değişiklikler (örneğin, filepaths değişiklikler) gerekli macOS üzerinde bu örnek çalıştırılırken.
@@ -157,14 +166,14 @@ Ana bilgisayar tarafından Hdınsight Spark erişilmelidir dosyaları proje depo
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Dosya aktarımı en çok 20 dakika bekler. Beklerken, aşağıdaki bölümüne geçebilirsiniz: çalışma ekranı aracılığıyla başka bir komut satırı arabirimi açın ve geçici değişkenleri yeniden tanımlamanız gerekebilir.
+    Dosya aktarımı yaklaşık bir saat olması için bekler. Beklerken, aşağıdaki bölümüne geçebilirsiniz: çalışma ekranı aracılığıyla başka bir komut satırı arabirimi açın ve geçici değişkenleri yeniden tanımlamanız gerekebilir.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Hdınsight Spark kümesi oluşturma
 
 Hdınsight kümesi oluşturmak için önerilen yöntem, bu proje "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" alt klasöründe bulunan Hdınsight Spark küme resource manager şablonu kullanır.
 
-1. Hdınsight Spark küme bu projenin "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" alt "template.json" dosyasını şablonudur. Varsayılan olarak, şablon 40 çalışan düğümleri ile bir Spark kümesi oluşturur. Bu sayıyı ayarlamanız gerekir, sık kullandığınız metin düzenleyicinizde şablonu açın ve "40" tüm örneklerini tercih ettiğiniz çalışan düğüm sayısı ile değiştirin.
-    - Seçtiğiniz çalışan düğüm sayısı küçükse bellek yetersiz hatalarla karşılaşabilirsiniz. Bellek hataları mücadele etmek için eğitim ve operationalization betikleri kullanılabilir verilerin bir alt kümesinde bu belgenin sonraki bölümlerinde açıklandığı gibi çalışabilir.
+1. Hdınsight Spark küme bu projenin "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" alt "template.json" dosyasını şablonudur. Varsayılan olarak, şablon 40 çalışan düğümleri ile bir Spark kümesi oluşturur. Bu sayıyı ayarlamanız gerekir, sık kullandığınız metin düzenleyicinizde şablonu açın ve "40"'ın tüm örneklerini tercih ettiğiniz çalışan düğüm sayısı ile değiştirin.
+    - Daha sonra seçtiğiniz çalışan düğüm sayısı küçükse, bellek yetersiz hatalarla karşılaşabilirsiniz. Bellek hataları mücadele etmek için eğitim ve operationalization betikleri kullanılabilir verilerin bir alt kümesinde bu belgenin sonraki bölümlerinde açıklandığı gibi çalışabilir.
 2. Benzersiz bir ad ve parola Hdınsight için Küme ve bunları yazma seçin aşağıdaki komutta gösterilen yerde: Küme komutları vererek oluşturursunuz:
 
     ```
@@ -248,12 +257,10 @@ Toplu AI kümenizi eğitim verilerinizi bir ağ dosya sunucusundaki erişir. Ver
 
 #### <a name="create-a-batch-ai-cluster"></a>Bir toplu AI kümesi oluşturma
 
-1. Aşağıdaki komutları vererek küme oluşturun:
+1. Aşağıdaki komutu gönderdikten küme oluşturun:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Kümenizi sağlama durumu kullanıcının denetlemek için aşağıdaki komutu kullanın:
@@ -304,7 +311,7 @@ Hdınsight küme oluşturma tamamlandıktan sonra küme projeniz için bir işle
 1.  Azure Machine Learning komut satırı arabiriminden aşağıdaki komutu yürütün:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     Bu komut, iki dosya ekler `myhdi.runconfig` ve `myhdi.compute`, projenizin için `aml_config` klasör.

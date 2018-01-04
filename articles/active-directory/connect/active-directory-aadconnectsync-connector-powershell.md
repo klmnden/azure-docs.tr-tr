@@ -4,7 +4,7 @@ description: "Bu makalede, Microsoft'un Windows PowerShell bağlayıcısının n
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Windows PowerShell Bağlayıcısı Teknik Başvurusu
 Bu makalede Windows PowerShell Bağlayıcısı açıklanmaktadır. Makale aşağıdaki ürünler için geçerlidir:
@@ -59,7 +59,7 @@ Aşağıdaki bağlantı parametrelerini yapılandırabilirsiniz:
 
 **Bağlantı**
 
-| Parametre | Varsayılan değer | Amaç |
+| Parametre | Varsayılan Değer | Amaç |
 | --- | --- | --- |
 | Sunucu |<Blank> |Bağlayıcının bağlanması gereken sunucu adı. |
 | Etki alanı |<Blank> |Bağlayıcısı'nı çalıştırdığınızda kullanmak üzere saklamak için kimlik bilgilerini etki alanı. |
@@ -88,7 +88,7 @@ Doğrulama betiği yönetici tarafından sağlanan bağlayıcı yapılandırma p
 
 Doğrulama betiği bağlayıcısından aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |Yapılandırma sekmesini veya doğrulama isteği tetiklenen iletişim. |
 | ConfigParameters |[KeyedCollection] [ keyk] [dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
@@ -101,7 +101,7 @@ Doğrulama betiği tek bir ParameterValidationResult nesneyi ardışık düzene 
 
 Şema bulma komut dosyasını bir bağlayıcı aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection] [ keyk] [dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -148,7 +148,7 @@ Bir bölüm bir paylaşılan şema içinde ayrı bir ad alanıdır. Örneğin, A
 
 Bölüm bulma komut dosyasını bir bağlayıcı aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -160,7 +160,7 @@ Hiyerarşi bulma komut dosyası, yalnızca ayırt edici adı stil özelliği LDA
 
 Hiyerarşi bulma komut dosyasını bir bağlayıcı aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -176,7 +176,7 @@ Begin içe aktarma komut dosyasının bir almayı Çalıştır adımı başında
 
 Begin içe aktarma komut dosyasının bir bağlayıcı aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -190,7 +190,7 @@ Komut dosyasını içeri aktarmak için başka veri yok olduğunu gösterir kada
 
 İçeri aktarma veri betiği bağlayıcısından aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -205,7 +205,7 @@ Almayı Çalıştır sonuç son alma betiği çalıştırılır. Bu komut tüm t
 
 Son içe aktarma komut dosyasının bir bağlayıcı aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -222,7 +222,7 @@ Bir verme çalıştırma adım başında başlangıç dışa aktarma betiği ça
 
 Begin dışa aktarma betiği aşağıdaki parametreleri bağlayıcıyı alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -236,7 +236,7 @@ Eşitleme hizmeti sayıda tüm bekleyen dışarı aktarmalar işlemek gerekli ol
 
 Dışarı aktarma veri betiği bağlayıcısından aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -251,7 +251,7 @@ Sonuç dışarı aktarma çalıştırma, son dışarı aktarma komut dosyasını
 
 Son dışa aktarma betiği aşağıdaki parametreleri bağlayıcıyı alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |
@@ -265,7 +265,7 @@ Windows PowerShell bağlayıcılar parola değişiklikleri/sıfırlama için hed
 
 Parola betik bağlayıcısından aşağıdaki parametreleri alır:
 
-| Ad | Veri türü | Açıklama |
+| Ad | Veri Türü | Açıklama |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][dize [ConfigParameter][cp]] |Tablo Bağlayıcısı için yapılandırma parametreleri. |
 | Kimlik Bilgisi |[PSCredential][pscred] |Yönetici tarafından bağlantı sekmesinde girilmiş olan kimlik bilgileri içerir. |

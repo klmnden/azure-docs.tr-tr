@@ -9,14 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 2608e0e0c87df1e7c6d034cf0977ed0e16b128cf
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Olağanüstü durum kurtarma, ikincil bir Azure bölgesine (Önizleme) Azure VM'ler için ayarlama
 
@@ -30,7 +36,7 @@ Bu öğretici, ikincil bir Azure bölgesine olağanüstü durum kurtarma Azure V
 > * VM'ler için giden erişimini Ayarla
 > * Bir sanal makine için çoğaltmayı etkinleştirme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -123,16 +129,16 @@ Daha fazla bilgi almak [Azure RBAC yerleşik rolleri](../active-directory/role-b
 Site Recovery abonelik ve kaynak grubu/bulut hizmeti ile ilişkili sanal makinelerin listesini alır.
 
 1. İçinde **sanal makineleri**, çoğaltmak istediğiniz sanal makineleri seçin.
-2. **Tamam** düğmesine tıklayın.
+2. **Tamam**’a tıklayın.
 
 ### <a name="configure-replication-settings"></a>Çoğaltma ayarlarını yapılandırma
 
 Site Recovery, varsayılan ayarları ve hedef bölgesi için çoğaltma ilkesi oluşturur. Gereksinimlerinize göre ayarlarını değiştirebilirsiniz.
 
-1. Tıklatın **ayarları** hedef ayarlarını görüntülemek için.
-2. Varsayılan hedefi ayarlarını geçersiz kılmak için tıklatın **Özelleştir**. 
+1. Tıklatın **ayarları** hedef ve çoğaltma ayarlarını görüntülemek için.
+2. Varsayılan hedefi ayarlarını geçersiz kılmak için tıklatın **Özelleştir** yanına **kaynak grubu, ağ, depolama ve kullanılabilirlik kümeleri**.
 
-![Ayarları yapılandırma](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Ayarları yapılandırma](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Hedef konum**: olağanüstü durum kurtarma için kullanılan hedef bölgesi. Hedef konumu Site Recovery kasası konumu eşleştiğini öneririz.
@@ -148,11 +154,23 @@ Site Recovery, varsayılan ayarları ve hedef bölgesi için çoğaltma ilkesi o
 
 - **Hedef kullanılabilirlik kümeleri**: varsayılan olarak, Site Recovery "asr" soneki ile hedef bölgede yeni bir kullanılabilirlik oluşturur. Vm'leri kaynak bölge kümesinde parçası ise yalnızca kullanılabilirlik kümeleri ekleyebilirsiniz.
 
+Varsayılan çoğaltma ilkesi ayarlarını geçersiz kılmak için tıklatın **Özelleştir** yanına **Çoğaltma İlkesi**.  
+
 - **Çoğaltma İlkesi adı**: İlke adı.
 
 - **Kurtarma noktası bekletme**: varsayılan olarak, Site Recovery kurtarma noktalarına 24 saat tutar. 1 ila 72 saat arasında bir değer yapılandırabilirsiniz.
 
 - **Uygulamayla tutarlı anlık görüntü sıklığı**: varsayılan olarak, Site Recovery 4 saatte bir uygulamayla tutarlı anlık görüntüsünü alır. 1 ve 12 saat arasında herhangi bir değer yapılandırabilirsiniz. Uygulamayla tutarlı anlık görüntü VM içinde uygulama verilerinin zaman içinde nokta anlık görüntüsüdür. Birim Gölge Kopyası Hizmeti (VSS) sağlar, uygulama VM üzerinde anlık görüntü alınırken tutarlı bir durumda olan.
+
+- **Çoğaltma grubu**: uygulamanızı VMs çoklu VM tutarlılığını gerekirse, bir çoğaltma grubu için sanal makineleri oluşturabilirsiniz. Varsayılan olarak, seçili VM'ler herhangi bir çoğaltma grubunun parçası değildir.
+
+  Tıklatın **Özelleştir** yanına **Çoğaltma İlkesi** ve ardından **Evet** çoklu VM tutarlılığını VM'ler yapmak bir çoğaltma grubunun parçası. Yeni bir çoğaltma grubu oluşturun veya varolan bir çoğaltma grubunu kullanın. ' I tıklatın ve çoğaltma grubunun parçası olarak sanal makineleri seçin **Tamam**.
+
+> [!IMPORTANT]
+  Bir çoğaltma grubundaki tüm makineleri üzerinden başarısız olduğunda kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktaları paylaşılan. Çoklu VM tutarlılığını etkinleştirmek, iş yükü performansını etkileyebilir ve yalnızca makineler aynı iş yükünü çalıştırıyorsa ve birden fazla makine arasında tutarlılık ihtiyacınız varsa kullanılmalıdır.
+
+> [!IMPORTANT]
+  Çoklu VM tutarlılığını etkinleştirmek, çoğaltma grubundaki birbiriyle 20004 bağlantı noktası üzerinden iletişim kurar. Bağlantı noktası 20004 üzerinden VM'ler arasında iç iletişimini engelleyen bir güvenlik duvarı gerecini olduğundan emin olun. Linux VM'ler, çoğaltma grubunun parçası olmasını istiyorsanız, bağlantı noktası 20004 üzerinde giden trafiğe belirli Linux sürümü Kılavuzu göredir el ile açılmış olmamasını sağlayın.
 
 ### <a name="track-replication-status"></a>Çoğaltma durumunu izleme
 
@@ -164,7 +182,7 @@ Site Recovery, varsayılan ayarları ve hedef bölgesi için çoğaltma ilkesi o
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide bir Azure VM için olağanüstü durum kurtarma yapılandırılmış. Yapılandırmanızı test sonraki adımdır.
+Bu öğreticide, olağanüstü durum kurtarma Azure VM için yapılandırılmış. Yapılandırmanızı test sonraki adımdır.
 
 > [!div class="nextstepaction"]
 > [Olağanüstü durum kurtarma tatbikatı çalıştırma](azure-to-azure-tutorial-dr-drill.md)

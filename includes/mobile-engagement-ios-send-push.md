@@ -3,7 +3,7 @@ Mobile Engagement’ın sizin adınıza Anında İletme Bildirimleri göndermesi
 
 1. Mobile Engagement portalınıza gidin. Doğru yerde olduğunuzdan emin olun ve alttaki **Katıl** düğmesine tıklayın:
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Engagement Portal’ınızdaki **Ayarlar** sayfasına tıklayın. Buradan, p12 sertifikanızı yüklemek için **Yerel Gönderim** bölümüne tıklayın:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)

@@ -4,7 +4,7 @@ description: "Azure portalında göstermeyi raporlama olayları için geçen sü
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -12,14 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
+<<<<<<< HEAD
 ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
 ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
+=======
+ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Gecikme raporlama Azure Active Directory
 
@@ -37,13 +43,15 @@ Etkinlik Raporlama iki alan vardır:
 
 Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler.
 
-| Rapor | Minimum | Ortalama | Maksimum |
-| :-- | --- | --- | --- |
-| Denetim günlükleri             | 30 dakika  | 45 dakika | 1 saat     |
-| Oturum açma işlemleri               | 15 dakika  | 15 dakika | 2 saat *   |
+| Rapor | Minimum | Ortalama |
+| :-- | --- | --- |
+| Denetim günlükleri | 30 dakika  | 1 saat  |
+| Oturum açma işlemleri | 15 dakika  | 2 saat |
 
->[!NOTE]
-> Eski Office uygulamalarından gelen bazı oturum açma etkinliği verileri için rapor verilerinin görünmesi 8 saati bulabilir. 
+Bazı kenar durumlarda bunu gerçekleştirebilirsiniz:
+
+- 2 saat gösterilmeye etkinlik verileri denetim.
+- 24 saat oturum açma etkinliği veri görünmesini sağlar. Bu, eski office uygulamalarından gelen oturum açma işlemleri etkinlik verilerini içerir. 
 
 
 ## <a name="security-reports"></a>Güvenlik raporları
@@ -60,7 +68,7 @@ Aşağıdaki tabloda güvenlik raporları gecikme bilgileri listeler.
 | Risk altındaki kullanıcılar          | 5 dakika   | 15 dakika  | 2 saat  |
 | Riskli oturum açma işlemleri         | 5 dakika   | 15 dakika  | 2 saat  |
 
-## <a name="risk-events"></a>Risk olayı
+## <a name="risk-events"></a>Risk olayları
 
 Azure Active Directory kullanıcı hesaplarınızı ilgili kuşkulu eylemleri algılamak için Uyarlamalı machine learning algoritmaları ve buluşsal yöntemler kullanır. Her kuşkulu eylem bir kayıt çağrılan risk olayı depolanan algıladı.
 
@@ -72,7 +80,7 @@ Aşağıdaki tabloda, risk olaylarını gecikme bilgileri listeler.
 | Alışılmadık konumlardan oturum açma işlemleri |5 dakika |15 dakika |2 saat |
 | Sızan kimlik bilgilerine sahip kullanıcılar |2 saat |4 saat |8 saat |
 | Alışılmadık konumlara imkansız seyahat |5 dakika |1 saat |8 saat  |
-| Virüs bulaşmış cihazlardan oturum açma işlemleri |2 saat |4 saat |8 saat  |
+| Bulaşma olan cihazlardan oturum açma işlemleri |2 saat |4 saat |8 saat  |
 | Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri |2 saat |4 saat |8 saat  |
 
 

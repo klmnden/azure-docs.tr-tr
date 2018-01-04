@@ -4,7 +4,7 @@ description: "Azure AD B2C'de özel ilkeler kullanarak SSO oturumları yönetmey
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: parja
-ms.openlocfilehash: ff767993eaf0305168176d0ad6e15c068b8c85eb
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: Çoklu oturum açma (SSO) oturum yönetimi
 
@@ -96,10 +96,10 @@ Bu sağlayıcı dış SAML kimlik sağlayıcısı yanı sıra, uygulamalar aras�
 
 Teknik profilinde iki meta veri öğeleri şunlardır:
 
-| Öğe | Varsayılan değer | Olası Değerler | Açıklama
+| Öğe | Varsayılan Değer | Olası Değerler | Açıklama
 | --- | --- | --- | --- |
-| IncludeSessionIndex | TRUE | true/false | Sağlayıcıya oturum dizini saklanması gerektiğini gösterir. |
-| RegisterServiceProviders | TRUE | true/false | Sağlayıcı bir onaylama verilen tüm SAML hizmet sağlayıcıları kaydedeceğini gösterir. |
+| IncludeSessionIndex | true | true/false | Sağlayıcıya oturum dizini saklanması gerektiğini gösterir. |
+| RegisterServiceProviders | true | true/false | Sağlayıcı bir onaylama verilen tüm SAML hizmet sağlayıcıları kaydedeceğini gösterir. |
 
 Sağlayıcı bir SAML kimlik sağlayıcısı oturumu depolamak için kullanırken, yukarıdaki öğelerin her ikisi de false olmalıdır. Varsayılanları doğruysa B2C SAML oturumunun depolamak için Sağlayıcı kullanırken, yukarıdaki öğeleri doğru veya belirtilmemiş olması gerekir.
 

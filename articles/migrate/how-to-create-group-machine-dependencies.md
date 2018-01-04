@@ -1,33 +1,24 @@
 ---
 title: "Grup Azure geçirme ile makine bağımlılıkları kullanarak makine | Microsoft Docs"
 description: "Makine bağımlılıkları ile Azure geçiş hizmetini kullanarak bir değerlendirme oluşturmayı açıklar."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 0527e34e-a078-405e-aeb9-c91a5808112a
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 5ed49f3dc71af6a8c1c7b6c9e38fd84452505aec
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 720380fd14d9eaf4856ad75269a80f2b63a4725f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşleme kullanarak grubu makineleri
 
-Bu makalede makineler için bir grup oluşturmak nasıl [Azure geçirmek](migrate-overview.md) makine bağımlılık eşleme kullanarak değerlendirmesi. Makine bağımlılıkları Çapraz denetimi, bir değerlendirme çalıştırmadan önce tarafından güvenirlik daha yüksek düzeyde VM'ler gruplarıyla değerlendirmek istediğiniz zaman genellikle bu yöntemi kullanın.
-
+Bu makine için bir grup oluşturmak makalede [Azure geçirmek](migrate-overview.md) makinelerin bağımlılıkları görselleştirme tarafından değerlendirmesi. Makine bağımlılıkları Çapraz denetimi, bir değerlendirme çalıştırmadan önce tarafından güvenirlik daha yüksek düzeyde VM'ler gruplarıyla değerlendirmek istediğiniz zaman genellikle bu yöntemi kullanın. Bağımlılık görselleştirme etkili bir şekilde Azure geçişinizi planlama yapmanıza yardımcı olabilir. Hiçbir şey geride bıraktığı ve Azure'a geçirilirken beklenmedik biçimde kesintiler meydana gelmediğinden emin olmanıza yardımcı olur. Birlikte geçirmek ve çalışan bir sistemi kullanıcılar hala sunma veya geçiş yerine yetkisini için bir adaydır olup olmadığını belirlemek için gereken tüm bağımlı sistemleri bulabilir. 
 
 
 ## <a name="prepare-machines-for-dependency-mapping"></a>Makineler bağımlılık eşlemesi için hazırlanma
-Bağımlılık eşlemesindeki makineler eklemek için aracıları değerlendirmek istediğiniz her şirket içi makinede yükleyip gerekir. İnternet bağlantısı makinelerle varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlardaki.
+Makinelerin bağımlılıkları görüntülemek için aracıları değerlendirmek istediğiniz her şirket içi makinede yükleyip gerekir. İnternet bağlantısı makinelerle varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlardaki.
 
 ### <a name="download-and-install-the-vm-agents"></a>VM aracıları yükleyip
 1. İçinde **genel bakış**, tıklatın **Yönet** > **makineler**ve gerekli makineyi seçin.
@@ -40,7 +31,7 @@ Bağımlılık eşlemesindeki makineler eklemek için aracıları değerlendirme
 Bir Windows makinesinde aracı yüklemek için:
 
 1. İndirilen Aracısı'nı çift tıklatın.
-2. Üzerinde **Hoş Geldiniz** sayfasında, **sonraki**. Üzerinde **Lisans Koşulları'nı** sayfasında, **ediyorum** lisans kabul etmek için.
+2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. Üzerinde **Lisans Koşulları'nı** sayfasında, **ediyorum** lisans kabul etmek için.
 3. İçinde **hedef klasörü**, saklamak veya varsayılan yükleme klasörünü değiştirmek > **sonraki**. 
 4. İçinde **aracı Kur Seçenekleri**seçin **Azure günlük analizi (OMS)** > **sonraki**. 
 5. Tıklatın **Ekle** yeni bir OMS çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
@@ -62,25 +53,33 @@ Bir Linux makinesinde aracı yüklemek için:
 
 [Daha fazla bilgi edinin](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) bağımlılık aracısı tarafından desteklenen işletim sistemleri hakkında. 
 
-## <a name="create-a-group"></a>Bir grup oluşturun
+## <a name="create-a-group"></a>Grup oluştur
 
 1. Aracılar yüklendikten sonra portal'ı tıklatın'a gidin ve **Yönet** > **makineler**.
-2. **Bağımlılıkları** sütun şimdi olarak göster **bağımlılıklarını görüntüleme**. Sütunu bağımlılıkları görüntülemek için tıklatın.
-3. Her makine için doğrulayabilirsiniz:
-    - Olup MMA ve bağımlılık Aracısı yüklenir ve makine olup olmadığını buldu.
-    - Makinede çalışan konuk işletim sistemi.
-    - Gelen ve giden IP bağlantıları ve bağlantı noktaları.
-    - Makinelerde çalışan işlemler.
-    - Makineler arasındaki bağımlılıkları.
+2. Aracıların yüklü olduğu makinede arayın.
+3. **Bağımlılıkları** sütun makine için şimdi olarak göster **bağımlılıklarını görüntüleme**. Sütunu makinenin bağımlılıkları görüntülemek için tıklatın.
+4. Makine için bağımlılık Haritası aşağıdaki ayrıntıları gösterir:
+    - (İstemciler) gelen ve giden (Sunucuları) TCP bağlantıları/makineden
+        - MMA ve bağımlılık aracısı yüklü olmayan bağımlı makineler bağlantı noktası numaralarını göre gruplandırılır
+        - MMA ve bağımlılık aracısı yüklü olan dependenct makineler ayrı kutuları olarak gösterilir 
+    - Makine içinde çalışan işlemler, işlemleri görüntülemek için her makine kutusunu genişletebilirsiniz.
+    - Tam etki alanı adı, işletim sistemi, her makinenin MAC adresi vb. gibi özellikleri, bu ayrıntıları görüntülemek için her makine kutusunu tıklatabilirsiniz.
 
-4. Daha ayrıntılı bağımlılıklar için zaman aralığını değiştirmek için tıklayın. Varsayılan olarak aralığı bir saattir. Zaman aralığını değiştirmek veya başlangıç ve bitiş tarihleri ve süresini belirtin.
-5. Grup haline getirmek istediğiniz bağımlı makineleri tanımladıktan sonra harita üzerinde makineleri seçin ve'ı tıklatın **Grup makineler**.
-6. Bir grup adı belirtin. Makine Azure geçirmek tarafından bulunduğundan emin olun. Bulma işlemi içi tekrar çalıştırırsanız değil. İsterseniz, bir değerlendirme hemen çalıştırabilirsiniz.
-7. Tıklatın **Tamam** grubunu kaydetmek için.
+ ![Makine bağımlılıklarını görüntüleme](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
-    ![Makine bağımlılıkları olan bir grup oluşturun](./media/how-to-create-group-machine-dependencies/create-group.png)
+4. Zaman aralığı etiketinde süre tıklayarak farklı süreler için bağımlılıkları bakabilirsiniz. Varsayılan olarak aralığı bir saattir. Zaman aralığını değiştirmek veya başlangıç ve bitiş tarihleri ve süresini belirtin.
+5. Grup haline getirmek istediğiniz bağımlı makineleri tanımladıktan sonra Ctrl + Click harita üzerinde birden fazla makine seçin ve tıklatın kullanın **Grup makineler**.
+6. Bir grup adı belirtin. Bağımlı makineler Azure geçirmek tarafından bulunduğundan emin olun. 
+
+    > [!NOTE]
+    > Bağımlı bir makine Azure geçirmek tarafından bulunamazsa, gruba ekleyemezsiniz. Bu tür makineler grubuna eklemek için sağ kapsamıyla vcenter Server'daki bulma işlemini yeniden çalıştırın ve makine Azure geçirmek tarafından bulunduğundan emin olun gerekir.  
+
+7. Bu grup için bir değerlendirme oluşturmak istiyorsanız, grup için yeni bir değerlendirme oluşturmak için onay kutusunu seçin.
+8. Tıklatın **Tamam** grubunu kaydetmek için.
+
+Grup oluşturulduktan sonra grubun tüm makinelerde aracıları yüklemek ve grubun tüm Grup bağımlılık görselleştirme tarafından iyileştirmek için önerilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bilgi nasıl](how-to-create-group-dependencies.md) Grup bağımlılıkları denetleyerek Grup iyileştirmek için
+- [Bilgi nasıl](how-to-create-group-dependencies.md) Grup bağımlılıkları görselleştirme tarafından Grup iyileştirmek için
 - [Daha fazla bilgi edinin](concepts-assessment-calculation.md) değerlendirmelerinin nasıl hesaplandığını hakkında.

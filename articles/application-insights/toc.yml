@@ -51,6 +51,8 @@
           href: app-insights-windows-desktop.md
         - name: ASP.NET Çekirdeği
           href: app-insights-asp-net-core.md
+        - name: Konsol
+          href: application-insights-console.md
     - name: Java uygulamalarını izleme
       items:
         - name: Web uygulamaları
@@ -142,6 +144,16 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: Performans anomalileri
               href: app-insights-proactive-performance-diagnostics.md
+            - name: Performans düşüşünü izleme
+              href: app-insights-proactive-trace-severity.md
+            - name: Özel durum hacmi
+              href: app-insights-proactive-exception-volume.md
+            - name: Bellek sızıntısı
+              href: app-insights-proactive-potential-memory-leak.md
+            - name: Kaynak kullanımı
+              href: app-insights-proactive-low-utilization-cloud-resources.md
+            - name: Güvenlik algılama
+              href: app-insights-proactive-application-security-detection-pack.md
         - name: Kaynak oluşturma
           href: app-insights-create-new-resource.md
     - name: Çözümleme

@@ -3,7 +3,7 @@ title: "Bir Web hizmeti için birden çok bölgeye dağıtma | Microsoft Docs"
 description: "(Kopya) yeni bir Web hizmeti diğer bölgeler dağıtmak için adımları."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 8e616bd6f13c4f97886a3eae225e188afadb2305
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd6f05e9b9ce711ce55e88f07aa13287c76ebc2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Web Hizmetini birden fazla bölgeye dağıtma
 Yeni Azure Web Hizmetleri kolayca birden fazla abonelikleri veya çalışma alanları gerek kalmadan bir web hizmeti için birden çok bölgeye dağıtmanıza izin verin. 

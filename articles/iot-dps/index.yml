@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure IoT Hub Cihaz Sağlama Hizmeti Belgeleri
+title: "Azure IoT Hub Cihaz Sağlama Hizmeti Belgeleri"
 metadata:
-  title: 'Azure IoT Hub Cihaz Sağlama Hizmeti Belgeleri - Öğreticiler, API Başvurusu'
+  title: "Azure IoT Hub Cihaz Sağlama Hizmeti Belgeleri - Öğreticiler, API Başvurusu"
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -13,40 +13,45 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: nberdy
+  ms.openlocfilehash: 4e7b5563b64be95c9453990af928713ef04284c0
+  ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 12/05/2017
 abstract:
-  description: 'IoT Hub Cihaz Sağlama Hizmeti doğru IoT hub’a, kullanıcı müdahalesi gerektirmeden otomatik olarak tam zamanında sağlama olanağı sunan bir yardımcı hizmettir. Bu sayede müşteriler milyonlarca cihazı güvenli ve ölçeklenebilir bir şekilde sağlayabiliyor. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle IoT hub’larınıza cihaz sağlamayı öğrenin.'
+  description: "IoT Hub Cihaz Sağlama Hizmeti doğru IoT hub’a, kullanıcı müdahalesi gerektirmeden otomatik olarak tam zamanında sağlama olanağı sunan bir yardımcı hizmettir. Bu sayede müşteriler milyonlarca cihazı güvenli ve ölçeklenebilir bir şekilde sağlayabiliyor. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle IoT hub’larınıza cihaz sağlamayı öğrenin."
 sections:
-  - title: 5 Dakikalık Hızlı Başlangıçlar
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "İlk Cihaz Sağlama Hizmeti örneğinizi ayarlamayı öğrenin ve IoT hub’ınıza bir sanal cihaz sağlayın."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: İlk Cihaz Sağlama Hizmeti örneğinizi ayarlamayı öğrenin ve IoT hub’ınıza bir sanal cihaz sağlayın.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Otomatik sağlamayı ayarlama
-            href: /azure/iot-dps/quick-setup-auto-provision
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Sanal cihaz oluşturma
-            href: /azure/iot-dps/quick-create-simulated-device
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: "Otomatik sağlamayı ayarlama"
+      href: /azure/iot-dps/quick-setup-auto-provision
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: "Sanal cihaz oluşturma"
+      href: /azure/iot-dps/quick-create-simulated-device
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "Tek veya birden çok IoT hub’ına otomatik olarak güvenliği etkinleştirilmiş cihazlar sağlamak için IoT Hub Cihaz Sağlama Hizmeti’ni kullanmayı öğrenin."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Tek veya birden çok IoT hub’ına otomatik olarak güvenliği etkinleştirilmiş cihazlar sağlamak için IoT Hub Cihaz Sağlama Hizmeti’ni kullanmayı öğrenin.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Bulut kaynaklarını yapılandırma</a>
-          - html: <a href="/azure/iot-dps/tutorial-set-up-device">Cihazınızı Azure’a bağlanmak için ayarlama</a>
-          - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Tek bir IoT hub için cihaz sağlama</a>
-          - html: '<a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Birden çok, yük dengeli IoT hub için cihaz sağlama</a>'
-  - title: Başvuru
+    - html: "<a href=\"/azure/iot-dps/tutorial-set-up-cloud\">Bulut kaynaklarını yapılandırma</a>"
+    - html: "<a href=\"/azure/iot-dps/tutorial-set-up-device\">Cihazınızı Azure’a bağlanmak için ayarlama</a>"
+    - html: "<a href=\"/azure/iot-dps/tutorial-provision-device-to-hub\">Tek bir IoT hub için cihaz sağlama</a>"
+    - html: "<a href=\"/azure/iot-dps/tutorial-provision-multiple-hubs\">Birden çok, yük dengeli IoT hub için cihaz sağlama</a>"
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: <p><a href="/rest/api/iot-dps">REST API</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/iot-dps">REST API</a></p>

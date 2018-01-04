@@ -3,8 +3,8 @@ title: "Otomatik ölçeklendirme sanal makine ölçek kümeleri ile ilgili sorun
 description: "Sanal makine ölçek kümeleri olan otomatik ölçeklendirme sorunlarını giderin. Karşılaşılan tipik sorunları ve bunların nasıl çözüleceği anlayın."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: guybo
-ms.openlocfilehash: 19871cd0433c6df88c631cf6e6e8e477dc902448
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: negat
+ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri ile sorun giderme otomatik ölçeklendirme
 **Sorun** – sanal makine ölçekleme kümeleri kullanarak Azure Resource Manager ile bir otomatik ölçeklendirmeyi altyapı oluşturduğunuz – bunun gibi bir şablon dağıtarak örneğin: https://github.com/Azure/azure-quickstart-templates/tree/master/201- vmss-bottle-otomatik ölçeklendirme – ölçek kurallarınızı tanımlanmış olması ve bu harika, isteğe bağlı olarak, sanal makinelerin ne kadar yük olursa olsun, otomatik ölçeklendirme değil dışında çalışır.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Azure Cosmos DB ve Hdınsight kullanarak bir Apache Hive, Pig veya Hadoop işini çalıştır
 Bu öğretici nasıl çalıştırılacağını gösterir [Apache Hive][apache-hive], [Apache Pig][apache-pig], ve [Apache Hadoop] [ apache-hadoop] Cosmos veritabanı Hadoop Bağlayıcısı ile MapReduce işleri Azure hdınsight'ta. Cosmos veritabanı Hadoop Bağlayıcısı Cosmos hem kaynak hem de Hive, Pig ve MapReduce işleri için havuz olarak davranacak şekilde DB sağlar. Bu öğretici Cosmos DB Hadoop işleri veri kaynağı ve hedef kullanır.
@@ -86,7 +86,7 @@ Bu öğretici Azure Portal'dan betik eylemi Hdınsight kümenize özelleştirmek
         <tr><td>Küme adı</td><td>Küme adı.<br/>
 DNS adı olmalıdır başlangıç ve bitiş bir alfasayısal karakter ile ve kısa çizgi içerebilir.<br/>
 Alan 3 ile 63 karakter arasında bir dize olmalıdır.</td></tr>
-        <tr><td>Abonelik adı</td>
+        <tr><td>Abonelik Adı</td>
             <td>Birden fazla Azure aboneliğiniz varsa, Hdınsight kümenize barındıracak aboneliği seçin. </td></tr>
     </table>
 5.Tıklatın **küme türü seçin** ve aşağıdaki özellikleri belirtilen değerlere ayarlayın.
@@ -161,7 +161,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
 
     ![Azure PowerShell diyagramı][azure-powershell-diagram]
 
-## <a name="RunHive"></a>3. adım: Cosmos DB Hdınsight ile Hive işi çalıştırma
+## <a name="RunHive"></a>3. adım: Azure Cosmos DB Hdınsight ile Hive işi çalıştırma
 > [!IMPORTANT]
 > Yapılandırma ayarlarınızı kullanarak < > tarafından belirtilen tüm değişkenleri doldurulması gerekir.
 >
@@ -178,7 +178,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
         $clusterName = "<HDInsightClusterName>"
 2. <p>Sorgu dizesi oluşturma başlayalım. Biz tüm belgeleri sistem tarafından oluşturulan zaman damgaları (_ts) ve bir Azure Cosmos DB koleksiyonundan benzersiz kimlikler (_rid) alır, tüm belgeleri dakikaya göre hesaplar ve ardından sonuçları geri yeni bir Azure Cosmos DB koleksiyona depolayan bir Hive sorgusu yazacaksınız.</p>
 
-    <p>İlk olarak, bir Hive tablosu bizim Azure Cosmos DB koleksiyonundan oluşturalım. Aşağıdaki kod parçacığını PowerShell betik bölmesine eklemek <strong>sonra</strong> kod parçacığı # 1. Bizim belgelere yalnızca _ts isteğe bağlı DocumentDB.query t parametresi kırpma eklediğinizden emin olun ve _rid.</p>
+    <p>İlk olarak, bir Hive tablosu bizim Azure Cosmos DB koleksiyonundan oluşturalım. Aşağıdaki kod parçacığını PowerShell betik bölmesine eklemek <strong>sonra</strong> kod parçacığı # 1. Yalnızca _ts belgelere kırpma için isteğe bağlı sorgu parametresi dahil ettiğinizden emin olun ve _rid.</p>
 
    > [!NOTE]
    > **DocumentDB.inputCollections adlandırma bir hata oldu.** Evet, bir giriş olarak birden çok koleksiyon ekleme ver: </br>
@@ -187,7 +187,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
 
         '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
 
-        # Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
+        # Create a Hive table using data from Azure Cosmos DB. Pass Azure Cosmos DB the query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "drop table DocumentDB_timestamps; "  +
                             "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
@@ -207,7 +207,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
    >
    >
 
-       # Create a Hive table for the output data to DocumentDB.
+       # Create a Hive table for the output data to Azure Cosmos DB.
        $queryStringPart2 = "drop table DocumentDB_analytics; " +
                              "create external table DocumentDB_analytics(Month INT, Day INT, Hour INT, Minute INT, Total INT) " +
                              "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' " +
@@ -276,7 +276,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Sorgu dizesi oluşturma başlayalım. Biz tüm belgeleri sistem tarafından oluşturulan zaman damgaları (_ts) ve bir Azure Cosmos DB koleksiyonundan benzersiz kimlikler (_rid) alır, tüm belgeleri dakikaya göre hesaplar ve ardından sonuçları geri yeni bir Azure Cosmos DB koleksiyona depolayan bir Pig sorgu yazacaksınız.</p>
-    <p>İlk olarak, belge Hdınsight'a Cosmos DB'den yükleme. Aşağıdaki kod parçacığını PowerShell betik bölmesine eklemek <strong>sonra</strong> kod parçacığı # 1. Bizim belgelere yalnızca _ts kırpma için isteğe bağlı DocumentDB sorgu parametresi için bir DocumentDB sorgu eklediğinizden emin olun ve _rid.</p>
+    <p>İlk olarak, belge Hdınsight'a Cosmos DB'den yükleme. Aşağıdaki kod parçacığını PowerShell betik bölmesine eklemek <strong>sonra</strong> kod parçacığı # 1. Bizim belgelere yalnızca _ts kırpma için isteğe bağlı DocumentDB sorgu parametresi için bir sorgu eklediğinizden emin olun ve _rid.</p>
 
    > [!NOTE]
    > Evet, bir giriş olarak birden çok koleksiyon ekleme ver: </br>
@@ -286,7 +286,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
 
     Belgeler arasında birden çok koleksiyon dağıtılmış hepsini olacaktır. Belgeleri toplu bir koleksiyonda depolanan ve ardından belgeleri ikinci toplu sonraki toplanması ve benzeri içinde depolanır.
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from Cosmos DB. Pass the Azure Cosmos DB query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
@@ -397,7 +397,7 @@ Bizim açık kaynaklıdır bizim Hadoop bağlayıcı. İlginizi çekiyorsa üzer
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Documentdb ile bir Java uygulaması geliştirme][documentdb-java-application]
+* [Azure Cosmos DB ile bir Java uygulaması geliştirme][sql-api-java-application]
 * [Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek][hdinsight-develop-deploy-java-mapreduce]
 * [Hadoop ile hdınsight'ta Hive mobil ahize kullanımını çözümleme için kullanmaya başlama][hdinsight-get-started]
 * [Hdınsight ile MapReduce kullanma][hdinsight-use-mapreduce]
@@ -409,14 +409,14 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
 [apache-hive]: http://hive.apache.org/
 [apache-pig]: http://pig.apache.org/
-[getting-started]: documentdb-get-started.md
+[getting-started]: sql-api-get-started.md
 
 [azure-portal]: https://portal.azure.com/
 [azure-powershell-diagram]: ./media/run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
 
 [hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [github]: https://github.com/Azure/azure-documentdb-hadoop
-[documentdb-java-application]: documentdb-java-application.md
+[sql-api-java-application]: sql-api-java-application.md
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md

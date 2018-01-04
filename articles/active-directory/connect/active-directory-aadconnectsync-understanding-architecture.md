@@ -4,7 +4,7 @@ description: "Bu konuda, Azure AD Connect eşitleme mimarisini açıklar ve kull
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 51082ad453d53f56f30f814b78578801c00f4827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect eşitleme: mimarisini anlama
 Bu konu, Azure AD Connect eşitleme için temel mimarisini kapsar. Birçok yönden öncelleri MIIS 2003, ILM 2007 ve FIM 2010 için benzer. Azure AD Connect eşitleme bu teknolojiler evrimi ' dir. Tüm önceki teknolojiler hakkında bilginiz varsa, bu konu içeriği de size tanıdık gelecektir. Eşitleme için yeniyseniz, bu konu, ilgilidir. Ancak değil (Bu konuda eşitleme altyapısı olarak adlandırılır) Azure AD Connect eşitleme özelleştirmeleri yaparken başarılı olması için bu konunun ayrıntılarını bilmek gereksinimi.

@@ -3,7 +3,7 @@ title: "Azure Automation’da ilk grafik runbook uygulamam | Microsoft Belgeleri
 description: "Basit bir grafik runbook uygulaması oluşturma, test etme ve yayımlama adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "runbook, runbook şablonu, runbook otomasyonu, azure runbook"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b8accf16c43b7a01233742161e68db6f831a2d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab4ca2bf37e30bff66de7acc3932e3cb89b6e93b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-graphical-runbook"></a>İlk grafik runbook uygulamam
 
@@ -30,148 +30,155 @@ ms.lasthandoff: 10/11/2017
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-Bu öğretici, Azure Automation’da bir [grafik runbook uygulaması](automation-runbook-types.md#graphical-runbooks) oluşturulmasını adım adım göstermektedir.  Runbook işi durumunun nasıl izleneceğini açıklarken test edip yayımlayan basit bir runbook ile başlayacağız.  Ardından, bir Azure sanal makinesini başlatmayı içeren bir örnekle, bu runbook’u gerçekten Azure kaynaklarını yönetmek üzere değiştireceğiz.  Daha sonra, runbook parametreleri ve koşullu bağlantılar ekleme yoluyla runbook’u daha sağlam hale getirerek öğreticiyi tamamlayacağız.
+Bu öğretici, Azure Automation’da bir [grafik runbook uygulaması](automation-runbook-types.md#graphical-runbooks) oluşturulmasını adım adım göstermektedir. Runbook işi durumunun nasıl izleneceğini öğrenirken test edip yayımlayan basit bir runbook ile başlarsınız. Ardından, bir Azure sanal makinesini başlatmayı içeren bir örnekle, bu runbook’u gerçekten Azure kaynaklarını yönetmek üzere değiştirin. Daha sonra, runbook parametreleri ve koşullu bağlantılar ekleme yoluyla runbook’u daha sağlam hale getirerek öğreticiyi tamamlayın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Azure aboneliği. Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da [ücretsiz hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) için kaydolabilirsiniz.
-* Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Automation hesabı](automation-offering-get-started.md).  Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
-* Azure sanal makinesi. Bu makineyi durdurup başlatacağımız için makinenin üretime yönelik bir VM olmaması gerekir.
+* Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Automation hesabı](automation-offering-get-started.md). Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
+* Azure sanal makinesi. Bu makineyi durdurup başlatacağınız için makinenin üretime yönelik bir VM olmaması gerekir.
 
 ## <a name="step-1---create-runbook"></a>1. Adım - Runbook oluşturma
-Çıktı olarak *Hello World* metnini veren basit bir runbook oluşturacağız.
+Çıktı olarak *Merhaba Dünya* metnini veren basit bir runbook oluşturun.
 
-1. Azure portalında, Otomasyon hesabınızı açın.  
-   Automation hesabı sayfası size bu hesaptaki kaynakların hızlı bir görünümünü sağlar.  Birkaç Varlığınız zaten olmalıdır.  Bunların çoğu, yeni bir Automation hesabına otomatik olarak dahil edilen modüllerdir.  Burada ayrıca [önkoşullarda](#prerequisites) belirtilen Kimlik Bilgileri varlığınız da bulunmalıdır.
-2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.<br> ![Runbook denetimi](media/automation-first-runbook-graphical/runbooks-resources-tile.png)
+1. Azure portalında, Otomasyon hesabınızı açın.
+
+   Automation hesabı sayfası size bu hesaptaki kaynakların hızlı bir görünümünü sağlar. Birkaç Varlığınız zaten olmalıdır. Bu varlıkların çoğu, yeni bir Otomasyon hesabına otomatik olarak dahil edilen modüllerdir. Burada ayrıca [önkoşullarda](#prerequisites) belirtilen Kimlik Bilgileri varlığınız da bulunmalıdır.
+
+2. Runbook’ların listesini açmak için **İŞLEM YÖNETİMİ** altında **Runbooklar**’ı seçin.
 3. **Runbook ekle** düğmesine ve ardından **Yeni bir runbook oluştur**’a tıklayarak yeni bir runbook oluşturun.
 4. Runbook’a *MyFirstRunbook-Graphical* adını verin.
-5. Bu örneğimizde bir [grafik runbook uygulaması](automation-graphical-authoring-intro.md) oluşturacağız, bu nedenle **Runbook türü** olarak **Grafik**’i seçin.<br> ![Yeni runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
+5. Bu örneğimizde bir [grafik runbook uygulaması](automation-graphical-authoring-intro.md) oluşturacaksınız, bu nedenle **Runbook türü** olarak **Grafik**’i seçin.<br> ![Yeni runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Runbook’u oluşturmak için **Oluştur**’a tıklayın ve grafik düzenleyicisini açın.
 
 ## <a name="step-2---add-activities-to-the-runbook"></a>2. Adım - Runbook’a etkinlikler ekleme
-Düzenleyicinin sol tarafındaki Kitaplık denetimi runbook uygulamanıza eklenecek etkinlikleri seçmenizi sağlar.  Runbook uygulamasından çıktı metnine **Write-Output** cmdlet’ini ekleyeceğiz.
+Düzenleyicinin sol tarafındaki Kitaplık denetimi runbook uygulamanıza eklenecek etkinlikleri seçmenizi sağlar. Runbook uygulamasından çıktı metnine **Write-Output** cmdlet’ini ekleyin.
 
-1. Kitaplık denetiminde, arama metin kutusuna tıklayın ve **Write-Output** yazın.  Arama sonuçları altında görüntülenir. <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
-2. Listenin aşağısına kaydırın.  **Write-Output**’a sağ tıklayıp **Tuvale ekle**’yi seçebilir ya da cmdlet’in yanındaki elipse tıklayıp ardından **Tuvale ekle**’yi seçebilirsiniz.
-3. Tuvalde **Write-Output** etkinliğine tıklayın.  Bu işlem, etkinliği yapılandırmanızı sağlayan Yapılandırma denetimi dikey penceresini açar.
-4. **Etiket** cmdlet’in adını varsayılan olarak alır ancak bunu daha kolay bir şeyle değiştirebiliriz. Bunu *çıkışa Hello World yazmak* üzere değiştirin.
-5. Cmdlet parametreleri değerlerini sağlamak için **Parametreler**’e tıklayın.   
+1. Kitaplık denetiminde, arama metin kutusuna tıklayın ve **Write-Output** yazın. Aşağıdaki görüntüde arama sonuçları gösterilir: <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
+2. Listenin aşağısına kaydırın. **Write-Output**’a sağ tıklayıp **Tuvale ekle**’yi seçebilir ya da cmdlet’in yanındaki üç noktaya tıklayıp ardından **Tuvale ekle**’yi seçebilirsiniz.
+3. Tuvalde **Write-Output** etkinliğine tıklayın. Bu eylem, etkinliği yapılandırmanızı sağlayan Yapılandırma denetimi dikey penceresini açar.
+4. **Etiket** cmdlet’in adını varsayılan olarak alır ancak bunu daha kolay bir şeyle değiştirebilirsiniz. Bunu *çıkışa Hello World yazmak* üzere değiştirin.
+5. Cmdlet parametreleri değerlerini sağlamak için **Parametreler**’e tıklayın. 
+
    Bazı cmdlet’ler birden fazla parametre kümesine sahiptir ve kullanacağınız cmdlet’i seçmeniz gerekir. Bu durumda, **Write-Output** yalnızca bir parametre kümesine sahip olur, bu nedenle seçmeniz gerekmez. <br> ![Write-Output özellikleri](media/automation-first-runbook-graphical/write-output-properties-b.png)
-6. **InputObject** parametresini seçin.  Bu, çıkış akışına göndermek üzere metin belirttiğimiz parametredir.
-7. **Veri kaynağı** açılır listesinde, **PowerShell ifadesi**’nı seçin.  **Veri kaynağı** açılır penceresi bir parametre değerini doldurmak için kullandığınız farklı kaynaklar sağlar.  
-   Başka bir etkinlik, Automation varlığı ya da PowerShell ifadesi gibi böyle kaynaklardan alınan çıktıları kullanabilirsiniz.  Bu durumda, yalnızca *Hello World* için metin çıktısı istiyoruz. Bir PowerShell ifadesi kullanabilir ve dize belirtebiliriz.
+
+6. **InputObject** parametresini seçin. Bu, çıkış akışına göndermek üzere metin belirttiğiniz parametredir.
+7. **Veri kaynağı** açılır listesinde, **PowerShell ifadesi**’nı seçin. **Veri kaynağı** açılır penceresi bir parametre değerini doldurmak için kullandığınız farklı kaynaklar sağlar.
+
+   Başka bir etkinlik, Automation varlığı ya da PowerShell ifadesi gibi böyle kaynaklardan alınan çıktıları kullanabilirsiniz. Bu durumda, çıkış yalnızca *Merhaba Dünya*’dır. Bir PowerShell ifadesi kullanabilir ve dize belirtebilirsiniz.
+
 8. **İfade** kutusuna *"Hello World"* yazın ve ardından tuvale döndürmek için iki kez **Tamam**’a tıklayın.<br> ![PowerShell İfadesi](media/automation-first-runbook-graphical/expression-hello-world.png)
 9. **Kaydet**’e tıklayarak runbook’u kaydedin.<br> ![Runbook’u kaydetme](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
 
 ## <a name="step-3---test-the-runbook"></a>3. Adım - Runbook'u test etme
-Runbook’u üretimde kullanılabilir hale getirmek üzere yayımlamadan önce düzgün çalıştığından emin olmak için test etmek istiyoruz.  Bir runbook'u test ettiğinizde, bunun **Taslak** sürümünü çalıştırır ve çıktısını etkileşimli olarak görüntülersiniz.
+Runbook’u üretimde kullanılabilir hale getirmek üzere yayımlamadan önce düzgün çalıştığından emin olmak için test etmeniz gerekir. Bir runbook'u test ettiğinizde, bunun **Taslak** sürümünü çalıştırır ve çıktısını etkileşimli olarak görüntülersiniz.
 
 1. Test dikey penceresini açmak için **Test bölmesi**’ne tıklayın.<br> ![Test bölmesi](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
-2. Testi başlatmak için **Başlat**’a tıklayın.  Etkinleştirilen tek seçenek bu olmalıdır.
-3. Bölmede bir [runbook işi](automation-runbook-execution.md) oluşturulur ve durumu görüntülenir.  
-   İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar.  Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.  
-4. Runbook işi tamamlandığında çıktısı görüntülenir. Örneğimizde, *Hello World* metnini görmeliyiz.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+2. Testi başlatmak için **Başlat**’a tıklayın. Etkinleştirilen tek seçenek bu olmalıdır.
+3. Bölmede bir [runbook işi](automation-runbook-execution.md) oluşturulur ve durumu görüntülenir.
+
+   İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar. Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.
+
+4. Runbook işi tamamlandığında çıktısı görüntülenir. Bu durumda, *Merhaba Dünya* ifadesini görürsünüz.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 5. Tuvale geri dönmek için Test dikey penceresini kapatın.
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>4. Adım - Runbook’u yayımlama ve başlatma
-Oluşturduğumuz runbook hala Taslak modundadır. Runbook’un üretimde çalıştırılabilmesi için önce yayımlanması gerekir.  Bir runbook yayımladığınızda, Taslak sürümü mevcut Yayımlanmış sürümün üzerine yazarsınız.  Örneğimizde, runbook’u henüz oluşturduğumuzdan, Yayımlanmış sürümümüz yok.
+Oluşturduğunuz runbook hala Taslak modundadır. Üretimde çalıştırılabilmesi için yayımlanması gerekir. Bir runbook yayımladığınızda, Taslak sürümü mevcut Yayımlanmış sürümün üzerine yazarsınız. Örneğimizde, runbook’u henüz oluşturduğunuzdan, Yayımlanmış sürümünüz yok.
 
 1. Runbook’u yayımlamak için **Yayımla**’ya tıklayın ve sorulduğunda **Evet**’e tıklayın.<br> ![Yayımlama](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
 2. Şimdi runbook'u **Runbook'lar** dikey penceresinde görüntülemek için sola kaydırırsanız, **Yazma Durumu** olarak **Yayımlandı** gösterilir.
-3. **MyFirstRunbook** için dikey pencereyi görüntülemek üzere geri sağa kaydırın.  
+3. **MyFirstRunbook** için dikey pencereyi görüntülemek üzere geri sağa kaydırın.
+
    Üst kısımdaki seçenekler runbook’u başlatmamıza, gelecekte bir zamanda başlatmak üzere zamanlamamıza ya da bir HTTP çağrısıyla başlatılabilmesi için [web kancası](automation-webhooks.md) oluşturmamıza olanak tanır.
-4. Yalnızca runbook'u başlatmak istiyoruz, bu nedenle **Başlat**’a ve ardından sorulduğunda **Evet**’e tıklayın.<br> ![Runbook’u başlatma](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
-5. Oluşturduğumuz runbook için bir iş dikey penceresi açılır.  Bu dikey pencere kapatılabilir, ancak bu kez işin ilerleme durumunu izleyebilmek için açık bırakacağız.
-6. İş durumu **İş Özeti**’nde gösterilir ve runbook’u test ettiğimizde gördüğümüz durumların aynısıdır.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-summary.png)
-7. Runbook durumu olarak *Tamamlandı* gösterilince **Çıktı**’ya tıklayın. **Çıktı** dikey penceresi açılır ve bölmede *Hello World* metnimizi görebiliriz.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-output.png)  
+
+4. Runbook'u başlatmak için **Başlat**’a ve ardından sorulduğunda **Evet**’e tıklayın.<br> ![Runbook’u başlatma](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
+5. Oluşturulan runbook için bir iş dikey penceresi açılır. **İş durumu**’nun **Tamamlandı** olduğunu doğrulayın.
+7. Runbook durumu olarak *Tamamlandı* gösterilince **Çıktı**’ya tıklayın. **Çıktı** dikey penceresi açılır ve bölmede *Merhaba Dünya* metnini görebilirsiniz.
 8. Çıktı dikey penceresini kapatın.
-9. Runbook işine ait Akışlar dikey penceresini açmak için **Tüm Günlükler**’e tıklayın.  Çıktı akışında yalnızca *Hello World* metnini görmeliyiz, ancak bu bölmede, runbook bunlara yazıyorsa Ayrıntılı ve Hata gibi runbook işine yönelik diğer akışlar da gösterilebilir.<br> ![İş Özeti](media/automation-first-runbook-graphical/runbook-job-AllLogs.png)
+9. Runbook işine ait Akışlar dikey penceresini açmak için **Tüm Günlükler**’e tıklayın. Çıktı akışında yalnızca *Merhaba Dünya* metnini görmelisiniz, ancak bu bölmede, runbook bunlara yazıyorsa Ayrıntılı ve Hata gibi runbook işine yönelik diğer akışlar da gösterilebilir.
 10. Tüm Günlükler dikey penceresini ve İş dikey penceresini kapatarak MyFirstRunbook dikey penceresine dönün.
-11. Bu runbook’a ait İşler dikey penceresini açmak için **İşler**’e tıklayın.  Bu bölmede, bu runbook tarafından oluşturulan tüm işler listelenir. İşi yalnızca bir kez çalıştırdığımız için sadece bir işin listelendiğini görmeliyiz.<br> ![İşler](media/automation-first-runbook-graphical/runbook-control-jobs.png)
-12. Runbook’u başlattığımızda, görüntülediğimiz iş bölmesini açmak için bu işe tıklayabilirsiniz.  Böylece zaman içinde geri dönerek, belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntüleyebilirsiniz.
+11. Runbook için tüm işleri görüntülemek üzere, **İş** dikey penceresini kapatıp **KAYNAKLAR** altında **İşler**’i seçin. Bu bölmede, bu runbook tarafından oluşturulan tüm işler listelenir. İşi yalnızca bir kez çalıştırdığınız için sadece bir işin listelendiğini görmeniz gerekir.
+12. Runbook’u başlattığınızda, görüntülediğiniz iş bölmesini açmak için bu işe tıklayabilirsiniz. Böylece zaman içinde geri dönerek, belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntüleyebilirsiniz.
 
 ## <a name="step-5---create-variable-assets"></a>5. Adım - Değişken varlıkları oluşturma
-Runbook uygulamamızı test ettik ve yayımladık, ancak şu ana kadar faydalı bir şey yapmadı. Bu runbook’un Azure kaynaklarını yönetmesini istiyoruz.  Kimlik doğrulaması için runbook uygulamamızı yapılandırmadan önce, aşağıda 6. adımda kimlik doğrulamak üzere abonelik kimliğini tutmak için bir değişken oluşturacağız ve etkinliği ayarladıktan sonra buna başvuracağız.  Abonelik bağlamına başvuru eklemek birden fazla abonelik arasından kolayca çalışmanızı sağlar.  Devam etmeden önce, Gezinti bölmesindeki Abonelik seçeneği kapalı’daki abonelik kimliğinizi kopyalayın.  
+Runbook uygulamanızı test ettiniz ve yayımladınız, ancak şu ana kadar faydalı bir şey yapmadı. Bu runbook’un Azure kaynaklarını yönetmesini istiyorsunuz. Kimlik doğrulaması için runbook uygulamanızı yapılandırmadan önce, aşağıda 6. adımda kimlik doğrulamak üzere abonelik kimliğini tutmak için bir değişken oluşturun ve etkinliği ayarladıktan sonra buna başvurun. Abonelik bağlamına başvuru eklemek birden fazla abonelik arasından kolayca çalışmanızı sağlar. Devam etmeden önce, Gezinti bölmesindeki Abonelik seçeneği kapalı’daki abonelik kimliğinizi kopyalayın.
 
-1. Otomasyon hesapları dikey penceresinde **Varlıklar** kutucuğuna tıkladığınızda **Varlıklar** dikey penceresi açılır.
-2. Varlıklar dikey penceresinde, **Değişkenler** kutucuğuna tıklayın.
-3. Değişkenleri dikey penceresinde, **Değişken ekle**’ye tıklayın.<br>![Automation Değişkeni](media/automation-first-runbook-graphical/create-new-subscriptionid-variable.png)
-4. Yeni değişken dikey penceresinde, **Ad** kutusuna, **AzureSubscriptionId** girin ve **Değer** kutusuna Abonelik kimliğinizi yazın.  **Tür** için *dizeyi* **Şifreleme** için değeri koruyun.  
+1. Otomasyon Hesapları dikey penceresinde, **PAYLAŞILAN KAYNAKLAR** altında **Değişkenler**’i seçin.
+2. **Değişken ekle**’ye tıklayın.<br>![Automation Değişkeni](media/automation-first-runbook-graphical/create-new-subscriptionid-variable.png)
+4. Yeni değişken dikey penceresinde, **Ad** kutusuna, **AzureSubscriptionId** girin ve **Değer** kutusuna Abonelik kimliğinizi yazın. **Tür** için *dizeyi* **Şifreleme** için değeri koruyun.  
 5. Değişkeni oluşturmak için **Oluştur**’a tıklayın.  
 
 ## <a name="step-6---add-authentication-to-manage-azure-resources"></a>6. Adım- Azure kaynaklarını yönetmek için kimlik doğrulaması ekleme
-Abonelik kimliğimizi tutmak üzere bir değişkene sahip olduğumuza göre, runbook uygulamamızı [ön koşullarda](#prerequisites) başvurulan Farklı Çalıştır kimlik bilgileri ile kimlik doğrulamak üzere yapılandırabiliriz.  Bunu tuvale Azure Farklı Çalıştır bağlantısı **Varlığı** ve **Add-AzureRMAccount** cmdlet’i ekleyerek yaparız.  
+Abonelik kimliğinizi tutmak üzere bir değişkene sahip olduğunuza göre, runbook uygulamanızı [ön koşullarda](#prerequisites) başvurulan Farklı Çalıştır kimlik bilgileri ile kimlik doğrulamak üzere yapılandırabilirsiniz. Bunu tuvale Azure Farklı Çalıştır bağlantısı **Varlığı** ve **Add-AzureRMAccount** cmdlet’i ekleyerek yapabilirsiniz.  
 
-1. MyFirstRunbook dikey penceresinde **Düzenle**’ye tıklayarak grafik düzenleyicisini açın.<br> ![Runbook’u düzenleme](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
+1. Runbook’unuza geri dönün ve MyFirstRunbook dikey penceresinde **Düzenle**’yi seçin.<br> ![Runbook’u düzenleme](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
 2. Artık **çıktıya Merhaba Dünya yazmamız** gerekmez, bu nedenle sağ tıklayın ve **Sil**’i seçin.
-3. Kitaplık denetiminde, **Bağlantılar**’ı genişletin ve **Tuvale Ekle**’yi seçerek **AzureRunAsConnection**’ı ekleyin.
-4. Tuvalde, **AzureRunAsConnection**’ı seçin ve Yapılandırma denetim bölmesinde **Etiket** metin kutusuna **Farklı Çalıştır Bağlantısını Al** yazın.  Bu bağlantıdır
+3. Kitaplık denetiminde, **VARLIKLAR**, **Bağlantılar**’ı genişletin ve **Tuvale Ekle**’yi seçerek **AzureRunAsConnection**’ı ekleyin.
 5. Kitaplık denetiminde, arama metin kutusuna **Add-AzureRmAccount** yazın.
 6. Tuvale **Add-AzureRmAccount** ekleme<br> ![Add-AzureRMAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
-7. Şeklin altında bir daire görünene kadar **Farklı Çalıştır Bağlantısını Al** üzerinde bekleyin. Daireye tıklayın ve oku **Add-AzureRmAccount**’a sürükleyin.  Oluşturduğunuz ok bir *bağlantıdır*.  Runbook **Farklı Çalıştır Bağlantısını Al** ile başlar ve ardından **Add-AzureRmAccount**’ı çalıştırır.<br> ![Etkinlikler arasında bağlantı oluşturma](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+7. Şeklin altında bir daire görünene kadar **Farklı Çalıştır Bağlantısını Al** üzerinde bekleyin. Daireye tıklayın ve oku **Add-AzureRmAccount**’a sürükleyin. Oluşturduğunuz ok bir *bağlantıdır*. Runbook **Farklı Çalıştır Bağlantısını Al** ile başlar ve ardından **Add-AzureRmAccount**’ı çalıştırır.<br> ![Etkinlikler arasında bağlantı oluşturma](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 8. Tuvalde, **Add-AzureRmAccount**’ı seçin ve Yapılandırma denetim bölmesinde **Etiket** metin kutusuna **Azure’da Oturum Aç** yazın.
 9. **Parametreler**’e tıklayın, Parametre Yapılandırma dikey penceresi görünür.
-10. **Add-AzureRmAccount** birden fazla parametre kümesine sahiptir, bu nedenle parametre değerleri sağlamadan önce birini seçmeliyiz.  **Parametre Kümesi**’ne tıklayın ve ardından **ServicePrincipalCertificatewithSubscriptionId** parametre kümesine tıklayın.
-11. Parametre kümesini seçtiğinizde, parametreleri Etkinlik Parametresi yapılandırma dikey penceresinde parametreler görüntülenir.  **APPLICATIONID**’ye tıklayın.<br> ![Azure RM hesabı parametreleri ekleme](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
-12. Parametre değeri dikey penceresinde **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin ve listede **Farklı Çalıştır Bağlantısını Al**’ı seçin, **Alan yolu** metin kutusuna **ApplicationId** yazın ve ardından **Tamam**’a tıklayın.  Etkinlik birden fazla özelliğe sahip bir nesne çıkardığından, Alan yolu için özellik adını belirtiyoruz.
-13. **CERTIFICATETHUMBPRINT**’ tıklayın ve Parametre Değeri dikey penceresinde, **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin.  Listede **Farklı Çalıştır Bağlantısını Al**’ı seçin **Alan yolu** metin kutusuna **CertificateThumbprint** yazın ve ardından **Tamam**’a tıklayın.
+10. **Add-AzureRmAccount** birden fazla parametre kümesine sahiptir, bu nedenle parametre değerleri sağlamadan önce birini seçmelisiniz. **Parametre Kümesi**’ne tıklayın ve ardından **ServicePrincipalCertificate** parametre kümesine tıklayın.
+11. Parametre kümesini seçtiğinizde, parametreleri Etkinlik Parametresi yapılandırma dikey penceresinde parametreler görüntülenir. **APPLICATIONID**’ye tıklayın.<br> ![Azure RM hesabı parametreleri ekleme](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
+12. Parametre değeri dikey penceresinde **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin ve listede **Farklı Çalıştır Bağlantısını Al**’ı seçin, **Alan yolu** metin kutusuna **ApplicationId** yazın ve ardından **Tamam**’a tıklayın. Etkinlik birden fazla özelliğe sahip bir nesne çıkardığından, Alan yolu için özellik adını belirtiyorsunuz.
+13. **CERTIFICATETHUMBPRINT**’ tıklayın ve Parametre Değeri dikey penceresinde, **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin. Listede **Farklı Çalıştır Bağlantısını Al**’ı seçin **Alan yolu** metin kutusuna **CertificateThumbprint** yazın ve ardından **Tamam**’a tıklayın.
 14. **SERVICEPRINCIPAL**’e tıklayın ve Parametre Değeri dikey penceresinde, **Veri kaynağı** için **ConstantValue** ‘yu seçin, **True** seçeneğine tıklayın ve **Tamam**’a tıklayın.
-15. **TENANTID**’ye tıklayın ve Parametre Değeri dikey penceresinde, **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin.  Listede **Farklı Çalıştır Bağlantısını Al**’ı seçin **Alan yolu** metin kutusuna **TenantId** yazın ve ardından iki kez **Tamam**’a tıklayın.  
+15. **TENANTID**’ye tıklayın ve Parametre Değeri dikey penceresinde, **Veri kaynağı** için **Etkinlik çıkışı**’nı seçin. Listede **Farklı Çalıştır Bağlantısını Al**’ı seçin **Alan yolu** metin kutusuna **TenantId** yazın ve ardından iki kez **Tamam**’a tıklayın.  
 16. Kitaplık denetiminde, arama metin kutusuna **Set-AzureRmContext** yazın.
 17. Tuvale **Set-AzureRmContext** ekleme
 18. Tuvalde, **Set-AzureRmContext**’i seçin ve Yapılandırma denetim bölmesinde **Etiket** metin kutusuna **Abonelik Kimliği Belirt** yazın.
 19. **Parametreler**’e tıklayın, Parametre Yapılandırma dikey penceresi görünür.
-20. **Set-AzureRmContext** birden fazla parametre kümesine sahiptir, bu nedenle parametre değerleri sağlamadan önce birini seçmeliyiz.  **Parametre Kümesi**’ne tıklayın ve ardından **SubscriptionId** parametre kümesini seçin.  
-21. Parametre kümesini seçtiğinizde, parametreleri Etkinlik Parametresi yapılandırma dikey penceresinde parametreler görüntülenir.  **SubscriptionID**’e tıklayın.
+20. **Set-AzureRmContext** birden fazla parametre kümesine sahiptir, bu nedenle parametre değerleri sağlamadan önce birini seçmelisiniz. **Parametre Kümesi**’ne tıklayın ve ardından **SubscriptionId** parametre kümesini seçin.  
+21. Parametre kümesini seçtiğinizde, parametreleri Etkinlik Parametresi yapılandırma dikey penceresinde parametreler görüntülenir. **SubscriptionID**’e tıklayın.
 22. Parametre Değeri dikey penceresinde, **Veri kaynağı** için **Değişken Varlığı**’nı seçin ve listede **AzureSubscriptionId**’yi seçin ve iki kez **Tamam**’a tıklayın.   
 23. Şeklin altında bir daire görünene kadar **Azure’da Oturum Aç** üzerinde bekleyin. Daireye tıklayın ve oku **Abonelik Kimliği Belirt**’e sürükleyin.
 
 Runbook'unuzda bu noktada aşağıdakine benzer: <br>![Runbook kimlik doğrulama yapılandırması](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>7. Adım - Sanal makineyi başlatmak üzere etkinlik ekleme
-Burada bir sanal makineyi başlatmak için **Start-AzureRmVM** etkinliği ekleyeceğiz.  Azure aboneliğinizdeki herhangi bir sanal makineyi seçebilirsiniz, şimdilik bu adı cmdlet’e kod olarak ekleyin.
+Burada bir sanal makineyi başlatmak için **Start-AzureRmVM** etkinliği ekleyin. Azure aboneliğinizdeki herhangi bir sanal makineyi seçebilirsiniz, şimdilik bu adı cmdlet’e kod olarak ekleyin.
 
 1. Kitaplık denetiminde, arama metin kutusuna **Start-AzureRm** yazın.
 2. Tuvale **Start-AzureRmVM** ekleyin ve ardından **Abonelik Kimliği Belirt** altına tıklayarak sürükleyin.
-3. Şeklin altında bir daire görünene kadar **Abonelik Kimliği Belirt** üzerinde bekleyin.  Daireye tıklayın ve oku **Start-AzureRmVM**’ye sürükleyin.
-4. **Start-AzureRmVM**’yi seçin.  **Start-AzureRmVM** için kümeleri görüntülemek üzere **Parametreler**’i ve ardından **Parametre kümesi**’ni seçin.  **ResourceGroupNameParameterSetName** parametre kümesini seçin. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti olduğuna dikkat edin.  Bu, bunların gerekli parametreler olduğunu gösterir.  Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
-5. **Ad**’ı seçin.  **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına, bu runbook uygulamasını başlatacağımız sanal makine adını yazın.  **Tamam** düğmesine tıklayın.<br>![Start-AzureRmVM Adı Parametre Değeri](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
-6. **ResourceGroupName**’i seçin. **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına kaynak grubu adını yazın.  **Tamam** düğmesine tıklayın.<br> ![Start-AzureRmVM Parametreleri](media/automation-first-runbook-graphical/startazurermvm-params.png)
-7. Runbook’u test edebilmemiz için Test bölmesine tıklayın.
-8. Testi başlatmak için **Başlat**’a tıklayın.  Tamamlandığında, sanal makinenin başlatıldığını kontrol edin.
+3. Şeklin altında bir daire görünene kadar **Abonelik Kimliği Belirt** üzerinde bekleyin. Daireye tıklayın ve oku **Start-AzureRmVM**’ye sürükleyin.
+4. **Start-AzureRmVM**’yi seçin. **Start-AzureRmVM** için kümeleri görüntülemek üzere **Parametreler**’i ve ardından **Parametre kümesi**’ni seçin. **ResourceGroupNameParameterSetName** parametre kümesini seçin. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti vardır. Bu, bunların gerekli parametreler olduğunu gösterir. Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
+5. **Ad**’ı seçin. **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına, bu runbook uygulamasını başlatacağınız sanal makine adını yazın. **Tamam** düğmesine tıklayın.<br>![Start-AzureRmVM Adı Parametre Değeri](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
+6. **ResourceGroupName**’i seçin. **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına kaynak grubu adını yazın. **Tamam** düğmesine tıklayın.<br> ![Start-AzureRmVM Parametreleri](media/automation-first-runbook-graphical/startazurermvm-params.png)
+7. Runbook’u test edebilmek için Test bölmesine tıklayın.
+8. Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, sanal makinenin başlatıldığını kontrol edin.
 
 Runbook'unuzda bu noktada aşağıdakine benzer: <br>![Runbook kimlik doğrulama yapılandırması](media/automation-first-runbook-graphical/runbook-startvm.png)
 
 ## <a name="step-8---add-additional-input-parameters-to-the-runbook"></a>8. Adım - Runbook’a ek giriş parametreleri ekleme
-Runbook’umuz şu anda **Start-AzureRmVM** cmdlet’inde belirttiğimiz kaynak grubunda sanal makineyi başlatır.  Runbook’umuz, runbook başlatıldığında her ikisini de belirtmemiz durumunda daha kullanışlı olur.  Şimdi bu işlevi sağlamak için runbook’a girdi parametreleri ekleyeceğiz.
+Runbook’umuz şu anda **Start-AzureRmVM** cmdlet’inde belirttiğiniz kaynak grubunda sanal makineyi başlatır. Runbook, runbook başlatıldığında her ikisini de belirtmemiz durumunda daha kullanışlı olur. Şimdi bu işlevi sağlamak için runbook’a girdi parametreleri ekleyebilirsiniz.
 
 1. **MyFirstRunbook** bölmesinde **Düzenle**’ye tıklayarak grafik düzenleyicisini açın.
 2. **Giriş ve çıkış**’a tıklayın ve ardından Runbook Giriş Parametresi bölmesini açmak için **Giriş ekle**’ye tıklayın.<br> ![Runbook Giriş ve Çıkış](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
-3. **Ad** için *VMName* belirtin.  **Tür** *dizesini* koruyun ancak, **Zorunlu**’yu *Evet* olarak değiştirin.  **Tamam**’a tıklayın.
+3. **Ad** için *VMName* belirtin. **Tür** *dizesini* koruyun ancak, **Zorunlu**’yu *Evet* olarak değiştirin. **Tamam**’a tıklayın.
 4. *ResourceGroupName* adlı ikinci bir zorunlu giriş parametresi oluşturun ve ardından **Giriş ve Çıkış** bölmesini kapatmak için **Tamam**’a tıklayın.<br> ![Runbook Giriş Parametreleri](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
 5. **Start-AzureRmVM** etkinliğini seçin ve ardından **Parametreler**’e tıklayın.
 6. **Ad** için **Veri kaynağı**’nı, **Runbook girişi** olarak değiştirin ve ardından **VMName**’i seçin.<br>
 7. **ResourceGroupName** için **Veri kaynağı**’nı, **Runbook girişi** olarak değiştirin ve ardından **ResourceGroupName**’i seçin.<br> ![Start-AzureVM Parametreleri](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
-8. Runbook'u kaydedin ve Test bölmesini açın.  Şimdi testte kullanılacak olan iki girdi değişkeni için değerleri sağlayabileceğinizi unutmayın.
+8. Runbook'u kaydedin ve Test bölmesini açın. Şimdi testte kullanılacak olan iki girdi değişkeni için değerleri sağlayabilirsiniz.
 9. Test bölmesini kapatın.
 10. Runbook’un yeni sürümünü yayımlamak için **Yayımla**’ya tıklayın.
 11. Önceki adımda başlattığınız sanal makineyi durdurun.
-12. Runbook'u başlatmak için **Başlat**’a tıklayın.  Başlatacağınız sanal makinenin **VMName** ve **ResourceGroupName** bilgilerini yazın.<br> ![Runbook’u başlatma](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
+12. Runbook'u başlatmak için **Başlat**’a tıklayın. Başlatacağınız sanal makinenin **VMName** ve **ResourceGroupName** bilgilerini yazın.<br> ![Runbook’u başlatma](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
 13. Runbook tamamlandığında, sanal makinenin başladığından emin olun.
 
 ## <a name="step-9---create-a-conditional-link"></a>9. Adım - Koşullu bağlantı oluşturma
-Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekilde runbook’u değiştireceğiz.  Bunu, runbook’a sanal makinenin örnek düzeyi durumunu alan **Get-AzureRmVM** cmdlet’ini ekleyerek yapabilirsiniz. Ardından, sanal makine durumunun çalışıyor veya durduruldu olduğunu belirlemek amacıyla PowerShell kodu kod parçacığıyla birlikte **Durumu Al** adlı PowerShell İş Akışı kodu modülü ekleyin.  **Durumu Al** modülünden alınan bir koşullu bağlantı yalnızca, geçerli çalışma durumu durduruldu ise, **Start-AzureRmVM** cmdlet’ini çalıştırır.  Son olarak, sanal makinin başarıyla başlatılıp başlatılmadığını veya PowerShell Write-Output cmdlet’ini kullanmadığını size bildirmek üzere bir çıktı mesajı göndereceğiz.
+Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekilde runbook’u değiştirin. Bunu, runbook’a sanal makinenin örnek düzeyi durumunu alan **Get-AzureRmVM** cmdlet’ini ekleyerek yapabilirsiniz. Ardından, sanal makine durumunun çalışıyor veya durduruldu olduğunu belirlemek amacıyla PowerShell kodu kod parçacığıyla birlikte **Durumu Al** adlı PowerShell İş Akışı kodu modülü ekleyin. **Durumu Al** modülünden alınan bir koşullu bağlantı yalnızca, geçerli çalışma durumu durduruldu ise, **Start-AzureRmVM** cmdlet’ini çalıştırır. Son olarak, sanal makinin başarıyla başlatılıp başlatılmadığını veya PowerShell Write-Output cmdlet’ini kullanmadığını size bildirmek üzere bir çıktı mesajı gönderilir.
 
 1. Grafik düzenleyicisinde **MyFirstRunbook**’u açın.
 2. Üzerine tıklayarak ve ardından *Sil* tuşuna basarak **Specify Subscription Id** ve **Start-AzureRmVM** arasındaki bağlantıyı kaldırın.
 3. Kitaplık denetiminde, arama metin kutusuna **Get-AzureRm** yazın.
 4. Tuvale **Get-AzureRmVM** ekleyin.
-5. **Get-AzureRmVM** için kümeleri görüntülemek üzere **Get-AzureRmVM**’yi ve ardından **Parametre kümesi**’ni seçin.  **GetVirtualMachineInResourceGroupNameParamSet** parametre kümesini seçin.  **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti olduğuna dikkat edin.  Bu, bunların gerekli parametreler olduğunu gösterir.  Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
-6. **Ad** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **VMName**’i seçin.  **Tamam**’a tıklayın.
-7. **ResourceGroupName** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **ResourceGroupName**’i seçin.  **Tamam** düğmesine tıklayın.
-8. **Durum** için **Veri kaynağı** altında, **Sabit değer**’i seçin ve ardından **True** öğesine tıklayın.  **Tamam** düğmesine tıklayın.  
+5. **Get-AzureRmVM** için kümeleri görüntülemek üzere **Get-AzureRmVM**’yi ve ardından **Parametre kümesi**’ni seçin. **GetVirtualMachineInResourceGroupNameParamSet** parametre kümesini seçin. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti vardır. Bu, bunların gerekli parametreler olduğunu gösterir. Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
+6. **Ad** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **VMName**’i seçin. **Tamam**’a tıklayın.
+7. **ResourceGroupName** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **ResourceGroupName**’i seçin. **Tamam** düğmesine tıklayın.
+8. **Durum** için **Veri kaynağı** altında, **Sabit değer**’i seçin ve ardından **True** öğesine tıklayın. **Tamam** düğmesine tıklayın.
 9. **Abonelik Kimliği Belirt**’ten **Get-AzureRmVM**’ye bir bağlantı oluşturun.
 10. Kitaplık denetiminde, **Runbook Denetimi**’ni genişletin ve tuvale **Kod** ekleyin.  
 11. **Get-AzureRmVM**’den **Kod**’a bir bağlantı oluşturun.  
@@ -179,7 +186,7 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
 13. **Kod** parametresini seçin, **Kod Düzenleyicisi** dikey penceresi görünür.  
 14. Kod düzenleyicisine, aşağıdaki kod parçacığını yapıştırın:
     
-     ```
+     ```powershell
      $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText
      $Statuses = ConvertFrom-Json $StatusesJson
      $StatusOut =""
@@ -190,8 +197,8 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
      $StatusOut
      ```
 15. **Durumu Al**’dan **Start-AzureRmVM**’ye bir bağlantı oluşturun.<br> ![Kod Modülü ile Runbook](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
-16. Bağlantıyı seçin ve Yapılandırma bölmesinde, **Koşul uygula**’yı **Evet** olarak değiştirin.   Bağlantının, hedef etkinliğin yalnızca koşulun true olarak çözümlemesi halinde çalıştırılacağını belirten kesikli çizgiye döndüğüne dikkat edin.  
-17. **Koşul ifadesi** için *$ActivityOutput['Get Status'] -eq "Stopped"* yazın.  **Start-AzureRmVM** artık yalnızca sanal makine durursa çalışır.
+16. Bağlantıyı seçin ve Yapılandırma bölmesinde, **Koşul uygula**’yı **Evet** olarak değiştirin. Bağlantının, hedef etkinliğin yalnızca koşulun true olarak çözümlemesi halinde çalıştırılacağını belirten kesikli çizgiye döndüğüne dikkat edin.  
+17. **Koşul ifadesi** için *$ActivityOutput['Get Status'] -eq "Stopped"* yazın. **Start-AzureRmVM** artık yalnızca sanal makine durursa çalışır.
 18. Kitaplık denetiminde, **Cmdlet'leri** ve ardından **Microsoft.PowerShell.Utility**’yi genişletin.
 19. Tuvale iki kez **Write-Output** ekleyin.<br> ![Write-Output ile Runbook](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
 20. İlk **Write-Output** denetiminde, **Parametreler**’e tıklayın ve **Etiket** değerini *VM Başlatıldığında Bildir* olarak değiştirin.
@@ -200,9 +207,9 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
 23. **InputObject** için, **Veri kaynağını** **PowerShell ifadesi** olarak değiştirin ve ifadeye *"$VMName could not start."* yazın.
 24. **Start-AzureRmVM**’den **VM Başlatıldığında Bildir** ve **VM Başlatma Başarısız Olduğunda Bildir**’e bir bağlantı oluşturun.
 25. **VM Başlatıldığında Bildir** bağlantısını seçin ve **Koşul uygula**’yı **True** olarak değiştirin.
-26. **Koşul ifadesi** için, *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true* yazın.  Write-Output denetimi artık yalnızca sanal makine başarıyla başlatıldığında çalışır.
+26. **Koşul ifadesi** için, *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true* yazın. Write-Output denetimi artık yalnızca sanal makine başarıyla başlatıldığında çalışır.
 27. **VM Başlatma Başarısız Olduğunda Bildir** bağlantısını seçin ve **Koşul uygula**’yı **True** olarak değiştirin.
-28. **Koşul ifadesi** için, *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true* yazın.  Write-Output denetimi artık yalnızca sanal makine başarıyla başlatılmadığında çalışır.
+28. **Koşul ifadesi** için, *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true* yazın. Write-Output denetimi artık yalnızca sanal makine başarıyla başlatılmadığında çalışır.
 29. Runbook'u kaydedin ve Test bölmesini açın.
 30. Sanal makine kapalı iken runbook’u çalıştırın, başlamalıdır.
 

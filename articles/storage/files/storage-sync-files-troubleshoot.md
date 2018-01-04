@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -102,10 +102,11 @@ Kullanıcı hesabı rolünüz gerekli izinlere sahip olup olmadığını belirle
     * **Rol ataması** olmalıdır **okuma** ve **yazma** izinleri.
     * **Rol tanımı** olmalıdır **okuma** ve **yazma** izinleri.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Bulut uç noktası silme işlemi başarısız olur, bu hata: "MgmtInternalError"**  
-Bulut uç noktası silmeden önce Azure dosya paylaşımı veya depolama hesabı silinir, bu sorun ortaya çıkabilir. Gelecek bir güncelleştirmede bu sorun düzeltilecektir. Bu sırada, Azure dosya paylaşımı veya depolama hesabını sildikten sonra bulut uç noktasını silmek mümkün olacaktır.
+<a id="server-endpoint-createjobfailed"></a>**Sunucu uç noktası oluşturma başarısız olur, bu hata: "MgmtServerJobFailed" (hata kodu:-2134375898)**                                                                                                                           
+Sunucu bitiş noktası yolu sistem birimi ve bulut üzerinde ise bu sorun oluşur katmanlama etkindir. Bulut katmanlandırma sistem biriminde desteklenmiyor. Sistem biriminde sunucusu uç noktası oluşturmak için bulut sunucusu uç noktası oluşturulurken katmanlama devre dışı bırakın.
 
-Azure dosya paylaşımı veya depolama hesabını silmeden önce bu arada, bu sorunun oluşmasını önlemek için bulut uç noktası silin.
+<a id="server-endpoint-deletejobexpired"></a>**Sunucu uç noktasını silme başarısız olursa bu hata: "MgmtServerJobExpired"**                
+Sunucu çevrimdışı veya ağ bağlantısı yok, bu sorun oluşur. Sunucu artık kullanılabilir değilse, sunucunun hangi sunucu uç noktalarını siler portalında kaydını silin. Sunucu uç noktalarını silmek için açıklanan adımları izleyin [Azure dosya eşitleme sahip bir sunucu kaydını](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**I bir dosya doğrudan my Azure dosya paylaşımı SMB üzerinden veya portal üzerinden oluşturduysanız, ne kadar dosya eşitleme gruptaki sunucular için eşitleme için sürer?**  

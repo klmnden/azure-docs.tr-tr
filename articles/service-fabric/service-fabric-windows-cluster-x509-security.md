@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: dd09a4df42c1022c2a9f96daf69591bbfc777d79
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Windows tek başına kümede X.509 sertifikaları kullanarak güvenli hale getirme
 Bu makalede, tek başına Windows kümenizi çeşitli düğümleri arasındaki iletişimin güvenliğini sağlamak açıklar. Ayrıca, bu kümeye X.509 sertifikalarını kullanarak bağlanan istemcilerin kimliğini doğrulamak nasıl açıklanır. Kimlik doğrulaması, yalnızca yetkili kullanıcılar küme ve dağıtılan uygulamalar erişim ve yönetim görevlerini gerçekleştirme sağlar. Küme oluşturulduğunda sertifika güvenliği kümede etkinleştirilmelidir.  
@@ -255,7 +255,7 @@ Doğru bir şekilde güvenli hale getirilebilir otomatik olarak imzalanan bir se
    Write-Host $cert.ToString($true)
    ```
 
-Bir Azure aboneliğiniz varsa, bunun yerine, bölümdeki adımları [sertifikalar, anahtar Kasası'na eklemek](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault).
+Bir Azure aboneliğiniz varsa, bunun yerine, adımları [Azure Kaynak Yöneticisi'ni kullanarak bir Service Fabric kümesi oluştur](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Sertifika Yükleme
 Sertifikaları aldıktan sonra küme düğümlerinde yükleyebilirsiniz. Düğümleriniz en son Windows PowerShell gerek 3.x yüklü. Bu adımları her düğümde Küme ve sunucu sertifikaları ve tüm ikincil sertifikaları için yineleyin.

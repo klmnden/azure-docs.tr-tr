@@ -3,7 +3,7 @@ title: "Alt runbook'ları Azure Automation | Microsoft Docs"
 description: "Azure Otomasyonu'nda başka bir runbook'tan runbook başlatma ve bunlar arasında bilgi paylaşımı için farklı yöntemleri açıklar."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Otomasyonu'nda alt runbook'lar
 Azure Automation'ın diğer runbook'lar tarafından kullanılabilen ayrı işleve sahip yeniden kullanılabilir, modüler runbook'lar yazmak için en iyi bir uygulamadır. Üst runbook genellikle gerekli işlevleri gerçekleştirmek için bir veya daha fazla alt runbook'u çağırır. Bir alt runbook'u çağırmanın iki yolu vardır ve her anlamanız gereken belirli farklara sahiptir, farklı senaryolarınız için en iyi olacağı belirleyebilmesi.

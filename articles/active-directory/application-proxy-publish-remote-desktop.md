@@ -4,7 +4,7 @@ description: "Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgile
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 06d217b38ff8e33bd6c5a42a93aa532c0d1efa4d
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si ile Uzak Masaüstü yayımlama
 
@@ -90,7 +90,7 @@ RDS dağıtımı yönetici olarak bağlanın ve dağıtım için RD Ağ Geçidi 
 
    **Örneğin:**
    ```
-   Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://gateway.contoso.msappproxy.net/`nrequire pre-authentication:i:1"
+   Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
 
 9. Bu koleksiyon için RDWeb indirilir RDP dosya içeriğini görüntülemek yanı sıra özel RDP özellikler değiştirilmesini doğrulamak için aşağıdaki komutu çalıştırın:
@@ -115,7 +115,7 @@ Bu makalede açıklanan Windows 7 veya 10, Internet Explorer ve RDS ActiveX ekle
 
 | Kimlik doğrulama Yöntemi | Desteklenen istemci yapılandırması |
 | --------------------- | ------------------------------ |
-| Ön kimlik doğrulama    | Windows 7/10 kullanarak Internet Explorer + RDS ActiveX eklentisi |
+| Kimlik doğrulaması öncesi    | Windows 7/10 kullanarak Internet Explorer + RDS ActiveX eklentisi |
 | Geçiş | Tüm diğer Microsoft Uzak Masaüstü uygulaması destekleyen işletim sistemi |
 
 Ön kimlik doğrulaması akışı geçiş akış'den daha fazla güvenlik avantajları sunar. Ön kimlik doğrulaması ile şirket içi kaynaklarınız için çoklu oturum açma, koşullu erişim ve iki aşamalı doğrulama gibi Azure AD kimlik doğrulama özellikleri kullanabilirsiniz. Ayrıca, yalnızca trafik ulaştığında, ağ kimliği doğrulanmış emin olun.

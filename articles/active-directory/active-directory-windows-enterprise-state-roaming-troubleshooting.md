@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Kurumsal durum Dolaşım ayarları, windows bulut Kurumsal durumda Dolaşım hakkında sık sorulan sorular"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
@@ -17,11 +17,11 @@ ms.date: 10/03/2017
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: ed25e6b922321fd4d8852860ad8817dc318d89ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4977edd19d77b78f08163a6c0ff750fdbefcb3f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Sorun giderme Azure Active Directory'de Kurumsal durumda Dolaşım ayarları
 
@@ -78,7 +78,7 @@ Belirli koşullar altında Kurumsal durumda Dolaşım Azure çok faktörlü kiml
 
 **Olası sorun**: yönetici Active Directory Federasyon Hizmetleri çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi eşitleme başarısız olabilir. Oturum açın ve Microsoft Passport for Work PIN kullanarak oturumu emin olun veya Office 365 gibi diğer Azure hizmetleriyle erişirken çok faktörlü kimlik doğrulaması gerçekleştirmez.
 
-###<a name="event-viewer"></a>Olay Görüntüleyicisi
+###<a name="event-viewer"></a>Olay Görüntüleyici
 Gelişmiş sorun giderme için Olay Görüntüleyicisi'ni belirli hataları bulmak için kullanılabilir. Bunlar aşağıdaki tabloda belirtilmiştir. Olayları Olay Görüntüleyicisi'ni altında bulunabilir > Uygulama ve hizmet günlükleri > **Microsoft** > **Windows** > **SettingSync** ve eşitleme kimlikle ilgili sorunlar için **Microsoft** > **Windows** > **Azure AD**.
 
 

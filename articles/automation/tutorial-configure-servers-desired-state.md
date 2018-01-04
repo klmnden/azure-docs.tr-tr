@@ -3,7 +3,7 @@ title: "İstenilen durumu sunucularına yapılandırma ve Azure Automation kayma
 description: "Öğretici - Azure Otomasyonu DSC sunucu yapılandırmalarını yönetme"
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 63a83e35ce29541de578cb264464448fb6ee3e1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>İstenilen durumu sunucularına yapılandırma ve kayması yönetme
 
@@ -152,10 +152,10 @@ DSC düğümü uyumluluk durumu raporları çağırarak alabilirsiniz `Get-Azure
 $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Get an array of status reports for the DSC node
-$reports Get-Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
+$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
 
 # Display the most recent report
-$report[0]
+$reports[0]
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

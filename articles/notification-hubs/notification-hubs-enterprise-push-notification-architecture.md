@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Kurumsal gönderim mimari kılavuzu
 Kuruluşlar bugün kademeli olarak mobil uygulamaları ya da kendi son kullanıcıları (harici) oluşturmak için doğru veya (iç) çalışanlar için geçiyor. Ana bilgisayarlar veya mobil uygulama mimariye tümleşik bazı iş kolu uygulamaları olması varolan arka uç sistemleri yerinde sahiptirler. Bu kılavuz, bu tümleştirme senaryoları için olası çözüm öneren yapmak en iyi nasıl hakkında konuşur.
@@ -212,7 +212,7 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
    
     ![][3]
    
-    g. Böylece zaman oturum "Sürekli Çalıştır" olarak iş yapılandırma [Klasik Azure portalı] aşağıdaki gibi bir şey görmeniz gerekir:
+    g. Böylece zaman oturum "Sürekli Çalıştır" olarak iş yapılandırma [Azure portal] aşağıdaki gibi bir şey görmeniz gerekir:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
 3. Çalıştırma **EnterprisePushBackendSystem** LoB arka benzetimini yapacak ve göndermeye başla konsol uygulaması iletileri ve aşağıdaki gibi görünen bildirimleri görmeniz gerekir:
    
     ![][5]
-4. İletileri, ilk olarak Web işinizin Service Bus Aboneliklerde tarafından izlenen Service Bus konu başlıklarını gönderildi. Bir ileti alındığında bir bildirim oluşturuldu ve mobil uygulamaya gönderilir. İşlem günlükleri bağlantıyı gittiğinizde onaylamak için Web işi günlükleri aracılığıyla bakabilirsiniz [Klasik Azure portalı] Web işi için:
+4. İletileri, ilk olarak Web işinizin Service Bus Aboneliklerde tarafından izlenen Service Bus konu başlıklarını gönderildi. Bir ileti alındığında bir bildirim oluşturuldu ve mobil uygulamaya gönderilir. İşlem günlükleri bağlantıyı gittiğinizde onaylamak için Web işi günlükleri aracılığıyla bakabilirsiniz [Azure portal] Web işi için:
    
     ![][6]
 
@@ -264,4 +264,4 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
 [Service Bus Pub/alt programlama]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/web-sites-create-web-jobs.md
 [Notification Hubs - Windows Evrensel Öğreticisine]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Klasik Azure portalı]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/

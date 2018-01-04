@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8c4b2d578a8a586fc63c972ab5da694b2dd9d571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Yerel Azure sertifika doğrulaması kullanarak Noktadan Siteye sanal ağ bağlantısını yapılandırma: PowerShell
 
@@ -36,7 +36,7 @@ Noktadan Siteye (P2S) VPN ağ geçidi, ayrı bir istemci bilgisayardan sanal ağ
 
 Bağlanma istemcileri aşağıdaki kimlik doğrulama yöntemlerini kullanabilir:
 
-* RADIUS sunucusu - Şu anda Önizleme sürümündedir
+* RADIUS sunucusu
 * VPN Gateway yerel Azure sertifika doğrulaması
 
 Bu makale, yerel Azure sertifika doğrulamasını kullanarak kimlik doğrulaması ile bir P2S yapılandırmanıza yardımcı olur. Bağlanan kullanıcıların kimliğini doğrulamak için RADIUS kullanmak istiyorsanız bkz. [RADIUS kimlik doğrulaması kullanarak P2S](point-to-site-how-to-radius-ps.md).
@@ -45,13 +45,9 @@ Bu makale, yerel Azure sertifika doğrulamasını kullanarak kimlik doğrulamas�
 
 Noktadan Siteye bağlantılar için bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. P2S, VPN bağlantısını SSTP (Güvenli Yuva Tünel Protokolü) veya IKEv2 üzerinden oluşturur.
 
-* SSTP yalnızca Windows istemci platformlarında desteklenen SSL tabanlı bir VPN tünelidir. Güvenlik duvarlarından geçebildiği için, herhangi bir yerden Azure’a bağlanmak için ideal bir seçenektir. Sunucu tarafında 1.0, 1.1 ve 1.2 SSTP sürümlerini destekliyoruz. Kullanılacak sürüm, istemci tarafından belirlenir. Windows 8.1 ve sonraki sürümlerinde, SSTP'de varsayılan olarak 1.2 kullanılır.
+* SSTP yalnızca Windows istemci platformlarında desteklenen SSL tabanlı bir VPN tünelidir. Güvenlik duvarlarından geçebildiği için, herhangi bir yerden Azure’a bağlanmak için ideal bir seçenektir. Sunucu tarafında SSTP 1.0, 1.1 ve 1.2 sürümleri desteklenir. Kullanılacak sürüm, istemci tarafından belirlenir. Windows 8.1 ve sonraki sürümlerinde, SSTP'de varsayılan olarak 1.2 kullanılır.
 
-* IKEv2 VPN, standart tabanlı bir IPsec VPN çözümüdür. IKEv2 VPN, Mac cihazlardan (OSX sürüm 10.11 ve üzeri) bağlantı kurmak için kullanılabilir. IKEv2 şu anda Önizleme sürümündedir.
-
->[!NOTE]
->P2S için IKEv2 şu anda Önizleme sürümündedir.
->
+* IKEv2 VPN, standart tabanlı bir IPsec VPN çözümüdür. IKEv2 VPN, Mac cihazlardan (OSX sürüm 10.11 ve üzeri) bağlantı kurmak için kullanılabilir.
 
 Noktadan Siteye yerel Azure sertifika doğrulaması bağlantıları aşağıdakileri gerektirir:
 
@@ -72,7 +68,7 @@ Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bkz. [Nok
 Örnek değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bu değerlere bakabilirsiniz. Değişkenler makalenin [1](#declare). bölümünde ayarlanır. İzlenecek yol olarak adımları kullanıp değerleri değiştirmeden uygulayabilir veya ortamınızı yansıtacak şekilde değiştirebilirsiniz.
 
 * **Ad: VNet1**
-* **Adres alanı: 192.168.0.0/16** ve **10.254.0.0/16**<br>Bu örnekte, bu yapılandırmanın birden çok adres alanıyla çalıştığını göstermek için birden fazla adres alanı kullanıyoruz. Ancak, bu yapılandırma için birden çok adres alanı gerekli değildir.
+* **Adres alanı: 192.168.0.0/16** ve **10.254.0.0/16**<br>Bu örnekte, bu yapılandırmanın birden çok adres alanıyla çalıştığını göstermek için birden fazla adres alanı kullanılır. Ancak, bu yapılandırma için birden çok adres alanı gerekli değildir.
 * **Alt ağ adı: FrontEnd**
   * **Alt ağ adres aralığı: 192.168.1.0/24**
 * **Alt ağ adı: BackEnd**
@@ -143,7 +139,7 @@ Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildir
   ```
 3. Sanal ağı oluşturun.
 
-  Bu örnekte, -DnsServer sunucu parametresi isteğe bağlıdır. Bir değer belirtildiğinde yeni bir DNS sunucusu oluşturulmaz. Belirttiğiniz DNS sunucusu IP adresi, sanal ağınızdan bağlandığınız kaynakların adlarını çözümleyebilen bir DNS sunucusu olmalıdır. Bu örnek için özel bir IP adresi kullandık, ancak DNS sunucunuzun IP adresi muhtemelen bu değildir. Kendi değerlerinizi kullandığınızdan emin olun. Belirttiğiniz değer, P2S bağlantısı veya VPN istemcisi tarafından değil, sanal ağa dağıttığınız kaynaklar tarafından kullanılıyor.
+  Bu örnekte, -DnsServer sunucu parametresi isteğe bağlıdır. Bir değer belirtildiğinde yeni bir DNS sunucusu oluşturulmaz. Belirttiğiniz DNS sunucusu IP adresi, sanal ağınızdan bağlandığınız kaynakların adlarını çözümleyebilen bir DNS sunucusu olmalıdır. Bu örnek için özel bir IP adresi kullanıldı, ancak bu, DNS sunucunuzun IP adresi olmayabilir. Kendi değerlerinizi kullandığınızdan emin olun. Belirttiğiniz değer, P2S bağlantısı veya VPN istemcisi tarafından değil, sanal ağa dağıttığınız kaynaklar tarafından kullanılıyor.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -167,14 +163,14 @@ Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildir
 
 Sanal ağınız için sanal ağ geçidini yapılandırın ve oluşturun.
 
-* *-GatewayType* değeri **Vpn** ve *-VpnType* değeri **RouteBased** olmalıdır.
-* -VpnClientProtocols, etkinleştirmek istediğiniz tünel türlerini belirtmek için kullanılır. **SSTP** ve **IKEv2** olmak üzere iki tünel seçeneği bulunur. Birini veya ikisini birden etkinleştirmeyi seçebilirsiniz. İkisini birden etkinleştirmek istiyorsanız, her iki adı da virgülle ayrılmış olarak belirtin. Android ve Linux üzerindeki Strongswan istemcisi ile iOS ve OSX üzerindeki yerel IKEv2 VPN istemcisi, bağlanmak için yalnızca IKEv2 kullanır. Windows istemcileri önce IKEv2’yi dener ve bağlanamazsa SSTP’ye döner.
-* Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz [ağ geçidi sku'suna](vpn-gateway-about-vpn-gateway-settings.md) bağlı olarak 45 dakikaya kadar sürebilir. Bu örnekte şu anda Önizleme sürümünde olan IKEv2 uygulamasını kullanıyoruz.
+* -GatewayType değeri **Vpn** ve -VpnType değeri **RouteBased** olmalıdır.
+* -VpnClientProtocol, etkinleştirmek istediğiniz tünel türlerini belirtmek için kullanılır. **SSTP** ve **IKEv2** olmak üzere iki tünel seçeneği bulunur. Birini veya ikisini birden etkinleştirmeyi seçebilirsiniz. İkisini birden etkinleştirmek istiyorsanız, her iki adı da virgülle ayrılmış olarak belirtin. Android ve Linux üzerindeki Strongswan istemcisi ile iOS ve OSX üzerindeki yerel IKEv2 VPN istemcisi, bağlanmak için yalnızca IKEv2 kullanır. Windows istemcileri önce IKEv2’yi dener ve bağlanamazsa SSTP’ye döner.
+* Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz [ağ geçidi sku'suna](vpn-gateway-about-vpn-gateway-settings.md) bağlı olarak 45 dakikaya kadar sürebilir. Bu örnekte şu anda Önizleme sürümünde olan IKEv2 uygulaması kullanılıyor.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocols "IKEv2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
 ## <a name="addresspool"></a>4. VPN istemcisi adres havuzunu ekleme

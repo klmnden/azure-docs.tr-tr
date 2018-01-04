@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning deneme hizmetini yapılandırma
 
@@ -221,7 +221,8 @@ _**Uzak vm yürütme bir Python komut dosyası için genel bakış:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Bir Hdınsight kümesine betik çalıştırma
 Hdınsight Apache Spark destekleyen büyük veri analizi için popüler bir platformdur. Çalışma ekranı Hdınsight Spark kümeleri kullanarak büyük veri üzerinde deneme sağlar. 
 
->![NOT] HDInsight kümesi birincil depolama olarak Azure Blob kullanmalıdır. Azure Data Lake depolamanın kullanılması henüz desteklenmemektedir.
+>[!NOTE]
+>Hdınsight kümesi birincil depolama alanı olarak Azure Blob kullanmanız gerekir. Azure Data Lake depolamanın kullanılması henüz desteklenmemektedir.
 
 Bir işlem hedef oluşturun ve aşağıdaki komutu kullanarak Hdınsight Spark kümesinde yapılandırmanın çalıştırın:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Ekli işlem hedefte ~/.ssh/authorized_keys dosyaya çalışma ekranı tarafından oluşturulan ortak anahtarı ekleyin. 
 
-[!IMPORTANT] İşlem hedef oluşturmak için kullanılan aynı kullanıcı adı kullanarak işlem hedef bağlanmanız gerekir. 
+>[!IMPORTANT]
+>İşlem hedef oluşturmak için kullanılan aynı kullanıcı adı kullanarak işlem hedef bağlanmanız gerekir. 
 
 - Şimdi, hazırlamak ve SSH anahtar tabanlı kimlik doğrulaması kullanarak işlem hedef kullanın.
 

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos veritabanı benzersiz anahtar
 
 Benzersiz anahtarlar geliştiricilerin kendi veri bütünlüğü katmanı eklemek için olanak sağlar. Bir kapsayıcı oluşturulduğunda, benzersiz bir anahtar ilke oluşturarak, bir veya daha fazla değer benzersizliğini olun [bölüm anahtarı](partition-data.md). Bir kapsayıcı benzersiz bir anahtar ilkesiyle oluşturulduktan sonra tüm yeni veya güncelleştirilmiş öğeleri yinelenen değerleri benzersiz anahtar kısıtlaması tarafından belirtilen değerlerle oluşturulmasını engeller.   
 
 > [!NOTE]
-> Benzersiz anahtarlar en son sürümleri tarafından desteklenir [.NET](documentdb-sdk-dotnet.md) ve [.NET Core](documentdb-sdk-dotnet-core.md) DocumentDB (SQL) SDK'ları ve [MongoDB API](mongodb-feature-support.md#unique-indexes). Tablo API ve grafik API'si benzersiz anahtarları şu anda desteklemiyor. 
+> Benzersiz anahtarlar en son sürümleri tarafından desteklenir [.NET](sql-api-sdk-dotnet.md) ve [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK'ları ve [MongoDB API](mongodb-feature-support.md#unique-indexes). Tablo API ve grafik API'si benzersiz anahtarları şu anda desteklemiyor. 
 > 
 >
 
@@ -54,7 +54,7 @@ Benzersiz anahtar kapsayıcı oluşturulduğunda ve benzersiz bir anahtar bölü
 
 Varolan kapsayıcıları benzersiz anahtarları kullanmak için güncelleştirilemiyor.
 
-Bir kapsayıcı benzersiz bir anahtar ilkesiyle oluşturulduktan sonra ilkeyi kapsayıcı yeniden sürece değiştirilemez. Üzerinde benzersiz anahtarlar uygulamak istediğiniz var olan verileri varsa, yeni kapsayıcı oluşturun ve yeni kapsayıcı verileri taşımak için uygun veri geçiş aracı kullanın. DocumentDB (SQL) kapsayıcılar için kullanma [veri geçiş aracı](import-data.md). MongoDB kapsayıcılar için kullanma [mongoimport.exe veya mongorestore.exe](mongodb-migrate.md).
+Bir kapsayıcı benzersiz bir anahtar ilkesiyle oluşturulduktan sonra ilkeyi kapsayıcı yeniden sürece değiştirilemez. Üzerinde benzersiz anahtarlar uygulamak istediğiniz var olan verileri varsa, yeni kapsayıcı oluşturun ve yeni kapsayıcı verileri taşımak için uygun veri geçiş aracı kullanın. SQL kapsayıcılar için kullanma [veri geçiş aracı](import-data.md). MongoDB kapsayıcılar için kullanma [mongoimport.exe veya mongorestore.exe](mongodb-migrate.md).
 
 Her benzersiz anahtarında en fazla 16 yol değerleri (örneğin /firstName, /lastName, /address/zipCode, vb.) dahil edilebilir. 
 
@@ -64,9 +64,9 @@ Birim oluşturmak için güncelleştirme, ücretler ve öğe silme biraz daha y�
 
 Seyrek benzersiz anahtarlar desteklenmez. Bazı benzersiz yolları için değerler eksikse, bölümü benzersizlik kısıtlamasını alır özel bir null değer olarak kabul edilir.
 
-## <a name="documentdb-sql-api-sample"></a>DocumentDB (SQL) API örnek
+## <a name="sql-api-sample"></a>SQL API örnek
 
-Aşağıdaki kod örneği iki benzersiz anahtar kısıtlamalarını ile yeni bir DocumentDB (SQL) kapsayıcı oluşturulacağını gösterir. İlk sınırlamadır firstName, lastName, önceki örnekte açıklanan kısıtlaması e-posta. Kullanıcıların adresi/zipCode ikinci sınırlamadır. Yolları Bu benzersiz anahtar ilkede kullanan örnek bir JSON dosyası kod örnek aşağıda verilmiştir. 
+Aşağıdaki kod örneği iki benzersiz anahtar kısıtlamalarını ile yeni bir SQL kapsayıcı oluşturulacağını gösterir. İlk sınırlamadır firstName, lastName, önceki örnekte açıklanan kısıtlaması e-posta. Kullanıcıların adresi/zipCode ikinci sınırlamadır. Yolları Bu benzersiz anahtar ilkede kullanan örnek bir JSON dosyası kod örnek aşağıda verilmiştir. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

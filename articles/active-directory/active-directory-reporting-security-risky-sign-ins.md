@@ -3,7 +3,7 @@ title: "Azure Active Directory portalındaki riskli oturum açma işlemleri rapo
 description: "Azure Active Directory portalındaki riskli oturum açma işlemleri raporu hakkında bilgi edinin"
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fd9ac1fa9aa44947448d5b422faf08f8d66aeb5f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 542a111ea5227db727deeac9c56b9f4b4a9f694c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
 
@@ -75,7 +75,7 @@ Daha fazla ayrıntı için bkz. [Risk olaylarını elle kapatma](active-director
 
 Bu rapor size şu seçeneği sağlar:
 
-- Kaynaklarda ara
+- Kaynak arama
 - Rapor verilerini indir
 
 

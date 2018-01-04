@@ -4,7 +4,7 @@ description: "Anlama ve mevcut Azure AD etki alanı Hizmetleri yönetilen etki a
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Var olan Azure AD etki alanı Hizmetleri yönetilen etki alanı için eşleşmeyen dizin hatalarını çözümleme
-Klasik Azure portalını kullanarak etkinleştirilen varolan yönetilen bir etki alanına sahip. Yeni Azure portalına gidin ve yönetilen etki alanı görüntülediğiniz zaman, aşağıdaki hata iletisini görürsünüz:
+Mevcut bir Azure AD etki alanı Hizmetleri yönetilen etki alanına sahip. Azure Portalı'na gidin ve yönetilen etki alanı görüntülediğiniz zaman, aşağıdaki hata iletisini görürsünüz:
 
 ![Eşleşmeyen directory hatası](.\media\getting-started\mismatched-tenant-error.png)
 
@@ -33,7 +33,7 @@ Yönetilen etki alanınızı ve etkin olarak sanal ağı iki farklı ait olduğu
 
 Yeni Azure portalına (ve özellikle Azure AD etki alanı Hizmetleri Uzantısı) Azure Resource Manager üzerinde oluşturulmuştur. Modern Azure Resource Manager ortamında, daha fazla güvenlik sunar ve rol tabanlı erişim (RBAC) kaynaklara denetlemek için bazı kısıtlamalar uygulanır. Yönetilen bir etki alanına eşitlenmesi kimlik bilgisi karmalarını neden olduğundan Azure AD kiracısı Azure AD Etki Alanı Hizmetleri'ni etkinleştirme hassas bir işlemdir. Bu işlem dizin için bir kiracı yöneticisi olmanız gerekir. Ayrıca, yönetilen etki alanını etkinleştirmek sanal ağ üzerinden yönetici ayrıcalıkları olmalıdır. RBAC denetimleri tutarlı bir şekilde çalışması yönetilen etki alanı ve sanal ağ aynı Azure AD kiracısı ait olmalıdır.
 
-Kısacası, başka bir Azure AD kiracısı 'fabrikam.com' tarafından sahip olunan bir Azure aboneliğine ait bir sanal ağdaki "contoso.com" Azure AD kiracısı için yönetilen bir etki alanına etkinleştiremezsiniz. Klasik Azure portalı Resource Manager platform üzerinde oluşturulan değil ve bu tür kısıtlamaları zorlamaz.
+Kısacası, başka bir Azure AD kiracısı 'fabrikam.com' tarafından sahip olunan bir Azure aboneliğine ait bir sanal ağdaki "contoso.com" Azure AD kiracısı için yönetilen bir etki alanına etkinleştiremezsiniz. 
 
 **Geçerli yapılandırma**: Bu dağıtım senaryosunda, Contoso yönetilen etki alanı Contoso Azure AD Kiracı için etkinleştirilir. Contoso Azure AD Kiracı tarafından sahip olunan bir Azure aboneliğine ait bir sanal ağdaki yönetilen etki alanı açılır. Bu nedenle, hem yönetilen etki alanı, hem de sanal ağ aynı Azure AD kiracısı ait. Bu, geçerli ve tam olarak desteklenen yapılandırmadır.
 

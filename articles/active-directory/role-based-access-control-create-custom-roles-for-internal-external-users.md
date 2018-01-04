@@ -4,21 +4,29 @@ description: "İç ve dış kullanıcılar için PowerShell ve CLI kullanılarak
 services: active-directory
 documentationcenter: 
 author: andreicradu
-manager: catadinu
+manager: mtillman
 editor: kgremban
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
+<<<<<<< HEAD
 ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
 ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
+=======
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>Giriş rol tabanlı erişim denetimi hakkında
 
@@ -35,7 +43,7 @@ RBAC kullanarak Azure ortamında gerektirir:
 * Kullanıcı abonelik için kaydedilmiş aşağıdaki kaynak sağlayıcıları bulunduğundan emin olun: **Microsoft.Authorization**. Kaynak sağlayıcıları kaydetme hakkında daha fazla bilgi için bkz: [Resource Manager sağlayıcıları, bölgeleri, API sürümleri ve şemaları](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Office 365 aboneliği veya Azure Active Directory lisansları (örneğin: Azure Active Directory'ye erişim) portal yok nitelemek için RBAC kullanarak O365'den sağlanan.
+> Office 365 aboneliği veya Azure Active Directory lisansları (örneğin: Azure Active Directory'ye erişim) Office 365 Yönetim Merkezi olmayan nitelemek için RBAC kullanarak gelen sağlandı.
 
 ## <a name="how-can-rbac-be-used"></a>RBAC nasıl kullanılabileceğini
 RBAC, Azure üç farklı kapsamlar adresindeki uygulanabilir. En düşük bir üst kapsamdan bunlar şu şekildedir:
@@ -102,7 +110,7 @@ Kuruluş dış olmasının, yeni kullanıcı varolan öznitelikleri "Varsayılan
 
 ![RBAC rolü için e-posta davet iletisi](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-Şu andan itibaren dış kullanıcı olarak Azure Active Directory Kiracı ve bu dış kullanıcı gösterir, hem Azure portalında hem de klasik Portalı'nda görüntülenebilir.
+Şu andan itibaren dış kullanıcı olarak Azure Active Directory Kiracı ve bu dış kullanıcı gösterir Azure Portalı'nda görüntülenebilir.
 
 
 
@@ -112,14 +120,7 @@ Kuruluş dış olmasının, yeni kullanıcı varolan öznitelikleri "Varsayılan
 
 
 
-
-
-![Kullanıcılar dikey azure active directory Klasik Azure portalı](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-İçinde **kullanıcılar** dış kullanıcılar tarafından tanımasını her iki portalları görünümünde:
-
-* Azure portalında farklı simge türü
-* Klasik Portalı'nda farklı kaynak belirleme noktası
+İçinde **kullanıcılar** görünümü, dış kullanıcılar Azure portalında farklı simge türü tarafından tanınmıyor.
 
 Ancak, verme **sahibi** veya **katkıda bulunan** bir dış kullanıcı erişimi **abonelik** kapsamı, yönetici kullanıcının dizinine erişimi sürece izin vermiyor **Genel yönetici** verir. Kullanıcı proprieties içinde **kullanıcı türü** iki ortak parametreleri olan **üye** ve **Konuk** tanımlanabilir. Konuk bir dış kaynaktan dizine davet bir kullanıcı olsa da dizinde kayıtlı bir kullanıcı bir üyesidir. Daha fazla bilgi için bkz: [nasıl Azure Active Directory yöneticileri ekleyin B2B işbirliği kullanıcılar](active-directory-b2b-admin-add-users.md).
 
@@ -145,9 +146,6 @@ Yerleşik RBAC rolü atama **sanal makine Katılımcısı** kullanıcı rolü at
 * Başka bir kaynak türleri abonelikte görüntüleyemezsiniz
 * Fatura perspektifi değişiklikler çalıştırılamıyor
 
-> [!NOTE]
-> RBAC, Azure portal yalnızca özelliği olan Klasik portal erişim izni vermez.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Bir dış kullanıcı için bir yerleşik RBAC rolü atayın
 Bu test, dış kullanıcı farklı bir senaryo için "alflanigan@gmail.com" olarak eklenen bir **sanal makine Katılımcısı**.
 
@@ -156,9 +154,7 @@ Bu test, dış kullanıcı farklı bir senaryo için "alflanigan@gmail.com" olar
 
 ![sanal makine katkıda bulunan yerleşik rolü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Normal yerleşik bu rol ile dış bu kullanıcı için bakın ve yalnızca sanal makineler ve bitişik kaynak yöneticisi yalnızca kaynaklarını dağıtırken gereken yönetmek için bir davranıştır. Tasarım gereği, kısıtlı bu rolleri yalnızca Azure portalında oluşturulan karşılık düşen kaynaklarına erişimi sunmak, ne olursa olsun bazı hala Klasik portalda dağıtılabilir (örneğin: sanal makineler).
-
-
+Normal yerleşik bu rol ile dış bu kullanıcı için bakın ve yalnızca sanal makineler ve bitişik kaynak yöneticisi yalnızca kaynaklarını dağıtırken gereken yönetmek için bir davranıştır. Tasarım gereği, kısıtlı bu rolleri yalnızca Azure portalında oluşturulan karşılık düşen kaynaklarına erişimi sunar.
 
 
 

@@ -8,11 +8,11 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: hero-article
 manager: carmonm
-ms.openlocfilehash: bfdd67ac1018f242e415da1a66d93f22bea8d054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Bir Azure sanal makinesini stok toplama ile yönetme
 
@@ -20,7 +20,7 @@ Bir Azure sanal makinesinin kaynak sayfasından sanal makine için stok izlemeyi
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
-Bir Azure sanal makineniz yoksa bir [sanal makine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) oluşturun.
+Bir Azure sanal makineniz yoksa bir [sanal makine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) oluşturun.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 [Azure Portal](https://portal.azure.com/) oturum açın.

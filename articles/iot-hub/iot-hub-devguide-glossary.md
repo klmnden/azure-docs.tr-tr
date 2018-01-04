@@ -14,11 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
+<<<<<<< HEAD
 ms.openlocfilehash: 87ab620444df4588cc43a3691cb215006561090d
 ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan ortak terimleri bazıları listelenmektedir.
@@ -161,48 +167,7 @@ Bağlantıyı doğrudan bağlanamıyor cihazlar için bir ağ geçidi etkinleşt
 ## <a name="interactive-message"></a>Etkileşimli iletisi
 Etkileşimli bir ileti bir [bulut cihaz](#cloud-to-device) çözüm arka ucu anlık bir eylemi tetikleyen ileti. Örneğin, bir cihaz otomatik olarak bir CRM sistemine oturum açması bir hata hakkında bir uyarı gönderebilir.
 
-## <a name="iot-edge"></a>IoT Edge
-Azure IOT kenar bulut tabanlı dağıtım Azure hizmetlerinin ve şirket içi cihazlar için çözüm özgü kodu sağlar. Verileri buluta gönderilmeden önce IOT sınır cihazları diğer bilgi işlem gerçekleştirmek için cihazlar ve analizi veri toplayabilirsiniz. Daha fazla bilgi için lütfen bkz [Azure IOT kenar](https://docs.microsoft.com/en-us/azure/iot-edge/).
-
-## <a name="iot-edge-agent"></a>IOT kenar Aracısı
-IOT kenar çalışma zamanı dağıtma ve modülleri izleme sorumlu parçası.
-
-## <a name="iot-edge-device"></a>IoT Edge cihazı
-IOT sınır cihazları IOT çalışma zamanı yüklü ve cihaz Ayrıntıları "IOT sınır cihazı" olarak işaretlenen kenar sahip. Bilgi edinmek için nasıl [Linux sanal bir cihaz üzerinde Azure IOT kenar dağıtma - Önizleme](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux).
-
-## <a name="iot-edge-deployment"></a>IOT kenar dağıtım
-Bir IOT kenar dağıtım modülleri IOT kenar kümesini çalıştırmak için IOT sınır cihazları hedef kümesini yapılandırır. Her dağıtım, hedef durumu eşleşen tüm aygıtları modülleri belirtilen kümesi çalıştıran, bile yeni aygıtları oluşturulan ya da hedef durumu eşleşecek şekilde değiştirilmiş sürekli olarak sağlar. Her IOT sınır cihazı, yalnızca hedef durumu karşıladığından en yüksek öncelikli dağıtım alır. Daha fazla bilgi edinmek [IOT kenar dağıtım](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
-
-## <a name="iot-edge-deployment-manifest"></a>IOT kenar dağıtım bildirimi
-Modüller, yolları ve ilişkili modül kümesini dağıtmak için bir veya daha fazla IOT sınır cihazları modülü twin(s) içinde kopyalanacak bilgileri içeren bir Json belgesi özelliklerini istenen.
-
-## <a name="iot-edge-gateway-device"></a>IOT sınır ağ geçidi cihazı
-Aşağı Akış cihaz sahip bir IOT kenar cihazı. Aşağı Akış cihaz IOT kenar veya IOT sınır cihazı olabilir.
-
-## <a name="iot-edge-hub"></a>IOT kenar hub
-IOT kenar çalışma zamanı (doğru IOT Hub) Yukarı Akış ve aşağı akış (çıktığınızda, IOT Hub) modül için modülü iletişim sorumlu parçası iletişim. 
-
-## <a name="iot-edge-leaf-device"></a>IOT sınır yaprak cihazı
-IOT sınır cihazı ile aşağı akış aygıtı yok. 
-
-## <a name="iot-edge-module"></a>IOT kenar Modülü
-IOT kenar cihazlara dağıtabileceğiniz bir Docker kapsayıcısı bir IOT kenar modülüdür. Bir CİHAZDAN bir ileti alma, bir ileti dönüştürme ya da bir IOT hub'ına ileti gönderme gibi belirli bir görevi gerçekleştirir. Diğer modüller ile iletişim kurar ve IOT kenar çalışma zamanına verileri gönderir. [IOT kenar modülleri geliştirmek için Araçlar ve gereksinimleri anlamanız](https://docs.microsoft.com/en-us/azure/iot-edge/module-development).
-
-## <a name="iot-edge-module-identity"></a>IOT kenar modül kimliği
-Bir sınır hub veya IOT Hub ile kimlik doğrulaması için bir modül tarafından kullanılacak varlığı ve güvenlik kimlik bilgileri ayrıntılı IOT hub'ı modülü kimlik kayıt defteri kaydında.
-
-## <a name="iot-edge-module-image"></a>IOT kenar modülü görüntüsü
-IOT kenar çalışma zamanı tarafından modülü örnekleri örneği oluşturmak için kullanılan docker resim.
-
-## <a name="iot-edge-module-twin"></a>IOT kenar modülü twin
-Bir modül örneğinin durumu bilgilerini depolar IOT Hub'ında bir Json belgesi kalıcı. 
-
-## <a name="iot-edge-runtime"></a>IoT Edge çalışma zamanı
-IOT kenar çalışma zamanı IOT kenar cihaza yüklenmesi için Microsoft dağıtır her şeyi içerir. Edge Aracısı, kenar hub ve kenar CTL aracı dahil.
-
-## <a name="iot-edge-set-modules-to-a-single-device"></a>IOT kenar modülleri için tek bir cihazı ayarlayın.
-Bir cihaz üzerinde bir IOT kenar bildiriminin içeriği kopyalar bir işlem ' modülü çifti. Genel temel API'dir 'yapılandırma apply' yalnızca aldığı IOT kenar bildiriminde bir girdi olarak.
-s
+[!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT Hub’ı
 IOT hub'ı milyonlarca cihaza arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir Azure hizmeti olduğundan ve bir çözüm arka ucu. Daha fazla bilgi için bkz: [Azure IOT Hub nedir?](iot-hub-what-is-iot-hub.md) Kullanarak, [Azure aboneliği](#subscription), iş yüklerini Mesajlaşma, IOT işlemek için IOT hub'ları oluşturabilirsiniz.
@@ -239,9 +204,6 @@ Gerçek bir cihaz IOT hub'a bağlanan Raspberry Pi'yi gibi bir fiziksel aygıtt�
 
 ## <a name="primary-and-secondary-keys"></a>Birincil ve ikincil anahtarları
 Bir IOT hub cihaz dönük veya hizmet dönük bir noktadaki bağlandığınızda, [bağlantı dizesi](#connection-string) size erişim vermek için anahtar içerir. Bir cihaza eklediğinizde [kimlik kayıt defteri](#identity-registry) veya ekleme bir [paylaşılan erişim ilkesi](#shared-access-policy) hub'ınıza, hizmeti birincil ve ikincil bir anahtar oluşturur. İki anahtarın kullanılması, IOT hub'ına erişimi kaybetmeden bir anahtar güncelleştirdiğinizde bir anahtardan diğerine geçir olanak sağlar.
-
-## <a name="priority"></a>Öncelik
-İki IOT kenar dağıtımları aynı aygıt hedeflediğinizde, yüksek öncelikli dağıtım uygulanmış olur. İki dağıtım aynı önceliğe sahip, dağıtımı daha sonraki oluşturulma tarihi ile uygulanan. Daha fazla bilgi edinmek [öncelik](#https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## <a name="protocol-gateway"></a>Protokol ağ geçidi
 Bir protokol ağ geçidi genellikle buluta dağıtılan ve protokolü bağlanan cihazlar için çeviri hizmetleri sağlayan [IOT hub'ı](#iot-hub). Daha fazla bilgi için bkz: [Azure IOT Hub nedir?](iot-hub-what-is-iot-hub.md)
@@ -287,9 +249,6 @@ Bağlamında bir [cihaz çifti](iot-hub-devguide-device-twins.md), Sistem özell
 
 ## <a name="tags"></a>Etiketler
 Bağlamında bir [cihaz çifti](iot-hub-devguide-device-twins.md), etiketleri, cihaz meta verilerini depolanır ve bir JSON belgesinin biçiminde çözüm arka ucu tarafından alınır. Etiketler bir cihazdaki uygulamalar için görünür değildir.
-
-## <a name="target-condition"></a>Hedef durumu
-Bir IOT kenar dağıtımında hedef durumu dağıtımın hedef cihazlar örneğin seçmek için cihaz çiftlerini etiketleri hakkında herhangi Boolean durumdur "tag.environment = prod". Hedef durumu gereksinimlerini karşılayan yeni aygıtları dahil etmek veya artık yapmak aygıtları kaldırmak için sürekli olarak değerlendirilir. Daha fazla bilgi edinmek [hedef koşulu](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## <a name="telemetry"></a>Telemetri
 Cihazları Rüzgar hızı veya sıcaklık, gibi telemetri verileri toplama ve kullanma [veri noktası iletileri](#data-point-messages) bir IOT hub'ına telemetri göndermeyi.

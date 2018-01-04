@@ -1,6 +1,6 @@
 ---
-title: "Azure'da Windows SQL Server 2017 VM oluşturma | Microsoft Docs"
-description: "Bu öğreticide Azure portalında Windows SQL Server 2017 sanal makinesi oluşturma adımları gösterilmiştir."
+title: "Azure portalında Windows SQL Server 2017 VM'ler yapılandırma | Microsoft Docs"
+description: "Nasıl yapılır bu kılavuz, Azure portalında Windows SQL Server 2017 sanal makineler oluşturmak için seçeneklerinizi açıklar."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,39 +9,29 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Windows SQL Server sanal makinesi sağlama
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Windows SQL Server sanal makine oluşturma
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+Bu kılavuzda, Azure portalında bir Windows SQL Server sanal makine oluşturduğunuzda kullanılabilir farklı seçenekler arasında anlatılmaktadır. Farklı seçenekler hakkında bilgi sırasında kendi SQL Server VM oluşturmak için aşağıdaki adımları izleyebilirsiniz. Veya belirli bir bölüme başvuru için Portalı'nda belirli adım gidebilirsiniz.
 
-Bu hızlı başlangıç öğreticisinde Azure portalını kullanarak SQL Server yüklü bir Windows sanal makinesi oluşturacaksınız.
+> [!TIP]
+> Varsayılan portal değerlerle hızlı bir şekilde başlamak için bkz: [Azure hızlı başlangıç - portalda bir SQL Server VM oluşturma](quickstart-sql-vm-create-portal.md).
 
-Bu öğreticide şunları yapacaksınız:
-
-* [Galeriden bir SQL VM görüntüsü seçme](#select)
-* [VM oluşturma ve yapılandırma](#configure)
-* [VM'yi Uzak Masaüstü ile açma](#remotedesktop)
-* [SQL Server'a uzaktan bağlanma](#connect)
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a id="select"></a> Galeriden bir SQL VM görüntüsü seçme
 
 1. Hesabınızı kullanarak [Azure portal](https://portal.azure.com)da oturum açın.
-
-   > [!NOTE]
-   > Bir Azure hesabınız yoksa, [Azure ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)yi ziyaret edin.
 
 1. Azure portalda **Yeni**’ye tıklayın. Portalda **Yeni** penceresi açılır.
 
@@ -277,19 +267,11 @@ Azure portalından dağıtımı izleyebilirsiniz. Ekranın üst kısmındaki **B
 
 Uzak Masaüstü kullanarak SQL Server sanal makinesine bağlanmak için aşağıdaki adımları kullanın:
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 SQL Server sanal makineye bağlandıktan sonra, SQL Server Management Studio'yu başlatabilir ve yerel yönetici kimlik bilgilerinizi kullanarak Windows Kimlik Doğrulamasına bağlanabilirsiniz. SQL Server Kimlik Doğrulamasını etkinleştirdiyseniz, sağlama işlemi sırasında yapılandırdığınız SQL oturum açma adı ve parolasını kullanarak da SQL Kimlik Doğrulamasına bağlanabilirsiniz.
 
 Makineye erişim, gereksinimlerinize göre makineyi ve SQL Server ayarlarını doğrudan değiştirmenize olanak tanır. Örneğin, güvenlik duvarı ayarlarını yapılandırabilir veya SQL Server yapılandırma ayarlarını değiştirebilirsiniz.
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>Developer ve Express sürümleri için TCP/IP’yi etkinleştirme
-
-Yeni bir SQL Server VM’si sağlanırken Azure, SQL Server Developer ve Express sürümleri için TCP/IP’yi otomatik olarak etkinleştirmez. Aşağıdaki adımlarda, uzaktan IP adresiyle bağlanabilmeniz için TCP/IP’yi el ile nasıl etkinleştirebileceğiniz açıklanmıştır.
-
-Aşağıdaki adımlarda, SQL Server Developer ve Express sürümleri için TCP/IP protokolünü etkinleştirme yöntemi olarak **SQL Server Yapılandırma Yöneticisi** kullanılır.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a> SQL Server'a uzaktan bağlanma
 
@@ -300,7 +282,7 @@ Bu öğreticide,sanal makine için **Genel** erişimi ve **SQL Server Kimlik Do�
 
 Aşağıdaki bölümlerde, VM’nizdeki SQL Server örneğinize İnternet üzerinden farklı bir bilgisayarın nasıl bağlanacağı gösterilmektedir.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/16/2017
+ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fa90953d4bf88ac9aab1c9277ef6767153862111
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -42,6 +42,8 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizme
 Hangi, bir konuk işletim sistemi değilseniz ya da konuk işletim sistemi iş nasıl Yayımları? Okuma [bu](#how-it-works) bölümü.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+###### <a name="december-14-2017"></a>**14 Aralık 2017**
+Kasım konuk işletim sistemi yayımladı.
 
 ###### <a name="november-8-2017"></a>**8 Kasım 2017**
 Ekim konuk işletim sistemi yayımladı.
@@ -88,16 +90,16 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.13_201711-01 |14 Aralık 2017 |POST 5.15 |TBD |
 | WA-GUEST-OS-5.12_201710-02 |8 Kasım 2017 |POST 5.14 |TBD |
-| WA-GUEST-OS-5.11_201709-01 |6 Ekim 2017 |POST 5.13 |TBD |
-| WA-GUEST-OS-5.10_201708-01 |24 Ağustos 2017 |POST 5.12 |TBD |
+|~~WA-GUEST-OS-5.11_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
+|~~WA-GUEST-OS-5.10_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |10 Ocak 2017 |5 Haziran 2017|TBD |
-|~~WA-GUEST-OS-5.3_201611-01~~ |14 Aralık 2016 |9 May 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Aile 4 serbest bırakır
 **Windows Server 2012 R2**
@@ -111,16 +113,16 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.48_201711-01 |14 Aralık 2017 |POST 4.50 |TBD |
 | WA-GUEST-OS-4.47_201710-02 |8 Kasım 2017 |POST 4.49 |TBD |
-| WA-GUEST-OS-4.46_201709-01 |6 Ekim 2017 |POST 4.48 |TBD |
-| WA-GUEST-OS-4.45_201708-01 |24 Ağustos 2017 |POST 4.47 |TBD |
+|~~WA-GUEST-OS-4.46_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
+|~~WA-GUEST-OS-4.45_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
-|~~WA-GUEST-OS-4.38_201611-01~~ |14 Aralık 2016 |9 May 2017 |TBD |
 
 ## <a name="family-3-releases"></a>Aile 3 serbest bırakır
 **Windows Server 2012**
@@ -134,16 +136,16 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.55_201711-01 |14 Aralık 2017 |POST 3.57 |TBD |
 | WA-GUEST-OS-3.54_201710-02 |8 Kasım 2017 |POST 3.56 |TBD |
-| WA-GUEST-OS-3.53_201709-01 |6 Ekim 2017 |POST 3.55 |TBD |
-| WA-GUEST-OS-3.52_201708-01 |24 Ağustos 2017 |POST 3.54 |TBD |
+|~~WA-GUEST-OS-3.53_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
+|~~WA-GUEST-OS-3.52_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
-|~~WA-GUEST-OS-3.45_201611-01~~ |14 Aralık 2016 |9 May 2017 |TBD |
 
 ## <a name="family-2-releases"></a>Ailesi 2 sürümleri
 **Windows Server 2008 R2 SP1**
@@ -157,9 +159,10 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.68_201710-01 |14 Aralık 2017 |POST 2.70 |TBD |
 | WA-GUEST-OS-2.67_201710-02 |8 Kasım 2017 |POST 2.69 |TBD |
-| WA-GUEST-OS-2.66_201709-01 |6 Ekim 2017 |POST 2.68 |TBD |
-| WA-GUEST-OS-2.65_201708-01 |24 Ağustos 2017 |POST 2.67 |TBD |
+|~~WA-GUEST-OS-2.66_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
+|~~WA-GUEST-OS-2.65_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
 |~~WA-GUEST-OS-2.63_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
@@ -167,7 +170,6 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
 |~~WA-GUEST-OS-2.59_201701-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |10 Ocak 2017 |9 May 2017|TBD |
-|~~WA-GUEST-OS-2.57_201611-01~~ |14 Aralık 2016 |10 Nisan 2017 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC düzeltme eki güncelleştirmeleri

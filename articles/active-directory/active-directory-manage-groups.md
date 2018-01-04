@@ -4,7 +4,7 @@ description: "Grupları Azure Active Directory'de kullanıcı erişimini şirket
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 714120d0-cdf9-465d-afee-39bef591c6b3
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 6f43b722b0c9a31c8c7da4361e415673f3721b31
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: aaccc501526d313a572692ff8f2f5c9da38849d3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Azure Active Directory grupları ile kaynaklara erişimi yönetme
 Azure Active Directory (Azure AD), güçlü bir şirket içi ve bulut uygulamalarını ve Office 365 ve Microsoft olmayan SaaS uygulamaları dünyasına gibi Microsoft Çevrimiçi hizmetler gibi kaynakları erişimi yönetmek için özellikler kümesi sağlayan kapsamlı bir kimlik ve erişim yönetimi çözüm olduğu. Bu makalede genel bir bakış sağlar, ancak başlatmak istiyorsanız Azure AD kullanarak gruplar şu anda,'ndaki yönergeleri izleyin [Azure AD'deki güvenlik gruplarını yönetme](active-directory-groups-create-azure-portal.md). Azure Active Directory'deki grupları yönetmek için PowerShell nasıl kullanabileceğiniz görmek istiyorsanız, daha fazla bilgiyi [Grup Yönetimi için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).

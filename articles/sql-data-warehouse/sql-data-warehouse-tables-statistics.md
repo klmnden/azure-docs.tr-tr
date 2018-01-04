@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4d5777e69b7ea3fa206bf8909c255b998be69e8a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda istatistiklerle yönetme
 > [!div class="op_single_selector"]
@@ -33,32 +33,30 @@ ms.lasthandoff: 12/07/2017
 > 
 > 
 
-SQL Data Warehouse verilerinizi hakkında daha fazla bilir, o kadar hızlı verilerinizi sorguları çalıştırabilirsiniz.  SQL Data Warehouse verilerinizi hakkında söylemeniz verilerinizi hakkındaki istatistiklerdir toplayarak yoludur.  Verilerinize ilişkin istatistikler sahip sorgularınızı iyileştirmek için yapabileceğiniz en önemli şeyler biridir.  İstatistikleri SQL Data Warehouse, sorguları için en iyi planı oluşturmanıza yardımcı olur.  SQL veri ambarı sorgu iyileştiricisi maliyeti alarak iyileştirici olmasıdır.  Diğer bir deyişle, çeşitli sorgu planlarını maliyetini karşılaştırır ve sonra da hızlı yürütecek planı olmalıdır ve en düşük maliyet planla seçer.
+SQL Data Warehouse verilerinizi hakkında daha fazla bilir, o kadar hızlı verilerinizi sorguları çalıştırabilirsiniz.  SQL Data Warehouse verilerinizi hakkında söylemeniz verilerinizi hakkındaki istatistiklerdir toplayarak yoludur. Verilerinize ilişkin istatistikler sahip sorgularınızı iyileştirmek için yapabileceğiniz en önemli şeyler biridir. SQL veri ambarı sorgu iyileştiricisi maliyet tabanlı iyileştirici olmasıdır. Çeşitli sorgu planlarını maliyetini karşılaştırır ve sonra da hızlı yürütecek planı olmalıdır ve en düşük maliyet planla seçer. İyileştirici tahminleri sorgunuzda filtreleme tarih 1 satır döndürür ve çok farklı planlama IF da tercih edebilirsiniz örneğin, tarih, tahmin seçmiş 1 milyon satırları döndürür.
 
-İstatistikleri, birden çok sütun tek bir sütun veya tablo dizini oluşturulabilir.  İstatistik aralığı ve değerlerin seçiciliği yakalar çubuk grafik içinde depolanır.  İlginizi çeken iyileştirici birleşimler, GROUP BY, HAVING değerlendirmek gerektiği zaman ve bir sorgu WHERE yan tümcelerinde budur.  İyileştirici tahminleri sorgunuzda filtreleme tarih 1 satır döndürür ve çok farklı planlama IF da tercih edebilirsiniz örneğin, tarih, tahmin seçmiş 1 milyon satırları döndürür.  İstatistik oluşturma oldukça önemli olmakla birlikte, eşit oranda önemli olan bu istatistikleri *doğru şekilde* tablo geçerli durumunu yansıtır.  Güncel istatistikleri olması iyi bir plan iyileştiricisi tarafından seçilir sağlar.  İyileştirici tarafından oluşturulan planları yalnızca verilerinizi istatistiklerle kadar iyi olur.
-
-Oluşturma ve istatistikleri güncelleştirme işlemi şu anda elle yapılan bir işlemdir, ancak yapmak çok kolaydır.  Bu, otomatik olarak oluşturur ve tek sütunları ve dizinleri istatistiklerle güncelleştiren SQL sunucusu benzemez.  Aşağıdaki bilgileri kullanarak, verilerinizi istatistikleri yönetimini büyük ölçüde otomatikleştirebilirsiniz. 
+Oluşturma ve istatistikleri güncelleştirme işlemi şu anda elle yapılan bir işlemdir, ancak yapmak çok kolaydır.  En kısa sürede youw otomatik olarak oluşturabilir ve tek sütunları ve dizinleri istatistiklerle güncelleştirmek olur.  Aşağıdaki bilgileri kullanarak, verilerinizi istatistikleri yönetimini büyük ölçüde otomatikleştirebilirsiniz. 
 
 ## <a name="getting-started-with-statistics"></a>İstatistikleri ile çalışmaya başlama
- Her sütunda örneklenen istatistikleri oluşturma istatistikleri ile çalışmaya başlamak için kolay bir yoludur.  İstatistik güncel tutmak eşit oranda önemli olduğundan, günlük veya her yük sonra İstatistikleri güncelleştirmek için koruyucu bir yaklaşım olabilir. İstatistiklerin sıfırdan oluşturulması veya mevcut olanların güncelleştirilmesi konusunda karar vermek için performans ve maliyet açısından değerlendirme yapmanız gerekir.  Tüm istatistiklerin bakımını yapmanın çok uzun sürdüğünü düşünüyorsanız, istatistik tutulması veya sık güncelleştirilmesi gereken sütunlar konusunda daha ayrıntılı bir seçim yapabilirsiniz.  Örneğin, günlük, yeni değerleri eklenebilir gibi yerine her yük sonra tarih sütunlarının güncelleştirmek isteyebilirsiniz. Birleşimler, GROUP BY, HAVING söz konusu sütunlar üzerinde istatistikleri sağlayarak en avantajı yeniden elde edersiniz ve WHERE yan tümcelerini.  Çok sayıda yalnızca SELECT yan tümcesinde kullanılan sütunları içeren bir tablo varsa, bu sütunlar istatistik yardımcı ve biraz harcama burada istatistikleri yardımcı olur, sütunları tanımlamak için daha fazla çaba azaltabilir, istatistikleri tutmak için gereken süre.
+Her sütunda örneklenen istatistikleri oluşturma istatistikleri ile çalışmaya başlamak için kolay bir yoludur. Güncel olmayan İstatistikler alt en iyi sorgu performansını götürür. Ancak, verilerinizi büyüdükçe istatistikleri tüm sütunlarda güncelleştirmeye bellek kullanabilir. 
 
-## <a name="multi-column-statistics"></a>Birden çok sütun istatistikleri
-Tek sütunlarda istatistikleri oluşturmaya ek olarak, sorgularınızı çok sütunlu İstatistikler faydalanırsınız bulabilirsiniz.  Çok sütunlu İstatistikler sütun listesini oluşturulan istatistikleri ' dir.  Listede ilk sütun tek sütun istatistik içerirler artı bazı arası sütun bağıntı bilgileri densities çağrılır.  Örneğin, iki sütun üzerinde başka bir katıldığı bir tablo varsa, iki sütun arasında ilişki bilirse SQL Data Warehouse daha iyi plan iyileştirebilirsiniz bulabilirsiniz.   Çok sütunlu İstatistikler bileşik birleştirmeler ve Grupla gibi bazı işlemleri için sorgu performansını iyileştirebilir.
+Farklı senaryolar için öneriler bazıları şunlardır:
+| **Senaryolar** | Öneri |
+|:--- |:--- |
+| **Kullanmaya başlama** | SQL DW taşıdıktan sonra tüm sütunları güncelleştirme |
+| **En önemli sütun istatistikleri için** | Karma dağıtım anahtarı |
+| **İkinci en önemli sütununda istatistikleri** | Bölüm Anahtarı |
+| **Diğer önemli sütunlar için istatistikleri** | Tarih, sık birleştirmeler grupla, HAVING ve nerede |
+| **İstatistiklerini güncelleştirme sıklığı**  | Koruyucu: günlük <br></br> Yükleme veya veri dönüştürme sonra |
+| **Örnekleme** |  1 B satır, varsayılan örnekleme (% 20) kullanın <br></br> 1'den fazla B satırları tablolarla %2 aralığı istatistiklerle iyi |
 
 ## <a name="updating-statistics"></a>İstatistikleri güncelleştirme
-İstatistikleri güncelleştirmeyi, veritabanı yönetim alışkanlık önemli bir parçasıdır.  Dağıtım veritabanında veri değiştiğinde istatistikleri güncelleştirilmesi gerekir.  Güncel olmayan İstatistikler alt en iyi sorgu performansını götürür.
 
-Bir en iyi uygulama yeni tarihleri eklendikçe her gün güncelleştirmektir tarih sütunlarının ilgili istatistikler.  Her zaman yeni satırlar veri ambarına yüklenir, yeni yükleme veya işlem tarihleri eklenir. Bu, veri dağıtımı değiştirmek ve istatistikleri güncel sağlamak. Değerleri dağıtımını genellikle değişmez olarak buna karşılık, bir müşteri tablosundaki Ülke sütunu istatistiklerle hiçbir zaman güncelleştirilmesi, gerekebilir. Dağıtım müşterileri arasında sabit olduğunu varsayarak, yeni satırlar için tablo değişim ekleme veri dağıtım değiştirmek için adımıdır değil. Ancak, veri Ambarınızı yalnızca bir ülkede varsa ve yeni bir ülkeden verilerde Getir depolanmakta, birden fazla ülkede verilerden sonuçta sonra kesinlikle Ülke sütunu istatistiklerle güncelleştirmeniz gerekir.
+Bir en iyi uygulama yeni tarihleri eklendikçe her gün güncelleştirmektir tarih sütunlarının ilgili istatistikler. Her zaman yeni satırlar veri ambarına yüklenir, yeni yükleme veya işlem tarihleri eklenir. Bu, veri dağıtımı değiştirmek ve istatistikleri güncel sağlamak. Değerleri dağıtımını genellikle değişmez olarak buna karşılık, bir müşteri tablosundaki Ülke sütunu istatistiklerle hiçbir zaman güncelleştirilmesi, gerekebilir. Dağıtım müşterileri arasında sabit olduğunu varsayarak, yeni satırlar için tablo değişim ekleme veri dağıtım değiştirmek için adımıdır değil. Ancak, veri Ambarınızı yalnızca bir ülkede varsa ve yeni bir ülkeden verilerde Getir depolanmakta, birden fazla ülkede verilerden sonuçta sonra kesinlikle Ülke sütunu istatistiklerle güncelleştirmeniz gerekir.
 
-Bir sorgu sorunlarını giderirken sorulacak ilk sorulardan biri olan "güncel istatistikleri misiniz?"
+Bir sorgu sorun giderme olduğunda, sorulacak ilk sorulardan biri **"istatistikleri güncel misiniz?"**
 
-Bu soru verilerin yaşını tarafından yanıtlanan biri değil. Güncel istatistikleri nesnenin temel alınan veri malzeme hiçbir değişiklik yapıldıysa çok eski olabilir. Satır sayısını önemli ölçüde değişti veya belirli bir sütunun değerlerini dağıtımındaki maddi bir değişiklik olduğunda *sonra* istatistikleri güncelleştirme zamanı geldi.  
-
-Başvuru için **SQL Server** (SQL Data Warehouse değil) otomatik olarak bu gibi durumlarda istatistiklerini güncelleştirir:
-
-* Satır eklediğinizde tabloda sıfır satır varsa, bir otomatik güncelleştirme istatistik alacaksınız
-* 500'den az satır ile başlayan bir tabloya 500'den fazla satır eklediğinizde (örneğin başlangıçta 499 sahip ve sonra 999 satırların toplam 500 satır ekleme), bir otomatik güncelleştirme alırsınız 
-* Bir otomatik güncelleştirme istatistiği üzerinde görürsünüz önce 500 ek satırlar + tablo boyutunun % 20 eklemeniz gerekecektir 500'den fazla satır olduğunuzda
+Bu soru verilerin yaşını tarafından yanıtlanan biri değil. Güncel istatistikleri nesnenin temel alınan veri malzeme hiçbir değişiklik yapıldıysa çok eski olabilir. Satır sayısını önemli ölçüde değişti veya belirli bir sütunun değerlerini dağıtımındaki maddi bir değişiklik olduğunda *sonra* istatistikleri güncelleştirme zamanı geldi.
 
 Son zaman istatistikleri güncelleştirmesinden tablodaki verileri değişip değişmediğini belirlemek için hiçbir DMV olduğundan, istatistikleri yaşını bilerek, resmi bir parçası olan sağlayabilirsiniz.  En son ne zaman, istatistikleri belirlemek için aşağıdaki sorguyu kullanın her bir tabloda güncelleştirilmiş burada.  
 
@@ -94,7 +92,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Örneğin, bir veri ambarında tarih sütunlarının genellikle istatistikleri güncelleştirmeleri sık. Her zaman yeni satırlar veri ambarına yüklenir, yeni yükleme veya işlem tarihleri eklenir. Bu, veri dağıtımı değiştirmek ve istatistikleri güncel sağlamak.  Buna karşılık, bir müşteri tabloda cinsiyetiniz sütun istatistiklerle hiçbir zaman güncelleştirilmesi gerekebilir. Dağıtım müşterileri arasında sabit olduğunu varsayarak, yeni satırlar için tablo değişim ekleme veri dağıtım değiştirmek için adımıdır değil. Veri ambarınız bir cinsiyeti ve birden çok genders yeni gereksinimi sonuçlarında yalnızca içeriyorsa ancak, daha sonra kesinlikle cinsiyetiniz sütun istatistiklerle güncelleştirmeniz gerekir.
+**Tarih sütunları** veri ambarında, örneğin, genellikle istatistikleri güncelleştirmeleri sık. Her zaman yeni satırlar veri ambarına yüklenir, yeni yükleme veya işlem tarihleri eklenir. Bu, veri dağıtımı değiştirmek ve istatistikleri güncel sağlamak.  Buna karşılık, bir müşteri tabloda cinsiyetiniz sütun istatistiklerle hiçbir zaman güncelleştirilmesi gerekebilir. Dağıtım müşterileri arasında sabit olduğunu varsayarak, yeni satırlar için tablo değişim ekleme veri dağıtım değiştirmek için adımıdır değil. Veri ambarınız bir cinsiyeti ve birden çok genders yeni gereksinimi sonuçlarında yalnızca içeriyorsa ancak, daha sonra kesinlikle cinsiyetiniz sütun istatistiklerle güncelleştirmeniz gerekir.
 
 Daha fazla açıklama için bkz: [istatistikleri] [ Statistics] konusuna bakın.
 
@@ -122,7 +120,7 @@ Bu örnekler istatistikleri oluşturmak için çeşitli seçenekler kullanmak na
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. Varsayılan seçeneklerle tek sütunlu istatistikler oluşturma
 Bir sütun üzerinde istatistik oluşturmak için istatistikleri nesnesi için bir ad ve sütun adını belirtmeniz yeterlidir.
 
-Bu sözdiziminin tüm varsayılan seçenekleri kullanır. İstatistikleri oluşturduğunda, varsayılan olarak, SQL Data Warehouse yüzde 20'tablosunun örnekleri.
+Bu sözdiziminin tüm varsayılan seçenekleri kullanır. Varsayılan olarak, SQL Data Warehouse **örnekler yüzde 20** istatistikleri oluşturduğunda, tablonun.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -189,7 +187,7 @@ Tam başvuru için bkz: [CREATE STATISTICS] [ CREATE STATISTICS] konusuna bakın
 > 
 > 
 
-Bu örnekte, üzerinde çubuk grafik ise *ürün\_kategori*. Çapraz sütunlu İstatistikler hesaplanır *ürün\_kategori* ve *ürün\_sub_c\ategory*:
+Bu örnekte, üzerinde çubuk grafik ise *ürün\_kategori*. Çapraz sütunlu İstatistikler hesaplanır *ürün\_kategori* ve *ürün\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;

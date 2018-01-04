@@ -14,11 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
+<<<<<<< HEAD
 ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı Azure sanal ağı ile tümleştirme
 Bu belgede Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlanması gösterilmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Azure sanal ağlar (Vnet'ler) ile bilginiz yoksa, bu Azure kaynaklarınızı çoğunu erişimi denetlemek Internet olmayan routeable ağ yerleştirmek izin veren bir yetenektir. Bu ağlar sonra VPN teknolojileri çeşitli kullanarak, şirket içi ağlara bağlanabilir. Azure sanal ağlar hakkında daha fazla bilgi edinmek için burada bilgilerle Başlat: [Azure Virtual Network'e genel bakış][VNETOverview]. 
@@ -39,7 +45,7 @@ VNet tümleştirme özelliği:
 * Standart, Premium ya da planı fiyatlandırma Isolated gerektirir 
 * Klasik veya Resource Manager Vnet'i ile çalışır 
 * TCP ve UDP destekler
-* Web, mobil ve API apps ile çalışır
+* çalışır ile Web, mobil, API uygulamaları ve işlev uygulamalarının
 * aynı anda yalnızca 1 Vnet'e bağlanmak bir uygulama sağlar
 * bir uygulama hizmeti planı'nda tümleştirilmesini ile en fazla beş sanal ağlar sağlar 
 * bir uygulama hizmeti planında birden çok uygulamalar tarafından kullanılmak üzere aynı Vnet'i sağlar
@@ -93,7 +99,7 @@ Sanal ağınızı bir ağ geçidi yok veya siteye noktası sahip değilse, ilk a
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Resource Manager Vnet'i sitede noktasına etkinleştirme
-Bir ağ geçidi ve Site noktasına sahip bir Resource Manager Vnet'i yapılandırmak için her iki PowerShell belirtildiği gibi burada kullanabilirsiniz [PowerShell kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma] [ V2VNETP2S] veya burada açıklandığı gibi Azure portalını kullanma [Azure portalını kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma][V2VNETPortal]. Bu özellik gerçekleştirmek için kullanıcı Arabirimi henüz kullanılabilir değil. Site Yapılandırması noktasına için sertifikalar oluşturmak üzere gerektiğini unutmayın. Vnet'e, WebApp bağlandığında otomatik olarak yapılandırılır. 
+Bir ağ geçidi ve Site noktasına sahip bir Resource Manager Vnet'i yapılandırmak için her iki PowerShell belirtildiği gibi burada kullanabilirsiniz [PowerShell kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma] [ V2VNETP2S] veya burada açıklandığı gibi Azure portalını kullanma [Azure portalını kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma][V2VNETPortal]. Bu özellik gerçekleştirmek için kullanıcı Arabirimi henüz kullanılabilir değil. Site Yapılandırması noktasına için sertifikaları oluşturmanız gerekmez unutmayın. Vnet'e, WebApp bağlandığında otomatik olarak yapılandırılır. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Önceden yapılandırılmış bir sanal ağ oluşturma
 Bir ağ geçidi ile yapılandırılmış yeni bir VNet ve noktadan siteye oluşturmak istiyorsanız, uygulama kullanıcı Arabirimi ağ hizmeti yalnızca Resource Manager Vnet'i için bunu yapmak için yeteneğine sahiptir. Bir ağ geçidi ve noktadan siteye klasik bir VNet oluşturmak istiyorsanız, bu ağ kullanıcı arabirimi aracılığıyla el ile yapmanız gerekir. 
@@ -101,11 +107,11 @@ Bir ağ geçidi ile yapılandırılmış yeni bir VNet ve noktadan siteye oluşt
 Resource Manager Vnet'i Vnet'e tümleştirme kullanıcı Arabirimi aracılığıyla oluşturmak için seçmeniz yeterlidir **yeni sanal ağ oluştur** ve sağlar:
 
 * Sanal ağ adı
-* Sanal ağ adres bloğu
-* Alt ağ adı
-* Alt ağ adres bloğu
+* Sanal Ağ Adresi Bloğu
+* Alt Ağ Adı
+* Alt Ağ Adres Bloğu
 * Ağ geçidi adres bloğu
-* Noktadan siteye adres bloğu
+* Noktadan Siteye Adres Bloğu
 
 Başka bir ağa bağlanmak için bu VNet istiyorsanız, bu ağ ile çakışıyor IP adresi alanı çekme kaçınmanız gerekir. 
 

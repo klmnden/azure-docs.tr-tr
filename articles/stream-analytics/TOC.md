@@ -17,6 +17,7 @@
 ### [IoT Edge üzerinde Stream Analytics (önizleme)](stream-analytics-edge.md)
 ### [Azure kullanım kılavuzunda (önizleme) anomali algılama](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Stream Analytics ile yüksek frekanslı alım-satım simülasyonu](stream-analytics-high-frequency-trading.md)
+### [Azure Stream Analytics ile Azure İşlevleri’ni kullanma](stream-analytics-with-azure-functions.md)
 
 ## İş oluşturma
 ### [Girdileri oluştur](stream-analytics-define-inputs.md)
@@ -35,7 +36,7 @@
 
 ## Visual Studio araçlarını kullanma
 ### [Yükleme](stream-analytics-tools-for-visual-studio-install.md)
-### [Başlarken](stream-analytics-tools-for-visual-studio.md)
+### [Kullanmaya başlama](stream-analytics-tools-for-visual-studio.md)
 ### [CI/CD işlem hatlarını ayarlama](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## İzleme ve iyileştirme

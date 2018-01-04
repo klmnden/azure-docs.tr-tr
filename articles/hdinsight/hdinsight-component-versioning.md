@@ -15,24 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 12/13/2017
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve Hdınsight ile kullanılabilir sürümlerini nelerdir?
 
-Apache Hadoop ekosistemi bileşenlerini ve standart ve Premium hizmet düzeyleri yanı sıra Microsoft Azure Hdınsight sürümleri hakkında bilgi edinin. Ayrıca, hdınsight'ta Hadoop bileşen sürümü denetlemek öğrenin. 
+Apache Hadoop ekosistemi bileşenlerini ve kurumsal güvenlik paketinin yanı sıra Microsoft Azure Hdınsight sürümleri hakkında bilgi edinin. Ayrıca, hdınsight'ta Hadoop bileşen sürümü denetlemek öğrenin. 
 
 Bulut dağıtım sürümünün Hortonworks veri Platformu (HDP) her Hdınsight sürümüdür.
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Hadoop bileşenleri farklı Hdınsight sürümleri ile kullanılabilir
 Azure Hdınsight herhangi bir zamanda dağıtılabilir birden çok Hadoop küme sürümlerindeki destekler. Her sürüm seçimi HDP dağıtım belirli bir sürümü ve o dağıtım içinde bulunan bileşenleri kümesi oluşturur. 17 Şubat 2017'dan sonra Azure Hdınsight tarafından kullanılan varsayılan küme sürüm 3.5 ve HDP 2.5 üzerinde temel alır.
 
-Hdınsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tabloda listelenmiştir. 
+Hdınsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tabloda listelenmiştir: 
 
 > [!NOTE]
 > Hdınsight hizmeti yönelik varsayılan sürüm verilmeksizin. Sürüm bağımlılık varsa, .NET SDK'sı, Azure PowerShell ve Azure CLI kümelerinizi oluşturduğunuzda, Hdınsight sürüm belirtin.
@@ -46,7 +46,7 @@ Hdınsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tablo
 | Apache Hive ve HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
 | Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
 | Apache Tez Hive2 | 0.8.4 |-|-|-|-|-|-|
-| Apache bırakabilmenizi | 0.7.0 |0.6.0 |-|-|-|-|-|
+| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
 | Apache HBase |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
 | Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
 | Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
@@ -77,7 +77,7 @@ Bkz: [Hdınsight sürüm notları](hdinsight-release-notes.md) Hdınsight'in en 
 Aşağıdaki tabloda Azure portalında şu anda kullanılabilir Hdınsight sürümleri listelenmiştir. Her Hdınsight sürümüne karşılık gelen HDP sürümleri ürün sürüm tarihleri ile birlikte listelenir. Bilinen zaman destek sona erme ve sona erme tarihleri de sağlanır.
 
 > [!NOTE]
-> Bir sürümünün süresi doldu için destek sonra Microsoft Azure Klasik Portalı aracılığıyla kullanılamayabilir. Ancak, küme sürümlerindeki kullanılabilir kullanarak devam `Version` Windows PowerShell parametresinde [yeni AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) komut ve sona erme tarihi sürüm kadar .NET SDK'sı.
+> Bir sürümünün süresi doldu için destek sonra Microsoft Azure Portalı aracılığıyla kullanılamayabilir. Ancak, küme sürümlerindeki kullanılabilir kullanarak devam `Version` Windows PowerShell parametresinde [yeni AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) komut ve sona erme tarihi sürüm kadar .NET SDK'sı.
 > 
 > İki baş düğümler ile yüksek oranda kullanılabilir küme Hdınsight sürüm 2.1 ve üzeri için varsayılan olarak dağıtılır. Hdınsight sürüm 1.6 kümeler için kullanılamaz.
 
@@ -94,7 +94,49 @@ Aşağıdaki tabloda Azure portalında şu anda kullanılabilir Hdınsight sür�
 | Hdınsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Evet |28 Ekim 2013 |Hayır |12 Mayıs 2014 |31 Mayıs 2015 |
 | Hdınsight 1.6 |HDP 1.1 | |Hayır |28 Ekim 2013 |Hayır |26 Nisan 2014 |31 Mayıs 2015 |
 
-## <a name="hdinsight-windows-retirement"></a>Hdınsight Windows devre dışı bırakma
+
+## <a name="enterprise-security-package-for-hdinsight"></a>Hdınsight için Kurumsal güvenlik paketi
+
+Azure Hdınsight oluşturma küme iş akışının bir parçası, Hdınsight kümesinde ekleyebileceğiniz isteğe bağlı bir pakettir. Kurumsal güvenlik paketi destekler:
+
+- Kimlik doğrulaması için Active Directory ile tümleştirme.
+
+    Geçmişte, bir yerel yönetici kullanıcı ve yerel bir SSH kullanıcı Hdınsight kümeleri yalnızca oluşturabilirsiniz. Yerel yönetici kullanıcı, tüm dosyaları, klasörleri, tablolar ve sütunlar erişebilir.  Kurumsal güvenlik paketiyle Hdınsight kümeleri kendi Active Directory ile tümleştirme tarafından rol tabanlı erişim denetimi etkinleştirebilirsiniz içeren Active Directory, Azure Active Directory etki alanı Hizmetleri veya Iaas üzerinde Active Directory şirket içi sanal makine. Etki alanı yöneticisi küme üzerinde kullanıcıların kendi şirket (etki alanı) kullanıcı adı ve parola kümeye erişmek kullanmasına izin verebilirsiniz. 
+
+    Daha fazla bilgi için bkz.
+
+    - [Hadoop güvenlik etki alanına katılmış Hdınsight kümeleri ile giriş](./domain-joined/apache-domain-joined-introduction.md)
+    - [Hdınsight'ta Azure etki alanına katılmış Hadoop kümeleri planlama](./domain-joined/apache-domain-joined-architecture.md)
+    - [Etki alanına katılmış sandbox ortamını yapılandırma](./domain-joined/apache-domain-joined-configure.md)
+    - [Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- Veriler için yetkilendirme
+
+    - Hive, Spark SQL ve Yarn Kuyrukları için yetkilendirme için Apache bırakabilmenizi ile tümleştirme.
+    - Dosyalar ve klasörler üzerinde erişim denetimi ayarlayabilirsiniz.
+
+    Daha fazla bilgi için bkz.
+
+    - [Etki alanına katılmış Hdınsight'ta Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
+
+- İzleyici erişir ve yapılandırılmış ilkeler için denetim günlüklerini görüntüleyin. 
+
+### <a name="supported-cluster-types"></a>Desteklenen küme türleri
+
+Şu anda yalnızca şu küme türleri Kurumsal güvenlik paketi destekler:
+
+- Hadoop (yalnızca Hdınsight 3.6)
+- Spark
+- Interactive Query
+
+### <a name="support-for-azure-data-lake-store"></a>Azure Data Lake Store desteği
+
+Azure Data Lake Store birincil depolama ve ek depolama Kurumsal güvenlik paketi kullanılmasını destekler.
+
+### <a name="pricing-and-sla"></a>Fiyatlandırma ve SLA
+Kurumsal güvenlik paketi için fiyatlandırma ve SLA hakkında bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
+
+## <a name="hdinsight-windows-retirement"></a>HDInsight Windows'un devre dışı bırakılması
 Microsoft Azure Hdınsight sürüm 3.3 Windows'da Hdınsight son sürümü oluştu. Windows'da Hdınsight için devre dışı bırakma 31 Temmuz 2018 tarihidir. Tüm Hdınsight kümeleri Windows 3.3 veya önceki sürümlerde varsa (Hdınsight sürüm 3.5 veya sonrasını) Linux'ta Hdınsight 31 Temmuz 2018 önce geçiş yapmanız gerekir. Linux işletim sistemine geçiş oluşturmak ya da Hdınsight kümelerinizi yeniden boyutlandırma özelliği tutmanıza olanak sağlar. Hdınsight sürüm 3.3 Windows için destek, 27 Haziran 2016 tarihinde süresi doldu.
 
 Hdınsight sürüm 3.4 ile başlayarak, Microsoft Hdınsight yalnızca, Linux işletim sistemine yayımladı. Sonuç olarak, bazı bileşenleri Hdınsight içinde yalnızca Linux için kullanılabilir. Apache bırakabilmenizi, Kafka, etkileşimli sorgu, Spark, Hdınsight uygulamaları, bunlar ve Azure Data Lake Store birincil dosya sistemi olarak. Hdınsight'ın gelecek sürümlerinde, yalnızca Linux işletim sisteminde kullanılabilir. Hiçbir gelecek sürümlerde Windows'da hdınsight olacaktır. 
@@ -165,36 +207,10 @@ Bölüm, Hdınsight ile kullanılan Apache bileşenleri ve Hortonworks veri plat
 * Hdınsight kümesi sürüm 2.1 temel alan bir Hadoop dağıtımı kullanır [Hortonworks veri platformu 1.3][hdp-1-3-0].
 * Hdınsight kümesi sürüm 1.6 temel alan bir Hadoop dağıtımı kullanır [Hortonworks veri platformu 1.1][hdp-1-1-0].
 
-## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standart ve HDInsight Premium
 
-Azure Hdınsight iki kategoride büyük veri Bulutu teklifleri sunar: _standart_ ve _Premium_. Kullanılabilir özellikler aşağıdaki tabloda listelenmektedir _yalnızca_ Hdınsight Premium içinde. Hdınsight standart ve Premium tabloda açıkça açıklanmayan özellikleri kullanılabilir.
 
-> [!NOTE]
-> Teklifi Hdınsight Premium şu anda önizlemede yalnızca Linux kümeleri için kullanılabilir.
 
-| Hdınsight Premium özelliği | Açıklama |
-| --- | --- |
-| Etki alanına katılmış Hdınsight kümeleri |Hdınsight kümeleri, kurumsal düzeyde güvenlik için Azure Active Directory (Azure AD) etki alanına katılın. Hdınsight Premium içinde bir Hdınsight kümesine oturum açmak için Azure AD ile doğrulayabilir, kuruluş çalışanların bir listesini yapılandırabilirsiniz. Kuruluş Yöneticisi Hive güvenlik için rol tabanlı erişim denetimi kullanarak yapılandırabilirsiniz [Apache bırakabilmenizi](http://hortonworks.com/apache/ranger/) ve yalnızca gerektiği kadar kullanmak için veri erişimi kısıtlayabilirsiniz. Son olarak, yönetici denetim ilkeleri, böylece şirket kaynaklarını İdaresi yüksek derecede elde erişmek için çalışanlar ve değişiklikleri tarafından erişilen veri denetleyebilirsiniz. Daha fazla bilgi için bkz: [etki alanına katılmış Hdınsight kümeleri yapılandırma](./domain-joined/apache-domain-joined-configure.md). |
 
-### <a name="cluster-types-supported-in-hdinsight-premium"></a>Hdınsight Premium içinde desteklenen küme türleri
-Aşağıdaki tabloda, Hdınsight Premium içinde desteklenen küme türleri listelenmektedir.
-
-| Küme türü | Standart | Premium (Önizleme) |
-| --- | --- | --- |
-| Hadoop |Evet |Evet (yalnızca Hdınsight 3.6) |
-| Spark |Evet |Hayır |
-| HBase |Evet |Hayır |
-| Storm |Evet |Hayır |
-| R Server |Evet |Hayır |
-| Etkileşimli sorgu |Evet |Hayır |
-| Kafka (Önizleme) |Evet |Hayır | 
-
-### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Hdınsight Premium, Azure Data Lake Store desteği
-
-Hdınsight Premium kümeleri, Azure Data Lake Store birincil depolama alanı olarak kullanılmasını desteklemez. Ancak, Azure Data Lake Store Hdınsight Premium kümeleriyle eklenti depolama olarak kullanabilirsiniz.
-
-### <a name="pricing-and-sla"></a>Fiyatlandırma ve SLA
-Hdınsight Premium için fiyatlandırma ve SLA hakkında bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Kümeler için varsayılan düğümü yapılandırması ve sanal makine boyutları
 Aşağıdaki tablolar, Hdınsight kümeleri için varsayılan sanal makine (VM) boyutları listeler.
@@ -206,28 +222,28 @@ Aşağıdaki tablolar, Hdınsight kümeleri için varsayılan sanal makine (VM) 
 
 * Desteklenen tüm bölgeler Brezilya Güney ve Japonya Batı dışında:
 
-  | Küme türü | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | HEAD: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Çalışan: varsayılan VM boyutu |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Çalışan: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: varsayılan VM boyutu | |A3 |A2 | | |
-  | ZooKeeper: VM boyutları önerilir | |A3, A4, A5 |A2, A3, A4 | | |
-  | Edge: varsayılan VM boyutu | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Kenar: VM boyutu önerilir | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Küme türü | Hadoop | HBase | Interactive Query | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: varsayılan VM boyutu |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
+  | HEAD: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Çalışan: varsayılan VM boyutu |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Çalışan: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: varsayılan VM boyutu | |A3 | |A2 | | |
+  | ZooKeeper: VM boyutları önerilir | |A3, A4, A5 | | A2, A3, A4 | | |
+  | Edge: varsayılan VM boyutu | | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Kenar: VM boyutu önerilir | | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brezilya Güney ve yalnızca Japonya Batı (v2 boyutları):
 
-  | Küme türü | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D3 |D3 |A3 |D12 |D12 |
-  | HEAD: VM boyutları önerilir |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Çalışan: varsayılan VM boyutu |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Çalışan: VM boyutları önerilir |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
-  | ZooKeeper: varsayılan VM boyutu | |A2 |A2 | | |
-  | ZooKeeper: VM boyutları önerilir | |A2, A3, A4 |A2, A3, A4 | | |
-  | Edge: varsayılan VM boyutları | | | | |Windows: D12; Linux: D4 |
-  | Edge: VM boyutları önerilir | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: varsayılan VM boyutu |D3 |D3  | D13, D14 |A3 |D12 |D12 |
+  | HEAD: VM boyutları önerilir |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Çalışan: varsayılan VM boyutu |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Çalışan: VM boyutları önerilir |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | ZooKeeper: varsayılan VM boyutu | |A2 | | A2 | | |
+  | ZooKeeper: VM boyutları önerilir | |A2, A3, A4 | |A2, A3, A4 | | |
+  | Edge: varsayılan VM boyutları | | | | | |Windows: D12; Linux: D4 |
+  | Edge: VM boyutları önerilir | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
 > [!NOTE]
 > - HEAD olarak bilinir *Nimbus* Storm için küme türü.

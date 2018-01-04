@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Azure Storage ile Azure CLI 1.0 kullanma
 
@@ -95,9 +95,9 @@ Betik çalıştıktan sonra indirilen görüntü dosyasını içeren bir yerel h
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>Depolama hesaplarını Azure CLI ile yönetme
 ### <a name="connect-to-your-azure-subscription"></a>Azure aboneliğinize bağlanma
-Depolama komutların çoğu Azure aboneliği çalışır ancak Azure CLI üzerinden aboneliğinize bağlanmak için önerilir. Aboneliğiniz ile birlikte çalışmak için Azure CLI yapılandırmak için adımları [Azure clı'dan Azure aboneliğine Bağlan](../../xplat-cli-connect.md).
+Depolama komutların çoğu Azure aboneliği çalışır ancak Azure CLI üzerinden aboneliğinize bağlanmak için önerilir. Aboneliğiniz ile birlikte çalışmak için Azure CLI yapılandırmak için adımları [Azure clı'dan Azure aboneliğine Bağlan](/cli/azure/authenticate-azure-cli).
 
-### <a name="create-a-new-storage-account"></a>Yeni depolama hesabı oluşturma
+### <a name="create-a-new-storage-account"></a>Yeni bir depolama hesabı oluştur
 Azure depolama kullanan bir depolama hesabı gerekir. Aboneliğinize bağlanmak için bilgisayarınızı yapılandırdıktan sonra yeni bir Azure depolama hesabı oluşturabilirsiniz.
 
 ```azurecli

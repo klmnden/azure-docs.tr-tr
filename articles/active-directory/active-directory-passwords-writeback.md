@@ -5,22 +5,28 @@ services: active-directory
 keywords: "Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
+<<<<<<< HEAD
 ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
 ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-writeback-overview"></a>Parola geri yazma genel bakış
 
@@ -160,7 +166,6 @@ Parolalar, aşağıdaki durumlarda geri yazılır:
   * Tüm yönetici Self Servis gönüllü değiştirme parola işlemi
   * Tüm yönetici Self Servis zorla parola işlemi, örneğin, parola sona erme değiştirme
   * Tüm yönetici Self Servis parola sıfırlama kaynaklanan [parola sıfırlama portalı](https://passwordreset.microsoftonline.com)
-  * Gelen sıfırlama herhangi bir yönetici tarafından başlatılan son kullanıcı parola [Klasik Azure portalı](https://manage.windowsazure.com)
   * Gelen sıfırlama herhangi bir yönetici tarafından başlatılan son kullanıcı parola [Azure portalı](https://portal.azure.com)
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Parola geri yazma için desteklenmeyen kullanıcı ve yönetim işlemleri

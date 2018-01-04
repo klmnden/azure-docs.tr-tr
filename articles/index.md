@@ -4,11 +4,19 @@ hide_bc: True
 title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 featureFlags: clicktale
+<<<<<<< HEAD
 ms.openlocfilehash: a29b9dcc1c31cb577306fb544013a89b2d958fee
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
+=======
+ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/20/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -109,6 +117,8 @@ ms.lasthandoff: 12/07/2017
                                                     <li><a class="barLink" href="/azure/cost-management/">Azure Maliyet Yönetimi</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/migrate/">Azure Geçişi</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure İlkesi</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -177,6 +187,7 @@ ms.lasthandoff: 12/07/2017
                                                 <h4>İlişkisel Veritabanları</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">Hizmet olarak SQL veritabanı</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">Hizmet olarak SQL Veri Ambarı</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">Hizmet olarak PostgreSQL veritabanı</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">Hizmet olarak MySQL veritabanı</a></li>
                                                 </ul>
@@ -229,11 +240,15 @@ ms.lasthandoff: 12/07/2017
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_vs-team-services.svg" alt=""> Azure’a dağıtma </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt=""> Azure’a dağıtma </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Azure VM’lerinde Jenkins </a>
+                                                        <a class="barLink" href="/azure/jenkins">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Jenkins </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/terraform">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_terraform.svg" alt=""> Terraform </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -593,7 +608,7 @@ ms.lasthandoff: 12/07/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/bot-framework/azure-bot-service-overview">
+                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Robot Hizmeti</p>
                                             </a>
@@ -649,7 +664,7 @@ ms.lasthandoff: 12/07/2017
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Language Understanding Intelligent Services (LUIS)</p>
+                                                <p>Dil Anlama (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -987,7 +1002,11 @@ ms.lasthandoff: 12/07/2017
                                             </a>
                                         </li>
                                         <li>
+<<<<<<< HEAD
                                             <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+=======
+                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
                                                 <p>Azure Konum Tabanlı Hizmetler</p>
                                             </a>
@@ -2339,7 +2358,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                         </div>
                                     </div>
                                 </a>
-                            </li>   
+                            </li>
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2558,7 +2577,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/azure-bot-service-overview/">
+                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2665,7 +2684,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Yazım Denetimi</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding Intelligent Services (LUIS)&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Dil Anlama (LUIS)</span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Dil Çözümleme&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a>
@@ -2853,7 +2872,11 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                 </a>
                             </li>
                             <li>
+<<<<<<< HEAD
                                 <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+=======
+                                <a href="https://docs.microsoft.com/azure/location-based-services/">
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3224,7 +3247,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                <a href="/azure/active-directory/develop">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4102,7 +4125,7 @@ Azure CLI </h3>
                                                     <a href="https://www.visualstudio.com/vs/azure-tools/">Azure için Visual Studio Araçları</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">İndirme</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">İndirme</a>
                                                 </p>
                                             </div>
                                         </div>

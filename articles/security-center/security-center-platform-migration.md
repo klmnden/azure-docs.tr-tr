@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure Güvenlik Merkezi platform geçişi
 
@@ -36,7 +36,7 @@ Bundan sonra, Güvenlik Merkezi Microsoft Monitoring Agent’ı (Operations Mana
 
 ## <a name="agent"></a>Aracı
 
-Geçiş kapsamında, şu anda veri toplanmakta olan tüm Azure VM’lerine Microsoft Monitoring Agent ([Windows](../log-analytics/log-analytics-windows-agents.md) veya [Linux](../log-analytics/log-analytics-linux-agents.md) için) yüklenir.  VM’de zaten Microsoft Monitoring Agent yüklüyse, Güvenlik Merkezi yüklü olan aracıyı kullanır.
+Geçiş kapsamında, şu anda veri toplanmakta olan tüm Azure VM’lerine Microsoft Monitoring Agent ([Windows](../log-analytics/log-analytics-windows-agent.md) veya [Linux](../log-analytics/log-analytics-linux-agents.md) için) yüklenir.  VM’de zaten Microsoft Monitoring Agent yüklüyse, Güvenlik Merkezi yüklü olan aracıyı kullanır.
 
 Veri kaybı olmaksızın sorunsuz bir geçiş sağlamak amacıyla, her iki aracı bir süreliğine (genellikle birkaç gün) yan yana çalışır. Bu sayede, Microsoft geçerli işlem hattını kullanımdan kaldırmadan önce yeni veri işlem hattının çalışır durumda olduğunu doğrulayabilir. Doğrulama işleminin ardından, Azure İzleme Aracısı VM’lerinizden kaldırılır. Sizin herhangi bir iş yapmanız gerekmez. Tüm müşterilerin geçişi tamamlandıktan sonra bir e-posta bildirimi alırsınız.
  

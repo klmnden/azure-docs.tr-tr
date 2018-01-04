@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -35,8 +35,8 @@ Bir tablodaki bir Azure Storage hesabı okumak için Azure Table depolama giriş
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C# bir varlığı okuma](#input---c-example-1)
-* [Önceden derlenmiş C# birden çok varlık okuma](#input---c-example-2)
+* [C# bir varlığı okuma](#input---c-example-1)
+* [C# birden çok varlık okuma](#input---c-example-2)
 * [C# betik - bir varlığı okuma](#input---c-script-example-1)
 * [C# betik - birden çok varlık okuma](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Dile özgü örneğe bakın:
 
 ### <a name="input---c-example-1"></a>Giriş - C# Örnek 1
 
-Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) tek bir tablo satırı okur kodu. 
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) tek bir tablo satırı okur. 
 
 Satır anahtar değeri "{queueTrigger}" satır anahtarını kuyruk iletisi dizeden geldiğini belirtir.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Giriş - C# Örnek 2
 
-Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) birden çok tablo satırı okur kodu. Unutmayın `MyPoco` sınıfı türer `TableEntity`.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) birden çok tablo satırı okur. Unutmayın `MyPoco` sınıfı türer `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
  
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) İşlevler, tablo giriş bağlama yapılandırmak için aşağıdaki öznitelikler kullanın:
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), tablo giriş bağlama yapılandırmak için aşağıdaki öznitelikler kullanın:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ module.exports = function (context, myQueueItem) {
   }
   ```
 
-  Tam bir örnek için bkz: [giriş - önceden derlenmiş C# örnek](#input---c-example).
+  Tam bir örnek için bkz: [giriş - C# örnek](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -389,14 +389,14 @@ Bir Azure depolama hesabındaki bir tablo varlıkları yazılacak bağlama Azure
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#output---c-example)
-* [C# betiği](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# betik (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Çıktı - C# örnek
 
-Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) tek bir tablo satırı yazmak için bir HTTP tetikleyicisi kullanan kod. 
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) tek bir tablo satırı yazmak için bir HTTP tetikleyicisi kullanan. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Özniteliğin Oluşturucusu tablo adını alır. Üzerinde kullanılabilir bir `out` parametresi veya aşağıdaki örnekte gösterildiği gibi işlevinin dönüş değeri:
 
@@ -597,9 +597,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-Tam bir örnek için bkz: [çıktısı - önceden derlenmiş C# örnek](#output---c-example).
+Tam bir örnek için bkz: [çıktısı - C# örnek](#output---c-example).
 
-Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [giriş - öznitelikleri](#input---attributes-for-precompiled-c).
+Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [giriş - öznitelikleri](#input---attributes).
 
 ## <a name="output---configuration"></a>Çıktı - yapılandırma
 

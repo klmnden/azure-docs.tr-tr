@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
@@ -16,11 +16,19 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
+<<<<<<< HEAD
 ms.openlocfilehash: fd99af04b0c5a8f38bc5abea6a3e95996efb400c
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
+=======
+ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/11/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory kimlik koruması bildirimleri
 

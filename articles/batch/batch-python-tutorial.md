@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Python için Batch SDK'sını kullanmaya başlama
 
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="step-1-create-storage-containers"></a>1. Adım: Storage kapsayıcıları oluşturma
-![Azure Depolama'da kapsayıcı oluşturma][1]
+![Azure Depolama’da kapsayıcı oluşturma][1]
 <br/>
 
 Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *python_tutorial_client.py* betiğinin yapacağı ilk şey [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage)’da üç kapsayıcı oluşturmaktır:

@@ -1,29 +1,27 @@
 ---
-title: "Azure sanal makinelerini çoğaltma Azure bölgeler arasında mimarisi gözden | Microsoft Docs"
+title: "Azure Site kurtarma için Azure Azure çoğaltma mimarisi | Microsoft Docs"
 description: "Bu makalede, bileşenleri ve Azure VM'ler Azure Site Recovery hizmetini kullanarak Azure bölgeler arasında çoğaltırken kullanılan mimariye genel bakış sağlar."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
+<<<<<<< HEAD
 ms.openlocfilehash: f9cd57e47a8463440148b2bcc6c21beacd54382a
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: b37af3462a58f4418653d0e1b2300b5805e0a864
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure için Azure çoğaltma mimarisi
 
 
-Bu makalede mimari ve çoğaltma, yük devri ve Azure sanal makineleri (VM'ler) kullanarak Azure bölgeler arasında Kurtarma sırasında kullanılan işlemleri [Azure Site Recovery](site-recovery-overview.md) hizmet.
+Çoğaltma, yük devri ve Azure sanal makineleri (VM'ler) kullanarak Azure bölgeler arasında Kurtarma sırasında kullanılan mimarisi bu makalede [Azure Site Recovery](site-recovery-overview.md) hizmet.
 
 >[!NOTE]
 >Site Recovery hizmeti ile Azure VM çoğaltma şu anda önizlemede değil.
@@ -45,7 +43,7 @@ Aşağıdaki grafikte (Bu örnekte, Doğu ABD konumunda) belirli bir bölgede bi
 
 ### <a name="step-1"></a>1. Adım
 
-Azure VM çoğaltma etkinleştirdiğinizde, aşağıda gösterilen kaynakları otomatik olarak hedef bölgede Kaynak bölgesi ayarlarına dayanarak oluşturulur. Hedef kaynakları ayarları gerektiği gibi özelleştirebilirsiniz. 
+Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olarak hedef bölgede Kaynak bölgesi ayarlara göre oluşturulur. Hedef kaynakları ayarları gerektiği gibi özelleştirebilirsiniz.
 
 ![Çoğaltma işlemi, 1. adım etkinleştir](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -53,7 +51,7 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıda gösterilen kaynakları o
 --- | ---
 **Hedef kaynak grubu** | Yük devretme sonrasında çoğaltılmış sanal makineleri ait olduğu kaynak grubu.
 **Hedef sanal ağ** | Sanal ağ içinde çoğaltılmış VM'ler yük devretme sonrasında bulunur. Ağ eşlemesi, kaynak ve hedef sanal ağlar arasında ve tersi yönde oluşturulur.
-**Önbellek depolama hesapları** | Kaynak VM'ler değişiklikler bir hedef depolama hesabına çoğaltılır önce bunlar izlenen ve hedef konumu önbelleği depolama hesabında gönderilir. Bu VM'de çalıştırılan üretim uygulamalar üzerinde en az etki sağlar.
+**Önbellek depolama hesapları** | Kaynak VM değişikliklerini bir hedef depolama hesabına çoğaltılır önce bunlar izlenen ve kaynak konumu önbelleği depolama hesabında gönderilir. Bu adım VM'de çalıştırılan üretim uygulamalar üzerinde en az etki sağlar.
 **Hedef depolama hesapları**  | Veri çoğaltılan hedef konumdaki depolama hesapları.
 **Hedef kullanılabilirlik kümeleri**  | Kullanılabilirlik kümeleri, yük devretme sonrasında çoğaltılmış VM'ler bulunur.
 
@@ -67,8 +65,17 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıda gösterilen kaynakları o
 
    ![Çoğaltma işlemi, 2. adım etkinleştir](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
-  
- Site Recovery hiçbir zaman VM'ye gelen bağlantısı gerekir. Site Recovery hizmeti URL'leri/IP adresleri, Office 365 kimlik doğrulaması URL'lerini/IP adresleri ve önbellek depolama hesabı IP adresleri yalnızca giden bağlantılar gereklidir.
+
+ Site Recovery hiçbir zaman VM'ye gelen bağlantısı gerekir. Yalnızca giden bağlantılar için aşağıdakiler gereklidir.
+
+ - Site Recovery hizmeti URL'leri/IP adresleri
+ - Office 365 kimlik doğrulaması URL'lerini/IP adresleri
+ - Önbellek depolama hesabı IP adresleri
+
+Çoklu VM tutarlılığını etkinleştirmek, çoğaltma grubundaki birbiriyle 20004 bağlantı noktası üzerinden iletişim kurar. Bağlantı noktası 20004 üzerinden VM'ler arasında iç iletişimini engelleyen bir güvenlik duvarı gerecini olduğundan emin olun.
+
+> [!IMPORTANT]
+Linux VM'ler, çoğaltma grubunun parçası olmasını istiyorsanız, bağlantı noktası 20004 üzerinde giden trafiğe belirli Linux sürümü Kılavuzu göredir el ile açılmış olmamasını sağlayın.
 
 ### <a name="step-3"></a>3. Adım
 
@@ -82,5 +89,4 @@ Bir yük devretme başlatın, VM'ler hedef kaynak grubu, hedef sanal ağ, hedef 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İkincil bir bölgeye Azure VM çoğaltmayı etkinleştirmek için öğreticiyi izleyin destek matrisini inceleyin.
-Bir yük devretme ve yeniden çalıştırın.
+[Hızlı bir şekilde çoğaltmak](azure-to-azure-quickstart.md) bir ikincil bölge için bir Azure VM.

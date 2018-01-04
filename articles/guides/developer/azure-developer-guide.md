@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -108,7 +108,7 @@ Uygulama barındırma yanı sıra Azure işlevleri, geliştirme ve Bakım uygula
 -   **Azure Cosmos DB**: özellikler esnek herhangi bir sayıda kapsamlı bir SLA ile coğrafi bölgeler arasında işleme ve depolama ölçek olanak tanıyan bir genel dağıtılmış, birden çok model veritabanı hizmeti. 
     >**Ne zaman kullanılmalı:** uygulamanızı belge, tablo veya grafik veritabanları gerektiğinde, birden çok iyi tanımlanmış tutarlılık modellerle MongoDB veritabanları dahil olmak üzere. 
 
-    >**Başlama**: [Azure Cosmos DB web uygulaması oluşturma](../../cosmos-db/create-documentdb-dotnet.md). MongoDB Geliştirici değilseniz, bkz [Azure Cosmos DB ile MongoDB web uygulaması oluşturma](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Başlama**: [Azure Cosmos DB web uygulaması oluşturma](../../cosmos-db/create-sql-api-dotnet.md). MongoDB Geliştirici değilseniz, bkz [Azure Cosmos DB ile MongoDB web uygulaması oluşturma](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Azure depolama**: BLOB, kuyruklar, dosyalar ve ilişkisel olmayan verileri diğer tür dayanıklı ve yüksek oranda kullanılabilir depolama sunar. Depolama VM'ler için depolamaya temel sağlar.
 

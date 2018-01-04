@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: a631708ce755b07701c053e217dd658e5f7bb82b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory veri dönüştürme
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ Zaman içinde denemeler Puanlama Machine Learning Tahmine dayalı modelleri yeni
 
 Bkz: [kullanım Machine Learning etkinlikleri](data-factory-azure-ml-batch-execution-activity.md) bu Machine Learning etkinlikler hakkında ayrıntılı bilgi için. 
 
-## <a name="stored-procedure-activity"></a>Saklı yordam etkinliği
+## <a name="stored-procedure-activity"></a>Depolanan yordam etkinliği
 Aşağıdaki veri depolarına birinde bir saklı yordam çağrılacak bir Data Factory işlem hattı ve SQL Server saklı yordam etkinliğinin kullanabilirsiniz: Azure SQL Database, Azure SQL Data Warehouse, SQL Server veritabanı kuruluşunuzdaki veya bir Azure VM. Bkz: [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Ayrıntılar için makale.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL etkinliği

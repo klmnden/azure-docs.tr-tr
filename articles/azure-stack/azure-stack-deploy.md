@@ -12,13 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
+<<<<<<< HEAD
 ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack dağıtım önkoşulları
 
@@ -85,7 +91,7 @@ Bir Azure AD hesabı kullanarak Azure yığın dağıtmak için dağıtım Power
 
 1. İçin en az bir Azure AD directory yönetici olan bir Azure AD hesabı oluşturun. Zaten bir hesabınız varsa bu hesabı kullanabilirsiniz. Aksi takdirde, bir ücretsiz oluşturabilirsiniz [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (Çin'de ziyaret <http://go.microsoft.com/fwlink/?LinkID=717821> yerine). İçin daha sonra planlıyorsanız [Azure yığın Azure ile kaydedin](azure-stack-register.md), ayrıca bir abonelik bu hesap yeni oluşturulmuş olması gerekir.
    
-    6. adımda bu kimlik bilgilerini kullanmak için kaydetme [Geliştirme Seti dağıtmak](azure-stack-run-powershell-script.md#deploy-the-development-kit). Bu *hizmet yöneticisi* hesabı; kaynak bulutlarını, kullanıcı hesaplarını, kiracı planlarını, kotaları ve fiyatlandırmayı yapılandırıp yönetebilir. Portalda web sitesi bulutları, sanal makine özel bulutları ve planlar oluşturup kullanıcı aboneliklerini yönetebilir.
+    6. adımda bu kimlik bilgilerini kullanmak için kaydetme [Geliştirme Seti dağıtmak](azure-stack-run-powershell-script.md). Bu *hizmet yöneticisi* hesabı; kaynak bulutlarını, kullanıcı hesaplarını, kiracı planlarını, kotaları ve fiyatlandırmayı yapılandırıp yönetebilir. Portalda web sitesi bulutları, sanal makine özel bulutları ve planlar oluşturup kullanıcı aboneliklerini yönetebilir.
 2. [Oluşturma](azure-stack-add-new-user-aad.md) en az bir hesabı böylece Kiracı Geliştirme Seti için oturum açabilirsiniz.
    
    | **Azure Active Directory hesabı** | **Destekleniyor mu?** |
@@ -121,62 +127,6 @@ Ağ üzerinde NIC'nin bağlanabileceği kullanılabilir bir DHCP sunucusunun old
 
 ### <a name="internet-access"></a>İnternet erişimi
 Azure yığını, doğrudan ya da saydam bir proxy üzerinden Internet erişimi gerektirir. Azure yığın Internet erişimi etkinleştirmek için bir web proxy yapılandırmasını desteklemez. Hem ana bilgisayar IP hem de (DHCP veya statik IP) için MAS BGPNAT01 atanan yeni IP Internet erişimine sahip olmalıdır. 80 ve 443 numaralı bağlantı noktalarını altındaki graph.windows.net ve login.microsoftonline.com etki alanları kullanılır.
-
-## <a name="telemetry"></a>Telemetri
-
-Telemetri Azure yığın gelecek sürümlerinde şekil yardımcı olur. Bize geri bildirim için hızlı yanıt, yeni özellikleri sağlar ve kalitesini artırmak sağlar. Microsoft Azure yığın Windows Server 2016 ve SQL Server 2014'ü içerir. Bu ürünler hiçbiri varsayılan ayarlardan değiştirilir ve her ikisi tarafından Microsoft Enterprise gizlilik bildirimi açıklanmıştır. Azure yığını telemetri Microsoft'a göndermeyi değiştirilmemiş açık kaynak yazılımının de içerir. Azure yığın telemetri verilerini bazı örnekleri şunlardır:
-
-- Dağıtım kayıt bilgileri
-- bir uyarı zaman açık ve kapalı
-- ağ kaynaklarının sayısı
-
-Telemetri veri akışı desteklemek için bağlantı noktası 443 (HTTPS), ağınızdaki açık olması gerekir. İstemci uç noktası https://vortex-win.data.microsoft.com'dur.
-
-Azure yığını için telemetri sağlamak istemiyorsanız, Geliştirme Seti konağı ve aşağıda açıklandığı gibi altyapı sanal makineler üzerinde kapatabilirsiniz.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Geliştirme Seti konak telemetriyi (isteğe bağlı) Kapat
-
->[!NOTE]
-Telemetriyi Geliştirme Seti konağını etkinleştirmek istiyorsanız, bunu, dağıtım komut dosyası çalıştırılmadan önce yapmalısınız.
-
-Önce [asdk installer.ps1 komut dosyası çalıştırarak]() Geliştirme Seti konak dağıtmak için önyükleme CloudBuilder.vhdx ve yükseltilmiş bir PowerShell penceresinde aşağıdaki betiği çalıştırın:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Ayarı **AllowTelemetry** telemetri 0 kapatır hem Windows hem de Azure yığın dağıtılmak için. Yalnızca kritik güvenlik olayları işletim sisteminden gönderilir. Ayar Windows telemetri tüm tüm konaklar ve altyapı VM'ler denetler ve ölçek genişletme işlemleri oluştuğunda yeni düğümler/VM'ler için yeniden.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Telemetri altyapı sanal makinelerde (isteğe bağlı) Kapat
-
-Dağıtım başarılı olduktan sonra aşağıdaki komut dosyasını (olarak AzureStack\AzureStackAdmin kullanıcı) yükseltilmiş bir PowerShell penceresinde Geliştirme Seti konakta çalıştırın:
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-SQL Server telemetri yapılandırmak için bkz: [SQL Server 2016 yapılandırma](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Kullanım raporlaması
-
-Kayıt Azure yığın Azure iletme kullanım bilgilerini de yapılandırılır. Kullanım raporlama telemetrisinden bağımsız olarak denetlenir. Ne zaman raporlama kullanım bırakabilir [kaydetme](azure-stack-register.md) Github'da komut dosyası kullanarak. Ayarlamanız yeterlidir **$reportUsage** parametresi **$false**.
-
-Kullanım verileri biçimlendirilmiş içinde ayrıntılı olarak [rapor Azure yığın kullanım verilerini Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure yığın Geliştirme Seti kullanıcılar gerçekte ücretlendirilen değil. Bu işlevsellik, böylece kullanım raporlama nasıl çalıştığını görmek için test Geliştirme Seti dahil edilir. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

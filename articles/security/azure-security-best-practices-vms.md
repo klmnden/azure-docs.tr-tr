@@ -14,15 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
+<<<<<<< HEAD
 ms.openlocfilehash: bfd7208af3252ab69808d09fa7434a2cea7f93a8
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
+=======
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM Güvenlik için en iyi yöntemler
 
-Bir hizmet (Iaas) senaryoları çoğu altyapıda [Azure sanal makineleri (VM'ler)](https://docs.microsoft.com/en-us/azure/virtual-machines/) olan ana iş yükü bulut kullanan kuruluşlar için bilgi işlem. Bu durum özellikle açıktır [karma senaryolar](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) kuruluşlar yavaş iş yüklerinin buluta geçirmek istediğiniz. Bu senaryoda izleyin [Iaas için genel güvenlik konuları](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)ve tüm Vm'leriniz için en iyi güvenlik yöntemleri uygulayın.
+Bir hizmet (Iaas) senaryoları çoğu altyapıda [Azure sanal makineleri (VM'ler)](https://docs.microsoft.com/azure/virtual-machines/) olan ana iş yükü bulut kullanan kuruluşlar için bilgi işlem. Bu durum özellikle açıktır [karma senaryolar](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) kuruluşlar yavaş iş yüklerinin buluta geçirmek istediğiniz. Bu senaryoda izleyin [Iaas için genel güvenlik konuları](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)ve tüm Vm'leriniz için en iyi güvenlik yöntemleri uygulayın.
 
 Bu makalede ele çeşitli VM en iyi güvenlik uygulamalarını, her müşterilerimizden aldığımız türetilmiş ve sanal makineler ile doğrudan kendi deneyimlerini.
 
@@ -51,7 +57,7 @@ VM korumanın ilk adımı, yalnızca yetkili kullanıcılar yeni Vm'leri ayarlay
 
 Doğal bir kaynak grubuna ait VM'ler ilkelerine devralır. Sanal makineleri yönetmek için bu yaklaşım önerilir ancak aynı zamanda erişimi tek tek VM ilkeleri kullanarak denetleyebilirsiniz [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Resource Manager ilkeleri ve VM erişimi denetlemek için RBAC etkinleştirdiğinizde, genel VM Güvenlik geliştirilmesine yardımcı olun. Aynı kaynak grubuna VM'ler ile aynı yaşam döngüsü birleştirmek öneririz. Kaynak grupları kullanarak, dağıtmak, izlemek ve maliyetleri kaynaklarınız için faturalama yukarı alma. Erişim ve Vm'leri ayarlamak kullanıcıların etkinleştirmek için bir [en az ayrıcalık yaklaşım](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Ve kullanıcıların ayrıcalıkları atadığınızda, aşağıdaki yerleşik Azure rolleri kullanmak plan yapın:
+Resource Manager ilkeleri ve VM erişimi denetlemek için RBAC etkinleştirdiğinizde, genel VM Güvenlik geliştirilmesine yardımcı olun. Aynı kaynak grubuna VM'ler ile aynı yaşam döngüsü birleştirmek öneririz. Kaynak grupları kullanarak, dağıtmak, izlemek ve maliyetleri kaynaklarınız için faturalama yukarı alma. Erişim ve Vm'leri ayarlamak kullanıcıların etkinleştirmek için bir [en az ayrıcalık yaklaşım](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Ve kullanıcıların ayrıcalıkları atadığınızda, aşağıdaki yerleşik Azure rolleri kullanmak plan yapın:
 
 - [Sanal makine Katılımcısı](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): VM'ler, ancak bunlar bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
 - [Klasik sanal makine Katılımcısı](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): Klasik dağıtım modeli, ancak sanal makineleri bağlı olmayan sanal ağ veya depolama hesabı kullanılarak oluşturulan sanal makineleri yönetebilirsiniz.
@@ -80,7 +86,7 @@ Internet'e VM'ler için ağ erişim kısıtlamalarını zorlamaz kuruluşlar, Uz
 
 Kurumsal güvenlik ve uyumluluk gereksinimlerini karşılamak için verilerinizi koruma sağlanmasına yardımcı olmak için Disk şifrelemesi uygulayabilirsiniz. Kuruluşunuz, riskleri ilgili yetkisiz veri erişimi azaltmaya yardımcı olmak için şifreleme kullanmayı düşünün. Ayrıca, bunlara hassas verileri yazmadan önce sürücülerinizin şifrelemek öneririz.
 
-Azure depolama hesabınızdaki REST onları korumak için VM veri birimleri şifrelemek emin olun. Şifreleme anahtarları ve gizli anahtarı kullanarak koruma [Azure anahtar kasası](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Azure depolama hesabınızdaki REST onları korumak için VM veri birimleri şifrelemek emin olun. Şifreleme anahtarları ve gizli anahtarı kullanarak koruma [Azure anahtar kasası](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 Veri şifrelemeyi zorunlu olmayan kuruluşlar için veri bütünlüğü sorunları daha sunulur. Örneğin, yetkisiz veya standart dışı kullanıcılar bir veri güvenliği aşılmış hesaplarındaki çalmak veya ClearFormat kodlanmış verileri yetkisiz erişim elde. Bu tür riskler için ayırdığınız yanı sıra, endüstri düzenlemelerle uyumlu olması şirketler bunlar tespitlerini kullanan ve kendi veri güvenliğini artırmak için doğru güvenlik denetimlerini kullanarak olduğundan kanıtlamak gerekir.
 
@@ -122,7 +128,7 @@ Güçlü güvenlik tutumunu Vm'leri için zorlamaz kuruluşlar tesis edilmiş g�
 
 Kaynak kötüye VM işlemleri izin verilenden daha fazla kaynak tüketmesine bir sorun olabilir. VM performans sorunlarını kullanılabilirlik güvenlik ilkesini ihlal eden hizmet kesintisi için yol açabilir. Bu nedenle, bir sorun gerçekleştirildiği sırada VM erişimi değil yalnızca Tepkisel izlemek için kesinlik temelli ancak aynı zamanda bir proaktif olarak normal işlem sırasında ölçülen temel performans karşı.
 
-Çözümleme tarafından [Azure tanılama günlük dosyaları](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), VM kaynaklarınızı izlemek ve performans ve kullanılabilirlik tehlikeye atabilir olası sorunları. Azure tanılama uzantısını Windows tabanlı sanal makinelerin izleme ve tanılama olanakları sağlar. Bu özellikler bir parçası olarak uzantısı dahil olmak üzere etkinleştirebilirsiniz [Azure Resource Manager şablonu](../virtual-machines/windows/extensions-diagnostics-template.md).
+Çözümleme tarafından [Azure tanılama günlük dosyaları](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), VM kaynaklarınızı izlemek ve performans ve kullanılabilirlik tehlikeye atabilir olası sorunları. Azure tanılama uzantısını Windows tabanlı sanal makinelerin izleme ve tanılama olanakları sağlar. Bu özellikler bir parçası olarak uzantısı dahil olmak üzere etkinleştirebilirsiniz [Azure Resource Manager şablonu](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Aynı zamanda [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-metrics.md) , kaynağın durumu görünürlük elde etmek için.
 

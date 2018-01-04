@@ -13,17 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: denlee
-ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bcd29d0b21d7624f6de10fc27e3dfce2fb3406c6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark ile gerçek zamanlı büyük veri analizi Azure Cosmos DB bağlayıcıya hızlandırmak
 
 Spark Azure Cosmos DB bağlayıcı için bir giriş kaynağı ya da Apache Spark işleri için çıkış havuzu olarak hareket edecek Azure Cosmos DB sağlar. Bağlanma [Spark](http://spark.apache.org/) için [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı bir şekilde kalıcı hale getirmek ve verileri sorgulamak için Azure Cosmos DB burada kullanabileceğiniz hızlı taşıma veri bilimi sorunları yeteneğinizi hızlandırır. Spark Azure Cosmos DB bağlayıcı için verimli bir şekilde yerel Azure Cosmos yönetilen DB dizinleri kullanır. Dizinler güncelleştirilebilir sütunları analiz gerçekleştirmek ve nesnelerin interneti (IOT) arasında veri veri bilimi ve analiz senaryoları için Dağıtılmış hızlı genel değiştirme karşı itme aşağı koşul filtreleme sağlar.
+
+Bu videoda Azure Cosmos DB baş Program Yöneticisi Denny Lee ile daha fazla bilgi edinin. 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 Spark GraphX ve Gremlin grafik Azure Cosmos DB API'leri ile çalışmak için bkz: [Spark ve Apache TinkerPop Gremlin kullanarak grafik analytics gerçekleştirmek](spark-connector-graph.md).
 
@@ -52,13 +56,13 @@ Resmi olarak desteklenen sürümler:
 |---------|-------|
 |Apache Spark|2.0+|
 | Scala| 2.11|
-| Azure DocumentDB Java SDK'sı | 1.10.0 |
+| Azure Cosmos DB SQL Java SDK'sı | 1.10.0 |
 
 Bu makalede, Python (aracılığıyla pyDocumentDB) ve Scala arabirimleri kullanarak bazı basit örneklerini çalıştırma yardımcı olur.
 
 Apache Spark ve Azure Cosmos DB bağlanmak için iki yaklaşım vardır:
-- PyDocumentDB aracılığıyla kullanmak [Azure DocumentDB Python SDK'sı](https://github.com/Azure/azure-documentdb-python).
-- Java tabanlı bir Spark Azure Cosmos DB bağlayıcıya yararlanarak oluşturma [Azure DocumentDB Java SDK'sı](https://github.com/Azure/azure-documentdb-java).
+- PyDocumentDB aracılığıyla kullanmak [Azure Cosmos DB SQL Python SDK'sı](https://github.com/Azure/azure-documentdb-python).
+- Java tabanlı bir Spark Azure Cosmos DB bağlayıcıya yararlanarak oluşturma [Azure Cosmos DB SQL Java SDK'sı](https://github.com/Azure/azure-documentdb-java).
 
 ## <a name="pydocumentdb-implementation"></a>pyDocumentDB uygulama
 Geçerli [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python) Spark aşağıdaki çizimde gösterildiği gibi Azure Cosmos DB bağlanmanıza olanak sağlar:
@@ -154,7 +158,7 @@ PyDocumentDB kullanarak Spark Azure Cosmos Veritabanına bağlanma genellikle se
 
 ## <a name="spark-to-azure-cosmos-db-connector"></a>Azure Cosmos DB bağlayıcıya spark
 
-Spark Azure Cosmos DB bağlayıcısını kullanan [Azure DocumentDB Java SDK'sı](https://github.com/Azure/azure-documentdb-java) ve aşağıdaki çizimde gösterildiği gibi verileri Azure Cosmos DB ve Spark çalışan düğümleri arasında taşır:
+Spark Azure Cosmos DB bağlayıcısını kullanan [Azure Cosmos DB SQL Java SDK'sı](https://github.com/Azure/azure-documentdb-java) ve aşağıdaki çizimde gösterildiği gibi verileri Azure Cosmos DB ve Spark çalışan düğümleri arasında taşır:
 
 ![Azure Cosmos DB bağlayıcı için Spark veri akışı](./media/spark-connector/spark-connector.png)
 
@@ -198,7 +202,7 @@ Azure Hdınsight Jupyter Not Defteri hizmeti gibi bir Not Defteri hizmeti kullan
 }
 ```
 
-**Kavanoz** komutu için gerekli olan iki Kavanoz eklemenizi sağlar **azure cosmosdb spark** (kendisi ve da Azure DocumentDB Java SDK'sı) ve çıkarma **scala-yansıtacak** Böylece ile etkilemediğinden Livy çağırır (Jupyter not defteri > Livy > Spark).
+**Kavanoz** komutu için gerekli olan iki Kavanoz eklemenizi sağlar **azure cosmosdb spark** (kendisi ve da Azure Cosmos DB SQL Java SDK'sı) ve çıkarma **scala-yansıtmak**Livy aramaları etkilemediğinden emin (Jupyter not defteri > Livy > Spark).
 
 ### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>Spark Azure Cosmos Bağlayıcısı'nı kullanarak Veritabanına bağlanın
 İletişim taşıma biraz daha karmaşık olsa da, Azure Cosmos DB Spark'tan Bağlayıcısı'nı kullanarak bir sorgu yürütme önemli ölçüde daha hızlıdır.

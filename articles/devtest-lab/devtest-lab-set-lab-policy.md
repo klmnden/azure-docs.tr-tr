@@ -3,7 +3,7 @@ title: "Azure DevTest Labs Laboratuvar ilkeleri yönetme | Microsoft Docs"
 description: "Laboratuvar ilkeleri VM boyutları, kullanıcı ve kapatma Otomasyon başına en fazla VMs gibi tanımlar öğrenin."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda yönelik tüm ilkeleri yönetme
 
@@ -102,7 +102,7 @@ Otomatik başlatma ilkesi geçerli laboratuarda VM'ler başladığında belirtme
 
 Etkinleştirildikten sonra bu ilkenin geçerli laboratuarda herhangi bir VM için otomatik olarak uygulanmaz. Bu ayar için belirli bir VM'yi uygulamak için VM Yönetimi bölmesini açın ve değiştirin, **otomatik başlatma** ayarı.
 
-## <a name="set-expiration-date"></a>Sona erme tarihi ayarlama
+## <a name="set-expiration-date"></a>Sona erme tarihini ayarlayın
 Bir süre sonu ayarlayabilirsiniz ne zaman tarih, [VM oluşturma](devtest-lab-add-vm.md). İçinde **Gelişmiş ayarları**, üzerinde VM otomatik olarak silinir bir tarih belirtmek için takvim simgesini seçin. Varsayılan olarak, VM zaman geçerli olsun.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
@@ -115,5 +115,5 @@ Tanımlanan ve çeşitli VM ilke ayarları, laboratuvarınız için uygulanan so
   Geçerli ay görüntülemek için maliyet tarihi tahmini ayın son maliyet tahmini ve.
 * [Özel görüntü oluşturma](devtest-lab-create-template.md) - bir VM oluşturduğunuzda, özel bir görüntü veya bir Market görüntüsü olabilecek bir taban belirtin. Bu makalede, bir VHD dosyasından özel bir görüntü oluşturmak nasıl gösterilmektedir.
 * [Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md) - VMs Azure Market görüntülerini temel oluşturmayı Azure DevTest Labs destekler. Bu makalede, varsa, Azure Market görüntülerini olabilecek belirtmek verilmektedir VM'ler bir laboratuar ortamında oluşturulurken kullanılır.
-* [Bir laboratuar ortamında bir VM oluşturma](devtest-lab-add-vm-with-artifacts.md) -temel bir görüntüden bir VM oluşturmak nasıl gösterir (ya da özel veya Market) ve VM yapıları çalışmak nasıl.
+* [Bir laboratuar ortamında bir VM oluşturma](devtest-lab-add-vm.md) -temel bir görüntüden bir VM oluşturmak nasıl gösterir (ya da özel veya Market) ve VM yapıları çalışmak nasıl.
 

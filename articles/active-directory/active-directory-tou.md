@@ -4,7 +4,7 @@ description: "Azure AD Kullanım Koşulları, size ve şirketinize Azure AD hizm
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory Kullanım Koşulları özelliği (Önizleme)
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Böylece kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlanır.
@@ -52,14 +52,16 @@ Kullanım Koşullarınıza son şeklini verdikten sonra, bunları eklemek için 
 ### <a name="to-add-terms-of-use"></a>Kullanım Koşulları eklemek için
 1. [https://aka.ms/catou](https://aka.ms/catou) adresindeki panoya gidin
 2. Ekle'ye tıklayın.</br>
-![Kullanım Koşulları ekleme](media/active-directory-tou/tou2.png)
+![Kullanım Koşullarını Ekleme](media/active-directory-tou/tou12.png)
 3. Kullanım Koşulları için bir **Ad** girin
 4. **Görünen Ad** girin.  Kullanıcılar oturum açtıklarında bu üst bilgiyi görür.
 5. Kullanım Koşullarınızın son halinin bulunduğu PDF’ye **gözatın** ve bunu seçin.  Önerilen yazı tipi boyutu 24’tür.
-6. Bir şablon veya özel koşullu erişim ilkesi kullanarak karşıya yüklenen kullanım koşullarını **Zorunlu kılabilirsiniz**.  Özel koşullu erişim ilkeleri, belirli bulut uygulamaları veya kullanıcı gruplarına kadar ayrıntılı kullanım koşulları uygulamanıza olanak sağlar.  Daha fazla bilgi için bkz. [Koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-best-practices.md)
-7. **Oluştur**'a tıklayın.
-8. Özel bir koşullu erişim şablonu seçtiyseniz, CA ilkesini özelleştirmenize olanak sağlayan yeni bir ekran görüntülenir.
-7. Şimdi yeni Kullanım Koşullarınızı görürsünüz.</br>
+6. Kullanım koşulları için bir dil **seçin**.  Dil seçeneğini kullanarak her biri farklı dilde olan birden fazla kullanım koşulunu karşıya yükleyebilirsiniz.  Bir son kullanıcının göreceği kullanım koşulları sürümü, kullanıcının tarayıcı tercihlerine bağlıdır.
+7. **Kullanıcıların kullanım koşullarını genişletmesini gerekli kıl** için açık veya kapalı seçeneğini belirleyin.  Bu seçenek açık olarak ayarlanırsa, son kullanıcıların kullanım şartlarını kabul etmeden önce görüntülemesi gerekir.
+8. **Koşullu Erişim** bölümü altında bir şablon veya özel koşullu erişim ilkesi kullanarak karşıya yüklenen kullanım koşullarını **Zorunlu Kılabilirsiniz**.  Özel koşullu erişim ilkeleri, belirli bulut uygulamaları veya kullanıcı gruplarına kadar ayrıntılı kullanım koşulları uygulamanıza olanak sağlar.  Daha fazla bilgi için bkz. [Koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-best-practices.md)
+9. **Oluştur**'a tıklayın.
+10. Özel bir koşullu erişim şablonu seçtiyseniz, CA ilkesini özelleştirmenize olanak sağlayan yeni bir ekran görüntülenir.
+11. Şimdi yeni Kullanım Koşullarınızı görürsünüz.</br>
 
 ![Kullanım Koşullarını ekleme](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Kapsam dahilindeki kullanıcılar bir kullanım koşulları belgesi oluşturulup
 ![Denetim Olayı](media/active-directory-tou/tou10.png)
 -   Mobil cihazlarda bu ekrandaki gibi görünür</br></br>
 ![Denetim Olayı](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Kullanım koşullarını gözden geçirme
+Kullanıcılar, kabul ettikleri kullanım koşullarını gözden geçirip inceleyebilir.  Bu işlem, aşağıdaki yordam kullanılarak yapılabilir:
+
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com) sayfasına gidip oturum açın.
+2. Sağ üst köşede adınıza tıklayın ve açılır menüden **Profil**’i seçin.
+![Profil](media/active-directory-tou/tou14.png)
+
+3. Profilinizde **Kullanım koşullarını gözden geçir**’e tıklayın.
+![Denetim Olayı](media/active-directory-tou/tou13a.png)
+
+4.  Kabul ettiğiniz kullanım koşullarını burada gözden geçirebilirsiniz. 
+
 
 ## <a name="additional-information"></a>Ek bilgiler
 Aşağıdaki bilgiler göz önünde bulundurulmalıdır; bunlar kullanım koşullarının kullanılmasında faydalı olabilir.

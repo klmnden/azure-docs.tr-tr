@@ -6,11 +6,11 @@
       href: overview.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Azure CLI ile yönetilen uygulama oluşturma
+    - name: Yönetilen uygulama oluşturma
       href: managed-apps-quickstart-cli.md
 - name: Öğreticiler
   items:
-    - name: Hizmet kataloğu uygulaması oluşturma
+    - name: Yönetilen uygulama dosyaları oluşturma
       href: publish-service-catalog-app.md
 - name: Örnekler
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Yönetilen kaynakları güncelleştirme
       href: update-managed-resources.md
-    - name: Hizmet kataloğu uygulaması yayımlama - portal
+    - name: Yayımlamak için portalı kullanma
       href: publish-portal.md
 - name: Başvuru
   items:

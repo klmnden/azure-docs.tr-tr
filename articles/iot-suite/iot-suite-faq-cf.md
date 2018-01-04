@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>IOT paketi bağlı fabrikası için sık sorulan sorular önceden yapılandırılmış çözümü
 
@@ -42,7 +42,7 @@ OPC birleşik mimarisi (2008'de serbest UA), bir platformdan bağımsız, hizmet
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Neden Microsoft OPC UA bağlı Fabrika önceden yapılandırılmış çözümü seçin?
 
-Bir açık, olmayan-özel, platform bağımsız, endüstri tanınan ve kanıtlanmış standart olduğu için Microsoft OPC UA seçtiniz. Geniş bir üretim işlemleri kümesi ile donanım arasında birlikte çalışabilirlik sağlama Industrie 4.0 (RAMI4.0) başvuru mimarisi çözümleri için gerekli değildir. Microsoft, müşterilerimizin Industrie 4.0 çözümleri oluşturmak üzere talep görür. OPC UA desteği engel müşterilerin hedeflerine ulaşması alt yardımcı olur ve onları hemen iş değerine sağlar.
+Bir açık, olmayan-özel, platform bağımsız, endüstri tanınan ve kanıtlanmış standart olduğu için Microsoft OPC UA seçtiniz. Geniş bir üretim işlemleri kümesi ile donanım arasında birlikte çalışabilirlik sağlama Industrie 4.0 (RAMI4.0) başvuru mimarisi çözümleri için gerekli değildir. Microsoft, müşterilerinin Industrie 4.0 çözümleri oluşturmak üzere talep görür. OPC UA desteği engel müşterilerin hedeflerine ulaşması alt yardımcı olur ve onları hemen iş değerine sağlar.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>VM benzetimi için nasıl bir ortak IP adresi eklensin mi?
 
@@ -143,6 +143,64 @@ Yayımcı aygıtlardan biri tarafından gönderilen verileri inceleyin:
 * Publisher.Seattle.corp.contoso
 
 IOT Hub'ına gönderilen veri görürseniz, benzetimi ile ilgili bir sorun yoktur. İlk çözümleme adım olarak günlük dosyaları benzetimi bileşenlerinin çözümlemeniz gerekir. Bkz: [benzetimi bileşenlerini günlük verilerini nasıl alabilirim?](#how-can-i-get-log-data-from-the-simulation-components) Ardından, durdurmak ve benzetimi başlatmak ve hala gönderilen veri yoksa benzetimi tamamen güncelleştirmek deneyin. Bkz: [VM'deki benzetimi nasıl güncelleştirebilirim?](#how-do-i-update-the-simulation-in-the-vm)
+
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Bağlı Fabrika çözümümde nasıl etkileşimli bir harita etkinleştirilsin mi?
+
+Etkileşimli bir harita bağlı Fabrika çözümünüzdeki etkinleştirmek için Kurumsal planı için varolan bir Bing haritaları API'si olması gerekir. Www.azureiotsuite.com bağlı Fabrika çözümden dağıttığınızda Kurumsal planı için Bing haritaları API'si varsa, etkileşimli harita sizin için otomatik olarak etkinleştirilir.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Bing Haritalar API'si kuruluş hesabı için nasıl oluşturulur?
+
+Ücretsiz elde edebilirsiniz *iç işlemleri düzey 1 Bing Haritalar kuruluş için* planı. Ancak, yalnızca iki bu planlarını bir Azure aboneliğine ekleyebilirsiniz. Kurumsal hesap için Bing haritaları API'si yoksa, Azure portalında tıklayarak oluşturmak **+ kaynak oluşturma**. İçin arama **Kurumsal için Bing haritaları API'si** ve onu oluşturmak için istemleri izleyin.
+
+![Bing anahtarı](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Kurumsal QueryKey için Bing haritaları API'nizi edinme
+
+Kurumsal planı için Bing haritaları API'nizi oluşturduktan sonra kurumsal kaynak için Bing Haritalar bağlı Fabrika çözümünüzün Azure portalındaki kaynak grubuna ekleyin.
+
+1. Azure portalında Kurumsal planı için Bing haritaları API'nizi içeren kaynak grubuna gidin.
+
+1. Tıklatın **tüm ayarları**, ardından **anahtar yönetimi**.
+
+1. İki anahtar vardır: **MasterKey** ve **QueryKey**. Kopya **QueryKey** değeri.
+
+1. Tarafından toplanma anahtar `build.ps1` komut dosyası, ortam değişkeni `$env:MapApiQueryKey` PowerShell ortamınızda **QueryKey** planınızın. Derleme betiğinin sonra otomatik olarak değeri uygulama hizmeti ayarlarına ekler.
+
+1. Yerel çalıştırma veya dağıtım kullanarak bulut `build.ps1` komut dosyası.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Etkileşimli harita yerel olarak hata ayıklama sırasında nasıl etkinleştirebilirim?
+
+Yerel olarak hata ayıklarken etkileşimli harita etkinleştirmek için ayarın değerini ayarlamak `MapApiQueryKey` dosyalarında `local.user.config` ve `<yourdeploymentname>.user.config` dağıtımınızı değerine kök **QueryKey** , kopyalanan daha önce.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Benim Panom giriş sayfanın nasıl farklı bir resim kullanıyor?
+
+Pano giriş sayfası GÇ gösterilen statik görüntü değiştirmek için görüntünün yerini `WebApp\Content\img\world.jpg`. Daha sonra yeniden oluşturun ve WebApp yeniden dağıtın.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Bağlı factory ile nasıl olmayan OPC UA cihazlar kullanıyor?
+
+Telemetri verileri olmayan OPC UA aygıtları bağlı Fabrika göndermek için:
+
+1. [Yeni istasyona bağlı Fabrika topolojisinde yapılandırma](iot-suite-connected-factory-configure.md) içinde `ContosoTopologyDescription.json` dosya.
+
+1. Telemetri verileri bağlı Fabrika uyumlu JSON biçiminde alın:
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. Biçimi `<timestamp>` değil:`2017-12-08T19:24:51.886753Z`
+
+1. Bağlı Fabrika uygulama hizmeti yeniden başlatın.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 

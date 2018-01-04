@@ -4,7 +4,7 @@ description: "Azure üzerinde barındırılan Java uygulamalarını erişim dene
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Azure erişim denetimi hizmeti tarafından döndürülen SAML görüntüleme
 Bu kılavuz temel güvenlik onaylama işlemi biçimlendirme dili (uygulamanızı Azure erişim denetimi Hizmeti'nden (ACS) tarafından döndürülen SAML) görüntülemek nasıl yapacağınızı gösterir. Kılavuzu derlemeler [kimlik doğrulaması Web kullanıcıları Azure erişim denetimi hizmeti kullanılarak Eclipse ile nasıl](active-directory-java-authenticate-users-access-control-eclipse.md) SAML bilgilerini görüntüler kod sağlayarak konu. Tamamlanan uygulama aşağıdakine benzer görünecektir.

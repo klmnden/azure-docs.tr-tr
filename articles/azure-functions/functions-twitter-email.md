@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps ile tümleşen bir işlev oluşturun
 
@@ -72,28 +72,31 @@ Bilişsel hizmetler API'ları ayrı kaynaklar olarak Azure içinde kullanılabil
  
     ![Anahtarlar](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>İşlevi oluşturma
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>İşlev uygulaması oluşturma
 
 İşlevler bir iş akışındaki logic apps işleme görevlerini boşaltmak için harika bir yol sağlar. Bu öğretici, tweet düşünceleri puanları Bilişsel Hizmetleri'nden işlemek ve bir kategori değeri döndürmek için bir HTTP tetiklenen işlevi kullanır.  
 
-1. Tıklatın **yeni** düğmesine tıklayın ve ardından **işlem** > **işlev uygulaması**. Ardından, aşağıdaki tabloda belirtildiği gibi ayarları kullanın. Koşulları kabul edin ve ardından **panoya Sabitle**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Azure işlev uygulaması oluşturma](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>HTTP tetiklenen bir işlev oluşturun  
 
-    | Ayar      |  Önerilen değer   | Açıklama       |
-    | --- | --- | --- |
-    | **Ad** | MyFunctionApp | Benzersiz bir hesap adı seçin. |
-    | **Kaynak grubu** | myResourceGroup | Aynı kaynak grubunun tüm hizmetler için bu öğreticiyi kullanın.|
-    | **Barındırma planı** | Tüketim Planı | Bu, maliyet ve kullanım ayırmaları tanımlar.
-    | **Konum** | Batı ABD | Size en yakın konumu kullanın. |
-    | **Depolama** | Yeni Oluştur | Otomatik olarak yeni bir depolama hesabı oluşturur.|
-    | **Fiyatlandırma katmanı** | F0 | En düşük katman ile başlatın. Çağrıları dışında çalıştırırsanız, daha yüksek bir katmana ölçeklendirin.|
+1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
 
-2. Panodan işlevleri uygulamanızı seçin ve işlevinizi genişletin,  **+**  düğmesine **işlevleri**, tıklatın **Web kancası + API**,  **CSharp**, ardından **bu işlev oluşturma**. Bu HTTPTrigger C# şablonu kullanarak bir işlev oluşturur. Kodunuzu yeni bir pencere olarak görünür`run.csx`
+    ![Azure portalındaki İşlevler hızlı başlangıç sayfası](media/functions-twitter-email/add-first-function.png)
 
-    ![İşlev uygulamalar dikey penceresinde, İşlevler +](media/functions-twitter-email/add_fun.png)
+2. Arama alanına yazın `http` ve ardından **C#** HTTP tetikleyicisi şablonu için. 
 
-3. Değiştir `run.csx` aşağıdaki kod ile dosya ve ardından **kaydetmek**:
+    ![HTTP tetikleyicisini seçin](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Tür a **adı** işlevinizi için seçin `Function` için  **[kimlik doğrulama düzeyi](functions-bindings-http-webhook.md#http-auth)**ve ardından **oluşturma**. 
+
+    ![HTTP tetiklenen bir işlev oluşturun](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Bu HTTP tetikleyicisini şablonu kullanarak bir C# betik işlev oluşturur. Kodunuzu yeni bir pencere olarak görünür `run.csx`.
+
+4. Değiştir `run.csx` aşağıdaki kod ile dosya ve ardından **kaydetmek**:
 
     ```csharp
     using System.Net;

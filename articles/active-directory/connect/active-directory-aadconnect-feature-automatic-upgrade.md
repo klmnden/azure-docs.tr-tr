@@ -4,7 +4,7 @@ description: "Bu konu, yerleşik Otomatik yükseltme Özelliği Azure AD Connect
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Otomatik yükseltme
 Bu özellik, (Şubat 2016 yayımlandı) yapı ile 1.1.105.0 sunulmuştur.
@@ -34,10 +34,10 @@ Otomatik yükseltme, aşağıdakiler için varsayılan olarak etkindir:
 
 Otomatik yükseltmeyi geçerli durumunu PowerShell cmdlet'iyle görüntülenebilir `Get-ADSyncAutoUpgrade`. Aşağıdaki durumlara sahiptir:
 
-| Durum | Açıklama |
+| Durum | Yorum |
 | --- | --- |
 | Etkin |Otomatik yükseltmeyi etkinleştirilir. |
-| askıya alındı |Yalnızca sistem tarafından ayarlayın. Sistem artık otomatik güncelleştirmeleri almak uygun değil. |
+| Askıya Alındı |Yalnızca sistem tarafından ayarlayın. Sistem artık otomatik güncelleştirmeleri almak uygun değil. |
 | Devre dışı |Otomatik yükseltmeyi devre dışı bırakılır. |
 
 Arasında değiştirebileceğiniz **etkin** ve **devre dışı** ile `Set-ADSyncAutoUpgrade`. Sistem durumu ayarlamalısınız yalnızca **askıya**.

@@ -13,14 +13,20 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI örnekleri
 
@@ -29,6 +35,7 @@ Aşağıdaki tabloda Azure CLI kullanarak oluşturulan komut dosyalarını bash 
 | | |
 |-|-|
 |**Uygulama oluşturma**||
+| [Bir web uygulaması oluşturma ve FTP dosyalarıyla dağıtma](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Azure web uygulaması oluşturur ve bir dosya FTP kullanarak dağıtır. |
 | [GitHub’dan web uygulaması oluşturma ve kod dağıtma](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Azure web uygulaması oluşturur ve genel bir GitHub depo koddan dağıtır. |
 | [GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Sahip olduğunuz bir GitHub depodan sürekli yayımlama ile bir Azure web uygulaması oluşturur. |
 | [Yerel Git deposundan web uygulaması oluşturma ve kod dağıtma](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması oluşturur ve kodun bir yerel Git deposundan yapılandırır. |
@@ -45,6 +52,10 @@ Aşağıdaki tabloda Azure CLI kullanarak oluşturulan komut dosyalarını bash 
 | [Bir web uygulamasını bir depolama hesabına bağlama](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Azure web uygulaması ve bir depolama hesabı oluşturur, ardından depolama bağlantı dizesi için uygulama ayarları ekler. |
 | [Bir web uygulamasını redis önbelleği için bağlama](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması ve redis önbelleği oluşturur, ardından redis bağlantı ayrıntıları için uygulama ayarları ekler.) |
 | [Bir web uygulaması Cosmos Veritabanına bağlanın](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması ve Cosmos DB oluşturur, ardından Cosmos DB bağlantı ayrıntıları için uygulama ayarları ekler. |
+|**Yedekleme ve geri yükleme uygulaması**||
+| [Bir web uygulamasını kurup yedekleyin](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması ve bir kerelik bir yedekleme için oluşturur. |
+| [Bir web uygulaması için zamanlanmış yedekleme oluşturmak](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması ve bir zamanlanmış yedekleme için oluşturur. |
+| [Bir web uygulaması bir yedekten geri yükler](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması bir yedekten geri yükler. |
 |**İzleyici uygulama**||
 | [Web sunucusu günlükleri ile bir web uygulamasını izleme](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması oluşturur, bunun için günlük kaydını etkinleştirir ve yerel makinenize günlükleri indirir. |
 | | |

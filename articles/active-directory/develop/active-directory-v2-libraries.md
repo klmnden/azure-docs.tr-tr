@@ -4,7 +4,7 @@ description: "Uyumlu istemci kitaplıkları ve sunucu ara yazılım kitaplıklar
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
@@ -15,19 +15,25 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
+<<<<<<< HEAD
 ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 kimlik doğrulama kitaplıkları
-[Azure Active Directory (Azure AD) v2.0 uç](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) endüstri standardı OAuth 2.0 ve Openıd Connect 1.0 protokollerini destekler. Microsoft ve diğer kuruluşlardan çeşitli kitaplıklarından v2.0 uç noktası ile kullanabilirsiniz.
+[Azure Active Directory (Azure AD) v2.0 uç](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) endüstri standardı OAuth 2.0 ve Openıd Connect 1.0 protokollerini destekler. Microsoft ve diğer kuruluşlardan çeşitli kitaplıklarından v2.0 uç noktası ile kullanabilirsiniz.
 
 V2.0 uç noktası kullanan bir uygulama oluşturduğunuzda, bir güvenlik geliştirme yaşam döngüsü (SDL) Metodoloji gibi izleyin Protokolü etki alanı uzmanlar tarafından yazılan kitaplıkları kullanmanızı öneririz [birMicrosofttarafındanizlenen][Microsoft-SDL]. Elle kod destek protokoller için karar verirseniz, SDL Metodoloji izleyin ve Kapat güvenlik konuları her protokol için standartları özellikleri dikkat öneririz.
 
 > [!NOTE]
-> Azure AD için sık sorulan sorular v1.0 kitaplıkları (ADAL) mi arıyorsunuz? Checkout [ADAL kitaplığı Kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> Azure AD için sık sorulan sorular v1.0 kitaplıkları (ADAL) mi arıyorsunuz? Checkout [ADAL kitaplığı Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
 > 
 > 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Nasıl yapılır: Azure uygulama hizmetinde uygulamaları izleme
 [Uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714) yerleşik izleme işlevselliği sağlayan [Azure portal](https://portal.azure.com).
@@ -29,6 +29,8 @@ Azure Portalı'nı gözden yeteneğini içerir **kotaları** ve **ölçümleri**
 ## <a name="understanding-quotas-and-metrics"></a>Anlama kotalar ve ölçümleri
 ### <a name="quotas"></a>Kotalar
 App Service içinde barındırılan uygulamalar belirli tabi olan *sınırları* kullanabilecekleri kaynaklar. Sınırları tarafından tanımlanan **uygulama hizmeti planı** uygulamayla ilişkili.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Uygulama içinde barındırılıyorsa bir **serbest** veya **paylaşılan** planlama uygulama kullanabileceğiniz kaynaklar sınırları tarafından tanımlanan sonra **kotaları**.
 

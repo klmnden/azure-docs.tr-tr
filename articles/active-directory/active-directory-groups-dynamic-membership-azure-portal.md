@@ -4,23 +4,29 @@ description: "Dinamik grup üyeliği de dahil olmak üzere için Gelişmiş kura
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
+<<<<<<< HEAD
 ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
 ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
 Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları.
@@ -28,13 +34,13 @@ Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yöne
 Herhangi bir kullanıcı veya aygıt özniteliklerini değiştirdiğinizde, sistem değişikliği tetikleyecek herhangi bir grup ekler veya kaldırır olup bir dizindeki tüm dinamik Grup kurallarını değerlendirir. Bir kullanıcı veya cihaza bir grupta kuralı uymazsa, bunlar bu grubun bir üyesi olarak eklenir. Bunlar artık kural karşılamak varsa, bunlar kaldırılır.
 
 > [!NOTE]
-> - Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
+> Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
 >
-> - Bu özellik en az bir dinamik grubuna eklenen her kullanıcı üyesi için bir Azure AD Premium P1 lisansı gerektirir. Gerçekte dinamik grupların üyesi olacak şekilde kullanıcılara lisans atamak için zorunlu değildir, ancak tüm kullanıcıları kapsayacak şekilde Kiracı içinde en az sayıda lisansa sahip gerekir. Örneğin: kiracınızda tüm dinamik gruplarında 1.000 benzersiz kullanıcıların toplam varsa, lisans gereksinimleri sağlamak için Azure AD Premium P1 için ya da yukarıdaki 1. 000'en az lisanslara sahip gerekir.
+> Bu özellik en az bir dinamik grubuna eklenen her kullanıcı üyesi için bir Azure AD Premium P1 lisansı gerektirir. Gerçekte dinamik grupların üyesi olacak şekilde kullanıcılara lisans atamak için zorunlu değildir, ancak tüm kullanıcıları kapsayacak şekilde Kiracı içinde en az sayıda lisansa sahip gerekir. Örneğin: kiracınızda tüm dinamik gruplarında 1.000 benzersiz kullanıcıların toplam varsa, lisans gereksinimleri sağlamak için Azure AD Premium P1 için ya da yukarıdaki 1. 000'en az lisanslara sahip gerekir.
 >
-> - Aygıtların veya kullanıcıların dinamik bir grup oluşturabilirsiniz, ancak kullanıcı ve aygıt nesneleri içeren bir kuralı oluşturulamıyor.
-
-> - Şu anda kullanıcı özniteliklerine sahip bağlı bir cihaz grubu oluşturmak mümkün değil. Cihaz Üyelik kuralları yalnızca dizinde cihaz nesnelerinin hemen özniteliklerini başvuruda bulunabilir.
+> Aygıtların veya kullanıcıların dinamik bir grup oluşturabilirsiniz, ancak kullanıcı ve aygıt nesneleri içeren bir kuralı oluşturulamıyor.
+> 
+> Şu anda sahibi olan kullanıcının özniteliklerini temel alarak bir cihaz grubu oluşturmak mümkün değil. Cihaz Üyelik kuralları yalnızca dizinde cihaz nesnelerinin hemen özniteliklerini başvuruda bulunabilir.
 
 ## <a name="to-create-an-advanced-rule"></a>Gelişmiş bir kural oluşturmak için
 1. Oturum [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) genel bir yönetici veya kullanıcı hesabı yönetici olan bir hesapla.
@@ -45,7 +51,7 @@ Herhangi bir kullanıcı veya aygıt özniteliklerini değiştirdiğinizde, sist
 
 4. Üzerinde **grup** dikey penceresinde, bir ad ve yeni grup için bir açıklama girin. Seçin bir **üyelik türü** herhangi birinin **dinamik kullanıcı** veya **dinamik cihaz**kullanıcılar veya cihazlar için bir kural oluşturmak ve ardından seçinisteyipistemediğinizibağlıolarak**Ekle dinamik sorgu**. Basit bir kural oluşturmak için kural Oluşturucusu'nu kullanın veya gelişmiş bir kuralı kendiniz yazın. Bu makale kullanılabilir kullanıcı ve cihaz öznitelikleri ve bunun yanı sıra gelişmiş kurallar örnekleri hakkında daha fazla bilgi içerir.
 
-   ![Dinamik Üyelik Kuralı Ekle](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
+   ![Dinamik üyelik kuralı ekle](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 
 5. Kural oluşturduktan sonra Seç **Ekle sorgu** dikey pencerenin altındaki.
 6. Seçin **oluşturma** üzerinde **grup** grubu oluşturmak için dikey.
@@ -293,7 +299,7 @@ Bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsin
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Statik olarak dinamik üyelik değiştirme ve tersi yönde
 Bir gruptaki üyelik nasıl yönetilir değiştirmek mümkündür. Grubuna varolan tüm başvuruların hala geçerli olduğundan için aynı grup adı ve kimliği sistemde tutmak istediğiniz gerektiğinde bu faydalıdır; Yeni grup oluşturma bu başvuruları güncelleştirilmesi gerekir.
 
-Bu işlevleri desteklemek için Azure portal güncelleştirme işlemini gerçekleştiriyoruz. Bu arada, kullanabileceğiniz [Klasik Azure portalı](https://manage.windowsazure.com) (yönergeleri izleyin [burada](active-directory-groups-dynamic-membership-azure-portal.md)) ya da aşağıda gösterildiği gibi PowerShell cmdlet'lerini kullanın.
+Bu işlevleri desteklemek için Azure portal güncelleştirme işlemini gerçekleştiriyoruz. Bu arada, aşağıda gösterildiği gibi PowerShell cmdlet'lerini kullanabilirsiniz.
 
 > [!WARNING]
 > Varolan bir statik grup için dinamik bir grup değiştirirken, var olan tüm üyeleri gruptan kaldırılacak ve yeni üye eklemek için üyelik kuralını sonra işlenir. Uygulamaları veya kaynaklara erişimi denetlemek için Grup kullandıysanız, üyelik kuralını tam olarak işlenen kadar özgün üyeleri erişimlerini kaybedebilir.
@@ -303,7 +309,7 @@ Bu işlevleri desteklemek için Azure portal güncelleştirme işlemini gerçekl
 **Bir grup üyeliği yönetimini değiştirmek için PowerShell kullanma**
 
 > [!NOTE]
-> Cmdlet'leri kullanması gerekecektir dinamik Grup özelliklerini değiştirmek için **önizleme sürümünü** [Azure AD PowerShell sürüm 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Önizlemesi'nden yükleyebilirsiniz [burada](https://www.powershellgallery.com/packages/AzureADPreview).
+> Cmdlet'leri kullanması gerekecektir dinamik Grup özelliklerini değiştirmek için **önizleme sürümünü** [Azure AD PowerShell sürüm 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Önizlemesi'nden yükleyebilirsiniz [burada](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Var olan bir grup üyeliği yönetimi geçiş işlevleri bir örneği burada verilmiştir. Dikkatli doğru GroupTypes özelliği işlemek ve orada bulunabilir herhangi bir değeri korumak için alınır dinamik üyelik ilgisiz unutmayın.
 

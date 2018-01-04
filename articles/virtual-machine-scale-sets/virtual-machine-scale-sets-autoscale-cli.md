@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6e8fadd54a78d432ed802f4c4880c2f77bb28c37
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Bir sanal makineyi ölçeği ile Azure CLI 2.0 Ayarla otomatik olarak ölçeklendirin
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz VM örneği sayısını tanımlayın. Uygulama talep değiştikçe otomatik olarak artırın veya VM örneği sayısını azaltın. Otomatik ölçeklendirme özelliği ile isteğe bağlı müşteri takip edin veya uygulamanızın yaşam döngüsü boyunca uygulama performans değişikliklerine yanıt verme olanak sağlar.
@@ -27,8 +27,8 @@ ms.lasthandoff: 10/20/2017
 Bu makalede, Ölçek kümesi VM örnekleri performansını izlemek Azure CLI 2.0 ile otomatik ölçeklendirme kurallarını oluşturulacağını gösterir. Otomatik ölçeklendirme kurallar artırın veya bu performans ölçümleri yanıta VM örnekleri sayısını azaltın. Bu adımları tamamlayabilmeniz için [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) veya [Azure portal](virtual-machine-scale-sets-autoscale-portal.md).
 
 
-## <a name="prerequisites"></a>Ön koşullar
-Otomatik ölçeklendirme kuralları oluşturmak için mevcut bir sanal makine gereksinim ölçek kümesi. Bir ölçek kümesi oluşturabileceğiniz [Azure portal](virtual-machine-scale-sets-portal-create.md), [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli), veya [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell).
+## <a name="prerequisites"></a>Önkoşullar
+Otomatik ölçeklendirme kuralları oluşturmak için mevcut bir sanal makine gereksinim ölçek kümesi. Bir ölçek kümesi oluşturabileceğiniz [Azure portal](virtual-machine-scale-sets-create-portal.md), [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), veya [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Otomatik ölçeklendirme kurallarını oluşturmayı kolaylaştırmak için ölçek kümesi için bazı değişkenler tanımlayın. Aşağıdaki örnek, ölçeği adlandırılmış Ayarla değişkenleri tanımlar *myScaleSet* kaynak grubunda adlı *myResourceGroup* ve *eastus* bölge. Aboneliğinizi kimliği elde edilir [az hesabı Göster](/cli/azure/account#az_account_show). Hesabınızla ilişkili birden çok aboneliğiniz varsa, yalnızca ilk abonelik döndürülür. Adları ve abonelik kimliği aşağıdaki gibi ayarlayın:
 
@@ -65,13 +65,13 @@ Bu kural için aşağıdaki parametreleri kullanılır:
 
 | Parametre         | Açıklama                                                                                                         | Değer           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
-| *metricName*      | İzleme ve ölçek uygulamak için performans ölçüm Eylemler ayarlayın.                                                   | CPU yüzdesi  |
+| *metricName*      | İzleme ve ölçek uygulamak için performans ölçüm Eylemler ayarlayın.                                                   | CPU Yüzdesi  |
 | *timeGrain*       | Ne sıklıkta ölçümleri analiz için toplanır.                                                                   | 1 dakika        |
 | *timeAggregation* | Toplanan ölçümleri analiz için nasıl toplanması gerektiğini tanımlar.                                                | Ortalama         |
 | *timeWindow*      | Ölçüm ve eşik değerlerini karşılaştırılır önce izlenen süre miktarı.                                   | 10 dakika      |
 | *işleci*        | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Büyüktür    |
 | *Eşik*       | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden değeri.                                                      | 70%             |
-| *yönü*       | Ölçek kümesini yukarı veya aşağı kuralın geçerli olduğunda ölçeklendirmeniz gerekir tanımlar.                                             | Artış        |
+| *yönü*       | Ölçek kümesini yukarı veya aşağı kuralın geçerli olduğunda ölçeklendirmeniz gerekir tanımlar.                                             | Artır        |
 | *türü*            | VM örneği sayısı yüzdesi miktarda değiştirilmesi gerektiğini belirtir.                                 | Yüzde değişikliği  |
 | *değer*           | Kuralın uygulandığı zaman kaç VM örnekleri yukarı veya aşağı ölçeklendirilmelidir.                                            | 20              |
 | *cooldown*        | Otomatik ölçeklendirme eylemleri etkili olması için zamanı sağlayacak şekilde kural önce beklenecek süreyi yeniden uygulanır. | 5 dakika       |

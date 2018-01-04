@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Windows Evrensel uygulamaları SDK yükseltme yordamları
 Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
@@ -294,7 +294,7 @@ Bunun yerine çalışma zamanında belirtmek istiyorsanız, katılım aracı ba�
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-Bağlantı dizesi, uygulamanız için Azure Klasik Portalı'ndaki görüntülenir.
+Bağlantı dizesi, uygulamanız için Azure portalda görüntülenir.
 
 ### <a name="items-name-change"></a>Öğe adı değişikliği
 Tüm öğeleri adlı *capptain* adlandırılmış *engagement*. Benzer şekilde *Capptain* için *Engagement*.

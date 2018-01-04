@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e104778db445d078ffca7a9ddb9d28fc84a93c81
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Azure CLI ile Azure yönetilen uygulaması oluşturma ve dağıtma
 
@@ -105,7 +105,7 @@ az managedapp create \
   --resource-group applicationGroup \
   --managedapp-definition-id $appid \
   --managed-rg-id $managedGroupId \
-  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"<your-prefix>\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
+  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"storage\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
 ```
 
 Yukarıdaki örnekte kullanılan parametrelerden bazıları şunlardır:
@@ -121,5 +121,4 @@ Dağıtım başarıyla tamamlandıktan sonra yönetilen uygulamanın application
 
 * Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
 * Dosyaların örnekleri için [Yönetilen uygulama örnekleri](https://github.com/Azure/azure-managedapp-samples/tree/master/samples) konusunu inceleyin.
-* Azure Market'te yönetilen uygulamaları yayımlama hakkında daha fazla bilgi için [Market uygulaması oluşturma](publish-marketplace-app.md) konusunu inceleyin.
 * Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.

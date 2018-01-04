@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Uç noktaları ekleme, devre dışı bırakma, etkinleştirme veya silme
 
@@ -39,7 +39,7 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
     1. **Tür** için **Azure uç noktası**’na tıklayın.
     2. Bu uç noktayı tanımak istediğiniz bir **Ad** belirtin.
     3. **Hedef kaynak türü** için açılır listeden uygun kaynak türünü seçin.
-    4. **Hedef kaynak** için, açılır listeden **Kaynaklar** dikey penceresindeki aynı abonelik altında listeleme kaynaklarını göstermek üzere uygun hedef kaynağı seçin. Gösterilen **Kaynak** dikey penceresinde, birinci uç nokta olarak eklemek istediğiniz hizmeti seçin.
+    4. **Hedef kaynak** için, **Kaynaklar dikey penceresi**’ndeki aynı abonelikte yer alan kaynakları listelemek için **Seç...** seçicisine tıklayın. Gösterilen **Kaynak** dikey penceresinde, birinci uç nokta olarak eklemek istediğiniz hizmeti seçin.
     5. **Öncelik** için **1** seçin. Bu durum, sağlıksız olması durumunda tüm trafiğin bu uç noktaya gitmesiyle sonuçlanır.
     6. **Devre dışı olarak ekle** seçeneğini işaretsiz bırakın.
     7. **Tamam**’a tıklayın.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 12c5d4985260c734ba813ace3143433883966712
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Azure dosyaları ile Kubernetes kullanma
 
@@ -66,7 +66,7 @@ Ardından, depolama hesabı anahtarı kodlayın. Gerekirse, Değiştir `$STORAGE
 echo -n $STORAGE_KEY | base64
 ```
 
-Adlı bir dosya oluşturun `azure-secret.yml` ve aşağıdaki YAML kopyalayın. Güncelleştirme `azurestorageaccountname` ve `azurestorageaccountkey` değerleri base64 ile kodlanmış son adımda alınan değer.
+Adlı bir dosya oluşturun `azure-secret.yaml` ve aşağıdaki YAML kopyalayın. Güncelleştirme `azurestorageaccountname` ve `azurestorageaccountkey` değerleri base64 ile kodlanmış son adımda alınan değer.
 
 ```yaml
 apiVersion: v1
@@ -82,12 +82,12 @@ data:
 Kullanım [kubectl oluşturma] [ kubectl-create] gizli anahtarı oluşturmak için komutu.
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Birim olarak dosya paylaşımını bağlama
 
-Kendi spec birim yapılandırarak, pod, Azure dosya paylaşımı bağlayabilir. Adlı yeni bir dosya oluşturun `azure-files-pod.yml` aşağıdaki içeriğe sahip. Güncelleştirme `aksshare` Azure dosyaları verilen ad paylaşın.
+Kendi spec birim yapılandırarak, pod, Azure dosya paylaşımı bağlayabilir. Adlı yeni bir dosya oluşturun `azure-files-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `aksshare` Azure dosyaları verilen ad paylaşın.
 
 ```yaml
 apiVersion: v1
@@ -112,7 +112,7 @@ spec:
 Kubectl bir pod oluşturmak için kullanın.
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 Şimdi takılabilir, Azure dosya paylaşımı ile çalışan bir kapsayıcıya sahip `/mnt/azure` dizin. Birimi, pod aracılığıyla incelerken bağlama görebilirsiniz `kubectl describe pod azure-files-pod`.
@@ -122,13 +122,16 @@ kubectl apply -f azure-files-pod.yml
 Azure dosyaları kullanarak Kubernetes birimleri hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [Azure dosyaları için Kubernetes eklentisi](https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md)
+> [Azure dosyaları için Kubernetes eklentisi][kubernetes-files]
 
-<!-- LINKS -->
+<!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
+[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+
+<!-- LINKS - internal -->
+[az-group-create]: /cli/azure/group#az_group_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
-[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
-[az-group-create]: /cli/azure/group#az_group_create

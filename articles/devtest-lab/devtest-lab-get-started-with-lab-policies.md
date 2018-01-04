@@ -3,7 +3,7 @@ title: "Azure DevTest Labs temel Laboratuvar ilkeleri yönetme | Microsoft Docs"
 description: "DevTest Labs'de Laboratuvar için temel ilkeleri (ayarlar) bazıları ayarlamak öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
-ms.author: tarcher
-ms.openlocfilehash: e87a37b7aafd774fb0176b74968ad0bba0f5cf3b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: v-craic
+ms.openlocfilehash: f7ccd9f56742fe4500c6f5441623beca28801bcd
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda için temel ilkelerini yönetme
 

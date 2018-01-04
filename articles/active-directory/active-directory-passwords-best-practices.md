@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Self servis parola sıfırlamayı başarıyla kullanıma sunma
 
@@ -37,6 +37,10 @@ Azure Active Directory (Azure AD) self servis parola sıfırlama (SSPR) işlevin
 9. Kaydı ne zaman zorunlu tutacağınızı belirleyin. Kaydı herhangi bir noktada zorunlu tutmayı seçebilirsiniz. Ayrıca, kullanıcıların belirli bir süre sonra kimlik doğrulama bilgilerini yeniden onaylamasını isteyebilirsiniz.
 10. Raporlama özelliğini kullanın. Zaman içinde, [Azure AD’nin sağladığı raporlama özelliği](active-directory-passwords-reporting.md) ile kullanıcı kaydını ve kullanımını gözden geçirebilirsiniz.
 11. Parola sıfırlamayı etkinleştirin. Hazır olduğunuzda, **Self Servis Parola Sıfırlama Etkin** ayarını **Tümü** olarak değiştirerek tüm kullanıcılar için parola sıfırlamayı etkinleştirin. 
+
+   > [!NOTE]
+   > Bu seçeneğin ayarlarını seçili grup iken herkes olarak değiştirmek, kullanıcının test grubunun bir parçası olarak kaydettiği mevcut kimlik doğrulaması verilerini geçersiz kılmaz. Yapılandırılmış ve geçerli kimlik doğrulaması verilerine sahip kullanıcılar işlem yapabilir.
+
 12. [Windows 10 kullanıcılarının oturum açma ekranında parola sıfırlamasını etkinleştirin](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Birçok müşteri için kullanıcıların SSPR kullanmasının en kolay yolu, ku
 
 Büyük müşterilerimizin birçoğu web sayfası barındırmayı ve https://passwords.contoso.com gibi bir kök DNS girişi oluşturmayı seçer. Müşteriler bu sayfayı aşağıdaki bilgilerin bağlantılarıyla doldurur:
 
-* [Azure AD parola sıfırlama portalı](https://aka.ms/sspr)
-* [Azure AD parola sıfırlama kayıt portalı](http://aka.ms/ssprsetup)
-* [Azure AD parola değiştirme portalı](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Azure AD parola sıfırlama portalı - https://aka.ms/sspr](https://aka.ms/sspr)
+* [Azure AD parola sıfırlama kayıt portalı - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Azure AD parola değiştirme portalı - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Kuruluşa özgü diğer bilgiler
 
 Bu sayede, gönderdiğiniz herhangi bir e-posta yazışmasına veya ilanlara kullanıcıların hizmetleri kullanmak gerektiğinde gidebileceği işaretli ve akılda kalıcı bir URL ekleyebilirsiniz. Yararlanmanız için, kuruluşunuzun gereksinimlerine uygun olarak kullanıp özelleştirebileceğiniz [örnek bir parola sıfırlama sayfası](https://github.com/ajamess/password-reset-page) oluşturduk.

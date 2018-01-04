@@ -18,23 +18,22 @@
 | Özel etki alanı [SSL desteği](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Sınırsız SNI SSL bağlantıları |Sınırsız SNI SSL ve 1 IP SSL bağlantılar dahil |Sınırsız SNI SSL ve 1 IP SSL bağlantılar dahil |
 | Tümleşik Yük Dengeleyici | |X |X |X |X |
 | [Her zaman açık](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Zamanlanmış yedeklemeleri](../articles/app-service/web-sites-backup.md) | | | |gün başına 12 |Her 5 dakikada<sup>8</sup> |
+| [Zamanlanmış yedeklemeleri](../articles/app-service/web-sites-backup.md) | | | | Zamanlanmış yedeklemeleri her 2 saatte en fazla 12 yedekleri her gün (el ile + zamanlanmış) | Zamanlanmış yedeklemeleri her saat en çok 50 yedekleri her gün (el ile + zamanlanmış) |
 | [Otomatik ölçeklendirme](../articles/app-service/web-sites-scale.md) | | | |X |X |
-| [Web işleri](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
+| [Web işleri](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Azure Zamanlayıcı](https://azure.microsoft.com/services/scheduler/) desteği | |X |X |X |X |
 | [Uç Nokta izleme](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Hazırlama yuvalarına](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Uygulama başına düşen özel etki alanı</a> | |500 |500 |500 |500 |
-| SLA | |<p> |%99,9 |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
+| SLA | |<p> |%99,9 |99.95%<sup>10</sup> |99.95%<sup>9</sup> |
 
 <sup>1</sup>uygulamaları ve depolama kotaları aksi belirtilmediği sürece uygulama hizmeti plan başına şunlardır.  
 <sup>2</sup>bu makinelerde barındırabilir uygulamalar gerçek sayısını uygulamaları etkinliğini, makine örnekleri ve karşılık gelen kaynak kullanımı boyutunu bağlıdır.  
-<sup>3</sup>ayrılmış örnekleri farklı boyutlarda olabilir. Bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) daha fazla ayrıntı için.  
+<sup>3</sup>ayrılmış örnekleri farklı boyutlarda olabilir. Bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/) daha fazla ayrıntı için.  
 <sup>4</sup>premium katmanı sağlayan en çok 50, örnekleri (tabi kullanılabilirlik) ve 500 GB disk alanı App Service ortamları kullanırken hesaplar ve 20 işlem örnekleri ile 250 GB depolama Aksi takdirde.  
 <sup>5</sup>depolama sınırı toplam içerik tüm uygulamalar aynı uygulama hizmeti planında boyutudur. Daha fazla depolama seçenekleri kullanılabilir [uygulama hizmeti ortamı](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>bu kaynakları (örnek boyutu ve örnek sayısı) adanmış örneklerinde fiziksel kaynaklar tarafından kısıtlanmıştır.  
 <sup>7</sup>temel katmandaki iki örneği için bir uygulama ölçeklendirme, her iki örneği 350 eşzamanlı bağlantı vardır.  
-<sup>8</sup>App Service ortamları kullanırken ve 50 kez günde Aksi takdirde her 5 dakikada bir kadar aşağı yedekleme aralıklarını premium katmanı sağlar.  
-<sup>9</sup>çalıştırmak özel yürütülebilir dosyaları ve/veya komut dosyalarını bir zamanlamaya göre isteğe bağlı veya sürekli olarak App Service içinde bir arka plan görev örneği. WebJob'ların sürekli yürütülebilmesi için Her Zaman Açık özelliği gereklidir. Zamanlanan WebJob'lar için Azure Zamanlayıcı Ücretsiz veya Standart gereklidir. Uygulama hizmeti örneğini çalıştırabilirsiniz WebJobs sayısı önceden tanımlanmış bir sınır yoktur ancak ne uygulama kodu tarafından gerçekleştirilmeye çalışılan bağımlı pratik sınırlarına vardır.   
-<sup>10</sup>99,95 yük devretme için yapılandırılmış Azure trafik Yöneticisi ile birden çok örneği kullanan dağıtımlar için sağlanan % SLA.  
+<sup>8</sup>çalıştırmak özel yürütülebilir dosyaları ve/veya komut dosyalarını bir zamanlamaya göre isteğe bağlı veya sürekli olarak App Service içinde bir arka plan görev örneği. WebJob'ların sürekli yürütülebilmesi için Her Zaman Açık özelliği gereklidir. Zamanlanan WebJob'lar için Azure Zamanlayıcı Ücretsiz veya Standart gereklidir. Uygulama hizmeti örneğini çalıştırabilirsiniz WebJobs sayısı önceden tanımlanmış bir sınır yoktur ancak ne uygulama kodu tarafından gerçekleştirilmeye çalışılan bağımlı pratik sınırlarına vardır.   
+<sup>9</sup>99,95 yük devretme için yapılandırılmış Azure trafik Yöneticisi ile birden çok örneği kullanan dağıtımlar için sağlanan % SLA.  
 

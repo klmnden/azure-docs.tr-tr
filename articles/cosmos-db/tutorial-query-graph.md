@@ -1,9 +1,9 @@
 ---
-title: "Grafik verileri Azure Cosmos veritabanı nasıl? | Microsoft Belgeleri"
+title: "Grafik verileri Azure Cosmos veritabanı nasıl? | Microsoft Docs"
 description: "Sorgu grafik verileri Azure Cosmos veritabanı hakkında bilgi edinin"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 tags: 
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: b47aee24d4cc8e7fdf05ce03ed3aa0fb7c7432b6
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: grafik API'si (Önizleme) ile nasıl?
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: grafik API'si ile nasıl?
 
-Azure Cosmos DB [grafik API'si](graph-introduction.md) (Önizleme) destekleyen [Gremlin](https://github.com/tinkerpop/gremlin/wiki) sorgular. Bu makalede örnek belgelerdeki ve sorgulardaki başlamanıza yardımcı olmak için sunulmaktadır. A ayrıntılı başvuru sağlanır Gremlin [Gremlin Destek](gremlin-support.md) makalesi.
+Azure Cosmos DB [grafik API'si](graph-introduction.md) destekleyen [Gremlin](https://github.com/tinkerpop/gremlin/wiki) sorgular. Bu makalede örnek belgelerdeki ve sorgulardaki başlamanıza yardımcı olmak için sunulmaktadır. A ayrıntılı başvuru sağlanır Gremlin [Gremlin Destek](gremlin-support.md) makalesi.
 
 Bu makalede aşağıdaki görevleri içerir: 
 
 > [!div class="checklist"]
 > * Gremlin verilerle sorgulama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu sorguları çalışmak bir Azure Cosmos DB hesabınız varsa ve grafik verileri kapsayıcısında sahip. Bu yok? Tamamlamak [5 dakikalık quickstart](create-graph-dotnet.md) veya [Geliştirici öğretici](tutorial-query-graph.md) bir hesap oluşturun ve veritabanınızı doldurmak için. Kullanarak aşağıdaki sorguları çalıştırabilirsiniz [Azure Cosmos DB .NET grafik Kitaplığı](graph-sdk-dotnet.md), [Gremlin konsol](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), veya sık kullanılan Gremlin sürücünüzü.
 
@@ -85,4 +85,4 @@ Bu öğreticide, aşağıdakileri yaptığınızdan:
 Verilerinizi Genel dağıtma konusunda bilgi almak için sonraki öğretici şimdi devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Verilerinizi genel Dağıt](tutorial-global-distribution-documentdb.md)
+> [Verilerinizi genel Dağıt](tutorial-global-distribution-sql-api.md)

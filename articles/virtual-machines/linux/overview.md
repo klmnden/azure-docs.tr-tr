@@ -1,6 +1,6 @@
 ---
-title: "Linux VM'ler için Azure'da genel bakış | Microsoft Docs"
-description: "Linux sanal makineleri ile Azure işlem, depolama ve ağ hizmetlerini açıklar."
+title: "Azure'da Linux sanal makinelerine genel bakış | Microsoft Docs"
+description: "Linux sanal makineleriyle Azure İşlem, Depolama ve Ağ hizmetlerini açıklar."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
@@ -12,129 +12,120 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2016
+ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: cef9abddf980c695040e99995eb325eeb182fad4
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.openlocfilehash: 8116ba82838cf0ee610c6dadada0d8bfe6106f34
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-and-linux"></a>Azure ve Linux
-Microsoft Azure koleksiyonudur büyüyen tümleşik genel bulut, depolama, ağ, mobil analytics, sanal makineler, veritabanları dahil olmak üzere Hizmetleri ve web&mdash;çözümlerinizi barındırma için idealdir.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.
+Microsoft Azure çözümlerinizi barındırmak için ideal olan ve giderek büyüyen bir analiz, Sanal Makineler, veritabanları, mobil kullanım, ağ, depolama ve web dahil tümleşik genel bulut hizmetleri koleksiyonudur.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.
 
-Amazon'ın çeşitli özelliklerle tanıdık AWS, Azure vs AWS incelemek [tanımı eşleme belge](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
+Amazon AWS'nin çeşitli özelliklerini tanıyorsanız, Azure - AWS [tanım eşleme belgesini](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) inceleyebilirsiniz.
 
 ## <a name="regions"></a>Bölgeler
-Microsoft Azure kaynakları dünyanın birden çok coğrafi bölgeler arasında dağıtılır.  "Bölge" tek bir coğrafi alan birden çok veri merkezlerinde temsil eder.  Genellikle kullanılabilir 34 bölgeleri dünyanın duyurdu bir ek 4 bölgesiyle sahibiz. Bizim genel kapsamı - genişletmek sürmektedir çünkü bölgelerin güncelleştirilmiş listesini var ve yeni duyurdu korur.
+Microsoft Azure kaynakları, dünyanın farklı yerindeki çeşitli coğrafi bölgelere dağıtılmıştır.  "Bölge", tek bir coğrafi alanda bulunan birden çok veri merkezini temsil eder. Kasım 2017 itibarıyla Azure, dünyanın her yanında genel olarak kullanılabilen 6 bölgeye sahiptir ve 36 bölgenin daha duyurusu yapılmıştır. Mevcut ve yeni duyurulan bölgelerin güncel bir listesi şu sayfada bulunabilir:
 
 * [Azure Bölgeleri](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Kullanılabilirlik
-Tüm diskler için premium depolama alanına sahip VM dağıttığınız bir endüstri başında tek örnek sanal makine % 99,9 Hizmet düzeyi sözleşmesi sağlanan duyurdu.  Dağıtımınız için standart %99,95 VM hizmet düzeyi sözleşmesi nitelemek için sırayla yine bir kullanılabilirlik kümesi içinde iş yükü çalıştıran iki veya daha fazla sanal makineleri dağıtmak gerekir. Bu, sanal makineleri birden çok hata etki alanlarını bizim veri merkezlerinde dağıtılmış yanı sıra farklı bakım pencereleri konaklarla üzerine dağıtılan garanti eder. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
+Azure, sanal makineyi tüm diskler için premium depolamayla dağıtmanız koşuluyla, tek örnekli sanal makinelerde endüstri lideri %99,9 kullanılabilirlik Hizmet Düzeyi Sözleşmesi'nin duyurusunu yaptı.  Dağıtımınızın standart %99,95 VM Hizmet Düzeyi Sözleşmesinin kapsamına girebilmesi için iş yükünüzü çalıştıran iki veya daha fazla VM’yi yine bir kullanılabilirlik kümesi içinde dağıtmanız gerekir. Bir kullanılabilirlik kümesi, VM’lerinizin Azure veri merkezlerinde birden çok hata etki alanına dağıtılmasını ve aynı zamanda dağıtımlarının farklı bakım aralıklarına sahip konaklara yapılmasını sağlar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
 
 ## <a name="managed-disks"></a>Yönetilen Diskler
 
-Yönetilen disklerde tanıtıcıları Azure depolama hesap oluşturma ve arka planda yönetimini ve depolama hesabı ölçeklenebilirlik sınırları hakkında endişelenmeniz gerekmez sağlar. Yalnızca disk boyutu ve performans Katmanı (standart veya Premium) belirtin ve Azure oluşturur ve disk tarafından yönetilir. Disk eklediğinizde veya VM ölçeğini artırıp azalttığınızda bile kullanılan depolama alanı konusunda endişelenmeniz gerekmez. Yeni VM oluşturuyorsanız [Azure CLI 2.0 kullanması](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya VM'ler ile yönetilen işletim sistemi ve veri diskleri oluşturmak için Azure portalı. Yönetilmeyen disklerle VM'ler varsa [yönetilen disklerle yedeklenmesi Vm'leriniz Dönüştür](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Yönetilen Diskler, Azure Depolama hesabı oluşturma ve yönetme işlemini arka planda gerçekleştirir ve depolama hesabının ölçeklenebilirlik sınırları hakkında endişe etmeniz gerekmez. Azure’ın diski oluşturup yönetebilmesi için disk boyutunu ve performans katmanını (Standart veya Premium) belirtmeniz yeterlidir. Disk eklediğinizde veya VM ölçeğini artırıp azalttığınızda kullanılan depolama alanı konusunda endişelenmeniz gerekmez. Yeni VM'ler oluşturuyorsanız, VM'leri Yönetilen işletim sistemi ve veri diskleriyle oluşturmak için [Azure CLI 2.0](quick-create-cli.md) veya Azure Portal kullanın. Yönetilmeyen diskleri olan VM'leriniz varsa, [VM'leri Yönetilen Disklerle desteklenecek şekilde dönüştürebilirsiniz](convert-unmanaged-to-managed-disks.md).
 
-Ayrıca, her Azure bölgesinde bir depolama hesabındaki özel görüntülerinizi yönetebilir ve aynı abonelikte yüzlerce VM oluşturmak için kullanabilirsiniz. Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Yönetilen Disklere Genel Bakış](../windows/managed-disks-overview.md).
+Ayrıca, her Azure bölgesinde bir depolama hesabındaki özel görüntülerinizi yönetebilir ve aynı abonelikte yüzlerce VM oluşturmak için kullanabilirsiniz. Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Yönetilen Disklere Genel Bakış](../linux/managed-disks-overview.md).
 
-## <a name="azure-virtual-machines--instances"></a>Azure sanal makineleri & örnekleri
-Microsoft Azure, sağlanan ve çeşitli iş ortakları tarafından korunan popüler Linux dağıtımları sayısı çalıştırılmasını destekler.  Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD ve daha fazla Azure Marketi gibi dağıtımları bulacaksınız. Biz etkin olarak daha da fazla özellikleri eklemek için çeşitli Linux toplulukları çalışmak [Azure destekli Linux Distro'lar](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) listesi.
+## <a name="azure-virtual-machines--instances"></a>Azure Sanal Makineler ve Örnekleri
+Microsoft Azure, çeşitli iş ortakları tarafından sağlanan ve bakımı yapılan bir dizi popüler Linux dağıtımının çalıştırılmasını destekler.  Azure Market'te Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD gibi daha birçok dağıtım bulabilirsiniz. Microsoft, [Azure destekli Linux Dağıtımları](endorsed-distros.md) listesine daha da fazla çeşitleme katmak için çeşitli Linux topluluklarıyla etkin bir çalışma sürdürüyor.
 
-Tercih edilen Linux distro tercih galeride mevcut değilse, "kendi Linux getirebilir" VM tarafından [oluşturma ve Azure Linux VHD'yi karşıya](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Tercih ettiğiniz Linux dağıtımı şu anda galeride yoksa, [Azure'da Linux VHD'si oluşturma ve karşıya yükleme](create-upload-generic.md) yoluyla "Kendi Linux VM'inizi getirebilirsiniz".
 
-Azure sanal makineler, bilgi işlem Çevik bir şekilde çözümlerinin çeşitli dağıtmanıza olanak sağlamak. Neredeyse tüm iş yükü ve neredeyse tüm işletim sistemi - Windows, Linux, üzerinde herhangi bir dil dağıtabilir veya özel bir tane büyüyen iş ortakları listemiz herhangi birinde oluşturdu. Hala ne aradığınız görmüyorum?  Endişelenmeyin - ayrıca şirket içi kendi görüntülerinizden kullanıma sunabilirsiniz.
+Azure sanal makineleri, çok çeşitli bilgi işlem çözümlerini çevik bir şekilde dağıtmanıza olanak tanır. Neredeyse tüm işletim sistemlerinde (Windows, Linux veya giderek büyüyen iş ortağı listesindeki birinin özel olarak oluşturduğu bir işletim sistemi) hemen her iş yükünü ve dili dağıtabilirsiniz. Hala aradığınızı bulamadınız mı?  Endişelenmeyin; şirket içinden kendi görüntülerinizi de getirebilirsiniz.
 
-## <a name="vm-sizes"></a>VM boyutları
-Azure'da VM dağıttığınızda, iş yükü için uygun bizim dizi boyutları biri içinde bir VM boyutu seçmek için adımıdır. Boyutu, sanal makine işlem gücü, bellek ve depolama kapasitesini de etkiler. VM çalıştıran ve ayrılan kaynakları tüketen zaman miktarına göre faturalandırılır. Tam bir listesi [sanal makinelerin boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="vm-sizes"></a>VM Boyutları
+Kullandığınız VM’nin [boyutu](sizes.md), çalıştırmak istediğiniz iş yüküne göre belirlenir. Seçtiğiniz boyut işlemci gücü, bellek ve depolama kapasitesi gibi ölçütleri belirler. Azure çok sayıda kullanım türünü desteklemek için büyük çeşitlilikteki boyutları sunar.
 
-Burada, bir VM boyutu (A, D, DS, G ve GS) bizim serisi birini seçmek için temel bazı yönergeler bulunmaktadır.
-* A-series VM'ler giriş seviyesi VM'ler hafif iş yükleri ve geliştirme ve Test senaryoları için fiyatlandırılır bizim değerlerdir. Bunlar tüm bölgelerde geniş çapta kullanılabilir ve bağlanabilir ve sanal makineler için kullanılabilir tüm standart kaynakları kullanın.
-* A-series (A8 - A11) özel işlem yoğunluklu yapılandırmaları yüksek performanslı bilgi işlem küme uygulamalar için uygun boyutlarıdır.
-* D Serisi VM'ler, daha yüksek işlem gücüne ve geçici süreli disk performansına ihtiyaç duyan uygulamaları çalıştıracak şekilde tasarlanmıştır. D Serisi VM'ler daha hızlı işlemcilere, daha yüksek bellek-vCPU oranına ve geçici disk için katı hal sürücüsüne (SSD) sahiptir.
-* Dv2-serisi, bizim D-serisi en son sürümü, daha güçlü bir CPU özellikleri. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Üzerinde en son oluşturma dayalı 2.4 GHz Intel Xeon® E5-2673 v3 (Haskell) işlemci ve Intel Turbo artırma teknolojisi 2.0 ile 3,2 GHz gidebilirsiniz. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
-* En fazla belleği sunan G Serisi VM'ler, Intel Xeon E5 V3 ailesi işlemcilere sahip ana bilgisayarlarda çalışır.
-
-Not: DS serisi ve GS serisi VM'ler Premium depolama erişimi - g/ç yoğun iş yükleri için yüksek performanslı, düşük gecikme süreli depolama bizim SSD yedeklenir. Premium Depolama belirli bölgelerde kullanılabilir. Ayrıntılar için bkz.
-
-* [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](../windows/premium-storage.md)
+Azure’un ücretlendirdiği, VM’nin boyutu ve işletim sistemi temelinde [saatlik fiyat](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Kısmi saatler için, Azure yalnızca kullanılan dakikaları ücretlendirir. Depolama ayrı olarak fiyatlandırılır ve ücretlendirilir.
 
 ## <a name="automation"></a>Otomasyon
-Uygun bir DevOps kültür elde etmek için tüm altyapı kodu olmalıdır.  Ne zaman tüm altyapı kolayca olabilir kodda yaşadığı (Phoenix sunucuları) yeniden.  Azure Ansible, Chef, SaltStack ve Puppet gibi tooling ana otomasyon ile çalışır.  Ayrıca Azure Otomasyon için kendi araç sahiptir:
+Düzgün bir DevOps kültürünü başarmak için tüm altyapı kod olmalıdır.  Altyapının tamamı kodda olduğunda, kolayca yeniden oluşturulabilir (Phoenix Sunucuları).  Azure tüm önemli otomasyon araçlarıyla, örneğin Ansible, Chef, SaltStack ve Puppet ile çalışır.  Azure'un ayrıca kendi otomasyon aracı da vardır:
 
-* [Azure şablonları](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure Şablonları](create-ssh-secured-vm-from-template.md)
+* [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure desteği sunulmadan [bulut init](http://cloud-init.io/) destekleyen çoğu Linux Distro'lar arasında.  Şu anda Canonical'ın Ubuntu VM bulut init varsayılan olarak etkin olan dağıtılır.  Kırmızı şapkalar RHEL, CentOS ve Fedora bulut init destekler, ancak Azure görüntüleri RedHat tarafından korunan bulut init yüklü gerekmez.  Bulut init RedHat ailesinde işletim sistemi kullanmak için bulut yüklü başlatma ile özel bir görüntü oluşturmanız gerekir.
+Azure, bunu destekleyen Linux Dağıtımlarının çoğunda [cloud-init](http://cloud-init.io/) desteği sunar.  Şu anda Canonical'ın Ubuntu VM'leri varsayılan olarak cloud-init etkinleştirilmiş olarak dağıtılmaktadır.  Red Hats RHEL, CentOS ve Fedora cloud-init desteğine sahiptir, ancak RedHat'te tutulan Azure görüntülerinde şu an cloud-init yüklü değildir.  RadHat işletim sistemi ailesinde cloud-init kullanmak için, cloud-init'in yüklü olduğu bir özel görüntü oluşturmanız gerekir.
 
-* [Azure Linux VM'ler üzerinde bulut init kullanma](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure Linux VM'lerinde cloud-init kullanma](using-cloud-init.md)
 
 ## <a name="quotas"></a>Kotalar
-Her Azure aboneliği, çok sayıda sanal makineleri projeniz için dağıtım etkileyebilir yerinde varsayılan kota sınırları vardır. Geçerli sınırlar abonelik başına her bölge için 20 VM olarak belirlenmiştir.  Kota sınırları hızlı bir şekilde oluşturulur ve bir sınır isteyen bir destek bileti dosyalama tarafından kolayca artırın.  Kota sınırları hakkında daha fazla ayrıntı için:
+Her Azure Aboneliğinizde, projeniz için çok fazla sayıda VM dağıtımını etkileyebilecek varsayılan kota sınırları vardır. Geçerli sınırlar abonelik başına her bölge için 20 VM olarak belirlenmiştir.  Kota sınırları, sınır artışı isteyen bir destek bileti doldurarak hızla ve kolayca yükseltilebilir.  Kota sınırları hakkındaki diğer ayrıntılar için:
 
-* [Azure aboneliği hizmet sınırları](../../azure-subscription-service-limits.md)
+* [Azure Aboneliği Hizmet Sınırları](../../azure-subscription-service-limits.md)
 
 ## <a name="partners"></a>İş Ortakları
-Microsoft yakından ortaklarımızın kullanılabilir görüntüleri güncelleştirilen ve bir Azure çalışma zamanı için en iyi duruma getirilmiş emin olmak için birlikte çalışır.  Ortaklarımızın hakkında daha fazla bilgi için Market sayfaları denetleyin.
+Microsoft, sağlanan görüntülerin güncelleştirilmiş ve Azure çalışma zamanı için iyileştirilmiş olduğundan emin olmak için iş ortaklarıyla yakın bir çalışma sürdürür.  Azure iş ortakları hakkında daha fazla bilgi için şu bağlantılara göz atın:
 
-* Azure - Linux'ta [destekli dağıtımlar](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Azure[ Destekli Dağıtımlarda](endorsed-distros.md) Linux
 * SUSE - [Azure Market - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* RedHat - [Azure Market - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
-* Kurallı - [Azure Market - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
+* Redhat - [Azure Market - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Canonical - [Azure Market - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Market - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure Market - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-* CoreOS - [Azure Market - CoreOS (kararlı)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
+* CoreOS - [Azure Market - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
 * RancherOS - [Azure Market - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
-* Bitnami - [Azure için Bitnami kitaplığı](https://azure.bitnami.com/)
-* Mesosphere - [Azure Market - Mesosphere DC/OS Azure ile ilgili](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
-* Docker - [Azure Market - Docker Swarm ile Azure kapsayıcı hizmeti](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
+* Bitnami - [Azure için Bitnami Kitaplığı](https://azure.bitnami.com/)
+* Mesosphere - [Azure Market - Azure'da Mesosphere DC/OS](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
+* Docker - [Azure Market - Docker Swarm ile Azure Container Service](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Azure Market - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-## <a name="getting-started-with-linux-on-azure"></a>Linux Azure üzerinde ile çalışmaya başlama
-Azure'ı kullanmaya başlamak için bir Azure hesabı, Azure CLI yüklenmiş ve SSH ortak ve özel anahtar çiftini gerekir.
+## <a name="getting-started-with-linux-on-azure"></a>Azure'da Linux'ı kullanmaya başlama
+Azure'ı kullanmaya başlamak için bir Azure hesabına, yüklü Azure CLI'ye ve bir çift SSH genel ve özel anahtarına ihtiyacınız vardır.
 
 ### <a name="sign-up-for-an-account"></a>Hesap için kaydolma
-Azure bulut kullanmanın ilk adımı, bir Azure hesabı için kaydolun olmaktır.  Git [Azure hesaba kaydolmayı](https://azure.microsoft.com/pricing/free-trial/) başlamak için sayfa.
+Azure Cloud kullanmanın ilk adımı Azure hesabı için kaydolmaktır.  Başlamak için [Azure Hesap Kaydı](https://azure.microsoft.com/pricing/free-trial/) sayfasına gidin.
 
-### <a name="install-the-cli"></a>CLI'yı yükleme
-Yeni Azure hesabınızla, web tabanlı yönetim paneli Azure portal hemen kullanmaya başlayabilirsiniz.  Komut satırı aracılığıyla Azure Bulutu yönetmek için yüklemeniz `azure-cli`.  Yükleme [Azure CLI 2.0](/cli/azure/install-azure-cli) Mac veya Linux istasyonunuzda.
+### <a name="install-the-cli"></a>CLI'yi yükleme
+Yeni Azure hesabınızla, web tabanlı bir yönetim paneli olan Azure Portal'ı kullanmaya hemen başlayabilirsiniz.  Azure Cloud'u komut satırı üzerinden yönetmek için `azure-cli`'yi yüklersiniz.  Mac veya Linux iş istasyonunuza [Azure CLI 2.0](/cli/azure/install-azure-cli)'ı yükleyin.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
-Şimdi bir Azure hesabı, Azure web portalı ve Azure CLI sahiptir.  Sonraki adım, bir parola kullanmadan Linux kullanılan SSH ile SSH anahtar çifti oluşturmaktır.  [Linux ve Mac'de SSH anahtarları oluşturma](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) parolasız ve daha iyi güvenlik etkinleştirmek için.
+Artık Azure hesabınız, Azure web portalınız ve Azure CLI'niz vardır.  Sonraki adım, parola kullanmadan Linux'ta SSH için kullanılan SSH anahtar çiftini oluşturmaktır.  Parolasız oturum açmak ve daha iyi bir güvenlik elde etmek için [Linux ve Mac'te SSH anahtarları oluşturun](mac-create-ssh-keys.md).
 
 ### <a name="create-a-vm-using-the-cli"></a>CLI kullanarak VM oluşturma
-CLI kullanarak bir Linux VM oluşturma çalıştığınız terminal ayrılmadan bir VM'yi dağıtmak için bir hızlı yoludur.  Her şeyi web portalında belirtebilirsiniz, bir komut satırı bayrağı veya anahtar kullanılabilir.  
+CLI kullanarak Linux VM'si oluşturmak, çalıştığınız terminalden çıkmadan VM dağıtımı yapmanın hızlı bir yoludur.  Web portalında belirtebileceğiniz her şey, bir komut satırı bayrağı veya anahtarı aracılığıyla sağlanır.  
 
-* [CLI kullanarak bir Linux VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Portal CLI kullanarak Linux VM oluşturma](quick-create-cli.md)
 
-### <a name="create-a-vm-in-the-portal"></a>Portalda bir VM oluşturma
-Azure web Portalı'nda bir Linux VM oluşturma kolayca üzerine ve bir dağıtım almak için çeşitli seçenekler arasında bir yoludur.  Komut satırı bayrakları veya anahtarları kullanmak yerine, çeşitli seçenekler ve ayarlar iyi web yerleşimini görüntüleyebilirsiniz.  Komut satırı arabirimi kullanılabilir her şeyi da Portalı'nda mevcuttur.
+### <a name="create-a-vm-in-the-portal"></a>Portalda VM oluşturma
+Azure web portalında Linux VM'si oluşturmak, dağıtıma ulaşmak için çeşitli seçenekleri işaretlemenin ve tıklamanın kolay bir yoludur.  Komut satırı bayraklarını veya anahtarlarını kullanmak yerine, çeşitli seçenekler ve ayarların bulunduğu güzel bir web düzeni görebilirsiniz.  Komut satırı arabirimi üzerinden sağlanan her şey portalda da sağlanır.
 
-* [Portalı kullanarak bir Linux VM oluşturma](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Portal kullanarak Linux VM oluşturma](quick-create-portal.md)
 
-### <a name="login-using-ssh-without-a-password"></a>SSH olmadan parola kullanarak oturum açma
-VM artık Azure üzerinde çalışan ve oturum açmak hazırsınız.  Parolalar SSH yoluyla oturum açmak için güvenli ve zaman alıcı kullanmaktır.  SSH anahtarları kullanarak, en güvenli yolu ve ayrıca oturum açmak için en hızlı yolu değildir.  Linux VM portalı veya CLI ile oluşturduğunuz zaman, iki kimlik doğrulama seçeneğiniz vardır.  SSH için bir parola seçerseniz, Azure oturum açma parolaları aracılığıyla izin vermek üzere VM yapılandırır.  Bir SSH ortak anahtarı kullanmayı seçerseniz, Azure VM yalnızca oturum açma bilgileri SSH anahtarları aracılığıyla izin verecek şekilde yapılandırır ve parola oturum açmalar devre dışı bırakır. Linux VM yalnızca SSH anahtar oturumları vererek güvenli hale getirmek için SSH ortak anahtarı seçeneği portalında veya CLI VM oluşturma sırasında kullanın.
+### <a name="log-in-using-ssh-without-a-password"></a>Parola olmadan SSH kullanarak oturum açma
+Artık VM Azure'da çalışıyor ve oturum açmaya hazırsınız.  SSH üzerinden parolalar kullanarak oturum açmak güvenli değildir ve zaman alır.  Oturum açmanın hem en güvenli hem de en hızlı yolu SSH anahtarlarını kullanmaktır.  Linux VM'nizi portal veya CLI aracılığıyla oluştururken, iki kimlik doğrulama seçeneğiniz vardır.  SSH için parolayı seçerseniz, Azure VM'yi parolalarla oturum açmaya izin verecek şekilde yapılandırır.  SSH ortak anahtarı kullanmayı seçerseniz, Azure VM'yi yalnızca SSH anahtarlarıyla oturum açmaya izin verecek şekilde yapılandırır ve parolayla oturum açmayı devre dışı bırakır. Yalnızca SSH anahtarıyla oturum açmaya izin vererek Linux VM'nizin güvenliğini sağlamak için, portalda veya CLI'de VM'yi oluşturma sırasında SSH ortak anahtar seçeneğini kullanın.
 
-## <a name="related-azure-components"></a>İlişkili Azure bileşenleri
+## <a name="related-azure-components"></a>İlgili Azure bileşenleri
 ## <a name="storage"></a>Depolama
 * [Microsoft Azure Depolama'ya Giriş](../../storage/common/storage-introduction.md)
-* [Azure CLI kullanarak bir Linux VM için bir disk ekleyin](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Nasıl bir Linux VM Azure portalında bir veri diski ekleme](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [azure-cli kullanarak Linux VM'sine disk ekleme](add-disk.md)
+* [Azure Portal’da Linux VM’sine veri diski ekleme](attach-disk-portal.md)
 
 ## <a name="networking"></a>Ağ
-* [Sanal ağ genel bakış](../../virtual-network/virtual-networks-overview.md)
+* [Sanal Ağ’a Genel Bakış](../../virtual-network/virtual-networks-overview.md)
 * [Azure’da IP adresleri](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Azure'da bir Linux VM için bağlantı noktalarını açma](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure portalında tam etki alanı adı oluşturma](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure'da Linux VM'sine bağlantı noktalarını açma](nsg-quickstart.md)
+* [Azure Portal'da Tam Etki Alanı Adı oluşturma](portal-create-fqdn.md)
 
 ## <a name="containers"></a>Kapsayıcılar
-* [Sanal makineler ve Azure kapsayıcı](containers.md)
-* [Azure kapsayıcı hizmeti giriş](../../container-service/container-service-intro.md)
+* [Azure’da Sanal Makineler ve Kapsayıcılar](containers.md)
+* [Azure Container Service’e giriş](../../container-service/container-service-intro.md)
 * [Azure Container Service kümesi dağıtma](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık Azure üzerinde Linux genel bir bakış vardır.  Sonraki adım, daha yakından inceleyin ve birkaç VM'ler oluşturmaktır!
+Artık Azure üzerinde Linux'la ilgili genel bakış bilgilerine sahipsiniz.  Sonraki adım, işe girişip birkaç VM oluşturmaktır!
 
-* [Örnek komut dosyalarını ortak görevler için bizim gittikçe artan AzureCLI keşfedin](cli-samples.md)
+* [AzureCLI üzerinden sık kullanılan görevlere yönelik giderek büyüyen örnek betikler listesini inceleyin](cli-samples.md)

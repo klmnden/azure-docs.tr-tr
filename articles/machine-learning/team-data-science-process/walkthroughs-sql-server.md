@@ -14,11 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
+<<<<<<< HEAD
 ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server veri bilimi R, Python ve T-SQL kullanarak izlenecek yollar
 
@@ -39,12 +45,12 @@ Takım veri bilimi işlemi yürütmek ek veri bilimi talimatlara göre grupland�
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>SQL Server ile R T-SQL veya saklı yordamları kullanma ücreti ipuçları tahmin etme
 
-[Veri bilimi kılavuz R ve SQL Server için](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) SQL programcıları Transact-SQL ile Gelişmiş analiz çözümü oluşturma deneyimi sağlayan bir R çözümü faaliyete için SQL Server R Services kullanarak. 
+[Veri bilimi kılavuz R ve SQL Server için](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) SQL programcıları Transact-SQL ile Gelişmiş analiz çözümü oluşturma deneyimi sağlayan bir R çözümü faaliyete için SQL Server R Services kullanarak. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>SQL Server saklı yordamlarda Python kullanarak ücreti ipuçları tahmin etme
 
-[Kullanım T-SQL SQL Server Python Hizmetleri ile](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) izlenecek yol SQL programcıları machine learning SQL Server'daki çözümü derleme bir deneyim sağlar. Saklı yordamlar Python kodu ekleyerek bir uygulamaya Python içerecek şekilde nasıl gösterir.
+[Kullanım T-SQL SQL Server Python Hizmetleri ile](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) izlenecek yol SQL programcıları machine learning SQL Server'daki çözümü derleme bir deneyim sağlar. Saklı yordamlar Python kodu ekleyerek bir uygulamaya Python içerecek şekilde nasıl gösterir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

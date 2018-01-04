@@ -1,5 +1,5 @@
 
-Bir ana bilgisayar yapılandırma dosyası içeren bir kök klasörü ve her biri aşağıdaki örnekteki gibi ayrı bir işleve kodunu içeren bir veya daha fazla alt tüm işlevleri verilen işlevi uygulama kodunu yaşadığı:
+Belirli bir işlev uygulamasında tüm işlevleri için kod içeren bir ana bilgisayar yapılandırma dosyası kök klasör ve bir veya daha fazla alt klasörler bulunur. Her alt aşağıdaki örnekteki gibi ayrı bir işlev için kod içerir:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-*Host.json* dosyası bazı çalışma zamanı özel yapılandırma içeriyor ve işlev uygulaması kök klasöründe bulunur. Kullanılabilir ayarlar hakkında daha fazla bilgi için bkz: [host.json başvuru](../articles/azure-functions/functions-host-json.md).
+Host.json dosyası bazı çalışma zamanı özel yapılandırmaları içerir ve işlev uygulaması kök klasöründe bulunur. Kullanılabilir ayarlar hakkında daha fazla bilgi için bkz: [host.json başvuru](../articles/azure-functions/functions-host-json.md).
 
 Her işlevi bir veya daha fazla kod dosyaları, function.json yapılandırma ve başka bir bağımlılık içeren bir klasörü vardır.
 

@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Azure sanal makinelerini bir Kurtarma Hizmetleri kasasına yedekleme
-> [!div class="op_single_selector"]
-> * [Vm'leri kurtarma Hizmetleri kasasına yedekleme](backup-azure-arm-vms.md)
-> * [Yedekleme Kasası'na Vm'leri yedekleme](backup-azure-vms.md)
->
->
 
 Bu makalede Azure Vm'leri (Resource Manager tarafından dağıtılan ve klasik dağıtılan) bir kurtarma Hizmetleri kasasına yedekleme konusunda ayrıntılı olarak açıklanmaktadır. İşlerin çoğunu VM'lerin yedeklenmesi için hazırlık olur. Yedeklemek veya VM korumak için önce tamamlamanız gereken [Önkoşullar](backup-azure-arm-vms-prepare.md) Vm'lerinizi koruma için ortamınızı hazırlamak için. Sonra önkoşulları tamamladıktan sonra VM anlık görüntülerini almak için yedekleme işlemi başlatabilirsiniz.
 

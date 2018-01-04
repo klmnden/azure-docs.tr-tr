@@ -4,7 +4,7 @@ description: "Oturumu-up/oturum açma sahip bir web uygulamasının nasıl oluş
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: barbaraselden
 ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 3144ced01b524abb035dc1c6f0cdf764bec46804
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7a10ab2e523a98bd8762e209d0f4a13b12ef187
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C kaydolma, oturum açma profili düzenleme ve parola sıfırlama ile bir ASP.NET web uygulaması oluşturma
 
@@ -29,7 +29,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 > * Azure AD B2C dizininizde web uygulamanızı kaydetme
 > * Kullanıcı oturumu-up/oturum açma, profil düzenleme ve web uygulamanız için parola sıfırlama ilkesi oluşturma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Bir Azure hesabına B2C Kiracınızın bağlanmanız gerekir. Ücretsiz bir Azure hesabı oluşturabilirsiniz [burada](https://azure.microsoft.com/en-us/).
 - Gereksinim duyduğunuz [Microsoft Visual Studio](https://www.visualstudio.com/) görüntülemek ve örnek kod değiştirmek için veya benzer bir program.
@@ -49,8 +49,6 @@ Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gere
 Ardından, oluşturma ve uygulama B2C dizininizde kaydetmeniz gerekir. Bu, Azure AD B2C uygulamanız ile güvenli bir şekilde iletişim kurması için gereken bilgileri sağlar. 
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 İşiniz bittiğinde, uygulamanızın ayarlarını bir API ve yerel bir uygulamaya gerekir.
 

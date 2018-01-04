@@ -14,11 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
+<<<<<<< HEAD
 ms.openlocfilehash: a0a4558da0b308799a153b300b098891e933712b
 ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
+=======
+ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Güvenilir hizmetler yaşam döngüsüne genel bakış
 > [!div class="op_single_selector"]
@@ -118,7 +124,7 @@ Service Fabric durum bilgisi olan bir hizmet çeşitli nedenlerle için birincil
 
 İptal düzgün bir şekilde işleyemez Hizmetleri, çeşitli sorunlar yaşayabilirsiniz. Bu işlemler yavaş olduğu hizmetlerin düzgün biçimde durması için Service Fabric bekler. Sonuç olarak bu zaman aşımı başarısız yükseltme sağlama ve geri alma olabilir. İptal belirteci vermenizin hatası imbalanced kümeleri de neden olabilir. Küme düğümleri etkin alırsınız, ancak başka bir yerde taşınması çok uzun sürdüğü için hizmetleri yeniden dengelenir yapılamıyor çünkü dengesiz olur. 
 
-Hizmetleri durum bilgisi olduğundan, ayrıca bunların kullanmak büyük olasılıkla [güvenilir koleksiyonları](service-fabric-reliable-services-reliable-collections.md). Birincil indirgenir, Service Fabric içinde gerçekleşen ilk şey alttaki durumu yazma erişimi iptal edilmediğini biridir. Bu hizmet yaşam döngüsü etkileyebilecek sorunları ikinci bir dizi sağlar. Zamanlama ve yineleme olup taşındığı dönüş özel durumlar göre koleksiyonları veya kapat. Bu özel durumlar doğru yapılmalıdır. Service Fabric tarafından oluşturulan özel durumları kalan kalıcı [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) ve geçici [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) kategoriler. Kalıcı özel durumları günlüğe ve bazı yeniden deneme mantığına göre geçici özel durumlar denenebilir sırada oluşturulur.
+Hizmetleri durum bilgisi olduğundan, ayrıca bunların kullanmak büyük olasılıkla [güvenilir koleksiyonları](service-fabric-reliable-services-reliable-collections.md). Birincil indirgenir, Service Fabric içinde gerçekleşen ilk şey alttaki durumu yazma erişimi iptal edilmediğini biridir. Bu hizmet yaşam döngüsü etkileyebilecek sorunları ikinci bir dizi sağlar. Zamanlama ve yineleme olup taşındığı dönüş özel durumlar göre koleksiyonları veya kapat. Bu özel durumlar doğru yapılmalıdır. Service Fabric tarafından oluşturulan özel durumları kalan kalıcı [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) ve geçici [(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) kategoriler. Kalıcı özel durumları günlüğe ve bazı yeniden deneme mantığına göre geçici özel durumlar denenebilir sırada oluşturulur.
 
 Kullanımından gelen özel durumları işleme `ReliableCollections` hizmet yaşam döngüsü olayları ile birlikte test etme ve güvenilir bir hizmeti doğrulanıyor önemli bir parçasıdır. Yükseltme gerçekleştirirken hizmetinizi yük altında her zaman çalıştırmanızı öneririz ve [chaos sınama](service-fabric-controlled-chaos.md) üretime dağıtmadan önce. Bu temel adımları hizmetinizin doğru uygulanır ve yaşam döngüsü olayları doğru olarak işler sağlamaya yardımcı olur.
 

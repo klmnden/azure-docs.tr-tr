@@ -4,7 +4,7 @@ description: "Bu sayfa, kullanıcıların uygulama parolaları nedir ve ne için
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: c10a636b81751074f219682fec79ffe9f648a2c8
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması'ndaki uygulama parolaları nedir?
-Exchange Active Sync kullanan Apple yerel e-posta istemcisi gibi belirli bir tarayıcı olmayan uygulamaları, şu anda çok faktörlü kimlik doğrulamasını desteklemez. Çok faktörlü kimlik doğrulaması kullanıcı başına etkinleştirilir. Bu, bir kullanıcı için multi-Factor authentication etkinleştirildi ve tarayıcı olmayan uygulamaları kullanmaya çalıştığınız, bunlar yapamıyor olacağı anlamına gelir. Bir uygulama parolası bunun olabilmesini sağlar.
+Exchange Active Sync kullanan Apple yerel e-posta istemcisi gibi belirli bir tarayıcı olmayan uygulamaları, şu anda çok faktörlü kimlik doğrulamasını desteklemez. Çok faktörlü kimlik doğrulaması kullanıcı başına etkinleştirilir. Bu, bir kullanıcı için multi-Factor authentication etkinleştirildi ve tarayıcı olmayan uygulamaları kullanmaya çalıştığınız, bunlar yapamıyor olacağı anlamına gelir. Bir uygulama parolası bunun olabilmesini sağlar. Kullanıcı başına MFA üzerinden değil ve koşullu erişim ilkeleri aracılığıyla çok faktörlü kimlik doğrulamasını zorunlu kılarsanız, uygulama parolaları oluşturamazsınız. Erişimi denetlemek için koşullu erişim ilkeleri kullanan uygulamalar, uygulama parolaları gerekmez.
 
 Bir uygulama parolası olduktan sonra bunu özgün parolanızı bu tarayıcı olmayan uygulamaları ile yerine kullanın. İki aşamalı doğrulama için kaydolduğunuzda, herkesin ikinci doğrulama de gerçekleştiremezsiniz parolanızla oturum oturum vermez Microsoft'a söyleyen olmasıdır. İki aşamalı doğrulama için istenemez çünkü telefonunuzda Apple yerel e-posta istemcisi olarak oturum açamaz. Bu günlük, ancak yalnızca iki aşamalı doğrulamayı destekleyemez bu uygulamaları için kullanmadığınız daha güvenli bir uygulama parolası oluşturmak için çözümüdür. Uygulamalar çok faktörlü kimlik doğrulamasını atlamak ve çalışmaya devam uygulama parolasını kullanın.
 

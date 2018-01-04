@@ -22,6 +22,7 @@ Birden fazla özel IP adresi ile oluşturduğunuz sanal makineye bağlanın ve o
     * **Tamam**’a tıklayarak TCP/IP ayarlarını kapatın ve ardından tekrar **Tamam**’a tıklayarak bağdaştırıcı ayarlarını kapatın. RDP bağlantınız yeniden kurulur.
 
 6. Bir komut isteminde *ipconfig/all* yazın. Eklediğiniz tüm IP adresleri gösterilir ve DHCP kapatılır.
+7. Windows özel IP adresini birincil IP yapılandırmasının Azure'da Windows için birincil IP adresi olarak kullanacak şekilde yapılandırın. Bkz: [birden çok IP adresi varsa Azure Windows VM Hayır Internet erişimden](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) Ayrıntılar için. 
 
 
 ### <a name="validation-windows"></a>Doğrulama (Windows)

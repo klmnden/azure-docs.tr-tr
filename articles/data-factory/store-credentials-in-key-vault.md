@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure anahtar kasası kimlik bilgisi deposu
 
-Veri depolarında kimlik bilgilerini depolamak bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Azure Data Factory veri deposunu kullanan bir etkinliği yürütülürken kimlik bilgilerini alır. Şu anda yalnızca [Dynamics Bağlayıcısı](connector-dynamics-crm-office-365.md) ve [Salesforce bağlayıcı](connector-salesforce.md) bu özelliği desteklemez.
+Veri depolarında kimlik bilgilerini depolamak bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Azure Data Factory veri deposunu kullanan bir etkinliği yürütülürken kimlik bilgilerini alır.
+
+Şu anda [Dynamics Bağlayıcısı](connector-dynamics-crm-office-365.md), [Salesforce bağlayıcı](connector-salesforce.md) ve birkaç bu özelliği yeni bağlayıcılar desteği etkinleştirin. Daha fazla daha sonra gelen bekler. Her bağlayıcı konu ayrıntıları kontrol edebilirsiniz. Bu özelliği destekleyen gizli alanlar için açıklama bildiren bir notta görürsünüz "*Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar Kasası ' parola depolamak ve buradan kopyalama etkinliklere çekme izin için SecureString olarak işaretlemek seçebilirsiniz veri kopyalama - gerçekleştirirken anahtar kasasında depolama kimlik bilgileri'dan daha fazla bilgi edinin.* "
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory version1 belgelerine](v1/data-factory-introduction.md).
@@ -70,7 +72,7 @@ Bir anahtar kasası gizlilik başvuran bağlantılı hizmetteki bir alan yapıla
 | type | Alanın türü özelliğini ayarlamak: **AzureKeyVaultSecret**. | Evet |
 | secretName | Azure anahtar kasası gizliliği adı. | Evet |
 | secretVersion | Azure anahtar kasası gizliliği sürümü.<br/>Belirtilmezse, her zaman en son sürümünü gizli anahtarı kullanır.<br/>Ardından belirtilirse, belirtilen sürüme sticks.| Hayır |
-| Depolama | Kimlik bilgilerini saklamak için kullanacağınız bir Azure anahtar kasası bağlantılı hizmeti ifade eder. | Evet |
+| mağaza | Kimlik bilgilerini saklamak için kullanacağınız bir Azure anahtar kasası bağlantılı hizmeti ifade eder. | Evet |
 
 **Örnek: ("parola" bölümüne bakın)**
 

@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
 ms.author: mimig
-ms.openlocfilehash: f2687369b8e247f00e9de5f3f79d8e44be5b8300
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure Cosmos DB Azure PowerShell örnekleri
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Aşağıdaki tabloda Azure Cosmos DB için örnek Azure PowerShell betikleri bağlantılarını içerir. Şu anda yalnızca Azure Cosmos DB accountlayer PowerShell aracılığıyla yönetebilirsiniz; veritabanları ve koleksiyonlarına gibi başka kaynaklar PowerShell yönetilemez.
 
 | |  |
 |---|---|
 |**Bir Azure Cosmos DB hesabı oluşturma**||
-|[Bir DocumentDB API hesabı oluşturun](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| DocumentDB API'si ile kullanmak için tek bir Azure Cosmos DB hesabı oluşturur. |
+|[Bir SQL API hesabı oluşturun](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| SQL API ile kullanmak için tek bir Azure Cosmos DB hesabı oluşturur. |
 |**Azure Cosmos DB ölçeklendirme**||
 |[Birden çok bölgeye Azure Cosmos DB hesabında çoğaltabilir ve yük devretme öncelikleri yapılandırın](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Belirtilen yük devretme önceliğe sahip birden çok bölgeleri genel hesap verilerini çoğaltır.|
 |**Azure Cosmos DB güvenli**||

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: tamram
-ms.openlocfilehash: dbc81edd24ee714fbb173ed395a2f2fc91773fff
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45883d59e5fe9ab2b7a09bfdc6c11a681bd43d0b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Çoğaltma işlemi, belirlediğiniz çoğaltma seçeneğine göre verilerinizi aynı veri merkezine veya ikinci bir veri merkezine kopyalar. Çoğaltma işlemi, geçici donanım hataları söz konusu olduğunda uygulamanızın çalışma süresini ve verilerinizi korur. Verileriniz için ikinci bir veri merkezi çoğaltılır, birincil konumda yıkıcı bir hatadan korunmaktadır.
@@ -40,7 +40,7 @@ Aşağıdaki tabloda daha ayrıntılı çoğaltma her türünü sonraki bölüml
 |:--- |:--- |:--- |:--- |:--- |
 | Veriler birden çok veri merkezi arasında çoğaltılır. |Hayır |Evet |Evet |Evet |
 | Verileri ikincil bir konuma yanı sıra birincil konumda okuyabilir. |Hayır |Hayır |Hayır |Evet |
-| Ayrı düğümlerde tutulan veri kopyası sayısı. |3 |3 |6 |6 |
+| Belirli bir yılda nesnelerin ___ dayanıklılık sağlamak üzere tasarlanmıştır. |en az %99.999999999 (11 9'ın)|en az %99.9999999999 (12 9'ın)|en az %99.99999999999999 (16 9'ın)|en az %99.99999999999999 (16 9'ın)|
 
 Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) farklı artıklık seçenekleri için fiyatlandırma bilgilerini için.
 
@@ -52,7 +52,7 @@ Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/detai
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Bölge olarak yedekli depolama
-Bölge olarak yedekli depolama (ZRS) verilerinizi benzer LRS, böylece LRS'den daha fazla dayanıklılık sağlamak için üç çoğaltmaları depolamak yanı sıra bir veya iki bölgeleri içindeki veri merkezleri arasında zaman uyumsuz olarak çoğaltır. Birincil veri merkezindeki kullanılamıyor veya kurtarılamaz olsa bile, ZRS içinde depolanan verileri dayanıklı.
+Bölge olarak yedekli depolama (ZRS) en az %99.9999999999 sağlamak için tasarlanmıştır (12 9'in) dayanıklılık verilerinizi, böylece LRS'den daha fazla daha yüksek bir dayanıklılık sağlayan bir veya iki bölgeleri içindeki veri merkezleri arasında zaman uyumsuz olarak çoğaltan tarafından verilen bir yıl içinde nesne. Birincil veri merkezindeki kullanılamıyor veya kurtarılamaz olsa bile, ZRS içinde depolanan verileri dayanıklı.
 ZRS kullanmayı planlıyorsanız müşteriler kullanan:
 
 * ZRS, yalnızca blok bloblar genel amaçlı depolama hesapları için kullanılabilir ve yalnızca depolama hizmeti sürümleri 2014-02-14 içinde ve üzerinde desteklenir.
@@ -73,7 +73,7 @@ Dikkate alınacak noktalar:
 
 * Bunu ile RA-GRS kullanırken etkileşimde hangi uç noktaya yönetmek, uygulamanızın sahiptir.
 * Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, bölgesel bir olağanüstü durumda birincil bölgesinden veri kurtarılamazsa, ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolacak mümkündür.
-* Microsoft ikincil bölgeye yük devretme durumunda başlatır, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](../storage-disaster-recovery-guidance.md). 
+* Microsoft ikincil bölgeye yük devretme durumunda başlatır, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](../storage-disaster-recovery-guidance.md).
 * RA-GRS, yüksek kullanılabilirlik sağlamak için tasarlanmıştır. Ölçeklenebilirlik yönergeleri için lütfen inceleyin [performans denetim listesi](../storage-performance-checklist.md).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
@@ -81,7 +81,8 @@ Dikkate alınacak noktalar:
 <a id="howtochange"></a>
 #### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Depolama Hesabımı coğrafi çoğaltma türünü nasıl değiştirebilir miyim?
 
-   Depolama hesabınız LRS, GRS ve RA-GRS kullanarak arasında coğrafi çoğaltma türünü değiştirebilirsiniz [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) veya program aracılığıyla bizim birçok depolama istemci kitaplıklarından birini kullanma. Lütfen ZRS hesapları dönüştürülen LRS veya GRS olamayacağını unutmayın. Benzer şekilde, varolan LRS veya GRS hesabı ZRS hesabına dönüştürülemiyor.
+   Depolama hesabınız LRS, GRS ve RA-GRS kullanarak arasında coğrafi çoğaltma türünü değiştirebilirsiniz [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) veya program aracılığıyla bizim birçok depolama istemci kitaplıklarından birini kullanma.
+Lütfen ZRS hesapları dönüştürülen LRS veya GRS olamayacağını unutmayın. Benzer şekilde, varolan LRS veya GRS hesabı ZRS hesabına dönüştürülemiyor.
 
 <a id="changedowntime"></a>
 #### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. Depolama Hesabımı çoğaltma türünü değiştirirseniz var. herhangi kesinti olacak?
@@ -91,26 +92,27 @@ Dikkate alınacak noktalar:
 <a id="changecost"></a>
 #### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. Depolama Hesabımı çoğaltma türünü değiştirirseniz, ek bir maliyet var. olacak mı?
 
-   Evet. Depolama hesabınız için GRS (veya RA-GRS) LRS'den değiştirirseniz, var olan verileri birincil konumdan ikincil konuma kopyalanması söz konusu çıkışı için ek bir ücret doğurur. İlk veri kopyalandıktan sonra coğrafi veri birincil sunucudan ikincil konuma çoğaltmak için daha fazla ek çıkış ücretsiz yoktur. Bant genişliği ücretleri ayrıntılarını bulunabilir [Azure depolama Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/storage/blobs/). LRS için GRS değiştirirseniz, ek bir maliyet yoktur, ancak ikincil konumdan verileriniz silinir.
+   Evet. Depolama hesabınız için GRS (veya RA-GRS) LRS'den değiştirirseniz, var olan verileri birincil konumdan ikincil konuma kopyalanması söz konusu çıkışı için ek bir ücret doğurur. İlk veri kopyalandıktan sonra coğrafi veri birincil sunucudan ikincil konuma çoğaltmak için daha fazla ek çıkış ücretsiz yoktur. Bant genişliği ücretleri ayrıntılarını bulunabilir [Azure depolama Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/storage/blobs/).
+LRS için GRS değiştirirseniz, ek bir maliyet yoktur, ancak ikincil konumdan verileriniz silinir.
 
 <a id="ragrsbenefits"></a>
 #### <a name="4-how-can-ra-grs-help-me"></a>4. RA-GRS bana nasıl yardımcı?
-   
-   GRS depolama çoğaltmayı birincil sunucudan verileriniz birincil bölge çıktığınızda mil yüzlerce olan ikincil bir bölgeye sağlar. Böyle bir durumda, hatta tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil söz konusu olduğunda dayanıklı verilerdir. RA-GRS depolama bu içerir ve verileri ikincil konumdan okuma özelliği ekler. Bu özelliği kullanabilmeniz nasıl hakkında bazı fikir edinmek için lütfen [tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](../storage-designing-ha-apps-with-ragrs.md). 
+
+   GRS depolama çoğaltmayı birincil sunucudan verileriniz birincil bölge çıktığınızda mil yüzlerce olan ikincil bir bölgeye sağlar. Böyle bir durumda, hatta tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil söz konusu olduğunda dayanıklı verilerdir. RA-GRS depolama bu içerir ve verileri ikincil konumdan okuma özelliği ekler. Bu özelliği kullanabilmeniz nasıl hakkında bazı fikir edinmek için lütfen [tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](../storage-designing-ha-apps-with-ragrs.md).
 
 <a id="lastsynctime"></a>
 #### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Bana verilerimi birincil sunucudan ikincil bölge'ye çoğaltmak için gereken süreyi şekil için bir yolu var mı?
-   
-   RA-GRS depolama kullanıyorsanız, depolama hesabınıza son eşitleme zamanı kontrol edebilirsiniz. Son eşitleme saati GMT tarih/saat değeridir; Son eşitleme zamanı önce tüm birincil yazma başarıyla ikincil konumdan okumak kullanılabilir olduğu anlamına gelir ve ikincil konum için yazılmıştır. Son eşitleme süresi okumalar henüz kullanılabilir durumda olmayabilir veya sonra birincil yazar. Bu değeri kullanarak sorgulama yapabilirsiniz [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), veya program aracılığıyla REST API veya depolama istemci kitaplıklarından birini kullanarak. 
+
+   RA-GRS depolama kullanıyorsanız, depolama hesabınıza son eşitleme zamanı kontrol edebilirsiniz. Son eşitleme saati GMT tarih/saat değeridir; Son eşitleme zamanı önce tüm birincil yazma başarıyla ikincil konumdan okumak kullanılabilir olduğu anlamına gelir ve ikincil konum için yazılmıştır. Son eşitleme süresi okumalar henüz kullanılabilir durumda olmayabilir veya sonra birincil yazar. Bu değeri kullanarak sorgulama yapabilirsiniz [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), veya program aracılığıyla REST API veya depolama istemci kitaplıklarından birini kullanarak.
 
 <a id="outage"></a>
 #### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. Birincil bölgede bir kesinti durumunda nasıl ikincil bölge'ye geçebilirsiniz?
-   
+
    Lütfen makalesine başvurun [bir Azure Storage kesinti oluşursa yapmanız gerekenler](../storage-disaster-recovery-guidance.md) daha fazla ayrıntı için.
 
 <a id="rpo-rto"></a>
 #### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. RPO ve GRS ile RTO nedir?
-   
+
    Kurtarma noktası hedefi (RPO): GRS ve RA-GRS depolama hizmeti zaman uyumsuz olarak coğrafi çoğaltır verilerini birincil ve ikincil konum. Önemli bir bölgesel olağanüstü durum yoktur ve bir yük devretme gerçekleştirilecek sahipse, coğrafi olarak çoğaltılmış edilmemiş son delta değişiklikler kaybolabilir. Kayıp olası veri dakika sayısı (yani noktası verilerin kurtarılabilmesini zamanında) RPO olarak adlandırılır. Genellikle bir RPO 15 dakikadan kısa sahibiz, olmasına rağmen şu anda hiçbir SLA ne kadar süreyle coğrafi çoğaltma üzerinde alır.
 
    Kurtarma süresi hedefi (RTO): Bu, yük devretme işlemi gerçekleştirin ve bir yük devretme yapmak varsa depolama hesabı çevrimiçine almak için bize süreyi bir ölçüsüdür. Yük devretme için zaman aşağıdakileri içerir:
@@ -118,7 +120,7 @@ Dikkate alınacak noktalar:
     * İkincil konumunu gösterecek şekilde yük devretme, birincil DNS girişlerini değiştirerek hesabı.
 
    Biz, veri kurtarma ihtimali varsa, biz yük devretme yapmayı bekletir ve birincil konumda veri kurtarma odaklanmak için verilerinizi çok ciddiye koruma sorumluluğunu alın. Gelecekte, ardından RTO kendiniz denetlemenize olanak tanır, bir hesap düzeyinde bir yük devretme tetiklemek izin vermek için bir API sağlayan planlıyoruz ancak bu henüz kullanılabilir değil.
-   
+
 ## <a name="next-steps"></a>Sonraki adımlar
 * [RA-GRS depolama kullanarak yüksek oranda kullanılabilir uygulamalar tasarlama](../storage-designing-ha-apps-with-ragrs.md)
 * [Azure Depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/)
@@ -126,4 +128,3 @@ Dikkate alınacak noktalar:
 * [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md)
 * [Microsoft Azure Depolama artıklık seçenekleri ve okuma erişimi coğrafi olarak yedekli depolama](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP belgesi - Azure Storage: Yüksek oranda kullanılabilir depolama sahip bulut hizmeti güçlü tutarlılık](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-

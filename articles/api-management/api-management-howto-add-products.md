@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>Oluşturma ve bir ürün yayımlama  
 
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ![eklenen ürün](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 + Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 + Ayrıca, aşağıdaki öğreticiye: [alma ve ilk API'nizi yayımlama](import-and-publish.md).
@@ -54,12 +54,12 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
     |Ad|Ürünün açıklayıcı bir ad.|
     |Açıklama|**Açıklama** alan amacı, erişim sağladığı API'ları ve diğer yararlı bilgiler gibi ürün hakkında ayrıntılı bilgi sağlamak sağlar.|
     |Durum|Tuşuna **yayımlanan** ürün yayımlama istiyorsanız. Bir ürün API'lerinde çağrılabilir önce ürünün yayımlanması gerekir. Varsayılan olarak yeni ürünler yayımdan ve yalnızca görünür **Yöneticiler** grubu.|
-    |Onay gerekiyor.|Denetleme **abonelik onayı iste** gözden geçirin ve kabul edin ya da bu ürünün abonelik girişimleri reddetmek için yönetici istiyorsanız. Kutunun işaretli değilse abonelik girişimleri otomatik olarak onaylanır. |
-    |Abonelik sayısı sınırı|Birden çok aboneliğe sayısını sınırlamak için abonelik sınırı girin. |
+    |Onay gerektiriyor|Denetleme **abonelik onayı iste** gözden geçirin ve kabul edin ya da bu ürünün abonelik girişimleri reddetmek için yönetici istiyorsanız. Kutunun işaretli değilse abonelik girişimleri otomatik olarak onaylanır. |
+    |Abonelik sayısı limiti|Birden çok aboneliğe sayısını sınırlamak için abonelik sınırı girin. |
     |Yasal koşullar|Ürünü kullanmak için hangi aboneleri kabul etmeniz gerekir ürün için kullanım koşullarını içerebilir.|
     |API'ler|Ürün bir veya daha fazla API'leri ilişkilendirmelerini değil. Geliştiriciler Geliştirici Portalı aracılığıyla sunar ve API sayısını içerir. <br/> Ürün oluşturma sırasında var olan bir API ekleyebilirsiniz. Ürünün daha sonra ürünlerden ya da bir API ekleyebilirsiniz **ayarları** sayfasında veya oluşturulurken bir API.|<br/>Geliştiriciler ilk API erişmek için bir ürüne abone olması gerekir. Bunlar abone olduğunuzda, bunlar herhangi bir API'yi bu ürün için iyi bir abonelik anahtarı alın.<br/> APIM örneği oluşturduysanız, varsayılan olarak her ürüne abone için zaten yönetici olduğunuz.|
 
-3. Tıklatın **kaydetmek** yeni ürün oluşturmak için.
+3. Tıklatın **oluşturma** yeni ürün oluşturmak için.
 
 ### <a name="add-more-configurations"></a>Daha fazla yapılandırmalarını ekleyin
 

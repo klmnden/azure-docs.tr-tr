@@ -4,7 +4,7 @@ description: "Nasıl Azure Active Directory her kullanıcı erişimi olan uygula
 services: active-directory
 documentationcenter: 
 author: femila
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b0829f18-9e57-4107-925d-5f0457d81671
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: 6170b78f888679ab358198d940c82a00fa5e43a1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 363478cb1bb2637a8c4f9cf36505817b163df781
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-access-to-apps"></a>Uygulamalara erişimi yönetme
 Devam eden erişim yönetimi, kullanım değerlendirme ve raporlama bir uygulama, kuruluşunuzun kimlik sisteme tümleştirildikten sonra bir sınama devam etmektedir. Çoğu durumda, BT yöneticileri veya Yardım Masası sahip uygulamalarınıza erişimi yönetme bir devam eden etkin rol gerçekleştirilecek. Bazı durumlarda, atama genel veya bölümsel BT ekibi tarafından gerçekleştirilir. Genellikle, atama karar onaylarını BT yapar önce gerektiren iş karar veren temsilci amaçlanmıştır atama.  Varolan otomatik kimlik ve erişim yönetimi sistemi kullanarak, rol tabanlı erişim denetimi (RBAC) veya öznitelik tabanlı erişim denetimi (ABAC) gibi tümleştirme, diğer kuruluşların yatırım. Tümleştirme ve kural geliştirme özelleştirilmiş ve pahalı olma eğilimindedir. İzleme veya raporlama ya da Yönetim yaklaşımını kendi ayrı, pahalı ve karmaşık bir yatırımdır.

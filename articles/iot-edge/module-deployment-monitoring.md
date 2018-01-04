@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>IOT kenar dağıtımları tek cihazlar için veya ölçekte anlamak - Önizleme
 
@@ -57,7 +57,23 @@ Her modül için yapılandırma meta verilerini içerir:
 
 ### <a name="target-condition"></a>Hedef durumu
 
-Hedefleme koşulları IOT sınır cihazı bir dağıtım kapsam altında olup olmayacağını belirtin. Hedefleme koşullar cihaz çifti etiketlerini temel alır. 
+Hedef durumu gereksinimlerini karşılayan yeni aygıtları dahil etmek veya artık dağıtım yaşam süresi yapmak aygıtları kaldırmak için sürekli olarak değerlendirilir. Hizmeti herhangi bir hedef koşul değişiklik algılarsa, dağıtım yeniden. Örneğin, hedef koşulu tags.environment olan bir dağıtım A sahip 'üretim' =. Dağıtımı devre dışı kazandırın, 10 üretim aygıtı yok. Modüller, bu 10 cihazların başarıyla yüklenir. IOT kenar aracı durumu 10 toplam cihaz olarak 10 başarıyla yanıtları, 0 yanıtı hatası ve 0 bekleyen yanıtları gösterilir. Tags.environment ile daha fazla 5 cihaz Ekle şimdi 'üretim' =. Hizmet değişikliği algılar ve IOT kenar aracı durumu 15 toplam aygıt, 10 başarıyla olur yanıtları, 0 hata yanıtları ve beş yeni cihazlara dağıtmak çalıştığında 5 bekleyen yanıtlar.
+
+Herhangi bir Boolean koşul cihaz çiftlerini etiketler veya DeviceID hedef cihazlar seçmek için kullanın. Koşul etiketleriyle kullanmak istiyorsanız, "etiketler" özellikleri aynı düzeyde altında cihaz çiftine :{} bölümü eklemeniz gerekir. [Cihaz çifti etiketleri hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Hedef koşul örnekleri:
+* DeviceID 'linuxprod1' =
+* Tags.Environment 'üretim' =
+* Tags.Environment 'üretim' ve tags.location = 'westus' =
+* Tags.Environment 'üretim' veya tags.location = 'westus' =
+* Tags.operator = 'Gamze' ve tags.environment 'üretim' değil DeviceID = 'linuxprod1' =
+
+Hedef durumu yapısı oluştururken bazı kısıtlar şunlardır:
+
+* Cihaz çiftine etiketler veya DeviceID kullanarak bir hedef durumu yalnızca oluşturabilirsiniz.
+* Çift tırnak işareti herhangi bir kısmının hedef durumu izin verilmez. Lütfen tek tırnak işareti kullanın.
+* Tek tırnak hedef durumu değerini temsil eder. Bu nedenle, aygıt adı parçası ise başka bir tek tırnaklı tek teklifle kaçış gerekir. Örneğin, için hedef durumu: operator'sDevice DeviceID yazılması gerekir =' işleci '' sDevice'.
+* Sayı, harf ve şu karakterleri hedef koşulu values:-:.+%_#* izin verilir? (),=@;$
 
 ### <a name="priority"></a>Öncelik
 

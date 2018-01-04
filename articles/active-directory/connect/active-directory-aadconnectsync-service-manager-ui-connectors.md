@@ -4,7 +4,7 @@ description: "Eşitleme Hizmeti Yöneticisi'nde bağlayıcılar sekmesi için Az
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0fae4b1755ca95466eeffb5ce61c1c7855d7381
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Azure AD Connect Eşitleme Hizmeti Yöneticisi ile bağlayıcıları kullanma
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Bağlayıcılar sekmesi, eşitleme altyapısı bağlı tüm sistemleri yönetmek için kullanılır.
 
 ## <a name="connector-actions"></a>Bağlayıcı Eylemler
-| Eylem | Açıklama |
+| Eylem | Yorum |
 | --- | --- |
 | Oluştur |Kullanmayın. Ek AD ormanına bağlanmak için Yükleme Sihirbazı'nı kullanın. |
 | Özellikler |Etki alanı ve OU filtreleme için kullanılır. |
@@ -39,7 +39,7 @@ Bağlayıcılar sekmesi, eşitleme altyapısı bağlı tüm sistemleri yönetmek
 | Bağlayıcı dışarı aktarma |Kullanmayın. |
 | İçeri aktarma Bağlayıcısı |Kullanmayın. |
 | Güncelleştirme Bağlayıcısı |Kullanmayın. |
-| Şema Yenile |Önbelleğe alınan şema yeniler. Bu yana, aynı zamanda güncelleştirmeleri kuralları eşitleme, bunun yerine, Yükleme Sihirbazı'nda bu seçeneği kullanmak için tercih edilir. |
+| Şemayı Yenile |Önbelleğe alınan şema yeniler. Bu yana, aynı zamanda güncelleştirmeleri kuralları eşitleme, bunun yerine, Yükleme Sihirbazı'nda bu seçeneği kullanmak için tercih edilir. |
 | [Bağlayıcı alanı arama](#search-connector-space) |Nesneleri bulmak için kullanılan ve [bir nesne ve verileri sistemi aracılığıyla izleyin](#follow-an-object-and-its-data-through-the-system). |
 
 ### <a name="delete"></a>Sil

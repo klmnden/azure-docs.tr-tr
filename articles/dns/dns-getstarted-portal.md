@@ -3,8 +3,8 @@ title: "Azure Portal ile Azure DNS’i kullanmaya başlama | Microsoft Docs"
 description: "Azure DNS'te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure portalı kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Azure portal ile Azure DNS’i kullanmaya başlama
 
 > [!div class="op_single_selector"]
 > * [Azure portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
 Bu makalede, Azure portalı kullanarak ilk DNS bölgesi ve kaydınızı oluşturma adımları gösterilmektedir. Ayrıca, Azure PowerShell veya platformlar arası Azure CLI kullanarak aşağıdaki adımları gerçekleştirebilirsiniz.
@@ -36,11 +35,11 @@ DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
 1. Azure portalında oturum açın
-2. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur dikey penceresini açın.
+2. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak **DNS bölgesi oluştur** sayfasını açın.
 
     ![DNS bölgesi](./media/dns-getstarted-portal/openzone650.png)
 
-4. **DNS bölgesi oluştur** dikey penceresinde aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
+4. **DNS bölgesi oluştur** sayfasında aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
 
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
@@ -57,11 +56,11 @@ DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak 
 
 Aşağıdaki örnek yeni bir 'A' kaydı oluşturma işlemini göstermektedir. Diğer kayıt türleri ve var olan kayıtların değiştirilmesi hakkında bilgi için bkz. [Azure portalı kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-portal.md). 
 
-1. Oluşturulan DNS Bölgesi ile, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar dikey penceresinde **contoso.com** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, DNS Bölgesine kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **contoso.com** girebilirsiniz.
+1. Oluşturulan DNS Bölgesi ile, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar sayfasında **contoso.com** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, DNS Bölgesine kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **contoso.com** girebilirsiniz.
 
-1. **DNS bölgesi** dikey penceresinin üzerindeki **+ Kayıt kümesi**’ni seçerek **Kayıt kümesi ekle** dikey penceresini açın.
+1. **DNS bölgesi** sayfasının üzerindeki **+ Kayıt kümesi**’ni seçerek **Kayıt kümesi ekle** sayfasını açın.
 
-1. **Kaynak kümesi ekle** dikey penceresinde aşağıdaki değerleri girin ve **Tamam**’a tıklayın. Bu örnekte, bir A kaydı oluşturuyorsunuz.
+1. **Kaynak kümesi ekle** sayfasında aşağıdaki değerleri girin ve **Tamam**’a tıklayın. Bu örnekte, bir A kaydı oluşturuyorsunuz.
 
    |**Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
@@ -73,7 +72,7 @@ Aşağıdaki örnek yeni bir 'A' kaydı oluşturma işlemini göstermektedir. Di
 
 ## <a name="view-records"></a>Kayıtları görüntüleme
 
-DNS bölgesi dikey penceresinin alt bölümünde DNS bölgesine ait kayıtları görebilirsiniz. Her bölgede oluşturulan varsayılan DNS ve SOA kayıtlarının yanı sıra, oluşturduğunuz tüm kayıtları görürsünüz.
+DNS bölgesi sayfasının alt bölümünde DNS bölgesine ait kayıtları görebilirsiniz. Her bölgede oluşturulan varsayılan DNS ve SOA kayıtlarının yanı sıra, oluşturduğunuz tüm kayıtları görürsünüz.
 
 ![bölge](./media/dns-getstarted-portal/viewzone500.png)
 
@@ -92,8 +91,8 @@ Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın 
 
 Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları tamamlayın:
 
-1. Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar dikey penceresinde **MyResourceGroup** kaynak grubuna tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, kaynak grubuna kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **MyResourceGroup** girebilirsiniz.
-1. **MyResourceGroup** dikey penceresinde **Sil** düğmesine tıklayın.
+1. Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar sayfasında **MyResourceGroup** kaynak grubuna tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, kaynak grubuna kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **MyResourceGroup** girebilirsiniz.
+1. **MyResourceGroup** sayfasında **Sil** düğmesine tıklayın.
 1. Portal, silmek istediğinizi onaylamak için kaynak grubunun adını yazmanızı gerektirir. **Sil**’e tıklayın, kaynak grubu adı olarak *MyResourceGroup* yazın ve ardından **Sil**’e tıklayın. Bir kaynak grubunun silinmesiyle, kaynak grubu içerisindeki tüm kaynaklar silinir, bu nedenle, silmeden önce kaynak grubunun içeriğini onaylamayı hiçbir zaman unutmayın. Portal, kaynak grubu içinde yer alan tüm kaynakları siler ve sonra kaynak grubunu siler. Bu işlem birkaç dakika sürer.
 
 

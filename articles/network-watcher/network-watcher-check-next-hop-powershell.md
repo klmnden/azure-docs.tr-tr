@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>Hangi bir sonraki atlama türü sonraki atlama yetenek PowerShell kullanarak Azure Ağ İzleyicisi içinde kullandığını bulmak
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-check-next-hop-portal.md)
+> - [Azure portalı](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -77,7 +77,7 @@ Diyoruz artık `Get-AzureRmNetworkWatcherNextHop` cmdlet'i. Cmdlet Ağ İzleyici
 Get-AzureRmNetworkWatcherNextHop -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id -SourceIPAddress $nics[0].IpConfigurations[0].PrivateIpAddress  -DestinationIPAddress 10.0.2.4 
 ```
 
-## <a name="review-results"></a>Sonuçları gözden geçirin
+## <a name="review-results"></a>Sonuçları gözden geçirme
 
 Tamamlandığında, sonuçları sağlanır. Sonraki atlama IP adresi bu kaynak türü yanı sıra döndürülür. Bu senaryoda, sanal ağ geçidinin genel IP adresi değil.
 
@@ -92,12 +92,12 @@ Aşağıdaki liste, şu anda kullanılabilir NextHopType değerleri gösterir:
 **Sonraki atlama türü**
 
 * Internet
-* Değerinin VirtualAppliance
+* VirtualAppliance
 * VirtualNetworkGateway
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* None
+* Hiçbiri
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

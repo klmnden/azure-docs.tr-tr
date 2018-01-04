@@ -58,6 +58,7 @@
 #### [Bir role B2B kullanıcısı ekleme](active-directory-b2b-add-guest-to-role.md)
 #### [Dinamik gruplar ve B2B kullanıcıları](active-directory-b2b-dynamic-groups.md)
 #### [Denetim ve raporlar](active-directory-b2b-auditing-and-reporting.md)
+#### [Hibrit kuruluşlar için B2B](active-directory-b2b-hybrid-organizations.md)
 #### [B2B ve Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
 #### [B2B lisansı](active-directory-b2b-licensing.md)
 #### [Geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
@@ -205,11 +206,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
-#### Klasik portalı kullanın
-##### [Bağlayıcı indirme](application-proxy-enable-classic-portal.md)
-##### [Uygulamaları yayımlama](active-directory-application-proxy-publish.md)
-##### [Bağlayıcı kullanma](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Koşullu erişim](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Kurumsal uygulamaları yönetme
 #### [Kullanıcıları atama](active-directory-coreapps-assign-user-azure-portal.md)
@@ -224,7 +220,6 @@
 ### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
-#### [Self servis erişimi](active-directory-self-service-application-access.md)
 #### [SSO erişimi](active-directory-appssoaccess-whatis.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
 #### [Kiracı kısıtlamaları](active-directory-tenant-restrictions.md)
@@ -271,6 +266,7 @@
 #### [Yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
+### [Acil durum erişimi yönetici hesaplarını yönetin](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Erişim gözden geçirmeleri
 ### [Erişim gözden geçirmelerine genel bakış](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -289,8 +285,10 @@
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
+#### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
+#### [Durum aracı](active-directory-conditional-access-whatif.md)
 #### Görevler
-##### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
+##### [Klasik MFA ilkesini geçirme](active-directory-conditional-access-migration-mfa.md)
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
 ##### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)

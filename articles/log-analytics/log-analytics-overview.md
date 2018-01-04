@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f12958550738ff465c06d0e5d774d8bffa0b90b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-log-analytics"></a>Log Analytics nedir?
 Log Analytics, [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) içindeki bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı sürdürmek amacıyla izleyen bir hizmettir.  Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.  Bu makale, Log Analytics’in sağladığı değere ilişkin kısa bir açıklama, nasıl çalıştığına genel bakış ve daya ayrıntılı içeriklerin bağlantılarını içerir.
@@ -60,7 +60,7 @@ Log Analytics’in merkezinde, Azure bulutunda barındırılan OMS deposu bulunu
 
 ![OMS deposu](media/log-analytics-overview/overview.png)
 
-Bağlı kaynaklar, Log Analytics tarafından toplanan verileri oluşturan bilgisayarlar ve diğer kaynaklardır.  Bu, doğrudan bağlanan [Windows](log-analytics-windows-agents.md) ve [Linux](log-analytics-linux-agents.md) bilgisayarlarına yüklenmiş aracıları veya [bağlı System Center Operations Manager yönetim grubundaki](log-analytics-om-agents.md) aracıları içerebilir.  Azure kaynakları için Log Analytics, [Azure İzleyici ve Azure Tanılama](log-analytics-azure-storage.md)’dan veri toplar.
+Bağlı kaynaklar, Log Analytics tarafından toplanan verileri oluşturan bilgisayarlar ve diğer kaynaklardır.  Bu, doğrudan bağlanan [Windows](log-analytics-windows-agent.md) ve [Linux](log-analytics-linux-agents.md) bilgisayarlarına yüklenmiş aracıları veya [bağlı System Center Operations Manager yönetim grubundaki](log-analytics-om-agents.md) aracıları içerebilir.  Azure kaynakları için Log Analytics, [Azure İzleyici ve Azure Tanılama](log-analytics-azure-storage.md)’dan veri toplar.
 
 [Veri kaynakları](log-analytics-data-sources.md), bağlı her kaynaktan toplanan farklı veri türleridir.  Bunlar, [Windows](log-analytics-data-sources-windows-events.md) ve Linux aracılarından alınan [olaylar](log-analytics-data-sources-windows-events.md) ile [performans verilerini](log-analytics-data-sources-performance-counters.md) ve [IIS günlükleri](log-analytics-data-sources-iis-logs.md) ile [özel metin günlükleri](log-analytics-data-sources-custom-logs.md) gibi kaynakları içerir.  Toplamak istediğiniz her veri kaynağını yapılandırabilirsiniz. Yapılandırma, otomatik olarak bağlı her kaynağa dağıtılır.
 
@@ -69,7 +69,7 @@ Bağlı kaynaklar, Log Analytics tarafından toplanan verileri oluşturan bilgis
 ## <a name="log-analytics-architecture"></a>Log Analytics mimarisi
 Log Analytics’in, merkezi bileşenleri Azure bulutunda barındırıldığı için çok az dağıtım gereksinimi vardır.  Bu bileşenler, deponun yanı sıra toplanan verileri ilişkilendirmenizi ve çözümlemenizi sağlayan hizmetleri içerir.  Portala herhangi bir tarayıcıdan erişilebilir, bu nedenle herhangi bir istemci yazılımı gereksinimi yoktur.
 
-[Windows](log-analytics-windows-agents.md) ve [Linux](log-analytics-linux-agents.md) bilgisayarlarındaki aracıları yüklemeniz gerekir, ancak zaten [bağlı SCOM yönetim grubunun](log-analytics-om-agents.md) üyesi olan bilgisayarlar için ek aracıya gerek yoktur.  SCOM aracıları, verilerini Log Analytics'e yönlendiren yönetim sunucuları ile iletişim kurmaya devam eder.  Ancak bazı çözümler, aracıların doğrudan Log Analytics ile iletişim kurmasını gerektirecektir.  Her çözüme yönelik belgeler, iletişim gereksinimlerini belirtecektir.
+[Windows](log-analytics-windows-agent.md) ve [Linux](log-analytics-linux-agents.md) bilgisayarlarındaki aracıları yüklemeniz gerekir, ancak zaten [bağlı SCOM yönetim grubunun](log-analytics-om-agents.md) üyesi olan bilgisayarlar için ek aracıya gerek yoktur.  SCOM aracıları, verilerini Log Analytics'e yönlendiren yönetim sunucuları ile iletişim kurmaya devam eder.  Ancak bazı çözümler, aracıların doğrudan Log Analytics ile iletişim kurmasını gerektirecektir.  Her çözüme yönelik belgeler, iletişim gereksinimlerini belirtecektir.
 
 [Log Analytics için kaydolduğunuzda](log-analytics-get-started.md) bir OMS çalışma alanı oluşturursunuz.  Çalışma alanını kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Log Analytics ortamı olarak düşünebilirsiniz. Aboneliğinizde üretim ve test gibi birden fazla ortamı desteklemek için birden fazla çalışma alanı oluşturabilirsiniz.
 

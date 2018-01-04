@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Geriye doğru DNS ve Azure desteği'na genel bakış
 
@@ -34,7 +34,7 @@ Geriye doğru DNS kayıtlarını 'ARPA' bölgeleri bilinen özel DNS bölgeleri 
 
 Örneğin, DNS kaydı 'www.contoso.com' name 'www' ile bir 'A' DNS kaydı bölge "contoso.com" kullanılarak uygulanır.  Bu durumda 64.4.6.100 karşılık gelen IP adresi bu A kaydı işaret ediyor.  Geriye doğru arama, ayrı ayrı '100' bölgesinde '6.4.64.in-addr.arpa' (IP adresleri ARPA bölgeleri ters gerektiğini unutmayın.) adlı bir 'PTR' kayıt kullanılarak uygulanır  Doğru şekilde yapılandırılmışsa bu PTR kaydı 'www.contoso.com' adı işaret eder.
 
-Bir kuruluş IP adres bloğu atandığında, bunlar aynı zamanda ilgili ARPA bölgeyi yönetme hakkı alın. Azure tarafından kullanılan IP adres blokları karşılık gelen ARPA bölgeleri barındırılan ve Microsoft tarafından yönetilir. ISS'niz kendi IP adreslerini ARPA bölgenin sizin için barındırabilir ya da izin verebilir Azure DNS gibi tercih ettiğiniz bir DNS hizmeti ARPA bölgesinde ana bilgisayar.
+Bir kuruluş IP adres bloğu atandığında, bunlar aynı zamanda ilgili ARPA bölgeyi yönetme hakkı alın. Azure tarafından kullanılan IP adres blokları karşılık gelen ARPA bölgeleri barındırılan ve Microsoft tarafından yönetilir. ISS'niz kendi IP adreslerini ARPA bölgenin sizin için barındırabilir veya bir DNS hizmeti Azure DNS gibi tercih ettiğiniz ARPA bölgesinde barındırmak izin verebilir.
 
 > [!NOTE]
 > İleriye doğru DNS araması ve geriye doğru DNS araması ayrı, paralel DNS hiyerarşileri uygulanır. Geriye doğru arama 'www.contoso.com' için olan **değil** "contoso.com" bölgesinde barındırılan, bunun yerine, karşılık gelen IP adres bloğu için ARPA bölgede barındırılan. Ayrı bölgeleri için IPv4 ve IPv6 adres bloklarını kullanılır.

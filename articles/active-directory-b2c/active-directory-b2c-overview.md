@@ -4,7 +4,7 @@ description: "Azure Active Directory B2C ile tüketiciye yönelik uygulamalar ge
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: c465dbde-f800-4f2e-8814-0ff5f5dae610
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 44d5d31d49c375c802a67511d1f962df20656559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd29d78fa38dc4b5713d018eceed56e6b93739b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: Siz uygulamanıza odaklanın, kayıt ve oturum açma işlemlerini bize bırakın
 
@@ -61,7 +61,7 @@ Belirli Azure Active Directory B2C özelliklerinin nasıl kullanılacağını ö
 * [Tüketiciye yönelik uygulamalarınızda Azure Multi-Factor Authentication'ı etkinleştirin](active-directory-b2c-reference-mfa.md).
 * [Tüketicileriniz için self servis parola sıfırlama ayarlayın](active-directory-b2c-reference-sspr.md).
 * Azure Active Directory B2C tarafından sunulan [kaydolma, oturum açma ve diğer tüketiciye yönelik sayfaların görünümünü özelleştirin](active-directory-b2c-reference-ui-customization.md).
-* Azure Active Directory B2C kiracınızda [Tüketicileri programlama yoluyla oluşturma, okuma, güncelleştirme ve silme için Azure Active Directory Grafik API'sini kullanın](active-directory-b2c-devquickstarts-graph-dotnet.md).
+* Azure Active Directory B2C kiracınızda [Tüketicileri programlama yoluyla oluşturma, okuma, güncelleştirme ve silme için Azure Active Directory Graph API'sini kullanın](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Trafik Yöneticisi sık sorulan sorular (SSS)
 
@@ -368,7 +368,7 @@ Uç noktanız ulaşmasını aşağıdakilere bağlıdır Traffic Manager sistem 
 
 ### <a name="how-do-i-configure-nested-profiles"></a>İç içe profil nasıl yapılandırırım?
 
-İç içe trafik Yöneticisi profilleri, Azure Resource Manager ve klasik Azure REST API'leri, Azure PowerShell cmdlet'leri ve platformlar arası Azure CLI komutları kullanarak yapılandırılabilir. Bunlar, yeni Azure portalı üzerinden de desteklenir. Klasik portalda desteklenmez.
+İç içe trafik Yöneticisi profilleri, Azure Resource Manager ve klasik Azure REST API'leri, Azure PowerShell cmdlet'leri ve platformlar arası Azure CLI komutları kullanarak yapılandırılabilir. Bunlar, yeni Azure portalı üzerinden de desteklenir.
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>İç içe geçmiş mu trafik Yöneticisi kaç katmanları destekliyor?
 

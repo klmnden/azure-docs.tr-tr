@@ -4,7 +4,7 @@ description: "Azure Active Directory raporlama API'sini kullanmaya başlama"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
@@ -15,11 +15,17 @@ ms.workload: identity
 ms.date: 10/31/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+<<<<<<< HEAD
 ms.openlocfilehash: 98e1d09cbf638032fe1b5b9dcf19332f9158d7a7
 ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
+=======
+ms.openlocfilehash: b9e0fb21986b82f19d90f999f5d905fbf95d2cc9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Denetim API'si örnekleri raporlama Azure Active Directory
 Bu konuda, Azure Active Directory hakkındaki konuları API raporlama koleksiyonu bir parçasıdır.  
@@ -60,7 +66,7 @@ AB bölgede Kiracı ise, uygulama kimlik doğrulama çalışmaz. Lütfen biz sor
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=activityDate gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{

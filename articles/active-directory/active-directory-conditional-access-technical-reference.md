@@ -1,30 +1,30 @@
 ---
-title: "Azure Active Directory koşullu erişim Teknik Başvurusu | Microsoft Docs"
-description: "Azure Active Directory'de koşullu erişim denetimi kullanmayı öğrenin. Kullanıcıların kimliklerini doğrulamak ve uygulamanıza erişimi denetlemek için koşulları belirtin. Belirtilen koşullar karşılandığında, kullanıcıların kimlik doğrulaması ve uygulamanıza erişimi verilir."
+title: "Azure Active Directory koşullu erişim ayarları başvurusu | Microsoft Docs"
+description: "Desteklenen ayarlar genel bir bakış Azure Active Directory koşullu erişim ilkesinde alın."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/23/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory koşullu erişim Teknik Başvurusu
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
-Kullanabileceğiniz [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md) ince ayar yapmak için nasıl yetkili kullanıcılar, kaynaklara erişebilir.   
+Kullanabileceğiniz [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md) nasıl yetkili kullanıcıların denetlemek için kaynaklara erişebilir.   
 
-Bu makalede, destek bilgileri için bir koşullu erişim ilkesi için aşağıdaki yapılandırma seçeneklerini sağlar: 
+Bu makalede, destek bilgileri için bir koşullu Erişim İlkesi'nde aşağıdaki yapılandırma seçeneklerini sağlar: 
 
 - Bulut uygulamaları atamaları
 
@@ -35,6 +35,7 @@ Bu makalede, destek bilgileri için bir koşullu erişim ilkesi için aşağıda
 - Onaylanmış istemci uygulama gereksinimi
 
 
+Aradığınız bilgiler bu değilse, lütfen bu makalenin sonunda bir yorum bırakın.
 
 ## <a name="cloud-apps-assignments"></a>Bulut uygulamaları atamaları
 
@@ -57,7 +58,7 @@ Microsoft'tan aşağıdaki bulut uygulamaları için bir koşullu erişim ilkesi
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint (OneDrive iş içerir) çevrimiçi
+- Microsoft Office 365 SharePoint (OneDrive iş ve Project Online içerir) çevrimiçi
 
 - Microsoft Power BI 
 

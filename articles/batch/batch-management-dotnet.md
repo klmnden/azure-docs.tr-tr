@@ -17,15 +17,15 @@ ms.date: 04/24/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET için Batch hesaplarını ve kotalarını Batch Yönetimi istemci kitaplığı ile yönetme
 
 > [!div class="op_single_selector"]
-> * [Azure portal](batch-account-create-portal.md)
+> * [Azure portalı](batch-account-create-portal.md)
 > * [Batch Yönetimi .NET](batch-management-dotnet.md)
 > 
 > 

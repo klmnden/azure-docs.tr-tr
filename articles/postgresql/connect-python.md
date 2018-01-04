@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2017
 ---
@@ -50,23 +50,23 @@ Veritabanına bağlanmanızı ve bu veritabanını sorgulamanızı sağlayan [ps
 PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **tüm kaynakları** arayın ve **mypgserver 20170401** (oluşturduğunuz sunucu).
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve **mypgserver-20170401** sunucusunu (oluşturduğunuz sunucu) aratın.
 3. **mypgserver-20170401** sunucu adına tıklayın.
 4. Sunucunun **Genel Bakış** sayfasını seçin ve **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın.
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-python/1-connection-string.png)
 5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
 ## <a name="how-to-run-python-code"></a>Python kodu çalıştırma
-Bu makale, her biri belirli bir işlev gerçekleştirir toplam dört kod örnekleri içerir. Aşağıdaki yönergelerde metin dosyası oluşturma, kod bloğu ekleme ve daha sonra çalıştırmak üzere dosyayı kaydetme gösterilir. Her kod bloğu için birer tane olmak üzere dört ayrı dosya oluşturduğunuzdan emin olun.
+Bu makale, her biri belirli bir işlevi gerçekleştiren toplam dört kod örneği içerir. Aşağıdaki yönergelerde metin dosyası oluşturma, kod bloğu ekleme ve daha sonra çalıştırmak üzere dosyayı kaydetme gösterilir. Her kod bloğu için birer tane olmak üzere dört ayrı dosya oluşturduğunuzdan emin olun.
 
 - Sık kullandığınız metin düzenleyicisini kullanarak yeni bir dosya oluşturun.
 - Aşağıdaki bölümlerde yer alan kod örneklerinden birini kopyalayın ve metin dosyasına yapıştırın. **host**, **dbname**, **user** ve **password** parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
-- Dosyayı .py uzantısıyla (örneğin postgres.py) proje klasörünüze kaydedin. Windows üzerinde çalıştırıyorsanız, Dosya kaydedilirken UTF-8 kodlaması seçtiğinizden emin olun. 
-- Komut isteminde, Terminal veya Bash Kabuğu'nu başlatın ve dizini proje klasörünüzdeki örneğin değiştirmek `cd postgres`.
+- Dosyayı .py uzantısıyla (örneğin postgres.py) proje klasörünüze kaydedin. Windows’da çalıştırıyorsanız, dosyayı kaydederken UTF-8 kodlamasını seçtiğinizden emin olun. 
+- Komut İstemi, Terminal veya Bash kabuğunu çalıştırın ve proje klasörünüzün dizinini `cd postgres` örneğindeki gibi değiştirin.
 -  Kodu çalıştırmak için Python komutunu ve ardından dosya adını yazın; örneğin `Python postgres.py`.
 
 > [!NOTE]
-> Python sürüm 3 başlayarak, hatayı görebilirsiniz `SyntaxError: Missing parentheses in call to 'print'` aşağıdaki kod blokları çalıştırılırken: Bu durumda, her çağrı komutu yerine `print "string"` parantez, gibi kullanılarak bir işlev çağrısı ile `print("string")`.
+> Python sürüm 3’ten başlayarak, şu kod bloklarını çalıştırırken `SyntaxError: Missing parentheses in call to 'print'` hatasıyla karşılaşabilirsiniz: Bu durumda, `print "string"` komutuna her bir çağrıyı `print("string")` örneğinde olduğu gibi parantez kullanan bir işlev çağrısıyla değiştirin.
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
 Bağlanmak ve **INSERT** SQL deyimiyle [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) işlevini kullanarak verileri yüklemek için aşağıdaki kodu kullanın. PostgreSQL veritabanında SQL sorgusu yürütmek için [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) işlevi kullanılır. host, dbname, user ve password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.

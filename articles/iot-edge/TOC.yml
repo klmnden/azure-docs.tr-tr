@@ -32,9 +32,21 @@
       href: how-to-deploy-monitor.md
     - name: IoT Core cihazı hazırlama
       href: how-to-install-iot-core.md
+    - name: IoT Edge çözümlerini geliştirmek için VS Code kullanma
+      items:
+        - name: 'C# modülü geliştirme ve dağıtma'
+          href: how-to-vscode-develop-csharp-module.md
+        - name: 'C# modülünde hata ayıklama'
+          href: how-to-vscode-debug-csharp-module.md
+        - name: Azure İşlevleri’ni geliştirme ve dağıtma
+          href: how-to-vscode-develop-azure-function.md
+        - name: Azure İşlevleri’nde hata ayıklama
+          href: how-to-vscode-debug-azure-function.md
+    - name: Sorun giderme
+      href: troubleshoot.md
 - name: Kavramlar
   items:
-    - name: Iot Edge modülleri
+    - name: IoT Edge modülleri
       href: iot-edge-modules.md
       items:
         - name: Geliştirme
@@ -49,6 +61,8 @@
       href: iot-edge-as-gateway.md
     - name: Güvenlik
       href: security.md
+    - name: IoT Edge sözlüğü
+      href: iot-edge-glossary.md
 - name: Kaynaklar
   items:
     - name: IoT için Azure Sertifikalı cihaz kataloğu

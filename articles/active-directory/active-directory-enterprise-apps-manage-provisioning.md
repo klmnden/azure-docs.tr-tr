@@ -4,7 +4,7 @@ description: "Kullanıcı hesabı için Azure Active Directory'yi kullanarak kur
 services: active-directory
 documentationcenter: 
 author: asmalser
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalında Kurumsal uygulamaları için sağlama kullanıcı hesabı yönetme
 Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) otomatik olarak bir kullanıcı hesabı sağlama ve bunu "özel" kategoriden eklenen olanları özellikle destekleyen uygulamalarda sağlamayı kaldırma özelliklerini yönetmek için [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Otomatik olarak bir kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [otomatikleştirmek kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini Azure Active Directory ile SaaS uygulamalarına](active-directory-saas-app-provisioning.md).
@@ -44,12 +44,12 @@ Kullanıcı hesabının ayarlarını sağlama seçerek yönetilebilir **sağlama
 ## <a name="configuring-automatic-user-account-provisioning"></a>Otomatik olarak bir kullanıcı hesabı sağlama yapılandırma
 Seçme **otomatik** seçeneği, dört bölümlerde bölünmüş bir ekran görüntüler:
 
-### <a name="admin-credentials"></a>Yönetici kimlik bilgileri
+### <a name="admin-credentials"></a>Yönetici Kimlik Bilgileri
 Bu, burada API girilirse uygulamanın kullanıcı yönetimi bağlanmak Azure AD için kimlik bilgileri gerekli değildir. Gerekli giriş uygulamaya bağlı olarak değişir. Kimlik bilgisi türleri ve belirli uygulamaları için gereksinimleri hakkında bilgi edinmek için [, belirli bir uygulama için yapılandırma Öğreticisi](active-directory-saas-app-provisioning.md).
 
 Seçme **Bağlantıyı Sına** düğmesi sağlar, kimlik bilgilerinin Azure sağlayarak test etmek uygulamaya bağlanmak için AD girişim sağlanan kimlik bilgilerini kullanarak uygulama sağlama.
 
-### <a name="mappings"></a>Eşlemeleri
+### <a name="mappings"></a>Eşlemeler
 Burada admins görüntüleyebilir ve Azure AD arasında hangi kullanıcı öznitelikleri akışı Düzenle budur ve kullanıcı hesaplarını sağlandığında veya güncelleştirildiğinde, hedef uygulama.
 
 Önceden yapılandırılmış bir Azure AD kullanıcı ve her SaaS uygulamanın kullanıcı nesneleri arasındaki eşlemeleri kümesi yok. Bazı uygulamalar, diğer grupların veya kişilerin gibi nesne türlerini yönetin. Bu eşlemeler birini tablo gösterir burada bunlar görüntülenebilir ve özelleştirilebilir sağa Eşleme Düzenleyicisi'ni seçerek.
@@ -71,7 +71,7 @@ Değiştirme **sağlama durumu** için **kapalı** yalnızca sağlama hizmeti du
 
 Seçme **temizleme geçerli durumu ve eşitlemeyi yeniden başlatma** onay ve kaydetme hangi hesapların Azure AD hakkındaki önbelleğe alınmış verileri yönetiyor, hizmetleri yeniden başlatır ve ilk eşitlemeyi yeniden gerçekleştirir dökümleri sağlama hizmeti durdurur. Bu seçenek, sağlama dağıtım işlemini yeniden başlatmak yöneticilerinin olanak tanır.
 
-### <a name="synchronization-details"></a>Eşitleme ayrıntıları
+### <a name="synchronization-details"></a>Eşitleme Ayrıntıları
 Bu bölümde uygulama ve kaç kullanıcı ve Grup nesneleri yönetilmekte olan karşı sağlama hizmeti verdi ilk ve son kez dahil olmak üzere sağlama hizmeti işlemi hakkında ek ayrıntılar sağlar.
 
 Bağlantılar için sağlanan **Etkinlik Raporu sağlama**, tüm kullanıcıların ve grupların güncelleştirilmiş ve arasında kaldırılan Azure AD oluşturulmuş bir günlük sağlar ve hedef uygulama ve **hata raporu sağlama** daha ayrıntılı hata iletilerini kullanıcı ve okumak için oluşturduğunuz grubu nesneler sağlayan güncelleştirilmiş veya kaldırılamaz. 

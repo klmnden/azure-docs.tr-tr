@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT hub'ı doğrudan yöntemleri çağırma
 IOT Hub, bulutta cihazlarda doğrudan yöntemlerini çağırmasına olanak sağlar. Başarılı veya başarısız hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra), bir HTTP çağrısıyla benzer bir cihaz istek-yanıt etkileşim doğrudan yöntemleri temsil eder. Bu yaklaşım, Acil eylem seyri aygıt bir aygıtı (çevrimdışı SMS yöntem çağrısı daha pahalı olması) ise, bir SMS Uyandırma bir cihaza gönderme gibi yanıt verebilmesini olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır.
@@ -33,7 +33,7 @@ Doğrudan yöntemleri istek-yanıt desenler izleyen ve örneğin fan üzerinde e
 Başvurmak [bulut-cihaz iletişimi Kılavuzu] [ lnk-c2d-guidance] istenen özelliklerini kullanarak arasında emin değilseniz, yöntemler veya Bulut-cihaz iletilerini doğrudan.
 
 ## <a name="method-lifecycle"></a>Yöntem yaşam döngüsü
-Doğrudan yöntemleri cihazda uygulanır ve doğru örneği oluşturmak için yöntem yükte sıfır veya daha fazla girdi gerektirebilir. Bir hizmet dönük URI üzerinden doğrudan bir yöntemi çağırma (`{iot hub}/twins/{device id}/methods/`). Bir aygıt bir aygıta özgü MQTT konu aracılığıyla doğrudan yöntemleri alır (`$iothub/methods/POST/{method name}/`). Doğrudan yöntemleri ek cihaz tarafındaki ağ protokollerini temel gelecekte destekliyoruz.
+Doğrudan yöntemleri cihazda uygulanır ve doğru örneği oluşturmak için yöntem yükte sıfır veya daha fazla girdi gerektirebilir. Bir hizmet dönük URI üzerinden doğrudan bir yöntemi çağırma (`{iot hub}/twins/{device id}/methods/`). Bir aygıt bir aygıta özgü MQTT konu aracılığıyla doğrudan yöntemleri alır (`$iothub/methods/POST/{method name}/`) veya AMQP bağlantılar yoluyla (`IoThub-methodname` ve `IoThub-status` uygulama özellikleri). 
 
 > [!NOTE]
 > Bir cihazda doğrudan bir yöntemini çağırdığınızda, özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir herhangi aşağıdaki kümesindeki dışında alfasayısal: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -75,8 +75,7 @@ Arka uç uygulama içeren bir yanıt alır:
 * *Üstbilgileri* ETag içeren, istek kimliği, içerik türü ve içerik kodlaması
 * JSON *gövde* şu biçimde:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ Arka uç uygulama içeren bir yanıt alır:
    Her ikisi de `status` ve `body` cihaz tarafından sağlanan ve cihazın kendi durum kodu ve/veya açıklama ile yanıtlamak için kullanılır.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Bir cihazda doğrudan bir yöntem işleme
-### <a name="method-invocation"></a>Yöntem çağırma
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>Yöntem çağırma
 Cihazlar, MQTT konusunda doğrudan yöntem isteği alır:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
 Cihaz aldıktan gövdesi aşağıdaki biçimdedir:
@@ -99,13 +99,30 @@ Cihaz aldıktan gövdesi aşağıdaki biçimdedir:
 
 Yöntemi, QoS 0 isteklerdir.
 
-### <a name="response"></a>Yanıt
+#### <a name="response"></a>Yanıt
 Cihaz yanıtlarını gönderir `$iothub/methods/res/{status}/?$rid={request id}`, burada:
 
 * `status` Yöntemi yürütme aygıt tarafından sağlanan durumunu bir özelliktir.
 * `$rid` IOT Hub'ından alınan yöntemi çağırma isteği Kimliğinden bir özelliktir.
 
 Gövde aygıt tarafından ayarlanır ve herhangi bir durum olabilir.
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>Yöntem çağırma
+Cihaz adresinde alma bağlantı oluşturarak doğrudan yöntem isteği alır`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+AMQP ileti yöntemi isteğinin temsil eden alma bağlantıyı ulaşır. Aşağıdakileri içerir:
+* Karşılık gelen yöntemi yanıtı ile iletilmesi gereken bir istek kimliği içeren bağıntı kimliği özelliği
+* Adlı bir uygulama özelliği `IoThub-methodname`, çağrılmakta olan yöntemin adını içerir
+* Yöntem yükü JSON olarak içeren AMQP ileti gövdesi
+
+#### <a name="response"></a>Yanıt
+Aygıt adresi yöntemi yanıtı döndürmek için gönderen bir bağlantı oluşturur`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+Yöntemin yanıt gönderen bağlantıyı döndürülür ve aşağıdaki gibi yapılandırılmış:
+* İstek Kimliği içeren bağıntı kimliği özelliği yöntemin istek iletisinde geçirilen
+* Adlı bir uygulama özelliği `IoThub-status`, kullanıcı içeren sağlanan yöntemi durumu
+* JSON olarak yöntemi yanıtı içeren AMQP ileti gövdesi
 
 ## <a name="additional-reference-material"></a>Ek başvuru bilgileri
 IOT Hub Geliştirici Kılavuzu'ndaki diğer başvuru konuları içerir:

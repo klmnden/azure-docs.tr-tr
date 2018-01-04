@@ -14,11 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
+<<<<<<< HEAD
 ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise iskele - Düzenleyici abonelik yönetimi
 Kuruluşlar Git Gide daha fazla esneklik ve Çeviklik için genel bulut geliştirilmektedir. Bunlar bulutun gücü veya iş için kaynakları en iyi duruma gelir oluşturmak için çalışan. Microsoft Azure, kuruluşların yapı taşları gibi çok çeşitli iş yüklerini ve uygulamaları adres birleştirebilirsiniz birçok sağlar. 
@@ -59,7 +65,7 @@ Aşağıdaki resimde iskele bileşenlerini açıklar. Departmanlar, hesaplar ve 
 ## <a name="define-your-hierarchy"></a>Hiyerarşinizi tanımlayın
 İskele Azure işletme kaydı (ve Enterprise Portal'da) temelini oluşturur. İşletme kaydı şekil tanımlar ve şirket içindeki Azure Hizmetleri kullanın ve çekirdek idare yapısıdır. Kurumsal Anlaşma içinde müşteriler daha fazla Departmanlar, hesapları ve son olarak, abonelikleri ortamına ayırabilir imkanınız olur. Bir Azure aboneliği tüm kaynakların bulunduğu temel birimidir. Ayrıca, Azure, çekirdek, kaynaklar, vb. sayısı gibi birkaç sınırlarda tanımlar.
 
-![Hiyerarşisi](./media/resource-manager-subscription-governance/agreement.png)
+![hiyerarşi](./media/resource-manager-subscription-governance/agreement.png)
 
 Her Kuruluş farklıdır ve önceki görüntüde hiyerarşisinde Azure şirket içinde nasıl düzenlendiğini önemli esneklik sağlar. Bu belgede yer alan yönergeleri uygulamadan önce hiyerarşinizdeki model ve faturalama, kaynak erişimi ve karmaşıklık üzerindeki etkisini anlamak gerekir.
 
@@ -168,7 +174,7 @@ Daha fazla etiket örnekleri için bkz: [Azure kaynakları için adlandırma kur
 ## <a name="resource-group"></a>Kaynak grubu
 Resource Manager, kaynakları yönetim, faturalama veya doğal benzeşimi anlamlı gruplar halinde yerleştirilmesine olanak sağlar. Daha önce belirtildiği gibi Azure iki dağıtım modeline sahiptir. Önceki Klasik modelde temel yönetim birimidir aboneliği karşılaşıldı. Çok sayıda abonelikleri oluşturulmasına neden bir abonelik içindeki kaynaklara ayırmanız zordu. Resource Manager modeli ile kaynak gruplarının giriş gördük. Kaynak grupları, ortak bir yaşam döngüsü veya "tüm SQL sunucuları" gibi bir özniteliği paylaşan kaynakları kapsayıcılar olan ya da "Uygulama A".
 
-Kaynak grupları diğer içinde yer alamaz ve kaynakları yalnızca bir kaynak grubuna ait olabilir. Bir kaynak grubundaki tüm kaynaklar üzerinde belirli eylemleri uygulayabilirsiniz. Örneğin, bir kaynak grubunun silinmesi tüm kaynakların kaynak grubunda kaldırır. Genellikle, tüm uygulama veya ilgili sistem aynı kaynak grubunda yerleştirin. Örneğin, Contoso Web uygulaması adlı üç katmanı uygulaması, web sunucusu, uygulama sunucusu ve SQL server ile aynı kaynak grubunda içerecektir.
+Kaynak grupları diğer içinde yer alamaz ve kaynakları yalnızca bir kaynak grubuna ait olabilir. Bir kaynak grubundaki tüm kaynaklar üzerinde belirli eylemleri uygulayabilirsiniz. Örneğin, bir kaynak grubunun silinmesi tüm kaynakların kaynak grubunda kaldırır. Genellikle, tüm uygulama veya ilgili sistem aynı kaynak grubunda yerleştirin. Örneğin, Contoso Web uygulaması olarak adlandırılan bir üç katmanlı uygulamayı web sunucusu, uygulama sunucusu ve SQL server ile aynı kaynak grubunda içerecektir.
 
 > [!TIP]
 > Kaynak gruplarınızı düzenleme nasıl "Geleneksel BT" iş yüklerini "Çevik BT" iş yükleri için farklı olabilir:

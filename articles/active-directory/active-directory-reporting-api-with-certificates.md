@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Sertifikalarla Azure AD Raporlama API’sini kullanarak veri alma
 Bu makalede, kullanıcı müdahalesi olmadan dizinlerden veri almak üzere sertifika kimlik bilgileriyle Azure AD Raporlama API’sini kullanma işlemi ele alınmaktadır. 
@@ -28,7 +28,7 @@ Azure AD Raporlama API'si aşağıdaki adımları tamamlamanızı gerektirir:
  *  Ön koşulları yükleme
  *  Uygulamanızdaki sertifikayı ayarlama
  *  Bir erişim belirteci alma
- *  Grafik API'sini çağırmak için erişim belirteci kullanma
+ *  Graph API'sini çağırmak için erişim belirteci kullanma
 
 Kaynak kodu hakkında bilgi için bkz. [Rapor API Modülünden Yararlanma](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 
@@ -40,7 +40,7 @@ Azure AD PowerShell V2 ve AzureADUtils modülünün yüklü olması gerekir.
   Bu modül aşağıdaki çeşitli yardımcı program cmdlet'lerini sağlar:
    * Nuget kullanarak en son ADAL sürümü
    * ADAL kullanarak kullanıcı, uygulama anahtarları ve sertifikalardan erişim belirteçleri
-   * Disk belleğine alınmış Grafik API'si işleme sonuçları
+   * Disk belleğine alınmış Graph API işleme sonuçları
 
 **Azure AD Yardımcı Programlar modülünü yüklemek için:**
 
@@ -80,7 +80,7 @@ Erişim belirteci almak için AzureADUtils içindeki Get-AzureADGraphAPIAccessTo
 
  ![Azure portal](./media/active-directory-report-api-with-certificates/application-id.png)
 
-### <a name="use-the-access-token-to-call-the-graph-api"></a>Grafik API'sini çağırmak için erişim belirteci kullanma
+### <a name="use-the-access-token-to-call-the-graph-api"></a>Graph API'sini çağırmak için erişim belirteci kullanma
 
 Şimdi komut dosyasını oluşturabilirsiniz. AzureADUtils içindeki Invoke-AzureADGraphAPIQuery cmdlet’inin bir örneği aşağıda verilmiştir. Bu cmdlet, çok sayfalı sonuçları işer ve ardından PowerShell işlem hattına gönderir. 
 
@@ -89,7 +89,7 @@ Erişim belirteci almak için AzureADUtils içindeki Get-AzureADGraphAPIAccessTo
 Artık bir CSV'ye göndermeye ve bir SIEM sistemine kaydetmeye hazırsınız. Ayrıca, betiğinizi zamanlanmış bir göreve kaydırarak, uygulama anahtarlarını kaynak kodda depolamak zorunda kalmadan kiracınızdan Azure AD verilerini düzenli olarak alabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure kimlik yönetimi ile ilgili temel bilgiler](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
+[Azure kimlik yönetimi ile ilgili temel bilgiler](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
 
 
 

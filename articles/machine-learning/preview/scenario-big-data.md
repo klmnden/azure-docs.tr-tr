@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
 
@@ -41,14 +42,16 @@ Sunucuları üzerindeki iş yükünü tahmin kendi altyapısını yönetmek tekn
 Bu senaryoda, her makine (veya sunucu) için iş yükü tahmini odaklanır. Özellikle, oturum verilerini her bir sunucuda sunucu iş yükü sınıfının gelecekte tahmin etmek için kullanın. Her sunucu yükü düşük, Orta ve yüksek sınıfları rastgele orman sınıflandırıcıda kullanarak sınıflandırdığınız [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). Makine öğrenimi teknikleri ve iş akışı bu örnekte, benzer diğer sorunlar için kolayca genişletilebilir. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
 * Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir).
-* Yüklü bir kopyasını [Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md). Programı yüklemek ve bir çalışma alanı oluşturmak için bkz: [hızlı başlangıç Yükleme Kılavuzu'na](./quickstart-installation.md).
+* Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md). Programı yüklemek ve bir çalışma alanı oluşturmak için bkz: [hızlı başlangıç Yükleme Kılavuzu'na](./quickstart-installation.md). Birden çok aboneliğiniz varsa, [geçerli etkin aboneliğinizin olmasını istediğiniz aboneliği ayarlamak](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (Bu örnekte yönergeleri genellikle macOS sistemleri için aynıdır).
-* Linux (Ubuntu) için veri bilimi sanal makine (DSVM). İzleyerek bir Ubuntu DSVM sağlayabilirsiniz [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Ayrıca bkz [Bu Hızlı Başlangıç](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). En az 8 çekirdek ve 32 GB bellek bir sanal makine kullanmanızı öneririz. DSVM IP adresi, kullanıcı adı ve bu örnek denemek için parola gerekir. Aşağıdaki tabloda, sonraki adımlara DSVM bilgileri ile kaydedin:
+* Bir veri bilimi sanal makine (DSVM) Linux (Ubuntu), tercihen Doğu ABD bölgede burada verileri bulur. İzleyerek bir Ubuntu DSVM sağlayabilirsiniz [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Ayrıca bkz [Bu Hızlı Başlangıç](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). En az 8 çekirdek ve 32 GB bellek bir sanal makine kullanmanızı öneririz. 
+
+İzleyin [yönerge](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) AML çalışma ekranı için VM parola daha az sudoer erişimini etkinleştirmek için.  Kullanmayı tercih edebileceğiniz [oluşturmak ve VM AML çalışma ekranı içinde kullanmak için SSH anahtar tabanlı kimlik doğrulaması](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Bu örnekte, VM erişmek için parola kullanın.  Aşağıdaki tabloda, sonraki adımlara DSVM bilgileri ile kaydedin:
 
  Alan adı| Değer |  
  |------------|------|
@@ -56,9 +59,10 @@ DSVM IP adresi | xxx|
  Kullanıcı adı  | xxx|
  Parola   | xxx|
 
+
  Tüm VM ile kullanmayı tercih edebileceğiniz [Docker altyapısına](https://docs.docker.com/engine/) yüklü.
 
-* Hdınsight Spark kümesi, Hortonworks veri platformu sürümü 3.6 ve Spark sürüm ile 2.1.x. Ziyaret [Azure Hdınsight'ta Apache Spark kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) Hdınsight kümeleri oluşturma hakkında ayrıntılar için. 16 çekirdek ve bellek 112 GB olan her çalışan ile üç alt küme kullanmanızı öneririz. Veya yalnızca VM türünü seçebilirsiniz `D12 V2` baş düğüm için ve `D14 V2` değerini çalışan düğümünüz için. Küme dağıtımı yaklaşık 20 dakika sürer. Küme adı, SSH kullanıcı adı ve bu örnek denemek için parola gerekir. Aşağıdaki tabloda, sonraki adımlar için Azure Hdınsight kümesi bilgileri ile kaydedin:
+* Hdınsight Spark kümesi, Hortonworks veri platformu sürümü 3.6 ve Spark sürüm ile 2.1.x tercihen Doğu ABD bölgede burada verileri bulur. Ziyaret [Azure Hdınsight'ta Apache Spark kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) Hdınsight kümeleri oluşturma hakkında ayrıntılar için. 16 çekirdek ve bellek 112 GB olan her çalışan ile üç alt küme kullanmanızı öneririz. Veya yalnızca VM türünü seçebilirsiniz `D12 V2` baş düğüm için ve `D14 V2` değerini çalışan düğümünüz için. Küme dağıtımı yaklaşık 20 dakika sürer. Küme adı, SSH kullanıcı adı ve bu örnek denemek için parola gerekir. Aşağıdaki tabloda, sonraki adımlar için Azure Hdınsight kümesi bilgileri ile kaydedin:
 
  Alan adı| Değer |  
  |------------|------|
@@ -91,7 +95,7 @@ Aşağıdaki önceden oluşturulmuş git deposunu bir çalışma ekranı proje o
 
 ## <a name="data-description"></a>Veri açıklaması
 
-Bu örnekte kullanılan veri birleştirilen sunucu iş yükü verilerdir. Genel olarak erişilebilir olan bir Azure Blob Depolama hesabı içinde barındırılır. Belirli bir depolama hesabı bilgilerini bulunabilir `dataFile` alanını [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). Verileri doğrudan Blob Depolama kullanabilirsiniz. Depolama aynı anda birden çok kullanıcı tarafından kullanılıyorsa, kullanabileceğiniz [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) kendi depolama alanına veri yüklemek için. 
+Bu örnekte kullanılan veri birleştirilen sunucu iş yükü verilerdir. Doğu ABD bölgesinde genel olarak erişilebilir olan bir Azure Blob Depolama hesabı içinde barındırılır. Belirli bir depolama hesabı bilgilerini bulunabilir `dataFile` alanını [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) biçiminde "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". Verileri doğrudan Blob Depolama kullanabilirsiniz. Depolama aynı anda birden çok kullanıcı tarafından kullanılıyorsa, kullanabileceğiniz [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) daha iyi deneme deneyimi için kendi depolama alanına veri yüklemek için. 
 
 Toplam veri boyutu yaklaşık 1 TB'tır. Her dosya yaklaşık 1-3 GB ve üst bilgi içermeyen CSV dosya biçiminde. Her veri satırının belirli bir sunucu üzerinde bir işlem yükünü temsil eder. Veri şeması ilgili ayrıntılı bilgileri aşağıdaki gibidir:
 
@@ -105,10 +109,10 @@ Sütun numarası | Alan adı| Tür | Açıklama |
 6 | `HTTP1` | Tamsayı|  HTTP1 veya HTTP2 oturumu kullanır
 7 |`ServerType` | Tamsayı   |Sunucu türü
 8 |`SubService_1_Load` | Çift |   Subservice 1 yük
-9 | `SubService_1_Load` | Çift |  Subservice 2 yükleme
-10 | `SubService_1_Load` | Çift |     Subservice 3 yükleme
-11 |`SubService_1_Load` | Çift |  Subservice 4 yükleme
-12 | `SubService_1_Load`| Çift |      Subservice 5 yükleme
+9 | `SubService_2_Load` | Çift |  Subservice 2 yükleme
+10 | `SubService_3_Load` | Çift |     Subservice 3 yükleme
+11 |`SubService_4_Load` | Çift |  Subservice 4 yükleme
+12 | `SubService_5_Load`| Çift |      Subservice 5 yükleme
 13 |`SecureBytes_Load`  | Çift | Güvenli bayt yükleme
 14 |`TotalLoad` | Çift | Sunucusundaki toplam yükü
 15 |`ClientIP` | Dize|    İstemci IP adresi
@@ -270,7 +274,7 @@ Deneme küçük verileri başarıyla tamamladıktan sonra tam veri kümesi üzer
 
 Aşağıdaki iki dosyalar aml_config klasöründe oluşturulur:
     
--  myhdo.COMPUTE: Bu dosya bir uzaktan yürütme hedef bağlantı ve yapılandırma bilgilerini içerir.
+-  myhdi.COMPUTE: Bu dosya bir uzaktan yürütme hedef bağlantı ve yapılandırma bilgilerini içerir.
 -  myhdi.runconfig: Bu dosya çalışma ekranı uygulama içinde kullanılan çalıştırma seçenekleri ayarlayın.
 
 
@@ -324,7 +328,7 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 ### <a name="operationalize-the-model"></a>Model faaliyete
 
-Bu bölümde, bir web hizmeti olarak önceki adımlarda oluşturduğunuz modeli faaliyete. Ayrıca iş yükü tahmin etmek için web hizmeti kullanmayı öğrenin. Makine dili operationalization komut satırı arabirimlerinden (CLIs) kapsayıcılı web hizmeti olarak kodu ve bağımlılıklarını Docker görüntüleri olarak paketini ve modeli yayımlamak için kullanın. Daha fazla bilgi için bkz: [bu genel bakışta](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+Bu bölümde, bir web hizmeti olarak önceki adımlarda oluşturduğunuz modeli faaliyete. Ayrıca iş yükü tahmin etmek için web hizmeti kullanmayı öğrenin. Makine dili operationalization komut satırı arabirimlerinden (CLIs) kapsayıcılı web hizmeti olarak kodu ve bağımlılıklarını Docker görüntüleri olarak paketini ve modeli yayımlamak için kullanın.
 
 CLIs çalıştırmak için Machine Learning çalışma ekranı komut satırı isteminde kullanın.  İzleyerek CLIs Ubuntu Linux üzerinde de çalıştırabilirsiniz [Yükleme Kılavuzu](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

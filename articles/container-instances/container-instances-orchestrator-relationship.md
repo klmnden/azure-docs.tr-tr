@@ -1,19 +1,19 @@
 ---
 title: "Azure kapsayıcı örnekleri ve kapsayıcı düzenleme"
-description: "Azure kapsayıcı örnekleri kapsayıcı orchestrators ile nasıl etkileşim anlama"
+description: "Örnekleri etkileşim nasıl Azure kapsayıcısı ile kapsayıcı orchestrators anlayın."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8ad3886742449c32c94e425e975ff9105ebcfbd8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure kapsayıcı örnekleri ve kapsayıcı orchestrators
 
@@ -40,8 +40,6 @@ Azure kapsayıcı örnekleri, tüm orchestrator platformlar, üzerinde birden ç
 
 Azure tarafından tüm altyapının kapsayıcı örnekleri için yönetilen çünkü bir orchestrator platformu kendisini bir uygun konak makinesi üzerinde tek bir kapsayıcı çalıştırmak için bulma ile ilgili gerekmez. Bir her zaman kullanılabilir bulut esneklik sağlar. Bunun yerine, orchestrator ölçeklendirme dahil olmak üzere birden çok kapsayıcı mimarileri ve Eşgüdümlü yükseltmeleri geliştirilmesini basitleştirmek görevlerde odaklanabilirsiniz.
 
-
-
 ## <a name="potential-scenarios"></a>Olası senaryolar
 
 Azure kapsayıcı örnekleri ile orchestrator tümleştirme hala nascent olsa da, birkaç farklı ortamlarda ortaya çıkan düşündüğünüz:
@@ -52,7 +50,7 @@ Hızlı Başlat ve ikinciye faturalandırmak çünkü özel olarak Azure kapsay�
 
 ### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Kapsayıcı örnekleri ve sanal makineleri kapsayıcılarında birleşimi
 
-Uzun süre çalışan, kararlı iş yükleri için ayrılmış sanal makine bir kümede kapsayıcıları yönetme genellikle kapsayıcı örnekleriyle aynı kapsayıcıları çalıştıran daha ucuz olacaktır. Ancak, kapsayıcı örnekleri hızlı bir şekilde genişletme ve beklenmeyen veya kısa süreli ani kullanımı uğraşmanız genel kapasitenizi daraltılırken için harika bir çözüm sunar. Sanal makine kümenizdeki sayısı ölçeğini, yerine daha sonra bu makinelere ek kapsayıcıları dağıtma, orchestrator yalnızca kapsayıcı örnekleri kullanılarak ek kapsayıcıları zamanlayabilir ve artık gerekmediğinde silin.
+Uzun süre çalışan, kararlı iş yükleri için ayrılmış sanal makine bir kümede kapsayıcıları yönetme genellikle kapsayıcı örnekleriyle aynı kapsayıcıları çalıştıran daha ucuz olacaktır. Ancak, kapsayıcı örnekleri hızlı bir şekilde genişletme ve beklenmeyen veya kısa süreli ani kullanımı uğraşmanız genel kapasitenizi daraltılırken için harika bir çözüm sunar. Sanal makine kümenizdeki sayısı ölçeğini, yerine daha sonra bu makinelere ek kapsayıcıları dağıtma, orchestrator yalnızca kapsayıcı örnekleri kullanılarak ek kapsayıcıları zamanlayabilir ve artık olduğunuzda silin gerekli.
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Örnek uygulama: Kubernetes için Azure kapsayıcı örnekleri Bağlayıcısı
 

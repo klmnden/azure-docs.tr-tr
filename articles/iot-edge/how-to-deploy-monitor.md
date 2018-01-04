@@ -6,14 +6,20 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
+<<<<<<< HEAD
 ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
+=======
+ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Dağıtma ve IOT kenar modülleri ölçekte izleme - Önizleme
 
@@ -40,7 +46,7 @@ Cihaz çiftlerini ve etiketleri hakkında daha fazla bilgi için bkz: [IOT hub'�
 
 ## <a name="create-a-deployment"></a>Bir dağıtımı oluşturma
 
-1. Oturum [Azure portal] [ lnk-portal] ve IOT hub'ına gidin. 
+1. İçinde [Azure portal][lnk-portal], IOT hub'ınızı gidin. 
 1. Seçin **IOT kenar (Önizleme)**.
 1. Seçin **IOT kenar dağıtımını Ekle**.
 
@@ -61,26 +67,25 @@ Bir dağıtım hiçbir modüllerle oluşturursanız, var olan tüm modülleri ay
 >[!NOTE]
 >Azure Machine Learning ve Azure işlevleri otomatik Azure hizmet dağıtımı henüz desteklemiyoruz. Bu hizmetlerin dağıtımınız için el ile eklemek için özel modülü dağıtımı kullanın. 
 
-Hizmet bir modül Azure eklemek için aşağıdaki adımları izleyin:
-1. Seçin **eklemek Azure hizmeti IOT kenar Modülü**.
+Azure Stream Analytics bir modül eklemek için aşağıdaki adımları izleyin:
+1. Seçin **alma Azure Stream Analytics IOT kenar Modülü**.
 1. Dağıtmak istediğiniz Azure hizmet örnekleri seçmek için aşağı açılır menüler kullanın.
-1. Seçin **kaydetmek** modüllerinizi dağıtıma eklenecek. 
+1. Seçin **kaydetmek** modülünüzün dağıtıma eklenecek. 
 
 Bir modül olarak özel kod eklemek veya bir Azure hizmeti modülü el ile eklemek için aşağıdaki adımları izleyin:
-1. Seçin **Ekle özel IOT kenar Modülü**.
+1. Seçin **ekleme IOT kenar Modülü**.
 1. Modülünüzün vermek bir **adı**.
-1. İçin **görüntü** alan, bu modül için Docker kapsayıcısı görüntü girin: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Aşağı açılır menüler altında kullanmak **OS** ve **mimarisi** bu modülü temsil eden Docker kapsayıcısı özelliklerini tanımlamak için. 
-1. Herhangi belirtmek **oluşturma seçenekleri** , bayraklarıdır kapsayıcıya. Daha fazla bilgi için bkz: [docker oluşturma][lnk-docker-create].
+1. İçin **görüntü URI** alanında, Docker kapsayıcısı görüntü modülünüzün için girin. 
+1. Herhangi belirtmek **kapsayıcı oluşturma seçenekleri** , bayraklarıdır kapsayıcıya. Daha fazla bilgi için bkz: [docker oluşturma][lnk-docker-create].
 1. Seçmek için aşağı açılan menüsünü kullanın bir **yeniden İlkesi**. Aşağıdaki seçeneklerden birini seçin: 
    * **Her zaman** -herhangi bir nedenle kapanması durumunda modülünü her zaman yeniden başlatılır.
    * **Hiçbir zaman** -herhangi bir nedenle kapanması durumunda modülünü başlatmaz.
    * **Üzerinde başarısız oldu-** -düzgün bir şekilde kapatır değil, ancak bu, çökmesi durumunda modülünü yeniden başlatır. 
    * **Üzerinde-sağlıksız** -kilitlenmesine veya sağlıksız durum döndürür, modül yeniden başlatır. Bu sistem durumu işlevi uygulamak için her modül için hazır. 
-1. Başlangıç seçmek için aşağı açılan menüsünü kullanın **durum** modülü için. Aşağıdaki seçeneklerden birini seçin:
+1. Seçmek için aşağı açılan menüsünü kullanın **istenen durum** modülü için. Aşağıdaki seçeneklerden birini seçin:
    * **Çalışan** -bu varsayılan seçenektir. Modül, hemen dağıtılan sonra çalışmaya başlar.
    * **Durdurulmuş** -dağıtılan sonra modülün bağlı olarak adlandırılan siz veya başka bir modül tarafından başlatmaya kadar boşta kalır.
-1. Seçin **düzenleme modülü twin** herhangi bir etiket veya istenen özellikleri modülü eklemek istiyorsanız. 
+1. Seçin **etkinleştirmek** herhangi bir etiket veya istenen özellikleri modülü çifti eklemek istiyorsanız. 
 1. Seçin **kaydetmek** modülünüzün dağıtıma eklenecek. 
 
 Yapılandırılmış bir dağıtım için tüm modüllerin olduktan sonra Seç **sonraki** üç adımına geçmek için.
@@ -172,7 +177,7 @@ Bir dağıtım sildiğinizde, tüm cihazlar üzerinde kendi sonraki en yüksek �
 Daha fazla bilgi edinmek [modülleri kenar cihazlara dağıtma][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 622bb5971a6ad774e770f00d2d9f44999b844d12
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Veri bilimi Sanal Makinesi üzerinde yapabileceğiniz on işlem
 
@@ -803,14 +803,14 @@ Azure Cosmos DB, bulutta bir NoSQL veritabanıdır. JSON gibi belgelerle çalı�
 
 Azure Cosmos DB DSVM erişim için aşağıdaki koşullar başına adımları gerçekleştirmeniz gerekir.
 
-1. DocumentDB Python SDK'sını yükleyin (çalıştırmak ```pip install pydocumentdb``` komut isteminden)
+1. Azure Cosmos DB Python SDK'sını yükleyin (çalıştırmak ```pip install pydocumentdb``` komut isteminden)
 2. Bir Azure Cosmos DB hesap oluşturup bir veritabanından [Azure portalı](https://portal.azure.com)
 3. "Azure Cosmos DB geçiş aracı" indirin [burada](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) ve tercih ettiğiniz bir dizine ayıklayın
 4. Alma depolanmış JSON verilerini (volcano) bir [ortak blob](https://cahandson.blob.core.windows.net/samples/volcano.json) Cosmos Geçiş Aracı (dtui.exe Cosmos DB geçiş aracı yüklendiği dizininden) için şu komutu parametreler ile DB içine. Bu parametreler ile kaynak ve hedef konumu girin:
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/; AccountKey = [[anahtar]; veritabanı volcano /t.Collection:volcano1 =
 
-Bir kez veri içe aktardıktan sonra Jupyter için gidip başlıklı not defteri açın *DocumentDBSample* DocumentDB erişmek ve bazı temel sorgulama yapmak için python kodunu içerir. Cosmos DB hakkında daha fazla hizmet adresini ziyaret ederek bilgi [belge sayfasının](https://docs.microsoft.com/azure/cosmos-db/).
+Bir kez veri içe aktardıktan sonra Jupyter için gidip başlıklı not defteri açın *DocumentDBSample* Azure Cosmos DB erişmek ve bazı temel sorgulama yapmak için python kodunu içerir. Cosmos DB hakkında daha fazla hizmet adresini ziyaret ederek bilgi [belge sayfasının](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Raporları ve panoyu Power BI Desktop kullanarak derleme
 Bize Power bı'da önceki Cosmos DB örnekte görsel veri almak için gördüğümüz Volcano JSON dosyası görselleştirin. Ayrıntılı adımlar kullanılabilir [Power BI makale](../../cosmos-db/powerbi-visualize.md). Üst düzey adımlar şunlardır:

@@ -4,8 +4,8 @@ description: "Stream Analytics 'Girişleri' adlı bir veri bağlantısı kurma b
 keywords: "veri akışı, veri bağlantısı, olay akışı"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Veri bağlantısı: hakkındaki verileri Stream Analytics akış girişleri olaylardan öğrenin
 Veri akış analizi işi, işin adlandırılan bir veri kaynağından alınan olayların bir akış bağlantısıdır *giriş*. Akış analizi dahil olmak üzere Azure veri kaynakları ile veri akışı, birinci sınıf tümleştirme sahip [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IOT Hub](https://azure.microsoft.com/services/iot-hub/), ve [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/). Bu giriş kaynaklarıyla analytics işiniz aynı Azure aboneliğinden veya farklı bir abonelik olabilir.
@@ -37,9 +37,9 @@ Başvuru veri girişleri oluşturmayı öğrenmek için bkz: [kullanım başvuru
 
 ## <a name="compression"></a>Sıkıştırma
 
-Azure Stream Analytics sıkıştırma tüm veri akışı giriş kaynakları arasında (olay hub'ları, IOT Hub ve Blob Depolama) destekler. Bu özellik için yeni bir açılır seçeneği ekler **yeni giriş** dikey isteğe bağlı olarak veri akışları sıkıştırılacak seçmenizi sağlayan Azure Portalı'nda. Desteklenen türleri şu anda hiçbiri, GZip ve sıkıştırma Deflate. 
+Azure Stream Analytics sıkıştırma tüm veri akışı giriş kaynakları arasında (olay hub'ları, IOT Hub ve Blob Depolama) destekler. Bu özellik için yeni bir açılır seçeneği ekler **yeni giriş** dikey isteğe bağlı olarak veri akışları sıkıştırılacak seçmenizi sağlayan Azure Portalı'nda. Şu anda desteklenen başvuru türleri are - None, GZip ve sıkıştırma Deflate. Sıkıştırma desteği başvuru verileri için kullanılabilir değil.
 
-Sıkıştırma Avro seri hale getirme ile art arda desteklenmez ve verilere başvurmak için geçerli değildir. 
+Avro serileştirilmesi ile sıkıştırma türünü belirtmeniz gerekmez. Giriş Avro verileri sıkıştırılmışsa saydam olarak işlenir. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Veri akış girişine olay hub'larından oluşturma
 

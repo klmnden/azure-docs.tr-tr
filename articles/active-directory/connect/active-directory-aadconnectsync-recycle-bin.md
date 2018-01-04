@@ -5,7 +5,7 @@ services: active-directory
 keywords: "AD geri dönüşüm kutusu, yanlışlıkla silinmesi, kaynak bağlantısı"
 documentationcenter: 
 author: cychua
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: eb455477547f3db8245cf3601576eba9c6fdc56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36a9b5a50a18b73626b0c6e03ed258e387d5c20b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect eşitleme: AD Geri Dönüşüm Kutusu'nu etkinleştir
 Şirket içi Active hangi Azure AD ile eşitlenir dizinlerinizi için AD geri dönüşüm kutusu özelliğini etkinleştirmeniz önerilir. 

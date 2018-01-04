@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos veritabanı Jeo-uzamsal verilerle çalışma | Microsoft Docs"
-description: "Oluşturma, dizin ve Azure Cosmos DB ve DocumentDB API uzamsal nesneleriyle sorgu anlayın."
+description: "Oluşturma, dizin ve Azure Cosmos DB ve SQL API'yi uzamsal nesneleriyle sorgu anlayın."
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c2213f663f539e123f70028fd70bedb1cb6511d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Jeo-uzamsal ve Azure Cosmos veritabanı GeoJSON konum verileri ile çalışma
 Bu makalede Jeo-uzamsal işlevine bir giriş olduğunu [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Bu okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:
@@ -28,16 +28,16 @@ Bu makalede Jeo-uzamsal işlevine bir giriş olduğunu [Azure Cosmos DB](https:/
 * Azure Cosmos DB'de SQL ve LINQ Jeo-uzamsal verileri nasıl sorgulama yapabilirsiniz?
 * Nasıl etkinleştirmek veya Azure Cosmos DB'de uzamsal dizin oluşturmayı devre dışı?
 
-Bu makalede, DocumentDB API uzamsal verilerle çalışmak gösterilmiştir. Lütfen bu bakın [GitHub proje](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) kod örnekleri için.
+Bu makalede, SQL API'yi uzamsal verilerle çalışmak gösterilmiştir. Bu bkz [GitHub proje](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) kod örnekleri için.
 
 ## <a name="introduction-to-spatial-data"></a>Uzamsal veri giriş
-Uzamsal veri konumu ve Şekil alanı nesnelerin açıklar. Çoğu uygulamada bu dünya, yani Jeo-uzamsal veri nesnelerinde karşılık gelir. Uzamsal veriler, bir kişi, ilgilendiğiniz bir yerde veya bir şehir veya bir lake sınırını konumunu temsil etmek için kullanılabilir. Ortak kullanım durumları yakınlık sorguları, örneğin, "tüm kafeterya my geçerli konumu bulmak" için sıklıkla içerir. 
+Uzamsal veri konumu ve Şekil alanı nesnelerin açıklar. Çoğu uygulamada bu nesneler dünya ve Jeo-uzamsal verileri üzerinde karşılık gelir. Uzamsal veriler, bir kişi, ilgilendiğiniz bir yerde veya bir şehir veya bir lake sınırını konumunu temsil etmek için kullanılabilir. Ortak kullanım durumları genellikle yakınlık sorguları, örneğin içeren, "tüm kafeterya my geçerli konumu bulun." 
 
 ### <a name="geojson"></a>GeoJSON
 Dizin oluşturma ve kullanma temsil Jeo-uzamsal noktası verileri Sorgulama Azure Cosmos DB destekler [GeoJSON belirtimi](https://tools.ietf.org/html/rfc7946). Böylece depolanabilir ve herhangi bir özel araçlar veya kitaplıkları Azure Cosmos DB kullanarak sorgulanan GeoJSON veri yapıları her zaman geçerli JSON, nesneleridir. Azure Cosmos DB SDK'ları yardımcı sınıfları ve kolaylaştıran uzamsal verilerle çalışmak yöntemler sağlar. 
 
 ### <a name="points-linestrings-and-polygons"></a>Noktaları, MultiPoint ve çokgenler
-A **noktası** alanı tek bir konumda gösterir. Jeo-uzamsal verileri bir noktayı Market, bir bilgi noktası, bir otomobil veya bir şehir sokak adresi olabilir tam konumu temsil eder.  Bir noktayı kendi koordinat kullanarak GeoJSON (ve Azure Cosmos DB) çifti veya boylam ve enlem temsil edilir. Bir noktası için JSON örnek aşağıda verilmiştir.
+A **noktası** alanı tek bir konumda gösterir. Jeo-uzamsal verileri bir noktayı Market, bir bilgi noktası, bir otomobil ya da bir şehir sokak adresi olabilir tam konumu temsil eder.  Bir noktayı kendi koordinat kullanarak GeoJSON (ve Azure Cosmos DB) çifti veya boylam ve enlem temsil edilir. Bir noktası için JSON örnek aşağıda verilmiştir.
 
 **Azure Cosmos DB noktaları**
 
@@ -49,9 +49,9 @@ A **noktası** alanı tek bir konumda gösterir. Jeo-uzamsal verileri bir noktay
 ```
 
 > [!NOTE]
-> GeoJSON belirtimi boylam belirtir ilk ve enlem ikinci. Gibi diğer eşleme uygulamalarda boylam ve enlem açıları ve derece cinsinden temsil. Boylam değerleri Meridyeninden ölçülür ve -180 ve 180.0 derece ve enlem değerleri ekvatora ölçülür ve-90.0 arasında olan ve 90.0 derece. 
+> GeoJSON belirtimi boylam belirtir ilk ve enlem ikinci. Gibi diğer eşleme uygulamalarda boylam ve enlem açıları ve derece cinsinden temsil. Boylam değerleri Meridyeninden ölçülür ve -180 derece ve 180.0 derece arasında ve enlem değerleri ekvatora ölçülür ve-90.0 derece ve 90.0 derece arasında. 
 > 
-> Azure Cosmos DB 84 WGS başvuru sistemi belirtildiği şekilde koordinatları yorumlama. Lütfen koordinat başvuru sistemleri hakkında daha fazla bilgi için aşağıya bakın.
+> Azure Cosmos DB 84 WGS başvuru sistemi belirtildiği şekilde koordinatları yorumlama. Koordinat başvuru sistemleri hakkında daha fazla bilgi için aşağıya bakın.
 > 
 > 
 
@@ -61,7 +61,7 @@ Bu bir Azure Cosmos DB belgesinde konum verileri içeren bir kullanıcı profili
 
 ```json
 {
-    "id":"documentdb-profile",
+    "id":"cosmosdb-profile",
     "screen_name":"@CosmosDB",
     "city":"Redmond",
     "topics":[ "global", "distributed" ],
@@ -99,7 +99,7 @@ Noktalarına ek olarak, GeoJSON MultiPoint ve çokgenler destekler. **MultiPoint
 GeoJSON Point, LineString ve Çokgen ek olarak, ayrıca isteğe bağlı özellikler coğrafi konum ilişkilendirmek nasıl yanı sıra birden çok Jeo-uzamsal konumları grubuna nasıl için gösterimi belirtir. bir **özelliği**. Bu nesneler geçerli JSON olduğundan, bunlar tüm depolanabilir ve Azure Cosmos DB'de işlenebilir. Ancak Azure Cosmos DB yalnızca noktalarının otomatik dizin oluşturma işlemi destekler.
 
 ### <a name="coordinate-reference-systems"></a>Koordinat başvuru sistemleri
-Dünya şeklini düzensiz olduğundan, Jeo-uzamsal veri koordinatlarını sistemlerindeki birçok koordinat başvurusu (CR), her biri kendi çerçeveler başvuru ve ölçü gösterilir. Örneğin, "ulusal kılavuz, Britanya" başvuru sistemi çok doğru ise İngiltere, ancak değil dışında. 
+Dünya şeklini düzensiz olduğundan Jeo-uzamsal veri koordinatlarını sistemlerindeki birçok koordinat başvurusu (CR), her biri kendi çerçeveler başvuru ve ölçü temsil edilir. Örneğin, "ulusal kılavuz, Britanya" başvuru sistemi çok doğru ise İngiltere, ancak değil dışında. 
 
 En popüler CRS kullanımda bugün dünya Geodetic sistemidir [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). GPS aygıtları ve Google Haritalar ve Bing haritaları API'si dahil olmak üzere birçok eşleme Hizmetleri WGS 84 kullanın. Azure Cosmos DB dizin oluşturma ve Jeo-uzamsal verileri yalnızca WGS 84 CRS kullanarak sorgulama destekler. 
 
@@ -110,7 +110,7 @@ GeoJSON değerleri içeren belgeleri oluşturduğunuzda, uzamsal dizin ile dizin
 
 ```json
 var userProfileDocument = {
-    "name":"documentdb",
+    "name":"cosmosdb",
     "location":{
         "type":"Point",
         "coordinates":[ -122.12, 47.66 ]
@@ -122,7 +122,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-DocumentDB API'leri ile çalışıyorsanız, kullanabileceğiniz `Point` ve `Polygon` içinde sınıfları `Microsoft.Azure.Documents.Spatial` uygulama nesnelerinizi içindeki konum bilgileri katıştırmak için ad alanı. Bu sınıfların seri hale getirme ve seri durumdan çıkarma uzamsal veri GeoJSON içine kolaylaştırmaya yardımcı.
+SQL API'leri ile çalışıyorsanız, kullanabileceğiniz `Point` ve `Polygon` içinde sınıfları `Microsoft.Azure.Documents.Spatial` uygulama nesnelerinizi içindeki konum bilgileri katıştırmak için ad alanı. Bu sınıfların seri hale getirme ve seri durumdan çıkarma uzamsal veri GeoJSON içine kolaylaştırmaya yardımcı.
 
 **.NET Jeo-uzamsal verilerle belge oluşturma**
 
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
     new UserProfile 
     { 
-        Name = "documentdb", 
+        Name = "cosmosdb", 
         Location = new Point (-122.12, 47.66) 
     });
 ```
@@ -155,7 +155,7 @@ Enlem ve boylam bilgilere sahip değilseniz, ancak fiziksel adreslerini veya şe
 Biz Jeo-uzamsal veri eklemek nasıl göz ayırdıktan, SQL ve LINQ kullanarak Azure Cosmos DB kullanarak bu verileri sorgulamak nasıl bir göz atalım.
 
 ### <a name="spatial-sql-built-in-functions"></a>Uzamsal SQL yerleşik işlevler
-Azure Cosmos DB Jeo-uzamsal sorgulamak için aşağıdaki açık Jeo-uzamsal Konsorsiyumu (OGC) yerleşik işlevleri destekler. Tamamını SQL dilinde yerleşik işlevler hakkında daha fazla ayrıntı için lütfen [sorgu Azure Cosmos DB](documentdb-sql-query.md).
+Azure Cosmos DB Jeo-uzamsal sorgulamak için aşağıdaki açık Jeo-uzamsal Konsorsiyumu (OGC) yerleşik işlevleri destekler. Tamamını SQL dilinde yerleşik işlevler hakkında daha fazla bilgi için bkz: [sorgu Azure Cosmos DB](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -198,11 +198,11 @@ Uzamsal işlevleri uzamsal veriler yakınlaştırmalı sorguları gerçekleştir
       "id": "WakefieldFamily"
     }]
 
-Dizin oluşturma ilkenizi uzamsal dizin oluşturma eklerseniz, "uzaklığı sorguları" verimli bir şekilde dizin sunulacak. Uzamsal dizin oluşturma hakkında daha fazla ayrıntı için lütfen aşağıdaki bölümüne bakın. Belirtilen yol için bir uzamsal dizin yoksa, hala uzamsal sorguları belirterek gerçekleştirebileceğiniz `x-ms-documentdb-query-enable-scan` "true" değerini kümesiyle istek üstbilgisi. .NET içinde bu isteğe bağlı geçirerek yapılabilir **FeedOptions** sorgularıyla bağımsız değişkeni [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) true olarak ayarlanmış. 
+Dizin oluşturma ilkenizi uzamsal dizin oluşturma eklerseniz, "uzaklığı sorguları" verimli bir şekilde dizin sunulacak. Uzamsal dizin oluşturma hakkında daha fazla ayrıntı için aşağıdaki bölümüne bakın. Belirtilen yol için bir uzamsal dizin yoksa, hala uzamsal sorguları belirterek gerçekleştirebileceğiniz `x-ms-documentdb-query-enable-scan` "true" değerini kümesiyle istek üstbilgisi. .NET içinde bu isteğe bağlı geçirerek yapılabilir **FeedOptions** sorgularıyla bağımsız değişkeni [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) true olarak ayarlanmış. 
 
 ST_WITHIN bir noktası içinde Çokgen arasındadır varsa denetlemek için kullanılabilir. Yaygın olarak çokgenler sınırları posta kodları, durumu sınırları veya doğal durum oluşumlarıyla gibi göstermek için kullanılır. Dizin oluşturma ilkenizi uzamsal dizin oluşturma dahil ederseniz, tekrar sonra "içindeki" sorguları verimli bir şekilde dizin sunulacak. 
 
-Yalnızca tek bir halka ST_WITHIN Çokgen değişkenlerinde içerebilir, yani çokgenler bunlara boşluklar içermemelidir. 
+Yalnızca tek bir halka ST_WITHIN Çokgen değişkenlerinde içerebilir, diğer bir deyişle, çokgenler bunlara boşluklar içermemelidir. 
 
 **Sorgu**
 
@@ -220,11 +220,11 @@ Yalnızca tek bir halka ST_WITHIN Çokgen değişkenlerinde içerebilir, yani ç
     }]
 
 > [!NOTE]
-> Hatalı biçimlendirilmiş veya geçersiz bağımsız değişken sonra olarak değerlendirilecek konum değeri belirtilen varsa Azure Cosmos DB sorgusunda nasıl eşleşmeyen türler works benzer **tanımsız** ve değerlendirilen belgenin sorgu sonuçlarından atlanır. Sorgunuz hiçbir sonuç döndürürse, ST_ISVALIDDETAILED için hata ayıklama neden spatail türü geçersiz çalıştırın.     
+> Hatalı biçimlendirilmiş veya geçersiz bağımsız değişken sonra için değerlendirir konum değeri belirtilen varsa Azure Cosmos DB sorgusunda nasıl eşleşmeyen türler iş benzer **tanımsız** ve değerlendirilen belgenin sorgu sonuçlarından atlanır. Sorgunuz hiçbir sonuç döndürürse, hata ayıklama ST_ISVALIDDETAILED için uzamsal türü neden geçersiz çalıştırın.     
 > 
 > 
 
-Ters sorgular gerçekleştirme Azure Cosmos DB de destekler, yani, çokgenler veya Azure Cosmos DB satırlarında dizin sonra için belirtilen bir nokta içeren alanlar sorgu. Bu deseni örneğin ne zaman bir kamyonu girer veya belirlenen alanı terk tanımlamak için Lojistik yaygın olarak kullanılır. 
+Ters sorgular gerçekleştirme Azure Cosmos DB de destekler, diğer bir deyişle, çokgenler veya Azure Cosmos DB satırlarında dizin sonra için belirtilen bir nokta içeren alanlar sorgu. Bu deseni bir kamyonu girdiğinde veya belirlenen alan bırakır, örneğin, tanımlamak için Lojistik içinde yaygın olarak kullanılır. 
 
 **Sorgu**
 
@@ -273,7 +273,7 @@ Bu işlevler çokgenler doğrulamak için de kullanılabilir. Örneğin, burada 
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>.NET SDK'ın sorgulama LINQ
-DocumentDB .NET SDK'sı sağlayıcıları yöntemleri de saplama `Distance()` ve `Within()` LINQ ifadeleri içinde kullanmak için. Bu yöntem çağrıları eşdeğer SQL yerleşik işlev çağrıları için DocumentDB LINQ sağlayıcısı çevirir (st_dıstance ve ST_WITHIN sırasıyla). 
+SQL .NET SDK'yı da sağlayıcıları yöntemleri saplama `Distance()` ve `Within()` LINQ ifadeleri içinde kullanmak için. Bu yöntem çağrıları eşdeğer SQL yerleşik işlev çağrıları için SQL LINQ sağlayıcısı çevirir (st_dıstance ve ST_WITHIN sırasıyla). 
 
 "Konum" değeri 30 km belirtilen bir RADIUS içinde noktasındaki LINQ kullanarak Azure Cosmos DB koleksiyonunda tüm belgeleri bulur bir LINQ Sorgu bir örneği burada verilmiştir.
 
@@ -313,7 +313,7 @@ LINQ ve SQL kullanarak belgeleri nasıl göz yapılan, uzamsal dizin oluşturma 
 ## <a name="indexing"></a>Dizinleme
 Bölümünde açıklanan [belirsiz şema dizin Azure Cosmos DB ile](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) kağıt, biz tasarlanmış olmasını Azure Cosmos veritabanı veritabanı altyapısı gerçekten şema belirsiz ve JSON için birinci sınıf destek sağlar. Azure Cosmos DB yazma en iyi duruma getirilmiş veritabanı motoruna yerel GeoJSON standart gösterilen uzamsal veriler (noktaları, çokgenler ve satırları) bilir.
 
-Buna koysalar geometri 2B düzlemi üzerine geodetic koordinatları gelen öngörülen sonra aşamalı olarak kullanarak hücrelere bölünmüş bir **quadtree**. Bu hücreler 1 hücrede konumuna bağlı olarak D eşlendiği bir **Hilbert alanı doldurma eğri**, yerleşim yeri noktalarının korur. Konum verileri sıralandığında ayrıca olarak bilinen bir işlemle gidiyor **Mozaik döşeme**, bir konum kesiştiği yani tüm hücreleri tanımlanır ve Azure Cosmos DB dizin anahtar olarak depolanır. Sorgu zamanında noktaları ve çokgenler gibi bağımsız değişkenler de ilgili hücre kimliği aralıkları ayıklamak için grubun Mozaik, sonra verileri dizinden almak için kullanılır.
+Buna koysalar geometri 2B düzlemi üzerine geodetic koordinatları gelen öngörülen sonra aşamalı olarak kullanarak hücrelere bölünmüş bir **quadtree**. Bu hücreler 1 hücrede konumuna bağlı olarak D eşlendiği bir **Hilbert alanı doldurma eğri**, yerleşim yeri noktalarının korur. Konum verileri sıralandığında ayrıca olarak bilinen bir işlemle gidiyor **Mozaik döşeme**, diğer bir deyişle, bir konum kesiştiği tüm hücreleri tanımlanır ve Azure Cosmos DB dizin anahtar olarak depolanır. Sorgu zamanında noktaları ve çokgenler gibi bağımsız değişkenler de ilgili hücre kimliği aralıkları ayıklamak için grubun Mozaik, sonra verileri dizinden almak için kullanılır.
 
 Uzamsal dizini içeren bir dizin oluşturma ilkesini belirtirseniz / * (tüm yolları), koleksiyon içinde bulunan tüm noktalarını verimli uzamsal sorguları için (ST_WITHIN ve st_dıstance) dizine sonra. Uzamsal dizinler değil duyarlılık değeri vardır ve her zaman varsayılan duyarlılık değeri kullanın.
 
@@ -322,7 +322,7 @@ Uzamsal dizini içeren bir dizin oluşturma ilkesini belirtirseniz / * (tüm yol
 > 
 > 
 
-Etkin uzamsal dizin ile bir dizin oluşturma ilkesini aşağıdaki JSON parçacığı gösterir, yani uzamsal sorgulamak için belgeler içinde bulunan herhangi bir GeoJSON noktası dizini. Azure Portalı'nı kullanarak dizin oluşturma ilkesini değiştiriyorsanız, koleksiyonunuzu üzerinde dizin uzamsal etkinleştirmek için dizin oluşturma ilkesi için aşağıdaki JSON belirtebilirsiniz.
+Etkinleştirilirse, yani uzamsal dizin ile bir dizin oluşturma ilkesini aşağıdaki JSON parçacığı gösterir, uzamsal sorgulamak için belgeler içinde bulunan herhangi bir GeoJSON noktası dizini. Azure portalını kullanarak dizin oluşturma ilkesini değiştiriyorsanız, koleksiyonunuzu üzerinde dizin uzamsal etkinleştirmek için dizin oluşturma ilkesi için aşağıdaki JSON belirtebilirsiniz.
 
 **Toplama dizin oluşturma ilkesi JSON noktaları ve çokgenler için etkin Spatial ile**
 
@@ -392,10 +392,10 @@ Burada da var olan bir koleksiyon içindeki belgelerde depolanır noktaları üz
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Cosmos DB Jeo-uzamsal desteği ile çalışmaya nasıl başlayacağınız hakkında learnt, şunları yapabilirsiniz:
+Azure Cosmos DB Jeo-uzamsal desteği ile çalışmaya nasıl başlayacağınız hakkında learnt Nolearned, şunları yapabilirsiniz:
 
 * İle kod yazmaya başlayın [Jeo-uzamsal .NET github'daki kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Konumundaki Jeo-uzamsal sorgulama ile ele almak [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
-* Daha fazla bilgi edinmek [Azure Cosmos DB sorgusu](documentdb-sql-query.md)
+* Daha fazla bilgi edinmek [Azure Cosmos DB sorgusu](sql-api-sql-query.md)
 * Daha fazla bilgi edinmek [Azure Cosmos DB dizin oluşturma ilkeleri](indexing-policies.md)
 

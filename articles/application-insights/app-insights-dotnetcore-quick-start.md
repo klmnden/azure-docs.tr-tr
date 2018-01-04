@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core Web Uygulamanızı İzlemeye Başlama
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıcı tamamlamak için:
 - [.NET Core 2.0 SDK yükleme](https://www.microsoft.com/net/core)
 - Bir Azure Aboneliği ve var olan bir .NET Core web uygulaması gerekir.
 
-Bir ASP.NET Core web uygulamanız yoksa [ASP.NET Core Web Uygulaması Oluşturma Kılavuzu](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)’nu izleyerek bir tane oluşturabilirsiniz.
+Bir ASP.NET Core web uygulamanız yoksa [ASP.NET Core Web Uygulaması Oluşturma Kılavuzu](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)’nu izleyerek bir tane oluşturabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -126,4 +126,4 @@ Sonraki hızlı başlangıçlar veya öğreticilerle devam etmeyi planlıyorsan�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Çalışma zamanı özel durumlarını bulma ve tanılama](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Çalışma zamanı özel durumlarını bulma ve tanılama](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Kurumsal durumda dolaşımı, windows bulut"
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 dolaşım ayarları başvurusu
 Çıkan veya Windows 10'da yedeklenen tüm ayarların tam bir listesi verilmiştir. 
@@ -61,114 +61,114 @@ Dolaşan yok ayarlar veya eşitleme bir gruba ait değil.
 
 | Ayarlar | Masaüstü | Cep telefonu | Grup |
 | --- | --- | --- | --- |
-| **Hesapları**: hesap resmi |Eşitleme |X |Tema |
+| **Hesapları**: hesap resmi |eşitle |X |Tema |
 | **Hesapları**: diğer hesap ayarları |X |X | |
-| **Mobil geniş bant Gelişmiş**: Internet Bağlantısı Paylaşımı (etkinleştirir Bluetooth aracılığıyla mobil Wi-Fi etkin noktalarına Otomatik Bulma) ağ adı |X |X |Parolaları |
+| **Mobil geniş bant Gelişmiş**: Internet Bağlantısı Paylaşımı (etkinleştirir Bluetooth aracılığıyla mobil Wi-Fi etkin noktalarına Otomatik Bulma) ağ adı |X |X |Parolalar |
 | **Uygulama verileri**: tek tek uygulamalar veri eşitleme |Eşitleme yedekleme |Eşitleme yedekleme |İç |
 | **Uygulama listesi**: yüklü uygulamaların listesi |X |yedekleme |Diğer |
 | **Bluetooth**: tüm Bluetooth ayarları |X |X | |
-| **Komut İstemi**: komut istemi "Varsayılan" ayarları |Eşitleme |X | |
-| **Kimlik bilgileri**: kimlik bilgileri kasası |Eşitleme |Eşitleme |password |
-| **Tarih, saat ve bölge**: otomatik saat (Internet zaman eşitleme) |Eşitleme |Eşitleme |Dil |
-| **Tarih, saat ve bölge**: 24 saatlik |Eşitleme |X |Dil |
-| **Tarih, saat ve bölge**: tarih ve saat |Eşitleme |X |Dil |
+| **Komut İstemi**: komut istemi "Varsayılan" ayarları |eşitle |X | |
+| **Kimlik bilgileri**: kimlik bilgileri kasası |eşitle |eşitle |password |
+| **Tarih, saat ve bölge**: otomatik saat (Internet zaman eşitleme) |eşitle |eşitle |Dil |
+| **Tarih, saat ve bölge**: 24 saatlik |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: tarih ve saat |eşitle |X |Dil |
 | **Tarih, saat ve bölge**: saat dilimi | |X |Dil |
-| **Tarih, saat ve bölge**: günışığından yararlanma saati |Eşitleme |X |Dil |
-| **Tarih, saat ve bölge**: ülke/bölge |Eşitleme |X |Dil |
-| **Tarih, saat ve bölge**: haftanın ilk günü |Eşitleme |X |Dil |
-| **Tarih, saat ve bölge**: bölge biçimini (yerel) |Eşitleme |X |Dil |
-| **Tarih, saat ve bölge**: kısa tarih |Eşitleme |X |Dil |
-| **Tarih, saat ve bölge**: uzun tarih |Eşitleme |X |Dil |
-| **Tarih, saat ve bölge**: kısa bir süre |Eşitleme |X |Dil |
-| **Tarih, saat ve bölge**: uzun zaman |Eşitleme |X |Dil |
-| **Masaüstü kişiselleştirme**: Masaüstü teması (arka plan, sistem rengi, varsayılan sistem sesleri, ekran koruyucusu) |Eşitleme |X |Tema |
-| **Masaüstü kişiselleştirme**: slayt gösterisi duvar kağıdı |Eşitleme |X |Tema |
-| **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik olarak Gizle, vb.) |Eşitleme |X |Tema |
+| **Tarih, saat ve bölge**: günışığından yararlanma saati |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: ülke/bölge |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: haftanın ilk günü |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: bölge biçimini (yerel) |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: kısa tarih |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: uzun tarih |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: kısa bir süre |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: uzun zaman |eşitle |X |Dil |
+| **Masaüstü kişiselleştirme**: Masaüstü teması (arka plan, sistem rengi, varsayılan sistem sesleri, ekran koruyucusu) |eşitle |X |Tema |
+| **Masaüstü kişiselleştirme**: slayt gösterisi duvar kağıdı |eşitle |X |Tema |
+| **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik olarak Gizle, vb.) |eşitle |X |Tema |
 | **Masaüstü kişiselleştirme**: Başlangıç ekranı düzeni |X |yedekleme | |
 | **Aygıtları**: paylaşılan yazıcılara için bağlı |X |X |diğer |
-| **Edge tarayıcısı**: liste okuma |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: Sık Kullanılanlar |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: üst siteleri <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: URL'leri yazılan <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: Sık Kullanılanlar çubuğu ayarları <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: Giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: açılır pencereleri engelle <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: ile her yükleme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: parolaları kaydetmek teklif <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: gönderme istekleri izleme <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: form girişlerini kaydetmek <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: yazarken arama ve site önerilerini göster <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: tanımlama bilgileri tercih <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: korumalı medya lisansları aygıtımda Kaydet siteleri izin <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: ekran okuyucusu ayarı <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Yüksek Karşıtlık**: açıp kapatma |Eşitleme |X |Erişim Kolaylığı |
-| **Yüksek Karşıtlık**: tema ayarları |Eşitleme |X |Erişim Kolaylığı |
-| **Internet Explorer**: açmak sekmeler (URL ve başlık) |Eşitleme |Eşitleme |Internet Explorer |
-| **Internet Explorer**: liste okuma |Eşitleme |Eşitleme |Internet Explorer |
-| **Internet Explorer**: URL'leri yazılan |Eşitleme |Eşitleme |Internet Explorer |
-| **Internet Explorer**: geçmişiniz |Eşitleme |Eşitleme |Internet Explorer |
-| **Internet Explorer**: Sık Kullanılanlar |Eşitleme |Eşitleme |Internet Explorer |
-| **Internet Explorer**: dışlanan URL'leri |Eşitleme |Eşitleme |Internet Explorer |
-| **Internet Explorer**: giriş sayfası |Eşitleme |Eşitleme |Internet Explorer |
-| **Internet Explorer**: etki alanı önerileri |Eşitleme |Eşitleme |Internet Explorer |
-| **Klavye**: kullanıcıların Aç/kapalı Klavyesi |Eşitleme |X |Erişim Kolaylığı |
-| **Klavye**: Evet Yapışkan Aç (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
-| **Klavye**: Filtre Tuşlarını etkinleştir (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
-| **Klavye**: geçiş tuşlarını etkinleştir (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
-| **Internet Explorer**: etki alanı dil: Çince (CHS) QWERTY - etkinleştirmek kendi kendine öğrenme |Eşitleme |X |Dil |
-| **Dil**: QWERTY CHS - enable dinamik adayı sıralaması |Eşitleme |X |Dil |
-| **Dil**: kümesi Basitleştirilmiş Çince CHS QWERTY - char grafiği |Eşitleme |X |Dil |
-| **Dil**: kümesi Geleneksel Çince CHS QWERTY - char grafiği |Eşitleme |X |Dil |
-| **Dil**: QWERTY CHS - belirsiz pinyin |Eşitleme |yedekleme |Dil |
-| **Dil**: QWERTY CHS - belirsiz çiftleri |Eşitleme |yedekleme |Dil |
-| **Dil**: QWERTY CHS - tam pinyin |Eşitleme |X |Dil |
-| **Dil**: QWERTY CHS - çift pinyin |Eşitleme |X |Dil |
-| **Dil**: CHS otomatik düzeltme okuma QWERTY - |Eşitleme |X |Dil |
-| **Dil**: QWERTY CHS - C/E anahtar anahtarı, kaydırma |Eşitleme |X |Dil |
-| **Dil**: QWERTY CHS - C/E anahtar anahtarı, Ctrl |Eşitleme |X |Dil |
-| **Dil**: CHS WUBI - tek karakter giriş modu |Eşitleme |X |Dil |
-| **Dil**: CHS WUBI - Göster adayı olan kodlama kalan |Eşitleme |X |Dil |
-| **Dil**: CHS WUBI - bip 4 kodlama geçersiz olduğunda |Eşitleme |X |Dil |
-| **Dil**: CHT Bopomofo - CJK Ext-A içerir |Eşitleme |X |Dil |
-| **Dil**: Japonca IME - Tahmine dayalı yazarak ve özel sözcükler |Eşitleme |Eşitleme |Dil |
+| **Edge tarayıcısı**: liste okuma |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: Sık Kullanılanlar |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: üst siteleri <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: URL'leri yazılan <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: Sık Kullanılanlar çubuğu ayarları <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: Giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: açılır pencereleri engelle <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: ile her yükleme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: parolaları kaydetmek teklif <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: gönderme istekleri izleme <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: form girişlerini kaydetmek <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: yazarken arama ve site önerilerini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: tanımlama bilgileri tercih <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: korumalı medya lisansları aygıtımda Kaydet siteleri izin <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: ekran okuyucusu ayarı <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Yüksek Karşıtlık**: açıp kapatma |eşitle |X |Erişim Kolaylığı |
+| **Yüksek Karşıtlık**: tema ayarları |eşitle |X |Erişim Kolaylığı |
+| **Internet Explorer**: açmak sekmeler (URL ve başlık) |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: liste okuma |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: URL'leri yazılan |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: geçmişiniz |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: Sık Kullanılanlar |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: dışlanan URL'leri |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: giriş sayfası |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: etki alanı önerileri |eşitle |eşitle |Internet Explorer |
+| **Klavye**: kullanıcıların Aç/kapalı Klavyesi |eşitle |X |Erişim Kolaylığı |
+| **Klavye**: Evet Yapışkan Aç (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
+| **Klavye**: Filtre Tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
+| **Klavye**: geçiş tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
+| **Internet Explorer**: etki alanı dil: Çince (CHS) QWERTY - etkinleştirmek kendi kendine öğrenme |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - enable dinamik adayı sıralaması |eşitle |X |Dil |
+| **Dil**: kümesi Basitleştirilmiş Çince CHS QWERTY - char grafiği |eşitle |X |Dil |
+| **Dil**: kümesi Geleneksel Çince CHS QWERTY - char grafiği |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - belirsiz pinyin |eşitle |yedekleme |Dil |
+| **Dil**: QWERTY CHS - belirsiz çiftleri |eşitle |yedekleme |Dil |
+| **Dil**: QWERTY CHS - tam pinyin |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - çift pinyin |eşitle |X |Dil |
+| **Dil**: CHS otomatik düzeltme okuma QWERTY - |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - C/E anahtar anahtarı, kaydırma |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - C/E anahtar anahtarı, Ctrl |eşitle |X |Dil |
+| **Dil**: CHS WUBI - tek karakter giriş modu |eşitle |X |Dil |
+| **Dil**: CHS WUBI - Göster adayı olan kodlama kalan |eşitle |X |Dil |
+| **Dil**: CHS WUBI - bip 4 kodlama geçersiz olduğunda |eşitle |X |Dil |
+| **Dil**: CHT Bopomofo - CJK Ext-A içerir |eşitle |X |Dil |
+| **Dil**: Japonca IME - Tahmine dayalı yazarak ve özel sözcükler |eşitle |eşitle |Dil |
 | **Dil**: Kore dili (KOR) IME |X |X |Dil |
 | **Dil**: el yazısı tanıma |X |X |Dil |
-| **Dil**: Dil profili |Eşitleme |yedekleme |Dil |
-| **Dil**: yazım denetimi - otomatik düzeltme ve Vurgu yazım hatası |Eşitleme |yedekleme |Dil |
-| **Dil**: klavyeler listesi |Eşitleme |yedekleme |Dil |
+| **Dil**: Dil profili |eşitle |yedekleme |Dil |
+| **Dil**: yazım denetimi - otomatik düzeltme ve Vurgu yazım hatası |eşitle |yedekleme |Dil |
+| **Dil**: klavyeler listesi |eşitle |yedekleme |Dil |
 | **Kilit ekranı**: tüm kilit ekranı ayarları |X |X | |
 | **Büyüteç'i**: Aç veya kapat (ana Değiştir) |X |X |Erişim kolaylığı |
-| **Büyüteç'i**: ters çevirmeyi renk Aç veya kapat (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
-| **Büyüteç'i**: izleme - klavye odağını izle |Eşitleme |X |Erişim kolaylığı |
-| **Büyüteç'i**: izleme - fare imlecini izleyin |Eşitleme |X |Erişim kolaylığı |
-| **Büyüteç'i**: kullanıcılar oturum açtığında Başlat (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
-| **Fare**: fare imlecini boyutunu değiştirme |Eşitleme |X |diğer |
-| **Fare**: fare imlecini rengini değiştirme |Eşitleme |X |diğer |
+| **Büyüteç'i**: ters çevirmeyi renk Aç veya kapat (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
+| **Büyüteç'i**: izleme - klavye odağını izle |eşitle |X |Erişim kolaylığı |
+| **Büyüteç'i**: izleme - fare imlecini izleyin |eşitle |X |Erişim kolaylığı |
+| **Büyüteç'i**: kullanıcılar oturum açtığında Başlat (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
+| **Fare**: fare imlecini boyutunu değiştirme |eşitle |X |diğer |
+| **Fare**: fare imlecini rengini değiştirme |eşitle |X |diğer |
 | **Fare**: tüm diğer ayarlar |X |X | |
-| **Ekran okuyucusu**: Hızlı Başlat |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar, aralık konuşarak okuyucu değiştirebilir |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat ortak öğeler için ipuçları okuma ekran okuyucusu (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat olup yazılan karakterleri duyar (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat olup yazılan sözcükler duyar (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ekran okuyucusu aşağıdaki Ekle imleci sahip (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ekran okuyucusu imleç visual vurgulama etkinleştir (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ses yardımlar Yürüt (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**:, parmak kaldırdığınızda dokunma tuşlarını etkinleştir (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
-| **Erişim Kolaylığı**: sönen bir imleç kalınlığı ayarlama |Eşitleme |X |Erişim kolaylığı |
-| **Erişim Kolaylığı**: arka plan görüntüleri kaldırın (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: Hızlı Başlat |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: kullanıcılar, aralık konuşarak okuyucu değiştirebilir |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat ortak öğeler için ipuçları okuma ekran okuyucusu (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat olup yazılan karakterleri duyar (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat olup yazılan sözcükler duyar (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: ekran okuyucusu aşağıdaki Ekle imleci sahip (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: ekran okuyucusu imleç visual vurgulama etkinleştir (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: ses yardımlar Yürüt (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**:, parmak kaldırdığınızda dokunma tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
+| **Erişim Kolaylığı**: sönen bir imleç kalınlığı ayarlama |eşitle |X |Erişim kolaylığı |
+| **Erişim Kolaylığı**: arka plan görüntüleri kaldırın (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
 | **Güç ve uyku**: tüm ayarlar |X |X | |
-| **Ekran kişiselleştirme Başlat**: Aksan rengi (yalnızca telefon) |X |Eşitleme |Tema |
-| **Yazmaya**: Yazım Sözlüğü |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: düzeltme yanlış yazılmış sözcük |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: yanlış yazılmış sözcükleri Vurgula |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: yazarken metin önerilerini göster |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: metin öneride seçtikten sonra bir alanı Ekle |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: t çift ara çubuğuna dokunma sonra bir nokta ekleyin |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: her tümcenin ilk harfini büyük harf |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: t çift SHIFT tuşuna dokunun tümüyle büyük harfe kullanın |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: yazarken anahtar ses çalma |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: Kişiselleştirme verileri için touch klavye |Eşitleme |yedekleme |Dil |
-| **Wi-Fi**: Wi-Fi profilleri (yalnızca WPA) |Eşitleme |Eşitleme |Parolaları |
+| **Ekran kişiselleştirme Başlat**: Aksan rengi (yalnızca telefon) |X |eşitle |Tema |
+| **Yazmaya**: Yazım Sözlüğü |eşitle |yedekleme |Dil |
+| **Yazmaya**: düzeltme yanlış yazılmış sözcük |eşitle |yedekleme |Dil |
+| **Yazmaya**: yanlış yazılmış sözcükleri Vurgula |eşitle |yedekleme |Dil |
+| **Yazmaya**: yazarken metin önerilerini göster |eşitle |yedekleme |Dil |
+| **Yazmaya**: metin öneride seçtikten sonra bir alanı Ekle |eşitle |yedekleme |Dil |
+| **Yazmaya**: t çift ara çubuğuna dokunma sonra bir nokta ekleyin |eşitle |yedekleme |Dil |
+| **Yazmaya**: her tümcenin ilk harfini büyük harf |eşitle |yedekleme |Dil |
+| **Yazmaya**: t çift SHIFT tuşuna dokunun tümüyle büyük harfe kullanın |eşitle |yedekleme |Dil |
+| **Yazmaya**: yazarken anahtar ses çalma |eşitle |yedekleme |Dil |
+| **Yazmaya**: Kişiselleştirme verileri için touch klavye |eşitle |yedekleme |Dil |
+| **Wi-Fi**: Wi-Fi profilleri (yalnızca WPA) |eşitle |eşitle |Parolalar |
 
 ###### <a name="footnote-1"></a>Dipnot 1
 Desteklenen en düşük işletim sistemi sürümü Windows oluşturucuları güncelleştirme (yapı 15063). 

@@ -4,7 +4,7 @@ description: "Azure Active Directory Kullanıcıları ve grupları SCIM'yi proto
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
@@ -12,25 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
+<<<<<<< HEAD
 ms.custom: aaddev;it-pro;oldportal
 ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.custom: aaddev;it-pro
+ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için etki alanları arası kimlik yönetimi sistemi kullanarak
 
 ## <a name="overview"></a>Genel Bakış
 Azure Active Directory (Azure AD) otomatik olarak kullanıcı sağlama ve tanımlanan gruplar arabirimi ile bir web hizmeti tarafından fronted uygulama ya da kimliği deposuna [sistemi etki alanları arası Kimlik Yönetimi (SCIM'yi) 2.0 protokolü belirtimi için](https://tools.ietf.org/html/draft-ietf-scim-api-19). Delete kullanıcılar ve gruplar web hizmetine atanan veya Azure Active Directory oluşturmak, değiştirmek için istek gönderemez. Web hizmeti, hedef kimlik deposu işlemlere bu istekleri sonra anlamına gelebilir. 
-
-> [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. 
-
-
 
 ![][0]
 *Şekil 1: Bir web hizmeti aracılığıyla bir kimlik deposu için Azure Active Directory'den sağlama*
@@ -87,7 +89,7 @@ Bu makalede açıklanan SCIM'yi profili destekleyen uygulamalar Azure AD uygulam
 13. Tıklatın **kaydetmek** hizmet sağlama Azure AD başlatmak için. 
 14. Eşitlemeyi yalnızca kullanıcılar ve gruplar (önerilen) atanmışsa, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesinde ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
 
-İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. 
@@ -159,7 +161,7 @@ Azure AD'den sağlama isteklerini kabul edebilir bir SCIM'yi uç noktası uygula
 13. Tıklatın **kaydetmek** hizmet sağlama Azure AD başlatmak için. 
 14. Eşitlemeyi yalnızca kullanıcılar ve gruplar (önerilen) atanmışsa, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesinde ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
 
-İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 Windows makinenizi \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug klasöründe TargetFile.csv dosyayı açmak için örnek doğrulama son adım var. Sağlama işlemini çalıştırdıktan sonra bu dosyayı tüm ayrıntılarını atanan ve kullanıcılar ve gruplar sağlanan gösterir.
 
@@ -359,7 +361,7 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://sche
 ### <a name="table-1-default-user-attribute-mapping"></a>Tablo 1: Varsayılan kullanıcı özniteliği eşlemesi
 | Azure Active Directory kullanıcısı | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
-| IsSoftDeleted |Etkin |
+| IsSoftDeleted |etkin |
 | Görünen adı |Görünen adı |
 | Faks TelephoneNumber |PhoneNumber [türü eq "faks"] .value |
 | givenName |name.givenName |
@@ -383,7 +385,7 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://sche
 | Görünen adı |externalID |
 | Posta |e-postaları [türü eq "İş"] .value |
 | mailNickname |Görünen adı |
-| Üyeleri |Üyeleri |
+| üyeler |üyeler |
 | objectID |id |
 | proxyAddresses |e-postaları [eq "diğer" yazın]. Değer |
 

@@ -1,9 +1,9 @@
 ---
-title: "Bir Log Analytics Uyarısından Azure Otomasyonu Runbook’u Çağırma | Microsoft Docs"
-description: "Bu makalede bir Microsoft OMS Log Analytics uyarısından Otomasyon runbook’u çağırma işlemine genel bakış sunulmaktadır."
+title: "Bir Log Analytics uyarısından Azure Otomasyonu runbook’u çağırma | Microsoft Docs"
+description: "Bu makalede, Operations Management Suite’te Log Analytics uyarısından Otomasyon runbook’u çağırma işlemine genel bakış sunulmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,77 +14,92 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 3370efe7696a6ffe9013886e07392806e008993b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Bir OMS Log Analytics uyarısından Azure Otomasyonu runbook’u çağırma
+# <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Log Analytics uyarısından Azure Otomasyonu runbook’u çağırma
 
-Log Analytics'te, sonuçların işlemci kullanımında uzun süren bir ani değişiklik ya da bir iş uygulamasının işlevselliği için kritik olan bir uygulama işleminin başarısız olması ve Windows olay günlüğüne karşılık gelen bir olay yazması gibi ölçütlerle eşleşmesi durumunda uyarı kaydı oluşturmaya yönelik bir uyarı yapılandırıldığında bu uyarı, sorunu otomatik olarak düzeltme girişimiyle bir Otomasyon runbook'unu otomatik olarak çalıştırabilir.  
+Azure Log Analytics’te sonuçlar ölçütlerinizle eşleştiğinde uyarı kaydı oluşturmak üzere bir uyarı yapılandırabilirsiniz. Bu uyarı, sorunu otomatik olarak düzeltme girişimiyle bir Azure Otomasyonu runbook'unu otomatik olarak çalıştırabilir. 
 
-Uyarı yapılandırırken runbook'u çağırmak için iki seçenek vardır:
+Örneğin bir uyarı, işlemci kullanımında uzun süreli bir yükselmeyi gösterebilir. Veya bir iş uygulamasının işlevselliği için önemli olan bir uygulama işleminin başarısız olduğunu gösterebilir. Bir runbook daha sonra Windows olay günlüğüne karşılık gelen bir olay yazabilir.  
 
-1. Web kancası kullanma.
-   * OMS çalışma alanınız bir Otomasyon hesabına bağlı değilse kullanılabilecek tek seçenek budur.
-   * OMS çalışma alanına bağlı bir Otomasyon hesabınız varsa bu seçenek yine de kullanılabilir.  
+Uyarı yapılandırmasında runbook'u çağırmak için iki seçenek vardır:
 
-2. Doğrudan bir runbook seçme.
-   * Bu seçenek yalnızca 
-   *  OMS çalışma alanı bir Otomasyon hesabına bağlıysa kullanılabilir.  
+* Web kancası kullanma.
+   * Operations Management Suite çalışma alanınız bir Otomasyon hesabına bağlı değilse kullanılabilecek tek seçenek budur.
+   * Operations Management Suite çalışma alanına bağlı bir Otomasyon hesabınız varsa bu seçenek yine de kullanılabilir.  
 
-## <a name="calling-a-runbook-using-a-webhook"></a>Web kancası kullanarak bir runbook çağırma
+* Doğrudan bir runbook seçme.
+   * Bu seçenek yalnızca Operations Management Suite çalışma alanı bir Otomasyon hesabına bağlı olduğunda kullanılabilir.
 
-Web kancası tek bir HTTP isteği ile Azure Otomasyonu’nda belirli bir runbook başlatmanıza olanak tanır.  Web kancası kullanarak bir uyarı eylemi olarak runbook'u çağırmak üzere [Log Analytics uyarısını](../log-analytics/log-analytics-alerts.md#alert-rules) yapılandırmadan önce, ilk olarak bu yöntem kullanılarak çağrılacak runbook için bir web kancası oluşturmanız gerekir.  [Web kancası oluşturma](automation-webhooks.md#creating-a-webhook) makalesindeki adımları uygulayın ve uyarı kuralını yapılandırırken başvurabilmeniz için web kancası URL'sini kaydetmeyi unutmayın.   
+## <a name="calling-a-runbook-by-using-a-webhook"></a>Web kancası kullanarak bir runbook çağırma
+
+Web kancası kullanarak tek bir HTTP isteği ile Azure Otomasyonu’nda belirli bir runbook başlatabilirsiniz. Web kancası kullanarak bir uyarı eylemi olarak runbook'u çağırmak üzere [Log Analytics uyarısını](../log-analytics/log-analytics-alerts.md#alert-rules) yapılandırmadan önce, bu yöntem kullanılarak çağrılacak runbook için bir [web kancası oluşturmanız](automation-webhooks.md#creating-a-webhook) gerekir. Uyarı kuralını yapılandırırken başvurabilmeniz için web kancası URL'sini kaydetmeyi unutmayın.   
 
 ## <a name="calling-a-runbook-directly"></a>Doğrudan bir runbook çağırma
 
-OMS çalışma alanınızda yüklü ve yapılandırılmış bir Otomasyon ve Denetim teklifiniz varsa, uyarı için Runbook eylemleri seçeneğini yapılandırırken tüm runbook'ları **Runbook seç** açılır listesinden görüntüleyebilir ve uyarıya yanıt olarak çalıştırmak istediğiniz runbook'u seçebilirsiniz.  Seçili runbook, Azure bulutundaki bir çalışma alanında veya bir karma runbook çalışanında çalışabilir.  Runbook seçeneği kullanılarak uyarı oluşturulduktan sonra, runbook için bir web kancası oluşturulur.  Otomasyon hesabına gidip seçili runbook'un web kancası bölmesine ulaştığınızda web kancasını görebilirsiniz.  Uyarıyı silerseniz web kancası silinmez, ancak kullanıcı web kancasını el ile silebilir.  Web kancasının silinmemesi sorun değildir; yalnızca Otomasyon hesabının düzenini korumak için sonunda silinmesi gereken yalnız bırakılmış bir öğedir.  
+Operations Management Suite çalışma alanınıza Automation and Control teklifini yükleyip yapılandırabilirsiniz. Uyarı için runbook eylemleri seçeneğini yapılandırırken tüm runbook'ları **Runbook seç** açılır listesinden görüntüleyebilir ve uyarıya yanıt olarak çalıştırmak istediğiniz runbook'u seçebilirsiniz. Seçili runbook, Azure çalışma alanında veya bir karma runbook çalışanında çalışabilir. 
 
-## <a name="characteristics-of-a-runbook-for-both-options"></a>Bir runbook’un özellikleri (her iki seçenek için)
+Runbook seçeneğini kullanarak uyarıyı oluşturduktan sonra, runbook için bir web kancası oluşturulur. Otomasyon hesabını açıp seçili runbook'un web kancası bölmesine ulaştığınızda web kancasını görebilirsiniz. 
 
-Log Analytics uyarısından runbook çağırmaya yönelik her iki yöntem de uyarı kurallarınızı yapılandırmadan önce anlaşılması gereken farklı davranış özelliklerine sahiptir.  
+Uyarıyı silerseniz web kancası silinmez. Bu bir sorun değildir. Web kancası, Otomasyon hesabını düzenli tutmak için sonunda el ile silmeniz gereken, yalnız bırakılmış bir öğe haline gelir.  
 
-* **Object** türünde **WebhookData** adlı bir runbook girdi parametreniz olmalıdır.  Zorunlu veya isteğe bağlı olabilir.  Uyarı bu girdi parametresini kullanarak arama sonuçlarını runbook’a geçirir.
+## <a name="characteristics-of-a-runbook"></a>Bir runbook’un özellikleri
 
-        param  
-         (  
-          [Parameter (Mandatory=$true)]  
-          [object] $WebhookData  
-         )
+Log Analytics uyarısından runbook çağırmaya yönelik her iki yöntem de uyarı kurallarınızı yapılandırmadan önce anlamanız gereken farklı davranış özelliklerine sahiptir. 
 
-*  WebhookData’yı bir PowerShell nesnesine dönüştürmek için kodunuz olmalıdır.
+Uyarı verileri JSON biçimindedir ve **SearchResult** adlı tek bir özellik içinde yer alır. Bu biçim, standart yüke sahip runbook ve web kancası eylemlerine yöneliktir. Özel yüklere (**RequestBody** içinde **IncludeSearchResults:True** dahil olmak üzere) yönelik web kancası işlemleri için özellik, **SearchResults** şeklindedir.
 
-    `$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
+**Object** türünde **WebhookData** adlı bir runbook girdi parametreniz olmalıdır. Zorunlu veya isteğe bağlı olabilir. Uyarı bu girdi parametresini kullanarak arama sonuçlarını runbook’a geçirir.
 
-    *$SearchResults* bir nesne dizisidir; her nesne bir arama sonucunun değerlerini içeren alanlardan oluşur
+```powershell
+param  
+    (  
+    [Parameter (Mandatory=$true)]  
+    [object] $WebhookData  
+    )
+```
+**WebhookData**’yı bir PowerShell nesnesine dönüştürmek için ayrıca bir kodunuz olmalıdır.
 
-### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>Web kancası seçeneği ile runbook seçeneği arasındaki WebhookData tutarsızlıkları
+```powershell
+$SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
+```
 
-* Web kancası çağırma uyarısını yapılandırırken, runbook için oluşturduğunuz web kancası URL'si girin ve **Web Kancasını Test Et** düğmesine tıklayın.  Sonuçta runbook’a gönderilen WebhookData, *.SearchResult* veya *.SearchResults* öğelerini içermez.
+**$SearchResult** bir nesne dizisidir. Her nesne bir arama sonucunun değerlerini içeren alanlardan oluşur.
 
-*  Bu uyarı kaydedildikten sonra web kancasını tetikleyip çağırdığında runbook'a gönderilen WebhookData, *.SearchResult* öğesini içerir.
-* Bir uyarı oluşturup runbook çağıracak şekilde yapılandırırsanız (bu da bir web kancası oluşturur), uyarı tetiklendiğinde WebhookData öğesini *.SearchResults* içeren runbook'a gönderir.
-
-Dolayısıyla, yukarıdaki kod örneğinde, uyarı bir web kancası çağırırsa *.SearchResult* öğesini almanız ve uyarı doğrudan bir runbook çağırırsa *.SearchResults* öğesini almanız gerekir.
 
 ## <a name="example-walkthrough"></a>Örnek kılavuz
 
-Bir Windows hizmetini başlatan aşağıdaki örnek grafiksel runbook kullanılarak bu işlemin nasıl çalıştığı gösterilecektir.<br><br> ![Windows Hizmeti Grafiksel Runbook’unu Başlatma](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
+Aşağıdaki örnek, bu işlemin nasıl çalıştığını gösteren grafiksel bir runbook ile ilgilidir. Bir Windows hizmetini başlatır.
 
-Runbook, **Object** türünde **WebhookData** adlı bir girdi parametresini ve *.SearchResults* öğesini içeren uyarıdan geçirilmiş web kancası verilerini içerir.<br><br> ![Runbook girdi parametreleri](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)<br>
+![Bir Windows hizmeti başlatmaya yönelik grafiksel runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)
 
-Bu örnek için, hizmet görünen adını ve hizmetin durumunu (çalışıyor veya durduruldu) Sistem olay günlüğüne yazılmış olaydan ayıklamak amacıyla Log Analytics’te *SvcDisplayName_CF* ve *SvcState_CF* adlı iki özel alan oluşturulmuştur.  Ardından şu arama sorgusuyla bir uyarı kuralı oluşturulur: `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"`; böylece, Windows sisteminde Yazdırma Biriktiricisi hizmetinin ne zaman durdurulduğu saptanabilir.  Bu herhangi bir ilgili hizmet olabilir; ancak bu örnekte Windows OS ile birlikte sunulan önceden var olan hizmetlerden birine başvurulmaktadır.  Uyarı eylemi, bu örnekte kullanılan runbook'u yürütecek ve hedef sistemlerde etkinleştirilmiş Karma Runbook Çalışanı üzerinde çalışacak şekilde yapılandırılmıştır.   
+Runbook, **WebhookData** adlı **Object** türünde bir giriş parametresine sahiptir. **SearchResult** içeren uyarıdan geçirilmiş web kancası verilerini içerir.
 
-**LA'dan Hizmet Adını Al** adlı runbook kod etkinliği, JSON ile biçimlendirilmiş dizeyi bir nesne türüne dönüştürür ve Windows hizmetinin görünen adını ayıklayıp hizmeti yeniden başlatmayı denemeden önce hizmetin durdurulduğunu doğrulayan sonraki etkinliğe geçirmek amacıyla *SvcDisplayName_CF* öğesini filtreler.  *SvcDisplayName_CF*, Log Analytics’te bu örneği göstermek üzere oluşturulmuş bir [özel alandır](../log-analytics/log-analytics-custom-fields.md).
+![Runbook giriş parametreleri](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)
 
-    $SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value
-    $SearchResults.SvcDisplayName_CF  
+Bu örnek için Log Analytics’te iki özel alan oluşturduk: **SvcDisplayName_CF** ve **SvcState_CF**. Bu alanlar hizmet görünen adı ve sistem olay günlüğüne yazılan olayı hizmet durumudur (yani çalışıyor veya durduruldu). Ardından şu arama sorgusuyla bir uyarı kuralı oluşturduk: Böylece, Windows sisteminde Yazdırma Biriktiricisi hizmetinin ne zaman durdurulduğunu saptayabiliriz:
 
-Hizmet durdurulduğunda, Log Analytics'teki uyarı kuralı bir eşleşme saptar ve runbook’u tetikleyip uyarı bağlamını runbook'a gönderir. Runbook, hizmetin durdurulduğunu doğrulamak için işlem yapar ve durdurulmuşsa hizmeti yeniden başlatmayı deneyip doğru başlatıldığını onaylar ve sonuçları gönderir.     
+`Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` 
 
-Otomasyon hesabınız OMS çalışma alanınıza bağlı değilse alternatif olarak, runbook’u tetiklemenin yanı sıra JSON ile biçimlendirilmiş dizeyi dönüştürecek ve daha önce bahsedilen adımlarla *.SearchResult* öğesini filtreleyecek şekilde yapılandırmak için, uyarı kuralını bir web kancası ile yapılandırabilirsiniz.    
+Bu, ilgilendiğiniz herhangi bir hizmet olabilir. Ancak bu örnekte Windows OS ile birlikte sunulan önceden var olan hizmetlerden birine başvurulmaktadır. Uyarı eylemi, bu örnekte kullanılan runbook'u yürütecek ve hedef sistemlerde etkinleştirilmiş karma runbook çalışanı üzerinde çalışacak şekilde yapılandırılmıştır.   
+
+**LA’den Hizmet Adı Alma** runbook kodu etkinliği, JSON biçimindeki dizeyi bir nesne türüne dönüştürür ve **SvcDisplayName_CF** öğesiyle filtreler. Windows hizmetinin görünen adını ayıklar ve yeniden başlatmayı denemeden önce hizmetin durdurulduğunu doğrulamak üzere bu değeri sonraki etkinliğe geçirir. **SvcDisplayName_CF**, Log Analytics’te bu örneği göstermek üzere oluşturduğumuz bir [özel alandır](../log-analytics/log-analytics-custom-fields.md).
+
+```powershell
+$SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
+$SearchResult.SvcDisplayName_CF  
+```
+
+Hizmet durdurulduğunda, Log Analytics'teki uyarı kuralı bir eşleşme saptar ve runbook’u tetikleyip uyarı bağlamını runbook'a gönderir. Runbook, hizmetin durdurulduğunu doğrulamaya çalışır. Doğrulayabilirse, runbook hizmeti yeniden başlatmayı, doğru şekilde başlatıldığını doğrulamayı ve sonuçları göstermeyi dener.     
+
+Alternatif olarak, Otomasyon hesabınız Operations Management Suite çalışma alanına bağlı değilse, uyarı kuralını bir web kancası eylemiyle yapılandırabilirsiniz. Web kancası eylemi runbook’u tetikler. Runbook’u ayrıca JSON biçimli dizeyi dönüştürecek ve daha önce bahsedilen yönergeleri izleyerek **SearchResult** ile filtreleyecek şekilde yapılandırır.    
+
+>[!NOTE]
+> Çalışma alanınız [yeni Log Analytics sorgu diline](../log-analytics/log-analytics-log-search-upgrade.md) yükseltilmişse ağ kancası yükü değiştirilmiştir. Biçimle ilgili ayrıntılar için bkz. [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

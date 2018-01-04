@@ -1,6 +1,6 @@
 ---
 title: "Bağlı fabrika bakım çözüm kılavuzu - Azure | Microsoft Docs"
-description: "Önceden yapılandırılmış Azure IoT bağlı fabrika çözümü ve mimarisinin açıklaması."
+description: "Önceden yapılandırılmış Azure IoT Bağlı fabrika çözümü ve mimarisinin açıklaması."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış bağlı fabrika çözüm kılavuzu
 
-Önceden yapılandırılmış IoT Paketi bağlı fabrika [çözümü][lnk-preconfigured-solutions], aşağıdaki özellikleri sunan uçtan uca endüstriyel bir çözümün uygulamasıdır:
+Önceden yapılandırılmış IoT Paketi Bağlı fabrika [çözümü][lnk-preconfigured-solutions], aşağıdaki özellikleri sunan uçtan uca endüstriyel bir çözümün uygulamasıdır:
 
 * Hem sanal fabrika üretim hatlarında OPC UA sunucuları çalıştıran sanal endüstriyel cihazlara hem de gerçek OPC UA sunucu cihazlarına bağlanır. OPC UA hakkında daha fazla bilgi için bkz. [Connected factory SSS](iot-suite-faq-cf.md).
 * Bu cihazların ve üretim hatlarının işlem KPI ve OEE değerlerini gösterir.
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/14/2017
 
 Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilir ve özel iş gereksinimlerinizi karşılayacak şekilde [özelleştirebilirsiniz][lnk-customize].
 
-Bu makalede bağlı fabrika çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Makale aynı zamanda çözümdeki veri akışını açıklar. Bu bilgiler şunları yapmanıza yardımcı olur:
+Bu makalede Bağlı fabrika çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Makale aynı zamanda çözümdeki veri akışını açıklar. Bu bilgiler şunları yapmanıza yardımcı olur:
 
 * Çözümdeki sorunları giderme.
 * Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama.
@@ -166,7 +166,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
     - TCP/TLS güvenli iletişimini kullanır.
     - Bu adım veri merkezi içinde gerçekleştirilir.
 
-11. Web tarayıcısı bağlı fabrika WebApp öğesine bağlanır.
+11. Web tarayıcısı Bağlı fabrika WebApp öğesine bağlanır.
     - Bağlı fabrika panosunu oluşturur.
     - HTTPS üzerinden bağlanır.
     - Bağlı fabrika uygulaması erişimi için kullanıcının Azure Active Directory kimlik doğrulamasından geçmesi gerekir.
@@ -190,7 +190,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
     - Bilinen cihazların tümünü IoT Hub'dan okur.
     - Socket veya Websocket üzerinden TLS üzerinden MQTT kullanır.
 
-3. Web tarayıcısı bağlı fabrika WebApp öğesine bağlanır ve bağlı fabrika panosunu oluşturur.
+3. Web tarayıcısı Bağlı fabrika WebApp öğesine bağlanır ve Bağlı fabrika panosunu oluşturur.
     - HTTPS kullanır.
     - Kullanıcı bağlanmak istediği OPC UA sunucusunu seçer.
 
@@ -199,7 +199,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 
 5. OPC Proxy taşıma işlemi, OPC UA yığınından bir istek alarak OPC UA sunucusuyla bir TCP yuva bağlantısı kurar.
     - Yalnızca TCP yükünü alır ve değiştirmeden kullanır.
-    - Bu adım bağlı fabrika WebApp öğesi içinde gerçekleştirilir.
+    - Bu adım Bağlı fabrika WebApp öğesi içinde gerçekleştirilir.
 
 6. OPC Proxy (istemci bileşeni), IoT Hub cihaz kaydında OPC Proxy (sunucu bileşeni) girişini arar. Ardından IoT Hub içinde OPC Proxy (sunucu bileşeni) cihazının bir cihaz yöntemini çağırır.
     - OPC Proxy araması için TCP/TLS üzerinden HTTPS kullanır.
@@ -215,7 +215,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 
 10. Yanıt OPC Proxy (sunucu bileşeni) yuvası tarafından alınır.
     - OPC Proxy verileri cihaz yönteminin dönüş değeri olarak IoT Hub ve OPC Proxy (istemci bileşeni) öğelerine gönderir.
-    - Bu veriler bağlı fabrika uygulamasındaki OPC UA yığınına gönderilir.
+    - Bu veriler Bağlı fabrika uygulamasındaki OPC UA yığınına gönderilir.
 
 11. Bağlı fabrika WebApp, OPC Browser UX değerini OPC UA sunucusundan aldığı özgün OPC UA verileriyle zenginleştirmiş bir şekilde oluşturulmak üzere Web Tarayıcısına döndürür.
     - OPC Browser IX istemci tarafı OPC adres alanına göz atarken ve OPC adres alanındaki düğümlere işlevleri uygularken verileri bağlı fabrika WebApp kaynağından almak için güvenliği Sahtekarlığı Önleme Belirteçleriyle sağlanan HTTPS üzerinden AJAX çağrıları kullanır.
@@ -232,7 +232,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 
 * [azureiotsuite.com sitesindeki izinler][lnk-permissions]
-* [Connected factory önceden yapılandırılmış çözümü için Windows veya Linux için bir ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
+* [Bağlı fabrika önceden yapılandırılmış çözümü için Windows veya Linux’ta ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
 * [OPC Publisher başvuru uygulaması](iot-suite-connected-factory-publisher.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png

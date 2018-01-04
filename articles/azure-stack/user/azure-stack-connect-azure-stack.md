@@ -3,8 +3,8 @@ title: "Azure yığınına bağlanma | Microsoft Docs"
 description: "Azure yığın bağlamayı öğrenin"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Azure Stack'e Bağlanma
 
-Kaynakları yönetmek için Azure yığın Geliştirme Seti bağlanmanız gerekir. Bu konuda ayrıntıları verilen adımları Geliştirme Seti bağlanmak için gerekli. Aşağıdaki bağlantı seçeneklerinden birini kullanabilirsiniz:
+Kaynakları yönetmek için Azure yığın Geliştirme Seti bağlanmanız gerekir. Bu makale ayrıntıları adımları Geliştirme Seti bağlanmak için gerekli. Aşağıdaki bağlantı seçeneklerinden birini kullanabilirsiniz:
 
 * [Uzak Masaüstü](#connect-with-remote-desktop): hızlı geliştirme Seti'nden bağlanmak tek bir eş zamanlı kullanıcı olanak sağlar.
 * [Sanal özel ağ (VPN)](#connect-with-vpn): birden çok eşzamanlı kullanıcı bağlanmak (yapılandırma gerektirir) Azure yığın altyapı dışında istemcilerden sağlar.
@@ -51,7 +51,7 @@ Bölünmüş tünel için bir Azure yığın Geliştirme Seti sanal özel ağ (V
 
 ### <a name="configure-vpn-connectivity"></a>VPN bağlantısı yapılandırma
 
-Geliştirme Seti için bir VPN bağlantısı oluşturmak için yerel Windows tabanlı bilgisayarınızdan yükseltilmiş bir PowerShell oturumu açın ve aşağıdaki betiği çalıştırın (güncelleştirdiğinizden emin olun, ortamınız için IP adresi ve parola değerlerini):
+Geliştirme Seti için bir VPN bağlantısı oluşturmak için yerel Windows tabanlı bilgisayarınızdan yükseltilmiş bir PowerShell oturumu açın ve aşağıdaki komut dosyasını (ortamınız için IP adresi ve parola değerlerini güncelleştirmek emin olun) çalıştırın:
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -82,7 +82,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Ayarlama başarılı olursa, görmelisiniz **azurestack** VPN bağlantılarının listenizde.
+Kurulum başarılı olursa, görmelisiniz **azurestack** VPN bağlantılarının listenizde.
 
 ![Ağ bağlantıları](media/azure-stack-connect-azure-stack/image3.png)  
 

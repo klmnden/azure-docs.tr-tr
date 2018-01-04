@@ -1,9 +1,9 @@
 ---
 title: "Azure Cosmos DB: grafik API'si, .NET geliştirme | Microsoft Docs"
-description: ".NET kullanarak Azure Cosmos veritabanı DocumentDB API'si ile geliştirmeyi öğrenin"
+description: ".NET kullanarak Azure Cosmos veritabanı SQL API'si ile geliştirmeyi öğrenin"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
@@ -12,19 +12,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: grafik API'si, .NET geliştirin
-Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu öğretici, Azure portalını kullanarak bir Azure Cosmos DB hesabının nasıl oluşturulacağını ve grafik veritabanı ve kapsayıcı nasıl oluşturulacağını gösterir. Uygulama basit bir sosyal ağ kullanan dört kişilerle oluşturur [grafik API'si](graph-sdk-dotnet.md) (Önizleme), ardından erişir ve Gremlin kullanarak grafik sorgular.
+Bu öğretici, Azure portalını kullanarak bir Azure Cosmos DB hesabının nasıl oluşturulacağını ve grafik veritabanı ve kapsayıcı nasıl oluşturulacağını gösterir. Uygulama basit bir sosyal ağ kullanan dört kişilerle oluşturur [grafik API'si](graph-sdk-dotnet.md), ardından erişir ve Gremlin kullanarak grafik sorgular.
 
 Bu öğretici, aşağıdaki görevleri içerir:
 
@@ -40,11 +40,11 @@ Azure Cosmos DB oluşturmak, güncelleştirmek ve grafikler kullanarak sorgulama
 
 Gremlin destekleyen işlevsel bir programlama dili yazma işlemleri (DML) ve sorgu ve çapraz geçişi işlemleri ' dir. Biz bu makalede, başlatılan Gremlin ile almak için birkaç örnek kapsar. Bkz: [Gremlin sorguları](gremlin-support.md) ayrıntılı kılavuz Gremlin özelliklerinden Azure Cosmos DB içinde kullanılabilir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz. 
-    * Alternatif olarak bu öğretici için [Azure DocumentDB Öykünücüsü](local-emulator.md)’nü kullanabilirsiniz.
+    * Alternatif olarak, kullanabileceğiniz [yerel öykünücüsü](local-emulator.md) Bu öğretici için.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Veritabanı hesabı oluşturma
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Bir veritabanı oluşturun 
 
-Şimdi bir Azure Cosmos DB Oluştur [veritabanı](documentdb-resources.md#databases) kullanarak [Documentclient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemi veya [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi  **DocumentClient** sınıfıyla [DocumentDB .NET SDK'sı](documentdb-sdk-dotnet.md).  
+Şimdi bir Azure Cosmos DB Oluştur [veritabanı](sql-api-resources.md#databases) kullanarak [Documentclient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemi veya [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi  **DocumentClient** sınıfıyla [SQL .NET SDK'sı](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

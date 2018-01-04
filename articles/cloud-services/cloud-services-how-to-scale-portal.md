@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 708b35252429e30b44226030d3d83b928f2a9520
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c2164d36c234309dcd855247cd1c1067de36284c
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Bir bulut hizmeti Portalı'nda ölçeklendirme otomatik yapılandırma
 
@@ -39,6 +39,8 @@ Uygulamanız için ölçeklendirme yapılandırmadan önce aşağıdaki bilgiler
 * Ayrıca, aboneliğinizle ilişkilendirilmiş diğer kaynakları ölçeklendirebilirsiniz.
 
 * Yüksek kullanılabilirlik, uygulamanızın etkinleştirmek için iki veya daha fazla rol örneği ile dağıtılan emin olmalısınız. Daha fazla bilgi için bkz: [hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
+
+* Otomatik ölçek yalnızca olur tüm rolleri içinde olduğunda **hazır** durumu.  
 
 
 ## <a name="where-scale-is-located"></a>Ölçek bulunduğu

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve Self-hosted tümleştirmesi çalışma zamanı yapılandırma
 Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -66,7 +66,7 @@ Etkinlik bir kendi kendini barındıran tümleştirmesi çalışma zamanı veril
 - Veri kaynağı (bir güvenlik duvarının arkasında olan) bir şirket içi veri kaynağı olarak davran kullandığınızda bile **ExpressRoute**. Kendini barındıran tümleştirmesi çalışma zamanı hizmeti ve veri kaynağı arasında bağlantı kurmak için kullanın.
 - Veri deposu bulutta üzerinde olsa bile, kendini barındıran tümleştirmesi çalışma zamanı kullanmalısınız bir **Azure Iaas sanal makine**.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Desteklenen **işletim sistemi** sürümleri Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. Kendini barındıran tümleştirmesi Çalışma Zamanı Modülü yüklemesini bir **etki alanı denetleyicisi desteklenmiyor**.
 - **.NET framework 4.6.1 veya yukarıdaki** gereklidir. Windows 7 makinede kendini barındıran tümleştirmesi çalışma zamanı yüklüyorsanız, .NET Framework 4.6.1 yükleyin veya sonraki bir sürümü. Bkz: [.NET Framework sistem gereksinimleri](/dotnet/framework/get-started/system-requirements) Ayrıntılar için.
@@ -110,7 +110,20 @@ Self-hosted tümleştirme çalışma zamanı için birden çok şirket içi maki
 Birden çok düğüm Self-hosted tümleştirmesi çalışma zamanı yazılımını yükleyerek ilişkilendirebilirsiniz [İndirme Merkezinden](https://www.microsoft.com/download/details.aspx?id=39717) ve tarafından alınan kimlik doğrulama anahtarları birini kaydetme Bölümünde açıklandığı gibi AzureRmDataFactoryV2IntegrationRuntimeKey yeni cmdlet [Öğreticisi](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Her düğüm ilişkilendirmek için Self-hosted tümleştirmesi çalışma zamanı Yeni Oluştur gerekmez.
+> Her düğüm ilişkilendirmek için Self-hosted tümleştirmesi çalışma zamanı Yeni Oluştur gerekmez. Kendini barındıran tümleştirmesi çalışma zamanı başka bir makineye yükleyin ve aynı kimlik doğrulama anahtarı kullanarak kaydedin. 
+
+> [!NOTE]
+> İçin başka bir düğüm eklemeden önce **yüksek kullanılabilirlik ve ölçeklenebilirlik**, lütfen emin olun **'Uzaktan erişim için intranet'** seçenek **etkin** (Microsoft 1 düğümde Tümleştirme çalışma zamanı Configuration Manager -> Ayarlar -> Uzaktan intranet erişimi). 
+
+### <a name="tlsssl-certificate-requirements"></a>TLS/SSL sertifika gereksinimleri
+Çalışma zamanı düğümleri tümleştirme arasındaki iletişimi korumak için kullanılan TLS/SSL sertifika için gereksinimler şunlardır:
+
+- Sertifika genel olarak güvenilir X509 olmalıdır v3 sertifikası. Ortak (üçüncü taraf) sertifika yetkilisi (CA) tarafından verilen sertifikaların kullanmanızı öneririz.
+- Her tümleştirme Çalışma Zamanı Modülü düğüme bu sertifikaya güvenmeleri gerekir.
+- Joker karakter sertifikaları desteklenir. FQDN adınız ise **node1.domain.contoso.com**, kullanabileceğiniz ***. domain.contoso.com** sertifikanın konu adı olarak.
+- SAN sertifikaları yalnızca son öğeyi konu alternatif adlarını kullanılır ve diğerleri geçerli sınırlamaları nedeniyle yoksayılacak beri önerilmez. Örneğin SAN olan bir SAN sertifikanız **node1.domain.contoso.com** ve **node2.domain.contoso.com**, yalnızca bu sertifikayı FQDN değeri olduğu makinede kullanabileceğiniz **node2.domain.contoso.com**.
+- SSL sertifikaları için Windows Server 2012 R2 tarafından desteklenen herhangi bir anahtar boyutunu destekler.
+- CNG kullanarak sertifika anahtarlar desteklenmez. Doesrted DoesDoes CNG anahtarları kullanan sertifikaları desteklemez.
 
 ## <a name="system-tray-icons-notifications"></a>Sistem Tepsisi Simgeleri / bildirimleri
 İmleç sistem tepsisi simgesi/bildirim iletisi taşırsanız, kendi kendini barındıran tümleştirmesi çalışma zamanı durumunu ayrıntılarını bulabilirsiniz.
@@ -225,14 +238,20 @@ Aşağıdaki ayarlara benzer hatalarla karşılaşırsanız, kendi kimliğini do
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Kimlik bilgisi şifreleme için 8060 numaralı bağlantı noktasını açın
-**Kimlik bilgilerini ayarlama** (şu anda desteklenmiyor) uygulama gelen bağlantı noktasını kullanır 8060 geçiş kimlik bilgilerine kendini barındıran tümleştirmesi çalışma zamanı için bir şirket içi bağlı hizmeti Azure portalında ayarladığınızda. Kendini barındıran tümleştirmesi çalışma zamanı Kurulum sırasında varsayılan olarak, kendi kendini barındıran tümleştirmesi çalışma zamanı yükleme kendini barındıran tümleştirmesi çalışma zamanı makinede açar.
+### <a name="enable-remote-access-from-intranet"></a>İntranet uzaktan erişimi etkinleştirin  
+Kullanırsanız durumda **PowerShell** veya **kimlik bilgileri Yöneticisi uygulama** kendini barındıran tümleştirmesi çalışma zamanı, ardından yüklendiği dışında (ağındaki) başka bir makineden kimlik bilgilerini şifrelemek için gerektirecek **'İntranet uzaktan erişim'** seçeneği etkinleştirilmiş olmalıdır. Çalıştırırsanız **PowerShell** veya **kimlik bilgileri Yöneticisi uygulama** kendini barındıran tümleştirmesi çalışma zamanı yüklü olduğu, ardından aynı makineye kimlik bilgilerini şifrelemek için **' uzaktan erişim intranet '** etkin değil.
 
-Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, bağlantı noktası 8050 el ile açabilirsiniz. Kendini barındıran tümleştirmesi çalışma zamanı kurulumu sırasında güvenlik duvarı sorunu yaşayıp çalıştırırsanız, güvenlik duvarı yapılandırması olmadan kendini barındıran tümleştirmesi çalışma zamanı yüklemek için aşağıdaki komutu kullanarak deneyebilirsiniz.
+Uzaktan erişim intranet olmalıdır **etkin** için başka bir düğüm eklemeden önce **yüksek kullanılabilirlik ve ölçeklenebilirlik**.  
+
+Kendini barındıran tümleştirmesi çalışma zamanı Kurulum sırasında (veya sonraki sürümleri v 3.3.xxxx.x), varsayılan olarak, kendi kendini barındıran tümleştirmesi çalışma zamanı yükleme devre dışı bırakır **'İntranet uzaktan erişim'** kendini barındıran tümleştirmesi çalışma zamanı makinede.
+
+Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, bağlantı noktası 8060 (veya kullanıcı tarafından yapılandırılmış bağlantı noktası) el ile açabilirsiniz. Kendini barındıran tümleştirmesi çalışma zamanı kurulumu sırasında güvenlik duvarı sorunu yaşayıp çalıştırırsanız, güvenlik duvarı yapılandırması olmadan kendini barındıran tümleştirmesi çalışma zamanı yüklemek için aşağıdaki komutu kullanarak deneyebilirsiniz.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **Kimlik bilgileri Yöneticisi uygulama** henüz ADFv2 kimlik bilgilerini şifrelemek için kullanılabilir değil. Daha sonra bu destek ekleyeceğiz.  
 
 Kendini barındıran tümleştirmesi çalışma zamanı makinedeki bağlantı noktası 8060 açmamak seçerseniz kullanma dışındaki mekanizmalarını kullanmak ** ayarı kimlik bilgilerini ** veri deposu kimlik yapılandırmak için uygulama. Örneğin, yeni AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell cmdlet'ini kullanabilirsiniz. Bkz. nasıl veri kimlik bilgilerini depolamak üzerinde kimlik bilgilerini ayarlama ve güvenlik bölümü ayarlanabilir.
 

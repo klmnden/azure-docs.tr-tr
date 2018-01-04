@@ -32,6 +32,7 @@
 ### [Lisanslı görüntü etkinleştirme](devtest-lab-enable-licensed-images.md)
 ### [Laboratuvara etiket ekleme](devtest-lab-add-tag.md)
 ### [Laboratuvarda duyuru yayınlama](devtest-lab-announcements.md)
+### [Laboratuvara destek bilgisi ekleme](devtest-lab-internal-support-message.md)
 
 ## [Özel görüntü veya formül seçme](devtest-lab-comparing-vm-base-image-types.md)
 
@@ -60,6 +61,9 @@
 ### [Veri diski ekleme ve çıkarma](devtest-lab-attach-detach-data-disk.md)
 
 ## [Laboratuvarınızı ölçeklendirme](devtest-lab-scale-lab.md)
+
+## CI/CD ile tümleştirme
+### [VSTS CI/CD ardışık düzeninizi laboratuvarlarla tümleştirme](devtest-lab-integrate-ci-cd-vsts.md)
 
 # Başvuru
 ## [CLI 2.0](/cli/azure/lab)

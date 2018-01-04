@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
 
@@ -57,7 +57,7 @@ Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin ger
 Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütür.  İlk olarak güncelleştirmelerin hala gerekli olduğunu doğrulamak için bir tarama yapılır ve bunlar yüklenir.  WSUS istemci bilgisayarları için, güncelleştirmelerin WSUS’ta onaylanmaması durumunda güncelleştirme dağıtımının başarısız olacağı unutulmamalıdır.  Uygulanan güncelleştirmelerin sonuçları, panolarda veya olayları arama yoluyla işlenmek ve özetlenmek üzere OMS’ye iletilir.     
 
 ## <a name="prerequisites"></a>Ön koşullar
-* Çözüm, Windows Server 2008 ve sonraki sürümlerine yönelik güncelleştirme değerlendirmelerinin yanı sıra Windows Server 2008 R2 SP1 ve sonraki sürümlerine yönelik güncelleştirme dağıtımları gerçekleştirilmesini destekler.  Sunucu Çekirdeği ve Nano Sunucu yükleme seçenekleri desteklenmez.
+* Çözüm, Windows Server 2008 ve sonraki sürümlerine yönelik güncelleştirme değerlendirmelerinin yanı sıra Windows Server 2008 R2 SP1 ve sonraki sürümlerine yönelik güncelleştirme dağıtımları gerçekleştirilmesini destekler.  Nano Sunucu desteklenmiyor.
 
     > [!NOTE]
     > Windows Server 2008 R2 SP1'e yönelik güncelleştirme dağıtımı desteği için .NET Framework 4.5 ve WMF 5.0 veya sonraki bir sürümü gerekir.
@@ -81,7 +81,7 @@ Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar
     > Birden çok OMS çalışma alanına raporlayacak şekilde yapılandırılmış bir Linux için OMS Aracısı, bu çözümde desteklenmez.  
     >
 
-Linux için OMS Aracısı’nı yükleme ve en son sürümü indirme hakkında ek bilgi için, [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux) konusuna bakın.  Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agents.md) konusunu gözden geçirin.  
+Linux için OMS Aracısı’nı yükleme ve en son sürümü indirme hakkında ek bilgi için, [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux) konusuna bakın.  Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agent.md) konusunu gözden geçirin.  
 
 ### <a name="permissions"></a>İzinler
 Güncelleştirme dağıtımları oluşturmak için hem Otomasyon hesabınızda hem de Log Analytics çalışma alanınızda size katkıda bulunan rolü verilmiş olmalıdır.  
@@ -126,7 +126,7 @@ Windows bilgisayarında, OMS ile aracı bağlantısını doğrulamak için aşa�
 1.  Denetim Masası’nda Microsoft Monitoring Agent’i açın; **Azure Log Analytics (OMS)** sekmesinde aracı şöyle bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.   
 2.  Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın.  Bu olaylar bilgisayarın OMS çalışma alanına kaydolduğunu ve yapılandırmayı aldığını gösterir.  
 
-Aracı, OMS hizmetiyle iletişim kuramıyorsa ve İnternet ile güvenlik duvarı veya ara sunucu üzerinden iletişim kuracak şekilde yapılandırıldıysa [Windows aracısı için ağ yapılandırması](../log-analytics/log-analytics-windows-agents.md#network) ya da [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md#network) konu başlığını gözden geçirerek güvenlik duvarının ve ara sunucunun düzgün yapılandırıldığını doğrulayın.
+Aracı, OMS hizmetiyle iletişim kuramıyorsa ve İnternet ile güvenlik duvarı veya ara sunucu üzerinden iletişim kuracak şekilde yapılandırıldıysa [Windows aracısı için ağ yapılandırması](../log-analytics/log-analytics-windows-agent.md) ya da [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md) konu başlığını gözden geçirerek güvenlik duvarının ve ara sunucunun düzgün yapılandırıldığını doğrulayın.
 
 > [!NOTE]
 > Linux sistemleriniz bir ara sunucu veya OMS Ağ Geçidi ile iletişim kuracak şekilde yapılandırıldıysa ve bu çözümü ekliyorsanız lütfen şu komutları kullanarak *proxy.conf* izinlerini, omi kullanıcı grubuna dosyada okuma izni verilecek şekilde güncelleştirin:  

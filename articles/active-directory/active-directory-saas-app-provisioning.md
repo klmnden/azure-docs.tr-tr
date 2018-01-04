@@ -4,7 +4,7 @@ description: "Otomatik olarak sağlamak için Azure AD nasıl kullanabileceğini
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
@@ -14,11 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
+<<<<<<< HEAD
 ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: cd82ef109abbc5707db4c02c2f14f9d55dfb74e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
@@ -64,7 +70,7 @@ Bu özelliği kullanmak için bazı ortak sözleri şunları içerir:
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Hangi uygulamalar ve sistemler Azure AD otomatik kullanıcı sağlamayı kullanabilir miyim?
 
-Azure AD özelliklerini önceden tümleştirilmiş belirli kısımlarını uygulamak uygulamaları için genel destek yanı sıra çeşitli popüler SaaS uygulamaları ve İnsan Kaynakları sistemleri için destek [SCIM'yi 2.0 standart](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
+Azure AD özelliklerini önceden tümleştirilmiş belirli kısımlarını uygulamak uygulamaları için genel destek yanı sıra çeşitli popüler SaaS uygulamaları ve İnsan Kaynakları sistemleri için destek [SCIM'yi 2.0 standart](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
 
 Tüm Azure AD uygulama galerisinde "Öne çıkan" uygulamalarının otomatik kullanıcı sağlamayı destekler. [Öne çıkan uygulamalar listesini burada görüntülenebilir.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 

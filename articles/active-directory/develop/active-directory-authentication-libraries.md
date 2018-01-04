@@ -4,7 +4,7 @@ description: "Azure AD Authentication Library (ADAL) istemci kolayca bulut için
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
@@ -15,11 +15,17 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
+<<<<<<< HEAD
 ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: f017e3d323b98660fdee902770652b3165e70e5e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory kimlik doğrulama kitaplıkları
 Azure Active Directory Authentication Library (ADAL) bulut için kullanıcıların kimliğini doğrulamak uygulama geliştiricileri sağlar veya şirket içi Active Directory (AD) ve API çağrıları güvenliğini sağlamak için belirteç alın. ADAL kimlik doğrulaması özellikler sayesinde geliştiriciler için gibi kolaylaştırır:
@@ -29,7 +35,7 @@ Azure Active Directory Authentication Library (ADAL) bulut için kullanıcılar�
  - ve daha fazlası
 
 > [!NOTE]
-> Azure AD v2.0 kitaplıkları (MSAL) için mi arıyorsunuz? Checkout [MSAL kitaplığı Kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries). 
+> Azure AD v2.0 kitaplıkları (MSAL) için mi arıyorsunuz? Checkout [MSAL kitaplığı Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries). 
 > 
 > 
 
@@ -59,7 +65,7 @@ Azure Active Directory Authentication Library (ADAL) bulut için kullanıcılar�
 
 ### <a name="v20-client-libraries-msal"></a>v2.0 istemci kitaplıkları (MSAL)
 
-[Azure AD v2.0 uç](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) Azure AD bir araya getirir ve tek bir uç nokta arkasında Microsoft Accounts. Geliştiricilerin Bu uç noktasına erişmek için kullanabileceğiniz [üretim desteklenen Önizleme MSAL kitaplıkları](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries) ADAL yerine.
+[Azure AD v2.0 uç](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) Azure AD bir araya getirir ve tek bir uç nokta arkasında Microsoft Accounts. Geliştiricilerin Bu uç noktasına erişmek için kullanabileceğiniz [üretim desteklenen Önizleme MSAL kitaplıkları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) ADAL yerine.
 
 | Platform | Kitaplık | İndir | Kaynak kodu | Örnek | Başvuru
 | --- | --- | --- | --- | --- | --- |

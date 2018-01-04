@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Power BI ile SQL veri ambarı kullanın
 Olarak Azure SQL veritabanı ile SQL veri ambarı doğrudan bağlantı Power BI analitik yeteneklerini yanında aşağı güçlü mantıksal itme yararlanan olanak tanır.  Veri keşfetmenizde doğrudan bağlantı ile sorgular gerçek zamanlı Azure SQL veri ambarı için geri gönderilir.  Bu, birleştirilmiş ölçekli SQL Data Warehouse, terabayt veri göre dakika cinsinden dinamik raporlar oluşturmak için kullanıcıların sağlar.  Ayrıca, Power BI düğmesi Aç giriş doğrudan Power BI kendi SQL veri ambarı'na Azure diğer bölümlerden bilgilerini toplamadan bağlanmasına olanak sağlar.
@@ -39,7 +39,7 @@ Deneyimleri geliştirmeye devam ederken bu kısıtlamaları ve notlar değişebi
 ## <a name="using-the-open-in-power-bi-button"></a>'Power bı'da Aç' düğmesini kullanarak
 SQL veri ambarı ve Power BI arasında taşımak için kolay Power BI düğmesi açıkken yoludur. Bu düğme, sorunsuz bir şekilde yeni pano Power BI'da oluşturmaya başlamak sağlar.  
 
-1. Başlamak için Azure Klasik Portalı'nda SQL Data Warehouse örneğiniz gidin.
+1. Başlamak için Azure Portalı'ndaki SQL Data Warehouse örneğiniz gidin.
 2. "Power BI'da aç" düğmesine tıklayın.
 3. Doğrudan oturum açmak yapamıyoruz ya da Power BI hesabınız yoksa, oturum açması gerekir.  
 4. SQL Data Warehouse bağlantı sayfası, önceden doldurulmuş SQL veri ambarı bilgileriyle yönlendirilirsiniz.

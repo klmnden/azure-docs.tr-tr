@@ -1,7 +1,7 @@
 ---
 title: "Azure Portalı aracılığıyla Azure Cosmos DB hesap yönetme | Microsoft Docs"
 description: "Azure Portalı aracılığıyla Azure Cosmos DB hesabınızı yönetmeyi öğrenin. Görüntüleme, kopyalama, silme ve hesaplarına erişim için Azure Portal'ı kullanma hakkında bir kılavuz bulabilirsiniz."
-keywords: Azure Portal, documentdb, azure, Microsoft azure
+keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: kirillg
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Bir Azure Cosmos DB hesabı yönetme
 Genel tutarlılık ayarlamak, anahtarları ile çalışır ve Azure portalda bir Azure Cosmos DB hesabı silme hakkında bilgi edinin.

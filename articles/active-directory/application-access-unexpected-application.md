@@ -4,7 +4,7 @@ description: "Kiracınızda bulunan tüm uygulamaları görmek ve uygulamaların
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 0f8136cb066fa6e3e4a8dd06e34b9f866e3916f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4765b71714e88ee91cb9938ad4bb34033cf12422
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>My uygulamalar listesinde beklenmeyen uygulama
 

@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB Graph API giriş | Microsoft Docs"
 description: "Sorgu, depolamak ve yoğun grafikleri Apache TinkerPop Gremlin grafik sorgu dilini kullanarak, düşük gecikme süresine sahip çapraz geçiş için Azure Cosmos DB nasıl kullanabileceğinizi öğrenin."
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB giriş: grafik API'si
 
@@ -98,7 +98,7 @@ Azure Cosmos DB pazardaki diğer grafik veritabanlarına karşılaştırıldığ
 
 * İnce ayarlanabilir tutarlılık düzeyleri
 
- Tutarlılık ve performans arasında en iyi kolaylığını elde etmek için beş iyi tanımlanmış tutarlılık düzeylerini seçin. Azure Cosmos DB sorgular ve okuma işlemleri için beş farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri tutarlılık, kullanılabilirlik ve gecikme süresi arasında ses bileşim yapmanıza izin vermiyor. Daha fazla bilgi için bkz. [DocumentDB'de kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).
+ Tutarlılık ve performans arasında en iyi kolaylığını elde etmek için beş iyi tanımlanmış tutarlılık düzeylerini seçin. Azure Cosmos DB sorgular ve okuma işlemleri için beş farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri tutarlılık, kullanılabilirlik ve gecikme süresi arasında ses bileşim yapmanıza izin vermiyor. Daha fazla bilgi edinin [veri ince ayarlanabilir tutarlılık düzeyleri Azure Cosmos veritabanı](consistency-levels.md).
 
 Azure Cosmos DB belge ve grafik, aynı kapsayıcıları/veritabanları içinde gibi birden çok modelleri de kullanabilirsiniz. Belgeleri yan yana grafik verilerini depolamak için bir belge koleksiyonu kullanabilirsiniz. Bir grafik aynı verileri sorgulamak için JSON SQL sorguları ve Gremlin sorguları kullanabilirsiniz.
 
@@ -113,7 +113,7 @@ Aşağıdaki tabloda Azure Cosmos DB karşı kullanabilirsiniz popüler Gremlin 
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Github'da gremlin JavaScript](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin konsol](https://tinkerpop.apache.org/downloads.html) |[TinkerPop belgeleri](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB ayrıca Gremlin genişletme yöntemleri üstüne sahip bir .NET kitaplığı sağlar [Azure Cosmos DB SDK'ları](documentdb-sdk-dotnet.md) NuGet aracılığıyla. Bu kitaplığı, "DocumentDB verileri bölümlere doğrudan bağlanmak için kullanabileceğiniz bir işlem" Gremlin sunucusu sağlar.
+Azure Cosmos DB ayrıca Gremlin genişletme yöntemleri üstüne sahip bir .NET kitaplığı sağlar [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md) NuGet aracılığıyla. Bu kitaplığı "veri bölümlere doğrudan bağlanmak için kullanabileceğiniz bir işlem" Gremlin sunucusu sağlar.
 
 | İndir | Belgeler |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: "Günlük analizi OMS özel günlükleri toplamak | Microsoft Docs"
-description: "Günlük analizi, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olayları toplayabilir.  Bu makalede yeni bir özel günlük ve OMS depoya oluşturdukları kayıtları ayrıntılarını nasıl tanımlanacağını açıklar."
+title: "Azure günlük analizi özel günlüklere toplamak | Microsoft Docs"
+description: "Günlük analizi, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olayları toplayabilir.  Bu makalede yeni bir özel günlük ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl tanımlanacağını açıklar."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Günlük analizi özel günlükleri
-Günlük analizi özel günlükleri veri kaynağında Windows ve Linux bilgisayarlarda metin dosyalarından olayları toplamanızı sağlar. Birçok uygulama bilgileri Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerini yerine metin dosyaları oturum açın.  Toplandığında, her kayıt günlüğünde kullanarak tek tek alanlara ayrıştıramıyor [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
+Günlük analizi özel günlükleri veri kaynağında Windows ve Linux bilgisayarlarda metin dosyalarından olayları toplamanızı sağlar. Birçok uygulama bilgileri Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerini yerine metin dosyaları oturum açın.  Toplandığında, her tek tek alanların kullanarak oturum açma kaydında ayrıştıramıyor [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
 
 ![Özel günlük toplama](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -42,10 +42,10 @@ Toplanacak günlük dosyaları aşağıdaki ölçütlere uyan gerekir.
 Özel bir günlük dosyası tanımlamak için aşağıdaki yordamı kullanın.  Özel günlük ekleme bir örnek bir kılavuz için bu makalenin sonuna kaydırın.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>1. Adım Özel günlük Sihirbazı'nı açın
-Özel günlük Sihirbazı'nı OMS portalında çalışır ve toplamak için yeni bir özel günlük tanımlamanızı sağlar.
+Özel günlük Sihirbazı'nı Azure portalında çalışır ve toplamak için yeni bir özel günlük tanımlamanızı sağlar.
 
-1. OMS portalında Git **ayarları**.
-2. Tıklayın **veri** ve ardından **özel günlükleri**.
+1. Azure portalında seçin **günlük analizi** > çalışma alanınızı > **Gelişmiş ayarları**.
+2. Tıklayın **veri** > **özel günlükleri**.
 3. Varsayılan olarak, tüm yapılandırma değişiklikleri otomatik olarak tüm aracıları için gönderilir.  Linux aracıları için bir yapılandırma dosyası için Fluentd veri toplayıcı gönderilir.  Bu dosyayı her Linux aracısında el ile değiştirmek isterseniz, kutunun işaretini *aşağıdaki yapılandırmayı Linux makinelerime Uygula*.
 4. Tıklatın **Ekle +** özel günlük Sihirbazı'nı açın.
 
@@ -54,7 +54,7 @@ Toplanacak günlük dosyaları aşağıdaki ölçütlere uyan gerekir.
 
 **Yeni satır** varsayılan sınırlayıcı ve her satırda tek bir giriş sahip günlük dosyaları için kullanılır.  Satır bir tarih ve saat kullanılabilir biçimlerden birinde ile başlayan ardından belirtebilirsiniz bir **zaman damgası** birden fazla satır span girişler destekleyen sınırlayıcısı.
 
-Bir zaman damgası ayırıcısı kullanılırsa, OMS içinde depolanan her kayıt TimeGenerated özelliği bu giriş günlük dosyası için belirtilen tarih/saat ile doldurulur.  Yeni satır ayırıcı kullanılırsa, TimeGenerated tarih ve saat günlük analizi giriş toplanan ile doldurulur.
+Bir zaman damgası ayırıcısı kullanılırsa, günlük analizi saklanan her kaydı TimeGenerated özelliği bu giriş günlük dosyası için belirtilen tarih/saat ile doldurulur.  Yeni satır ayırıcı kullanılırsa, TimeGenerated tarih ve saat günlük analizi giriş toplanan ile doldurulur.
 
 
 1. Tıklatın **Gözat** ve bir örnek dosyasına göz atın.  Bu düğme Not etiketli **Dosya Seç** bazı tarayıcılarda.
@@ -84,7 +84,7 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4. Adım. Bir ad ve açıklama günlüğü sağlayın
 Belirttiğiniz ad, yukarıda açıklandığı gibi günlük türü için kullanılır.  Özel bir günlük ayırt etmek için _CL ile her zaman sona erer.
 
-1. Günlük için bir ad yazın.  **\_CL** soneki otomatik olarak sağlanır.
+1. Günlük için bir ad yazın.   **\_CL** soneki otomatik olarak sağlanır.
 2. İsteğe bağlı bir ekleme **açıklama**.
 3. Tıklatın **sonraki** özel günlük tanımını kaydetmek için.
 
@@ -103,13 +103,12 @@ Tüm günlük girişi olarak adlandırılan tek bir özellikte depolanacak **Raw
 
 Özel günlük girişinin ayrıştırma için ayrıntılı adımlar burada sağlanmaz.  Lütfen [özel alanlar](log-analytics-custom-fields.md) bu bilgi için.
 
-## <a name="disabling-a-custom-log"></a>Özel günlük devre dışı bırakma
-Özel günlük tanımı oluşturulmuş, ancak tüm koleksiyon yollar kaldırarak devre dışı bırakabilirsiniz sonra kaldıramazsınız.
+## <a name="removing-a-custom-log"></a>Özel günlük kaldırma
+Aşağıdaki işlem Azure Portalı'nda önceden tanımlanmış özel bir günlük kaldırmak için kullanın.
 
-1. OMS portalında Git **ayarları**.
-2. Tıklayın **veri** ve ardından **özel günlükleri**.
-3. Tıklatın **ayrıntıları** yanındaki devre dışı bırakmak için özel günlük tanımı.
-4. Özel günlük tanımı için koleksiyon yolların her biri kaldırın.
+1. Gelen **veri** menüde **Gelişmiş ayarları** , çalışma alanınızı seçin **özel günlükler** tüm özel günlüklerini listelemek için.
+2. Tıklatın **kaldırmak** kaldırmak için özel günlük yanındaki.
+
 
 ## <a name="data-collection"></a>Veri toplama
 Günlük analizi yaklaşık her 5 dakikada her özel günlüğünden yeni girişler toplar.  Aracı, onun yerine üzerinden topladığı her günlük dosyasına kaydeder.  Aracı bir süre için çevrimdışı olursa, aracıyı çevrimdışıyken girişler oluşturulmuş olsalar bile sonra günlük analizi girişleri son devre dışı kaldığı toplar.
@@ -127,7 +126,7 @@ Günlük girişinin tüm içeriğini adlı tek bir özellik için yazılan **Raw
 | ManagementGroupName |Aracıları System Center işlemlerini yönetmek için yönetim grubu adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Özel günlük kayıtları ile günlük aramalar
-Özel günlükler kayıtlardan herhangi bir veri kaynağına ait kayıtları gibi OMS deposunda depolanır.  Bunlar belirli bir günlüğünden toplanan kayıtları almak üzere aramanızda Type özelliği kullanabilmeniz için günlüğü tanımladığınızda, sağladığınız adıyla eşleşen bir türe sahip.
+Özel günlükler kayıtlarından günlük analizi çalışma alanı gibi başka bir veri kaynağına ait kayıtları depolanır.  Bunlar belirli bir günlüğünden toplanan kayıtları almak üzere aramanızda Type özelliği kullanabilmeniz için günlüğü tanımladığınızda, sağladığınız adıyla eşleşen bir türe sahip.
 
 Aşağıdaki tabloda özel günlüklerinden kayıtları almak günlük arama farklı örnekleri sağlar.
 
@@ -172,5 +171,5 @@ Bir sorgu kullanırız *türü MyApp_CL =* toplanan günlükteki tüm kayıtlar�
 ![Özel alanlarla günlüğü sorgusu](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [özel alanlar](log-analytics-custom-fields.md) tek tek alanlara özel günlüğünde yer alan girişleri ayrıştırılamıyor.
+* Kullanım [özel alanlar](log-analytics-custom-fields.md) tek tek alanların özel oturum açma girdileri ayrıştırılamıyor.
 * Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için.

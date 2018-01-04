@@ -1,10 +1,10 @@
 ---
 title: "Azure Storage Gezgini DB Azure Cosmos yönetme"
 description: "Azure Storage Gezgini Azure Cosmos DB'de yönetmeyi öğrenin."
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,23 +16,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
+<<<<<<< HEAD
 ms.author: Jiaj-Li
 ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
 ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
+=======
+ms.author: Jejiang
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme
 
-Azure Storage Gezgini Azure Cosmos DB kullanarak kullanıcıların Azure Cosmos DB varlıkları yönetme, verileri işlemek, saklı yordamları ve Tetikleyicileri depolama bloblar ve kuyruklarda olduğu gibi Azure diğer varlıklar yanı sıra güncelleştirme olanak tanır. Şimdi tek bir yerde farklı Azure varlıklarınızı yönetmek için aynı aracı kullanabilirsiniz. Şu anda Azure Storage Gezgini SQL (DocumentDB) ve MongoDB hesaplarını destekler.
+Azure Storage Gezgini Azure Cosmos DB kullanarak kullanıcıların Azure Cosmos DB varlıkları yönetme, verileri işlemek, saklı yordamları ve Tetikleyicileri depolama bloblar ve kuyruklarda olduğu gibi Azure diğer varlıklar yanı sıra güncelleştirme olanak tanır. Şimdi tek bir yerde farklı Azure varlıklarınızı yönetmek için aynı aracı kullanabilirsiniz. Şu anda Azure Storage Gezgini SQL destekler <!--and MongoDB--> hesaplar. Azure Storage Gezgini Azure Cosmos DB yerel öykünücü ile çalışmaz. 
 
 Bu makalede, Depolama Gezgini Azure Cosmos DB yönetmek için nasıl kullanılacağını öğrenebilirsiniz.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bir SQL (DocumentDB) veya MongoDB veritabanı için bir Azure Cosmos DB hesap. Bir hesabınız yoksa, bir Azure Portalı'nda açıklandığı gibi oluşturabilirsiniz [Azure Cosmos DB: .NET ve Azure portal ile bir DocumentDB API web uygulaması oluşturma](create-documentdb-dotnet.md).
+Bir Azure Cosmos DB hesabı SQL API için <!--or MongoDB API-->. Bir hesabınız yoksa, bir Azure Portalı'nda açıklandığı gibi oluşturabilirsiniz [Azure Cosmos DB: .NET ve Azure portal ile bir SQL API web uygulaması oluşturma](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Yükleme
 
@@ -70,7 +77,7 @@ Bir Azure Cosmos DB bağlayan alternatif bir yolu, bir bağlantı dizesi kullanm
 
     ![Bağlantı dizesi tarafından Azure Cosmos Veritabanına bağlanın](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Uygun seçin **varsayılan deneyimi** hesap türünüz için ya da **DocumentDB** veya **MongoDB**, yapıştırın, **bağlantı dizesi**ve ardından **Tamam** Azure Cosmos DB hesap bağlanmak için. Bağlantı dizesi alma hakkında daha fazla bilgi için bkz: [bağlantı dizesini almak](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Uygun seçin **varsayılan deneyimi** hesap türünüz için <!--either--> **DocumentDB** <!--or **MongoDB**-->, yapıştırın, **bağlantı dizesi**ve ardından tıklatın **Tamam** Azure Cosmos DB hesap bağlanmak için. Bağlantı dizesi alma hakkında daha fazla bilgi için bkz: [bağlantı dizesini almak](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![bağlantı dizesi](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -137,7 +144,7 @@ Yeni bir belge oluşturmak için açık **belgeleri** sol penceresinde **yeni be
 #### <a name="delete-a-document"></a>Bir belgeyi silme
 Tıklatın **silmek** seçili dosyayı silmek için düğmesini.
 #### <a name="query-for-documents"></a>Belgeler için sorgu
-Belge Filtresi girerek düzenleyin bir [SQL sorgusu](documentdb-sql-query.md) ve ardından **Uygula**.
+Belge Filtresi girerek düzenleyin bir [SQL sorgusu](sql-api-sql-query.md) ve ardından **Uygula**.
 
 ![Filtre](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
@@ -152,5 +159,5 @@ Belge Filtresi girerek düzenleyin bir [SQL sorgusu](documentdb-sql-query.md) ve
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Azure Storage Gezgini Azure Cosmos DB kullanılması hakkında bilgi için aşağıdaki videoyu izleyin: [kullanmak Azure Cosmos DB'de Azure Storage Gezgini](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Depolama Gezgini hakkında daha fazla bilgi ve daha fazla hizmet bağlanmak [Depolama Gezgini (Önizleme) ile çalışmaya başlama](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Depolama Gezgini hakkında daha fazla bilgi ve daha fazla hizmet bağlanmak [Depolama Gezgini (Önizleme) ile çalışmaya başlama](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

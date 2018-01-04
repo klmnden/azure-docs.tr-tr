@@ -4,7 +4,7 @@ description: "Bu makalede Azure AD Connect ve Azure AD eşitleme'nin tüm sürü
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,28 +12,95 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
-
-Bu makalede, yayımlanan sürümleri izlemenize yardımcı olmak için ve en yeni sürüme veya güncelleştirme gerekip gerekmediğini anlamak için tasarlanmıştır.
+' Bu makalede yayımlanan sürümleri izlemenize yardımcı olacak ve en yeni sürüme veya güncelleştirme gerekip gerekmediğini anlamak için tasarlanmıştır.
 
 İlgili Konular listesidir:
+
 
 
 Konu |  Ayrıntılar
 --------- | --------- |
 Azure AD Connect'ten yükseltme adımları | İçin farklı yöntemler [en son önceki bir sürümünden yükseltme](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect sürüm.
 Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için bkz: [hesapları ve izinleri](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-İndir| [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Durumu: 12 Aralık 2017
+
+>[!NOTE]
+>Bu bir güvenlik olan Azure AD Connect için ilgili düzeltme
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Bir geliştirme önerilen izni altında açıklanan bölüm değiştirdiğinden emin olmak için Azure AD Connect sürüm 1.1.654.0 (ve sonra) eklendi [AD DS hesabı için erişim kilitleme](#lock) otomatik olarak zaman uygulanan Azure AD Connect AD DS hesabı oluşturur. 
+
+- Azure AD Connect ayarlarken, yükleme yönetici mevcut bir AD DS hesap sağlayın veya Azure AD Connect otomatik olarak hesabı oluşturmak istiyorum. İzin değişiklikleri otomatik olarak Azure AD Connect tarafından kurulumu sırasında oluşturulan AD DS hesabı için uygulanır. Yükleme yönetici tarafından sağlanan mevcut AD DS hesabı için uygulanmaz.
+- Azure AD Connect eski bir sürümden izni 1.1.654.0 (veya sonra), yükselten müşterilerin için değişiklikleri firmalarda geriye dönük yükseltmeden önce oluşturulan mevcut AD DS hesaplarına uygulanmaz. Bunlar yalnızca yükseltme işleminden sonra oluşturulan yeni AD DS hesaplara uygulanır. Bu durum, Azure AD ile eşitlenecek yeni AD ormanına eklemekte olduğunuz oluşur.
+
+>[!NOTE]
+>Bu sürüm yalnızca hizmet hesabı yükleme işleminin oluşturulduğu Azure AD Connect yeni yüklemeler için güvenlik açığı kaldırır. Var olan yüklemeler için ya da hesap kendiniz verdiğiniz durumlarda, sould olun bu güvenlik açığı yok.
+
+#### <a name="lock"></a>AD DS hesabı için erişim kilitleme
+Şirket içi aşağıdaki izin değişiklikleri uygulayarak AD DS hesabı için erişim kilitleme AD:  
+
+*   Belirtilen nesne devralmayı devre dışı bırak
+*   Tüm ACE'ler KENDİNE özgü ACE dışında belirli nesne üzerinde kaldırın. Varsayılan izinleri KENDİSİNE geldiğinde korumanız istiyoruz.
+*   Bu özel izinleri atayın:
+
+Tür     | Ad                          | Access               | Şunun İçin Geçerli
+---------|-------------------------------|----------------------|--------------|
+İzin Ver    | SİSTEM                        | Tam Denetim         | Bu nesne  |
+İzin Ver    | Enterprise Admins             | Tam Denetim         | Bu nesne  |
+İzin Ver    | Etki alanı yöneticileri                 | Tam Denetim         | Bu nesne  |
+İzin Ver    | Yöneticiler                | Tam Denetim         | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | İçeriğini listele        | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | Tüm özellikleri oku  | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | Okuma izinleri     | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | İçeriğini listele        | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Okuma izinleri     | Bu nesne  |
+
+AD DS hesabı için ayarları artırmak için çalıştırabilirsiniz [bu PowerShell Betiği](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). PowerShell komut dosyası, AD DS hesabı için yukarıdaki izinleri atar.
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Önceden var olan bir hizmet hesabı artırmak için PowerShell Betiği
+
+Önceden var olan bir AD DS hesabı için bu ayarları uygulamak için PowerShell Betiği kullanmak (kuruluşunuz tarafından sağlanan veya Azure AD Connect, önceki bir yüklemesi tarafından oluşturulan ether Lütfen karşıdan yükleme komut dosyası yukarıdaki sağlanan bağlantıdan.
+
+##### <a name="usage"></a>Kullanım:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Burada 
+
+**$ObjectDN** = Active Directory hesap izinlerini sıkılaştırıldığını gerekir.
+
+**$Credential** $ObjectDN hesap izinlerini kısıtlamak için gerekli ayrıcalıklara sahip yönetici kimlik bilgileri =. Bu genellikle kuruluş veya etki alanı yönetici olur. Hesap arama hatalarını önlemek için yönetici hesabı tam etki alanı adını kullanın. Örnek: contoso.com\admin.
+
+>[!NOTE] 
+>$credential. Kullanıcı adı FQDN\username biçiminde olmalıdır. Örnek: contoso.com\admin 
+
+##### <a name="example"></a>Örnek:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Bu güvenlik açığından izinsiz erişim için kullanılan?
+
+Bu güvenlik açığından Azure AD aşmaya kullanılan olmadığını görmek için hizmet hesabı tarihi son parola doğrulamalısınız Connect yapılandırması sıfırlayın.  Varsa beklenmeyen timestamp, daha fazla araştırma, olay günlüğü, bu parolayı sıfırlama olayı için üstlendiği.
+
+Daha fazla bilgi için bkz: [Microsoft güvenlik önerisi 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Durum: 27 Ekim 2017
@@ -335,7 +402,7 @@ CBool(
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Şunu seçin:|
     |CertKeyAlgorithmParams|CertHashString|Burada|
-    |||İle|
+    |||Avantaj ile|
 
 * Aşağıdaki şema değişiklikleri, sAMAccountName, domainNetBios ve Grup nesneleri için domainFQDN yanı sıra, kullanıcı nesnelerinin distinguishedName akış için özel eşitleme kuralları oluşturmak müşteriler izin vermek için sunulmuştur:
 

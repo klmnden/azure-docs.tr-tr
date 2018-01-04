@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure işlevleri için Mobile Apps bağlamaları 
 
@@ -37,8 +37,7 @@ Mobile Apps giriş bağlaması bir kaydı bir mobil tablo uç noktasından yükl
 
 Dile özgü örneğe bakın:
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [C# betiği](#input---c-script-example)
+* [C# betik (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Giriş - C# kod örneği
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Yapılandırabileceğiniz öznitelik özellikleri hakkında daha fazla bilgi için bkz: [yapılandırma bölümü aşağıdaki](#input---configuration).
 
@@ -168,13 +167,13 @@ Yeni bir kayıt Mobile Apps tabloya yazmak için bağlama Mobile Apps çıkış 
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#output---c-example)
-* [C# betiği](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# betik (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Çıktı - C# örnek
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) , bir kuyruk iletisi tarafından tetiklenir ve bir mobil uygulama tablosuna bir kayıt oluşturur.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , bir kuyruk iletisi tarafından tetiklenir ve bir mobil uygulama tablosuna bir kayıt oluşturur.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Yapılandırabileceğiniz öznitelik özellikleri hakkında daha fazla bilgi için bkz: [çıktı - yapılandırma](#output---configuration). Burada bir `MobileTable` yöntemi imza özniteliği örnekte:
 
@@ -290,7 +289,7 @@ public static object Run(
 }
 ```
 
-Tam bir örnek için bkz: [çıktısı - önceden derlenmiş C# örnek](#output---c-example).
+Tam bir örnek için bkz: [çıktısı - C# örnek](#output---c-example).
 
 ## <a name="output---configuration"></a>Çıktı - yapılandırma
 
@@ -312,7 +311,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="output---usage"></a>Çıktı - kullanım
 
-C# betik işlevlerde, türünde bir adlandırılmış çıktı parametresi kullanın `out object` çıkış kaydı erişmek için. Önceden derlenmiş C# işlevlerinde, `MobileTable` özniteliği şu türlerden birini kullanılabilir:
+C# betik işlevlerde, türünde bir adlandırılmış çıktı parametresi kullanın `out object` çıkış kaydı erişmek için. C# sınıfı kitaplıklar içinde `MobileTable` özniteliği şu türlerden birini kullanılabilir:
 
 * `ICollector<T>`veya `IAsyncCollector<T>`, burada `T` ya `JObject` veya herhangi türdeki bir `public string Id` özelliği.
 * `out JObject`

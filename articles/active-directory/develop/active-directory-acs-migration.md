@@ -1,10 +1,10 @@
 ---
-title: "Azure erişim denetimi Hizmeti'nden (ACS) geçirme"
-description: "Uygulamalar ve hizmetler Azure erişim denetimi hizmeti dışına taşımak için Seçenekler | Microsoft Azure"
+title: "Azure erişim denetimi Hizmeti'nden geçirme | Microsoft Docs"
+description: "Uygulamaları ve Hizmetleri Azure erişim denetimi Hizmeti'nden taşıma seçenekleri"
 services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,78 +14,88 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
+<<<<<<< HEAD
 ms.openlocfilehash: e32cac7feda929a63c4a80fc0078b221117eb2b5
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
+=======
+ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="migrating-from-azure-access-control-service-acs"></a>Azure erişim denetimi Hizmeti'nden (ACS) geçirme
+# <a name="migrate-from-the-azure-access-control-service"></a>Azure erişim denetimi Hizmeti'nden geçirme
 
-Microsoft Azure Active Directory erişim denetimi (erişim denetimi hizmeti veya ACS olarak da bilinir) Kasım 2018 devre dışı bırakıldı.  Uygulamalar ve hizmetler şu anda ACS kullanarak farklı kimlik doğrulama mekanizması bu tarihten önce tam olarak geçirmek gerekir. ACS kullanımını alanı onaylanamadı planlarken bu belgede geçerli müşteriler için öneriler açıklanmaktadır. Şu anda ACS kullanmıyorsanız, herhangi bir eylemde bulunmanız gerekmez.
+Azure erişim denetimi, Azure Active Directory (Azure AD), bir hizmet Kasım 2018 kullanımdan kaldırılacaktır. Uygulamalar ve şu anda erişim denetimi kullanan hizmetler için farklı kimlik doğrulama mekanizması ardından tarafından tam olarak geçirilmelidir. Erişim denetimi kullanımınız alanı onaylanamadı planlarken bu makalede geçerli müşteriler için öneriler açıklanmaktadır. Erişim denetimi şu anda kullanmıyorsanız, herhangi bir eylemde bulunmanız gerekmez.
 
 
-## <a name="brief-acs-overview"></a>Kısa ACS genel bakış
+## <a name="overview"></a>Genel Bakış
 
-ACS web uygulamalarınıza erişmek için kimlik doğrulaması ve Kullanıcıları yetkilendirmek kolay bir yol sağlayan bir bulut kimlik doğrulama hizmeti ve Hizmetleri kimlik doğrulaması ve kodunuzu dışında oluşturmak için yetkilendirme özelliklerinin çoğu verirken ' dir. Öncelikle geliştiriciler & mimarları .NET istemcileri, ASP.NET web uygulamaları & WCF web hizmetleri tarafından kullanılır.
+Erişim denetimi kimliğini doğrulamak ve web uygulamaları ve hizmetlerine erişim için Kullanıcıları yetkilendirmek için kolay bir yol sunan bir bulut kimlik doğrulama hizmetidir. Kimlik doğrulama ve yetkilendirme kodunuzu dışında oluşturmak için birçok özellik sağlar. Erişim denetimi, öncelikle geliştiriciler ve Microsoft .NET istemcileri, ASP.NET web uygulamaları ve Windows Communication Foundation (WCF) web hizmetlerini mimarları tarafından kullanılır.
 
-ACS kullanım durumları üç ana kategoriye ayrılabilir:
+Erişim denetimi için kullanım örnekleri üç ana kategoriye ayrılabilir:
 
-- Azure Service Bus, Dynamics CRM ve diğerleri gibi belirli Microsoft bulut hizmetlerine, kimlik doğrulaması. İstemci uygulamaları, çeşitli eylemleri gerçekleştirmek için bu hizmetleri kimliğini doğrulamak için kullanılan ACS gelen belirteçleri edinebilir.
-- Web uygulamaları, hem yerleşik özel çeşitli & (Sharepoint gibi) önceden paketlenmiş çeşitli kimlik doğrulama ekleme. ACS "pasif" kimlik doğrulaması kullanarak, Google, Facebook, Yahoo, Microsoft hesabı (Live kimliği), Azure Active Directory ve ADFS hesaplarıyla oturum açma web uygulamaları destekleyebilir.
-- ACS tarafından yayınlanan belirteçleri ile özel yerleşik web hizmetleri güvenli hale getirme. "Active" kimlik doğrulaması kullanarak, web hizmetleri bunlar yalnızca erişim ACS ile doğrulanmıştır bilinen istemcilerden izin verdiğinden emin olun.
+- Azure Service Bus ve Dynamics CRM gibi belirli Microsoft bulut hizmetlerine, kimlik doğrulaması. İstemci uygulamaları belirteçleri çeşitli eylemleri gerçekleştirmek için bu hizmetler için kimlik doğrulaması için erişim denetimi ile alın.
+- Web uygulamaları, hem özel hem de (örneğin, SharePoint) paketlenmiş ekleme kimlik doğrulaması. Erişim denetimi "pasif" kimlik doğrulaması kullanarak web uygulamaları oturum açma bir Microsoft hesabı (önceki adıyla Live ID) ve Google, Facebook, Yahoo, Azure AD hesapları ile destekleyebilir ve Active Directory Federasyon Hizmetleri (AD FS).
+- Erişim denetimi tarafından yayınlanan belirteçleri ile özel web hizmetleri güvenli hale getirme. "Active" kimlik doğrulaması kullanarak, yalnızca kimliği doğrulanmış bilinen istemcilere erişim erişim denetimi ile izin web hizmetleri emin olabilirsiniz.
 
-Bunların her biri kullanım örnekleri ve bunların önerilen geçiş stratejilerini aşağıdaki bölümlerde ele alınmıştır. Durumlarda büyük çoğunluğu var olan uygulamalar ve hizmetler için daha yeni teknolojileri geçirmek için önemli kod değişikliği gerekir. Başlamanız önerilir planlama & hemen kesintileri ya da kapalı kalma süresi herhangi olasılığını önlemek için geçiş yürütülüyor.
+Bunların her birini kullanın ve stratejileri açıklanan, önerilen geçiş durumları aşağıdaki bölümlerde. 
 
 > [!WARNING]
-> Çoğu durumda, var olan uygulamalar ve hizmetler için daha yeni teknolojileri geçirmek için önemli kod değişikliği gerekir. Başlamanız önerilir planlama & hemen kesintileri ya da kapalı kalma süresi herhangi olasılığını önlemek için geçiş yürütülüyor.
+> Çoğu durumda, var olan uygulamalar ve hizmetler için daha yeni teknolojileri geçirmek için önemli kod değişikliği gerekir. Planlama hemen başlamanızı öneriyoruz ve kapalı kalma süresi veya olası tüm kesintileri önlemek için geçiş yürütme.
 
-Mimari, ACS tamamen aşağıdaki bileşenlerden oluşur:
+Erişim denetimi aşağıdaki bileşenlere sahiptir:
 
-- Kimlik doğrulama isteklerini alır ve iade olarak güvenlik belirteçleri bir güvenli belirteç Hizmeti'ne (STS).
-- Oluşturma, silme ve etkinleştirme/ACS ad alanları devre dışı bırakmak için kullanılan Klasik Azure portalı.
-- Özelleştirme ve ACS ad alanı davranışını yapılandırmak için kullanılan bir ayrı ACS yönetim portalı.
-- Portallar işlevlerini otomatik hale getirmek için kullanılan bir yönetim hizmeti.
-- ACS tarafından yayınlanan belirteçleri çıktı biçimi düzenleme için karmaşık mantık tanımlamak için kullanılabilecek bir belirteç dönüştürme kuralı altyapısı.
+- Kimlik doğrulama isteklerini alır ve iade olarak güvenlik belirteçleri bir güvenli belirteç hizmeti (STS).
+- Burada oluşturduğunuz, Klasik Azure portalı, silmek ve etkinleştirmek ve erişim denetimi ad alanları devre dışı.
+- Burada özelleştirmek ve erişim denetimi ad yapılandırma bir ayrı erişim denetimi Yönetim Portalı.
+- Portal işlevleri otomatikleştirmek için kullanabileceğiniz bir yönetim hizmeti.
+- Erişim denetimi sorunları belirteçleri çıkış biçimini denetlemek için karmaşık mantık tanımlamak için kullanabileceğiniz bir belirteç dönüştürme kuralı alt yapısı.
 
-Bu bileşenleri kullanmak için bir veya daha fazla ACS oluşturma **ad alanları**. Bir ad alanı, uygulamalar ve hizmetler ile iletişim kurmak ACS adanmış örneğidir; kendi ad alanlarını kullanan tüm diğer ACS müşterilerden, ayrı tutulur. Bir ad alanındaki ACS gibi bir ayrılmış URL sahiptir:
+Bu bileşenleri kullanmak için bir veya daha fazla erişim denetimi ad alanı oluşturmanız gerekir. A *ad alanı* uygulamaları ve Hizmetleri ile iletişim kuran bir erişim denetimi, adanmış bir örneğidir. Diğer tüm erişim denetimi müşterilerden yalıtılmış bir ad alanıdır. Diğer erişim denetimi müşteriler kendi ad alanları kullanın. Erişim denetimi ad alanı şuna benzer bir ayrılmış URL sahiptir:
 
 ```HTTP
-https://mynamespace.accesscontrol.windows.net
+https://<mynamespace>.accesscontrol.windows.net
 ```
 
-STS ve yönetim işlemleri tüm iletişim bu URL'de farklı amaçlar için farklı yollar ile gerçekleştirilir. Uygulamalar veya hizmetler ACS kullanırsanız belirlemek için izleme tüm trafiği için `https://{namespace}.accesscontrol.windows.net`.  Bu URL için tüm trafik, ACS tarafından işlenir ve kullanımdan kaldırılacak gerekiyor trafiğidir.  Tüm trafik tek istisnası `https://accounts.accesscontrol.windows.net` -trafiği için bu URL zaten farklı bir hizmet tarafından işlenir ve ACS kullanımdan tarafından etkilenmez.  Klasik Azure portalı ve sahip olduğunuz abonelikleri tüm ACS ad alanları için onay oturum açmanın emin olmalısınız.  ACS ad alanları listelenir **Active Directory** altında hizmet **erişim denetimi ad** sekmesi.
+STS ve yönetim işlemleri tüm iletişim bu URL'de yapılır. Farklı amaçlar için farklı yollar kullanın. Uygulamalara veya hizmetlere erişim denetimi kullanıp kullanmayacağınızı belirlemek için izleme https:// tüm trafik için\<ad alanı\>. accesscontrol.windows.net. Bu URL için tüm trafik, erişim denetimi tarafından işlenir ve kullanımdan kaldırılacak gerekiyor. 
 
-ACS hakkında daha fazla bilgi için bkz: [bu arşivlenmiş MSDN'de belgelerin](https://msdn.microsoft.com/library/hh147631.aspx).
+Bunun özel durumu https://accounts.accesscontrol.windows.net için tüm trafiğidir. Bu URL için trafiği zaten farklı bir hizmet tarafından işlenir ve erişim denetimi kullanımdan tarafından etkilenmez. 
+
+Ayrıca Klasik Azure portalı ve sahip olduğunuz Aboneliklerde herhangi bir erişim denetimi ad alanları için onay oturum. Erişim denetimi ad listelenir **erişim denetimi ad** sekmesinde, altında **Active Directory** hizmet.
+
+Erişim denetimi hakkında daha fazla bilgi için bkz: [erişim denetimi hizmeti (arşivlenmiş) 2.0](https://msdn.microsoft.com/library/hh147631.aspx).
 
 ## <a name="retirement-schedule"></a>Devre dışı bırakma zamanlama
 
-Kasım 2017'ten itibaren tüm ACS tam olarak desteklenen & işletimsel bileşenleridir. Yalnızca kısıtlama olan [yeni ACS ad alanları Klasik Azure portalı üzerinden oluşturulamıyor](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
+Kasım 2017'ten itibaren tüm erişim denetimi tam olarak desteklenen ve işletimsel bileşenleridir. Yalnızca kısıtlama olan, [Klasik Azure Portalı aracılığıyla yeni erişim denetimi ad oluşturulamıyor](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
 
-Bu bileşenlerin kullanımdan kaldırma için zaman çizelgesi bu zamanlamayı aşağıdaki gibidir:
+Erişim denetimi bileşenleri onaysız kılınmadan zamanlamasını şöyledir:
 
-- **Kasım 2017**: Azure AD yönetim deneyimi Klasik Azure Portalı'nda [devre dışı bırakılmış](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). ACS yeni, şu anda kullanılabilir olacağı için bu noktada, ad alanı yönetim ayrılmış URL: `http://manage.windowsazure.com?restoreClassic=true`. Bu, var olan ad alanları görüntülemek için bunları etkinleştirmek/devre sağlar ve tamamen isterseniz, bunları silin içindir.
-- **Nisan 2018**: ACS ad alanı yönetim olduğu artık bu adanmış URL'de kullanılabilir. Bu anda, devre dışı bırak/etkinleştir, silmek veya ACS alanlarınızın numaralandırmak mümkün değildir. ACS yönetim Portalı'nı ancak, tam olarak işlevsel ve konumunda bulunan `https://{namespace}.accesscontrol.windows.net`. Tüm bileşenlerle ACS normal olarak da çalışmaya devam eder.
-- **Kasım 2018**: tüm ACS bileşenlerine kapatma kalıcı olarak. Bu ACS yönetim portalı, yönetim hizmeti, STS ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, ACS gönderilen tüm istekler (konumunda bulunan `{namespace}.accesscontrol.windows.net`) başarısız. Var olan tüm uygulamalar ve hizmetler için diğer teknolojileri de bu süre önce geçirmiş olmanız.
+- **Kasım 2017**: Azure AD yönetim deneyimi Azure Klasik Portalı'nda [devre dışı bırakılmış](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Bu noktada, ad alanı yönetim erişim denetimi için yeni, özel bir URL kullanılabilir: http://manage.windowsazure.com?restoreClassic=true. İsterseniz bu URl, var olan ad alanları görüntülemek, etkinleştirin ve ad alanlarını devre dışı bırakma ve ad alanları, silmek için kullanın.
+- **Nisan 2018**: erişim denetimi ad alanı yönetimidir artık adanmış http://manage.windowsazure.com?restoreClassic=true URL'de kullanılabilir. Bu noktada, devre dışı bırakmak veya etkinleştirmek, silemez veya erişim denetimi ad alanları numaralandırır. Ancak, erişim denetimi Yönetim Portalı'nı tam olarak işlevsel ve https:// konumunda bulunan olacaktır\<ad alanı\>. accesscontrol.windows.net. Tüm bileşenlerle erişim denetimi normal şekilde çalışmaya devam eder.
+- **Kasım 2018**: tüm erişim denetimi bileşenleri kalıcı olarak kapatıldı. Bu, erişim denetimi Yönetim Portalı, yönetim hizmeti, STS ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, erişim denetimi için gönderilen tüm istekler (konumunda bulunan \<ad alanı\>. accesscontrol.windows.net) başarısız. Var olan tüm uygulamaları ve Hizmetleri için başka teknolojiler de bu süreden önce geçirmiş olmanız.
 
 
 ## <a name="migration-strategies"></a>Geçiş stratejileri
 
-Aşağıdaki bölümlerde, diğer Microsoft teknolojileri için ACS dışına geçirmek için yüksek düzey öneriler açıklanmaktadır.
+Aşağıdaki bölümlerde, diğer Microsoft teknolojileri için erişim denetiminden geçirmek için üst düzey öneriler açıklanmaktadır.
 
 ### <a name="clients-of-microsoft-cloud-services"></a>İstemciler, Microsoft bulut Hizmetleri
 
-Şimdi ACS tarafından yayınlanan belirteçleri kabul Microsoft bulut hizmetlerinin her biri en az bir alternatif kimlik doğrulaması biçimini destekler. Her hizmet resmi kılavuzu için belirli belgeleri başvurma öneririz, böylece her hizmet için doğru kimlik doğrulama mekanizması değişir. Kolaylık olması için her bir belge kümesi burada sağlanır:
+Erişim denetimi tarafından şimdi verilen belirteçleri kabul eder her Microsoft bulut hizmetine en az bir alternatif kimlik doğrulaması biçimini destekler. Her hizmet için doğru kimlik doğrulama mekanizması değişir. Her hizmet için resmi kılavuzu için belirli belgelerine başvurun öneririz. Kolaylık olması için her bir belge kümesi burada sağlanır:
 
 | Hizmet | Rehber |
 | ------- | -------- |
 | Azure Service Bus | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Azure Geçişi | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Cache | [Azure Redis Önbelleğine Geçiş](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure veri Pazar | [Bilişsel hizmetler API'leri geçirme](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Azure mantıksal uygulamaları geçirme](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Service Bus geçişi | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
+| Azure yönetilen önbellek | [Azure Redis Önbelleğine Geçiş](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [Bilişsel hizmetler API'leri geçirme](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| BizTalk Services | [Azure App Service Logic Apps özelliğini geçirme](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Azure AD kimlik doğrulaması için geçirme](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Azure Yedekleme aracısı yükseltme](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| Azure Backup | [Azure Backup Aracısı yükseltme](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -95,66 +105,74 @@ Aşağıdaki bölümlerde, diğer Microsoft teknolojileri için ACS dışına ge
 <!-- Azure SiteRecovery: TODO -->
 
 
-### <a name="web-applications-using-passive-authentication"></a>Pasif kimlik doğrulama kullanarak web uygulamaları
+### <a name="web-applications-that-use-passive-authentication"></a>Pasif kimlik doğrulama kullanan web uygulamaları
 
-Geliştiriciler & mimarları web uygulamaları için aşağıdaki özellikler ve yetenekler ACS ACS için kullanıcı kimlik doğrulaması kullanarak web uygulamaları için sağlanan:
+Kullanıcı kimlik doğrulaması için erişim denetimi kullanan web uygulamaları için web uygulaması geliştiricileri ve mimarlar için aşağıdaki özellikler ve yetenekler erişim denetimi sağlar:
 
 - Derin tümleştirme Windows Identity Foundation (WIF).
-- Google, Facebook, Yahoo, Microsoft hesabı (Live kimliği), Azure Active Directory ve ADFS ile Federasyon.
-- Aşağıdaki kimlik doğrulama protokolleri için destek: OAuth 2.0 taslak 13, Ws-Trust ve Ws-Federasyon.
-- Aşağıdaki belirteci biçimleri için destek: JSON web token (JWT), SAML 1.1, SAML 2.0 ve basit web token (SWT).
-- Kullanıcıların oturum açmak için kullandığınız hesabın türünü seçmek izin WIF, tümleştirilmiş bir giriş bölgesi bulma deneyimini. Bu deneyim ve tam olarak özelleştirilebilir web uygulaması tarafından barındırılan.
-- ACS, web uygulamasından tarafından alınan talep Zengin özelleştirme izin dönüştürme belirteci dahil olmak üzere:
-    - kimlik sağlayıcılardan gelen taleplere aracılığıyla geçirme
-    - Ek özel talep ekleme
-    - belirli koşullar altında talepleri vermek basit IF then mantığı
+- Google, Facebook, Yahoo, Azure Active Directory ve AD FS ve Microsoft hesaplarının ile Federasyon.
+- Aşağıdaki kimlik doğrulama protokolleri için destek: OAuth 2.0 taslak 13, WS-Trust ve Web Hizmetleri Federasyonu (WS-Federation).
+- Aşağıdaki belirteci biçimleri için destek: JSON Web Token (JWT), SAML 1.1, SAML 2.0 ve basit Web Token (SWT).
+- WIF tümleşik bir giriş bölgesi bulma deneyimini, kullanıcıların oturum açmak için kullandığınız hesap türü seç olanak tanır. Bu deneyim, web uygulaması tarafından barındırılan ve tam olarak özelleştirilebilir.
+- Simge Zengin özelleştirme erişim denetimi, web uygulamasından tarafından alınan Talep veren dönüştürme dahil olmak üzere:
+    - Kimlik sağlayıcılardan gelen taleplere geçirir.
+    - Ek özel talep ekleniyor.
+    - Belirli koşullar altında talepleri vermek basit IF then mantığı.
 
-Ne yazık ki, değil tüm bu eşdeğer yetenekleri sağlayan bir hizmet yok.  ACS hangi özelliklerini, gerekir ve ardından kullanma arasında değerlendirmelidir [ **Azure Active Directory** ](https://azure.microsoft.com/develop/identity/signin/) (Azure AD), [ **Azure AD B2C** ](https://azure.microsoft.com/services/active-directory-b2c/), veya başka bir bulut kimlik doğrulama hizmeti.
+Ne yazık ki, tüm bu eşdeğer yetenekleri sağlayan bir hizmet yok. Hangi özellikleri erişim denetimi, gerekir ve kullanımı arasında seçim değerlendirmelidir [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/), [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) (Azure AD B2C) veya başka bir bulut kimlik doğrulaması hizmet.
 
-#### <a name="migrating-to-azure-active-directory"></a>Azure Active Directory'ye geçirme
+#### <a name="migrate-to-azure-active-directory"></a>Azure Active Directory'ye geçirme
 
-Dikkate alınması gereken bir yolu, uygulamalar ve hizmetler doğrudan Azure Active Directory ile tümleştirme. Azure AD bulut tabanlı kimlik sağlayıcısı olduğu için Microsoft iş ve Okul hesapları - Office 365, Azure ve daha fazlasını kimlik sağlayıcıdır. Benzer sağlar federe kimlik doğrulama özellikleri için ACS, ancak tüm ACS özellikleri desteklemiyor. Birincil Federasyon Facebook, Google ve Yahoo gibi sosyal kimlik sağlayıcısı ile bir örnektir. Kullanıcılarınız bu tür kimlik bilgileriyle oturum açarsanız Azure AD sizin için değil. Bu ayrıca gerekmez destek ACS - iki ACS sırasında olarak kesin aynı kimlik doğrulama protokolleri ve Azure AD desteği OAuth yok, örneğin, kod geçişin bir parçası değiştirmek ihtiyaç duyduğunuz her uygulaması arasındaki farklar vardır.
+Dikkate alınması gereken bir yolu, uygulamaları ve Hizmetleri doğrudan Azure AD ile tümleştirme. Azure AD bulut tabanlı kimlik sağlayıcısı olduğu için Microsoft iş veya Okul hesapları. Azure AD kimlik sağlayıcısı için Office 365, Azure ve daha fazlasını ' dir. Benzer sağlar federe kimlik doğrulama özellikleri için erişim denetimi, ancak tüm erişim denetimi özellikleri desteklemiyor. 
 
-Azure AD ancak ACS müşterilere çeşitli olası avantajları sağlar. Yerel olarak destekleyen Microsoft İş & Okul ACS müşteriler tarafından yaygın olarak kullanılan bulutta barındırılan hesapları.  Azure AD kiracısı de ADFS hem bulut tabanlı kullanıcıları hem de şirket içinde barındırılan kullanıcıların kimliğini doğrulamak, uygulamanın verme aracılığıyla şirket içi Active Directory bir veya daha fazla örneğini federe.  Ayrıca, Windows Identity Foundation (WIF) kullanan bir web uygulaması ile tümleştirmek görece basit hale getirir Ws-Federasyon protokolünü destekler.
+Birincil Federasyon Facebook, Google ve Yahoo gibi sosyal kimlik sağlayıcısı ile bir örnektir. Kullanıcılarınız bu tür kimlik bilgileriyle oturum açarsanız Azure AD için çözüm değil. 
 
-Aşağıdaki tabloda, Azure AD'de ACS kullanılabilenlerle web uygulamalarıyla ilgili özellikleri karşılaştırılmaktadır. Yüksek bir düzeyde **Azure Active Directory büyük olasılıkla, geçiş için uygun seçeneği yalnızca kullanıcıların oturum açma ile Microsoft işlerine & Okul hesapları izin verirseniz**.
+Azure AD erişim denetimi olarak tam olarak aynı kimlik doğrulama protokolleri mutlaka desteklemiyor. Örneğin, erişim denetimi ve Azure AD OAuth desteklese de, her uygulama arasındaki farklar vardır. Farklı uygulamaları, geçiş işleminin parçası kod değiştirmenizi gerektirir.
 
-| Özellik | ACS desteği | Azure AD desteği |
+Ancak, Azure AD erişim denetimi müşterilere çeşitli olası avantajları sunar. Onu yerel olarak destekleyen Microsoft iş veya Okul erişim denetimi müşteriler tarafından yaygın olarak kullanılan bulutta barındırılan hesapları. 
+
+Azure AD kiracısı ayrıca şirket içi Active Directory AD FS ile bir veya daha fazla örneğini federe. Bu şekilde, uygulamanızın bulut tabanlı kullanıcıları doğrulayabilir ve kullanıcılar şirket içi barındırılır. Ayrıca, WIF kullanarak bir web uygulaması ile tümleştirmek görece basit hale getirir WS-Federasyon protokolünü destekler.
+
+Aşağıdaki tabloda, Azure AD'de kullanılabilen bu özellikler web uygulamalarıyla ilgili erişim denetimi özellikleri karşılaştırılmaktadır. 
+
+Yüksek bir düzeyde *Azure Active Directory büyük olasılıkla en iyi seçenek, geçiş için kullanıcıların oturum izin verirseniz, yalnızca kendi Microsoft ile iş veya Okul hesapları*.
+
+| Özellik | Erişim denetimi desteği | Azure AD desteği |
 | ---------- | ----------- | ---------------- |
 | **Hesap türü** | | |
-| Microsoft iş ve Okul hesapları | Destekleniyor | Destekleniyor |
-| Windows Server Active Directory & ADFS hesaplarından | Azure AD kiracısı ile Federasyon aracılığıyla desteklenir <br /> ADFS ile doğrudan Federasyon aracılığıyla desteklenir | Azure AD kiracısı ile Federasyon ile yalnızca desteklenen | 
-| Diğer Kurumsal kimlik yönetimi sistemlerinden hesapları | Azure AD kiracısı ile Federasyon aracılığıyla olası <br />Doğrudan Federasyon desteklenen | Azure AD kiracısı ile Federasyon aracılığıyla olası |
-| Microsoft hesapları kişisel kullanım (Windows Live ID) | Destekleniyor | Azure AD v2.0 OAuth protokolü aracılığıyla, ancak başka bir protokol üzerinden değil desteklenir. | 
-| Facebook, Google, Yahoo hesapları | Destekleniyor | Desteklenmeyen yoktur. |
+| Microsoft iş veya Okul hesapları | Destekleniyor | Destekleniyor |
+| Windows Server Active Directory ve AD FS hesaplarından |-Azure AD kiracısı ile Federasyon aracılığıyla desteklenir <br />-AD FS ile doğrudan Federasyon aracılığıyla desteklenir | Azure AD kiracısı ile Federasyon ile yalnızca desteklenen | 
+| Diğer Kurumsal kimlik yönetimi sistemlerinden hesapları |-Azure AD kiracısı ile Federasyon aracılığıyla olası <br />-Doğrudan Federasyon desteklenen | Azure AD kiracısı ile Federasyon aracılığıyla olası |
+| Kişisel kullanım için Microsoft hesapları | Destekleniyor | Azure AD v2.0 OAuth protokolü aracılığıyla, ancak başka bir protokol üzerinden değil desteklenen | 
+| Facebook, Google, Yahoo hesapları | Destekleniyor | Yoktur desteklenmiyor |
 | **Protokoller ve SDK uyumluluk** | | |
-| Windows Identity Foundation (WIF) | Destekleniyor | , Kullanılabilir sınırlı yönergeleri desteklenir. |
+| WIF | Destekleniyor | Desteklenen, ancak sınırlı yönergeler mevcuttur |
 | WS-Federasyon | Destekleniyor | Destekleniyor |
-| OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi desteği. |
+| OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi için destek |
 | WS-Trust | Destekleniyor | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
-| JSON Web belirteçleri (Jwt'ler) | Beta'de desteklenen | Destekleniyor |
-| SAML 1.1 belirteçleri | Destekleniyor | Destekleniyor |
-| SAML 2.0 belirteçleri | Destekleniyor | Destekleniyor |
-| Basit Web belirteçleri (SWT) | Destekleniyor | Desteklenmiyor |
+| JWT | Beta'de desteklenen | Destekleniyor |
+| SAML 1.1 | Destekleniyor | Önizleme |
+| SAML 2.0 | Destekleniyor | Destekleniyor |
+| SWT | Destekleniyor | Desteklenmiyor |
 | **Özelleştirmeleri** | | |
-| Özelleştirilebilir giriş bölgesi bulma/hesabı UI çekme | Uygulamalarda birleştirilebilir indirilebilir kodu | Desteklenmiyor |
-| Özel belirteç imzalama sertifikaları karşıya yükle | Destekleniyor | Destekleniyor |
-| Belirteçleri Taleplerde özelleştirme | Geçiş kimlik sağlayıcılardan gelen taleplere giriş<br />Erişim kimlik sağlayıcısından bir talep belirteci alma<br />Çıkış talep giriş talepleri değerlerine göre<br />Sabit değerleri içeren sorun çıktı talepleri | Geçiş taleplerin Federal Kimlik sağlayıcılardan yapılamıyor<br />Erişim belirteci kimlik sağlayıcısı'ndan talep olarak alınamıyor<br />Çıkış talep giriş talepleri değerlerine göre veremez<br />Çıktı talepler ile sabit değerleri verebilir<br />Kullanıcıların Azure AD ile synched özelliklerine göre çıkış talep verebilir |
+| Özelleştirilebilir giriş bölgesi bulma/hesap-çekme kullanıcı Arabirimi | Uygulamalarda birleştirilebilir indirilebilir kodu | Desteklenmiyor |
+| Özel belirteç imzalama sertifikalarını karşıya yükleme | Destekleniyor | Destekleniyor |
+| Belirteçleri Taleplerde özelleştirme |-Kimlik sağlayıcılardan gelen giriş talepleri geçirir<br />-Erişim belirteci kimlik sağlayıcısı'ndan talep olarak alma<br />-Çıkış talep giriş talepleri değerlerine göre vermek<br />-Sorun çıkış talep ile sabit değerleri |-Federe kimlik sağlayıcılardan gelen taleplere aracılığıyla geçiremezsiniz<br />-Erişim kimlik sağlayıcısından bir talep belirteci alınamıyor<br />-Çıkış talep giriş talepleri değerlerine göre veremez<br />-Çıktı talepler ile sabit değerleri verebilir<br />-Azure AD ile eşitlenen kullanıcılar özelliklerini göre çıkış talep verebilir |
 | **Otomasyon** | | |
-| Yapılandırma/yönetim görevlerini otomatik hale getirme | ACS yönetim hizmeti desteklenir | Microsoft Graph & Azure AD grafik API'si üzerinden desteklenir. |
+| Yapılandırma ve yönetim görevlerini otomatik hale getirme | Erişim denetimi yönetim hizmeti desteklenir | Desteklenen Microsoft Graph ve Azure AD grafik API'si |
 
-Azure AD uygun yolu İleri uygulamalar ve hizmetler için olduğuna karar verirseniz, uygulamanızı Azure AD ile tümleştirmek için iki yol haberdar olmanız gerekir.
+Azure AD uygulamaları ve Hizmetleri için en iyi geçiş yolu olduğuna karar verirseniz, uygulamanızı Azure AD ile tümleştirmek için iki yol haberdar olmanız gerekir.
 
-Azure AD ile tümleştirmek için WS-Federasyon/WIF kullanmak için önerilir aşağıdaki [bu makalede açıklanan yaklaşım](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Makaleyi SAML tabanlı çoklu oturum açma için Azure AD, ancak Ws-Federasyon de yapılandırma works yapılandırmaya başvuruyor. Bu yaklaşımı izleyerek bir Azure AD Premium lisansı gerektirir, ancak iki avantajları vardır:
+WS-Federasyon veya WIF Azure AD ile tümleştirmek üzere kullanmak için aşağıdaki yaklaşımı açıklanan öneririz [yapılandırma Federasyon tek oturum açma için Galeri olmayan uygulama](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Makale, Azure AD SAML tabanlı çoklu oturum açma için yapılandırmaya yönelik başvuruyor, ancak WS-Federasyon yapılandırmak için de çalışır. Bu yaklaşımı izleyerek bir Azure AD Premium lisansı gerektirir. Bu yaklaşımın iki avantajı vardır:
 
-- Azure AD belirteci özelleştirme tam esnekliğini alın. Bu, özellikle kullanıcı kimliği veya adı tanımlayıcısı talebi dahil olmak üzere ACS tarafından verilen eşleştiğinden Azure AD tarafından verilen talepler özelleştirmenize olanak sağlar. Kullanıcı kimliklerini teknolojileri bile değiştirdikten sonra kullanıcılarınızın tutarlı bir kullanıcı tanımlayıcıları almaya devam Azure AD eşleşme Bu ACS tarafından verilen tarafından verilen emin olmak gerekir.
-- Bir belirteç imzalama sertifikası, uygulamaya özgü yapılandırabilirsiniz denetim, yaşam süresi.
+- Azure AD belirteci özelleştirme tam esnekliğini alın. Erişim denetimi tarafından verilen talep eşleştirmek için Azure AD tarafından verilen talep özelleştirebilirsiniz. Bu özellikle kullanıcı kimliği veya adı tanımlayıcısı talebi içerir. Teknolojileri değiştirdikten sonra kullanıcılarınızın tutarlı bir kullanıcı tanımlayıcıları almaya devam etmek için kullanıcı kimlikleri ile Azure AD Eşle erişim denetimi tarafından verilenler verilen emin olun.
+- Uygulamanıza ve denetim bir yaşam süresi ile belirli bir belirteç imzalama sertifikası yapılandırabilirsiniz.
 
 <!--
 
-Possible nameIdentifiers from ACS (via AAD or ADFS):
-- ADFS - Whatever ADFS is configured to send (email, UPN, employeeID, what have you)
+Possible nameIdentifiers from Access Control (via AAD or AD FS):
+- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
 - Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
 - Default from AAD using Custom apps nowadays: UPN
 - Kusto can't tell us distribution, it's redacted
@@ -162,144 +180,141 @@ Possible nameIdentifiers from ACS (via AAD or ADFS):
 -->
 
 > [!NOTE]
-> Bu yaklaşım ile devam eden bir Azure AD Premium lisansı gerektirir. Bir ACS müşterisiyseniz ve çoklu oturum açma bir uygulama için ayarlamak için premium lisansı gerektirir, bize ulaşın ve biz kullanımınız için geliştirici lisansı sağlamak mutluluk.
+> Bu yaklaşım, bir Azure AD Premium lisansı gerektirir. Bir erişim denetimi müşterisiyseniz ve çoklu oturum açma bir uygulama için ayarlamak için premium lisansı gerektirir, bizimle iletişime geçin. Geliştirici lisansı kullanmanıza olanak sağlamak mutluluk olacaktır.
 
-Alternatif bir yaklaşım izlemektir [Bu kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), Ws-Federasyon ayarlama konusunda biraz farklı yönergeler sağlayan. Bu kod örneği, WIF, ancak bunun yerine, ASP.NET 4.5 OWIN ara yazılımı kullanmaz. Ancak, uygulama kayıt yönergelerini WIF kullanan uygulamalar için geçerlidir ve bir Azure AD Premium lisansı gerektirmez.  Bu yaklaşım, anlamak için heneed seçerseniz [anahtar geçişi Azure AD'de imzalama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Bu yaklaşım imzalama anahtarı sorunu belirteçleri için genel Azure AD kullanır. Varsayılan olarak, WIF İmzalama anahtarları otomatik olarak yenilemez. Azure AD genel kendi İmzalama anahtarları döndürdüğünde WIF uygulamanızı değişiklikleri kabul etmek için hazırlanması gerekir.
+Alternatif bir yaklaşım izlemektir [Bu kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), WS-Federasyon biraz farklı yönergeleri sağlar. Bu kod örneği, WIF, ancak bunun yerine, ASP.NET 4.5 OWIN ara yazılımı kullanmaz. Ancak, uygulama kayıt yönergelerini WIF kullanan uygulamalar için geçerlidir ve bir Azure AD Premium lisansı gerektirmez. 
 
-Openıd Connect veya OAuth protokolleri aracılığıyla Azure AD ile tümleştirebilir varsa, bunun yapılması önerilir.  Uygulamanıza web bulunan Azure AD tümleştirme yönelik Rehber ve kapsamlı belgeler sahibiz bizim [Azure AD Geliştirici Kılavuzu](http://aka.ms/aaddev).
+Bu yaklaşım seçerseniz, anlamanız gerekir [anahtar geçişi Azure AD'de imzalama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Bu yaklaşım imzalama anahtarı sorunu belirteçleri için genel Azure AD kullanır. Varsayılan olarak, WIF İmzalama anahtarları otomatik olarak yenilemez. Azure AD genel kendi İmzalama anahtarları döndürdüğünde WIF uygulamanızı değişiklikleri kabul etmek için hazırlanması gerekir.
+
+Openıd Connect veya OAuth protokolleri aracılığıyla Azure AD ile tümleştirme, bunun yapılması önerilir. Kapsamlı belgeler ve uygulamanıza web bulunan Azure AD tümleştirme hakkında yönergeler sahibiz bizim [Azure AD Geliştirici Kılavuzu](http://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
-#### <a name="migrating-to-azure-ad-b2c"></a>Azure AD B2C'ye geçirme
+#### <a name="migrate-to-azure-active-directory-b2c"></a>Azure Active Directory B2C'ye geçirme
 
-Dikkate alınması gereken diğer geçiş Azure AD B2C yoludur.  B2C bulut kimlik doğrulaması olduğundan, hizmet ACS, benzer bir bulut hizmeti için kendi kimlik doğrulama ve kimlik yönetimi mantığı dış yayınlamasına izin verir.  Etkin kullanıcılar en çok bir milyonlarca içeren uygulamalar karşılıklı tüketici için tasarlanmış bir Ücretli hizmetiyle (ücretsiz ve premium katmanları) değil.
+Dikkate alınması gereken diğer geçiş Azure AD B2C yoludur. Azure AD B2C, geliştiricilerin kendi kimlik doğrulama ve kimlik yönetimi mantığı bir bulut hizmeti için dış kaynaklara erişim denetimi gibi sağlayan bir bulut kimlik doğrulama hizmetidir. Etkin kullanıcılar en çok bir milyonlarca olabilir tüketiciye yönelik uygulamalar için tasarlanmış bir Ücretli (içeren ücretsiz ve premium Katmanlar) hizmetidir.
 
-ACS, B2C en çekici özellikler, farklı türlerde hesaplarını destekleyen olan gibi. B2C ile oturum açma kendi Facebook, Google, Microsoft, LinkedIn, GitHub, Yahoo hesapları olan kullanıcılar ve daha fazlası. B2C ayrıca özellikle uygulamanız için "Yerel hesaplar", veya kullanıcı adı ve kullanıcı oluşturma parolaları destekler. Azure AD B2C'de, oturum açma akışları özelleştirmek için kullanabileceğiniz Zengin genişletilebilirlik sağlar. Bu ancak, kimlik doğrulama protokolleri & ACS müşteriler gerektirebilir belirteci biçimleri derecesini desteklemez. Belirteçleri Al & Sorgu kimlik sağlayıcısından Microsoft kullanıcı hakkında ek bilgi için ayrıca kullanılamaz veya aksi takdirde.
+Erişim denetimi gibi Azure AD B2C'in en çekici özellikleri farklı türlerde hesaplarını destekleyen biridir. Azure AD B2C ile kullanıcıların Microsoft hesaplarını veya Facebook, Google, LinkedIn, GitHub veya Yahoo hesapları ve daha fazlasını kullanarak kullanıcıların imzalayabilirsiniz. Azure AD B2C, özellikle uygulamanız için "Yerel hesaplar," veya kullanıcı adı ve kullanıcı oluşturma parolaları de destekler. Azure AD B2C'de, oturum açma akışları özelleştirmek için kullanabileceğiniz Zengin genişletilebilirlik sağlar. 
 
-Aşağıdaki tabloda Azure AD B2C'de kullanılabilir olan web uygulamalarıyla ilgili ACS özelliklerini karşılaştırır. Yüksek bir düzeyde **Azure AD B2C büyük olasılıkla, geçiş için doğru seçim uygulamanız karşılıklı tüketici ise ya da farklı türlerde hesaplarını destekler.**
+Ancak, Azure AD B2C kimlik doğrulama protokolleri derecesini desteklemez ve müşteriler gerektirebilir bu erişim denetimi belirteci biçimlendirir. Kullanıcı hakkında ek bilgi için sorgu ve belirteç kimlik sağlayıcısından Microsoft almak için Azure AD B2C kullanamazsınız veya tersi durumda.
 
-| Özellik | ACS desteği | Azure AD B2C desteği |
+Aşağıdaki tabloda Azure AD B2C'de kullanılabilir olan web uygulamalarıyla ilgili erişim denetimi özellikleri karşılaştırılmaktadır. Yüksek bir düzeyde *Azure AD B2C büyük olasılıkla, geçiş için doğru seçim uygulamanız karşılıklı tüketici ise ya da farklı türlerde hesaplarını destekler.*
+
+| Özellik | Erişim denetimi desteği | Azure AD B2C desteği |
 | ---------- | ----------- | ---------------- |
 | **Hesap türü** | | |
-| Microsoft iş ve Okul hesapları | Destekleniyor | Özel ilkeler desteklenir  |
-| Windows Server Active Directory & ADFS hesaplarından | ADFS ile doğrudan Federasyon aracılığıyla desteklenir | Desteklenen SAML Federasyon özel ilkelerini kullanma |
-| Diğer Kurumsal kimlik yönetimi sistemlerinden hesapları | Ws-Federasyon doğrudan Federasyon desteklenen | Desteklenen SAML Federasyon özel ilkelerini kullanma |
-| Microsoft hesapları kişisel kullanım (Windows Live ID) | Destekleniyor | Destekleniyor | 
-| Facebook, Google, Yahoo hesapları | Destekleniyor | Facebook & Google, Yahoo Openıd Connect Federasyon özel ilkelerini kullanma desteklenen desteklen |
+| Microsoft iş veya Okul hesapları | Destekleniyor | Özel ilkeler desteklenir  |
+| Windows Server Active Directory ve AD FS hesaplarından | AD FS ile doğrudan Federasyon aracılığıyla desteklenir | SAML Federasyon özel ilkeler kullanılarak desteklenen |
+| Diğer Kurumsal kimlik yönetimi sistemlerinden hesapları | WS-Federasyon aracılığıyla doğrudan Federasyon aracılığıyla desteklenir | SAML Federasyon özel ilkeler kullanılarak desteklenen |
+| Kişisel kullanım için Microsoft hesapları | Destekleniyor | Destekleniyor | 
+| Facebook, Google, Yahoo hesapları | Destekleniyor | Facebook ve Google, Yahoo Openıd Connect Federasyon özel ilkeler kullanılarak desteklenen desteklen |
 | **Protokoller ve SDK uyumluluk** | | |
-| Windows Identity Foundation (WIF) | Destekleniyor | Desteklenmiyor. |
-| WS-Federasyon | Destekleniyor | Desteklenmiyor. |
-| OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi desteği. |
-| WS-Trust | Destekleniyor | Desteklenmiyor. |
+| Windows Identity Foundation (WIF) | Destekleniyor | Desteklenmiyor |
+| WS-Federasyon | Destekleniyor | Desteklenmiyor |
+| OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi için destek |
+| WS-Trust | Destekleniyor | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
-| JSON Web belirteçleri (Jwt'ler) | Beta'de desteklenen | Destekleniyor |
-| SAML 1.1 belirteçleri | Destekleniyor | Desteklenmiyor |
-| SAML 2.0 belirteçleri | Destekleniyor | Desteklenmiyor |
-| Basit Web belirteçleri (SWT) | Destekleniyor | Desteklenmiyor |
+| JWT | Beta'de desteklenen | Destekleniyor |
+| SAML 1.1 | Destekleniyor | Desteklenmiyor |
+| SAML 2.0 | Destekleniyor | Desteklenmiyor |
+| SWT | Destekleniyor | Desteklenmiyor |
 | **Özelleştirmeleri** | | |
-| Özelleştirilebilir giriş bölgesi bulma/hesabı UI çekme | Uygulamalarda birleştirilebilir indirilebilir kodu | Tam olarak özelleştirilebilir kullanıcı Arabirimi aracılığıyla özel CSS. |
-| Özel belirteç imzalama sertifikaları karşıya yükle | Destekleniyor | Özel ilkeler desteklenen özel İmzalama anahtarları, sertifikaları değil. |
-| Belirteçleri Taleplerde özelleştirme | Geçiş kimlik sağlayıcılardan gelen taleplere giriş<br />Erişim kimlik sağlayıcısından bir talep belirteci alma<br />Çıkış talep giriş talepleri değerlerine göre<br />Sabit değerleri içeren sorun çıktı talepleri | Kimlik sağlayıcılardan gelen geçiş talep edebilir. Özel ilkeler bazı talepler için gereklidir.<br />Erişim belirteci kimlik sağlayıcısı'ndan talep olarak alınamıyor<br />Çıkış talep giriş talepleri özel ilkeler aracılığıyla değerlerine dayalı verebilir<br />Özel ilkeler aracılığıyla sabit değerleri ile çıkış talepler verebilir |
+| Özelleştirilebilir giriş bölgesi bulma/hesap-çekme kullanıcı Arabirimi | Uygulamalarda birleştirilebilir indirilebilir kodu | Özel CSS aracılığıyla tam olarak özelleştirilebilir kullanıcı Arabirimi |
+| Özel belirteç imzalama sertifikalarını karşıya yükleme | Destekleniyor | Özel İmzalama anahtarları özel ilkeler desteklenen, sertifikaları değil |
+| Belirteçleri Taleplerde özelleştirme |-Kimlik sağlayıcılardan gelen giriş talepleri geçirir<br />-Erişim belirteci kimlik sağlayıcısı'ndan talep olarak alma<br />-Çıkış talep giriş talepleri değerlerine göre vermek<br />-Sorun çıkış talep ile sabit değerleri |-Kimlik sağlayıcılardan gelen taleplere geçebileceği; Bazı talepler için gereken özel ilkeler<br />-Erişim kimlik sağlayıcısından bir talep belirteci alınamıyor<br />-Çıkış talep giriş talepleri özel ilkeler aracılığıyla değerlerine dayalı verebilir<br />-Çıktı talepler özel ilkeler aracılığıyla sabit değerleri ile verebilir |
 | **Otomasyon** | | |
-| Yapılandırma/yönetim görevlerini otomatik hale getirme | ACS yönetim hizmeti desteklenir | Azure AD Graph API üzerinden verilen kullanıcılar oluşturma. B2C Kiracı, uygulamaları veya ilkeleri programlı olarak oluşturulamıyor. |
+| Yapılandırma ve yönetim görevlerini otomatik hale getirme | Erişim denetimi yönetim hizmeti desteklenir |-Azure AD Graph API üzerinden izin verilen kullanıcı oluşturma<br />-B2C Kiracı, uygulamaları veya ilkeleri program aracılığıyla oluşturulamıyor |
 
-Azure AD B2C uygun yolu İleri uygulamalar ve hizmetler için olduğuna karar verirseniz, aşağıdaki kaynaklar ile başlamanız gerekir:
+Azure AD B2C uygulamaları ve Hizmetleri için en iyi geçiş yolu olduğuna karar verirseniz, aşağıdaki kaynaklarla çalışmaya başlayın:
 
 - [Azure AD B2C belgeleri](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
 - [Azure AD B2C özel ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Azure AD B2C fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 
-#### <a name="other-migration-options"></a>Diğer geçiş seçenekleri
+#### <a name="migrate-to-ping-identity-or-auth0"></a>Ping kimliği veya Auth0 geçirme
 
-Varsa hiçbiri Azure AD veya Azure AD B2C, web uygulamanızın ihtiyaçlarını karşılayan, lütfen bize ulaşın ve en iyi yolu ileri tanımlamak yardımcı olabiliriz.
+Bazı durumlarda, Azure AD ve Azure AD bulabilirsiniz B2C ana kod değişiklik yapmadan erişim denetimi web uygulamalarınızda değiştirmek yeterli değil. Sık karşılaşılan örnekleri içerebilir:
 
-<!--
+- Google veya Facebook gibi sosyal kimlik sağlayıcıları ile oturum açma için WIF veya WS-Federasyon kullanan web uygulamaları.
+- Bir kuruluş için doğrudan Federasyon gerçekleştirmek web uygulamaları WS-Federasyon protokolü üzerinden sağlayıcı tanımlar.
+- Erişim denetimi tarafından yayınlanan belirteçleri, bir talep olarak sosyal kimlik sağlayıcısı (örneğin, Google veya Facebook) tarafından verilen erişim belirteci gerektiren uygulamalar web.
+- Azure AD veya Azure AD B2C oluşturamadığı karmaşık belirteci dönüştürme kuralları ile Web uygulamaları.
+- Federasyon birçok farklı kimlik sağlayıcısı için merkezi olarak yönetmek için ACS kullanan çok kiracılı web uygulamaları
 
-#### Migrating to Ping Identity or Auth0
+Bu durumlarda, web uygulamanıza başka bir bulut kimlik doğrulama hizmeti geçirmeyi düşünün isteyebilirsiniz. Aşağıdaki seçenekler keşfetme öneririz. Aşağıdaki seçeneklerin her biri için erişim denetimi benzer özellikleri sunar:
 
-In some cases, you may find that neither Azure AD nor Azure AD B2C is sufficient to replace ACS in your web applications without making major code changes.  Some common examples might include:
 
-- web applications using WIF and/or WS-Federation for sign-in with social identity providers such as Google or Facebook.
-- web applications performing direct federation to an enterprise IDP over the Ws-Federation protocol.
-- web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by ACS.
-- web applications with complex token transformation rules that Azure AD or Azure AD B2C cannot reproduce.
 
-In these cases, you may want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options, as each provides capabilities similar to ACS:
+|     |     | 
+| --- | --- |
+| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) oluşturduğu bir esnek bulut kimlik hizmetidir [erişim denetimi müşterileri için üst düzey Geçiş Kılavuzu](https://auth0.com/acs)ve ACS mu neredeyse her özelliğini destekler. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of ACS](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of ACS vs. Auth0.
-- Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
-
-Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
-
--->
+Ping kimlik ve Auth0 ile çalışırken bizim AIM tüm erişim denetimi müşteriler erişim denetiminden taşımak için gereken iş miktarını bir geçiş yolu uygulamaları ve Hizmetleri sahip olduğunuzdan emin olmaktır.
 
 <!--
 
 ## Sharepoint 2010, 2013, 2016
 
-TODO: AAD only, use AAD SAML 1.1 tokens, when we bring it back online.
+TODO: Azure AD only, use Azure AD SAML 1.1 tokens, when we bring it back online.
 Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 
 -->
 
-### <a name="web-services-using-active-authentication"></a>Etkin kimlik doğrulaması kullanan web Hizmetleri
+### <a name="web-services-that-use-active-authentication"></a>Etkin kimlik doğrulaması kullanan web Hizmetleri
 
-ACS tarafından yayınlanan belirteçleri ile güvenliği sağlanan web hizmetleri için aşağıdaki özellikler ve yetenekler ACS sağlanmış:
+Erişim denetimi tarafından yayınlanan belirteçleri ile güvenliği sağlanan web hizmetleri için erişim denetimi aşağıdaki özellikleri ve yetenekleri sunar:
 
-- Bir veya daha fazla kayıt yeteneği **hizmet kimliklerini** belirteçler istemek için kullanılan, ACS ad.
-- OAuth Kaydır & OAuth 2.0 taslak 13 belirteçleri, kimlik bilgilerini aşağıdaki türlerini kullanarak isteyen protokollerini destekler:
+- Bir veya daha fazla kayıt yeteneği *hizmet kimliklerini* , erişim denetimi ad. Hizmet kimlikleri belirteçler istemek için kullanılır.
+- OAuth kaydırma ve OAuth 2.0 taslak 13 belirteçleri, kimlik bilgilerini aşağıdaki türlerini kullanarak isteyen protokollerini destekler:
     - Hizmet kimliği için oluşturulan basit bir parola
     - Bir simetrik anahtar veya X509 kullanarak SWT imzalı sertifika
-    - Güvenilen kimlik sağlayıcısı (genellikle bir ADFS örneği) tarafından verilen bir SAML belirteci
-- Aşağıdaki belirteci biçimleri için destek: JSON web token (JWT), SAML 1.1, SAML 2.0 ve basit web token (SWT).
-- Basit belirteci dönüştürme kuralları
+    - Güvenilen kimlik sağlayıcısı (genellikle bir AD FS örneği) tarafından verilen bir SAML belirteci
+- Aşağıdaki belirteci biçimleri için destek: JWT, SAML 1.1, SAML 2.0 ve SWT.
+- Basit belirteci dönüştürme kuralları.
 
-ACS hizmet kimlikleri genellikle sunucudan sunucuya (S2S) gibi kimlik doğrulama gerçekleştirmek için kullanılır.  
+Erişim denetimi hizmeti kimliklerini tipik sunucu sunucu kimlik doğrulaması uygulamak için kullanılır.  
 
-#### <a name="migrating-to-azure-active-directory"></a>Azure Active Directory'ye geçirme
+#### <a name="migrate-to-azure-active-directory"></a>Azure Active Directory'ye geçirme
 
-Bu tür bir kimlik doğrulama akışı için Bizim önerimiz geçirmek için olan [ **Azure Active Directory** ](https://azure.microsoft.com/develop/identity/signin/) (Azure AD). Azure AD bulut tabanlı kimlik sağlayıcısı olduğu için Microsoft iş ve Okul hesapları - Office 365, Azure ve daha fazlasını kimlik sağlayıcıdır. Ancak, OAuth istemci kimlik bilgilerini verme Azure AD uygulaması kullanarak sunucu kimlik doğrulaması için de kullanılabilir.  Aşağıdaki tabloda Azure AD ile kullanılabilen sunucu kimlik doğrulaması ACS özelliklerinde karşılaştırır.
+Bu tür bir kimlik doğrulama akışı için Bizim önerimiz geçirmek için olan [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD bulut tabanlı kimlik sağlayıcısı olduğu için Microsoft iş veya Okul hesapları. Azure AD kimlik sağlayıcısı için Office 365, Azure ve daha fazlasını ' dir. 
 
-| Özellik | ACS desteği | Azure AD desteği |
+OAuth istemci kimlik bilgilerini verme Azure AD uygulaması kullanarak Azure AD sunucusuna sunucu kimlik doğrulaması için de kullanabilirsiniz. Aşağıdaki tabloda, sunucudan sunucuya kimlik doğrulaması ile Azure AD içinde kullanılabilir olan erişim denetimi özelliklerinde karşılaştırır.
+
+| Özellik | Erişim denetimi desteği | Azure AD desteği |
 | ---------- | ----------- | ---------------- |
-| Bir web hizmetine kaydetme | Bir bağlı olan taraf ACS yönetim Portalı'nda oluşturun. | Azure portalında Azure AD web uygulaması oluşturun. |
-| Bir istemci kaydetme | Bir hizmet kimliği ACS yönetim Portalı'nda oluşturun. | Azure portalında başka bir Azure AD web uygulaması oluşturun. |
-| Kullanılan protokolü | OAuth SARMALAMAK Protokolü<br />OAuth 2.0 taslak 13 istemci kimlik bilgileri verin | OAuth 2.0 istemci kimlik bilgileri verin |
-| İstemci kimlik doğrulaması yöntemleri | Basit parola<br />İmzalı SWT<br />Federasyon IDP SAML belirtecinden | Basit parola<br />İmzalı JWT |
-| Belirteç biçimleri | JWT<br />SAML 1.1<br />SAML 2.0<br />SWT<br /> | JWT yalnızca |
-| Belirteç dönüştürme | Özel talep ekleme<br />Basit IF then talep verme mantığı | Özel talep ekleme | 
-| Yapılandırma/yönetim görevlerini otomatik hale getirme | ACS yönetim hizmeti desteklenir | Microsoft Graph & Azure AD grafik API'si üzerinden desteklenir. |
+| Bir web hizmetine kaydetme | Erişim denetimi Yönetim Portalı'nda bir bağlı olan taraf oluşturma | Azure portalında Azure AD web uygulaması oluşturma |
+| Bir istemci kaydetme | Erişim denetimi Yönetim Portalı'nda bir hizmet kimliği oluşturma | Azure portalında başka bir Azure AD web uygulaması oluşturma |
+| Kullanılan protokolü |-OAuth kaydırma Protokolü<br />-OAuth 2.0 taslak 13 istemci kimlik bilgileri verin | OAuth 2.0 istemci kimlik bilgileri verin |
+| İstemci kimlik doğrulaması yöntemleri |-Basit parola<br />-İmzalı SWT<br />-Bir Federasyon kimlik sağlayıcısından SAML belirteci |-Basit parola<br />-İmzalı JWT |
+| Belirteç biçimleri |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | JWT yalnızca |
+| Belirteç dönüştürme |-Özel talep ekleme<br />-Basit IF then talep verme mantığı | Özel talep ekleme | 
+| Yapılandırma ve yönetim görevlerini otomatik hale getirme | Erişim denetimi yönetim hizmeti desteklenir | Desteklenen Microsoft Graph ve Azure AD grafik API'si |
 
 Uygulama sunucusu sunucusu senaryoları hakkında yönergeler için aşağıdaki kaynaklara bakın:
 
-- [Azure AD Geliştirici Kılavuzu'nun hizmet bölümüne](https://aka.ms/aaddev).
+- Hizmetten hizmete bölümünü [Azure AD Geliştirici Kılavuzu](https://aka.ms/aaddev)
 - [Basit parola istemci kimlik bilgilerini kullanarak arka plan kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Sertifika istemci kimlik bilgilerini kullanarak arka plan kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
-#### <a name="other-migration-options"></a>Diğer geçiş seçenekleri
+#### <a name="migrate-to-ping-identity-or-auth0"></a>Ping kimliği veya Auth0 geçirme
 
-Azure AD web hizmetiniz gereksinimlerini karşılamıyorsa, Lütfen bir yorum yazın ve belirli durumunuz için en iyi plan tanımlamaya yardımcı olabiliriz.
+Bazı durumlarda, Azure AD istemci kimlik ve OAuth uygulama Mimarinizi ana kod değişiklikleri olmadan erişim denetimi değiştirmek yeterli değil vermek bulabilirsiniz. Sık karşılaşılan örnekleri içerebilir:
 
-<!--
+- Sunucu-sunucu kimlik doğrulama belirteci kullanarak Jwt'ler dışında biçimlendirir.
+- Bir dış kimlik sağlayıcısı tarafından sağlanan bir giriş belirteci kullanarak sunucu-sunucu kimlik doğrulaması.
+- Azure AD oluşturamadığı belirteci dönüştürme kuralları ile sunucu-sunucu kimlik doğrulaması.
 
-#### Migrating to Ping Identity or Auth0
+Bu durumlarda, web uygulamanıza başka bir bulut kimlik doğrulama hizmeti geçirme düşünebilirsiniz. Aşağıdaki seçenekler keşfetme öneririz. Aşağıdaki seçeneklerin her biri için erişim denetimi benzer özellikleri sunar:
 
-In some cases, you may find that neither Azure AD's client credentials OAuth grant implementation is not sufficient to replace ACS in your architecture without major code changes.  Some common examples might include:
+|     |     | 
+| --- | --- |
+| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) oluşturduğu bir esnek bulut kimlik hizmetidir [erişim denetimi müşterileri için üst düzey Geçiş Kılavuzu](https://auth0.com/acs)ve ACS mu neredeyse her özelliğini destekler. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
 
-- server-to-server authentication using token formats other than JWTs.
-- server-to-server authentication using an input token provided by an external identity provider.
-- server-to-server authentication with token transformation rules that Azure AD cannot reproduce.
+Ping kimlik ve Auth0 ile çalışırken bizim AIM tüm erişim denetimi müşteriler erişim denetiminden taşımak için gereken iş miktarını bir geçiş yolu uygulamaları ve Hizmetleri sahip olduğunuzdan emin olmaktır.
 
-In these cases, you may want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options, as each provides capabilities similar to ACS:
+## <a name="questions-concerns-and-feedback"></a>Sorular, sorunları ve geri bildirim
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of ACS](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of ACS vs. Auth0.
-- Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
-
-Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
-
--->
-
-## <a name="questions-concerns--feedback"></a>Sorular, sorunları ve geri bildirim
-
-Biz, çok sayıda ACS müşteriler açık bir geçiş yolu bu makaleyi okuduktan sonra bulamaz ve bazı Yardım veya doğru planın belirlemede rehberlik gerekebilir anlayın. Geçiş senaryolarını ve soruları ele istiyorsanız, bu sayfada bir yorum bırakın.
+Bu makaleyi okuduktan sonra çok sayıda erişim denetimi müşteriler açık bir geçiş yolu bulamaz anlayın. Bazı Yardım veya doğru planın belirlemede rehberlik gerekebilir. Geçiş senaryoları ve soruları ele istiyorsanız, lütfen bu sayfada bir yorum bırakın.

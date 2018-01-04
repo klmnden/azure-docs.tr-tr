@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/21/2017
 ms.author: jingwang
-ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Veri kopyalama/Dynamics 365 / Dynamics CRM Azure Data Factory kullanma
 
@@ -46,7 +46,7 @@ Dynamics 365 özellikle, aşağıdaki uygulama türleri desteklenir:
 - Dynamics 365 pazarlama
 
 > [!NOTE]
-> Dynamics bağlayıcıyı kullanmak için Azure anahtar kasası parolanızı depolamak ve veri kopyalama gerçekleştirirken ADF kopyalama etkinliklere çekme buradan sağlar. Bkz. yapılandırmak [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü.
+> Dynamics bağlayıcıyı kullanmak için Azure anahtar kasası parolanızı depolayın ve buradan kopyalama etkinliklere çekme veri kopyalama gerçekleştirirken sağlar. Bkz. yapılandırmak [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü.
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -322,28 +322,28 @@ Dynamics verileri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 
 Dynamics veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Dynamics veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
 
-Veri kümesi yapısında, Dynamics veri kaynağına göre karşılık gelen ADF veri türünü yapılandırmak aşağıdaki eşleme tabloyu kullanarak yazın:
+Veri kümesi yapısında, Dynamics veri kaynağına göre karşılık gelen Data Factory veri türünü yapılandırmak aşağıdaki eşleme tabloyu kullanarak yazın:
 
 | Dynamics veri türü | Veri Fabrikası geçici veri türü | Kaynak olarak desteklenen | Havuzu olarak desteklenir |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Uzun | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boole | ✓ | ✓ |
-| AttributeType.Customer | GUID | ✓ |  |
+| AttributeType.Customer | Guid | ✓ |  |
 | AttributeType.DateTime | Tarih saat | ✓ | ✓ |
 | AttributeType.Decimal | Ondalık | ✓ | ✓ |
 | AttributeType.Double | Çift | ✓ | ✓ |
 | AttributeType.EntityName | Dize | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ |  |
+| AttributeType.Lookup | Guid | ✓ |  |
 | AttributeType.ManagedProperty | Boole | ✓ |  |
 | AttributeType.Memo | Dize | ✓ | ✓ |
-| AttributeType.Money | Ondalık | ✓ |  |
-| AttributeType.Owner | GUID | ✓ | |
+| AttributeType.Money | Ondalık | ✓ | ✓ |
+| AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
 | AttributeType.String | Dize | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ |  |
-| AttributeType.Status | Int32 | ✓ |  |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]

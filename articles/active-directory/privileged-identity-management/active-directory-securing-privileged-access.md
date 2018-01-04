@@ -4,7 +4,7 @@ description: "Azure, Azure Active Directory ve Microsoft Online Services ayrıca
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Azure AD'de ayrıcalıklı erişimi güvenli hale getirme
 Ayrıcalıklı erişimi güvenli hale getirme iş varlıklar modern bir kuruluşta korunmasına yardımcı olmak için bir kritik ilk adımdır. Ayrıcalıklı hesapları yönetmek ve BT sistemleri yöneten hesaplarıdır. Siber saldırganların bir kuruluşun veriler ve sistemlerle erişmek için bu hesaplar hedef. Ayrıcalıklı erişim güvenliğini sağlamak için hesapları ve kötü niyetli bir kullanıcı için maruz kalma riskini sistemlerden yalıtmak.
@@ -57,7 +57,7 @@ Ayrıcalıkları Etkilenme süresini azaltmak ve bunların kullanılması, gör�
 ## <a name="attack-detection"></a>Saldırı algılama
 [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) risk olaylarına ve olası güvenlik açıklarını kuruluşunuzdaki kimlikleri etkileyen birleştirilmiş bir görünüm sağlar. Risk olaylara göre risk tabanlı ilkeleri, kuruluşunuzun kimlikleri otomatik olarak korunacak yapılandırmanızı sağlayacak şekilde her bir kullanıcı için bir kullanıcı risk düzeyi kimlik koruması hesaplar. Azure Active Directory ve EMS tarafından sağlanan diğer koşullu erişim denetimlerle birlikte bu ilkeler, otomatik olarak kullanıcı engelleme veya parola sıfırlama ve çok faktörlü kimlik doğrulaması zorlama dahil öneriler sunar.
 
-![Azure AD Identity Protection][3]
+![Azure AD Kimlik Koruması][3]
 
 ## <a name="conditional-access"></a>Koşullu erişim
 Koşullu erişim denetimi ile bir kullanıcı bir uygulamaya erişimine izin vermeden önce kimlik doğrulaması sırasında seçtiğiniz belirli koşullar Azure Active Directory denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni.

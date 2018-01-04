@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: pratshar
-ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server olağanüstü durum kurtarma ve Azure Site Recovery kullanarak SQL Server koruma
 
@@ -50,6 +50,7 @@ Site Recovery, SQL Server tabloda özetlendiği gibi koruyabilirsiniz.
 **Hyper-V** | Evet | Evet
 **VMware** | Evet | Evet
 **Fiziksel sunucu** | Evet | Evet
+**Azure**|NA| Evet
 
 ### <a name="supported-sql-server-versions"></a>Desteklenen SQL Server sürümleri
 Bu SQL Server sürümleri için desteklenen senaryolar desteklenir:
@@ -65,7 +66,7 @@ Site Recovery, olağanüstü durum kurtarma çözümü sağlamak için tabloda �
 
 **Özellik** | **Ayrıntılar** | **SQL Server** |
 --- | --- | ---
-**AlwaysOn kullanılabilirlik grubu** | Tek başına birden çok SQL Server'ın birden fazla düğüme sahip bir yük devretme kümesinde çalıştırın.<br/><br/>Veritabanlarını SQL Server örneklerinde (yansıtılmış) kopyalanabilir ve böylece paylaşılan depolama gerekli yük devretme gruplar halinde gruplandırılabilir.<br/><br/>Bir birincil site ve bir veya daha fazla ikincil siteler arasında olağanüstü durum kurtarma sağlar. İki düğüm bir paylaşılan bir kullanılabilirlik grubuna zaman uyumlu çoğaltma ve otomatik yük devretme kümesi SQL Server veritabanları ile yapılandırılmış hiçbir şey ayarlanabilir. | SQL Server 2014 & 2012 Enterprise edition
+**AlwaysOn kullanılabilirlik grubu** | Tek başına birden çok SQL Server'ın birden fazla düğüme sahip bir yük devretme kümesinde çalıştırın.<br/><br/>Veritabanlarını SQL Server örneklerinde (yansıtılmış) kopyalanabilir ve böylece paylaşılan depolama gerekli yük devretme gruplar halinde gruplandırılabilir.<br/><br/>Bir birincil site ve bir veya daha fazla ikincil siteler arasında olağanüstü durum kurtarma sağlar. İki düğüm bir paylaşılan bir kullanılabilirlik grubuna zaman uyumlu çoğaltma ve otomatik yük devretme kümesi SQL Server veritabanları ile yapılandırılmış hiçbir şey ayarlanabilir. | SQL Server 2016, SQL Server 2014 ve SQL Server 2012 Enterprise edition
 **Yük Devretme Kümelemesi (her zaman üzerinde FCI)** | SQL Server yüksek kullanılabilirlik, şirket içi SQL Server iş yükleri için Windows Yük Devretme Kümelemesi yararlanır.<br/><br/>Düğümleri paylaşılan diskler ile SQL Server örneklerini çalıştıran bir yük devretme kümesinde yapılandırılır. Kapalı bir örnek ise küme için farklı bir yöneltilir.<br/><br/>Küme hatası veya paylaşılan depolama alanında kesintilere karşı koruma sağlamaz. Paylaşılan disk iSCSI, fiber kanal uygulanabilir veya paylaşılan Vhdx'ler. | SQL Server Enterprise sürümleri<br/><br/>SQL Server Standard edition (yalnızca iki düğüm için sınırlı)
 **Veritabanı yansıtma (yüksek güvenilirlik mod)** | Tek bir ikincil kopya tek bir veritabanına korur. Her iki yüksek güvenilirlik (zaman uyumlu) kullanılabilir ve yüksek performans (zaman uyumsuz) çoğaltma modları. Bir yük devretme kümesi gerektirmez. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise tüm sürümler
 **Tek başına SQL Server** | SQL Server ve veritabanı tek bir sunucuda (fiziksel veya sanal) barındırılır. Kümeleme konak sunucunun sanal ise yüksek kullanılabilirlik için kullanılır. Konuk düzeyinde yüksek kullanılabilirliği. | Enterprise veya Standard edition
@@ -117,7 +118,7 @@ Bu makaledeki yönergeleri ikincil konumda bir etki alanı denetleyicisinin kull
 
 SQL Always On yerel yük devretme testi desteklemiyor. Bu nedenle, şunları öneririz:
 
-1. Ayarlanan [Azure Backup](../backup/backup-azure-vms.md) Azure kullanılabilirlik grubu çoğaltması barındıran sanal makinede.
+1. Ayarlanan [Azure Backup](../backup/backup-azure-arm-vms.md) Azure kullanılabilirlik grubu çoğaltması barındıran sanal makinede.
 
 1. Kurtarma planı yük devretme testi tetiklemeden önce sanal makine önceki adımda alınmış yedekten kurtarın.
 

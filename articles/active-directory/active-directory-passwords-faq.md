@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi sık sorulan sorular
 
@@ -41,6 +41,11 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
 * **S: Kullanıcılarım kendi parola sıfırlama verileri kaydedebilirsiniz?**
 
   > **Y:** Evet. Parola sıfırlama etkindir ve lisansına sahip olduğunuz sürece, kullanıcıların kendi kimlik doğrulama bilgilerini kaydetmek için parola sıfırlama kayıt portalı için (http://aka.ms/ssprsetup) gidebilirsiniz. Kullanıcıların erişim paneli (http://myapps.microsoft.com) da kaydedebilirsiniz. Erişim paneli kaydetmek için için ihtiyaç duydukları kendi profil resmi seçin, **profil**ve ardından **parola sıfırlama için kaydetme** seçeneği.
+  >
+  >
+* **S: parola etkinleştirirseniz, bir grup için sıfırlamak ve herkesin my kullanıcılar gerekli yeniden kaydettirin etkinleştirmek karar?**
+
+  > **C:** Hayır. Kimlik doğrulama verileri doldurulmuş kullanıcılar yeniden kaydetmek için gerekli değildir.
   >
   >
 * **S: parola sıfırlama verileri Kullanıcılarım adına tanımlamak?**

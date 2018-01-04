@@ -9,18 +9,18 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: DocumentDB
+    - name: SQL
       items:
         - name: .NET
-          href: create-documentdb-dotnet.md
+          href: create-sql-api-dotnet.md
         - name: Java
-          href: create-documentdb-java.md
+          href: create-sql-api-java.md
         - name: Node.js
-          href: create-documentdb-nodejs.md
+          href: create-sql-api-nodejs.md
         - name: Python
-          href: create-documentdb-python.md
+          href: create-sql-api-python.md
         - name: Xamarin
-          href: create-documentdb-xamarin-dotnet.md
+          href: create-sql-api-xamarin-dotnet.md
     - name: MongoDB
       items:
         - name: Node.js
@@ -71,8 +71,8 @@
   items:
     - name: 1 - Oluştur
       items:
-        - name: DocumentDB
-          href: tutorial-develop-documentdb-dotnet.md
+        - name: SQL
+          href: tutorial-develop-sql-api-dotnet.md
         - name: .NET ile MongoDB
           href: tutorial-develop-mongodb.md
         - name: Angular ile MongoDB
@@ -87,7 +87,7 @@
           href: tutorial-develop-cassandra-java.md
     - name: 2 - İçeri Aktarma
       items:
-        - name: DocumentDB
+        - name: SQL
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
@@ -97,8 +97,8 @@
           href: cassandra-import-data.md
     - name: 3 - Sorgu
       items:
-        - name: DocumentDB
-          href: tutorial-query-documentdb.md
+        - name: SQL
+          href: tutorial-query-sql-api.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
         - name: Tablo
@@ -107,8 +107,8 @@
           href: tutorial-query-graph.md
     - name: 4 - Global olarak dağıtma
       items:
-        - name: DocumentDB
-          href: tutorial-global-distribution-documentdb.md
+        - name: SQL
+          href: tutorial-global-distribution-sql-api.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
         - name: Tablo
@@ -147,8 +147,8 @@
       href: request-units.md
     - name: Çoklu model API’ler
       items:
-        - name: DocumentDB
-          href: documentdb-introduction.md
+        - name: SQL
+          href: sql-api-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
         - name: Tablo
@@ -170,19 +170,19 @@
   items:
     - name: Geliştirme
       items:
-        - name: DocumentDB API’si
-          href: documentdb-index.md
+        - name: SQL API’si
+          href: sql-api-index.md
           items:
             - name: Kaynaklar
-              href: documentdb-resources.md
+              href: sql-api-resources.md
             - name: SQL sorguları
-              href: documentdb-sql-query.md
+              href: sql-api-sql-query.md
             - name: SQL sorgu performansı
-              href: documentdb-sql-query-metrics.md
+              href: sql-api-sql-query-metrics.md
             - name: SQL oyun alanı
               href: 'https://www.documentdb.com/sql/demo'
             - name: Bölümleme
-              href: documentdb-partition-data.md
+              href: sql-api-partition-data.md
             - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
               href: programming.md
             - name: Performansı test etme
@@ -200,47 +200,45 @@
                 - name: İlk uygulamanızı yazma
                   items:
                     - name: .NET
-                      href: documentdb-get-started.md
+                      href: sql-api-get-started.md
                     - name: .NET Core
-                      href: documentdb-dotnetcore-get-started.md
+                      href: sql-api-dotnetcore-get-started.md
                     - name: Java
-                      href: documentdb-java-get-started.md
+                      href: sql-api-java-get-started.md
                     - name: Node.js
-                      href: documentdb-nodejs-get-started.md
+                      href: sql-api-nodejs-get-started.md
                     - name: C++
-                      href: documentdb-cpp-get-started.md
+                      href: sql-api-cpp-get-started.md
                 - name: Web uygulaması oluşturma
                   items:
                     - name: .NET
-                      href: documentdb-dotnet-application.md
+                      href: sql-api-dotnet-application.md
                     - name: Xamarin
                       href: mobile-apps-with-xamarin.md
                     - name: Node.js
-                      href: documentdb-nodejs-application.md
+                      href: sql-api-nodejs-application.md
                     - name: Java
-                      href: documentdb-java-application.md
+                      href: sql-api-java-application.md
                     - name: Python Flask
-                      href: documentdb-python-application.md
+                      href: sql-api-python-application.md
             - name: Örnekler
               items:
                 - name: .NET örnekleri
-                  href: documentdb-dotnet-samples.md
+                  href: sql-api-dotnet-samples.md
                 - name: Node.js örnekleri
-                  href: documentdb-nodejs-samples.md
+                  href: sql-api-nodejs-samples.md
                 - name: Python örnekleri
-                  href: documentdb-python-samples.md
+                  href: sql-api-python-samples.md
             - name: Kaynaklar
               items:
                 - name: SQL dil bilgisi kopya kağıdı
-                  href: documentdb-sql-query-cheat-sheet.md
+                  href: sql-api-sql-query-cheat-sheet.md
                 - name: Stack Overflow
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Videolar
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Hizmet güncelleştirmeleri
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: Topluluk portalı
-                  href: community.md
                 - name: Şemadan bağımsız dizinleme sayfası
                   href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
                 - name: 'S1, S2, S3’ü devre dışı bırakma'
@@ -378,32 +376,32 @@
           href: powerbi-visualize.md
         - name: Veri görselleştirme için ODBC sürücüsünden yararlanma
           href: odbc-driver.md
-        - name: Spring Boot Başlatıcı’yı DocumentDB API’leriyle kullanma
-          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
+        - name: Spring Boot Başlatıcı’yı SQL API’leriyle kullanma
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
 - name: Başvuru
   items:
     - name: Kod örnekleri
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: DocumentDB API’leri
+    - name: SQL API’leri
       items:
         - name: Java
-          href: documentdb-sdk-java.md
+          href: sql-api-sdk-java.md
         - name: .NET
-          href: documentdb-sdk-dotnet.md
+          href: sql-api-sdk-dotnet.md
         - name: .NET Akış değiştirme
-          href: documentdb-sdk-dotnet-changefeed.md
+          href: sql-api-sdk-dotnet-changefeed.md
         - name: .NET Core
-          href: documentdb-sdk-dotnet-core.md
+          href: sql-api-sdk-dotnet-core.md
         - name: Node.js
-          href: documentdb-sdk-node.md
+          href: sql-api-sdk-node.md
         - name: Python
-          href: documentdb-sdk-python.md
+          href: sql-api-sdk-python.md
         - name: REST
           href: /rest/api/documentdb/
         - name: REST Kaynak Sağlayıcısı
           href: /rest/api/documentdbresourceprovider/
         - name: SQL
-          href: documentdb-sql-query-reference.md
+          href: sql-api-sql-query-reference.md
     - name: Tablo API’leri
       items:
         - name: .NET

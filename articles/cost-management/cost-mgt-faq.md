@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure maliyeti yönetimi için sık sorulan sorular
 
@@ -46,6 +46,29 @@ Cloudyn ayarlamak için Azure Enterprise sözleşmesi API anahtarı oluşturmada
 
 Departman yöneticilerinin, hesap sahipleri ve kuruluş yöneticileri izinleri vermek gerekebilecek _görüntüleyin ücret_ faturalama API ile.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>İyileştirici önerileri neden göremiyorum?
+
+Öneri bilgiler, yalnızca etkinleştirilen hesapları için kullanılabilir. Herhangi bir öneri bilgisi görmezsiniz **iyileştirici** rapor hesapları için kategorileri *etkinleştirilmemiş*dahil:
+
+- En iyi duruma getirme Yöneticisi
+- Boyutlandırma en iyi duruma getirme
+- Verimsiz
+
+İyileştirici öneri verileri görüntüleyemezsiniz sonra büyük olasılıkla etkinleştirilmemiş hesapları varsa. Bir hesap etkinleştirmek için Azure kimlik bilgilerinizle kaydetmeniz gerekir.
+
+Bir hesap etkinleştirmek için:
+
+1.  Cloudyn Portalı'nda tıklatın **ayarları** seçin ve sağ üst **bulut hesapları**.
+2.  Microsoft Azure hesapları sekmesinde sahip olan hesapları için bakın bir **etkinleştirilmemiş** abonelik.
+3.  Sağa etkinleştirilmemiş bir hesabın tıklatın **Düzenle** bir kalem benzer simgesi.
+4.  Kiracı oranı Kimliğinde ve otomatik olarak algılanır. **İleri**’ye tıklayın.
+5.  Azure portalına yönlendirilirsiniz. Portalında oturum açın ve Azure verilerinize erişmek için Cloudyn Toplayıcı yetkisi verin.
+6.  Ardından, Cloudyn hesapları Yönetim sayfasına yönlendirilirsiniz ve aboneliğiniz ile güncelleştirilir **etkin** hesap durumu. Yeşil onay işareti simgesi gösterir.
+7.  Bir veya daha fazla abonelik için yeşil onay simgesi görmüyorsanız, bu abonelik için reader uygulaması (CloudynCollector) oluşturmak için izinlere sahip değil anlamına gelir. Abonelik için daha yüksek izinleri olan bir kullanıcı, 3 ve 4 gerekiyor.  
+
+Yukarıdaki adımları tamamladıktan sonra bir veya iki gün içinde en iyi hale getirme önerileri görüntüleyebilirsiniz. Ancak, tam iyileştirme veri kullanılabilir olmadan önce en fazla beş gün sürebilir.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Askıya alındı veya kilitlenmiş kullanıcıların nasıl etkinleştirebilirim?
 
 Bir kullanıcı için erişime izin vermek için bir istek olan bir uyarı alırsanız, kullanıcı hesabı etkinleştirmeniz gerekir.
@@ -66,10 +89,7 @@ Azure varsayılan adresinden e-posta adresinizi Cloudyn değiştirirseniz, hesab
 
 Hesaplardan birini kilitli durumda en az iki Cloudyn yönetici hesabı oluşturmanızı öneririz.
 
-Cloudyn portalda oturum açamaz, doğru Azure maliyeti yönetim URL'si için Cloudyn oturum açmak için kullandığınızdan emin olun. Aşağıdaki URL'lerden birini kullanın:
-
-- https://Azure.cloudyn.com
-- https://MS.Portal.Azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Cloudyn portalda oturum açamaz, doğru Azure maliyeti yönetim URL'si için Cloudyn oturum açmak için kullandığınızdan emin olun. Kullanım [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Cloudyn doğrudan URL https://app.cloudyn.com kullanmaktan kaçının.
 

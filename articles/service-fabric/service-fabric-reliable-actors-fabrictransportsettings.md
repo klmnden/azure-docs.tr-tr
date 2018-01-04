@@ -14,24 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
+<<<<<<< HEAD
 ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 7a21dfde5544045e4961549fe5728e14647eb886
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors FabricTransport ayarlarını yapılandırın
 
 Yapılandırabileceğiniz ayarlar şunlardır:
 - C# ' ta: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 Aşağıdaki yollarla FabricTransport varsayılan yapılandırmasını değiştirebilirsiniz.
 
 ## <a name="assembly-attribute"></a>Derleme özniteliği
 
-[FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) özniteliği aktör istemci ve aktör hizmeti derlemeleri uygulanması gerekiyor.
+[FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) özniteliği aktör istemci ve aktör hizmeti derlemeleri uygulanması gerekiyor.
 
 Aşağıdaki örnek, FabricTransport OperationTimeout ayarları varsayılan değerini değiştirmek gösterilmektedir:
 
@@ -49,7 +55,7 @@ Aşağıdaki örnek, FabricTransport OperationTimeout ayarları varsayılan değ
 
 ## <a name="config-package"></a>Yapılandırma paketi
 
-Kullanabileceğiniz bir [yapılandırma paketi](service-fabric-application-model.md) varsayılan yapılandırmasını değiştirmek için.
+Kullanabileceğiniz bir [yapılandırma paketi](service-fabric-application-and-service-manifests.md) varsayılan yapılandırmasını değiştirmek için.
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Aktör hizmeti FabricTransport ayarlarını yapılandırın
 

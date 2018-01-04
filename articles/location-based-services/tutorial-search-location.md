@@ -12,11 +12,17 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 15afdead60d4c1ee3c7e3c079d43e0651b262ec8
 ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
+=======
+ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>İlgi çekici Azure konum tabanlı Hizmetleri kullanarak arama
 
@@ -39,9 +45,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Yeni bir konum tabanlı hizmetleri hesabı oluşturmak için aşağıdaki adımları izleyin.
 
-1. Sol üst köşesindeki [Azure portal](https://portal.azure.com), tıklatın **kaynak oluşturma**.
-2. İçinde *Market arama* kutusuna **konumuna bağlı Hizmetleri**.
-3. Gelen *sonuçları*, tıklatın **konum tabanlı Hizmetleri (Önizleme)**. Tıklatın **oluşturma** harita görünen düğmesine. 
+1. [Azure portalının](https://portal.azure.com) sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
+2. *Market’te Ara* kutusunda, **konum tabanlı hizmetler** yazın.
+3. *Sonuçlar* sayfasından, **Konum Tabanlı Hizmetler (önizleme)** seçeneğine tıklayın. Haritanın altında görüntülenen **Oluştur** düğmesine tıklayın. 
 4. Üzerinde **konum tabanlı hizmetleri hesabı oluştur** sayfasında, aşağıdaki değerleri girin:
     - *Adı* yeni hesabınızın. 
     - *Abonelik* bu hesap için kullanmak istediğiniz.
@@ -50,7 +56,7 @@ Yeni bir konum tabanlı hizmetleri hesabı oluşturmak için aşağıdaki adıml
     - Okuma *Önizleme koşulları* ve koşulları kabul etmek için onay kutusunu işaretleyin. 
     - Son olarak, tıklatın **oluşturma** düğmesi.
    
-    ![Konum tabanlı Hizmetleri hesap Portalı'nda oluşturma](./media/tutorial-search-location/create-lbs-account.png)
+    ![Portalda Konum Tabanlı Hizmetler Hesabı oluşturma](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
@@ -101,12 +107,12 @@ Azure Harita Denetim API'si Azure konum tabanlı Hizmetleri web uygulamanıza ko
             }
         </style>
     </head>
+
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -115,26 +121,25 @@ Azure Harita Denetim API'si Azure konum tabanlı Hizmetleri web uygulamanıza ko
  
 3.  Şu JavaScript kodunu eklemek *betik* HTML dosyası bloğu. Yer tutucu Değiştir *< anahtar Ekle >* konum tabanlı Hizmetleri hesabınızın birincil anahtara sahip. 
 
-    ```HTML/JavaScript
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    ```JavaScript
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     Bu kesimin abonelik anahtarınızı Harita Denetim API'si başlatır. **Atlas** Azure Harita Denetim API ve ilişkili visual bileşenleri içeren ad alanıdır. **Atlas. Harita** denetim için bir görsel ve etkileşimli web eşleme sağlar. Nasıl harita tarayıcıda HTML sayfası açarak benzer gözlemleyebilirsiniz. 
 
 4. Şu JavaScript kodunu eklemek *betik* bloğu, arama PIN'ler bir katmanı harita denetim eklemek için:
 
-    ```HTML/JavaScript
-            // Initialize the pin layer for search results to the map
-            var searchLayerName = "search-results";
-            map.addPins([], {
-                name: searchLayerName,
-                cluster: false,
-                icon: "pin-round-darkblue"
-            });
+    ```JavaScript
+    // Initialize the pin layer for search results to the map
+    var searchLayerName = "search-results";
+    map.addPins([], {
+        name: searchLayerName,
+        cluster: false,
+        icon: "pin-round-darkblue"
+    });
     ```
 
 5. Makinenizde dosyasını kaydedin. 
@@ -147,91 +152,91 @@ Azure Harita Denetim API'si Azure konum tabanlı Hizmetleri web uygulamanıza ko
 Bu bölümde Azure konum tabanlı hizmetlerin arama hizmeti API'si, haritada ilginizi çeken bir noktayı bulmak için nasıl kullanılacağını gösterir. Bu bir RESTful adresleri, ilgilenilen noktaları ve diğer coğrafi bilgileri aramak geliştiricileri için tasarlanmış bir API'dir. Arama hizmeti için belirtilen bir adres enlem ve boylam bilgi atar. 
 
 1. Açık **MapSearch.html** dosyası önceki bölümde oluşturulan ve şu JavaScript kodunu ekleyin *betik* arama hizmeti göstermeye bloğu. 
-    ```HTML/JavaScript
-            // Perform a request to the search service and create a pin on the map for each result
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                var searchPins = [];
+    ```JavaScript
+    // Perform a request to the search service and create a pin on the map for each result
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        var searchPins = [];
 
-                if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.responseText);
+        if (this.readyState === 4 && this.status === 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
+            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
 
-                    searchPins = poiResults.map((poiResult) => {
-                        var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                        return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                            name: poiResult.poi.name,
-                            address: poiResult.address.freeformAddress,
-                            position: poiResult.position.lat + ", " + poiResult.position.lon
-                        });
-                    });
+            searchPins = poiResults.map((poiResult) => {
+                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
+                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
+                    name: poiResult.poi.name,
+                    address: poiResult.address.freeformAddress,
+                    position: poiResult.position.lat + ", " + poiResult.position.lon
+                });
+            });
 
-                    map.addPins(searchPins, {
-                        name: searchLayerName
-                    });
+            map.addPins(searchPins, {
+                name: searchLayerName
+            });
 
-                    var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-                    var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
+            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
+            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
 
-                    var swLon = Math.min.apply(null, lons);
-                    var swLat = Math.min.apply(null, lats);
-                    var neLon = Math.max.apply(null, lons);
-                    var neLat = Math.max.apply(null, lats);
+            var swLon = Math.min.apply(null, lons);
+            var swLat = Math.min.apply(null, lats);
+            var neLon = Math.max.apply(null, lons);
+            var neLat = Math.max.apply(null, lats);
 
-                    map.setCameraBounds({
-                        bounds: [swLon, swLat, neLon, neLat],
-                        padding: 50
-                    });
-                }
-            };
+            map.setCameraBounds({
+                bounds: [swLon, swLat, neLon, neLat],
+                padding: 50
+            });
+        }
+    };
     ```
     Bu kod parçacığını oluşturur bir [XMLHttpRequest](https://xhr.spec.whatwg.org/), ve gelen yanıtı ayrıştırılamadı olay işleyicisi ekler. Başarılı bir yanıt için topladığı adresleri, adları, buna, döndürülen her konum için enlem ve logitude bilgi `searchPins` değişkeni. Son olarak, bu koleksiyon için konum noktalarının ekler `map` denetim PIN'ler olarak. 
 
 2. Aşağıdaki kodu ekleyin *betik* XMLHttpRequest Azure konum tabanlı hizmetlerin arama hizmetine göndermek için engelle:
 
-    ```HTML/JavaScript
-            var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-            url += "&api-version=1.0";
-            url += "&query=gasoline%20station";
-            url += "&subscription-key=" + subscriptionKey;
-            url += "&lat=47.6292";
-            url += "&lon=-122.2337";
-            url += "&radius=100000"
+    ```JavaScript
+    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
+    url += "&api-version=1.0";
+    url += "&query=gasoline%20station";
+    url += "&subscription-key=" + subscriptionKey;
+    url += "&lat=47.6292";
+    url += "&lon=-122.2337";
+    url += "&radius=100000";
 
-            xhttp.open("GET", url, true);
-            xhttp.send();
+    xhttp.open("GET", url, true);
+    xhttp.send();
     ``` 
     Bu kod parçacığında adlı arama hizmeti temel arama API kullanan **benzer arama**. Girdi adresi herhangi bir bileşimini işleme en belirsiz işleme veya *POI* belirteçleri. Arar yakındaki **Akaryakıt istasyon**, belirli bir adresi enlem ve boylam ve belirtilen RADIUS içinde için. Konum tabanlı Hizmetleri çağrısı yapmak için daha önce örnek dosyasında sağlanan hesabınızın abonelik anahtarı kullanır. Enlem/boylam sonuçlar getirir bulunan konumlar için çiftleri. Tarayıcıda HTML sayfası açarak arama PIN'ler gözlemleyebilirsiniz. 
 
 3. Aşağıdaki satırları ekleyin *betik* bloğu, arama hizmeti tarafından döndürülen ilgilenilen noktaları için açılır pencereleri oluşturmak için:
 
-    ```HTML/JavaScript
-            // Add a popup to the map which will display some basic information about a search result on hover over a pin
-            var popup = new atlas.Popup();
-            map.addEventListener("mouseover", searchLayerName, (e) => {
-                var popupContentElement = document.createElement("div");
-                popupContentElement.style.padding = "5px";
+    ```JavaScript
+    // Add a popup to the map which will display some basic information about a search result on hover over a pin
+    var popup = new atlas.Popup();
+    map.addEventListener("mouseover", searchLayerName, (e) => {
+        var popupContentElement = document.createElement("div");
+        popupContentElement.style.padding = "5px";
 
-                var popupNameElement = document.createElement("div");
-                popupNameElement.innerText = e.features[0].properties.name;
-                popupContentElement.appendChild(popupNameElement);
+        var popupNameElement = document.createElement("div");
+        popupNameElement.innerText = e.features[0].properties.name;
+        popupContentElement.appendChild(popupNameElement);
 
-                var popupAddressElement = document.createElement("div");
-                popupAddressElement.innerText = e.features[0].properties.address;
-                popupContentElement.appendChild(popupAddressElement);
+        var popupAddressElement = document.createElement("div");
+        popupAddressElement.innerText = e.features[0].properties.address;
+        popupContentElement.appendChild(popupAddressElement);
 
-                var popupPositionElement = document.createElement("div");
-                popupPositionElement.innerText = e.features[0].properties.position;
-                popupContentElement.appendChild(popupPositionElement);
+        var popupPositionElement = document.createElement("div");
+        popupPositionElement.innerText = e.features[0].properties.position;
+        popupContentElement.appendChild(popupPositionElement);
 
-                popup.setPopupOptions({
-                    position: e.features[0].geometry.coordinates,
-                    content: popupContentElement
-                });
+        popup.setPopupOptions({
+            position: e.features[0].geometry.coordinates,
+            content: popupContentElement
+        });
 
-                popup.open(map);
-            });
+        popup.open(map);
+    });
     ```
     API **atlas. Açılan** bilgi sağlayan pencere bağlantılı harita üzerinde gerekli konumunda. Bu kod parçacığında içerik ve açılan konumunu ayarlar yanı sıra bir olay dinleyicisi ekler `map` bekleniyor denetim _fare_ açılan alma. 
 

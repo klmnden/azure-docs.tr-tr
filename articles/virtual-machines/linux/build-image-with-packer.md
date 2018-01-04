@@ -4,7 +4,7 @@ description: "Linux sanal makineleri görüntülerini oluşturmak için Packer k
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 1752d2e0a497bf94309a744562cf4462866d6f99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Linux sanal makine görüntülerini oluşturmak için Packer kullanma
 Her sanal makine (VM) Azure Linux dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Gereksinimlerinize göre tasarlanmıştır, kendi özel görüntülerinizi oluşturmak veya en yaygın dağıtımları ve uygulama ortamları için Azure Marketi birçok ilk ve üçüncü taraf görüntüleri sağlar. Bu makalede açık kaynak aracının nasıl kullanılacağını ayrıntıları [Packer](https://www.packer.io/) tanımlamak ve Azure özel görüntülerinizi oluşturmak için.
@@ -195,6 +195,8 @@ ManagedImageResourceGroupName: myResourceGroup
 ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
+
+VM oluşturmak için provisioners çalıştırıp dağıtım temizlemek Packer birkaç dakika sürer.
 
 
 ## <a name="create-vm-from-azure-image"></a>Azure görüntüden VM oluşturma

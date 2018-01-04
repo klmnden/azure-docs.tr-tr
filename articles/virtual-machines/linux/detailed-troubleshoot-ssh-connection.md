@@ -5,7 +5,7 @@ keywords: "SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı 
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -14,13 +14,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/06/2017
+ms.date: 12/13/2017
 ms.author: iainfou
+<<<<<<< HEAD
 ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 5908c9572901bfb68ce03d7e6ccb08f84f38e567
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Ayrıntılı SSH azure'da bir Linux VM için bağlantı sorunları için sorun giderme adımları
 SSH istemcisi VM SSH hizmette ulaşabilmesi olmayabilir birçok olası nedeni vardır. Daha fazla bilgi izlediyseniz [sorun giderme adımları genel SSH](troubleshoot-ssh-connection.md), daha fazla bağlantı sorunu gidermek gerekir. Bu makalede, SSH bağlantısını nerede başarısız olduğunu ve nasıl çözümleyeceğiniz belirlemek için ayrıntılı sorun giderme adımlarını size yol gösterir.
@@ -39,14 +45,14 @@ Aşağıdaki adımlar hatanın kaynak yalıtmak ve çözümleri veya geçici ç�
 
 2. Seçin **ayarları** uç noktaları, IP adresleri, ağ güvenlik grupları ve diğer ayarları incelemek için.
 
-   VM içinde görüntüleyebilirsiniz SSH trafiği için tanımlanmış bir uç nokta olmalıdır **uç noktaları** veya  **[ağ güvenlik grubu](../../virtual-network/virtual-networks-nsg.md)**. Resource Manager kullanılarak oluşturulan sanal makineleri uç noktalarını bir ağ güvenlik grubundaki depolanır. Ayrıca, kurallar ağ güvenlik grubuna uygulanmış olduğunu ve alt ağda başvurulan doğrulayın.
+   VM içinde görüntüleyebilirsiniz SSH trafiği için tanımlanmış bir uç nokta olmalıdır **uç noktaları** veya  **[ağ güvenlik grubu](../../virtual-network/virtual-networks-nsg.md)**. Resource Manager kullanılarak oluşturulan sanal makineleri uç noktalarını bir ağ güvenlik grubundaki depolanır. Kural ağ güvenlik grubuna uygulanan ve alt ağ içindeki başvurulan doğrulayın.
 
-Ağ bağlantısını doğrulamak için yapılandırılmış uç denetleyin ve HTTP veya başka bir hizmeti gibi başka bir protokol üzerinden VM ulaşmak bakın.
+Ağ bağlantısını doğrulamak için yapılandırılmış uç denetleyin ve HTTP veya başka bir hizmeti gibi başka bir protokol üzerinden VM bağlanabildiğinizi bakın.
 
 Bu adımlar, SSH bağlantısını yeniden deneyin.
 
 ## <a name="find-the-source-of-the-issue"></a>Sorunun kaynağını Bul
-SSH istemcisi bilgisayarınızda Azure VM'de sorunları veya aşağıdaki alanlarda yapılandırma hataları nedeniyle SSH hizmete erişmek başarısız olabilir:
+SSH istemcisi bilgisayarınızda Azure VM'de sorunları veya aşağıdaki alanlarda yapılandırma hataları nedeniyle SSH hizmetine bağlanmak başarısız olabilir:
 
 * [SSH istemci bilgisayar](#source-1-ssh-client-computer)
 * [Kuruluş sınır cihazı](#source-2-organization-edge-device)
@@ -80,7 +86,7 @@ Hatanın kaynak olarak kuruluş sınır cihazı ortadan kaldırmak için doğrud
 
 ![Kuruluş sınır cihazı vurgular diyagramı](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Doğrudan olan bir bilgisayarda yoksa, Internet'e bağlı yeni bir Azure VM kendi kaynak grubunda veya Bulut hizmeti oluşturup bunu kullanabilirsiniz. Daha fazla bilgi için bkz: [Linux Azure üzerinde çalışan bir sanal makine oluşturma](quick-create-cli.md). Test ile tamamladığınızda kaynak grubu veya VM ve bulut hizmetini silin.
+Doğrudan olan bir bilgisayarda yoksa, Internet'e bağlı yeni bir Azure VM kendi kaynak grubunda veya Bulut hizmeti oluşturup bu yeni VM kullanabilirsiniz. Daha fazla bilgi için bkz: [Linux Azure üzerinde çalışan bir sanal makine oluşturma](quick-create-cli.md). Test ile tamamladığınızda kaynak grubu veya VM ve bulut hizmetini silin.
 
 Internet'e doğrudan bağlı bir bilgisayar ile bir SSH bağlantısı oluşturup oluşturamayacağını kuruluş sınır cihazınız için denetleyin:
 
@@ -94,7 +100,7 @@ Internet ile SSH trafiğine izin vermek için kuruluş sınır cihazları ayarla
 > [!NOTE]
 > Bu kaynağı Klasik dağıtım modeli kullanılarak oluşturulan sanal makineleri için geçerlidir. Resource Manager kullanılarak oluşturulan VM'ler için geçin [kaynak 4: ağ güvenlik grupları](#nsg).
 
-Bulut Hizmeti uç noktası ve ACL hatası kaynağı olarak ortadan kaldırmak için aynı sanal ağdaki başka bir Azure VM VM'nize SSH bağlantıları yapabilir doğrulayın.
+Bulut Hizmeti uç noktası ve ACL hatası kaynağı olarak ortadan kaldırmak için aynı sanal ağdaki başka bir Azure VM SSH kullanarak bağlanabildiğinizi doğrulayın.
 
 ![Bulut Hizmeti uç noktası ve ACL vurgular diyagramı](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
@@ -113,7 +119,7 @@ Uç nokta sorun kaynağı olarak ortadan kaldırmak için geçerli son nokta kal
 Ağ güvenlik grupları, izin verilen gelen ve giden trafik daha ayrıntılı denetim sağlar. Alt ağlar span ve bulut hizmetlerini bir Azure sanal ağında kurallar oluşturabilirsiniz. Internet'ten SSH trafiğe izin verildiğinden emin olmak için ağ güvenlik grubu kurallarınızı denetleyin.
 Daha fazla bilgi için bkz: [ağ güvenlik grupları hakkında](../../virtual-network/virtual-networks-nsg.md).
 
-NSG yapılandırmasını doğrulamak için IP doğrulayın de kullanabilirsiniz. Daha fazla bilgi için bkz: [izlemeye genel bakış Azure ağ](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+NSG yapılandırmasını doğrulamak için IP doğrulayın de kullanabilirsiniz. Daha fazla bilgi için bkz: [izlemeye genel bakış Azure ağ](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Kaynak 5: Linux tabanlı Azure sanal makine
 Son olası sorunlar Azure sanal makinesini kendisini kaynağıdır.

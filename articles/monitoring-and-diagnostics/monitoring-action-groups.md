@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında eylem gruplarını oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -29,7 +29,7 @@ Eylem gruplarıyla eylemlerin bir listesini yapılandırabilirsiniz. Etkinlik g�
 Bir eylem grubu 10 her eylem türünde olabilir. Her eylem aşağıdaki özellikleri oluşur:
 
 * **Ad**: eylem grubu içinde benzersiz bir tanımlayıcı.  
-* **Eylem türü**: bir SMS gönder, bir e-posta Gönder, bir Web kancası çağrısı veya bir ITSM aracı veri gönder.
+* **Eylem türü**: bir SMS gönder, bir e-posta Gönder, bir Web kancası çağrı, bir ITSM aracı veri göndermek, bir Azure uygulaması çağrısı veya bir Otomasyon runbook'u çalıştırmak.
 * **Ayrıntılar**: karşılık gelen telefon numarası, e-posta adresi, Web kancası URI veya ITSM bağlantı ayrıntıları.
 
 Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullanma hakkında daha fazla bilgi için bkz: [eylem Grup Resource Manager şablonları](monitoring-create-action-group-with-resource-manager-template.md).
@@ -38,7 +38,7 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullan
 1. İçinde [portal](https://portal.azure.com)seçin **İzleyici**. **İzleyici** dikey penceresinde, izleme ayarları ve verileri tek bir görünümde birleştirir.
 
     !["İzleme" hizmeti](./media/monitoring-action-groups/home-monitor.png)
-2. İçinde **etkinlik günlüğü** bölümünde, select **Eylem grupları**.
+2. İçinde **ayarları** bölümünde, select **Eylem grupları**.
 
     !["Eylem grupları" sekmesi](./media/monitoring-action-groups/action-groups-blade.png)
 3. Seçin **eylem Grup Ekle**ve alanları doldurun.
@@ -56,14 +56,12 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullan
 
     a. **Ad**: Bu eylem için benzersiz bir tanımlayıcı girin.
 
-    b. **Eylem türü**: SMS seçin, e-posta, Web kancası veya ITSM.
+    b. **Eylem türü**: SMS seçin, e-posta, Web kancası, Azure uygulaması, ITSM veya Otomasyon Runbook.
 
-    c. **Ayrıntılar**: eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi, Web kancası URI veya ITSM bağlantı ayrıntılarını girin. ITSM eylem için ayrıca belirtin **iş öğesi** ve diğer alanlar ITSM aracınızı gerektirir. 
+    c. **Ayrıntılar**: eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi, Web kancası URI, Azure uygulaması, ITSM bağlantı ya da Otomasyon runbook'u girin. ITSM eylem için ayrıca belirtin **iş öğesi** ve diğer alanlar ITSM aracınızı gerektirir. 
 
-> [!NOTE]
-> ITSM eylemi ITSM bağlantı gerektirir. Oluşturmayı öğrenin bir [ITSM bağlantı](../log-analytics/log-analytics-itsmc-overview.md). ITSM eylem şu anda yalnızca etkinlik günlüğü uyarıları için çalışır. Diğer uyarı türleri için bu şu anda Hayır op eylemdir.
->
->
+   > [!NOTE]
+   > ITSM eylemi ITSM bağlantı gerektirir. Oluşturmayı öğrenin bir [ITSM bağlantı](../log-analytics/log-analytics-itsmc-overview.md). ITSM eylem şu anda yalnızca etkinlik günlüğü uyarıları için çalışır. Diğer uyarı türleri için bu şu anda Hayır op eylemdir.
 
 8. Seçin **Tamam** eylem grubu oluşturmak için.
 

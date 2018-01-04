@@ -15,25 +15,32 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Oturum [Azure portal](https://portal.azure.com/) http://portal.azure.com/ adresindeki.
-2. Sol başlığında tıklatın **TÜMÜNE Gözat**. **Gözat** dikey penceresi görüntülenir.
-3. Kaydırın ve tıklatın **SQL sunucuları**. **SQL sunucuları** dikey penceresi görüntülenir.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+2. Sol taraftaki listeden seçin **Gözat**. 
+
+3. Kaydırın ve seçin **SQL sunucuları**. 
    
     ![Portalda Azure SQL veritabanı sunucunuzun Bul][b21-FindServerInPortal]
-4. Kolaylık olması için önceki simge durumuna küçült denetiminde tıklatın **Gözat** dikey.
+4. Kolaylık olması için en aza **Gözat** dikey.
+
 5. Filtre metin kutusuna, sunucunuzun adını yazmaya başlayın. Satır görüntülenir.
-6. Sunucunuz için satıra tıklayın. Sunucunuz için bir dikey pencerede görüntülenir.
-7. Sunucu dikey penceresinde **ayarları**. **Ayarları** dikey penceresi görüntülenir.
-8. Tıklatın **Güvenlik Duvarı**. **Güvenlik duvarı ayarlarını** dikey penceresi görüntülenir.
+
+6. Sunucunuz için satırı seçin. Sunucunuz için bir dikey pencerede görüntülenir.
+
+7. Sunucu dikey penceresinde seçin **ayarları**. 
+
+8. Seçin **Güvenlik Duvarı**. 
    
-    ![Ayarlar > Güvenlik Duvarı][b31-SettingsFirewallNavig]
-9. Tıklatın **istemcisi ekleme IP**. İlk metin kutusuna, yeni kural için bir ad yazın.
+    ![Ayarları seçin > Güvenlik Duvarı][b31-SettingsFirewallNavig]
+9. Seçin **istemcisi ekleme IP**. İlk metin kutusunda, yeni kural için bir ad yazın.
+
 10. Etkinleştirmek istediğiniz aralığı için düşük ve yüksek IP adresi değerlerini yazın.
     
-    * Düşük değer end ile sağlamak için kullanışlı olabilir **.0** ve yüksek ile **.255**.
+    * Düşük değer end ile sağlamak için kullanışlı olabilir **.0** ve sonunda yüksek bir değer **.255**.
     
     ![İzin vermek için bir IP adres aralığı Ekle][b41-AddRange]
-11. **Kaydet** düğmesine tıklayın.
+11. **Kaydet**’i seçin.
 
 <!-- Image references. -->
 

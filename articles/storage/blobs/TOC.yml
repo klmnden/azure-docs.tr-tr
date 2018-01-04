@@ -22,8 +22,12 @@
       href: storage-quickstart-blobs-java.md
     - name: Bloblarla çalışma - Python
       href: storage-quickstart-blobs-python.md
+    - name: Blob’larla çalışma - Ruby
+      href: storage-quickstart-blobs-ruby.md
     - name: Bloblarla çalışma - Node.js
       href: storage-quickstart-blobs-nodejs.md
+    - name: Bloblarla çalışma - Depolama Gezgini
+      href: storage-quickstart-blobs-storage-explorer.md
 - name: Öğreticiler
   items:
     - name: Görüntüyü karşıya yükleme ve işleme
@@ -44,6 +48,16 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Bulut depolama alanında yapılandırılmamış verileri arama
       href: storage-unstructured-search.md
+    - name: Depolama uygulaması performansını ve ölçeklenebilirliğini iyileştirme
+      items:
+        - name: Sanal makine ve depolama hesabı oluşturma
+          href: storage-blob-scalable-app-create-vm.md
+        - name: Azure depolama hesabına büyük veriler yükleme
+          href: storage-blob-scalable-app-upload-files.md
+        - name: Azure depolama hesabından büyük veriler indirme
+          href: storage-blob-scalable-app-download-files.md
+        - name: Aktarım hızı ve gecikme süresi ölçümlerini doğrulama
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: Örnekler
   items:
     - name: .NET
@@ -58,6 +72,8 @@
   items:
     - name: Planlama ve tasarım
       items:
+        - name: Depolama hesabı seçenekleri
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Çoğaltma
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Sık, seyrek ve arşiv katmanları'

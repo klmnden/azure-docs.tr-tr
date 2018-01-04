@@ -4,7 +4,7 @@ description: "Azure Active Directory B2B işbirliği hakkında sık sorulan soru
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
+<<<<<<< HEAD
 ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
 ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
+=======
+ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği ile ilgili SSS
 
@@ -115,7 +121,7 @@ Davet kuruluşunuzdaki da ortağı kuruluştaki bir üyesi olan bir kullanıcı 
 İş ortağı için şirket içi kimlik doğrulaması altyapısı federe bir Azure AD kiracısı varsa, şirket içi çoklu oturum açma (SSO) otomatik olarak sağlanır. İş ortağı Azure AD kiracısı yoksa, yeni kullanıcılar için bir Azure AD hesabı oluşturulur. 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>I, Azure AD B2B gmail.com ve outlook.com e-posta adresleri kabul etmediğiniz ve B2C bu hesap türü için kullanılan zorlayıcı?
-Biz B2B açısından kimlikleri desteklenen iş şirket (B2C) işbirliği arasındaki farkları kaldırmış olursunuz. Kullanılan kimlik B2B veya B2C kullanarak arasında seçmek için iyi bir nedenle değil. İşbirliği seçeneğinizi seçme hakkında daha fazla bilgi için bkz: [karşılaştırmak B2B işbirliği ve Azure Active Directory B2C](active-directory-b2b-compare-b2c.md).
+Biz B2B ve işletmeden müşteriye (B2C) işbirliği açısından kimlikleri desteklenen arasındaki farklar kaldırmış olursunuz. Kullanılan kimlik B2B veya B2C kullanarak arasında seçmek için iyi bir nedenle değil. İşbirliği seçeneğinizi seçme hakkında daha fazla bilgi için bkz: [karşılaştırmak B2B işbirliği ve Azure Active Directory B2C](active-directory-b2b-compare-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Hangi uygulamaların ve hizmetlerin Azure B2B Konuk kullanıcılar destekliyor?
 Tüm Azure AD ile tümleşik uygulamalar Azure B2B Konuk kullanıcılar destekler. 

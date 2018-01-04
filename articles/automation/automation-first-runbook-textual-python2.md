@@ -3,7 +3,7 @@ title: Azure automation'da ilk Python runbook Uygulamam | Microsoft Docs
 description: "Test ve basit bir Python runbook yayımlama oluşturma adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
+<<<<<<< HEAD
 ms.author: eslesar
 ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
 ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
+=======
+ms.author: gwallace
+ms.openlocfilehash: 0399719e5f80869f0131691b89a9dc48b3fc48d7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="my-first-python-runbook"></a>İlk Python runbook Uygulamam
 
@@ -31,7 +38,7 @@ ms.lasthandoff: 10/25/2017
 
 Bu öğreticide, oluşturulmasını açıklanmaktadır bir [Python runbook](automation-runbook-types.md#python-runbooks) Azure Automation. Runbook işi durumunun nasıl izleneceğini açıklarken test edip yayımlayacağımız basit bir runbook ile başlayacağız. Ardından, bir Azure sanal makinesini başlatmayı içeren bir örnekle, bu runbook’u gerçekten Azure kaynaklarını yönetmek üzere değiştireceğiz. Son olarak, runbook parametreleri ekleyerek runbook’u daha sağlam hale getireceğiz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -147,7 +154,7 @@ Azure kaynaklarınızı yönetmek için kimlik bilgilerini kullanarak kimlik do�
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Python işlem istemci oluşturun ve VM başlatmak için kod ekleme
 
-Azure VM ile birlikte çalışmak için bir örneğini oluşturmak [Python için Azure işlem istemci](https://docs.microsoft.com/python/api/azure.mgmt.compute.compute.computemanagementclient?view=azure-python).
+Azure VM ile birlikte çalışmak için bir örneğini oluşturmak [Python için Azure işlem istemci](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
 VM başlatmak için işlem İstemcisi'ni kullanın. Aşağıdaki kodu runbook'a ekleyin:
 
@@ -213,5 +220,5 @@ Tıklatın **Tamam** runbook'u başlatın. Runbook çalıştırır ve belirttiğ
 * Grafik runbook'ları kullanmaya başlamak için bkz. [İlk grafik runbook uygulamam](automation-first-runbook-graphical.md)
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
 * Runbook türleri, avantajları ve sınırlamaları hakkında daha fazla bilgi için bkz. [Azure Automation runbook türleri](automation-runbook-types.md)
-* Python ile Azure için geliştirme hakkında bilgi edinmek için [Python geliştiricileri için Azure](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Örnek Python 2 runbook'ları görüntülemek için bkz: [Azure Otomasyon GitHub](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Python ile Azure için geliştirme hakkında bilgi edinmek için [Python geliştiricileri için Azure](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Örnek Python 2 runbook'ları görüntülemek için bkz: [Azure Otomasyon GitHub](https://docs.microsoft.com/python/azure/?view=azure-python).

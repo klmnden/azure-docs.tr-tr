@@ -4,7 +4,7 @@ description: "Kimlik doğrulaması için OAuth 2.0 erişim belirteçleri ile gü
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: 7146ed7f-2eb5-49e9-8d8b-ea1a895e1966
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 713bf8ea670b1c2b35a05ebd8cd9450c711cbf3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET web API'si oluşturma
 
@@ -41,8 +41,6 @@ Ardından B2C dizininizde bir web API uygulaması oluşturmanız gerekir. Bu, uy
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Buna daha sonra ihtiyacınız olacak.
 * **Uygulama Kimliği URI'si** alanına bir uygulama tanımlayıcısı girin. Tam **Uygulama Kimliği URI'si** değerini kopyalayın. Buna daha sonra ihtiyacınız olacak.
 * **Yayımlanmış kapsamlar** menüsü üzerinden izinler ekleyin.
-
-  [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
 

@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="media-services-development-with-net"></a>.NET ile Media Services Geliştirme
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-Bu konuda .NET kullanarak Media Services uygulamaları geliştirmeye başlamak nasıl ele alınmıştır.
+Bu makalede .NET kullanarak Media Services uygulamaları geliştirmeye başlamak nasıl anlatılmaktadır.
 
 **Azure Media Services .NET SDK'sı** kitaplığı .NET kullanarak Media Services karşı program olanak sağlar. .NET ile geliştirmek daha kolay hale getirmek için **Azure Media Services .NET SDK uzantıları** kitaplığı sağlanır. Bu kitaplığı bir dizi genişletme yöntemleri ve .NET kodunuzu basitleştirmeye yardımcı işlevlerini içerir. Her iki kitaplıkları aracılığıyla kullanılabilir **NuGet** ve **GitHub**.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* Yeni veya mevcut bir Azure aboneliğinde bir Media Services hesabı. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın.
+* Yeni veya mevcut bir Azure aboneliğinde bir Media Services hesabı. Makalesine bakın [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 * İşletim sistemleri: Windows 10, Windows 7, Windows 2008 R2 veya Windows 8.
-* .NET framework 4.5.
+* .NET framework 4.5 veya üzeri.
 * Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
@@ -60,28 +60,21 @@ Alternatif olarak, en son Media Services .NET SDK'sı BITS Github'dan alabilirsi
    
     2. Başvuruları Yönet iletişim kutusu görüntülenir.
     3. .NET framework derlemeleri altındaki bulmak ve System.Configuration derleme seçip tuşuna **Tamam**.
-6. App.config dosyasını açın ve eklemek bir **appSettings** dosyaya bölümü.     
-   
-    Medya Hizmetleri API'sine bağlanmak için gereken değerleri ayarlayın. Daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+6. App.config dosyasını açın ve eklemek bir **appSettings** dosyaya bölümü. Medya Hizmetleri API'sine bağlanmak için gereken değerleri ayarlayın. Daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    Kullanıyorsanız [kullanıcı kimlik doğrulaması](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) yapılandırma dosyası büyük olasılıkla, Azure AD Kiracı etki alanı ve AMS REST API uç noktası için değerlere sahip olur.
-    
-    >[!Note]
-    >Azure Media Services belgelerinde çoğu kod örnekleri kümesi, AMS API'sine bağlanmak için kimlik doğrulama kullanıcı (etkileşimli) türünü kullanın. Bu kimlik doğrulama yöntemini de yönetim veya yerel uygulamalar izleme için çalışır: mobil uygulamaları, Windows uygulamaları ve konsol uygulamaları.
-    
-    >[!Important]
-    > **Etkileşimli** kimlik doğrulama yöntemini değil sunucu için uygun web Hizmetleri, uygulamaları API'leri türü. Bu tür uygulamalar kullanmak **hizmet sorumlusu** kimlik doğrulama yöntemi. Daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile AMS API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md).
+Kullanarak bağlanmak için gerekli değerleri ayarlamak **hizmet sorumlusu** kimlik doğrulama yöntemi.  
 
         <configuration>
         ...
             <appSettings>
-              <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
+                <add key="AMSAADTenantDomain" value="tenant"/>
+                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                <add key="AMSClientId" value="id"/>
+                <add key="AMSClientSecret" value="secret"/>
             </appSettings>
-
         </configuration>
-
-7. Aşağıdaki kodu, Program.cs dosyasının başındaki mevcut **using** deyimlerinin üzerine yazın.
+7. Ekleme **System.Configuration** projenizi referansı.
+7. Var olanın üzerine yaz **kullanarak** aşağıdaki kodu Program.cs dosyasının başındaki deyimleri:
            
         using System;
         using System.Configuration;
@@ -100,17 +93,26 @@ Aşağıda AMS API'sine bağlanır ve tüm kullanılabilir medya işlemcileri li
     class Program
     {
         // Read values from the App.config file.
+
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
     
         private static CloudMediaContext _context = null;
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-    
+
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
     
             // List all available Media Processors

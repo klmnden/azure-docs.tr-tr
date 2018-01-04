@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager günlük Analizi'ne bağlayın
 System Center Operations Manager'da varolan yatırımınızı korumak ve günlük analizi ile genişletilmiş özelliklerini kullanmak için Operations Manager OMS çalışma alanınızla tümleştirebilirsiniz.  Bu, Operations Manager için kullanmaya devam ederken OMS fırsatlarını yararlanan sağlar:
@@ -40,9 +40,9 @@ BT güvenlik ilkelerinizi bilgisayarları Internet'e bağlanmak için ağınızd
 ## <a name="system-requirements"></a>Sistem gereksinimleri
 Başlamadan önce önkoşulları karşılaması doğrulamak için aşağıdaki ayrıntıları gözden geçirin.
 
-* OMS yalnızca Operations Manager 2016, Operations Manager 2012 SP1 UR10 destekler ve daha büyük ve Operations Manager 2012 R2 UR11 büyük.
+* OMS yalnızca Operations Manager 2016, Operations Manager 2012 SP1 UR6 destekler ve daha büyük ve Operations Manager 2012 R2 UR2 büyük.  Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir.
 * Tüm Operations Manager aracıları, minimum destek gereksinimlerini karşılaması gerekir. Minimum güncelleştirmeyi aracıları olan, aksi takdirde Windows Aracısı trafiği başarısız olabilir ve birçok hata Operations Manager olay günlüğünü doldurma emin olun.
-* Bir Azure günlük analizi abonelik.  Daha fazla bilgi için gözden [günlük Analytics ile çalışmaya başlama](log-analytics-get-started.md).
+* Bir OMS abonelik.  Daha fazla bilgi için gözden [günlük Analytics ile çalışmaya başlama](log-analytics-get-started.md).
 
 ### <a name="network"></a>Ağ
 Operations Manager Aracısı, yönetim sunucuları ve işletim Konsolu OMS ile iletişim kurması gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini listesi aşağıdaki bilgileri.  Her bileşenin OMS hizmete ağınızdan giden trafiğidir.     
@@ -208,7 +208,7 @@ Operations Manager yönetim grubu ve OMS çalışma arasında tümleştirme art�
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

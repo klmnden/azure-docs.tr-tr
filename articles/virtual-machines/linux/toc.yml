@@ -73,6 +73,9 @@
           href: sizes-compute.md
         - name: Bellek için iyileştirilmiş
           href: sizes-memory.md
+          items:
+            - name: Kısıtlanmış vCPU'lar
+              href: constrained-vcpu.md
         - name: Depolama için iyileştirilmiş
           href: sizes-storage.md
         - name: GPU için iyileştirilmiş
@@ -121,6 +124,8 @@
       items:
         - name: Altyapı yönergeleri
           href: infrastructure-example.md
+        - name: vCPU kotaları
+          href: quotas.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: VM oluşturma
@@ -164,7 +169,7 @@
       items:
         - name: VM’ler için önceden ödeme yapma - Ayrılmış Örnekler
           href: prepay-reserved-vm-instances.md
-        - name: VM Kullanımı
+        - name: VM kullanımı
           href: vm-usage.md
         - name: Ortak CLI görevleri
           href: cli-manage.md

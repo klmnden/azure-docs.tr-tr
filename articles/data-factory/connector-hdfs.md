@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>İlk ve son Azure Data Factory kullanarak HDFS veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Aşağıdaki özellikler HDFS bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Hdfs**. | Evet |
-| URL |HDFS URL'si |Evet |
+| url |HDFS URL'si |Evet |
 | authenticationType | İzin verilen değerler: **anonim**, veya **Windows**. <br><br> Kullanılacak **Kerberos kimlik doğrulaması** HDFS bağlayıcı için başvurmak [Bu bölümde](#use-kerberos-authentication-for-hdfs-connector) şirket içi ortamınıza uygun şekilde ayarlamak için. |Evet |
 | Kullanıcı adı |Kullanıcı adı için Windows kimlik doğrulaması. Kerberos kimlik doğrulaması için belirtmek `<username>@<domain>.com`. |Evet (Windows kimlik doğrulaması için) |
 | password |Windows kimlik doğrulaması için parola. Bu alan SecureString işaretleyin. |Evet (Windows kimlik doğrulaması için) |
@@ -162,7 +162,7 @@ HDFS verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarl
 | Özyinelemeli | Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir.<br/>İzin verilen değerler: **true** (varsayılan), **false** | Hayır |
 | distcpSettings | HDFS Distcp'yi kullanırken özellik grubu. | Hayır |
 | resourceManagerEndpoint | Yarn ResourceManager uç noktası | Evet Distcp'yi kullanıyorsanız |
-| tempScriptPath | Geçici Distcp'yi komut dosyasını depolamak için kullanılan bir klasör yolu. Komut dosyası tarafından ADF oluşturulur ve kopyalama işini tamamladıktan sonra kaldırılır. | Evet Distcp'yi kullanıyorsanız |
+| tempScriptPath | Geçici Distcp'yi komut dosyasını depolamak için kullanılan bir klasör yolu. Komut dosyası veri fabrikası tarafından oluşturulur ve kopyalama işini tamamladıktan sonra kaldırılır. | Evet Distcp'yi kullanıyorsanız |
 | distcpOptions | Distcp'yi komutu için sağlanan ek seçenekler. | Hayır |
 
 **Örnek: HDFS kaynağında UNLOAD kullanarak kopyalama etkinliği**

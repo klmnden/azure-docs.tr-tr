@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ile Velpic SAML arasın
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4f7e4c9e960450f0024cd7ca35bd3808d31ee19
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Öğretici: Azure Active Directory Tümleştirme Velpic SAML ile
 
@@ -204,7 +204,7 @@ Velpic SAML şirket sitenizin yönetici olarak oturum açın ve aşağıdaki ad�
 
 2. Üzerinde **"Yeni kullanıcı oluştur"** iletişim sayfasında, aşağıdaki adımları gerçekleştirin.
 
-    ![Kullanıcı](./media/active-directory-saas-velpicsaml-tutorial/velpic_8.png)
+    ![kullanıcı](./media/active-directory-saas-velpicsaml-tutorial/velpic_8.png)
     
     a. İçinde **ad** metin kutusuna, Britta Simon ilk türünün adı.
 

@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus fiyatlandırma ve faturalama
-Hizmet veri yolu, standart olarak sunulur ve [Premium](service-bus-premium-messaging.md) katmanları. Oluşturduğunuz her Service Bus hizmeti ad alanı için bir hizmet katmanına seçebilir ve bu ad alanı içinde oluşturulan tüm varlıklar arasında bu katmanı seçimi uygular.
+
+Azure Service Bus standart olarak sunulan ve [Premium](service-bus-premium-messaging.md) katmanları. Oluşturduğunuz her Service Bus hizmeti ad alanı için bir hizmet katmanına seçebilir ve bu ad alanı içinde oluşturulan tüm varlıklar arasında bu katmanı seçimi uygular.
 
 > [!NOTE]
 > Hizmet veri yolu geçerli fiyatlandırma hakkında ayrıntılı bilgi için bkz: [Azure Service Bus fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/service-bus/)ve [Service Bus SSS](service-bus-faq.md#pricing).
@@ -42,18 +43,20 @@ Standart katmanı temel ücret aylık Azure abonelik başına yalnızca bir kez 
 [Service Bus fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/) tablo standart ve Premium katmanlar arasında işlevsel farklılıklar özetler.
 
 ## <a name="messaging-operations"></a>Mesajlaşma işlemleri
-Yeni fiyatlandırma modeli bir parçası olarak, kuyruklar ve konular/abonelikler için faturalama değiştiriyor. Bu varlıklar ileti başına faturalama gelen işlemi başına faturalandırma için geçişini. Bir kuyruk veya konu başlığının/aboneliğinin hizmet uç noktası karşı yapılan herhangi bir API çağrısı bir "işlem" başvuruyor. Bu, yönetim, gönderme ve alma ve oturum durumu işlemleri içerir.
+
+Kuyruklar ve konular/abonelikler "işlemi" değil ileti başına faturalandırılır. Bir kuyruk veya konu başlığının/aboneliğinin hizmet uç noktası karşı yapılan herhangi bir API çağrısı bir işlem başvuruyor. Bu işlemlere yönetim, gönderme/alma ve oturum durumu işlemleri dahildir.
 
 | İşlem Türü | Açıklama |
 | --- | --- |
 | Yönetim |Oluşturma, okuma, güncelleştirme, Sil (CRUD) sıralar veya konuları/abonelikleri karşı. |
-| Mesajlaşma |Sıralar veya konuları/abonelikleri ile ileti alma ve gönderme. |
-| Oturum durumu |Alma veya bir kuyruk veya konu başlığının/aboneliğinin oturum durumunu ayarlama. |
+| Mesajlaşma |İleti gönderme ve sıralar veya konuları/abonelikleri ile alma. |
+| Oturum durumu |Alın veya oturum durumu bir kuyruk veya konu başlığının/aboneliğinin ayarlayın. |
 
 Listelenen fiyatlar maliyet Ayrıntılar için bkz [Service Bus fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/) sayfası.
 
 ## <a name="brokered-connections"></a>Aracılı bağlantılar
-*Aracılı bağlantı* çok sayıda "kalıcı olarak bağlı" Gönderenler/alıcılar sıralar, konuları ve abonelikleri karşı içeren müşteri kullanım desenlerini uyum sağlamak. Kalıcı olarak bağlı Gönderenler/alıcılar bir sıfır ile AMQP veya HTTP kullanarak bağlan o zaman aşımı (örneğin, HTTP uzun yoklama) alacak olan. HTTP göndericiler ile alıcılar hemen bir zaman aşımı ile aracılı bağlantılar oluşturmaz.
+
+*Aracılı bağlantı* çok sayıda "kalıcı olarak bağlı" Gönderenler/alıcılar sıralar, konuları ve abonelikleri karşı ilgili kullanım desenlerini uyum sağlamak. Kalıcı olarak bağlı Gönderenler/alıcılar bir sıfır ile AMQP veya HTTP kullanarak bağlan o zaman aşımı (örneğin, HTTP uzun yoklama) alacak olan. HTTP göndericiler ile alıcılar hemen bir zaman aşımı ile aracılı bağlantılar oluşturmaz.
 
 Bağlantı kotaları ve diğer hizmet sınırları için bkz: [Service Bus kotaları](service-bus-quotas.md) makalesi. Aracılı bağlantılar hakkında daha fazla bilgi için bkz: [SSS](#faq) bu makalenin sonraki bölümlerinde bölümü.
 
@@ -78,6 +81,7 @@ Aracı bağlantılar Premium katmanda ücretlendirilmez.
 ## <a name="faq"></a>SSS
 
 ### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>Aracılı bağlantılar nelerdir ve nasıl ı kendileri için sizden ücret?
+
 Bir aracılı bağlantı aşağıdakilerden biri olarak tanımlanır:
 
 1. Bir istemci bir hizmet veri yolu kuyruğu ya da konu başlığının/aboneliğinin bir AMQP bağlantısı.
@@ -91,9 +95,11 @@ Hizmet veri yolu giderleri (1.000 standart katmanındaki) dahil edilen miktar a�
 2. 10.000 cihaz sıfır olmayan bir zaman aşımı belirten HTTP üzerinden Service Bus kuyruğuna iletileri alacak. Tüm aygıtlar için 12 saat her gün bağlanırsanız, aşağıdaki bağlantı giderleri (ek olarak tüm diğer Service Bus ücretleri) görürsünüz: 10.000 HTTP alan bağlantıları * 12 saat günde * 744 saatleri/31 gün = 5.000 aracılı bağlantılar.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Aracılı bağlantı ücretleri kuyruklara ve konulara/aboneliklere uygulanır mı?
-Evet. Sayısından bağımsız olarak sistemleri veya aygıtları gönderme HTTP kullanarak olayları göndermek için bağlantı harcamanız yok. Olaylar bazen "uzun yoklama," olarak da adlandırılır sıfırdan büyük bir zaman aşımı kullanarak HTTP ile alma aracılı bağlantı ücretleri oluşturur. AMQP bağlantıları, bağlantıların gönderme veya alma için kullanılıp kullanılmadığından bağımsız olarak aracılı bağlantı ücretleri alınmasına neden olur. Bir Azure aboneliği standart tüm ad alanlarını ilk 1.000 aracılı bağlantılarında (ötesinde temel ücret) Ekstra ücret ödemeden dahil edilir. Bu kesintileri birçok hizmet ileti senaryolarını kapsamak için yeterli olduğundan, aracılı bağlantı ücretleri genellikle yalnızca AMQP veya HTTP uzun yoklama çok sayıda istemci ile kullanmayı planlıyorsanız, ilgili hale gelir; Örneğin, olay daha verimli akış elde etmek veya sayıda cihaz veya uygulama örnekleri ile çift yönlü iletişimi etkinleştir.
+
+Evet. Gönderen sistem veya cihazların sayısı ne olursa olsun, HTTP kullanarak olay göndermeye ilişkin herhangi bir bağlantı ücreti yoktur. Olaylar bazen "uzun yoklama," olarak da adlandırılır sıfırdan büyük bir zaman aşımı kullanarak HTTP ile alma aracılı bağlantı ücretleri oluşturur. AMQP bağlantıları, bağlantıların gönderme veya alma için kullanılıp kullanılmadığından bağımsız olarak aracılı bağlantı ücretleri alınmasına neden olur. Bir Azure aboneliği standart tüm ad alanlarını ilk 1.000 aracılı bağlantılarında (ötesinde temel ücret) Ekstra ücret ödemeden dahil edilir. Bu kesintileri birçok hizmet ileti senaryolarını kapsamak için yeterli olduğundan, aracılı bağlantı ücretleri genellikle yalnızca AMQP veya HTTP uzun yoklama çok sayıda istemci ile kullanmayı planlıyorsanız, ilgili hale gelir; Örneğin, olay daha verimli akış elde etmek veya sayıda cihaz veya uygulama örnekleri ile çift yönlü iletişimi etkinleştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * Hizmet veri yolu fiyatlandırma hakkında tüm ayrıntılar için bkz: [Service Bus fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/service-bus/).
 * Bkz: [Service Bus SSS](service-bus-faq.md#pricing) fiyatlandırma ve faturalama Service bus hakkında bazı sık sık sorulan sorular için.
 

@@ -15,15 +15,21 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: cca2434a7af381eaa8ee7bc803a102a7781c7639
 ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
+=======
+ms.openlocfilehash: bfc9dc5defa5644c5ede0acab1d4eae4d93edc94
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>Bir web uygulaması için zamanlanmış yedekleme oluşturmak
 
-Bu örnek komut dosyası ile ilgili kaynaklarını App Service'te bir web uygulaması oluşturur ve bunun için bir kerelik bir yedekleme oluşturur. 
+Bu örnek komut dosyası ile ilgili kaynaklarını App Service'te bir web uygulaması oluşturur ve ardından bir zamanlanmış yedekleme için oluşturur. 
 
 Gerekirse, bulunan yönergeleri kullanarak Azure PowerShell'i yükleme [Azure PowerShell Kılavuzu](/powershell/azure/overview)ve ardından çalıştırın `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için. 
 
@@ -48,7 +54,7 @@ Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri 
 | [Yeni-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
 | [Yeni-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Bir depolama hesabı oluşturur. |
 | [AzureStorageContainer yeni](/powershell/module/azure.storage/new-azurestoragecontainer) | Bir Azure depolama kapsayıcısını oluşturur. |
-| [AzureStorageContainerSASToken yeni](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
+| [AzureStorageContainerSASToken yeni](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Bir Azure depolama kapsayıcısı için bir SAS belirteci oluşturur. |
 | [AzureRmAppServicePlan yeni](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service planı oluşturur. |
 | [AzureRmWebApp yeni](/powershell/module/azurerm.websites/new-azurermwebapp) | Bir web uygulaması oluşturur. |
 | [Düzen AzureRmWebAppBackupConfiguration](/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | Web uygulaması için yedekleme yapılandırması düzenler. |

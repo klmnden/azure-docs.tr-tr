@@ -33,6 +33,10 @@
           href: monitoring-overview-metrics.md
         - name: Uyarılar
           href: monitoring-overview-alerts.md
+        - name: Uyarılar (Önizleme)
+          href: monitoring-overview-unified-alerts.md
+        - name: Günlük uyarıları
+          href: monitor-alerts-unified-log.md
         - name: Otomatik Ölçeklendirme
           href: monitoring-overview-autoscale.md
         - name: Etkinlik günlüğü
@@ -74,6 +78,8 @@
           href: monitoring-near-real-time-metric-alerts.md
         - name: Azure portalında uyarıları yapılandırma
           href: insights-alerts-portal.md
+        - name: Azure portalındaki Uyarılar (Önizleme) bölümünde ölçüm uyarılarını veya günlük uyarıları yapılandırma
+          href: monitor-alerts-unified-usage.md
         - name: CLI ile uyarıları yapılandırma
           href: insights-alerts-command-line-interface.md
         - name: Azure PowerShell ile uyarıları yapılandırma
@@ -84,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Otomatik ölçeklendirmeyi kullanma
       items:
+        - name: Otomatik Ölçeklendirme ayarlarını anlama
+          href: monitoring-understanding-autoscale-settings.md
         - name: En iyi uygulamalar
           href: insights-autoscale-best-practices.md
         - name: Ortak ölçümler
@@ -156,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Grafana’ya ölçüm gönderme
       href: monitor-send-to-grafana.md
+    - name: İzleme verilerini olay hub’ına gönderme
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Başvuru
   items:
     - name: Azure CLI

@@ -9,11 +9,17 @@ ms.date: 11/13/2017
 ms.service: application-insights
 ms.topic: article
 manager: carmonm
+<<<<<<< HEAD
 ms.openlocfilehash: 6ced5941d06c02a2576bf7f561bd535810e7ffd9
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Yayın hattınızı sürekli izleme Ekle
 
@@ -89,4 +95,4 @@ Bu davranış izlemek için seçin **sürümleri** > sağ yayın adı **açmak**
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla hakkında VSTS derleme ve sürüm deneyin bu öğrenmek için [quickstarts.](https://docs.microsoft.com/en-us/vsts/build-release/)
+Daha fazla hakkında VSTS derleme ve sürüm deneyin bu öğrenmek için [quickstarts.](https://docs.microsoft.com/vsts/build-release/)

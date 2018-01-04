@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Ağ güvenlik grupları Azure Portalı'nı kullanarak sorun giderme
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Nsg'leri bir VM için sorun giderme için aşağıdaki adımları tamamlayın:
 
 VM'den bir NIC üzerinde etkili güvenlik kuralları tam listesini görüntüleyebilirsiniz. Eklemek, değiştirmek ve bu işlemleri gerçekleştirmek için izinleri varsa NIC ve alt ağ NSG kuralları etkili kuralları dikey penceresinden silin.
 
-1. Https://portal.azure.com Azure portalında oturum açın.
+1. Bir Azure hesabı ile https://portal.azure.com Azure portalında oturum açın. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. ' I tıklatın **daha fazla hizmet**, ardından **sanal makineleri** listesinde görünür.
 3. Görüntülenen listesinden gidermek için VM seçin ve seçeneklerle bir VM dikey penceresi görünür.
 4. Tıklatın **Tanıla & sorunları** ve ortak bir sorun seçin. Bu örnek için **Windows VM'ime bağlanamıyorum** seçilir. 

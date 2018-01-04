@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: 4c699a8e5a9fafa0fec10bcb731f9ba533e3d283
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Veri Alma modülü ile çeşitli çevrimiçi veri kaynaklarından Azure Machine Learning Studio’ya veri alma
 Bu makalede verileri çevrimiçi çeşitli kaynakları ve Azure Machine Learning deneme bu kaynaklardan veri taşımak için gereken bilgileri alma desteği açıklanmaktadır.
@@ -43,7 +43,7 @@ Kullanarak [veri içeri aktarma] [ import-data] modül erişebileceğiniz veri b
 * Azure SQL veritabanına veya Azure VM'de SQL Server
 * Şirket içi SQL Server veritabanı
 * Sağlayıcı, şu anda OData veri akışı
-* Azure CosmosDB (daha önce DocumentDB denir)
+* Azure Cosmos DB
 
 Studio denemenizi çevrimiçi veri kaynaklarına erişmek için eklemeniz [veri içeri aktarma] [ import-data] modülüne, seçin **veri kaynağı**ve verilere erişmek için gerekli parametreleri belirtin. Desteklenen çevrimiçi veri kaynakları aşağıdaki tabloda listelenmektedir. Bu tablo, desteklenen dosya biçimleri ve verilere erişmek için kullanılan parametreleri de özetler.
 

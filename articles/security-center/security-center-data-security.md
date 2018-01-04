@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/06/2017
 ms.author: yurid
-ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: c41e233e177f540562d80649c7bffc15e208e870
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-data-security"></a>Azure Güvenlik Merkezi Veri Güvenliği
 Müşterilerin tehditleri önlemesine, algılamasına ve yanıt vermesine yardımcı olmak amacıyla Azure Güvenlik Merkezi, güvenlikle ilgili veriler, meta veriler, olay günlükleri, kilitlenme dökümü dosyaları ve diğer verileri toplar ve işler. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır.
@@ -69,6 +69,16 @@ Azure'da Güvenlik Merkezi'ni etkinleştirdiğinizde her Azure aboneliğiniz iç
 
 Azure Güvenlik Merkezi Ücretsiz sürümünü kullanıyorsanız Güvenlik İlkesi'nde sanal makinelerden veri toplamayı devre dışı bırakabilirsiniz. Veri Toplama, Standart katmandaki abonelikler için gereklidir. Veri toplama devre dışı bırakılsa bile, VM diski anlık görüntüleri ve yapıt toplama işlemi etkin olmaya devam eder.
 
+## <a name="data-consumption"></a>Veri Tüketimi
+
+Müşteriler, farklı veri akışlarındaki Güvenlik Merkezi ile ilişkili verileri aşağıda gösterildiği gibi kullanabilir:
+
+* **Azure Etkinliği**: Tüm güvenlik uyarıları, onaylı Güvenlik Merkezi [uyarlamalı uygulama denetimleri tarafından oluşturulan [zamanında](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) istekler ve tüm uyarılar ](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Log Analytics**: Tüm güvenlik uyarıları.
+
+
+> [!NOTE]
+> Güvenlikle ilgili öneriler, REST API’si tarafından da kullanılabilir. Daha fazla bilgi için bkz. [Güvenlik Kaynağı Sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx). 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması hakkında bilgi aldınız. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek bkz.:

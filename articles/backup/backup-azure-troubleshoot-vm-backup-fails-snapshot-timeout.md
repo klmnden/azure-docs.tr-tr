@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı ve/veya uzantısı ile ilgili sorunları
 
@@ -34,6 +34,7 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>5. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>6. neden: [Azure Klasik sanal makineleri, kayıt işlemini tamamlamak için ek bir adım gerektirebilir](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Sanal makinedeki ağ bağlantısı nedeniyle anlık görüntü işlemi başarısız oldu
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri olan sırayla yedekleme hatasına neden olabilecek tetiklenen, gelen anlık görüntü engelleyebilir. Sorun giderme adımları verilen sırayla aşağıda izleyin ve işlemi yeniden deneyin.
@@ -69,14 +70,14 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Belirtilen Disk yapılandırması desteklenmiyor
 
 > [!NOTE]
-> Özel önizleme olan VM'ler için yedeklemeler desteklemek için sahip olduğumuz > 1TB yönetilmeyen diskler. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> 1 TB’den düşük ve yönetilmeyen disklere sahip sanal makineler için yedeklemeyi destekleyen özel bir önizlememiz var. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Diskler 1 TB'den büyük varsa [yeni diskleri ekleme](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) 1 TB'den olduğu <br>
-- Sonra verileri disk 1 TB'den büyük 1 TB'den küçük boyutu, yeni oluşturulan diskler kopyalayın. <br>
-- Tüm verileri kopyaladığınız emin olun ve 1 TB'den büyük disklerin Kaldır
+- 1 TB’den büyük diskleriniz varsa, 1 TB’den düşük [yeni diskleri kullanıma açın](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) <br>
+- Ardından 1 TB’den büyük olan diskten verileri kopyalayıp yeni oluşturulan 1 TB’den küçük disklere aktarın. <br>
+- Tüm verilerin kopyalandığından emin olun ve 1 TB’den büyük diskleri kaldırın
 - Yedekleme başlatmak
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler
@@ -99,7 +100,7 @@ Sorunu çözmek için burada listelenen yöntemlerden birini deneyin.
 1. (Örneğin, bir ağ güvenlik grubu) yerinde ağ kısıtlamalarını varsa, trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın.
 2. Erişim HTTP proxy sunucusundan Internet'e izin vermek için varsa kuralları ağ güvenlik grubuna ekleyin.
 
-Bir HTTP proxy VM yedeklemeler için ayarlama hakkında bilgi edinmek için bkz: [Azure sanal makineleri yedeklemek için ortamınızı hazırlama](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Bir HTTP proxy VM yedeklemeler için ayarlama hakkında bilgi edinmek için bkz: [Azure sanal makineleri yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Yönetilen diskleri kullanarak durumunda bir ek bağlantı noktası (8443) açarak güvenlik duvarlarında gerekebilir.
 
@@ -115,7 +116,7 @@ VM Aracısı bozulmuş veya hizmet durdurulmuş. VM aracısı yeniden yüklenmes
 6. Ardından Windows Konuk Aracısı hizmetlerinin Hizmetleri'nde görmeye olmalıdır
 7. "Yedekleme şimdi" portalda tıklayarak üzerinde-isteğe bağlı/geçici bir yedeklemeyi çalıştırmayı deneyin.
 
-Ayrıca, sanal makinenin doğrulayın  **[.NET 4.5 sistemde yüklü](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Hizmet ile iletişim kurmak VM aracısı için gereklidir
+Ayrıca, sanal makinenin doğrulayın  **[.NET 4.5 sistemde yüklü](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Hizmet ile iletişim kurmak VM aracısı için gereklidir
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM'yi yüklü Aracı (Linux VM'ler için) güncel değil
 
@@ -183,4 +184,23 @@ Uzantıyı kaldırmak için aşağıdakileri yapın:
 6. Tıklatın **kaldırma**.
 
 Bu yordam sonraki yedekleme sırasında yüklenmesi uzantısı neden olur.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure Klasik Vm'leri kayıt işlemini tamamlamak için ek bir adım gerektirebilir
+Yedekleme hizmeti bağlantı kurmak ve yedekleme başlatmak için Azure Klasik Vm'leri aracıyı kaydedilmelidir
+
+#### <a name="solution"></a>Çözüm
+
+VM Konuk aracısının yükledikten sonra Azure PowerShell'i başlatın <br>
+1. Azure hesabı kullanarak oturum açma <br>
+       `Login-AzureAsAccount`<br>
+2. Sanal makinenin ProvisionGuestAgent özelliği True olarak aşağıdaki komutlar tarafından ayarlanmış olup olmadığını doğrulayın <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Özelliği FALSE olarak ayarlanmışsa, TRUE olarak ayarlamak için komutları aşağıdaki izleyin<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. VM güncelleştirmek için aşağıdaki komutu çalıştırın <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Yedekleme başlatmayı deneyin. <br>
+
 

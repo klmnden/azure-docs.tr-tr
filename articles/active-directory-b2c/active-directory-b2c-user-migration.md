@@ -4,7 +4,7 @@ description: "Temel ve Gelişmiş kavramları grafik API'sini kullanarak ve iste
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,17 +14,23 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
+<<<<<<< HEAD
 ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
 ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Kullanıcı Geçişi
 Azure Active Directory B2C, kimlik sağlayıcısı geçirirken (Azure AD B2C) de gerekebilir kullanıcı hesabını geçirin. Bu makalede, var olan kullanıcı hesaplarını herhangi kimlik sağlayıcısından Azure AD B2C'ye geçirme açıklanmaktadır. Makaleyi Düzenleyici olmasını değildir ancak bunun yerine, iki çeşitli yaklaşımlar açıklar. Geliştirici, her iki yaklaşımın uygunluğuna sorumludur.
 
 ## <a name="user-migration-flows"></a>Kullanıcı Geçiş akışlar
-Azure AD B2C ile kullanıcılara geçirebilirsiniz [grafik API'si](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Kullanıcı Geçiş işlemi iki akar döner:
+Azure AD B2C ile kullanıcılara geçirebilirsiniz [grafik API'si](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Kullanıcı Geçiş işlemi iki akar döner:
 
 * **Geçiş öncesi**: ya da bir kullanıcının kimlik bilgilerini (kullanıcı adı ve parola) Temizle erişiminiz olması veya kimlik bilgileri şifrelenir, ancak bunların şifrelerini çözmek için bu akış geçerlidir. Geçiş öncesi işlemleri, eski kimlik sağlayıcısı'ndan kullanıcıların okuma ve Azure AD B2C dizini içinde yeni hesaplar oluşturma içerir.
 
@@ -100,7 +106,7 @@ Okuma ve yazma dizin veri izinlerini yapmak *değil* kullanıcıların silip hak
 > Bir B2C Kiracı yönetici hesabı kullanmanız gerekir *yerel* B2C kiracısına. Hesap adı sözdizimi  *admin@contosob2c.onmicrosoft.com* .
 
 >[!NOTE]
-> Aşağıdaki PowerShell betiğini gerektirir [Azure Active Directory PowerShell sürüm 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> Aşağıdaki PowerShell betiğini gerektirir [Azure Active Directory PowerShell sürüm 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 Bu PowerShell komut dosyasında, aşağıdakileri yapın:
 1. Çevrimiçi hizmetiniz bağlayın. Bunu yapmak için çalıştırmanız `Connect-AzureAD` cmdlet Windows PowerShell komut isteminde ve kimlik bilgilerinizi sağlayın. 
@@ -148,7 +154,7 @@ JSON dosyasının düzenlemek için açın `AADB2C.UserMigration.sln` Visual Stu
 ![Kullanıcı veri dosyası](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Gördüğünüz gibi dosya kullanıcı varlıkları listesini içerir. Her kullanıcı varlık aşağıdaki özelliklere sahiptir:
-* E-posta
+* e-posta
 * Görünen adı
 * FirstName
 * Soyadı
@@ -278,7 +284,7 @@ Parola değiştirme izlemek için bir Azure tablosu kullanın. Geçiş öncesi s
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>4.2. adım: web uygulamanızı Azure App Service'e dağıtma
-Azure App Service API hizmetinizi yayımlayın. Daha fazla bilgi için bkz: [uygulamanızı Azure App Service'e dağıtma](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Azure App Service API hizmetinizi yayımlayın. Daha fazla bilgi için bkz: [uygulamanızı Azure App Service'e dağıtma](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>4.3. adım: ilkeniz için bir teknik profili ve teknik profili doğrulama ekleme 
 1. Çalışma dizininizi açın *TrustFrameworkExtensions.xml* uzantı ilke dosyası. 
@@ -384,7 +390,7 @@ Görüntüleyebileceğiniz ve günlük kaydı bilgilerini neredeyse gerçek zama
 
 6. RESTful API'si çıktısını denetleyin.
 
-Daha fazla bilgi için bkz: [akış günlükleri ve konsol](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Daha fazla bilgi için bkz: [akış günlükleri ve konsol](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Tanılama günlüklerini yalnızca geliştirme ve sınama sırasında kullanın. RESTful API'si çıkış üretimde gösterilmemesi gizli bilgiler içerebilir.

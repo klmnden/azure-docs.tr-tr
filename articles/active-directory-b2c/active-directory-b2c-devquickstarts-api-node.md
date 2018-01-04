@@ -4,7 +4,7 @@ description: "B2C kiracısından belirteç kabul eden bir Node.js web API'si olu
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a0249f2f7dfd76d89cbf497376f53fe06c250c3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -48,8 +48,6 @@ Daha sonra, B2C dizininizde Azure AD'ye uygulamanız ile güvenli şekilde ileti
 * **Yanıt URL'si** olarak `http://localhost/TodoListService` adresini girin. Bu URL, bu kod örneği için varsayılan URL'dir.
 * Uygulamanız için bir **Uygulama gizli anahtarı** oluşturun ve bunu kopyalayın. Bu veriler daha sonra gerekli olacaktır. Kullanmadan önce bu değerin [XML kaçışlı](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) olması gerektiğini unutmayın.
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Bu veriler daha sonra gerekli olacaktır.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
 Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama iki kimlik deneyimi içerir: kaydolma ve oturum açma. Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy) tanımlanan şekilde bir ilke oluşturmanız gerekir.  Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:

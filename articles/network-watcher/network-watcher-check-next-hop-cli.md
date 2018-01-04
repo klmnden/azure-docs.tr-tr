@@ -14,16 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
+<<<<<<< HEAD
 ms.openlocfilehash: c865793190e6079227ca093a018b0a6f98528d4f
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: fb4a24fd758ad4b7231364f3ee7d56a9a2dbccb1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Hangi bir sonraki atlama türü sonraki atlama yetenek Azure CLI 2.0 kullanan Azure Ağ İzleyicisi içinde kullandığını bulmak
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-check-next-hop-portal.md)
+> - [Azure portalı](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -33,7 +39,7 @@ Sonraki atlama özelliğini get sonraki atlama türü ve belirtilen bir sanal ma
 
 Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu, kaynak yönetimi için dağıtım modelini, Azure CLI 2.0 bizim nesil CLI kullanılmaktadır.
 
-Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -60,7 +66,7 @@ az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNa
 > [!NOTE]
 Birden çok NIC VM varsa ve IP iletimini herhangi NIC'ler, daha sonra NIC parametre etkinse (-ı NIC-ID) belirtilmelidir. Aksi takdirde isteğe bağlıdır.
 
-## <a name="review-results"></a>Sonuçları gözden geçirin
+## <a name="review-results"></a>Sonuçları gözden geçirme
 
 Tamamlandığında, sonuçları sağlanır. Sonraki atlama IP adresi bu kaynak türü yanı sıra döndürülür.
 
@@ -77,12 +83,12 @@ Aşağıdaki liste, şu anda kullanılabilir NextHopType değerleri gösterir:
 **Sonraki atlama türü**
 
 * Internet
-* Değerinin VirtualAppliance
+* VirtualAppliance
 * VirtualNetworkGateway
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* None
+* Hiçbiri
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -4,7 +4,7 @@ description: "Rolleri listeleme, rol atama ve rol atamalarını silme de dahil o
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: d7b11df21650b5cb27f9c3dd8306f8d12664185e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 631274ec57586a777df8ee07a18b0ad72b905222
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Rol Tabanlı Access Control’ü Azure PowerShell İle Yönetme
 > [!div class="op_single_selector"]

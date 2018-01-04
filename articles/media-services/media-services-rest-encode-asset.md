@@ -12,13 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
+<<<<<<< HEAD
 ms.openlocfilehash: 1622149009a37b864e84caa158da960ccc03ca65
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
+=======
+ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Medya Kodlayıcı standart kullanarak bir varlık kodlama
 > [!div class="op_single_selector"]
@@ -52,18 +58,13 @@ Medya işlemcileri başvuran başlamadan önce doğru medya sahip olduğunuzu do
 
 AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
-
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Bir işi ile tek bir kodlama görev oluşturma
 > [!NOTE]
 > Media Services REST API ile çalışırken, aşağıdaki maddeler geçerlidir:
 >
 > Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 >
-> Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir. AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md).
->
-> JSON kullanarak ve kullanmak için belirterek **__metadata** istekte anahtar sözcüğü (örneğin, bağlantılı nesne başvurular), ayarlamanız gerekir **kabul** başlığına [JSON Verbose biçimi](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Kabul: uygulama/json; odata = verbose.
+> Zaman JSON kullanarak ve kullanmak için belirterek **__metadata** anahtar sözcüğü (örneğin, için başvuru bağlantılı nesne) istekte ayarlamalısınız **kabul** başlığına [JSON Verbose biçimi](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Kabul: uygulama/json; odata = verbose.
 >
 >
 
@@ -76,7 +77,7 @@ Aşağıdaki örnekte nasıl oluşturulacağı ve bir video kalitesini ve belirl
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
@@ -95,7 +96,7 @@ Aşağıdaki örnek assetName özniteliği gösterilmektedir:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-* TaskBody özellikleri değişmez değer XML giriş sayısını tanımlamak veya görev tarafından kullanılan varlıklar çıktı için kullanmanız gerekir. Görev konusu XML şema tanımı için XML içeriyor.
+* TaskBody özellikleri değişmez değer XML giriş sayısını tanımlamak veya görev tarafından kullanılan varlıklar çıktı için kullanmanız gerekir. Görev makaleyi XML şema tanımı için XML içeriyor.
 * TaskBody tanımı'nda her iç değeri için <inputAsset> ve <outputAsset> JobInputAsset(value) veya JobOutputAsset(value) ayarlanması gerekir.
 * Bir görev, birden fazla çıkış varlığına sahip olabilir. Bir JobOutputAsset(x) yalnızca bir kez bir görevin bir İşte bir çıkış olarak kullanılabilir.
 * Bir görev bir giriş varlık JobInputAsset veya JobOutputAsset belirtebilirsiniz.
@@ -118,7 +119,7 @@ Birçok uygulama senaryolarda, geliştiricilerin bir dizi görevleri işleme olu
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -162,7 +163,7 @@ Aşağıdaki örnek OData toplu işleme iş ve görev oluşturma için nasıl ku
     Accept: multipart/mixed
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
@@ -182,7 +183,7 @@ Aşağıdaki örnek OData toplu işleme iş ve görev oluşturma için nasıl ku
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -199,7 +200,7 @@ Aşağıdaki örnek OData toplu işleme iş ve görev oluşturma için nasıl ku
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {  
@@ -223,7 +224,7 @@ Aşağıdaki örnek, satır içi olarak tanımlanan bir TaskTemplate ile bir Job
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 
@@ -250,7 +251,7 @@ Aşağıdaki örnek JobTemplate kimliği başvuran bir iş oluşturulacağını 
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 

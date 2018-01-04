@@ -4,7 +4,7 @@ description: "Azure Active Directory'ye eşitlenen öznitelikler listelenmiştir
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect eşitleme: öznitelikleri eşitlenmiş Azure Active Directory'ye
 Bu konuda, Azure AD Connect eşitleme tarafından eşitlenen öznitelikler listelenir.  
@@ -83,7 +83,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | givenName |X |X | | |
 | HomePhone |X |X | | |
 | bilgileri |X |X |X |Bu özellik şu anda grupları için kullanılmaz. |
-| baş harfleri |X |X | | |
+| Baş harfleri |X |X | | |
 | m |X |X | | |
 | LegacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -248,7 +248,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | thumbnailphoto |X |X | | |
 | Başlık |X |X | | |
 | unauthOrig |X |X |X | |
-| URL |X |X | | |
+| url |X |X | | |
 | usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans atama için kullanılır. |
 | userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
 | wWWHomePage |X |X | | |

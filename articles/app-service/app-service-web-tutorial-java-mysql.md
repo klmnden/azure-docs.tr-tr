@@ -15,13 +15,25 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 8b8d7b026973de9dee6c834404f2ed80b2c9ad21
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
+=======
+ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/15/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Azure'da Java ve MySQL bir web uygulaması oluşturma
+
+> [!NOTE]
+> Bu makalede Windows App Service'e bir uygulama dağıtır. Uygulama hizmeti dağıtım _Linux_, bakın [kapsayıcılı yay önyükleme uygulama Azure'a dağıtma](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+>
 
 Bu öğretici bir Java web uygulaması oluşturma ve MySQL veritabanına bağlanmak nasıl gösterir. İşiniz bittiğinde, olacaktır bir [yay önyükleme](https://projects.spring.io/spring-boot/) veri depolarken uygulama [Azure veritabanı için MySQL](https://docs.microsoft.com/azure/mysql/overview) üzerinde çalışan [Azure App Service Web Apps](app-service-web-overview.md).
 

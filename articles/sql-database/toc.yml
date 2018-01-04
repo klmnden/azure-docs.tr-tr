@@ -60,9 +60,8 @@
 - name: Kavramlar
   items:
     - name: Hizmet özellikleri
+      href: sql-database-servers-databases.md
       items:
-        - name: Genel Bakış
-          href: sql-database-servers-databases.md
         - name: Hizmet katmanları
           href: sql-database-service-tiers.md
         - name: Kaynak sınırları
@@ -106,9 +105,8 @@
         - name: SQL Server genel özellikleri
           href: sql-database-features.md
     - name: Güvenlik
+      href: sql-database-security-overview.md
       items:
-        - name: Genel Bakış
-          href: sql-database-security-overview.md
         - name: Erişim denetimi
           href: sql-database-control-access.md
         - name: Azure AD
@@ -121,10 +119,11 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Veri maskeleme
           href: sql-database-dynamic-data-masking-get-started.md
+    - name: Yüksek kullanılabilirlik
+      href: sql-database-high-availability.md
     - name: İş sürekliliği
+      href: sql-database-business-continuity.md
       items:
-        - name: Genel Bakış
-          href: sql-database-business-continuity.md
         - name: Veritabanı kurtarma
           href: sql-database-recovery-using-backups.md
         - name: Güvenliği yapılandırma
@@ -140,9 +139,8 @@
         - name: Kurtarma tatbikatı gerçekleştirme
           href: sql-database-disaster-recovery-drills.md
     - name: SQL Veritabanına geçiş
+      href: sql-database-cloud-migrate.md
       items:
-        - name: SQL Server DB’yi geçirme
-          href: sql-database-cloud-migrate.md
         - name: T-SQL değişiklikleri
           href: sql-database-transact-sql-information.md
         - name: Geçişten sonra veritabanını yönetme
@@ -158,9 +156,8 @@
         - name: Veri eşitleme
           href: sql-database-sync-data.md
     - name: İzleme ve ayarlama
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: Genel Bakış
-          href: sql-database-troubleshoot-performance.md
         - name: Performans izleme
           href: sql-database-single-database-monitor.md
         - name: Performans önerileri
@@ -180,9 +177,8 @@
         - name: Bellek içi izleme
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Ölçeği genişletme
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: Genel Bakış
-          href: sql-database-elastic-scale-introduction.md
         - name: Parça eşlemeleri
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Sorgu yönlendirme
@@ -220,9 +216,8 @@
         - name: Bellek içi yapılandırma
           href: sql-database-in-memory-oltp-migration.md
     - name: Uygulamaları geliştirme
+      href: sql-database-develop-overview.md
       items:
-        - name: Genel Bakış
-          href: sql-database-develop-overview.md
         - name: Bağlantı
           href: sql-database-libraries.md
         - name: Uygulamanın kimliğini doğrulama

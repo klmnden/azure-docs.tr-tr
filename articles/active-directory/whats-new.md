@@ -4,7 +4,7 @@ description: "Azure Active en son sürüm notları, bilinen sorunlar, hata düze
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 408e1680e7aee13663bb6511e65fd5685eb7d518
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
 
 
 
-> Bu abone olarak Azure Active Directory'de yenilikler ile güncel kalmasını [akış](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) bir RSS Okuyucu sık kullanılan olarak.
+> Abone tarafından Azure Active Directory'de yenilikler ile güncel kalmasını bizim ![RSS](./media/whats-new/feed-icon-16x16.png) [akış](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
@@ -41,6 +41,163 @@ Biz, sürekli olarak Azure Active Directory geliştirme. En son gelişmeler ile 
 
 Lütfen bu sayfayı yeniden ziyaret biz aylık olarak güncelleştirdiğiniz gibi düzenli olarak.
 
+
+## <a name="december-2017"></a>Aralık 2017
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>Son kullanıcıların erişim panelinde kullanım koşulları
+
+**Tür:** yeni özellik  
+**Hizmet kategorisi:** kullanım koşulları  
+**Ürün yeteneği:** idare/uyumluluk
+ 
+Son kullanıcılar, artık erişim Masası'na gidin ve daha önce kabul eden kullanım koşullarını görüntülemek için sahipsiniz.
+
+Kullanıcılar, kabul ettikleri kullanım koşullarını gözden geçirip inceleyebilir. Bu işlem, aşağıdaki yordam kullanılarak yapılabilir:
+
+1. Gidin ve oturum bileşenini [MyApps portal](https://myapps.microsoft.com).
+
+2. Sağ üst köşede adınıza tıklayın ve açılır menüden **Profil**’i seçin. 
+
+3. Profilinizde **Kullanım koşullarını gözden geçir**’e tıklayın. 
+
+4. Kabul ettiğiniz kullanım koşullarını burada gözden geçirebilirsiniz. 
+
+Daha fazla bilgi için bkz: [Azure Active Directory kullanım koşulları özelliği (Önizleme)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>Yeni Azure AD oturum açma deneyimi
+
+**Tür:** yeni özellik  
+**Hizmet kategorisi:** Azure AD  
+**Ürün yeteneği:** kullanıcı kimlik doğrulaması
+ 
+Azure yakınsamaya gezisine bir parçası olarak AD ve Microsoft hesabı kimlik sistemleri, böylece tutarlı bir görünüm sahip biz hem sistemlerde UI yeniden tasarlanmıştır. Ayrıca, böylece kullanıcı adı ilk olarak, ikinci bir ekranda kimlik bilgisi tarafından izlenen topladığımız biz Azure AD oturum açma sayfasında anlatır.
+
+Daha fazla bilgi için bkz: [yeni Azure AD oturum açma deneyimi artık genel önizlemede değil](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>Daha az sayıda oturum açma istekleri: Azure AD oturum açma için yeni "Oturumumu açık bırak" bir deneyimi
+
+**Tür:** yeni özellik  
+**Hizmet kategorisi:** Azure AD  
+**Ürün yeteneği:** kullanıcı kimlik doğrulaması
+ 
+Biz değiştirilen **Oturumumu açık bırak** başarıyla gösterir sonra kullanıcı yeni bir İstemi ile Azure AD oturum açma sayfasında onay kimliğini doğrular. 
+
+Bir kullanıcı yanıtlarsa **Evet** bu komut istemini hizmeti bunları kalıcı yenileme belirteci sağlar. Kullanıcı ne zaman denetler olarak aynı davranışı budur **Oturumumu açık bırak** eski deneyimi onay kutusu. Kullanıcı başarıyla Federasyon Hizmeti ile kimlik doğrulaması yaptıktan sonra Federasyon kiracıları için bu istemi gösterir.
+
+Daha fazla bilgi için bkz: [daha az sayıda oturum açma istekleri: Azure AD için yeni "Oturumumu açık bırak" deneyimi önizlemede değil](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>Kabul etmeden önce genişletilecek TOU gerektirecek şekilde yapılandırma ekleyin.
+
+**Tür:** yeni özellik  
+**Hizmet kategorisi:** kullanım koşulları  
+**Ürün yeteneği:** idare
+ 
+Koşulları kabul etmeden önce kullanım koşullarını genişletmek için kendi son kullanıcıları gerektirecek şekilde yöneticileri için bir seçenek şimdi ekledik.
+
+Ya da açmak veya kapatmak için seçin kullanım koşullarını genişletmek kullanıcıların gerektirir. Bu seçenek açık olarak ayarlanırsa, son kullanıcıların kullanım şartlarını kabul etmeden önce görüntülemesi gerekir.
+
+Daha fazla bilgi için bkz: [Azure Active Directory kullanım koşulları özelliği (Önizleme)](active-directory-tou.md)
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>Uygun rol atamaları için kapsamlı etkinleştirme
+
+**Tür:** yeni özellik  
+**Hizmet kategorisi:** Privileged Identity Management  
+**Ürün yeteneği:** Privileged Identity Management
+ 
+Kapsamlı etkinleştirme uygun Azure kaynak rol atamalarını özgün atama varsayılan değerinden daha az otonomisi ile etkinleştirmek sağlar. Örneğin, bir aboneliğin sahibi, kiracınızda atanır. Kapsamlı etkinleştirme ile abonelik içinde yer alan en fazla beş kaynaklar için sahibi etkinleştirebilirsiniz (kaynak grupları, sanal makineler, vb. düşünün...). Etkinleştirme kapsamı kritik Azure kaynaklarına istenmeyen değişiklikler Yürütülüyor olasılığını azaltabilir.
+
+Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management nedir?](active-directory-privileged-identity-management-configure.md).
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>Azure AD uygulama galerisinde yeni Federal apps
+
+**Tür:** yeni özellik  
+**Hizmet kategorisi:** Kurumsal uygulamaları  
+**Ürün yeteneği:** 3 taraf tümleştirme
+ 
+Aralık 2017 bizim uygulama galerisinde Federasyon ile aşağıdaki yeni uygulamaları desteği ekledik:
+
+|Ad|Tümleştirme türü|Açıklama|
+|:-- |----------------|:----------|
+|EFI dijital mağaza|SAML 2.0|[Web 2 yazdırma uygulama](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Kullanıcı erişimini yönetmek ve Vodeclic ile çoklu oturum açmayı etkinleştirmek için Azure AD kullanmak](https://go.microsoft.com/fwlink/?linkid=863522).  Varolan Vodeclic hesabı gerektirir.|
+|Accredible|SAML 2.0|[Oluşturma, yönetme ve sertifikalar, Göstergeler ve blockchain kimlik bilgilerini sunar](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[Çoklu oturum açma FactSet'ın FDSWeb uygulama](https://go.microsoft.com/fwlink/?linkid=863525)|
+|MobileIron Azure AD tümleştirme|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) görev olan son kullanıcı gizlilik ve güven korurken mobil ve bulut hareket ederken bilgilerini yönetmek ve güvenli modern edebilmesini sağlamak üzere.|
+|GÖRÜNTÜ ÇALIŞIR|SAML 2.0|Kullanıcı erişimini yönetmek, kullanıcı hesapları sağlama ve çoklu oturum açma ile etkinleştirmek için Azure AD kullanmak [görüntü WORKS](https://go.microsoft.com/fwlink/?linkid=863517). Varolan bir görüntü WORKS aboneliği gerektirir.|
+|SAML SSO GmbH çözünürlüğün Bitbucket için|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) temsilciler kimlik doğrulaması Azure ad, zaten Azure AD ile oturum açan kullanıcıların erişebileceği Bitbucket doğrudan. Kullanıcıların oluşturulabilir ve üzerinde-çalışma sırasında SAML öznitelikleri verilerle güncelleştirilir.|
+|SAML SSO GmbH çözünürlüğün Bambu için|SAML 2.0|[SSO Bambu](https://go.microsoft.com/fwlink/?linkid=863520) temsilciler kimlik doğrulaması Azure ad, zaten Azure AD ile oturum açan kullanıcıların erişebileceği Bambu doğrudan.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) çalışanlarınızın ve işinizin destekler, modern, tam özellikli sosyal intranet yazılımdır.|
+|MOBI|SAML 2.0|[Kavrama ve tüm aygıt ekosistemi kontrol merkezileştirmenizi](https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) bir modern performans yönetimi, gerçek zamanlı geri bildirim ve hedef belirleme platformudur. Biz, çalışanların kendi geliştirme daha stratejik şekilde sürücü elinizde tutun.|
+|CybSafe|Openıd Connect & OAuth|CybSafe GCHQ onaylı siber tanıma platformudur. Bu Gelişmiş teknoloji ve veri analizi demonstrably İnsan en boy siber güvenlik ve veri koruma riski azaltmak için kullanır.|
+|WebHR|Openıd Connect & OAuth|Herkesin sık kullanılan hepsi bir arada sosyal HR yazılım. 197 ülkede üzerinde 20.000 şirketler tarafından güvenilen|
+ |Zenegy Azure AD tümleştirme|Openıd Connect & OAuth|Bu uygulama ile Zenegy oturum şirketinizin Azure Active Directory kimlik bilgilerini kullanabilirsiniz.|
+|Adobe deneyimi Yöneticisi|SAML 2.0|Adobe deneyimi Yöneticisi (AEM), Web siteleri, mobil uygulamaları ve pazarlama içeriği ve varlıkları Yönet kolaylaşır forms - oluşturmaya yönelik kapsamlı bir içerik yönetim platformu çözüm programıdır.|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Azure AD directory rolleri onay iş akışları
+
+**Tür:** değiştirilen özelliği  
+**Hizmet kategorisi:** Privileged Identity Management  
+**Ürün yeteneği:** Privileged Identity Management
+ 
+Azure AD directory rolleri için onay iş akışı genel kullanıma açıktır.
+
+Onay iş akışıyla ayrıcalıklı rol Yöneticiler ayrıcalıklı rol kullanmadan önce uygun Rol üyeleri rol etkinleştirme isteği gerektirebilir.
+Birden çok kullanıcı ve grupları temsilci onay sorumlulukları onayı tamamlamak ve rolleri etkin olduğunda uygun Rol üyeleri bildirimlerin olabilir
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>Doğrudan kimlik doğrulama - Skype iş desteği
+
+**Tür:** değiştirilen özelliği  
+**Hizmet kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün yeteneği:** kullanıcı kimlik doğrulaması
+
+
+Şimdi doğrudan kimlik doğrulama kullanıcı oturum açma işlemlerine Skype çevrimiçi & karma topolojiler de dahil olmak üzere, modern kimlik doğrulamasını desteklemek için iş istemci uygulamaları destekler. 
+
+Daha fazla bilgi için bkz: [Skype Kurumsal topolojileri Modern kimlik doğrulaması ile desteklenen](https://technet.microsoft.com/library/mt803262.aspx).
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>Güncelleştirmeler için Azure Active Directory ayrıcalıklı Kimlik Yönetimi (PIM) için Azure RBAC (Önizleme)
+
+**Tür:** değiştirilen özelliği  
+**Hizmet kategorisi:** PIM  
+**Ürün yeteneği:** Privileged Identity Management
+ 
+Bizim genel Önizleme yenileme, Azure Active Directory ayrıcalıklı Kimlik Yönetimi (PIM ile) Azure RBAC için şunları yapabilirsiniz:
+
+Kaynak rolleri etkinleştirmek için yalnızca yönetim yeterince gerektiren onayı kullanın zamanlama hem aad onay gerektiren bir rolü ve Azure RBAC rollerinin gelecekteki etkinleştirme
+
+ 
+Daha fazla bilgi için bkz: [PIM için Azure kaynaklarını (Önizleme)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+
+ 
+---
+ 
 ## <a name="november-2017"></a>Kasım 2017
  
 ### <a name="retiring-acs"></a>ACS devre dışı bırakma
@@ -513,6 +670,6 @@ Düzeltme paketi (yapı 4.4.1642.0) itibariyle 25 Eylül 2017 Microsoft Identity
 - Microsoft Identity Manager 2016 için yapı 4.4.1459.0 kadar tüm MIM 2016 SP1 güncelleştirmeleri değiştirir birikmeli bir güncelleştirmedir. 
 - Sahip olmanızı gerektirir **Microsoft Identity Manager 2016 4.4.1302.0 oluşturun.** 
 
-Daha fazla bilgi için bkz: [düzeltme paketi (yapı 4.4.1642.0) için Microsoft Identity Manager 2016 SP1 kullanılabilir](https://support.microsoft.com/en-us/help/4021562). 
+Daha fazla bilgi için bkz: [düzeltme paketi (yapı 4.4.1642.0) için Microsoft Identity Manager 2016 SP1 kullanılabilir](https://support.microsoft.com/help/4021562). 
 
 ---

@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Anında iletme bildirimleri ile Azure Notification Hubs: sık sorulan sorular
 ## <a name="general"></a>Genel
@@ -124,7 +124,7 @@ Anında iletme bildirimleri (bir dış, platforma özgü PNS tarafından teslim 
 #### <a name="pns-credentials"></a>PNS kimlik bilgileri
 Uygulama tanımlayıcısı ve güvenlik belirteçleri (örneğin, Apple veya Google) bir platformun Geliştirici Portalı ile mobil uygulama kaydedildikten sonra gönderilir. Uygulama arka uç platformun PNS bu belirteçleri sunar, böylece cihazlara anında iletme bildirimleri gönderilebilir. Güvenlik belirteçleri, sertifikaları (örneğin, Apple iOS veya Windows Phone) veya güvenlik anahtarları (örneğin, Google Android veya Windows) biçiminde olabilir. Bildirim hub'ları yapılandırılmalıdır. Yapılandırma, tipik olarak bildirim hub'ı düzeyinde yapılır, ancak çok müşterili bir senaryoda ad alanı düzeyinde de yapılabilir.
 
-#### <a name="namespaces"></a>ad alanları
+#### <a name="namespaces"></a>Ad Alanları
 Ad alanları dağıtım gruplandırma için kullanılabilir. Çok kiracılı bir senaryoda aynı uygulamanın tüm kiracılar için tüm bildirim hub'ları temsil etmek için de kullanılabilir.
 
 #### <a name="geo-distribution"></a>Coğrafi dağılımı
@@ -179,14 +179,14 @@ Hedef cihazlarda uygulama başlatıldığında bir arka uç yoksa, ikincil bildi
 Açılmamış uygulamalar içeren cihazları bildirimleri zaman almazsınız bir zaman dilimi olacaktır.
 
 ### <a name="is-there-audit-log-capability"></a>Denetim günlüğü özelliği var mı?
-Sunulan işlem günlükleri tüm bildirim hub'ları yönetim işlemlerinin Git [Klasik Azure portalı].
+Sunulan işlem günlükleri tüm bildirim hub'ları yönetim işlemlerinin Git [Azure portal].
 
 ## <a name="monitoring-and-troubleshooting"></a>İzleme ve sorun giderme
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Sorun giderme hangi özellikler sağlanıyor?
 Azure bildirim hub'ları, özellikle en yaygın senaryo bırakılan bildirimler için sorun giderme için birçok özellik sağlar. Ayrıntılar için bkz [bildirim hub'ları sorun giderme] teknik incelemesi.
 
 ### <a name="what-telemetry-features-are-available"></a>Hangi telemetri özellikler sağlanıyor?
-Telemetri verileri görüntüleme azure Notification Hubs etkinleştirir [Klasik Azure portalı]. Ölçümleri ayrıntılarını bulunur [bildirim hub'ları ölçümleri] sayfası.
+Telemetri verileri görüntüleme azure Notification Hubs etkinleştirir [Azure portal]. Ölçümleri ayrıntılarını bulunur [bildirim hub'ları ölçümleri] sayfası.
 
 > [!NOTE]
 > Başarılı bildirimler yalnızca anında iletme bildirimleri (örneğin, APNS için Apple) veya GCM için Google dış PNS için teslim edilmediği anlamına gelir. Hedef aygıtlara bildirimleri göndermeyi PNS sorumluluğundadır. Genellikle, PNS teslim ölçümleri üçüncü taraflara kullanıma sunmuyor.  
@@ -195,7 +195,7 @@ Telemetri verileri görüntüleme azure Notification Hubs etkinleştirir [Klasik
 
 Telemetri verileri programlı olarak (standart katman) verme özelliği de sunuyoruz. Ayrıntılar için bkz [bildirim hub'ları ölçümleri örnek].
 
-[Klasik Azure portalı]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [bildirim hub'ları fiyatlandırması]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Örnek olay incelemesi: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942

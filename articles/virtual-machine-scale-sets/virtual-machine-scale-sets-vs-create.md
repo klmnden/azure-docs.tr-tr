@@ -3,8 +3,8 @@ title: "Visual Studio kullanarak sanal makine ölçek kümesi dağıtma | Micros
 description: "Visual Studio ve Resource Manager şablonu kullanarak sanal makine ölçek kümeleri dağıtma"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio ile bir sanal makine ölçek kümesi oluşturma
 Bu makalede, bir Azure sanal makine ölçek bir Visual Studio kaynak grubu dağıtımı kullanarak kümesi dağıtma gösterilmektedir.
@@ -75,7 +75,7 @@ Yük Dengeleyici SSH (Linux) veya RDP (Windows) ile VM örnekleri bağlanmanıza
 
 3. Buradan, şablonu dağıtmak için Azure kaynak grubu oluşturabilirsiniz.
    
-    ![Yeni kaynak grubu][new_resource]
+    ![Yeni Kaynak Grubu][new_resource]
 
 4. Bundan sonra öğesini **parametreleri Düzenle** şablonunuza geçirilen parametreler girmek üzere. Dağıtımı oluşturmak için gerekli olan işletim sistemi için kullanıcı adı ve parola sağlayın. Visual Studio yüklüyse PowerShell araçları yoksa denetlemek için önerilir **parolaları kaydetme** gizli bir PowerShell komut satırı istemi önlemenize veya kullanmak için [keyvault Destek](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
    

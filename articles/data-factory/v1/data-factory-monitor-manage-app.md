@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>İzleme ve Azure Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetme
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ Etkinlik pencerelerine aşağıdaki durumlardan biri olabilir:
 <td>ActivityResume</td><td>Etkinlik duraklatıldı ve sürdürülene kadar etkinlik windows çalıştıramaz.</td>
 </tr>
 <tr>
-<td>Yeniden deneyin</td><td>Etkinlik yürütme yeniden deneniyor.</td>
+<td>Yeniden Dene</td><td>Etkinlik yürütme yeniden deneniyor.</td>
 </tr>
 <tr>
 <td>Doğrulama</td><td>Doğrulama henüz başlatılmadı.</td>
@@ -189,13 +189,13 @@ Etkinlik pencerelerine aşağıdaki durumlardan biri olabilir:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Devam ediyor</td><td>Doğrulama</td><td>Doğrulama devam ediyor.</td>
+<td rowspan="2">İlerliyor</td><td>Doğrulanıyor</td><td>Doğrulama devam ediyor.</td>
 </tr>
 <td>-</td>
 <td>Etkinlik penceresinin işleniyor.</td>
 </tr>
 <tr>
-<td rowspan="4">Başarısız oldu</td><td>Süresi sona erdi</td><td>Etkinlik yürütme etkinlik tarafından izin daha uzun sürdü.</td>
+<td rowspan="4">Başarısız</td><td>Süresi sona erdi</td><td>Etkinlik yürütme etkinlik tarafından izin daha uzun sürdü.</td>
 </tr>
 <tr>
 <td>İptal edildi</td><td>Etkinlik penceresinin kullanıcı eylemi tarafından iptal edildi.</td>
@@ -324,10 +324,10 @@ Aşağıdaki tabloda kullanılabilir olayları ve durumları (ve alt durumlar) l
 
 | Olay adı | Durum | Alt durum |
 | --- | --- | --- |
-| Başlatılan Çalıştır etkinliği |başlatıldı |Başlangıç |
+| Başlatılan Çalıştır etkinliği |Başlatıldı |Başlangıç |
 | Tamamlanan etkinlik |Başarılı oldu |Başarılı oldu |
-| Tamamlanan etkinlik |Başarısız oldu |Başarısız olan kaynak ayırma<br/><br/>Başarısız yürütme<br/><br/>Zaman aşımına uğradı<br/><br/>Başarısız doğrulamayı<br/><br/>terk |
-| İsteğe bağlı HDI kümesi oluşturma başlatıldı |başlatıldı |-|
+| Tamamlanan etkinlik |Başarısız |Başarısız olan kaynak ayırma<br/><br/>Başarısız yürütme<br/><br/>Süresi Doldu<br/><br/>Başarısız doğrulamayı<br/><br/>terk |
+| İsteğe bağlı HDI kümesi oluşturma başlatıldı |Başlatıldı |-|
 | İsteğe bağlı HDI kümesi başarıyla oluşturuldu |Başarılı oldu |-|
 | İsteğe bağlı HDI kümesi silindi |Başarılı oldu |-|
 

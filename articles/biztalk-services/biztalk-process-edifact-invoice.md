@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Öğretici: Azure BizTalk Services kullanarak işlem EDIFACT faturalar
 
@@ -55,7 +55,7 @@ Senaryonun tamamlanması için Service Bus kuyruklarını fatura Contoso Northwi
 
 ## <a name="prerequisites"></a>Ön koşullar
 * Hizmet veri yolu ad alanı olması gerekir. Bir ad alanı oluşturma ile ilgili yönergeler için bkz: [nasıl yapılır: oluşturmak veya bir hizmet veri yolu hizmet Namespace değiştirmek](https://msdn.microsoft.com/library/azure/hh674478.aspx). Bize sağlanan, bir hizmet veri yolu ad alanı zaten sahip olduğunuzu varsaymaktadır adlı **edifactbts**.
-* BizTalk Services aboneliğinizin olması gerekir. Yönergeler için bkz: [Klasik Azure portalını kullanarak BizTalk hizmeti oluşturma](http://go.microsoft.com/fwlink/?LinkID=302280). Bu öğretici için bize adlı bir BizTalk Services abonelik olduğunu varsayın **contosowabs**.
+* BizTalk Services aboneliğinizin olması gerekir. Bu öğretici için bize adlı bir BizTalk Services abonelik olduğunu varsayın **contosowabs**.
 * BizTalk Hizmetleri aboneliğinize BizTalk Hizmetleri portalındaki kaydedin. Yönergeler için bkz: [bir BizTalk hizmeti dağıtımı BizTalk Hizmetleri portalındaki kaydetme](https://msdn.microsoft.com/library/hh689837.aspx)
 * Visual Studio yüklü olmalıdır.
 * BizTalk Services SDK'sı olması gerekir. SDK'dan gelen indirebilirsiniz [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  

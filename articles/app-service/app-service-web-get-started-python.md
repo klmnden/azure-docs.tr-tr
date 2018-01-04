@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
 ---
@@ -66,7 +66,7 @@ Yerleşik Python web sunucusunu başlatmak için bir terminal penceresi açıp v
 python main.py
 ```
 
-Bir web tarayıcısı açın ve örnek uygulamaya gidin `http://localhost:5000`.
+Bir web tarayıcısı açın ve `http://localhost:5000` konumundaki örnek uygulamaya gidin.
 
 Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
 
@@ -86,7 +86,7 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-Yeni oluşturulan web uygulamanıza göz atın. Değiştir  _&lt;uygulama adı >_ benzersiz bir uygulama adına sahip.
+Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini benzersiz bir uygulama adıyla değiştirin.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -160,7 +160,7 @@ Yerel bir metin düzenleyici kullanarak `main.py` dosyasını Python uygulaması
 return 'Hello, Azure!'
 ```
 
-Yerel terminal penceresi Git yaptığınız değişiklikleri kaydetmek ve kod değişiklikleri Azure'a gönderin.
+Yerel terminal penceresinde, değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
 
 ```bash
 git commit -am "updated output"

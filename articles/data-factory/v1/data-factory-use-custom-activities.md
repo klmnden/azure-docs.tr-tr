@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,12 +36,11 @@ ms.lasthandoff: 11/03/2017
 
 Oluştur/Veri Fabrikası desteği olmayan bir veri deposundan verileri taşımak için bir **özel etkinlik** kendi veri taşıma mantığı ve ardışık düzeninde etkinlik kullanın. Benzer şekilde, veri fabrikası tarafından desteklenmeyen bir şekilde veri dönüştürme/işlemi için kendi veri dönüştürme mantığı ile özel bir etkinlik oluşturmak ve bir ardışık düzende etkinlik kullanın. 
 
-Çalıştırmak için özel bir etkinliği yapılandırabilirsiniz bir **Azure Batch** sanal makine ya da Windows tabanlı bir havuzu **Azure Hdınsight** küme. Azure Batch kullanırken, mevcut bir Azure Batch havuzu kullanabilirsiniz. Oysa Hdınsight kullanırken, mevcut bir Hdınsight kümesine ya da otomatik olarak oluşturulan bir küme, isteğe bağlı çalışma zamanında için kullanabilirsiniz.  
+Çalıştırmak için özel bir etkinliği yapılandırabilirsiniz bir **Azure Batch** sanal makinelerin havuzu. Azure Batch kullanırken, mevcut bir Azure Batch havuzu kullanabilirsiniz.
 
-Aşağıdaki örneklerde, özel bir .NET etkinlik oluşturmak ve bir ardışık düzende özel etkinlik kullanmak için adım adım yönergeler sağlar. İzlenecek yol kullanan bir **Azure Batch** bağlı hizmeti. Bunun yerine hizmeti bağlı Azure Hdınsight kullanma, bağlı hizmet türü oluşturma **Hdınsight** (kendi Hdınsight kümenizi) veya **HDInsightOnDemand** (Data Factory oluşturduğu bir Hdınsight kümesi isteğe bağlı). Ardından, Hdınsight bağlı hizmeti kullanmak için özel etkinlik yapılandırın. Bkz: [kullanım Azure Hdınsight bağlantılı Hizmetleri](#use-hdinsight-compute-service) özel etkinliği çalıştırmak için Azure Hdınsight kullanımıyla ilgili ayrıntılar için bölüm.
+Aşağıdaki örneklerde, özel bir .NET etkinlik oluşturmak ve bir ardışık düzende özel etkinlik kullanmak için adım adım yönergeler sağlar. İzlenecek yol kullanan bir **Azure Batch** bağlı hizmeti. 
 
 > [!IMPORTANT]
-> - Özel .NET etkinlikler yalnızca Windows tabanlı Hdınsight kümelerinde çalıştırın. Geçici bir çözüm için bu sınırlama, Linux tabanlı Hdınsight kümesinde özel Java kodu çalıştırmak için azaltmak Haritası aktivitesi kullanmaktır. Bir Azure Batch havuzu VM'lerin bir Hdınsight kümesi yerine özel etkinlikleri çalıştırmak için kullandığınız başka bir seçenektir.
 > - Şirket içi veri kaynaklarına erişmek için veri yönetimi ağ geçidi özel etkinliğinden kullanmak mümkün değil. Şu anda [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) yalnızca kopyalama etkinliği ve saklı yordam etkinliği veri fabrikasında destekler.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>İzlenecek yol: özel etkinlik oluşturma
@@ -479,8 +478,6 @@ Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory�
 
        İçin **poolName** özelliği, havuzu havuzunun adı yerine Kimliğini de belirtebilirsiniz.
 
-      > [!IMPORTANT]
-      > Hdınsight için yaptığı gibi Data Factory hizmeti Azure toplu işlem için bir isteğe bağlı seçeneği desteklemiyor. Bu gibi durumlarda, kendi Azure Batch havuzu yalnızca bir Azure data factory kullanabilirsiniz.   
     
 
 ### <a name="step-3-create-datasets"></a>3. adım: veri kümeleri oluşturma
@@ -786,115 +783,6 @@ Bkz: [ölçek işlem düğümlerini Azure Batch havuzunda otomatik olarak](../..
 
 Varsayılan havuzu kullanıyorsanız [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), Batch hizmeti VM özel etkinlik çalıştırmadan önce hazırlamak için 15-30 dakika sürebilir.  Havuz farklı autoScaleEvaluationInterval kullanıyorsanız, Batch hizmeti autoScaleEvaluationInterval + 10 dakika sürebilir.
 
-## <a name="use-hdinsight-compute-service"></a>Hdınsight işlem hizmeti kullanın
-İzlenecek özel etkinliği çalıştırmak için Azure toplu işlem kullanılır. Ayrıca kendi Windows tabanlı Hdınsight kümesi kullanın veya isteğe bağlı Windows tabanlı Hdınsight kümesi oluşturmak ve Hdınsight kümesi üzerinde çalışan özel etkinlik sahip veri fabrikası sahip. Hdınsight kümesi kullanmaya yönelik üst düzey adımlar şunlardır.
-
-> [!IMPORTANT]
-> Özel .NET etkinlikler yalnızca Windows tabanlı Hdınsight kümelerinde çalıştırın. Geçici bir çözüm için bu sınırlama, Linux tabanlı Hdınsight kümesinde özel Java kodu çalıştırmak için azaltmak Haritası aktivitesi kullanmaktır. Bir Azure Batch havuzu VM'lerin bir Hdınsight kümesi yerine özel etkinlikleri çalıştırmak için kullandığınız başka bir seçenektir.
- 
-
-1. Bir Azure Hdınsight bağlı hizmeti oluşturma.   
-2. Kullanım Hdınsight bağlantılı hizmeti yerine **AzureBatchLinkedService** JSON işlem hattındaki.
-
-İzlenecek yol ile test etmek isterseniz, değiştirmek **Başlat** ve **son** böylece Azure Hdınsight hizmeti ile senaryoyu test için ardışık zaman.
-
-#### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight bağlı hizmeti oluşturma
-Azure Data Factory hizmetine bir istek üzerine küme oluşturmayı destekler ve çıktı verileri üretemedi girişi işlemek için kullanın. Kendi kümenizi, aynı gerçekleştirmek için de kullanabilirsiniz. İsteğe bağlı Hdınsight kümesi kullandığınızda, bir küme için her bir dilim oluşturulan. Oysa kendi Hdınsight kümenizi kullanırsanız, küme dilim hemen işlemek hazırdır. İsteğe bağlı küme kullandığınızda, bu nedenle, çıktı verilerini kendi kümenizi kullandığınızda, olabildiğince çabuk göremeyebilirsiniz.
-
-> [!NOTE]
-> Çalışma zamanında .NET etkinliği bir örneği yalnızca Hdınsight kümesinde bir alt düğüm üzerinde çalışır; birden çok düğümde çalıştırmak için genişletilemez. .NET etkinliği birden çok örneğini farklı Hdınsight küme düğümlerinde paralel olarak çalıştırılabilir.
->
->
-
-##### <a name="to-use-an-on-demand-hdinsight-cluster"></a>İsteğe bağlı Hdınsight kümesi kullanmak için
-1. İçinde **Azure portal**, tıklatın **geliştir ve Dağıt** Data Factory giriş sayfasında.
-2. Data Factory Düzenleyici'yi tıklatın **yeni işlem** seçin ve komut çubuğunda **isteğe bağlı Hdınsight kümesi** menüsünde.
-3. JSON betiği aşağıdaki değişiklikleri yapın:
-
-   1. İçin **clusterSize** özelliği, Hdınsight küme boyutunu belirtin.
-   2. İçin **timeToLive** özelliği, silinmeden önce ne kadar süreyle müşteri süreyle boşta kalabileceğini belirtin.
-   3. İçin **sürüm** özelliği, kullanmak istediğiniz Hdınsight sürüm belirtin. Bu özellik bıraksanız en son sürümü kullanılır.  
-   4. İçin **linkedServiceName**, belirtin **AzureStorageLinkedService**.
-
-        ```JSON
-        {
-           "name": "HDInsightOnDemandLinkedService",
-           "properties": {
-               "type": "HDInsightOnDemand",
-               "typeProperties": {
-                   "clusterSize": 4,
-                   "timeToLive": "00:05:00",
-                   "osType": "Windows",
-                   "linkedServiceName": "AzureStorageLinkedService",
-               }
-           }
-        }
-        ```
-
-    > [!IMPORTANT]
-    > Özel .NET etkinlikler yalnızca Windows tabanlı Hdınsight kümelerinde çalıştırın. Geçici bir çözüm için bu sınırlama, Linux tabanlı Hdınsight kümesinde özel Java kodu çalıştırmak için azaltmak Haritası aktivitesi kullanmaktır. Bir Azure Batch havuzu VM'lerin bir Hdınsight kümesi yerine özel etkinlikleri çalıştırmak için kullandığınız başka bir seçenektir.
-
-4. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’a tıklayın.
-
-##### <a name="to-use-your-own-hdinsight-cluster"></a>Kendi Hdınsight kümenizi kullanmak için:
-1. İçinde **Azure portal**, tıklatın **geliştir ve Dağıt** Data Factory giriş sayfasında.
-2. İçinde **Data Factory düzenleyici**, tıklatın **yeni işlem** seçin ve komut çubuğunda **Hdınsight kümesi** menüsünde.
-3. JSON betiği aşağıdaki değişiklikleri yapın:
-
-   1. İçin **clusterUri** özelliği, Hdınsight için URL'yi girin. Örneğin: https://<clustername>.azurehdinsight.net/     
-   2. İçin **kullanıcıadı** özelliği, Hdınsight kümesi erişimi olan kullanıcı adı girin.
-   3. İçin **parola** özelliği, kullanıcı için parola girin.
-   4. İçin **LinkedServiceName** özelliği girin **AzureStorageLinkedService**.
-4. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’a tıklayın.
-
-Bkz: [işlem bağlı Hizmetleri](data-factory-compute-linked-services.md) Ayrıntılar için.
-
-İçinde **JSON kanal**, Hdınsight kullanma (isteğe bağlı veya kendi) bağlantılı hizmeti:
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>.NET SDK kullanarak bir özel etkinlik oluşturma
 Kılavuzda bu makalede, Azure portalını kullanarak özel etkinlik kullanan bir ardışık düzen ile bir veri fabrikası oluşturun. Aşağıdaki kod .NET SDK kullanarak data factory oluşturulacağını gösterir. Program aracılığıyla ardışık düzenlerinde oluşturmak için SDK'sını kullanma hakkında daha fazla ayrıntı bulabilirsiniz [.NET API kullanarak kopyalama etkinliği ile işlem hattı oluşturma](data-factory-copy-activity-tutorial-using-dotnet-api.md) makalesi. 

@@ -12,13 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
+<<<<<<< HEAD
 ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
 ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-content-keys-with-rest"></a>İçerik anahtarı REST ile oluşturma
 > [!div class="op_single_selector"]
@@ -35,18 +41,18 @@ Yeni bir varlık oluşturduğunuzda (örneğin, önce [dosyaları karşıya yük
 
 Şifrelenmiş varlıklar sahip ilişkilendirilecek **ContentKey**s. Bu makalede, bir içerik anahtarı oluşturmayı açıklar.
 
-Şifrelenmesini istediğiniz varlık ile ilişkilendireceğiniz içerik anahtarları oluşturmak için genel adımlar verilmiştir. 
+Şifrelenmesini istediğiniz varlık ile ilişkilendirmek içerik anahtarları oluşturmak için genel adımlar verilmiştir. 
 
 1. Rastgele bir 16 bayt AES anahtar (ortak ve zarf şifreleme) veya bir 32 baytlık AES anahtarı (depolama şifrelemesi) oluşturun. 
    
-    Bu, bu varlık ile ilişkili tüm dosyalar aynı içerik anahtarı şifre çözme sırasında kullanmanız gerekecektir anlamına gelir, varlık için içerik anahtarı olacaktır. 
+    Şifre çözme sırasında aynı içerik anahtarı kullanmak üzere varlık gereken ile ilişkili tüm dosyalar anlamına gelir, varlık için içerik anahtarı budur. 
 2. Çağrı [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) ve [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) içerik anahtarınızı şifrelemek için kullanılması gereken doğru X.509 sertifikası almak için yöntemleri.
 3. İçerik anahtarınızı X.509 sertifikasının ortak anahtarla şifreler. 
    
    Media Services .NET SDK'sı RSA şifreleme yaparken OAEP ile kullanır.  Bir örnekte görebilirsiniz [EncryptSymmetricKeyData işlevi](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. İçerik anahtarı ve anahtarı tanımlayıcısı kullanılarak hesaplanan (PlayReady AES anahtar sağlama toplamı algoritmadan yola çıkılarak) bir sağlama toplamı değeri oluşturun. Daha fazla bilgi için bulunan PlayReady Başlığı nesnesi belgenin "PlayReady AES anahtar sağlama toplamı algoritması" bölümüne bakın [burada](http://www.microsoft.com/playready/documents/).
    
-   Anahtar tanımlayıcısı ve temizleyin içerik anahtarı GUID parçası kullanarak sağlama toplamı hesaplar .NET örnek verilmiştir.
+   Aşağıdaki .NET örnek anahtar tanımlayıcısı ve temizleyin içerik anahtarı GUID parçası kullanarak sağlama toplamı hesaplar.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -68,7 +74,7 @@ Yeni bir varlık oluşturduğunuzda (örneğin, önce [dosyaları karşıya yük
 5. İle içerik anahtarı oluşturun **EncryptedContentKey** (base64 ile kodlanmış dizeye dönüştürülen), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, ve **sağlama toplamı** önceki adımlarda almış değerleri.
 6. İlişkilendirme **ContentKey** varlıkla, **varlık** $links işlemle varlık.
 
-Bu konuda bir AES anahtarı oluşturur, anahtarı şifrelemek ve sağlama toplamı hesaplamak nasıl göstermez unutmayın. 
+Bu makalede, bir AES anahtarı oluşturur, anahtarı şifrelemek ve sağlama toplamı hesaplamak nasıl göstermez. 
 
 >[!NOTE]
 
@@ -77,9 +83,6 @@ Bu konuda bir AES anahtarı oluşturur, anahtarı şifrelemek ve sağlama toplam
 ## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 
 AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
 
 ## <a name="retrieve-the-protectionkeyid"></a>ProtectionKeyId alma
 Aşağıdaki örnek, içerik anahtarı şifrelerken kullandığınız sertifika için bir sertifika parmak izini ProtectionKeyId almak nasıl gösterir. Makinenizde uygun sertifika zaten sahip olduğunuzdan emin olmak için bu adımı uygulayın.
@@ -92,7 +95,7 @@ Aşağıdaki örnek, içerik anahtarı şifrelerken kullandığınız sertifika 
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 
@@ -124,7 +127,7 @@ Aşağıdaki örnek, önceki adımda aldığınız ProtectionKeyId kullanarak X.
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -152,7 +155,7 @@ Yanıtı:
 ## <a name="create-the-contentkey"></a>ContentKey oluşturma
 X.509 sertifikası alınır ve ortak anahtar, içerik anahtarı şifrelemek için kullanılan sonra oluşturmanız bir **ContentKey** varlık ve onun özellik değerlerinin buna uygun olarak ayarla.
 
-Ne zaman ayarlamalısınız değerlerden biri oluşturma içerik türü bir anahtardır. Aşağıdaki değerlerden birini seçin.
+Ne zaman ayarlamalısınız değerlerden biri oluşturma içerik türü bir anahtardır. Aşağıdaki değerlerden birini seçin:
 
     public enum ContentKeyType
     {
@@ -179,7 +182,7 @@ Ne zaman ayarlamalısınız değerlerden biri oluşturma içerik türü bir anah
     }
 
 
-Aşağıdaki örnekte nasıl oluşturulacağını gösterir bir **ContentKey** ile bir **ContentKeyType** depolama şifrelemenin ("1") ve **ProtectionKeyType** belirtmek için "0" olarak ayarlayın koruma kimliği X.509 sertifika parmak izi anahtardır.  
+Aşağıdaki örnekte nasıl oluşturulacağını gösterir bir **ContentKey** ile bir **ContentKeyType** depolama şifrelemenin ("1") ve **ProtectionKeyType** belirtmek için "0" olarak ayarlayın koruma anahtarı kimliğidir X.509 sertifika parmak izi.  
 
 İstek
 
@@ -191,7 +194,7 @@ Aşağıdaki örnekte nasıl oluşturulacağını gösterir bir **ContentKey** i
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -241,7 +244,7 @@ ContentKey oluşturduktan sonra aşağıdaki örnekte gösterildiği gibi $links
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange AS2 iletileri
 
@@ -45,7 +45,7 @@ Gereksinim duyduğunuz öğeleri şöyledir:
     > [!TIP]
     > Görmüyorsanız, **daha fazla hizmet**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
 
-    !["Tümleştirme hesabı" daha fazla hizmet, "tümleştirme" filtresini seçin.](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    !["Tümleştirme hesabı" daha fazla hizmet, "tümleştirme" filtresini seçin.](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. İçinde **tümleştirme hesapları** açar, dikey penceresinde, anlaşmayı oluşturmak istediğiniz tümleştirme hesabını seçin.
 Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-apps/logic-apps-enterprise-integration-accounts.md "tümleştirme hesapları hakkında").  
@@ -54,15 +54,15 @@ Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-
 
 4. Seçin **anlaşmaları** döşeme. Anlaşmaları döşeme yoksa, ilk kutucuğu ekleyin.
 
-    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. Açılır anlaşmaları dikey penceresinde, seçin **Ekle**.
 
-    !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. Altında **Ekle**, girin bir **adı** sözleşmenizi için. İçin **anlaşma türünü**seçin **AS2**. Seçin **ana iş ortağı**, **konak kimliği**, **Konuk iş ortağı**, ve **Konuk kimlik** sözleşmenizi için.
 
-    ![Anlaşma ayrıntılarını sağlayın](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Anlaşma ayrıntılarını sağlayın](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | Özellik | Açıklama |
     | --- | --- |
@@ -82,7 +82,7 @@ Anlaşma özelliklerini ayarladıysanız, bu anlaşmanın nasıl tanımlar ve bu
 1.  Altında **Ekle**seçin **alma ayarı**.
 İletiler birlikte alış verişleri iş ortağı ile sözleşmenizde göre bu özelliklerini yapılandırın. Özellik açıklamaları için bu bölümündeki tabloya bakın.
 
-    !["Alma ayarlarını" yapılandırma](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    !["Alma ayarlarını" yapılandırma](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. İsteğe bağlı olarak, gelen iletileri özelliklerini seçerek geçersiz kılabilirsiniz **ileti özelliklerini geçersiz kılma**.
 
@@ -105,9 +105,9 @@ Artık sözleşmenizi seçili ayarlarınızı uygun gelen iletileri işlemek haz
 | Özellik | Açıklama |
 | --- | --- |
 | İleti özelliklerini geçersiz kılma |Alınan iletilerin özelliklerinde geçersiz kılınabilir gösterir. |
-| İletinin imzalanmış olması gerekir |İletileri dijital olarak imzalanmasını gerektirir. Konuk iş ortağı ortak sertifika imza doğrulaması için yapılandırın.  |
-| İletinin şifrelenmiş olması gerekir |İletileri şifrelenmesini gerektirir. Olmayan şifrelenmiş iletileri reddedilir. İletilerin şifresini çözmek için ana iş ortağı özel sertifika yapılandırın.  |
-| İletinin sıkıştırılmış olması gerekir |Sıkıştırılacak iletileri gerektirir. Olmayan sıkıştırılmış iletiler reddedilir. |
+| İleti oturum açmış olmanız gerekir |İletileri dijital olarak imzalanmasını gerektirir. Konuk iş ortağı ortak sertifika imza doğrulaması için yapılandırın.  |
+| İleti şifrelenmelidir |İletileri şifrelenmesini gerektirir. Olmayan şifrelenmiş iletileri reddedilir. İletilerin şifresini çözmek için ana iş ortağı özel sertifika yapılandırın.  |
+| İleti sıkıştırılmış |Sıkıştırılacak iletileri gerektirir. Olmayan sıkıştırılmış iletiler reddedilir. |
 | MDN metin |İletiyi gönderenin gönderilmek üzere varsayılan ileti değerlendirme bildirim (MDN). |
 | MDN Gönder |Gönderilecek MDNs gerektirir. |
 | İmzalı MDN Gönder |MDNs imzalanmasını gerektirir. |
@@ -122,7 +122,7 @@ Bu anlaşma nasıl tanımlar ve bu anlaşma ile iş ortaklarınıza göndermek g
 1.  Altında **Ekle**seçin **gönderme ayarları**.
 İletiler birlikte alış verişleri iş ortağı ile sözleşmenizde göre bu özelliklerini yapılandırın. Özellik açıklamaları için bu bölümündeki tabloya bakın.
 
-    !["Gönderme ayarları" özelliklerini ayarla](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    !["Gönderme ayarları" özelliklerini ayarla](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. Ortağınıza imzalanmış iletiler göndermek için seçin **ileti imzalamayı etkinleştirmek**. İletileri olarak imzalanması için **MIC algoritması** listesinde *ana iş ortağı özel sertifika MIC algoritması*. Ve **sertifika** listesinde, var olan seçin [ana iş ortağı özel sertifika](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
@@ -162,7 +162,7 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 | Zaman uyumsuz MDN isteği |Bu anlaşma gönderilmek üzere zaman uyumsuz MDNs gerektirir. |
 | URL |URL MDNs göndermek istediğiniz yeri belirtin. |
 | NRR etkinleştir |İnkar edilemez makbuz (NRR) kanıt sağlar iletişimi özniteliği, gerektirir verileri gibi ele alınan. |
-| SHA2 algoritması biçimi |MIC veya AS2 ileti veya MDN giden üstbilgilerinde imzalama kullanılacak algoritması biçimini seçin |
+| SHA2 Algoritması biçimi |MIC veya AS2 ileti veya MDN giden üstbilgilerinde imzalama kullanılacak algoritması biçimini seçin |
 
 ## <a name="find-your-created-agreement"></a>Oluşturulan sözleşmenizi Bul
 
@@ -172,7 +172,7 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 
 2.  Ayrıca, tümleştirme hesabına genel bakış sözleşmelerinizi görüntüleyebilirsiniz. Tümleştirme hesabı dikey penceresinde, seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme. 
 
-    ![Tüm anlaşmalar görüntülemek için "Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![Tüm anlaşmalar görüntülemek için "Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Swagger görüntüleyin
 Bkz: [ayrıntıları swagger](/connectors/as2/). 

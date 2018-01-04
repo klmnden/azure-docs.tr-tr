@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8f4fcc3eb0dac2c5796b0a291425ad17a60a5bae
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -29,9 +29,9 @@ Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası içi
 * [URL ping testi](#create): Azure portalında oluşturabileceğiniz basit bir test.
 * [Çok adımlı web testi](#multi-step-web-tests): Visual Studio Enterprise’da oluşturup portala yüklediğiniz test.
 
-Her uygulama kaynağı için 25’e kadar kullanılabilirlik testi oluşturabilirsiniz.
+Her uygulama kaynağı için 100’e kadar kullanılabilirlik testi oluşturabilirsiniz.
 
-## <a name="create"></a>1. Kullanılabilirlik testi raporlarınız için kaynak açma
+## <a name="create"></a>Kullanılabilirlik testi raporlarınız için kaynak açma
 
 Web uygulamanız için **Application Insights’ı zaten yapılandırdıysanız**, Application Insights kaynağını [Azure portalında](https://portal.azure.com) açın.
 
@@ -41,7 +41,7 @@ Web uygulamanız için **Application Insights’ı zaten yapılandırdıysanız*
 
 Yeni kaynağa ait Genel Bakış dikey penceresini açmak için **Tüm kaynaklar**’a tıklayın.
 
-## <a name="setup"></a>2. URL ping testi oluşturma
+## <a name="setup"></a>URL ping testi oluşturma
 Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekleyin.
 
 ![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
 Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesine ek olarak arama URL’sini de test ederek veritabanınızın çalıştığından emin olursunuz.
 
 
-## <a name="monitor"></a>3. Kullanılabilirlik testi sonuçlarınızı görme
+## <a name="monitor"></a>Kullanılabilirlik testi sonuçlarınızı görme
 
 Birkaç dakika sonra, test sonuçlarını görmek için **Yenile**’ye tıklayın. 
 
@@ -102,14 +102,11 @@ Kırmızı noktaya tıklayın.
 Bir kullanılabilirlik testi sonucundan şunları yapabilirsiniz:
 
 * Sunucunuzdan alınan yanıtı denetleme.
-* Başarısız istek örneği işlenirken sunucu uygulamanız tarafından gönderilen telemetriyi açma.
+* Başarısız istek örneği işlenirken toplanan sunucu tarafı telemetrisi ile hatayı tanılayın.
 * Sorunu izlemek için bir sorunu veya iş öğesini Git’te ya da VSTS’de günlüğe kaydetme. Hata, bu olayın bir bağlantısını içerir.
 * Web testi sonucunu Visual Studio’da açın.
 
-
-*Sorunsuz görünüyor ancak hata olarak mı bildiriliyor?* Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır.
-
-*İlgili öğe yok mu?* Sunucu tarafı uygulamanız için Application Insights ayarlanmışsa, bunun nedeni [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir. 
+*Sorunsuz görünüyor ancak hata olarak mı bildiriliyor?* Gürültüyü azaltma yolları için bkz. [SSS](#qna).
 
 ## <a name="multi-step-web-tests"></a>Çok adımlı web testleri
 Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
@@ -256,6 +253,20 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 * Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayın.
 
 ## <a name="qna"></a>Sorularınız mı var? Sorunlarınız mı var?
+* *Protokol ihlali hatası ile aralıklı test hatası?*
+
+    Hata ("protokol ihlali..CR’den sonra LF gelmelidir") sunucu (veya bağımlılıklar) ile ilgili bir sorun olduğunu gösterir. Bu durum, yanıtta hatalı biçimlendirilmiş üst bilgiler ayarlandığında meydana gelir. Yük dengeleyiciler veya CDN'lerden kaynaklanabilir. Özellikle bazı üst bilgiler satır sonunu belirtmek için CRLF kullanmıyor olabilir; bu durum HTTP belirtimini ihlal eder ve bu nedenle .NET WebRequest düzeyinde doğrulama başarısız olur. İhlal edici olabilecek nokta üst bilgilerine yanıtı inceleyin.
+    
+    Not: URL, HTTP üst bilgilerinin gevşek doğrulaması yapılmış tarayıcılarda başarısız olmayabilir. Bu sorunun ayrıntılı bir açıklamsı için şu blog gönderisine bakın: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *Site sorunsuz görünüyor, ancak test hataları görüyorum?*
+
+    * Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır. Bu tür kaynak hatalarına karşı testin hassasiyetini ortadan kaldırmak için test yapılandırmasında "Bağımlı İstekleri Ayrıştır" seçeneğinin işaretini kaldırın. 
+
+    * Geçici ağ sinyalleri vb. kaynaklı gürültü olasılığını azaltmak için "Test hataları için yeniden denemeyi etkinleştir" yapılandırmasının işaretlendiğinden emin olun. Ayrıca, uygunsuz uyarılara neden olan konuma özgü sorunları önlemek için daha fazla konumdan test yapabilir ve uyarı kuralı eşiğini uygun şekilde yönetebilirsiniz.
+    
+* *Test hatalarını tanılamak için herhangi bir ilgili sunucu tarafı telemetrisi görmüyorum?*
+    
+    Sunucu tarafı uygulamanız için Application Insights ayarlanmışsa, bunun nedeni [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir.
 * *Web testimden kod çağırabilir miyim?*
 
     Hayır. Test adımları .webtest dosyasında olmalıdır. Bu nedenle, başka web testlerini çağıramaz, döngüleri kullanamazsınız. Ancak yararlı bulabileceğiniz bir dizi eklenti vardır.

@@ -4,21 +4,21 @@ description: "Erişim Yönetimi'nde, Azure Portal'da Azure rol tabanlı erişim 
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 12/19/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eaa54252885cee8f90e65f299869216ca1b2144
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama
 Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba getirebilir. Çok az izinleri anlamına gelir çalışanlar verimli bir şekilde işlerini alınamıyor. Azure rol tabanlı erişim denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur.
@@ -56,9 +56,9 @@ Azure RBAC rollerin geri kalanı belirli Azure kaynaklarının yönetimini sağl
 * Kaynak grubu kapsamındaki bir uygulama katılımcı rolü atar. Bu kaynak grubu, ancak diğer kaynak gruplarının değil Abonelikteki tüm türlerinin kaynakları yönetebilir.
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC Klasik abonelik yöneticileri karşılaştırması
-Klasik abonelik yöneticileri ve ortak yöneticileri Azure aboneliği için tam erişime sahip. Kullanarak kaynakları yönetebilir [Azure portal](https://portal.azure.com) Azure Resource Manager API'leri ile veya [Klasik Azure portalı](https://manage.windowsazure.com) ve Azure Klasik dağıtım modeli. RBAC modelinde, Klasik Yöneticiler abonelik kapsamda sahip rolü atanır.
+[Klasik abonelik yöneticileri ve ortak yöneticileri](../billing/billing-add-change-azure-subscription-administrator.md) Azure aboneliği tam erişimi vardır. Kullanarak kaynakları yönetebilir [Azure portal](https://portal.azure.com), Azure Resource Manager API'leri ve API'ler Klasik dağıtım modeli. RBAC modelinde, Klasik Yöneticiler abonelik kapsamda sahip rolü atanır.
 
-Yalnızca Azure portalı ve yeni Azure Resource Manager API'leri Azure RBAC destekler. Kullanıcılar ve RBAC rolleri atanmış uygulamalar Klasik Yönetim Portalı ve Azure Klasik dağıtım modeli kullanamazsınız.
+Yalnızca Azure portalı ve yeni Azure Resource Manager API'leri Azure RBAC destekler. Kullanıcılar ve RBAC rolleri atanmış uygulamalar kullanamaz Azure Klasik dağıtım modeli API'leri.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Veri işlemleri ve yönetimi için yetkilendirme
 Azure RBAC Azure portalı ve Azure Resource Manager API'leri yalnızca Azure kaynaklarını yönetim işlemlerini destekler. Azure kaynakları için tüm veri düzeyi işlemleri yetkilendirilemiyor. Birisi depolama hesaplarını yönetmek için yetkilendirmek Örneğin, ancak BLOB veya bir depolama hesabı içindeki tabloları için. Benzer şekilde, bir SQL veritabanı, içindeki tabloları ancak yönetilebilir.

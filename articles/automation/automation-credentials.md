@@ -3,7 +3,7 @@ title: "Kimlik bilgisi varlıkları Azure Automation | Microsoft Docs"
 description: "Azure Otomasyonu kimlik bilgisi varlıkları runbook veya DSC yapılandırması tarafından erişilen kaynaklar için kimlik doğrulaması için kullanılan güvenlik kimlik bilgilerini içerir. Bu makalede kimlik bilgisi varlıkları oluşturma ve bir runbook veya DSC yapılandırması kullanın."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 70f6272d936b097a9458dfa18279a70727da9d6b
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 516f0ddcc50b3e6d744f70063b2112090d2e411d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Otomasyonu kimlik bilgisi varlıkları
 Bir Otomasyon kimlik bilgisi varlığı tutan bir [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) bir kullanıcı adı ve parola gibi güvenlik kimlik bilgileri içeren bir nesne. Kullanıcı adı ve parola için bazı uygulama veya hizmet kimlik doğrulaması gerektiren sağlamak için PSCredential nesnesinin ayıklamak veya runbook'ları ve DSC yapılandırmaları kimlik doğrulaması için bir PSCredential nesnesi kabul cmdlet'leri kullanabilir. Kimlik bilgileri özellikleri Azure Otomasyonu'nda güvenli bir şekilde depolanır ve runbook veya DSC yapılandırması ile erişilen [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) etkinlik.
@@ -59,7 +59,7 @@ Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları kimlik
 ## <a name="python2-functions"></a>Python2 işlevleri
 Aşağıdaki tabloda işlevi bir Python2 runbook'ta kimlik bilgilerine erişmek için kullanılır.
 
-| İşlevi | Açıklama |
+| İşlev | Açıklama |
 |:---|:---|
 | automationassets.get_automation_credential | Bir kimlik bilgisi varlığı ilgili bilgileri alır. |
 

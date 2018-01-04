@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure Azure VM çoğaltma sorunlarını giderme
 
@@ -131,6 +131,20 @@ Sorun devam ederse, desteğe başvurun.
 
 Kullanabileceğiniz [kaldırmak eski ASR yapılandırma komut dosyası](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) ve eski Site kurtarma yapılandırması Azure VM'de kaldırın. Eski yapılandırma kaldırılıyor sonra çoğaltma, etkinleştirdiğinizde, VM görmeniz gerekir.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Sanal makinenin sağlama durumu geçerli değil (hata kodu 150019)
+
+VM çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **başarılı**. Aşağıdaki adımları izleyerek VM durumunu kontrol edebilirsiniz.
+
+1.  Seçin **kaynak Gezgini** gelen **tüm hizmetleri** Azure portalında.
+2.  Genişletme **abonelikleri** listesinde ve aboneliğinizi seçin.
+3.  Genişletme **ResourceGroups** listesinde ve VM kaynak grubunu seçin.
+4.  Genişletme **kaynakları** listesinde ve sanal makine seçin
+5.  Denetleme **provisioningState** sağ taraftaki örneği görünümünde alan.
+
+### <a name="fix-the-problem"></a>Sorunu gidermek
+
+- Varsa **provisioningState** olan **başarısız**, sorun giderme ayrıntılarla desteğine başvurun.
+- Varsa **provisioningState** olan **güncelleştirme**, başka bir uzantı dağıtılamıyor. Bunları ve başarısız Site kurtarma işlemini yeniden denemeniz için bekleme VM üzerinde devam eden tüm işlemler olup olmadığını kontrol **çoğaltmasını etkinleştir** işi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure sanal makinelerini çoğaltma](azure-to-azure-quickstart.md)

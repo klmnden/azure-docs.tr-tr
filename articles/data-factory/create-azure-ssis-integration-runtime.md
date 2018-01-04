@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: fcd2547112eb966420f33cec4939c83606029444
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c73bb23d844977b0bc74f49820be1a01c5c6635c
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma
 Bu makalede Azure Data Factory bir Azure SSIS tümleştirmesi çalışma zamanı sağlamak için adımları sağlar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio’yu (SSMS) kullanarak Azure’da bu çalışma zamanına SQL Server Integration Services (SSIS) paketleri dağıtabilirsiniz.
@@ -60,9 +60,12 @@ $DataFactoryLocation = "EastUS"
 $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
 $AzureSSISLocation = "EastUS" 
-$AzureSSISNodeSize = "Standard_A4_v2" # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeNumber = 2 # In public preview, only 1-10 nodes are supported.
-$AzureSSISMaxParallelExecutionsPerNode = 2 # In public preview, only 1-8 parallel executions per node are supported.
+# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
+$AzureSSISNodeSize = "Standard_A4_v2" 
+# In public preview, only 1-10 nodes are supported.
+$AzureSSISNodeNumber = 2 
+# In public preview, only 1-8 parallel executions per node are supported.
+$AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
 $SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
@@ -73,11 +76,22 @@ $SSISDBServerAdminPassword = "[your server admin password]"
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-## Remove these two variables if you are using Azure SQL Database. 
-## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-$VnetId = "[your VNet resource ID or leave it empty]" # OPTIONAL: In public preview, only classic virtual network (VNet) is supported.
-$SubnetName = "[your subnet name or leave it empty]" # OPTIONAL: In public preview, only classic VNet is supported.
+# Remove these the following two OPTIONAL variables if you are using Azure SQL Database. 
+# These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
+# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
+# It should be in the format: $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
 
+# OPTIONAL: In public preview, only classic virtual network (VNet) is supported.
+$VnetId = "[your VNet resource ID or leave it empty]" 
+$SubnetName = "[your subnet name or leave it empty]" 
+
+```
+## <a name="log-in-and-select-subscription"></a>Oturum açma ve abonelik seçme
+Oturum açma ve Azure aboneliğinizi seçin komut dosyasını aşağıdaki kodu ekleyin: 
+
+```powershell
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
 ## <a name="validate-the-connection-to-database"></a>Veritabanı bağlantısını doğrulama
@@ -100,14 +114,6 @@ Catch [System.Data.SqlClient.SqlException]
         Return;
     } 
 }
-```
-
-## <a name="log-in-and-select-subscription"></a>Oturum açma ve abonelik seçme
-Oturum açma ve Azure aboneliğinizi seçin komut dosyasını aşağıdaki kodu ekleyin: 
-
-```powershell
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
 ## <a name="configure-virtual-network"></a>Sanal ağ yapılandırma
@@ -145,10 +151,9 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 
 ## <a name="create-an-integration-runtime"></a>Tümleştirme çalışma zamanı oluşturma
-Azure’da SSIS paketlerini çalıştıran bir Azure-SSIS tümleştirme çalışma zamanı oluşturmak için aşağıdaki komutu çalıştırın: 
+SSIS paketleri Azure'da çalışan bir Azure SSIS tümleştirmesi çalışma zamanı oluşturmak için aşağıdaki komutu çalıştırın: veritabanı (Azure SQL veritabanı ile türüne göre bölümünden komut dosyası kullanma Kullanmakta olduğunuz Azure SQL yönetilen örneği (özel olarak incelenmektedir)). 
 
-Kullanıyorsanız **Azure SQL veritabanı** (SSIS katalog) SSISDB veritabanını barındırmak için: 
-
+### <a name="azure-sql-database-to-host-the-ssisdb-database-ssis-catalog"></a>(SSIS katalog) SSISDB veritabanını barındırmak için Azure SQL veritabanı 
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -169,7 +174,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 VNetId ve alt ağ için değerleri geçirmeniz gerekmez şirket içi veri erişimi gerekmedikçe diğer bir deyişle, şirket içi veri kaynakları/hedefleri SSIS paketlerinizi sahip. CatalogPricingTier parametresi için değer geçmesi gerekir. Azure SQL veritabanı için desteklenen fiyatlandırma katmanlarına listesi için bkz: [SQL veritabanı kaynak sınırları](../sql-database/sql-database-resource-limits.md).
 
-Kullanıyorsanız **Azure SQL yönetilen örneği (özel olarak incelenmektedir)** SSISDB veritabanını barındırmak için:
+### <a name="azure-sql-managed-instance-private-preview-to-host-the-ssisdb-database"></a>Azure SQL yönetilen SSISDB veritabanını barındırmak üzere örneği (özel olarak incelenmektedir)
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -205,6 +210,107 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")                                  
 ```
 Bu komutun tamamlanması **20-30 dakika** sürer. 
+
+
+## <a name="full-script"></a>Tam betik
+Burada, Azure SSIS IR oluşturan ve bir sanal ağa katılırsa tam komut verilmiştir. Bu komut dosyası SSIS katalog barındırmak için Azure SQL yönetilen örneği (mı) kullandığınızı varsayar. 
+
+```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
+$SubscriptionName = "[your Azure subscription name]"
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$DataFactoryLocation = "EastUS" 
+
+# Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
+$AzureSSISName = "[your Azure-SSIS integration runtime name]"
+$AzureSSISDescription = "This is my Azure-SSIS integration runtime"
+$AzureSSISLocation = "EastUS" 
+# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
+$AzureSSISNodeSize = "Standard_A4_v2" 
+# In public preview, only 1-10 nodes are supported.
+$AzureSSISNodeNumber = 2 
+# In public preview, only 1-8 parallel executions per node are supported.
+$AzureSSISMaxParallelExecutionsPerNode = 2 
+
+# SSISDB info
+$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
+$SSISDBServerAdminUserName = "[your server admin username]"
+$SSISDBServerAdminPassword = "[your server admin password]"
+
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
+$SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
+
+## Remove these two OPTIONAL variables if you are using Azure SQL Database. 
+## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
+# In public preview, only classic virtual network (VNet) is supported.
+$VnetId = "[your VNet resource ID or leave it empty]" 
+$SubnetName = "[your subnet name or leave it empty]" 
+
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+
+$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
+$sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
+Try
+{
+    $sqlConnection.Open();
+}
+Catch [System.Data.SqlClient.SqlException]
+{
+    Write-Warning "Cannot connect to your Azure SQL DB logical server/Azure SQL MI server, exception: $_"  ;
+    Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
+    $yn = Read-Host
+    if(!($yn -ieq "Y"))
+    {
+        Return;
+    } 
+}
+
+# Register to Azure Batch resource provider
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+        Start-Sleep -s 10
+    }
+    # Assign VM contributor role to Microsoft.Batch
+    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+}
+
+Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+                         -Location $DataFactoryLocation `
+                         -Name $DataFactoryName
+
+$secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
+$serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
+Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupName `
+                                            -DataFactoryName $DataFactoryName `
+                                            -Name $AzureSSISName `
+                                            -Type Managed `
+                                            -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                            -CatalogAdminCredential $serverCreds `
+                                            -Description $AzureSSISDescription `
+                                            -Location $AzureSSISLocation `
+                                            -NodeSize $AzureSSISNodeSize `
+                                            -NodeCount $AzureSSISNodeNumber `
+                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                            -VnetId $VnetId `
+                                            -Subnet $SubnetName
+
+write-host("##### Starting #####")
+Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                             -DataFactoryName $DataFactoryName `
+                                             -Name $AzureSSISName `
+                                             -Force
+
+write-host("##### Completed #####")
+write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
+```
 
 ## <a name="deploy-ssis-packages"></a>SSIS paketlerini dağıtma
 Şimdi SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio’yu (SSMS) kullanarak SSIS paketlerinizi Azure’a dağıtın. SSIS kataloğunu (SSISDB) barındıran Azure SQL sunucunuza bağlanın. Azure SQL sunucusunun adı şu biçimdedir: &lt;servername&gt;. database.windows.net (Azure SQL veritabanı için). Yönergeler için [Paket dağıtma](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) makalesine bakın. 

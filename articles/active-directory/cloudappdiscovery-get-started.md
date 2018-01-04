@@ -5,7 +5,7 @@ services: active-directory
 keywords: "cloud app discovery'yi, uygulamaları yönetme"
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD cloud App Discovery ayarlayın
 
@@ -79,6 +79,7 @@ Cloud App Discovery rapor başarıyla oluşturmak için trafik günlüklerinizi 
 * Barracuda - Web uygulaması Güvenlik Duvarı'nı (W3C)
 * Blue Coat Proxy SG - erişim günlüğü (W3C)
 * Denetim Noktası
+* Cisco ASA FirePOWER
 * Cisco ASA Güvenlik Duvarı'nı (Cisco ASA için güvenlik duvarları, ayarlayın bilgi düzeyi 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe
@@ -110,7 +111,7 @@ Günlüğünüz desteklenmiyorsa seçin **diğer** olarak **veri kaynağı** ve 
 |-----------------------------------------|----------------|---------------|----------|-----------|---------------|----------------|
 | Barracuda                               | **Evet**        | **Evet**       | **Evet**  | **Evet**   | Hayır            | Hayır             |
 | Blue Coat                               | **Evet**        | Hayır            | **Evet**  | **Evet**   | **Evet**       | **Evet**        |
-| Denetim noktası                              | Hayır             | **Evet**       | Hayır       | **Evet**   | Hayır            | Hayır             |
+| Kontrol noktası                              | Hayır             | **Evet**       | Hayır       | **Evet**   | Hayır            | Hayır             |
 | Cisco ASA                               | Hayır             | **Evet**       | Hayır       | **Evet**   | **Evet**       | Hayır             |
 | Cisco FWSM                              | Hayır             | **Evet**       | Hayır       | **Evet**   | **Evet**       | Hayır             |
 | Cisco Ironport WSA                      | **Evet**        | **Evet**       | **Evet**  | **Evet**   | **Evet**       | **Evet**        |

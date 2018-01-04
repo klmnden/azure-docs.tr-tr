@@ -1,7 +1,7 @@
 
 Bellek, ilişkisel veritabanı sunucuları, Orta ve büyük önbellekler ve bellek içi analizi için harika bir yüksek bellek CPU oranı VM boyutları teklif en iyi duruma getirilmiş. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
-* M-serisi, buluttaki sanal makineler arasında en yüksek vCPU sayısını (128’e kadar sanal işlemci) ve en büyük bellek miktarını (2,0 TiB’a kadar) sunar.  Son derece büyük veritabanları veya yüksek vCPU sayısı ve büyük miktarlarda belleğin yararlı olacağı diğer uygulamalar için idealdir.
+* M-yüksek vCPU sayısını (en fazla 128 Vcpu'lar) ve en büyük bellek (en fazla 3.8 Tıb) bulutta herhangi bir VM sunar.  Son derece büyük veritabanları veya yüksek vCPU sayısı ve büyük miktarlarda belleğin yararlı olacağı diğer uygulamalar için idealdir.
 
 * Dv2 Serisi, D Serisi, G Serisi ve bunlara karşılık gelen DS/GS modelleri daha hızlı vCPU'ya, daha iyi geçici depolama performansına veya daha yüksek belleğe ihtiyaç duyan uygulamalar için idealdir.  Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
 
@@ -10,7 +10,7 @@ Bellek, ilişkisel veritabanı sunucuları, Orta ve büyük önbellekler ve bell
 * Orijinal D Serisinin üzerine geliştirilen Dv2 Serisi, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 
 
-## <a name="esv3-series"></a>Esv3-serisi *
+## <a name="esv3-series-sup1sup"></a>Esv3-serisi <sup>1</sup>
 
 ACU: 160-190
 
@@ -23,12 +23,12 @@ ESv3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi 
 | Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6400/96                                | 2/orta                                   |
 | Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800/192                              | 4/yüksek                                       |
 | Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600/384                              | 8/yüksek                                       |
-| Standard_E32s_v3 | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8/aşırı yüksek                             |
-| Standard_E64s_v3 | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8/aşırı yüksek                             |
-* Esv3-serisi VM'in Intel® Hyper-Threading Teknolojisi özelliği
+| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8/aşırı yüksek                             |
+| Standard_E64s_v3 <sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8/aşırı yüksek                             |
 
+<sup>1</sup> Esv3-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi <sup>2</sup> kısıtlı çekirdek boyutları kullanılabilir 
 
-## <a name="ev3-series"></a>Ev3-serisi *
+## <a name="ev3-series-sup1sup"></a>Ev3-serisi <sup>1</sup>
 
 ACU: 160-190 
 
@@ -45,9 +45,10 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8/yüksek                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8/aşırı yüksek           |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8/aşırı yüksek           |
-* Ev3-serisi VM'in Intel® Hyper-Threading Teknolojisi özelliği
 
-## <a name="m-series"></a>M serisi*
+<sup>1</sup> Ev3-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi
+
+## <a name="m-series-sup1sup"></a>M-serisi <sup>1</sup>
 
 ACU: 160-180
 
@@ -55,16 +56,18 @@ ACU: 160-180
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M64s  | 64   | 1024        | 2048           | 64             | 80,000 / 800 (6348)       | 40.000/1000                            | 8 / 16000          |
 | Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)       | 40.000/1000                            | 8 / 16000          |
-| Standard_M128s** | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 25000          |
+| Standard_M128s <sup>2. 3</sup> | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 25000          |
+| Standard_M128ms <sup>2. 3</sup> | 128  | 3800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 25000          |
 
+<sup>1</sup> M-serisi VM'in özelliği Intel® Hyper-Threading Teknolojisi
 
-* M serisi sanal makineler Intel® Hyper-Threading Teknolojisine sahiptir.
+<sup>2</sup> 64 taneden fazla vCPU'ın bu desteklenen konuk işletim sistemleri birini gerektirir: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 ve Red Hat Enterprise Linux veya CentOS 7.3 LIS 4.2.1 ile 
 
-**64’ten fazla sanal işlemci şu desteklenen konuk işletim sistemlerinden birini gerektirir: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 ve Red Hat Enterprise Linux veya LIS 4.2.1 ile CentOS 7.3 
+<sup>3</sup> kısıtlı çekirdek boyutları kullanılabilir.
 
 <br>
 
-## <a name="gs-series"></a>GS Serisi*
+## <a name="gs-series-sup1sup"></a>GS serisi <sup>1</sup>
 
 ACU: 180 - 240
 
@@ -73,13 +76,14 @@ ACU: 180 - 240
 | Standard_GS1 |2 |28 |56 |8 |10.000/100 (264) |5000/125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |16 |20.000/200 (528) |10.000/250 |2 / 4000 |
 | Standard_GS3 |8 |112 |224 |32 |40.000/400 (1056) |20.000/500 |4 / 8000 |
-| Standard_GS4 |16 |224 |448 |64 |80.000/800 (2112) |40.000/1000 |8 / 6000 - 16000 &#8224; |
-| Standard_GS5** |32 |448 |896 |64 |160.000/1600 (4224) |80.000/2000 |8 / 20000 |
+| Standard_GS4 <sup>3</sup> |16 |224 |448 |64 |80.000/800 (2112) |40.000/1000 |8 / 6000 - 16000 &#8224; |
+| Standard_GS5 <sup>2, 3</sup> |32 |448 |896 |64 |160.000/1600 (4224) |80.000/2000 |8 / 20000 |
 
-*GS Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). 
+<sup>1</sup> GS serisi VM ile (IOPS veya MB/sn) mümkün sayısı ile sınırlı en fazla disk verimlilik boyutu ve bağlı diskler şeritleme. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). 
 
-**Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
+<sup>2</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış.
 
+<sup>3</sup> kısıtlı çekirdek boyutları kullanılabilir 
 
 <br>
 
@@ -93,13 +97,13 @@ ACU: 180 - 240
 | Standard_G2  | 4         | 56          | 768            | 12000/187/93                                         | 16/16x500                       | 2 / 4000                     |
 | Standard_G3  | 8         | 112         | 1536          | 24000/375/187                                        | 32/32x500                     | 4 / 8000                |
 | Standard_G4  | 16        | 224         | 3072          | 48000/750/375                                        | 64/64x500                     | 8 / 6000 - 16000 &#8224;          |
-| Standard_G5* | 32        | 448         | 6144          | 96000/1500/750                                       | 64/64x500                     | 8 / 20000           |
+| Standard_G5 <sup>1</sup> | 32        | 448         | 6144          | 96000/1500/750                                       | 64/64x500                     | 8 / 20000           |
 
-*Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
+<sup>1</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış.
 <br>
 
 
-## <a name="dsv2-series"></a>DSv2 Serisi*
+## <a name="dsv2-series-sup1sup"></a>DSv2 serisi <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -109,13 +113,13 @@ ACU: 210 - 250
 | Standard_DS12_v2 |4 |28 |56 |16 |16.000/128 (144) |12.800/192 |4 / 3000 |
 | Standard_DS13_v2 |8 |56 |112 |32 |32.000/256 (288) |25.600/384 |8 / 6000 |
 | Standard_DS14_v2 |16 |112 |224 |64 |64.000/512 (576) |51.200/768 |8 / 6000 - 12000 &#8224; |
-| Standard_DS15_v2** |20 |140 |280 |64 |80.000/640 (720) |64.000/960 |8 / 20000***
+| Standard_DS15_v2 <sup>2</sup> |20 |140 |280 |64 |80.000/640 (720) |64.000/960 |8 / 20000 <sup>3</sup>
 
-*DSv2 Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> DSv2 serisi VM ile (IOPS veya MB/sn) mümkün sayısı ile sınırlı en fazla disk verimlilik boyutu ve bağlı diskler şeritleme.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
 
-**Örnek, sanal makinenizin bizim Intel Haswell düğümümüzde tek sanal makine olacağını garanti eden yalıtılmış bir düğümdür.
+<sup>2</sup> VM'nizi bizim Intel Haswell düğümde yalnızca VM olmasını garanti eder yalıtılmış bir düğüm örneğidir.
 
-***25.000 Mbps, Hızlandırılmış Ağ Bağlantısı.
+<sup>3</sup> hızlandırılmış ağ ile 25000 MB/sn.
 
 <br>
 
@@ -129,15 +133,15 @@ ACU: 210 - 250
 | Standard_D12_v2   | 4         | 28          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 3000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 6000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000/750/375                                        | 64 / 64 x 500                       | 8 / 6000 - 12000 &#8224;          |
-| Standard_D15_v2* | 20        | 140         | 1000          | 60000/937/468                                        | 64 / 64 x 500                       | 8 / 20000** |
+| İçin Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1000          | 60000/937/468                                        | 64 / 64 x 500                       | 8 / 20000 <sup>2</sup> |
 
-*Örnek, sanal makinenizin bizim Intel Haswell düğümümüzde tek sanal makine olacağını garanti eden yalıtılmış bir düğümdür.
+<sup>1</sup> VM'nizi bizim Intel Haswell düğümde yalnızca VM olmasını garanti eder yalıtılmış bir düğüm örneğidir.
 
-**25.000 Mbps, Hızlandırılmış Ağ Bağlantısı.
+<sup>2</sup> hızlandırılmış ağ ile 25000 MB/sn.
 
 <br>
 
-## <a name="ds-series"></a>DS Serisi*
+## <a name="ds-series-sup1sup"></a>DS serisi <sup>1</sup>
 
 ACU: 160
 
@@ -148,7 +152,7 @@ ACU: 160
 | Standard_DS13 |8 |56 |112 |32 |32.000/256 (288) |25.600/256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64.000/512 (576) |51.200/512 |8 / 6000 - 8000 &#8224; |
 
-*DS Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> DS serisi VM ile (IOPS veya MB/sn) mümkün sayısı ile sınırlı en fazla disk verimlilik boyutu ve bağlı diskler şeritleme.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
 
 
 ## <a name="d-series"></a>D Serisi

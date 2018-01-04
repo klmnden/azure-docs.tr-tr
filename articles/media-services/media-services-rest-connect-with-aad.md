@@ -11,130 +11,181 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure Media Services API REST ile erişmek için Azure AD kimlik doğrulaması kullanın
 
-Azure Media Services ekip Azure Media Services erişimi için Azure Active Directory (Azure AD) kimlik doğrulama desteği yayımladı. Ayrıca, Media Services erişimi için Azure erişim denetimi hizmeti kimlik doğrulama alanı onaylanamadı planları duyurdu. Her Azure aboneliği ve her medya hizmetleri hesabı için Azure AD kiracısı bağlı olduğundan, Azure AD kimlik doğrulama desteği birçok güvenlik avantajları beraberinde getirir. Bu değişiklik ve (uygulamanız için'de Media Services .NET SDK'sı kullanıyorsanız) geçişi hakkında daha fazla ayrıntı için aşağıdaki blog gönderileri ve makalelere bakın:
+Azure Media Services ile Azure AD kimlik doğrulaması kullanırken, aşağıdaki iki yöntemden biriyle doğrulayabilir:
 
-- [Azure Media Services, Azure AD için destek sunar ve erişim denetimi kimlik doğrulamasının kullanımdan kaldırma](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
-- [Azure AD kimlik doğrulamasını kullanarak erişim Azure Media Services API](media-services-use-aad-auth-to-access-ams-api.md)
-- [Microsoft .NET kullanarak Azure Media Services API erişmek için Azure AD kimlik doğrulaması kullanın](media-services-dotnet-get-started-with-aad.md)
-- [Azure portalı kullanarak Azure AD kimlik doğrulaması ile çalışmaya başlama](media-services-portal-get-started-with-aad.md)
+- **Kullanıcı kimlik doğrulaması** uygulama etkileşim kurmak için Azure Media Services kaynaklarla kullanan bir kişinin kimliğini doğrular. Etkileşimli uygulama önce kullanıcıdan kimlik bilgilerini ister. Kodlama işleri izlemek veya canlı akış için yetkili kullanıcılar tarafından kullanılan bir yönetim konsol uygulaması örneğidir. 
+- **Hizmet asıl kimlik doğrulaması** bir hizmetin kimliğini doğrular. Genellikle bu kimlik doğrulama yöntemini kullanan uygulamalar, arka plan programı services, orta katman Hizmetleri veya web uygulamaları, işlev uygulamalarının, logic apps, API veya mikro gibi zamanlanmış işleri çalıştırma uygulamalardır.
 
-Aşağıdaki kısıtlamalar altında Media Services çözümleri geliştirmek bazı müşteriler gerekir:
+    Bu öğretici, Azure AD kullanmayı gösterir **hizmet sorumlusu** AMS API REST ile erişmek için kimlik doğrulaması. 
 
-*   Microsoft .NET veya C# programlama bir dil kullanın veya çalışma zamanı ortamı Windows değil.
-*   Active Directory kimlik doğrulama kitaplıkları gibi Azure AD kitaplıkları için programlama dili kullanılabilir değil veya kendi çalışma zamanı ortamı için kullanılamaz.
+    > [!NOTE]
+    > **Hizmet sorumlusu** önerilen en iyi uygulamadır Azure Media Services'e bağlanma çoğu uygulamalar için. 
 
-Bazı müşteriler, erişim denetimi kimlik doğrulaması ve Azure Media Services erişimi için REST API kullanarak uygulamaları geliştirdik. Bu müşteriler için Azure AD kimlik doğrulaması ve sonraki Azure Media Services erişimi için yalnızca REST API kullanmak için bir yönteme ihtiyacınız vardır. Herhangi bir Azure AD kitaplıkları veya Media Services .NET SDK'sı kalmamanız gerekir. Bu makalede, bir çözüm açıklar ve bu senaryo için örnek kod sağlar. Kod hiçbir bağımlılık tüm Azure AD ile tüm REST API çağrıları olduğundan veya Azure Media Services kitaplık kodu diğer programlama dili için kolay çevrilebilir.
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+
+> [!div class="checklist"]
+> * Azure Portalı'ndan kimlik doğrulama bilgilerini alın
+> * Postman kullanarak erişim belirteci alın
+> * Test **varlıklar** erişim belirtecini kullanarak API
+
 
 > [!IMPORTANT]
-> Şu anda, Media Services Azure erişim denetimi Hizmetleri kimlik doğrulama modelini destekler. Ancak, erişim denetimi kimlik doğrulaması 1 Haziran 2018 kullanım dışı kalacaktır. Azure AD kimlik doğrulama modeline mümkün olan en kısa sürede geçirmek öneririz.
+> Şu anda, Media Services Azure erişim denetimi Hizmetleri kimlik doğrulama modelini destekler. Ancak, erişim denetimi kimlik doğrulaması 1 Haziran 2018 kullanım dışı kalacaktır. Azure AD kimlik doğrulaması modeline mümkün olan en kısa sürede geçiş yapmanız önerilir.
 
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="design"></a>Tasarlayın
+- Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
+- [Azure portalını kullanarak Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
+- Gözden geçirme [AAD kimlik doğrulamasına genel bakış ile Azure Media Services API erişme](media-services-use-aad-auth-to-access-ams-api.md) makalesi.
+- Yükleme [Postman](https://www.getpostman.com/) bu makalede gösterilen REST API'leri yürütmek için REST istemci. 
 
-Bu makalede, aşağıdaki kimlik doğrulama ve yetkilendirme tasarım kullanın:
+    Bu öğreticide, duyuyoruz uring **Postman** ancak herhangi bir REST aracı uygun olacaktır. Diğer seçenekleri şunlardır: **Visual Studio Code** REST eklentisi ile veya **Telerik Fiddler**. 
 
-*  Yetkilendirme Protokolü: OAuth 2.0. OAuth 2.0 kimlik doğrulama ve yetkilendirme kapsayan bir web güvenlik standardıdır. Google, Microsoft, Facebook ve PayPal tarafından desteklenir. Ekim 2012 onay. Microsoft, OAuth 2.0 ve Openıd Connect sıkıca destekler. Bu standartlar her ikisinin birden çok hizmet ve istemci kitaplıkları, Azure Active Directory gibi .NET (OWIN) Katana açık Web arabirimi desteklenir ve Azure AD kitaplıkları.
-*  Vermek türü: istemci kimlik bilgileri vermenizi türü. İstemci kimlik bilgileri biridir OAuth 2.0 dört grant türler. Genellikle, Azure AD Microsoft Graph API erişimi için de kullanılır.
-*  Kimlik doğrulama modu: hizmet sorumlusu. Diğer kimlik doğrulama modu, kullanıcı veya etkileşimli kimlik doğrulaması ' dir.
+## <a name="get-the-authentication-information-from-the-azure-portal"></a>Azure Portalı'ndan kimlik doğrulama bilgilerini alın
 
-Azure AD kimlik doğrulama ve yetkilendirme dört uygulamalar veya hizmetler toplam söz konusu Media Services'i kullanarak akışı. Uygulamaları ve Hizmetleri ve akış aşağıdaki tabloda açıklanmıştır:
+### <a name="overview"></a>Genel Bakış
 
-|Uygulama türü |Uygulama |Akış|
-|---|---|---|
-|İstemci | Müşteri uygulama ya da çözüm | Bu uygulamayı (aslında, kendi proxy) Azure aboneliği ve medya hizmet hesabının bulunduğu Azure AD kiracısında kaydedilir. Hizmet sorumlusu kayıtlı uygulamanın sahibi veya katkıda bulunan rolü, erişim denetimi (IAM) medya hizmet hesabının sonra verilir. Hizmet sorumlusu uygulama istemci Kimliğini ve istemci gizli anahtarı temsil edilir. |
-|Kimlik sağlayıcıyı (IDP) | IDP olarak Azure AD | Kayıtlı uygulama hizmet sorumlusu (istemci kimliği ve istemci gizli anahtarı) IDP olarak Azure AD tarafından doğrulanır. Bu kimlik doğrulaması, dahili ve örtük olarak gerçekleştirilir. İstemci kimlik bilgileri akışının olduğu gibi istemci yerine kullanıcının kimliği doğrulanır. |
-|Belirteç Hizmeti (STS) güvenli / OAuth sunucu | STS olarak Azure AD | IDP (veya OAuth sunucusu OAuth 2.0 terimleriyle) göre kimlik doğrulamasından sonra bir erişim belirteci veya JSON Web Token (JWT) STS/OAuth sunucusu olarak Azure AD erişim için Orta katmanda kaynağı tarafından verilir: Bu örnekte, Media Services REST API uç noktası. |
-|Kaynak | Media Services REST API'si | Her Media Services REST API çağrısı STS veya OAuth sunucu olarak Azure AD tarafından verilen bir erişim belirteci tarafından yetkilendirildi. |
+Media Services API erişmek için aşağıdaki veri noktaları toplamak gerekir.
 
-Örnek kodu çalıştırmak ve yakalama JWT veya bir erişim belirteci, JWT aşağıdaki özniteliklere sahiptir:
+|Ayar|Örnek|Açıklama|
+|---|-------|-----|
+|Azure Active Directory kiracı etki alanı|Microsoft.onmicrosoft.com|Aşağıdaki biçimi kullanarak bir güvenli belirteç hizmeti (STS) uç noktası olarak Azure AD oluşturulur: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD (bir erişim belirteci) kaynaklara erişmek için JWT verir.|
+|REST API uç noktası|https://amshelloworld.restv2.westus.Media.Azure.NET/api/|Bu karşı tüm hangi Media Services REST API çağrıları, uygulamanızda yapılan uç noktadır.|
+|İstemci kimliği (uygulama kimliği)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD uygulama (istemci) kimliği İstemci Kimliğini ve erişim belirteci almak için gereklidir. |
+|İstemci Parolası|mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD uygulama anahtarları (gizli). İstemci gizli anahtarı erişim belirteci almak için gereklidir.|
 
-    aud: "https://rest.media.azure.net",
+### <a name="get-aad-auth-info-from-the-azure-portal"></a>Azure portalından AAD kimlik doğrulama bilgilerini al
 
-    iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+Bilgi edinmek için şu adımları izleyin:
 
-    iat: 1497146280,
+1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+2. AMS örneğine gidin.
+3. Seçin **API erişimini**.
+4. Tıklayın **Azure Media Services API hizmet asıl Bağlan**.
 
-    nbf: 1497146280,
-    exp: 1497150180,
+    ![API erişimi](./media/connect-with-rest/connect-with-rest01.png)
 
-    aio: "Y2ZgYDjuy7SptPzO/muf+uRu1B+ZDQA=",
+5. Var olan seçin **Azure AD uygulaması** veya (aşağıda gösterilen) yeni bir tane oluşturun.
 
-    appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6",
+    > [!NOTE]
+    > Azure Media REST istek başarılı olması arayan kullanıcı olmalıdır bir **katkıda bulunan** veya **sahibi** erişmeye çalışıyor Media Services hesap için rolü. Bildiren bir özel durum alırsanız "uzak sunucusu bir hata döndürdü: (401) yetkisiz" bkz [erişim denetimi](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
-    appidacr: "1",
+    Yeni AD uygulaması oluşturmanız gerekiyorsa, şu adımları izleyin:
+    
+    1. Tuşuna **Yeni Oluştur**.
+    2. Bir ad girin.
+    3. Tuşuna **Yeni Oluştur** yeniden.
+    4. Tuşuna **kaydetmek**.
 
-    idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+    ![API erişimi](./media/connect-with-rest/new-app.png)
 
-    oid: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+    Yeni uygulama sayfasında görüntülenir.
 
-    sub: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+6. Alma **istemci kimliği** (uygulama kimliği ile).
+    
+    1. Uygulamayı seçin.
+    2. Alma **istemci kimliği** sağdaki penceresinden. 
 
-    tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ![API erişimi](./media/connect-with-rest/existing-client-id.png).
 
-JWT ve özniteliklere dört uygulamalar veya hizmetler önceki tabloda arasındaki eşlemeleri şunlardır:
+7.  Uygulamanın alma **anahtar** (gizli). 
 
-|Uygulama türü |Uygulama |JWT özniteliği |
-|---|---|---|
-|İstemci |Müşteri uygulama ya da çözüm |AppID: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". Bir uygulamanın istemci Kimliğini sonraki bölümde Azure AD ile kaydeder. |
-|Kimlik sağlayıcıyı (IDP) | IDP olarak Azure AD |IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/" GUID olan Microsoft kimliği Kiracı (microsoft.onmicrosoft.com). Her bir kiracı kendi, benzersiz kimliği vardır. |
-|Belirteç Hizmeti (STS) güvenli / OAuth sunucu |STS olarak Azure AD | ISS: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". Microsoft kimlik Kiracı (microsoft.onmicrosoft.com) GUID'dir. |
-|Kaynak | Media Services REST API'si |aud: "https://rest.media.azure.net". Alıcı ya da erişim belirteci İzleyici. |
+    1. Tıklatın **uygulamasını Yönet** düğmesini (istemci kimlik bilgileri altında olduğuna dikkat edin **uygulama kimliği**). 
+    2. Tuşuna **anahtarları**.
+    
+        ![API erişimi](./media/connect-with-rest/manage-app.png)
+    3. Uygulama anahtarı (gizli) doldurarak oluşturmak **açıklama** ve **EXPIRES** tuşuna basarak **kaydetmek**.
+    
+        Bir kez **kaydetmek** düğmesine basıldığında, anahtar değeri görüntülenir. Anahtar değeri dikey penceresinde ayrılmadan önce kopyalayın.
 
-## <a name="steps-for-setup"></a>Kurulum adımları
+    ![API erişimi](./media/connect-with-rest/connect-with-rest03.png)
 
-Kaydolun ve Azure Active Directory (AAD) uygulama ayarlama ve Azure Media Services REST API uç noktası çağrılmadan tuşları edinmek için makalesine başvurun [Azure portalını kullanarak Azure AD kimlik doğrulaması ile çalışmaya başlama](media-services-portal-get-started-with-aad.md)
+Kodunuzu daha sonra kullanmak için web.config veya app.config dosyasını AD bağlantı parametreleri için değerler ekleyebilirsiniz.
 
+> [!IMPORTANT]
+> **İstemci anahtar** önemli bir parolası ve düzgün bir anahtar kasası veya güvenli hale üretimde şifrelenir.
 
-## <a name="info-to-collect"></a>Bilgi toplamak için
+## <a name="get-the-access-token-using-postman"></a>Postman kullanarak erişim belirteci alın
 
-REST kodlama hazırlamak üzere kod eklemek için aşağıdaki veri noktaları Topla:
+Bu bölümde nasıl kullanılacağını gösterir **Postman** bir JWT taşıyıcı belirteç (SID) döndüren bir REST API yürütülecek. Bir Media Services REST API çağrısı için çağrıları "Yetkilendirme" üstbilgi ekleyin ve değerini eklemek gereken "taşıyıcı *your_access_token*" (Bu öğreticinin sonraki bölümde gösterildiği gibi) her çağrı için. 
 
-*   Bir STS uç noktası olarak Azure AD: https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token. Bu uç noktasından bir JWT erişim belirteci istendi. Bir IDP hizmet veren ek olarak, Azure AD aynı zamanda bir STS olarak görev yapar. Azure AD kaynak erişimi (bir erişim belirteci) için JWT verir. JWT belirteci çeşitli talep vardır.
-*   Kaynak veya hedef kitle olarak Azure Media Services REST API: https://rest.media.azure.net.
-*   İstemci kimliği: Bkz. Adım 2'de [kurulum adımları](#steps-for-setup).
-*   İstemci gizliliği: bkz: adım 2'de [kurulum adımları](#steps-for-setup).
-*   Media Services REST API uç noktası şu biçimde hesap:
+1. Açık **Postman**.
+2. **POST**'u seçin.
+3. Aşağıdaki biçimi kullanarak Kiracı adınızı içeren bir URL girin: Kiracı adı ile bitmelidir **. onmicrosoft.com** ve URL ile bitmelidir **oauth2/token**: 
 
-    https://[media_service_account_name].restv2. [data_center].media.azure.net/API 
+    https://Login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
-    Bu karşı tüm hangi Media Services REST API çağrıları, uygulamanızda yapılan uç noktadır. Örneğin, https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+4. Seçin **üstbilgileri** sekmesi.
+5. Girin **üstbilgileri** "Anahtar/değer" veri kılavuzu kullanarak bilgi. 
 
-Daha sonra kodunuzda kullanmak için web.config veya app.config dosyasını, bu beş parametreleri koyabilirsiniz.
+    ![Veri Kılavuzu](./media/connect-with-rest/headers-data-grid.png)
 
-## <a name="sample-code"></a>Örnek kod
+    Alternatif olarak, **Toplu Düzenle** bağlantı Postman pencerenin sağ tarafta ve aşağıdaki kodu yapıştırın.
 
-Örnek kodda bulabilirsiniz [Azure Media Services erişimi için Azure AD kimlik doğrulamasını: REST API aracılığıyla her ikisi de](https://github.com/willzhan/WAMSRESTSoln).
+        Content-Type:application/x-www-form-urlencoded
+        Keep-Alive:true
 
-Örnek kod iki bölümden oluşur:
+6. Tuşuna **gövde** sekmesi.
+7. "Anahtar/değer" Veri Kılavuzu (Değiştir istemci Kimliğini ve gizli değerler) kullanarak gövde bilgileri girin. 
 
-*   Azure AD kimlik doğrulama ve yetkilendirme için tüm REST API koduna sahip bir DLL Kitaplığı projesi. Ayrıca, erişim belirteci ile Media Services REST API uç REST API çağrıları yapma için bir yöntem vardır.
-*   Azure AD kimlik doğrulaması başlatır ve farklı Media Services REST API çağrıları bir konsol test istemcisi.
+    ![Veri Kılavuzu](./media/connect-with-rest/data-grid.png)
 
-Örnek Proje üç özelliklere sahiptir:
+    Alternatif olarak, **Toplu Düzenle** Yapıştır aşağıdaki gövdesi (Değiştir istemci Kimliğini ve gizli değerler) ve Postman penceresini sağdaki:
 
-*   İstemci kimlik bilgileri aracılığıyla Azure AD kimlik doğrulamaları yalnızca REST API kullanarak verirsiniz.
-*   Yalnızca REST API kullanarak azure Media Services erişimi.
-*   Yalnızca REST (REST API kullanarak bir Media Services hesabı oluşturmak için kullanılan gibi) API kullanarak azure depolama erişim.
+        grant_type:client_credentials
+        client_id:{Your Client ID that you got from your AAD Application}
+        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        resource:https://rest.media.azure.net
 
+8. **Gönder**’e basın.
 
-## <a name="where-is-the-refresh-token"></a>Yenileme belirteci nerede?
+    ![Belirteci alma](./media/connect-with-rest/connect-with-rest04.png)
 
-Bazı okuyucular isteyebilir: yenileme belirtecini nerede? Neden bir yenileme belirteci burada kullanabilir?
+Döndürülen yanıt içeren **erişim belirteci** , tüm AMS API'lerinin erişmek için kullanmanız gerekebilir.
 
-Bir yenileme belirteci amacı, bir erişim belirteci yenileme değil olmaktır. Son kullanıcı kimlik doğrulamasını atlamak ve bir önceki belirtecinin süresi dolduğunda hala geçerli erişim belirteci almak için tasarlanmıştır. Bir yenileme belirteci için daha iyi bir adı "kullanıcı yeniden-oturumu açma belirteci atlama."gibi bir şey olabilir
+## <a name="test-the-assets-api-using-the-access-token"></a>Test **varlıklar** erişim belirtecini kullanarak API
 
-Yetki akış (kullanıcı adı ve parola, bir kullanıcı adına hareket) OAuth 2.0 kullanıyorsanız, yenileme belirteci, kullanıcı müdahalesi gerektirmeden yenilenmiş bir erişim belirteci almak yardımcı olur. Ancak, bu makalede açıklanan akış istemci kimlik bilgileri vermenizi OAuth 2.0 için istemci kendi adına hareket eder. Hiçbir kullanıcı etkileşimi gerekmez ve bir yenileme belirteci vermek yetkilendirme sunucusu gerekmez. Hata ayıklama, **GetUrlEncodedJWT** yöntemi, fark belirteç uç noktası yanıttan bir erişim belirteci ancak herhangi bir yenileme belirteci sahiptir.
+Bu bölümde nasıl erişeceğinizi gösterir **varlıklar** API kullanarak **Postman**.
+
+1. Açık **Postman**.
+2. **GET**'i seçin.
+3. REST API uç noktası (örneğin, https://amshelloworld.restv2.westus.media.azure.net/api/Assets) yapıştırın
+4. Seçin **yetkilendirme** sekmesi. 
+5. Seçin **taşıyıcı belirteci**.
+6. Önceki bölümde oluşturulan belirteç yapıştırın.
+
+    ![Belirteci alma](./media/connect-with-rest/connect-with-rest05.png)
+
+    > [!NOTE]
+    > Postman UX Mac ve PC arasında farklı olabilir. Mac sürümünü "Taşıyıcı belirteci" seçeneği yoksa **kimlik doğrulaması** bölümü açılır listesinde, eklemek **yetkilendirme** Mac istemcisini el ile başlığındaki.
+
+   ![Kimlik doğrulama üstbilgisi](./media/connect-with-rest/auth-header.png)
+
+7. Seçin **üstbilgileri**.
+5. Tıklatın **Toplu Düzenle** Postman pencerenin sağ tarafta bağlantı.
+6. Aşağıdaki üst bilgiler yapıştırın:
+
+        x-ms-version:2.15
+        Accept:application/json
+        Content-Type:application/json
+        DataServiceVersion:3.0
+        MaxDataServiceVersion:3.0
+
+7. **Gönder**’e basın.
+
+Döndürülen yanıt hesabınızda olan varlıkları içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanmaya başlama [dosyaları hesabınıza Yükleniyor](media-services-dotnet-upload-files.md).
+* Bu örnek kodda deneyin [Azure Media Services erişimi için Azure AD kimlik doğrulamasını: REST API aracılığıyla her ikisi](https://github.com/willzhan/WAMSRESTSoln)
+* [.NET ile dosyaları karşıya yükleme](media-services-dotnet-upload-files.md)

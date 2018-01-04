@@ -14,11 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
+<<<<<<< HEAD
 ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
 ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
+=======
+ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Tanılama Günlüğü
 
@@ -30,15 +36,15 @@ Azure Cosmos Azure portal, CLI veya PowerShell oturum DB ile çalışmaya başla
 
 ## <a name="what-is-logged"></a>Ne kaydedilir?
 
-* Erişim izinleri, sistem hataları veya hatalı istekler sonucunda başarısız olan istekleri içeren tüm kimliği doğrulanmış REST DocumentDB (SQL) API istekleri günlüğe kaydedilir. MongoDB, grafik ve tablo API desteği şu anda kullanılamıyor.
+* Erişim izinleri, sistem hataları veya hatalı istekler sonucunda başarısız olan istekleri içeren tüm kimliği doğrulanmış REST SQL API istekleri günlüğe kaydedilir. MongoDB, grafik ve tablo API desteği şu anda kullanılamıyor.
 * Tüm belgeler, kapsayıcıları ve veritabanları üzerinde CRUD işlemleri içeren veritabanının kendisi, üzerinde işlemler.
 * Oluşturma, değiştirme veya bu anahtarları silme dahil hesabı anahtarları üzerinde işlemler.
 * Bir 401 yanıtına neden olan kimliği doğrulanmamış istekler. Örneğin, bir taşıyıcı belirtecine sahip olmayan veya hatalı biçimlendirilmiş ya da süresi dolmuş veya geçersiz bir belirtece sahip olan istekler.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdaki kaynaklara sahip olmalısınız:
 
-* Bir var olan Azure Cosmos DB hesap, veritabanı ve kapsayıcı. Bu kaynaklar oluşturma ile ilgili yönergeler için bkz: [Azure portalını kullanarak bir veritabanı hesabı oluşturma](create-documentdb-dotnet.md#create-a-database-account), [CLI örnekleri](cli-samples.md), veya [PowerShell örnekleri](powershell-samples.md).
+* Bir var olan Azure Cosmos DB hesap, veritabanı ve kapsayıcı. Bu kaynaklar oluşturma ile ilgili yönergeler için bkz: [Azure portalını kullanarak bir veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-a-database-account), [CLI örnekleri](cli-samples.md), veya [PowerShell örnekleri](powershell-samples.md).
 
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Azure portalında oturum aç
@@ -54,13 +60,13 @@ Bu öğreticiyi tamamlamak için aşağıdaki kaynaklara sahip olmalısınız:
     * **Arşiv depolama hesabı**. Bu seçeneği kullanmak için bağlanmak için var olan bir depolama hesabı gerekir. Portalda yeni bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) ve Kaynak Yöneticisi, genel amaçlı hesabı oluşturmak için yönergeleri izleyin. Depolama hesabınız seçmek için portal bu sayfaya dönün. Yeni oluşturulan depolama hesapları açılır menüde görünmesi birkaç dakika sürebilir.
     * **Bir olay hub'ına akış**. Bu seçeneği kullanmak için bağlanmak için bir var olan olay hub'ı ad alanı ve olay hub'ı gerekir. Bir olay hub'ları ad alanı oluşturmak için bkz: [bir olay hub'ları ad alanı oluşturup Azure portalını kullanarak bir event hub](../event-hubs/event-hubs-create.md). Olay hub'ı ad alanı ve ilke adı seçmek için portal bu sayfaya dönün.
     * **Günlük analizi için Gönder**.     Bu seçeneği kullanmak için varolan bir çalışma alanını kullanın ya da yeni bir günlük analizi çalışma alanı için adımları izleyerek oluşturun [yeni bir çalışma alanı oluşturma](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) Portalı'nda. Günlük analizi, günlükleri görüntüleme hakkında daha fazla bilgi için bkz: [görünüm günlüklerini günlük analizi](#view-in-loganalytics).
-    * **Oturum DataPlaneRequests**. DocumentDB, grafik ve tablo API hesapları için tanılama günlük için bu seçeneği belirleyin. Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
+    * **Oturum DataPlaneRequests**. SQL, grafik ve tablo API hesapları için tanılama günlük için bu seçeneği belirleyin. Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
     * **Oturum MongoRequests**. MongoDB API hesapları için tanılama günlük için bu seçeneği belirleyin. Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
-    * **Ölçüm istekleri**. Ayrıntılı verileri depolamak için bu seçeneği [Azure ölçümleri](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
+    * **Ölçüm istekleri**. Ayrıntılı verileri depolamak için bu seçeneği [Azure ölçümleri](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
 
-3. **Kaydet** düğmesine tıklayın.
+3. **Kaydet**’e tıklayın.
 
-    Bildiren bir hata alırsanız, "için tanılama güncelleştirilemedi \<çalışma alanı adı >. Abonelik \<abonelik kimliği > Microsoft.ınsights kullanmak için kayıtlı değil. " izleyin [sorun giderme Azure tanılama](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) hesabını kaydetmek için yönergeler, bu yordamı yeniden deneyin.
+    Bildiren bir hata alırsanız, "için tanılama güncelleştirilemedi \<çalışma alanı adı >. Abonelik \<abonelik kimliği > Microsoft.ınsights kullanmak için kayıtlı değil. " izleyin [sorun giderme Azure tanılama](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) hesabını kaydetmek için yönergeler, bu yordamı yeniden deneyin.
 
     Nasıl Tanılama günlüklerinize herhangi bir noktada gelecekte kaydedilir değiştirmek istiyorsanız, bu sayfanın dilediğiniz zaman hesabınızı tanılama günlük ayarlarını değiştirmek için geri dönebilirsiniz.
 
@@ -239,7 +245,7 @@ Tarih ve saat değerleri UTC'yi kullanır.
 
 Aynı depolama hesabı birden fazla kaynak için günlükleri toplamak için kullanılabileceğinden blob adındaki tam kaynak kimliği erişmek veya yalnızca gereksinim duyduğunuz blobları indirmek çok kullanışlıdır. Ancak bunu yapmadan önce tüm blobların nasıl indirileceğini ele alacağız.
 
-İlk olarak, blobları yüklemek için bir klasör oluşturun. Örnek:
+İlk olarak, blobları yüklemek için bir klasör oluşturun. Örneğin:
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`

@@ -1,50 +1,41 @@
 ---
-title: "Azure kapsayıcı kayıt defterinde en iyi uygulamalar"
-description: "Bu en iyi uygulamaları izleyerek, Azure kapsayıcı kayıt defteri etkili bir şekilde kullanmayı öğrenin."
+title: "Azure Container Registry için en iyi yöntemler"
+description: "Bu en iyi yöntemleri izleyerek Azure kapsayıcı kayıt defterinizi nasıl verimli bir şekilde kullanabileceğinizi öğrenin."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: mmacy
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-registry
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/05/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 9ec5573082dbf9de1288e1511f5041f8c20b416e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: MT
+ms.openlocfilehash: 5ccbb3022dc38f13eed9b5aa24beb14dfdb3b5b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="best-practices-for-azure-container-registry"></a>Azure kapsayıcı kayıt defteri için en iyi yöntemler
+# <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry için en iyi yöntemler
 
-Bu en iyi uygulamaları izleyerek, performans ve düşük maliyetli, özel Docker kayıt defterinde Azure kullanımını en üst düzeye çıkarmanıza yardımcı olabilir.
+Bu en iyi yöntemleri izlemek, Azure’daki özel Docker kayıt defterinizin performansını ve maliyetini en iyi duruma getirmenize yardımcı olabilir.
 
-## <a name="network-close-deployment"></a>Ağ Kapat dağıtım
+## <a name="network-close-deployment"></a>Yakın ağ dağıtımı
 
-Kapsayıcı kaydınız kapsayıcıları dağıtın aynı Azure bölgesinde oluşturun. Ağ Kapat bir bölgede kaydınız yerleştirme gecikme süresi ve maliyet düşürmek konakları, kapsayıcıya yardımcı olabilir.
+Kapsayıcı kayıt defterinizi, kapsayıcıları dağıttığınız Azure bölgesinde oluşturun. Kayıt defterinizin ağ açısından kapsayıcı konaklarınıza yakın bir bölgeye yerleştirilmesi hem gecikmeyi hem de maliyeti düşürmeye yardımcı olabilir.
 
-Ağ Kapat dağıtım özel kapsayıcı Kayıt Defteri'ni kullanarak başlıca nedenlerinden biridir. Docker görüntülerine sahip mükemmel [katmanlama yapı](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) artımlı dağıtımları için sağlar. Ancak, belirli bir görüntü için gerekli tüm katmanlara çıkarmak yeni düğümler gerekir. Bu ilk `docker pull` kadar birden çok gigabayt kolayca ekleyebilirsiniz. Özel bir kayıt defteri dağıtımınızı yakın sahip ağ gecikmesini en aza indirir.
-Ayrıca, tüm genel Bulutlar, Azure dahil, ağ çıkışı ücretleri uygulayın. Bir veri merkezi görüntülerden başka bir çekme gecikme yanı sıra ağ çıkış ücretleri ekler.
+Yakın ağ dağıtımı, özel kapsayıcı kayıt defteri kullanmanın birincil nedenlerinden biridir. Docker görüntülerinin kademeli dağıtıma imkan tanıyan harika bir [katman yapısı](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) vardır. Bununla birlikte, yeni düğümlerin belirli bir görüntü için gereken tüm katmanları çekmesi gerekir. Bu ilk `docker pull` hızla büyüyerek birkaç gigabayta ulaşabilir. Dağıtımınıza yakın özel bir kayıt defterinin olması bu ağ gecikmesini en aza indirir.
+Buna ek olarak, Azure dahil tüm genel bulutlar ağ çıkışı ücretleri uygular. Bir veri merkezinden diğerine görüntü çekmek, gecikmeye ek olarak ağ çıkışı ücretlerine yol açar.
 
-## <a name="geo-replicate-multi-region-deployments"></a>Coğrafi replicate bölgeli dağıtımlar
+## <a name="geo-replicate-multi-region-deployments"></a>Çok bölgeli dağıtımları coğrafi olarak çoğaltma
 
-Azure kapsayıcı kayıt defterindeki kullanmak [coğrafi çoğaltma](container-registry-geo-replication.md) kapsayıcıları için birden çok bölgeye dağıtıyorsanız özelliği. Yerel veri merkezlerinde genel müşterilerden hizmet veren veya Geliştirme ekibiniz farklı konumlarda olup olmadığını, kayıt defteri yönetimi basitleştirmek ve gecikmeyi coğrafi çoğaltma tarafından kaydınız en aza indir. Şu anda Önizleme'de, bu özellik ile kullanılabilir [Premium](container-registry-skus.md#premium) kayıt defterleri.
+Birden çok bölgeye kapsayıcı dağıtıyorsanız Azure Container Registry'nin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. İster yerel veri merkezlerinden küresel müşterilere hizmet sunuyor olun ister geliştirme takımınız farklı konumlarda çalışıyor olsun, kayıt defterinizi coğrafi olarak çoğaltarak kayıt defteri yönetimini basitleştirebilir ve gecikmeyi en aza indirebilirsiniz. Şu anda önizlemede olan bu özellik [Premium](container-registry-skus.md#premium) kayıt defterleriyle sunulmaktadır.
 
-Coğrafi çoğaltma, üç bölümlü öğretici bkz öğrenmek için [coğrafi çoğaltma Azure kapsayıcı kayıt defterinde](container-registry-tutorial-prepare-registry.md).
+Coğrafi çoğaltma özelliğini kullanmayı öğrenmek için [Azure Container Registry’de coğrafi çoğaltma](container-registry-tutorial-prepare-registry.md) başlıklı üç bölümlü öğreticiye bakın.
 
 ## <a name="repository-namespaces"></a>Depo ad alanları
 
-Depo ad alanları yararlanarak, kuruluşunuzdaki birden çok grupları içindeki tek bir kayıt defteri paylaşımı izin verebilirsiniz. Kayıt defterleri, dağıtımlar ve takımlar arasında paylaşılabilir. Azure kapsayıcı kayıt iç içe geçmiş ad alanları, Grup yalıtımı etkinleştirildiğinde destekler.
+Depo ad alanlarından yararlanarak kuruluşunuz içinde tek bir kayıt defterinin birden çok grupta paylaşılmasına imkan tanıyabilirsiniz. Kayıt defterleri farklı dağıtımlarla ve takımlarla paylaşılabilir. İç içe ad alanlarını destekleyen Azure Container Registry, grup yalıtımı imkanı sunar.
 
-Örneğin, aşağıdaki kapsayıcıyı görüntü etiketleri göz önünde bulundurun. Şirket çapındaki gibi kullanılan görüntüleri `aspnetcore`, kapsayıcı görüntüleri üretim ve pazarlama grupları tarafından her kullanım kendi ad alanları ait sırada kök ad alanı yerleştirilir.
+Örneğin, aşağıdaki kapsayıcı görüntüsü etiketlerini göz önünde bulundurun. Kurumsal çapta kullanılan `aspnetcore` gibi görüntüler kök ad alanına yerleştirilirken, Üretim ve Pazarlama gruplarına ait her bir kapsayıcı görüntüsü kendi ad alanını kullanır.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0
@@ -55,21 +46,21 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Ayrılmış kaynak grubu
 
-Kapsayıcı kayıt defterleri, birden çok kapsayıcı konak genelinde kullanılan kaynaklar olduğundan, bir kayıt defteri, kendi kaynak grubu bulunmalıdır.
+Kapsayıcı kayıt defterleri birden çok kapsayıcı konağında kullanılan kaynaklar olduğundan, bir kayıt defteri kendi kaynak grubunda bulunmalıdır.
 
-Azure kapsayıcı örnekleri gibi bir özel ana bilgisayar türü denemeniz ancak büyük olasılıkla işiniz bittiğinde kapsayıcı örneğini silin istersiniz. Ancak, ayrıca Azure kapsayıcı kayıt defterine gönderilen resimler koleksiyonunu tutmak isteyebilirsiniz. Kendi kaynak grubunda kaydınız koyarak kapsayıcı örnek kaynak grubu sildiğinizde, kayıt defterinde görüntüleri koleksiyonunu yanlışlıkla silme riskini en aza indirin.
+Azure Container Instances gibi belirli bir konak türüyle denemeler yapabilecek olsanız da muhtemelen işiniz bittiğinde kapsayıcı örneğini silmek isteyeceksinizdir. Bununla birlikte, Azure Container Registry’ye gönderdiğiniz görüntü koleksiyonunu korumak da isteyebilirsiniz. Kayıt defterinizi kendi kaynak grubuna yerleştirerek, kapsayıcı örneğinin kaynak grubunu silerken yanlışlıkla kayıt defterindeki görüntü koleksiyonunu da silme riskini en aza indirirsiniz.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-Azure kapsayıcı kayıt defteri ile kimlik doğrulamasını yaparken, iki birincil senaryo vardır: tek tek kimlik doğrulama ve hizmet (veya "gözetimsiz") kimlik doğrulaması. Aşağıdaki tabloda, bu senaryoların kısa bir genel bakış ve önerilen yöntem, her kimlik doğrulama sağlar.
+Bir Azure kapsayıcı kayıt defteri ile kimlik doğrulama için iki ana senaryo vardır: bireysel kimlik doğrulama ve hizmet (veya "gözetimsiz") kimlik doğrulaması. Aşağıdaki tabloda, bu senaryolara kısa bir genel bakış ve her biri için önerilen kimlik doğrulama yöntemi sağlanmıştır.
 
-| Tür | Örnek senaryo | Önerilen yöntem |
+| Tür | Örnek senaryo | Önerilen metot |
 |---|---|---|
-| Tek tek kimlik | Görüntüleri çekme veya kendi geliştirme makineden görüntüleri Ftp'den Geliştirici. | [az acr oturum açma](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
-| Gözetimsiz/hizmet kimliği | Derleme ve dağıtım ardışık düzen burada kullanıcı ile doğrudan ilgili değildir. | [Hizmet sorumlusu](container-registry-authentication.md#service-principal) |
+| Bireysel kimlik | Geliştirme makinesinden görüntü çeken veya gönderen bir geliştirici. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
+| Gözetimsiz kimlik/hizmet kimliği | Kullanıcıyla doğrudan ilgili olmayan derleme ve dağıtım işlem hatları. | [Hizmet sorumlusu](container-registry-authentication.md#service-principal) |
 
-Azure kapsayıcı kayıt defteri kimlik doğrulaması hakkında ayrıntılı bilgi için bkz: [Azure kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md).
+Azure Container Registry kimlik doğrulaması hakkında ayrıntılı bilgi edinmek için bkz. [Azure kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure kapsayıcı kayıt defteri SKU'ları, her farklı özellikleri sağlıyor adlı birkaç katmanda kullanılabilir. Kullanılabilir SKU'lar hakkında daha fazla bilgi için bkz: [Azure kapsayıcı kayıt defteri SKU'ları](container-registry-skus.md).
+Azure Container Registry, SKU adı verilen ve her biri farklı özellikler sağlayan birkaç katmanda sunulmaktadır. Sunulan SKU’lar hakkında ayrıntılı bilgi için bkz. [Azure Container Registry SKU’ları](container-registry-skus.md).

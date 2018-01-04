@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Ölçüm uyarılar için Azure services - Azure İzleyicisi'nde oluşturma Azure portalı
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabili
 
 Yapılandırma ve kullanma ölçüm uyarı kuralları hakkında bilgi alın
 
-* [Azure portal](insights-alerts-portal.md)
+* [Azure portalı](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [komut satırı arabirimi (CLI)](insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -64,7 +64,7 @@ Yapılandırma ve kullanma ölçüm uyarı kuralları hakkında bilgi alın
 
 3. Seçin **uyarı Ekle** komut ve alanları doldurun.
 
-    ![Uyarı ekleme](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
+    ![Uyarı Ekle](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. **Ad** , uyarı kuralı ve seçin bir **açıklama**, bildirim e-postalarda da gösterir.
 

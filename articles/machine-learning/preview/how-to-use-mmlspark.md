@@ -10,11 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
+<<<<<<< HEAD
 ms.openlocfilehash: 228ff59e2a495e8ca7c310214327bc846ecfb828
 ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Microsoft Machine Learning kitaplığı için Apache Spark kullanma
 
@@ -29,7 +35,7 @@ ms.lasthandoff: 12/05/2017
 
 Nasıl yapılır bu kılavuzu adım için aktarmanız gerekir:
 - [Azure Machine Learning çalışma ekranı yükleyin](quickstart-installation.md)
-- [Azure Hdınsight Spark kümesi](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
+- [Azure Hdınsight Spark kümesi](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## <a name="run-your-experiment-in-docker-container"></a>Docker kapsayıcısı denemenizi çalıştırın
 
@@ -41,7 +47,7 @@ Azure Machine Learning çalışma ekranı denemeler Docker kapsayıcısı içind
 
 ## <a name="install-mmlspark-on-azure-hdinsight-spark-cluster"></a>Azure Hdınsight Spark kümesinde MMLSpark yükleyin.
 
-Bu ve aşağıdaki adımı tamamlamak için öncelikle gerekir [Azure Hdınsight Spark kümesi oluşturma](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+Bu ve aşağıdaki adımı tamamlamak için öncelikle gerekir [Azure Hdınsight Spark kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 Denemenizi çalıştırdığınızda, varsayılan olarak, Azure Machine Learning çalışma ekranı kümenizde MMLSpark paketi yükler. Bu davranışı denetlemek ve adlı bir dosya düzenleyerek diğer Spark paketleri yüklemeniz _aml_config/spark_dependencies.yml_ proje klasörünüzdeki.
 

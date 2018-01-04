@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c2087af14ad456c679479334c9391055f6b2e45e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Node.js ve MongoDB web uygulaması oluşturma
+
+> [!NOTE]
+> Bu makale App Service'e Linux üzerinde bir uygulama dağıtır. Uygulama hizmeti dağıtım _Windows_, bkz: [azure'da Node.js ve MongoDB bir web uygulaması oluşturma](../app-service-web-tutorial-nodejs-mongodb-app.md).
+>
 
 [Uygulama hizmeti Linux'ta](app-service-linux-intro.md) düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web hizmetini kullanarak Linux işletim sistemi barındırma sağlar. Bu öğretici, bir Node.js web uygulaması oluşturma, MongoDB veritabanı için yerel olarak bağlanmak ve ardından MongoDB API'yi kullanarak CosmosDB veritabanına bağlı Azure dağıtma gösterilmektedir. İşiniz bittiğinde, ortalama bir uygulama (MongoDB, Express, AngularJS ve Node.js) sahip olacaksınız Linux'ta App Service içinde çalışan. Kolaylık olması için örnek uygulama kullanır [MEAN.js web çerçevesi](http://meanjs.org/).
 
@@ -126,7 +130,7 @@ MongoDB için Bu öğretici kullanır [Azure Cosmos DB](/azure/documentdb/). Cos
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB hesabı oluşturma
 
-Cosmos DB hesabıyla bulut Kabuğu'nda oluşturma [az cosmosdb oluşturma](/cli/azure/cosmosdb#create) komutu.
+Cosmos DB hesabıyla bulut Kabuğu'nda oluşturma [az cosmosdb oluşturma](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) komutu.
 
 Aşağıdaki komutta için benzersiz bir Cosmos DB ad yerine  *\<cosmosdb_name >* yer tutucu. Bu ad Cosmos DB endpoint parçası olarak kullanılır `https://<cosmosdb_name>.documents.azure.com/`, adının Azure içindeki tüm Cosmos DB hesaplar arasında benzersiz olması gerekir. Ad yalnızca küçük harf, sayı ve tire (-) karakterini içermelidir ve 3 ila 50 karakter uzunluğunda olmalıdır.
 
@@ -160,7 +164,7 @@ Bu adımda, MongoDB bağlantı dizesi kullanarak oluşturduğunuz Cosmos DB veri
 
 ### <a name="retrieve-the-database-key"></a>Veritabanı anahtarı alma
 
-Cosmos DB veritabanına bağlanmak için veritabanı anahtarı gerekir. Bulut Kabuğu'nda kullanmak [az cosmosdb listesi anahtarlar](/cli/azure/cosmosdb#list-keys) birincil anahtarı almak için komutu.
+Cosmos DB veritabanına bağlanmak için veritabanı anahtarı gerekir. Bulut Kabuğu'nda kullanmak [az cosmosdb listesi anahtarlar](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) birincil anahtarı almak için komutu.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -252,7 +256,7 @@ Bu adımda, MongoDB bağlı Node.js uygulamanızı Azure App Service'e dağıtı
 
 Varsayılan olarak, MEAN.js proje tutar _config/env/local-production.js_ Git deposu dışında. Azure web uygulamanız için uygulama ayarları MongoDB bağlantı dizenizi tanımlamak için kullanın.
 
-Uygulama ayarlarını belirlemek için kullanın [az webapp config appsettings güncelleştirme](/cli/azure/webapp/config/appsettings#update) bulut Kabuğu'nda komutu.
+Uygulama ayarlarını belirlemek için kullanın [az webapp config appsettings kümesi](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) bulut Kabuğu'nda komutu.
 
 Aşağıdaki örnek yapılandırır bir `MONGODB_URI` , Azure web uygulaması uygulama ayarı. Değiştir  *\<app_name >*,  *\<cosmosdb_name >*, ve  *\<primary_master_key >* yer tutucuları.
 

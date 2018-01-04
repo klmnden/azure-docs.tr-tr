@@ -1,31 +1,23 @@
 ---
-title: "Hızlı Başlangıç - Azure portalıyla ilk Azure kapsayıcı örnekleri kapsayıcı oluşturma"
+title: "Hızlı Başlangıç - Azure portalı ile ilk Azure Container Instances kapsayıcınızı oluşturma"
 description: "Azure Container Instances’ı dağıtma ve kullanmaya başlama"
 services: container-instances
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/25/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 7007fa8989f6d87028906918dbbc9c2998cd3bf4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances’da ilk kapsayıcınızı oluşturma
 
-Azure Container Instances, Azure’da kapsayıcı oluşturmayı ve yönetmeyi kolaylaştırır. Bu hızlı başlangıç bir kapsayıcı oluşturmak ve genel bir IP adresi ile Internet'e kullanıma. Azure Portalı'nı kullanarak bu işlemi tamamlandı. Yalnızca birkaç tıklama ile bu tarayıcınızda görürsünüz:
+Azure Container Instances, Azure’da kapsayıcı oluşturmayı ve yönetmeyi kolaylaştırır. Bu hızlı başlangıç içeriğinde, bir kapsayıcı oluşturacak ve bu kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunacaksınız. Bu işlem Azure portal kullanarak tamamlanır. Yalnızca birkaç tıklama ile tarayıcınızda şunu görürsünüz:
 
 ![Azure Container Instances kullanılarak dağıtılmış uygulama tarayıcıda görüntüleniyor][aci-app-browser]
 
@@ -33,39 +25,39 @@ Azure Container Instances, Azure’da kapsayıcı oluşturmayı ve yönetmeyi ko
 
 http://portal.azure.com sayfasından Azure portalda oturum açın.
 
-## <a name="create-a-container-instance"></a>Bir kapsayıcı örneği oluşturma
+## <a name="create-a-container-instance"></a>Kapsayıcı örneği oluşturma
 
-Seçin **yeni** > **kapsayıcıları** > **Azure kapsayıcı örnekleri (Önizleme)**.
+**Yeni** > **Kapsayıcılar** > **Azure Container Instances (önizleme)** seçeneklerini belirleyin.
 
-![Azure portalında yeni bir kapsayıcı örnek oluşturmaya başla][aci-portal-01]
+![Azure portalında yeni bir kapsayıcı örneği oluşturmaya başlama][aci-portal-01]
 
-Aşağıdaki değerleri girin **kapsayıcı adı**, **kapsayıcı görüntü**, ve **kaynak grubu** metin kutuları. Diğer değerler varsayılan değerlerde bırakın ve ardından **Tamam**.
+**Kapsayıcı adı**, **Kapsayıcı görüntüsü** ve **Kaynak grubu** metin kutularına aşağıdaki değerleri girin. Diğer değerleri varsayılan değerlerinde bırakın ve **Tamam**’a tıklayın.
 
-* Kapsayıcı adı:`mycontainer`
-* Kapsayıcı görüntü:`microsoft/aci-helloworld`
-* Kaynak grubu:`myResourceGroup`
+* Kapsayıcı adı: `mycontainer`
+* Kapsayıcı görüntüsü: `microsoft/aci-helloworld`
+* Kaynak grubu: `myResourceGroup`
 
-![Azure portalında yeni bir kapsayıcı örnek temel ayarlarını yapılandırma][aci-portal-03]
+![Azure portalında yeni bir kapsayıcı örneği için temel ayarları yapılandırma][aci-portal-03]
 
-Azure kapsayıcı örnekleri hem Windows hem de Linux kapsayıcılar oluşturabilirsiniz. Bu hızlı başlangıç varsayılan ayarını bırakacağız **Linux** biz Linux tabanlı bir kapsayıcı belirtilen bu yana (`microsoft/aci-helloworld`) önceki adımda.
+Azure Container Instances’ta hem Windows hem de Linux kapsayıcıları oluşturabilirsiniz. Bu hızlı başlangıçta, önceki adımda Linux tabanlı bir kapsayıcı (`microsoft/aci-helloworld`) belirttiğimiz için varsayılan **Linux** ayarını değiştirmeden bırakacağız.
 
-Diğer ayarlarında bırakın **yapılandırma** varsayılan değerlerde, ardından **Tamam** yapılandırmayı doğrulamak için.
+**Yapılandırma**’da diğer ayarları varsayılan değerlerinde bırakın ve yapılandırmayı doğrulamak için **Tamam**’a tıklayın.
 
-![Azure portalında yeni bir kapsayıcı örnek yapılandırma][aci-portal-04]
+![Azure portalında yeni bir kapsayıcı örneği yapılandırma][aci-portal-04]
 
-Doğrulama tamamlandığında, kapsayıcı ayarlarının bir özeti gösterilir. Seçin **Tamam** kapsayıcı dağıtım isteğinizi gönderebilirsiniz.
+Doğrulama tamamlandığında, kapsayıcı ayarlarının bir özeti gösterilir. Kapsayıcı dağıtım isteğinizi göndermek için **Tamam**’ı seçin.
 
-![Azure portalında yeni bir kapsayıcı örnek için ayar özeti][aci-portal-05]
+![Azure portalında yeni bir kapsayıcı örneği için ayarların özeti][aci-portal-05]
 
-Dağıtım başladığında, bir kutucuk dağıtımının ilerleme durumunu gösteren portal Panonuzda yerleştirilir. Dağıtım tamamlandıktan sonra kutucuğun yeni gösterecek şekilde güncelleştirilir **mycontainer myc1** kapsayıcı grubu.
+Dağıtım başlatıldığında, dağıtım ilerlemesini gösteren bir kutucuk portal panonuza yerleştirilir. Dağıtım tamamlandığında, kutucuk yeni **mycontainer-myc1** kapsayıcı grubunuzu göstermek için güncelleştirilir.
 
-![Azure portalında yeni bir kapsayıcı örnek oluşturma ilerlemesi][aci-portal-08]
+![Azure portalında yeni bir kapsayıcı örneği için oluşturma ilerlemesi][aci-portal-08]
 
-Seçin **mycontainer myc1** kapsayıcı grubu özelliklerini görüntülemek için kapsayıcı grubu. Not edin **IP adresi** kapsayıcı grubunun yanı sıra **durumu** , kapsayıcının.
+Kapsayıcı grubu özelliklerini görüntülemek için **mycontainer-myc1** kapsayıcı grubunu seçin. Kapsayıcı grubunun **IP adresi** ve kapsayıcının **STATE** değerini not edin.
 
-![Azure portalında kapsayıcı Grup genel bakış][aci-portal-06]
+![Azure portalında kapsayıcı grubuna genel bakış][aci-portal-06]
 
-Kapsayıcı taşır sonra **çalıştıran** durum, yeni kapsayıcıda barındırılan uygulamayı görüntülemek için önceki adımda not ettiğiniz IP adresine gidin.
+Kapsayıcı **Çalışıyor** durumuna geçtiğinde, yeni kapsayıcınızda barındırılan uygulamayı görüntülemek için önceki adımda not ettiğiniz IP adresine gidin.
 
 ![Azure Container Instances kullanılarak dağıtılmış uygulama tarayıcıda görüntüleniyor][aci-app-browser]
 
@@ -81,7 +73,7 @@ Kapsayıcı taşır sonra **çalıştıran** durum, yeni kapsayıcıda barındı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç ortak Docker hub'a depoda bir görüntüden Azure kapsayıcı örneği oluşturdu. Kendiniz bir kapsayıcı oluşturma deneyin ve Azure kapsayıcı örnekleri Azure kapsayıcı kayıt defterini kullanarak dağıtmak istiyorsanız, Azure kapsayıcı örnekleri Öğreticisine devam edin.
+Bu hızlı başlangıçta, genel bir Docker Hub deposundaki bir görüntüden bir Azure Container Instance oluşturdunuz. Kapsayıcıyı kendiniz oluşturup Azure Container Registry’yi kullanarak Azure Container Instances’a dağıtmayı denemek istiyorsanız Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticileri](./container-instances-tutorial-prepare-app.md)

@@ -16,11 +16,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
+<<<<<<< HEAD
 ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SUSE Linux Enterprise Server üzerinde Azure vm'lerinde SAP NetWeaver SAP uygulamalar için yüksek kullanılabilirlik
 
@@ -51,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP NetWeaver 7.50 sistemi yükleyin açıklar.
-Örnek yapılandırmalarında yükleme komutlarını vs. ASCS örnek numarasını 00, ERS örnek numarasını 02 ve SAP sistem kimliği NWS kullanılır. Örnekte kaynakların (örneğin, sanal makineler, sanal ağlar) adları, kullandığınız varsayılmıştır [şablonu Yakınsanan] [ template-converged] kimliği kaynak oluşturmak için NWS SAP sistemiyle.
+Örnek yapılandırmalarında yükleme komutlarını vs. Sayı 02 ERS ASCS örnek numarasını 00, örneği ve SAP sistem kimliği NWS kullanılır. Örnekte kaynakların (örneğin, sanal makineler, sanal ağlar) adları, kullandığınız varsayılmıştır [şablonu Yakınsanan] [ template-converged] kimliği kaynak oluşturmak için NWS SAP sistemiyle.
 
 Aşağıdaki SAP notlar ve raporları ilk okuma
 
@@ -142,7 +148,7 @@ NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS ve SAP HA
 ### <a name="deploying-linux"></a>Linux dağıtma
 
 Azure Market SAP uygulamaları 12 için yeni sanal makineleri dağıtmak için kullanabileceğiniz SUSE Linux Enterprise Server için bir görüntü içerir.
-Gerekli tüm kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
+Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
 1. Açık [SAP dosya sunucusu şablonu] [ template-file-server] Azure portalında   
 1. Aşağıdaki parametreleri girin
@@ -153,7 +159,7 @@ Gerekli tüm kaynakları dağıtmak için github'da hızlı başlangıç şablon
    3. Yönetici kullanıcı adı ve yönetici parolası  
       Yeni bir kullanıcı oluşturulur makineye oturum açmak için kullanılabilir.
    4. Alt ağ kimliği  
-      Sanal makineler için bağlanması alt ağ kimliği. Yeni bir sanal ağ oluşturmak veya şirket içi ağınıza sanal makineye bağlanmak için VPN veya hızlı rota sanal ağınızın alt seçmek istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
+      Sanal makineler için bağlanması alt ağ kimliği. Yeni bir sanal ağ oluşturmak veya şirket içi ağınıza sanal makineye bağlanmak için VPN veya hızlı rota sanal ağınızın alt seçmek istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
 
 ### <a name="installation"></a>Yükleme
 
@@ -475,7 +481,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +501,7 @@ STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için
 
 1. Git <https://portal.azure.com>
 1. Azure Active Directory dikey penceresini açın  
-   Özellikleri'ne gidin ve dizin kimliği yazma Bu **Kiracı kimliği**.
+   Özellikleri'ne gidin ve dizin kimliği yazma Bu **kimliği Kiracı**.
 1. Uygulama kayıtlar'ı tıklatın
 1. Ekle'ye tıklayın.
 1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'si (örneğin http://localhost) girin ve Oluştur'u tıklatın
@@ -523,13 +529,13 @@ Sanal makineler için izinleri düzenlenebilir sonra kümede STONITH cihazları 
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -549,28 +555,28 @@ sudo crm configure property stonith-enabled=true
 
 Azure Market SAP uygulamaları 12 için yeni sanal makineleri dağıtmak için kullanabileceğiniz SUSE Linux Enterprise Server için bir görüntü içerir. Market görüntüsü SAP NetWeaver kaynak aracı içerir.
 
-Gerekli tüm kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
+Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
 1. Açık [ASCS/SCS çoklu SID şablonu] [ template-multisid-xscs] veya [şablonu Yakınsanan] [ template-converged] yakınsanmış şablon de bir veritabanı (örneğin, Microsoft SQL Server veya SAP HANA) için Yük Dengeleme kuralları oluşturur ancak Azure üzerinde portal ASCS/SCS şablonu yalnızca Yük Dengeleme kuralları SAP NetWeaver ASCS/SCS ve ERS (yalnızca Linux) örnekleri için oluşturur. SAP NetWeaver temel sistem yüklemeyi planladığınız ve ayrıca istiyorsanız aynı makinelerde veritabanını yüklemek, kullanmak [şablonu Yakınsanan][template-converged].
 1. Aşağıdaki parametreleri girin
    1. Kaynak önek (yalnızca ASCS/SCS çoklu SID şablonu)  
       Kullanmak istediğiniz ön eki girin. Değer, dağıtılan kaynaklar için önek olarak kullanılır.
    3. SAP sistem kimliği (yalnızca yakınsanmış şablonu)  
-      Yüklemek istediğiniz SAP sisteminin SAP sistem kimliği girin. Kimliği önek olarak dağıtılan kaynaklar için kullanılır.
+      Yüklemek istediğiniz SAP sistem SAP sistem Kimliğini girin. Kimliği önek olarak dağıtılan kaynaklar için kullanılır.
    4. Yığın türü  
       SAP NetWeaver yığın türünü seçin
    5. İşletim sistemi türü  
       Linux dağıtımları birini seçin. Bu örnekte, SLES 12 BYOS seçin
-   6. DB türü  
+   6. Db Türü  
       HANA seçin
    7. SAP sistemi boyutu  
-      Yeni sistem sağlar SAP miktarı. Lütfen sistem gerektirir kaç SAP değil eminseniz, SAP teknolojisi iş ortağı veya sistem Tümleştirici isteyin
+      Yeni sistem sağlar SAP miktarı. Sistem gerektirir kaç SAP değil eminseniz, SAP teknolojisi iş ortağı veya sistem Tümleştirici isteyin
    8. Sistem kullanılabilirliği  
       HA seçin
    9. Yönetici kullanıcı adı ve yönetici parolası  
       Yeni bir kullanıcı oluşturulur makineye oturum açmak için kullanılabilir.
    10. Alt ağ kimliği  
-   Sanal makineler için bağlanması alt ağ kimliği.  Yeni bir sanal ağ oluşturmak veya NFS sunucu dağıtımının bir parçası olarak kullanılan ya da oluşturduğunuz aynı alt seçmek istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
+   Sanal makineler için bağlanması alt ağ kimliği.  Yeni bir sanal ağ oluşturmak veya NFS sunucu dağıtımının bir parçası olarak kullanılan ya da oluşturduğunuz aynı alt seçmek istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
 
 ### <a name="installation"></a>Yükleme
 
@@ -967,7 +973,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1008,7 +1014,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 1. **[1]**  SAP NetWeaver ASCS yükleyin  
 
-   Örneğin ASCS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ilk düğümde kök olarak SAP NetWeaver ASCS yükleme <b>nws ascs</b>, <b>10.0.0.10</b> ve yük dengeleyici araştırması için örneğin kullanılan örnek numarasını <b>00</b>.
+   Örneğin ASCS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ilk düğümde kök olarak SAP NetWeaver ASCS yükleme <b>nws ascs</b>, <b>10.0.0.10</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>00</b>.
 
    Kök olmayan kullanıcının sapinst için bağlanmasına izin vermek için sapinst parametresini SAPINST_REMOTE_ACCESS_USER kullanabilirsiniz.
 
@@ -1041,7 +1047,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1092,7 +1098,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 1. **[2]**  SAP NetWeaver ERS yükleyin  
 
-   Örneğin ERS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ikinci düğümde kök olarak SAP NetWeaver ERS yükleme <b>nws ers</b>, <b>10.0.0.11</b> ve yük dengeleyici araştırması için örneğin kullanılan örnek numarasını <b>02</b>.
+   Örneğin ERS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ikinci düğümde kök olarak SAP NetWeaver ERS yükleme <b>nws ers</b>, <b>10.0.0.11</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>02</b>.
 
    Kök olmayan kullanıcının sapinst için bağlanmasına izin vermek için sapinst parametresini SAPINST_REMOTE_ACCESS_USER kullanabilirsiniz.
 
@@ -1101,7 +1107,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    </code></pre>
 
    > [!NOTE]
-   > Lütfen SWPM SP 20 PL 05 ya da daha yüksek kullanın. Daha düşük sürümler izinleri düzgün ayarlanmamış ve yükleme başarısız olur.
+   > SWPM SP 20 PL 05 ya da daha yüksek kullanın. Daha düşük sürümler izinleri düzgün ayarlanmamış ve yükleme başarısız olur.
    > 
 
 1. **[1]**  Adapt ASCS/SCS ve ERS örnek profilleri
@@ -1136,7 +1142,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 1. **[A]**  Tutmayı yapılandırma
 
-   SAP NetWeaver uygulama sunucusu ve ASCS/SCS arasındaki iletişimi yazılım yük dengeleyici yönlendirilir. Yük Dengeleyici yapılandırılabilir bir zaman aşımından sonra etkin olmayan bağlantıları bağlantısını keser. Bunu önlemek için SAP NetWeaver ASCS/SCS profilinde parametre ve Linux sistem ayarlarını değiştirmeniz gerekir. Lütfen okuyun [SAP Not 1410736] [ 1410736] daha fazla bilgi için.
+   SAP NetWeaver uygulama sunucusu ve ASCS/SCS arasındaki iletişimi yazılım yük dengeleyici yönlendirilir. Yük Dengeleyici yapılandırılabilir bir zaman aşımından sonra etkin olmayan bağlantıları bağlantısını keser. Bunu önlemek için SAP NetWeaver ASCS/SCS profilinde parametre ve Linux sistem ayarlarını değiştirmeniz gerekir. Okuma [SAP Not 1410736] [ 1410736] daha fazla bilgi için.
    
    ASCS/SCS profili parametre CLR'yi/encni/set_so_keepalive son adımda zaten eklendi.
 
@@ -1228,7 +1234,7 @@ STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için
 
 1. Git <https://portal.azure.com>
 1. Azure Active Directory dikey penceresini açın  
-   Özellikleri'ne gidin ve dizin kimliği yazma Bu **Kiracı kimliği**.
+   Özellikleri'ne gidin ve dizin kimliği yazma Bu **kimliği Kiracı**.
 1. Uygulama kayıtlar'ı tıklatın
 1. Ekle'ye tıklayın.
 1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'si (örneğin http://localhost) girin ve Oluştur'u tıklatın
@@ -1256,13 +1262,13 @@ Sanal makineler için izinleri düzenlenebilir sonra kümede STONITH cihazları 
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1286,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Veritabanını yükleme
 
-Bu örnekte bir SAP HANA sistem çoğaltma yüklenmiş ve yapılandırılmış. SAP HANA aynı küme ERS ve SAP NetWeaver ASCS/SCS olarak çalıştırır. SAP HANA adanmış bir kümede de yükleyebilirsiniz. Bkz: [SAP HANA, yüksek kullanılabilirlik'Azure sanal makineler (VM'ler) üzerinde] [ sap-hana-ha] daha fazla bilgi için.
+Bu örnekte, bir SAP HANA sistem çoğaltma yüklenmiş ve yapılandırılmış. SAP HANA aynı küme ERS ve SAP NetWeaver ASCS/SCS olarak çalıştırır. SAP HANA adanmış bir kümede de yükleyebilirsiniz. Daha fazla bilgi için bkz: [SAP HANA, yüksek kullanılabilirlik'Azure sanal makineler (VM'ler) üzerinde][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>SAP HANA yükleme için hazırlama
 
@@ -1326,7 +1332,7 @@ Genellikle, veri ve günlük dosyalarını birimleri için LVM kullanmanızı ö
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1446,7 @@ Aşağıdaki adımlar 4 bölüm üzerinde dayanır [SAP HANA SR performansı en 
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1467,7 @@ Aşağıdaki adımlar 4 bölüm üzerinde dayanır [SAP HANA SR performansı en 
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

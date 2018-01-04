@@ -6,7 +6,7 @@
 Login-AzureRmAccount
 ```
 
-Kullanmak istediğiniz konumu bilmiyorsanız, kullanılabilir konumlarını listeleyebilirsiniz. Liste görüntülendikten sonra kullanmak istediğiniz bir bulun. Bu örnekte **eastus**. Bu bir değişkende saklayın ve tek bir yerde değiştirebilmeniz için değişkeni kullanın.
+Kullanmak istediğiniz konumdan emin değilseniz, kullanılabilir konumları listeleyebilirsiniz. Liste görüntülendikten sonra, kullanmak istediğiniz öğeyi bulun. Bu örnekte **eastus**. Bunu bir değişkende depolayın ve tek bir yerde değiştirebilmek için değişkeni kullanın.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -24,7 +24,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-LRS çoğaltma kullanarak standart genel amaçlı depolama hesabı oluşturma [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), sonra kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alır. Bir depolama hesabı üzerinde hareket ederken, tekrar tekrar kimlik bilgileri sağlama yerine bağlamı başvuru. Bu örnek adlı bir depolama hesabı oluşturur *mystorageaccount* ile yerel olarak yedekli depolama ve blob şifreleme etkin.
+LRS çoğaltma kullanarak standart genel amaçlı depolama hesabı oluşturma [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), sonra kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alır. Bir depolama hesabı üzerinde hareket ederken, tekrar tekrar kimlik bilgileri sağlama yerine bağlamı başvuru. Bu örnek adlı bir depolama hesabı oluşturur *mystorageaccount* (varsayılan olarak etkindir) yerel olarak yedekli storage(LRS) ve blob şifrelemesi ile.
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -32,7 +32,6 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind Storage `
-  -EnableEncryptionService Blob
 
 $ctx = $storageAccount.Context
 ```

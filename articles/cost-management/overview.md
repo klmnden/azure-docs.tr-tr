@@ -1,5 +1,5 @@
 ---
-title: "Azure genel bakış maliyet Yönetimi Cloudyn tarafından | Microsoft Docs"
+title: "Cloudyn Tarafından Sağlanan Azure Maliyet Yönetimi’ne Genel Bakış | Microsoft Docs"
 description: "Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını kullanmanıza yardımcı olan çoklu bulut maliyet yönetimi çözümüdür."
 services: cost-management
 keywords: 
@@ -12,45 +12,45 @@ manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 969340080bfe2b04704367c2225895728773119e
 ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/12/2017
 ---
-# <a name="what-is-azure-cost-management"></a>Azure maliyeti Management nedir?
+# <a name="what-is-azure-cost-management"></a>Azure Maliyet Yönetimi nedir?
 
-Azure maliyeti yönetim Cloudyn göre bulut kullanımı ve Azure kaynaklarınızı ve AWS ve Google gibi diğer bulut sağlayıcıları harcamalarını izlemenize olanak tanır. Kolay anlaşılır Pano Yardım maliyet ayırma ve showbacks/ödemelerin de raporlar. Maliyet yönetimi, daha sonra ayarlamak ve yönetebilirsiniz az kaynakları belirleyerek harcama bulut en iyi duruma getirme yardımcı olur.
+Cloudyn Tarafından Sağlanan Azure Maliyet Yönetimi, Azure kaynaklarınızın yanı sıra AWS ve Google dahil diğer bulut sağlayıcıları için bulut kullanımınızı ve harcamalarınızı izlemenize imkan tanır. Anlaşılması kolay pano raporları, maliyet ayırma ve ücret hesaplama/yansıtma konusunda yardımcı olur. Maliyet Yönetimi, yönetip ayarlamak isteyeceğiniz az kullanılan kaynakları belirleyerek bulut harcamalarınızı en iyi duruma getirmenize yardımcı olur.
 
-Giriş bir video izlemek için bkz: [Cloudyn tarafından Azure maliyeti yönetimine giriş](https://youtu.be/NWIRny6Wpsk).
+Tanıtım videosunu izlemek için bkz. [Cloudyn tarafından sağlanan Azure Maliyet Yönetimi’ne giriş](https://youtu.be/NWIRny6Wpsk).
 
-## <a name="monitor-usage-and-spending"></a>Kullanımını izleme ve harcama
+## <a name="monitor-usage-and-spending"></a>Kullanımı ve harcamayı izleyin
 
-Kuruluşlar zamanla kullanmak kaynaklar için ödeme kullanımınızı izleme ve harcama bulut altyapıları için oldukça önemlidir. Kullanım sözleşmesi eşiklerini aşarsa, beklenmeyen maliyet fazlalığı hızla ortaya çıkabilir. Birkaç önemli faktörler izleme geçici zorlaştırabilir. İlk olarak, ortalama kullanım amaçlarına göre maliyetleri yansıtma, tüketim belirli bir fatura döneminde tutarlı kalmasını varsayar. Maliyetleri yakın olan veya bütçenizi aşarsa, ikinci olarak, ileriye dönük olarak, harcama ayarlamak için bildirim almak önemlidir. Ve bulut hizmeti sağlayıcıları eşikleri veya dönem için dönem karşılaştırma raporları ve maliyet projeksiyon sunmayabilir.
+Kuruluşlar zaman içinde kullandığı kaynaklar için ödeme yaptığından bulut altyapıları için kullanımınızı ve harcamanızı izlemeniz kritik öneme sahiptir. Kullanım sözleşme eşiklerini aşarsa kısa bir sürede beklenmedik fazla kullanım ücretleriyle karşılaşılabilir. Birkaç önemli faktör, geçici izlemeyi zorlaştırabilir. İlk olarak, ortalama kullanıma göre maliyet tahmini yapılırken belirli bir fatura dönemi boyunca tüketiminizin tutarlı kalacağı varsayılır. İkinci olarak, maliyetler bütçenize yaklaştığında veya bütçenizi aştığında harcamanızı proaktif olarak ayarlayabilmeniz için bildirim almanız önemlidir. Ayrıca, bulut hizmeti sağlayıcıları eşikle karşılaştırmalı maliyet tahmini veya dönemler arası karşılaştırma raporları sağlamıyor olabilir.
 
-Raporlar çözümlemek ve bulut kullanımı, maliyetleri ve eğilimleri izlemek için harcama izlemenize yardımcı olur. Zaman içinde kullanarak raporları, normal eğilimleri farklı anormallikleri algılayabilir. Bulut dağıtımınız verimsiz iyileştirme raporlarında görünür durumda. Ayrıca maliyet analiz raporunda verimsiz fark.
+Raporlar, harcamayı izleyerek bulut kullanımını, maliyetleri ve eğilimleri analiz etmenize ve izlemenize yardımcı olur. Zaman İçinde raporlarını kullanarak normal eğilimlerden farklı olan anormal durumları algılayabilirsiniz. İyileştirme raporlarında bulut dağıtımınızdaki verimsizlikler görülebilir. Ayrıca, maliyet analizi raporlarında verimsizlikler olduğunu fark edebilirsiniz.
 
-![Zaman içinde maliyeti raporu](media\overview\cost-over-time-rpt.png)
+![Zaman İçinde Maliyet raporu](media\overview\cost-over-time-rpt.png)
 
 
-## <a name="manage-costs"></a>Maliyetlerini yönetme
+## <a name="manage-costs"></a>Maliyetleri yönetme
 
-Geçmiş verileri, eğilimleri belirlemek için zaman içinde kullanım ve maliyetleri çözümlediğinizde maliyetlerini yönetmek yardımcı olabilir. Eğilimleri, daha sonra gelecekteki Harcamaları tahmin etmek için kullanılır. Maliyet Yönetimi yararlı tahmini maliyet raporlar da içerir.
+Zaman içinde kullanımı ve maliyetleri analiz ederek eğilimleri belirlemeniz durumunda geçmiş veriler maliyetleri yönetmenize yardımcı olabilir. Daha sonra bu eğilimler gelecekte yapılacak harcamaların tahmin edilmesinde kullanılabilir. Maliyet Yönetimi, kullanışlı tahmini maliyet raporları da içerir.
 
-Maliyet ayırma etiketleme ilkesini temel alarak maliyetleriniz çözümleyerek maliyetleri yönetir. Maliyet ayırma iyileştirmek için özel hesaplar, kaynakları ve varlıkları etiketleri kullanabilirsiniz. Kategori Yöneticisi ek idare sağlanmasına yardımcı olmak amacıyla etiketlerinizi düzenler. Ve kaynak kullanımı ve tüketim davranışlarını etkilemek veya Kiracı müşteriler ücret ilişkili maliyetler göstermek için maliyet ayırma giderleri/geri ödeme için kullanın.
+Maliyet ayrımı, etiketleme ilkenize göre maliyetlerinizi analiz ederek maliyetleri yönetir. Maliyet ayırmayı daha ayrıntılı hale getirmek için özel hesaplarınızda, kaynaklarınızda ve varlıklarınızda etiketleri kullanabilirsiniz. Kategori Yöneticisi, etiketlerinizi düzenleyerek ek yönetim sağlanmasına yardımcı olur. Ayrıca, tüketim davranışlarını etkilemek veya kiracı müşterilere ücret uygulamak amacıyla ücret hesaplama/yansıtma için maliyet ayırmayı kullanarak kaynak kullanımını ve bununla ilişkili maliyetleri gösterirsiniz.
 
-Erişim denetimi kullanıcılar ve takımlar yalnızca bunlar gerekli maliyet yönetim veri erişim sağlayarak maliyetleri yönetmeye yardımcı olur. Varlık yapısı, kullanıcı yönetimi ve zamanlanan raporlar alıcı listeleriyle erişim atamak için kullanın.
+Erişim denetimi, kullanıcıların ve takımların yalnızca gereksinim duydukları maliyet yönetimi verilerine erişebilmesini sağlayarak maliyetlerin yönetilmesine yardımcı olur. Erişim atamak için varlık yapısı, kullanıcı yönetimi ve alıcı listeleri ile zamanlanmış raporları kullanabilirsiniz.
 
-Uyarı olağan dışı harcama veya overspending oluştuğunda, otomatik olarak bildirerek maliyetleri yönetmenize yardımcı olur. Uyarılar ayrıca harcama anormalliklerini ve overspending riskler için otomatik olarak diğer Paydaşlar bildirebilir. Çeşitli raporlar bütçeye bağlı ve eşikleri maliyet uyarıları destekler. Ancak, uyarıları CSP ortağı hesapları ya da abonelik için şu anda desteklenmiyor.
+Uyarılar, olağan dışı veya fazla harcama gerçekleştiğinde size bildirimde bulunarak maliyetlerin yönetilmesine yardımcı olur. Ayrıca, uyarılar anormal harcama durumları ve fazla harcama riskleri konusunda başka ilgili kişilere de otomatik olarak bildirimde bulunabilir. Bütçe ve maliyet eşikleri konusunda uyarıları destekleyen çeşitli raporlar vardır. Bununla birlikte, CSP iş ortağı hesapları veya abonelikleri için şu an uyarılar desteklenmemektedir.
 
-## <a name="improve-efficiency"></a>Verimliliği artırmak
+## <a name="improve-efficiency"></a>Verimliliği artırın
 
-En iyi VM kullanımı belirlemek ve boşta Vm'leri tanımlamak veya boşta VM'ler ve maliyet yönetim eklenmemiş disklerle kaldırın. Boyutlandırma en iyi duruma getirme ve Etkisizliği raporları bilgileri kullanarak, aşağı boyutu veya boşta VM'ler kaldırmak için bir plan oluşturabilirsiniz. Ancak, en iyi duruma getirme raporları CSP ortağı hesapları ya da abonelik için şu anda desteklenmez.
+Maliyet Yönetimi ile en uygun VM kullanımını belirleyebilir ve boş VM’leri tespit edebilir ya da boş VM’leri ve bağlı olmayan diskleri kaldırabilirsiniz. Boyutlandırma Optimizasyonu ve Verimsizlik raporlarındaki bilgileri kullanarak VM’lerin boyutunu düşürme veya boş VM’leri kaldırma planı oluşturabilirsiniz. Bununla birlikte, şu an CSP iş ortağı hesapları ve aboneliklerinde iyileştirme raporları desteklenmemektedir.
 
-![Boyutlandırma önerileri](.\media\overview\sizing.png)
+![boyutlandırma önerileri](.\media\overview\sizing.png)
 
-AWS ayrılmış örnekler sağlanan, ayrılmış örnekler kullanımınızı burada satın alma önerileri görüntüleyebilir, kullanılmayan ayırmalarını değiştirmek ve sağlama planlama iyileştirme raporlarla geliştirebilir.
+AWS Ayrılmış Örnekleri sağladıysanız satın alma önerilerini görüntüleme, kullanılmayan ayırmaları değiştirme ve sağlama planlama imkanı sunan Optimizasyon raporlarıyla ayrılmış örnek kullanımınızı geliştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Maliyet yönetimiyle tanıdık, sonraki bulut ortamınızı kaydetmek ve verilerinizi keşfetmeye başlamak için bir adımdır.
+Artık Maliyet Yönetimi’yle tanıştığınıza göre bir sonraki adım bulut ortamınızı kaydetmek ve verilerinizi keşfetmeye başlamaktır.
 
-- [Tek bir Azure abonelik kaydetme](quick-register-azure-sub.md)
+- [Tek bir Azure aboneliğini kaydetme](quick-register-azure-sub.md)

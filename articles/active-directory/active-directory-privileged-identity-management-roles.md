@@ -4,7 +4,7 @@ description: "Azure Privileged Identity Management uzantısı ile ayrıcalıklı
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
@@ -15,11 +15,17 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
+<<<<<<< HEAD
 ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
 ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
+=======
+ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM farklı yönetim rolü
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -27,9 +33,9 @@ ms.lasthandoff: 11/14/2017
 Azure AD'de farklı yönetim rolleri, kuruluşunuzdaki kullanıcılar atayabilirsiniz. Bu rol atamaları ekleme veya kullanıcıları kaldırma ya da hizmet ayarlarını değiştirme gibi görevleri, kullanıcıların Azure üzerinde AD, Office 365 ve diğer Microsoft Online Services ve bağlı uygulamaların gerçekleştirebilir denetler.  
 
 > [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor.
+> Microsoft, Azure AD kullanarak yönettiğiniz önerir [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) Azure portalında.
 
-Genel yönetici olan kullanıcılar güncelleştirebilirsiniz **kalıcı olarak** PowerShell cmdlet'lerini kullanarak Azure AD'de rol atanmış `Add-MsolRoleMember` ve `Remove-MsolRoleMember`, ya da açıklandığı gibi Klasik portal üzerinden [ Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles-azure-portal.md).
+Genel yönetici olan kullanıcılar güncelleştirebilirsiniz **kalıcı olarak** PowerShell cmdlet'lerini kullanarak Azure AD'de rol atanmış `Add-MsolRoleMember` ve `Remove-MsolRoleMember`, ya da açıklandığı gibi Portalı aracılığıyla [atama Azure Active Directory'de Yönetici rolü](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) Azure AD'de kullanıcıları için ayrıcalıklı erişim ilkelerini yönetir. PIM kullanıcılar için bir veya daha fazla rol Azure AD'de atar ve kalıcı olarak rolünü veya rol için uygun olması birine atayın. Ne zaman bir kullanıcı bir role kalıcı olarak atanmış veya Azure Active Directory, Office 365 ve diğer uygulamalar rollerine atanmış izinlerle yönetebilecekleri sonra uygun rol atama etkinleştirir.
 
@@ -75,15 +81,14 @@ Ayrıca Azure Abonelikleriniz ve kaynak gruplarınız Azure AD'de temsil edilmez
 ## <a name="user-roles-and-signing-in"></a>Kullanıcı rolleri ve oturum açma
 Bazı Microsoft Hizmetleri ve uygulamaları için bir kullanıcı rol atama o kullanıcının yönetici olmasını sağlamak yeterli olmayabilir.
 
-Kullanıcı Azure Aboneliklerini yönetmek gerekmez dahi, Klasik Azure portalına erişim Hizmet Yöneticisi veya bir Azure aboneliğinin ortak yönetici kullanıcı olmasını gerektirir.  Örneğin, Azure AD Klasik portalında için yapılandırma ayarlarını yönetmek için bir kullanıcı Azure AD genel yönetici ve bir Azure aboneliği abonelik ortak yönetici olması gerekir.  Kullanıcılar Azure aboneliklerine eklemeyi öğrenmek için bkz: [eklemek veya Azure yönetici rollerini değiştirmek nasıl](../billing/billing-add-change-azure-subscription-administrator.md).
+Kullanıcı Azure Aboneliklerini yönetmek gerekmez dahi, Azure portalına erişim Hizmet Yöneticisi veya bir Azure aboneliğinin ortak yönetici kullanıcı olmasını gerektirir.  Örneğin, Azure AD için yapılandırma ayarlarını yönetmek için bir kullanıcı Azure AD genel yönetici ve bir Azure aboneliği abonelik ortak yönetici olması gerekir.  Kullanıcılar Azure aboneliklerine eklemeyi öğrenmek için bkz: [eklemek veya Azure yönetici rollerini değiştirmek nasıl](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Kullanıcı ayrıca atanabilir bir lisans hizmetin portalını açın veya yönetim görevlerini gerçekleştirmek için önce Microsoft Online Services erişimi gerektirebilir.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Azure AD'de bir kullanıcıya bir lisans atama
-1. Oturum [Klasik Azure portalı](http://manage.windowsazure.com) bir genel yönetici hesabını veya bir ortak yönetici hesabı.
-2. Seçin **tüm öğeleri** ana menüden.
-3. Çalışmak istediğiniz dizini seçin ve onunla ilişkili lisans sahip.
-4. Seçin **lisansları**. Kullanılabilir lisans listesi görüntülenir.
+1. Oturum [Azure portal](http://portal.azure.com) bir genel yönetici hesabını veya bir ortak yönetici hesabı.
+3. Azure AD seçin ve ilişkili lisans birlikte çalışır ve, istediğiniz dizini vardır.
+4. Seçin **lisansları** soldaki. Kullanılabilir lisans listesi görüntülenir.
 5. Dağıtmak istediğiniz lisansları içeren lisans planını seçin.
 6. Seçin **kullanıcı atama**.
 7. Bir lisans atamak istediğiniz kullanıcıyı seçin.

@@ -3,7 +3,7 @@ title: "Azure DevTest Labs laboratuvarınızda lisanslı bir görüntüde etkinl
 description: "Azure portalını kullanarak Azure DevTest Labs lisanslı bir görüntüde etkinleştirmeyi öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 221390d2-8d3b-4e1f-b454-43d33f8072b7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: tarcher
-ms.openlocfilehash: a74eff05285602574e45703dbe5b6caf074adecd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.author: v-craic
+ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarınızda lisanslı bir görüntüde etkinleştir
 
@@ -83,4 +83,4 @@ Aşağıdaki adımları izleyerek lisanslı bir görüntü için programlı dağ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Laboratuvarınızı için bir VM ekleme](./devtest-lab-add-vm-with-artifacts.md)
+- [Laboratuvarınızı için bir VM ekleme](devtest-lab-add-vm.md)

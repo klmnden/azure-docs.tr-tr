@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="using-service-bus-from-net-with-amqp-10"></a>.NET gelen hizmet veri yolu AMQP 1.0 ile kullanma
+# <a name="use-service-bus-from-net-with-amqp-10"></a>Kullanım hizmeti .NET AMQP 1.0 ile yolundan
 
-## <a name="downloading-the-service-bus-sdk"></a>Hizmet veri yolu SDK'sını indirme
+Hizmet veri yolu paket sürümünü 2.1 veya üzeri AMQP 1.0 destek mevcuttur. Hizmet veri yolu bitten yükleyerek en son sürümüne sahip olmak [NuGet][NuGet].
 
-AMQP 1.0 desteği, hizmet veri yolu SDK'ın 2.1 veya sonraki bir sürümü kullanılabilir. Hizmet veri yolu bitten yükleyerek en son sürümüne sahip olmak [NuGet][NuGet].
-
-## <a name="configuring-net-applications-to-use-amqp-10"></a>AMQP 1.0 kullanmak üzere .NET uygulamaları yapılandırma
+## <a name="configure-net-applications-to-use-amqp-10"></a>AMQP 1.0 kullanmak için .NET uygulamaları yapılandır
 
 Varsayılan olarak, hizmet veri yolu .NET istemci kitaplığını adanmış bir SOAP tabanlı protokolü kullanarak Service Bus hizmeti ile iletişim kurar. AMQP 1.0 yerine varsayılan kullanmak için sonraki bölümde açıklandığı gibi hizmet veri yolu bağlantı dizesi açık yapılandırmasına protokolü gerektirir. Bu değişiklik dışında AMQP 1.0 kullanırken uygulama kodu değişmeden kalır.
 
@@ -34,7 +32,7 @@ Geçerli sürümde AMQP kullanırken desteklenmez birkaç API özellikler vardı
 
 ### <a name="configuration-using-appconfig"></a>App.config kullanarak yapılandırma
 
-Uygulama ayarlarını depolamak için App.config yapılandırma dosyası kullanmak iyi bir uygulamadır. Hizmet veri yolu uygulamaları için hizmet veri yolu bağlantı dizesi depolamak için App.config kullanabilirsiniz. Örnek bir App.config dosyası aşağıdaki gibidir:
+App.config yapılandırma dosyası ayarlarını depolamak için kullanmak üzere uygulamalar için iyi bir uygulamadır. Hizmet veri yolu uygulamaları için hizmet veri yolu bağlantı dizesi depolamak için App.config kullanabilirsiniz. Örnek bir App.config dosyası aşağıdaki gibidir:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -64,27 +62,27 @@ Oluşturduğunuzda bir [BrokeredMessage] [ BrokeredMessage] örneği, ileti göv
 
 | .NET gövdesi nesne türü | Eşlenen AMQP türü | AMQP gövde bölümü türü |
 | --- | --- | --- |
-| bool |Boole değeri |AMQP değeri |
-| Bayt |ubyte |AMQP değeri |
+| bool |boole |AMQP değeri |
+| bayt |ubyte |AMQP değeri |
 | ushort |ushort |AMQP değeri |
 | uint |uint |AMQP değeri |
 | ulong |ulong |AMQP değeri |
-| sbyte |Bayt |AMQP değeri |
+| sbyte |bayt |AMQP değeri |
 | kısa |kısa |AMQP değeri |
 | Int |Int |AMQP değeri |
 | uzun |uzun |AMQP değeri |
-| Kayan nokta |Kayan nokta |AMQP değeri |
-| Çift |Çift |AMQP değeri |
+| float |float |AMQP değeri |
+| double |double |AMQP değeri |
 | Ondalık |decimal128 |AMQP değeri |
 | char |char |AMQP değeri |
-| Tarih saat |timestamp |AMQP değeri |
-| GUID |UUID |AMQP değeri |
+| Tarih Saat |timestamp |AMQP değeri |
+| Guid |UUID |AMQP değeri |
 | Byte] |İkili |AMQP değeri |
-| Dize |Dize |AMQP değeri |
-| System.Collections.IList |Liste |AMQP değer: koleksiyonda bulunan öğeleri yalnızca, bu tabloda tanımlı olabilir. |
-| System.Array |Dizi |AMQP değer: koleksiyonda bulunan öğeleri yalnızca, bu tabloda tanımlı olabilir. |
+| string |string |AMQP değeri |
+| System.Collections.IList |liste |AMQP değer: koleksiyonda bulunan öğeleri yalnızca, bu tabloda tanımlı olabilir. |
+| System.Array |array |AMQP değer: koleksiyonda bulunan öğeleri yalnızca, bu tabloda tanımlı olabilir. |
 | System.Collections.IDictionary |eşleme |AMQP değer: koleksiyonda bulunan öğeleri yalnızca, bu tabloda tanımlı olabilir. Not: yalnızca dize anahtarları desteklenir. |
-| URI |Dize açıklanan (aşağıdaki tabloya bakın) |AMQP değeri |
+| Uri |Dize açıklanan (aşağıdaki tabloya bakın) |AMQP değeri |
 | DateTimeOffset |Uzun açıklanan (aşağıdaki tabloya bakın) |AMQP değeri |
 | TimeSpan |Uzun açıklanan (aşağıya bakın) |AMQP değeri |
 | Akış |İkili |AMQP verileri (birden çok olabilir). Stream nesnesi okunan ham bayt veri bölümler. |
@@ -92,7 +90,7 @@ Oluşturduğunuzda bir [BrokeredMessage] [ BrokeredMessage] örneği, ileti göv
 
 | .NET türü | Eşlenen AMQP türü açıklanan | Notlar |
 | --- | --- | --- |
-| URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
+| Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
@@ -109,7 +107,7 @@ Aynı zamanda varsayılan protokol karşılaştırıldığında AMQP kullanırke
 * `MessageReceiver.Receive(TimeSpan.Zero)`olarak uygulanan `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Kilit belirteçleri tarafından iletileri Tamamlanıyor yalnızca başlangıçta iletileri alınan ileti alıcı tarafından yapılabilir.
 
-## <a name="controlling-amqp-protocol-settings"></a>AMQP protokol ayarlarını denetleme
+## <a name="control-amqp-protocol-settings"></a>Denetim AMQP protokolü ayarları
 
 [.NET API'lerini](/dotnet/api/) AMQP protokolünü davranışını denetlemek için çeşitli ayarlar kullanıma:
 
@@ -124,7 +122,6 @@ Daha fazla bilgi hazır mısınız? Aşağıdaki bağlantıları ziyaret edin:
 
 * [Hizmet veri yolu AMQP genel bakış]
 * [AMQP 1.0 protokol kılavuzu]
-* [Windows Server için hizmet veri yolu AMQP]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -135,4 +132,4 @@ Daha fazla bilgi hazır mısınız? Aşağıdaki bağlantıları ziyaret edin:
 [Azure portal]: https://portal.azure.com
 [Hizmet veri yolu AMQP genel bakış]: service-bus-amqp-overview.md
 [AMQP 1.0 protokol kılavuzu]: service-bus-amqp-protocol-guide.md
-[Windows Server için hizmet veri yolu AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
+

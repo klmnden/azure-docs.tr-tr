@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisi kullanarak Azure App Service'e dağıtma 
 
 Java web uygulaması Azure'a dağıtmak için Azure CLI kullanabileceğiniz [Jenkins ardışık düzen](/azure/jenkins/execute-cli-jenkins-pipeline) veya kullanabilirsiniz [Azure App Service Jenkins eklentisi](https://plugins.jenkins.io/azure-app-service). Eklentisi sürüm 1.0 Jenkins Azure App Service Web Apps özelliğini kullanarak sürekli dağıtım destekler:
-* Git ve FTP.
+* Git veya FTP.
 * Docker Linux üzerinde Web uygulamaları için.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
-> * Git ve FTP üzerinden Web uygulamaları dağıtmak için Jenkins yapılandırın.
+> * Git veya FTP üzerinden Web uygulamaları dağıtmak için Jenkins yapılandırın.
 > * Jenkins kapsayıcıları için Web uygulamasını dağıtmak için yapılandırın.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Oluşturma ve Jenkins örnek yapılandırma
@@ -64,7 +64,7 @@ Azure'a dağıtmak için bir Azure hizmet sorumlusu gerekir.
 3. Bir Microsoft Azure hizmet sorumlusu eklemek için seçin **kimlik bilgilerini eklemek**. İçin değerler sağlayın **abonelik kimliği**, **istemci kimliği**, **gizli**, ve **OAuth 2.0 belirteç uç noktası** alanları. Ayarlama **kimliği** alanı **bileşene mySp**. Bu makalenin sonraki adımlarda bu kimliği kullanırız.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Git ve FTP üzerinden Web uygulamaları dağıtmak için Jenkins yapılandırın
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Dosyaları karşıya yükleyerek Web uygulamalarını dağıtmak için Jenkins yapılandırın
 
 Projeniz için Web uygulamalarını dağıtmak için Git veya FTP kullanarak derleme yapıtları (örneğin, Java WAR dosyası) karşıya yükleyebilir.
 
@@ -104,7 +104,7 @@ Jenkins işinde ayarlama önce Azure App Service planı ve bir web uygulaması J
 8. Bir yuva üretim dışında dağıtmak istiyorsanız, ayrıca ayarlayabilirsiniz **yuvası** adı.
 9. Projeyi kaydedin ve onu oluşturun. Yapı tamamlandığında, web uygulamanızı Azure'a dağıtılır.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Jenkins komut zincirini kullanarak FTP üzerinden Web uygulamaları dağıtma
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Jenkins ardışık düzen kullanarak dosyaları karşıya yükleyerek Web uygulamalarını dağıtma
 
 Azure App Service Jenkins eklentisi ardışık düzeni için hazır olur. GitHub depo aşağıdaki örnekte başvurabilirsiniz.
 

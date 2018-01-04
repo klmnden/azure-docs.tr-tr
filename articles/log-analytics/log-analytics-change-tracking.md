@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümü ile ortamınızdaki yazılım değişiklikleri izle
 
@@ -32,7 +32,7 @@ Güncelleştirme yüklediğiniz aracı türü için çözüm yükleyin. Yüklü 
 ## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
 Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
-* Bilmeniz gereken bir [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md), veya [Linux](log-analytics-linux-agents.md) değişiklikleri izlemek istediğiniz her bilgisayarda aracı.
+* Bilmeniz gereken bir [Windows](log-analytics-windows-agent.md), [Operations Manager](log-analytics-om-agents.md), veya [Linux](log-analytics-linux-agents.md) değişiklikleri izlemek istediğiniz her bilgisayarda aracı.
 * Değişiklik izleme çözümü, OMS çalışma alanından ekleyin [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Veya, bilgileri kullanarak çözüm ekleyebilirsiniz [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Ek yapılandırma gerekli değildir.
 
 ### <a name="configure-linux-files-to-track"></a>Linux dosyaları izlemek için yapılandırma
@@ -87,7 +87,7 @@ Değişiklik izleme çözümü aşağıdaki öğeler şu anda desteklemiyor:
 * Joker karakterler Windows dosya izleme
 * Yol değişkenleri
 * Ağ dosya sistemleri
-* Dosya İçeriği
+* Dosya içeriği
 
 Diğer sınırlamaları:
 

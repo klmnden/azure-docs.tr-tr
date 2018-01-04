@@ -1,6 +1,6 @@
 ---
 title: "Azure Site Recovery kullanarak disk korumasını hariç tutma | Microsoft Docs"
-description: "VMware’den Azure’a ve Hyper-V’den Azure’a senaryolarında VM disklerinin çoğaltma işleminden nasıl ve neden hariç tutulacağı açıklanmaktadır."
+description: "VMware’den Azure’a VM disklerinin çoğaltma işleminden nasıl ve neden hariç tutulacağı açıklanmaktadır."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -12,16 +12,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: nisoneji
-ms.openlocfilehash: e636065131d0719601a3e834cfc571e94e1abfb7
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: af3f934c0572b50b22cdfb99a8a94bb856042b1b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma
-Bu makalede, disklerin çoğaltmanın dışında nasıl tutulacağı açıklanmaktadır. Bu dışında tutma, kullanılan çoğaltma bant genişliğini iyileştirebilir veya bu gibi disklerin kullandığı hedef tarafı kaynakları iyileştirebilir. Bu özellik, VMware’den Azure’a ve Hyper-V’den Azure’a senaryoları için desteklenir.
+# <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>VMware’den Azure’a geçi senaryolarında diskleri çoğaltmanın dışında tutma
+Bu makalede, disklerin çoğaltmanın dışında nasıl tutulacağı açıklanmaktadır. Bu dışında tutma, kullanılan çoğaltma bant genişliğini iyileştirebilir veya bu gibi disklerin kullandığı hedef tarafı kaynakları iyileştirebilir. 
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 **Özellik** | **Vmware’den Azure’a** | **Hyper-V'den Azure'a** | **Azure'dan Azure'a**| **Hyper-V'den Hyper-V'ye** 
@@ -53,7 +53,6 @@ Benzer şekilde, Microsoft SQL Server tempdb dosyasına ve sistem veritabanı do
 
 ## <a name="how-to-exclude-disks-from-replication"></a>Diskler nasıl çoğaltmanın dışında tutulur?
 
-### <a name="vmware-to-azure"></a>Vmware’den Azure’a
 Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı etkinleştir](site-recovery-vmware-to-azure.md) iş akışını izleyin. İş akışının dördüncü adımında, diskleri çoğaltmanın dışında tutmak için **DISK TO REPLICATE** sütununu kullanın. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltmanın dışında tutmak istediğiniz disklerin onay kutusunu temizleyin ve ardından çoğaltmayı etkinleştirme adımlarını tamamlayın.
 
 ![Diskleri çoğaltmanın dışında tutma ve VMware’den Azure’a yeniden çalışma için çoğaltmayı etkinleştirin](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
@@ -69,19 +68,6 @@ Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı
 > * Linux sanal makinesi: Azure’da ele oluşturduğunuz diskler yenide çalışır duruma getirilir. Örneğin, üç disk için yük devretme gerçekleştirirseniz ve iki diski doğrudan Azure'da oluşturursanız, beş diskin tümü yeniden çalışır duruma getirilir. El ile oluşturulmuş diskleri, yeniden çalışmanın dışında tutamazsınız.
 >
 
-### <a name="hyper-v-to-azure"></a>Hyper-V’den Azure’a
-Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı etkinleştir](site-recovery-hyper-v-site-to-azure.md) iş akışını izleyin. İş akışının dördüncü adımında, diskleri çoğaltmanın dışında tutmak için **DISK TO REPLICATE** sütununu kullanın. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltmanın dışında tutmak istediğiniz disklerin onay kutusunu temizleyin ve ardından çoğaltmayı etkinleştirme adımlarını tamamlayın.
-
-![Diskleri çoğaltmanın dışında tutun ve Hyper-V’den Azure’a yeniden çalışma için çoğaltmayı etkinleştirin](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
-
->[!NOTE]
->
-> * Yalnızca temel diskler çoğaltma dışında bırakılabilir. İşletim sistemi diskleri dışarıda tutulamaz. Dinamik diskleri dışarıda tutmamanızı öneririz. Azure Site Recovery, konuk sanal makinede hangi sanal sabit diskin (VHD) temel veya dinamik olduğunu tanımlayamaz.  Bağımlı dinamik birim disklerin tümü dışlanmazsa, korumalı dinamik disk yük devredilen bir sanal makinede hatalı disk haline gelir ve bu diskteki verilere erişim sağlanamaz.
-> * Çoğaltmayı etkinleştirdikten sonra, diskleri çoğaltma ekleyemez veya kaldıramazsınız. Disk eklemek veya dışarıda tutmak istiyorsanız, sanal makine için korumayı devre dışı bırakmanız ve ardından yeniden etkinleştirmeniz gerekir.
-> * Bir uygulamanın çalışması için gerekli olan bir diski hariç tutarsanız, Azure'a yük devretme gerçekleştirildikten sonra, çoğaltılan uygulamanın çalışabilmesi için diski Azure'da el ile oluşturmanız gerekir. Alternatif olarak, makinenin yük devri esnasında diski oluşturmak için Azure otomasyonunu bir kurtarma planıyla tümleştirebilirsiniz.
-> * Azure'da elle oluşturduğunuz diskler yeniden çalışır duruma getirilmez. Örneğin, üç disk için yük devretme gerçekleştirir ve iki diski doğrudan Azure Sanal Makinelerinde oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk Azure'dan Hyper-V'ye yeniden çalışır hale getirilir. Yeniden çalışır hale getirilirken veya Hyper-V’den Azure’a ters çoğaltmada elle oluşturulmuş diskler dahil edilemez.
-
-
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>Disk dışarıda bırakmaya ilişkin uçtan uca senaryolar
 Disk dışarıda tutma özelliğini daha iyi anlamak için iki senaryoyu düşünelim:
@@ -89,7 +75,7 @@ Disk dışarıda tutma özelliğini daha iyi anlamak için iki senaryoyu düşü
 - SQL Server tempdb diski
 - Disk belleği dosyası (pagefile.sys) diski
 
-### <a name="exclude-the-sql-server-tempdb-disk"></a>SQL Server tempdb diskini dışarıda tutma
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Örnek 1: SQL Server tempdb diskini dışlama
 Dışlanabilecek bir tempdb’si olan bir SQL Server sanal makinesi düşünelim.
 
 Sanal disk adı SalesDB şeklindedir.
@@ -125,7 +111,7 @@ Bu yolu oluşturmanın iki yöntemi vardır:
 - Yeni bir disk ekleyin ve tempdb klasör yolunu atayın.
 - tempdb klasör yolu için var olan geçici bir depolama diski kullanın.
 
-#### <a name="add-a-new-disk"></a>Yeni bir disk ekleme:
+### <a name="add-a-new-disk"></a>Yeni bir disk ekleme:
 
 1. Yük devretme öncesinde SQL tempdb.mdf ve tempdb.ldf yollarını yazın.
 2. Azure portalında, yük devretme sanal makinesine, kaynak SQL tempdb diskiyle (Disk3) aynı boyutta veya daha büyük yeni bir disk ekleyin.
@@ -134,7 +120,7 @@ Bu yolu oluşturmanın iki yöntemi vardır:
 5. F: biriminde bir tempdb klasörü (F:\MSSQL\Data) oluşturun.
 6. Hizmet konsolundan SQL hizmetini başlatın.
 
-#### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>SQL tempdb klasör yolu için var olan geçici bir depolama diski kullanın:
+### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>SQL tempdb klasör yolu için var olan geçici bir depolama diski kullanın:
 
 1. Bir komut istemi açın.
 2. Komut isteminden kurtarma modunda SQL Server çalıştırın.
@@ -166,10 +152,10 @@ Geçici depolama diski için aşağıdaki Azure kılavuzuna bakın:
 * [SQL Server TempDB’yi ve Arabellek Havuzu Uzantılarını depolamak için Azure sanal makinelerde SSD kullanma](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
 * [Azure Sanal Makineler’de SQL Server için performansa yönelik en iyi uygulamalar](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
-### <a name="failback-from-azure-to-an-on-premises-host"></a>Yeniden çalışır hale getirme (Azure'dan şirket içi bir ana bilgisayara)
-Şimdi, Azure'dan şirket içi VMware veya Hyper-V ana bilgisayarınıza yük devretme yaptığınızda çoğaltılan disklere bakalım. Azure'da elle oluşturduğunuz diskler çoğaltılmaz. Örneğin, üç disk için yük devretme gerçekleştirir ve iki diski doğrudan Azure Sanal Makinelerinde oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk yeniden çalışır hale getirilir. Elle oluşturduğunuz diskleri, yeniden çalışır duruma getirmeye veya şirket içinden Azure'a yeniden koruma uygulama işlemlerine dahil edemezsiniz. Ayrıca, geçici depolama diskini şirket içi ana bilgisayarlarına da çoğaltmaz.
+## <a name="failback-from-azure-to-an-on-premises-host"></a>Yeniden çalışır hale getirme (Azure'dan şirket içi bir ana bilgisayara)
+Şimdi, Azure'dan şirket içi VMware ana bilgisayarınıza yük devretme yaptığınızda çoğaltılan disklere bakalım. Azure'da elle oluşturduğunuz diskler çoğaltılmaz. Örneğin, üç disk için yük devretme gerçekleştirir ve iki diski doğrudan Azure Sanal Makinelerinde oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk yeniden çalışır hale getirilir. Elle oluşturduğunuz diskleri, yeniden çalışır duruma getirmeye veya şirket içinden Azure'a yeniden koruma uygulama işlemlerine dahil edemezsiniz. Ayrıca, geçici depolama diskini şirket içi ana bilgisayarlarına da çoğaltmaz.
 
-#### <a name="failback-to-original-location-recovery"></a>Özgün konum kurtarması için yeniden çalışma
+### <a name="failback-to-original-location-recovery"></a>Özgün konum kurtarması için yeniden çalışma
 
 Önceki örnekte, Azure sanal makinesinin disk yapılandırması aşağıdaki gibidir:
 
@@ -180,8 +166,6 @@ Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılab
 Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk3 | G:\ | Kullanıcı Veritabanı2
 
-
-#### <a name="vmware-to-azure"></a>Vmware’den Azure’a
 Yeniden çalışma özgün konumda gerçekleştirildiğinde, yeniden çalışma sanal makinesi disk yapılandırmasında dışarıda tutulan diskler olmaz. VMware’den Azure'a çoğaltmanın dışında tutulan diskler, yeniden çalışır hale getirme sanal makinesinde mevcut olmayacaktır.
 
 Azure'dan şirket içi VMware’e planlı yük devretmenin ardında, VMWare sanal makinesindeki (özgün konum) diskler aşağıdaki gibidir:
@@ -192,28 +176,13 @@ DISK0 | C:\ | İşletim sistemi diski
 Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk2 | G:\ | Kullanıcı Veritabanı2
 
-#### <a name="hyper-v-to-azure"></a>Hyper-V’den Azure’a
-Yeniden çalışma özgün konum için olduğunda, yeniden çalışma sanal makinesi disk yapılandırması, Hyper-V’ye ait özgün sanal makine disk yapılandırması ile aynı kalır. Hyper-V sitesinden Azure'a çoğaltmanın dışında tutulan diskler, yeniden çalışır hale getirme sanal makinesinde mevcut olacaktır.
-
-Azure'dan şirket içi Hyper-V’ye planlı yük devretmenin ardından, Hyper-V sanal makinesindeki (özgün konum) diskler aşağıdaki gibidir:
-
-**Disk Adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
---- | --- | --- | ---
-DB-Disk0-OS | DISK0 |   C:\ | İşletim sistemi diski
-DB-Disk1 | Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
-DB-Disk2 (Dışlanan disk) | Disk2 | E:\ | Geçici dosyalar
-DB-Disk3 (Dışlanan disk) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu (F:\MSSQL\Data\)
-DB-Disk4 | Disk4 | G:\ | Kullanıcı Veritabanı2
-
-
-#### <a name="exclude-the-paging-file-pagefilesys-disk"></a>Disk belleği dosyası (pagefile.sys) diskini dışarıda tutma
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Örnek 2: Disk belleği dosyası (pagefile.sys) diskini dışlama
 
 Dışarıda tutulabilecek bir disk belleği dosyası diski olan bir sanal makine düşünelim.
 İki durum vardır.
 
-#### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Durum 1: Disk belleği dosyası D: sürücüsünde yapılandırılmıştır
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Durum 1: Disk belleği dosyası D: sürücüsünde yapılandırılmıştır
 Disk yapılandırması aşağıdaki gibidir:
-
 
 **Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
@@ -227,7 +196,7 @@ Kaynak sanal makinedeki disk belleği dosyası ayarları şunlardır:
 ![Kaynak sanal makinedeki disk belleği dosyası ayarları](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
 
-Sanal makinenin VMware’den Azure’a veya Hyper-V’den Azure’a yük devretmesi yapıldıktan sonra, Azure sanal makinesindeki diskler aşağıdaki gibi olur:
+Sanal makinenin VMware’den Azure’a yük devretmesi yapıldıktan sonra, Azure sanal makinesindeki diskler aşağıdaki gibi olur:
 
 **Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
@@ -242,7 +211,7 @@ Azure sanal makinesindeki disk belleği dosyası ayarları şunlardır:
 
 ![Azure sanal makinesindeki disk belleği dosyası ayarları](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-#### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Durum 2: Disk belleği dosyası başka bir sürücüde (D: sürücüsü dışında) yapılandırılmıştır
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Durum 2: Disk belleği dosyası başka bir sürücüde (D: sürücüsü dışında) yapılandırılmıştır
 
 Kaynak sanal makine disk yapılandırması şöyledir:
 
@@ -257,7 +226,7 @@ DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
 ![Şirket içi sanal makinedeki disk belleği dosyası ayarları](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-Sanal makinenin VMware’den/Hyper-V’den Azure’a yük devretmesi yapıldıktan sonra, Azure sanal makinesindeki diskler aşağıdaki gibi olur:
+Sanal makinenin VMware’den Azure’a yük devretmesi yapıldıktan sonra, Azure sanal makinesindeki diskler aşağıdaki gibi olur:
 
 **Disk adı**| **Konuk işletim sistemi disk no.**| **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---

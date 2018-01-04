@@ -13,11 +13,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
+<<<<<<< HEAD
 ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
+=======
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Gezinti ve Application Insights portalında panoları
 Sonra [projenizde Application Insights'ı ayarlamak](app-insights-overview.md), uygulamanızın performansı ve kullanımı hakkında telemetri verileri projenizin Application Insights kaynağını görünür [Azure portal](https://portal.azure.com).
@@ -98,6 +104,9 @@ Bir Pano oluşturduğunuz zaman, diğer kullanıcılarla paylaşabilirsiniz.
 
 Hakkında bilgi edinin [rolleri ve erişim denetimi](app-insights-resources-roles-access-control.md).
 
+## <a name="create-dashboards-programmatically"></a>Panolar program aracılığıyla oluşturma
+Pano oluşturma'yı kullanarak otomatikleştirebilirsiniz [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) ve basit bir JSON Düzenleyicisi.
+
 ## <a name="app-navigation"></a>Uygulama gezinme
 Genel Bakış dikey penceresinde uygulamanızı hakkında daha fazla bilgi için ağ geçididir.
 
@@ -124,7 +133,7 @@ Genel Bakış dikey penceresinde uygulamanızı hakkında daha fazla bilgi için
 * [**Erişim denetimi** ](app-insights-resources-roles-access-control.md) -takım üyeleri ve diğerleri erişim sağlama.
 * [**Etiketler** ](../azure-resource-manager/resource-group-using-tags.md) -uygulamanızı başkalarıyla gruplandırmak için etiketler kullanın.
 
-ARAŞTIR
+ARAŞTIRMA
 
 * [**Uygulama eşlemesi** ](app-insights-app-map.md) -, uygulamanızın bileşenleri gösteren etkin eşleme türetilmiş bağımlılık bilgileri.
 * [**Akıllı algılama** ](app-insights-proactive-diagnostics.md) -son performans uyarıları gözden geçirin.
@@ -136,7 +145,7 @@ ARAŞTIR
 * **Tarayıcı** -sayfa görünümü ve AJAX performans. Kullanılabilir ise, [web sayfalarınıza izleme](app-insights-javascript.md).
 * **Kullanım** -sayfa görünümü, kullanıcı ve oturum sayısını. Kullanılabilir ise, [web sayfalarınıza izleme](app-insights-javascript.md).
 
-YAPILANDIRMA
+YAPILANDIR
 
 * **Başlarken** -satır içi öğretici.
 * **Özellikler** -izleme anahtarı, abonelik ve kaynak kimliği.

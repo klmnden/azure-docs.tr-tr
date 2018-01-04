@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 09b146740413e74e3030bf3a6cb660a3cfabd239
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Bağlı Fabrika çözüm OPC UA sunucularınızdan veri biçimini Özelleştir
 
@@ -48,7 +48,7 @@ Bağlı Fabrika çözüm çözüme bağlı OPC UA sunuculardan verileri görünt
 
 Pano çözümünüzde bağlı OPC UA sunucu gönderebilir veri öğelerini göz atabilirsiniz:
 
-1. Gidin **OPC UA sunucuyu seçin** görünümü:
+1. Seçin **tarayıcı** gitmek için **OPC UA sunucuyu seçin** görünümü:
 
     ![OPC UA sunucu görünümü seçin gidin][img-select-server]
 
@@ -57,7 +57,7 @@ Pano çözümünüzde bağlı OPC UA sunucu gönderebilir veri öğelerini göz 
     > [!NOTE]
     > Bu uyarı yalnızca bir kez her sunucu için görünür ve çözüm panosu ve sunucu arasında bir güven ilişkisi oluşturur.
 
-1. Sunucu çözüme gönderebilirsiniz veri öğelerini gözatabilirsiniz. Çözüme gönderilen öğeleri yeşil bir onay işareti vardır:
+1. Sunucu çözüme gönderebilirsiniz veri öğelerini gözatabilirsiniz. Çözüme gönderilen öğeleri bir onay işareti bulunur:
 
     ![Yayımlanan öğeler][img-published]
 
@@ -65,99 +65,14 @@ Pano çözümünüzde bağlı OPC UA sunucu gönderebilir veri öğelerini göz 
 
 ## <a name="map-the-data"></a>Verileri eşleme
 
-Bağlı Fabrika çözüm eşler ve çeşitli görünümlere çözümdeki OPC UA sunucudan yayımlanan veri öğelerini toplar. Bir çözüm sağladığınızda Azure hesabınıza bağlı Fabrika çözümü dağıtır. Visual Studio bağlı Fabrika çözümü JSON dosyasında bu eşleme bilgilerini depolar. Görüntüleyin ve bu bağlantılı Fabrika Visual Studio çözümü JSON yapılandırma dosyasında değiştirin. Değişikliği yaptıktan sonra çözümü yeniden dağıtabilirsiniz.
+Bağlı Fabrika çözüm eşler ve çeşitli görünümlere çözümdeki OPC UA sunucudan yayımlanan veri öğelerini toplar. Bir çözüm sağladığınızda Azure hesabınıza bağlı Fabrika çözümü dağıtır. Visual Studio bağlı Fabrika çözüm JSON dosyasında bu eşleme bilgilerini depolar. Görüntüleyin ve bu bağlantılı Fabrika Visual Studio çözümü JSON yapılandırma dosyasında değiştirin. Değişikliği yaptıktan sonra çözümü yeniden dağıtabilirsiniz.
 
 Yapılandırma dosyası kullanabilirsiniz:
 
 - Varolan sanal oluşturucuları, Üretim satırları ve istasyonları düzenleyin.
 - Çözümü arasında bağlantı gerçek OPC UA sunuculardan verileri eşleyin.
 
-Visual Studio çözümü bağlı Fabrika kopyasını kopyalamak için aşağıdaki git komutu kullanın:
-
-`git clone https://github.com/Azure/azure-iot-connected-factory.git`
-
-Dosya **ContosoTopologyDescription.json** bağlı Fabrika çözüm panosunda OPC UA sunucu veri öğeleri eşleme görünümleri tanımlar. Bu yapılandırma dosyasında bulabilirsiniz **Contoso\Topology** klasöründe **WebApp** Visual Studio çözümü projesinde.
-
-JSON dosyasının içeriği Fabrika, üretim hattı ve istasyon düğümleri hiyerarşi olarak düzenlenir. Bu hiyerarşi Gezinti hiyerarşisinde bağlı Fabrika panosunda tanımlar. Hiyerarşinin her düğümde değerler panosunda görüntülenen bilgileri belirler. Örneğin, JSON dosyası Münih Fabrika için aşağıdaki değerleri içerir:
-
-```json
-"Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
-"Name": "Munich",
-"Description": "Braking system",
-"Location": {
-    "City": "Munich",
-    "Country": "Germany",
-    "Latitude": 48.13641,
-    "Longitude": 11.57754
-},
-"Image": "munich.jpg"
-```
-
-Adını, açıklamasını ve konum bu Pano görünümünde görünür:
-
-![Pano Münih verileri][img-munich]
-
-Her fabrika, üretim hattı ve istasyon bir görüntü özelliği vardır. Bu JPEG dosyaları bulabilirsiniz **Content\img** klasöründe **WebApp** projesi. Bu görüntü dosyalar bağlı Fabrika panosunda görüntülenir.
-
-Her istasyon OPC UA veri öğeleri eşlemesinden tanımlayan çeşitli ayrıntılı özellikleri içerir. Bu özellikler aşağıdaki bölümlerde açıklanmıştır:
-
-### <a name="opcuri"></a>OpcUri
-
-**OpcUri** OPC UA sunucunun benzersiz olarak tanıtan OPC UA uygulama URI bir değerdir. Örneğin, **OpcUri** değeri 1 üretim satırında Münih derleme istasyon aşağıdaki gibi görünür: **urn: scada2194:ua:munich:productionline0:assemblystation**.
-
-Çözüm panosunda URI'ler bağlı OPC UA sunucuları görüntüleyebilirsiniz:
-
-![OPC UA sunucusu URI görüntülemek][img-server-uris]
-
-### <a name="simulation"></a>Benzetim
-
-Bilgileri **benzetimi** düğümü, varsayılan olarak sağlanan OPC UA sunucularında çalışan OPC UA benzetimi için özeldir. Gerçek bir OPC UA sunucusu için kullanılmaz.
-
-### <a name="kpi1-and-kpi2"></a>Kpi1 ve kpı2
-
-Bu düğümler Pano iki KPI değerler istasyon verileri nasıl katkıda bulunan açıklanmaktadır. Varsayılan dağıtımında, bu KPI saat başına birim ve saatte kWh değerlerdir. Çözüm KPI değerlerinde bir istasyon düzeyinde hesaplar ve bunları üretim hattı ve Fabrika düzeylerinde toplar.
-
-Her KPI minimum, maksimum ve hedef değer vardır. Her bir KPI değeri Uyarı eylemleri gerçekleştirmek bağlı Fabrika çözüm için de tanımlayabilirsiniz. Aşağıdaki kod parçacığında derleme istasyon KPI tanımlarında Münih 1 üretim satırdaki gösterir:
-
-```json
-"Kpi1": {
-  "Minimum": 150,
-  "Target": 300,
-  "Maximum": 600
-},
-"Kpi2": {
-  "Minimum": 50,
-  "Target": 100,
-  "Maximum": 200,
-  "MinimumAlertActions": [
-    {
-      "Type": "None"
-    }
-  ]
-}
-```
-
-Aşağıdaki ekran görüntüsünde KPI verileri Panoda gösterir.
-
-![KPI bilgilerini panosunda][lnk-kpi]
-
-### <a name="opcnodes"></a>OpcNodes
-
-**OpcNodes** düğümleri OPC UA sunucusundan yayımlanan veri öğelerini tanımlamak ve bu verileri işlemek nasıl belirtin.
-
-**NodeId** değer OPC UA sunucusundan belirli OPC UA nodeId tanımlar. Derleme istasyon üretim hattı Münih 1 için ilk düğüm bir değere sahip **ns = 2; ı 385 =**. A **nodeId** değeri OPC UA sunucusundan okumak için veri öğesi belirtir ve **SymbolicName** bu verileri Panoda kullanmak için kullanıcı dostu bir ad sağlar.
-
-Her düğüm ile ilişkili diğer değerler aşağıdaki tabloda özetlenmiştir:
-
-| Değer | Açıklama |
-| ----- | ----------- |
-| İlgi Düzeyi  | KPI'yı ve OEE değerleri için bu verileri katkıda bulunur. |
-| İşlem kodu     | Verileri nasıl toplanır. |
-| Birimler      | Panoda kullanılacak birim.  |
-| Görünür    | Bu değer panosunda görüntülenip görüntülenmeyeceğini belirtir. Bazı değerler hesaplamalarında kullanılır ancak görüntülenmez.  |
-| Maksimum    | Panodaki bir uyarıyı tetikleyen en yüksek değer. |
-| MaximumAlertActions | Yanıt bir uyarı olarak gerçekleştirilecek bir eylem. Örneğin, bir komut istasyona gönderir. |
-| ConstValue | Bir hesaplanmasında kullanılan sabit bir değer. |
+Eşleme ve belirli gereksinimlerinizi karşılamak için veri toplama hakkında daha fazla bilgi için bkz: [bağlı Fabrika yapılandırma önceden yapılandırılmış çözüm ](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Değişiklikleri dağıtma
 

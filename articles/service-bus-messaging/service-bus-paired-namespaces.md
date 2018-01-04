@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Ad alanı uygulama ayrıntılarını eşleştirilmiş ve etkileri maliyet
+
 [PairNamespaceAsync] [ PairNamespaceAsync] yöntemini kullanarak bir [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] örneği, sizin adınıza görünür görevleri gerçekleştirir. Var maliyet çünkü konuları özelliğini kullanırken, böylece bu durum oluştuğunda davranışı beklediğiniz bu görevleri anlamak kullanışlıdır. API aşağıdaki otomatik davranışı, sizin adınıza prosese:
 
 * Biriktirme listesi sıraları oluşturma.
@@ -60,8 +61,8 @@ Bu konunun geri kalanında bu bilgilerin nasıl çalıştığını belirli ayrı
 | DefaultMessageTimeToLive |TimeSpan.MaxValue |
 | AutoDeleteOnIdle |TimeSpan.MaxValue |
 | LockDuration |1 dakika |
-| EnableDeadLetteringOnMessageExpiration |TRUE |
-| EnableBatchedOperations |TRUE |
+| EnableDeadLetteringOnMessageExpiration |doğru |
+| EnableBatchedOperations |doğru |
 
 Örneğin, ilk biriktirme listesi sıranın oluşturulan ad alanı için **contoso** adlı `contoso/x-servicebus-transfer/0`.
 

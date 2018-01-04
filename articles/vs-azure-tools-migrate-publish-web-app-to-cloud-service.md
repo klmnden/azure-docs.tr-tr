@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Nasıl yapılır: geçirmek ve bir Azure bulut hizmeti Visual Studio'dan bir Web uygulaması yayımlama
 
@@ -29,7 +29,7 @@ Barındırma hizmetleri ve ölçeklendirme Özelliği Azure yararlanacak şekild
 
 ## <a name="migrate-a-project-to-cloud-services"></a>Bulut Hizmetleri için bir proje geçirme
 
-1. Web uygulaması projesine sağ tıklatın ve **Dönüştür > Microsoft Azure bulut hizmeti projesine dönüştürme**. (Bir web rolü projesi çözümde zaten varsa bu komut görünmediğini.)
+1. Web uygulaması projesine sağ tıklatın ve **Dönüştür > Microsoft Azure bulut hizmeti projesine dönüştürme**. (Bir web rolü projesi çözümde zaten varsa bu komutu görünmez unutmayın.)
 1. Visual Studio gerekli web rolü içeren çözümdeki bulut hizmeti projesi oluşturur. Uygulama projenizi ile hem soneki bu projenin adı aynı olan `.Azure`.
 1. Visual Studio ayrıca ayarlar **kopya yerel** özelliğinin MVC 2, MVC 3, MVC 4 ve Silverlight iş uygulamaları için gerekli olan tüm derlemeler için true. Bu özellik bu derlemeler dağıtımı için kullanılan hizmet paketi ekler.
 

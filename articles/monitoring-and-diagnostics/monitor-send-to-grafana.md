@@ -8,11 +8,17 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
+<<<<<<< HEAD
 ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
+=======
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Azure hizmetlerinizi Grafana izleme
 Şimdi de Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklenti uygulama performansı verileri Application Insights SDK'sı tarafından toplanan ve bunun yanı sıra Azure İzleyici tarafından sağlanan altyapı verileri toplar. Bu veriler, ardından Grafana Panonuzda görüntüleyebilirsiniz.
@@ -62,7 +68,7 @@ Grafana Azure İzleyici API'leri bağlanmak ve ölçüm verilerini toplamak içi
 
 1. Bkz: [bu yönergeleri](../azure-resource-manager/resource-group-create-service-principal-portal.md) bir hizmet sorumlusu oluşturmak için. Kopyalayın ve Kiracı kimliği, istemci kimliği ve istemci parolasını kaydedin.
 
-2. Bkz: [uygulama rol atama](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) Azure Active Directory Uygulama okuyucu rolüne atamak için.   
+2. Bkz: [uygulama rol atama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) Azure Active Directory Uygulama okuyucu rolüne atamak için.     
 
 3. Application Insights kullanırsanız, uygulama dayalı Öngörüler ölçümleri toplamak için Application Insights API'si ve uygulama Kimliğini de içerebilir. Daha fazla bilgi için bkz: [API anahtarı ve uygulama kimliği alma](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 

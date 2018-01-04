@@ -9,27 +9,33 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
 ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 39c6de1ce2443cf027d7cde067281355ea0b7207
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) Helm kullanın
 
-[Helm](https://github.com/kubernetes/helm/) yükleyip Kubernetes uygulamaların yaşam döngüsünü yönetmenize yardımcı olan bir açık kaynak paketleme aracıdır. Linux paketi yöneticileri gibi benzer *APT* ve *Yum*, Helm önceden yapılandırılmış Kubernetes kaynakların paketleri Kubernetes grafikler, yönetmek için kullanılır.
+[Helm] [ helm] yükleme ve kullanım ömrü boyunca Kubernetes uygulamaları yönetmenize yardımcı olan bir açık kaynak paketleme aracıdır. Linux paketi yöneticileri gibi benzer *APT* ve *Yum*, Helm önceden yapılandırılmış Kubernetes kaynakların paketleri Kubernetes grafikler, yönetmek için kullanılır.
 
 Yapılandırma ve Helm AKS Kubernetes kümede kullanılarak aracılığıyla bu belge adımlar.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğelere gereksiniminiz varsa bkz. [AKS hızlı başlangıç](./kubernetes-walkthrough.md).
+Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğeler gereksinim duyarsanız, bkz: [AKS quickstart][aks-quickstart].
 
 ## <a name="install-helm-cli"></a>Helm CLI yükleme
 
 Helm CLI geliştirme sisteminizde çalıştıran ve başlatma, durdurma ve Helm grafiklerle uygulamaları yönetmenize olanak sağlayan bir istemci olur.
 
-Azure CloudShell kullanıyorsanız, Helm CLI zaten yüklü. Bir Mac üzerinde Helm CLI yüklemek için `brew`. İçin ek yükleme seçenekleri bkz [yükleme Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+Azure CloudShell kullanıyorsanız, Helm CLI zaten yüklü. Bir Mac üzerinde Helm CLI yüklemek için `brew`. İçin ek yükleme seçenekleri bkz [yükleme Helm][helm-install-options].
 
 ```console
 brew install kubernetes-helm
@@ -50,23 +56,24 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Helm yapılandırın
 
-[Helm init](https://docs.helm.sh/helm/#helm-init) komutu Kubernetes kümede Helm bileşenlerini yükleyin ve istemci tarafı yapılandırmaları yapmak için kullanılır. Helm önceden yüklü AKS kümelerinde, böylece yalnızca istemci tarafında yapılandırma gerekmez. Helm istemcisini yapılandırmak için aşağıdaki komutu çalıştırın.
+[Helm init] [ helm-init] komutu Kubernetes kümede Helm bileşenlerini yükleyin ve istemci tarafı yapılandırmaları yapmak için kullanılır. Helm AKS kümenizde yükleyip Helm istemcisini yapılandırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 Çıktı:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-Not installing Tiller due to 'client-only' flag having been set
+$HELM_HOME has been configured at /home/user/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
 Happy Helming!
 ```
 
 ## <a name="find-helm-charts"></a>Helm grafikleri Bul
 
-Helm grafikler Kubernetes kümesine uygulamaları dağıtmak için kullanılır. Önceden oluşturulmuş Helm grafiklerde aramak için kullanın [helm arama](https://docs.helm.sh/helm/#helm-search) komutu.
+Helm grafikler Kubernetes kümesine uygulamaları dağıtmak için kullanılır. Önceden oluşturulmuş Helm grafiklerde aramak için kullanın [helm arama] [ helm-search] komutu.
 
 ```azurecli-interactive
 helm search
@@ -94,7 +101,7 @@ stable/datadog                  0.8.0   DataDog Agent
 ...
 ```
 
-Grafikler listesini güncelleştirmek için kullanmak [helm deposuna güncelleştirme](https://docs.helm.sh/helm/#helm-repo-update) komutu.
+Grafikler listesini güncelleştirmek için kullanmak [helm deposuna güncelleştirme] [ helm-repo-update] komutu.
 
 ```azurecli-interactive
 helm repo update
@@ -111,7 +118,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Çalışma Helm grafikleri
 
-Bir NGINX giriş denetleyicisi dağıtmak için kullandığınız [helm yükleme](https://docs.helm.sh/helm/#helm-install) komutu.
+Bir NGINX giriş denetleyicisi dağıtmak için kullandığınız [helm yükleme] [ helm-install] komutu.
 
 ```azurecli-interactive
 helm install stable/nginx-ingress
@@ -142,11 +149,11 @@ tufted-ocelot-nginx-ingress-default-backend  1        1        1           1    
 ...
 ```
 
-NGINX giriş denetleyicisi Kubernetes ile kullanma hakkında daha fazla bilgi için bkz: [NGINX giriş denetleyicisi](https://github.com/kubernetes/ingress/tree/master/controllers/nginx).
+NGINX giriş denetleyicisi Kubernetes ile kullanma hakkında daha fazla bilgi için bkz: [NGINX giriş denetleyicisi][nginx-ingress].
 
 ## <a name="list-helm-charts"></a>Liste Helm grafikleri
 
-Grafikler, kümeye yüklü listesini görmek için [helm listesi](https://docs.helm.sh/helm/#helm-list) komutu.
+Grafikler, kümeye yüklü listesini görmek için [helm listesi] [ helm-list] komutu.
 
 ```azurecli-interactive
 helm list
@@ -164,4 +171,18 @@ bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingres
 Kubernetes grafikleri yönetme hakkında daha fazla bilgi için Helm belgelerine bakın.
 
 > [!div class="nextstepaction"]
-> [Helm belgeleri](https://github.com/kubernetes/helm/blob/master/docs/index.md)
+> [Helm belgeleri][helm-documentation]
+
+<!-- LINKS - external -->
+[helm]: https://github.com/kubernetes/helm/
+[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
+[helm-search]: https://docs.helm.sh/helm/#helm-search
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -43,13 +43,13 @@ Yeni veya güncelleştirilmiş bir blob algılandığında bir işlev başlatmak
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#trigger---c-example)
-* [C# betiği](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# betik (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
 
-Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) blob eklendiğinde veya güncelleştirdiğiniz günlüğe yazar kodu `samples-workitems` kapsayıcı.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , Yazar bir günlük bir blob eklendiğinde veya güncelleştirdiğiniz `samples-workitems` kapsayıcı.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -59,11 +59,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Hakkında daha fazla bilgi için `BlobTrigger` özniteliği için bkz: [tetikleyici - öznitelikleri](#trigger---attributes-for-precompiled-c).
+Hakkında daha fazla bilgi için `BlobTrigger` özniteliği için bkz: [tetikleyici - öznitelikleri](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlama kullanan kod. Bir blob eklendiğinde veya güncelleştirdiğiniz işlevi günlüğe yazar `samples-workitems` kapsayıcı.
+Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik (.csx)](functions-reference-csharp.md) bağlama kullanan kod. Bir blob eklendiğinde veya güncelleştirdiğiniz işlevi günlüğe yazar `samples-workitems` kapsayıcı.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -140,7 +140,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevleri, bir blob tetikleyiciyi yapılandırmak için aşağıdaki öznitelikler kullanın:
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), bir blob tetikleyici yapılandırmak için aşağıdaki öznitelikler kullanın:
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -168,7 +168,7 @@ module.exports = function(context) {
   }
   ```
 
-  Tam bir örnek için bkz: [tetikleyici - önceden derlenmiş C# örnek](#trigger---c-example).
+  Tam bir örnek için bkz: [tetikleyici - C# örnek](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -316,13 +316,13 @@ Blob storage'ı kullanma giriş ve okuma ve yazma BLOB'lar için bağlamaları �
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#input--output---c-example)
-* [C# betiği](#input--output---c-script-example)
+* [C#](#input--output---c-example)
+* [C# betik (.csx)](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### <a name="input--output---c-example"></a>Giriş ve çıkışı - C# örnek
 
-Aşağıdaki örnek bir [C# önceden derlenmiş](functions-dotnet-class-library.md) blob tetikleyici ve iki çıkış blob bağlamaları kullanan bir işlev. İşlevi bir görüntü blob'u oluşturulmasını tarafından tetiklenen *örnek görüntüleri* kapsayıcı. Görüntü blob'u, küçük ve orta ölçekli kopyalarını oluşturur. 
+Aşağıdaki örnek bir [C# işlevi](functions-dotnet-class-library.md) blob tetikleyici kullanan ve iki blob bağlamaları çıktı. İşlevi bir görüntü blob'u oluşturulmasını tarafından tetiklenen *örnek görüntüleri* kapsayıcı. Görüntü blob'u, küçük ve orta ölçekli kopyalarını oluşturur. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -355,7 +355,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Giriş ve çıkışı - C# kod örneği
 
-Aşağıdaki örnek, blob giriş ve çıkış bağlama gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlamaları kullanan kod. İşlev metin blob bir kopyasını oluşturur. İşlev kopyalamak için blob adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob adlı *{originalblobname}-kopyalama*.
+Aşağıdaki örnek, blob giriş ve çıkış bağlama gösterir bir *function.json* dosya ve [C# betik (.csx)](functions-reference-csharp.md) bağlamaları kullanan kod. İşlev metin blob bir kopyasını oluşturur. İşlev kopyalamak için blob adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob adlı *{originalblobname}-kopyalama*.
 
 İçinde *function.json* dosyası `queueTrigger` meta veri özelliği blob adı belirtmek için kullanılan `path` özellikleri:
 
@@ -449,7 +449,7 @@ module.exports = function(context) {
 
 ## <a name="input--output---attributes"></a>Giriş ve çıkışı - öznitelikleri
 
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Özniteliğin Oluşturucusu yolunu blob alır ve bir `FileAccess` okuma veya yazma, aşağıdaki örnekte gösterildiği gibi gösteren parametre:
 
@@ -475,9 +475,9 @@ public static void Run(
 }
 ```
 
-Tam bir örnek için bkz: [giriş ve çıkışı - önceden derlenmiş C# örnek](#input--output---c-example).
+Tam bir örnek için bkz: [giriş ve çıkışı - C# örnek](#input--output---c-example).
 
-Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [tetikleyici - öznitelikleri](#trigger---attributes-for-precompiled-c).
+Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [tetikleyici - öznitelikleri](#trigger---attributes).
 
 ## <a name="input--output---configuration"></a>Giriş ve çıkışı - yapılandırma
 
@@ -496,7 +496,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="input--output---usage"></a>Giriş ve çıkışı - kullanım
 
-Yöntem parametresi gibi kullanarak, önceden derlenmiş C# ve C# betik blob erişim `Stream paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
+C# sınıfı kitaplıklar ve C# betik blob gibi bir yöntem parametresi kullanılarak erişim `Stream paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
 
 * `out string`
 * `TextWriter` 

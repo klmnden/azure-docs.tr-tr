@@ -128,6 +128,8 @@
           href: scenario-tdsp-classifying-us-incomes.md
         - name: CNTK kullanarak görüntü sınıflandırması
           href: scenario-image-classification-using-cntk.md
+        - name: Tahmine Dayalı Bakım için Derin Öğrenme
+          href: scenario-deep-learning-for-predictive-maintenance.md
 - name: Başvuru
   items:
     - name: Veri hazırlama
@@ -178,6 +180,8 @@
           href: release-notes-sprint-1.md
         - name: Sprint 2 - Aralık 2017
           href: release-notes-sprint-2.md
+        - name: Sprint 2 QFE - Aralık 2017
+          href: release-notes-sprint-2.1.md
 - name: Kaynaklar
   items:
     - name: Sık sorulan sorular

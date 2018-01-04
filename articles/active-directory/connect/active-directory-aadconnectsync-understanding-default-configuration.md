@@ -4,7 +4,7 @@ description: "Bu makalede, Azure AD Connect eşitleme Varsayılan yapılandırma
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect Eşitleme: Varsayılan yapılandırmayı anlama
 Bu makalede out-of-box yapılandırma kuralları açıklanır. Kurallar ve bu kuralları yapılandırmasını nasıl etkiler belgeler. Bu ayrıca, Azure AD Connect eşitleme varsayılan yapılandırma açıklanmaktadır. Okuyucu bildirim temelli hazırlama, adlı yapılandırma modeli gerçek örnekte nasıl çalıştığını algıladığını hedeftir. Bu makale, zaten yüklediyseniz ve Yükleme Sihirbazı'nı kullanarak Azure AD Connect eşitleme yapılandırma varsayar.
@@ -134,7 +134,7 @@ SRE bir Kaynak Seti aracıdır ve Azure AD Connect eşitleme ile yüklenir. Baş
 
 Bu bölümde, tüm eşitleme yapılandırmanız için oluşturulan kuralların bakın. Tablodaki her satır bir eşitleme kuralıdır. Kural türleri altında sola iki farklı türleri listelenmiştir: gelen ve giden. Gelen ve giden meta veri görünümünden olur. Bu genel bakışta gelen kurallarında odağı çoğunlukla çağıracaksınız. Eşitleme kuralları gerçek listesi, AD içinde algılanan şemaya göre değişir. Yukarıdaki resimde hesap ormanı (fabrikamonline.com) Exchange ve Lync gibi tüm Hizmetleri yüklü değil ve bu hizmetler için hiçbir eşitleme kuralı oluşturuldu. Ancak, kaynak ormandaki (res.fabrikamonline.com), eşitleme kuralları bu hizmetler için bulun. Kuralları içeriğini sürümü algılandı bağlı olarak farklılık gösterir. Örneğin, Exchange 2013 ile bir dağıtımda vardır yapılandırılmış Exchange 2010/2007'den daha fazla öznitelik akışları.
 
-### <a name="synchronization-rule"></a>Eşitleme kuralı
+### <a name="synchronization-rule"></a>Eşitleme Kuralı
 Bir koşul yerine getirdiğinizde akan öznitelikleri kümesi içeren bir yapılandırma nesnesi bir eşitleme kuralıdır. Bağlayıcı alanı içinde bir nesne olarak bilinen meta veri nesnesine nasıl ilişkili olduğunu açıklamak için de kullanılır **birleştirme** veya **eşleşen**. Eşitleme kuralları birbirleriyle nasıl ilişkili olduğunu belirten bir öncelik değerine sahip. Daha düşük bir sayısal değer ile bir eşitleme kuralı daha yüksek bir önceliği ve bir öznitelik akışı çakışması çakışma çözümü daha yüksek önceliği WINS.
 
 Örnek olarak, eşitleme kuralını arayın **içinde AD'den – kullanıcı AccountEnabled**. Bu satırı seçin ve SRE işaretlemek **Düzenle**.
@@ -178,7 +178,7 @@ Eşitleme kuralları değerlendirilirken tanımlanan birleştirme kurallar ile y
 
 Resim yukarıdaki bakarsanız, kural katılmaya çalışıyor görebilirsiniz **objectSID** ile **msExchMasterAccountSid** (Exchange) ve **Msrtcsıp-OriginatorSid** (Lync) olan bir hesap-kaynak ormanı topolojisinde ne bekliyoruz. Tüm ormanlarda aynı kural bulun. Her ormanda bir hesabı veya kaynak ormanı olabilir varsayılır. Tek bir ormanda canlı ve katılması gerekmez hesapları varsa, bu yapılandırma ayrıca çalışır.
 
-#### <a name="transformations"></a>Dönüşümleri
+#### <a name="transformations"></a>Dönüşümler
 Dönüştürme bölümü nesneleri birleştirilir ve kapsam filtresi sağlanıyorsa hedef nesnesi için geçerli tüm öznitelik akışları tanımlar. Geri gidip **içinde AD'den – kullanıcı AccountEnabled** eşitleme kuralı şu dönüşümleri bulun:
 
 ![Eşitleme kuralı Düzenleyicisi dönüşümleri sekmesi ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
@@ -207,7 +207,7 @@ NULL
 
 Bkz: [anlama bildirim temelli hazırlama ifadelerini](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) öznitelik akışları için ifade dili hakkında daha fazla bilgi için.
 
-### <a name="precedence"></a>Önceliği
+### <a name="precedence"></a>Öncellik
 Bazı bireysel eşitleme kurallarında şimdi attıktan ancak kuralları yapılandırmada birlikte çalışır. Bazı durumlarda, bir öznitelik değeri aynı target özniteliği birden çok eşitleme kurallarından katkıda bulunan. Bu durumda, öznitelik önceliği hangi öznitelik WINS belirlemek için kullanılır. Örnek olarak, sourceAnchor özniteliği arayın. Bu öznitelik için Azure AD oturum açabilmesi için önemli bir özniteliktir. İki farklı eşitleme kuralları, bu öznitelik için bir öznitelik akışı bulabilirsiniz **içinde AD'den – kullanıcı AccountEnabled** ve **içinde AD'den – kullanıcı ortak**. Bazı nesneler meta veri deposu nesnesine birleştirilmiş olduğunda eşitleme kuralı önceliği nedeniyle sourceAnchor özniteliği etkin bir hesapla ormandaki ilk katkıda. Hiçbir etkin hesapları sonra catch tüm eşitleme kuralı eşitleme altyapısı kullanan **içinde AD'den – kullanıcı ortak**. Bu yapılandırma, devre dışı bırakılmış bile hesapları için olduğunu hala bir sourceAnchor sağlar.
 
 ![Gelen eşitleme kuralları](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
@@ -217,7 +217,7 @@ Eşitleme kuralları için öncelik gruplarında Yükleme Sihirbazı tarafından
 ### <a name="putting-it-all-together"></a>Tüm bir araya getirme
 Şimdi yeterli eşitleme yapılandırma farklı eşitleme kuralları nasıl çalıştığını anlamak için kuralları hakkında biliyoruz. Bir kullanıcı ve meta veri deposu için katkıda bulunan öznitelikler bakarsanız, kuralları aşağıdaki sırayla uygulanır:
 
-| Ad | Açıklama |
+| Ad | Yorum |
 |:--- |:--- |
 | İçinde AD'den – kullanıcı birleştirme |Bağlayıcı alanı nesneler meta veri deposu ile birleştirme kuralı. |
 | İçinde kullanıcı hesabı AD – etkin |Oturum açma Azure ad için gerekli öznitelikler ve Office 365. Bu öznitelikler etkin hesabından istiyoruz. |

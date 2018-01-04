@@ -10,7 +10,7 @@ Evet, kendi ortak ASN’lerinizi veya özel ASN’lerinizi hem şirket içi ağl
 ### <a name="are-there-asns-reserved-by-azure"></a>Azure tarafından ayrılan bir ASN var mı?
 Evet, aşağıdaki ASN’ler iç ve dış eşlemeler için Azure tarafından ayrılmıştır:
 
-* Ortak ASN’ler: 8075, 8076, 12076
+* Ortak Asn'lerinizi: 8074 8075, 12076
 * Özel ASN’ler: 65515, 65517, 65518, 65519, 65520
 
 Bu ASN’leri Azure VPN ağ geçitlerine bağlanırken şirket içi VPN cihazlarınız için belirtemezsiniz.

@@ -4,7 +4,7 @@ description: "Windows 7, Windows 8 veya Windows 10 azure'da geliştirme ve test 
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 207a6562965b4913416bd4dbf3eb132b42938dc9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows İstemcisi Azure üzerinde geliştirme ve test senaryoları için kullanın.
 Windows 10 azure'da geliştirme ve test senaryoları için uygun bir Visual Studio (önceki adıyla MSDN) aboneliğiniz olması koşuluyla veya Windows 7, Windows 8 kullanabilirsiniz. Bu makalede Azure ve Azure galeri görüntüleri kullanımını çalışan Windows İstemcisi için uygunluk gereksinimleri özetlenmektedir.
@@ -26,7 +26,7 @@ Windows 10 azure'da geliştirme ve test senaryoları için uygun bir Visual Stud
 ## <a name="subscription-eligibility"></a>Abonelik uygunluk
 Etkin Visual Studio abonelerinden (bir Visual Studio abonelik lisans kişiler) Windows İstemcisi geliştirme ve sınama amacıyla kullanabilirsiniz. Windows İstemcisi, kendi donanım ve herhangi bir türde Azure aboneliği çalışan Azure sanal makineler üzerinde kullanılabilir. Windows İstemcisi dağıtılan veya Azure üzerinde normal üretim kullanımı için kullanılan veya etkin Visual Studio abonelerinden olmayan kişiler tarafından kullanılan.
 
-Size kolaylık olması için biz belirli Windows 10 görüntüleri kullanılabilir içinde Azure galerisinden yaptığınız [uygun geliştirme ve test sunar](#eligible-offers). Visual Studio abonelerinden teklif herhangi bir türde içinde için de [yeterli hazırlayın ve oluşturun](prepare-for-upload-vhd-image.md) bir 64-bit Windows 7, Windows 8 veya Windows 10 görüntüsü ve ardından [karşıya yüklemek için Azure](upload-generalized-managed.md). Kullanım geliştirme ve test için etkin Visual Studio aboneler tarafından sınırlı kalır.
+Size kolaylık olması için belirli Windows 10 görüntüleri içinde Azure galerisinden kullanılabilir [uygun geliştirme ve test sunar](#eligible-offers). Visual Studio abonelerinden teklif herhangi bir türde içinde için de [yeterli hazırlayın ve oluşturun](prepare-for-upload-vhd-image.md) bir 64-bit Windows 7, Windows 8 veya Windows 10 görüntüsü ve ardından [karşıya yüklemek için Azure](upload-generalized-managed.md). Kullanım geliştirme ve test için etkin Visual Studio aboneler tarafından sınırlı kalır.
 
 ## <a name="eligible-offers"></a>Uygun teklifleri
 Aşağıdaki tabloda, Windows 10 Azure Galerisine dağıtmak uygun olan kimlikleri teklif ayrıntıları verilmektedir. Windows 10 görüntüler, yalnızca aşağıdaki teklifleri için görünür durumdadır. Windows İstemcisi farklı Teklif türü çalıştırmak için gereken visual Studio aboneleri gerektirir [yeterli hazırlayın ve oluşturun](prepare-for-upload-vhd-image.md) bir 64-bit Windows 7, Windows 8 veya Windows 10 görüntüsü ve [Azure'a yükleyin](upload-generalized-managed.md).
@@ -45,11 +45,11 @@ Aşağıdaki tabloda, Windows 10 Azure Galerisine dağıtmak uygun olan kimlikle
 ## <a name="check-your-azure-subscription"></a>Azure aboneliğiniz denetleyin
 Teklif kimliği bilmiyorsanız, bu iki yoldan biriyle Azure Portalı aracılığıyla elde edebilirsiniz:  
 
-- 'Subscriptions' dikey penceresinde:
+- Üzerinde *abonelikleri* penceresi:
 
   ![Teklif kimliği ayrıntıları Azure portalından](./media/client-images/offer-id-azure-portal.png) 
 
-- Veya tıklatın **faturalama** ve abonelik kimliğinizi tıklatın Teklif kimliği faturalama dikey penceresinde görüntülenir.
+- Veya tıklatın **faturalama** ve abonelik kimliğinizi tıklatın Teklif kimliği görünür *faturalama* penceresi.
 
 Teklif kimliği de görüntüleyebilirsiniz ['Abonelik' sekmesini](http://account.windowsazure.com/Subscriptions) Azure hesap portalının:
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service, sanal makineler, Service Fabric ve Cloud Services karşılaştırması | Microsoft Docs"
-description: "Azure App Service, sanal makineleri, Service Fabric ve web uygulamalarını barındırmak için bulut hizmetleri arasında seçim yapma hakkında bilgi edinin."
+title: "Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması| Microsoft Docs"
+description: "Web uygulamalarını barındırmak için Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services’dan hangisini seçeceğinizi öğrenin."
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: 
 author: ggailey777
@@ -17,155 +17,155 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/18/2017
 ---
-# <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, sanal makineler, Service Fabric ve Cloud Services karşılaştırması
+# <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 ## <a name="overview"></a>Genel Bakış
-Azure web siteleri barındırmak için çeşitli yollar sunar: [Azure App Service][Azure App Service], [sanal makineleri][Virtual Machines], [Service Fabric][Service Fabric], ve [bulut Hizmetleri][Cloud Services]. Bu makalede seçenekleri anlamanıza ve web uygulamanız için doğru seçim yapmanıza yardımcı olur.
+Azure, Web sitelerini barındırmak için çeşitli yollar sunar: [Azure App Service][Azure App Service], [Sanal Makineler][Virtual Machines], [Service Fabric][Service Fabric] ve [Cloud Services][Cloud Services]. Bu makale, Web uygulamanız için seçenekleri anlamanıza ve doğru seçim yapmanıza yardımcı olur.
 
-Azure uygulama hizmeti, çoğu web uygulamaları için en iyi seçimdir. Dağıtım ve yönetim platformuyla doğrudan tümleşik, siteleri hızlı bir şekilde yüksek trafik yükleri işlemek için ölçeklendirilebilir ve yerleşik Yük Dengeleme ve trafik Yöneticisi yüksek kullanılabilirlik sağlar. Azure App Service ile kolayca varolan siteler taşıyabilirsiniz bir [çevrimiçi geçiş aracı](https://www.migratetoazure.net/), Web uygulaması Galeriden bir açık kaynak uygulama kullanın ya da framework ve tercih ettiğiniz Araçları'nı kullanarak yeni bir site oluşturun. [WebJobs] [ WebJobs] özelliği, App Service web uygulamanızın arka plan iş işleme eklemek kolaylaştırır.
+Azure App Service, çoğu Web uygulaması için en iyi seçenektir. Dağıtım ve yönetim süreçleri platform ile tümleştirilmiştir, siteler hızla yüksek trafik yüklerinin altından kalkacak şekilde ölçeklendirilebilir ve yerleşik yük dengeleme ve trafik yöneticisi yüksek kullanılabilirlik sağlar. Mevcut siteleri [çevrimiçi geçiş aracı](https://www.migratetoazure.net/) ile kolayca Azure App Service’a taşıyabilir, Web Uygulamaları Galerisi'nden açık kaynaklı bir uygulamayı kullanabilir veya istediğiniz çerçeve ve araçları kullanarak yeni bir site oluşturabilirsiniz. [WebJobs][WebJobs] özelliği, App Service Web uygulamanıza arka plan iş işlemleri eklemeyi kolaylaştırır.
 
-Yeni bir uygulama oluşturma ya da mevcut bir uygulamayı mikro hizmet mimarisi kullanmak üzere yeniden yazmadan Service Fabric iyi bir seçimdir. Paylaşılan bir havuzunda makineleri çalıştırmak, uygulamaları küçük başlayın ve büyük ölçekli yüzlerce veya binlerce gerektiğinde makinelerin büyüyebileceği. Durum bilgisi olan hizmetler tutarlı ve güvenilir bir şekilde uygulama durumunu depolamak kolaylaştırır ve Service Fabric otomatik olarak hizmet bölümlendirme, ölçeklendirme ve kullanılabilirlik tarafından yönetilir.  Service Fabric Webapı açık Web arabirimi ile .NET (OWIN) ve ASP.NET Core için de destekler.  Uygulama hizmeti ile karşılaştırıldığında, Service Fabric ayrıca daha fazla denetime ya da doğrudan erişim, altyapının sağlar. Sunucu başlangıç görevleri yapılandırmak veya sunucularınızı uzaktan kullanabilirsiniz. Bulut Hizmetleri, kullanım kolaylığı ve denetim ölçüde Service Fabric benzer, ancak bu artık eski bir hizmet olduğundan ve Service Fabric yeni geliştirme projeleri için önerilir.
+Mikro hizmet mimarisi kullanan yeni bir uygulama oluşturuyor ya da mevcut bir uygulamayı yeniden yazıyorsanız Service Fabric iyi bir seçenektir. Paylaşılan makine havuzu üzerinde çalışan uygulamalar küçükten başlayıp ihtiyaç olduğunda yüzlerce hatta binlerce makineyle devasa bir ölçeğe ulaşabilirler. Durum bilgisi olan hizmetler uygulama durumunu tutarlı ve güvenilir bir şekilde depolamayı kolaylaştırır ve Service Fabric hizmet bölümleme, ölçeklendirme ve kullanılabilirlik işlemlerini sizin yerinize otomatik olarak yönetir.  Service Fabric aynı zamanda .NET İçin Açık Web Arabirimi (OWIN) ve ASP.NET Core ile WebAPI’yi destekler.  App Service ile karşılaştırıldığında Service Fabric ayrıca temel altyapı üzerinde daha fazla kontrol veya ona doğrudan erişim sağlar. Sunucularınıza uzaktan bağlanabilir veya sunucu başlatma görevleri yapılandırabilirsiniz. Cloud Services, kullanım kolaylığı ve kontrol derecesi bakımından Service Fabric’e benzerdir, ancak artık eski bir hizmettir ve yeni dağıtımlar için Service Fabric önerilir.
 
-Uygulama hizmeti veya Service Fabric çalıştırmak için önemli değişiklikler gerektiren var olan bir uygulamanız varsa, buluta geçiş basitleştirmek için sanal makineleri seçebilir. Ancak, doğru şekilde güvenli hale getirme, yapılandırma ve bakımını yapmak VM'ler gerektirir çok daha fazla zaman ve Azure App Service ve Service Fabric karşılaştırıldığında BT uzmanlık. Azure sanal makineleri düşünüyorsanız, düzeltme eki, güncelleştirme ve VM ortamınızı yönetmek için gerekli devam eden bakım çaba dikkate emin olun. Azure sanal makinelerin App Service ve Service Fabric Platform olarak-hizmet (Paas) durumdayken-olarak-hizmet altyapı (Iaas) şeklindedir. 
+App Service’ta veya Service Fabric’te çalışması için önemli değişiklikler yapılmasını gerektiren mevcut bir uygulamanız varsa buluta geçmeyi kolaylaştırmak için Sanal Makineler’i seçebilirsiniz. Ne var ki sanal makineleri doğru yapılandırmak, güvenliğini sağlamak ve bakımını yapmak Azure App Service ve Service Fabric ile karşılaştırıldığında çok daha fazla zaman ve IT uzmanlığı gerektirir. Azure Sanal Makineleri düşünüyorsanız VM ortamınızı yamamak, güncelleştirmek ve yönetmek üzere sürekli bir bakım çabası gerekeceğini dikkate aldığınızdan emin olun. Azure Sanal Makineler Hizmet Olarak Altyapı (IaaS) iken App Service ve Service Fabric ise Hizmet Olarak Platform’dur (Paas). 
 
-## <a name="features"></a>Özellik karşılaştırması
-Aşağıdaki tabloda, en iyi seçim yapmanıza yardımcı olmak için özelliklerini uygulama hizmeti, bulut Hizmetleri, sanal makineler ve Service Fabric karşılaştırır. Her seçenek için SLA hakkında güncel bilgiler için bkz: [Azure hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
+## <a name="features"></a>Özellik Karşılaştırması
+Aşağıdaki tabloda, en iyi seçimi yapmanıza yardımcı olmak için App Service, Cloud Services, Sanal Makineler ve Service Fabric yetenekleri karşılaştırılmıştır. Her seçeneğin SLA’sı hakkında güncel bilgiler için bkz. [Azure Hizmet Düzeyi Sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
 
-| Özellik | Uygulama Hizmeti (web uygulamaları) | Bulut Hizmetleri (web rolleri) | Virtual Machines | Service Fabric | Notlar |
+| Özellik | App Service (Web uygulamaları) | Cloud Services (Web rolleri) | Virtual Machines | Service Fabric | Notlar |
 | --- | --- | --- | --- | --- | --- |
-| Neredeyse anında dağıtım |X | | |X |Bir uygulama veya bir uygulama güncelleştirmesi için bir bulut hizmeti dağıtma veya bir VM oluşturma en az birkaç dakika sürer; bir uygulama bir web uygulamasına dağıtma birkaç saniye sürer. |
-| Daha büyük makinelere dağıtın olmadan ölçeği |X | | |X | |
-| Web sunucusu örneğine içerik ve yeniden dağıtın veya kendi ölçeklendirmenize göre yeniden yapılandırmak zorunda kalmazsınız yapılandırma paylaşır. |X | | |X | |
-| Birden çok dağıtım ortamı (üretim ve hazırlama) |X |X | |X |Service Fabric, uygulamalarınız için birden çok ortamlarınız veya, uygulama yan yana farklı sürümlerini dağıtmak için sağlar. |
-| Otomatik işletim sistemi güncelleştirme yönetimi |X |X | | |Kısmen aracılığıyla düzeltme eki Orchestration uygulama (POA) ve tam olarak gelecekte. |
-| Sorunsuz platform değiştirme (32 bit ve 64 bit arasında kolayca geçiş) |X |X | | | |
+| Neredeyse anında dağıtım |X | | |X |Bir uygulamayı veya uygulama güncelleştirmesini Cloud Service’a dağıtmak veya bir VM oluşturmak en az birkaç dakika sürer; bir uygulamayı Web uygulamasına dağıtmak ise birkaç saniye alır. |
+| Yeniden dağıtmadan daha büyük makinelere ölçeklendirme |X | | |X | |
+| Web sunucusu örnekleri içeriği ve yapılandırmayı paylaşır, yani ölçeklendirirken tekrar dağıtmanız ya da yeniden yapılandırmanız gerekmez. |X | | |X | |
+| Birden çok dağıtım ortamı (üretim ve hazırlama) |X |X | |X |Service Fabric, uygulamalarınız için birden çok ortamınız olmasına veya uygulamanızın farklı sürümlerini yan yana dağıtmanıza olanak sağlar. |
+| Otomatik işletim sistemi güncelleştirme yönetimi |X |X | | |Kısmen Yama Düzenleme Uygulaması (POA) aracılığıyla ve gelecekte tam olarak. |
+| Sorunsuz platform değiştirme (32 bit ile 64 bit arasında kolay geçiş) |X |X | | | |
 | GIT, FTP ile kod dağıtma |X | |X | | |
-| Web dağıtımı ile kod dağıtma |X | |X | |Bulut Hizmetleri tek rol örneklerine güncelleştirmeleri dağıtmak için Web dağıtımı kullanımını destekler. Ancak, bir rolün ilk dağıtımınızı kullanamaz ve bir güncelleştirme için Web dağıtımı kullanıyorsanız, her bir rol örneği için ayrı olarak dağıtmanız gerekir. Birden çok örneği üretim ortamları için bulut hizmeti SLA'sı için nitelemek için gereklidir. |
+| Web Dağıtımı ile kod dağıtma |X | |X | |Cloud Services güncelleştirmeleri rol örneklerine tek tek dağıtmak için Web Dağıtımı kullanımını destekler. Ancak, bir rolün ilk dağıtımı için kullanamazsınız ve Web Dağıtımını bir güncelleştirme için kullanıyorsanız rolün her örneğine ayrı olarak dağıtmanız gerekir. Üretim ortamlarında Bulut Hizmeti SLA'sı ile kullanabilmek için birden çok örnek gereklidir. |
 | WebMatrix desteği |X | |X | | |
-| Hizmet veri yolu, depolama, SQL veritabanı gibi hizmetlere erişimi |X |X |X |X | |
-| Ana bilgisayar web veya web hizmetleri katmanı çok katmanlı mimarisi |X |X |X |X | |
-| Çok katmanlı mimarisinin konak orta katman |X |X |X |X |App Service web apps kolayca bir REST API'si Orta katmanı barındırmak ve [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) özelliği, arka plan işleme işleri barındırabilir. Web işleri katmanı için bağımsız ölçeklenebilirlik elde etmek için ayrılmış bir Web sitesinde çalıştırabilirsiniz. |
-| Tümleşik Hizmet olarak MySQL desteği |X |X | | | |
-| ASP.NET, klasik ASP, Node.js, PHP, Python desteği |X |X |X |X |Service Fabric kullanarak bir web ön uç oluşturmayı destekleyen [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) veya herhangi bir türde uygulamayı (Node.js, Java, vb.) olarak dağıtabileceğiniz bir [Konuk yürütülebilir](../service-fabric/service-fabric-deploy-existing-app.md). |
-| Birden çok örneği dağıtın olmadan için genişletme |X |X |X |X |Sanal makineler için birden çok örneği ölçeğini, ancak bunlar üzerinde çalışan hizmetleri bu genişleme işlemek için yazılmış olmalıdır. Makine genelinde istekleri yönlendirmek ve Bakım veya donanım hataları nedeniyle tüm örnekleri aynı anda yeniden engellemek için bir benzeşim grubu oluşturmak için bir yük dengeleyici yapılandırmanız gerekir. |
-| SSL desteği |X |X |X |X |App Service web uygulamaları için özel etki alanı adları için SSL yalnızca temel ve Standart modu için desteklenir. Web uygulamaları ile SSL kullanma hakkında daha fazla bilgi için bkz: [bir Azure Web sitesi için bir SSL sertifikası yapılandırma](app-service-web-tutorial-custom-ssl.md). |
-| Visual Studio tümleştirmesi |X |X |X |X | |
-| Uzaktan hata ayıklama |X |X |X | | |
-| Kod TFS ile Dağıt |X |X |X |X | |
-| Ağ yalıtımı ile [Azure sanal ağ](/azure/virtual-network/) |X |X |X |X |Ayrıca bkz. [Azure Web siteleri sanal ağ tümleştirme](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
-| Desteği [Azure trafik Yöneticisi](/azure/traffic-manager/) |X |X |X |X | |
-| Tümleşik uç nokta izleme |X |X |X | | |
-| Uzak Masaüstü erişimi sunucuları | |X |X |X | |
-| Tüm özel MSI yükleme | |X |X |X |Service Fabric sağlar, herhangi bir yürütülebilir dosya olarak barındırmak bir [Konuk yürütülebilir](../service-fabric/service-fabric-deploy-existing-app.md) veya Vm'lerinde herhangi bir uygulama yükleyebilirsiniz. |
-| Başlangıç görevleri tanımlamak/yürütün yeteneği | |X |X |X | |
-| ETW olayları dinleme | |X |X |X | |
+| Service Bus, Depolama, SQL Veritabanı gibi hizmetlere erişim |X |X |X |X | |
+| Web sitesini veya çok katmanlı mimarinin Web hizmetleri katmanını barındırma |X |X |X |X | |
+| Çok katmanlı mimarinin orta katmanını barındırma |X |X |X |X |App Service Web uygulamaları kolayca REST API orta katmanını, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) özelliği de arka planda işlenen işleri barındırabilir. Katmana yönelik olarak bağımsız ölçeklenebilirlik elde etmek için WebJobs’ı ayrılmış bir Web sitesinde çalıştırabilirsiniz. |
+| Tümleşik Hizmet Olarak MySQL desteği |X |X | | | |
+| ASP.NET, klasik ASP, Node.js, PHP, Python desteği |X |X |X |X |Service Fabric, [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) kullanarak bir Web ön ucu oluşturmayı destekler veya her türden uygulamayı (Node.js, Java vb.) [konuk yürütülebilir dosyası](../service-fabric/service-fabric-deploy-existing-app.md) olarak dağıtabilirsiniz. |
+| Yeniden dağıtmadan ölçeği birden fazla örneğe genişletme |X |X |X |X |Sanal Makineler, ölçeği birden fazla örneğe genişletebilir ancak bunlar üzerinde çalışan hizmetler, bu ölçek genişletmeyi kullanabilecek şekilde yazılmış olmalıdır. İstekleri makinelere yönlendirmek için bir yük dengeleyici yapılandırmanız ve bakım ya da donanım hataları nedeniyle tüm örneklerin aynı anda yeniden başlatılmalarına engel olmak için de Benzeşim Grubu oluşturmanız gerekir. |
+| SSL desteği |X |X |X |X |App Service Web uygulamalarında özel etki alanı adlarına yönelik SSL yalnızca Temel ve Standart modlarında desteklenir. Web uygulamalarında SSL kullanma hakkında bilgi için bkz. [Azure Web sitesi için SSL sertifikası yapılandırma](app-service-web-tutorial-custom-ssl.md). |
+| Visual Studio ile tümleştirme |X |X |X |X | |
+| Uzaktan Hata Ayıklama |X |X |X | | |
+| TFS ile kod dağıtma |X |X |X |X | |
+| [Azure Sanal Ağı](/azure/virtual-network/) ile ağ yalıtımı |X |X |X |X |Ayrıca bkz. [Azure Web Siteleri Sanal Ağ Tümleştirmesi](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
+| [Azure Traffic Manager](/azure/traffic-manager/) desteği |X |X |X |X | |
+| Tümleşik Uç Nokta İzleme |X |X |X | | |
+| Sunuculara uzak masaüstü erişimi | |X |X |X | |
+| Herhangi bir özel MSI’yi yükleme | |X |X |X |Service Fabric, tüm yürütülebilir dosyaları [konuk yürütülebilir dosyası](../service-fabric/service-fabric-deploy-existing-app.md) olarak barındırmanıza olanak tanır veya istediğiniz uygulamayı Vm'lere yükleyebilirsiniz. |
+| Başlangıç görevleri tanımlama/yürütme yeteneği | |X |X |X | |
+| ETW olayları dinlenebilir | |X |X |X | |
 
 ## <a name="scenarios"></a>Senaryolar ve öneriler
-Burada, bazı ortak uygulama senaryoları için hangi Azure web barındırma seçeneği her biri için en uygun olabilecek öneriler bulunmaktadır.
+Aşağıda, bazı yaygın uygulama senaryoları, hangi Azure Web barındırma seçeneğinin hangi senaryoya uygun olabileceği hakkında önerilerle birlikte verilmiştir.
 
-* [Bir web ön uç ile şirket içi varlıklarını tümleşik iş uygulamaları çalıştırmak için arka plan işleme ve veritabanı arka ucu ile ihtiyacım.](#onprem)
-* [Teklifler genel ulaşmak ve buna iyi ölçeklenir my Kurumsal Web sitesi barındırmak için güvenilir bir yol gerekir.](#corp)
-* [Windows Server 2003'te çalışan bir IIS6 uygulama var.](#iis6)
-* [Küçük işletme sahibi ben ve Sitem barındırmak için uygun maliyetli bir yol gerekiyor ancak Gelecekteki büyümeyi unutmayın.](#smallbusiness)
-* [Bir web veya grafik Tasarımcı ben ve tasarlayın ve my müşteriler için web siteleri oluşturmak istiyorum.](#designer)
-* [Bir web ön uç ile çok katmanlı Uygulamam buluta geçirme.](#multitier)
-* [Buluta taşımak Linux ortamları ve istediğiniz veya üst düzeyde özelleştirilmiş Windows Uygulamam bağlıdır.](#custom)
-* [Açık kaynak yazılımının Sitem kullanır ve Azure üzerinde barındırmak istediğiniz.](#oss)
-* [Şirket ağına bağlanmak için gereken bir iş kolu satır uygulama var.](#lob)
-* [Bir REST API veya mobil istemciler için web hizmetini barındırmak istediğiniz.](#mobile)
+* [Şirket içi varlıklarla tümleşik iş uygulamaları çalıştırmak için arka plan işlemleri ve veritabanı arka ucu olan bir Web ön ucuna ihtiyacım var.](#onprem)
+* [İyi ölçeklenen ve küresel erişim sunan Kurumsal Web sitemi barındırmak için güvenilir bir yola ihtiyacım var.](#corp)
+* [Windows Server 2003'te çalışan bir IIS6 uygulamam var.](#iis6)
+* [Küçük işletme sahibiyim ve sitemi barındırmak için uygun maliyetli ancak gelecekte büyüyebilecek bir yönteme ihtiyacım var.](#smallbusiness)
+* [Web veya grafik tasarımcısıyım ve müşterilerim için Web siteleri tasarlamak ve oluşturmak istiyorum.](#designer)
+* [Web ön ucu olan çok katmanlı uygulamamı Buluta geçiriyorum.](#multitier)
+* [Uygulamam üst düzeyde özelleştirilmiş Windows veya Linux ortamlarına bağlı olduğundan onu buluta taşımak istiyorum.](#custom)
+* [Sitem açık kaynak yazılımı kullanıyor ve ben sitemi Azure üzerinde barındırmak istiyorum.](#oss)
+* [Şirket ağına bağlanması gereken bir iş kolu uygulamam var.](#lob)
+* [Mobil istemciler için REST API veya Web hizmeti barındırmak istiyorum.](#mobile)
 
-### <a id="onprem"></a>Bir web ön uç ile şirket içi varlıklarını tümleşik iş uygulamaları çalıştırmak için arka plan işleme ve veritabanı arka ucu ile ihtiyacım.
-Azure uygulama hizmeti, karmaşık iş uygulamaları için mükemmel bir çözümdür. Bu, olanak tanır, şirket kaynaklarına bağlanmak ölçeği otomatik olarak bir yük dengeli platformda ve Active Directory ile güvenliği sağlanan uygulamalar geliştirme. Bu uygulamaları bir dünya çapındaki portal ve API kolay hale getirir ve nasıl müşteriler bunları app Insight araçlarıyla kullandığını içine kavramak olanak sağlar. [Webjobs] [ Webjobs] özelliği arka plan işlemlerini çalıştırmak olanak tanır ve görevleri karma bağlantı ve sanal ağ özellikleri bağlanmayı kolaylaştırır karşın, web katmanının bir parçası olarak geri şirket içi kaynaklara. Azure uygulama hizmeti web uygulamaları için üç 9 ait SLA sağlar ve sağlar:
+### <a id="onprem"></a> Şirket içi varlıklarla tümleşik iş uygulamaları çalıştırmak için arka plan işlemleri ve veritabanı arka ucu olan bir Web ön ucuna ihtiyacım var.
+Azure App Service, karmaşık iş uygulamaları için mükemmel bir çözümdür. Yükü dengelenmiş bir platformda otomatik olarak ölçeklenen, Active Directory ile güvenliği sağlanmış ve şirket içi kaynaklarınıza bağlanan uygulamalar geliştirmenizi sağlar. Birinci sınıf portal ve API’ler aracılığıyla bu uygulamaların yönetimini kolaylaştırır ve uygulama analiz araçlarıyla müşterilerin onları nasıl kullandıklarını anlamanızı sağlar. [Webjobs][Webjobs] özelliği, Web katmanınızın parçası olarak arka plan işlem ve görevlerini çalıştırmanızı sağlarken hibrit bağlantı ve VNET özellikleri de şirket içi kaynaklara tekrar bağlanmayı kolaylaştırır. Azure App Service, Web uygulamaları için %99,9 SLA sağlar ve şunları yapmanıza olanak tanır:
 
-* Uygulamalarınızın güvenilir bir şekilde kendini onarma, otomatik düzeltme eki uygulama bulut platformu üzerinde çalıştırın.
-* Veri merkezlerinin küresel bir ağda otomatik olarak ölçeklendirin.
-* Yedekleme ve olağanüstü durum kurtarma için geri yükleme.
-* ISO, SOC2 ve PCI uyumlu olmalıdır.
-* Active Directory ile tümleştirin
+* Uygulamalarınızı kendi kendini onaran, otomatik düzeltme eki uygulanan bir bulut platformunda güvenilir bir şekilde çalıştırma.
+* Genel veri merkezleri ağında otomatik olarak ölçeklendirme.
+* Olağanüstü durum kurtarması için yedekleme ve geri yükleme.
+* ISO, SOC2 ve PCI uyumlu olma.
+* Active Directory ile tümleştirme
 
-### <a id="corp"></a>Teklifler genel ulaşmak ve buna iyi ölçeklenir my Kurumsal Web sitesi barındırmak için güvenilir bir yol gerekir.
-Azure uygulama hizmeti, şirket Web siteleri barındırmak için harika bir çözümdür. Web uygulamalarını kolayca ölçek için ve veri merkezlerinin küresel bir ağda talebi karşılamak için kolayca sağlar. Yerel reach, hata toleransı ve akıllı trafik yönetimi sunar. Dünya çapındaki yönetim araçları sağlayan tüm bir platformda, site durumu ve site trafiği hızla ve kolayca kavramanıza olanak sağlar. Azure uygulama hizmeti web uygulamaları için üç 9 ait SLA sağlar ve sağlar:
+### <a id="corp"></a> İyi ölçeklenen ve küresel erişim sunan Kurumsal Web sitemi barındırmak için güvenilir bir yola ihtiyacım var.
+Azure App Service, şirket Web sitelerini barındırmak için harika bir çözümdür. Küresel veri merkezleri ağına yönelik talebi karşılamak için Web uygulamalarını hızla ve kolayca ölçeklendirmenizi sağlar. Yerel erişim, hataya dayanıklılık ve akıllı trafik yönetimi sunar. Birinci sınıf yönetim araçları sağlayan bir platform üzerinde, site durumunu ve site trafiğini hızla ve kolayca kavramanıza olanak sağlar. Azure App Service, Web uygulamaları için %99,9 SLA sağlar ve şunları yapmanıza olanak tanır:
 
-* Sitelerinizi güvenilir bir şekilde kendini onarma, otomatik düzeltme eki uygulama bulut platformu üzerinde çalıştırın.
-* Veri merkezlerinin küresel bir ağda otomatik olarak ölçeklendirin.
-* Yedekleme ve olağanüstü durum kurtarma için geri yükleme.
-* Günlüklerini yönetmek ve tümleşik araçlarıyla trafiği.
-* ISO, SOC2 ve PCI uyumlu olmalıdır.
-* Active Directory ile tümleştirin
+* Web sitelerinizi kendi kendini onaran, otomatik düzeltme eki uygulanan bir bulut platformunda güvenilir bir şekilde çalıştırma.
+* Genel veri merkezleri ağında otomatik olarak ölçeklendirme.
+* Olağanüstü durum kurtarması için yedekleme ve geri yükleme.
+* Tümleşik araçlarla günlükleri ve trafiği yönetme.
+* ISO, SOC2 ve PCI uyumlu olma.
+* Active Directory ile tümleştirme
 
-### <a id="iis6"></a>Windows Server 2003'te çalışan bir IIS6 uygulama var.
-Azure uygulama hizmeti geçirme eski IIS6 uygulamalarla ilişkili altyapı maliyetleri önlemek kolaylaştırır. Microsoft oluşturdu [kullanımı kolay geçiş araçları ve ayrıntılı geçiş yönergeleri](https://www.migratetoazure.net/) uyumluluğunu denetlemek ve yapılması gereken tüm değişiklikleri belirlemek etkinleştirin. Visual Studio, TFS ve ortak CMS araçları ile tümleştirme, IIS6 uygulama doğrudan buluta dağıtmak kolaylaştırır. Uygulama dağıtıldıktan sonra Azure Portal maliyetlerini yönetmek ve karşılamak kadar gerektiğinde talep ölçeklendirmenizi sağlayan güçlü bir yönetim araçlarını sağlar. Geçiş Aracı ile şunları yapabilirsiniz:
+### <a id="iis6"></a> Windows Server 2003'te çalışan bir IIS6 uygulamam var.
+Azure App Service, eski IIS6 uygulamalarını geçirme ile ilişkili altyapı maliyetlerini önlemeyi kolaylaştırır. Microsoft, uyumluluğu denetlemenizi ve yapılması gereken tüm değişiklikleri belirlemenizi sağlayan [kullanımı kolay geçiş araçları ve ayrıntılı geçiş yönergeleri](https://www.migratetoazure.net/) hazırlamıştır. Visual Studio, TFS ve ortak CMS araçları ile tümleştirme, IIS6 uygulamalarını doğrudan buluta dağıtmayı kolaylaştırır. Uygulama dağıtıldıktan sonra, Azure Portalı, maliyetleri yönetmek amacıyla ölçeği azaltmanızı ve gerektiğinde talebi karşılamak için de genişletmenizi sağlayan güçlü yönetim araçları sunar. Geçiş aracı ile şunları yapabilirsiniz:
 
-* Hızlı ve kolay bir şekilde buluta eski Windows Server 2003 web uygulamanızı geçirin.
-* Ekli SQL veritabanı bir karma uygulaması oluşturmak için şirket içi bırakmayı tercih et.
-* Otomatik olarak SQL veritabanınız eski uygulamanızı birlikte taşınır.
+* Eski Windows Server 2003 Web uygulamanızı hızlı ve kolay bir şekilde buluta geçirme.
+* Hibrit uygulama oluşturmak amacıyla iliştirilmiş SQL veritabanını şirket içinde bırakmayı tercih etme.
+* SQL veritabanınızı eski uygulamanızla birlikte otomatik olarak taşıma.
 
-### <a id="smallbusiness"></a>Küçük işletme sahibi ben ve Sitem barındırmak için uygun maliyetli bir yol gerekiyor ancak Gelecekteki büyümeyi unutmayın.
-Ücretsiz kullanmaya başlamak ve bunları gerektiğinde daha fazla özellikleri eklemek için azure uygulama hizmeti bu senaryo için harika bir çözümdür. Her ücretsiz bir web uygulamasını Azure tarafından sağlanan bir etki alanı ile birlikte gelir (*your_company*. azurewebsites.net), ve platform kolaylaştıran başlamak bir uygulama Galerisi yanı sıra tümleşik dağıtım ve yönetim araçları içerir. Diğer birçok Hizmetleri ve artan kullanıcı taleple gelişmesi izin ölçeklendirme seçenekleri vardır. Azure App Service ile şunları yapabilirsiniz:
+### <a id="smallbusiness"></a> Küçük işletme sahibiyim ve sitemi barındırmak için uygun maliyetli ancak gelecekte büyüyebilecek bir yönteme ihtiyacım var.
+Ücretsiz kullanmaya başlayabileceğinizden ve gerektiğinde daha fazla özellikler ekleyebileceğinizden dolayı Azure App Service bu senaryo için harika bir çözümdür. Ücretsiz Web uygulamalarının her biri Azure tarafından sağlanan bir etki alanı ile birlikte gelir (*sirketiniz*.azurewebsites.net) ve bu platform, tümleşik dağıtım ve yönetim araçlarının yanı sıra kullanmaya başlamayı kolaylaştıran bir uygulama galerisi de içerir. Artan kullanıcı talebiyle birlikte sitenin gelişmesine izin veren başka birçok hizmetleri ve ölçeklendirme seçenekleri vardır. Azure App Service ile yapabilecekleriniz:
 
-* Ücretsiz katmanı ile başlayın ve gerektikçe sonra ölçeği.
-* Uygulama Galerisi WordPress gibi popüler web uygulamalarını hızlı bir şekilde ayarlamak için kullanın.
-* Ek Azure Hizmetleri ve özellikleri uygulamanıza gerektiği gibi ekleyin.
-* Web uygulamanızı HTTPS ile güvenli hale getirin.
+* Ücretsiz katman ile başlayıp ardından gerektikçe ölçeği artırma.
+* WordPress gibi popüler Web uygulamalarını hızlı bir şekilde kurmak için Uygulama Galerisini kullanma.
+* Gerektikçe uygulamanıza başka Azure hizmetleri ve özellikleri ekleme.
+* Web uygulamanızı HTTPS ile güvenli hale getirme.
 
-### <a id="designer"></a>Bir web veya grafik Tasarımcı ben ve tasarlayın ve my müşteriler için Web siteleri oluşturmak istiyorum
-Azure uygulama hizmeti çeşitli çerçeveler ve araçları ile kolayca tümleşir web geliştiricileri ve tasarımcıları, Git ve FTP için dağıtım desteği içerir ve araçları ve Visual Studio ve SQL veritabanı gibi hizmetleri ile sıkı tümleştirme sağlar. App Service ile yapabilecekleriniz:
+### <a id="designer"></a> Web veya grafik tasarımcısıyım ve müşterilerim için Web siteleri tasarlamak ve oluşturmak istiyorum
+Web geliştiricileri ve tasarımcıları için Azure App Service çeşitli çerçeve ve araçlarla kolayca tümleşir, Git ve FTP için dağıtım desteği içerir ve ayrıca Visual Studio ve SQL Veritabanı gibi araç ve hizmetlerle sıkı tümleştirme sağlar. App Service ile yapabilecekleriniz:
 
-* İçin komut satırı araçlarını kullanmayı [otomatik görevleri][scripting].
-* Popüler dillerde gibi çalışmak [.Net][dotnet], [PHP][PHP], [Node.js][nodejs], ve [Python][Python].
-* Çok yüksek kapasite ölçekleme için üç farklı ölçeklendirme düzeylerini seçin.
-* Gibi diğer Azure hizmetleriyle tümleştirme [SQL veritabanı][sqldatabase], [Service Bus] [ servicebus] ve [depolama][Storage], veya ortak tekliflerinin dışında [Azure depolama][azurestore], MySQL ve MongoDB gibi.
-* Visual Studio, Git, WebMatrix, WebDeploy, TFS ve FTP gibi araçları ile tümleştirin.
+* [Otomatik görevler][scripting] için komut satırı araçlarını kullanma.
+* [.Net][dotnet], [PHP][PHP], [Node.js][nodejs] ve [Python][Python] gibi popüler dillerle çalışma.
+* Ölçeği çok yüksek kapasitelere artırmak için üç farklı ölçeklendirme düzeyini seçme.
+* [SQL Veritabanı][sqldatabase], [Service Bus] [ servicebus] ve [Depolama][Storage] gibi diğer Azure hizmetleriyle veya MySQL ve MongoDB gibi [Azure Mağazası][azurestore]’ndan iş ortağı teklifleriyle tümleştirme.
+* Visual Studio, Git, WebMatrix, WebDeploy, TFS ve FTP gibi araçlarla tümleştirme.
 
-### <a id="multitier"></a>I my çok katmanlı uygulama bir web ön uç ile buluta geçiş
-Bir veritabanına bağlanan bir web sunucusu gibi çok katmanlı bir uygulama çalıştırıyorsanız, Azure App Service, Azure SQL veritabanı ile sıkı tümleştirme sunan iyi bir seçenektir. Ve arka uç işlemlerini çalıştırmak için WebJobs özelliğini kullanabilirsiniz.
+### <a id="multitier"></a> Web ön ucu olan çok katmanlı uygulamamı Buluta geçiriyorum
+Veritabanına bağlanan Web sunucusu gibi çok katmanlı bir uygulama çalıştırıyorsanız Azure App Service, Azure SQL Veritabanı ile sıkı tümleştirme sunan iyi bir seçenektir. Ayrıca, arka uç işlemlerini çalıştırmak için WebJobs özelliğini kullanabilirsiniz.
 
-Service Fabric birini veya daha fazla ihtiyacınız varsa, bu katmanların yeteneği uzak sunucunuz içine gibi sunucu ortamı üzerinden denetlemesine veya sunucu başlangıç görevleri yapılandırın.
+Sunucunuzda uzaktan oturum açma veya sunucu başlangıç görevlerini yapılandırma gibi sunucu ortamı üzerinde daha fazla denetime ihtiyacınız varsa katmanlarınızdan biri veya birkaçı için Service Fabric’i seçin.
 
-Kendi makine görüntüsünü kullanabilir veya sunucu yazılımı veya Service Fabric yapılandıramazsınız hizmetleri çalıştırmak istiyorsanız, bir veya daha fazla, katmanları için sanal makineleri seçin.
+Kendi makine görüntünüzü kullanmak veya Service Fabric üzerinde yapılandıramayacağınız sunucu yazılımları ya da hizmetleri çalıştırmak istiyorsanız bir veya daha fazla katmanınız için Sanal Makineleri seçin.
 
-### <a id="custom"></a>Buluta taşımak Linux ortamları ve istediğiniz veya üst düzeyde özelleştirilmiş Windows Uygulamam bağlıdır.
-Uygulamanızı karmaşık yükleme veya yazılım ve işletim sistemi yapılandırmasını gerektiriyorsa, sanal makineleri büyük olasılıkla en iyi çözüm. Sanal makineler ile şunları yapabilirsiniz:
+### <a id="custom"></a> Uygulamam üst düzeyde özelleştirilmiş Windows veya Linux ortamlarına bağlı olduğundan onu buluta taşımak istiyorum.
+Uygulamanız yazılım ve işletim sistemi için karmaşık yükleme veya yapılandırma gerektiriyorsa Sanal Makineleri büyük olasılıkla en iyi çözümdür. Sanal Makineler ile şunları yapabilirsiniz:
 
-* Bir işletim sistemi, Windows veya Linux gibi başlatmak için sanal makineye Galerisi kullanın ve sonra uygulamanızın gereksinimleri için özelleştirin.
-* Oluşturun ve azure'da bir sanal makinede çalıştırmak için var olan bir şirket içi sunucusunun özel bir görüntü yükleyin.
+* Sanal Makine galerisini kullanarak Windows veya Linux gibi bir işletim sistemi ile başlama ve sonra uygulama gereksinimlerinize göre özelleştirme.
+* Var olan bir şirket içi sunucunun özel görüntüsünü oluşturma ve Azure'da bir sanal makinede çalışacak şekilde yükleme.
 
-### <a id="oss"></a>Açık kaynak yazılımının Sitem kullanır ve Azure üzerinde barındırmak istediğiniz
-Uygulama hizmeti, açık kaynak framework destekleniyorsa, dilleri ve çerçeveleri uygulamanızın gereksinim duyduğu sizin için otomatik olarak yapılandırılır. Uygulama hizmeti sağlar:
+### <a id="oss"></a> Sitem açık kaynak yazılımı kullanıyor ve ben sitemi Azure üzerinde barındırmak istiyorum
+Açık kaynaklı çerçeveniz App Service’ta destekleniyorsa uygulamanızın gereksinim duyduğu diller ve çerçeveler sizin için otomatik olarak yapılandırılır. App Service şunları yapmanızı sağlar:
 
-* Birçok popüler açık kaynak dilleri, gibi kullandığınız [.NET][dotnet], [PHP][PHP], [Node.js][nodejs], ve [Python][Python].
-* WordPress, Drupal, Umbraco, DNN ve diğer birçok üçüncü taraf web uygulamalarını ayarlayın.
-* Var olan bir uygulama geçirmek veya uygulama galeriden yeni bir tane oluşturun.
+* [.NET][dotnet], [PHP][PHP], [Node.js][nodejs] ve [Python][Python] gibi birçok popüler açık kaynaklı dili kullanma.
+* WordPress, Drupal, Umbraco, DNN ve diğer birçok üçüncü taraf Web uygulamasını kurma.
+* Var olan bir uygulamayı geçirme veya Uygulama Galerisinden yeni bir tane oluşturma.
 
-Uygulama hizmeti, açık kaynak framework desteklenmiyorsa, seçenekleri diğer Azure web barındırma birinde çalıştırabilirsiniz. Sanal makineler ile yükleme ve Windows olabilen makine görüntüsüne yazılım yapılandırma veya Linux tabanlı.
+Açık kaynaklı çerçeveniz App Service’ta desteklenmiyorsa onu diğer Azure Web barındırma seçeneklerinden birinde çalıştırabilirsiniz. Sanal Makineler ile yazılımı Windows veya Linux tabanlı olabilen makine görüntüsüne yükler ve yapılandırırsınız.
 
-### <a id="lob"></a>Şirket ağına bağlanmak için gereken bir iş kolu satır uygulama yüklü
-Bir iş kolu satır uygulama oluşturmak istiyorsanız, Web sitenizi Hizmetleri ya da kurumsal ağ üzerindeki veri doğrudan erişim gerektirebilir. Bu uygulama hizmeti, Service Fabric ve kullanarak sanal makineleri mümkündür [Azure Virtual Network service](/azure/virtual-network/). Uygulama hizmeti kullandığınız [VNET tümleştirme özelliği](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), Azure uygulamalarınızı şirket ağınızda değilmiş gibi çalışmasına izin verir.
+### <a id="lob"></a> Şirket ağına bağlanması gereken bir iş kolu uygulamam var
+Bir iş kolu uygulaması oluşturmak istiyorsanız Web siteniz şirket ağındaki hizmetlere ya da verilere doğrudan erişmeyi gerektirebilir. Bu App Service’ta, Service Fabric’te ve Sanal Makineler’de [Azure Sanal Ağ hizmetini](/azure/virtual-network/) kullanarak yapılabilir. App Service’ta Azure uygulamalarınızın şirket ağınızdaymış gibi çalışmasına izin veren [VNET tümleştirme özelliğini](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) kullanabilirsiniz.
 
-### <a id="mobile"></a>Bir REST API veya mobil istemciler için web hizmetini barındırmak istiyorum
-HTTP tabanlı web hizmetleri çok çeşitli mobil istemciler dahil olmak üzere istemcileri desteklemek etkinleştirin. ASP.NET Web API gibi çerçeveleri oluşturun ve REST hizmetlerini kullanma kolaylaştırmak için Visual Studio ile tümleştirin.  Bu senaryoyu desteklemek için Azure ile ilgili teknik barındırma web kullanmak mümkün olması için bu hizmetleri bir web uç noktasından sunulur. Ancak, REST API'leri barındırmak için harika bir seçim uygulama hizmetidir. App Service ile yapabilecekleriniz:
+### <a id="mobile"></a> Mobil istemciler için REST API veya Web hizmeti barındırmak istiyorum
+HTTP tabanlı Web hizmetleri mobil istemciler dahil olmak üzere çok çeşitli istemcileri desteklemenizi sağlar. ASP.NET Web API gibi çerçeveler, REST hizmetlerini oluşturup kullanmayı kolaylaştırmak için Visual Studio ile tümleşirler.  Bu hizmetler bir Web uç noktasından sunulduğundan bu senaryoyu desteklemek için Azure’da herhangi bir Web barındırma yöntemini kullanmak mümkündür. Ancak, App Service REST API'leri barındırmak için harika bir seçimdir. App Service ile yapabilecekleriniz:
 
-* Hızlı Oluştur bir [mobil uygulama](../app-service-mobile/app-service-mobile-value-prop.md) veya Azure'nın birinde HTTP web hizmeti genel barındırmak için API uygulaması Dağıtılmış veri merkezlerinde.
-* Varolan hizmetlerini geçirme veya yenilerini oluşturun.
-* Tek bir örnekle kullanılabilirlik SLA elde etmek veya birden çok ayrılmış makinelerine ölçeğini.
-* Yayımlanan site REST API'leri mobil istemciler dahil olmak üzere tüm HTTP istemcilere sağlamak için kullanın.
+* HTTP Web hizmetini Azure'un küresel çapta dağıtılmış veri merkezlerinden birinde barındırmak için hızla bir [mobil uygulama](../app-service-mobile/app-service-mobile-value-prop.md) veya API uygulaması oluşturma.
+* Var olan hizmetleri geçirme veya yenilerini oluşturma.
+* Tek bir örnekle kullanılabilen SLA elde etme veya birden çok ayrılmış makineye ölçeği genişletme.
+* REST API'leri mobil istemciler dahil olmak üzere herhangi bir HTTP istemcisine sağlamak için yayımlanmış siteyi kullanma.
 
 > [!NOTE]
-> Bir hesabı için kaydolmadan önce Azure App Service'i kullanmaya başlamak istiyorsanız, Git <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, burada hemen bir kısa süreli başlangıç uygulaması Azure App Service'te ücretsiz oluşturabilirsiniz. Kredi kartı gerekli, hiçbir taahhüt.
+> Bir hesaba kaydolmadan önce Azure App Service’ı kullanmaya başlamak istiyorsanız Azure App Service’ta hemen kısa süreli bir başlangıç uygulamasını ücretsiz olarak oluşturabileceğiniz <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a> sayfasına gidin. Kredi kartı ve taahhüt gerekli değildir.
 > 
 > 
 
-## <a id="nextsteps"></a>Sonraki adımlar
-Üç hakkında daha fazla bilgi için web barındırma seçenekleri, bkz: [Tanıtımı Azure](../fundamentals-introduction-to-azure.md).
+## <a id="nextsteps"></a> Sonraki Adımlar
+Üç Web barındırma seçeneği hakkında daha fazla bilgi için bkz. [Azure’a Giriş](../fundamentals-introduction-to-azure.md).
 
-Uygulamanız için seçilen seçenekleri ile çalışmaya başlamak için aşağıdaki kaynaklara bakın:
+Uygulamanıza yönelik belirlenmiş seçeneklerle başlamak için aşağıdaki kaynaklara bakın:
 
 * [Azure App Service](/azure/app-service/)
 * [Azure Cloud Services](/azure/cloud-services/)
-* [Azure sanal makineler](/azure/virtual-machines/)
+* [Azure Sanal Makineler](/azure/virtual-machines/)
 * [Service Fabric](/azure/service-fabric/)
 
 <!-- URL List -->

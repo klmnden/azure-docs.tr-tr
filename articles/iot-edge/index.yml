@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
-  document_id: null
-  title: 'Azure IoT Edge - Öğreticiler, API Başvurusu'
+  document_id: 
+  title: "Azure IoT Edge - Öğreticiler, API Başvurusu"
   meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
   services: iot-edge
   author: kgremban
@@ -12,35 +12,41 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/08/2017
+  ms.date: 12/08/2017
   ms.author: kgremban
+  ms.openlocfilehash: 909df13481d6bc47e0b7d30eb9f1ef755df01d27
+  ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 12/12/2017
 abstract:
-  description: 'Azure IoT Edge, IoT Hub temelinde geliştirilen bir Nesnelerin İnterneti (IoT) hizmetidir. Bu hizmet, verileri bulut yerine cihazlarda, diğer bir deyişle "en uçta" analiz etmek isteyen müşterilere yöneliktir. İş yükünüzün belirli bölümlerini uca taşıyarak cihazlarınızın iletileri buluta gönderme süresini azaltabilir ve durum değişikliklerine daha hızlı yanıt vermesini sağlayabilirsiniz.'
+  description: "Azure IoT Edge, IoT Hub temelinde geliştirilen bir Nesnelerin İnterneti (IoT) hizmetidir. Bu hizmet, verileri bulut yerine cihazlarda, diğer bir deyişle \"en uçta\" analiz etmek isteyen müşterilere yöneliktir. İş yükünüzün belirli bölümlerini uca taşıyarak cihazlarınızın iletileri buluta gönderme süresini azaltabilir ve durum değişikliklerine daha hızlı yanıt vermesini sağlayabilirsiniz."
 sections:
-  - title: 5 Dakikalık Hızlı Başlangıçlar
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "İlk IoT Edge modülünüzü dağıtın ve verileri sanal bir cihazda işleyin:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'İlk IoT Edge modülünüzü dağıtın ve verileri sanal bir cihazda işleyin:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/virtual-machines/linux/media/index/portal.svg
-            text: Windows
-            href: /azure/iot-edge/quickstart
-          - image:
-              src: /azure/virtual-machines/linux/media/index/portal.svg
-            text: Linux
-            href: /azure/iot-edge/quickstart-linux
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
+      text: Windows
+      href: /azure/iot-edge/quickstart
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: Linux
+      href: /azure/iot-edge/quickstart-linux
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "IoT Edge’i yükleyip yapılandırma, modülleri dağıtma ve Stream Analytics gibi Azure hizmetlerini uçta kullanma hakkında bilgi edinin."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'IoT Edge’i yükleyip yapılandırma, modülleri dağıtma ve Stream Analytics gibi Azure hizmetlerini uçta kullanma hakkında bilgi edinin.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Windows’da IoT Edge cihazının simülasyonunu gerçekleştirme</a>
-          - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Linux’ta IoT Edge cihazının simülasyonunu gerçekleştirme</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Bir C# modülü geliştirme ve dağıtma</a>'
-          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Azure Stream Analytics’i modül olarak dağıtma</a>
-          - html: <a href="/azure/iot-edge/tutorial-deploy-function">Azure İşlevleri’ni modül olarak dağıtma</a>
+    - html: "<a href=\"/azure/iot-edge/tutorial-simulate-device-windows\">Windows’da IoT Edge cihazının simülasyonunu gerçekleştirme</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-simulate-device-Linux\">Linux’ta IoT Edge cihazının simülasyonunu gerçekleştirme</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-csharp-module\">Bir C# modülü geliştirme ve dağıtma</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-stream-analytics\">Azure Stream Analytics’i modül olarak dağıtma</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-machine-learning\">Azure Machine Learning’i modül olarak dağıtma</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-function\">Azure İşlevleri’ni modül olarak dağıtma</a>"

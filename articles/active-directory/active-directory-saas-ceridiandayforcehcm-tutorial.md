@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ile Ceridian Dayforce H
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 7adf1eb3-d063-45d6-96a8-fd53b329b3f3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b2ea3d92f233dab5bd6814e4875f881117eac8e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b87fe59f2761c26319ce9e13168dc6c4bf95f8b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Öğretici: Azure Active Directory Tümleştirme Ceridian Dayforce HCM ile
 
@@ -112,21 +112,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     | Ortam | URL |
     | :-- | :-- |
-    | Üretim için | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
+    | Üretim amaçlı | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | Test için | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
     
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     
     | Ortam | URL |
     | :-- | :-- |
-    | Üretim için | `https://ncpingfederate.dayforcehcm.com/sp` |
+    | Üretim amaçlı | `https://ncpingfederate.dayforcehcm.com/sp` |
     | Test için | `https://fs-test.dayforcehcm.com/sp` |
     
     c. İçinde **yanıt URL'si** metin kutusuna, türü URL kullanılan Azure AD tarafından yanıt gönderme.
     
     | Ortam | URL |
     | :-- | :-- |
-    | Üretim için | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
+    | Üretim amaçlı | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | Test için | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
     
     > [!NOTE] 
@@ -142,7 +142,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    | Öznitelik adı  | Öznitelik değeri |
+    | Öznitelik Adı  | Öznitelik Değeri |
     | --------------- | -------------------- |    
     | ad  | User.extensionattribute2 |    
 

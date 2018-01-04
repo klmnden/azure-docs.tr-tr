@@ -1,32 +1,31 @@
 ---
-title: "Azure B2C için Node.js web uygulamasına oturum açma ekleme | Microsoft Belgeleri"
-description: "B2C kiracısı kullanarak kullanıcı oturumu açan Node.js web uygulaması oluşturma."
+title: "Oturum açma bir Node.js web uygulamasına - Azure Active Directory B2C ekleme"
+description: "Azure Active Directory B2C ile kullanıcılar oturum açtığında bir Node.js web uygulaması oluşturma."
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+author: PatAltimore
+manager: mtillman
+editor: dstrockis
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: c85b8f8434d1e837ac96ac63b9b37f990677ed6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Node.js web uygulamasına oturum açma ekleme
 
-**Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Son derece esnek ve modüler olan Passport, Express tabanlı veya Restify web uygulamasına sorunsuz bir şekilde yüklenebilir. Bir dizi kapsamlı strateji; bir kullanıcı adı ve parola, Facebook, Twitter ve daha fazlası ile kimlik doğrulamasını destekler.
+**Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler özellikteki Passport, Express tabanlı veya Restify web uygulamasına sorunsuz bir şekilde yüklenebilir. Bir dizi kapsamlı strateji; bir kullanıcı adı ve parola, Facebook, Twitter ve daha fazlası ile kimlik doğrulamasını destekler.
 
-Azure Active Directory (Azure AD) için bir strateji geliştirdik. Bu modülü yükleyin ve ardından Azure AD `passport-azure-ad` eklentisini ekleyin.
+Azure Active Directory (Azure AD), bu modülü yükleyin ve ardından Azure AD ekleyin `passport-azure-ad` eklentisi.
 
-Bunu yapmanız için gerekenler:
+Şunları yapmanız gerekir:
 
 1. Bir uygulamayı Azure AD kullanarak kaydedin.
 2. `passport-azure-ad` eklentisini kullanmak için uygulamanızı ayarlayın.
@@ -51,8 +50,6 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile 
 - **Yanıt URL'si** olarak `http://localhost:3000/auth/openid/return` adresini girin. Bu URL, bu kod örneği için varsayılan URL'dir.
 - Uygulamanız için bir **Uygulama gizli anahtarı** oluşturun ve bunu kopyalayın. Buna daha sonra ihtiyacınız olacak. Kullanmadan önce bu değerin [XML kaçışlı](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) olması gerektiğini unutmayın.
 - Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Buna da daha sonra ihtiyacınız olacak.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
 
@@ -104,7 +101,7 @@ Proje kökündeki `config.js` dosyasını açın ve `exports.creds` bölümüne 
 Proje kökündeki `app.js` dosyasını açın. `passport-azure-ad` ile birlikte gelen `OIDCStrategy` stratejisini çağırmak için aşağıdaki çağrıyı ekleyin.
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -115,7 +112,7 @@ var log = bunyan.createLogger({
 
 Oturum açma isteklerini işlemek için az önce başvurduğunuz stratejiyi kullanın.
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -158,7 +155,7 @@ Passport, tüm stratejileri (Twitter ve Facebook dahil) için benzer bir desen k
 
 Passport'un gerektirdiği gibi oturum açan kullanıcıları izlemenize olanak sağlayan yöntemleri ekleyin. Bu, kullanıcı bilgilerini serileştirmeyi ve seri durumdan çıkarmayı kapsar:
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -194,7 +191,7 @@ var findByEmail = function(email, fn) {
 
 Express altyapısını yüklemek için kodu ekleyin. Aşağıda Express'in sağladığı varsayılan `/views` ve `/routes` desenini kullandığımızı görebilirsiniz.
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -221,7 +218,7 @@ app.configure(function() {
 
 Gerçek oturum açma isteklerini `passport-azure-ad` altyapısına devreden `POST` yollarını ekleyin:
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -271,7 +268,7 @@ Uygulamanız artık OpenID Connect kimlik doğrulama protokolü kullanarak v2.0 
 
 Öncelikle `app.js` dosyanıza varsayılan, oturum açma, hesap ve oturum kapatma yöntemlerini ekleyin:
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -306,7 +303,7 @@ Bu yöntemleri ayrıntılı olarak incelemek için:
 
 `app.js` öğesinin son bölümü için `/account` yolunda kullanılan `EnsureAuthenticated` yöntemini ekleyin.
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -323,7 +320,7 @@ function ensureAuthenticated(req, res, next) {
 
 Son olarak, sunucunun kendisini `app.js` içinde oluşturun.
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -336,7 +333,7 @@ app.listen(3000);
 
 Kök dizin kısmında `/routes/index.js` yolunu oluşturun.
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -349,7 +346,7 @@ exports.index = function(req, res){
 
 Kök dizin kısmında `/routes/user.js` yolunu oluşturun.
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -364,7 +361,7 @@ Bu basit yollar, isteklerle birlikte görünümlerinize geçer. Var olan kullan�
 
 Kök dizin kısmında `/views/index.ejs` görünümünü oluşturun. Bu, oturum açma ve oturum kapatma için ilkeleri çağıran basit bir sayfadır. Hesap bilgilerini almak için de kullanabilirsiniz. Kullanıcının oturum açtığına kanıt sağlamak için kullanıcı isteğin içinden geçerken koşullu `if (!user)` kullanabileceğinizi unutmayın.
 
-```JavaScript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -379,7 +376,7 @@ Kök dizin kısmında `/views/index.ejs` görünümünü oluşturun. Bu, oturum 
 
 `passport-azure-ad` tarafından kullanıcı isteğine koyulan ek bilgileri görüntüleyebilmek için kök dizin kısmında `/views/account.ejs` görünümü oluşturun.
 
-```Javascript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login">Sign in</a>

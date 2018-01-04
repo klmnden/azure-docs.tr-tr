@@ -4,7 +4,7 @@ description: "Bu makalede, web uygulamaları ve web API'leri Azure Active Direct
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 Web uygulamaları ve web Apı'lerinize Azure AD kiracınıza erişim yetkisi vermek etkinleştirmek için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuzda dilden bağımsızdır ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklar.
@@ -56,10 +56,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın redirect_uri.  Bu tam bir url kodlanmış olmalıdır dışında Portalı'nda kayıtlı redirect_uris eşleşmelidir.  Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılacak yöntemi belirtir.  Olabilir `query` veya `form_post`. |
 | durum |Önerilen |Ayrıca belirteci yanıtta döndürülen istek dahil bir değer. Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12).  Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
-| Kaynak |İsteğe bağlı |Web API (güvenli kaynak) uygulama kimliği URI'si. Web API'si, uygulama kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Active Directory**, dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**. |
-| istemi |İsteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: kullanıcının yeniden kimlik doğrulaması yapmak istenir. <p> *onay*: kullanıcı izni verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcının onaylaması istenir. <p> *admin_consent*: bir yönetici kendi kuruluşunuzdaki tüm kullanıcılar adına onaylaması istenir |
-| login_hint |İsteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Genellikle uygulamaları yeniden kimlik doğrulaması, kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan sırasında bu parametreyi kullanın `preferred_username` talep. |
-| domain_hint |İsteğe bağlı |Kiracı veya kullanıcı oturum açmak için kullanması gereken etki alanını hakkında bir ipucu sağlar. Kiracı için kaydedilmiş bir etki alanı domain_hint değeri. Bir şirket içi dizin için Kiracı birleştirildiyse AAD belirtilen Kiracı federasyon sunucusuna yeniden yönlendirir. |
+| kaynak |isteğe bağlı |Web API (güvenli kaynak) uygulama kimliği URI'si. Web API'si, uygulama kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Active Directory**, dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**. |
+| istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: kullanıcının yeniden kimlik doğrulaması yapmak istenir. <p> *onay*: kullanıcı izni verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcının onaylaması istenir. <p> *admin_consent*: bir yönetici kendi kuruluşunuzdaki tüm kullanıcılar adına onaylaması istenir |
+| login_hint |isteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Genellikle uygulamaları yeniden kimlik doğrulaması, kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan sırasında bu parametreyi kullanın `preferred_username` talep. |
+| domain_hint |isteğe bağlı |Kiracı veya kullanıcı oturum açmak için kullanması gereken etki alanını hakkında bir ipucu sağlar. Kiracı için kaydedilmiş bir etki alanı domain_hint değeri. Bir şirket içi dizin için Kiracı birleştirildiyse AAD belirtilen Kiracı federasyon sunucusuna yeniden yönlendirir. |
 
 > [!NOTE]
 > Kullanıcı kuruluşun parçası ise, kuruluş yöneticisi onayı veya kullanıcı adına reddetmek ya kullanıcının onayını istemeniz izin verir. Kullanıcı seçeneği yalnızca yönetici izin verdiğinde izin verilir.
@@ -138,7 +138,7 @@ grant_type=authorization_code
 | Kod |Gerekli |`authorization_code` Önceki bölümde edindiğiniz |
 | redirect_uri |Gerekli |Aynı `redirect_uri` almak için kullanılan değer `authorization_code`. |
 | client_secret |Web uygulamaları için gerekli |Uygulamanız için uygulama kayıt Portalı'nda oluşturulan uygulama gizli anahtarı.  Client_secrets güvenilir bir şekilde cihazlarda depolanamaz çünkü yerel bir uygulamada kullanılmamalıdır.  Web uygulamaları ve web depolama olanağı sahip API'leri için gerekli olan `client_secret` sunucu tarafında güvenli bir şekilde. |
-| Kaynak |Yetkilendirme kodu isteğinde başka isteğe bağlı belirttiyseniz gereklidir |Web API (güvenli kaynak) uygulama kimliği URI'si. |
+| kaynak |Yetkilendirme kodu isteğinde başka isteğe bağlı belirttiyseniz gereklidir |Web API (güvenli kaynak) uygulama kimliği URI'si. |
 
 Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**.
 
@@ -169,7 +169,7 @@ Başarılı yanıt şöyle:
 | token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçlerini hakkında daha fazla bilgi için bkz: [OAuth2.0 yetkilendirme Framework: taşıyıcı belirteci kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
 | expires_on |Erişim belirtecinin süresi dolduğunda süre. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. Bu değer, önbelleğe alınan belirteç ömrü belirlemek için kullanılır. |
-| Kaynak |Web API (güvenli kaynak) uygulama kimliği URI'si. |
+| kaynak |Web API (güvenli kaynak) uygulama kimliği URI'si. |
 | Kapsam |İstemci uygulaması için kimliğe bürünme izinler. Varsayılan izni `user_impersonation`. Güvenli kaynağın sahibi Azure AD içinde ek değerler kaydedebilirsiniz. |
 | refresh_token |Bir OAuth 2.0 yenileme belirteci. Uygulama geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçleri almak için bu belirteci kullanabilirsiniz.  Yenileme belirteçleri uzun süreli ve uzun süre için kaynaklara erişimi korumak için kullanılabilir. |
 | id_token |Bir imzasız JSON Web Token (JWT). Uygulama can base64Url bu belirteç için oturum kullanıcı hakkında bilgi parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüler, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için güvenmemelisiniz. |
@@ -347,7 +347,7 @@ Başarılı bir token yanıt gibi görünür:
 | token_type |Simge türü. Desteklenen tek değer: **taşıyıcı**. |
 | expires_in |Saniye cinsinden kalan belirteç ömrü. Tipik bir değer 3600 (bir saat) ' dir. |
 | expires_on |Tarih ve saat üzerinde belirtecinin süresi doluyor. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. |
-| Kaynak |Erişim belirteci olabilir güvenli kaynağı tanımlayan erişmek için kullanılan. |
+| kaynak |Erişim belirteci olabilir güvenli kaynağı tanımlayan erişmek için kullanılan. |
 | Kapsam |Yerel istemci uygulaması için kimliğe bürünme izinler. Varsayılan izni **user_impersonation**. Hedef kaynak sahibi Azure AD içinde alternatif değerler kaydedebilirsiniz. |
 | access_token |İstenen yeni bir erişim belirteci. |
 | refresh_token |Bu yanıt süresi dolduğunda yeni erişim belirteçleri istemek için kullanılan yeni bir OAuth 2.0 refresh_token. |

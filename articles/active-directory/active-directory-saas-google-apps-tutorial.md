@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ve Google Apps arasınd
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
@@ -14,11 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
+<<<<<<< HEAD
 ms.openlocfilehash: 6c7cdb2dd7d5760126053bf29a571d1b871a3eca
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
+=======
+ms.openlocfilehash: f3b0d48534113dea152aba632e59d03ed78db301
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/11/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Öğretici: Google Apps Azure Active Directory Tümleştirme
 

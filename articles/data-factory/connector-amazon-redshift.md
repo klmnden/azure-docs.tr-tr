@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Amazon Azure Data Factory kullanarak Redshift veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Aşağıdaki özellikler, Amazon Redshift bağlantılı hizmeti için destekleni
 | type | Type özelliği ayarlanmalıdır: **AmazonRedshift** | Evet |
 | sunucu |IP adresi veya ana bilgisayar Amazon Redshift sunucunun adıdır. |Evet |
 | port |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır, varsayılan 5439 yöneliktir |
-| Veritabanı |Amazon Redshift veritabanının adı. |Evet |
+| veritabanı |Amazon Redshift veritabanının adı. |Evet |
 | kullanıcı adı |Veritabanına erişimi olan kullanıcı adı. |Evet |
 | password |Kullanıcı hesabının parolası. Bu alan bir SecureString işaretleyin. |Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
@@ -130,7 +130,7 @@ Amazon Redshift verileri kopyalamak için kopyalama etkinliği için kaynak tür
 | type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **AmazonRedshiftSource** | Evet |
 | sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * from MyTable. |(Veri kümesinde "tableName" belirtilmişse) yok |
 | redshiftUnloadSettings | Amazon Redshift UNLOAD kullanırken özellik grubu. | Hayır |
-| s3LinkedServiceName | Bir Amazon S3 to-edilecek geçici bir depolama alanı olarak kullanılan "AmazonS3" türünün bir ADF bağlantılı hizmet adı belirterek başvuruyor. | UNLOAD kullanıyorsanız Evet |
+| s3LinkedServiceName | Bir Amazon S3 to-edilecek geçici bir depolama alanı olarak kullanılan "AmazonS3" türünün bir bağlantılı hizmet adı belirterek başvuruyor. | UNLOAD kullanıyorsanız Evet |
 | bucketName | Geçici verileri depolamak için S3 demetini gösterir. Sağlanmazsa, Data Factory hizmeti bunu otomatik olarak oluşturur.  | UNLOAD kullanıyorsanız Evet |
 
 **Örnek: Amazon Redshift kaynağında UNLOAD kullanarak kopyalama etkinliği**
@@ -207,21 +207,21 @@ Bu örnek için kullanım örneği, etkinlik bellekten verilerini Amazon Redshif
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Amazon Redshift için veri türü eşlemesi
 
-Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Teradata veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
+Amazon Redshift veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Amazon Redshift veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
 
 | Amazon Redshift veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | BIGINT |Int64 |
 | BOOLE DEĞERİ |Dize |
 | CHAR |Dize |
-| TARİH |Tarih saat |
+| TARİH |Tarih Saat |
 | ONDALIK |Ondalık |
 | ÇİFT DUYARLIKLI |Çift |
 | TAMSAYI |Int32 |
-| GERÇEK |Tek |
+| GERÇEK |Bekar |
 | TAMSAYI |Int16 |
 | METİN |Dize |
-| ZAMAN DAMGASI |Tarih saat |
+| ZAMAN DAMGASI |Tarih Saat |
 | VARCHAR |Dize |
 
 ## <a name="next-steps"></a>Sonraki adımlar

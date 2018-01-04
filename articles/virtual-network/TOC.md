@@ -5,6 +5,7 @@
 ## [Sanal ağ hizmeti uç noktaları](virtual-network-service-endpoints-overview.md)
 ## [Azure hizmetleri için sanal ağ](virtual-network-for-azure-services.md)
 ## [Güvenlik](security-overview.md)
+## [Kapsayıcı ağ iletişimi](container-networking.md)
 ## [İş sürekliliği](virtual-network-disaster-recovery-guidance.md)
 ## [IP adresleme](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS Koruması](ddos-protection-overview.md)
@@ -90,8 +91,7 @@
 #### Birden çok IP adresi ile VM oluşturma
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Şablon](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Hızlandırılmış ağ ile bir VM oluşturma](virtual-network-create-vm-accelerated-networking.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute
 Microsoft, geleneksel satıcılar veya dağıtımcıların (CSP), yeni hizmetler geliştirmeye yatırım yapmaya gerek kalmadan müşterileriniz için hızlı bir şekilde yeni hizmetler ve çözümler sağlayabilmesi amacıyla hiper ölçekli hizmetler sağlar. Bulut Çözüm Sağlayıcısının (CSP) bu hizmetleri doğrudan yönetebilmesini sağlamak için Microsoft, CSP’nin Microsoft Azure kaynaklarını müşterilerinizin adına yönetebilmesine olanak sağlayan programlar ve API’ler sunar. Bu kaynaklardan biri de ExpressRoute’dur. ExpressRoute, CSP’nin var olan Azure hizmetlerine bağlanmasına olanak sağlar. ExpressRoute, Azure’daki hizmetlere yüksek hızlı özel iletişim bağlantısıdır. 
@@ -30,13 +30,13 @@ ExpressRoute, yüksek kullanılabilirlik için birden fazla müşteri tarafında
 > 
 > 
 
-Microsoft Azure tarafından sağlanan ve müşterilerinize sunabileceğiniz hizmetlerin sayısı gün geçtikçe artıyor.  Bu hizmetlerden en iyi şekilde yararlanmak için, Microsoft Azure ortamına yüksek hızlı, düşük gecikmeli erişim sağlamak amacıyla ExpressRoute bağlantılarının kullanılması gerekir.
+Microsoft Azure tarafından sağlanan ve müşterilerinize sunabileceğiniz hizmetlerin sayısı gün geçtikçe artıyor. ExpressRoute, Microsoft Azure ortamına yüksek hızlı ve düşük gecikmeli erişim sağlayarak, sizin ve müşterilerinizin bu hizmetlerden en iyi şekilde yararlanmasına yardımcı olur.
 
 ## <a name="microsoft-azure-management"></a>Microsoft Azure yönetimi
 Microsoft, CSP’lere kendi hizmet yönetim sistemlerinizle programlı tümleştirme yapmanıza olanak sağlayarak Azure müşteri aboneliklerini yönetmeleri için API’ler sağlar. Desteklenen yönetim özelliklerini [burada](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx) bulabilirsiniz.
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure kaynak yönetimi
-Müşterinizle aranızdaki sözleşmeye bağlı olarak aboneliğin nasıl yönetileceği belirlenir. CSP, kaynakların oluşturulmasını ve bakımını doğrudan yönetebilir veya müşteri, Microsoft Azure aboneliğinin kontrolünü sağlayarak Azure kaynaklarını gereksinim duydukları gibi oluşturabilir. Müşteriniz, Microsoft Azure aboneliklerinde kaynak oluşturmayı yönetirse şu iki modelden birini kullanır: “Aracılı Bağlantı” modeli veya “Doğrudan Bağlantı” modeli. Bu modeller aşağıdaki bölümlerde ayrıntılı olarak açıklanmıştır.  
+Müşterinizle aranızdaki sözleşmeye bağlı olarak aboneliğin nasıl yönetileceği belirlenir. CSP, kaynakların oluşturulmasını ve bakımını doğrudan yönetebilir veya müşteri, Microsoft Azure aboneliğinin kontrolünü sağlayarak Azure kaynaklarını gereksinim duydukları gibi oluşturabilir. Müşteriniz, Microsoft Azure aboneliklerinde kaynak oluşturmayı yönetirse şu iki modelden birini kullanır: “*Aracılı Bağlantı*” modeli veya “*Doğrudan Bağlantı*” modeli. Bu modeller aşağıdaki bölümlerde ayrıntılı olarak açıklanmıştır.  
 
 ### <a name="connect-through-model"></a>Aracılı bağlantı modeli
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -67,7 +67,7 @@ Bu iki seçenekten hangisinin seçileceği, müşterinizin gereksinimlerine ve �
 
 * **Rol Tabanlı Erişim Denetimi (RBAC)** – RBAC, Azure Active Directory’i temel alır.  Azure RBAC hakkında daha fazla bilgi için [buraya](../active-directory/role-based-access-control-configure.md) bakın.
 * **Ağlar** – Microsoft Azure’da ağlarla ilgili çeşitli konuları kapsar.
-* **Azure Active Directory (AAD)** – AAD, Microsoft Azure’da ve üçüncü taraf SaaS uygulamalarında kimlik yönetimini sağlar. Azure AAD hakkında daha fazla bilgi için [ buraya](https://azure.microsoft.com/documentation/services/active-directory/) bakın.  
+* **Azure Active Directory (Azure AD)** – Azure AD, Microsoft Azure’da ve üçüncü taraf SaaS uygulamalarında kimlik yönetimini sağlar. Azure AAD hakkında daha fazla bilgi için [ buraya](https://azure.microsoft.com/documentation/services/active-directory/) bakın.  
 
 ## <a name="network-speeds"></a>Ağ hızları
 ExpressRoute, 50 Mb/s ile 10Gb/s arası ağ hızlarını destekler. Bu, müşterilerin benzersiz ortamları için ihtiyaç duydukları miktarda ağ bant genişliğini satın almalarına olanak sağlar.

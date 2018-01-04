@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Azure üzerinde çalışan Linux sanal makine yakalama
 Generalize ve Resource Manager dağıtım modelinde, Azure Linux sanal makine (VM) yakalamak için bu makaledeki adımları izleyin. VM generalize, kişisel hesap bilgilerini kaldırın ve bir görüntü olarak kullanılacak VM hazırlayın. Ardından VHD'ler, bağlı veri diskleri için işletim sistemi için genelleştirilmiş bir sanal sabit disk (VHD) görüntü yakalama ve [Resource Manager şablonu](../../azure-resource-manager/resource-group-overview.md) yeni VM dağıtımı için. Bu makalede yönetilmeyen diskleri kullanan bir VM için Azure CLI 1.0 ile bir VM görüntüsü yakalama ayrıntılarını verir. Ayrıca [Azure CLI 2.0 ile Azure yönetilen diskleri kullanarak bir VM yakalama](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Yönetilen diskleri Azure platformu tarafından işlenir ve hazırlık veya konum depolamaya gerektirmez. Daha fazla bilgi için bkz. [Azure Yönetilen Disklere Genel Bakış](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -61,7 +61,7 @@ Aşağıdaki önkoşulları karşıladığından emin olun:
 ## <a name="step-2-capture-the-vm"></a>2. adım: VM yakalama
 Generalize ve VM yakalama için Azure CLI kullanın. Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında **myResourceGroup**, **myVnet**, ve **myVM**.
 
-1. Azure CLI yerel bilgisayarınızdan açın ve [Azure aboneliğinizde oturum açma](../../xplat-cli-connect.md). 
+1. Azure CLI yerel bilgisayarınızdan açın ve [Azure aboneliğinizde oturum açma](/cli/azure/authenticate-azure-cli). 
 2. Kaynak Yöneticisi modunda olduğundan emin olun.
    
     ```azurecli

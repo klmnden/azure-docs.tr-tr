@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
 ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/30/2017
 
 Bu makalede oluşturma ve basit bir güvenilir aktör uygulaması Visual Studio'da hata ayıklama anlatılmaktadır. Reliable Actors hakkında daha fazla bilgi için bkz: [Service Fabric Reliable Actors giriş](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce Visual Studio, makinenizde ayarlama dahil olmak üzere Service Fabric geliştirme ortamı olduğundan emin olun. Ayrıntılar için bkz [geliştirme ortamını ayarlama konusunda](service-fabric-get-started.md).
 
@@ -115,7 +115,7 @@ Aktör hizmeti çağırmak için basit bir konsol uygulaması oluşturun.
 
     NuGet paketi ve tüm bağımlılıklarını ActorClient projesinde yüklenir.
 
-5. İstemci projesi ayrıca arabirimleri projesine bir başvuru gerektirir.  ActorClient projeye sağ tıklayın **bağımlılıkları** ve ardından **Başvuru Ekle...** .  Seçin **projeleri > Çözüm** (seçili değilse) ve onay kutusunun yanındaki değer **HelloWorld.Interfaces**.  **Tamam** düğmesine tıklayın.
+5. İstemci projesi ayrıca arabirimleri projesine bir başvuru gerektirir.  ActorClient projeye sağ tıklayın **bağımlılıkları** ve ardından **Başvuru Ekle...** .  Seçin **projeleri > Çözüm** (seçili değilse) ve onay kutusunun yanındaki değer **HelloWorld.Interfaces**.  **Tamam**’a tıklayın.
     
     ![Başvurusu Ekle iletişim kutusu][7]
 

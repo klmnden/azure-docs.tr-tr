@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama hizmeti ortamları giriş"
-description: "Azure uygulama hizmeti ortamları kısa genel bakış"
+title: "Azure App Service ortamlarına giriş"
+description: "Azure App Service ortamlarına kısa genel bakış"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -10,73 +10,74 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="introduction-to-app-service-environments"></a>Uygulama hizmeti ortamları giriş #
+# <a name="introduction-to-app-service-environments"></a>App Service ortamlarına giriş #
  
 ## <a name="overview"></a>Genel Bakış ##
 
-Azure uygulama hizmeti ortamı App Service uygulamalarını yüksek ölçekte güvenli bir şekilde çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlayan bir Azure uygulama hizmeti özelliğidir. Bu özellik, web uygulamalarınızı barındırabilir [mobil uygulamaları][mobileapps], API uygulamaları ve [işlevleri][Functions].
+Azure App Service Ortamı, App Service uygulamalarını yüksek ölçekte güvenli olarak çalıştırmak için tamamen ayrı ve özel bir ortam sağlayan, bir Azure App Service özelliğidir. Bu özellik, web uygulamalarınızı, [mobil uygulamalarınızı][mobileapps], API uygulamalarınızı ve [işlevlerinizi][Functions] barındırabilir.
 
-Uygulama hizmeti ortamları (ASEs) gerektiren uygulama iş yükleri için uygundur:
+App Service ortamları (ASE), şunları gerektiren uygulama iş yükleri için uygundur:
 
-- Çok büyük ölçekli.
+- Çok yüksek ölçek.
 - Yalıtım ve güvenli ağ erişimi.
 - Yüksek bellek kullanımı.
 
-Müşteriler, birden çok ASEs tek bir Azure bölgesi içinde veya birden çok Azure bölgeleri oluşturabilirsiniz. Bu esneklik ASEs yatay olarak ölçekleme durum bilgisiz uygulama katmanları yüksek RPS iş yüklerini desteklemek için ideal hale getirir.
+Müşteriler tek bir Azure bölgesinde veya birden fazla Azure bölgesi arasında birden çok ASE oluşturabilir. Bu esneklik ASE’leri yüksek RPS iş yüklerini desteklemek üzere durum bilgisi olmayan uygulama katmanlarını yatay yönde ölçeklendirmek için ideal hale getirir.
 
-ASEs yalnızca tek bir müşterinin uygulamalarını çalıştırmak için yalıtılmış, her zaman bir sanal ağ içinde dağıtılır. Müşteriniz uygulama gelen ve giden ağ trafiği üzerinde hassas bir denetim yok. Uygulamaları yüksek hızlı güvenli VPN şirket içi kurumsal kaynaklara bağlantı kurabilir.
+ASE’ler yalnızca tek bir müşterinin uygulamalarını çalıştırmak üzere yalıtılmıştır ve her zaman bir sanal ağa dağıtılır. Müşteriler gelen ve giden uygulama ağ trafiği üzerinde ayrıntılı denetime sahiptir. Uygulamalar VPN üzerinden şirket içi kurumsal kaynaklara yüksek hızda güvenli bağlantılar kurabilir.
 
-* Güvenli ağ erişimi ile yüksek ölçekli uygulama barındırma ASEs etkinleştirin. Daha fazla bilgi için bkz: [AzureCon derinlemesine](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) ASEs üzerinde.
-* Birden çok ASEs yatay olarak ölçeklendirmek için kullanılabilir. Daha fazla bilgi için bkz: [coğrafi olarak dağıtılan uygulama ayak izini ayarlamak nasıl](app-service-app-service-environment-geo-distributed-scale.md).
-* ASEs AzureCon derinlemesine gösterildiği gibi güvenlik mimarisi yapılandırmak için kullanılabilir. AzureCon derinlemesine içinde gösterilen güvenlik mimarisi nasıl yapılandırılan görmek için bkz: [makale katmanlı güvenlik mimarisi uygulama konusunda](app-service-app-service-environment-layered-security.md) uygulama hizmeti ortamları ile.
-* ASEs üzerinde çalışan uygulamalar, web uygulaması Güvenlik Duvarı (WAFs) gibi Yukarı Akış cihazlar tarafından geçişli erişimleri olabilir. Daha fazla bilgi için bkz: [WAF uygulama hizmeti ortamları için yapılandırma](app-service-app-service-environment-web-application-firewall.md).
+* ASE’ler güvenli ağ erişimi ile yüksek ölçekli uygulama barındırmayı sağlar. Daha fazla bilgi için bkz. ASE’ler hakkında [AzureCon Ayrıntılı Bakış](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/).
+* Yatay yönde ölçeklendirme için birden çok ASE kullanılabilir. Daha fazla bilgi için bkz. [Coğrafi olarak dağıtılmış bir uygulama ayak izi ayarlama](app-service-app-service-environment-geo-distributed-scale.md).
+* ASE’ler, AzureCon Ayrıntılı Bakışında gösterildiği gibi güvenlik mimarisini yapılandırmak için kullanılabilir. AzureCon Ayrıntılı Bakışında gösterilen güvenlik mimarisinin nasıl yapılandırıldığını görmek için App Service ortamları ile [katmanlı güvenlik mimarisi uygulama makalesine](app-service-app-service-environment-layered-security.md) bakın.
+* ASE’ler üzerinde çalışan uygulamalara erişim, web uygulaması güvenlik duvarları (WAF) gibi yukarı akış cihazları tarafından sağlanabilir. Daha fazla bilgi için bkz. [WAF’yi App Service ortamları için yapılandırma](app-service-app-service-environment-web-application-firewall.md).
 
-## <a name="dedicated-environment"></a>Ayrılmış ortamda ##
+## <a name="dedicated-environment"></a>Ayrılmış ortam ##
 
-Bir ana yalnızca tek bir abonelik için ayrılmış ve 100 örnekleri barındırabilir. Aralık, 100 Tek Örnekli uygulama hizmeti planları için tek bir uygulama hizmeti planı ve arasındaki her şeyi 100 örnekleri yayılabilir.
+Bir ASE yalnızca tek bir aboneliğe ayrılmıştır ve 100 örneği barındırabilir. Aralık tek bir App Service planında 100 örnek ile 100 tek örnekli App Service planı arasındaki bir değer ve bunların arasındaki her değer olabilir.
 
-Bir ana ön uçlar ve çalışanları oluşur. HTTP/HTTPS sonlandırma ve bir ana içinde uygulama isteklerinin otomatik Yük Dengeleme için ön uçlar sorumludur. ANA uygulama hizmeti planlarında çıkışı ölçeklenir gibi ön uçlar otomatik olarak eklenir.
+ASE, ön uçlar ve çalışanlardan oluşur. Ön uçlar HTTP/HTTPS sonlandırmadan ve bir ASE içindeki uygulama isteklerinin otomatik yük dengelemesinden sorumludur. ASE içindeki App Service planlarının ölçeği artırıldıkça ön uçlar otomatik olarak eklenir.
 
-Çalışanları müşteri uygulamaları barındıran rolleridir. Çalışanlar, üç sabit boyutlarında kullanılabilir:
+Çalışanlar, müşteri uygulamalarını barındıran rollerdir. Çalışanlar üç sabit boyutta mevcuttur:
 
-* Bir vCPU/3.5 GB RAM
+* Bir vCPU/3,5 GB RAM
 * İki vCPU/7 GB RAM
 * Dört vCPU/14 GB RAM
 
-Müşteriler, ön uçlar ve çalışanları yönetmek gerekmez. Tüm altyapı, kendi uygulama hizmeti planları müşterilerin ölçeklenebilir olarak otomatik olarak eklenir. Uygulama hizmeti planları oluşturulur veya ASE'de ölçeklendirilmiş gibi gerekli altyapı eklenip uygun şekilde kaldırılabilir.
+Müşterilerin ön uçları ve çalışanları yönetmesi gerekmez. Müşteriler App Service planlarının ölçeğini genişlettikçe tüm altyapı otomatik olarak eklenir. Bir ASE’de App Service planları oluşturulduğunda veya ölçeklendirildiğinde, gerekli altyapı uygun şekilde eklenir veya kaldırılır.
 
-Düz aylık hızı için altyapıyı ödeyen ve ana boyutunu değiştirmez bir ana için yoktur. Ayrıca, uygulama hizmeti planı vCPU başına maliyet yoktur. ASE'de barındırılan tüm uygulamaları SKU fiyatlandırma Isolated içinde bulunur. Bir ana için fiyatlandırma hakkında daha fazla bilgi için bkz: [uygulama hizmeti fiyatlandırma] [ Pricing] sayfasında ve ASEs için kullanılabilir seçenekleri gözden geçirin.
+ASE için altyapıya ilişkin ödeme yapan ve ASE’nin boyutuna göre değişmeyen sabit bir aylık fiyat mevcuttur. Ayrıca, App Service planı vCPU’su için bir maliyet mevcuttur. ASE'de barındırılan tüm uygulamalar, Yalıtılmış fiyatlandırma SKU’su içindedir. ASE fiyatlandırması hakkında bilgi için [App Service fiyatlandırma][Pricing] sayfasına bakın ve ASE’ler için kullanılabilir seçenekleri gözden geçirin.
 
 ## <a name="virtual-network-support"></a>Sanal ağ desteği ##
 
-Bir ana yalnızca bir Azure Resource Manager sanal ağında oluşturulabilir. Azure sanal ağlar hakkında daha fazla bilgi için bkz: [Azure sanal ağları SSS](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Bir ana sanal ağ ve daha hassas bir şekilde her zaman bir sanal ağ alt ağı içerisinde bulunmaktadır. Sanal ağların güvenlik özellikleri, uygulamalarınız için gelen ve giden ağ iletişimlerinin denetlemek için kullanabilirsiniz.
+Bir ASE yalnızca bir Azure Resource Manager sanal ağında oluşturulabilir. Azure sanal ağları hakkında daha fazla bilgi için bkz. [Azure sanal ağları ile ilgili SSS](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Bir ASE her zaman bir sanal ağda ve daha kesin bir şekilde bir sanal ağın alt ağında bulunur. Uygulamalarınıza ilişkin gelen ve giden ağ iletişimini denetlemek için sanal ağların güvenlik özelliklerini kullanabilirsiniz.
 
-Bir ana İnternete dönük bir genel IP adresiyle veya dahili kullanıma yönelik yalnızca Azure iç yük dengeleyiciye (ILB) adresi olabilir.
+ASE bir genel IP adresi ile İnternet’e yönelik veya sadece bir Azure iç yük dengeleyici (ILB) adresi ile iç ağa yönelik olabilir.
 
-[Ağ güvenlik grupları] [ NSGs] bir ana bulunduğu alt ağı için gelen ağ iletişimleri kısıtlayın. Nsg'ler, Yukarı Akış aygıtlar ve WAFs ve ağ SaaS sağlayıcıları gibi hizmetler arkasında uygulamaları çalıştırmak için kullanabilirsiniz.
+[Ağ Güvenlik Grupları][NSGs], bir ASE’nin bulunduğu alt ağa gelen ağ iletişimini kısıtlar. WAF’ler ve ağ SaaS sağlayıcıları gibi yukarı akış cihazlarının ve hizmetlerinin arkasında uygulamaları çalıştırmak için NSG’leri kullanabilirsiniz.
 
-Uygulamalar da sıklıkla iç veritabanları gibi şirket kaynaklarına erişmek ve web Hizmetleri gerekir. Şirket içi ağınıza bir VPN bağlantısı olan bir sanal ağdaki ana dağıtırsanız, ana uygulamalarda şirket içi kaynaklara erişebilir. Bu özellik, VPN olmasına bakılmaksızın doğrudur bir [siteden siteye](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) veya [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN.
+Uygulamalar, iç veritabanları ve web hizmetleri gibi şirket kaynaklarına da sıklıkla erişmelidir. ASE’yi şirket içi ağınızla VPN bağlantısı olan bir sanal ağa dağıtırsanız, ASE’deki uygulamalar şirket içi kaynaklara erişebilir. Bu özellik, VPN’nin [siteden siteye](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) veya [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN olmasından bağımsız olarak geçerli olabilir.
 
-ASEs sanal ağlar ve şirket içi ağlar ile nasıl çalıştığı hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı ağ konuları][ASENetwork].
+ASE’lerin sanal ağlar ve şirket ağlarla nasıl çalıştığı hakkında daha fazla bilgi için bkz. [App Service Ortamı ağ konuları][ASENetwork].
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
 ## <a name="app-service-environment-v1"></a>App Service Ortamı v1 ##
 
-Uygulama hizmeti ortamı iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilgiler üzerinde ASEv2 dayanır. Bu bölümde ASEv1 ASEv2 arasındaki farkları gösterilmiştir. 
+App Service Ortamının iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilgiler ASEv2’yi temel alır. Bu bölümde ASEv1 ile ASEv2 arasındaki farklar gösterilmektedir. 
 
-ASEv1 tüm kaynakları el ile yönetmesi gerekir. Ön Uçları, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. Uygulama hizmeti planınızı ölçeklendirebilirsiniz önce ilk genişleme da barındırmak istediğiniz çalışan havuzunda yapmak gerekir.
+ASEv1’de tüm kaynakları el ile yönetmeniz gerekir. Buna ön uçlar, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. App Service planınızın ölçeğini artırabilmeniz için, öncelikle planınızı barındırmak istediğiniz çalışan havuzunun ölçeğini artırmanız gerekir.
 
-ASEv1 ASEv2 öğesinden farklı bir fiyatlandırma modelini kullanır. ASEv1 içinde ayrılmış her vCPU için ücret ödersiniz. Ön Uçları veya tüm iş yükleri barındıran olmayan çalışanlar için kullanılan Vcpu'lar dahildir. ASEv1 içinde varsayılan en büyük ölçekli bir ana 55 toplam konaklar boyutudur. Bu, çalışanlar ve ön uçlar içerir. ASEv1 bir avantajı, onu bir Klasik sanal ağı ve Resource Manager sanal ağ içinde dağıtılabilir ' dir. ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş][ASEv1Intro].
+ASEv1, ASEv2’den farklı bir fiyatlandırma modeli kullanır. ASEv1’de ayrılmış her vCPU için ücret ödersiniz. Buna herhangi bir iş yükünü barındırmayan ön uçlar veya çalışanlar için kullanılan vCPU’lar dahildir. ASEv1’de bir ASE’nin varsayılan en büyük ölçek boyutu toplam 55 konaktır. Buna çalışanlar ve ön uçlar dahildir. ASEv1’in bir avantajı, klasik bir sanal ağa ve bir Resource Manager sanal ağına dağıtılabilmesidir. ASEv1 hakkında daha fazla bilgi için bkz. [App Service Ortamı v1’e giriş][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

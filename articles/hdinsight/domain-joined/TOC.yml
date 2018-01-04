@@ -1,29 +1,53 @@
 - name: Azure HDInsight Belgeleri
   href: /azure/hdinsight
-- name: HDInsight üzerinde Enterprise Security
+- name: Kurumsal güvenlik
   items:
     - name: Genel Bakış
       href: apache-domain-joined-introduction.md
-    - name: HDInsight’ta etki alanına katılımı planlama
+    - name: Etki alanına katılmış kümeleri planlama
       href: apache-domain-joined-architecture.md
-    - name: Bileşen sürümü oluşturma
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-- name: başlarken
-  items:
-    - name: Etki alanına katılmış HDInsight kümelerini yapılandırma
+    - name: Etki alanına katılmış korumalı alan ortamını yapılandırma
       href: apache-domain-joined-configure.md
-    - name: Azure AD DS kullanarak Etki alanına katılmış HDInsight’ı yapılandırma
+    - name: Azure AD DS kullanarak etki alanına katılmış kümeleri yapılandırma
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Hive ilkelerini yapılandırma
       href: apache-domain-joined-run-hive.md
     - name: Kapasite planlaması
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Nasıl yapılır?
-  items:
-    - name: Kümeleri yönetme
+    - name: Etki alanına katılmış kümeleri yönetme
       href: apache-domain-joined-manage.md
+- name: Verilerin güvenliğini sağlama
+  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  maintainContext: true
+- name: Ağ erişimi
+  items:
+    - name: Azure VNet’te HDInsight
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: HDInsight’a şirket içi ağınızla bağlanma
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+    - name: Azure VNet’te HBase kümesi oluşturma
+      href: ../hbase/apache-hbase-provision-vnet.md
+      maintainContext: true
+    - name: Azure VNet’te HBase kümesi çoğaltma
+      href: ../hbase/apache-hbase-replication.md
+      maintainContext: true
+- name: OMS’leri kullanarak izleme
+  items:
+    - name: Azure Log Analytics’i kullanma
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Kümeye özgü panolar
+      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+      maintainContext: true
+    - name: Log Analytics ile sorguları kullanma
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Küme performansını izleme
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
 - name: Başvuru
   items:
     - name: Kod örnekleri

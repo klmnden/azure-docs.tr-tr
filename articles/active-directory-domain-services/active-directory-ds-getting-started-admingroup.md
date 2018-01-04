@@ -4,7 +4,7 @@ description: "Azure Active Directory etki alanı Azure portalını kullanarak Hi
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 32d51f883ad92b5be6b1f455dfb1a865748f3102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a171490faf9804196c93d33c5ee74d22533c044
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
 
@@ -34,7 +34,7 @@ Sihirbaz, yönetim grubu, Azure AD dizininde otomatik olarak oluşturur. Bu grub
 
 1. Grup üyeliğini yapılandırmak için tıklatın **AAD DC Yöneticiler**.
 
-    ![Grup üyeliğini Yapılandır](./media/getting-started/domain-services-blade-admingroup.png)
+    ![Grup üyeliğini yapılandır](./media/getting-started/domain-services-blade-admingroup.png)
 
 2. Tıklatın **üye eklemek** kullanıcıları Azure AD dizininizi yönetici grubuna eklemek için düğmesi.
 

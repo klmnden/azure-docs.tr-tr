@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure istenen durum yapılandırması uzantısı işleyici giriş
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ Azure VM aracısı ve ilişkili uzantıları Microsoft Azure altyapı hizmetleri
 
 Bu makalede, Azure PowerShell SDK'ın bir parçası olarak Azure VM'ler için PowerShell istenen durum yapılandırması (DSC) uzantısı tanıtılır. Karşıya yükleme ve PowerShell DSC yapılandırması PowerShell DSC uzantısı ile etkin bir Azure VM uygulamak için yeni cmdlet'lerini kullanabilirsiniz. Alınan DSC yapılandırma VM'de yürürlüğe için PowerShell DSC uzantısı çağrılarının içine PowerShell DSC. Bu işlevsellik, ayrıca Azure portalı üzerinden kullanılabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 **Yerel makine** Azure VM uzantısı ile etkileşim kurmak için Azure portalında veya Azure PowerShell SDK'sını kullanmanız gerekir. 
 
 **Konuk Aracısı** DSC yapılandırması tarafından yapılandırılan Azure VM Windows Management Framework (WMF) 4.0 veya 5.0 destekleyen bir işletim sistemi olması gerekir. Desteklenen işletim sistemi sürümleri tam listesini bulabilirsiniz [DSC uzantısı sürüm geçmişi](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
@@ -37,11 +37,9 @@ Bu makalede, Azure PowerShell SDK'ın bir parçası olarak Azure VM'ler için Po
 ## <a name="terms-and-concepts"></a>Terimleri ve kavramları
 Bu kılavuz aşağıdaki kavramlar bilindiğini varsayar:
 
-Yapılandırma - DSC yapılandırma belgesi. 
-
-Düğümü - DSC yapılandırması için hedef. Bu belgede "düğümü" her zaman bir Azure VM ifade eder.
-
-Yapılandırma verilerini - bir .psd1 dosya ortam verileri içeren bir yapılandırma için
+* **Yapılandırma** -A DSC yapılandırma belgesi. 
+* **Düğüm** -DSC yapılandırması için hedef. Bu belgede "düğümü" her zaman bir Azure VM ifade eder.
+* **Yapılandırma verilerini** - ortam yapılandırma verilerini içeren bir .psd1 dosyası
 
 ## <a name="architectural-overview"></a>Mimari genel bakış
 Azure DSC uzantısı Azure VM Aracısı framework teslim etmek, yürürlüğe ve DSC yapılandırmaları Azure Vm'lerinde çalıştırılan raporlamak için kullanır. DSC uzantı en az bir yapılandırma belge ve Azure PowerShell SDK veya Azure Portalı aracılığıyla sağlanan parametreleri kümesini içeren bir .zip dosyası bekler.
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Günlüğe kaydetme
 Günlükleri yerleştirilir:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.PowerShell.DSC\[sürüm numarası]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 PowerShell DSC hakkında daha fazla bilgi için [PowerShell Belge Merkezi ziyaret](https://msdn.microsoft.com/powershell/dsc/overview). 

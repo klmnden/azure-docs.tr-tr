@@ -1,5 +1,5 @@
 ---
-title: "Azure portalını kullanarak Geçiş türünde ad alanı oluşturma | Microsoft Docs"
+title: "Azure portalını kullanarak Geçiş ad alanı oluşturma | Microsoft Belgeleri"
 description: "Azure portalı kullanılarak Geçiş ad alanı oluşturma."
 services: service-bus-relay
 documentationcenter: .net
@@ -12,19 +12,20 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8391199fe4045ffdb5091cda69d50f592a4bfb83
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure portalı kullanılarak Geçiş ad alanı oluşturma
-Ad alanı, tüm Azure Geçişi bileşenleriniz için ortak bir kapsayıcıdır. Tek bir ad alanında birden fazla Geçiş bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda bir geçiş ad alanı oluşturmanın iki farklı yolu vardır.
 
-1. Azure portalı (bu makale)
-2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) şablonları
+Ad alanı, tüm Azure Geçişi bileşenlerinizi kapsayan bir kapsayıcıdır. Tek bir ad alanında birden fazla Geçiş bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda bir geçiş ad alanı oluşturmanın iki farklı yolu vardır:
+
+1. Azure portalı (bu makale).
+2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) şablonları.
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure portalında bir ad alanı oluşturma
 

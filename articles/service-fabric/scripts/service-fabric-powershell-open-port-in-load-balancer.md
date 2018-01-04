@@ -12,18 +12,18 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 08/15/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9dbb0bedd02752c4735ae097a7bd64b7b5383d6e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c643fc9e575a8e836a361893d78348bbd627a425
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure yük dengeleyici bir uygulama bağlantı noktasını açın
 
-Azure'da çalışan Service Fabric uygulaması Azure yük dengeleyici bulunur. Bu örnek betik, bir bağlantı noktası bir Azure yük dengeleyici açar, böylece Service Fabric uygulaması dış istemcilerle iletişim kurabilir. Parametreleri gereken şekilde özelleştirin. 
+Azure'da çalışan Service Fabric uygulaması Azure yük dengeleyici bulunur. Bu örnek betik, bir bağlantı noktası bir Azure yük dengeleyici açar, böylece Service Fabric uygulaması dış istemcilerle iletişim kurabilir. Parametreleri gereken şekilde özelleştirin. Kümenizi bir ağ güvenlik grubu da olup olmadığını [gelen ağ güvenlik grubu kural eklemek](service-fabric-powershell-add-nsg-rule.md) gelen trafiğe izin verme.
 
 Gerekirse, ile Service Fabric PowerShell modülünü yüklemek [Service Fabric SDK](../service-fabric-get-started.md). 
 

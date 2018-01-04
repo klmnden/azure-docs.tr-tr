@@ -3,7 +3,7 @@ title: "Azure Otomasyonu DSC yapılandırmalarında derleme | Microsoft Docs"
 description: "Bu makalede, Azure Otomasyonu istenen durum Yapılandırması'nı (DSC) yapılandırmaları derlemek açıklar."
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,12 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
+<<<<<<< HEAD
 ms.author: magoedte; eslesar
 ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
 ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
+=======
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Otomasyonu DSC yapılandırmalarında derleme
 
@@ -47,7 +54,7 @@ Bir derleme yöntem karar verdikten sonra ilgili derleme başlatmak için aşağ
 1. Otomasyon hesabınızdan tıklatın **DSC yapılandırmaları**.
 2. Kendi dikey penceresini açmak için bir yapılandırma öğesini tıklatın.
 3. Tıklatın **derleme**.
-4. Yapılandırma hiçbir parametrelere sahipse, derlemeniz isteyip istemediğinizi onaylamanız istenir. Yapılandırma parametreleri, varsa **derleme yapılandırma** parametre değerlerini sağlayabilmesi için dikey penceresi açılır. Bkz: [ **temel parametreleri** ](#basic-parameters) bölümünde aşağıdaki parametreler hakkında daha fazla ayrıntı için.
+4. Yapılandırma hiçbir parametrelere sahipse, derlemeniz isteyip istemediğinizi onaylamanız istenir. Yapılandırma parametreleri, varsa **derleme yapılandırma** parametre değerlerini sağlayabilmesi için dikey pencere açılır. Bkz: [ **temel parametreleri** ](#basic-parameters) bölümünde aşağıdaki parametreler hakkında daha fazla ayrıntı için.
 5. **Derleme işi** derleme işin durumu ve neden Azure Automation DSC çekme Sunucusu'nda yerleştirilecek düğüm yapılandırmaları (MOF yapılandırma belgeler) izleyebilmeniz için dikey penceresi açılır.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>DSC Yapılandırması Windows PowerShell ile derleme
@@ -131,16 +138,16 @@ PSCredentials parametre olarak geçirme hakkında daha fazla bilgi için bkz: <a
 
 ## <a name="composite-resources"></a>Bileşik kaynakları
 
-**Bileşik kaynakları** bir yapılandırma içinde iç içe kaynaklar olarak DSC yapılandırmaları kullanmanızı sağlar.  Bu, tek kaynak için birden çok yapılandırmaları uygulamak sağlar.  Bkz: [bileşik kaynaklar: bir kaynak olarak DSC Yapılandırması kullanılarak](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) hakkında daha fazla bilgi için **bileşik kaynakları**
+**Bileşik kaynakları** bir yapılandırma içinde iç içe kaynaklar olarak DSC yapılandırmaları kullanmanızı sağlar. Bu, tek kaynak için birden çok yapılandırmaları uygulamak sağlar.  Bkz: [bileşik kaynaklar: bir kaynak olarak DSC Yapılandırması kullanılarak](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) hakkında daha fazla bilgi için **bileşik kaynakları**
 
 > [!NOTE]
 > Sırayla **bileşik kaynakları** doğru şekilde derlenmesi için ilk bileşik güvenen DSC kaynakları ilk Azure Automation hesabı modülleri depoda yüklü değil veya düzgün almaz sağlamalısınız.
 
-Bir DSC eklemek için **bileşik kaynak**, kaynak modülü arşive eklemeniz gerekir (* .zip). Modülleri depoya Azure Otomasyon hesabınıza gidin.  Ardından 'Bir modül Ekle' düğmesini tıklayın.
+Bir DSC eklemek için **bileşik kaynak**, kaynak modülü arşive eklemeniz gerekir (* .zip). Modülleri depoya Azure Otomasyon hesabınıza gidin. Ardından 'Bir modül Ekle' düğmesini tıklayın.
 
 ![Modül Ekle](./media/automation-dsc-compile/add_module.png)
 
-Arşiviniz bulunduğu dizine gidin.  Arşiv dosyasını seçin ve Tamam'ı tıklatın.
+Arşiviniz bulunduğu dizine gidin. Arşiv dosyasını seçin ve Tamam'ı tıklatın.
 
 ![Modülü seçin](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -286,7 +293,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Düğüm yapılandırmaları alma
 
-Ayrıca Azure dışında derlediğiniz düğümü configuratons (MOF dosyalarından) içe aktarabilirsiniz. Bu bir avantajı, düğüm yapılandırmaları imzalanabilir ' dir.
+Ayrıca Azure dışında derlediğiniz düğüm yapılandırmaları (MOF dosyalarından) içe aktarabilirsiniz. Bu bir avantajı, düğüm yapılandırmaları imzalanabilir ' dir.
 İmzalı düğüm yapılandırması düğüme uygulanan yapılandırma yetkili bir kaynaktan geldiğinden emin olduktan DSC aracı tarafından yönetilen bir düğümde yerel olarak doğrulanır.
 
 > [!NOTE]

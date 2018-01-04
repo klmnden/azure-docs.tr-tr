@@ -4,7 +4,7 @@ description: "Bu konu, kullanıcı sertifikasını özniteliği tarafından kayn
 services: active-directory
 documentationcenter: 
 author: cychua
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 2a5418ff61e07793fceca5a8207c1c5aa18847b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect eşitleme: userCertificate özniteliği tarafından kaynaklanan işleme LargeObject hataları
 
@@ -101,7 +101,7 @@ Etkin ve kullanıcı nesneleri için kullanıcı sertifikasını özniteliği i�
 7. Düzen ekranında şunları seçin **Scoping filtre** sekmesi.
 8. Kapsam filtresi yapılandırmayı unutmayın. OOB eşitleme kuralı kullanıyorsanız, tam olarak olması gerektiğini **iki yan tümceleri içeren bir kapsam filtresi grubu**dahil:
 
-    | Öznitelik | işleci | Değer |
+    | Öznitelik | İşleç | Değer |
     | --- | --- | --- |
     | sourceObjectType | EŞİTTİR | Kullanıcı |
     | cloudMastered | EŞİT DEĞİLDİR | True |
@@ -119,7 +119,7 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam filtresi** ve **daha yüksek �
     | Bağlı sistem nesne türü | **Kullanıcı** | |
     | Meta veri deposu nesne türü | **kişi** | |
     | Bağlantı türü | **Birleştir** | |
-    | Önceliği | *1-99 arasında bir sayı seçtiniz* | Seçilen sayı varolan herhangi bir eşitleme kural kullanılmamalıdır ve daha düşük bir değere sahip (ve bu nedenle, daha yüksek öncelik) mevcut eşitleme kuralı daha. |
+    | Öncellik | *1-99 arasında bir sayı seçtiniz* | Seçilen sayı varolan herhangi bir eşitleme kural kullanılmamalıdır ve daha düşük bir değere sahip (ve bu nedenle, daha yüksek öncelik) mevcut eşitleme kuralı daha. |
 
 3. Git **Scoping filtre** sekmesinde ve mevcut eşitleme kuralı kullanarak aynı kapsam filtre uygulayabilirsiniz.
 4. Atla **katılma kuralları** sekmesi.

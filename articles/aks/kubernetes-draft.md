@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Taslak Azure kapsayıcı hizmeti (AKS) kullanın
 
-Taslak paketi yardımcı olur ve kod Kubernetes kümede çalışacak bir açık kaynak aracıdır. Taslak geliştirme yineleme döngüsünde yöneliktir; kod geliştirilmiş, ancak sürüm Denetimi'ne gerçekleştirmeden önce. Kod değişiklikleri ortaya çıktığında taslak ile hızlı bir şekilde Kubernetes uygulamaya yeniden dağıtabilirsiniz. Taslak hakkında daha fazla bilgi için bkz: [taslak belgeler Github üzerinde](https://github.com/Azure/draft/tree/master/docs).
+Taslak paketi yardımcı olur ve kod Kubernetes kümede çalışacak bir açık kaynak aracıdır. Taslak geliştirme yineleme döngüsünde yöneliktir; kod geliştirilmiş, ancak sürüm Denetimi'ne gerçekleştirmeden önce. Kod değişiklikleri ortaya çıktığında taslak ile hızlı bir şekilde Kubernetes uygulamaya yeniden dağıtabilirsiniz. Taslak hakkında daha fazla bilgi için bkz: [taslak belgeler Github üzerinde][draft-documentation].
 
 Bu belge ayrıntıları AKS Kubernetes kümede taslak kullanarak.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğeler gerekirse bkz [AKS quickstart](./kubernetes-walkthrough.md).
+Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğeler gerekirse bkz [AKS quickstart][aks-quickstart].
 
-Ayrıca özel Docker kayıt defteri Azure kapsayıcı kayıt defteri (ACR) gerekir. ACR örneğini dağıtma ile ilgili yönergeler için bkz: [Azure kapsayıcı kayıt defteri Quickstart](../container-registry/container-registry-get-started-azure-cli.md).
+Ayrıca özel Docker kayıt defteri Azure kapsayıcı kayıt defteri (ACR) gerekir. ACR örneğini dağıtma ile ilgili yönergeler için bkz: [Azure kapsayıcı kayıt defteri Quickstart][acr-quickstart].
 
 ## <a name="install-helm"></a>Helm yükleyin
 
 Helm CLI geliştirme sisteminizde çalıştıran ve başlatma, durdurma ve Helm grafiklerle uygulamaları yönetmenize olanak sağlayan bir istemci olur.
 
-Mac üzerinde Helm CLI yüklemek için kullandığınız `brew`. Ek yükleme seçenekleri için bkz [yükleme Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+Mac üzerinde Helm CLI yüklemek için kullandığınız `brew`. Ek yükleme seçenekleri için bkz [yükleme Helm][install-helm].
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 Taslak CLI geliştirme sisteminizde çalıştıran ve quicky için kod Kubernetes kümesine dağıttığınız sağlayan bir istemci olur.
 
-Bir Mac üzerinde taslak CLI yüklemek için `brew`. Ek yükleme seçenekleri için bkz, [taslak Yükleme Kılavuzu](https://github.com/Azure/draft/blob/master/docs/install.md).
+Bir Mac üzerinde taslak CLI yüklemek için `brew`. Ek yükleme seçenekleri için bkz, [taslak Yükleme Kılavuzu][install-draft].
 
 ```console
 brew install draft
@@ -109,7 +109,7 @@ Draft has been installed into your Kubernetes Cluster.
 Happy Sailing!
 ```
 
-## <a name="run-an-application"></a>Bir uygulamayı çalıştırın
+## <a name="run-an-application"></a>Bir uygulamayı çalıştırma
 
 Taslak depo taslak gösteri için kullanılabilecek birkaç örnek uygulamaları içerir. Depodaki kopyalanan bir kopyasını oluşturun.
 
@@ -178,7 +178,7 @@ Uygulama kullanımı test bittiğinde `Control+C` proxy bağlantı durdurmak iç
 
 ## <a name="expose-application"></a>Uygulama kullanıma sunma
 
-Bir uygulama içinde Kubernetes sınarken, uygulamayı İnternette kullanılabilir yapmak isteyebilirsiniz. Bu yapılabilir bir türüyle Kubernetes hizmetini kullanarak [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) veya bir [giriş denetleyicisi](https://kubernetes.io/docs/concepts/services-networking/ingress/). Bu belge ayrıntıları Kubernetes hizmetini kullanarak.
+Bir uygulama içinde Kubernetes sınarken, uygulamayı İnternette kullanılabilir yapmak isteyebilirsiniz. Bu yapılabilir bir türüyle Kubernetes hizmetini kullanarak [LoadBalancer] [ kubernetes-service-loadbalancer] veya bir [giriş denetleyicisi][kubernetes-ingress]. Bu belge ayrıntıları Kubernetes hizmetini kullanarak.
 
 
 İlk olarak, Taslak paketi belirtmek için güncellenmelidir türüne sahip bir hizmet `LoadBalancer` oluşturulmalıdır. Bunu yapmak için hizmet türü güncelleştirme `values.yaml` dosya.
@@ -302,4 +302,15 @@ Hello World, I'm Java - Draft Rocks!
 Taslak kullanma hakkında daha fazla bilgi için Github'da taslak belgelerine bakın.
 
 > [!div class="nextstepaction"]
-> [Taslak belgeleri](https://github.com/Azure/draft/tree/master/docs)
+> [Taslak belgeleri][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

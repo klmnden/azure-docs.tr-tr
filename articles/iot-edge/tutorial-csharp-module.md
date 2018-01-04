@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Geliştir ve C# IOT kenar modülünü sanal Cihazınızı dağıtmak - Önizleme
 
@@ -219,7 +219,7 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
         
    Kullanıcı adı, parola ve oluşturduğunuz sırada, Azure kapsayıcı kayıt defterinden kopyaladığınız oturum açma sunucusu kullanın.
 
-3. Görüntü Docker deponuza iletin. Seçin **Görünüm** > **komutu palet** arayın ve **kenar: anında IOT kenar modülü Docker görüntü** menü komutu. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. Adımda kullanılan aynı görüntü adı kullanmak 1.d.
+3. Görüntü Docker deponuza iletin. Seçin **Görünüm** > **komutu palet** arayın ve **kenar: anında IOT kenar modülü Docker görüntü** menü komutu. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. 4. adımda kullanılan aynı görüntü adı kullanın.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Kayıt defteri kimlik bilgilerini kenar çalışma zamanına ekleyin
 Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı kayıt için kimlik bilgilerini ekleyin. Bu kimlik bilgileri kapsayıcı çıkarmak için çalışma zamanı erişim verin. 

@@ -7,6 +7,7 @@ author: anta
 manager: ireiter
 editor: anta
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Enerji talep zaman serisi tahmin
 
@@ -51,18 +52,16 @@ Bu senaryo, bir enerji kılavuz gelecekteki yükü tahmin etmek için hedef oldu
 
 Bu senaryo bir machine learning çözüm tahmin enerji talep yapımı ayrıntılarını verir. Çözüm, ortak bir veri kümesinden alınan üzerinde eğitildi [New York bağımsız sistem işleci (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), New York durumu için güç kılavuz çalışır. Veri kümesi, beş yıl döneminde saatlik New York şehrinde güç talep verilerini içerir. Saatlik aynı saat diliminde New York şehrinde hava koşulları içeren ek bir veri kümesini alındığı [darksky.net](https://darksky.net).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir).
 - Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](./quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için.
 - Bu örnek, Windows 10 ile Azure ML çalışma ekranı çalıştığını varsayar [Docker altyapısına](https://www.docker.com/) yerel olarak yüklü. MacOS kullanıyorsanız, büyük ölçüde aynı yönergelerdir.
-- Bu konuda açıklandığı gibi Azure Machine Learning ayarlanmış bir yerel dağıtım ortamı ve bir model yönetim hesabı ile yüklü Operationalization oluşturulan [Kılavuzu](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Bu konuda açıklandığı gibi Azure Machine Learning ayarlanmış bir yerel dağıtım ortamı ve bir model yönetim hesabı ile yüklü Operationalization oluşturulan [Kılavuzu](./model-management-configuration.md).
 - Bu örnek 0.20.3 sürüme Pandas yükleme güncelleştirmenin gerektirdiği veya üstü ve matplotlib yükleyin. Tıklatın *komut istemini açın* gelen *dosya* menüde çalışma ekranı ve bu bağımlılıklar yüklemek için aşağıdaki komutları çalıştırın:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
@@ -77,7 +76,7 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 
 ## <a name="data-description"></a>Veri açıklaması
 
-İki veri kümesi vardır: `nyc_demand.csv` ve `nyc_weather.csv`:
+İki veri kümesi ile bu örnek sağlanır ve kullanılarak yüklenen `1-data-preparation.ipynb` Not: `nyc_demand.csv` ve `nyc_weather.csv`.
 
 **nyc_demand.csv** saatlik 2012 2017 yıldır New York şehrinde enerji talep değerlerini içerir. Verileri aşağıdaki basit yapıya sahiptir:
 
@@ -98,7 +97,7 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 | --- | --- | --- |
 | 2012-01-01 00:00:00 | 0.0 | 46.13 |
 | 2012-01-01 01:00:00 | 0.01 | 45.89 |
-| 2012-01-01 02:00:00 | 0.05 | 45.04 |
+| 2012-01-01 02:00:00 | 0,05 | 45.04 |
 | 2012-01-01 03:00:00 | 0.02 | 45.03 |
 
 *precip* precipitation düzeyini yüzde ölçüsüdür. *Temp* (sıcaklık) değerleri boyutlandırılan sağlayacak şekilde tüm değerler [0, 100] aralığındaki ayrılır.

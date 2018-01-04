@@ -3,8 +3,8 @@ title: "Birim düğümü Eylemler Azure yığınında ölçeklendirin | Microsof
 description: "Düğüm durumunu görüntüleyin ve güç, kapatma, boşaltma kullanın ve düğüm Eylemler bir Azure tümleşik yığını sistemde sürdürme hakkında bilgi edinin."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: dbb68b10-c721-4188-aa07-584d0cd63138
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
-ms.author: twooley
-ms.openlocfilehash: 3696cd0da0859bebf001f7749ac8874efd574046
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ölçek birimi düğümü Eylemler Azure yığınında
 
@@ -67,7 +67,7 @@ Bir ölçek birimi düğümü bilgilerini görüntülediğinizde de düğüm eyl
 
 - açma ve kapatma
 - boşaltma ve sürdürme
-- Onar
+- onar
 
 Düğüm işlemsel durumu hangi seçeneklerin kullanılabilir olduğunu belirler.
 

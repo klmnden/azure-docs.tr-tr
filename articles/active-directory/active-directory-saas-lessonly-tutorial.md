@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ile Lesson.ly arasında
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: fc1e1b2de0a138dbe88d794f802b002321948ab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Öğretici: Azure Active Directory Tümleştirme Lesson.ly ile
 
@@ -31,7 +31,7 @@ Lesson.LY Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Lesson.ly ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -138,11 +138,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
            
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, önceki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Öznitelik adı   | Öznitelik değeri |
+    | Öznitelik Adı   | Öznitelik Değeri |
     | ---------------  | ----------------|
     | urn: oid:2.5.4.42 |User.givenName |
     | urn: oid:2.5.4.4  |User.surname |
-    | urn: oid:0.9.2342.19200300.1001.3 |User.Mail |
+    | urn: oid:0.9.2342.19200300.100.1.3 |User.Mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |User.objectid |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -198,7 +199,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-lessonly-test-user"></a>Lesson.ly test kullanıcısı oluşturma
 

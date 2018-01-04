@@ -5,20 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/12/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 0fb9c8f428368271b548e3f174726fa01ea910c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Öğretici: Azure Active Directory Tümleştirme Amazon Web Hizmetleri (AWS)
 
@@ -26,34 +26,26 @@ Bu öğreticide, Amazon Web Hizmetleri (AWS) Azure Active Directory (Azure AD) i
 
 Amazon Web Hizmetleri (AWS) Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Amazon Web Hizmetleri (AWS) erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak Amazon Web Hizmetleri (AWS için) (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Amazon Web Hizmetleri (AWS) erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak Amazon Web Hizmetleri (AWS için) (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-<!--## Overview
-
-To enable single sign-on with Amazon Web Services (AWS), it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Amazon Web Services (AWS).
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
-
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Amazon Web Hizmetleri (AWS) ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Amazon Web Hizmetleri (AWS) çoklu oturum açma etkin abonelik
+- Bir Amazon Web Hizmetleri (AWS) çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
-- Bu gerekli olmadığı sürece, üretim ortamınızın kullanmamanız gerekir.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -66,130 +58,127 @@ Azure AD tümleştirmeye Amazon Web Hizmetleri (AWS) yapılandırmak için yöne
 
 **Amazon Web Hizmetleri (AWS) Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure Portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Tıklatın **Ekle** iletişim kutusunun üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Amazon Web Hizmetleri (AWS)**.
+4. Arama kutusuna **Amazon Web Hizmetleri (AWS)**seçin **Amazon Web Hizmetleri (AWS)** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_search.png)
+    ![Sonuçlar listesinde Amazon Web Hizmetleri (AWS)](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
-5. Sonuçlar panelinde seçin **Amazon Web Hizmetleri (AWS)**ve ardından **Ekle** uygulama eklemek için düğmesi.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ile Amazon Web Hizmetleri ("Britta Simon" adlı bir test kullanıcı tabanlı AWS) test etme.
 
 Tekli çalışmaya oturum için Azure AD ne karşılık gelen Amazon Web Hizmetleri (AWS) bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı Amazon Web Hizmetleri (AWS) arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** Amazon Web Hizmetleri (AWS).
+Amazon Web Hizmetleri (AWS) değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
 Yapılandırma ve Azure AD çoklu oturum açma Amazon Web Hizmetleri (AWS) ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Amazon Web Hizmetleri test kullanıcısı oluşturma](#creating-an-amazon-web-services-test-user)**  - karşılık gelen Britta Simon, Amazon Web Hizmetleri (AWS) Azure AD gösterimini her için bağlantılı olması.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Amazon Web Hizmetleri (AWS) test kullanıcısı oluşturma](#create-an-amazon-web-services-aws-test-user)**  - karşılık gelen Britta Simon, Amazon Web Hizmetleri (AWS) kullanıcı Azure AD gösterimini bağlı olması.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, Amazon Web Hizmetleri (AWS) uygulamanızda yapılandırın.
 
 **Azure AD çoklu oturum açma Amazon Web Hizmetleri (AWS) ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure Portalı'nda üzerinde **Amazon Web Hizmetleri (AWS)** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Amazon Web Hizmetleri (AWS)** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda, olarak **modu** seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
 
 3. Üzerinde **Amazon Web Hizmetleri (AWS) etki alanı ve URL'leri** bölümü, kullanıcı gerekmez uygulama zaten Azure ile önceden tümleştirilmiş gibi tüm adımları gerçekleştirin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_url.png)
+    ![Amazon Web Hizmetleri (AWS) etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
+4. Amazon Web Hizmetleri (AWS) yazılım uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+
+    ![Çoklu oturum açma öznitelikleri yapılandırma](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+
+5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_certificate.png)
-
-5. Amazon Web Hizmetleri (AWS) yazılım uygulaması SAML onaylar belirli bir biçimde bekliyor. Lütfen bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)
-
-6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
-    
-    | Öznitelik adı  | Öznitelik değeri | Namespace |
+    | Öznitelik Adı  | Öznitelik Değeri | Ad Alanı |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | User.userPrincipalName | https://aws.Amazon.com/SAML/Attributes |
-    | Rol            | User.assignedroles |  https://aws.Amazon.com/SAML/Attributes |
+    | rolesessionname | User.userPrincipalName | https://aws.Amazon.com/SAML/Attributes |
+    | rol            | User.assignedroles |  https://aws.Amazon.com/SAML/Attributes |
     
     >[!TIP]
-    >AWS konsolundan tüm rolleri getirmek için Azure AD'de kullanıcı sağlamayı yapılandırmanız gerekir. Lütfen aşağıdaki sağlama adımları bakın.
+    >AWS konsolundan tüm rolleri getirmek için Azure AD'de kullanıcı sağlamayı yapılandırmanız gerekir. Hazırlama adımları bakın.
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
+    ![Çoklu oturum açma yapılandırma ekleme](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
+
+    ![Çoklu oturum açma öznitelikleri yapılandırma](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
-
-    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın. Yukarıda verilen Namespace değerin ekleyin.
+    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
     
     d. **Tamam**’a tıklayın.
 
-7. Tıklatın **kaydetmek** Azure üzerinde ayarları kaydetmek için düğmesi.
+6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
+
+7. Tıklatın **kaydetmek** düğmesi.
+
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_400.png)
 
 8. Farklı bir tarayıcı penceresinde Amazon Web Hizmetleri (AWS) şirket sitenize yönetici olarak oturum.
 
 9. Tıklatın **konsol giriş**.
    
-    ![Çoklu oturum açmayı yapılandırın][11]
+    ![Çoklu oturum açma giriş yapılandırın][11]
 
-10. Tıklatın **IAM** gelen **güvenlik, Identity & Uyumluluk** hizmet.
+10. Tıklatın **kimlik ve erişim yönetimi**. 
    
-    ![Çoklu oturum açmayı yapılandırın][12]
+    ![Çoklu oturum açma kimliğini yapılandırma][12]
 
-11. Tıklatın **kimlik sağlayıcıları**ve ardından **oluşturma sağlayıcısı**.
+11. Tıklatın **kimlik sağlayıcıları**ve ardından **oluşturma sağlayıcısı**. 
    
-    ![Çoklu oturum açmayı yapılandırın][13]
+    ![Çoklu oturum açma sağlayıcısı yapılandırma][13]
 
-12. Üzerinde **yapılandırma sağlayıcısı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+12. Üzerinde **yapılandırma sağlayıcısı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin: 
    
-    ![Çoklu oturum açmayı yapılandırın][14]
+    ![Çoklu oturum açma iletişim yapılandırın][14]
  
     a. Olarak **sağlayıcı türü**seçin **SAML**.
 
     b. İçinde **sağlayıcı adı** metin kutusuna, bir sağlayıcı adı yazın (örneğin: *WAAD*).
 
-    c. İndirilen meta veri dosyanızı karşıya yüklemek için tıklayın **Dosya Seç**.
+    c. İndirilen, karşıya yüklemek için **meta veri dosyası** Azure portalından tıklatın **Dosya Seç**.
 
     d. Tıklatın **sonraki adım**.
 
 13. Üzerinde **sağlayıcısı bilgilerini doğrulayın** iletişim sayfasında, tıklatın **oluşturma**. 
     
-    ![Çoklu oturum açmayı yapılandırın][15]
+    ![Çoklu oturum açma yapılandırma doğrulayın][15]
 
 14. Tıklatın **rolleri**ve ardından **yeni rol oluşturma**. 
     
-    ![Çoklu oturum açmayı yapılandırın][16]
+    ![Çoklu oturum açma rollerini yapılandırma][16]
 
 15. Üzerinde **ayarlamak rol adı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
     
-    ![Çoklu oturum açmayı yapılandırın][17] 
+    ![Çoklu oturum açma adı yapılandırma][17] 
 
     a. İçinde **rol adı** metin kutusuna, bir rol adı yazın (örneğin: *TestUser*). 
 
@@ -197,7 +186,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 16. Üzerinde **rol türünü seç** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
     
-    ![Çoklu oturum açmayı yapılandırın][18] 
+    ![Oturum açma tek rol türü yapılandırma][18] 
 
     a. Seçin **kimlik sağlayıcısı erişim için rol**. 
 
@@ -205,142 +194,205 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 17. Üzerinde **kurmak güven** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:  
     
-    ![Çoklu oturum açmayı yapılandırın][19] 
+    ![Çoklu oturum açma güvenini yapılandırma][19] 
 
-    a. SAML sağlayıcısı, daha önce oluşturmuş SAML sağlayıcısını seçin (örneğin: *WAAD*)
+    a. SAML sağlayıcısı, daha önce oluşturmuş SAML sağlayıcısını seçin (örneğin: *WAAD*) 
   
     b. Tıklatın **sonraki adım**.
 
-18. Üzerinde **doğrulayın rol güven** iletişim kutusunda, tıklatın **sonraki adım**.
+18. Üzerinde **doğrulayın rol güven** iletişim kutusunda, tıklatın **sonraki adım**. 
     
-    ![Çoklu oturum açmayı yapılandırın][32]
+    ![Oturum açma tek rol güvenini yapılandırma][32]
 
-19. Üzerinde **ekleme İlkesi** iletişim kutusunda, tıklatın **sonraki adım**.
+19. Üzerinde **ekleme İlkesi** iletişim kutusunda, tıklatın **sonraki adım**.  
     
-    ![Çoklu oturum açmayı yapılandırın][33]
+    ![Çoklu oturum açma ilkesini yapılandırma][33]
 
-20. Üzerinde **gözden geçirme** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+20. Üzerinde **gözden geçirme** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:   
     
-    ![Çoklu oturum açmayı yapılandırın][34]
- 
+    ![Çoklu oturum açma gözden geçirme yapılandırın][34] 
+
     a. Tıklatın **rolü oluşturma**.
 
     b. Gerektiğinde kadar rolleri oluşturun ve bunları kimlik sağlayıcısı eşleyin.
 
-21. AWS tüm rolleri getirmek için sağlama kullanıcı Şimdi Yapılandır
+21. AWS hizmeti hesabı kimlik bilgileri, Azure AD Kullanıcı hazırlama AWS hesabından rolleri getiriliyor için kullanın. Bunun için giriş AWS konsolu açın.
 
-    a. Kök hesabınızla AWS konsolu açma
+22. Tıklayın **Hizmetleri** -> **güvenlik, Identity & Uyumluluk** -> **IAM**.
 
-    b. Sağ üst köşeden adınıza tıklayın ve ardından **My güvenlik kimlik bilgileri** seçeneği. Bu ekran yukarı bir uyarı iletisi açar. Düğmesini **güvenlik kimlik bilgileri** ekran geçirmek için düğmesi.
-        
-       ![Çoklu oturum açmayı yapılandırın][36]
+    ![AWS hesabından rolleri getiriliyor](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
-       ![Çoklu oturum açmayı yapılandırın][37]
+23. Seçin **ilkeleri** IAM bölümündeki sekmesinde.
 
-    c. Erişim tuşları bölümünde tıklayın **yeni erişim anahtarı oluştur** düğmesi. Bu, erişim anahtarı kimliği ve bir belirteç değeri oluşturur.
+    ![AWS hesabından rolleri getiriliyor](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
+
+24. Tıklayarak yeni bir ilke oluşturmak **ilkesi oluşturma**.
+
+    ![Yeni ilke oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
+ 
+25. Tüm rolleri AWS hesaplarından getirmek için kendi bir ilke oluşturun. İçinde **kendi ilke Oluştur** bölümünde, tıklayın **seçin** düğmesi.
     
-       ![Çoklu oturum açmayı yapılandırın][38]
+    ![Yeni ilke oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-    d. Bu değerleri kopyalayın ve böylece bu kaybetmeyin Ayrıca, indirin.
+26. Yeni ilke, aşağıdaki adımları gerçekleştirerek tanımlayın:
 
-    e. Amazon Web Hizmetleri (AWS) uygulama tümleştirmesi sayfasında Azure Portalı'nda tıklatın **sağlama**.
-        
-       ![Çoklu oturum açmayı yapılandırın][35]
+    ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-    f. Hazırlama modu ayarlamak **otomatik**
-        
-       ![Çoklu oturum açmayı yapılandırın][39]
+    a. Sağlamak **ilke adı** olarak **AzureAD_SSOUserRole_Policy**.
 
-    g. Artık **clientsecret** ve **gizli belirteci** AWS konsolundan kopyaladığınız karşılık gelen değerler yapıştırın.
+    b. Size sağlayabilir **açıklama** İlkesi **AWS hesaplarından rolleri getirmek için bu ilkeyi sağlayacak**.
+
+    c. İlke belgede ekleme JSON aşağıda.
     
-    h. Tıklayabilirsiniz **Bağlantıyı Sına** düğmesi bağlantısını test edin. Başarılı olduktan sonra sağlama Bağlayıcısı'nı başlatabilirsiniz.
-       
-       ![Çoklu oturum açmayı yapılandırın][40]
+    ```
+    
+    {
 
-    ı. Sağlama durumu şimdi etkinleştirmek **üzerinde**. Bu uygulamadan rolleri getiriliyor başlatır.
+    "Version": "2012-10-17",
 
-       ![Çoklu oturum açmayı yapılandırın][41]
+    "Statement": [
 
-    > [!NOTE]
-    > Azure AD sağlama hizmeti çalıştığında AWS rollerden eşitlemek için bir süre sonra her. Tüm kimlik sağlayıcısı AWS rolleri Azure AD ile bağlı ve kullanıcılara veya gruplara uygulama atarken kullanabilmek için görmeniz gerekir.
+    {
 
-<!--### Next steps
+    "Effect": "Allow",
+        
+    "Action": [
+        
+    "iam: ListRoles"
+        
+    ],
 
-To ensure users can sign-in to Amazon Web Services (AWS) after it has been configured to use Azure Active Directory, review the following tasks and topics:
+    "Resource": "*"
 
-- User accounts must be pre-provisioned into Amazon Web Services (AWS) prior to sign-in. To set this up, see Provisioning.
+    }
+
+    ]
+
+    }
+    
+    ```
+
+    d. Üzerinde kontrol ettiğinizden emin olun **ilkesi düzenleme için biçimlendirme kullanmak**.
+
+    e. Tıklayın **doğrulama İlkesi** altındaki düğmesini.
+
+    f. Tıklatabilirsiniz sonra ilkeyi doğru doğrulanmış sonra **ilke Oluştur** düğmesi.
+
+    ![Yeni ilke oluştur](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+    
+27. Aşağıdaki adımları gerçekleştirerek AWS IAM hizmetinde yeni bir kullanıcı hesabı oluşturun:
+
+    a. Tıklayın **kullanıcılar** AWS IAM konsolundaki gezinti.
+
+    ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy3.png)
+    
+    b. Tıklayın **Kullanıcı Ekle** yeni bir kullanıcı oluşturmak için düğmeye.
+
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/policy4.png)
+
+    c. İçinde **Kullanıcı Ekle** bölümünde, aşağıdaki adımları gerçekleştirin:
+    
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/adduser1.png)
+    
+    * Kullanıcı adı olarak girin **AzureADRoleManager**.
+    
+    * Erişim türünü seçin **programlı erişim** seçeneği. Bu şekilde kullanıcı API'leri çağırmak ve rolleri AWS hesabından getirilemedi.
+    
+    * Tıklayın **sonraki izinleri** sağ alt köşesindeki düğmesini.
+
+28. Şimdi aşağıdaki adımları gerçekleştirerek bu kullanıcı için yeni bir ilke oluşturun:
+
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    
+    a. Tıklayın **mevcut ilkeleri doğrudan ekleme** düğmesi.
+
+    b. Yeni oluşturulan ilkeyi filtre bölümündeki arama **AzureAD_SSOUserRole_Policy**.
+    
+    c. Seçin **İlkesi** tıklayın **sonraki: gözden geçirme** düğmesi.
+
+29. İlke bağlı kullanıcı için aşağıdaki adımları gerçekleştirerek gözden geçirin:
+
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
+    
+    a. Kullanıcı adı, erişim türünü ve kullanıcıya eşlenen İlkesi gözden geçirin.
+    
+    b. Tıklayın **kullanıcı oluşturma** kullanıcı oluşturmak için sağ alt köşedeki düğmesini.
+
+30. Bir kullanıcının kullanıcı kimlik bilgileri, aşağıdaki adımları uygulayarak yükleyin:
+
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
+    
+    a. Kullanıcı kopyalama **erişim anahtar kimliği** ve **gizli erişim anahtarı**.
+    
+    b. AWS Konsolu rolleri getirmek için Azure AD kullanıcı bölümü hazırlama içine bu kimlik bilgilerini girin.
+    
+    c. Tıklayın **Kapat** altındaki düğmesini.
+
+31. Gidin **kullanıcı sağlamayı** Azure AD yönetim portalında Amazon Web Services uygulama bölümü.
+
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
+
+32. Girin **erişim tuşu** ve **gizli** içinde **gizli** ve **gizli belirteci** sırasıyla alanları.
+
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
+    
+    a. AWS kullanıcı erişim anahtarını girin **clientsecret** alan.
+    
+    b. AWS kullanıcı gizliliği girin **gizli belirteci** alan.
+    
+    c. Tıklayın **Bağlantıyı Sına** düğmesini başarıyla bu bağlantıyı sınamak için gerekir.
+
+    d. Tıklayarak ayarı kaydedin **kaydetmek** üstündeki düğmesi.
  
-- Users must be assigned access to Amazon Web Services (AWS) in Azure AD to sign-in. To assign users, see Users.
- 
-- To configure access polices for Amazon Web Services (AWS) users, see Access Policies.
- 
-- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
+33. Şimdi sağlama durumu etkinleştirdiğinizden emin olun **üzerinde** üzerinde geçiş yapma ve üzerinde tıklatarak ayarları bölümünde **kaydetmek** üstündeki düğmesi.
 
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+> [!TIP]
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_01.png)
 
-2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcıların listesini görüntülemek için.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_02.png) 
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_02.png)
+
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+
+    ![Ekle düğmesi](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_03.png)
+
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+
+    d. **Oluştur**’a tıklayın.
  
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_03.png) 
+### <a name="create-an-amazon-web-services-aws-test-user"></a>Amazon Web Hizmetleri (AWS) test kullanıcısı oluşturma
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_04.png) 
+Bu bölümün amacı Britta Simon Amazon Web Hizmetleri (AWS) adlı bir kullanıcı oluşturmaktır. Amazon Web Hizmetleri (AWS), burada her türlü eylemi gerçekleştirmek gerek kalmaması bunların sistemde SSO için oluşturulan kullanıcıya gerekmez.
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+Bu bölümde, Amazon Web Hizmetleri (AWS) erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
-
-    d. **Oluştur**'a tıklayın.
- 
-### <a name="creating-an-amazon-web-services-test-user"></a>Amazon Web Hizmetleri test kullanıcısı oluşturma
-
-Amazon Web Hizmetleri (AWS) oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar Amazon Web Hizmetleri (AWS) içine sağlanmalıdır. Amazon Web Hizmetleri (AWS) söz konusu olduğunda sağlama bir el ile bir görevdir.
-
-**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Oturum, **Amazon Web Hizmetleri (AWS)** yönetici olarak şirket site.
-
-2. Tıklatın **konsol giriş** simgesi. 
-   
-    ![Çoklu oturum açmayı yapılandırın][11]
-
-3. Kimlik'i tıklatın ve erişim yönetimi. 
-   
-    ![Çoklu oturum açmayı yapılandırın][28]
-
-4. Panoda tıklatın **kullanıcılar**ve ardından **Create New Users**. 
-   
-    ![Çoklu oturum açmayı yapılandırın][29]
-
-5. Kullanıcı oluştur iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
-   
-    ![Çoklu oturum açmayı yapılandırın][30]   
-    
-    a. İçinde **kullanıcı adlarını girin** metin kutuları, Azure AD'de Brita Simon'ın kullanıcı adı (userprincipalname) yazın.
-
-    b. Tıklatın **oluşturun.**
-        
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
-
-Bu bölümde, Amazon Web Hizmetleri (AWS) için kendi erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
-
-![Kullanıcı atama][200] 
+![Kullanıcı rolü atayın][200] 
 
 **Amazon Web Hizmetleri (AWS) Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -350,29 +402,35 @@ Bu bölümde, Amazon Web Hizmetleri (AWS) için kendi erişim vererek, Azure ço
 
 2. Uygulamalar listesinde **Amazon Web Hizmetleri (AWS)**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_app.png) 
+    ![Uygulamalar listesinde Amazon Web Hizmetleri (AWS) bağlantısı](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Ekleme atama bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Üzerinde **rolü Seç** sekmesinde, kullanıcı için uygun rolü seçin. Bu roller rol adı ve kimlik sağlayıcısı adı ile gösterilir. Bu şekilde, AWS rollerden kolayca tanımlayabilirsiniz.
-
-8. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Amazon Web Hizmetleri (AWS) parçasında tıklattığınızda, otomatik olarak Amazon Web Hizmetleri (AWS) uygulamanıza açan. 
+Erişim paneli Amazon Web Hizmetleri (AWS) parçasında tıklattığınızda, otomatik olarak Amazon Web Hizmetleri (AWS) uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="known-issues"></a>Bilinen sorunlar
+
+ * İçinde **sağlama** bölümünde **eşlemeleri** alt bölümünün "Yükleniyor..." iletisini göster ve hiçbir zaman öznitelik eşlemelerini görüntülemez. Bugün desteklenen tek sağlama kullanıcı/Grup ataması sırasında seçimi için Azure AD AWS rollerden içe iş akışıdır. Bu öznitelik eşlemelerini önceden belirlenmiştir ve yapılandırılamaz.
+ 
+ * **Sağlama** bölüm yalnızca destekleyen bir kimlik bilgileri kümesi için bir AWS Kiracı aynı anda girme. İçe aktarılan tüm rolleri Azure AD appRoles özelliğine yazılır [servicePrincipal nesne](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) AWS için Kiracı. Azure AD ile birden çok AWS kiracılar (servicePrincipals tarafından gösterilen) sağlama, ancak olduğunda bir bilinen sorun otomatik olarak içeri aktarılan rollerinin tümünü için kullanılan birden fazla AWS servicePrincipals yazılacak yazdıramama ile galerisinden eklenebilir Çoklu oturum açma için kullanılan tek servicePrincipal içine sağlama. Geçici bir çözüm olarak [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) her AWS servicePrincipal içeri appRoles tümünün ayıklamak için sağlama yapılandırıldığı kullanılabilir. Bu rol dizeler sonradan çoklu oturum açma yapılandırıldığı AWS servicePrincipal eklenebilir.
+
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -403,23 +461,14 @@ Erişim paneli Amazon Web Hizmetleri (AWS) parçasında tıklattığınızda, ot
 [17]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795023.png
 [18]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795024.png
 [19]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795025.png
-[20]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950351.png
-[21]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_80.png
-[22]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950352.png
-[23]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_81.png
-[24]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950353.png
-[25]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_15.png
-
-[28]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950321.png
-[29]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795037.png
-[30]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795038.png
 [32]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950251.png
 [33]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950252.png
-[34]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950253.png
 [35]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning.png
+[34]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950253.png
 [36]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_securitycredentials.png
 [37]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_securitycredentials_continue.png
 [38]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
 [39]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
 [41]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_on.png
+

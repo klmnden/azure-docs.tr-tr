@@ -12,14 +12,20 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/06/2017
 ms.author: adegeo
 ms.custom: 
+<<<<<<< HEAD
 ms.openlocfilehash: f91ea8c2f8c6e9a6ce38cf72be2c61d9e5218b23
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 059022a7f447fe2b0decaacf44ef7bc2e9a241d1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric kümesi için bir uygulama sertifika Ekle
 

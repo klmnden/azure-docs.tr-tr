@@ -6,28 +6,26 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dc1bd6502a5362bebd845f3938ab6502e0d91c74
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
 
 Azure kapsayıcı örnekleri birden çok kapsayıcı kullanarak tek bir ana bilgisayar üzerine dağıtımını destekleyen bir *kapsayıcı grubu*. Bu günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken bir hizmetin ikinci bir bağlı işlem nerede ihtiyaç yararlıdır.
 
-Bu belge, Azure Resource Manager şablonu kullanarak basit çok kapsayıcı sepet yapılandırma çalıştıran anlatılmaktadır.
+Bu belge, Azure Resource Manager şablonu dağıtarak basit çok kapsayıcı sepet yapılandırmasını çalıştırma açıklanmaktadır.
 
 ## <a name="configure-the-template"></a>Şablon yapılandırma
 
-Adlı bir dosya oluşturun `azuredeploy.json` ve aşağıdaki json dosyasını buraya kopyalayın.
+Adlı bir dosya oluşturun `azuredeploy.json` ve aşağıdaki JSON dosyasını buraya kopyalayın.
 
-Bu örnekte, bir kapsayıcı grubu iki kapsayıcıları ve genel bir IP adresi ile tanımlanır. İlk kapsayıcı grubunun Internet karşılıklı uygulamasını çalıştırır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar.
-
-Bu sepet örnek, bir HTTP yanıt kodu 200 dışında Tamam aldıysanız, bir uyarıyı tetiklemek için genişletilemiyor.
+Bu örnekte, bir kapsayıcı grubu iki kapsayıcıları ve genel bir IP adresi ile tanımlanır. Gruptaki ilk kapsayıcı bir internet'e yönelik uygulama çalışır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar.
 
 ```json
 {
@@ -101,7 +99,7 @@ Bu sepet örnek, bir HTTP yanıt kodu 200 dışında Tamam aldıysanız, bir uya
   }
 ```
 
-Bir özel kapsayıcı görüntü kayıt defterini kullanmak için json belgesi aşağıdaki biçime sahip bir nesne ekleyin.
+Bir özel kapsayıcı görüntü kayıt defterini kullanmak için JSON belgesi aşağıdaki biçime sahip bir nesne ekleyin.
 
 ```json
 "imageRegistryCredentials": [
@@ -115,81 +113,90 @@ Bir özel kapsayıcı görüntü kayıt defterini kullanmak için json belgesi a
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun.
+[az group create][az-group-create] komutuyla bir kaynak grubu oluşturun.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create) komutu.
+Şablonla dağıtmak [az grup dağıtımı oluşturmak] [ az-group-deployment-create] komutu.
 
 ```azurecli-interactive
-az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-Birkaç saniye içinde Azure'dan ilk yanıt alırsınız.
+Birkaç saniye içinde Azure'dan ilk yanıt almanız gerekir.
 
 ## <a name="view-deployment-state"></a>Dağıtım durumunu görüntüle
 
-Dağıtım durumunu görüntülemek için kullanın `az container show` komutu. Bu uygulama erişilebilen sağlanan genel IP adresini döndürür.
+Dağıtım durumunu görüntülemek için kullanın [az kapsayıcı Göster] [ az-container-show] komutu. Bu uygulama tarafından erişilebilen sağlanan genel IP adresini döndürür.
 
 ```azurecli-interactive
-az container show --name myContainerGroup --resource-group myResourceGroup -o table
-```
-
-Çıktı:
-
-```azurecli
-Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
-----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
-```
-
-## <a name="view-logs"></a>Günlükleri görüntüle
-
-Kullanarak bir kapsayıcı günlük çıktısını görüntüleyin `az container logs` komutu. `--container-name` Bağımsız değişkeni günlüklerini kapsayıcıyı belirtir. Bu örnekte, ilk kapsayıcı belirtilir.
-
-```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
 Çıktı:
 
 ```bash
-istening on port 80
-::1 - - [27/Jul/2017:17:35:29 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:32 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:35 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
+----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
+myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
+```
+
+## <a name="view-logs"></a>Günlükleri görüntüle
+
+Kullanarak bir kapsayıcı günlük çıktısını görüntüleyin [az kapsayıcı günlükleri] [ az-container-logs] komutu. `--container-name` Bağımsız değişkeni günlüklerini kapsayıcıyı belirtir. Bu örnekte, ilk kapsayıcı belirtilir.
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
+```
+
+Çıktı:
+
+```bash
+listening on port 80
+::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Yan araba kapsayıcısı için günlükleri görmek için ikinci kapsayıcı adı belirterek aynı komutu çalıştırın.
 
 ```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
 Çıktı:
 
 ```bash
-Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
+Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 HTTP/1.1 200 OK
+X-Powered-By: Express
 Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
+ETag: W/"67f-16006818640"
+Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Content-Type: text/html; charset=utf-8
-Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
-Date: Mon, 17 Jul 2017 18:27:36 GMT
+Date: Mon, 18 Dec 2017 23:19:34 GMT
+Connection: keep-alive
 ```
 
-Gördüğünüz gibi sepet bir HTTP isteği düzenli aralıklarla çalıştığından emin olmak için ana web uygulamasına grubun yerel ağ üzerinden yapılmasıdır.
+Gördüğünüz gibi sepet bir HTTP isteği düzenli aralıklarla çalıştığından emin olmak için ana web uygulamasına grubun yerel ağ üzerinden yapılmasıdır. Bu sepet örnek, bir HTTP yanıt kodu 200 dışında Tamam aldıysanız, bir uyarıyı tetiklemek için genişletilemiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede bir çok kapsayıcı Azure kapsayıcı örneği dağıtmak için gerekli olan adımları ele. Bir uçtan uca Azure kapsayıcı örnekleri deneyimi için Azure kapsayıcı örnekleri öğretici bakın.
+Bu makalede, bir çok kapsayıcı Azure kapsayıcı örneği dağıtmak için gerekli olan adımları ele. Bir uçtan uca Azure kapsayıcı örnekleri deneyimi için Azure kapsayıcı örnekleri öğretici bakın.
 
 > [!div class="nextstepaction"]
-> [Azure kapsayıcı örnekleri öğretici]:./container-instances-tutorial-prepare-app.md
+> [Azure kapsayıcı örnekleri öğretici]: container-instances-tutorial-prepare-app.md
+
+<!-- LINKS - Internal -->
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create

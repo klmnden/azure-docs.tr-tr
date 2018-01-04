@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 03/30/2017
-ms.author: anvang;barbkess
-ms.openlocfilehash: f7023b78c241a7bc8014276cd0bfa455165b42cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: kevin;barbkess
+ms.openlocfilehash: e8170eefb2e359719684e08749180a4e7784f9b6
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>SQL Data Warehouse için Visual Studio ve SSDT yükleme
 SQL Data Warehouse için uygulama geliştirmek için en son sürümünü Visual Studio ile SQL Server veri Araçları (SSDT) en son sürümünü kullanmanızı öneririz.  Geriye dönük uyumluluk için SSDT ile Visual Studio 2013 Güncelleştirme 5 de desteklenir.  
@@ -27,7 +27,7 @@ SQL Data Warehouse için uygulama geliştirmek için en son sürümünü Visual 
 Visual Studio'yu SSDT ile kullanmak; sorgu çalıştırmanın yanı sıra, SQL Server Nesne Gezgini'ni kullanarak SQL Data Warehouse'unuzda bulunan tabloları, görünümleri, saklı yordamları ve daha birçok nesneyi görsel olarak araştırmanıza olanak sağlar.
 
 > [!NOTE]
-> SQL Data Warehouse, henüz Visual Studio Veritabanı Projelerini desteklemiyor.  Bu özellik sonraki bir sürümde eklenecek.
+> SQL Data Warehouse, henüz Visual Studio Veritabanı Projelerini desteklemiyor.  Bu özellik sonraki bir sürümde eklenecek. Bu özellikle ilgili düzenli güncelleştirmeleri almak için lütfen oy [UserVoice].
 > 
 > 
 
@@ -59,3 +59,4 @@ SSDT'nin en son sürümüne sahip olduğunuza göre hazır [bağlanmak] [ connec
 [Visual Studio indirme]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
+[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Azure Depolama Bloblarından Data Lake Store’a veri kopyalama
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Ayrıca, iki farklı modda AdlCopy Aracı'nı kullanabilirsiniz:
 * **Tek başına**, burada aracı görevi gerçekleştirmek için Data Lake Store kaynakları kullanır.
 * **Bir Data Lake Analytics hesabı kullanarak**, Data Lake Analytics hesabınızı atanan birim kopyalama işlemi gerçekleştirmek için kullanıldığı. Bu seçenek tahmin edilebilir bir biçimde kopyalama görevleri gerçekleştirmek için ararken kullanmak isteyebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
@@ -60,7 +60,7 @@ Sözdizimi parametrelerinde aşağıda açıklanmıştır:
 | SourceKey |Azure storage blobu kaynağı için depolama erişim tuşu belirtir. Bu, yalnızca kaynak blob kapsayıcısı veya bir blobu ise gereklidir. |
 | Hesap |**İsteğe bağlı**. Kopyalama işini çalıştırmak için Azure Data Lake Analytics hesabı kullanmak istiyorsanız, bunu kullanın. ApplicationTier/account seçeneği söz dizimi kullanın, ancak bir Data Lake Analytics hesabı belirtmezseniz, AdlCopy işi çalıştırmak için varsayılan hesabını kullanır. Bu seçeneği kullanırsanız, ayrıca, kaynak (Azure depolama Blob) ve hedef (Azure Data Lake Store) veri kaynakları olarak Data Lake Analytics hesabınız için eklemeniz gerekir. |
 | Birimler |Kopyalama işlemi için kullanılacak Data Lake Analytics birim sayısını belirtir. Bu seçeneği kullanırsanız, zorunlu **/hesabını** Data Lake Analytics hesabı belirtmek için seçeneği. |
-| düzeni |Hangi BLOB veya kopyalanacak dosyaların gösteren bir regex düzenidir belirtir. Büyük küçük harfe duyarlı eşleşen AdlCopy kullanır. Hiçbir düzeni belirtildiğinde kullanılan varsayılan düzen tüm öğeleri kopyalamaktır. Birden çok dosya desenlerinin belirtilmesi desteklenmiyor. |
+| Desen |Hangi BLOB veya kopyalanacak dosyaların gösteren bir regex düzenidir belirtir. Büyük küçük harfe duyarlı eşleşen AdlCopy kullanır. Hiçbir düzeni belirtildiğinde kullanılan varsayılan düzen tüm öğeleri kopyalamaktır. Birden çok dosya desenlerinin belirtilmesi desteklenmiyor. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>AdlCopy (bağımsız) bir Azure Storage blobundan verileri kopyalamak için kullanın.
 1. Bir komut istemi açın ve AdlCopy yüklü olduğu, genellikle dizinine gidin `%HOMEPATH%\Documents\adlcopy`.
@@ -72,7 +72,7 @@ Sözdizimi parametrelerinde aşağıda açıklanmıştır:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] Aşağıdaki söz dizimini Data Lake Store hesabındaki bir klasöre kopyalanacak dosyayı belirtir. Belirtilen klasör adı yoksa, AdlCopy aracı bir klasör oluşturur.
+    >[AZURE.NOTE]Aşağıdaki söz dizimini Data Lake Store hesabındaki bir klasöre kopyalanacak dosyayı belirtir. Belirtilen klasör adı yoksa, AdlCopy aracı bir klasör oluşturur.
 
     Data Lake Store hesabınızın altında elinizde Azure aboneliği için kimlik bilgilerini girmeniz istenir. Aşağıdakine benzer bir çıktı görürsünüz:
 

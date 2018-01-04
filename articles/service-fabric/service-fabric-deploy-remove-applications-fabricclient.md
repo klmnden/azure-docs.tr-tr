@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 6d737e354f5e7ee57c2e2c3d9b5599d4ba2b09af
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 6fdf65ac87273502edb1548ed6c1cf5c7bc25649
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Dağıtma ve FabricClient kullanarak uygulamaları kaldırma
 > [!div class="op_single_selector"]
@@ -340,5 +340,5 @@ static void Main(string[] args)
 [Service Fabric uygulamada modeli](service-fabric-application-model.md)
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
-[10]: service-fabric-application-model.md
+[10]: service-fabric-package-apps.md
 [11]: service-fabric-application-upgrade.md

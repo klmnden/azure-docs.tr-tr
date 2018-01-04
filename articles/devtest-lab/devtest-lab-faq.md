@@ -3,7 +3,7 @@ title: Azure DevTest Labs SSS | Microsoft Docs
 description: "Azure DevTest Labs ilgili sık sorulan soruların yanıtlarını bulun."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
@@ -13,12 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
+<<<<<<< HEAD
 ms.author: tarcher
 ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.author: v-craic
+ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Bazı Azure DevTest Labs ilgili en sık sorulan soruların yanıtlarını alın.
@@ -207,7 +214,7 @@ Laboratuvar oluşturulan VM'ler üzerinde belirli bir sınır yoktur. Ancak, abo
 >
 >
 
-## <a name="what-is-a-microsoft-account"></a>Bir Microsoft hesabı nedir?
+## <a name="what-is-a-microsoft-account"></a>Microsoft hesabı nedir?
 Bir Microsoft hesabı neredeyse Microsoft cihazları ve Hizmetleri ile yaptığınız her şey için kullandığınız hesaptır. Bir e-posta adresi ve Skype, Outlook.com, OneDrive, oturum açmak için kullandığınız parola olan Windows phone ve Xbox Live. Tek bir hesap, dosyaları, fotoğraflarınızı, kişiler ve ayarları, herhangi bir cihazda izleyebilirsiniz anlamına gelir.
 
 > [!NOTE]
@@ -226,11 +233,11 @@ Bir olasılık, sanal ağ adı nokta içeriyor olabilir. Bu durumda, dönemleri 
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>PowerShell VM'den sağladığınızda neden "üst kaynağı bulunamadı" hatası alıyorum?
 Bir kaynağı başka bir kaynak için bir üst olduğunda, üst kaynak alt kaynağı oluşturmadan önce mevcut olması gerekir. Üst kaynak mevcut değilse, gördüğünüz bir **ParentResourceNotFound** ileti. Üst kaynakta bir bağımlılık belirtmezseniz, alt kaynak önce üst dağıtılmış olabilir.
 
-Sanal makineleri bir laboratuar ortamında bir kaynak grubu altında alt kaynaklardır. PowerShell kullanarak sanal makineleri dağıtmak için Resource Manager şablonları kullandığınızda, PowerShell Betiği sağlanan kaynak grubu adı laboratuvarı kaynak grubu adı olmalıdır. Daha fazla bilgi için bkz: [ortak Azure dağıtım hatalarını giderme](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Sanal makineleri bir laboratuar ortamında bir kaynak grubu altında alt kaynaklardır. PowerShell kullanarak sanal makineleri dağıtmak için Resource Manager şablonları kullandığınızda, PowerShell Betiği sağlanan kaynak grubu adı laboratuvarı kaynak grubu adı olmalıdır. Daha fazla bilgi için bkz: [ortak Azure dağıtım hatalarını giderme](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>VM dağıtımı başarısız olursa daha fazla hata bilgileri nereden bulabilirim?
 VM Dağıtım hataları, etkinlik günlükleri yakalanır. Laboratuvar VM etkinlik günlükleri altında bulabilirsiniz **denetim günlüklerini** veya **sanal makine tanılamaları** Laboratuvar 's VM dikey penceresinde kaynak menüsünde (sanal makineden seçtikten sonra dikey penceresi görünür **My sanal makineler** listesi).
 
-Bazı durumlarda, VM dağıtımı başlamadan önce dağıtım hatası oluşur. VM ile oluşturulmuş bir kaynak için abonelik sınırı aşıldığında bir örnektir. Bu durumda, hata ayrıntılarını Laboratuvar düzeyi etkinlik günlüklerde yakalanır. Etkinlik günlükleri alt kısmında bulunan **yapılandırma ve ilkeleri** ayarlar. Etkinlik kullanma hakkında daha fazla bilgi Azure'da oturum için bkz: [görüntülemek kaynakları eylemlerini denetlemek için etkinlik günlükleri](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+Bazı durumlarda, VM dağıtımı başlamadan önce dağıtım hatası oluşur. VM ile oluşturulmuş bir kaynak için abonelik sınırı aşıldığında bir örnektir. Bu durumda, hata ayrıntılarını Laboratuvar düzeyi etkinlik günlüklerde yakalanır. Etkinlik günlükleri alt kısmında bulunan **yapılandırma ve ilkeleri** ayarlar. Etkinlik kullanma hakkında daha fazla bilgi Azure'da oturum için bkz: [görüntülemek kaynakları eylemlerini denetlemek için etkinlik günlükleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

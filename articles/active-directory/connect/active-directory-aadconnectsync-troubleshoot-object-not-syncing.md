@@ -4,7 +4,7 @@ description: "Bir nesne için Azure AD eşitleme neden sorunlarını giderin."
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 491a920ceeaac62dd37b1def3f02234056aebfb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD ile eşitliyorsanız değil bir nesne sorun giderme
 
@@ -40,7 +40,7 @@ Sorun gidermeyi nereden başlamanız işlemleri sekme Eşitleme Hizmeti Yönetic
 
 **Durum** sütunu en önemli bilgiler ve bir çalışma için en önemli bir sorun gösterir. En sık kullanılan durumlarını araştırmak için öncelik sırasına göre hızlı bir özeti aşağıda verilmiştir (burada * birkaç olası hata dizeleri gösterir).
 
-| Durum | Açıklama |
+| Durum | Yorum |
 | --- | --- |
 | durdurulmuş-* |Çalıştır tamamlanamadı. Örneğin, uzak sistem kapalı ve bağlantı kurulamıyor. |
 | durduruldu-hata-sınırı |5. 000'den fazla hataları vardır. Çalıştır otomatik olarak çok sayıda hata nedeniyle durduruldu. |

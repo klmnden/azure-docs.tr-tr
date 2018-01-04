@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Bekleyen Veri için Azure Storage Hizmeti Şifreleme
 Azure Storage hizmeti şifreleme (SSE) bekleyen veri için korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak için verilerinizi korumaya yardımcı olur. Bu özellik ile Azure depolama otomatik olarak depolama birimine devam ettirmeden önce verilerinizi şifreler ve alma önce şifresini çözer. Şifreleme, şifre çözme ve anahtar yönetimi kullanıcılara tamamen saydam.
@@ -159,7 +159,7 @@ Y: müşterilerin kendi şifreleme anahtarlarını getirmek özelliklerinin sağ
 
 **S: yeni bir depolama hesabı oluşturduğunuzda, varsayılan olarak etkin SSE mi?**
 
-Y: SSE varsayılan olarak etkin değildir; Azure Portalı'nı etkinleştirmek için kullanabilirsiniz. Depolama kaynak sağlayıcısı REST API'sini kullanarak bu özelliği program aracılığıyla da etkinleştirebilirsiniz.
+Y: Azure depolama ekibi şifreleme varsayılan olarak tüm depolama hesapları (depolama Azure Resource Manager ve klasik ve Azure Storage (Blob, dosya, tablo ve kuyruk depolama) yazılan tüm veriler için Microsoft yönetilen tuşlarını kullanarak sürecinde etkinleştirmektir , hem yeni hem de var olan hesapları).
 
 **S: nasıl bu Azure Disk Şifrelemesi ' farklı mı?**
 

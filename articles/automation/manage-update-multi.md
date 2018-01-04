@@ -3,7 +3,7 @@ title: "Birden fazla Azure sanal makinesi için güncelleştirmeleri yönetme | 
 description: "Bu konuda, Azure sanal makineleri için güncelleştirmelerin nasıl yönetileceği açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
-ms.author: magoedte;eslesar
-ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.date: 11/30/2017
+ms.author: magoedte;gwallace
+ms.openlocfilehash: 9bd6a290320958e2bc534ceb0abbcb647084920b
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -43,7 +43,7 @@ Güncelleştirme yönetimi aşağıdaki işletim sistemlerinde desteklenir.
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 ve üzeri ile Windows Server 2008 R2 SP1 ve üzerine göre güncelleştirme dağıtımları. Sunucu Çekirdeği ve Nano Sunucu yükleme seçenekleri desteklenmez.
+* Windows Server 2008 ve üzeri ile Windows Server 2008 R2 SP1 ve üzerine göre güncelleştirme dağıtımları. Nano Sunucu desteklenmiyor.
 
   Windows Server 2008 R2 SP1'e yönelik güncelleştirme dağıtımı desteği için .NET Framework 4.5 ve Windows Management Framework 5.0 veya sonraki bir sürümü gerekir.
 
@@ -84,7 +84,7 @@ Güncelleştirme yönetimi, sanal makineniz için etkinleştirilir.
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Azure olmayan sanal makineler ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme
 
-Azure olmayan Windows sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında yönergeler için [Azure’da Windows bilgisayarlarını Log Analytics hizmetine bağlama](../log-analytics/log-analytics-windows-agents.md) konusunu inceleyin.
+Azure olmayan Windows sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında yönergeler için [Azure’da Windows bilgisayarlarını Log Analytics hizmetine bağlama](../log-analytics/log-analytics-windows-agent.md) konusunu inceleyin.
 
 Azure olmayan Linux sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında yönergeler için [Azure’da Linux bilgisayarlarını Log Analytics’e bağlama](../log-analytics/log-analytics-agent-linux.md) konusunu inceleyin.
 

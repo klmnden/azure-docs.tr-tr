@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Azure SQL Database tek bir veritabanı için kaynakları yönetme
 
@@ -35,6 +35,10 @@ Ayarlayın veya hizmet katmanı, performans düzeyi ya da Azure Portalı'nı kul
 
 ![Hizmet katmanını ve performans düzeyini yapılandırın](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Tıklatın **genel bakış** izlemek ve/veya devam eden işlemi iptal edin.
+
+![İşlemi iptal edin](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Gözden geçirme [P11 ve P15 veritabanları ile en fazla 4 TB boyut, geçerli sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) P11 veya P15 bir hizmet katmanı seçerken.
 >
@@ -48,6 +52,8 @@ Azure SQL veritabanı hizmet katmanları, performans düzeyleri ve PowerShell ku
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Bir veritabanı oluşturur |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Bir veya daha fazla veritabanı alır|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Bir veritabanı özelliklerini ayarlar veya varolan bir veritabanını bir esnek havuza taşır. Örneğin, **MaxSizeBytes** bir veritabanı boyutu üst sınırı ayarlamak için özellik.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Veritabanı işlemleri durumunu alır. |
+|[Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Veritabanında zaman uyumsuz güncelleştirme işlemi iptal eder.|
 
 
 > [!TIP]
@@ -64,7 +70,8 @@ Ayarlamak veya Azure SQL veritabanlarını değiştirmek için hizmet katmanlar�
 |[az sql server güvenlik duvarı kuralı Göster](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Bir güvenlik duvarı kuralı ayrıntılarını gösterir|
 |[az sql server güvenlik duvarı kuralı güncelleştirme](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Bir güvenlik duvarı kuralını güncelleştirir|
 |[az sql server güvenlik duvarı kuralını Sil](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Bir güvenlik duvarı kuralını siler|
-
+|[az sql db op listesi](/cli/azure/sql/db/op?#az_sql_db_op_list)|Veritabanı üzerinde gerçekleştirilen işlemler listesini alır.|
+|[az sql db op iptal](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Veritabanında zaman uyumsuz işlemi iptal eder.|
 
 > [!TIP]
 > Veritabanının boyutu bilgileri sorgulama sonra farklı performans düzeyi tek bir Azure SQL veritabanına ölçeklendirilebilen bir Azure CLI örnek komut dosyası için bkz: [kullanımı izlemek ve tek bir SQL veritabanı ölçeklendirmek için CLI](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -102,6 +109,7 @@ Ayarlama veya değiştirme Azure SQL veritabanları için REST API istekleri hiz
 |[Veritabanları - önerilen esnek havuz göre listesi](/rest/api/sql/databases/listbyrecommendedelasticpool)|Recommented bir esnek havuz içindeki veritabanlarının bir listesini döndürür.|
 |[Veritabanları - sunucu tarafından listesi](/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının bir listesini döndürür.|
 |[Veritabanları - güncelleştirme](/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
+|[İşlem - liste](/rest/api/sql/Operations/List)|Tüm kullanılabilir SQL Rest API işlemleri listeler.|
 
 
 

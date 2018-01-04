@@ -5,7 +5,7 @@ keywords: "Azure traffic manager ile Ad fs, Azure Traffic Manager ile adfs, coğ
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e984d3d590021e3dd9e46d0f12493889b2acc229
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı
 [Azure’da AD FS dağıtımı](active-directory-aadconnect-azure-adfs.md), kuruluşunuz için basit bir AD FS altyapısını Azure’da nasıl dağıtabileceğinize ilişkin adım adım yönergeler sağlar. Bu makale Azure’da [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kullanılarak AD FS’nin çapraz coğrafi dağıtımını oluşturmaya ilişkin sıradaki adımları sunmaktadır. Azure Traffic Manager, altyapının farklı ihtiyaçlarına uygun olarak kullanılabilen çeşitli yönlendirme yöntemlerinden yararlanarak kuruluşunuz için coğrafi olarak yayılmış yüksek kullanılabilirliğe sahip ve yüksek performanslı bir AD FS altyapısı oluşturmaya yardımcı olur.

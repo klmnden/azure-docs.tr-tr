@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Senaryo: Özel durum işleme ve logic apps için hata günlüğü
 
@@ -45,7 +45,7 @@ Proje iki ana gereksinimlerini vardı:
 
 ## <a name="how-we-solved-the-problem"></a>Biz nasıl sorun çözüldü
 
-Seçtik [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") (Cosmos DB başvurduğu belgeleri olarak kayıtları) günlük ve hata kayıtları için depo olarak. Azure Logic Apps tüm yanıtlar için standart bir şablon olduğundan, biz özel şeması oluşturmak sahip. Bir API uygulamasına oluşturuyoruz **Ekle** ve **sorgu** hata ve günlük kayıtları için. Biz de her API uygulaması içindeki bir şema tanımlayabilirsiniz.  
+Seçtik [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") (Cosmos DB başvurduğu belgeleri olarak kayıtları) günlük ve hata kayıtları için depo olarak. Azure Logic Apps tüm yanıtlar için standart bir şablon olduğundan, biz özel şeması oluşturmak sahip. Bir API uygulamasına oluşturuyoruz **Ekle** ve **sorgu** hata ve günlük kayıtları için. Biz de her API uygulaması içindeki bir şema tanımlayabilirsiniz.  
 
 Belirli bir tarihten sonra kayıtları temizlemek için başka bir gereksinim oluştu. Cosmos DB adlı bir özelliği vardır [yaşam süresi](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "yaşam süresi") (TTL) izin bize ayarlamak bir **yaşam süresi** her bir kayıt veya koleksiyon için değer. Bu özellik Cosmos DB kayıtları el ile silmek için gereken ortadan.
 
@@ -58,7 +58,7 @@ Mantıksal uygulama oluşturma ve uygulama mantığını Uygulama Tasarımcısı
 
 Dynamics CRM Online dışında gelen kayıt oturum kalacaklarını olduğundan, en üstte başlayalım. Biz kullanmalısınız bir **isteği** üst mantıksal uygulama bu alt tetikler çünkü tetikler.
 
-### <a name="logic-app-trigger"></a>Mantıksal uygulama tetikleyici
+### <a name="logic-app-trigger"></a>Mantıksal uygulama tetikleyicisi
 
 Kullanıyoruz bir **isteği** tetiklemek aşağıdaki örnekte gösterildiği gibi:
 
@@ -107,7 +107,7 @@ Biz Hasta kayıt kaynağı (istek) Dynamics CRM Online portalı üzerinden oturu
    CRM'den gelen tetikleyici bizimle sağlar **CRM PatentId**, **kayıt türü**, **yeni veya güncelleştirilmiş kayıt** (yeni veya Boolean değeri güncelleştirin), ve  **SalesforceId**. **SalesforceId** için bir güncelleştirme yalnızca kullanıldığından null olabilir.
    Biz CRM kullanarak CRM kaydı alma **PatientID** ve **kayıt türü**.
 
-2. Ardından, bizim DocumentDB API uygulaması eklemek ihtiyacımız **InsertLogEntry** mantığı Uygulama Tasarımcısı'nda aşağıda gösterildiği gibi işlemi.
+2. Ardından, bizim Azure Cosmos DB SQL API uygulaması eklemek ihtiyacımız **InsertLogEntry** mantığı Uygulama Tasarımcısı'nda aşağıda gösterildiği gibi işlemi.
 
    **Günlük Girişi Ekle**
 
@@ -400,7 +400,7 @@ Yanıt aldıktan sonra yanıt üst mantıksal uygulama geçirebilirsiniz.
 
 ## <a name="cosmos-db-repository-and-portal"></a>Cosmos DB depo ve portal
 
-Çözümümüzdür eklenen özellikleriyle [Cosmos DB](https://azure.microsoft.com/services/documentdb).
+Çözümümüzdür eklenen özellikleriyle [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Hata Yönetim Portalı
 
@@ -430,14 +430,14 @@ Günlükleri görüntülemek için de bir MVC web uygulaması oluşturduk. Daha 
 
 Burada açıklandığı gibi açık kaynaklı Azure Logic Apps özel durum yönetimi API'si uygulamamıza işlevsellik sağlar - iki denetleyicisi vardır:
 
-* **ErrorController** bir DocumentDB koleksiyonu içinde bir hata kaydı (belge) ekler.
-* **LogController** bir DocumentDB koleksiyonu içinde bir günlük kaydı (belge) ekler.
+* **ErrorController** bir hata kaydı (belge) bir Azure Cosmos DB koleksiyonunda ekler.
+* **LogController** günlük kaydı (belge) bir Azure Cosmos DB koleksiyonunda ekler.
 
 > [!TIP]
-> Her iki denetleyicilerinin kullandığı `async Task<dynamic>` işlemleri, DocumentDB şema işlemi gövdesinde oluşturabilmesi için çalışma zamanında çözümlemek işlem yapılmasına olanak sağlar. 
+> Her iki denetleyicilerinin kullandığı `async Task<dynamic>` işlemleri, Azure Cosmos DB şeması işlemi gövdesinde oluşturabilmesi için çalışma zamanında çözümlemek işlem yapılmasına olanak sağlar. 
 > 
 
-Her DocumentDB belgede benzersiz bir kimliği olmalıdır Kullanıyoruz `PatientId` ve bir UNIX zaman damgası değerine (double) dönüştürülen bir zaman damgası ekleme. Kesir değerini kaldırmak için değer olacak şekilde kısaltın.
+Her Azure Cosmos DB belgede benzersiz bir kimliği olmalıdır Kullanıyoruz `PatientId` ve bir UNIX zaman damgası değerine (double) dönüştürülen bir zaman damgası ekleme. Kesir değerini kaldırmak için değer olacak şekilde kısaltın.
 
 Bizim hata denetleyicisinin API kaynak kodu görüntüleyebilirsiniz [github'dan](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -479,7 +479,7 @@ API mantığı uygulamadan aşağıdaki sözdizimini kullanarak diyoruz:
 ## <a name="summary"></a>Özet
 
 * Günlüğe kaydetme ve hata işleme bir mantıksal uygulama kolayca uygulayabilirsiniz.
-* DocumentDB günlük ve hata kayıtları (belgeler) deposu olarak kullanabilirsiniz.
+* Günlük ve hata kayıtları (belgeler) için Azure Cosmos DB deposu olarak kullanabilirsiniz.
 * MVC, günlük ve hata kayıtları görüntülemek için portalı oluşturmak için kullanabilirsiniz.
 
 ### <a name="source-code"></a>Kaynak kod

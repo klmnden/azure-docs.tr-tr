@@ -10,11 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+<<<<<<< HEAD
 ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
 ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
+=======
+ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -28,7 +34,7 @@ Sorular nakledebilirsiniz bir MSDN Forumu sunuyoruz. Ürün ekibi forum etkin ol
 ## <a name="gather-diagnostics-information"></a>Tanılama bilgileri toplayın
 Bazen yardımını isterken tanı bilgilerini sağlarsanız, yararlı olabilir. Günlük dosyalarının nerede Canlı aşağıda verilmiştir:
 
-### <a name="installer"></a>Yükleyici
+### <a name="installer-log"></a>Yükleyici günlüğü
 Yükleme sırasında sorunu yaşayıp çalıştırırsanız, yükleyici günlük dosyaları şunlardır:
 
 ```
@@ -40,18 +46,7 @@ Yükleme sırasında sorunu yaşayıp çalıştırırsanız, yükleyici günlük
 ```
 Bu dizinlerin içerikleri zip ve tanılama için bize gönderin.
 
-### <a name="app-update"></a>Uygulama güncelleştirme 
-#### <a name="no-update-notification-on-windows-desktop"></a>Windows masaüstünde herhangi bir güncelleştirme bildirimi 
-Bu sorunu gelecek bir güncelleştirmede ele alınacaktır. Bu arada, görev çubuğuna sabitlenmiş kısayol uygulamadan başlatılmasını önlemek için geçici bir çözüm değildir. Bunun yerine (varsa) Başlat menüsünden veya başlangıç arama çubuğu veya kısayol masaüstünüzde kullanarak uygulamayı başlatmak için. 
-
-#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Hiçbir güncelleştirme bildirimi bir Ubuntu veri Sciece sanal makine (DSVM) üzerinde
-En son uygulamayı indirmek için aşağıdaki adımları gerçekleştirin:   
-   - Klasör \Users\AppData\Local\amlworkbench Kaldır
-   - komut dosyasını kaldırma`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - Yukarıdaki komut dosyasını başlatır masaüstü kısayolu
-   - düzgün bir şekilde kullanarak yükleyin [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### <a name="workbench-desktop-app"></a>Çalışma ekranı masaüstü uygulaması
+### <a name="workbench-desktop-app-log"></a>Çalışma ekranı Masaüstü uygulama günlüğü
 Oturum açma konusunda sorun yaşıyorsanız veya çalışma ekranı Masaüstü çökerse, günlük dosyalarını burada bulabilirsiniz:
 ```
 # Windows
@@ -62,7 +57,7 @@ Oturum açma konusunda sorun yaşıyorsanız veya çalışma ekranı Masaüstü 
 ``` 
 Bu dizinlerin içerikleri zip ve tanılama için bize gönderin.
 
-### <a name="experiment-execution"></a>Deneme yürütme
+### <a name="experiment-execution-log"></a>Deneme yürütme günlüğü
 Masaüstü uygulaması gönderim sırasında belirli bir komut başarısız olursa, CLI kullanarak yeniden göndermeyi deneyin `az ml experiment submit` komutu. Bu, tam hata iletisi JSON biçiminde vermeniz gerekir ve en önemlisi içeren bir **işlem kimliği** değeri. JSON dosyası dahil bize gönderin **işlem kimliği** ve tanılamanıza yardımcı olabiliriz. 
 
 Belirli bir komut dosyası gönderisine başarılı ancak yürütme başarısız olursa, yazdırabilirsiniz **Çalıştır kimliği** belirli çalıştıran tanımlamak için. Aşağıdaki komutu kullanarak ilgili günlük dosyaları paketleyebilir:
@@ -96,6 +91,8 @@ Azure ML çalışma ekranı içinde çalışırken, ayrıca bize bir kaş çatma
 
 - RevoScalePy kitaplığı yalnızca Windows ve Linux (Docker kapsayıcılardaki) desteklenir. MacOS üzerinde desteklenmiyor.
 
+- Jupyter not defterleri çalışma ekranı uygulamadan açmadan 5 MB maksimum boyut sınırı vardır. 'Az ml Not start' komutunu kullanarak CLI büyük not defterlerini açabilir ve dosya boyutunu azaltmak için temiz hücre çıkarır.
+
 ## <a name="cant-update-workbench"></a>Çalışma ekranı güncelleştirilemiyor
 Yeni bir güncelleştirme kullanılabilir olduğunda, çalışma ekranı uygulama giriş sayfası yeni güncelleştirme hakkında bildiren bir ileti görüntüler. Sol alt köşesindeki uygulama zil simgesine görünen bir güncelleştirme rozet görmeniz gerekir. Gösterge üzerinde tıklatın ve güncelleştirmeyi yüklemek için yükleyici Sihirbazı izleyin. 
 
@@ -113,7 +110,7 @@ Ne yazık ki bu bir kolay düzeltme yoktur. Yüklü BITS kaldırın ve çalışm
    - Yukarıdaki komut dosyasını başlatır masaüstü kısayolu
    - Yükleyici https://aka.ms/azureml-wb-msi indirin ve yükleyin.
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Oturum açtıktan sonra "deneme hesabı denetim" ekranında takılı
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Oturum açtıktan sonra "deneme hesabı denetim" ekranında takılmış
 Oturum açtıktan sonra çalışma ekranı uygulama boş bir ekranda dönen Tekerlek "denetleme deneme hesabı" gösteren bir iletiyle takılı. Bu sorunu çözmek için aşağıdaki adımları uygulayın:
 1. Uygulama kapatma
 2. Aşağıdaki dosya sil:
@@ -147,6 +144,13 @@ Windows 10 sonbaharda oluşturucuları güncelleştirme varsa ve projenizin OneD
 
 ## <a name="file-name-too-long-on-windows"></a>Windows dosya adı çok uzun
 Windows çalışma ekranı kullanıyorsanız, "Sistem belirtilen yol bulunamıyor" hata olarak yüzey varsayılan en fazla 260 karakter dosya adı uzunluğu sınırı içinde çalıştırabilirsiniz. Çok uzun dosya yolu adı izin vermek için bir kayıt defteri anahtarı ayarı değiştirebilirsiniz. Gözden geçirme [bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) nasıl ayarlanacağı hakkında daha fazla ayrıntı için _MAX_PATH_ kayıt defteri anahtarı.
+
+## <a name="interrupt-cli-execution-output"></a>CLI yürütme çıktısını kesme
+Kullanarak çalışan bir deneme kazandırın varsa `az ml experiment submit` veya `az ml notebook start` ve çıktı kesmek istiyor musunuz: 
+- Windows üzerinde klavyeden Ctrl-Break tuş bileşimini kullanın
+- Ctrl + c macOS üzerinde kullanın
+
+Bu yalnızca CLI penceresinde çıkış akışı keser unutmayın. Yürütülmekte olan bir işi aslında durdurmaz. Devam eden işi iptal etmek istiyorsanız, kullanmak `az ml experiment cancel -r <run_id> -t <target name>` komutu.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker hata "okuma: bağlantı reddedildi"
 Bazen yerel bir Docker kapsayıcısı karşı çalıştırırken şu hatayı görebilirsiniz: 
@@ -198,9 +202,20 @@ Bir hızlı düzeltme artık kullanmadığınız tüm Docker görüntüleri kald
 $ docker system prune -a
 ```
 
-Ayrıca, bir veri diski ekleyin ve görüntüleri saklamak için veri diski kullanmak için Docker altyapısına yapılandırın. Burada [bir veri diski ekleme](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). Daha sonra [Docker görüntüleri depoladığı değişiklik](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+Ayrıca, bir veri diski ekleyin ve görüntüleri saklamak için veri diski kullanmak için Docker altyapısına yapılandırın. Burada [bir veri diski ekleme](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Daha sonra [Docker görüntüleri depoladığı değişiklik](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Veya, işletim sistemi diski genişletebilirsiniz ve Docker altyapısı yapılandırması touch gerekmez. Burada [nasıl işletim sistemi diski genişletebilirsiniz](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Veya, işletim sistemi diski genişletebilirsiniz ve Docker altyapısı yapılandırması touch gerekmez. Burada [nasıl işletim sistemi diski genişletebilirsiniz](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## <a name="sharing-c-drive-on-windows"></a>Windows C sürücüsünde paylaşımı
 Windows yerel bir Docker kapsayıcısı içinde çalıştırıldığında, ayarı `sharedVolumes` için `true` içinde `docker.compute` altında dosya `aml_config` yürütme performansını iyileştirebilir. Ancak, bu C sürücüsünde paylaşmak gerektirir _Windows aracı için Docker_. C sürücüsünün paylaşmak mümkün değilse, aşağıdaki ipuçlarını deneyin:
@@ -213,6 +228,18 @@ Windows yerel bir Docker kapsayıcısı içinde çalıştırıldığında, ayar�
 * Etki alanı kimlik bilgilerini kullanarak C sürücüsü paylaşırken paylaşımı burada etki alanı denetleyicisini (örneğin, ev ağı, ortak wifi vb. için) ulaşılabilir değil ağlarda çalışmayı durdurabilir. Daha fazla bilgi için bkz: [bu post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
 Ayrıca maliyet, ayarlayarak küçük bir performans adresindeki paylaşma sorun kaçının `sharedVolumne` için `false` içinde `docker.compute` dosya.
+
+## <a name="wipe-clean-workbench-installation"></a>Temiz çalışma ekranı yükleme silme
+Genellikle bu yapmanız gerekmez. Ancak, yüklemenin tamamen temizlerler durumda adımlar şunlardır:
+
+- Windows:
+  - Öncelikle, kullandığınızdan emin olun _Program Ekle veya Kaldır_ uygulaması _Denetim Masası_ kaldırmak için _Azure Machine Learning çalışma ekranı_ uygulama girişi.  
+  - Ardından yükleyin ve aşağıdaki komut dosyalarından birini çalıştırın:
+    - [Windows komut satırı komut dosyası](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Windows PowerShell komut dosyası](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Çalıştırmanız gerekebilir `Set-ExecutionPolicy Unrestricted` komut dosyasını çalıştırmadan önce bir ayrıcalık yükseltilmiş PowerShell penceresinde.)
+- MacOS üzerinde:
+  - Yalnızca indirme ve çalıştırma [macOS bash Kabuk betiği](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
 
 ## <a name="some-useful-docker-commands"></a>Bazı yararlı Docker komutları
 

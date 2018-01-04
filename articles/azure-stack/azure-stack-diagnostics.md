@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure yığın tanılama araçları
 
@@ -29,11 +29,11 @@ Bizim tanılama araçları, kolay ve verimli günlüğü koleksiyonu mekanizmas�
  
 ## <a name="trace-collector"></a>Trace Toplayıcı
  
-Trace Toplayıcı varsayılan olarak etkindir ve Azure yığın bileşen hizmetlerinden tüm olay izleme için Windows (ETW) günlükleri toplamak için arka planda sürekli olarak çalışır. ETW günlükleri beş gün yaş sınırına sahip ortak bir yerel paylaşıma depolanır. Bu sınıra ulaşıldığında, yeni bir tane oluşturuldukça eski dosyalar silinir. Her dosya için varsayılan boyut üst sınırını 200 MB'tır. Boyutu denetimi düzenli aralıklarla meydana gelir (her iki dakikada) ve geçerli dosya > = 200 MB kaydedilir ve yeni bir dosya oluşturulur. Ayrıca bir 8GB sınırı yoktur olay oturumu oluşturulan toplam dosya boyutu. 
+Trace Toplayıcı varsayılan olarak etkindir ve Azure yığın bileşen hizmetlerinden tüm olay izleme için Windows (ETW) günlükleri toplamak için arka planda sürekli olarak çalışır. ETW günlükleri beş gün yaş sınırına sahip ortak bir yerel paylaşıma depolanır. Bu sınıra ulaşıldığında, yeni bir tane oluşturuldukça eski dosyalar silinir. Her dosya için varsayılan boyut üst sınırını 200 MB'tır. Bir boyut denetimi 2 dakikada bir gerçekleşir ve geçerli dosya > = 200 MB kaydedilir ve yeni bir dosya oluşturulur. Ayrıca bir 8 GB sınırı yoktur olay oturumu oluşturulan toplam dosya boyutu. 
 
 ## <a name="log-collection-tool"></a>Günlük koleksiyonu aracı
  
-PowerShell cmdlet **Get-AzureStackLog** Azure yığın ortamında tüm bileşenleri günlükleri toplamak için kullanılabilir. Bu kullanıcı tanımlı bir konumda ZIP dosyaları kaydeder. Teknik Destek ekibimiz sorunu gidermenize yardımcı olması için günlüklerinizi gerekiyorsa, bunlar, bu aracı çalıştırmanızı isteyebilir.
+PowerShell cmdlet **Get-AzureStackLog** Azure yığın ortamında tüm bileşenleri günlükleri toplamak için kullanılabilir. Bu kullanıcı tanımlı bir konumda ZIP dosyaları kaydeder. Azure yığın teknik destek ekibinin sorunu gidermenize yardımcı olması için günlüklerinizi gerekiyorsa, bunlar, bu aracı çalıştırmanızı isteyebilir.
 
 > [!CAUTION]
 > Bu günlük dosyaları, kişisel bilgileri (PII) içerebilir. Genel olarak tüm günlük dosyalarını sonrası önce bu dikkate alın.
@@ -136,11 +136,11 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Bir grafik kullanıcı arabirimini kullanarak günlüklerini toplayın
-Azure yığın günlükleri almak Get-AzureStackLog cmdlet'i için gerekli parametreleri sağlayarak yerine, ana Azure yığın araçları GitHub deposunu http://aka.ms/AzureStackTools konumunda bulunan kullanılabilir açık kaynak Azure yığın araçları da kullanabilirsiniz.
+Azure yığın günlükleri almak Get-AzureStackLog cmdlet'i için gerekli parametreleri sağlayarak yerine, ana Azure yığın araçları GitHub araçları deposunu http://aka.ms/AzureStackTools konumunda bulunan kullanılabilir açık kaynak Azure yığın araçları da kullanabilirsiniz.
 
-**ERCS_AzureStackLogs.ps1** PowerShell Betiği GitHub araçları deposunda depolanır ve düzenli olarak güncelleştirilir. Yönetici bir PowerShell oturumundan başlatıldı, komut dosyası ayrıcalıklı uç noktasına bağlanır ve Get-AzureStackLog sağlanan parametrelerle çalıştırır. Hiçbir parametre kullanılmazsa, komut dosyasını bir grafik kullanıcı arabirimi aracılığıyla parametreler için sormadan için varsayılan olarak alır.
+**ERCS_AzureStackLogs.ps1** PowerShell Betiği GitHub araçları deposunda depolanır ve düzenli olarak güncelleştirilir. Kullanılabilir en son sürümüne sahip olduğunuzdan emin olmak için doğrudan http://aka.ms/ERCS indirmelisiniz. Yönetici bir PowerShell oturumundan başlatıldı, komut dosyası ayrıcalıklı uç noktasına bağlanır ve Get-AzureStackLog sağlanan parametrelerle çalıştırır. Hiçbir parametre kullanılmazsa, komut dosyasını bir grafik kullanıcı arabirimi aracılığıyla parametreler için sormadan için varsayılan olarak ayarlanır.
 
-ERCS_AzureStackLogs.ps1 PowerShell hakkında daha fazla komut bilgi edinmek için izleyebilirsiniz [kısa bir video](https://www.youtube.com/watch?v=Utt7pLsXEBc) veya betiğin görüntüleyin [Benioku dosyasını](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure yığın araçları GitHub deposunda bulunan. 
+ERCS_AzureStackLogs.ps1 PowerShell komut dosyası hakkında daha fazla bilgi için izleyebilir [kısa bir video](https://www.youtube.com/watch?v=Utt7pLsXEBc) veya betiğin görüntüleyin [Benioku dosyasını](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure yığın araçları GitHub deposunda bulunan. 
 
 ### <a name="additional-considerations"></a>Diğer konular
 

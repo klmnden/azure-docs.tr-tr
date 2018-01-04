@@ -43,6 +43,8 @@
       href: kubernetes-draft.md
     - name: Azure Dosyaları ile verileri kalıcı hale getirme
       href: azure-files.md
+    - name: OSBA kullanarak Azure ile tümleştirme
+      href: integrate-azure.md
     - name: Kubernetes panosunu kullanma
       href: kubernetes-dashboard.md
     - name: Hizmet sorumlusu oluşturma

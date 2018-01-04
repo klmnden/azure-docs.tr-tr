@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Günlük analizi Performans İzleyicisi çözümde ağ
 
@@ -46,7 +46,7 @@ Bir iş hattı uygulaması izlemek istiyorsanız, diğer ağ araçları Yardımc
 İzleme Araçları diğer ağ zaten yatırım, çoğu geleneksel ağ izleme çözümleri uçtan uca ağ performans ölçümleri kaybı ve gecikme gibi Öngörüler sağlamadığı için Ayrıca, ardından çözümü bu araçlara tamamlayabilir.  Ağ Performansı İzleyicisi çözümü bu boşluğu doldurmak yardımcı olabilir.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>Çözüm için aracıları yükleme ve yapılandırma
-Temel işlemleri sırasında aracıları yüklemek için kullanmak [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agents.md) ve [Operations Manager'a günlük analizi](log-analytics-om-agents.md).
+Temel işlemleri sırasında aracıları yüklemek için kullanmak [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md) ve [Operations Manager'a günlük analizi](log-analytics-om-agents.md).
 
 > [!NOTE]
 > Bul ve ağ kaynaklarınıza izlemek için yeterli veri olması için en az 2 aracıları yüklemeniz gerekir. Aksi durumda, ek aracıları yükleyip kadar Çözüm yapılandırılırken bir durumda kalır.

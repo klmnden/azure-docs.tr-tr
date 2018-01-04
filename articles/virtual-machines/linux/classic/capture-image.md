@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f140ff3841259251ddaf39124db2756084b26a53
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e9296241b2128c9abe762f595161895948c8f70c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Klasik bir Linux sanal makinesini görüntü olarak yakalama
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Bu adımlarda, Klasik dağıtım modeli kullanarak bir Azure VM oluşturulur ve 
    > [!NOTE]
    > Geri kalan adımları zaten sahip varsayın [Azure CLI yüklenmiş](../../../cli-install-nodejs.md) istemci bilgisayarınızda. Aşağıdaki adımların tümünü de yapılabilir [Azure portal](http://portal.azure.com).
 
-5. İstemci bilgisayarından, Azure CLI ve Azure aboneliğinizde oturum açın. Ayrıntılar için [Azure clı'dan Azure aboneliğine Bağlan](../../../xplat-cli-connect.md).
+5. İstemci bilgisayarından, Azure CLI ve Azure aboneliğinizde oturum açın. Ayrıntılar için [Azure clı'dan Azure aboneliğine Bağlan](/cli/azure/authenticate-azure-cli).
 
    > [!NOTE]
    > Azure portalında portalında oturum açın.

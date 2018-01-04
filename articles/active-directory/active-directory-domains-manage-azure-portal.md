@@ -4,7 +4,7 @@ description: "Yönetim Kavramları ve Azure Active Directory'de bir etki alanı 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory'de özel etki alanı adlarını yönetme
 Bir etki alanı adı tanımlayıcının birçok dizin kaynaklar için önemli bir parçasıdır: kullanıcı, bir grup adresi parçası için bir kullanıcı adı veya e-posta adresi bir parçasıdır ve bir uygulama için uygulama kimliği URI'SİNİN parçası olabilir. Azure Active Directory'de (Azure AD) bir kaynak, kaynak içeren dizine ait olarak zaten doğrulanmış bir etki alanı adı ekleyebilirsiniz. Yalnızca genel yönetici Azure AD etki alanı yönetimi görevlerini gerçekleştirebilir.
@@ -66,5 +66,5 @@ Azure Active Directory etki alanı adları için yönetim görevlerinin çoğunu
 * [Azure AD içinde etki alanı adlarını yönetmek için grafik API'si kullanma](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Özel etki alanı adlarını Ekle](add-custom-domain.md)
+* [Özel etki alanı adı ekleme](add-custom-domain.md)
 

@@ -148,7 +148,7 @@ Bu bölümde, yeni bir denetleyicisi bildirim hub'ları için istemci kitaplığ
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Değiştir `Notifications` sınıf tanımını aşağıdaki kodla ve iki yer tutucuları adlı bağlantı dizesi (tam erişimi) için bildirim hub'ınızı ve hub adı ile değiştirin (adresinde [Klasik Azure portalı](http://manage.windowsazure.com)):
+6. Değiştir `Notifications` sınıf tanımını aşağıdaki kodla ve iki yer tutucuları adlı bağlantı dizesi (tam erişimi) için bildirim hub'ınızı ve hub adı ile değiştirin (adresinde [Azure portal](http://portal.azure.com)):
    
         public class Notifications
         {

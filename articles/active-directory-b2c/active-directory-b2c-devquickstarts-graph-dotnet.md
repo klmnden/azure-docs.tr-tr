@@ -4,7 +4,7 @@ description: "İşlemini otomatikleştirmek için bir uygulama kimliği kullanar
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
@@ -14,11 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
+<<<<<<< HEAD
 ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
+=======
+ms.openlocfilehash: d7d809570012b292877813c7350e55edf509183b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API kullanın
 
@@ -71,7 +77,7 @@ Artık oluşturmak, okumak ve B2C kiracınızın kullanıcılardan güncelleşti
 ## <a name="configure-delete-permissions-for-your-application"></a>Uygulamanız için silme izinleri yapılandırma
 Şu anda *dizin verilerini okuma ve yazma* izin vermez **değil** kullanıcıları silme gibi tüm silme işlemleri yapmak için özelliğini içerir. Uygulamanız kullanıcıların silme olanağı vermek istiyorsanız, PowerShell ile ilgili aşağıdaki ek adımları yapmanız gerekir, aksi halde, sonraki bölüme atlayabilirsiniz.
 
-İlk olarak, zaten yüklü yoksa, yükleme [Azure AD PowerShell v1 Modülü (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
+İlk olarak, zaten yüklü yoksa, yükleme [Azure AD PowerShell v1 Modülü (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
 ```powershell
 Install-Module MSOnline

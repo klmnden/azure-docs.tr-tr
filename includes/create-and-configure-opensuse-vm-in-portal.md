@@ -1,9 +1,7 @@
-1. [Klasik Azure portalında](http://manage.windowsazure.com) oturum açın.  
-2. Pencerenin altındaki komut çubuğunda **yeni**.
-3. Altında **işlem**, tıklatın **sanal makine**ve ardından **Galeri'den**.
+1. [Azure Portal](http://portal.azure.com) oturum açın.  
+2. Tıklatın **yeni** > **işlem** > **bkz tüm** ve ardından **SUSE**.
    
-    ![Yeni bir sanal makine oluşturma][Image1]
-4. Altında **SUSE** grup, bir OpenSUSE sanal makine görüntüsü seçin ve ardından devam etmek için oka tıklayın.
+3. Bir OpenSUSE sanal makine görüntüsü seçin ve ardından devam etmek için oka tıklayın.
 5. İlk **sanal makine yapılandırması** sayfa:
    
    * Tür a **sanal makine adı**, "testlinuxvm" gibi. Adı gerekir 3 ile 15 karakter arasında içeren, yalnızca harf, rakam ve tire içerebilir ve gerekir bir harfle başlamalı ve harf veya sayı ile bitmelidir.
@@ -49,7 +47,5 @@ SSH veya PuTTY bağlanması bilgisayardaki işletim sistemine bağlı olarak san
 3. Yükleme tamamlandıktan sonra seçin **son**.  Sisteminizi güncel sunulmuştur.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
-
-[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

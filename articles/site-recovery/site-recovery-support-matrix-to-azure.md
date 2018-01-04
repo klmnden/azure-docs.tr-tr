@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Şirket içinden Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -33,9 +33,9 @@ Bu makalede, çoğaltma ve kurtarma için Azure, Azure Site Recovery için deste
 
 **Dağıtım** | **VMware/fiziksel sunucu** | **Hyper-V (ile arama/olmadan Sanal Makine Yöneticisi)** |
 --- | --- | ---
-**Azure portal** | VMware Vm'leri Azure storage, Azure Resource Manager veya Klasik depolama ve ağ ile şirket içi.<br/><br/> Resource Manager tabanlı ya da Klasik VM'ler için yük devretme. | Hyper-V sanal makineleri Azure storage, Resource Manager veya Klasik depolama ve ağ ile şirket içi.<br/><br/> Resource Manager tabanlı ya da Klasik VM'ler için yük devretme.
+**Azure portalı** | VMware Vm'leri Azure storage, Azure Resource Manager veya Klasik depolama ve ağ ile şirket içi.<br/><br/> Resource Manager tabanlı ya da Klasik VM'ler için yük devretme. | Hyper-V sanal makineleri Azure storage, Resource Manager veya Klasik depolama ve ağ ile şirket içi.<br/><br/> Resource Manager tabanlı ya da Klasik VM'ler için yük devretme.
 **Klasik portal** | Yalnızca Bakım modunda. Yeni kasa oluşturulamıyor. | Yalnızca Bakım modunda.
-**PowerShell** | Şu anda desteklenmiyor. | Destekleniyor
+**PowerShell** | Desteklenen | Desteklenen
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Veri Merkezi Yönetimi sunucuları desteği
@@ -194,6 +194,7 @@ Rest(SSE) şifreleme| Evet | Evet
 Premium depolama | Evet | Evet
 İçeri/dışarı aktarma hizmeti | Hayır | Hayır
 Sanal ağ hizmeti hedef depolama alanında yapılandırılmış uç noktaları (Azure Storage güvenlik duvarları ve sanal ağlar) hesap veya depolama hesabı çoğaltma verilerini depolamak için kullanılan önbellek | Hayır | Hayır
+Genel amaçlı V2 depolama hesapları (her ikisini de sık erişimli ve seyrek katman) | Hayır | Hayır
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Azure işlem yapılandırma desteği

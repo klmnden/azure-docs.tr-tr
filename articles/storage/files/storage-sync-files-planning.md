@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -46,19 +46,21 @@ Azure dosya eşitleme Aracısı'nı Windows Server'ın bir Azure dosya paylaşı
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Sunucusu uç noktası
-Bir sunucu uç sunucusu birimi veya birim kök klasörü gibi bir kayıtlı sunucu üzerinde belirli bir konuma temsil eder. Kendi ad alanları (örneğin, F:\sync1 ve F:\sync2) çakışmazsa birden çok sunucu bitiş noktaları aynı birimde bulunabilir. Bulut katmanlama ilkeleri her sunucusu uç noktası için ayrı ayrı yapılandırabilirsiniz. Var olan bir dosya sunucusu uç noktası bir eşitleme grubuna sahip bir sunucu konumu eklerseniz, bu dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.
+Sunucusu uç noktası kayıtlı bir sunucuda, bir sunucu birimdeki bir klasörü gibi belirli bir konuma temsil eder. Kendi ad alanları çakışmıyorsa birden çok sunucu bitiş noktaları aynı birimde bulunabilir (örneğin, `F:\sync1` ve `F:\sync2`). Bulut katmanlama ilkeleri her sunucusu uç noktası için ayrı ayrı yapılandırabilirsiniz. Şu anda bir birim kök sunucusu uç noktası oluşturmak mümkün değildir (örneğin `F:\` veya `C:\myvolume`, bir birimin bir bağlama noktası olarak bağlı değilse).
 
 > [!Note]  
 > Sunucusu uç noktası Windows Sistem biriminde bulunabilir. Bulut katmanlandırma sistem biriminde desteklenmiyor.
+
+Var olan bir dosya sunucusu uç noktası bir eşitleme grubuna sahip bir sunucu konumu eklerseniz, bu dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.
 
 ### <a name="cloud-endpoint"></a>Bulut uç noktası
 Bulut uç noktasına bir eşitleme grubunun parçası olan bir Azure dosya paylaşımıdır. Tüm Azure dosya paylaşımı eşitlemeler ve Azure dosya paylaşımının yalnızca bir bulut uç noktası üyesi olabilir. Bu nedenle, Azure dosya paylaşımının yalnızca bir eşitleme grubunun bir üyesi olabilir. Dosyaları var olan bir bulut uç noktasına bir eşitleme grubuna sahip bir Azure dosya paylaşımı eklerseniz, var olan dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.
 
 > [!Important]  
-> Azure dosya eşitleme değişiklikleri Azure dosya paylaşımına doğrudan destekler. Ancak, Azure dosya paylaşımında yapılan değişiklikler ilk Azure dosya eşitleme değişiklik algılama işi tarafından bulunması gerekir. Bir değişiklik algılama işi yalnızca bir kez her 24 saatte bir bulut uç noktası için başlatılır. Daha fazla bilgi için bkz: [Azure sık sorulan sorular dosyaları](storage-files-faq.md#afs-change-detection).
+> Azure dosya eşitleme değişiklikleri Azure dosya paylaşımına doğrudan destekler. Ancak, Azure dosya paylaşımında yapılan değişiklikler ilk Azure dosya eşitleme değişiklik algılama işi tarafından bulunması gerekir. Bir değişiklik algılama işi yalnızca bir kez her 24 saatte bir bulut uç noktası için başlatılır. Ayrıca, bir Azure dosya paylaşımına REST protokolü üzerinden yapılan değişiklikler son değişiklik zamanını SMB güncelleştirilmez ve değişiklik olarak eşitlemeden görünmez. Daha fazla bilgi için bkz: [Azure sık sorulan sorular dosyaları](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Bulut katmanlaması 
-Bulut katmanlama Azure dosya içinde sık kullanılan veya erişilen dosyalar katmanlı Azure dosyaları eşitleme isteğe bağlı bir özellik değil. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası Azure dosyaları dosyaya bir URL temsil eder. Bir katmanlı dosyası üçüncü taraf uygulamalar katmanlı dosyaları tanımlayabilmeniz NTFS "Çevrimdışı" özniteliği vardır. Bir kullanıcı bir katmanlı dosya açıldığında, Azure dosya eşitleme sorunsuz bir şekilde Azure dosyaları dosya verilerinden kullanıcının dosya sisteminde yerel olarak depolanmaz bilmenize gerek olmadan geri çeker. Bu işlev hiyerarşik Depolama Yönetimi (HSM) de denir.
+Bulut katmanlandırma isteğe bağlı özellik Azure dosya eşitleme, sık kullanılan ya da dosya boyutu 64 KiB Azure dosyaları katmanlı büyük erişilebilir. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası Azure dosyaları dosyaya bir URL temsil eder. Bir katmanlı dosyası üçüncü taraf uygulamalar katmanlı dosyaları tanımlayabilmeniz NTFS "Çevrimdışı" özniteliği vardır. Bir kullanıcı bir katmanlı dosya açıldığında, Azure dosya eşitleme sorunsuz bir şekilde Azure dosyaları dosya verilerinden kullanıcının dosya sisteminde yerel olarak depolanmaz bilmenize gerek olmadan geri çeker. Bu işlev hiyerarşik Depolama Yönetimi (HSM) de denir.
 
 > [!Important]  
 > Bulut katmanlandırma desteklenmiyor Windows sistemi birimlerinde sunucu uç noktalar için.
@@ -156,6 +158,7 @@ Azure dosya eşitleme yalnızca önizleme aşağıdaki bölgelerde kullanılabil
 
 | Bölge | Veri merkezinin konumu |
 |--------|---------------------|
+| Doğu ABD | Virginia, ABD |
 | Batı ABD | California, ABD |
 | Batı Avrupa | Hollanda |
 | Güneydoğu Asya | Singapur |

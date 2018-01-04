@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 11/01/2017
 ms.author: nitinme
 ms.openlocfilehash: dc46e3987f3710bc73ef13a2c195b68f78bd104d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Data Lake Store (olarak ek depolama alanı) ile bir Hdınsight kümesi oluşturmak için Azure PowerShell'i kullanma
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Data Lake Store ile çalışmaya Hdınsight yapılandırma PowerShell kullanarak
 * Data Lake Store için kimlik doğrulaması ile Hdınsight kümesi oluşturma
 * Küme üzerinde bir test çalıştırın
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).

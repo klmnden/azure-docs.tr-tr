@@ -135,6 +135,8 @@
       items:
         - name: Sürekli dağıtım
           href: functions-continuous-deployment.md
+        - name: Zip iletme dağıtımı
+          href: deployment-zip-push.md
         - name: Kaynak dağıtımını otomatikleştirme
           href: functions-infrastructure-as-code.md
         - name: Şirket içi işlevler

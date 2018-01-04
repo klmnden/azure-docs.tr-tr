@@ -17,7 +17,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee3b53f9e68a739a39478045debbb45dff9d7ed9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
 ---
@@ -99,7 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
-Azure web uygulaması URL'si için bir tarayıcıda gidin: `http://<app_name>.azurewebsites.net`.
+Bir tarayıcıda Azure web uygulaması URL'sine gidin: `http://<app_name>.azurewebsites.net`.
 
 Sayfa bir Azure App Service web uygulaması çalıştırıyor.
 
@@ -111,7 +111,7 @@ Sayfa bir Azure App Service web uygulaması çalıştırıyor.
 
 *index.html* dosyasını bir metin düzenleyicide açın ve işaretlemede değişiklik yapın. Örneğin, "Azure App Service - Örnek Statik HTML Sitesi" H1 başlığını yalnızca "Azure App Service" olarak değiştirin.
 
-Yerel terminal penceresi Git yaptığınız değişiklikleri kaydetmek ve kod değişiklikleri Azure'a gönderin.
+Yerel terminal penceresinde, değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
 
 ```bash
 git commit -am "updated HTML"

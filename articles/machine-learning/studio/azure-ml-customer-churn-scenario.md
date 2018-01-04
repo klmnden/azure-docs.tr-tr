@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Azure Machine Learning ile Müşteri Değişim Sıklığını Çözümleme
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, Azure Machine Learning kullanılarak oluşturulmuş bir müşteri karmaşası analiz proje başvurusu uyarlamasını gösterir. Bu makalede, bütünsel endüstriyel müşteri karmaşası sorunu çözmek için ilişkili genel modelleri tartışın. Biz de Machine Learning kullanılarak oluşturulan modelleri doğruluğunu ölçmek ve size daha fazla geliştirme için yol tarifi değerlendirin.  
+Bu makalede, Azure Machine Learning kullanılarak oluşturulmuş bir müşteri karmaşası analiz proje başvurusu uyarlamasını gösterir. Bu makalede, bütünsel endüstriyel müşteri karmaşası sorunu çözmek için ilişkili genel modelleri tartışın. Biz de Machine Learning kullanılarak oluşturulan modelleri doğruluğunu ölçmek ve daha fazla geliştirme için yol tarifi değerlendirin.  
 
 ### <a name="acknowledgements"></a>Katkıda Bulunanlar
 Bu deneme geliştirilmiş ve Serge Berger, asıl veri Bilimcisi Microsoft'ta ve Roger Barga, önceden Microsoft Azure Machine Learning için ürün Yöneticisi test. Azure belgelerine takım minnettar uzmanlara kabul ettikten ve bu teknik incelemede paylaşmak için teşekkürler.
@@ -37,14 +37,14 @@ Bu deneme geliştirilmiş ve Serge Berger, asıl veri Bilimcisi Microsoft'ta ve 
 ## <a name="the-problem-of-customer-churn"></a>Müşteri karmaşası sorunu
 İşletmeler tüketici Pazar ve tüm kurumsal kesimler karmaşası ile gerekir. Bazen karmaşası aşırı ve ilke kararlarını etkiler. Geleneksel yüksek propensity churners tahmin etmek ve gereksinimlerine, pazarlama kampanyalarının bir danışman hizmeti aracılığıyla veya özel dispensations uygulayarak adres için çözümüdür. Bu yaklaşım, endüstri endüstri ve hatta belirli tüketici küme bir endüstri (örneğin, telekomünikasyon) içinde başka bir farklılık gösterebilir.
 
-İşletmeler bu özel müşteri bekletme çalışmalarını en aza indirmek gereken ortak faktördür. Bu nedenle, bir doğal Metodoloji karmaşası olasılığını her müşteriyle Puanlama ve üst N olanları adresini olacaktır. En iyi müşteriler En Karlı olanları olabilir; Örneğin, daha karmaşık senaryolarda, kar işlevi özel dispensation için aday seçim sırasında kullanılmaz. Ancak, bu noktalar bütünsel stratejisi karmaşası ilgilenmek için yalnızca bir parçası değildir. İşletmeler ayrıca hesap risk (ve ilişkili risk toleransınıza), düzeyini ve maliyetini müdahalesi ve yatkýn müşteri kesimleme gitmesi.  
+İşletmeler bu özel müşteri bekletme çalışmalarını en aza indirmek gereken ortak faktördür. Bu nedenle, bir doğal Metodoloji karmaşası olasılığını her müşteriyle Puanlama ve üst N olanları adresini olacaktır. En iyi müşteriler En Karlı olanları olabilir. Örneğin, daha karmaşık senaryolarda, kar işlevi özel dispensation için aday seçim sırasında kullanılmaz. Ancak, bu noktalar karmaşası ilgilenmek için tam stratejisi yalnızca bir parçası değildir. İşletmeler ayrıca hesap risk (ve ilişkili risk toleransınıza), düzeyini ve maliyetini müdahalesi ve yatkýn müşteri kesimleme gitmesi.  
 
 ## <a name="industry-outlook-and-approaches"></a>Endüstri outlook ve yaklaşımlar
 Karmaşası Gelişmiş şekilde işlenmesi, olgun sektör işaretidir. Klasik telekomünikasyon endüstri burada aboneleri bir sağlayıcıdan sık geçiş bilinen bir örnektir. Bu gönüllü karmaşası prime bir konudur. Ayrıca, sağlayıcıları önemli bilgi hakkında toplanan *sürücüleri karmaşıklığı*, geçiş yapmak için müşteriler sürücü etken bulunmaktadır.
 
-Örneğin, ahize veya aygıt cep telefonu iş karmaşası, iyi bilinen bir sürücü seçimdir. Sonuç olarak, bir popüler yeni aboneler ve yükseltme için var olan müşteriler için tam bir fiyat şarj ahize fiyat subsidize için ilkesidir. Tarihsel olarak, bu ilkeyi kendi stratejileri iyileştirmek için sağlayıcıları sırayla istenir yeni bir indirim almak için başka bir sağlayıcıdan atlamalı müşterilere açmıştır.
+Örneğin, ahize veya aygıt cep telefonu iş karmaşası, iyi bilinen bir sürücü seçimdir. Sonuç olarak, bir popüler ahize fiyat yeni aboneler için subsidize ve yükseltme için var olan müşteriler için tam bir fiyat uyguladığınız ilkesidir. Tarihsel olarak, bu ilkeyi yeni indirim almak için başka bir sağlayıcıdan atlamalı müşterilere açmıştır. Bu, buna karşılık, kendi stratejileri iyileştirmek için sağlayıcıları istemde.
 
-Ahize teklifleri içinde yüksek volatilite karmaşası geçerli ahize modellerinde dayalı modelleri hızla geçersiz kılan bir faktördür. Ayrıca, cep telefonları yalnızca telekomünikasyon aygıtlar değildir; Bunlar ayrıca şekilde deyimleri (iPhone göz önünde bulundurun), ve bu sosyal predictors normal telekomünikasyon veri kümesi kapsamı dışındadır.
+Ahize teklifleri içinde yüksek volatilite karmaşası geçerli ahize modellerinde dayalı modelleri hızla geçersiz kılan bir faktördür. Ayrıca, cep telefonları yalnızca telekomünikasyon cihazlar olmayan, ayrıca şekilde deyimleri (iPhone göz önünde bulundurun) oldukları. Bu sosyal predictors normal telekomünikasyon veri kümesi kapsamı dışında ' dir.
 
 Net modelleme için bilinen nedenlerle karmaşıklığı ortadan kaldırarak bir ses İlkesi insanlara olamaz sonucudur. Aslında, (örneğin, karar ağaçları), kategorik değişkenleri ölçme Klasik modelleri de dahil olmak üzere bir sürekli modelleme, stratejidir **zorunlu**.
 
@@ -211,16 +211,6 @@ Bu konu gelecekte devam etmek özellikle büyük veri analizi için ilgili umuyo
 ## <a name="conclusion"></a>Sonuç
 Bu raporda bir genel çerçeve kullanarak müşteri karmaşası yaygın sorun tackling duyarlı bir yaklaşım açıklar. Biz modelleri Puanlama için prototip olarak kabul ve Azure Machine Learning kullanarak uygulanmadı. Son olarak, SAS karşılaştırılabilir algoritmalara açısından prototip çözüm performansını ve doğruluğunu uygunluk.  
 
-**Daha fazla bilgi için:**  
-
-Bu makale size yardımcı? Lütfen görüşlerinizi bize bildirin. 5 (mükemmel) 1 (kötü) bir ölçekte bize nasıl bu kağıt oranı ve neden Bu derecelendirme verdiğiniz? Örneğin:  
-
-* Bu iyi örnek, Temizle yazma, mükemmel ekran görüntüleri veya başka bir nedenle olması nedeniyle yüksek derecelendirme?
-* Bu zayıf örnekler, benzer ekran görüntüleri ya da belirsiz yazma nedeniyle düşük derecelendirme?  
-
-Bu geri bildirim teknik incelemeler biz yayın kalitesini iyileştirmemize yardımcı olur.   
-
-[Geri bildirim gönder](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Başvurular

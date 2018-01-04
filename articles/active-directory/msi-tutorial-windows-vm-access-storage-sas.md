@@ -4,7 +4,7 @@ description: "Azure depolama, depolama hesabının erişim anahtarı yerine SAS 
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: f43ec5bdbf32c3f7c4c1fb3a5aae8367bd050fc9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: fbe46b952b72d3379ba3eb0ff8c84b9d036752e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Azure Storage bir SAS kimlik bilgisi erişmek için bir Windows VM yönetilen hizmet kimliği kullanın
 
@@ -41,7 +41,7 @@ Hizmet SAS hesap erişim anahtarı sokmadan sınırlı bir süre için bir depol
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açmak için Azure portalında [https://portal.azure.com](https://portal.azure.com).
+[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
 

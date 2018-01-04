@@ -4,7 +4,7 @@ description: "Azure AD kiracısı bir uygulamanın kimlik yapılandırmada temsi
 services: active-directory
 documentationcenter: 
 author: sureshja
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -16,87 +16,53 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f3284d4cbb15f21522549c678410815b54344744
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="understanding-the-azure-active-directory-application-manifest"></a>Azure Active Directory Uygulama bildirimini anlama
-Azure Active Directory (AD ile) tümleştirme uygulamaları uygulaması için sürekli kimlik yapılandırma sağlayan bir Azure AD kiracısı ile kayıtlı olması gerekir. Bu yapılandırma, dış ve kimlik doğrulama/yetkilendirme Azure AD ile aracısı için bir uygulama izin senaryoları etkinleştirme zamanında alınmadığında. Azure AD uygulama modeli hakkında daha fazla bilgi için bkz: [ekleme, güncelleştirme ve uygulama kaldırma] [ ADD-UPD-RMV-APP] makalesi.
+# <a name="azure-active-directory-application-manifest"></a>Azure Active Directory Uygulama bildirimini
+Azure AD ile tümleştirmek uygulamaları Azure AD kiracısı ile kayıtlı olması gerekir. Bu uygulama, uygulama bildirimi (altında Azure AD dikey) kullanılarak yapılandırılabilir [Azure portal](https://portal.azure.com).
 
-## <a name="updating-an-applications-identity-configuration"></a>Bir uygulamanın kimlik yapılandırması güncelleştiriliyor
-Özellikleri ve derece zorluk, aşağıdakiler de dahil olmak üzere farklılık bir uygulamanın kimlik yapılandırma özelliklerini güncelleştirmek için kullanılabilir gerçekte birden çok seçenek vardır:
+## <a name="manifest-reference"></a>Bildirim başvurusu
 
-* **[Azure portal'ın] [ AZURE-PORTAL] Web kullanıcı arabirimi** , bir uygulamanın en yaygın özelliklerini güncelleştirmenizi sağlar. Bu, uygulamanızın özelliklerini güncelleştirme, hızlı ve en az bir hata potansiyeli yoludur, ancak sonraki iki yöntemleri gibi tüm özellikler için tam erişim sağlamaz.
-* Azure Klasik Portalı'nda gösterilmez özellikleri güncelleştirmek için gereken burada daha Gelişmiş senaryolar için değiştirebileceğiniz **uygulama bildirimi**. Bu makalede odak ve sonraki bölümde başlangıç daha ayrıntılı ele alınmıştır.
-* Ayrıca mümkün **kullanan bir uygulamayı yazma [grafik API'si] [ GRAPH-API]**  en çaba gerektirir uygulamanızı güncelleştirmek için. Yönetim yazılımı yazma veya uygulama özellikleri otomatik bir şekilde, düzenli olarak güncelleştirmek ihtiyacınız varsa bu rağmen çekici bir seçenek olabilir.
-
-## <a name="using-the-application-manifest-to-update-an-applications-identity-configuration"></a>Bir uygulamanın kimlik yapılandırmasını güncelleştirmek için uygulama bildirimi kullanma
-Aracılığıyla [Azure portal][AZURE-PORTAL], satır içi bildirim Düzenleyicisi'ni kullanarak uygulama bildirimi güncelleştirerek uygulamanızın kimlik yapılandırmasını yönetebilirsiniz. Ayrıca, indirin ve uygulama bildirimi bir JSON dosyası olarak karşıya yükleme. Gerçek bir dosya dizininde depolanır. Uygulama bildirimi yalnızca bir HTTP GET işlemi Azure AD Graph API uygulaması varlık ve yükleme uygulama varlığı üzerinde bir HTTP PATCH işlemi.
-
-Sonuç olarak, biçimini ve uygulama bildirimi özelliklerini anlamak için grafik API'si başvurusu gerekecektir [uygulama varlığı] [ APPLICATION-ENTITY] belgeleri. Uygulama bildirimi olsa karşıya yükleme gerçekleştirilebilir güncelleştirmeleri örnekleri şunlardır:
-
-* **İzin kapsamları (oauth2Permissions) bildirme** web API tarafından kullanıma sunulan. "Gösterme Web API'leri için diğer uygulamaları" konusuna bakın [Azure Active Directory Tümleştirme uygulamalarla] [ INTEGRATING-APPLICATIONS-AAD] oauth2Permissions kullanılarak kullanıcı kimliğine bürünme özelliğini uygulama hakkında bilgi için Temsilci izni kapsamı. Daha önce belirtildiği gibi uygulama varlık özellikleri grafik API'sini belgelenen [varlık ve karmaşık tür] [ APPLICATION-ENTITY] başvurusu makalesinde, bir koleksiyonu olan oauth2Permissions özelliği de dahil olmak üzere, tür [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION].
-* **Uygulama rolleri (appRoles) uygulamanız tarafından kullanıma sunulan bildirme**. Uygulama varlığın appRoles özellik türü bir koleksiyonudur [uygulama rolü][APPLICATION-ENTITY-APP-ROLE]. Bkz: [rol tabanlı erişim denetimi kullanarak Azure AD bulut uygulamalarında] [ RBAC-CLOUD-APPS-AZUREAD] makale uygulama örneği.
-* **Bilinen istemci uygulamaları (knownClientApplications) bildirme**, mantıksal olarak kaynak/web API'si için belirtilen istemci uygulamaları izin tie sağlar.
-* **Grup üyelikleri talebi vermek için Azure AD isteği** oturum açmış olan kullanıcının (groupMembershipClaims).  Bu ayrıca kullanıcı dizin rol üyeliklerini ilgili talepleri vermek üzere yapılandırılabilir. Bkz: [AD grupları kullanarak bulut uygulamalarında yetkilendirme] [ AAD-GROUPS-FOR-AUTHORIZATION] makale uygulama örneği.
-* **Uygulamanız OAuth 2.0 örtük grant desteklemek izin** akışlar (oauth2AllowImplicitFlow). Grant akış bu tür katıştırılmış JavaScript web sayfaları veya tek sayfa uygulamaları (SPA) ile kullanılır. Örtük yetkilendirme verme hakkında daha fazla bilgi için bkz: [örtük OAuth2 anlama izin akışı Azure Active Directory'de][IMPLICIT-GRANT].
-* **X509 kullanımını etkinleştirmek gizli anahtarı olarak sertifikaları** (keyCredentials). Bkz: [yapı hizmeti ve arka plan programı uygulamaları Office 365'te] [ O365-SERVICE-DAEMON-APPS] ve [Geliştirici Kılavuzu'na auth Azure Kaynak Yöneticisi API'si ile] [ DEV-GUIDE-TO-AUTH-WITH-ARM] makaleleri uygulama örnekleri için.
-* **Yeni bir uygulama kimliği URI'sini ekleyin** uygulamanızın (identifierURIs[]). Uygulama Kimliği URI, uygulamanın kendi Azure AD kiracısı içinde (veya özel etki alanını doğruladıysanız nitelikli hale geldiğinde çok kiracılı senaryoları için birden çok Azure AD kiracılarıyla) benzersiz şekilde tanımlamak için kullanılır. Bunlar, bir kaynak uygulaması veya bir kaynak uygulaması için bir erişim belirteci alma izni isterken kullanılır. Bu öğe güncelleştirdiğinizde, aynı güncelleştirme uygulamanın ev kiracısında yaşadığı karşılık gelen hizmet sorumlusunun servicePrincipalNames [] koleksiyonuna yapılır.
-
-Uygulama bildirimini Ayrıca uygulama kaydınızı durumunu izlemek için iyi bir yol sağlar. JSON biçiminde kullanılabilir olduğundan, dosya gösterimi, uygulamanızın kaynak kodunu yanı sıra, kaynak denetimine denetlenebilir.
-
-## <a name="step-by-step-example"></a>Adım adım örnek tarafından
-Şimdi, uygulamanızın kimlik yapılandırması uygulama bildirimi aracılığıyla güncelleştirmek için gereken adımlarda size yol sağlar. Biz önceki örneklerinden birini bir kaynak uygulamasının yeni bir izin kapsamı bildirmeyi gösteren vurgular:
-
-1. [Azure portalında][AZURE-PORTAL] oturum açın.
-2. Kimlik doğruladınız sonra sayfanın sağ üst köşesinden seçerek Azure AD kiracınıza seçin.
-3. Seçin **Azure Active Directory** 'ı tıklatın ve sol gezinti bölmesini uzantı **uygulama kayıtlar**.
-4. Tıklayın ve listede güncelleştirmek istediğiniz uygulamayı bulun.
-5. Uygulama sayfasından tıklatın **bildirim** satır içi bildirim Düzenleyicisi'ni açın. 
-6. Bu düzenleyiciyi kullanarak bildirim doğrudan düzenleyebilirsiniz. Bildirim için bir şemayı izlediğinden Not [uygulama varlığı] [ APPLICATION-ENTITY] yukarıda belirtildiği gibi: Örneğin, istediğimizi yeni bir izin uygulama/sunmaya varsayılarak "Employees.Read.All" adlı bizim Kaynak uygulama (API), yalnızca yeni/saniye öğesi oauth2Permissions koleksiyonuna IE eklediğiniz:
-   
-        "oauth2Permissions": [
-        {
-        "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
-        "adminConsentDisplayName": "Access MyWebApplication",
-        "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
-        "userConsentDisplayName": "Access MyWebApplication",
-        "value": "user_impersonation"
-        },
-        {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-        }
-        ],
-   
-    Giriş benzersiz olması gerekir ve bu nedenle yeni genel olarak benzersiz bir kimlik (GUID) için oluşturmalıdır `"id"` özelliği. Bu durumda, biz belirtilmediğinden `"type": "User"`, bu izin, kaynak/API uygulama kaydedilir Azure AD tarafından kimliği doğrulanmış herhangi bir hesabı tarafından Kiracı izin verdiği. Bu istemci verir uygulama hesabın adına erişim izni. Açıklama ve görünen ad dizeleri onay sırasında ve Azure portalında görüntülenmesi için kullanılır.
-6. Bildirim güncelleştirme bittiğinde, tıklatın **kaydetmek** bildirimi kaydetmek için.  
-   
-Bildirim kaydedilir, kayıtlı verebilirsiniz eklediğimiz yukarıda yeni izni istemci uygulama erişimi. Bu süre istemci uygulamanın bildirimi düzenlemek yerine Azure portal'ın Web kullanıcı arabirimini kullanarak şunları yapabilirsiniz:  
-
-1. İlk Git **ayarları** yeni API'sine erişim eklemek istediğiniz istemci uygulaması dikey tıklayın **gerekli izinler** ve **bir API seçin**.
-2. Daha sonra Kiracı (API) uygulamalarında kayıtlı kaynak listesiyle birlikte sunulur. Seçmek için kaynak uygulama'yı tıklatın veya Ara kutusuna uygulamanın adını yazın. Uygulama buldunuz tıklatın **seçin**.  
-3. Bu, olanak sürecek **Select izinleri** sayfasında uygulama izinleri ve kaynak uygulama için kullanılabilir izinlere temsilci listesini gösterir. İstemcinin istenen izinleri listesine eklemek için yeni bir izin seçin. Bu yeni izni "requiredResourceAccess" koleksiyon özelliği de istemci uygulamanın kimlik yapılandırmada depolanır.
-
-
-Bu kadar. Şimdi kendi yeni kimlik Yapılandırması'nı kullanarak uygulamalarınızı çalışır.
+>[!div class="mx-tdBreakAll"]
+>[!div class="mx-tdCol2BreakAll"]
+|Anahtar  |Değer türü |Örnek Değer  |Açıklama  |
+|---------|---------|---------|---------|
+|AppID     |  Kimlik dizesi       |""|  Bir uygulama için Azure AD tarafından atanan uygulama için benzersiz tanımlayıcı.|
+|appRoles     |    Dizi türü     |[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"Kullanıcı"<br>&emsp;],<br>&emsp;"Açıklama": "Okuma yalnızca erişimi için cihaz bilgileri",<br>&emsp;"displayName": "Salt okunur",<br>&emsp;"id": GUID<br>&emsp;"IsEnabled": true<br>&emsp;"value": "Salt okunur"<br>}]|Bir uygulama bildirebilir rolleri koleksiyonu. Bu roller, kullanıcıları, grupları veya hizmet asıl adı atanabilir.|
+|AvailableToOtherTenants|Boole değeri|true|Bu değer ayarlanırsa true, uygulama diğer kiracılar için kullanılabilir.  Uygulama false olarak ayarlanırsa yalnızca Kiracı için kullanılabilir ise olarak kaydedilir.  Daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory (AD) kullanıcı oturum nasıl](active-directory-devhowto-multi-tenant-overview.md). |
+|Görünen adı     |string         |MyRegisteredApp         |Uygulama görünen adı. |
+|errorURL     |string         |http:<i></i>//MyRegisteredAppError         |Bir uygulamada oluşan hatalar için URL. |
+|GroupMembershipClaims     |    string     |    1     |   Bir kullanıcı veya uygulama bekler OAuth 2.0 erişim belirteci verilen "grupları" talep yapılandırır bir bit maskesi. Bit maskesi değerler: 0: None, 1: güvenlik gruplarını ve Azure AD roller, 2: ayrılmış ve 4: ayrılmış. 7 bit maskesi ayarı tüm güvenlik gruplarını, dağıtım grupları ve oturum açmış kullanıcının üyesi olduğu Azure AD directory rolleri alır.      |
+|optionalClaims     |  string       |     null     |    İsteğe bağlı talepleri özel bu uygulama için güvenlik belirteci hizmeti tarafından belirteç döndürdü.     |
+|acceptMappedClaims    |      Boole değeri   | true        |    Bu değer verir, true olarak ayarlanırsa bir özel imzalama anahtarı belirtmeden eşlemesi kullanmak için bir uygulama talep.|
+|Giriş sayfası     |  string       |http:<i></i>//MyRegistererdApp         |    Uygulama giriş sayfası URL'si.     |
+|identifierUris     |  Dize dizisi       | http:<i></i>//MyRegistererdApp        |   Uygulama çok kiracılı ise, bir Web uygulaması özel doğrulanmış bir etki alanı veya kendi Azure AD kiracısı içinde benzersiz olarak tanımlayan kullanıcı tanımlı URI(s).      |
+|keyCredentials     |   Dizi türü      |   [{<br>&nbsp;"customKeyIdentifier": null<br>"endDate": "2018-09-13T00:00:00Z",<br>"Keyıd": "\<GUID >",<br>"startDate": "2017-09-12T00:00:00Z",<br>"type": "AsymmetricX509Cert"<br>"kullanım": "Doğrula"<br>"value": null<br>}]      |   Bu özellik atanan uygulama kimlik bilgileri, paylaşılan gizlilikler dize tabanlıdır ve X.509 sertifikalarını başvurular içerir.  Bu kimlik bilgileri oyuna erişim belirteçleri isterken gelir (zaman uygulama işlevi gören bir istemci olarak yerine, kaynak olarak).     |
+|knownClientApplications     |     Dizi türü    |    [GUID]     |     Bir istemci uygulaması ve özel bir web API uygulamasını olmak üzere iki bölümden içeren bir çözüm varsa, değer paket onay için kullanılır. İstemci uygulamasının AppID bu değer girerseniz, kullanıcı yalnızca bir kez istemci uygulamaya kabul sahip olur. Azure AD istemciye onaylıyorsunuz örtük olarak web API onaylıyorsunuz anlamına gelir ve hem istemci hem de web API'si için hizmet asıl adı (hem istemci hem de web API uygulamasını aynı kaydedilmelidir aynı zamanda otomatik olarak hazırlayacağınız olduğunu bilirsiniz. Kiracı).|
+|logoutUrl     |   string      |     http:<i></i>//MyRegisteredAppLogout    |   Uygulamanın oturum kapatma URL'si.      |
+|oauth2AllowImplicitFlow     |   Boole değeri      |  yanlış       |       Bu web uygulaması OAuth2.0 örtük akış belirteçleri isteyip isteyemeyeceklerini belirtir. Varsayılan değer false. Bu, Javascript tek sayfa uygulamaları gibi tarayıcı tabanlı uygulamalar için kullanılır. |
+|oauth2AllowUrlPathMatching     |   Boole değeri      |  yanlış       |   OAuth 2.0 belirteç isteklerini bir parçası olarak, Azure AD yolu uygulamanın replyUrls karşı yeniden yönlendirme URI'si eşleştirilmesini izin verip vermeyeceğini, belirtir. Varsayılan değer false.      |
+|oauth2Permissions     | Dizi türü         |      [{<br>"adminConsentDescription": "İzin kaynaklara erişmek için uygulamanın oturum açan kullanıcı adına.",<br>"adminConsentDisplayName": "Erişim resource1"<br>"id": "\<GUID >",<br>"IsEnabled": true<br>"type": "Kullanıcı"<br>"userConsentDescription": "İzin resource1 sizin adınıza erişmek uygulamanın.",<br>"userConsentDisplayName": "Erişim kaynaklar"<br>"value": "user_impersonation"<br>}]   |  İstemci uygulamaları için web API (kaynak) uygulama sunan OAuth 2.0 izin kapsamları koleksiyonu. Bu izin kapsamları istemci uygulamalar sırasında izin verilebilir. |
+|oauth2RequiredPostResponse     | Boole değeri        |    yanlış     |      OAuth 2.0 belirteç isteklerini bir parçası olarak, Azure AD GET istekleri aksine POST istekleri izin olup olmadığını belirtir. Yalnızca GET isteklerini verileceğini belirten varsayılan false değeridir.   
+|objectID     | Kimlik dizesi        |     ""    |    Dizinde uygulama için benzersiz tanımlayıcı.  Bu herhangi bir protokolü işlem uygulamada tanımlamak için kullanılan tanımlayıcı değildir.  Dizin sorguları nesnesinde başvurmak için kullanıcı değil.|
+|passwordCredentials     | Dizi türü        |   [{<br>"customKeyIdentifier": null<br>"endDate": "2018-10-19T17:59:59.6521653Z",<br>"Keyıd": "\<GUID >",<br>"startDate": "2016-10-19T17:59:59.6521653Z",<br>"value": null<br>}]      |    KeyCredentials özelliği açıklamasına bakın.     |
+|PublicClient     |  Boole değeri       |      yanlış   | Bir uygulamanın genel bir istemci (örneğin, bir mobil cihazda çalışan yüklü bir uygulama) olup olmadığını belirtir. Varsayılan false olur.        |
+|supportsConvergence     |  Boole değeri       |   yanlış      | Bu özelliği düzenlenmemelidir.  Varsayılan değerini kabul edin.        |
+|replyUrls     |  Dize dizisi       |   http:<i></i>//localhost     |  Bu çok değerli Özelliği Azure AD gibi hedefleri olarak kabul eder kayıtlı redirect_uri değerlerin listesini tutar zaman returining belirteçleri. |
+|RequiredResourceAccess     |     Dizi türü    |    [{<br>"resourceAppId": "00000002-0000-0000-c000-000000000000"<br>"resourceAccess": [{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id": "311a71cc-e848-46a1-bdf8-97ff7156d8e6"<br>&nbsp;&nbsp;&nbsp;&nbsp;"type": "Scope"<br>&nbsp;&nbsp;}]<br>}]     |   Bu uygulama için erişim ve OAuth izin kapsamları ve her kaynaklarla altında gereken uygulama rolleri kümesi gerektirir kaynaklarını belirtir. Bu ön yapılandırma gerekli kaynağa erişim onayı deneyimi sürücüleri.|
+|resourceAppId     |    Kimlik dizesi     |  ""      |   Uygulama erişim gerektiren kaynak için benzersiz tanımlayıcı. Bu değer, hedef kaynak uygulamanın bildirilen AppID eşit olmalıdır.     |
+|resourceAccess     |  Dizi türü       | Örnek değer requiredResourceAccess özelliği için bkz.        |   OAuth2.0 izin kapsamları ve uygulama (belirtilen kaynaklar kimliği ve türü değerleri içerir) belirtilen kaynak gerektiriyor uygulama rolleri listesi        |
+|samlMetadataUrl|string|http:<i></i>//MyRegisteredAppSAMLMetadata|Uygulama SAML meta verilerinin URL'si.| 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir uygulamanın uygulama ve hizmet sorumlusu nesneleri arasındaki ilişki hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneleri Azure AD'de][AAD-APP-OBJECTS].
 * Bkz: [Azure AD Geliştirici sözlüğü] [ AAD-DEVELOPER-GLOSSARY] bazı Azure Active Directory (AD) Geliştirici kavramları tanımları için.
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için lütfen aşağıdaki Açıklamalar bölümüne kullanın.
+Daraltın ve içeriği şekil yardımcı geri bildirim sağlamak için aşağıdaki açıklamaları bölümü kullanın.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md

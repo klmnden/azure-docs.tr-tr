@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazıları listelenmiştir. Bu belge şu anda tüm Azure hizmetlerini kapsamaz. Zamanla, liste genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -29,7 +29,7 @@ Lütfen şu adresi ziyaret [Azure fiyatlandırma genel bakış](https://azure.mi
 > [!NOTE]
 > Sınırı veya kotası yukarıdaki yükseltmek istiyorsanız **varsayılan sınır**, [ücretsiz bir çevrimiçi müşteri destek isteği açma](azure-supportability/resource-manager-core-quotas-request.md). Yukarıdaki sınırları yükseltilemez **sınırı** aşağıdaki tabloda gösterilen değeri. Varsa hiçbir **sınırına** sütun sonra kaynak ayarlanabilir sınırlar yok.
 >
-> Ücretsiz deneme abonelikleri için sınır uygun olmayan veya kota artırır. Ücretsiz deneme sürümü varsa, yükseltmeden bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) abonelik. Daha fazla bilgi için bkz: [yükseltme Azure ücretsiz deneme sürümü için Kullandıkça Öde](billing/billing-upgrade-azure-subscription.md).
+> [Deneme abonelikleri serbest](https://azure.microsoft.com/offers/ms-azr-0044p) sınırı veya kotası artışları için uygun değilsiniz. Varsa bir [ücretsiz deneme aboneliği](https://azure.microsoft.com/offers/ms-azr-0044p), Yükseltme yapabileceğiniz bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) abonelik. Daha fazla bilgi için bkz: [yükseltme Azure ücretsiz deneme sürümü için Kullandıkça Öde](billing/billing-upgrade-azure-subscription.md) ve [ücretsiz deneme aboneliği SSS](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Sınırları ve Azure Resource Manager
@@ -85,6 +85,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 * [Service Bus](#service-bus-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Veritabanı](#sql-database-limits)
+* [SQL Veri Ambarı](#sql-data-warehouse-limits)
 * [Depolama](#storage-limits)
 * [StorSimple sistemi](#storsimple-system-limits)
 * [Akış Analizi](#stream-analytics-limits)
@@ -308,6 +309,9 @@ Belge boyutu, sorguları ikinci, anahtarları, istekleri ve yanıtları, her gib
 
 ### <a name="sql-database-limits"></a>SQL veritabanı sınırları
 SQL veritabanı sınırları için bkz: [SQL veritabanı kaynak sınırları](sql-database/sql-database-resource-limits.md).
+
+### <a name="sql-data-warehouse-limits"></a>SQL veri ambarı sınırları
+SQL veri ambarı sınırları için bkz: [SQL veri ambarı kaynak sınırları](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 [Azure sınırları ve artar anlama](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)

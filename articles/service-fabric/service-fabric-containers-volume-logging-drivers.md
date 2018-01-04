@@ -14,11 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+<<<<<<< HEAD
 ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
 ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
+=======
+ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Docker birim eklentiler ve günlük sürücüleri, kapsayıcıdaki kullanın
 Azure Service Fabric destekleyen belirtme [Docker birim eklentileri](https://docs.docker.com/engine/extend/plugins_volume/) ve [Docker günlük sürücüleri](https://docs.docker.com/engine/admin/logging/overview/) kapsayıcı hizmetiniz için. Verilerinizi kalıcı [Azure dosyaları](https://azure.microsoft.com/services/storage/files/) zaman, kapsayıcı taşınmış veya farklı bir ana bilgisayarda yeniden.
@@ -28,7 +34,7 @@ Yalnızca birim sürücüleri Linux kapsayıcıları için şu anda desteklenir.
 
 ## <a name="install-the-docker-volumelogging-driver"></a>Docker birim/günlük sürücüsünü yükleyin
 
-Docker birim/günlük sürücü makinede yüklü değilse, onu el ile RDP/SSH protokolleri kullanarak yükleyebilirsiniz. Yükleme işlemine bu protokolleri aracılığıyla gerçekleştirebileceğiniz bir [sanal makine ölçek kümesi başlangıç komut dosyası](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) veya bir [SetupEntryPoint betik](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Docker birim/günlük sürücü makinede yüklü değilse, onu el ile RDP/SSH protokolleri kullanarak yükleyebilirsiniz. Yükleme işlemine bu protokolleri aracılığıyla gerçekleştirebileceğiniz bir [sanal makine ölçek kümesi başlangıç komut dosyası](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) veya bir [SetupEntryPoint betik](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 Yüklemek için komut dosyası örneği [Docker birim sürücüsü Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) aşağıdaki gibidir:
 

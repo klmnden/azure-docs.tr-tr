@@ -1,6 +1,6 @@
 ---
 title: "Klasik Windows VM üzerindeki uç noktaları ayarlama | Microsoft Docs"
-description: "Uç noktaları Klasik Azure portalındaki Windows VM için Azure'da Windows sanal makine ile iletişime izin verecek şekilde ayarlamak öğrenin."
+description: "Azure portalında Klasik Windows VM için uç nokta Azure'da Windows sanal makine ile iletişime izin verecek şekilde ayarlamak öğrenin."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: bea2a30d67e47342616bbe00946b7c559c5e277b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Azure Klasik Windows sanal makine üzerindeki uç noktaları kurma
 Tüm Windows Azure'da Klasik dağıtım modeli kullanarak oluşturduğunuz sanal makineleri otomatik olarak şunları yapabilecek özel ağ kanal diğer sanal makineler aynı bulut hizmetinde veya sanal ağ ile iletişim kurar. Ancak, Internet veya diğer sanal ağlardaki bilgisayarlara bir sanal makineye gelen ağ trafiğini yönlendirmek için uç noktalar gerektirir. Bu makalede ayrıca kullanılabilir [Linux sanal makineleri](../../linux/classic/setup-endpoints.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 71ba93c64657725b48ad5915c6bb26dc32e5434d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Oluşturun ve Azure'a FreeBSD VHD yükleyin
 Bu makalede nasıl oluşturulacağı ve bir sanal sabit FreeBSD işletim sistemini içeren disk (VHD) yüklemek gösterilmektedir. Karşıya yüklediğiniz sonra bunu kendi görüntünüzü Azure'da bir sanal makine (VM) oluşturmak için kullanabilirsiniz.
@@ -133,7 +133,7 @@ VHD dosyanızı karşıya yüklemek için bir depolama hesabı gerekir. Mevcut b
 
 * **BlobStorageURL** 2. adımda oluşturduğunuz depolama hesabı için URL.
 * **YourImagesFolder** istediğiniz, görüntüleri depolamak için Blob storage kapsayıcısına olduğu.
-* **VHDName** sanal sabit diski tanımlamak için Azure Klasik portalında görünen etiket.
+* **VHDName** sanal sabit diski tanımlamak için Azure portalında görünen etiket.
 * **PathToVHDFile** .vhd dosyasının tam yolu ve adıdır.
 
 Önceki adımda kullanılan Azure PowerShell penceresinden yazın:
@@ -153,7 +153,7 @@ VHD dosyanızı karşıya yüklemek için bir depolama hesabı gerekir. Mevcut b
    >
 2. Yukarıdaki adımları tamamladıktan sonra seçtiğinizde yeni görüntü listelenir **görüntüleri** Klasik Azure portalı sekmesinde.  
 
-    ![Bir görüntü seçin](./media/freebsd-create-upload-vhd/addfreebsdimage.png)
+    ![Görüntü seç](./media/freebsd-create-upload-vhd/addfreebsdimage.png)
 3. Galeriden bir sanal makine oluşturun. Bu yeni görüntüyü artık altında kullanılabilir **görüntülerim**.
 4. Yeni görüntüyü seçin. Ardından, bir ana bilgisayar adı, parola, SSH anahtarı ve benzeri ayarlamak için istemleri geçer.
 

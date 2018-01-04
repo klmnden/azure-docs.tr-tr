@@ -3,7 +3,7 @@ title: "Oluşturma veya PowerShell ile otomatik olarak Azure Resource Manager ş
 description: "Azure Resource Manager şablonları oluşturmak veya labs DevTest lab otomatik olarak değiştirmek için PowerShell ile kullanmayı öğrenin"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: dad9944c-0b20-48be-ba80-8f4aa0950903
@@ -13,12 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
+<<<<<<< HEAD
 ms.author: tarcher
 ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.author: v-craic
+ms.openlocfilehash: 0aa55d1bc1f459e6757ecb27de043d4742a77c9f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Oluşturun veya Azure Resource Manager şablonları ve PowerShell kullanılarak otomatik olarak labs değiştirin.
 
@@ -30,7 +37,7 @@ Bu makalede oluşturulması, değiştirilmesi ve, labs dağıtımını otomatik 
 Önceden yapılan bulabilir [Azure Resource Manager şablonları](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) ve [PowerShell komut dosyalarını](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) ortak adresindeki [Github deposunu](https://github.com/Azure/azure-devtestlab). Bunları kullanın-olan veya gereksinimlerinize göre özelleştirmek ve bunları kendi içinde depolamak [özel Git deposuna](devtest-lab-add-artifact-repo.md). 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>2. adım: Azure Resource Manager şablonunu değiştirme
-Bölümündeki adımları izleyin [, ilk Azure Resource Manager şablonu oluşturma](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template) hiçbir zaman önce bir şablon oluşturduysanız.
+Bölümündeki adımları izleyin [, ilk Azure Resource Manager şablonu oluşturma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) hiçbir zaman önce bir şablon oluşturduysanız.
 
 Ayrıca, [en iyi uygulamalar Azure Resource Manager şablonları oluşturmak için](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) güvenilir ve kullanımı kolay pek çok kılavuzları ve Azure Resource Manager şablonları oluşturmanıza yardımcı olacak öneriler sunar. Genellikle, bir yaklaşım veya sağlanan örnekleri çeşitlemesi kullanın ve şablonunuzu gereksinimlerinize göre değiştirin.
 

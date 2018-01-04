@@ -3,7 +3,7 @@ title: Azure Cosmos DB Gremlin destek | Microsoft Docs
 description: "Özellikleri ve adımları Apache TinkerPop Gremlin dilden hakkında bilgi edinin ve Azure Cosmos veritabanı kullanılabilir"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 tags: 
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin grafik desteği
 Azure Cosmos DB destekleyen [Apache Tinkerpop'ın](http://tinkerpop.apache.org) grafik geçişi dil [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), grafik varlıkları oluşturma ve grafik sorgu işlemleri gerçekleştirmek için bir grafik API'si olan. Grafik varlıkları (köşeleri ve kenarları) oluşturmak, bu varlıkların içinde özelliklerini değiştirmek, sorgular ve çapraz geçişlerine gerçekleştirmek ve varlıkları silmek için Gremlin dil kullanabilirsiniz. 
 
 Azure Cosmos DB Kurumsal kullanıma hazır özellikler grafik veritabanlarına getirir. Bu genel dağıtım, depolama ve işleme, tahmin edilebilir tek basamaklı milisaniyelik gecikme ölçeklendirme bağımsız içerir okuma iki veya daha fazla Azure bölgeleri kapsayıcı veritabanı hesapları için kullanılabilirlik SLA'ları, otomatik dizin. Azure Cosmos DB TinkerPop/Gremlin desteklediğinden, başka bir grafik veritabanı kod değişikliklerini yapmak zorunda kalmadan kullanılarak yazılmış uygulamaları kolayca geçirebilirsiniz. Ayrıca, Gremlin desteği sayesinde, Azure Cosmos DB sorunsuz bir şekilde TinkerPop etkin analitik çerçeveler gibi bütünleşir [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-Bu makalede, biz Gremlin hızlı bir kılavuz sağlar ve Gremlin özellikleri ve grafik API'si destek önizlemede desteklenen adımları numaralandırır.
+Bu makalede, biz Gremlin hızlı bir kılavuz sağlar ve Gremlin özellikleri ve grafik API'si tarafından desteklenen adımları numaralandırır.
 
 ## <a name="gremlin-by-example"></a>Örneğe göre gremlin
 Bir örnek grafik nasıl sorguları Gremlin ifade edilebilir anlamak için kullanalım. Aşağıdaki şekilde, kullanıcılar, ilgi alanları ve bir grafik biçiminde aygıtlar hakkındaki verileri yöneten bir iş uygulaması gösterilmiştir.  
@@ -80,7 +80,7 @@ Aşağıdaki tabloda Azure Cosmos DB tarafından uygulanan TinkerPop özellikler
 
 | Kategori | Azure Cosmos DB uygulama |  Notlar | 
 | --- | --- | --- |
-| Grafik özellikleri | Kalıcılığı ve ConcurrentAccess Önizleme'de sağlar. İşlemleri desteklemek için tasarlanmış | Bilgisayar yöntemlerini Spark bağlayıcısı aracılığıyla uygulanabilir. |
+| Grafik özellikleri | Kalıcılığı ve ConcurrentAccess sağlar. İşlemleri desteklemek için tasarlanmış | Bilgisayar yöntemlerini Spark bağlayıcısı aracılığıyla uygulanabilir. |
 | Değişken özellikleri | Boolean, tamsayı, bayt destekler çift, tamsayı, uzun, dize Float | İlkel türler destekler, veri modeli aracılığıyla karmaşık türler ile uyumlu |
 | Köşe özellikleri | RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty destekler  | Oluşturma, değiştirme ve silme köşeleri destekler |
 | Köşe özellik özellikleri | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Oluşturma, değiştirme ve silme köşe özelliklerini destekler |

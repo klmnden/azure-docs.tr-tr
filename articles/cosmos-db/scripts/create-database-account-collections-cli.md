@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI komut dosyası oluştur Azure Cosmos DB DocumentDB API'si hesabınız, veritabanı ve koleksiyonu | Microsoft Docs"
-description: "Azure CLI betik örnek - bir Azure Cosmos DB DocumentDB API hesap, veritabanı ve koleksiyonu oluşturma"
+title: "Azure CLI komut dosyası oluştur Azure Cosmos DB SQL API'si hesabınız, veritabanı ve koleksiyonu | Microsoft Docs"
+description: "Azure CLI betik örnek - bir Azure Cosmos DB SQL API hesap, veritabanı ve koleksiyonu oluşturma"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.openlocfilehash: 28f99d56404e47adcd375d9f3106cc234469cbfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8225b074420983096ee89d5816b0bfe9bc138fe
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure Cosmos DB: CLI kullanarak bir DocumentDB API hesabı oluşturma
+# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: CLI kullanarak bir SQL API hesabı oluşturma
 
-Bu örnek CLI betik Azure Cosmos DB DocumentDB API hesabını, veritabanını ve koleksiyonu oluşturur.  
+Bu örnek CLI betik Azure Cosmos DB SQL API hesabını, veritabanını ve koleksiyonu oluşturur.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +32,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı i
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB SQL API account, database, and collection")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 

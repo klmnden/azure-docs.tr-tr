@@ -1,6 +1,6 @@
 ---
-title: "Olacak şekilde, Azure uygulama hizmeti ortamını yapılandırma zorlamalı tünel"
-description: "Giden trafik zorlamalı tünel olduğunda çalışması uygulama hizmeti ortamınızı etkinleştir"
+title: "Azure App Service Ortamınızı zorlamalı tünel için yapılandırma"
+description: "App Service Ortamınızın giden trafiğe zorlamalı tünel uygulandığında çalışmasını etkinleştirme"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -10,96 +10,97 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/10/2017
 ms.author: ccompy
-ms.openlocfilehash: f5f099042cefe666e22a9d561afeb4584db3d92c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 4caaf0df3f1dd4b2cb9b76283a6beed897531c1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Zorlamalı tünel ile uygulama hizmeti ortamınızı yapılandırma
+# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>App Service Ortamınızı zorlamalı tünel ile yapılandırma
 
-Uygulama hizmeti ortamı Azure uygulama hizmeti Azure Virtual Network, Müşteri'nin örneğinde dağıtımını değil. Birçok müşteri sanal ağlarını VPN veya Azure ExpressRoute ile şirket içi ağlarını uzantılarını olacak şekilde yapılandırmak bağlantıları. Şirket ilkelerine veya diğer güvenlik kısıtlamaları nedeniyle, bunlar internet'e giderek, önce tüm giden trafiği şirket içi göndermek için bir yol yapılandırın. Giden trafiği sanal ağdan şirket içi VPN veya ExpressRoute bağlantısı üzerinden akmasını sanal ağı yönlendirme değiştirme zorlamalı tünel adı verilir. 
+App Service Ortamı, Azure App Service’in bir Azure Sanal Ağı müşteri örneği içindeki dağıtımıdır. Birçok müşteri, sanal ağlarını VPN veya Azure ExpressRoute bağlantıları ile şirket içi ağlarının uzantıları olacak şekilde yapılandırır. Şirket ilkeleri veya diğer güvenlik kısıtlamaları nedeniyle, bu müşteriler yolları internet’e ulaşmadan önce tüm şirket içi giden trafiği gönderecek şekilde yapılandırır. Sanal ağ yönlendirmesini, giden trafiğin VPN veya ExpressRoute bağlantısı üzerinden şirket içine geçebilmesi için değiştirme işlemine zorlamalı tünel adı verilir. 
 
-Zorlamalı tünel bir uygulama hizmeti ortamı için sorunlara neden olabilir. Uygulama hizmeti ortamı bölümünde açıklanan dış bağımlılıklar vardır [uygulama hizmeti ortamı ağ mimarisi] [ network] belge. Uygulama hizmeti ortamı, varsayılan olarak, tüm giden iletişim sağlandığında VIP uygulama hizmeti ortamı ile üzerinden gider gerektirir.
+Zorlamalı tünel bir App Service Ortamı için sorunlara neden olabilir. App Service Ortamında, [App Service Ortamı ağ mimarisi][network] belgesinde listelenen birkaç dış bağımlılık bulunur. App Service Ortamı varsayılan olarak tün giden iletişimin App Service Ortamı ile sağlanan VIP üzerinden gerçekleşmesini gerektirir.
 
-Hangi zorlamalı tünel olduğu ve onunla nasıl önemli bir özelliği yollardır. Bir Azure sanal ağında yönlendirmeyi en uzun ön ek eşleşmesi (LPM) göre yapılır. Aynı LPM eşleşmesine sahip birden fazla yol varsa, bir yol aşağıdaki sırayla ve kaynağına göre seçilir:
+Yollar, zorlamalı tünelin ne olduğu ve nasıl ele alınması gerektiğiyle ilgili önemli bir unsurdur. Bir Azure sanal ağında yönlendirme, en uzun ön ek eşleşmesi (LPM) temel alınarak yapılır. Aynı LPM eşleşmesine sahip birden fazla yol bulunuyorsa yol aşağıdaki sırayla ve kaynağına göre seçilir:
 
-* Kullanıcı tanımlı yönlendirme (UDR)
+* Kullanıcı tanımlı yol (UDR)
 * BGP yolu (ExpressRoute kullanıldığında)
 * Sistem yolu
 
-Bir sanal ağ içinde yönlendirme hakkında daha fazla bilgi için okuma [kullanıcı tanımlı yollar ve IP iletimini][routes]. 
+Sanal ağ içinde yönlendirme hakkında daha fazla bilgi için [Kullanıcı tanımlı yollar ve IP iletme][routes] makalesini okuyun. 
 
-Zorlamalı tünel sanal ağında çalışmak üzere uygulama hizmeti ortamınızı isterseniz, iki seçeneğiniz vardır:
+App Service Ortamınızın bir zorlamalı tünel sanal ağında çalışmasını istiyorsanız iki seçeneğiniz vardır:
 
-* Doğrudan internet erişimi uygulama hizmeti ortamınızı etkinleştirin.
-* Uygulama hizmeti ortamınız için çıkış uç noktası değiştirin.
+* App Service Ortamınızın doğrudan internet erişimine sahip olmasını sağlama.
+* App Service Ortamınız için çıkış uç noktasını değiştirme.
 
-## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Doğrudan internet erişimi uygulama hizmeti ortamınızı etkinleştir
+## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>App Service Ortamınızın doğrudan internet erişimine sahip olmasını sağlama
 
-App Service sanal ağınız ile bir ExpressRoute bağlantı yapılandırılırken çalışmaya ortamınız için şunları yapabilirsiniz:
+Sanal ağınız bir ExpressRoute bağlantısı ile yapılandırıldığında App Service Ortamınızın çalışması için şunları yapabilirsiniz:
 
-* ExpressRoute 0.0.0.0/0 bildirmek için yapılandırın. Varsayılan olarak, zorla tünel giden tüm trafiği şirket içi.
-* Bir UDR oluşturun. Uygulama hizmeti ortamı 0.0.0.0/0 ve bir sonraki atlama türü Internet bir adres ön ekine sahip içeren alt ağ için geçerlidir.
+* ExpressRoute’u 0.0.0.0/0 tanıtacak şekilde yapılandırın. Varsayılan olarak, giden tüm şirket içi trafiğe zorlamalı tünel uygular.
+* UDR oluşturun. App Service Ortamını içeren alt ağa, 0.0.0.0/0 adres ön eki ve İnternet sonraki atlama türü ile uygulayın.
 
-Bu iki değişiklik yaparsanız, uygulama hizmeti ortamı alt ağdan kaynaklanan Internet hedefleyen trafik ExpressRoute bağlantısı zorlanmaz ve uygulama hizmeti ortamı çalışır.
+Bu iki değişikliği yaparsanız, App Service Ortamı alt ağından çıkıp internet’i hedefleyen trafik ExpressRoute bağlantısına zorlanmaz ve App Service Ortamı çalışır.
 
 > [!IMPORTANT]
-> Bir UDR tanımlanan rotalar ExpressRoute yapılandırma tarafından tanıtılan rotaları önceliklidir için belirli olması gerekir. Yukarıdaki örnek, geniş 0.0.0.0/0 adres aralığını kullanır. Bu büyük olasılıkla yanlışlıkla daha belirli adres aralıkları Yol tanıtımlarını tarafından geçersiz kılınabilir.
+> Bir UDR’de tanımlanan yollar, ExpressRoute yapılandırması tarafından tanıtılan herhangi bir yoldan öncelikli olacak kadar spesifik olmalıdır. Önceki örnekte geniş 0.0.0.0/0 adres aralığı kullanılır. Bu aralık, daha spesifik adres aralıkları kullanan yol tanıtımları tarafından yanlışlıkla geçersiz kılınabilir.
 >
-> Uygulama hizmeti ortamları ortak eşleme yolu yolları özel eşleme yoluna arası tanıtma ExpressRoute yapılandırmalarla desteklenmez. Microsoft'tan Yol tanıtımlarını ilgili yapılandırılmış ortak eşleme ile ExpressRoute yapılandırmaları. Reklam çok sayıda Microsoft Azure IP adres aralıklarını içerir. Özel eşliği yolda arası tanıtılan adres aralıklarını, uygulama hizmeti ortamı'nın alt ağdaki tüm giden ağ paketlerini bir müşterinin şirket içi ağ altyapısına tünelli zorla demektir. Bu ağ akışı, varsayılan olarak App Service ortamları şu anda desteklenmiyor. Bu sorun için bir çözüm, ortak eşleme yolu arası reklam yolları özel eşleme yoluna önlemektir. Başka bir çözüm zorlamalı tünel yapılandırmasında çalışmak uygulama hizmeti ortamınızı sağlamaktır.
+> App Service Ortamları, genel eşleme yolundan özel eşleme yoluna çapraz olarak tanıtılan ExpressRoute yapılandırmaları ile desteklenmez. Genel eşlemesi yapılandırılmış ExpressRoute yapılandırmaları, Microsoft’tan yol tanıtımları almaz. Reklamlar çok sayıda Microsoft Azure IP adresi aralığı içerir. Adres aralıkları özel eşleme yolunda çapraz tanıtılırsa, App Service Ortamının alt ağından giden tüm ağ paketlerine bir müşterinin şirket içi ağ altyapısı için zorlamalı tünel uygulanır. Bu ağ akışı şu anda App Service Ortamları ile varsayılan olarak desteklenmemektedir. Bu sorunun bir çözümü, genel eşleme yolundan özel eşleme yoluna yolların çapraz tanıtımını durdurmaktır. Başka bir çözüm ise App Service Ortamınızı bir zorlamalı tünel yapılandırmasında çalışacak şekilde etkinleştirmektir.
 
-## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Uygulama hizmeti ortamınız için çıkış uç noktası değiştirme ##
+## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>App Service Ortamınız için çıkış uç noktasını değiştirme ##
 
-Bu bölümde, uygulama hizmeti ortamı tarafından kullanılan çıkış uç noktası değiştirerek bir zorlamalı tünel yapılandırmasındaki çalışması bir uygulama hizmeti ortamı etkinleştirmeyi açıklar. Uygulama hizmeti ortamı giden trafiği için bir şirket içi ağınızda tünel zorla ise, uygulama hizmeti ortamı VIP adresi dışında IP adreslerinden kaynağına bu trafiğine izin vermesi gerekir.
+Bu bölümde, App Service Ortamı tarafından kullanılan çıkış noktasını değiştirerek bir App Service Ortamını zorlamalı tünel yapılandırmasında çalıştırma işlemi açıklanmaktadır. App Service Ortamından giden trafiğe bir şirket içi ağ için zorlamalı tünel uygulanırsa, bu trafiğin App Service Ortamı VIP adresi dışındaki IP adreslerinden çıkmasına izin vermeniz gerekir.
 
-Bir uygulama hizmeti ortamı yalnızca Dış bağımlılıklara sahiptir, ancak ayrıca gerekir gelen trafik için dinleme ve böyle trafiğine yanıt. TCP keser yanıtları geri başka bir adresinden gönderilemiyor. Uygulama hizmeti ortamı için çıkış uç noktası değiştirmek için gereken üç adım vardır:
+Bir App Service Ortamı yalnızca dış bağımlılıklar içermez, aynı zamanda gelen trafiği dinlemeli ve bu tür bir trafiğe yanıt vermelidir. Yanıtlar TCP’yi keseceği için başka bir adresten geri gönderilemez. App Service Ortamı’na ilişkin çıkış uç noktasını değiştirmek için üç adım gereklidir:
 
-1. Gelen yönetim trafiğinin aynı IP adresinden dönebilirsiniz emin olmak için bir yol tablosu ayarlayın.
+1. Gelen yönetim trafiğinin aynı IP adresinden geri gidebildiğinden emin olmak için bir yol tablosu ayarlayın.
 
-2. Uygulama hizmeti ortamı Güvenlik Duvarı'nda çıkışı için kullanılacak olan, IP adreslerini ekleyin.
+2. Çıkış için kullanılacak IP adreslerinizi App Service Ortamı güvenlik duvarına ekleyin.
 
-3. Yollar giden trafiği tünelli için uygulama hizmeti ortamı ayarlayın.
+3. Tünel uygulanacak App Service Ortamından giden trafiğin yollarını ayarlayın.
 
    ![Zorlamalı tünel ağ akışı][1]
 
-Uygulama hizmeti ortamı zaten yukarı ve çalışır durumda ya da uygulama hizmeti ortamı dağıtımı sırasında ayarlanabilir sonra uygulama hizmeti ortamı farklı çıkış adresleriyle yapılandırabilirsiniz.
+App Service Ortamını, App Service Ortamı çalışır duruma geldikten sonra farklı çıkış adresleriyle ayarlayabilirsiniz veya App Service Ortamı dağıtımı sırasında ayarlayabilirsiniz.
 
-### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Uygulama hizmeti ortamı kazandıktan sonra çıkış adresini değiştirme ###
-1. Uygulama hizmeti ortamınız için IP'leri çıkış kullanmak istediğiniz IP adreslerini alın. Zorlamalı tünel yaptığınız varsa, bu adresleri NAT ya da ağ geçidi IP gelir. Bir NVA aracılığıyla uygulama hizmeti ortamı giden trafiği yönlendirmek istiyorsanız, çıkış nva'nın genel IP adresidir.
+### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>App Service Ortamı çalışır duruma geldikten sonra çıkış adresini değiştirme ###
+1. App Service Ortamınız için çıkış IP’si olarak kullanmak istediğiniz IP adreslerini alın. Zorlamalı tünel uyguluyorsanız, bu adresler NAT ya da ağ geçidi IP’lerinizden gelir. App Service Ortamı giden trafiğini bir NVA üzerinden yönlendirmek istiyorsanız, çıkış adresi NVA’nın genel IP’sidir.
 
-2. Çıkış adresleri uygulama hizmeti ortamı yapılandırma bilgilerinizi ayarlayın. İçin Resource.Azure.com gidin ve aboneliği Git /<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Ardından, uygulama hizmeti ortamınızı tanımlayan JSON görebilirsiniz. Bunu seçili olduğundan emin olun **okuma/yazma** üstünde. Seçin **Düzenle**. Ekranı en alta kadar kaydırın ve değiştirme **userWhitelistedIpRanges** değeri **null** aşağıdaki gibi bir. Çıkış adres aralığı olarak ayarlamak istediğiniz adresleri kullanın. 
+2. Çıkış adreslerini, App Service Ortamınızın yapılandırma bilgilerinde ayarlayın. resource.azure.com sayfasına ve Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name> menüsüne gidin. Bundan sonra App Service Ortamınızı tanımlayan JSON dosyasını görebilirsiniz. Üst kısımda **read/write** ifadesinin gösterildiğinden emin olun. **Düzenle**’yi seçin. Ekranı en alta kadar kaydırın ve **null** olan **userWhitelistedIpRanges** değerini aşağıdakine benzer bir değerle değiştirin. Çıkış adres aralığı olarak ayarlamak istediğiniz adresleri kullanın. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
-   Seçin **PUT** üstünde. Bu seçenek, uygulama hizmeti ortamınız üzerinde bir ölçeklendirme işlemi tetikler ve güvenlik duvarı ayarlar.
+   Üst kısımdaki **PUT** öğesini seçin. Bu seçenek, App Service Ortamınızda bir ölçeklendirme işlemi başlatır ve güvenlik duvarını ayarlar.
  
-3. Oluşturma veya bir yol tablosu düzenleme ve doldurmak için/adreslerinden uygulama hizmeti ortamı konumunuza eşlenen yönetim erişimine izin vermek için kurallar. Yönetim adresleri bulmak için bkz: [uygulama hizmeti ortamı yönetim adreslerinin][management].
+3. Bir yol tablosu oluşturun ya da düzenleyin ve App Service Ortamınızın konumuyla eşleşen yönetim adreslerine/adreslerinden erişime izin vermek için kuralları doldurun. Yönetim adreslerini bulmak için bkz. [App Service Ortamı yönetim adresleri][management].
 
-4. Uygulama hizmeti ortamı alt ağ bir yol tablosu ile uygulanan yolları veya BGP yollarını ayarlayın. 
+4. App Service Ortamı alt ağına bir yol tablosu veya BGP yolları ile uygulanan yolları ayarlayın. 
 
-Uygulama hizmeti ortamı portaldan yanıt vermeyen kalırsa, yaptığınız değişiklikleri ile ilgili bir sorun yoktur. Sorun çıkış adresleri listesi tamamlanmadı, trafiği kesildi veya trafiği engellenmiş olabilir. 
+App Service Ortamı portalda yanıt vermemeye başlarsa, değişikliklerinizle ilgili bir sorun vardır. Sorun, çıkış adresleri listenizin eksik olması, trafiğin kaybedilmesi veya trafiğin engellenmesi olabilir. 
 
-### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Farklı çıkış adresine sahip yeni bir uygulama hizmeti ortamı oluşturun ###
+### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Farklı bir çıkış adresi ile yeni bir App Service Ortamı oluşturma ###
 
-Sanal ağınız zaten tünel tüm trafiği zorlamak için yapılandırılmışsa, uygulama hizmeti ortamınızı oluşturun, böylece başarıyla bulmalı için ek adımlar gerekir. Uygulama hizmeti ortamı oluşturma sırasında başka bir çıkış uç kullanımını etkinleştirmeniz gerekir. Bunu yapmak için izin verilen çıkış adresleri belirten bir şablon ile uygulama hizmeti ortamı oluşturmanız gerekir.
+Sanal ağınız zaten tüm trafiğe zorlamalı tünel uygulayacak şekilde yapılandırılmışsa, başarıyla ortaya çıkabilmesi için App Service Ortamınızı oluşturmaya yönelik ek adımlar uygulamanız gerekir. App Service Environment oluşturulurken başka bir çıkış uç noktasının kullanılmasını etkinleştirmeniz gerekir. Bunu yapmak için, izin verilen çıkış adreslerini belirten bir şablonla App Service Ortamını oluşturmalısınız.
 
-1. Uygulama hizmeti ortamınız için çıkış adresleri olarak kullanılacak IP adresleri alır.
+1. App Service Ortamınız için çıkış adresleri olarak kullanılacak IP adreslerini alın.
 
-2. Uygulama hizmeti ortamı tarafından kullanılacak alt ağ ön oluşturun. Yollar ayarlayabilirsiniz ihtiyacınız ve ayrıca, şablonu gerektiriyor.
+2. App Service Ortamı tarafından kullanılacak alt ağı önceden oluşturun. Yolları ayarlayabilmek için ve ayrıca şablon gerektirdiği için bu alt ağa ihtiyacınız olacaktır.
 
-3. Uygulama hizmeti ortamı konumunuza eşleme IP'leri yönetimi ile bir yol tablosu oluşturun. Uygulama hizmeti ortamınızı atayın.
+3. App Service Ortamınızın konumuyla eşleşen yönetim IP’leri ile bir yol tablosu oluşturun. Bu tabloyu App Service Ortamınıza atayın.
 
-4. İçindeki yönergeleri izleyin [sahip bir şablon bir uygulama hizmeti ortamı oluşturma][template]. Uygun şablonu çeker.
+4. [ŞPablon ile App Service Ortamı oluşturma][template] bölümündeki yönergeleri izleyin. Uygun şablonu çekin.
 
-5. "Kaynaklar" bölümündeki azuredeploy.json dosyasını düzenleyin. İçin bir satır içeren **userWhitelistedIpRanges** değerlerinizi şöyle ile:
+5. azuredeploy.json dosyasının "kaynaklar" bölümünü düzenleyin. Değerleri aşağıdaki gibi olan bir **userWhitelistedIpRanges** satırı ekleyin:
 
        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
 
-Bu bölümde düzgün şekilde yapılandırılmışsa, uygulama hizmeti ortamı herhangi bir sorun ile başlamanız gerekir. 
+Bu bölüm düzgün şekilde yapılandırılırsa, App Service Ortamı sorunsuz bir şekilde başlar. 
 
 
 <!--IMAGES-->

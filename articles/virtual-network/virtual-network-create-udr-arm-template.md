@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Kullanıcı tanımlı yolları (UDR) bir şablon kullanarak oluşturma
 
@@ -114,7 +114,7 @@ Ayrıca emin olmak gereken **FW1** VM almak ve paketlerini iletmek için kullan�
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Tıklayarak dağıtma kullanarak şablonu dağıtma
 Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için kullanılan varsayılan değerleri içeren parametre dosyası kullanılmaktadır. Tıklayarak dağıtma kullanarak bu şablonu dağıtmak için [bu bağlantıya](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR) gidin, **Azure’a dağıt**’a tıklayın, gerekirse varsayılan parametreleri değiştirin ve portaldaki talimatları uygulayın.
 
-1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azure/overview) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
+1. Azure PowerShell’i hiç kullanmadıysanız bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) ve Azure'a giriş yapıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulayın.
 2. Kaynak grubu oluşturmak için şu komutu çalıştırın:
 
     ```powershell
@@ -182,7 +182,7 @@ Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları tamam
     azure config mode arm
     ```
 
-    Yukarıdaki komut için beklenen çıktı şu şekildedir:
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
 
         info:    New mode is arm
 

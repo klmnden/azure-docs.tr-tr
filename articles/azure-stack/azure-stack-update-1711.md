@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure yığın 1711 güncelleştirme
 
@@ -35,7 +35,7 @@ Azure yığın 1711 güncelleştirme yapı numarası **171201.3**.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Azure yığın yüklemelisiniz [1710 güncelleştirme](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) bu güncelleştirmeyi uygulamadan önce.
 
@@ -51,6 +51,7 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 - Kullanıcılar artık Windows sanal makineleri otomatik olarak etkinleştirebilir
 - Eklenen ayrıcalıklı uç noktası bekletme amacıyla BitLocker kurtarma anahtarlarını almak için PowerShell cmdlet
 - Altyapı güncelleştirirken çevrimdışı görüntülerini güncelleştirme desteği
+- Yedekleme hizmetini etkinleştir ile altyapı yedeklemeyi etkinleştirme
 
 #### <a name="fixes"></a>Düzeltmeler
 
@@ -123,6 +124,7 @@ Bu bölümde yükleme sonrası ile ilgili bilinen sorunlar yapı içeren **20171
 - Ağ Yük Dengeleyici oluşturduğunuzda, bir ağ adresi çevirisi (NAT) kuralı oluşturmanız gerekir. Bunu yapmazsanız, yük dengeleyici oluşturulduktan sonra bir NAT kuralı eklemeye çalıştığınızda bir hata alırsınız.
 - VM oluşturulur ve bu IP adresi ile ilişkili sonra bir sanal makineden (VM) genel bir IP adresi ilişkisini olamaz. Disassociation çalışmak için görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır. Yeni bir VM için IP adresi yeniden atama olsa bile bu davranış oluşur (genellikle olarak adlandırılan bir *VIP takası*). Tüm gelecekte bu IP adresi sonucu başlangıçta ilişkili VM değil de yeni bir bağlantı üzerinden bağlanma girişiminde bulunur. Şu anda, yeni VM oluşturmak için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
 - Azure yığın işleçleri dağıtmak, Sil, Vnet veya ağ güvenlik gruplarını değiştirmek olabilir. Bu sorun öncelikle aynı paketin sonraki güncelleştirme denemelerinde görülür. Bu, şu an araştırma altında bir güncelleştirme paketleme sorun kaynaklanır.
+- İç yük dengeleyici (ILB) MAC adresleri Linux örnekleri kıran arka uç VM'ler için yanlış bir şekilde işler.
  
 #### <a name="sqlmysql"></a>SQL/MySQL
 - Bu yeni bir SQL veya MySQL SKU kiracılar veritabanları oluşturabilmeniz için önce bir saate kadar sürebilir. 
@@ -137,6 +139,17 @@ Azure Active Directory Federasyon Hizmetleri (ADFS içinde) ortamlarında, dağ�
 
 > [!IMPORTANT]
 > Olsa bile **azurestack\cloudadmin** hesabıdır dağıtılan ADFS ortamlarda varsayılan sağlayıcı aboneliğin sahibi, konak RDP için izinleri yok. Kullanmaya devam **azurestack\azurestackadmin** hesabı veya oturum açma, erişim ve gerektiğinde konak yönetmek için yerel yönetici hesabı.
+
+#### <a name="infrastructure-backup-sevice"></a>Altyapı yedekleme hizmeti
+<!-- 1974890-->
+
+- **Bulut kurtarma için öncesi 1711 yedeklemeler desteklenmez.**  
+  Öncesi 1711 yedeklemeleri bulut Kurtarma ile uyumlu değildir. 1711 için ilk güncelleştirin ve yedeklemeleri etkinleştirmek gerekir. Yedeklemeleri etkinleştirilirse, 1711 için güncelleştirdikten sonra yedekleyin emin olun. Öncesi 1711 yedeklemeleri silinmesi gerekir.
+
+- **Etkinleştirme altyapı ASDK üzerinde yalnızca sınama amacıyla yedeğidir.**  
+  Altyapı yedeklemeleri çok düğümlü çözümleri geri yüklemek için kullanılabilir. ASDK altyapı yedekleme etkinleştirebilirsiniz, ancak kurtarma test etmek için bir yolu yoktur.
+
+Daha fazla bilgi için bkz: [altyapı Backup hizmeti ile Azure yığını için yedekleme ve veri kurtarma](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Güncelleştirme karşıdan yükle
 

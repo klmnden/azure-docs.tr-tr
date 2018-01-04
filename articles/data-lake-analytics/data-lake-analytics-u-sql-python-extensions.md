@@ -14,13 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.openlocfilehash: 51c0bac3cd03965d002b3fe87804a0d7ea6cf63e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Öğretici: U-SQL Python ile genişletme ile çalışmaya başlama
+
+## <a name="prerequisites"></a>Ön koşullar
+
+Başlamadan önce Python uzantıları Azure Data Lake Analytics hesabınızı yüklü olduğundan emin olun.
+
+* Azure portalında, Data Lake Analytics hesabı gidin
+* Soldaki menüde altında **BAŞLARKEN** tıklayın **örnek komut dosyaları**
+* Tıklatın **yükleme U-SQL uzantıları** sonra **Tamam**
+
+## <a name="overview"></a>Genel Bakış 
 
 U-SQL için Python uzantıları Python kodu yüksek düzeyde Paralel yürütme gerçekleştirmeye geliştiriciler etkinleştirin. Aşağıdaki örnekte, temel adımlar gösterilmektedir:
 

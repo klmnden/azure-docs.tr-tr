@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 189f576f9ead5d67b76b3e47c312f3de76df77fe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e6f87cd82ebe31965fcaac1f66d2df03fd58294f
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Anahtar değeri deposu – maliyet genel olarak Azure Cosmos DB
 
-Azure Cosmos DB, yüksek oranda kullanılabilir, büyük ölçekli uygulamaları kolayca oluşturmak için bir genel dağıtılmış, birden çok model veritabanı hizmetidir. Varsayılan olarak, Azure Cosmos DB onu, verimli bir şekilde alır tüm veriler otomatik olarak dizinler. Bu, hızlı ve tutarlı sağlar [SQL](documentdb-sql-query.md) (ve [JavaScript](programming.md)) her türlü veri sorgular. 
+Azure Cosmos DB, yüksek oranda kullanılabilir, büyük ölçekli uygulamaları kolayca oluşturmak için bir genel dağıtılmış, birden çok model veritabanı hizmetidir. Varsayılan olarak, Azure Cosmos DB onu, verimli bir şekilde alır tüm veriler otomatik olarak dizinler. Bu, hızlı ve tutarlı sağlar [SQL](sql-api-sql-query.md) (ve [JavaScript](programming.md)) her türlü veri sorgular. 
 
 Bu makalede Azure Cosmos DB maliyetini için basit yazma ve okuma işlemlerini bir anahtar/değer deposu olarak kullanıldığında. Ekler, değiştirir, siler ve belgelerin upserts işlemleri içeren yazma. % 99,99 güvence altına almak yanı sıra tüm tek bölge ve gevşek tutarlılık ve %99.999 tüm bölgeli hesapları için kullanılabilirlik SLA tüm bölgeli veritabanı hesaplarda kullanılabilirlik Azure Cosmos DB teklifleri garanti okuyun < 10 ms Gecikmeli için okur ve < 15-ms gecikme (dizinlenmiş) için sırasıyla 99 yazar. 
 

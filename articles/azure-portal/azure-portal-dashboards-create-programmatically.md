@@ -6,18 +6,24 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
+<<<<<<< HEAD
 ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
+=======
+ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Program aracılığıyla Azure panolar oluşturun
 
@@ -27,7 +33,7 @@ Bu belge, program aracılığıyla oluşturma ve Azure panolar yayımlama işlem
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure olan panolarında paylaşılan [kaynakları](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineleri ve depolama hesapları.  Bu nedenle, bunlar program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview), [Azure PowerShell komutlarını](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portal](https://portal.azure.com) özellikleri oluşturmak kaynak yönetimini kolaylaştırmak için bu API'leri üstünde.  
+Azure olan panolarında paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineleri ve depolama hesapları.  Bu nedenle, bunlar program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portal](https://portal.azure.com) özellikleri oluşturmak kaynak yönetimini kolaylaştırmak için bu API'leri üstünde.  
 
 Her API ve araçları, listesi oluşturmak için yol almak, değiştirmek ve kaynakları silmek sunar.  Panolar kaynaklar olduğundan, sık kullanılan API'nizi çekme / aracı.
 
@@ -43,7 +49,7 @@ Yeni bir Pano oluşturmak için portal'ın ana ekranda yeni pano komutunu kullan
 
 Döşeme galeri ardından bulmak ve kutucukları eklemek için de kullanabilirsiniz. Döşeme sürükleyip bırakarak eklenir. Bazı kutucuklar destek kendi bağlam menüsünde görülebilir boyutları giderir diğerlerinin bir Sürükle tanıtıcı aracılığıyla yeniden boyutlandırma destekler.
 
-### <a name="drag-handle"></a>Sürükleme tanıtıcısı
+### <a name="drag-handle"></a>tutamacını sürükleyin
 ![tutamacını sürükleyin](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
 ### <a name="fixed-sizes-via-context-menu"></a>Bağlam menüsü aracılığıyla sabit boyutları
@@ -55,7 +61,7 @@ Sonraki adımlar (Share komutunu kullanarak) panoya yayımlamak ve JSON getirmek
 
 ![Paylaşım komutu](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Paylaşımı komutunu tıklatarak yayımlamak için hangi aboneliğe ve kaynak grubu seçmenizi isteyen bir iletişim kutusunu gösterir. Aklınızda [yazma erişimi olmalıdır](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) seçtiğiniz abonelik ve kaynak grubuna.
+Paylaşımı komutunu tıklatarak yayımlamak için hangi aboneliğe ve kaynak grubu seçmenizi isteyen bir iletişim kutusunu gösterir. Aklınızda [yazma erişimi olmalıdır](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) seçtiğiniz abonelik ve kaynak grubuna.
 
 ![Paylaşım ve erişim](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +85,11 @@ Bir şablon oluşturmak için Pano JSON yapısındaki tam olarak anlamak gerekli
 
 Herhangi bir sanal makine için bu panoyu yayımlamak için gelecekte, bu dizenin JSON içindeki her örneğinin Parametreleştirme gerekir. 
 
-İki türdeki kaynakları oluşturma API vardır. [Kesinlik temelli API'leri](https://docs.microsoft.com/en-us/rest/api/resources/resources) aynı anda bir kaynak oluşturmak ve bir [şablona dayalı dağıtım](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) oluşturma düzenleyebilirsiniz sistem tek bir API çağrısı ile birden çok bağımlı kaynakların. Bizim örneğimizde kullanırız ikinci yerel parametrelemeyi ve şablon destekler, böylece.
+İki türdeki kaynakları oluşturma API vardır. [Kesinlik temelli API'leri](https://docs.microsoft.com/rest/api/resources/resources) aynı anda bir kaynak oluşturmak ve bir [şablona dayalı dağıtım](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) oluşturma düzenleyebilirsiniz sistem tek bir API çağrısı ile birden çok bağımlı kaynakların. Bizim örneğimizde kullanırız ikinci yerel parametrelemeyi ve şablon destekler, böylece.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Program aracılığıyla bir şablon dağıtımı kullanarak şablonunuzu bir pano oluşturun
 
-Azure birden fazla kaynak dağıtım düzenlemek olanağı sunar. Aralarındaki ilişkilerin yanı sıra dağıtmak için kaynak kümesini ifade bir dağıtım şablonu oluşturun.  Tek tek oluşturma gibi her bir kaynağın JSON biçimi aynıdır. Aralarındaki fark [şablonu dili](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) değişkenleri, parametreleri, temel işlevleri ve daha fazlasını gibi birkaç kavram ekler. Bu sözdizimi genişletilmiş bir şablon dağıtımı bağlamında yalnızca desteklenir ve daha önce bahsedilen kesinlik temelli API'leri ile kullanıldığında çalışmaz.
+Azure birden fazla kaynak dağıtım düzenlemek olanağı sunar. Aralarındaki ilişkilerin yanı sıra dağıtmak için kaynak kümesini ifade bir dağıtım şablonu oluşturun.  Tek tek oluşturma gibi her bir kaynağın JSON biçimi aynıdır. Aralarındaki fark [şablonu dili](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) değişkenleri, parametreleri, temel işlevleri ve daha fazlasını gibi birkaç kavram ekler. Bu sözdizimi genişletilmiş bir şablon dağıtımı bağlamında yalnızca desteklenir ve daha önce bahsedilen kesinlik temelli API'leri ile kullanıldığında çalışmaz.
 
 Bu rota oluşturacağız sonra parametrelemeyi yapılması şablonun parametresi sözdizimini kullanarak.  Aşağıda gösterildiği gibi daha önce bulduk kaynak kimliği tüm örneklerini değiştirin.
 
@@ -119,7 +125,7 @@ Ayrıca bazı gerekli şablon meta verilerine ve bu gibi json şablonunu üstün
 
 __Bu belgenin sonundaki tam, çalışma şablonu görebilirsiniz.__
 
-Şablonunuzu hazırlanmış sonra kullanarak dağıtabilirsiniz [REST API'leri](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create), veya [portalın şablon dağıtımı sayfası ](https://portal.azure.com/#create/Microsoft.Template).
+Şablonunuzu hazırlanmış sonra kullanarak dağıtabilirsiniz [REST API'leri](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), veya [portalın şablon dağıtımı sayfası ](https://portal.azure.com/#create/Microsoft.Template).
 
 İşte bizim örnek Pano JSON iki sürümü. İlk biz zaten bir kaynağa bağlı Portalı'ndan dışarı sürümüdür. Program aracılığıyla tüm VM bağlanabilir ve Azure Resource Manager kullanılarak dağıtılan şablon sürümü saniyedir.
 

@@ -4,7 +4,7 @@ description: "SSH bağlantı sorunlarını azaltmak için azure'deki Linux sanal
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 7bf69b2a3c006faa0dc0144313e5ebb64e941e2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a07dfc46855d69a9d21083b2c712c581fdd48e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Yeni Azure düğüme Linux sanal makineyi yeniden dağıtın
 SSH sorunlarını giderme zorluklarla yüz veya VM dağıtarak azure'da bir Linux sanal makine (VM) uygulama erişimi yardımcı olabilir. Bir VM yeniden dağıtırken VM Azure altyapısı içinde yeni bir düğüme taşır ve yeniden çalıştırır. Tüm yapılandırma seçenekleri ve ilişkili kaynakları korunur. Bu makalede Azure CLI veya Azure portalını kullanarak bir VM'i yeniden gösterilmiştir.
@@ -33,7 +33,7 @@ Aşağıdaki seçeneklerden birini kullanarak bir VM'i yeniden dağıtabilirsini
 - [Azure portal](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
-En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login).
+En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve kullanarak hesap oturum açma Azure [az oturum açma](/cli/azure/#login).
 
 VM ile dağıtmanız [az vm dağıtın](/cli/azure/vm#redeploy). Aşağıdaki örnek adlı VM yeniden dağıtır *myVM* kaynak grubunda adlı *myResourceGroup*:
 
@@ -42,7 +42,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Azure CLI 1.0 kullanın
-Yükleme [en son Azure CLI 1.0](../../cli-install-nodejs.md), bir Azure hesabı için oturum açın ve Kaynak Yöneticisi modunda olduğundan emin olun (`azure config mode arm`).
+Yükleme [en son Azure CLI 1.0](../../cli-install-nodejs.md) ve Azure hesabınızda oturum açın. Kaynak Yöneticisi modunda olduğundan emin olun (`azure config mode arm`).
 
 Aşağıdaki örnek adlı VM yeniden dağıtır *myVM* kaynak grubunda adlı *myResourceGroup*:
 

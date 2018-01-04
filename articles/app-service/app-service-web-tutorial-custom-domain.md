@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Harita Azure Web uygulamaları için varolan bir özel DNS adı
 
@@ -43,7 +43,7 @@ Ya da kullanabileceğiniz bir **CNAME kaydı** veya bir **bir kayıt** App Servi
 
 Canlı site ve DNS etki alanı adını App Service'e geçirmek için bkz [etkin bir DNS adı Azure App Service'e geçirme](app-service-custom-domain-name-migrate.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -58,6 +58,8 @@ Bu öğreticiyi tamamlamak için:
 ## <a name="prepare-the-app"></a>Uygulamayı hazırlayın
 
 Özel bir DNS adı bir web uygulamanızın için web uygulaması eşlemek için [uygulama hizmeti planı](https://azure.microsoft.com/pricing/details/app-service/) Ücretli katmanı olmalıdır (**paylaşılan**, **temel**, **standart**, veya  **Premium**). Bu adımda, App Service uygulaması desteklenen fiyatlandırma katmanı olan olduğundan emin olun.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

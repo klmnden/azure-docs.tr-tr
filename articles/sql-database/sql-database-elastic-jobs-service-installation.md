@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Yükleme esnek veritabanı işleri genel bakış
-[**Esnek veritabanı iş** ](sql-database-elastic-jobs-overview.md) PowerShell ile yüklenebilir veya Azure Klasik Portal.You yalnızca PowerShell paketi yüklerseniz PowerShell API'yi kullanarak işleri oluşturmak ve yönetmek için erişim sağlayabilir. Ayrıca, PowerShell API'lerinden sağlayın portal önemli ölçüde daha fazla işlevsellik bu anda.
+[**Esnek veritabanı iş** ](sql-database-elastic-jobs-overview.md) PowerShell aracılığıyla veya Azure portalı üzerinden yüklenebilir. Yalnızca PowerShell paketi yüklerseniz PowerShell API'yi kullanarak işleri oluşturmak ve yönetmek için erişim sağlayabilir. Ayrıca, PowerShell API'lerinden sağlayın portal önemli ölçüde daha fazla işlevsellik bu anda.
 
 Zaten yüklediyseniz, **esnek veritabanı işleri** varolan bir Portal üzerinden **esnek havuz**, en son Powershell Önizleme, mevcut yüklemenizi yükseltmek için komut dosyalarını içerir. Yüklemenizin en son sürüme yükseltmek için önerilir **esnek veritabanı işleri** PowerShell API'leri kullanıma sunulan yeni işlevsellikten yararlanmak için bileşenleri.
 
@@ -155,7 +155,7 @@ Bulduktan sonra [bir esnek havuz oluşturulan](sql-database-elastic-pool-manage-
 
 **Tahmini tamamlanma süresi:** 10 dakika.
 
-1. Esnek havuz Pano görünümden [Azure Portal](https://portal.azure.com/#) , tıklatın **oluşturma işi**.
+1. Esnek havuz Pano görünümden [Azure portal](https://portal.azure.com/#) , tıklatın **oluşturma işi**.
 2. Bir işi ilk kez oluşturuyorsanız, yüklemelisiniz **esnek veritabanı işleri** tıklayarak **Önizleme koşulları**.
 3. Onay kutusunu tıklatarak koşullarını kabul edin.
 4. 'Hizmetleri Yükle"Görüntüle'yi tıklatın **iş kimlik bilgilerini**.

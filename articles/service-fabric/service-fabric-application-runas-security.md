@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Uygulamanıza yönelik güvenlik ilkeleri yapılandırma
 Azure Service Fabric kullanarak, kümedeki farklı kullanıcı hesabı altında çalışan uygulamaları güvenliğini sağlayabilirsiniz. Service Fabric uygulamaları tarafından kullanıcı hesapları altında--dağıtım zamanında örneğin kullanılan kaynaklar, dosyaları, dizinleri ve sertifikaları güvenli yardımcı olur. Bu çalışan uygulamaları bile paylaşılan bir barındırılan ortamda, diğerinden daha güvenli hale getirir.
@@ -30,7 +30,7 @@ Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında ç
 Tanımlayabilir ve kullanıcı grupları oluşturun, böylece bir veya daha fazla kullanıcı birlikte yönetilecek her gruba eklenebilir. Bu, farklı hizmet giriş noktaları için birden çok kullanıcı ve grup düzeyinde kullanılabilen bazı ortak ayrıcalıklarına sahip olmanız gerekir yararlıdır.
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Bir hizmet Kurulum giriş noktası için ilkesi yapılandırma
-Bölümünde açıklandığı gibi [uygulama modeli](service-fabric-application-model.md), Kurulum giriş noktası **SetupEntryPoint**, Service Fabric kimlik bilgileriyle çalışır ayrıcalıklı giriş noktasıdır (genellikle  *NetworkService* hesabı) önce başka bir giriş noktası. Tarafından belirtilen yürütülebilir dosya **EntryPoint** genellikle uzun süre çalışan hizmet yöneticisidir. Bu nedenle ayrı Kurulum giriş noktası sahip hizmet ana bilgisayarı yürütülebilir yüksek ayrıcalıklara sahip genişletilmiş süre için çalıştırmanız gereğini ortadan kaldırır. Yürütülebilir dosya, **EntryPoint** belirtir çalıştırıldıktan **SetupEntryPoint** başarıyla çıkar. Sonuçta elde edilen işlem izlenen ve yeniden başlatılabilir ve yeniden ile başlayan **SetupEntryPoint** hiç sonlandırır veya çöküyor.
+Bölümünde açıklandığı gibi [uygulama ve hizmet bildirimlerini](service-fabric-application-and-service-manifests.md), Kurulum giriş noktası **SetupEntryPoint**, Service Fabric kimlik bilgileriyle çalışır ayrıcalıklı giriş noktasıdır (genellikle *NetworkService* hesabı) önce başka bir giriş noktası. Tarafından belirtilen yürütülebilir dosya **EntryPoint** genellikle uzun süre çalışan hizmet yöneticisidir. Bu nedenle ayrı Kurulum giriş noktası sahip hizmet ana bilgisayarı yürütülebilir yüksek ayrıcalıklara sahip genişletilmiş süre için çalıştırmanız gereğini ortadan kaldırır. Yürütülebilir dosya, **EntryPoint** belirtir çalıştırıldıktan **SetupEntryPoint** başarıyla çıkar. Sonuçta elde edilen işlem izlenen ve yeniden başlatılabilir ve yeniden ile başlayan **SetupEntryPoint** hiç sonlandırır veya çöküyor.
 
 SetupEntryPoint ve hizmet için ana EntryPoint gösteren basit hizmeti bildirim bir örnek verilmiştir.
 

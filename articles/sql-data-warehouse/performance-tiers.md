@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL veri ambarı performans Katmanı (Önizleme)
 SQL veri ambarı analitik iş yükleri için en iyi duruma getirilir iki performans katmanı sunar. Bu makalede, iş yükü için en uygun performans katmanı seçmenize yardımcı olmak için performans katmanı kavramlarını açıklar. 
 
-
 ## <a name="what-is-a-performance-tier"></a>Bir performans katmanı nedir?
 Bir performans katmanı, veri ambarı yapılandırmasını belirleyen bir seçenektir. Bu seçenek, bir veri ambarı oluştururken ilk tercihlerinize biridir.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - **Esneklik için İyileştirilmiş performans katmanı**, mimari içindeki işlem ve depolama katmanlarını birbirinden ayırır. Bu seçenek kısa süreli yüksek etkinlik dönemlerini desteklemek için sık ölçeklendirme gerçekleştirerek işlem ve depolama alanı arasındaki ayrımdan faydalanan iş yükleri için idealdir. Bu işlem katmanı en düşük giriş fiyatı noktasına sahiptir ve müşteri iş yüklerinin çoğunu destekleyecek şekilde ölçeklendirilir.
 
@@ -74,7 +75,7 @@ Hizmet düzeyleri için esneklik performans katmanı aralığından DW100 DW6000
 | DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
 | DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
-### <a name="optimized-for-compute"></a>İşlem için en iyi duruma getirilmiş
+### <a name="optimized-for-compute"></a>İşlem için İyileştirilmiş
 
 Hizmet düzeyleri için işlem performans katmanı aralığından DW1000c DW30000c için iyileştirilmiş için. 
 
@@ -112,11 +113,11 @@ Her sorgu sıfır, bir veya daha fazla eşzamanlılık yuvaları tüketir. Siste
  
 Yalnızca yönetilen kaynak sorguları eşzamanlılık yuvaları kullanabilir. Tam sayı tüketilen eşzamanlılık yuva sorgunun tarafından belirlenir [kaynak sınıfı](resource-classes-for-workload-management.md).
 
-### <a name="optimized-for-compute"></a>İşlem için en iyi duruma getirilmiş
+### <a name="optimized-for-compute"></a>İşlem için İyileştirilmiş
 Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları her biri için gösterir [dinamik kaynak sınıfı](resource-classes-for-workload-management.md).  Bu işlem performans katmanı için iyileştirilmiş için geçerlidir.
 
 **Dinamik kaynak sınıfları**
-| Hizmet düzeyi | En fazla eş zamanlı sorgular | Eşzamanlılık yuvaları kullanılabilir | Smallrc tarafından kullanılan yuvaları | Mediumrc tarafından kullanılan yuvaları | Largerc tarafından kullanılan yuvaları | Xlargerc tarafından kullanılan yuvaları |
+| Hizmet Düzeyi | En fazla eş zamanlı sorgular | Eşzamanlılık yuvaları kullanılabilir | Smallrc tarafından kullanılan yuvaları | Mediumrc tarafından kullanılan yuvaları | Largerc tarafından kullanılan yuvaları | Xlargerc tarafından kullanılan yuvaları |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  8                     |  16                   |  32                    |
 | DW1500c       | 32                         |   60                        | 1                     |  8                     |  16                   |  32                    |
@@ -134,7 +135,7 @@ Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları
 
 Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları her biri için gösterir [statik kaynak sınıfı](resource-classes-for-workload-management.md).  
 
-| Hizmet düzeyi | En fazla eş zamanlı sorgular | Eşzamanlılık yuvaları kullanılabilir |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Hizmet Düzeyi | En fazla eş zamanlı sorgular | Eşzamanlılık yuvaları kullanılabilir |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
@@ -161,12 +162,12 @@ Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
 | DW500         | 20                         |  20                         | 1       |  4       |  8      |  16      |
 | DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW2000        | 32                         |  48                         | 1       | 16       | 32      |  64      |
-| DW3000        | 32                         |  64                         | 1       | 16       | 32      |  64      |
-| DW6000        | 32                         | 128                         | 1       | 32       | 64      | 128      |
+| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
+| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
+| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
+| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
+| DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
+| DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
 
 **Statik kaynak sınıfları** en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları her biri için aşağıdaki tabloda gösterilmektedir [statik kaynak sınıfı](resource-classes-for-workload-management.md).  Bu esneklik performans katmanı için iyileştirilmiş için geçerlidir.
 

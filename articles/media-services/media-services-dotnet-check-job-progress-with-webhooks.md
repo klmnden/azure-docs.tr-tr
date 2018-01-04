@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>.NET ile Media Services iş bildirimleri izlemek için Azure Web'kancaları kullanın
-İşlerini çalıştırdığınızda, genellikle iş ilerleme durumunu izlemek için bir yol gerekir. Azure Web Kancalarını kullanarak Media Services iş bildirimleri izleyebilirsiniz veya [Azure kuyruk depolama](media-services-dotnet-check-job-progress-with-queues.md). Bu konuda, Web kancalarını ile çalışmak gösterilmiştir.
+İşlerini çalıştırdığınızda, genellikle iş ilerleme durumunu izlemek için bir yol gerekir. Azure Web Kancalarını kullanarak Media Services iş bildirimleri izleyebilirsiniz veya [Azure kuyruk depolama](media-services-dotnet-check-job-progress-with-queues.md). Bu makalede, Web kancalarını ile çalışmak gösterilmiştir.
 
-Bu konuda gösterilmektedir nasıl
+Bu makalede gösterilmektedir nasıl
 
 *  Web kancası için yanıtlamak için özelleştirilmiş bir Azure işlevi tanımlayın. 
     
@@ -33,9 +33,9 @@ Bu konuda gösterilmektedir nasıl
     >Devam etmeden önce anladığınızdan emin olun nasıl [Azure işlevleri HTTP ve Web kancası bağlamaları](../azure-functions/functions-bindings-http-webhook.md) çalışır.
     >
     
-* Bir Web kancası kodlama göreviniz ekleyin ve bu Web kancası yanıtlaması gizli anahtar ve Web kancası URL'si belirtin. Bir Web kancası kodlama göreviniz konunun sonunda ekleyen bir örnek bulabilirsiniz.  
+* Bir Web kancası kodlama göreviniz ekleyin ve bu Web kancası yanıtlaması gizli anahtar ve Web kancası URL'si belirtin. Bir Web kancası kodlama göreviniz makalenin sonunda ekleyen bir örnek bulabilirsiniz.  
 
-Çeşitli Media Services .NET Azure (Bu konuda gösterilen de dahil olmak üzere) işlevleri tanımlarını bulabilirsiniz [burada](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Çeşitli Media Services .NET Azure (Bu makalede gösterilen de dahil olmak üzere) işlevleri tanımlarını bulabilirsiniz [burada](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -54,7 +54,7 @@ Bu konuda gösterilmektedir nasıl
 
 Media Services işlevleri geliştirirken işlevlerinizi kullanılan ortam değişkenleri eklemek için kullanışlıdır. Uygulama ayarlarını yapılandırmak için uygulama ayarlarını yapılandır bağlantısına tıklayın. 
 
-[Uygulama ayarları](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) bölümünde bu konu başlığı altında tanımlanan Web kancası kullanılan parametreleri tanımlar. Ayrıca aşağıdaki parametreler için uygulama ayarları ekleyin. 
+[Uygulama ayarları](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) bölümünde bu makalede tanımlanan Web kancası kullanılan parametreleri tanımlar. Ayrıca aşağıdaki parametreler için uygulama ayarları ekleyin. 
 
 |Ad|Tanım|Örnek| 
 |---|---|---|
@@ -72,7 +72,7 @@ Media Services işlevleri geliştirirken işlevlerinizi kullanılan ortam deği�
 
 ### <a name="files"></a>Dosyalar
 
-Azure işlevinizi ve bu bölümde açıklanan diğer dosyaları kod dosyaları ile ilişkilidir. Varsayılan olarak, bir işlev ilişkili olduğu **function.json** ve **run.csx** (C#) dosyaları. Eklemeniz gerekir bir **project.json** dosya. Bu bölümün geri kalanında bu dosyaları tanımlarında gösterir.
+Azure işlevinizi ve bu bölümde açıklanan diğer dosyaları kod dosyaları ile ilişkilidir. Varsayılan olarak, bir işlev ilişkili olduğu **function.json** ve **run.csx** (C#) dosyaları. Eklemek gereken bir **project.json** dosya. Bu bölümün geri kalanında bu dosyaları tanımlarında gösterir.
 
 ![Dosyaları](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
