@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure yığın depolama kapasitesi yönetme
 
@@ -63,7 +63,7 @@ Bir blob bir kapsayıcıda yerleştirilir sonra o blob fazla alan kullanması i�
 
 Kapsayıcıları için tek bir paylaşım sınırlı değildir. Bir kapsayıcıda birleşik blob veri kullanımı % 80 veya daha fazla kullanılabilir alan büyürken kapsayıcı girer *taşma* modu. Taşma modundayken, bu kapsayıcıda oluşturulan yeni BLOB yeterli alana sahip farklı bir birime ayrılır. Zaman içinde bir kapsayıcı taşma modunda birden çok birimlere dağıtılır BLOB'ları olabilir.
 
-% 80 ve birim kullanılabilir alanı % 90'ını kullanıldığında sistem Azure yığın Yönetici portalı'nda uyarıları başlatır. Bulut operatörleri kullanılabilir depolama kapasitesinin gözden geçirin ve içeriği yeniden dengelemeniz planlamanız gerekir. Depolama Birimi hizmeti, % 100 kullanılan bir diski olduğundan ve yoksa hiçbir ek uyarı çalışmayı durdurur.
+% 80 ve birim kullanılabilir alanı % 90'ını kullanıldığında sistem Azure yığın Yönetici portalı'nda uyarıları başlatır. Bulut operatörleri kullanılabilir depolama kapasitesinin gözden geçirin ve içeriği yeniden dengelemeniz planlamanız gerekir. Depolama Birimi hizmeti, % 100 kullanılan bir diski olduğundan ve hiçbir ek uyarı çalışmayı durdurur.
 
 ### <a name="disks"></a>Diskler
 VM diskleri kapsayıcılar için kiracılar tarafından eklenir ve bir işletim sistemi diski içerir. VM'ler, bir veya daha fazla veri diski olarak da sağlayabilirsiniz. Her iki tür diskleri sayfa blobları depolanır. Her disk VM performansını artırmak için ayrı bir kapsayıcıya yerleştirmek için kiracılar için yönergeler verilmiştir.
@@ -123,7 +123,7 @@ Bazı blob kapsayıcıları için farklı bir paylaşım el ile geçiş yaparak 
 
 Geçiş yeni paylaşımındaki tüm kapsayıcıları blob birleştirir.
 
-- Bir kapsayıcıyı taşma moduna girdi ve BLOB'lar ek birimlerde yerleştirdiğini, yeni paylaşım tüm geçiş kapsayıcısı için BLOB tutmak için yeterli kapasitesi olması gerekir. Bu ek paylaşımlarında bulunan bloglar içerir.
+- Bir kapsayıcıyı taşma moduna girdi ve BLOB'lar ek birimlerde yerleştirdiğini, yeni paylaşım tüm geçiş kapsayıcısı için BLOB tutmak için yeterli kapasitesi olması gerekir. Bu ek paylaşımlarında bulunan BLOB'ları içerir.
 
 - PowerShell cmdlet *Get-AzsStorageContainer* yalnızca kullanımda olan ilk birim kapsayıcı için alan tanımlar. Cmdlet ek birimlerde put BLOB'ları tarafından kullanılan alanı tanımlamaz. Bu nedenle, bir kapsayıcı tam boyutunun güvenli olmayabilir. Bir kapsayıcıda yeni bir paylaşım birleştirilmesi yeni paylaşan nerede ek paylaşımlar üzerine veri yerleştirir bir taşma koşuluna gönderebilirsiniz mümkündür. Sonuç olarak, yeniden paylaşımlarına yeniden dengelemeniz gerekebilir.
 
