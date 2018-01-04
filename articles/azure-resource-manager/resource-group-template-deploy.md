@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
 ms.openlocfilehash: 1210b2da9126c24b59e8ef59b50742a17b2e740d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 

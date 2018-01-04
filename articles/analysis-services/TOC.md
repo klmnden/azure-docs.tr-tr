@@ -23,6 +23,7 @@
 ### [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
 ### [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
 ### [Sunucu ölçümlerini izleme](analysis-services-monitor.md)
+### [Tanılama günlüğüne kaydetmeyi ayarlama](analysis-services-logging.md)
 ## Bağlan
 ### [İstemci kitaplıkları alma](analysis-services-data-providers.md)
 ### [Excel ile bağlanma](analysis-services-connect-excel.md)

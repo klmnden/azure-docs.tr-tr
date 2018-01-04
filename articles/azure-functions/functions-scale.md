@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevleri ölçek ve barındırma
 
@@ -90,7 +90,7 @@ Depolama hesabı türleri hakkında daha fazla bilgi için bkz: [Azure Storage h
 
 ## <a name="how-the-consumption-plan-works"></a>Tüketim planı nasıl çalışır?
 
-Tüketim planında ölçek denetleyicisi otomatik olarak CPU ve bellek kaynakları işlevleri üzerinde tetiklenen olayların sayısına dayalı işlevler konak ek örneklerini ekleyerek ölçeklendirir. İşlevler konak her örneği için 1,5 GB bellek sınırlıdır.  Konak bir işlevi içinde tüm işlevleri Uygulama Paylaşımı kaynakları bir örneği ve ölçek içinde aynı anda anlamı işlev uygulaması örneğidir.
+Tüketim planında ölçek denetleyicisi otomatik olarak CPU ve bellek kaynakları işlevleri üzerinde tetiklenen olayların sayısına dayalı işlevler konak ek örneklerini ekleyerek ölçeklendirir. İşlevler konak her örneği için 1,5 GB bellek sınırlıdır.  Bir işlevin içindeki tüm işlevleri Uygulama Paylaşımı kaynakları bir örneği ve ölçek içinde aynı anda anlamı işlev uygulaması ana örneğidir.
 
 Barındırma planı tüketimini kullandığınızda işlevi kod dosyaları Azure dosya paylaşımlarının işlevin ana depolama hesabında depolanır. İşlev uygulaması ana depolama hesabına sildiğinizde, işlevi kod dosyaları silinir ve kurtarılamaz.
 
@@ -119,7 +119,7 @@ Farklı tetikleyicileri, farklı sınırları ölçeklendirme yanı sıra aşağ
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>En iyi yöntemler ve yaklaşımlar ölçeklenebilir uygulamalar için
 
-Ne kadar iyi onu, ana bilgisayar yapılandırması, çalışma zamanı ayak izini ve kaynak effeciency de dahil olmak üzere ölçeklenir etkiler bir işlev uygulaması pek çok görünüşünün vardır.  Görünüm [performans konuları makalenin ölçeklenebilirlik bölümüne](functions-best-practices.md#scalability-best-practices) daha fazla bilgi için.
+Ne kadar iyi onu, ana bilgisayar yapılandırması, çalışma zamanı ayak izini ve kaynak verimliliği de dahil olmak üzere ölçeklenir etkiler bir işlev uygulaması pek çok görünüşünün vardır.  Görünüm [performans konuları makalenin ölçeklenebilirlik bölümüne](functions-best-practices.md#scalability-best-practices) daha fazla bilgi için.
 
 ### <a name="billing-model"></a>Faturalandırma modeli
 

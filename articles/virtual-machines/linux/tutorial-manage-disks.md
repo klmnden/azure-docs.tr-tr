@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Azure CLI ile Azure diskleri yönetme
 
@@ -50,7 +50,7 @@ Bir Azure sanal makine oluşturulduğunda, iki disk otomatik olarak sanal makine
 
 ### <a name="temporary-disk-sizes"></a>Geçici disk boyutları
 
-| Tür | VM boyutu | En büyük geçici disk boyutu (GB) |
+| Tür | VM Boyutu | En büyük geçici disk boyutu (GB) |
 |----|----|----|
 | [Genel amaçlı](sizes-general.md) | A ve D serisi | 800 |
 | [İşlem için iyileştirilmiş](sizes-compute.md) | F serisi | 800 |
@@ -65,7 +65,7 @@ Uygulama yükleme ve verilerini depolamak için ek veri disklerinin eklenebilir.
 
 ### <a name="max-data-disks-per-vm"></a>VM başına en fazla veri diski
 
-| Tür | VM boyutu | VM başına en fazla veri diski |
+| Tür | VM Boyutu | VM başına en fazla veri diski |
 |----|----|----|
 | [Genel amaçlı](sizes-general.md) | A ve D serisi | 32 |
 | [İşlem için iyileştirilmiş](sizes-compute.md) | F serisi | 32 |
@@ -225,7 +225,7 @@ Yeniden boyutlandırma işlemi tamamlandıktan sonra VM'yi başlatın.
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-İşletim sistemi diski yeniden boyutlandırılabilir, bölüm otomatik olarak olması genişletilmiştir. Bir veri diski yeniden boyutlandırılabilir VM'ler işletim sisteminde genişletilecek geçerli bölümler gerekir.
+İşletim sistemi diski yeniden boyutlandırılabilir, bölüm otomatik olarak genişletilir. Bir veri diski yeniden boyutlandırılabilir VM'ler işletim sisteminde genişletilecek geçerli bölümler gerekir.
 
 ## <a name="snapshot-azure-disks"></a>Azure diskleri anlık görüntüsünü alın
 
@@ -233,7 +233,7 @@ Bir disk anlık disk okuma yalnızca, zaman noktası kopyasını oluşturur. Azu
 
 ### <a name="create-snapshot"></a>Anlık görüntü oluşturma
 
-Bir sanal makine disk anlık oluşturmadan önce kimliği veya disk adı gerekli. Kullanım [az vm Göster](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) disk kimliği döndürülecek komutu. Bu örnekte, böylece daha sonraki bir adımda kullanılabilir disk kimliği bir değişkende depolanır.
+Bir sanal makine disk anlık oluşturmadan önce kimliği veya disk adı gerekli. Kullanım [az vm Göster](https://docs.microsoft.com/cli/azure/vm#az_vm_show) disk kimliği döndürülecek komutu. Bu örnekte, böylece daha sonraki bir adımda kullanılabilir disk kimliği bir değişkende depolanır.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

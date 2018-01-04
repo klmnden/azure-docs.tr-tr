@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Güvenlik Merkezi planlama ve işlemler kılavuzu
 Bu kılavuz, kurumları Azure Güvenlik Merkezi'ni kullanmayı planlayan bilgi teknolojisi (BT) uzmanları, BT mimarları, bilgi güvenlik çözümleyicileri ve bulut yöneticilerine yöneliktir.
@@ -46,7 +46,7 @@ Kuruluşunuzun büyüklüğüne ve yapısına bağlı olarak birçok kişi ve ek
 
 ![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Güvenlik Merkezi, bu çok çeşitli sorumlulukları karşılamak için kişileri etkinleştirir. Örneğin:
+Güvenlik Merkezi, bu çok çeşitli sorumlulukları karşılamak için kişileri etkinleştirir. Örnek:
 
 **Cem (İş Yükü Sahibi)**
 
@@ -125,7 +125,7 @@ Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şi
 
 Güvenlik Merkezi ilkeleri aşağıdaki bileşenleri içerir:
 - [Veri toplama](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): Aracı sağlama ve veri toplama ayarları.
-- [Güvenlik ilkesi](https://docs.microsoft.com/azure/security-center/security-center-policies): Güvenlik Merkezi tarafından izlenen ve önerilen denetimleri belirleyen bir [Azure İlkesi](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction). Azure İlkesi'ni yeni tanım oluşturma, ek ilke tanımlama ve ilkeleri farklı Yönetim Gruplarına atama amacıyla da kullanabilirsiniz.
+- [Güvenlik ilkesi](https://docs.microsoft.com/azure/security-center/security-center-policies): Güvenlik Merkezi tarafından izlenen ve önerilen denetimleri belirleyen bir [Azure İlkesi](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction). Azure İlkesi'ni yeni tanım oluşturma, ek ilke tanımlama ve ilkeleri farklı Yönetim Gruplarına atama amacıyla da kullanabilirsiniz.
 - [E-posta bildirimleri](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): Güvenlik ilgili kişileri ve bildirim ayarları.
 - [Fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing): Kapsam dahilindeki kaynaklar (abonelikler, kaynak grupları ve çalışma alanları için belirtilebilir) için kullanılabilecek olan Güvenlik Merkezi özelliklerini belirleyen ücretsiz veya standart fiyatlandırma katmanı.
 
@@ -178,7 +178,7 @@ Güvenlik Merkezi önerilerinin ilk yapılandırması ve uygulamasından sonraki
 
 Güvenlik Merkezine Genel Bakış, tüm Azure kaynaklarınızın ve bağladığınız Azure dışı kaynakların birleştirilmiş görünümünü sunar. Aşağıdaki örnekte ilgilenilmesi gereken birçok soruna sahip bir ortam gösterilmektedir:
 
-![pano](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
+![pano](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Güvenlik Merkezi normal işlem yordamlarınıza müdahale etmez, dağıtımlarınızı pasif olarak izler ve etkinleştirdiğiniz güvenlik ilkelerine bağlı olarak öneriler sağlar.

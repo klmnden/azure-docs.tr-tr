@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Android için Azure Authenticator
 BT yöneticiniz oturum iş kaynaklarınıza erişmek için açmak için Microsoft Azure Authenticator kullanmanızı tavsiye. Bu uygulama bu iki oturum açma seçenekleri sağlar:
@@ -41,7 +41,7 @@ Aşağıdaki yönergeleri, Samsung GS3 ve telefonları ya da not2 üstünde ve t
 4. Etkinleştirme Aygıt Yöneticisi ekranında tıklatın **etkinleştirme**.
 5. Gizlilik İlkesi ekranında, onay kutusunu işaretleyin ve **Onayla**.
 6. Çalışma alanına katılma ekranda tıklatın ve kuruluş tarafından sağlanan kullanıcı kimliği girin **katılma**.
-7. Azure Authenticator uygulamasını oturum açmak için kuruluşunuzun girin bir *** edef parola ve tıklatın ve **oturum**.
+7. Azure Authenticator uygulamasını oturum açmak için Kurumsal hesap ve parola girin ve **oturum**.
 8. Çok faktörlü kimlik doğrulaması (MFA) hakkında bilgi görüntüler sonraki ekranda için güvenlik eklenir ve isteğe bağlıdır. İşiniz veya okulunuz iş hesabı oluşturmak için ikinci faktör kimlik doğrulaması gerektiriyorsa, bu ekranı görürsünüz. Daha fazla hesabınızı doğrulamak için yönergeler sağlar.
 9. İleti çalışma alanına katılma ekranını görüntüler "**, çalışma alanına katılma**". Azure authenticator uygulamasını Cihazınızı çalışma alanına katılmaya çalışıyor.
 10. Sonraki ekranda çalışma alanına katılmış iletiyi görmeniz gerekir.

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -121,11 +121,11 @@ Aşağıdaki bölümlerde her bir Azure Backup bileşeninin kullanılabilirliği
 ### <a name="storage"></a>Depolama
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Kurtarma Hizmetleri kasası |![Evet][green] |![Evet][green] |![Evet][green] |![Evet][green] |
-| Disk depolama | |![Evet][green] |![Evet][green] | |
-| Bant depolama | |![Evet][green] | | |
-| Sıkıştırma <br/>(Kurtarma hizmetleri kasasında) |![Evet][green] |![Evet][green] |![Evet][green] | |
-| Artımlı yedekleme |![Evet][green] |![Evet][green] |![Evet][green] |![Evet][green] |
+| Kurtarma Hizmetleri kasası |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
+| Disk depolama | |![Yes][green] |![Yes][green] | |
+| Bant depolama | |![Yes][green] | | |
+| Sıkıştırma <br/>(Kurtarma hizmetleri kasasında) |![Yes][green] |![Yes][green] |![Yes][green] | |
+| Artımlı yedekleme |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
 | Disk için yinelenenleri kaldırma | |![Kısmi][yellow] |![Kısmi][yellow] | | |
 
 ![tablo anahtarı](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -162,8 +162,8 @@ Her yedekleme yönteminin depolama alanı tüketimi, kurtarma süresi hedefi (RT
 ### <a name="security"></a>Güvenlik
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Ağ güvenliği<br/> (Azure’a) |![Evet][green] |![Evet][green] |![Evet][green] |![Kısmi][yellow] |
-| Veri güvenliği<br/> (Azure’da) |![Evet][green] |![Evet][green] |![Evet][green] |![Kısmi][yellow] |
+| Ağ güvenliği<br/> (Azure’a) |![Yes][green] |![Yes][green] |![Evet][green] |![Kısmi][yellow] |
+| Veri güvenliği<br/> (Azure’da) |![Yes][green] |![Yes][green] |![Evet][green] |![Kısmi][yellow] |
 
 ![tablo anahtarı](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -181,8 +181,8 @@ Azure VM'lerin yedeklenmesi için şifrelemenin sanal makine *içinde* ayarlanma
 ### <a name="network"></a>Ağ
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Ağ sıkıştırma <br/>(**backup sunucusuna**) | |![Evet][green] |![Evet][green] | |
-| Ağ sıkıştırma <br/>(**Kurtarma hizmetleri kasasına**) |![Evet][green] |![Evet][green] |![Evet][green] | |
+| Ağ sıkıştırma <br/>(**backup sunucusuna**) | |![Yes][green] |![Yes][green] | |
+| Ağ sıkıştırma <br/>(**Kurtarma hizmetleri kasasına**) |![Yes][green] |![Yes][green] |![Yes][green] | |
 | Ağ protokolü <br/>(**backup sunucusuna**) | |TCP |TCP | |
 | Ağ protokolü <br/>(**Kurtarma hizmetleri kasasına**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -211,7 +211,7 @@ Azure Backup’ta, *korumalı örnek* başına 9999 kurtarma noktası (yedekleme
 
 ## <a name="what-is-a-protected-instance"></a>Korumalı örnek nedir?
 Korumalı örnek, Azure’a yedeklemek için yapılandırılmış bir Windows bilgisayar, sunucu (fiziksel veya sanal) veya SQL veritabanı için genel bir başvurudur. Bilgisayar, sunucu veya veritabanı için bir yedekleme ilkesi yapılandırdığınızda ve verilerin yedek kopyasını oluşturduğunuzda örnek, korumalı hale gelir. Bu korumalı örnek için yedek verilerin sonraki kopyaları (kurtarma noktası olarak adlandırılır), kullanılan depolama alanı miktarını artırır. Korumalı bir örnek için en çok 9999 kurtarma noktası oluşturabilirsiniz. Bir kurtarma noktasını depolamadan silerseniz, 9999 kurtarma noktası toplamı içinde sayılmaz.
-Korumalı örneklere sanal makineler, uygulama sunucuları, veritabanları ve Windows işletim sistemi çalıştıran kişisel bilgisayarlar örnek olarak verilebilir. Örneğin:
+Korumalı örneklere sanal makineler, uygulama sunucuları, veritabanları ve Windows işletim sistemi çalıştıran kişisel bilgisayarlar örnek olarak verilebilir. Örnek:
 
 * Hyper-V veya Azure IaaS hiper yönetici yapısı çalıştıran bir sanal makine. Sanal makine için konuk işletim sistemleri Windows Server veya Linux olabilir.
 * Bir uygulama sunucusu: Uygulama sunucusu Windows Server ve yedeklenmesi gereken verileri içeren iş yüklerini çalıştıran bir fiziksel veya sanal makine olabilir. Ortak iş yükleri; Microsoft SQL Server, Microsoft Exchange sunucusu, Microsoft SharePoint sunucusu ve Windows Server üzerindeki Dosya Sunucusu rolüdür. Bu iş yüklerini yedeklemek için System Center Data Protection Manager (DPM) veya Azure Backup Sunucusu gerekir.
@@ -254,7 +254,7 @@ Diğer iş yüklerini koruma hakkında ayrıntılı bilgi için şu makaleleri i
 
 * [Windows Server verilerinizi yedekleme](backup-configure-vault.md)
 * [Uygulama iş yüklerini yedekleme](backup-azure-microsoft-azure-backup.md)
-* [Azure IaaS VM'lerini yedekleme](backup-azure-vms-prepare.md)
+* [Azure IaaS VM'lerini yedekleme](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda HBase kümesi çoğaltmayı ayarlama
 
@@ -43,7 +43,7 @@ Tek bir sanal ağı için HBase çoğaltma kullanım durumları verilmiştir:
 
 Kümeleri kullanarak çoğaltabilirsiniz [betik eylemi](../hdinsight-hadoop-customize-cluster-linux.md) betikten [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz: [Azure ücretsiz deneme sürümünü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Ortamları ayarlama
@@ -118,7 +118,7 @@ Bazı şablonu sabit kodlanmış değerler:
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | ağ geçidi IP | vnet1gwip |
-| Küme adı | &lt;ClusterNamePrefix > 1 |
+| Küme Adı | &lt;ClusterNamePrefix > 1 |
 | Küme sürümü | 3.6 |
 | Küme türü | hbase |
 | Küme çalışan düğüm sayısı | 2 |
@@ -140,7 +140,7 @@ Bazı şablonu sabit kodlanmış değerler:
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | ağ geçidi IP | vnet1gwip |
-| Küme adı | &lt;ClusterNamePrefix > 2 |
+| Küme Adı | &lt;ClusterNamePrefix > 2 |
 | Küme sürümü | 3.6 |
 | Küme türü | hbase |
 | Küme çalışan düğüm sayısı | 2 |

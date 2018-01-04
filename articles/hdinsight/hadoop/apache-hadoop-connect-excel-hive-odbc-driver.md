@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 7d775da82cb2dcdc02337cd19f0ef02e6562e41a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel'i Microsoft Hive ODBC sürücüsü ile Azure Hdınsight hadoop bağlama
 
@@ -104,6 +104,7 @@ Aşağıdaki adımlar, önceki bölümde oluşturduğunuz ODBC veri kaynağını
 Bu makalede, Microsoft Hive ODBC sürücüsü Hdınsight hizmetinden Excel'e veri almak için nasıl kullanılacağı hakkında bilgi edindiniz. Benzer şekilde, SQL veritabanına Hdınsight hizmetinden veri alabilirsiniz. Bir Hdınsight hizmetine veri yüklemeye mümkündür. Daha fazla bilgi için bkz:
 
 * [Microsoft Power BI'ı Azure hdınsight'ta Hive görselleştirmek](apache-hadoop-connect-hive-power-bi.md).
+* [Etkileşimli sorgu Hive verileri Azure hdınsight'ta Power BI ile görselleştirme](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın ](./../hdinsight-connect-hive-zeppelin.md).
 * [Excel'i Power Query kullanarak Hadoop için bağlama](apache-hadoop-connect-excel-power-query.md).
 * [Azure Hdınsight bağlanmak ve Visual Studio için Data Lake Araçları'nı kullanarak Hive sorguları çalıştırmak](apache-hadoop-visual-studio-tools-get-started.md).

@@ -5,19 +5,19 @@ keywords:
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft karma kimlik çözümleri
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) karma kimlik çözümleri hala kullanıcıların şirket içi yönetme sırasında Azure AD ile şirket içi dizin nesneleri eşitleme olanak tanır. Şirket içi Windows Server Active Directory'nizi Azure AD ile eşitlemek planlama kullanmak isteyip istemediğinizi yapmak için ilk karar kimlik eşitlenen veya kimlik Federasyon. Eşitlenen kimlikler ve isteğe bağlı olarak parola karmaları şirket içi ve bulut tabanlı kurumsal kaynaklara erişmek için aynı parolayı kullanmalarına olanak sağlar. Çoklu oturum açma (SSO) veya şirket içi MFA gibi daha gelişmiş senaryo gereksinimleri için Active Directory Federasyon Hizmetleri (kimlikleri birleştirmek için AD FS) dağıtmanız gerekir. 
@@ -50,9 +50,6 @@ Doğrudan kimlik doğrulaması için parola doğrulama isteklerini dinleyen bir 
 
 - Windows Server 2012 R2 veya üzeri
 - Üzerinden kullanıcıların doğrulandığı ormandaki bir etki alanına katılmış
-
-> [!NOTE]
-> Azure AD doğrudan kimlik doğrulama şu anda önizlemede ve web tarayıcısı tabanlı ve modern kimlik doğrulamasını destekleyen Office istemciler için desteklenir. Eski Office istemcileri ve Exchange ActiveSync (mobil cihazlardaki yerel e-posta istemcileri de dahil olmak üzere) gibi desteklenmediği istemcileri için bu eşdeğer modern kimlik doğrulamasını kullanmak için önerilir. Modern kimlik doğrulaması yalnızca doğrudan kimlik doğrulama sağlar, ancak koşullu erişim ilkeleri, çok faktörlü kimlik doğrulaması gibi uygulanacak da sağlar. 
 
 Windows 10 cihazları kullanarak Azure AD alanına katıldığında doğrudan kimlik doğrulama şu anda desteklenmiyor. Ancak, otomatik bir geri dönüş için destek Windows 10 olarak parola karması eşitlemesi kullanabilirsiniz ve eski istemciler daha önce bahsedilen. Azure AD CONNECT'te oturum açma seçeneği olarak geçişli kimlik doğrulaması seçildiğinde önizleme süresince parola karması eşitlemesi varsayılan olarak etkindir.
 

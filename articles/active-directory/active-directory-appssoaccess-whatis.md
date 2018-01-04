@@ -1,5 +1,5 @@
 ---
-title: "Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir? | Microsoft Belgeleri"
+title: "Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir? | Microsoft Docs"
 description: "Tüm iş için gereken SaaS ve web uygulamaları için çoklu oturum açmayı etkinleştirmek için Azure Active Directory kullanın."
 services: active-directory
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b577a427590b058319f9315a6d54deb6ec1c7634
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?
 Çoklu oturum açma tüm uygulamaları ve iş, yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak yapmak için gereken kaynaklar erişebildiklerinden anlamına gelir. Oturum açıldıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örn. bir parola yazın) ikinci kez.
@@ -54,7 +54,7 @@ Bir uygulamaya bir kullanıcı kimlik doğrulaması sonra bunlar Ayrıca uygulam
  Bu tek oturum açma modları ve aşağıda sağlama hakkında daha ayrıntılı bilgi.
 
 ### <a name="federated-single-sign-on"></a>Federasyon çoklu oturum açma
-Federasyon çoklu oturum açma oturum açma sağlar Azure AD kullanıcı hesabı bilgilerini kullanarak Azure AD tarafından bir üçüncü taraf SaaS uygulamasına otomatik olarak oturum açmanız ve kuruluşunuzdaki kullanıcıların sağlar.
+Federasyon çoklu oturum açma Azure AD kullanıcı hesabı bilgilerini kullanarak Azure AD tarafından bir üçüncü taraf SaaS uygulamasına otomatik olarak oturum açmanız ve kuruluşunuzdaki kullanıcıların sağlar.
 
 Bu senaryoda, zaten Azure AD ile oturumunuz açıldı ve bir üçüncü taraf SaaS uygulaması tarafından denetlenen kaynaklara erişmek istediğinizde Federasyon yeniden kimliği doğrulanmış bir kullanıcıya gereksinimini ortadan kaldırır.
 
@@ -190,7 +190,7 @@ Yetkili bir kullanıcı bu uygulamaya özgü bağlantılardan birini tıkladığ
 
 Office 365 ve erişim paneli aynı erişim denetimi mekanizmaları bu bağlantıları kullanın ve yalnızca bu kullanıcıları veya uygulaması Azure Yönetim Portalı'na atanan grupları başarıyla kimlik doğrulaması için olacaktır. Ancak, yetkilendirilmemiş herhangi bir kullanıcı oldukları erişim verilmemiş ve erişim sahip oldukları kullanılabilir uygulamaları görüntülemek için erişim paneli yüklemek için bir bağlantı belirtilen açıklayan bir ileti görürsünüz.
 
-## <a name="related-articles"></a>İlgili makaleler
+## <a name="related-articles"></a>İlgili Makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Cloud App Discovery ile bulut uygulamaları tasdik bulma](active-directory-cloudappdiscovery-whatis.md)

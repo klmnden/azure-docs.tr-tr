@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 00eb9f6e13035ba5827b70e911be4afeafd442a2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2b24747ce4ea8499c999c693f00fb09178d52b0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Etkileşimli olmayan kimlik doğrulama .NET Hdınsight uygulaması oluşturma
 Microsoft .NET Azure Hdınsight uygulamanızı ya da uygulamanın kendi kimliğini (etkileşimli olmayan) (etkileşimli) uygulamasının oturum açmış kullanıcının kimliğini altında ya da çalıştırabilirsiniz. Bu makalede etkileşimli olmayan kimlik doğrulaması için Azure bağlanmak ve Hdınsight yönetmek için .NET uygulaması oluşturulacağını gösterir. Etkileşimli bir uygulamanın bir örnek için bkz: [Azure Hdınsight Bağlan](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -31,7 +31,7 @@ Etkileşimli olmayan .NET uygulamanızdan, aşağıdakiler gerekir:
 * Azure Active Directory (Azure AD) uygulama istemci kimliği. Bkz: [Azure Active Directory Uygulama oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) ve [bir uygulama kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 * Azure AD uygulama gizli anahtarı. Bkz: [Get uygulama kimlik doğrulama anahtarı](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Hdınsight kümesi. Bkz: [başlama Öğreticisi](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Azure AD uygulaması rol atama

@@ -46,6 +46,8 @@
           href: storage-create-geo-redundant-storage.md
         - name: RA-GRS depolama alanı ile hata simülasyonu
           href: storage-simulate-failure-ragrs-account-app.md
+    - name: AzCopy ile şirket içi verileri buluta geçirme
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Bulut depolama alanında yapılandırılmamış verileri arama
       href: storage-unstructured-search.md
     - name: Depolama uygulaması performansını ve ölçeklenebilirliğini iyileştirme
@@ -138,7 +140,7 @@
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Ölçümleri etkinleştirme ve görüntüleme
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Depolama hesabı oluşturma
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -168,7 +170,7 @@
           href: storage-how-to-use-blobs-cli.md
         - name: REST
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Azure Blob'ları için PowerShell
           href: storage-how-to-use-blobs-powershell.md

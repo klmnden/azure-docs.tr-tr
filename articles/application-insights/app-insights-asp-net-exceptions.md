@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Web uygulamalarınızı Application Insights ile özel durumları tanılama
 Özel durumlar, canlı web uygulamanızda tarafından bildirilen [Application Insights](app-insights-overview.md). Böylece hızla nedenlerini tanılamak özel durumlar ve hem istemci hem de sunucu, diğer olayları ile başarısız olan istekler ilişkilendirebilirsiniz.
@@ -57,7 +57,7 @@ Kodda, CodeLens özel durumlar hakkında veri gösterdiğine dikkat edin:
 ![Özel durumlar CodeLens bildirimi.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Azure portalını kullanarak hataları tanılama
-Application Insights ile birlikte gelen hataları izlenen uygulamalarınızda tanılamanıza yardımcı olacak bir seçkin APM deneyimi. Araştır bölümünde bulunan Application Insights kaynağı menüde hataları seçeneğinde başlatmak için tıklatın. Hata oranı eğilimleri isteklerinizi, kaç tanesinin başarısız olduğunu ve kaç tane kullanıcıların etkilendiğini gösteren bir tam ekran görünümü görmeniz gerekir. Sağ tarafta seçili belirli en yararlı dağıtımları bazıları göreceğiniz en üst 3 yanıt kodları, en üst 3 özel durum türleri ve en üst 3 depedency türleri başarısız dahil olmak üzere, işlem başarısız. 
+Application Insights ile birlikte gelen hataları izlenen uygulamalarınızda tanılamanıza yardımcı olacak bir seçkin APM deneyimi. Araştır bölümünde bulunan Application Insights kaynağı menüde hataları seçeneğinde başlatmak için tıklatın. Hata oranı eğilimleri isteklerinizi, kaç tanesinin başarısız olduğunu ve kaç tane kullanıcıların etkilendiğini gösteren bir tam ekran görünümü görmeniz gerekir. Sağ tarafta seçili belirli en yararlı dağıtımları bazıları göreceğiniz en üst 3 yanıt kodları, en üst 3 özel durum türleri ve bağımlılık türleri başarısız üst 3 dahil olmak üzere, işlem başarısız. 
 
 ![Görünüm (işlemler sekmesi) hataları Önceliklendirme](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 

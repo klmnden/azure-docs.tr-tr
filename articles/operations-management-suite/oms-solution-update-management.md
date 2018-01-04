@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
 
@@ -56,7 +56,7 @@ Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin ger
 
 Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütür.  İlk olarak güncelleştirmelerin hala gerekli olduğunu doğrulamak için bir tarama yapılır ve bunlar yüklenir.  WSUS istemci bilgisayarları için, güncelleştirmelerin WSUS’ta onaylanmaması durumunda güncelleştirme dağıtımının başarısız olacağı unutulmamalıdır.  Uygulanan güncelleştirmelerin sonuçları, panolarda veya olayları arama yoluyla işlenmek ve özetlenmek üzere OMS’ye iletilir.     
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Çözüm, Windows Server 2008 ve sonraki sürümlerine yönelik güncelleştirme değerlendirmelerinin yanı sıra Windows Server 2008 R2 SP1 ve sonraki sürümlerine yönelik güncelleştirme dağıtımları gerçekleştirilmesini destekler.  Nano Sunucu desteklenmiyor.
 
     > [!NOTE]
@@ -142,7 +142,7 @@ Operations Manager yönetim grubunun OMS’yle iletişim kurduğunu onaylamak i�
 ### <a name="supported-agents"></a>Desteklenen aracılar
 Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açıklanmaktadır.
 
-| Bağlı Kaynak | Destekleniyor | Açıklama |
+| Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
 | Windows aracıları |Evet |Çözüm, Windows aracılarından sistem güncelleştirme bilgilerini toplar ve gerekli güncelleştirmelerin yüklemesini başlatır. |
 | Linux aracıları |Evet |Çözüm, Linux aracılarından sistem güncelleştirme bilgilerini toplar ve desteklenen dağıtımlarda gerekli güncelleştirmelerin yüklemesini başlatır. |
@@ -181,7 +181,7 @@ Her Güncelleştirme Dağıtımı için gösterilen özellikler aşağıdaki tab
 
 | Özellik | Açıklama |
 | --- | --- |
-| Adı |Güncelleştirme Dağıtımının adı. |
+| Ad |Güncelleştirme Dağıtımının adı. |
 | Zamanlama |Zamanlama türü.  Sağlanan seçenekler *Bir Kerelik*, *Haftalık Yineleme* ve *Aylık Yineleme*’dir. |
 | Başlangıç Zamanı |Güncelleştirme Dağıtımının başlatılmak üzere zamanlandığı tarih ve saat. |
 | Süre |Güncelleştirme Dağıtımının çalışmasına izin verilen dakika sayısı.  Bu süre içinde tüm güncelleştirmeler yüklenmezse, kalan güncelleştirmeler sonraki Güncelleştirme Dağıtımına kadar beklemelidir. |

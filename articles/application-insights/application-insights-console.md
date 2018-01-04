@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 74f3334fb5b13dccfd16eff216d370fb6a643980
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET için Application Insights konsol uygulamaları
 [Application Insights](app-insights-overview.md) , web uygulamanızın kullanılabilirlik, performans ve kullanım izlemenize izin verir.
@@ -37,7 +37,7 @@ var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
 ```
 
-* En son sürümünü yüklemek [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) paket - HTTP, SQL veya başka bir dış bağımlılık çağrıları otomatik olarak izler.
+* En son sürümünü yüklemek [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) paket - HTTP, SQL veya başka bir dış bağımlılık çağrıları otomatik olarak izler.
 
 Başlatma ve Application Insights koddan yapılandırma veya kullanarak `ApplicationInsights.config` dosya. Başlatma olabildiğince erken olur emin olun.
 

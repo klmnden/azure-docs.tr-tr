@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5355b3ffcddf0ad0c23566dde00663bd4dc99fbc
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite içinde hizmet Haritası yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -35,7 +35,7 @@ Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntıları
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 Hizmet eşlemesi Microsoft bağımlılık Aracısı'ndan verileri alır. Operations Management suite'e bağlantıları için OMS Aracısı bağımlılık Aracısı'nı bağlıdır. Bunun anlamı bir sunucuya yüklenir ve yapılandırılır. ilk OMS Aracısı olması gerekir ve ardından bağımlılık Aracısı yüklenir. Aşağıdaki tabloda hizmet Haritası çözümünü destekler bağlı kaynakları açıklanmaktadır.
 
-| Bağlı kaynak | Destekleniyor | Açıklama |
+| Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
 | Windows aracıları | Evet | Hizmet eşlemesi analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-windows-agent.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
 | Linux aracıları | Evet | Hizmet eşlemesi analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-linux-agents.md), Linux aracılarını Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
@@ -367,8 +367,6 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 | OS sürümü | Çekirdek sürümü
 |:--|:--|
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
@@ -377,16 +375,10 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | OS sürümü | Çekirdek sürümü
 |:--|:--|
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
+| 11 SP2 | 3.0.101-0.7 |
+| 11 SP3 | 3.0.101-0.47 |
+| 11 SP4 | 3.0.101-65 |
 
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-| OS sürümü | Çekirdek sürümü
-|:--|:--|
-| 10 SP4 | 2.6.16.60 |
 
 ## <a name="diagnostic-and-usage-data"></a>Tanılama ve kullanım verileri
 Microsoft otomatik olarak hizmet Haritası hizmet kullanımınız vasıtasıyla kullanım ve performans verilerini toplar. Microsoft bu verileri sağlamak ve kalitesini, güvenlik ve hizmet eşlemesi hizmet bütünlüğünü geliştirmek için kullanır. Veriler, işletim sistemi ve sürümü gibi yazılımınızın yapılandırması hakkında bilgi içerir. Ayrıca IP adresi, DNS adı ve iş istasyonu adı doğru ve etkili sorun giderme özellikleri sunmak için içerir. Ad, adres veya diğer kişi bilgilerini toplamaz.

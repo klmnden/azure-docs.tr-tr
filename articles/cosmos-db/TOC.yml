@@ -103,7 +103,7 @@
           href: tutorial-query-mongodb.md
         - name: Tablo
           href: tutorial-query-table.md
-        - name: Graph
+        - name: Graf
           href: tutorial-query-graph.md
     - name: 4 - Global olarak dağıtma
       items:
@@ -113,7 +113,7 @@
           href: tutorial-global-distribution-mongodb.md
         - name: Tablo
           href: tutorial-global-distribution-table.md
-        - name: Graph
+        - name: Graf
           href: tutorial-global-distribution-graph.md
     - name: 5 - Yerel Olarak Geliştirme
       items:
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Performansı test etme
               href: performance-testing.md
-            - name: Performans ipuçları
+            - name: .NET için performans ipuçları
               href: performance-tips.md
+            - name: Java için performans ipuçları
+              href: performance-tips-java.md
             - name: Çok yöneticili kurulum
               href: multi-region-writers.md
             - name: DateTimes
@@ -318,7 +320,7 @@
           href: indexing-policies.md
         - name: Visual Studio'da Bağlı Hizmet
           href: connected-service.md
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Düşük maliyetli okuma ve yazmalar
           href: key-value-store-cost.md

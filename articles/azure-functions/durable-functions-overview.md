@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Dayanıklı işlevlerine genel bakış (Önizleme)
 
@@ -215,7 +215,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("HandleApproval", approvalEvent.Result);
+            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
@@ -235,7 +235,7 @@ Arka planda üstünde dayanıklı işlevleri uzantısı oluşturulmuştur [dayan
 
 Orchestrator işlevler olarak bilinen bir bulut tasarım modeli kullanarak yürütme durumlarına güvenilir bir şekilde korumak [olay kaynak Hizmeti'nden](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Doğrudan depolamak yerine *geçerli* dayanıklı uzantısı bir düzenleme durumunu kaydetmek için bir yalnızca append deposu kullanır *tam Eylemler dizisi* işlevi orchestration tarafından gerçekleştirilecek. Bu, performans, ölçeklenebilirlik ve "tam çalışma zamanı durumu döküm alma için" karşılaştırıldığında yanıtlama hızı artırma gibi birçok avantaj vardır. Nihai tutarlılık sağlamak için işlem verilerini ve tam denetim izleri ve geçmiş koruyarak diğer avantajlar şunlardır. Denetim izleri güvenilir karşılayan Eylemler etkinleştirin.
 
-Olay kaynak kullanımını bu uzantı tarafından saydamdır. Kapak altında `await` işleci bir orchestrator işlevinde dayanıklı görev Framework dağıtıcısıyla orchestrator iş parçacığının denetim verir. Dağıtıcı orchestrator işlevi (bir veya daha fazla alt işlevleri çağırma veya dayanıklı süreölçer zamanlama gibi) zamanlanmış eylemlere yeni depolama birimine sonra kaydeder. Bu saydam yürütme eylem iliştirilir *yürütme geçmişini* orchestration örneği. Geçmiş dayanıklı depolama alanında depolanır. Yürütme eylem ardından iletileri asıl işi zamanlamak için bir kuyruğa ekler. Bu noktada, orchestrator işlevi bellekten olabilir. Azure işlevleri tüketim planlama kullanıyorsanız, bunun için fatura durdurur.  Yapmak için daha fazla iş olduğunda işlevi yeniden ve durumunu yeniden düzenlenir.
+Olay kaynak kullanımını bu uzantı tarafından saydamdır. Kapak altında `await` işleci bir orchestrator işlevinde dayanıklı görev Framework dağıtıcısıyla orchestrator iş parçacığının denetim verir. Dağıtıcı orchestrator işlevi (bir veya daha fazla alt işlevleri çağırma veya dayanıklı süreölçer zamanlama gibi) zamanlanmış eylemlere yeni depolama birimine sonra kaydeder. Bu saydam yürütme eylem iliştirilir *yürütme geçmişini* orchestration örneği. Geçmiş bir depolama tablosunda depolanır. Yürütme eylem ardından iletileri asıl işi zamanlamak için bir kuyruğa ekler. Bu noktada, orchestrator işlevi bellekten olabilir. Azure işlevleri tüketim planlama kullanıyorsanız, bunun için fatura durdurur.  Yapmak için daha fazla iş olduğunda işlevi yeniden ve durumunu yeniden düzenlenir.
 
 Orchestration işlevi yapmak için daha fazla iş verildikten sonra (örneğin, bir yanıt iletisi aldı veya dayanıklı süreölçer süresi), orchestrator yeniden uyanır ve yeniden Başlat tüm işlevinden yerel durumu yeniden oluşturmak için yürütür. Bu yeniden yürütme sırasında bir işlevi çağırmak kodu çalışırsa (veya başka bir zaman uyumsuz iş), dayanıklı görev Framework ile danışır *yürütme geçmişini* geçerli orchestration. Etkinlik işlevi zaten yürütüldü ve bazı sonuç verdiğini, onu bu işlevin sonucu başlayarak yeniden oynatılır ve orchestrator kodu çalışmaya devam bulursa. Bu işlev kodu nereye tamamlanmadan veya zamanlanmış yeni zaman uyumsuz iş olduğu bir noktasına ulaşana kadar gerçekleştiği devam eder.
 
@@ -249,7 +249,7 @@ Yeniden yürütme davranışı bir orchestrator işlevinde yazılan kod türün�
 
 ## <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
 
-Dayanıklı işlevleri uzantısı için yapılandırılmış izleme verileri otomatik olarak yayar [Application Insights](functions-monitoring.md) işlev uygulaması bir Application Insights anahtarla yapılandırıldığında. Bu izleme verilerine davranışı ve, düzenlemelerin ilerlemesini izlemek için kullanılabilir.
+Dayanıklı işlevleri uzantısı için yapılandırılmış izleme verileri otomatik olarak yayar [Application Insights](functions-monitoring.md) işlev uygulaması bir Application Insights izleme anahtarı ile yapılandırıldığında. Bu izleme verilerine davranışı ve, düzenlemelerin ilerlemesini izlemek için kullanılabilir.
 
 İşte dayanıklı olaylarını izleme işlevleri gibi Application Insights portalı kullanarak benzediğini gösteren bir örnek [uygulama Öngörüler Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -42,6 +42,9 @@ Yükleme hatanın nedenini belirlemek için installer.log gözden geçirin.
 
 > [!Note]  
 > Aracı yüklemesi Microsoft Update'i kullanmak için makinenize ayarlamak ve Windows Update hizmeti çalışmıyor başarısız olur.
+
+<a id="agent-installation-websitename-failure"></a>**Aracı yüklemesi bu hata ile başarısız olur: "Depolama alanı eşitleme Aracısı Sihirbazı erken sona erdi."**  
+IIS Web sitesi varsayılan adı değişirse, bu sorun ortaya çıkabilir. Bu sorunu çözmek için IIS varsayılan Web sitesi olarak "Default Web Site" yeniden adlandırın ve yükleme işlemini yeniden deneyin. Aracısı'nın gelecek bir güncelleştirmede sorun düzeltilecektir. 
 
 <a id="server-registration-missing"></a>**Azure portalında kayıtlı sunucuları altındaki Server listelenmeyen**  
 Bir sunucu altında listelenmemişse **kayıtlı sunucuları** depolama eşitleme hizmeti için:

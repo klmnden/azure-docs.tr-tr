@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 843ffdf6c39cbdf00bfde969eaf93701db6ed536
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>My telemetri bazıları eksik
@@ -30,6 +30,7 @@ ms.lasthandoff: 11/01/2017
 *Uygulamam my web sunucusunda yüklü ve şimdi herhangi telemetrisinden göremiyorum. Geliştirme Makinem Tamam çalıştınız.*
 
 * Güvenlik Duvarı sorunu büyük olasılıkla. [Application Insights'ın veri göndermek güvenlik duvarı özel durumlarını ayarlamak](app-insights-ip-addresses.md).
+* IIS Server bazı Önkoşullar eksik olabilir: .NET genişletilebilirliği 4.5 ve ASP.NET 4.5.
 
 *I [Durum İzleyicisi yüklü](app-insights-monitor-performance-live-website-now.md) mevcut uygulamalarını izlemek için web sunucuma. Sonuç görmek yok.*
 

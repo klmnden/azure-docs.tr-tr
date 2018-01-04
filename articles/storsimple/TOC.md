@@ -18,7 +18,7 @@
 #### [Dosya sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [iSCSI sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-## Nasıl yapılır?
+## Nasıl yapılır
 ### [Azure portalı aracılığıyla yönetme](storsimple-virtual-array-manager-service-administration.md)
 #### [En son güncelleştirmeyi yükleme](storsimple-virtual-array-install-update-1.md)
 ##### [Güncelleştirme 0.6'yı yükleme](storsimple-virtual-array-install-update-06.md)
@@ -38,7 +38,6 @@
 #### [ACR’leri yönetme](storsimple-virtual-array-manage-acrs.md)
 #### [İşleri yönetme](storsimple-virtual-array-manage-jobs.md)
 #### [Cihaz parolasını değiştirme](storsimple-virtual-array-change-device-admin-password.md)
-#### [Windows Server ana bilgisayarında MPIO yapılandırma](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Uyarıları kullanarak izleme](storsimple-virtual-array-manage-alerts.md)
 #### [Tanılama ve sorun giderme](storsimple-virtual-array-diagnose-problems.md)
 #### [Günlük Desteği isteği](storsimple-virtual-array-log-support-ticket.md)
@@ -86,9 +85,9 @@
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [SharePoint için StorSimple Bağdaştırıcısı](storsimple-adapter-for-sharepoint.md)
 
-## Nasıl yapılır?
+## Nasıl yapılır
 
-### Yönet
+### Yönetme
 
 #### [StorSimple Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md)
 ##### [Bir yedeklemeden geri yükleme](storsimple-8000-restore-from-backup-set-u2.md)
@@ -208,10 +207,10 @@
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-data-manager-overview.md)
 
-## Başlarken
+## başlarken
 ### [StorSimple Veri Yöneticisi’ni kullanma](storsimple-data-manager-ui.md)
 
-## Nasıl yapılır?
+## Nasıl yapılır
 ### [İşleri başlatmak için .NET’i kullanma](storsimple-data-manager-dotnet-jobs.md)
 ### [İşleri başlatmak için Otomasyon’u kullanma](storsimple-data-manager-job-using-automation.md)
 ### [Varsayılan blob yolunu değiştirme](storsimple-data-manager-change-default-blob-path.md)

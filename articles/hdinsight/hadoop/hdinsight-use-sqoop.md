@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop ile Sqoop kullanma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,15 +47,15 @@ Hdınsight kümesi bazı örnek verilerle birlikte gelir. Aşağıdaki iki örne
   
   | Alan | Veri türü |
   | --- | --- |
-  | istemci kimliği |Dize |
-  | querytime |Dize |
-  | Pazar |Dize |
-  | deviceplatform |Dize |
-  | devicemake |Dize |
-  | devicemodel |Dize |
-  | durum |Dize |
-  | Ülke |Dize |
-  | querydwelltime |Çift |
+  | istemci kimliği |string |
+  | querytime |string |
+  | Pazar |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | durum |string |
+  | Ülke |string |
+  | querydwelltime |double |
   | SessionID |bigint |
   | sessionpagevieworder |bigint |
 
@@ -221,7 +221,7 @@ PowerShell örnek aşağıdaki adımları gerçekleştirir:
    > Bağlantı dizesi bilgilerini dışında SQL Server veya bir Azure SQL veritabanı için bu bölümdeki adımları çalışması gerekir. Bu adımları aşağıdaki yapılandırmayı kullanarak test edilmiş:
    > 
    > * **Azure sanal ağı noktadan siteye Yapılandırması**: bir sanal ağ özel bir veri merkezinde bir SQL Server Hdınsight kümesi bağlanır. Bkz: [Yönetim Portalı'nda bir noktadan siteye VPN yapılandırma](../../vpn-gateway/vpn-gateway-point-to-site-create.md) daha fazla bilgi için.
-   > * **Azure Hdınsight 3.1**: bkz [özel seçenekleri kullanarak Hdınsight'ta oluşturmak Hadoop kümeleri](../hdinsight-hadoop-provision-linux-clusters.md) bir küme üzerinde bir sanal ağ oluşturma hakkında daha fazla bilgi için.
+   > * **Azure Hdınsight**: bkz [özel seçenekleri kullanarak Hdınsight'ta oluşturmak Hadoop kümeleri](../hdinsight-hadoop-provision-linux-clusters.md) bir küme üzerinde bir sanal ağ oluşturma hakkında daha fazla bilgi için.
    > * **SQL Server 2014**: kimlik doğrulaması ve güvenli bir şekilde sanal ağa bağlanmak için bir yapılandırma paketi VPN istemcisi çalıştıran izin verecek şekilde yapılandırılmış.
    > 
    > 

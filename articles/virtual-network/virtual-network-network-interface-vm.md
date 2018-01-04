@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: be264693b579aacee39acd9196b4e6834da322b2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: abe6abb942d206330e809f3aef388b846d7d7c7f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ağ arabirimlerine ekleme veya sanal makinelerden ağ arabirimleri Kaldır
 
@@ -118,4 +118,4 @@ Birden çok ağ arabirimlerine veya IP adreslerini bir VM oluşturmak için aşa
 - Herhangi bir IP adresi herhangi bir birincil veya ikincil ağ arabirimi tüm IP yapılandırması için bir Azure yük dengeleyici arka uç havuzuna ekleyebilirsiniz. Geçmişte, yalnızca birincil IP adresi birincil ağ arabirimi için bir arka uç havuzuna eklenemiyor. IP adresleri ve yapılandırmaları hakkında daha fazla bilgi için okuma [Ekle, Değiştir veya Kaldır IP adresleri](virtual-network-network-interface-addresses.md) makalesi.
 - Bir VM silindiğinde, ona bağlı olan ağ arabirimleri silinmez. Bir VM silindiğinde, ağ arabirimleri VM'den ayrılır. Ağ arabirimleri için farklı sanal makineleri ekleyin veya silin.
 - Bir ağ arabirimine atanmış özel bir IPv6 adresi olup olmadığını eklemeniz gerekir (Ekle) VM oluştururken, bir VM için. VM oluşturulduktan sonra bir VM'ye atanan bir IPv6 adresine sahip bir ağ arabirimi ekleyemezsiniz. Bir sanal makine oluşturulurken özel bir IPv6 adresi atanmış bir ağ arabirimiyle eklerseniz, VM boyutunu destekler kaç ağ arabirimleri bağımsız olarak sanal makine ağ arabirimini, yalnızca ekleyebilirsiniz. Bkz: [ağ arabirimi IP adresleri](virtual-network-network-interface-addresses.md) ağ arabirimleri için IP adresleri atama hakkında daha fazla bilgi edinmek için.
-- Benzer IPv6 ağ arabirimi ile hızlandırılmış ağ VM oluşturulduktan sonra bir VM'ye etkin eklenemiyor. Ayrıca, hızlandırılmış ağ yararlanmak için ayrıca VM işletim sistemi içindeki adımları da tamamlamanız gerekir. Bunu kullanırken hızlandırılmış ağ ve diğer kısıtlamaları hakkında daha fazla bilgi için bkz: [bir VM ile hızlandırılmış ağ oluşturma](virtual-network-create-vm-accelerated-networking.md).
+- Benzer IPv6 ağ arabirimi ile hızlandırılmış ağ VM oluşturulduktan sonra bir VM'ye etkin eklenemiyor. Ayrıca, hızlandırılmış ağ yararlanmak için ayrıca VM işletim sistemi içindeki adımları da tamamlamanız gerekir. Bunu kullanırken hızlandırılmış ağ ve diğer kısıtlamaları hakkında daha fazla bilgi için için ağ hızlandırılmış bkz [Windows](create-vm-accelerated-networking-powershell.md) veya [Linux](create-vm-accelerated-networking-cli.md) sanal makineler.

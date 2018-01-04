@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Iris sınıflandırma bölüm 2: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -34,7 +34,7 @@ Bu öğretici üç bölümden oluşan bir serinin ikinci bölümüdür. Öğreti
 
 Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak Mac OS deneyimi de çok benzerdir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici serisinin ilk bölümünü tamamlayın. Bu öğreticideki adımları uygulamaya başlamadan önce [Veri öğreticisini hazırlama](tutorial-classifying-iris-part-1.md) bölümündeki talimatları izleyerek Azure Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
 
 İsteğe bağlı olarak betikleri yerel Docker kapsayıcısıyla çalıştırabilirsiniz. Bunun için bir Docker altyapısının (Community Edition yeterlidir) Windows veya Mac OS makinenizde yüklü ve başlatılmış olması gerekir. Docker yükleme hakkında daha fazla bilgi için bkz. [Docker yükleme yönergeleri](https://docs.docker.com/engine/installation/).

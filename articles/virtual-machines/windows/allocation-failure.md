@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2016
 ms.author: cjiang
-ms.openlocfilehash: a27b728dd902f6230a8e0a029ab69dabdd4cc4aa
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2fd99f47cc2051c5b27c3ec8621ae954e9f8ca14
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-windows-vms-in-azure"></a>Oluşturduğunuzda, yeniden başlatın veya Windows VM'ler için Azure'da yeniden boyutlandırma ayırma hatalarını giderme
 Bir VM oluşturun, durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın veya bir VM'yi yeniden boyutlandırın, Microsoft Azure aboneliğinize işlem kaynakları ayırır. Zaman zaman bile Azure abonelik limitleri düşmeden önce bu işlemleri--yaparken hatalar alabilirsiniz. Bu makalede, bazı ortak ayırma hatalarının nedenlerini açıklar ve olası düzeltme önerir. Hizmetlerinizin dağıtımını planlarken bilgiler de yararlı olabilir. Ayrıca [oluşturduğunuzda, yeniden başlatın veya Linux VM'ler için Azure'da yeniden boyutlandırma ayırma hatalarını giderme](../linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

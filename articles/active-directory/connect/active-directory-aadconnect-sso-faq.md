@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 8eb575d6647b123119ceff9452ee8fc4a489f1ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -30,7 +30,11 @@ Sorunsuz SSO ile birleştirilebilir [parola karması eşitlemesi](active-directo
 
 ## <a name="is-seamless-sso-a-free-feature"></a>Sorunsuz SSO boş bir özellik mi var?
 
-Sorunsuz SSO boş bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri olması gerekmez. Özellik genel kullanılabilirlik ulaştığında boş kalır.
+Sorunsuz SSO boş bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri olması gerekmez.
+
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Sorunsuz SSO kullanılabilir [Microsoft Azure Almanya bulut](http://www.microsoft.de/cloud-deutschland) ve [Microsoft Azure kamu bulut](https://azure.microsoft.com/features/gov/)?
+
+Hayır. Sorunsuz SSO yalnızca Azure AD dünya çapındaki örneğini içinde kullanılabilir.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Hangi uygulamaların yararlanmak `domain_hint` veya `login_hint` sorunsuz SSO parametre yeteneğini?
 
@@ -57,7 +61,7 @@ Azure AD Connect çalıştırdığınız şirket içi sunucu üzerinde aşağıd
 
 1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Ardından karşıdan yükleyip [64-bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Gidin `%programfiles%\Microsoft Azure Active Directory Connect` klasör.
+3. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
 4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
 5. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracının genel Yöneticisi kimlik bilgilerini girmek için açılan pencere vermesi gerekir.
 6. Çağrı `Get-AzureADSSOStatus`. Bu komut bu özellik etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesi bakın) listesini sağlar.
@@ -87,7 +91,7 @@ Ancak, aşağıdaki gibi okur ekranda bir ileti görür:
 
 1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Ardından karşıdan yükleyip [64-bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Gidin `%programfiles%\Microsoft Azure Active Directory Connect` klasör.
+3. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
 4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
 5. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracının genel Yöneticisi kimlik bilgilerini girmek için açılan pencere vermesi gerekir.
 6. Çağrı `Get-AzureADSSOStatus`. Bu komut bu özellik etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesi bakın) listesini sağlar.

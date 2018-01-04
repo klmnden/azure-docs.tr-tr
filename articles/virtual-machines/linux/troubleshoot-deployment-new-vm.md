@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: 64db243400fed063d1336c448ed6991877cca72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aea5db05843b0175b8ef8b713944e12262e33010
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure'da yeni bir Linux sanal makine oluşturma ile Resource Manager dağıtım sorunlarını giderme
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]

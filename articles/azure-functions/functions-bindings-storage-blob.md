@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -486,7 +486,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
 |**türü** | yok | ayarlanmalıdır `blob`. |
-|**yönü** | yok | Ayarlanmalıdır `in` giriş bağlaması için veya bir çıkış bağlama için çıkış. Özel durumlar belirtilmiştir [kullanım](#input--output---usage) bölümü. |
+|**yönü** | yok | Ayarlanmalıdır `in` giriş bağlaması için veya `out` bir çıktı bağlama için. Özel durumlar belirtilmiştir [kullanım](#input--output---usage) bölümü. |
 |**adı** | yok | Blob içinde işlev kodu temsil eden değişken adı.  Kümesine `$return` işlevi dönüş değeri başvurmak için.|
 |**yol** |**BlobPath** | Blob yolu. | 
 |**bağlantı** |**Bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|

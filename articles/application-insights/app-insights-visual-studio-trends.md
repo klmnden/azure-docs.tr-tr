@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 064b1b10f2bd776e4ae88d8460e106a0318476c7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: eca3cddf3677aad440378e4071f080a588397cf9
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Visual Studio Eğilimlerini Çözümleme
 Application Insights Eğilimleri aracı, web uygulamanızın önemli telemetri olaylarının zaman içinde nasıl değiştiğini gösterir ve sorunları ve anormallikleri hızlıca belirlemenize yardımcı olur. Sizi daha ayrıntılı tanılama bilgilerine bağlayan Eğilimler, uygulamanızın performansını geliştirmenize, özel durumların nedenlerini izlemenize ve özel olaylarınıza ilişkin bilgileri açığa çıkarmanıza yardımcı olabilir.
@@ -57,7 +57,7 @@ Application Insights Eğilimleri, uygulamanızın telemetrisinden bir zaman dizi
 
 Hangi telemetri türlerini görüntüleyeceğinizi ayarlamak için pencerenin üstündeki denetimleri kullanın. İlk olarak ilgilendiğiniz telemetri türlerini seçin:
 
-* **Telemetri Türü** - Sunucu istekleri, özel durumlar, bağımlılıklar veya özel olaylar
+* **Telemetri türü** -sunucu istekleri, özel durumlar, bağımlılıklar veya özel olaylar
 * **Zaman Aralığı** - Son 30 dakika ile son 3 gün arasında herhangi bir yer
 * **Gruplandırma Ölçütü** - Özel durum türü, sorun kimliği, ülke/bölge ve daha fazlası.
 

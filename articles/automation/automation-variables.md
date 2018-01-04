@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e642a63486317387d66a9403b8276d2e0bd38fb6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Otomasyonu değişken varlıkları
 
@@ -96,10 +96,10 @@ Aşağıdaki tabloda işlevleri erişmek ve bir Python2 runbook'ta değişkenler
 
 Aşağıdaki örnek komutlar dize türünde bir değişken oluşturma ve değerini döndür göstermektedir.
 
-    New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
+    New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
     –Encrypted $false –Value 'My String'
-    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
 Aşağıdaki örnek komutlar bir karmaşık türü ile bir değişken oluşturun ve özelliklerini dönmek nasıl gösterir. Bir sanal makine bu durumda, nesne **Get-AzureRmVm** kullanılır.
@@ -125,8 +125,8 @@ Kullanım **Set-AutomationVariable** bir PowerShell runbook veya DSC yapılandı
 
 Aşağıdaki örnek komutlar ayarlamak ve metin biçiminde runbook bir değişkende almak nasıl gösterir. Bu örnekte, Tamsayı türünde değişkenleri adlı görünür duruma varsayılır *Numberofıterations* ve *NumberOfRunnings* ve adlı dize türünde bir değişken *SampleMessage* zaten oluşturulmuş.
 
-    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
+    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
     $SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
     
     Write-Output "Runbook has been run $NumberOfRunnings times."
@@ -134,7 +134,7 @@ Aşağıdaki örnek komutlar ayarlamak ve metin biçiminde runbook bir değişke
     for ($i = 1; $i -le $NumberOfIterations; $i++) {
        Write-Output "$i`: $SampleMessage"
     }
-    Set-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+    Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 #### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Karmaşık bir nesne, bir değişkende alma ve ayarlama
 

@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Iris Sınıflandırma bölüm 1: Verileri hazırlama
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -28,7 +28,7 @@ Bu öğretici, üç bölümden oluşan bir serinin birinci bölümüdür. Bu ö�
 
 Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak Mac OS deneyimi de çok benzerdir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - Bir Azure Machine Learning Denemesi hesabı oluşturun.
 - Azure Machine Learning Workbench'i yükleyin.
 
@@ -113,7 +113,7 @@ Azure Machine Learning Workbench uygulamasını yüklemek için [Yükleme ve Olu
 
    ![Adımlar](media/tutorial-classifying-iris/steps.png)
 
-11. Veri hazırlama düzenleyicisini kapatın. Grafik simgesi içeren **iris-1** sekmesindeki **Kapat** (x) öğesini seçin. Çalışmanız **Veri Hazırlıkları** üst bilgisi altında gösterilen **iris-1.dprep** dosyasına otomatik olarak kaydedilir.
+11. Veri hazırlama düzenleyicisini kapatın. Graf simgesi içeren **iris-1** sekmesindeki **Kapat** (x) öğesini seçin. Çalışmanız **Veri Hazırlıkları** üst bilgisi altında gösterilen **iris-1.dprep** dosyasına otomatik olarak kaydedilir.
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Veri hazırlama paketini çağırmak için Python/PySpark kodu oluşturma
 

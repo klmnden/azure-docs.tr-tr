@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights fiyatlandırma ve veri biriminde yönetme
 
@@ -90,7 +90,7 @@ Olarak [son duyurdu](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Fiyatlandırma planlarını gözden geçirin ve maliyetleri tahmin etme
 
-Applicaition Öngörüler kullanılabilir fiyatlandırma planları ve hangi maliyetleri büyük olasılıkla olması tabanlı üzerinde son kullanım desenlerini anlamak daha kolay hale getirir. Başlangıç açarak **özellikleri + fiyatlandırma** dikey penceresinde Azure portalında Application Insights kaynağı:
+Application Insights kullanılabilir fiyatlandırma planları ve hangi maliyetleri büyük olasılıkla olması tabanlı üzerinde son kullanım desenlerini anlamak kolaylaştırır. Başlangıç açarak **özellikleri + fiyatlandırma** dikey penceresinde Azure portalında Application Insights kaynağı:
 
 ![Fiyatlandırma seçin.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Veri biriminiz azaltmak için yapabileceğiniz bazı noktalar şunlardır:
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Maksimum günlük veri hacmi yönetme
 
-Toplanan verileri sınırlamak için günlük birimi ucun kullanabilirsiniz, ancak ucun karşılanırsa uygulamanızdan günün geri kalanı gönderilen tüm telemetery kaybıyla sonuçlanır. Bu **değil önerilir** onu isabet sonra uygulamanızın performansını ve sistem durumu izleyemiyor olduğundan günlük ucun isabet uygulamanıza sağlamak için. 
+Toplanan verileri sınırlamak için günlük birimi ucun kullanabilirsiniz, ancak ucun karşılanırsa uygulamanızdan günün geri kalanı gönderilen tüm telemetri kaybıyla sonuçlanır. Bu **değil önerilir** onu isabet sonra uygulamanızın performansını ve sistem durumu izleyemiyor olduğundan günlük ucun isabet uygulamanıza sağlamak için. 
 
-Bunun yerine, kullanın [örnekleme](app-insights-sampling.md) düzeyine veri hacmi ayarlamak için gibi ve durumda, uygulamanızın telemetery kadar yüksek hacimli beklenmedik bir şekilde göndermeye başlar günlük ucun "son çare olarak" kullanın. 
+Bunun yerine, kullanın [örnekleme](app-insights-sampling.md) düzeyine veri hacmi ayarlamak için gibi ve durumda, uygulamanızın telemetri kadar yüksek hacimli beklenmedik bir şekilde göndermeye başlar günlük ucun "son çare olarak" kullanın. 
 
-Uygulama Insihgts kaynağınız Yapılandır bölümünde günlük cap değiştirmek için tıklatın **veri birimi Yönetimi** sonra **günlük Cap**.
+Application Insights kaynağınıza Yapılandır bölümünde günlük cap değiştirmek için tıklatın **veri birimi Yönetimi** sonra **günlük Cap**.
 
 ![Günlük telemetri birim ucu ayarlama](./media/app-insights-pricing/daily-cap.png) 
 

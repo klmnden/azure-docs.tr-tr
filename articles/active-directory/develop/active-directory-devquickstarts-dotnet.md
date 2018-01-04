@@ -1,5 +1,5 @@
 ---
-title: "Azure AD .NET Başlarken | Microsoft Docs"
+title: "Azure AD .NET Masaüstü (Başlarken WPF) | Microsoft Docs"
 description: "Oturum açmak için Azure AD ile tümleşir ve Azure AD çağrıları .NET Windows Masaüstü uygulamasının nasıl oluşturulacağını OAuth kullanan API'ler korumalı."
 services: active-directory
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 41abe20d778a8c51c6b19733ddf5426d12d8751e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Azure AD bir Windows Masaüstü WPF uygulamanıza tümleştirmek
+# <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET Masaüstü (Başlarken WPF)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -85,7 +85,7 @@ public MainWindow()
 }
 ```
 
-* Şimdi bulun `Search(...)` uygulamanın kullanıcı Arabiriminde kullanıcı cliks "Ara" düğmesini olduğunda çağrılacak yöntem.  Bu yöntem, UPN verilen arama terimiyle kullanıcıları için Azure AD Graph API sorgu için bir GET isteği yapar.  Ancak bir access_token ile dahil etmeniz grafik API'si sorgulamak için `Authorization` üstbilgi ve istek - ADAL nereden geldiğini olan budur.
+* Şimdi bulun `Search(...)` kullanıcının uygulamanın kullanıcı arabiriminde "Ara" düğmesini tıklattığında çağrılacak yöntem.  Bu yöntem, UPN verilen arama terimiyle kullanıcıları için Azure AD Graph API sorgu için bir GET isteği yapar.  Ancak bir access_token ile dahil etmeniz grafik API'si sorgulamak için `Authorization` üstbilgi ve istek - ADAL nereden geldiğini olan budur.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)

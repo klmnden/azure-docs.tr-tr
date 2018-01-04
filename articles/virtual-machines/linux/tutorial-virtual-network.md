@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a49b4c2d4ddd6d686675cee53d46cd4dd6ad3811
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Azure sanal ağlar ve Azure CLI ile Linux sanal makineleri yönetme
 
@@ -156,6 +156,8 @@ Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ tra
 NSG kuralları üzerinden trafik izin verilen veya reddedilen ağ bağlantı noktalarını tanımlar. Böylece belirli sistemleri veya alt ağlar arasında trafiği denetlenir kuralları kaynak ve hedef IP adresi aralıklarını içerebilir. NSG kuralları da dahil bir öncelik (1 arasında — ve 4096). Kurallar öncelik sırasına göre değerlendirilir. 100 önceliğine sahip bir kural 200 önceliğine sahip bir kural önce değerlendirilir.
 
 Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler.
+
+Nsg'ler için varsayılan kurallar şunlardır:
 
 - **Sanal ağ** - kaynaklanan trafiği ve sanal ağ içinde bitiş hem gelen ve giden yönlerde izin verilir.
 - **Internet** - giden trafiğe izin verilir, ancak gelen trafik engellenir.

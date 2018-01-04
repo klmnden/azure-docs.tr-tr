@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -57,7 +57,7 @@ Azure AD Privileged Identity Management kullanmaya başlayabilmeniz için [Azure
 3. **Daha fazla hizmet** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
 4. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
 
-Aand dizininizde Azure AD Privileged Identity Management kullanmak için ilk kişi olduğunuz ve Azure AD directory rollere gidin, Azure AD directory rollere gidin bir [Güvenlik Sihirbazı](active-directory-privileged-identity-management-security-wizard.md) ilk yol gösterir atama deneyimi. Bundan sonra otomatik olarak hale ilk **Güvenlik Yöneticisi** ve **ayrıcalıklı Rol Yöneticisi** dizin.
+Dizininizde Azure AD Privileged Identity Management kullanmak için ilk kişi olduğunuz ve Azure AD directory rollere gidin ve Azure AD directory rollere gidin bir [Güvenlik Sihirbazı](active-directory-privileged-identity-management-security-wizard.md) ilk yol gösterir atama deneyimi. Bundan sonra otomatik olarak hale ilk **Güvenlik Yöneticisi** ve **ayrıcalıklı Rol Yöneticisi** dizin.
 
 Azure AD rolleri için ayrıcalıklı Rol Yöneticisi rolünde olan bir kullanıcı Azure AD PIM diğer yöneticiler atamaları yönetebilirsiniz. Yapabilecekleriniz [diğer kullanıcılara PIM Dizin rolleri yönetme olanağı vermek](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucular Azure AD rol atamalarını Azure AD PIM görüntüleyebilirsiniz.
 Azure RBAC rolleri için yalnızca bir abonelik Yöneticisi, bir kaynak sahibi veya bir kaynak kullanıcı erişimi Yöneticisi diğer yöneticileri Azure AD PIM atamaları yönetebilirsiniz.  Ayrıcalıklı rol Yöneticiler, güvenlik yöneticileri veya güvenlik okuyucular kullanıcılar varsayılan olarak Azure AD PIM Azure RBAC rol atamalarını görüntüleme erişimine sahiptir.
@@ -80,7 +80,7 @@ My rolleri Azure AD directory rolleri ve Azure kaynak rolleri (Önizleme) etkin 
 
 Zamanlanmış bir etkinleştirme artık gerekli olması durumunda sol gezinti menüsünde giderek bekleyen istek ve iptal düğmesi satır içi bu istek ile tıklatarak kullanıcılar kendi bekleyen isteği iptal edebilirsiniz.
 
-![bekleyen istekler](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
+![Bekleyen istekler](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
 
 ## <a name="privileged-identity-management-admin-dashboard"></a>Privileged Identity Management Yönetim Panosu
 

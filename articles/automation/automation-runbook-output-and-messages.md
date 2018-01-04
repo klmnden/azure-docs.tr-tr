@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 875e5c804251047f4a413e99018968564b6107c8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 415eddaec9702a42ceee51858a39840fcd6a202b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Automation
 Çoğu Azure Automation runbook kullanıcıya bir hata iletisi gibi bir çıkış sahiptir veya karmaşık bir nesne başka bir iş akışı tarafından kullanılması amaçlanan. Windows PowerShell sağlar [birden çok akış](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) bir komut dosyası veya iş akışı çıkış göndermek için. Azure Otomasyonu her bu akışları farklı şekilde çalışır ve bir runbook oluştururken her kullanımı için en iyi uygulamaları izlemelisiniz.
@@ -206,7 +206,7 @@ Ayrıntılı günlüğe kaydetme ve grafik runbook'lar için izlemeyi etkinleşt
 2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.
 3. Runbook dikey penceresinde, grafik runbook, runbook'ları listesinden seçmek için tıklatın.
 4. Ayarlar dikey penceresinde seçili runbook'u, tıklatın **günlüğe kaydetme ve izleme**.
-5. Günlüğe kaydetme ve ayrıntılı kayıtları günlüğe altında dikey izleme tıklayın **üzerinde** ayrıntılı günlük kaydı ve udner etkinlik düzeyinde izlemeyi etkinleştirmek için izleme düzeyini değiştirmek **temel** veya **ayrıntılı** ihtiyaç duyduğunuz izleme düzeyi temelinde.<br>
+5. Günlüğe kaydetme ve ayrıntılı kayıtları günlüğe altında dikey izleme tıklayın **üzerinde** ayrıntılı günlük kaydını etkinleştir ve etkinlik düzeyinde izleme altında izleme düzeyini değiştirmek için **temel** veya **ayrıntılı** ihtiyaç duyduğunuz izleme düzeyi temelinde.<br>
    
    ![Grafik yazma günlüğe kaydetme ve dikey izleme](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

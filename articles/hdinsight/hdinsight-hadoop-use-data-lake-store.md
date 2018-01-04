@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store’u Azure HDInsight kümeleriyle kullanma
 
@@ -46,11 +46,11 @@ HDInsight kümeleri Data Lake Store’u iki şekilde kullanabilir:
 
 | HDInsight küme türü | Varsayılan depolama alanı olarak Azure Data Lake Store | Ek depolama alanı olarak Azure Data Lake Store| Notlar |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight sürümü 3.6 | Evet | Evet | |
-| HDInsight sürümü 3.5 | Evet | Evet | HBase dışında|
-| HDInsight sürümü 3.4 | Hayır | Evet | |
+| HDInsight sürümü 3.6 | Yes | Yes | |
+| HDInsight sürümü 3.5 | Yes | Yes | HBase dışında|
+| HDInsight sürümü 3.4 | Hayır | Yes | |
 | HDInsight sürümü 3.3 | Hayır | Hayır | |
-| HDInsight sürümü 3.2 | Hayır | Evet | |
+| HDInsight sürümü 3.2 | Hayır | Yes | |
 | Storm | | |Data Lake Store’u kullanarak bir Storm topolojisinden veri yazabilirsiniz. Data Lake Store’u daha sonra bir Storm topolojisinden okunabilecek başvuru verileri için de kullanabilirsiniz.|
 
 Data Lake Store’un ek depolama hesabı olarak kullanılması, kümeden Azure depolamaya yazma veya buradan okuma performansını ya da bu özelliğin kullanılabilirliğini etkilemez.
@@ -80,13 +80,13 @@ Hizmet sorumlusu oluşturma ve erişim verme hakkında daha fazla bilgi edinmek 
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>Azure Data Lake Store’u ek depolama alanı olarak kullanma
 
-Data Lake Store'u da küme için ek depolama alanı olarak kullanabilirsiniz. Böyle durumlarda, kümenin varsayılan depolama alanı Azure Depolama Blobu veya Data Lake Store hesabı olabilir. HDInsight işlerini ek depolama alanı olarak kullanılan Data Lake Store'da depolanan verilere göre çalıştırıyorsanız, dosyaların tam yolunu kullanmanız gerekir. Örneğin:
+Data Lake Store'u da küme için ek depolama alanı olarak kullanabilirsiniz. Böyle durumlarda, kümenin varsayılan depolama alanı Azure Depolama Blobu veya Data Lake Store hesabı olabilir. HDInsight işlerini ek depolama alanı olarak kullanılan Data Lake Store'da depolanan verilere göre çalıştırıyorsanız, dosyaların tam yolunu kullanmanız gerekir. Örnek:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Artık URL'de **cluster_root_path** olmadığını unutmayın. Bunun nedeni Data Lake Store’un artık varsayılan depolama alanı olmamasıdır. Artık tüm yapmanız gereken dosyaların yolunu belirtmektir.
 
-Data Lake Store’u ek depolama alanı olarak kullanabilmeniz için yalnızca dosyalarınızın depolandığı konumlara hizmet sorumlusu erişimi vermeniz gerekir.  Örneğin:
+Data Lake Store’u ek depolama alanı olarak kullanabilmeniz için yalnızca dosyalarınızın depolandığı konumlara hizmet sorumlusu erişimi vermeniz gerekir.  Örnek:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

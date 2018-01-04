@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: genli;markgal;
-ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli;markgal;sogup;
+ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı ve/veya uzantısı ile ilgili sorunları
 
@@ -66,6 +66,7 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>5. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>6. neden: [Backup hizmeti, kaynak grubu kilit nedeniyle eski geri yükleme noktaları silmek için izne sahip değil](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Belirtilen Disk yapılandırması desteklenmiyor
 
@@ -203,4 +204,30 @@ VM Konuk aracısının yükledikten sonra Azure PowerShell'i başlatın <br>
         `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
 5. Yedekleme başlatmayı deneyin. <br>
 
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Yedekleme hizmeti kaynak grubu kilit nedeniyle eski geri yükleme noktaları silme iznine sahip değil
+Bu sorun olduğu kaynak grubu kullanıcı kilitler ve yedekleme hizmeti eski geri yükleme noktaları silemedi olmadığı yönetilen sanal makineleri için özeldir. Bunun nedeni, yeni yedeklemeler arka ucundan uygulanan en fazla 18 geri yükleme noktaları sınırı olarak başarısız olmaya başlar.
+
+#### <a name="solution"></a>Çözüm
+
+Sorunu çözmek için lütfen geri yükleme noktası koleksiyonu kaldırmak için aşağıdaki adımları kullanın: <br>
+ 
+1. Kaynak grubu kilitlemek VM bulunduğu Kaldır 
+     
+2. ARMClient Chocolatey kullanarak yükleme <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. ARMClient oturum açma <br>
+             `.\armclient.exe login`
+         
+4. VM karşılık gelen get geri yükleme noktası koleksiyonu <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Örnek:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. Geri yükleme noktası koleksiyonunu silin <br>
+            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. Sonraki zamanlanmış yedekleme geri yükleme noktası toplama ve yeni geri yükleme noktaları otomatik olarak oluştur 
+ 
+7. Sorun kaynak grubu olarak yeniden kilitlemek, yalnızca daha sonra yedeklemeler başarısız olmaya başlıyor 18 geri yükleme noktası bir sınırı yoktur yeniden görünür 
 

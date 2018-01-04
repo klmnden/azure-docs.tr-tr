@@ -3,7 +3,7 @@ title: "Java ile Azure Cosmos DB grafik veritabanı oluşturma | Microsoft Docs 
 description: "Gremlin kullanarak Azure Cosmos DB'ye bağlanmak ve içindeki grafik verilerini sorgulamak için kullanabileceğiniz bir Java kodu örneği sunar."
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2017
-ms.author: denlee
-ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: MT
+ms.date: 12/15/2017
+ms.author: lbosq
+ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir grafik veritabanı oluşturma
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB kullanarak hızlı bir şekilde oluşturmak ve yönetilen belgesi, tablo ve grafik veritabanları sorgu. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB’yi kullanarak hızlıca yönetilen belgeler, tablolar ve grafik veritabanları oluşturabilir ve bunları sorgulayabilirsiniz. 
 
-Bu hızlı başlangıç Azure Cosmos DB için Azure portal araçları kullanarak bir basit grafik veritabanı oluşturur. Bu hızlı başlangıçta ayrıca bir Java konsol uygulamasını [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) sürücüsü kullanan bir grafik veritabanını kullanarak nasıl hızlı bir şekilde oluşturabileceğiniz gösterilmektedir. Bu hızlı başlangıçtaki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu hızlı başlangıç oluşturma ve kullanıcı Arabirimi veya programlı olarak tercihinizi hangisi grafiklerde değiştirme ile familiarizes. 
+Bu hızlı başlangıç Azure Cosmos DB için Azure portal araçlarını kullanarak basit bir grafik veritabanı oluşturur. Bu hızlı başlangıçta ayrıca bir Java konsol uygulamasını [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) sürücüsü kullanan bir grafik veritabanını kullanarak nasıl hızlı bir şekilde oluşturabileceğiniz gösterilmektedir. Bu hızlı başlangıçtaki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu hızlı başlangıcı tamamladığınızda tercihinize bağlı olarak Kullanıcı Arabiriminde veya programlama arabiriminde grafik oluşturma ve değiştirme hakkında bilgi sahibi olacaksınız. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -46,45 +46,44 @@ Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir Gremlin (Graf
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Grafik ekleme
+## <a name="add-a-graph"></a>Graf ekleme
 
 Şimdi bir grafik veritabanı oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
 
-1. Tıklatın **Veri Gezgini** > **yeni bir grafik**.
+1. **Veri Gezgini** > **Yeni Grafik**’e tıklayın.
 
-    **Grafik Ekle** alanı sağ ucundaki görüntülenir, hemen görmek için kaydırmanız gerekebilir.
+    **Grafik Ekle** alanı en sağda görüntülenir, görmek için sağa kaydırmanız gerekebilir.
 
-    ![Azure portal Veri Gezgini, Grafik Ekle sayfası](./media/create-graph-java/azure-cosmosdb-data-explorer-graph.png)
+    ![Azure portalındaki Veri Gezgini, Grafik Ekle sayfası](./media/create-graph-java/azure-cosmosdb-data-explorer-graph.png)
 
-2. İçinde **Ekle grafik** sayfasında, yeni bir grafik ayarlarını girin.
+2. **Grafik Ekle** sayfasında, yeni grafik için ayarları girin.
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Veritabanı Kimliği|sample-database|Girin *örnek veritabanı* yeni bir veritabanı adı olarak. Veritabanı adı 1 ile 255 karakter arasında olmalı, `/ \ # ?` içermemeli ve boşlukla bitmemelidir.
-    Grafik Kimliği|sample-graph|Girin *örnek grafik* yeni koleksiyonunuz için bir ad olarak. Grafik adları veritabanı kimlikleri aynı karakter gereksinimlerine sahip.
-    Depolama Kapasitesi|Sabit (10 GB)|Bir değerle değiştirmek **sabit (10 GB)**. Bu değer, veritabanının depolama kapasitesidir.
-    Aktarım hızı|400 RU|İşleme 400 istek birimleri (RU/s) saniyede değiştirin. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz.
-    Bölüm anahtarı|Boş bırakın|Bu hızlı başlangıç için bölüm anahtarını boş bırakın.
+    Veritabanı Kimliği|sample-database|Yeni veritabanınızın adını *sample-database* olarak belirleyin. Veritabanı adı 1 ile 255 karakter arasında olmalı, `/ \ # ?` içermemeli ve boşlukla bitmemelidir.
+    Graf Kimliği|sample-graph|Yeni koleksiyonunuzun adını *sample-graph* olarak belirleyin. Grafik adı karakter gereksinimleri, veritabanı kimliklerine ilişkin karakter gereksinimleri ile aynıdır.
+    Depolama Kapasitesi|Sabit (10 GB)|Değeri **Sabit (10 GB)** olarak değiştirin. Bu değer, veritabanının depolama kapasitesidir.
+    Aktarım hızı|400 RU|Aktarım hızını saniyede 400 istek birimi (RU/s) olarak değiştirin. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz.
 
 3. Formu doldurduktan sonra **Tamam**'a tıklayın.
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi kod ile çalışmaya geçelim. Şimdi bir grafik API uygulaması github'dan bağlantı dizesini ayarlamak ve çalıştırın kopyalayın. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz.  
+Şimdi kod ile çalışmaya geçelim. GitHub'dan bir Graph API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz.  
 
-1. Bir komut istemi açın, git-samples adlı yeni bir klasör oluşturun ve sonra komut istemini kapatın.
+1. Bir komut istemini açın, git-samples adlı yeni bir klasör oluşturun ve komut istemini kapatın.
 
     ```bash
     md "C:\git-samples"
     ```
 
-2. Git bash gibi bir git terminal penceresi açın ve kullanmak `cd` örnek uygulamayı yüklemek için bir klasör olarak değiştirmek için komutu.  
+2. Git Bash gibi bir Git terminal penceresi açın ve örnek uygulamayı yüklemek üzere bir klasör olarak değiştirmek için `cd` komutunu kullanın.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-3. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur. 
+3. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulamanın bir kopyasını oluşturur. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -92,7 +91,7 @@ Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir Gremlin (Graf
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturulduğunu öğrenmek isterseniz, aşağıdaki kod parçacıkları gözden geçirebilirsiniz. Kod parçacıkları tüm gelen alınır `Program.java` C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted klasördeki dosya. Aksi takdirde, atlayabilirsiniz [bağlantı dizenizi güncelleştirme](#update-your-connection-information). 
+Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Kod parçacıklarının tümü C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted klasöründeki `Program.java` dosyasından alınmıştır. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-information) bölümüne atlayabilirsiniz. 
 
 * Gremlin `Client`, `src/remote.yaml` içinde bulunan yapılandırmadan başlatılır.
 
@@ -115,28 +114,28 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
     }
     ```
 
-## <a name="update-your-connection-information"></a>Bağlantı bilgilerinizi güncelleştirin
+## <a name="update-your-connection-information"></a>Bağlantı bilgilerinizi güncelleştirme
 
-Şimdi, bağlantı bilgilerini almak ve bir uygulamaya kopyalamak için Azure portalına geri dönün. Bu ayarlar, barındırılan veritabanıyla iletişim kurmak uygulamanızı sağlar.
+Şimdi, Azure portalına dönerek bağlantı bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu ayarlar, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
 
-1. İçinde [Azure portal](http://portal.azure.com/), tıklatın **anahtarları**. 
+1. [Azure portalında](http://portal.azure.com/), **Anahtarlar**’a tıklayın. 
 
-    URI değeri ilk bölümünü kopyalayın.
+    URI değerinin ilk parçasını kopyalayın.
 
-    ![Görüntüleme ve Azure portal, anahtarları sayfasında erişim tuşu kopyalama](./media/create-graph-java/keys.png)
-2. Src/remote.yaml dosyasını açın ve üzerinden değeri yapıştırabilirsiniz `$name$` içinde `hosts: [$name$.graphs.azure.com]`.
+    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar sayfası](./media/create-graph-java/keys.png)
+2. src/remote.yaml dosyasını açın ve değeri `hosts: [$name$.graphs.azure.com]` içindeki `$name$` öğesine yapıştırın.
 
-    1. satırına remote.yaml benzer görünmelidir 
+    remote.yaml dosyasının 1. satırı şuna benzer şekilde görünmelidir: 
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Azure portalında, birincil anahtarı kopyalayın ve üzerinden yapıştırmak için Kopyala düğmesini kullanın. `$masterKey$` içinde `password: $masterKey$`.
+3. Azure portalında, kopyala düğmesini kullanarak PRIMARY KEY’i kopyalayın ve `password: $masterKey$` içindeki `$masterKey$` öğesine yapıştırın.
 
-    Remote.yaml 4 satırlık benzer görünmelidir 
+    remote.yaml dosyasının 4. satırı şuna benzer şekilde görünmelidir: 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Satırından 3 remote.yaml, değiştirme
+4. remote.yaml dosyasının 3. satırının şu değerini değiştirin:
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -144,7 +143,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Remote.yaml dosyasını kaydedin.
+5. remote.yaml dosyasını kaydedin.
 
 ## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
 
@@ -154,13 +153,13 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. Git terminal penceresi gerekli Java paketlerini yüklemek için aşağıdaki komutu kullanın.
+2. Git terminal penceresinde aşağıdaki komutu kullanarak gerekli Java paketlerini yükleyin.
 
    ```
    mvn package
    ```
 
-3. Git terminal penceresinde Java uygulaması başlatmak için aşağıdaki komutu kullanın.
+3. Git terminal penceresinde, Java uygulamasını başlatmak için aşağıdaki komutları kullanın.
     
     ```
     mvn exec:java -D exec.mainClass=GetStarted.Program
@@ -168,30 +167,30 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
 
     Terminal penceresinde grafiğe eklenmekte olan köşeler gösterilir. 
     
-    Zaman aşımı hatalarıyla karşılaşırsanız, bağlantı bilgilerinin doğru bir şekilde güncelleştirilmiş denetleyin [bağlantı bilgilerinizi güncelleştirmek](#update-your-connection-information)ve ayrıca son komutu yeniden çalıştırmayı deneyin. 
+    Zaman aşımı hatası alırsanız, bağlantı bilgilerini, [Bağlantı bilgilerinizi güncelleştirme](#update-your-connection-information), konusunda belirtildiği şekilde güncelleştirdiğinizden emin olun ve son komutu çalıştırmayı yeniden deneyin. 
     
-    Programı durdurur, Enter tuşuna basın sonra Internet tarayıcınız Azure Portalı'na geri sonra geçin. 
+    Program durduktan sonra Enter tuşuna basın ve ardından İnternet tarayıcınızdaki Azure portalına geçin. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Örnek verileri inceleme ve ekleme
 
 Şimdi Veri Gezgini’ne dönüp grafiğe eklenen köşeleri görebilir ve ek veri noktaları ekleyebilirsiniz.
 
-1. Tıklatın **Veri Gezgini**, genişletin **örnek grafik**, tıklatın **grafik**ve ardından **Filtre Uygula**. 
+1. **Veri Gezgini**’ne tıklayın, **sample-graph** öğesini genişletin, **Graph**’a ve son olarak **Filtre Uygula**’ya tıklayın. 
 
    ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. **Sonuç listesinde**, grafiğe yeni kullanıcıların eklendiğini görürsünüz. **Ben**’i seçin, robin ile bağlantılı olduğunu görürsünüz. Sürükleyip bırakarak, köşeleri fare tekerleği kaydırarak yakınlaştırma ve grafiğin çift oklu boyutunu genişletin taşıyabilirsiniz. 
+2. **Sonuç listesinde**, grafiğe yeni kullanıcıların eklendiğini görürsünüz. **Ben**’i seçin, robin ile bağlantılı olduğunu görürsünüz. Köşeleri sürükleyip bırakarak hareket ettirebilir, farenizin tekerleğini kaydırarak öğeleri yakınlaştırabilir ve uzaklaştırabilir, ayrıca çift okla grafiğin boyutunu genişletebilirsiniz. 
 
    ![Azure portalında Veri Gezgini'ndeki grafikte yeni köşeler](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Birkaç yeni kullanıcılar ekleyelim. Grafiğe veri eklemek için **yeni köşe** düğmesine tıklayın.
+3. Şimdi birkaç yeni kullanıcı ekleyelim. Grafa veri eklemek için **yeni köşe** düğmesine tıklayın.
 
    ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-4. Bir etiketi girin *kişi*.
+4. *Kişi* etiketi girin.
 
-5. Tıklatın **özellik ekleme** her biri aşağıdaki özellikleri eklemek için. Grafikteki her kişi için benzersiz özellikler oluşturabileceğinizi görürsünüz. Yalnızca kimliği anahtarı gereklidir.
+5. Aşağıdaki özelliklerin her birini eklemek için **Özellik ekle** seçeneğine tıklayın. Graftaki her kişi için benzersiz özellikler oluşturabileceğinizi görürsünüz. Yalnızca kimliği anahtarı gereklidir.
 
     anahtar|değer|Notlar
     ----|----|----
@@ -202,13 +201,13 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
     > [!NOTE]
     > Bu hızlı başlangıçta bölümlenmemiş bir koleksiyon oluşturacağız. Ancak koleksiyon oluşturma sırasında bir bölüm anahtarı belirterek bölümlendirilmiş bir koleksiyon oluşturursanız, daha sonra bölüm anahtarını her yeni köşede anahtar olarak eklemeniz gerekir. 
 
-6. **Tamam** düğmesine tıklayın. Ekranın en altındaki **Tamam** seçeneğini görmek için ekranınızı genişletmeniz gerekebilir.
+6. **Tamam**’a tıklayın. Ekranın en altındaki **Tamam** seçeneğini görmek için ekranınızı genişletmeniz gerekebilir.
 
 7. Tekrar **Yeni Köşe**’ye tıklayın ve ek yeni kullanıcıyı ekleyin. 
 
-8. Bir etiketi girin *kişi*.
+8. *Kişi* etiketi girin.
 
-9. Tıklatın **özellik ekleme** her biri aşağıdaki özellikleri eklemek için:
+9. Aşağıdaki özelliklerin her birini eklemek için **Özellik ekle** seçeneğine tıklayın:
 
     anahtar|değer|Notlar
     ----|----|----
@@ -216,17 +215,17 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
     cinsiyet|erkek| 
     okul|MIT| 
 
-10. **Tamam** düğmesine tıklayın. 
+10. **Tamam**’a tıklayın. 
 
-11. Tıklatın **Filtre Uygula** varsayılan düğme `g.V()` grafikte tüm değerleri görüntülemek için filtre. Tüm kullanıcılar **Sonuç listesinde** gösterilir. 
+11. Grafikteki tüm değerleri görüntülemek için, varsayılan `g.V()` filtresine sahip **Filtre Uygula** düğmesine tıklayın. Tüm kullanıcılar **Sonuç listesinde** gösterilir. 
 
-    Daha fazla veri ekledikçe sonuçlarınızı sınırlamak için filtreleri kullanabilirsiniz. Varsayılan olarak, Veri Gezgini kullanır `g.V()` Grafikteki tüm köşeleri alınamadı. Farklı bir değiştirebilirsiniz [grafik sorgu](tutorial-query-graph.md), gibi `g.V().count()`, JSON biçiminde Grafikteki tüm köşeleri sayısını dönün. Filtre filtre başa değişiklik değiştirdiyseniz `g.V()` tıklatıp **Filtre Uygula** yeniden tüm sonuçları görüntülemek için.
+    Daha fazla veri ekledikçe sonuçlarınızı sınırlamak için filtreleri kullanabilirsiniz. Veri Gezgini, varsayılan olarak bir grafikteki tüm köşeleri almak için `g.V()` kullanır. JSON biçimindeki bir grafikteki tüm köşelerin sayımını döndürmek için, bu değeri `g.V().count()` gibi farklı bir [grafik sorgusu](tutorial-query-graph.md) olarak değiştirebilirsiniz. Filtre değiştirdiyseniz, tüm sonuçları yeniden görüntülemek içinn filtreyi `g.V()` durumuna döndürün ve **Filtre Uygula**’ya tıklayın.
 
-12. Artık rakesh ve ashley arasında bağlantı kurabiliriz. Olun **ashley** seçildiyse **sonuçları** listeleyin ve ardından Düzenle düğmesini tıklatın **hedefleri** alt sağ tarafında. **Özellikler** alanını görmek için pencerenizi genişletmeniz gerekebilir.
+12. Artık rakesh ve ashley arasında bağlantı kurabiliriz. **Sonuç listesinde** **ashley**’nin seçili olduğundan emin olun ve ardından sağ alttaki **Hedefler**’in yanında bulunan Düzenle düğmesine tıklayın. **Özellikler** alanını görmek için pencerenizi genişletmeniz gerekebilir.
 
    ![Hedef grafikteki bir köşeyi değiştirme](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. İçinde **hedef** kutusuna yazın *rakesh*ve **kenar etiket** kutusuna yazın *bilir*ve ardından onay'ı tıklatın.
+13. **Hedef** kutusunda *rakesh* yazın, **Kenar etiketi** kutusunda *tanıyor* yazın ve ardından onay işaretine tıklayın.
 
    ![Veri Gezgininde ashley ve rakesh arasında bir bağlantı ekleyin](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
@@ -234,7 +233,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
 
    ![Veri Gezgini'nde bağlı iki köşe](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-   Bu öğretici kaynak oluşturma parçası tamamlanan. Köşeleri, grafiğe eklemek, var olan köşeleri veya sorguları değiştirmek devam edebilirsiniz. Şimdi gözden geçirme Azure Cosmos DB ölçümleri sağlar ve kaynakları temizlemek artık. 
+   Bu işlemle birlikte, bu öğreticideki kaynak oluşturma bölümünü tamamladınız. Grafiğinize köşe eklemeye, var olan köşeleri veya sorguları değiştirmeye devam edebilirsiniz. Şimdi, Azure Cosmos DB’nin sağladığı ölçümleri gözden geçirip kaynakları temizleyelim. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 

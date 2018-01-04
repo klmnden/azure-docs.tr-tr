@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure işlevleri güvenilirliğini ve performansını en iyi duruma getirme
 
@@ -44,7 +44,7 @@ Mümkün olduğunda, daha küçük işlevine düzenleme büyük işlevlerin o i�
 
 Dayanıklı işlevleri veya Logic Apps birden çok işlevleri ile tümleştirmek için kullanılıyorsa, genellikle işlevi iletişim arası depolama kuyruklarında kullanmak için en iyi uygulama içindir.  Ana nedeni, depolama kuyrukları daha ucuz ve sağlamak için çok daha kolay olmasıdır. 
 
-Bir depolama kuyruğu tek bir ileti boyutu 64 KB sınırlıdır. Büyük iletileri işlevleri arasında geçirmek gerekiyorsa, kuyruk iletisi desteklemek için kullanılabilecek bir Azure hizmet veri yolu en fazla 256 KB boyutları.
+Bir depolama kuyruğu tek bir ileti boyutu 64 KB sınırlıdır. Büyük iletileri işlevleri arasında geçirmek gerekiyorsa, en çok 256 KB standart katmanı, bir Azure Service Bus ileti desteklemek için sıraya kullanılabilirdi boyutları ve en fazla 1 MB Premium katmanındaki.
 
 Service Bus konu başlıklarını ileti işleme önce filtreleme gerektiriyorsa yararlı olur.
 

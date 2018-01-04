@@ -6,18 +6,18 @@ keywords: "Verme ekleyin veya SEO uzmanınıza danışmanlık olmadan anahtar s�
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure konum tabanlı Hizmetleri (Önizleme) arama hizmeti kullanarak adresi bulma
 Arama hizmeti adresleri, yerler, ilgi, iş listelerini ve diğer coğrafi bilgi noktaları için aranacak geliştiricileri için tasarlanmış API'leri RESTful kümesidir. Arama hizmeti, belirli bir adresi, çapraz Sokak, coğrafi özelliği veya ilgi çekici (s) için enlem/boylam atar. Enlem ve boylam değerleri arama hizmeti API tarafından döndürülen Azure konum tabanlı Hizmetleri rota ve trafik akışını API'leri gibi diğer parametre olarak kullanılabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Yükleme [Postman uygulama](https://www.getpostman.com/apps).
 
 Bir Azure konum tabanlı Hizmetleri hesabınızı ve aboneliğinizi anahtarı. Bir hesap oluşturma ve abonelik anahtarı alma hakkında daha fazla bilgi için bkz: [Azure konum tabanlı hizmetleri hesabı ve anahtarlarını yönetme](how-to-manage-account-keys.md). 
@@ -44,7 +44,7 @@ Varsayılan olarak çoğu arama sorguları ' maxFuzzyLevel performans elde etmek
     | İstek URL'si | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
 
-    **Json** URL yolunu özniteliğinde yanıt biçimi belirler. Bu makale boyunca json kullanım kolaylığı ve Okunabilirlik için kullanıyorsunuz. Kullanılabilir yanıt biçimlerde bulabilirsiniz **arama belirsiz almak** [konum tabanlı Hizmetleri işlevsel API başvuru] tanımını (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    **Json** URL yolunu özniteliğinde yanıt biçimi belirler. Bu makale boyunca json kullanım kolaylığı ve Okunabilirlik için kullanıyorsunuz. Kullanılabilir yanıt biçimlerde bulabilirsiniz **arama belirsiz almak** [konum tabanlı Hizmetleri işlevsel API başvuru] tanımını (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
 
@@ -119,7 +119,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | typeahead | true |
+    | typeahead | doğru |
 
     **Typeahead** bayrağı sorgu kısmi bir girdi olarak kabul eder ve Tahmine dayalı değerler dizisi dönmek için adres arama API söyler.
 
@@ -154,41 +154,41 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | numarası | true |
+    | numarası | doğru |
 
-    Varsa [numarası](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca bu sayıyı için uzaklık konumu tarafında içerebilir.
+    Varsa [numarası](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca bu sayıyı için uzaklık konumu tarafında içerebilir.
     
 5. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
-    | spatialKeys | true |
+    | spatialKeys | doğru |
 
-    Zaman [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt belirtilen konum için özel coğrafi uzamsal anahtar bilgileri içerir.
+    Zaman [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt belirtilen konum için özel coğrafi uzamsal anahtar bilgileri içerir.
 
 6. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
-    | returnSpeedLimit | true |
+    | returnSpeedLimit | doğru |
     
-    Zaman [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmış, yanıt dönüş gönderilen hız sınırı.
+    Zaman [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmış, yanıt dönüş gönderilen hız sınırı.
 
 7. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
-    | returnRoadUse | true |
+    | returnRoadUse | doğru |
 
-    Zaman [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt Sokak düzeyinde reversegeocodes için yol kullanım dizisi döndürür.
+    Zaman [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt Sokak düzeyinde reversegeocodes için yol kullanım dizisi döndürür.
 
 8. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
-    | roadUse | true |
+    | roadUse | doğru |
 
-    Yol kullanarak bir özel tür için ters geocode sorgu kısıtlayabilirsiniz [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi.
+    Yol kullanarak bir özel tür için ters geocode sorgu kısıtlayabilirsiniz [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi.
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Çapraz sokak adresi arası Sokak arama ters kullanarak arayın
 
@@ -215,4 +215,4 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 4. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Araştır [Azure konum tabanlı Serices arama hizmeti](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) API belgeleri 
+- Araştır [Azure konum tabanlı Serices arama hizmeti](https://docs.microsoft.com/rest/api/location-based-services/search) API belgeleri 
