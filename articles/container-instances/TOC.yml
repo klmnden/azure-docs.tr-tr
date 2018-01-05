@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Kavramlar
   items:
-    - name: Bölgeler ve kullanılabilirlik
-      href: container-instances-region-availability.md
+    - name: Kotalar ve bölgesel sınırlar
+      href: container-instances-quotas.md
     - name: Düzenleyicilerle ilişki
       href: container-instances-orchestrator-relationship.md
     - name: Kapsayıcı grupları

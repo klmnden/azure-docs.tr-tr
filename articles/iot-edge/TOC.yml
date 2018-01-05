@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Saydam bir ağ geçidi oluşturma
-      href: how-to-create-transparent-gateway.md
+    - name: Ağ geçidi oluşturma
+      items:
+        - name: Saydam bir ağ geçidi oluşturma
+          href: how-to-create-transparent-gateway.md
+        - name: Modbus ağ geçidi
+          href: deploy-modbus-gateway.md
     - name: Ölçekli dağıtma ve izleme
       href: how-to-deploy-monitor.md
     - name: IoT Core cihazı hazırlama
