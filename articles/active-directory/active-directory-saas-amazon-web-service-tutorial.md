@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Öğretici: Azure Active Directory Tümleştirme Amazon Web Hizmetleri (AWS)
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 4. Amazon Web Hizmetleri (AWS) yazılım uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
 
-    ![Çoklu oturum açma öznitelikleri yapılandırma](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+    ![Çoklu oturum açma attb yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
 5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
@@ -126,7 +126,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma yapılandırma ekleme](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![Çoklu oturum açma öznitelikleri yapılandırma](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![Çoklu oturum açma addattb yapılandırın](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
 
@@ -230,18 +230,18 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Yeni ilke oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Tüm rolleri AWS hesaplarından getirmek için kendi bir ilke oluşturun. İçinde **kendi ilke Oluştur** bölümünde, tıklayın **seçin** düğmesi.
+25. Tüm rolleri AWS hesaplarından getirmek için kendi bir ilke oluşturun. İçinde **kendi ilke oluşturmak** bölümüne tıklatın **seçin** düğmesi.
     
     ![Yeni ilke oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
 26. Yeni ilke, aşağıdaki adımları gerçekleştirerek tanımlayın:
 
-    ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
+    ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
     a. Sağlamak **ilke adı** olarak **AzureAD_SSOUserRole_Policy**.
 
     b. Size sağlayabilir **açıklama** İlkesi **AWS hesaplarından rolleri getirmek için bu ilkeyi sağlayacak**.
-
+    
     c. İlke belgede ekleme JSON aşağıda.
     
     ```
@@ -271,16 +271,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     }
     
     ```
-
-    d. Üzerinde kontrol ettiğinizden emin olun **ilkesi düzenleme için biçimlendirme kullanmak**.
-
-    e. Tıklayın **doğrulama İlkesi** altındaki düğmesini.
-
-    f. Tıklatabilirsiniz sonra ilkeyi doğru doğrulanmış sonra **ilke Oluştur** düğmesi.
-
-    ![Yeni ilke oluştur](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
-27. Aşağıdaki adımları gerçekleştirerek AWS IAM hizmetinde yeni bir kullanıcı hesabı oluşturun:
+    d. Üzerinde kontrol ettiğinizden emin olun **ilkesi düzenleme için biçimlendirme kullanmak**.
+    
+    e. Tıklayın **doğrulama İlkesi** altındaki düğmesini.
+    
+    f. Tıklatabilirsiniz sonra ilkeyi doğru doğrulanmış sonra **ilke Oluştur** düğmesi.
+    
+27. Yeni bir kullanıcı hesabı, aşağıdaki adımları gerçekleştirerek AWS IAM hizmetinde oluşturun:
 
     a. Tıklayın **kullanıcılar** AWS IAM konsolundaki gezinti.
 
@@ -302,7 +300,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 28. Şimdi aşağıdaki adımları gerçekleştirerek bu kullanıcı için yeni bir ilke oluşturun:
 
-    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
     a. Tıklayın **mevcut ilkeleri doğrudan ekleme** düğmesi.
 
@@ -332,7 +330,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Girin **erişim tuşu** ve **gizli** içinde **gizli** ve **gizli belirteci** sırasıyla alanları.
+32. Girin **erişim tuşu** ve **gizli** içinde **gizli** ve **gizli belirteci** sırasıyla alan.
 
     ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -424,13 +422,6 @@ Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandı
 
 Erişim paneli Amazon Web Hizmetleri (AWS) parçasında tıklattığınızda, otomatik olarak Amazon Web Hizmetleri (AWS) uygulamanıza açan.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
-
-## <a name="known-issues"></a>Bilinen sorunlar
-
- * İçinde **sağlama** bölümünde **eşlemeleri** alt bölümünün "Yükleniyor..." iletisini göster ve hiçbir zaman öznitelik eşlemelerini görüntülemez. Bugün desteklenen tek sağlama kullanıcı/Grup ataması sırasında seçimi için Azure AD AWS rollerden içe iş akışıdır. Bu öznitelik eşlemelerini önceden belirlenmiştir ve yapılandırılamaz.
- 
- * **Sağlama** bölüm yalnızca destekleyen bir kimlik bilgileri kümesi için bir AWS Kiracı aynı anda girme. İçe aktarılan tüm rolleri Azure AD appRoles özelliğine yazılır [servicePrincipal nesne](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) AWS için Kiracı. Azure AD ile birden çok AWS kiracılar (servicePrincipals tarafından gösterilen) sağlama, ancak olduğunda bir bilinen sorun otomatik olarak içeri aktarılan rollerinin tümünü için kullanılan birden fazla AWS servicePrincipals yazılacak yazdıramama ile galerisinden eklenebilir Çoklu oturum açma için kullanılan tek servicePrincipal içine sağlama. Geçici bir çözüm olarak [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) her AWS servicePrincipal içeri appRoles tümünün ayıklamak için sağlama yapılandırıldığı kullanılabilir. Bu rol dizeler sonradan çoklu oturum açma yapılandırıldığı AWS servicePrincipal eklenebilir.
-
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

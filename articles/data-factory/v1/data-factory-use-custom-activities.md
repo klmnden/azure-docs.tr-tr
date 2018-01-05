@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ Aşağıdaki örneklerde, özel bir .NET etkinlik oluşturmak ve bir ardışık 
 > - Şirket içi veri kaynaklarına erişmek için veri yönetimi ağ geçidi özel etkinliğinden kullanmak mümkün değil. Şu anda [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) yalnızca kopyalama etkinliği ve saklı yordam etkinliği veri fabrikasında destekler.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>İzlenecek yol: özel etkinlik oluşturma
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Visual Studio 2012/2013/2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)’yı indirip yükleyin
 
@@ -112,7 +112,9 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
      <li>Seçin <b>C:\ADFGetStarted</b> için <b>konumu</b>.</li>
      <li>Projeyi oluşturmak için <b>Tamam</b>'a tıklayın.</li>
    </ol>
-2.Tıklatın **Araçları**, işaret **NuGet Paket Yöneticisi**, tıklatıp **Paket Yöneticisi Konsolu**.
+   
+2. **Araçlar**'a tıklayın, **NuGet Paket Yöneticisi**'nin üzerine gelin ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
+
 3. Paket Yöneticisi konsolunda içeri aktarmak için aşağıdaki komutu yürütün **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell
@@ -552,7 +554,7 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
 
     Bir çıkış blob/dosyası, her girdi dilimi için oluşturulur. İşte bir çıktı dosyası için her dilimi nasıl adlandırılır. Bir çıkış klasöründe oluşturulan tüm çıktı dosyaları: **adftutorial\customactivityoutput**.
 
-   | Dilim | Başlangıç zamanı | Çıkış dosyası |
+   | Dilim | Başlangıç zamanı | Çıktı dosyası |
    |:--- |:--- |:--- |
    | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
    | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |

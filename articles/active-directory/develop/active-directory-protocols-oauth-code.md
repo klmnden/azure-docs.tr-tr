@@ -1,12 +1,11 @@
 ---
-title: "Azure AD'de OAuth 2.0 yetkilendirme kodu akışını anlama | Microsoft Docs"
+title: "Azure AD'de OAuth 2.0 yetkilendirme kodu akışını anlama"
 description: "Bu makalede, web uygulamaları ve web API'leri Azure Active Directory ve OAuth 2.0 kullanarak kiracınızda erişim yetkisi vermek için HTTP iletileri kullanmayı açıklar."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d123a6b18baf8019a6dcea2faa938e9ee403f400
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 Web uygulamaları ve web Apı'lerinize Azure AD kiracınıza erişim yetkisi vermek etkinleştirmek için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuzda dilden bağımsızdır ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklar.
@@ -34,7 +33,7 @@ Yüksek bir düzeyde bir uygulama için tüm yetkilendirme akışı biraz şöyl
 ![OAuth kimlik doğrulama kodu akışı](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>İstek bir kimlik doğrulama kodu
-Yetkilendirme kodu akışını kullanıcıya yönlendirerek istemci ile başlayan `/authorize` uç noktası. Bu istekte istemcisi kullanıcıdan almak için gerekli olan izinleri belirtir. OAuth 2.0 uç noktaları Klasik Azure portalı, uygulamanızın sayfasından içinde alabileceğiniz **uç noktalarını görüntüle** düğmesini alt bölümü.
+Yetkilendirme kodu akışını kullanıcıya yönlendirerek istemci ile başlayan `/authorize` uç noktası. Bu istekte istemcisi kullanıcıdan almak için gerekli olan izinleri belirtir. OAuth 2.0 uç nokta seçerek kiracınız için elde edebilirsiniz **uygulama kayıtlar > uç noktaları** Azure Portalı'nda.
 
 ```
 // Line breaks for legibility only
@@ -50,7 +49,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler Kiracı, örneğin, tanımlayıcılardır `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler Kiracı, örneğin, tanımlayıcılardır `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
 | client_id |Gerekli |Azure AD ile kaydolurken uygulamanıza atanan uygulama kimliği. Bu Azure Portalı'nda bulabilirsiniz. Tıklatın **Active Directory**dizini, uygulamayı seçin ve öğesini tıklatın **Yapılandır** |
 | response_type |Gerekli |İçermelidir `code` yetkilendirme kodu akışı. |
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın redirect_uri.  Bu tam bir url kodlanmış olmalıdır dışında Portalı'nda kayıtlı redirect_uris eşleşmelidir.  Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `urn:ietf:wg:oauth:2.0:oob`. |
@@ -101,7 +100,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Yetkilendirme uç noktası hataları için hata kodları
 Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `error` hata yanıtı parametresi.
 
-| Hata kodu | Açıklama | İstemci eylemi |
+| Hata Kodu | Açıklama | İstemci eylemi |
 | --- | --- | --- |
 | invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve isteği yeniden gönderin. Bu geliştirme hata ve genellikle ilk test sırasında yakalandı. |
 | unauthorized_client |İstemci uygulaması bir kimlik doğrulama kodu isteme izni yok. |Bu durum genellikle, istemci uygulaması Azure AD'de kayıtlı değil veya kullanıcının Azure AD kiracısı eklenmez genellikle ortaya çıkar. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
@@ -132,8 +131,8 @@ grant_type=authorization_code
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler Kiracı, örneğin, tanımlayıcılardır `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
-| client_id |Gerekli |Azure AD ile kaydolurken uygulamanıza atanan uygulama kimliği. Bu Azure Klasik Portalı'nda bulabilirsiniz. Tıklatın **Active Directory**dizini, uygulamayı seçin ve öğesini tıklatın **Yapılandır** |
+| kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler Kiracı, örneğin, tanımlayıcılardır `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| client_id |Gerekli |Azure AD ile kaydolurken uygulamanıza atanan uygulama kimliği. Bu Azure portalında bulabilirsiniz. Uygulama kimliği, uygulama kaydı ayarlarında görüntülenir.  |
 | grant_type |Gerekli |Olmalıdır `authorization_code` yetkilendirme kodu akışı. |
 | Kod |Gerekli |`authorization_code` Önceki bölümde edindiğiniz |
 | redirect_uri |Gerekli |Aynı `redirect_uri` almak için kullanılan değer `authorization_code`. |
@@ -252,12 +251,12 @@ Aşağıdaki tabloda, belirteç yayınında son noktasını döndürür HTTP dur
 | HTTP kodu | Açıklama |
 | --- | --- |
 | 400 |Varsayılan HTTP kodu. Çoğu durumda kullanıldığı ve genellikle nedeniyle yanlış biçimli istek. Düzeltin ve isteği yeniden gönderin. |
-| 401 |Kimlik doğrulaması başarısız oldu. Örneğin, istek client_secret parametresi eksik. |
+| 401 |Kimlik doğrulama başarısız oldu. Örneğin, istek client_secret parametresi eksik. |
 | 403 |Yetkilendirme başarısız oldu. Örneğin, kullanıcının kaynağa erişim izni yok. |
 | 500 |Hizmeti bir iç hata oluştu. İsteği yeniden deneyin. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Belirteç uç noktası hataları için hata kodları
-| Hata kodu | Açıklama | İstemci eylemi |
+| Hata Kodu | Açıklama | İstemci eylemi |
 | --- | --- | --- |
 | invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve isteği yeniden gönderin |
 | invalid_grant |Yetkilendirme kodu geçersiz veya süresi doldu. |Yeni bir istek deneyin `/authorize` uç noktası |
@@ -299,7 +298,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="bearer-scheme-error-codes"></a>Taşıyıcı düzeni hata kodları
 RFC 6750 belirtimi WWW-Authenticate üstbilgisi ve taşıyıcı düzeni yanıtta kullanan kaynaklar için aşağıdaki hataları tanımlar.
 
-| HTTP durum kodu | Hata kodu | Açıklama | İstemci eylemi |
+| HTTP durum kodu | Hata Kodu | Açıklama | İstemci eylemi |
 | --- | --- | --- | --- |
 | 400 |invalid_request |İstek düzgün biçimlendirilmemiş. Örneğin, bu bir parametre eksik veya aynı parametre iki kez kullanma. |Hatayı düzeltin ve isteği yeniden deneyin. Bu tür bir hata yalnızca geliştirme sırasında gerçekleşmesi gerektiğini ve ilk testinde algılandı. |
 | 401 |invalid_token |Erişim belirteci eksik, geçersiz veya iptal edilir. Error_description parametresinin değeri ek ayrıntılar sağlar. |Yeni bir belirteci yetkilendirme sunucusundan isteyin. Yeni bir belirteç başarısız olursa, beklenmeyen bir hata oluştu. Bir hata iletisi rastgele gecikme sonra yeniden deneyin ve kullanıcı için gönderin. |

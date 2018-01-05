@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Anlık görüntü özel durumları .NET uygulamalarında hata ayıklama
 
@@ -62,8 +62,6 @@ Aşağıdaki ortamlarda desteklenir:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -161,7 +159,7 @@ Aşağıdaki ortamlarda desteklenir:
    }
     ```
     
-## <a name="grant-permissions"></a>İzinleri
+## <a name="grant-permissions"></a>İzin ver
 
 Azure abonelik sahipleri anlık görüntüleri inceleyebilirsiniz. Diğer kullanıcıların bir sahibi tarafından izin verilmesi gerekir.
 
@@ -174,8 +172,8 @@ Azure abonelik sahipleri anlık görüntüleri inceleyebilirsiniz. Diğer kullan
 1. Kullanıcı rolüne eklemek için Kaydet düğmesine tıklayın.
 
 
-[!IMPORTANT]
-    Anlık görüntüler olası değişken ve parametre değerlerini kişisel ve diğer hassas bilgiler içerebilir.
+> [!IMPORTANT]
+> Anlık görüntüler olası değişken ve parametre değerlerini kişisel ve diğer hassas bilgiler içerebilir.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Application Insights portalında anlık görüntüleri hata ayıklama
 
@@ -277,6 +275,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 Uygulamalar için _değil_ App Service içinde barındırılan, yükleyici Mini dökümler ile aynı klasörde günlüklerin: `%TEMP%\Dumps\<ikey>` (burada `<ikey>` araçları anahtarınız).
 
+Bulut Hizmetleri rolleri için varsayılan geçici klasör mini döküm dosyası tutamayacak kadar küçük olabilir. Bu durumda, alternatif bir klasör TempFolder özelliği aracılığıyla Applicationınsights.Config'de belirtebilirsiniz.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
+
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Anlık görüntüler istisnalar bulmak için Application Insights arama kullanın
 
 Bir anlık görüntü oluşturulduğunda oluşturma özel durum ile bir anlık görüntü kimliği etiketli Ne zaman özel durum telemetrisi Application Insights için anlık görüntü kimliği bir özel özellik olarak dahil olduğunu bildirdi. Arama dikey Application Insights'ta kullanarak, tüm telemetri ile bulabilirsiniz `ai.snapshot.id` özel özellik.
@@ -299,6 +308,6 @@ Bu anlık görüntü Kimliğine sahip bir özel durum hala göremiyorsanız, öz
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kodunuzda snappoints ayarlamak](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) için bir özel durum beklemeden anlık görüntüleri alınamıyor.
+* [Kodunuzda snappoints ayarlamak](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) için bir özel durum beklemeden anlık görüntüleri alınamıyor.
 * [Özel durumlar, web uygulamalarında tanılama](app-insights-asp-net-exceptions.md) daha fazla özel durumlar Application Insights tarafından görülebilmesi için açıklanmaktadır. 
 * [Akıllı algılama](app-insights-proactive-diagnostics.md) performans anormalliklerini otomatik olarak bulur.

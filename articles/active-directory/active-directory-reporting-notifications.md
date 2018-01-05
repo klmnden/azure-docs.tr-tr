@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7aacb31f708e8c3221a5b8cf4223c65160ccb019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Azure Active Directory raporlama bildirimleri
 ## <a name="what-reports-generate-email-notifications"></a>E-posta bildirimleri hangi raporlar oluşturur
@@ -36,13 +36,13 @@ Bir Active Directory Premium lisansı atanmış olan tüm genel yöneticilere e-
 E-posta, 10 yeni düzensiz oturum açma etkinliklerini son 30 gün içinde ortaya ya da son e-posta gönderilip gönderilmediğini olduğundan, hangisi daha az ise gönderilir.
 
 ## <a name="how-do-i-access-the-report-mentioned-in-the-email"></a>Belirtilen e-posta ile rapor nasıl erişirim?
-Bağlantıya tıkladığınızda, Klasik Azure portalı içinde rapor sayfasına yönlendirileceksiniz. Rapora erişmek için her ikisinin de olması gerekir:
+Bağlantıya tıkladığınızda, Azure portalı içinde rapor sayfasına yönlendirileceksiniz. Rapora erişmek için her ikisinin de olması gerekir:
 
 * Bir yönetici veya Azure aboneliğinizin ortak yönetici
 * Dizinde genel yönetici ve bir Active Directory Premium lisansı atanmış. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Bu e-postaları kapatabilir miyim?
-Evet, Klasik Azure portalı içinde anormal oturum açma işlemlerine ilgili bildirimler devre dışı bırakmak için tıklatın **yapılandırma**ve ardından **devre dışı** altında **bildirimleri** bölüm.
+Evet, anormal oturum açma işlemlerine Azure portalındaki ilgili bildirimler devre dışı bırakmak için tıklatın **yapılandırma**ve ardından **devre dışı** altında **bildirimleri** bölümü.
 
 ## <a name="whats-next"></a>Sırada ne var?
 * Hangi güvenlik, Denetim ve etkinlik raporları kullanılabilir merak ediyor? Kullanıma [Azure AD güvenlik, Denetim ve etkinlik raporları](active-directory-view-access-usage-reports.md)

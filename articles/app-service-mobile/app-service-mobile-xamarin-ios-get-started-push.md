@@ -3,8 +3,8 @@ title: "Xamarin.iOS uygulamanızı Azure App Service için anında iletme bildir
 description: "Azure uygulama hizmeti Xamarin.iOS uygulamanızı anında iletme bildirimleri göndermek için nasıl kullanılacağını öğrenin"
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: glenga
-ms.openlocfilehash: bf922e49c4c92d0065817a5dd6c7d10a04737304
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b8d5a8d8725e2e9412cef7c377b17a77f34be27d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Xamarin.iOS uygulamanıza anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -28,7 +28,7 @@ Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.iOS Hızlı Başlan
 
 İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantısı paketi gerekir. Bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) daha fazla bilgi için.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Tamamlamak [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) Öğreticisi.
 * Fiziksel bir iOS cihazına. Anında iletme bildirimlerini iOS simülatörü tarafından desteklenmez.
 

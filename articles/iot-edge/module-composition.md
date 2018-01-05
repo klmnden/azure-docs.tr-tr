@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IOT kenar modülleri nasıl kullanılabileceğini, yapılandırılmış, anlamak ve yeniden - önizleme
 
@@ -99,7 +99,7 @@ Havuz aşağıdakilerden biri olabilir:
 | Havuz | Açıklama |
 | ---- | ----------- |
 | `$upstream` | IOT Hub'ına ileti gönderme |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Giriş için ileti gönderilirken `{input}` Modülü`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Giriş için ileti gönderilirken `{input}` Modülü`{moduleId}` |
 
 Edge hub en az bir kere garanti iletileri yerel olarak bir yol, havuz için ileti teslim edilemez, örneğin kenar hub IOT Hub'ına bağlanamıyor ya da hedef modülü bağlı değil durumunda depolanır, yani sağladığını dikkate almak önemlidir.
 

@@ -4,20 +4,21 @@ description: "Çoklu oturum açma Azure Active Directory ile Boomi arasında yap
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.assetid: 8e05afa9-2eda-4975-a0cc-6d408065860f
+manager: femila
+ms.reviewer: joflore
+ms.assetid: 40d034ff-7394-4713-923d-1f8f2ed8bf36
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 77f79c4e57aa8dd90fb0a519e7217e4f4e3618e7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Öğretici: Azure Active Directory Tümleştirme Boomi ile
 
@@ -25,9 +26,9 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile Boomi tümleştirmek öğ
 
 Boomi Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Boomi erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Boomi (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Boomi erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için Boomi (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
@@ -44,7 +45,7 @@ Azure AD tümleştirme Boomi ile yapılandırmak için aşağıdaki öğeleri ge
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -59,25 +60,22 @@ Azure AD Boomi tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamal
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Boomi**.
+4. Arama kutusuna **Boomi**seçin **Boomi** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_search.png)
+    ![Sonuçlar listesinde Boomi](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_addfromgallery.png)
 
-5. Sonuçlar panelinde seçin **Boomi**ve ardından **Ekle** uygulama eklemek için düğmesi.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Boomi sınayın.
 
 Tekli çalışmaya oturum için Azure AD Boomi karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Boomi ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
@@ -86,13 +84,13 @@ Boomi içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de 
 
 Yapılandırma ve Azure AD çoklu oturum açma Boomi ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Boomi test kullanıcısı oluşturma](#creating-a-boomi-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Boomi sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Boomi test kullanıcısı oluşturma](#create-a-boomi-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Boomi sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Boomi uygulamanızda yapılandırın.
 
@@ -100,27 +98,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 1. Azure portalında üzerinde **Boomi** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_samlbase.png)
 
 3. Üzerinde **Boomi etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
+    ![Boomi etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://platform.boomi.com/`
+    a. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`https://platform.boomi.com/`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://platform.boomi.com/sso/<accountname>/saml`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Boomi destek ekibi](https://boomi.com/company/contact/) bu değerleri almak için.
-
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_certificate.png)
-
+    > Yanıt URL'si değeri gerçek değil. Değerin gerçek yanıt URL'si ile güncelleştirin. Kişi [Boomi destek ekibi](https://boomi.com/company/contact/) değeri alınamıyor.
+ 
 4. Boomi uygulaması SAML onaylar belirli bir biçimde bekliyor. Lütfen bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_attribute.png)
@@ -133,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
     
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_attribute_04.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_officespace_04.png)
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_attribute_05.png)
     
@@ -143,19 +137,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     d. **Tamam**’a tıklayın.
 
-6. Tıklatın **kaydetmek** düğmesi.
+6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_certificate.png) 
 
-7. Üzerinde **Boomi yapılandırma** 'yi tıklatın **yapılandırma Boomi** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+7. Tıklatın **kaydetmek** düğmesi.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_configure.png) 
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_general_400.png)
 
-8. Farklı web tarayıcısı penceresinde Boomi şirket sitenize yönetici olarak oturum açın. 
+8. Üzerinde **Boomi yapılandırma** 'yi tıklatın **yapılandırma Boomi** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-9. Gidin **şirket adı** ve Git **ayarlanan**.
+    ![Boomi yapılandırma](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_configure.png) 
 
-10. Tıklatın **SSO seçenekleri** sekmesinde ve aşağıdaki adımları gerçekleştirin.
+9. Farklı web tarayıcısı penceresinde Boomi şirket sitenize yönetici olarak oturum açın. 
+
+10. Gidin **şirket adı** ve Git **ayarlanan**.
+
+11. Tıklatın **SSO seçenekleri** sekmesinde ve aşağıdaki adımları gerçekleştirin.
 
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_11.png)
 
@@ -171,40 +169,40 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-boomi-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-boomi-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-boomi-tutorial/create_aaduser_02.png) 
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-boomi-tutorial/create_aaduser_03.png) 
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-boomi-tutorial/create_aaduser_02.png)
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-boomi-tutorial/create_aaduser_04.png) 
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    ![Ekle düğmesi](./media/active-directory-saas-boomi-tutorial/create_aaduser_03.png)
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-boomi-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="creating-a-boomi-test-user"></a>Boomi test kullanıcısı oluşturma
+  
+### <a name="create-a-boomi-test-user"></a>Boomi test kullanıcısı oluşturma
 
 Azure AD kullanıcıları için Boomi oturum açmak etkinleştirmek için bunların Boomi sağlanmalıdır. Boomi söz konusu olduğunda, sağlama bir el ile bir görevdir.
 
@@ -235,13 +233,13 @@ Azure AD kullanıcıları için Boomi oturum açmak etkinleştirmek için bunlar
     f. **Tamam**’a tıklayın.
     
     > [!NOTE]
-    > Kullanıcı parolasını kimlik sağlayıcısı olarak yönetildiğinden AtomSphere hesabında oturum açma için kullanılan bir parola içeren bir Hoş Geldiniz bildirim e-posta alırsınız. API sağlama AAD kullanıcı hesaplarına Boomi tarafından sağlanan veya herhangi diğer Boomi kullanıcı hesabı oluşturma araçlarını kullanabilir. 
+    > Kullanıcı parolasını kimlik sağlayıcısı olarak yönetildiğinden AtomSphere hesabında oturum açma için kullanılan bir parola içeren bir Hoş Geldiniz bildirim e-posta alırsınız. API sağlama AAD kullanıcı hesaplarına Boomi tarafından sağlanan veya herhangi diğer Boomi kullanıcı hesabı oluşturma araçlarını kullanabilir.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Britta Boomi için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı rolü atayın][200] 
 
 **Boomi için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -251,15 +249,15 @@ Bu bölümde, Britta Boomi için erişim vererek, Azure çoklu oturum açma kull
 
 2. Uygulamalar listesinde **Boomi**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_app.png) 
+    ![Uygulamalar listesinde Boomi bağlantı](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Ekleme atama bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
@@ -267,16 +265,19 @@ Bu bölümde, Britta Boomi için erişim vererek, Azure çoklu oturum açma kull
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Boomi parçasında tıklattığınızda, otomatik olarak Boomi uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 

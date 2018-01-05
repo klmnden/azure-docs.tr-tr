@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.openlocfilehash: b67fdfc82bbc132772186e3500079cfcfdafe02b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b014d43ab25124d3e08e19ca190b320fc8456593
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Portalı kullanarak bir sanal ağ geçidini Sil
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Bu makalede Resource Manager dağıtım modeli kullanılarak dağıtılan bir Azure VPN ağ geçitleri silme yönergelerini sağlar. Birkaç VPN ağ geçidi yapılandırması için bir sanal ağ geçidi silmek istediğinizde uygulayabileceğiniz çeşitli yaklaşımlar vardır.
 
-- Her şeyi silin ve üzerinde bir test ortamı durumda olduğu gibi başlatmak istiyorsanız, kaynak grubunu silebilirsiniz. Bir kaynak grubunu silmek gruptaki tüm kaynakları siler. Bu yöntem olduğundan tüm kaynakların kaynak grubunda saklamak istemiyorsanız yalnızca önerilir. Bu yaklaşımı kullanarak yalnızca birkaç kaynakları seçmeli olarak silemezsiniz.
+- Her şeyi silin ve üzerinde bir test ortamı durumda olduğu gibi başlatmak istiyorsanız, kaynak grubunu silebilirsiniz. Bir kaynak grubunu silmek gruptaki tüm kaynakları siler. Tüm kaynakların kaynak grubunda saklamak istemiyorsanız, bu yöntem yalnızca önerilir. Bu yaklaşımı kullanarak yalnızca birkaç kaynakları seçmeli olarak silemezsiniz.
 
 - Bazı kaynakların kaynak grubunda tutmak istiyorsanız, bir sanal ağ geçidi silinmesi biraz daha karmaşık olabilir. Sanal ağ geçidi silmeden önce ağ geçidinde bağımlı herhangi bir kaynağa silmeniz gerekir. İzleyeceğiniz adımlar oluşturduğunuz bağlantı türünü ve her bağlantı için bağımlı kaynakları bağlıdır.
 

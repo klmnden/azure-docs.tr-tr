@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
@@ -81,7 +81,7 @@ Başlatmak için dağıtım ortamı kurmanız gerekir. Bir ortamı kurulması sa
 
 Ortam Kurulumu tamamlanırken:
 - Azure'da oturum açın istenir. Oturum açmak için sayfayı https://aka.ms/devicelogin açın ve kimlik doğrulaması için sağlanan kod girmek için bir web tarayıcısı kullanın.
-- Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: geçerli bir Azure aboneliğinizin ve kaynakları hesabı oluşturmak için yeterli izinlere sahip bir hesap seçin - oturum aç tamamlandığında, abonelik bilgilerinizi sunulur ve devam etmek istiyor olup olmadığını istenir Seçilen hesap.
+- Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: geçerli bir Azure aboneliğinizin ve hesaptaki kaynakları oluşturmak için yeterli izinlere sahip bir hesap seçin. Oturum açma tamamlandığında, abonelik bilgilerinizi sunulur ve seçili hesabıyla devam etmek istiyor isteyip sorulur.
 
 ### <a name="environment-setup"></a>Ortam Kurulumu
 Kurulum işlemi başlatmak için aşağıdaki komutları girerek birkaç ortam sağlayıcıları kaydetmeniz gerekir:

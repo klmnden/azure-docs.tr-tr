@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3c1b455e6298367dc50f0943b58f6cf1e7f1c5fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94b56fdd1ad350d861b27644c6bedcc59e1cefb0
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Java kullanarak Azure Event Hubs'tan gelen olayları alma
 
@@ -30,7 +30,7 @@ Daha fazla bilgi için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
 
 Bu öğretici Java'da yazılmış bir konsol uygulaması kullanarak bir event hub içine olaylarını almak nasıl gösterir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
 
@@ -68,11 +68,6 @@ Olay hub'ları için Java istemci kitaplığı Maven projelerden kullanmak için
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
     <version>{VERSION}</version>
-</dependency>
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>azure-eventhubs-eph</artifactId>
-  <version>0.14.0</version>
 </dependency>
 ```
 

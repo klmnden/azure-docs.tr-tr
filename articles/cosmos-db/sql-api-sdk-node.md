@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c9b68ee25ae3d675b71ec5543738493216b1212
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Node.js SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -62,6 +62,13 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="1.14.2"/>1.14.2</a>
+* Güncelleştirilmiş belgeleri başvuru Azure DocumentDB yerine Azure Cosmos DB.
+* ConnectionPolicy proxyUrl ayarında desteği eklendi.
+
+### <a name="1.14.1"/>1.14.1</a>
+* Büyük küçük harfe duyarlı dosya sistemleri için ikincil düzeltme.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Oturum tutarlılığı için destek ekler.
@@ -187,6 +194,8 @@ Kullanımdan Kaldırılan SDK Cosmos DB kullanarak herhangi bir istek hizmeti ta
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.14.2](#1.14.2) |21 aralık 2017 |--- |
+| [1.14.1](#1.14.1) |10 Kasım 2017 |--- |
 | [1.14.0](#1.14.0) |9 Kasım 2017 |--- |
 | [1.13.0](#1.13.0) |11 Ekim 2017 |--- |
 | [1.12.2](#1.12.2) |10 Ağustos 2017 |--- |

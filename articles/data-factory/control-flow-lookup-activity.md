@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: f287b0287ad85ffe1654e0d574cd44aa4dd81a0f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
-Arama Etkinliği herhangi bir dış kaynaktan bir record/ table name/ değerini okumak veya aramak için kullanılabilir. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
+Okuma veya bir kayıt, tablo adı veya değer herhangi bir dış kaynaktan aramak için arama etkinliği kullanın. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
 
-Arama etkinliği dinamik olarak dosyaların bir listesini almak istediğinizde faydalıdır / kayıt/tabloları bir yapılandırma dosyası veya bir veri kaynağından. Etkinlik çıkışı, daha fazla öğelerden üzerinde işleme belirli gerçekleştirmek için diğer etkinlikler tarafından kullanılabilir.
+Arama etkinliği, dinamik olarak dosyaları, kayıt veya Tablo listesini bir yapılandırma dosyası veya bir veri kaynağından almak istediğinizde faydalıdır. Etkinlik çıkışı, daha fazla öğelerden üzerinde işleme belirli gerçekleştirmek için diğer etkinlikler tarafından kullanılabilir.
 
 > [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 belgelerine](v1/data-factory-introduction.md).
+> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
 Aşağıdaki veri kaynakları şu anda arama için desteklenir:
-- Azure Blob JSON dosyasında
+- Azure Blob storage JSON dosyasında
 - JSON dosyasının dosya sistemi
 - Azure SQL veritabanı (sorgudan dönüştürülen JSON verilerini)
 - Azure SQL veri ambarı (sorgudan dönüştürülen JSON verilerini)
 - SQL Server (sorgudan dönüştürülen JSON verilerini)
-- Azure Table Storage (sorgudan dönüştürülen JSON verilerini)
+- Azure Table storage (sorgudan dönüştürülen JSON verilerini)
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -58,56 +58,56 @@ Aşağıdaki veri kaynakları şu anda arama için desteklenir:
 ```
 
 ## <a name="type-properties"></a>Tür özellikleri
-Ad | Açıklama | Tür | Gerekli
+Ad | Açıklama | Tür | Gerekli mi?
 ---- | ----------- | ---- | --------
-Veri kümesi | Veri kümesi özniteliği, arama için veri kümesi başvurusu sağlamaktır. Şu anda desteklenen veri türleri şunlardır:<ul><li>`AzureBlobDataset`için [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) kaynağı olarak</li><li>`FileShareDataset`için [dosya sistemi](connector-file-system.md#dataset-properties) kaynağı olarak</li><li>`AzureSqlTableDataset`için [Azure SQL veritabanı](connector-azure-sql-database.md#dataset-properties) veya [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) kaynağı olarak</li><li>`SqlServerTable`için [SQL Server](connector-sql-server.md#dataset-properties) kaynağı olarak</li><li>`AzureTableDataset`için [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) kaynağı olarak</li> | Anahtar/değer çifti | Evet
-kaynak | Veri kümesi-özel kaynak özellikleri, kopyalama etkinliği kaynakla aynı. Karşılık gelen her bağlayıcı makale içindeki "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi. | Anahtar/değer çifti | Evet
-firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülmeyeceğini gösterir. | Boole değeri | Hayır. Varsayılan değer `ture`.
+Veri kümesi | Veri kümesi başvurusu için arama sağlar. Şu anda desteklenen veri türleri şunlardır:<ul><li>`AzureBlobDataset`için [Azure Blob Depolama](connector-azure-blob-storage.md#dataset-properties) kaynağı olarak</li><li>`FileShareDataset`için [dosya sistemi](connector-file-system.md#dataset-properties) kaynağı olarak</li><li>`AzureSqlTableDataset`için [Azure SQL veritabanı](connector-azure-sql-database.md#dataset-properties) veya [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) kaynağı olarak</li><li>`SqlServerTable`için [SQL Server](connector-sql-server.md#dataset-properties) kaynağı olarak</li><li>`AzureTableDataset`için [Azure Table depolama](connector-azure-table-storage.md#dataset-properties) kaynağı olarak</li> | Anahtar/değer çifti | Evet
+kaynak | Kopya etkinliği kaynak ile aynı veri kümesi-özel kaynak özelliklerini içerir. Karşılık gelen her bağlayıcı makale içindeki "etkinlik özellikleri Kopyala" bölümünden ayrıntıları alın. | Anahtar/değer çifti | Evet
+firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülmeyeceğini gösterir. | Boole | Hayır. Varsayılan değer `true`.
 
-## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Arama etkinlik sonuç izleyen bir etkinlikte kullanma
+## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Arama etkinlik sonuç izleyen bir etkinlikte kullanma
 
-Arama sonuç döndürülür `output` etkinliğin sonucu çalışma bölümünde.
+Arama sonuç döndürülür `output` etkinliğin sonucu çalışma bölümü.
 
-**Zaman `firstRowOnly` ayarlanır `true` (varsayılan)**, çıktı biçimi aşağıdaki gibidir. Arama sonucu sabit altında olan `firstRow` anahtarı. Sonuç izleyen bir etkinlikte, desenini kullanmayı `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Zaman `firstRowOnly` ayarlanır `true` (varsayılan)**, aşağıdaki kodda gösterildiği gibi çıktı biçimidir. Arama sonucu sabit altında olan `firstRow` anahtarı. Sonuç izleyen bir etkinlikte, desenini kullanmayı `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
-```json
-{
-    "firstRow":
+    ```json
     {
-        "Id": "1",
-        "TableName" : "Table1"
-    }
-}
-```
-
-**Zaman `firstRowOnly` ayarlanır `false`** , çıktı biçimi aşağıdaki gibidir. A `count` alan gösterir kaç kayıtlar döndürülür ve ayrıntılı değerlerdir sabit altında `value` dizi. Böyle bir durumda arama etkinliği genellikle tarafından izlenir bir [Foreach etkinlik](control-flow-for-each-activity.md), geçirebilirsiniz `value` ForEach etkinlik dizisine `items` desenini kullanarak alan `@activity('MyLookupActivity').output.value`. Erişim öğelerine `value`, aşağıdaki sözdizimini kullanın: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Örnek aşağıda verilmiştir:`@{activity('lookupActivity').output.value[0].tablename}`
-
-```json
-{
-    "count": "2",
-    "value": [
+        "firstRow":
         {
             "Id": "1",
             "TableName" : "Table1"
-        },
-        {
-            "Id": "2",
-            "TableName" : "Table2"
         }
-    ]
-} 
-```
+    }
+    ```
+
+* **Zaman `firstRowOnly` ayarlanır `false`** , aşağıdaki kodda gösterildiği gibi çıktı biçimidir. A `count` alan gösterir kaç kayıtlar döndürülür ve ayrıntılı değerleri görüntülenir sabit altında `value` dizi. Böyle bir durumda, arama etkinliği genellikle tarafından izlenir bir [Foreach etkinlik](control-flow-for-each-activity.md). Geçirebilirsiniz `value` ForEach etkinlik dizisine `items` desenini kullanarak alan `@activity('MyLookupActivity').output.value`. Erişim öğelerine `value` dizisi, aşağıdaki sözdizimini kullanın: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Örnek aşağıda verilmiştir: `@{activity('lookupActivity').output.value[0].tablename}`.
+
+    ```json
+    {
+        "count": "2",
+        "value": [
+            {
+                "Id": "1",
+                "TableName" : "Table1"
+            },
+            {
+                "Id": "2",
+                "TableName" : "Table2"
+            }
+        ]
+    } 
+    ```
 
 ## <a name="example"></a>Örnek
-Bu örnekte, kopya etkinliği verileri Azure SQL veritabanındaki bir SQL tablosundan Azure Blob Depolama birimine kopyalar. SQL tablosu adı Blob Storage JSON dosyasında depolanır. Çalışma zamanında tablo adı arama etkinliği arar. Bu yaklaşım JSON ardışık düzen/veri kümeleri yeniden dağıtmadan dinamik olarak değiştirilmesine izin verir. 
+Bu örnekte, kopya etkinliği verileri Azure SQL veritabanı örneği bir SQL tablosuna Azure Blob Depolama birimine kopyalar. SQL tablosu adı Blob storage JSON dosyasında depolanır. Çalışma zamanında tablo adı arama etkinliği arar. Bu yaklaşım JSON ardışık düzen veya veri kümelerini yeniden dağıtmak zorunda kalmadan dinamik olarak değiştirilmesine izin verir. 
 
-Bu örnek yalnızca ilk satır Ara gösterir. Tüm satırlar ve zinciri ForEach etkinliği ile arayın başvurmak [Öğreticisi - toplu kopyalama veri](tutorial-bulk-copy.md) örnek.
+Bu örnek yalnızca ilk satır için arama gösterir. Örnekleri tüm satırları ve sonuçları ForEach etkinlikle zincir için arama için bkz: [Azure Data Factory kullanarak birden çok tablo toplu kopyalama](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>İşlem hattı
-Bu ardışık düzen iki etkinlik içerir: **aramak** ve **kopya**. 
+Bu ardışık düzen iki etkinlik içerir: *arama* ve *kopya*. 
 
-- Arama etkinliği bir Azure Blob depolama konumuna başvuruyor LookupDataset kullanacak şekilde yapılandırılır. Arama etkinliği bu konumda bir JSON dosyası SQL tablosu adını okur. 
-- Kopyalama etkinliği (SQL tablosu adı) arama etkinlik çıkışı kullanır. TableName kaynak kümesindeki (SourceDataset) arama etkinlik çıkışı kullanacak şekilde yapılandırılır. Kopyalama etkinliği verileri SQL tablosundan SinkDataset tarafından belirtilen Azure Blob depolama konumuna kopyalar. 
+- Arama etkinliği, Azure Blob Depolama birimindeki bir konuma başvuruyor LookupDataset kullanacak şekilde yapılandırılır. Arama etkinliği bu konumda bir JSON dosyası SQL tablosu adını okur. 
+- Kopyalama etkinliği (SQL tablosu adı) arama etkinlik çıkışı kullanır. Kaynak veri kümesi (SourceDataset) tableName özelliğinde arama etkinlik çıkışı kullanmak için yapılandırılır. Kopyalama etkinliği verileri SQL tablosundan SinkDataset özelliği tarafından belirtilen Azure Blob Depolama birimindeki bir konuma kopyalar. 
 
 
 ```json
@@ -165,7 +165,7 @@ Bu ardışık düzen iki etkinlik içerir: **aramak** ve **kopya**.
 ```
 
 ### <a name="lookup-dataset"></a>Arama veri kümesi
-Arama dataset AzureStorageLinkedService tarafından belirtilen Azure Storage Arama klasöründe sourcetable.json dosyasında ifade eder. 
+Arama veri kümesinin başvurduğu *sourcetable.json* AzureStorageLinkedService türü tarafından belirtilen Azure depolama arama klasörünü dosyasında. 
 
 ```json
 {
@@ -189,7 +189,7 @@ Arama dataset AzureStorageLinkedService tarafından belirtilen Azure Storage Ara
 ```
 
 ### <a name="source-dataset-for-the-copy-activity"></a>Kaynak veri kümesi kopyalama etkinliği için
-Kaynak veri kümesi SQL tablosu adı arama etkinlik çıkışını kullanır. Kopyalama etkinliği verileri bu SQL tablosundan Azure Blob Depolama havuzu veri kümesi tarafından belirtilen bir konuma kopyalar. 
+Kaynak veri kümesi SQL tablosu adı arama etkinlik çıkışını kullanır. Kopyalama etkinliği verileri bu SQL tablosundan havuz veri kümesi tarafından belirtilen Azure Blob Depolama birimindeki bir konuma kopyalar. 
 
 ```json
 {
@@ -208,7 +208,7 @@ Kaynak veri kümesi SQL tablosu adı arama etkinlik çıkışını kullanır. Ko
 ```
 
 ### <a name="sink-dataset-for-the-copy-activity"></a>Veri kümesi kopyalama etkinliği için havuz
-Kopyalama etkinliği verileri SQL tablosundan AzureStorageLinkedService tarafından belirtilen Azure depolama alanında csv klasöründeki filebylookup.csv dosyasını kopyalar. 
+Veri kopyalama etkinliği SQL tablosuna kopyalar *filebylookup.csv* dosyasını *csv* AzureStorageLinkedService özelliği tarafından belirtilen Azure depolama klasöründe. 
 
 ```json
 {
@@ -230,7 +230,7 @@ Kopyalama etkinliği verileri SQL tablosundan AzureStorageLinkedService tarafın
 }
 ```
 
-### <a name="azure-storage-linked-service"></a>Azure Storage Bağlı Hizmeti
+### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti
 Bu depolama hesabı SQL tabloların adlarını JSON dosyasını içerir. 
 
 ```json
@@ -249,7 +249,7 @@ Bu depolama hesabı SQL tabloların adlarını JSON dosyasını içerir.
 ```
 
 ### <a name="azure-sql-database-linked-service"></a>Azure SQL Veritabanı bağlı hizmeti
-Bu Azure SQL veritabanı blob depolama alanına kopyalanacak verileri içerir. 
+Bu Azure SQL veritabanı örneğinde Blob depolama alanına kopyalanacak veriler içeriyor. 
 
 ```json
 {
@@ -300,7 +300,7 @@ Bu Azure SQL veritabanı blob depolama alanına kopyalanacak verileri içerir.
 ## <a name="next-steps"></a>Sonraki adımlar
 Data Factory ile desteklenen diğer denetim akışı etkinlikleri bakın: 
 
-- [İşlem Hattı Yürütme Etkinliği](control-flow-execute-pipeline-activity.md)
+- [Ardışık Düzen etkinliği yürütmek](control-flow-execute-pipeline-activity.md)
 - [Her etkinlik için](control-flow-for-each-activity.md)
-- [Meta Veri Alma Etkinliği](control-flow-get-metadata-activity.md)
+- [Meta veri etkinlik Al](control-flow-get-metadata-activity.md)
 - [Web etkinliği](control-flow-web-activity.md)

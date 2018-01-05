@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c1ae74127fce40a6f1ab412f25797076dda9d888
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Bir IOT sınır cihazı bir ağ geçidi olarak - kullanılabilir nasıl Önizleme
 
@@ -23,7 +23,7 @@ Ağ geçitleri IOT çözümlerinde amacı çözüme özeldir ve cihaz bağlantı
 Bir IOT sınır cihazı bir ağ geçidi olarak kullanma üç desenleri vardır: saydam protokol çevirisi ve kimlik çeviri:
 * **Saydam** – teorik olarak IOT Hub'ına bağlantısı kurulamadı. aygıtları bağlanabileceği bir ağ geçidi aygıtına bunun yerine. Bu, aşağı akış cihazları kendi IOT hub'ı kimliklerine sahip ve MQTT, AMQP veya HTTP protokollerden herhangi birini kullanarak anlamına gelir. Ağ geçidi, yalnızca IOT Hub ve aygıtlar arasında iletişimi geçirir. Cihazlar bir ağ geçidi üzerinden buluta ile iletişim kurmasını ve IOT Hub'cihazları etkileşimde bir kullanıcı ara ağ geçidi aygıtı farkında değildir farkında değildir. Bu nedenle, ağ geçidi saydamdır. Başvurmak [saydam bir ağ geçidi oluşturmak] [ lnk-iot-edge-as-transparent-gateway] IOT sınır cihazı saydam bir ağ geçidi olarak kullanma özellikleri için yapılır.
 * **Protokol çevirisi** – MQTT, AMQP veya HTTP desteklemeyen cihazlar IOT Hub'ına veri göndermek için bir ağ geçidi cihazı kullanın. Ağ geçidi aşağı akış cihazlar tarafından kullanılan bu protokolü anlamak akıllı; ancak IOT hub'da kimliğe sahip yalnızca aygıt kullanılır. Bir aygıttan ağ geçidi gelen tüm bilgileri görülüyor. Bu neden aygıt başına temelinde verilerle ilgili bulut uygulamalarını istiyorsanız, Aşağı Akış aygıtları ek tanımlayıcı bilgileri, iletilerinde gömülü gerekir anlamına gelir. Ayrıca, IOT hub'ı temelleri twin ister ve yöntemleri yalnızca olmayan aşağı akış cihazların ağ geçidi aygıtı için kullanılabilir.
-* **Kimlik çeviri** -IOT Hub'ına bağlanamıyor cihazları bağlamak için aşağı akış aygıtlar adına kimlik ve protokol çevirisi IOT hub'ı sağlayan bir ağ geçidi cihazı. Aşağı Akış cihazlar tarafından kullanılan protokol anlamak, kimlik sağlama ve IOT hub'ı temelleri çevirmek akıllı ağ geçididir. Aşağı Akış cihazlar IOT Hub ' birinci sınıf cihazlarla çiftlerini ve yöntemleri olarak görünür. Bir kullanıcı aygıtları IOT hub ile etkileşim kurabilir vermez ara ağ geçidi aygıtı farkında değildir.
+* **Kimlik çeviri** -IOT Hub'ına bağlanamıyor cihazları bağlamak için aşağı akış aygıtlar adına kimlik ve protokol çevirisi IOT hub'ı sağlayan bir ağ geçidi cihazı. Aşağı Akış cihazlar tarafından kullanılan protokol anlamak, kimlik sağlama ve IOT hub'ı temelleri çevirmek akıllı ağ geçididir. Aşağı Akış cihazlar IOT Hub ' birinci sınıf cihazlarla çiftlerini ve yöntemleri olarak görünür. Bir kullanıcı, IOT Hub'cihazları ile etkileşim kurabilir ve ara ağ geçidi aygıtı farkında değildir.
 
 ![Ağ geçidi desenleri diyagramları][1]
 
@@ -49,7 +49,7 @@ Burada, IOT hub'ı temelleri kullanırken saydam, donuk karşılaştırır sayfa
 | Doğrudan yöntemleri ve bulut-cihaz iletilerini | Bulut bağlı her aygıt ayrı ayrı ele alabilir | Bulut yalnızca ağ geçidi aygıtı adres | Bulut bağlı her aygıt ayrı ayrı ele alabilir |
 | [IOT hub'ı kısıtlamaları ve kotaları][lnk-iothub-throttles-quotas] | Her bir aygıtı Uygula | Ağ geçidi aygıtı Uygula | Her bir aygıtı Uygula |
 
-Donuk ağ geçidi deseni kullanılırken, bu ağ geçidi üzerinden bağlanan tüm cihazlar en çok 50 iletileri içerebilir aynı bulut cihaz sırası paylaşır. Donuk ağ geçidi deseni yalnızca çok az aygıtları her alan ağ geçidi üzerinden bağlanan ve kendi bulut cihaz trafiğinin düşük olduğu zaman kullanılmalıdır olduğunu izler.
+Donuk ağ geçidi (Protokol çevirisi) deseni kullanılırken, bu ağ geçidi üzerinden bağlanan tüm cihazlar en çok 50 iletileri içerebilir aynı bulut cihaz sırası paylaşır. Donuk ağ geçidi deseni yalnızca çok az aygıtları her alan ağ geçidi üzerinden bağlanan ve kendi bulut cihaz trafiğinin düşük olduğu zaman kullanılmalıdır olduğunu izler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir IOT sınır cihazı olarak kullanın bir [saydam ağ geçidi][lnk-iot-edge-as-transparent-gateway] 

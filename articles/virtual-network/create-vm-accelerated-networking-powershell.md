@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/20/2017
 ms.author: jimdial
-ms.openlocfilehash: c1a86e6f235964b4019cedb13833d01f99a59997
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8c2cc9ef487ee754f904f04e604ef76c3f9e07af
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile Windows sanal makine oluşturma
 
@@ -28,7 +28,7 @@ Bu öğreticide, bir Windows sanal makine (VM) ağ hızlandırılmış oluşturm
 
 Hızlandırılmış ağ desteği olmadan, VM ve dışındaki tüm ağ trafiğini konak ve sanal anahtar çapraz geçiş gerekir. Sanal anahtar ağ güvenlik grupları, erişim denetim listeleri, yalıtım ve diğer ağ trafiği sanallaştırılmış Ağ Hizmetleri gibi tüm ilke zorunluluğu sağlar. Sanal anahtarları hakkında daha fazla bilgi için okuma [Hyper-V ağ sanallaştırma ve sanal anahtar](https://technet.microsoft.com/library/jj945275.aspx) makalesi.
 
-Hızlandırılmış ağ ile ağ trafiğini VM ağ arabiriminin (NIC) ulaştığında ve ardından VM iletilir. Sanal anahtar olmadan hızlandırılmış ağ uygulanan tüm ağ ilkeleri Boşaltılan ve donanım uygulanır. Donanım ilkesinde uygulama konak ve sanal anahtarın konak uygulanan tüm ilke korurken atlayarak doğrudan VM'ye iletme ağ trafiğini NIC'ye sağlar.
+Hızlandırılmış ağ ile ağ trafiğini VM ağ arabiriminin (NIC) ulaştığında ve ardından VM iletilir. Sanal anahtar uygular tüm ağ ilkeleri artık Boşaltılan ve donanım uygulanır. Donanım ilkesinde uygulama konak ve sanal anahtarın konak uygulanan tüm ilke korurken atlayarak doğrudan VM'ye iletme ağ trafiğini NIC'ye sağlar.
 
 Hızlandırılmış ağ yararları yalnızca üzerinde etkin VM için de geçerlidir. En iyi sonuçlar için en az iki VM aynı Azure sanal ağa (VNet) bağlı bu özelliği etkinleştirmek idealdir. Sanal ağlar veya içi bağlantı üzerinden iletişim kurarken, bu özellik genel gecikme en az bir etkisi yoktur.
 
@@ -37,14 +37,22 @@ Hızlandırılmış ağ yararları yalnızca üzerinde etkin VM için de geçerl
 * **Değişim azaltılmış:** sanal anahtar işleme uygulanması gereken ilke miktarını ve işlem yaptığını CPU iş yüküne bağlıdır. İlke zorlama donanım yük boşaltma, VM iletişim ve tüm yazılım kesmelerini ve İçerik Geçişi konağa kaldırma doğrudan VM paketleri sunarak bu değişkenlik kaldırır.
 * **Düşük CPU kullanımı:** konakta sanal anahtar atlayarak müşteri adayları ağ trafiğini işlemek için daha az CPU kullanımı için.
 
+## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
+Microsoft Windows Server 2012 R2 Datacenter ve Windows Server 2016.
+
+## <a name="supported-vm-instances"></a>Desteklenen VM örnekleri
+Hızlandırılmış ağ en genel amaçlı ve işlem iyileştirilmiş örnek boyutları 4 veya daha fazla Vcpu'lar ile desteklenir. Hiper iş parçacığı destekleyen örneklerinde D/DSv3 veya E/ESv3 gibi hızlandırılmış ağ 8 veya daha fazla Vcpu'lar ile VM örneklerinde desteklenir. Desteklenen serisi şunlardır: D/DSv2, D/DSv3, E/ESv3, Fs/F/Fsv2 ve Ms/Mms.
+
+VM örnekleri hakkında daha fazla bilgi için bkz: [Windows VM boyutları](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## <a name="regions"></a>Bölgeler
+Tüm ortak Azure bölgeleri ve Azure Bulutu kullanılabilir. 
+
 ## <a name="limitations"></a>Sınırlamalar
 Bu özelliği kullanırken aşağıdaki sınırlamalar bulunmaktadır:
 
 * **Ağ arabirimi oluşturma:** hızlandırılmış ağ yalnızca yeni bir NIC için etkinleştirilmesi Varolan bir NIC için etkinleştirilemez
 * **VM oluşturma:** etkin hızlandırılmış ağ ile bir NIC yalnızca eklenebilir bir VM VM oluşturulduğunda. NIC için mevcut bir VM'yi eklenemiyor. VM için mevcut bir kullanılabilirlik ekleme ayarlarsanız, kullanılabilirlik kümesindeki tüm sanal makineleri de etkin ağ hızlandırılmış gerekir.
-* **Bölgeler:** çoğu Azure bölgelerde kullanılabilir. 
-* **Desteklenen işletim sistemleri:** Microsoft Windows Server 2012 R2 Datacenter ve Windows Server 2016
-* **VM boyutu:** genel amaçlı ve en az sekiz çekirdeği ile işlem iyileştirilmiş örnek boyutları. Daha fazla bilgi için bkz: [Windows VM boyutları](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **Yalnızca aracılığıyla Azure Resource Manager dağıtımı:** hızlandırılmış ağ ile sanal makineleri (Klasik) dağıtılamıyor.
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma

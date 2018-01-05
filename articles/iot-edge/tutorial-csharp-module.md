@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Geliştir ve C# IOT kenar modülünü sanal Cihazınızı dağıtmak - Önizleme
 
@@ -28,7 +28,7 @@ IOT kenar modülleri, iş mantığınızı IOT sınır cihazları için doğruda
 
 Bu öğreticide oluşturduğunuz IOT kenar modülü cihazınız tarafından oluşturulan sıcaklık verileri filtreler. Sıcaklık belirtilen eşiğin üzerindeyse, yalnızca iletileri upstream gönderir. Bu türde bir kenara çözümlemesini SDK'ya ve bulutta depolanan veri miktarını azaltmak için yararlıdır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Hızlı Başlangıç ya da ilk öğreticide oluşturduğunuz Azure IOT sınır cihazı.
 * IOT sınır cihazı için birincil anahtar bağlantı dizesi.  
@@ -98,11 +98,19 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
     }
     ```
 
-8. İçinde **Init** yöntemi, kod oluşturur ve yapılandırır bir **DeviceClient** nesnesi. Bu nesne ileti gönderme ve alma için yerel Azure IOT kenar çalışma bağlanmak modülü sağlar. Kullanılan bağlantı dizesi **Init** yöntemi modülü IOT kenar çalışma zamanı tarafından sağlanmaktadır. Oluşturduktan sonra **DeviceClient**, kod IOT kenar hub'dan iletileri almak için bir geri çağırma kaydeder **input1** uç noktası. Değiştir `SetInputMessageHandlerAsync` yeni bir yöntemle ve ekleme bir `SetDesiredPropertyUpdateCallbackAsync` istenen özellikleri güncelleştirmeleri yöntemi. Bu değişikliği yapmak için son satırının yerini **Init** aşağıdaki kod ile yöntemi:
+8. İçinde **Init** yöntemi, kod oluşturur ve yapılandırır bir **DeviceClient** nesnesi. Bu nesne ileti gönderme ve alma için yerel Azure IOT kenar çalışma bağlanmak modülü sağlar. Kullanılan bağlantı dizesi **Init** yöntemi modülü IOT kenar çalışma zamanı tarafından sağlanmaktadır. Oluşturduktan sonra **DeviceClient**, kod modülü Twin'ın istenen özelliklerinden TemperatureThreshold okur ve IOT kenar hub'dan iletileri almak için bir geri çağırma kaydeder **input1**uç noktası. Değiştir `SetInputMessageHandlerAsync` yeni bir yöntemle ve ekleme bir `SetDesiredPropertyUpdateCallbackAsync` istenen özellikleri güncelleştirmeleri yöntemi. Bu değişikliği yapmak için son satırının yerini **Init** aşağıdaki kod ile yöntemi:
 
     ```csharp
     // Register callback to be called when a message is received by the module
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+    // Read TemperatureThreshold from Module Twin Desired Properties
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
+    {
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    }
 
     // Attach callback for Twin desired properties updates
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
@@ -261,7 +269,7 @@ Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı ka
         }
         ```
  
-    6. **Kaydet** düğmesine tıklayın.
+    6. **Kaydet**’e tıklayın.
 12. **İleri**’ye tıklayın.
 13. İçinde **belirtin yollar** adım, JSON altındaki metin kutusuna Kopyala. Modülleri tüm iletileri kenar çalışma zamanına yayımlayın. Çalışma zamanında bildirim temelli kuralları burada iletileri akış tanımlayın. Bu öğreticide, iki yol gerekir. İlk yol sıcaklık algılayıcısı iletilerden filtresi modülü ile yapılandırılmış uç noktası "input1" uç nokta aracılığıyla taşımaları **FilterMessages** işleyicisi. İkinci yol filtresi modülü gelen iletileri IOT Hub'ına taşımaları. Bu rotadaki `upstream` kenar Hub'ın IOT Hub'ına iletileri göndermek için söyler özel bir hedef. 
 

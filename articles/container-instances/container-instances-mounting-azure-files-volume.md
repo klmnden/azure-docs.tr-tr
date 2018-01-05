@@ -9,15 +9,18 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7203c95a1269698dea91475aa6aa24c47bcfb0f0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Azure kapsayıcı örneği ile bir Azure dosya paylaşımını bağlama
 
 Varsayılan olarak, Azure kapsayıcı durum bilgisiz örnekleridir. Kapsayıcı kilitlenmesine veya durdurur, durumuna kaybolur. Kapsayıcı ömür ötesinde durumunu kalıcı hale getirmek için bir dış depolama alanından bir birim bağlama gerekir. Bu makalede, Azure kapsayıcı örnekleri ile kullanmak için bir Azure dosya paylaşımının gösterilmektedir.
+
+> [!NOTE]
+> Azure dosya paylaşımının takma Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılara getirmek için çalışıyoruz, ancak geçerli platform farklılıkları bulabilirsiniz [kotalar ve Azure kapsayıcı örnekleri için bölge kullanılabilirliği](container-instances-quotas.md).
 
 ## <a name="create-an-azure-file-share"></a>Bir Azure dosya paylaşımı oluşturma
 

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak bir Windows sunucusu veya Windows istemci makinesine dosyaları geri yükleme
 
@@ -33,7 +33,7 @@ Ocak 2017 ' Microsoft MARS aracısı için Önizleme güncelleştirme yayımlad�
 > [Ocak 2017 Azure Backup güncelleştirmesini](https://support.microsoft.com/en-us/help/3216528?preview) anlık geri verileri geri yüklemek için kullanmak istiyorsanız gereklidir. Ayrıca Yedekleme verileri yerel destek makalesinde listelenen kasalarında korunmalıdır. Başvurun [Ocak 2017 Azure Backup güncelleştirmesini](https://support.microsoft.com/en-us/help/3216528?preview) anlık geri yükleme desteği yerel ayarları en son listesi için. Anlık geri yükleme **değil** tüm bölgelerde kullanılabilir.
 >
 
-Anlık geri yükleme Azure portal ve klasik portalda yedekleme kasaları kurtarma Hizmetleri kasalarının kullanmak için kullanılabilir. Anlık geri kullanmak istiyorsanız, MARS güncelleştirmeyi indirin ve anlık geri Bahsediyor yordamları izleyin.
+Kurtarma Hizmetleri kasalarını Azure portalında ile anında geri kullanın. Yedekleme kasalarında veriler, Kurtarma Hizmetleri kasalarının dönüştürüldü. Anlık geri kullanmak istiyorsanız, MARS güncelleştirmeyi indirin ve anlık geri Bahsediyor yordamları izleyin.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

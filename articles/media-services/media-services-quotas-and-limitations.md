@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: juliako
-ms.openlocfilehash: 4b55b6cb87443871decf6f14ef3949e76433afcc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="quotas-and-limitations"></a>Kotalar ve Sınırlamalar
 Bu makalede, kotalar ve Microsoft Azure Media Services ile ilişkili sınırlamalar açıklanır.
@@ -29,17 +29,8 @@ Bu makalede, kotalar ve Microsoft Azure Media Services ile ilişkili sınırlama
 Sağlanan varsayılan kotalar değişiklikler istemek için bir destek bileti açabilirsiniz. Lütfen istenen kota değişikliklerinden, kullanım örneği senaryoları ve gerekli bölgeleri isteğindeki ayrıntılı bilgiler içerir.
 
 ### <a name="how-to-open-a-support-ticket"></a>Bir destek bileti açma
-Bir destek bileti açmak için aşağıdakileri yapın:
+Azure portalında Git [Yardım + Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Azure'a açmadınız, kimlik bilgilerinizi girmeniz istenir.
 
-1. Tıklatın [alma desteği](https://manage.windowsazure.com/?getsupport=true). Açmadıysanız, kimlik bilgilerinizi girmeniz istenir.
-2. Aboneliğinizi seçin.
-3. Destek türü'nün altında "Teknik." seçin
-4. Oluştur'u tıklatın üzerinde"bilet."
-5. "Azure medya sonraki sayfada sunulan hizmetler" Ürün listesinde seçin.
-6. "Sorun türü" seçin sorununuz için uygun olan.
-7. Devam Et'i tıklatın.
-8. Sonraki sayfasındaki yönergeleri izleyin ve sorunu ayrıntılarını girin.
-9. Bilet için Gönder'e tıklayın.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

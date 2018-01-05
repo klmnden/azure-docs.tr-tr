@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation bağlantı varlıkları
 
@@ -71,14 +71,6 @@ Aşağıdaki tabloda işlevinde bir Python2 runbook'ta bağlantılara erişmek i
 3. Tıklatın **Bağlantı Ekle** dikey pencerenin üstündeki.
 4. İçinde **türü** açılan listesinde, oluşturmak istediğiniz bağlantı türünü seçin. Form belirli türü için özellikler sunacaktır.
 5. Formu tamamlayıp tıklatın **oluşturma** yeni bağlantı kaydetmek için.
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Azure Klasik portalı ile yeni bir bağlantı oluşturmak için
-
-1. Otomasyon hesabınızdan tıklatın **varlıklar** pencerenin üstündeki.
-2. Pencerenin alt kısmındaki tıklatın **ayar Ekle**.
-3. Tıklatın **Bağlantı Ekle**.
-4. İçinde **bağlantı türü** açılan listesinde, oluşturmak istediğiniz bağlantı türünü seçin.  Sihirbazın bu türdeki özelliklerini sunacaktır.
-5. Sihirbazı tamamlamak ve yeni bağlantıyı kaydetmek için onay kutusunu işaretleyin.
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Windows PowerShell ile yeni bir bağlantı oluşturmak için
 

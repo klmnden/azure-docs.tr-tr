@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: b250f7aee18ddf06c4f33b36247127141eeac528
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 
@@ -27,7 +27,12 @@ ms.lasthandoff: 11/08/2017
 
 Bu belge Azure PowerShell modülü, Azure Resource Manager şablonları ve sorun giderme adımları Windows sistemlerinde ayrıntıları kullanarak özel betik uzantısı kullanma ayrıntılarını verir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
+
+> [!NOTE]  
+> Özel betik uzantısının kendisini bekleyeceği olduğundan, parametre olarak aynı VM ile güncelleştirme-AzureRmVM çalıştırmak için kullanmayın.  
+>   
+> 
 
 ### <a name="operating-system"></a>İşletim Sistemi
 
@@ -98,7 +103,7 @@ Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir.
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 
-`Set-AzureRmVMCustomScriptExtension` Komutu, varolan bir sanal makineye özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için bkz: [kümesi AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+`Set-AzureRmVMCustomScriptExtension` Komutu, varolan bir sanal makineye özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için bkz: [kümesi AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `

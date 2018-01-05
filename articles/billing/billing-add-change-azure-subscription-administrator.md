@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: bb82eeda21fe4913acbe930696aa110ea1554f28
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ekleme veya Azure aboneliği yöneticileri değiştirme
 
@@ -40,9 +40,11 @@ Daha iyi denetim sağlamak ve erişim yönetimini basitleştirmek için tüm eri
 Birisi Azure aboneliği hizmet yönetimi için yönetici olarak eklemek için bunları RBAC sahip rolünü aboneliğine verin. Sahip rolü atanmış ve diğer aboneliklere erişim ayrıcalığına sahip değil Bu Abonelikteki kaynakları yönetebilir.
 
 1. Ziyaret [ **abonelikleri** Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Erişim verin istediğiniz aboneliği seçin.
-1. Seçin **erişim denetimi (IAM)** menüde.
-1. Seçin **ekleme** > **rol** > **sahibi**. Sahibi olarak eklemek istediğiniz kullanıcıyı seçin ve ardından istediğiniz kullanıcının e-posta adresini yazın **kaydetmek**.
+2. Erişim vermek istediğiniz aboneliği seçin.
+3. Seçin **erişim denetimi (IAM)** menüde.
+4. İçinde **rol** kutusunda **sahibi**. 
+5. İçinde **atamak için erişim** kutusunda **Azure AD kullanıcı, Grup veya uygulama**. 
+6. İçinde **seçin** sahibi olarak eklemek istediğiniz kullanıcının e-posta adresini yazın. Kullanıcıyı seçin ve ardından **kaydetmek**.
 
     ![Seçili sahip rolünü gösteren ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 

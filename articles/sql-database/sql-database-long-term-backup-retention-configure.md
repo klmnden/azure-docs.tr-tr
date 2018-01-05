@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Yapılandırma ve Azure SQL veritabanı uzun vadeli yedekleme bekletme geri yükleme
 
@@ -82,6 +82,9 @@ Aşağıdaki bölümlerde, Azure portalında Azure kurtarma Hizmetleri kasası y
 12. Üzerinde **yapılandırma** sayfasında, yeni bir bekletme ilkesi için geçerli bir ad, varsayılan saklama ilkeyi uygun şekilde değiştirin ve ardından **Tamam**.
 
    ![saklama ilkesi tanımlama](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >Bekletme İlkesi adları, boşluk dahil olmak üzere bazı karakterler izin vermez.
 
 13. Üzerinde **uzun vadeli yedekleme bekletme** sayfasında veritabanınız için **kaydetmek** ve ardından **Tamam** uzun vadeli yedekleme bekletme ilkesi seçilen tüm veritabanlarına uygulanacak.
 

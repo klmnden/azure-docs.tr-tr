@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -32,11 +32,12 @@ Azure Active Directory'de (Azure AD) ile cihaz yönetimi, güvenlik ve uyumlulu�
 
 Karma Azure AD alanına katılmış aygıtlar ortamınızda yapılandırmaya başlamadan önce kendiniz desteklenen senaryolar ve kısıtlamalar ile kazanmalısınız.  
 
+Üzerinde FQDN'yi kullanıyorsanız [Sistem Hazırlama Aracı (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), Lütfen bir yükleme henüz Azure AD ile kayıtlı değil Windows görüntüleri oluşturduğunuz emin olun.
+
 Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim kullanır: 
 
 - **Windows geçerli aygıtları** -Windows 10 veya Windows Server 2016 çalıştıran etki alanına katılmış cihazlar için bu terim başvuruyor.
 - **Windows alt düzey aygıtları** -bu terim tümüne başvuruyor **desteklenen** çalışan Windows 10 ne Windows Server 2016 etki alanına katılmış Windows cihazları.  
-
 
 ### <a name="windows-current-devices"></a>Geçerli Windows cihazları
 
@@ -57,7 +58,7 @@ Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim k
 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Karma Azure AD alanına katılmış cihazları, kuruluşunuzda etkinleştirmeye başlamadan önce Azure AD güncel bir sürümünü çalıştırdığından emin olmanız gerekir bağlanın.
 
@@ -66,6 +67,15 @@ Azure AD Connect:
 - Bilgisayar hesabında şirket içi Active Directory (AD) ve Azure AD cihaz nesne arasındaki ilişkiyi tutar. 
 - Başka bir aygıt etkinleştirir ilgili özellikler gibi iş için Windows Hello.
 
+Aşağıdaki URL'ler için Azure AD kuruluş ağınızdaki bilgisayarların kayıt bilgisayarlardan erişilebilir olduğundan emin olun:
+
+- https://enterpriseregistration.Windows.NET
+
+- https://login.microsoftonline.com
+
+- https://Device.Login.microsoftonline.com
+
+Kuruluşların bir giden proxy üzerinden Internet erişimi gerektiriyorsa, Azure AD ile kaydetmek Windows 10 bilgisayarları etkinleştirmek için Web Proxy Otomatik Bulma (WPAD) uygulamanız gerekir.
 
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
@@ -548,7 +558,7 @@ Windows geçerli bilgisayarların piyasaya sürümü denetlemek için dağıtman
 2. Otomatik kaydı Windows geçerli bilgisayarların etkinleştirmek istediğiniz etki alanı için karşılık gelen etki alanı düğümüne gidin.
 3. Sağ **Grup İlkesi nesneleri**ve ardından **yeni**.
 4. Grup İlkesi nesnesi için bir ad yazın. Örneğin, * karma Azure AD birleştirme. 
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**’a tıklayın.
 6. Yeni Grup İlkesi nesneniz sağ tıklayın ve ardından **Düzenle**.
 7. Git **Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları** > **Windows bileşenleri** > **aygıt kaydı**. 
 8. Sağ **etki alanına katılmış bilgisayarları cihaz olarak kaydetme**ve ardından **Düzenle**.
@@ -557,7 +567,7 @@ Windows geçerli bilgisayarların piyasaya sürümü denetlemek için dağıtman
    > Bu Grup İlkesi şablonu, Grup İlkesi Yönetimi konsolunun önceki sürümlerden adlandırıldı. Konsol önceki bir sürümünü kullanıyorsanız, Git `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
 7. Seçin **etkin**ve ardından **Uygula**.
-8. **Tamam** düğmesine tıklayın.
+8. **Tamam**’a tıklayın.
 9. Grup İlkesi nesnesini, bir konumla bağlayın. Örneğin, belirli bir kuruluş birimine olarak bağlayabilirsiniz. Otomatik olarak Azure AD ile katılmak bilgisayarları belirli güvenlik grubuna da bağlayabilirsiniz. Bu ilke tüm etki alanına katılmış Windows 10 ve Windows Server 2016 kuruluşunuzdaki bilgisayarlara atamak için Grup İlkesi nesnesini etki alanına bağlayın.
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Windows 10 bilgisayarları için Windows Installer paketleri

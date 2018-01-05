@@ -3,8 +3,8 @@ title: "İOS Azure Mobile Apps ile kimlik doğrulaması ekleme"
 description: "İOS uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Azure Mobile Apps kullanmayı öğrenin."
 services: app-service\mobile
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: glenga
-ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-ios-app"></a>İOS uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -42,9 +42,9 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 
 5. İçinde **yeniden yönlendirme URL'lere izin**, girin `appname://easyauth.callback`.  _Appname_ Bu dize, mobil uygulamanız için URL düzenidir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak ihtiyaç duyacağınız seçtiğiniz dizeyi Not olmanız gerekir.
 
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**’a tıklayın.
 
-7. **Kaydet** düğmesine tıklayın.
+7. **Kaydet**’e tıklayın.
 
 ## <a name="permissions"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

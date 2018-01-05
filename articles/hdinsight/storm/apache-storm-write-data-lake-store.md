@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 485bc8e21e92b7dc5734458506c6825d349c45f9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Hdınsight üzerinde Apache Storm HDFS için yazma
 
@@ -34,7 +34,7 @@ Bu topoloji içeren projeyi yükleme yoluyla kullanılabilir [https://github.com
 
 Bu projeyi derlemek için geliştirme ortamınız için aşağıdaki yapılandırma gerekir:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ya da daha yüksek. Java 8 Hdınsight 3.5 veya daha yükseğini gerektirir.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ya da daha yüksek. Java 8 Hdınsight 3.5 veya daha yükseğini gerektirir.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -140,7 +140,7 @@ Flux framework hakkında daha fazla bilgi için bkz: [https://storm.apache.org/r
 
 Varsayılan olarak, Hdınsight üzerinde Storm HdfsBolt Storm'ın sınıf yolunda Azure Storage veya Data Lake Store ile iletişim kurmak için kullandığı bileşenlerinin içermez. Bu bileşenler eklemek için aşağıdaki betik eylemi kullanın `extlib` kümenizdeki Storm için dizin:
 
-* Betik URI:`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* Betik URI:`https://gist.githubusercontent.com/Blackmist/dbd4a3f555397a84ac1074ee73484df2/raw/63a76e559efd532021580d079e378c6b2f8c475e/stormextlib.sh`
 * Uygulamak için düğümleri: Nimbus, yönetici
 * Parametreler: yok
 

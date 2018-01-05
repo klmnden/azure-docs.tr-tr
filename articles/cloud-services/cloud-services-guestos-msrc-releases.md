@@ -12,24 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmelerinin gösterir. Belirli bir güncelleştirme Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeleri her zaman taşımak İleri için belirli [ailesi] [ family-explain] de tanıtılan.
 
+## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| İlişki 17-12 | [4053579], [4054517] |Windows 10 güvenlik güncelleştirmeleri |4.49, 5.14 |12 Aralık 2017 |
+| İlişki 17-12 | [4054521], [4054522], [4054523] |Yalnızca Windows güvenliği |2.69, 3.56, 4.49 |12 Aralık 2017 |
+| İlişki 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 Aralık 2017 |
+| İlişki 17-12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 Aralık 2017 |
+| Yok | [4048957] |Kasım güvenlikle ilgili olmayan dökümü |2.67 |14 Kasım 2017 |
+| Yok | [4048959] |Kasım güvenlikle ilgili olmayan dökümü |3.56 |14 Kasım 2017 |
+| Yok | [4048958] |Kasım güvenlikle ilgili olmayan dökümü |4.49 |14 Kasım 2017 |
+| Yok | [4049068] |Aralık saat dilimi güncelleştirme |2.69, 3.56, 4.49 |12 Aralık 2017 |
+
 ## <a name="november-guest-os"></a>Kasım konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| İlişki 17-10 | [4048953] |Windows 10 güncelleştirmeleri |5.13 |14 Kasım 2017 |
-| İlişki 17-10 | [4048960], [4048962], [4048961] |Yalnızca Windows güvenliği |2.68, 3.55, 4.48 |14 Kasım 2017 |
-| İlişki 17-10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 Kasım 2017 |
-| İlişki 17-10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 Kasım 2017 |
+| İlişki 17-11 | [4048953] |Windows 10 güncelleştirmeleri |5.13 |14 Kasım 2017 |
+| İlişki 17-11 | [4048960], [4048962], [4048961] |Yalnızca Windows güvenliği |2.68, 3.55, 4.48 |14 Kasım 2017 |
+| İlişki 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 Kasım 2017 |
+| İlişki 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 Kasım 2017 |
 | Yok | [4041681] |Ekim güvenlikle ilgili olmayan dökümü |2.67 |10 Ekim 2017 |
 | Yok | [4041690] |Ekim güvenlikle ilgili olmayan dökümü |3.55 |10 Ekim 2017 |
 | Yok | [4041693] |Ekim güvenlikle ilgili olmayan dökümü |4.48 |10 Ekim 2017 |
@@ -562,6 +574,19 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Yok |[3007054] |PIN korumalı yazdırma seçenek her zaman Windows Windows mağazası uygulamasında belgede yazdırırken gösterir |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2999802] |Kesiksiz çizgi noktalı çizgiler yerine Windows yazdırılır |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2896881] |Uzun AddPrinterConnection VBScript komut Windows oturum açma işlemi sırasında kullanıcılar için Yazıcılar eşlemek için kullandığınızda, oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 

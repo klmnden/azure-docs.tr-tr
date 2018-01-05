@@ -3,8 +3,8 @@ title: "Apache Cordova Mobile Apps ile kimlik doğrulaması ekleyin | Microsoft 
 description: "Apache Cordova uygulamanızı kimlik sağlayıcıları, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Azure App Service'de Mobile Apps kullanmayı öğrenin."
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: b7362b7f26859de541f792e714502851d74c98e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b5cce832ae7ae83552c2a5ded2f5f5bda0ac76bf
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Apache Cordova uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -92,7 +92,7 @@ Ardından, mobil uygulama arka ucundan kaynakları istemeden önce kullanıcıla
 4. Yeni eklediğiniz kodla, `SDK_Provider_Name` , oturum açma sağlayıcısı adı. Örneğin, Azure Active Directory kullanmak `client.login('aad')`.
 5. Projenizi çalıştırma.  Proje başlatma tamamlandığında, uygulamanız için seçilen kimlik doğrulama sağlayıcısı OAuth oturum açma sayfasına gösterir.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi edinin [kimlik doğrulama hakkında] Azure uygulama hizmeti ile.
 * Öğretici ekleyerek devam [anında iletme bildirimleri] Apache Cordova uygulamanıza.
 

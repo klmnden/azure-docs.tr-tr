@@ -3,7 +3,7 @@ title: "Üstbilgi tabanlı kimlik doğrulaması ile PingAccess Azure AD uygulama
 description: "Üstbilgi tabanlı kimlik doğrulamayı destekleyecek şekilde PingAccess ve uygulama proxy'si ile uygulama yayımlama."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Uygulama proxy'si ve PingAccess ile çoklu oturum açma için üstbilgi tabanlı kimlik doğrulaması
 
@@ -52,7 +52,7 @@ Zaten uygulama Proxy etkin olması ve yüklü bir bağlayıcı varsa, bu bölüm
 
 Uygulama Ara sunucusu Bağlayıcısı'nı uzaktan çalışanlarınızın trafiği yayımlanan uygulamalarınızı yönlendiren bir Windows Server hizmetidir. Daha ayrıntılı yükleme yönergeleri için bkz: [Azure portalında uygulama ara sunucusunu etkinleştirme](active-directory-application-proxy-enable.md).
 
-1. Oturum [Azure portal](https://portal.azure.com) genel yönetici olarak.
+1. [Azure portalında](https://portal.azure.com) genel yönetici olarak oturum açın.
 2. Seçin **Azure Active Directory** > **uygulama proxy'si**.
 3. Seçin **Bağlayıcısı'nı indir** uygulama Proxy Bağlayıcısı yüklemeyi başlatmak için. Yükleme yönergelerini izleyin.
 
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 Bu örnekte [Azure portal](https://portal.azure.com) udpate için *acceptedMappedClaims* alan:
-1. Oturum [Azure portal](https://portal.azure.com) genel yönetici olarak.
+1. [Azure portalında](https://portal.azure.com) genel yönetici olarak oturum açın.
 2. Seçin **Azure Active Directory** > **uygulama kayıtlar**.
 3. Uygulamanızı seçin > **bildirim**.
 4. Seçin **Düzenle**, arama *acceptedMappedClaims* alan ve değerini değiştirin **doğru**.

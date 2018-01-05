@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: be3fba0c148cc7ee07fa3d50e0783916790e7cab
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: bcbe59d5e2f085f055b99b715bcbcd91d9845f2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Azure'da PHP ve MySQL bir web uygulaması oluşturma
 
@@ -41,7 +41,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Azure Stream tanılama günlükleri
 > * Azure portalında uygulama yönetme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -167,7 +167,7 @@ Bulut Kabuğu'nda Azure veritabanındaki bir sunucu ile MySQL (Önizleme) oluşt
 Aşağıdaki komutta, gördüğünüz MySQL server adınızı alternatif  _&lt;mysql_server_name >_ yer tutucu (geçerli karakterler `a-z`, `0-9`, ve `-`). Bu ad MySQL sunucunun ana bilgisayar adı bir parçasıdır (`<mysql_server_name>.database.windows.net`), genel olarak benzersiz olması gerekir.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
 > [!NOTE]
@@ -205,7 +205,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Yerel olarak üretim MySQL sunucusuna bağlan
 
-Yerel terminal penceresinde Azure MySQL sunucusuna bağlanın. Daha önce için belirttiğiniz değerini kullanmak  _&lt;mysql_server_name >_. Kullanmak için bir parola istendiğinde, _MySQLAzure2017_, Azure'da veritabanı oluşturduğunuzda belirttiğiniz.
+Yerel terminal penceresinde Azure MySQL sunucusuna bağlanın. Daha önce için belirttiğiniz değerini kullanmak  _&lt;mysql_server_name >_. Kullanmak için bir parola istendiğinde, _My5up3r tr0ngPa$ $w0rd!_, Azure'da veritabanı oluşturduğunuzda belirttiğiniz.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
@@ -324,7 +324,7 @@ git commit -m "database.php updates"
 
 Uygulamanız dağıtılmaya hazırdır.
 
-## <a name="deploy-to-azure"></a>Azure’a Dağıt
+## <a name="deploy-to-azure"></a>Azure’a dağıtma
 
 Bu adımda, Azure App Service'e MySQL bağlı PHP uygulaması dağıtın.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>İsteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu teknik Kılavuzu
 ## <a name="overview"></a>**Genel Bakış**
@@ -150,7 +150,7 @@ Veri Oluşturucusu başlatıldıktan sonra hydrated ardışık düzen başlar ve
     Bir akış analizi işleri, blob depolama alanına ham gelen verileri yazar. Üzerinde tıklatırsanız **Azure Blob Storage** çözümünüzün çözüm başarıyla dağıtıldığından ve ardından ekranından bileşen **açık** sağ panelde size sürdüğünü [Azure Portal](https://portal.azure.com). Bir kez, tıklayın **BLOB'lar**. Sonraki panelinde, kapsayıcıları listesini görürsünüz. Tıklayın **"energysadata"**. Sonraki panelinde gördüğünüz **"demandongoing"** klasör. Klasörleri tarihi gibi adlarla görürsünüz rawdata klasörü içinde = 2016-01-28 vs. Bu klasörler görürseniz, ham verileri başarıyla olduğunu gösterir, bilgisayarınızda oluşturulan ve blob depolama alanına depolanır. Sınırlı boyutları bu klasörlerdeki MB olmalıdır dosyaların görmelisiniz.
 2. Azure SQL veritabanından veri denetleyin.
 
-    Ardışık Düzen son adımı, verileri (örneğin, tahminleri machine learning'in) SQL veritabanına yazmaktır. SQL veritabanı'nda görünmesi verileri için maksimum oftwo saat beklemeniz gerekebilir. SQL veritabanınız kullanılabilir ne kadar veri izlemek için bir yoldur aracılığıyla [Azure portal](https://manage.windowsazure.com/). SQL veritabanları sol panelde bulun![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) ve tıklatın. Ardından, veritabanınızı (yani demo123456db) bulun ve tıklayın. Altında bir sonraki sayfada **"Veritabanınızı Bağlan"** 'yi tıklatın **"SQL veritabanınız Çalıştır Transact-SQL sorguları"**.
+    Ardışık Düzen son adımı, verileri (örneğin, tahminleri machine learning'in) SQL veritabanına yazmaktır. En fazla iki saat verileri SQL veritabanı'nda görünmesi için beklemeniz gerekebilir. SQL veritabanınız kullanılabilir ne kadar veri izlemek için bir yoldur aracılığıyla [Azure portal](https://portal.azure.com/). SQL veritabanları sol panelde bulun![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) ve tıklatın. Ardından, veritabanınızı (yani demo123456db) bulun ve tıklayın. Altında bir sonraki sayfada **"Veritabanınızı Bağlan"** 'yi tıklatın **"SQL veritabanınız Çalıştır Transact-SQL sorguları"**.
 
     Burada, yeni bir sorgu ve sayıda satırı (örneğin, "select count(*) DemandRealHourly gelen) için sorgu tıklatabilirsiniz" veritabanınızı büyüdükçe, tablodaki satır sayısını artırmalısınız.)
 3. Power BI panosuna verilerden denetleyin.
@@ -167,7 +167,7 @@ Aşağıdaki adımları çözüm dağıtım zamanında oluşturulan akış anali
 1. Power BI çıktı Azure akış analizi (ASA) ekleyin.
 
    * ' Ndaki yönergeleri izlemeniz gereken [Azure akış analizi & Power BI: veri akışı gerçek zamanlı görünürlük için gerçek zamanlı analiz Pano](stream-analytics/stream-analytics-power-bi-dashboard.md) çıktı Azure akış analizi işinin Power BI panonuz olarak ayarlamak için .
-   * Stream analytics işinde bulun, [Azure portal](https://manage.windowsazure.com). İş adı olması gerekir: YourSolutionName + "streamingjob" + rastgele sayı + "asapbi" (yani demostreamingjob123456asapbi).
+   * Stream analytics işinde bulun, [Azure portal](https://portal.azure.com). İş adı olması gerekir: YourSolutionName + "streamingjob" + rastgele sayı + "asapbi" (yani demostreamingjob123456asapbi).
    * ASA işi için Powerbı çıkış ekleyin. Ayarlama **çıkış diğer** olarak **'PBIoutput'**. Ayarlama, **veri kümesi adı** ve **tablo adı** olarak **'EnergyStreamData'**. Çıktı ekledikten sonra tıklatın **"Başlat"** Stream Analytics işini başlatmak için sayfanın altındaki. (Örneğin, "Başlangıç stream analytics başarılı myteststreamingjob12345asablob iş") bir onay iletisi almanız gerekir.
 2. Oturum [çevrimiçi Power BI](http://www.powerbi.com)
 

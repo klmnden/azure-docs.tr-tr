@@ -3,8 +3,8 @@ title: "Android'de Mobile Apps ile kimlik doğrulaması ekleme | Microsoft Docs"
 description: "Kimlik sağlayıcısı, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli Android uygulamanızdaki kullanıcıların kimliklerini doğrulamak için Azure App Service Mobile Apps özelliğini kullanmayı öğrenin."
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: glenga
-ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: crdun
+ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-android-app"></a>Android uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -39,9 +39,9 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 
 3. İçinde **yeniden yönlendirme URL'lere izin**, girin `appname://easyauth.callback`.  _Appname_ Bu dize, mobil uygulamanız için URL düzenidir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak ihtiyaç duyacağınız seçtiğiniz dizeyi Not olmanız gerekir.
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 
-5. **Kaydet** düğmesine tıklayın.
+5. **Kaydet**’e tıklayın.
 
 ## <a name="permissions"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

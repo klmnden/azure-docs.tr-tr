@@ -3,7 +3,7 @@ title: "Xamarin Android mobil uygulamalar için kimlik doğrulaması kullanmaya 
 description: "Xamarin Android uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Mobile Apps kullanmayı öğrenin."
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
+author: conceptdev
 manager: panarasi
 editor: 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: 8f9a1109018c708d52cdcb7b8bce43861cecd31c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 97207b722b65ccf98c57304cd559b0927aacd5a4
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Xamarin.Android uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -40,9 +40,9 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 
 3. İçinde **yeniden yönlendirme URL'lere izin**, girin `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** Bu dize, mobil uygulamanız için URL düzenidir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak ihtiyaç duyacağınız seçtiğiniz dizeyi Not olmanız gerekir.
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 
-5. **Kaydet** düğmesine tıklayın.
+5. **Kaydet**’e tıklayın.
 
 ## <a name="permissions"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

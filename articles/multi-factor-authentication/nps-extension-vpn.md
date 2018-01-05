@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1879fc3d45e1a79fe5edd1ae1cf0d7060fd327ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısını kullanarak VPN altyapınız Azure MFA ile tümleştirme
 
@@ -84,7 +84,7 @@ Azure NPS uzantısı NPS ile tümleştirildiğinde, başarılı kimlik doğrulam
 
 8. Kullanıcı VPN sunucuda sanal bağlantı noktası erişimi verilir ve şifreli bir VPN tüneli oluşturur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu bölümde, MFA Uzak Masaüstü Ağ geçidi ile tümleştirebilirsiniz önce tamamlanması gereken önkoşulları ayrıntılarını verir. Başlamadan önce aşağıdaki önkoşulların yerinde olmalıdır:
 
 * VPN altyapısı
@@ -171,8 +171,7 @@ Standart (Sihirbaz tabanlı) kullanabilirsiniz veya gelişmiş yapılandırma se
 
 4. İçinde **belirtin çevirmeli veya VPN sunucusu** penceresinde, seçin **Ekle**.
 
-5. İçinde **yeni RADIUS istemcisi** penceresinde, kolay bir ad sağlayın, çözümlenebilir adını veya VPN sunucusunun IP adresini girin ve ardından paylaşılan gizli bir parola girin.  
-    Paylaşılan gizli parola uzun ve karmaşık olun. Sonraki bölümde gerekir çünkü bunu kaydedin.
+5. İçinde **yeni RADIUS istemcisi** penceresinde, kolay bir ad sağlayın, çözümlenebilir adını veya VPN sunucusunun IP adresini girin ve ardından paylaşılan gizli bir parola girin. Paylaşılan gizli parola uzun ve karmaşık olun. Sonraki bölümde gerekir çünkü bunu kaydedin.
 
     ![Yeni RADIUS istemcisi](./media/nps-extension-vpn/image5.png)
 
@@ -183,8 +182,7 @@ Standart (Sihirbaz tabanlı) kullanabilirsiniz veya gelişmiş yapılandırma se
     > [!NOTE]
     > Genişletilebilir Kimlik Doğrulama Protokolü (EAP) yapılandırırsanız, Microsoft Karşılıklı Kimlik Doğrulama Protokolü (CHAPv2) veya Korumalı Genişletilebilir Kimlik Doğrulama Protokolü (PEAP) kullanmanız gerekir. Diğer bir EAP desteklenir.
  
-8. İçinde **kullanıcı gruplarını belirtmek** penceresinde, seçin **Ekle**ve ardından uygun bir grup seçin.  
-    Seçimi hiçbir grup zaten varsa, tüm kullanıcılara erişim vermek için boş bırakın.
+8. İçinde **kullanıcı gruplarını belirtmek** penceresinde, seçin **Ekle**ve ardından uygun bir grup seçin. Seçimi hiçbir grup zaten varsa, tüm kullanıcılara erişim vermek için boş bırakın.
 
     ![Kullanıcı gruplarını belirtmek penceresi](./media/nps-extension-vpn/image7.png)
 
@@ -209,20 +207,17 @@ Bu bölümde Sihirbazı'nı kullanarak oluşturduğunuz yapılandırma ayrıntı
 
 1. NPS (yerel) konsolunda Ağ İlkesi sunucusundaki genişletin **RADIUS istemcileri**ve ardından **RADIUS istemcileri**.
 
-2. Ayrıntılar bölmesinde, oluşturduğunuz ve ardından RADIUS istemcisi sağ **özellikleri**.  
-    RADIUS istemciniz (VPN sunucusu) özelliklerini olanlar aşağıda gösterildiği gibi olmalıdır:
+2. Ayrıntılar bölmesinde, oluşturduğunuz ve ardından RADIUS istemcisi sağ **özellikleri**. RADIUS istemciniz (VPN sunucusu) özelliklerini olanlar aşağıda gösterildiği gibi olmalıdır:
 
     ![VPN özellikleri](./media/nps-extension-vpn/image11.png)
 
 3. Seçin **iptal**.
 
-4. NPS (yerel) konsolunda Ağ İlkesi sunucusundaki genişletin **ilkeleri**ve ardından **bağlantı isteği ilkeleri**.  
-    VPN bağlantıları ilke aşağıdaki görüntüde gösterildiği gibi görüntülenir:
+4. NPS (yerel) konsolunda Ağ İlkesi sunucusundaki genişletin **ilkeleri**ve ardından **bağlantı isteği ilkeleri**. VPN bağlantıları ilke aşağıdaki görüntüde gösterildiği gibi görüntülenir:
 
     ![Bağlantı istekleri](./media/nps-extension-vpn/image12.png)
 
-5. Altında **ilkeleri**seçin **ağ ilkeleri**.  
-    Aşağıdaki görüntüde gösterildiği ilke benzer bir sanal özel ağ (VPN) bağlantıları İlkesi görmeniz gerekir:
+5. Altında **ilkeleri**seçin **ağ ilkeleri**. Aşağıdaki görüntüde gösterildiği ilke benzer bir sanal özel ağ (VPN) bağlantıları İlkesi görmeniz gerekir:
 
     ![Ağ ilkeleri](./media/nps-extension-vpn/image13.png)
 
@@ -305,7 +300,8 @@ Bu bölümde, VPN istemci kimlik doğrulaması ve VPN sanal bağlantı noktasın
 
     ![Olay Özellikler penceresi](./media/nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
+## <a name="troubleshooting-radius"></a>RADIUS sorunlarını giderme
+
 VPN sunucusu kimlik doğrulama ve yetkilendirme için merkezi bir RADIUS sunucusu kullanmak üzere yapılandırılmış önce VPN yapılandırmanızı çalışır durumda olduğunu varsayalım. Yapılandırma çalışıyorsanız sorunu RADIUS sunucusu yanlış yapılandırılması veya geçersiz kullanıcı adı veya parola kullanımını kaynaklanır olasıdır. Örneğin, kullanıcı alternatif UPN soneki kullanırsanız, oturum açma girişimi başarısız olabilir. En iyi sonuçlar için aynı hesabı adı kullanın. 
 
 Bu sorunları gidermek için başlatmak için bir ideal RADIUS sunucusunda güvenlik olay günlüklerini incelemek için yerdir. Zaman olayları arama kaydetmek için rol tabanlı ağ ilkesi ve erişim sunucusu özel görünüm Olay Görüntüleyicisi'nde, aşağıda gösterildiği gibi kullanabilirsiniz. "Olay kimliği 6273" nerede NPS bir kullanıcının erişimini reddetti olayları gösterir. 
@@ -313,96 +309,8 @@ Bu sorunları gidermek için başlatmak için bir ideal RADIUS sunucusunda güve
 ![Olay Görüntüleyici](./media/nps-extension-vpn/image22.png)
  
 ## <a name="configure-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulamasını yapılandırma
-Bu bölümde, mfa ve iki aşamalı doğrulama için hesapları kurma için kullanıcıları etkinleştirme için yönergeler sağlar. 
 
-### <a name="enable-multi-factor-authentication"></a>Multi-factor authentication’ı etkinleştirme
-Bu bölümde, Azure AD hesapları için MFA etkinleştirin. Kullanıcılar için MFA'yı etkinleştirmek için Klasik Azure portalını kullanın. 
-
-1. Git [Microsoft Azure](https://manage.windowsazure.com) Web sitesi. 
-
-2. Yönetici olarak oturum açın.
-
-3. Sol bölmede seçin **Active Directory**.
-
-    ![Varsayılan dizin](./media/nps-extension-vpn/image23.png)
-
-4. İçinde **adı** sütun, select **varsayılan dizin** (veya başka bir dizin (uygunsa).
-
-5. İçinde **varsayılan dizin** penceresinde, seçin **yapılandırma**.
-
-    ![Varsayılan dizin yapılandırın](./media/nps-extension-vpn/image24.png)
-
-6. İçinde **yapılandırma** penceresi altında **çok faktörlü kimlik doğrulaması**seçin **hizmet ayarlarını Yönet**.
-
-    ![Çok faktörlü kimlik doğrulaması ayarlarını yönet](./media/nps-extension-vpn/image25.png)
- 
-7. İçinde **çok faktörlü kimlik doğrulaması** penceresinde, varsayılan hizmet ayarları ve ardından gözden geçirme **kullanıcılar** sekmesi. 
-
-    ![Çok faktörlü kimlik doğrulaması kullanıcılar sekmesi](./media/nps-extension-vpn/image26.png)
- 
-8. Üzerinde **kullanıcılar** sekmesinde, için MFA'yı etkinleştirin ve ardından istediğiniz kullanıcıları seçin **etkinleştirmek**.
-
-    ![Özellikler](./media/nps-extension-vpn/image27.png)
- 
-9. İstendiğinde, seçin **etkinleştirmek çok öğeli kimlik doğrulama**.
-
-    ![Multi-factor authentication’ı etkinleştirme](./media/nps-extension-vpn/image28.png)
- 
-10. Seçin **Kapat**. 
-
-11. Sayfayı yenileyin.  
-    Çok faktörlü kimlik doğrulama durumu olarak değiştirildiğinde *etkin*.
-
-Kullanıcılar için MFA etkinleştirme hakkında daha fazla bilgi için bkz: [bulutta Azure multi-Factor Authentication kullanmaya başlama](multi-factor-authentication-get-started-cloud.md). 
-
-### <a name="configure-accounts-for-two-step-verification"></a>İki aşamalı doğrulama için hesaplarını yapılandırma
-Bir hesap MFA için etkinleştirildikten sonra kullanıcılar için ikinci kimlik doğrulama faktörü kullanmak için güvenilir bir aygıt başarılı bir şekilde yapılandırmadığınız sürece MFA İlkesi tarafından yönetilen kaynaklara oturum açmak sorunu yaşıyor.
-
-Bu bölümde, iki aşamalı doğrulamayla birlikte kullanmak için güvenilir bir aygıt yapılandırın. Aşağıdakiler de dahil olmak üzere çeşitli aygıt seçeneğiniz vardır:
-
-* **Mobil uygulama**: bir Windows Phone, Android veya iOS aygıtında Microsoft Authenticator uygulamasını yükleyin. Kuruluşunuzun ilkelerine bağlı olarak, uygulamayı iki moddan birini kullanmak için gereklidir: 
-    * Doğrulamalar için (aygıtınıza bir bildirim gönderilir) bildirim alırsınız.
-    * (Her 30 saniyede güncelleştiren bir doğrulama kodu girmek için gerekli olan) bir doğrulama kodu kullanın. 
-
-* **Cep telefonu araması veya SMS**: bir otomatik telefon çağrısı veya SMS mesajı alabilirsiniz. Telefon araması seçeneğiyle aramayı yanıtlayın ve kimlik doğrulaması için pound işareti (#) seçin. Metin seçeneğiyle için SMS mesajını yanıtlayın veya oturum açma arabiriminde doğrulama kodunu girin.
-
-* **Ofis telefonu araması**: Bu işlem otomatik telefon aramaları için daha önce açıklanan süreci ile aynıdır.
-
-Mobil uygulama doğrulama için anında iletme bildirimi almak için kullanılacak bir aygıtı ayarlamak için aşağıdakileri yapın:
-
-1. Oturum [Microsoft Azure](https://aka.ms/mfasetup) veya herhangi bir sitede gibi [Azure portal](https://portal.azure.com), burada MFA etkin kimlik bilgilerinizi kullanarak kimlik doğrulaması için gerekli.  
-    Aşağıda gösterildiği gibi ek güvenlik doğrulaması için hesabı ayarlamanız istenir:
-
-    ![Ek güvenlik](./media/nps-extension-vpn/image29.png)
-
-2. Seçin **şimdi kurmak**.
-
-3. İçinde **ek güvenlik doğrulaması** penceresinde, bir kişi seçin (**kimlik doğrulama telefon**, **ofis telefonu**, veya **mobil uygulama** ), bir ülke veya bölgeyi seçin ve ardından bir yöntem seçin. Seçmeyin **kişi benim** henüz.  
-    Yöntemi, kişi türüne göre değişir. Örneğin, seçtiğiniz **mobil uygulama**, doğrulama için bildirimlerin mi, yoksa bir doğrulama kodu kullanmayı seçebilirsiniz. 
-
-    !["Ek güvenlik doğrulaması" penceresi](./media/nps-extension-vpn/image30.png)
-
-    Adımları, seçmiş olduğunuz varsayılmıştır **mobil uygulama** kişi türü.
-
-4. Seçin **mobil uygulama**seçin **doğrulama için bildirimlerin**ve ardından **ayarlanan**. 
-
-    !["Ek güvenlik doğrulaması" penceresi](./media/nps-extension-vpn/image31.png)
- 
-5. Henüz yapmadıysanız, Cihazınızda Microsoft Authenticator mobil uygulamayı yükleyin. 
-
-6. Mobil uygulamasında görüntülenen barkod tarama veya bilgileri el ile girin ve ardından **Bitti**.
-
-    ![Microsoft Authenticator mobil uygulamayı yapılandırın](./media/nps-extension-vpn/image32.png)
-
-7. İçinde **ek güvenlik doğrulaması** penceresinde, seçin **kişi benim**ve ardından aygıtınıza gönderilen bildirimi yanıtlayın.
-
-8. İçinde **ek güvenlik doğrulaması** penceresi altında **3. adım: Mobil uygulamaya erişimi kaybetmeniz durumunda**, mobil uygulamaya erişimi kaybetmek ve ardından olursa çağrılacak kişi bir sayı girin  **Sonraki**.
-
-    !["Ek güvenlik doğrulaması" penceresi](./media/nps-extension-vpn/image33.png)
- 
-9. İçinde **ek güvenlik doğrulaması** penceresinde, seçin **Bitti**.
-
-Cihaz ikinci bir doğrulama yöntemi sağlamak üzere yapılandırılmıştır. İki aşamalı doğrulama hesaplarını ayarlama hakkında daha fazla bilgi için bkz: [Hesabımı iki aşamalı doğrulama için ayarlama](./end-user/multi-factor-authentication-end-user-first-time.md).
+Kullanıcılar için çok faktörlü kimlik doğrulaması yapılandırma konusunda yardım almak için makalelerine bakın [bir kullanıcı veya grup için iki aşamalı doğrulama gerektirecek şekilde nasıl](multi-factor-authentication-get-started-user-states.md) ve [Hesabımı iki aşamalı doğrulama için ayarlama](multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Yükleme ve NPS uzantısı yapılandırma
 
@@ -470,8 +378,7 @@ Betik kullanmak için Azure Active Directory yönetici kimlik bilgilerinizi ve d
 
 2. PowerShell komut isteminde girin **cd c:\Program Files\Microsoft\AzureMfa\Config**ve ardından Enter seçin.
 
-3. Sonraki komut isteminde girin **.\AzureMfsNpsExtnConfigSetup.ps1**ve ardından Enter seçin.  
-    Azure AD PowerShell Modülü yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklenmemişse, betik modülü yükler.
+3. Sonraki komut isteminde girin **.\AzureMfsNpsExtnConfigSetup.ps1**ve ardından Enter seçin. Azure AD PowerShell Modülü yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklenmemişse, betik modülü yükler.
  
     ![PowerShell](./media/nps-extension-vpn/image38.png)
  

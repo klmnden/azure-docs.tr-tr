@@ -9,24 +9,24 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve erişim sunucusu Azure portalında oturum
 
 Yapılandırma, liste indirin ve [Azure veritabanı PostgreSQL sunucu günlükleri için](concepts-server-logs.md) Azure portalından.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Nasıl yapılır bu kılavuzu adım için gerekir:
 - [Azure veritabanı PostgreSQL sunucu için](quickstart-create-server-database-portal.md)
 
 ## <a name="configure-logging"></a>Günlük tutmayı yapılandırma
 Sorgu ve hata günlükleri erişimi yapılandırın. 
 
-1. [Azure Portal](http://portal.azure.com/) oturum açın.
+1. [Azure Portal](http://portal.azure.com/)’da oturum açın.
 
 2. Azure veritabanınızı PostgreSQL sunucusu seçin.
 
@@ -53,7 +53,7 @@ Sorgu ve hata günlükleri erişimi yapılandırın.
 ## <a name="view-list-and-download-logs"></a>Listesini görüntülemek ve günlükleri indirmek
 Günlüğe kaydetme başladıktan sonra kullanılabilir günlüklerini listesini görüntülemek ve sunucu günlüklerini bölmesinde ayrı günlük dosyalarını yükleyin. 
 
-1. Azure Portalı'nı açın.
+1. Azure portalı açın.
 
 2. Azure veritabanınızı PostgreSQL sunucusu seçin.
 
@@ -75,5 +75,5 @@ Günlüğe kaydetme başladıktan sonra kullanılabilir günlüklerini listesini
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bkz: [CLI erişim Server günlükleri](howto-configure-server-logs-using-cli.md) günlükleri programlı olarak indirmek hakkında bilgi edinmek için.
 - Daha fazla bilgi edinmek [sunucu günlükleri](concepts-server-logs.md) PostgreSQL için Azure DB'de. 
-- Parametre tanımları ve PostgreSQL günlüğe kaydetme hakkında daha fazla bilgi için üzerinde PosgreSQL belgelerine bakın. [hata bildirimi ve günlüğe kaydetme](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Parametre tanımları ve PostgreSQL günlüğe kaydetme hakkında daha fazla bilgi için PostgreSQL belgelerine bakın [hata bildirimi ve günlüğe kaydetme](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

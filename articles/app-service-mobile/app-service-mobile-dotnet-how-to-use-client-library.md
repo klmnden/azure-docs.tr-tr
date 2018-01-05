@@ -3,8 +3,8 @@ title: "App Service Mobile Apps yönetilen istemci kitaplığı ile çalışma (
 description: "Azure App Service Mobile Apps ile Windows ve Xamarin uygulamaları için .NET istemcisi kullanmayı öğrenin."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,18 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: glenga
-<<<<<<< HEAD
-ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: crdun
+ms.openlocfilehash: a92fc21881375989f4ebd192c2c42e419e7aee59
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps için yönetilen istemci kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]

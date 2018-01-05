@@ -3,7 +3,7 @@ title: "SSO için Azure AD uygulama proxy'si yönetme | Microsoft Docs"
 description: "Çoklu oturum açma uygulama proxy'si ile uygulama temelleri hakkında bilgi edinin"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e3f2ed6f019760fd4109c6fc3d8449d95c4959a9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60422b4c8256df024bbc870fc43ec6b491f674f1
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Azure AD uygulama proxy'si nasıl çoklu oturum açma sağlar?
 
@@ -38,13 +38,13 @@ ms.lasthandoff: 12/11/2017
 
 Açılır menüsünde, uygulamanız için çoklu oturum açma için beş seçenekleri gösterir:
 
-* Azure AD çoklu oturum açma devre dışı özelliğini
+* Azure AD çoklu oturum açma devre dışı
 * Parola tabanlı oturum açma
 * Bağlantılı oturum açma
-* Tümleşik Windows kimlik doğrulaması
+* Tümleşik Windows Kimlik Doğrulaması
 * Üstbilgi tabanlı oturum açma
 
-## <a name="azure-ad-single-sign-on-disabled"></a>Azure AD çoklu oturum açma devre dışı özelliğini
+## <a name="azure-ad-single-sign-on-disabled"></a>Azure AD çoklu oturum açma devre dışı
 
 Çoklu oturum açma uygulamanız için Azure Active Directory Tümleştirme kullanmak istemiyorsanız, seçin **Azure AD çoklu oturum açma devre dışı özelliğini**. Bu seçenek ile kullanıcılarınızın iki kez doğrulanabilir. İlk olarak, Azure Active Directory kimlik doğrulaması ve uygulama için oturum açın. 
 
@@ -62,7 +62,7 @@ Parola tabanlı oturum açmayı ayarlama hakkında daha fazla bilgi için bkz: [
 
 Bağlantılı oturum açma (varolan çoklu oturum açma resmi olarak bilinir) özelliğini hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-## <a name="integrated-windows-authentication"></a>Tümleşik Windows kimlik doğrulaması
+## <a name="integrated-windows-authentication"></a>Tümleşik Windows Kimlik Doğrulaması
 
 Çoklu oturum açma için Kerberos Kısıtlı temsilci (KCD) kullanmak istiyorsanız seçin veya tümleşik Windows Authentication(IWA) kullanıyorsanız, şirket içi uygulamalarınızı **tümleşik Windows kimlik doğrulaması**. Bu seçenek ile kullanıcılarınız yalnızca Azure Active Directory kimlik doğrulaması yapmanız ve kullanıcının Kerberos belirteci almak ve uygulamada oturum açmak için uygulama ara sunucusu Bağlayıcısı'nı temsil eder. 
 

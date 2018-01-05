@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Azure Site kurtarma için yük devretme sınaması
 
@@ -26,13 +26,13 @@ ms.lasthandoff: 10/18/2017
 
 Bu makalede, Azure Site kurtarma sınama yük devretme kullanarak, bir olağanüstü durum kurtarma ayrıntıya çalıştırmak açıklar.  
 
-Çoğaltma ve olağanüstü durum reecovery stratejisi herhangi bir veri kaybı veya kapalı kalma süresi olmadan doğrulamak için yük devretme testi çalıştırın. Yük devretme testi devam eden çoğaltmayı veya üretim ortamınızda etkilemez. Belirli bir sanal makine (VM) veya üzerinde bir yük devretme testi çalıştırabilirsiniz bir [kurtarma planı](site-recovery-create-recovery-plans.md) birden çok VM içeren. 
+Çoğaltma ve olağanüstü durum kurtarma stratejiniz herhangi bir veri kaybı veya kapalı kalma süresi olmadan doğrulamak için yük devretme testi çalıştırın. Yük devretme testi devam eden çoğaltmayı veya üretim ortamınızda etkilemez. Belirli bir sanal makine (VM) veya üzerinde bir yük devretme testi çalıştırabilirsiniz bir [kurtarma planı](site-recovery-create-recovery-plans.md) birden çok VM içeren. 
 
 
 ## <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 Bu yordam, bir yük devretme sınaması için bir kurtarma planı Çalıştır açıklar. 
 
-![Yük devretme sınaması](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Yük Devretme Sınaması](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. Azure portalında Site Recovery içinde tıklatın **kurtarma planları** > *recoveryplan_name* > **yük devretme testi**.
@@ -55,7 +55,7 @@ Bu yordam, bir yük devretme sınaması için bir kurtarma planı Çalıştır a
 8. İçinde **notları**, kaydetme ve yük devretme testiyle ilişkili gözlemlerinizi kaydetmek. 
 
 
-![Yük devretme sınaması](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Yük Devretme Sınaması](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Yük devretme testi tetiklendiğinde aşağıdakiler gerçekleşir:
 

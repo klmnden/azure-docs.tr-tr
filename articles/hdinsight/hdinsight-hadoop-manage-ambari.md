@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Ambari Web kullanıcı arabirimini kullanarak Hdınsight kümelerini yönetme
 
@@ -32,7 +32,7 @@ Bu belgede, Ambari Web kullanıcı arabirimini bir Hdınsight kümesini kullanma
 
 ## <a id="whatis"></a>Ambari nedir?
 
-[Apache Ambari](http://ambari.apache.org) kullanımı kolay web kullanıcı Arabirimi sağlayarak Hadoop yönetimini basitleştirir. Ambari kullanabileceğiniz oluşturmak, yönetmek ve Hadoop kümelerini izleme. Geliştiriciler tümleştirebilir Bu yetenekler uygulamalarına kullanarak [Ambari REST API'leri](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) kullanımı kolay web kullanıcı Arabirimi sağlayarak Hadoop yönetimini basitleştirir. Ambari, yönetmek ve Hadoop kümeleri izlemek için kullanabilirsiniz. Geliştiriciler tümleştirebilir Bu yetenekler uygulamalarına kullanarak [Ambari REST API'leri](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari Web kullanıcı Arabirimi, varsayılan olarak Linux işletim sistemini Hdınsight kümeleri ile sağlanır.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
 Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Daha fazla bilgi edinin [, üretilen iş gerektiğini tahmin etme](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsi
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>İstek birimi kapasite Azure Cosmos DB'de belirtme
 Yeni koleksiyon, tablo veya grafik başlatırken numarası belirtin (RU saniye başına) saniyede istek birimlerinin ayrılmış istiyor. Üzerinde sağlanan işleme bağlı olarak, Azure Cosmos DB koleksiyonunuzu barındırmak için fiziksel bölümleri ayırır ve bölmelerini/veri bölümler, büyüdükçe rebalances.
 
-Azure Cosmos DB koleksiyonu 2.500 istek birimleri ile sağlanan ya da daha yüksek olduğunda belirtilmesi için bir bölüm anahtarı gerektirir. Bölüm anahtarı koleksiyonunuzun işleme 2.500 istek birimleri ötesinde gelecekte ölçeklendirmek için de gereklidir. Bu nedenle, yüksek oranda yapılandırmak için önerilir bir [bölüm anahtarı](partition-data.md) ilk işleme bakılmaksızın bir kapsayıcı oluştururken. Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) sahip bir bölüm anahtarı almak gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı seçerek tablo/koleksiyonu/grafik ve istekleri hep Azure Cosmos DB tarafından Genişletilebilir emin olun. 
+Azure Cosmos DB kapsayıcıları sabit olarak oluşturulabilir veya sınırsız. Sabit boyutlu kapsayıcıları 10 GB ve 10. 000'ru / s işleme üst sınırına sahip. Sınırsız bir kapsayıcı oluşturmak için en düşük işleme 1.000 RU/s belirtin ve bir [bölüm anahtarı](partition-data.md). Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) sahip bir bölüm anahtarı almak gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı seçerek tablo/koleksiyonu/grafik ve istekleri hep Azure Cosmos DB tarafından Genişletilebilir emin olun. 
 
 > [!NOTE]
 > Bölüm anahtarı mantıksal bir sınır ve fiziksel bir tane ' dir. Bu nedenle, farklı bölüm anahtar değerlerin sayısını sınırlamak gerekmez. Aslında, daha fazla yük dengeleme seçeneklerini Azure Cosmos DB sahip daha farklı bölüm anahtarı değerden daha az olması iyidir.

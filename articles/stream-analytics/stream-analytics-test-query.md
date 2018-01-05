@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.openlocfilehash: 5e7bab0b0c3222ba093a93dc2d15f1e41898e62c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2898e3404dcfa3d75e3920f9c83e4efa7201998e
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Azure portalında Azure akış analizi sorgu testi
 
@@ -27,7 +27,7 @@ Azure Stream Analytics ile başlatmak veya bir işi durdurmak zorunda kalmadan s
 
 ## <a name="test-the-input"></a>Giriş test
 
-1. Örnek giriş verilerle sınamak için girişlerinizi hiçbirini sağ tıklayın ve ardından **dosyasından örnek verileri yükleme**.
+1. Örnek giriş verilerle sınamak için girişlerinizi hiçbirini sağ tıklayın ve ardından **dosyasından örnek verileri yükleme**. Şu anda yalnızca biçimlendirilmiş JSON verilerini karşıya yükleyebilir. Verilerinizi CSV gibi farklı bir biçimde ise, karşıya yüklemeden önce şu JSON biçiminde seri hale bunu dönüştürmeniz. Herhangi bir açık kaynaklı dönüştürme aracı gibi kullanabilir [JSON Dönüştürücüsü CSV'ye](http://www.convertcsv.com/csv-to-json.htm) için JSON, verilerinizi dönüştürmek için.
 
     ![Stream analytics sorgu Düzenleyicisi'ni test sorgusu](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

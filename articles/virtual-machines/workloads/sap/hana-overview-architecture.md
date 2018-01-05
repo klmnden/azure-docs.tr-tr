@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>SAP HANA (büyük örnekler) genel bakış ve Azure üzerinde mimarisi
 
@@ -468,7 +468,7 @@ Yukarıda gösterildiği gibi birden fazla Azure Vnet üzerinde SAP uygulama kat
 
 SAP HANA azure'da (büyük örnekler) için üç önemli ağ yönlendirme noktalar vardır:
 
-1. SAP HANA Azure (büyük örnekler) üzerinde yalnızca adanmış ExpressRoute bağlantı ve Azure Vm'leri aracılığıyla erişilebilir; doğrudan şirket içinden. Şirket içinden HANA büyük örneği birimlerine doğrudan erişim, Microsoft tarafından size sunulan gibi SAP HANA büyük örnekleri için kullanılan geçerli Azure ağ mimarisinin geçici yönlendirme kısıtlamaları nedeniyle hemen mümkün değildir. Bazı yönetim istemcileri ve SAP çözüm şirket içi, çalışan Yöneticisi gibi doğrudan erişim gerektiren herhangi bir uygulama SAP HANA veritabanına bağlanamıyor.
+1. SAP HANA Azure (büyük örnekler) üzerinde yalnızca adanmış ExpressRoute bağlantı ve Azure Vm'leri aracılığıyla erişilebilir; doğrudan şirket içinden. Şirket içinden HANA büyük örneği birimlerine doğrudan erişim, Microsoft tarafından size sunulan gibi SAP HANA büyük örnekleri için kullanılan geçerli Azure ağ mimarisinin geçişli yönlendirme kısıtlamaları nedeniyle hemen mümkün değildir. Bazı yönetim istemcileri ve SAP çözüm şirket içi, çalışan Yöneticisi gibi doğrudan erişim gerektiren herhangi bir uygulama SAP HANA veritabanına bağlanamıyor.
 
 2. İki farklı Azure bölgelerinde olağanüstü durum kurtarma amacıyla dağıtılan HANA büyük örneği birim varsa, aynı geçici yönlendirme kısıtlamaları geçerli olur. Veya diğer bir deyişle, IP adresleri (örneğin BİZE Batı) bir bölgede HANA büyük örneği biriminin (örneğin BİZE Doğu) başka bir bölgede dağıttığınız HANA büyük örneği birimine yönlendirilmez. Bu bölgeler arasında veya HANA büyük örneği birimleri Azure sanal ağlara bağlanma ExpressRoute bağlantı hatları bağlanma çapraz Azure ağ eşlemesi kullanım bağımsızdır. Gösterildiği biraz daha aşağı bu belgeleri. Dağıtılan mimarisiyle gelir, bu kısıtlama, olağanüstü durum kurtarma işlevi HANA sistem çoğaltma hemen kullanımı engelleyecek.
 

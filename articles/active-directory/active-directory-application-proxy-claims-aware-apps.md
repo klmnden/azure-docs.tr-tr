@@ -3,7 +3,7 @@ title: Talep kullanan uygulamalar - Azure AD uygulama proxy'si | Microsoft Docs
 description: "Kullanıcılarınız tarafından güvenli uzaktan erişim için ADFS talep kabul şirket içi ASP.NET uygulamaları yayımlamak nasıl."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 editor: harshja
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: kgremban
-ms.openlocfilehash: 4546f194e570282d331dde98cab98dd2f0981b72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 9cf6c5aedbf1062922e755c962449253e49f8013
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Talep kullanan uygulamalarda uygulama proxy'si ile çalışma
 [Talep kullanan uygulamalar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) yeniden yönlendirmesi için güvenlik belirteci hizmeti (STS) gerçekleştirin. STS bir belirteç karşılığında kullanıcı kimlik bilgilerini ister ve ardından kullanıcının uygulamaya yönlendirir. Bu yeniden yönlendirmeleri ile çalışmak uygulama proxy'si etkinleştirmek için birkaç yolu vardır. Dağıtımınızı talep kullanan uygulamalar için yapılandırmak için bu makaleyi kullanın. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Talep kullanan uygulama yönlendirir STS Şirket ağınızın dışında kullanılabilir olduğundan emin olun. STS kullanılabilir bir proxy üzerinden gösterme ya da dış bağlantılara izin yapabilirsiniz. 
 
 ## <a name="publish-your-application"></a>Uygulamanızı yayımlama

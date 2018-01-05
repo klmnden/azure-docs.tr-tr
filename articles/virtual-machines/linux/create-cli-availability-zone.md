@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 986cc450302a04720dc92e55eb8d1248cd3b8f26
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI ile bir kullanılabilirlik bölgesindeki bir Linux sanal makine oluşturun
 
@@ -29,6 +29,35 @@ Bir Azure kullanılabilirlik bölgesinde bir Linux VM oluşturmak için Azure CL
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı için oturum açmış [az oturum açma](/cli/azure/#login).
+
+
+## <a name="check-vm-sku-availability"></a>VM SKU kullanılabilirliğini denetleyin
+VM boyutları veya SKU'ları, kullanılabilirliği, bölge ve bölge göre farklılık gösterebilir. Kullanılabilirlik bölgeleri kullanmak için planlamanıza yardımcı olması için kullanılabilir VM SKU'ları Azure bölgesi ve bölge listeleyebilirsiniz. Bu yetenek, uygun bir VM boyutunu seçin ve istenen dayanıklılık dilimlerinde elde emin olur. Farklı VM türler ve boyutları hakkında daha fazla bilgi için bkz: [VM boyutları genel bakış](sizes.md).
+
+Kullanılabilir VM SKU'ları ile görüntüleyebilirsiniz [az vm listesi-SKU'ları](/cli/azure/vm#az_vm_list_skus) komutu. Aşağıdaki örnekte kullanılabilir VM SKU'ları içinde listelenmiştir *eastus2* bölge:
+
+```azurecli
+az vm list-skus --location eastus2 --output table
+```
+
+Her VM boyutu kullanılabilir kullanılabilirlik bölgeleri gösteren aşağıdaki sıkıştırılmış örneğe benzer bir çıkış:
+
+```azurecli
+ResourceType      Locations  Name               Tier       Size     Zones
+----------------  ---------  -----------------  ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+[...]
+virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+[...]
+virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+[...]
+virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+```
+
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 

@@ -4,7 +4,7 @@ description: "Mobile Apps kimlik sağlayıcıları, AAD, Google, Facebook, Twitt
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
-manager: syntaxc4
+manager: crdun
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e3e8c843437558c6d5d3a3c39bed1e647f852b18
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/09/2017
 ## <a name="overview"></a>Genel Bakış
 Bu konuda bir mobil uygulama hizmeti istemci uygulamanızdan kullanıcıların kimliklerini gösterilmiştir. Bu öğretici kapsamında, kimlik doğrulama App Service tarafından desteklenen bir kimlik sağlayıcısı kullanarak Xamarin Forms hızlı başlangıç projesi ekleyin. Mobil uygulamanız tarafından yetkili başarılı bir şekilde kimliği doğrulanmış ve sonra kullanıcı kimliği değeri görüntülenir ve kısıtlı tablo veri erişimi olacaktır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici ile en iyi sonuç için önce tamamlamanızı öneririz [Xamarin Forms uygulaması oluşturma] [ 1] Öğreticisi. Bu öğreticiyi tamamladıktan sonra bir çok platformlu Yapılacaklar listesi uygulamasıyla Xamarin Forms proje sahip olur.
 
 İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, kimlik doğrulaması uzantısı paketini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş][2].
@@ -44,9 +44,9 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 
 3. İçinde **yeniden yönlendirme URL'lere izin**, girin `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** Bu dize, mobil uygulamanız için URL düzenidir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak ihtiyaç duyacağınız seçtiğiniz dizeyi Not olmanız gerekir.
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 
-5. **Kaydet** düğmesine tıklayın.
+5. **Kaydet**’e tıklayın.
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

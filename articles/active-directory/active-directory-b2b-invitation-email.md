@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2B işbirliği davet e-posta öğelerini | Microsoft Docs"
+title: "Öğeleri B2B işbirliği davet e - Azure Active Directory | Microsoft Docs"
 description: "Azure Active Directory B2B işbirliği davet e-posta şablonu"
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>B2B işbirliği davet e-posta öğeleri
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B işbirliği davet e - Azure Active Directory öğeleri
 
 Davet e-postaları karttaki ortaklar B2B işbirliği kullanıcılar olarak Azure AD içinde getirmek için kritik bir bileşen var. Alıcının güven artırmak için bunları kullanabilirsiniz. yasallığı ekleyebilir ve alıcı emin olmak için e-posta, sosyal kanıt hissi seçme ile rahat **Get Started** daveti kabul düğmesi. Bu güven dir paylaşım uyuşmazlık azaltmak bir anahtar anlamına gelir. Ve ayrıca görünümlü e-posta yapmak istediğiniz!
 
@@ -33,7 +31,7 @@ En iyi şekilde nasıl yeteneklerini kullanmak için bilmesi e-postanın birkaç
 ### <a name="subject"></a>Konu
 E-postanın konu şu deseni izler: davet ettiğiniz &lt;tenantname&gt; kuruluş
 
-### <a name="from-address"></a>Adresinden
+### <a name="from-address"></a>Gönderici adresi
 Başlangıç adresi için bir LinkedIn desen kullanırız.  Davet eden olan temizleyin ve hangi şirket ve ayrıca bir Microsoft e-posta geliyor açıklamak e-posta adresi gerekir. Biçim: &lt;davet eden görünen adını&gt; gelen &lt;tenantname&gt; (aracılığıyla Microsoft) <invites@microsoft.com&gt;
 
 ### <a name="reply-to"></a>Yanıtla

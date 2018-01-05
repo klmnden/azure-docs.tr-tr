@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 516f0ddcc50b3e6d744f70063b2112090d2e411d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Otomasyonu kimlik bilgisi varlıkları
 Bir Otomasyon kimlik bilgisi varlığı tutan bir [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) bir kullanıcı adı ve parola gibi güvenlik kimlik bilgileri içeren bir nesne. Kullanıcı adı ve parola için bazı uygulama veya hizmet kimlik doğrulaması gerektiren sağlamak için PSCredential nesnesinin ayıklamak veya runbook'ları ve DSC yapılandırmaları kimlik doğrulaması için bir PSCredential nesnesi kabul cmdlet'leri kullanabilir. Kimlik bilgileri özellikleri Azure Otomasyonu'nda güvenli bir şekilde depolanır ve runbook veya DSC yapılandırması ile erişilen [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) etkinlik.
@@ -81,13 +81,6 @@ Aşağıdaki örnek komutlarda yeni bir Otomasyon kimlik bilgisi oluşturulacağ
     $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
     $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
     New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
-
-### <a name="to-create-a-new-credential-asset-with-the-azure-classic-portal"></a>Azure Klasik portalı ile yeni bir kimlik bilgisi varlığı oluşturmak için
-1. Otomasyon hesabınızdan tıklatın **varlıklar** pencerenin üstündeki.
-2. Pencerenin alt kısmındaki tıklatın **ayar Ekle**.
-3. Tıklatın **kimlik bilgisi Ekle**.
-4. İçinde **kimlik bilgisi türü** açılan listesinde, select **PowerShell kimlik bilgisi**.
-5. Sihirbazı tamamlamak ve yeni kimlik bilgilerini kaydetmek için onay kutusunu işaretleyin.
 
 ## <a name="using-a-powershell-credential"></a>PowerShell kimlik bilgisi kullanma
 Bir runbook ya da DSC yapılandırması bir kimlik bilgisi varlığı almak **Get-AutomationPSCredential** etkinlik. Bu döndürür bir [PSCredential nesnesinin](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) bir etkinlik veya PSCredential parametresi gerektiriyor cmdlet'ini kullanabilirsiniz. Tek tek kullanmak için kimlik bilgisi nesnesinin özellikleri de alabilirsiniz. Nesnesi bir kullanıcı adı ve güvenli parola özelliğine sahiptir veya kullanabilirsiniz **GetNetworkCredential** döndürülecek yöntemi bir [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) güvenli olmayan bir sürümünü sağlayacak nesnesi parola.
