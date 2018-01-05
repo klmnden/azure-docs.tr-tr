@@ -12,8 +12,6 @@
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Hive ilkelerini yapılandırma
       href: apache-domain-joined-run-hive.md
-    - name: Kapasite planlaması
-      href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: Etki alanına katılmış kümeleri yönetme
       href: apache-domain-joined-manage.md

@@ -4,9 +4,8 @@
 ## [Service Bus mimarisi](service-bus-architecture.md)
 ## [SSS](service-bus-faq.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Ad alanı oluşturma](service-bus-create-namespace-portal.md)
-### [Kuyruklar, konu başlıkları ve abonelikler](service-bus-queues-topics-subscriptions.md)
 ## Kuyrukları kullanma
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -24,7 +23,7 @@
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
 ## [Çok katmanlı Service Bus uygulaması derleme](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Yönetilen Hizmet Kimliği (önizleme)](service-bus-managed-service-identity.md)
 ### [Rol Tabanlı Erişim Denetimi (önizleme)](service-bus-role-based-access-control.md)
@@ -37,6 +36,7 @@
 
 ## Geliştirme
 ### İleti işleme
+#### [Kuyruklar, konu başlıkları ve abonelikler](service-bus-queues-topics-subscriptions.md)
 #### [İletiler, yükler ve serileştirme](service-bus-messages-payloads.md)
 #### [İleti aktarımları, kilitler ve kapatma](message-transfers-locks-settlement.md)
 #### [İleti sıralama ve zaman damgaları](message-sequencing.md)
@@ -64,7 +64,7 @@
 #### [Otomatik yönlendirme ile varlıklar arasında zincir oluşturma](service-bus-auto-forwarding.md)
 #### [İşlem gerçekleştirme](service-bus-transactions.md)
 #### [Eşleştirilmiş ad alanı uygulama](service-bus-paired-namespaces.md)
-## Yönet
+## Yönetme
 ### [Azure İzleyici ile Service Bus’ı izleme](service-bus-metrics-azure-monitor.md)
 ### [Service Bus yönetim kitaplıkları](service-bus-management-libraries.md)
 ### [Tanılama günlükleri](service-bus-diagnostic-logs.md)
@@ -85,7 +85,7 @@
 ## [Java](/java/api/overview/azure/servicebus)
 ## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
-## [Özel Durumlar](service-bus-messaging-exceptions.md)
+## [Özel durumlar](service-bus-messaging-exceptions.md)
 ## [Kotalar](service-bus-quotas.md)
 ## [SQLFilter söz dizimi](service-bus-messaging-sql-filter.md)
 ## [SQLRuleAction söz dizimi](service-bus-messaging-sql-rule-action.md)
