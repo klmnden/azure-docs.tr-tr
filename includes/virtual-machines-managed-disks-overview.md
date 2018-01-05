@@ -32,7 +32,7 @@ Azure Backup hizmeti yönetilen disklerle zaman tabanlı yedeklemeler, kolay VM 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 
 Yönetilen diskleri kullanırken, aşağıdaki fatura değerlendirmeleri geçerlidir:
-* Depolama türü
+* Depolama Türü
 
 * Disk Boyutu
 
@@ -51,9 +51,9 @@ Bunlar daha yakın bir göz atalım.
 
 Premium yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Yönetilen premium <br>Disk türü** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Boyutu        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Yönetilen premium <br>Disk türü** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Disk Boyutu        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Standart yönetilen disk için kullanılabilir disk boyutları şunlardır:

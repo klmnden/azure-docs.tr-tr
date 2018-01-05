@@ -59,6 +59,6 @@ Kullanıcılar IKEv2’yi destekleyen yerleşik Windows VPN istemcisini kullanar
 
 Azure, P2S VPN için yalnızca Windows ve Mac’i desteklemektedir.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>Zaten dağıtılmış bir Azure VPN Gateway’im var. Bu ağ geçidi üzerinde RADIUS ve/veya IKEv2 VPN etkinleştirebilir miyim?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Zaten dağıtılmış bir Azure VPN Gateway’im var. RADIUS ve/veya Ikev2 VPN üzerinde etkinleştirebilirim?
 
-Evet, bu yeni özellikleri önceden dağıtılmış ağ geçitleri üzerinde hem PowerShell hem de Azure portalı kullanarak etkinleştirebilirsiniz.
+Evet, ağ geçidi, kullanmakta olduğunuz SKU RADIUS ve/veya Ikev2 desteklediğini varsayarak zaten dağıtılmış ağ geçitlerinde Powershell veya Azure portalını kullanarak bu yeni özellikleri etkinleştirebilirsiniz. Örneğin, VPN ağ geçidi temel SKU RADIUS veya IKEv2'yi desteklemiyor.
