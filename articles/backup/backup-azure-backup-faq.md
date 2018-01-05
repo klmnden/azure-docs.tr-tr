@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
-Bu makalede Azure Backup bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
+Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
 
 Bu makaledeki bölümleri hızlı taramak için **bu makale altında** sağ taraftaki bağlantıları kullanın.
 
@@ -30,7 +30,7 @@ Bu makaledeki bölümleri hızlı taramak için **bu makale altında** sağ tara
 ## <a name="recovery-services-vault"></a>Kurtarma hizmetleri kasası
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Her bir Azure aboneliği için oluşturulan kasaların sayısına yönelik herhangi bir sınır var mıdır? <br/>
-Evet. Eylül 2016’dan itibaren abonelik başına 25 Kurtarma Hizmeti veya yedekleme kasası oluşturabilirsiniz. Her abonelikte, Azure Backup hizmetinin desteklenen her bir bölgesi için en fazla 25 Kurtarma Hizmetleri kasası oluşturabilirsiniz. Daha fazla kasaya ihtiyacınız varsa başka bir abonelik oluşturun.
+Evet. Eylül 2016 itibariyle, abonelik başına 25 kurtarma Hizmetleri kasa oluşturabilirsiniz. Her abonelikte, Azure Backup hizmetinin desteklenen her bir bölgesi için en fazla 25 Kurtarma Hizmetleri kasası oluşturabilirsiniz. Daha fazla kasaya ihtiyacınız varsa başka bir abonelik oluşturun.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Her bir kasa için kaydedilebilen sunucu/makine sayısına yönelik sınırlar var mıdır? <br/>
 Evet, kasa başına en fazla 50 makine kaydedebilirsiniz. Azure IaaS sanal makineleri için sınır, kasa başına 200 VM'dir. Daha fazla makine kaydetmeniz gerekirse başka bir kasa oluşturun.
@@ -41,19 +41,11 @@ Aynı kasaya kayıtlı tüm sunucular, *aynı parolayı kullanan* diğer sunucul
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Yedekleme verilerimin veya kasamın abonelikler arasında "geçişini" sağlayabilir miyim? <br/>
 Hayır. Kasa abonelik düzeyinde oluşturulur ve oluşturulduktan sonra başka bir aboneliğe yeniden atanamaz.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Kurtarma Hizmetleri kasaları Resource Manager tabanlıdır. Backup kasaları (Klasik mod) hala destekleniyor mu? <br/>
-[Klasik portaldaki](https://manage.windowsazure.com) tüm mevcut Backup kasaları desteklenmeye devam etmektedir. Ancak, bundan böyle yeni Backup kasaları dağıtmak için klasik portalı kullanamazsınız. Gelecekteki iyileştirmeler yalnızca Kurtarma Hizmetleri kasaları için geçerli olacağından, Microsoft tüm dağıtımlar için Kurtarma Hizmetleri kasalarının kullanılmasını önerir. Klasik portalda bir Backup kasası oluşturmayı denerseniz, [Azure portalına](https://portal.azure.com) yönlendirilirsiniz.
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Kurtarma Hizmetleri kasaları Resource Manager tabanlıdır. Yedekleme kasaları hâlâ destekleniyor mu? <br/>
+Yedekleme kasalarını kurtarma Hizmetleri kasalarının dönüştürüldü. Bir kurtarma Hizmetleri kasasına yedekleme kasası dönüştürmedi, ardından yedekleme kasası için kurtarma Hizmetleri kasası sizin için dönüştürüldü. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişini sağlayabilir miyim? <br/>
-Evet, bir kurtarma Hizmetleri kasasına yedekleme kasası şimdi yükseltebilirsiniz. Ayrıntılar için makalesine başvurun [bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Klasik VM’lerimi bir Backup kasasına yedekledim. VM’lerimi klasik moddan Resource Manager moduna geçirip bunları bir Kurtarma Hizmetleri kasasında koruyabilir miyim?
-Bir VM’yi klasikten Resource Manager moduna taşıdığınızda yedekleme kasasındaki klasik VM kurtarma noktaları, Kurtarma Hizmetleri kasasına otomatik olarak geçirilmez. VM yedeklerinizi aktarmak için bu adımları izleyin:
-
-1. Backup kasasında **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
-2. Yedekleme/anlık görüntü uzantısını VM'den silin.
-3. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makineye karşılık gelen depolama ve ağ bilgilerinin de Resource Manager moduna geçirildiğinden emin olun.
-4. Bir Kurtarma Hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Yedekle** eylemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. Bir VM’yi Kurtarma Hizmetleri kasasına yedekleme hakkında ayrıntılı bilgi için [Azure VM’leri bir Kurtarma Hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md) başlıklı makaleye bakın.
+Tüm yedekleme kasaları kurtarma Hizmetleri kasalarının dönüştürüldü. Bir kurtarma Hizmetleri kasasına yedekleme kasası dönüştürmedi, ardından yedekleme kasası için kurtarma Hizmetleri kasası sizin için dönüştürüldü.
 
 ## <a name="azure-backup-agent"></a>Azure Backup aracısı
 Soruların ayrıntılı listesini [Azure dosya-klasör yedekleme hakkında SSS](backup-azure-file-folder-backup-faq.md) altında bulabilirsiniz.
@@ -92,7 +84,7 @@ Bir Azure VM’ye yönelik bir yedekleme işini iptal ederseniz aktarılan tüm 
 Evet. Yedekleme işlerini Windows Server veya Windows iş istasyonları üzerinde günde en fazla üç kez çalıştırabilirsiniz. Yedekleme işlerini System Center DPM üzerinde günde en fazla iki kez çalıştırabilirsiniz. Bir yedekleme işini IaaS VM'ler için günde bir kez çalıştırabilirsiniz. Windows Server veya Windows iş istasyonu için zamanlama ilkesini, günlük veya haftalık zamanlamalar belirtmek üzere kullanabilirsiniz. System Center DPM'yi kullanarak günlük, haftalık, aylık ve yıllık zamanlamalar belirtebilirsiniz.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Kurtarma Hizmetleri kasasına aktarılan verilerin büyüklüğü neden yedeklediğim verilerden daha küçük?<br/>
- Azure Backup Aracısı veya SCDPM ya da Azure Backup Sunucusundan yedeklenen tüm veriler aktarılmadan önce sıkıştırılır ve şifrelenir. Sıkıştırma ve şifreleme uygulandıktan sonra yedekleme kasasındaki veriler % 30-40 daha küçük hale gelir.
+ Azure Backup Aracısı veya SCDPM ya da Azure Backup Sunucusundan yedeklenen tüm veriler aktarılmadan önce sıkıştırılır ve şifrelenir. Sıkıştırma ve şifreleme uygulandıktan sonra kurtarma Hizmetleri kasası veriler % 30-40 daha küçük bağlıdır.
 
 ## <a name="what-can-i-back-up"></a>Neleri yedekleyebilirim?
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Azure Backup hangi işletim sistemlerini destekler? <br/>

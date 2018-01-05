@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Azure Ansible ile temel bir sanal makine oluşturun
 Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikleştirmenizi sağlar. Azure, aynı herhangi bir kaynağa olduğu gibi sanal makineleri (VM'ler) yönetmek için Ansible kullanabilirsiniz. Bu makalede Ansible ile temel bir VM oluşturulacağını gösterir. Ayrıca öğrenebilirsiniz nasıl [Ansible ile eksiksiz bir VM ortamı oluşturma](ansible-create-complete-vm.md).
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Ansible ile Azure kaynaklarınızı yönetmek için aşağıdakiler gerekir:
 
 - Ansible ve ana bilgisayar sisteminizde yüklü Azure Python SDK'sını modüller.
@@ -56,7 +56,7 @@ az network vnet create \
 
 
 ## <a name="create-and-run-ansible-playbook"></a>Oluşturma ve Ansible playbook çalıştırma
-Adlı bir Ansible playbook oluşturma **azure_create_vm.yml** ve aşağıdaki içeriğini yapıştırın. Bu örnek, tek bir VM'ye oluşturur ve SSH kimlik bilgilerini yapılandırır. Kendi ortak anahtar verilerde *key_data* gibi eşleştirin:
+Adlı bir Ansible playbook oluşturma *azure_create_vm.yml* ve aşağıdaki içeriğini yapıştırın. Bu örnek, tek bir VM'ye oluşturur ve SSH kimlik bilgilerini yapılandırır. Kendi tam genel anahtar verilerde *key_data* gibi eşleştirin:
 
 ```yaml
 - name: Create Azure VM

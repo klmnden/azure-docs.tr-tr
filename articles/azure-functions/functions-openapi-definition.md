@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/09/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Bir işlev için bir OpenAPI tanımı oluştur
 REST API'leri, OpenAPI tanımı kullanılarak genellikle açıklanmıştır (önceki adıyla bilinen bir [Swagger](http://swagger.io/) dosyası). Bu tanım hangi işlemlerin bir API kullanılabilir olduğunu ve API istek ve yanıt verilerini nasıl yapılandırılacağını hakkında bilgi içerir.
@@ -125,9 +125,9 @@ Artık OpenAPI tanımı oluşturmak hazırsınız. Bu tanım API uygulamaları g
 
     1. Üzerinde **tümleştir** yeni HTTP tetikleyicisini işlevinizi değişiklik sekmesinde **izin verilen HTTP yöntemleri** için **seçili yöntemleri**
 
-    1. İçinde **seçili HTTP yöntemleri**, dışındaki her bir seçeneğin işaretini **POST**.
+    1. İçinde **seçili HTTP yöntemleri**, dışında her seçeneğini temizleyin **POST**, ardından **kaydetmek**.
 
-        ![Seçili HTTP yöntemleri](media/functions-openapi-definition/selected-http-methods.png)
+        ![Seçili HTTP metotları](media/functions-openapi-definition/selected-http-methods.png)
         
 1. İşlev uygulaması adınıza tıklayın (gibi **işlevi demo enerji**) > **Platform özellikleri** > **API tanımı**.
 
@@ -135,13 +135,13 @@ Artık OpenAPI tanımı oluşturmak hazırsınız. Bu tanım API uygulamaları g
 
 1. Üzerinde **API tanımı** sekmesini tıklatın, **işlevi**.
 
-    ![API tanımı kaynak](media/functions-openapi-definition/api-definition-source.png)
+    ![API tanımı kaynağı](media/functions-openapi-definition/api-definition-source.png)
 
     Bu adım bir paketi işlevi uygulamanızın etki alanı, bir satır içi kopyasını OpenAPI dosyasından barındırmak için bir uç nokta da dahil olmak üzere işlevi uygulamanız için OpenAPI seçeneklerini etkinleştirir [OpenAPI Düzenleyicisi](http://editor.swagger.io)ve bir API tanımı şablon oluşturucu.
 
 1. Tıklatın **oluşturmak API tanımı şablonu** > **kaydetmek**.
 
-    ![API tanımı şablonu oluştur](media/functions-openapi-definition/generate-template.png)
+    ![API tanımı şablonu oluşturun](media/functions-openapi-definition/generate-template.png)
 
     Azure işlevi uygulamanız HTTP tetikleyicisini işlevleri için tarar ve OpenAPI tanımı oluşturmak için functions.json bilgilerinizi kullanır. Oluşturulan tanımı aşağıda verilmiştir:
 
@@ -272,7 +272,7 @@ API tanımı kullanmadan önce Azure işlevleri Arabiriminde test etmek için iy
 
 1. API tanımı geri gidin: **işlevi demo enerji** > **Platform özellikleri** > **API tanımı**.
 
-1. Sağ bölmede **kimlik doğrulamayı Değiştir**, kopyalanır ve tıklatın API anahtarını girin **kimlik doğrulama**.
+1. Sağ bölmede **kimlik doğrulama**, kopyalanır ve tıklatın API anahtarını girin **kimlik doğrulama**.
 
     ![API anahtarı ile kimlik doğrulaması](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,7 +286,7 @@ API tanımı kullanmadan önce Azure işlevleri Arabiriminde test etmek için iy
 
     Kullanıcı arabirimini API tanımından açıklamaları nasıl kullandığını dikkat edin.
 
-1. Tıklatın **bir istek göndermesini**, ardından **oldukça** çıkışı görmek için sekme.
+1. Tıklatın **İsteği Gönder**, ardından **oldukça** çıkışı görmek için sekme.
 
     ![Bir isteği gönder](media/functions-openapi-definition/send-request.png)
 

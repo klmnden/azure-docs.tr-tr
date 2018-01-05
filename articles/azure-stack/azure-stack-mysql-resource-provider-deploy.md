@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
@@ -59,6 +59,10 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
     a. Azure yığın Geliştirme Seti (ASDK) yüklemelerinde fiziksel ana bilgisayara oturum açın.
 
     b. Birden çok düğümlü sistemlerde konak ayrıcalıklı uç noktasına erişebildiğinden bir sistem olmalıdır.
+    
+    >[!NOTE]
+    > Burada betik çalıştırılıyor sistem *gerekir* yüklü .NET çalışma zamanı en son sürümü Windows 10 veya Windows Server 2016 sistemiyle olabilir. Aksi takdirde yükleme başarısız olur. ASDK ana bilgisayar bu ölçütleri karşılayan.
+    
 
 3. MySQL kaynak sağlayıcı ikili indirin ve içeriğini geçici bir dizine ayıklayın ayıklayıcısı yürütün.
 
@@ -67,15 +71,19 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
 
     | Azure yığın derleme | MySQL RP yükleyici |
     | --- | --- |
-    | 1.0.171122.1 | [MySQL RP sürüm 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171122.1 | [MySQL RP sürüm 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [MySQL RP sürüm 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [MySQL RP sürüm 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. ASDK için bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
 
-    Kendi sertifikanızı sağlamanız gerekiyorsa, aşağıdaki sertifika gerekir:
+    Kendi sertifikanızı sağlamanız gerekiyorsa, yerleştirilen bir PFX dosyası gerekir **DependencyFilesLocalPath** (aşağıdaki gibi bakın):
 
-    Joker sertifikası \*.dbadapter.\< Bölge\>.\< Dış fqdn\>. Bu sertifikayı Güvenilir olması gerekir, gibi bir sertifika yetkilisi tarafından verilmiş. Yani, güven zinciri ara sertifika gerektirmeden bulunması gerekir. Tek bir site sertifika yüklemesi sırasında kullanılan açık VM adı [mysqladapter] ile kullanılabilir.
+    - İçin bir joker karakter sertifika \*.dbadapter.\< Bölge\>.\< Dış fqdn\> veya mysqladapter.dbadapter bir ortak adı tek bir site sertifikayla.\< Bölge\>.\< Dış fqdn\>
+    - Bu sertifikayı Güvenilir olması gerekir, gibi bir sertifika yetkilisi tarafından verilmiş. Yani, güven zinciri ara sertifika gerektirmeden bulunması gerekir.
+    - Yalnızca tek bir sertifika dosyası DependencyFilesLocalPath bulunmaktadır.
+    - Dosya adı özel karakterler içermemelidir.
+
 
 
 5. Açık bir **yeni** yükseltilmiş (Yönetim) PowerShell konsolu ve dosyaları ayıkladığınız dizine geçin. Sistemde zaten yüklü yanlış PowerShell modüllerden ortaya çıkabilecek sorunları önlemek için yeni bir pencere kullanın.
@@ -256,6 +264,73 @@ Planları ve MySQL veritabanlarını kiracıların kullanımına sunmak için te
 Parola ilk, MySQL server örneğinde değiştirerek değiştirebilirsiniz. Gözat **yönetim KAYNAKLARININ** &gt; **MySQL barındırma sunucuları** &gt; ve barındırma sunucusundaki'ı tıklatın. Parola Ayarları panelinde tıklayın.
 
 ![Yönetici parolasını güncelleştirin](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+
+## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>MySQL kaynak sağlayıcı bağdaştırıcısını (çok düğümlü yalnızca derlemeleri 1710 ve üzeri) güncelleştir
+Azure yığın derleme güncelleştirildiğinde, yeni bir MySQL kaynak sağlayıcı bağdaştırıcısı yayınlanacaktır. Varolan bağdaştırıcısı çalışmaya devam edebilir, ancak Azure yığın güncelleştirildikten sonra en son sürüme hemen güncelleştirmek için önerilir. Güncelleştirme işlemini yukarıda anlatılan yükleme işlemine çok benzer. Yeni bir VM son RP kodla oluşturulur ve ayarları ve gerekli DNS kaydı yanı sıra sunucu bilgilerini barındırma veritabanı dahil olmak üzere bu yeni örnek geçirilecektir.
+
+Yukarıdaki gibi aynı bağımsız değişkenlere sahip UpdateMySQLProvider.ps1 komut dosyasını kullanın. Sertifika burada de sağlamanız gerekir.
+
+> [!NOTE]
+> Güncelleştirme, yalnızca birden çok düğümlü sistemlerde desteklenir.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
+ ```
+
+### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parametreleri
+Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli olanları sağlamanız istenir.
+
+| Parametre Adı | Açıklama | Açıklama veya varsayılan değeri |
+| --- | --- | --- |
+| **CloudAdminCredential** | Bulut Yöneticisi, ayrıcalıklı Endpoint erişmek için gerekli kimlik bilgileri. | _Gerekli_ |
+| **AzCredential** | Azure yığın Hizmet yöneticisi hesabı için kimlik bilgilerini sağlayın. Azure yığın dağıtmak için kullanılan aynı kimlik bilgilerini kullanın). | _Gerekli_ |
+| **VMLocalCredential** | SQL kaynak sağlayıcısının VM yerel yönetici hesabının kimlik bilgilerini tanımlar. | _Gerekli_ |
+| **PrivilegedEndpoint** | IP adresi veya Privleged uç noktanın DNS adı sağlayın. |  _Gerekli_ |
+| **DependencyFilesLocalPath** | Sertifika PFX dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
+| **DefaultSSLCertificatePassword** | .Pfx sertifika için parola | _Gerekli_ |
+| **MaxRetryCount** | Bir hata varsa her işlemini yeniden denemek istiyor kaç kez tanımlayın.| 2 |
+| **RetryDuration** | Zaman aşımı saniye içinde yeniden denemeler arasında tanımlayın. | 120 |
+| **Kaldırma** | (Aşağıdaki notlara bakın) ilişkili tüm kaynakları ve kaynak sağlayıcısını Kaldır | Hayır |
+| **DebugMode** | Otomatik temizleme hatasında engeller | Hayır |
+| **AcceptLicense** | GPL lisansı (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) kabul etmek için istemi atlanıyor | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>MySQL kaynak sağlayıcı bağdaştırıcısını Kaldır
 

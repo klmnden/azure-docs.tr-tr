@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server sistem durumunu geri yükle
 
@@ -89,9 +89,6 @@ Bu adımlarda kullanılan terminolojiyi içerir:
 1. Açık **Microsoft Azure yedekleme** ek bileşenini *hedef makine*.
 2. Emin *hedef makine* ve *kaynak makine* aynı kurtarma Hizmetleri kasasına kayıtlı.
 3. Tıklatın **verileri kurtarabilirsiniz** iş akışını başlatmak için.
-
-    ![Verileri kurtarma](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Seçin **başka bir sunucu**
 
     ![Başka bir sunucu](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,9 +96,6 @@ Bu adımlarda kullanılan terminolojiyi içerir:
 5. Karşılık gelen kasa kimlik bilgilerini sağlayın *örnek kasa*. Kasa kimlik bilgilerini geçersiz (veya süresi dolmuş) varsa, yeni bir kasa kimlik bilgileri dosyasını indirin *örnek kasa* Azure portalında. Kasa kimlik bilgilerini sağlanan sonra kasa kimlik bilgileri dosyasıyla ilişkili kurtarma Hizmetleri kasası görünür.
 
 6. Yedekleme sunucusu seçin bölmesinde seçin *kaynak makine* görüntülenmesini makineler listesinden.
-
-    ![Makineler listesi](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. Seçim kurtarma moduna bölmesinde seçin **sistem durumu** tıklatıp **sonraki**. 
 
     ![Arama](./media/backup-azure-restore-system-state/recover-type-selection.png)

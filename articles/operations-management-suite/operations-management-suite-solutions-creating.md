@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Tasarlama ve bir yönetim çözümü Operations Management Suite (OMS) (Önizleme) içinde oluşturma
 > [!NOTE]
@@ -37,7 +37,7 @@ Temel stratejisi, Azure ortamınızda bileşenleri tek tek oluşturarak Yönetim
 ## <a name="design-your-solution"></a>Çözümünüzü tasarlayın
 En yaygın düzeni bir yönetim çözümü için aşağıdaki çizimde gösterilmiştir.  Bu modelde farklı bileşenleri ele alınmıştır aşağıda.
 
-![OMS çözümüne genel bakış](media/operations-management-suite-solutions/solution-overview.png)
+![OMS çözümüne genel bakış](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Veri kaynakları

@@ -11,23 +11,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 763f46b9b5be7edf06ee0604bfc51a2482405b60
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Birden fazla abonelik veya kaynak grubu için Azure kaynaklarını dağıtma
 
-Genellikle, tüm kaynakları tek bir kaynak grubu için şablonunuzdaki dağıtın. Ancak, bir kaynak kümesi birlikte dağıtmasını ancak bunları farklı kaynak grupları ya da abonelik yerleştirmek istediğiniz senaryolar vardır. Örneğin, yedekleme sanal makineyi Azure Site Recovery için ayrı kaynak grubunu ve konumu için dağıtmak isteyebilirsiniz. Resource Manager hedef farklı Abonelikleriniz ve kaynak gruplarınız daha abonelik ve kaynak grubu üst şablon için kullanılan iç içe geçmiş şablonlarını kullanmanıza olanak sağlar.
-
-Kaynak grubu, uygulama ve onun kaynaklar topluluğu için yaşam döngüsü kapsayıcıdır. Şablon dışında kaynak grubu oluşturun ve dağıtım sırasında hedef kaynak grubu belirtin. Kaynak grupları giriş için bkz: [Azure Resource Manager'a genel bakış](resource-group-overview.md).
+Genellikle, tüm kaynakları tek şablonunuzdaki dağıttığınız [kaynak grubu](resource-group-overview.md). Ancak, bir kaynak kümesi birlikte dağıtmasını ancak bunları farklı kaynak grupları ya da abonelik yerleştirmek istediğiniz senaryolar vardır. Örneğin, yedekleme sanal makineyi Azure Site Recovery için ayrı kaynak grubunu ve konumu için dağıtmak isteyebilirsiniz. Resource Manager hedef farklı Abonelikleriniz ve kaynak gruplarınız daha abonelik ve kaynak grubu üst şablon için kullanılan iç içe geçmiş şablonlarını kullanmanıza olanak sağlar.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Bir abonelik ve kaynak grubu belirtin
 
-Farklı bir kaynak hedeflemek için dağıtım sırasında bir iç içe ya da bağlantılı şablonu kullanmanız gerekir. `Microsoft.Resources/deployments` Kaynak türü için parametreler sağlar `subscriptionId` ve `resourceGroup`. Bu özellikler, iç içe geçmiş dağıtım için farklı bir abonelik ve kaynak grubu belirtmenize olanak verir. Tüm kaynak grupları, dağıtım çalıştırılmadan önce mevcut olması gerekir. Ya da abonelik Kimliğine veya kaynak grubu, abonelik ve kaynak grubu üst şablondan belirtmezseniz kullanılır.
+Farklı bir kaynak hedeflemek için iç içe ya da bağlantılı bir şablon kullanın. `Microsoft.Resources/deployments` Kaynak türü için parametreler sağlar `subscriptionId` ve `resourceGroup`. Bu özellikler, iç içe geçmiş dağıtım için farklı bir abonelik ve kaynak grubu belirtmenize olanak verir. Tüm kaynak grupları, dağıtım çalıştırılmadan önce mevcut olması gerekir. Ya da abonelik Kimliğine veya kaynak grubu, abonelik ve kaynak grubu üst şablondan belirtmezseniz kullanılır.
+
+Farklı bir kaynak grubu ve abonelik belirtmek için kullanın:
+
+```json
+"resources": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "nestedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "resourceGroup": "[parameters('secondResourceGroup')]",
+        "subscriptionId": "[parameters('secondSubscriptionID')]",
+        ...
+    }
+]
+```
+
+Kaynak gruplarınızı aynı abonelikte olması durumunda, kaldırabilirsiniz **Subscriptionıd** değeri.
 
 Aşağıdaki örnekte iki depolama hesabı - bir dağıtım sırasında belirtilen kaynak grubunda dağıtır ve bir kaynak grubunda belirtilen `secondResourceGroup` parametresi:
 
@@ -106,93 +121,7 @@ Aşağıdaki örnekte iki depolama hesabı - bir dağıtım sırasında belirtil
 
 Ayarlarsanız `resourceGroup` var olmayan bir kaynak grubu adı için dağıtım başarısız olur.
 
-## <a name="deploy-the-template"></a>Şablonu dağıtma
-
-Örnek şablonu dağıtmak için Azure PowerShell veya Azure CLI May 2017 veya sonraki bir sürümünü kullanın. Bu örnekler için [abonelik şablon çapraz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) github'da.
-
-### <a name="two-resource-groups-in-the-same-subscription"></a>Aynı abonelikte iki kaynak grubu
-
-İki depolama hesabı aynı abonelikte iki kaynak grubu dağıtmak için PowerShell için kullanın:
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus
-```
-
-İki depolama hesabı aynı abonelikte iki kaynak grubu dağıtmak için Azure CLI için şunu kullanın:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-az group create --name $firstRG --location southcentralus
-az group create --name $secondRG --location eastus
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
-```
-
-Dağıtım tamamlandıktan sonra iki kaynak grubu bakın. Her kaynak grubu bir depolama hesabını içerir.
-
-### <a name="two-resource-groups-in-different-subscriptions"></a>Farklı Aboneliklerde iki kaynak grubu
-
-İki depolama hesabı için iki abonelikleri dağıtmak için PowerShell için kullanın:
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-$firstSub = "<first-subscription-id>"
-$secondSub = "<second-subscription-id>"
-
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus `
-  -secondSubscriptionID $secondSub
-```
-
-İki depolama hesabı için iki abonelikleri dağıtmak için Azure CLI için şunu kullanın:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-firstSub="<first-subscription-id>"
-secondSub="<second-subscription-id>"
-
-az account set --subscription $secondSub
-az group create --name $secondRG --location eastus
-
-az account set --subscription $firstSub
-az group create --name $firstRG --location southcentralus
-
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
-```
+Örnek şablonu dağıtmak için Azure PowerShell veya Azure CLI May 2017 veya sonraki bir sürümünü kullanın.
 
 ## <a name="use-the-resourcegroup-function"></a>Kullanım resourceGroup() işlevi
 
@@ -230,9 +159,59 @@ Ayrı bir şablon bağlantı varsa, bağlantılı şablonunda resourceGroup() i�
 }
 ```
 
-Farklı yolları test etmek için `resourceGroup()` çözümler, dağıtma bir [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) , kaynak grubu nesne için üst şablonu, satır içi şablon ve bağlantılı şablonu döndürür. Her ikisi de aynı kaynak grubunu çözmek üst ve satır içi şablon. Bağlantılı kaynak grubuna bağlı şablon çözümler.
+## <a name="example-templates"></a>Örnek şablonları
 
-PowerShell için şunu kullanın:
+Aşağıdaki şablonlardan birden çok kaynak grubu dağıtımı göstermektedir. Şablonları dağıtmak üzere komut dosyaları tablodan sonra gösterilir.
+
+|Şablon  |Açıklama  |
+|---------|---------|
+|[Abonelik şablon arası](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Bir kaynak grubu için bir depolama hesabı ve bir depolama hesabı için ikinci bir kaynak grubu dağıtır. İkinci kaynak grubu farklı bir abonelikte olduğunda abonelik kimliği için bir değer içerir. |
+|[Kaynak grubu özellikleri şablonu arası](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Gösteren nasıl `resourceGroup()` işlev giderir. Herhangi bir kaynağa dağıtmaz. |
+
+### <a name="powershell"></a>PowerShell
+
+İki depolama hesabı iki kaynak gruplarını dağıtmak için PowerShell **aynı abonelik**, kullanın:
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus
+```
+
+İki depolama hesaplarına dağıtmak için PowerShell **iki abonelikleri**, kullanın:
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+$firstSub = "<first-subscription-id>"
+$secondSub = "<second-subscription-id>"
+
+Select-AzureRmSubscription -Subscription $secondSub
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+Select-AzureRmSubscription -Subscription $firstSub
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus `
+  -secondSubscriptionID $secondSub
+```
+
+Test etmek için PowerShell nasıl **kaynak grup nesnesi** üst şablonu, satır içi şablon ve bağlantılı şablonu kullanımı için çözümler:
 
 ```powershell
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
@@ -244,7 +223,46 @@ New-AzureRmResourceGroupDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
-Azure CLI için şunu kullanın:
+### <a name="azure-cli"></a>Azure CLI
+
+İki depolama hesabı iki kaynak gruplarını dağıtmak için Azure CLI için **aynı abonelik**, kullanın:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+az group create --name $firstRG --location southcentralus
+az group create --name $secondRG --location eastus
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
+```
+
+İki depolama hesaplarına dağıtmak için Azure CLI için **iki abonelikleri**, kullanın:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+firstSub="<first-subscription-id>"
+secondSub="<second-subscription-id>"
+
+az account set --subscription $secondSub
+az group create --name $secondRG --location eastus
+
+az account set --subscription $firstSub
+az group create --name $firstRG --location southcentralus
+
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
+```
+
+Test etmek için Azure CLI için nasıl **kaynak grup nesnesi** üst şablonu, satır içi şablon ve bağlantılı şablonu kullanımı için çözümler:
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus

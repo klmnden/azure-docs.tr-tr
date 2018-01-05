@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
 ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell kullanarak Data Protection Manager (DPM) sunucuları için Azure’a yedekleme dağıtma ve yönetme
 Bu makalede, bir DPM sunucusunda Azure yedekleme kurulumu için PowerShell kullanın ve yedekleme ve kurtarma yönetmek için nasıl gösterir.
@@ -119,7 +119,7 @@ Bu, tüm varsayılan seçeneklerle Aracısı'nı yükler. Yükleme arka planda b
 
 Aracı yüklü programlar listesinde görüntülenir. Yüklü programların listesini görmek için şu adrese gidin **Denetim Masası** > **programları** > **programlar ve Özellikler**.
 
-![Yüklü aracı](./media/backup-dpm-automation/installed-agent-listing.png)
+![Aracı yüklü](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Yükleme Seçenekleri
 Komut satırı kullanılabilir tüm seçenekleri görmek için aşağıdaki komutu kullanın:

@@ -15,17 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-<<<<<<< HEAD
-ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
-=======
 ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM ile Azure’a iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -57,7 +51,7 @@ DPM sunucularını yedekleme için Azure Yedekleme'yi kullanarak iş avantajlar�
 * Şirket içi DPM dağıtımı için Azure banda uzun vadeli dağıtım alternatif olarak kullanabilirsiniz.
 * Azure'da DPM dağıtımları için Azure yedekleme depolama Azure diskten boşaltmak eski verileri kurtarma Hizmetleri kasası ve disk üzerindeki yeni verileri depolayarak ölçekleme yapmanıza olanak sağlar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Azure yedekleme DPM verileri yedeklemek gibi için hazırlayın:
 
 1. **Kurtarma Hizmetleri kasası oluşturma** — Azure portalında bir kasa oluşturun.
@@ -77,7 +71,7 @@ DPM için Azure yedekleme için bazı temel tanımları şunlardır:
 ### <a name="1-create-a-recovery-services-vault"></a>1. Kurtarma hizmetleri kasası oluşturma
 Kurtarma hizmetleri kasası oluşturmak için:
 
-1. [Azure portalında](https://portal.azure.com/) oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girdinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
@@ -94,7 +88,7 @@ Kurtarma hizmetleri kasası oluşturmak için:
 5. Kullanılabilir abonelik listesini görmek için **Abonelik** seçeneğine tıklayın. Hangi aboneliğin kullanılacağından emin değilseniz varsayılan (veya önerilen) aboneliği kullanın. Ancak kuruluş hesabınızın birden çok Azure aboneliği ile ilişkili olması durumunda birden çok seçenek olacaktır.
 6. Kullanılabilir Kaynak grubu listesini görmek için **Kaynak grubu** seçeneğine, yeni bir Kaynak grubu oluşturmak için de **Yeni** seçeneğine tıklayın. Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md)
 7. Kasa için coğrafi bölgeyi seçmek üzere **Konum**'a tıklayın.
-8. **Oluştur**'a tıklayın. Kurtarma Hizmetleri kasasının oluşturulması biraz zaman alabilir. Portalda sağ üst alandaki durum bildirimlerini izleyin.
+8. **Oluştur**’a tıklayın. Kurtarma Hizmetleri kasasının oluşturulması biraz zaman alabilir. Portalda sağ üst alandaki durum bildirimlerini izleyin.
    Kasanız oluşturulduktan sonra portalda açılır.
 
 ### <a name="set-storage-replication"></a>Depolama Çoğaltmayı Ayarlama
@@ -123,7 +117,7 @@ Kasa kimlik bilgilerini Azure portalından güvenli bir kanal üzerinden indiril
     ![Kasa dikey penceresini açma](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. Özellikler sayfasında, tıklatın **karşıdan** altında **yedekleme kimlik**. Portal indirme için kullanılabilir hale kasa kimlik bilgilerini oluşturur.
 
-    ![İndir](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![İndirme](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 Portal kasa adını ve geçerli tarih birleşimini kullanarak bir kasa kimlik bilgisi oluşturur. Tıklatın **kaydetmek** kasa kimlik bilgilerini Yerel hesabın indirmeler klasörüne indirin veya kasa kimlik bilgileri için bir konum belirtmek için Kaydet menüsünden Farklı Kaydet'i seçin. Bunu oluşturulacak dosyası için bir dakika sürer.
 
@@ -141,7 +135,7 @@ Azure yedekleme kasası oluşturduktan sonra bir aracı her veri ve Azure uygula
     ![Kasa dikey penceresini açma](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Ayarlar sayfasında, tıklatın **karşıdan** altında **Azure Yedekleme aracısı**.
 
-    ![İndir](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![İndirme](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
    Aracı yüklendikten sonra Azure Backup agent kurulumunu başlatmak için MARSAgentInstaller.exe çalıştırın. Yükleme klasörü ve aracı için gereken geçici klasörü seçin. Belirtilen önbellek konumunu yedekleme verilerini % 5'en az boş alan olması gerekir.
 4. İçinde internet'e bağlanmak için bir proxy sunucu kullanıyorsanız **Proxy Yapılandırması** ekranında, proxy sunucusu ayrıntılarını girin. Doğrulanmış bir proxy kullanıyorsanız, bu ekranda kullanıcı adı ve parola bilgilerinizi girin.

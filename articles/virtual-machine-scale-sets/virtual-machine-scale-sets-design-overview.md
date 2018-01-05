@@ -5,7 +5,7 @@ keywords: "Linux sanal makine, sanal makine ölçek ayarlar"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
@@ -16,21 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ölçek kümeleri için tasarım konuları
-Bu konuda, sanal makine ölçek kümeleri için tasarım konuları açıklanmaktadır. Sanal makine ölçek kümeleri nelerdir hakkında daha fazla bilgi için bkz [sanal makine ölçek kümesi'ne genel bakış](virtual-machine-scale-sets-overview.md).
+Bu makalede, sanal makine ölçek kümeleri için tasarım konuları açıklanmaktadır. Sanal makine ölçek kümeleri nelerdir hakkında daha fazla bilgi için bkz [sanal makine ölçek kümesi'ne genel bakış](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Ne zaman ölçeğini kullanmak yerine sanal makineleri ayarlar?
-Genellikle, Ölçek kümeleri makineler kümesi benzer yapılandırmaya sahip olduğu yüksek oranda kullanılabilir altyapısını dağıtmak için kullanışlıdır. Diğer özellikler yalnızca Vm'lerde kullanılabilir, ancak bununla birlikte, bazı özellikler yalnızca ölçek kümeleri içinde kullanılabilir. Her bir teknolojiyi ne zaman kullanacağınızı hakkında bilinçli bir karar yapmak için biz ilk ölçek kümeleri ancak değil VM'ler kullanılabilir yaygın olarak kullanılan özelliklerden bazıları göz atın:
+Genellikle, Ölçek kümeleri makineler kümesi benzer yapılandırmaya sahip olduğu yüksek oranda kullanılabilir altyapısını dağıtmak için kullanışlıdır. Diğer özellikler yalnızca Vm'lerde kullanılabilir, ancak bununla birlikte, bazı özellikler yalnızca ölçek kümeleri içinde kullanılabilir. Her bir teknolojiyi ne zaman kullanacağınızı hakkında bilinçli bir karar yapmak için önce ölçek kümeleri ancak değil VM'ler kullanılabilir yaygın olarak kullanılan özelliklerden bazıları göz atın:
 
 ### <a name="scale-set-specific-features"></a>Ölçek kümesi özgü özellikleri
 
-- Ölçek yapılandırma kümesi belirttiğinizde, paralel daha fazla sanal makineleri dağıtmak için "kapasitesi" özelliği yalnızca güncelleştirebilir. Bu paralel birçok ayrı VM dağıtma düzenlemek için bir komut dosyası yazma daha çok daha kolaydır.
+- Ölçek yapılandırma kümesi belirttiğinizde, paralel daha fazla sanal makineleri dağıtmak için "kapasitesi" özelliğini güncelleyebilirsiniz. Bu paralel birçok ayrı VM dağıtma düzenlemek için bir komut dosyası yazma daha çok daha kolaydır.
 - Yapabilecekleriniz [otomatik olarak ölçek kümesini ölçeklendirmek için Azure otomatik ölçeklendirme kullanmak](./virtual-machine-scale-sets-autoscale-overview.md) ancak bireysel VM'ler.
 - Yapabilecekleriniz [yeniden görüntü oluşturma ölçek kümesi VM](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) ancak [bireysel VM'ler](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 - Yapabilecekleriniz [overprovision](./virtual-machine-scale-sets-design-overview.md) ölçek kümesi VM'ler daha fazla güvenilirlik ve daha hızlı dağıtım zamanları için. Bunu yapmak için özel kod yazmanıza sürece bu tek tek sanal makineleri ile yapamazsınız.
@@ -38,14 +38,14 @@ Genellikle, Ölçek kümeleri makineler kümesi benzer yapılandırmaya sahip ol
 
 ### <a name="vm-specific-features"></a>VM özgü özellikleri
 
-Diğer taraftan, bazı özellikler yalnızca Vm'lerde kullanılabilir (en az şimdilik):
+Bazı özellikleri şu anda yalnızca Vm'lerde bulunmaktadır:
 
 - Belirli tek tek sanal makineleri için veri diski ekleyebilirsiniz, ancak eklenen veri disklerini ölçek kümesindeki tüm VM'ler için yapılandırılır.
 - Tek tek sanal makineleri ancak ölçek kümesindeki sanal makineleri için boş olmayan veri diskleri ekleyebilirsiniz.
 - Sizin anlık görüntü tekil bir VM ancak VM ölçek kümesindeki değil.
 - Tek bir VM'den ancak VM ölçek kümesindeki bir görüntüsünü yakalayabilirsiniz.
 - Yönetilen disklere yerel disklerden tekil bir VM geçirebilirsiniz ancak bu VM'ler için bir ölçek kümesinde işlemi yapamazsınız.
-- IPv6 ortak IP adresleri tekil VM NIC'lerle atayabilirsiniz ancak VM'ler için bir ölçek kümesinde bunu yapamazsınız. IPv6 ya da tek tek sanal makineleri önünde yük olarak genel IP adresleri atayabilir veya VM ölçek kümesi unutmayın.
+- IPv6 ortak IP adresleri tekil VM NIC'lerle atayabilirsiniz ancak VM'ler için bir ölçek kümesinde bunu yapamazsınız. IPv6 ya da tek tek sanal makineleri önünde yük olarak genel IP adresleri atayabilir veya VM ölçek kümesi.
 
 ## <a name="storage"></a>Depolama
 

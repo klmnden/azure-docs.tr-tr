@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 9a4e0b5a400668cb9ec96000d274f43739139a03
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure’da sanal makine yedekleme altyapınızı planlama
-Bu makalede, performansı ve VM yedekleme altyapınızı planlamanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, Backup hizmeti önemli yönlerini tanımlar; Bu yönlerinin, mimarisi belirlemede önemli kapasite planlaması ve zamanlama. Seçtiğiniz varsa [ortamınızı hazırlanmış](backup-azure-vms-prepare.md), planlama sonraki adım başlamadan önce [Vm'leri yedekleme için](backup-azure-vms.md). Azure sanal makineler hakkında daha fazla bilgiye ihtiyacınız varsa bkz [Virtual Machines belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Bu makalede, performansı ve VM yedekleme altyapınızı planlamanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, Backup hizmeti önemli yönlerini tanımlar; Bu yönlerinin, mimarisi belirlemede önemli kapasite planlaması ve zamanlama. Seçtiğiniz varsa [ortamınızı hazırlanmış](backup-azure-arm-vms-prepare.md), planlama sonraki adım başlamadan önce [Vm'leri yedekleme için](backup-azure-arm-vms.md). Azure sanal makineler hakkında daha fazla bilgiye ihtiyacınız varsa bkz [Virtual Machines belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Azure nasıl mu sanal makineleri yedekleyin?
 Azure Backup hizmeti zamanlanan saatte bir yedekleme işi başlattığında, zaman içinde nokta anlık almak için yedekleme uzantısını tetikler. Azure Backup hizmeti kullandığı _VMSnapshot_ pencerelerinde, uzantı ve _VMSnapshotLinux_ Linux uzantı. Uzantısı ilk VM yedekleme sırasında yüklenir. Uzantıyı yüklemek için VM çalıştırması gerekir. VM çalışmıyorsa bu yana (hiçbir uygulama yazma VM durdurulduğunda oluşur) yedekleme hizmeti temel alınan depolama anlık görüntü alır.
@@ -97,7 +97,7 @@ Yedeklenmekte olan her disk için Azure yedekleme disk üzerindeki blokları oku
 ## <a name="total-vm-backup-time"></a>Toplam VM yedekleme saati
 Çoğu yedekleme zaman harcanır sırasında okuma ve veri kopyalama, diğer işlemlerin bir VM'yi yedeklemek için gereken toplam süreyi katkıda:
 
-* Gereken süre [veya yedekleme uzantısını güncelleştirmesini](backup-azure-vms.md).
+* Gereken süre [veya yedekleme uzantısını güncelleştirmesini](backup-azure-arm-vms.md).
 * Anlık görüntü saati bir anlık görüntü tetiklemek için geçen süredir. Anlık görüntüler yakın zamanlanmış yedekleme saati tetiklenir.
 * Sıra bekleme süresi. Birden çok müşteri yedeklemelerden işleme yedekleme hizmeti olduğundan, yedekleme veya kurtarma Hizmetleri kasasına yedekleme verileri anlık görüntüden kopyalama hemen başlatılamayabilir. Yoğun saatler içinde yüklenemedi, bekleme sekiz saat işlenmekte olan yedekleme sayısı nedeniyle uzatabilirsiniz. Ancak, toplam VM yedekleme günlük yedekleme ilkeleri için 24 saatten az saattir.
 * Veri aktarımı zamanı, depolama kasası için artımlı değişiklikler önceki yedekten işlem ve bu değişiklikleri aktarmak yedekleme hizmeti için gereken zamanı.
@@ -131,7 +131,7 @@ Vm'leri yedekleme için fiyatlandırma *değil* sanal makineye bağlı her veri 
 
 Örneğin, bir boyutta A2 standart iki ek veri disklerinin her biri 1 TB maksimum boyuta sahip olan sanal makine alın. Aşağıdaki tabloda her bu diskleri saklanan gerçek verileri verir:
 
-| Disk türü | En büyük boyutu | Gerçek veri yok |
+| Disk türü | Maksimum boyut | Gerçek veri yok |
 | --- | --- | --- |
 | İşletim sistemi diski |1023 GB |17 GB |
 | Yerel disk / kaynak disk |135 GB |5 GB (yedekleme için yer almayan) |
@@ -148,7 +148,7 @@ Belirtilen sanal makine yalnızca koruma durdurduysanız durdurur faturalama *ve
 Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Sanal makineleri yedekleme](backup-azure-vms.md)
+* [Sanal makineleri yedekleme](backup-azure-arm-vms.md)
 * [Sanal makine yedeklemesi yönetme](backup-azure-manage-vms.md)
-* [Sanal makineleri geri yükleme](backup-azure-restore-vms.md)
+* [Sanal makineleri geri yükleme](backup-azure-arm-restore-vms.md)
 * [VM yedekleme sorunlarını giderme](backup-azure-vms-troubleshoot.md)

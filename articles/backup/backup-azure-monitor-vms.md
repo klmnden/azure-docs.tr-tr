@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure sanal makine yedekleme uyarılarını izleme
 Uyarıları olay eşiği karşıladığında veya aşılan hizmetinden yanıtları değildir. Bilerek zaman sorunları başlangıç iş maliyetleri tutarak için kritik olabilir. Uyarıları genellikle bir zamanlamaya göre gerçekleşmez ve bu nedenle uyarılar ortaya sonra mümkün olan en kısa sürede bilmeniz yararlı olur. Örneğin, bir yedekleme veya geri yükleme işi başarısız olduğunda bir uyarı hata beş dakika içinde gerçekleşir. Kasa panosunda, yedekleme uyarıları kutucuğu kritik ve uyarı düzeyi olayları görüntüler. Yedekleme uyarıları ayarlarında tüm olayları görüntüleyebilirsiniz. Ancak ayrı bir sorunu çalışırken bir uyarı ortaya çıkarsa ne yapacaksınız? Uyarı gerçekleştiğinde bunu bilmiyorsanız, küçük bir sorundan dolayı olabilir veya veri tehlikeye atabilecek. Doğru kişilerin oluştuğunda uyarının - farkında olduğundan emin olmak için e-posta üzerinden uyarı bildirimleri göndermek üzere hizmetini yapılandırın. E-posta bildirimlerini ayarlama hakkında daha fazla bilgi için bkz: [bildirimleri yapılandırmak](backup-azure-monitor-vms.md#configure-notifications).
@@ -65,14 +65,14 @@ Uyarılar için e-posta bildirimleri ayarlamak için
 3. İçinde **alıcılar (e-posta)** iletişim kutusunda, kimin bildirimleri almak için e-posta adreslerini yazın. Biçimi kullanın: username@domainname.com. Birden çok e-posta adresini noktalı virgül (;) ayırın.
 4. İçinde **bildirim** alanı seçin **başına uyarı** belirtilen uyarı oluştuğunda, bildirim göndermek için veya **saatlik Özet** son bir saat için bir Özet göndermek için.
 5. İçinde **önem** iletişim kutusunda, e-posta bildirimlerini tetiklemesini istediğiniz bir veya daha fazla düzeyleri seçin.
-6. **Kaydet** düğmesine tıklayın.
+6. **Kaydet**’e tıklayın.
 
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Hangi uyarı türleri için Azure Iaas sanal yedekleme var mı?
    | Uyarı düzeyi | Gönderilen uyarıları |
    | --- | --- |
    | Kritik |Yedekleme hatası, Kurtarma hatası |
-   | Uyarı |None |
-   | Bilgilendirme |None |
+   | Uyarı |Hiçbiri |
+   | Bilgilendirici |None |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Bildirimler yapılandırılmış olsa bile e-postanın gönderilmediği durumlar var mı?
 Bildirimlerin düzgün bir şekilde yapılandırmış olmanıza rağmen bir uyarı gönderilmez, durumlar vardır. Aşağıdaki durumlarda e-postayla aralığını belirterek uyarı sesini önlemek için bildirim gönderilmez:
@@ -147,9 +147,9 @@ Kullanarak **sütunları** düğmesi üzerinde listesinde görünmesi ek olay ö
 | Kaynak |Kaynağı tanımlayan URL; Kaynak Kimliği olarak da bilinir |
 | Zaman |Zaman, olayın gerçekleştiği geçerli zamandan ölçülür |
 | Çağıran |Kim veya ne adlı veya olayı tetikleyen; Sistem ya da bir kullanıcı olabilir |
-| zaman damgası |Olay zaman tetiklendi zamanı |
+| Zaman damgası |Olay zaman tetiklendi zamanı |
 | Kaynak Grubu |İlişkili kaynak grubu |
-| Kaynak Türü |Kaynak Yöneticisi tarafından kullanılan iç kaynak türü |
+| Kaynak Türü |Resource Manager tarafından kullanılan iç kaynak türü |
 | Abonelik Kimliği |İlişkili abonelik kimliği |
 | Kategori |Olay kategorisi |
 | Bağıntı Kimliği |İlgili olayları ortak kimliği |
@@ -207,10 +207,10 @@ Olay günlükleri proje harika Sonrası-Değerlendirme etkinleştirme ve yedekle
 * Korumayı Durdur
 * Yedekleme verilerini sil
 * İlke ekleme
-* İlkeyi Sil
-* Güncelleştirme ilkesi
+* İlkeyi sil
+* İlkeyi güncelleştir
 * İşi iptal et
 
 Olayları geniş kapsamlı bir açıklama için operations ve Azure Hizmetleri genelinde denetim günlüklerini makalesine bakın [olayları görüntülemek ve Denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Bir sanal makine bir kurtarma noktasından yeniden oluşturma hakkında daha fazla bilgi için kullanıma [geri Azure Vm'leri](backup-azure-restore-vms.md). Sanal makinelerinizi koruma bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Makalede VM yedeklemeler için yönetim görevleri hakkında bilgi edinin [yönetmek Azure sanal makine yedeklerini](backup-azure-manage-vms.md).
+Bir sanal makine bir kurtarma noktasından yeniden oluşturma hakkında daha fazla bilgi için kullanıma [geri Azure Vm'leri](backup-azure-arm-restore-vms.md). Sanal makinelerinizi koruma bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Makalede VM yedeklemeler için yönetim görevleri hakkında bilgi edinin [yönetmek Azure sanal makine yedeklerini](backup-azure-manage-vms.md).

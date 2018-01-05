@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineler geri yüklemek için Azure portalını kullanın
 Verilerinizin anlık görüntüleri tanımlanan aralıklarla gerçekleştirerek verilerinizi koruyun. Bu anlık görüntüleri kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarının depolandıkları. Onarmak veya bir sanal makine (VM) yeniden oluşturmak gerekliyse, kaydedilmiş kurtarma noktaları hiçbirini VM geri yükleyebilirsiniz. Bir kurtarma noktası geri yüklediğinizde, şunları yapabilirsiniz:
@@ -42,7 +42,7 @@ Sanal makineden bir VM veya tüm diskleri geri yedekleme iki adımdan oluşur:
 * Geri yükleme türünü seçin, yeni bir VM oluşturmak veya diskleri geri yüklemek ve gerekli parametreleri belirtin. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Geri yükleme için bir geri yükleme noktası seçin
-1. [Azure Portal](http://portal.azure.com/) oturum açın.
+1. [Azure Portal](http://portal.azure.com/)’da oturum açın.
 
 2. Azure menüsünde seçin **Gözat**. Hizmetler listesinde yazın **kurtarma Hizmetleri**. Hizmetler listesi, yazdığınız için ayarlar. Gördüğünüzde **kurtarma Hizmetleri kasaları**, onu seçin.
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5edaee6a4adedc440b16e936462df5e224fe8609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Azure AD ile Windows Phone Uygulama Tümleştirme
+# <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -72,7 +72,7 @@ Azure AD'de bir uygulamanız varsa, ADAL yükleyin ve kimlikle ilgili kodunuzu y
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* DirectorySearcher projeyi açın `MainPage.xaml.cs`.  Değerleri değiştirin `Config Values` Azure Portalı'na giriş değerleri yansıtacak şekilde bölge.  ADAL kullandığında kodunuzu bu değerleri başvurur.
+* DirectorySearcher projeyi açın `MainPage.xaml.cs`.  Değerleri değiştirin `Config Values` Azure portalına giriş değerleri yansıtacak şekilde bölge.  ADAL kullandığında kodunuzu bu değerleri başvurur.
   * `tenant` Azure AD kiracınız, ör. contoso.onmicrosoft.com etki alanıdır
   * `clientId` Portaldan kopyaladığınız uygulamanızın istemci kimliği değil.
 * Artık Windows Phone uygulamanız için geri çağırma URI bulmanız gerekir.  Bu satırında bir kesme noktası belirleyerek `MainPage` yöntemi:
@@ -156,7 +156,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* Aynı zamanda `AuthenticationResult` uygulamanızda kullanıcı hakkındaki bilgileri görüntülemek için nesne. İçinde `QueryGraph(...)` yöntemi, kullanıcının kimliğini sayfada göstermek için sonuç kullanın:
+* Aynı zamanda `AuthenticationResult` uygulamanızda kullanıcı hakkındaki bilgileri görüntülemek için nesne. İçinde `QueryGraph(...)` yöntemi, kullanıcının Kimliğini sayfada göstermek için sonuç kullanın:
 
 ```C#
 // Update the Page UI to represent the signed in user

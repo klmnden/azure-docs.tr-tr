@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Android Başlarken | Microsoft Docs"
-description: "Oturum açma ve Azure AD aramalar için Azure AD ile tümleşen bir Android uygulamasının nasıl oluşturulacağını, OAuth kullanılarak API'leri korunan."
+description: "Oturum açma ve Azure AD aramalar için Azure AD ile tümleşen bir Android uygulamasının nasıl oluşturulacağını OAuth2.0 kullanarak API'leri korumalı."
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 1ea39854766332a87eae4f44f52a4853848d2120
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-android-app"></a>Android uygulamaya Azure AD tümleştirme
+# <a name="azure-ad-android-getting-started"></a>Azure AD Android Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Bizim yeni önizlemesini denemek [Geliştirici Portalı](https://identity.microsoft.com/Docs/Android), hangi yardımcı olacak birkaç dakika içinde Azure AD ile başlamak ve çalıştırmak. Geliştirici Portalı, bir uygulamayı kaydetme ve Azure AD kodunuza tümleştirme işleminde size rehberlik yapar. İşiniz bittiğinde, bu belirteçleri kabul edebilir ve doğrulama gerçekleştirmek kullanıcılar, Kiracı ve arka uç kimlik doğrulaması yapabilir basit bir uygulama gerekir.
->
->
 
 Bir masaüstü uygulaması geliştiriyorsanız, Azure Active Directory (Azure AD), basit ve kolay, kullanıcılarınız, şirket içi Active Directory hesaplarını kullanarak kimlik doğrulaması kılar. Ayrıca, tüm web API Office 365 API'leri veya Azure API'sini gibi Azure AD tarafından korunan güvenli bir şekilde kullanmak uygulamanızı sağlar.
 

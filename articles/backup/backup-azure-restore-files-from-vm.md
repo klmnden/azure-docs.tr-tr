@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Dosyaları Azure sanal makinesi yedeklemeden Kurtar
 
@@ -70,40 +70,7 @@ Dosya ve klasörleri geri yükleme noktasından geri yüklemek için sanal makin
 
    Linux için komut dosyası kurtarma noktasına bağlanmak için 'open-iSCSI' ve 'lshw' bileşenleri gerektirir. Bileşenleri betiğin çalıştırıldığı bilgisayarda mevcut değilse, komut dosyası bileşenleri yüklemek için izin ister. İzin sağlamak gerekli bileşenleri yüklemek için.  
          
-   Yedeklenen VM olarak aynı (veya uyumlu) işletim sistemine sahip herhangi bir makinede komut dosyasını çalıştırın. Bkz: [uyumlu işletim sistemi tablo](backup-azure-restore-files-from-vm.md#compatible-os) uyumlu işletim sistemleri için. Korumalı Azure sanal makine Windows depolama alanları (için Windows Azure VM) veya LVM/RAID Arrays(for Linux VMs) kullanıyorsa, aynı sanal makineye yürütülebilir dosya veya komut dosyası çalışamaz. Bunun yerine, uyumlu bir işletim sistemi ile diğer herhangi bir makinede yürütülebilir dosya veya komut dosyasını çalıştırın.
-
-### <a name="compatible-os"></a>Uyumlu işletim sistemi
-
-#### <a name="for-windows"></a>Windows için
-
-Aşağıdaki tabloda, sunucu ve bilgisayar işletim sistemleri arasındaki uyumluluk gösterir. Dosyaları kurtarırken dosyalarını bir önceki veya sonraki bir işletim sistemi sürümüne geri yükleyemezsiniz. Örneğin, bir dosyayı bir Windows Server 2016 VM'den Windows Server 2012 veya Windows 8 bilgisayarına geri yükleyemezsiniz. Aynı sunucu işletim sistemi veya uyumlu bir istemci işletim sistemi için bir sanal makineden dosyaları geri yükleyebilirsiniz.   
-
-|Sunucu işletim sistemi | Uyumlu istemci işletim sistemi  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>Linux için
-
-Linux dosyaları geri yüklemek için kullanılan bilgisayarın işletim sistemi dosya sistemi korunan sanal makinenin desteklemesi gerekir. Komut dosyasını çalıştırmak için bir bilgisayar seçerken, bilgisayarda uyumlu bir işletim sistemi ve aşağıdaki tabloda tanımlanan sürümlerinden birini kullanan emin olun:
-
-|Linux işletim sistemi | Sürümler  |
-| --------------- | ---- |
-| Ubuntu | 12.04 ve üstü |
-| CentOS | 6.5 ve üstü  |
-| RHEL | 6.7 ve üstü |
-| Debian | 7 ve üstü |
-| Oracle Linux | 6.4 ve üstü |
-
-Komut dosyası yürütme ve güvenli bir şekilde kurtarma noktasına bağlanmak için Python ve bash bileşenleri de gerektirir.
-
-|Bileşen | Sürüm  |
-| --------------- | ---- |
-| Bash | 4 ve üstü |
-| python | 2.6.6 ve üstü  |
-
+   Yedeklenen VM olarak aynı (veya uyumlu) işletim sistemine sahip herhangi bir makinede komut dosyasını çalıştırın. Bkz: [uyumlu işletim sistemi tablo](backup-azure-restore-files-from-vm.md#system-requirements) uyumlu işletim sistemleri için. Korumalı Azure sanal makine Windows depolama alanları (için Windows Azure VM) veya LVM/RAID diziler (için Linux VM'ler) kullanıyorsa, aynı sanal makineye yürütülebilir dosya veya komut dosyası çalışamaz. Bunun yerine, uyumlu bir işletim sistemi ile diğer herhangi bir makinede yürütülebilir dosya veya komut dosyasını çalıştırın.
 
 ### <a name="identifying-volumes"></a>Birimleri tanımlama
 
@@ -192,6 +159,41 @@ $ mount [RAID Disk Path] [/mountpath]
 ```
 
 RAID disk içinde yapılandırılmış başka bir LVM varsa, sonra LVM bölümler için yukarıdaki yordamı kullanır ancak RAID Disk adı yerine birim adı kullanın
+
+## <a name="system-requirements"></a>Sistem gereksinimleri
+
+### <a name="for-windows"></a>Windows için
+
+Aşağıdaki tabloda, sunucu ve bilgisayar işletim sistemleri arasındaki uyumluluk gösterir. Dosyaları kurtarırken dosyalarını bir önceki veya sonraki bir işletim sistemi sürümüne geri yükleyemezsiniz. Örneğin, bir dosyayı bir Windows Server 2016 VM'den Windows Server 2012 veya Windows 8 bilgisayarı geri yükleyemezsiniz. Aynı sunucu işletim sistemi veya uyumlu bir istemci işletim sistemi için bir sanal makineden dosyaları geri yükleyebilirsiniz.   
+
+|Sunucu işletim sistemi | Uyumlu istemci işletim sistemi  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>Linux için
+
+Linux dosyaları geri yüklemek için kullanılan bilgisayarın işletim sistemi dosya sistemi korunan sanal makinenin desteklemesi gerekir. Komut dosyasını çalıştırmak için bir bilgisayar seçerken, bilgisayarda uyumlu bir işletim sistemi ve aşağıdaki tabloda tanımlanan sürümlerinden birini kullanan emin olun:
+
+|Linux İşletim Sistemi | Sürümler  |
+| --------------- | ---- |
+| Ubuntu | 12.04 ve üstü |
+| CentOS | 6.5 ve üstü  |
+| RHEL | 6.7 ve üstü |
+| Debian | 7 ve üstü |
+| Oracle Linux | 6.4 ve üstü |
+| SLES | 12 ve üstü |
+| openSUSE | 42.2 ve üstü |
+
+Komut dosyası yürütme ve güvenli bir şekilde kurtarma noktasına bağlanmak için Python ve bash bileşenleri de gerektirir.
+
+|Bileşen | Sürüm  |
+| --------------- | ---- |
+| Bash | 4 ve üstü |
+| python | 2.6.6 ve üstü  |
+| TLS | 1.2 desteklenmesi gereken  |
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

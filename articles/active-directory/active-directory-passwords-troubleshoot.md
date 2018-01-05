@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 73c8ea046a5bdbeaca1b3f357fc41f0a6938db1e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb04ca30d43a8cf8af2b1dbc00330ba7924bb5b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorun giderme
 
@@ -165,7 +165,18 @@ Genel olarak, hizmetiniz en hızlı bir şekilde kurtarmak için aşağıdaki ad
 
 ### <a name="confirm-network-connectivity"></a>Ağ bağlantısını doğrulayın
 
-En yaygın hatası, güvenlik duvarının noktasıdır ve veya proxy bağlantı noktalarını ve boşta kalma zaman aşımı yanlış yapılandırılmış. Daha fazla bilgi için bağlantı önkoşulları gözden [Azure AD Connect için Önkoşullar](./connect/active-directory-aadconnect-prerequisites.md) makalesi.
+En yaygın hatası, güvenlik duvarının noktasıdır ve veya proxy bağlantı noktalarını ve boşta kalma zaman aşımı yanlış yapılandırılmış. 
+
+Azure AD Connect'i sürüm 1.1.443.0 ve yukarıdaki, giden HTTPS aşağıdaki erişim:
+
+   - passwordreset.microsoftonline.com
+   - servicebus.Windows.NET
+
+Daha fazla ayrıntı elde etmek için güncelleştirilmiş listesini başvuru [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) her Çarşamba güncelleştirildi ve aşağıdaki yürürlüğe koymak Pazartesi.
+
+Daha fazla bilgi için bağlantı önkoşulları gözden [Azure AD Connect için Önkoşullar](./connect/active-directory-aadconnect-prerequisites.md) makalesi.
+
+
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Azure AD Connect eşitleme hizmetini yeniden başlatın
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Tehdit modelleme aracı ile çalışmaya başlama
 
@@ -29,13 +29,13 @@ Bu makalede, mevcut bir yaklaşım modelleme SDL tehdit bilgilerini üzerinde ol
 
 Hızlı bir şekilde özetlemek için bir diyagram oluşturma, tehditleri tanımlamak, bunları Azaltıcı ve her azaltma doğrulama yaklaşım içerir. Bu işlem vurgular bir diyagram şöyledir:
 
-![SDL işlemi](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![SDL işlemi](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>İşlem modelleme tehdit başlatılıyor
 
 Tehdit modelleme Aracı'nı başlatın, aşağıdaki resimde görüldüğü gibi birkaç şeyi görürsünüz:
 
-![Boş başlangıç sayfası](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Boş başlangıç sayfası](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Tehdit modeli bölümü
 
@@ -70,7 +70,7 @@ Bunlar ilk kendi tehdit modeli geliştirmek sürecinde adımıdır.
 > Cristina: kesinlikle. Bir göz atalım.
 > Attila aracı açılır ve kendi ekran Cristina ile paylaşır.
 
-![Temel tehdit modeli](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Temel tehdit modeli](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Tamam, sonucunun görünüyor, ancak, bana üzerinden yol?
 > Attila: emin! Çözümleme şöyledir:
@@ -89,17 +89,17 @@ Adlı SDL yaklaşım kullanan simgesi menü seçimi (varsayılan şablona göre 
 
 Her kapı ve pencere sağlayarak evinizde güvenliğini sağlama kilitleme mekanizması bir alarm sistemi ekleme ya da sonra hırsız birleştirme önce olduğu gibi bu yaklaşımdır.
 
-![Temel tehditleri](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Temel tehditleri](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Listesindeki ilk öğeyi seçerek Attila başlar. Şunlar olur:
 
 İlk olarak, iki şablonlar arasındaki etkileşimi geliştirilmiştir
 
-![Etkileşim](./media/azure-security-threat-modeling-tool/interaction.png)
+![Etkileşim](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 İkinci, ek bilgiler tehdit hakkında tehdit Özellikleri penceresinde görüntülenir
 
-![Etkileşim bilgisi](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Etkileşim bilgisi](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 Oluşturulan tehdit ona olası tasarım açıkları anlamanıza yardımcı olur. Ek açıklama onu tam olarak ne yanı sıra olası yolları bunu azaltmak için yanlış olduğunu söyler sırada STRIDE kategori ona olası saldırı vektörlerinin hakkında bir fikir verir. Düzeltme ayrıntıları notları yazmak veya öncelik kuruluşunun hata çubuğu bağlı olarak derecelendirmeleri değiştirmek için kendisine düzenlenebilir alanları kullanabilirsiniz.
 
@@ -116,7 +116,7 @@ Tehditler tasarım varolan Azaltıcı Etkenler ya da güvenlik nedeniyle geçerl
 
 Attila Cristina listesiyle geçer ve önemli notlar, Azaltıcı Etkenler/justifications, öncelik ve durum değişikliklerini ekler sonra he seçer raporlar tam raporu -> arkadaşlarınızla geçtikleri kendisine için iyi bir raporu yazdırır Kaydet Rapor Oluştur ->. uygun güvenlik çalışmasını sağlamak için uygulanır.
 
-![Etkileşim bilgisi](./media/azure-security-threat-modeling-tool/report.png)
+![Etkileşim bilgisi](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Bunun yerine dosya paylaşımı Attila istiyorsa, kendisinin kolayca kuruluşunun OneDrive hesabınıza kaydederek bunu yapabilirsiniz. Kendisine yapan sonra kendisi belgeyi bağlantıyı Kopyala ve kendi iş arkadaşlarınızla paylaşın. 
 

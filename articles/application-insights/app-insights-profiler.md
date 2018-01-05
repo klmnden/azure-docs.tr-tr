@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile profil Canlı Azure web uygulamaları
 
@@ -227,6 +227,82 @@ Profil Oluşturucu yapılandırdığınızda güncelleştirmeler web uygulamanı
 7. Kudu Web sitesinde seçin **Site uzantıları**.
 8. Yükleme __Application Insights__ Azure Web Apps galerisinden.
 9. Web uygulaması yeniden başlatın.
+
+## <a id="profileondemand"></a>El ile tetikleyici Profil Oluşturucu
+Biz profil oluşturucu geliştirilen profil oluşturucu uygulama hizmetleri üzerinde test edebilirsiniz böylece biz bir komut satırı arabirimi eklenmesi. Bu aynı arabirimi kullanıcılara kullanarak profil oluşturucu nasıl başlatır de özelleştirebilirsiniz. Yüksek düzeyde profil oluşturucu App Service'in Kudu sistemi arka planda profil yönetmek için kullanır. Uygulama Insights uzantısını yüklediğinizde profil oluşturucu barındıran bir sürekli web işi oluşturuyoruz. Gereksinimlerinize uygun şekilde özelleştirebileceğiniz yeni bir web işi oluşturmak için aynı bu teknoloji kullanacağız.
+
+Bu bölümde nasıl yapılır:
+
+1.  Profil Oluşturucu iki dakika bir düğmesine basın ile başlatmak için bir web işi oluşturun.
+2.  Çalıştırmak için profil oluşturucu zamanlayabilirsiniz bir web işi oluşturun.
+3.  Profil oluşturucu bağımsız değişkenleri ayarlayın.
+
+
+### <a name="set-up"></a>Kurulum
+İlk şimdi içeren web işin Pano hakkında bilgi edinin. WebJobs sekmesi altında tıklatın ayarlar.
+
+![Web işleri dikey penceresi](./media/app-insights-profiler/webjobs-blade.png)
+
+Bu panoyu görebileceğiniz gibi tüm sitenizde şu anda yüklü web işleri gösterir. Çalışan profil oluşturucu işin ApplicationInsightsProfiler2 web işi görebilirsiniz. Biz el ile ve zamanlanmış profil oluşturma için bizim yeni web işleri oluşturuluyor yukarı nerede biteceğini budur.
+
+İlk şimdi biz gerekir ikilileri alın.
+
+1.  İlk kudu sitesine gidin. Geliştirilme Araçlar sekmesini tıklatın "Gelişmiş araçlar" sekmesinde Kudu logosu. "Üzerinde Git" seçeneğine tıklayın. Bu, yeni bir siteye alın ve otomatik olarak oturum açın.
+2.  Profil Oluşturucu ikilileri indirmek için ihtiyacımız İleri. Hata ayıklama Konsolu aracılığıyla dosya Gezgini'ne gidin sayfanın en üstünde bulunan CMD ->.
+3.  Site tıklatıldığında -> wwwroot App_Data -> işler -> -> sürekli. Bir klasörü "ApplicationInsightsProfiler2" görmeniz gerekir. Klasör solundaki indirme simgeyi tıklatın. Bu bir "ApplicationInsightsProfiler2.zip" dosyası indirir.
+4.  Bu gereksinim duyacağınız tüm dosyaları indirir ilerleyen. I geçmeden önce bu zip arşivini taşımak için temiz bir dizin oluşturulması önerilir.
+
+### <a name="setting-up-the-web-job-archive"></a>Web işi arşivi ayarlama
+Yeni bir web işi azure Web sitesine temelde eklerken run.cmd içinde ile zip arşivini oluşturun. Run.cmd web işi sisteme web işi çalıştırdığınızda yapmanız gerekenler söyler. Web işi belgelerinden okuyabilir diğer seçenekleri vardır, ancak bu konudaki Hedefimiz için başka bir şey gerekmez.
+
+1.  Başlatmak için benim "RunProfiler2Minutes" adlı yeni bir klasör oluşturun.
+2.  Dosyaları ayıklanan ApplicationInsightProfiler2 klasöründen bu yeni bir klasöre kopyalayın.
+3.  Yeni bir run.cmd dosyası oluşturun. (Bu çalışma klasörü vs code'da kolaylık sağlamak için başlatmadan önce açmış olduğum)
+4.  Ekle komutu `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`ve dosyayı kaydedin.
+a.  `start` Komutu başlatmak için profil oluşturucu bildirir.
+b.  `--engine-mode immediate`Profil Oluşturucu hemen başla istiyoruz söyler.
+c.  `--single`çalıştırmak için anlamına gelir ve ardından stop otomatik olarak d.  `--immediate-profiling-duration 120`Profil Oluşturucu 120 saniye veya 2 dakika çalıştırmak anlamına gelir.
+5.  Bu dosyayı kaydedin.
+6.  Bu klasörü arşive, klasörü sağ tıklatın ve sıkıştırılmış (daraltılmış) klasör -> için Gönder'i seçin. Bu klasörünüzün adını kullanarak bir .zip dosyası oluşturur.
+
+![Profil oluşturucu komut Başlat](./media/app-insights-profiler/start-profiler-command.png)
+
+Şimdi web işler bizim sitede ayarlamak kullanırız web işi .zip sunuyoruz.
+
+### <a name="add-a-new-web-job"></a>Yeni bir web işi ekleme
+Bizim sitede yeni bir web işi sonraki ekleyeceğiz. Bu örnek bir el ile Tetiklenmiş web işi eklemek nasıl yapacağınızı gösterir. Bunu yapmak için sonra neredeyse tam olarak aynı zamanlanmış işlemidir. Daha fazla bilgiyi hakkında zamanlanmış kendi tetiklenen iş.
+
+1.  Web işleri panoya gidin.
+2.  Araç çubuğundan Ekle komutuna tıklayın.
+3.  Web işinizin bir ad verin, my arşiv daha anlaşılır olması için adıyla aynı ve run.cmd farklı sürümlerine sahip kadar açmak için seçtiniz.
+4.  Dosyanın dosya Aç simgesi form tıklatıldığında parçası karşıya yükleme ve yukarıda gerçekleştirdiğiniz .zip dosyasını bulun.
+5.  Türü için Triggered seçin.
+6.  Tetikleyici el ile seçin.
+7.  Kaydetmek için Tamam'ı tıklatın.
+
+![Profil oluşturucu komut Başlat](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Profil Oluşturucu çalıştırın
+
+Biz biz el ile tetikleyebilir yeni bir web işi sahip olduğunuza göre biz çalıştırmayı deneyebilirsiniz.
+
+1.  Tasarım gereği, yalnızca belirli bir zamanda bir makine üzerinde çalışan bir ApplicationInsightsProfiler.exe işlem olabilir. Bu nedenle bu panosundan sürekli web işi devre dışı bıraktığınızdan emin olun başlangıçta için. Satırındaki'ı tıklatın ve "Durdur" düğmesine basın. Araç çubuğundaki Yenile ve durum işi durduruldu onaylar onaylayın.
+2.  Eklediğiniz yeni web işi satırla ve tuşuna Çalıştır tıklatın.
+3.  Araç çubuğundaki günlükleri komutunda satır hala seçili tıklatmayla Bu, bir web işleri panoya başlattığınız bu web işi için çıkarır. En son çalıştığında ve bunların sonuç listelenir.
+4.  Yalnızca başladıktan Çalıştır'ı tıklatın.
+5.  Tüm iyi olursa biz profil başlattığınız onaylayan profil oluşturucu gelen bazı tanılama günlüklerini görmeniz gerekir.
+
+### <a name="things-to-consider"></a>Göz önünde bulundurmanız gerekenler
+
+Bu yöntem görece basit olsa dikkate alınması gereken bazı şeyler vardır.
+
+1.  Bu bizim hizmeti tarafından yönetilmediğinden biz web işinizin Aracısı ikili dosyaları güncelleştiriliyor hiçbir şekilde sahip olur. En son almanın tek yolu, uzantısının güncelleştirilmesi ve yukarıdaki yaptığımız gibi sürekli klasöründen ele geçirme nedenle biz şu anda kararlı indirme sayfası bizim ikili dosyaları yok.
+2.  Bu kullanan son kullanıcı kullanmak yerine, geliştirici kullanımı ile tasarlanmış komut satırı bağımsız değişkenleri, bu bağımsız değişkenler değişiklik gelecekte, böylece yalnızca yükseltirken, duyarlı olabilir. Bir web işi, çalıştırma ve çalıştığını test eklemek için bir sorun çoğunu olmamalıdır. Sonunda olmadan el ile işlem yapmak için kullanıcı Arabirimi oluşturulmasını sağlar ancak dikkate alınacak değil.
+3.  Web işi çalıştırıldığında işleminizi aynı ortam değişkenleri ve web sitenizi sahip sona erer uygulama ayarlarını sahip olmasını sağlar Web işleri özelliği uygulama hizmetleri için benzersizdir. Geçiş için profil oluşturucu komut satırı aracılığıyla izleme anahtarı gerekmez Bunun anlamı, Ortamı'ndan izleme anahtarı yalnızca seçmelisiniz. Ancak profil oluşturucu geliştirme kutunuzun veya uygulama hizmetleri dışındaki bir makine üzerinde çalıştırmak istiyorsanız, bir izleme anahtarı sağlamanız gerekir. Bu bağımsız değişken geçirerek yapabilirsiniz `--ikey <instrumentation-key>`. Bu değer, uygulamanızın kullanıyor izleme anahtarını eşleşmesi gerektiğini unutmayın. Profil Oluşturucu günlük çıktısı de profil oluşturucu kullanmaya hangi ikey size bildirir ve bu izleme anahtarını şu hatayla etkinliğinden algıladık, profil.
+4.  El ile Tetiklenmiş web işleri Web kancası gerçekte tetiklenebilir. Bu url, web işi panodan sağ tıklayarak ve özelliklerini görüntüleme veya web işi tablosundan seçtikten sonra araç çubuğundaki özellikler seçme alabilirsiniz. I kadar ayrıntısı ilgili gireceğini değil, böylece bu hakkında çevrimiçi bulabilirsiniz makaleleri çok vardır, ancak bu profil oluşturucu CI/CD hattınızı (gibi VSTS) veya Microsoft Flow (https://flow.microsoft.com/en-us/) gibi bir şey tetikleme olasılığını yukarı açar. Nasıl süslü olabilen yolu tarafından bir run.ps1, run.cmd yapmak istediğiniz bağlı olarak olanakları kapsamlı.  
+
+
+
 
 ## <a id="aspnetcore"></a>ASP.NET çekirdeği desteği
 

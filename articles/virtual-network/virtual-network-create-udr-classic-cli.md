@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.openlocfilehash: 8fcb98723e7e872c932908e3456dc8680deb0901
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Yönlendirme denetlemek ve Azure CLI kullanarak sanal gereçler (Klasik) kullanma
 
@@ -72,7 +72,7 @@ Yol tablosu ve yukarıdaki senaryoyu temel ön uç alt ağ için gereken rota ol
    
     Parametreler:
    
-   * **-l (veya --location)**. Yeni NSG oluşturulacağı azure bölgesi. Bizim senaryomuz için *westus*.
+   * **-l (veya --konum)**. Yeni NSG oluşturulacağı azure bölgesi. Bizim senaryomuz için *westus*.
    * **-n (veya --name)**. Yeni nsg'nin adı. Bizim senaryomuz için *NSG ön uç*.
 3. İçin bir yol (192.168.2.0/24) arka uç alt ağa giden tüm trafiği göndermek için yol tablosu oluşturmak için aşağıdaki komutu çalıştırın **FW1** VM (192.168.0.4):
 

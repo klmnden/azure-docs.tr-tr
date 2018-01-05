@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
 ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-gateway-portal.md)
+> * [Azure portalı](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
@@ -165,7 +165,7 @@ Azure CLI kullanarak indirdiğiniz Azure Resource Manager şablonu dağıtmak i�
 
 1. Daha önce Azure CLI kullanmadıysanız, [Azure CLI yükleme ve yapılandırma](/cli/azure/install-azure-cli) sayfasına gidin ve Azure hesabınızı ve aboneliğinizi seçene kadar talimatları uygulayın.
 
-1. Gerekirse, çalıştırmak `az group create` aşağıdaki kod parçacığında gösterildiği gibi bir kaynak grubu oluşturmak için komutu. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md) sayfasını ziyaret edin.
+1. Gerekirse, çalıştırmak `az group create` aşağıdaki kod parçacığında gösterildiği gibi bir kaynak grubu oluşturmak için komutu. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md) sayfasını ziyaret edin.
 
     ```azurecli
     az group create --location westus --name appgatewayRG
@@ -175,7 +175,7 @@ Azure CLI kullanarak indirdiğiniz Azure Resource Manager şablonu dağıtmak i�
     
     **-l (veya --location)**. Yeni kaynak grubunun oluşturulduğu Azure bölgesi. Bizim senaryomuz için sahip *westus*.
 
-1. Çalıştırma `az group deployment create` şablonu ve parametre kullanarak yeni sanal ağı dağıtmak için cmdlet indirdiğiniz ve değiştirdiğiniz önceki adımda dosyaları. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
+1. Çalıştırma `az group deployment create` şablonu ve parametre kullanarak yeni sanal ağı dağıtmak için cmdlet indirdiğiniz ve değiştirdiğiniz önceki adımda dosyaları. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
 
     ```azurecli
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
@@ -189,7 +189,7 @@ Dağıtmak için tıkla, Azure Resource Manager şablonlarını kullanmanın ba�
 
 1. **Azure’a dağıt**’a tıklayın.
 
-    ![Azure’a Dağıt](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    ![Azure’a dağıtma](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
 1. Portalda, dağıtım şablonu parametrelerini doldurun ve **Tamam**’a tıklayın.
 

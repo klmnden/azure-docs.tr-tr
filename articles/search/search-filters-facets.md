@@ -14,17 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-<<<<<<< HEAD
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search'te bir model filtresi oluşturma 
 
@@ -39,7 +33,7 @@ ms.lasthandoff: 12/08/2017
 
 Dinamik ve bir sorgu üzerinde döndürülen modeller. Arama yanıtları bunlarla sonuçları gezinmek için kullanılan model kategorileri duruma getirin. Modelleri ile alışık değilseniz, aşağıdaki örnekte bir model gezinti yapısında çizimi ' dir.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Yeni çok yönlü gezinme ve istediğiniz daha ayrıntılı bilgi? Bkz: [modellenmiş bir gezinmede Azure Search'te uygulamak nasıl](search-faceted-navigation.md).
 

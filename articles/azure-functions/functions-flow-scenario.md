@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow’dan işlev çağırma
 
@@ -39,7 +39,7 @@ Bu konuda, bilgi nasıl yapılır:
 > * Onarım uygun maliyetli olması durumunda e-posta göndermek için bir akış oluşturun.
 > * Akış çalıştırın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 + Etkin bir [Microsoft Flow hesap](https://flow.microsoft.com/documentation/sign-up-sign-in/) kimlik bilgileri Azure hesabınız olarak işaretli. 
 + SharePoint, bu akış için bir veri kaynağı olarak kullanın. Kaydolun [bir Office 365 deneme](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) SharePoint zaten yoksa.
@@ -48,7 +48,7 @@ Bu konuda, bilgi nasıl yapılır:
 ## <a name="create-a-sharepoint-list"></a>Bir SharePoint listesi oluşturma
 Akış veri kaynağı olarak kullanmak bir liste oluşturarak başlayın. Listesinde aşağıdaki sütunlar var.
 
-| Liste sütunu     | Veri türü           | Notlar                                    |
+| Liste sütunu     | Veri Türü           | Notlar                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Başlık**           | Tek satırlık metin | Türbin adı                      |
 | **LastServiceDate** | Tarih                |                                          |
@@ -163,7 +163,7 @@ Listede oluşturulan tüm öğeler için akışını denetler **ServiceRequired*
 
 2. İçinde **bir eylem seçin** iletişim kutusu, arama `Turbine Repair`, eylemi seçin **Türbin onarma - maliyetleri hesaplar**.
 
-    ![Eylem seçin](media/functions-flow-scenario/choose-turbine-repair.png)
+    ![Bir eylem seçin](media/functions-flow-scenario/choose-turbine-repair.png)
 
     Aşağıdaki resimde akışına eklenir kartı gösterir. Alanları ve açıklamaları bağlayıcı OpenAPI tanımından gelir.
 
@@ -173,7 +173,7 @@ Listede oluşturulan tüm öğeler için akışını denetler **ServiceRequired*
 
     İçin **saatleri**seçin **EstimatedEffort**ve **kapasite**seçin **MaxOutput**.
 
-    ![Eylem seçin](media/functions-flow-scenario/calculates-costs-fields.png)
+    ![Bir eylem seçin](media/functions-flow-scenario/calculates-costs-fields.png)
 
      Şimdi işlevi çıktıya dayalı başka bir koşul ekleyin.
 
