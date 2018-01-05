@@ -1,5 +1,5 @@
 # Genel Bakış
-## [Azure Analysis Services nedir?](analysis-services-overview.md)
+## [Analysis Services hakkında](analysis-services-overview.md)
 ## [Desteklenen veri kaynakları](analysis-services-datasource.md)
 ## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
 ## [Şirket içi veri kaynaklarına bağlanma](analysis-services-gateway.md)

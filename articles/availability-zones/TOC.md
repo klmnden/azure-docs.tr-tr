@@ -20,7 +20,7 @@
 #### [PowerShell ile Kullanılabilirlik Alanına yönetilen disk ekleme](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Sanal makine ölçek kümeleri
-#### [Azure portalı ile sanal makine ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Kullanılabilirlik Alanında ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Yük dengeleyici
 #### [Yük dengeleyici nedir?](../load-balancer/load-balancer-standard-overview.md)

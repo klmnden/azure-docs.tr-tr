@@ -3,12 +3,12 @@
 ## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)
 
 
-# Başlarken
+# başlarken
 ## [IoT akış verilerini işleme](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md)
 ## [Power BI ile veri analizi](stream-analytics-power-bi-dashboard.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## Akış çözümleri oluşturma
 ### [Sosyal medya](stream-analytics-twitter-sentiment-analysis-trends.md)
@@ -36,7 +36,7 @@
 
 ## Visual Studio araçlarını kullanma
 ### [Yükleme](stream-analytics-tools-for-visual-studio-install.md)
-### [Kullanmaya başlama](stream-analytics-tools-for-visual-studio.md)
+### [Kullanmaya Başlama](stream-analytics-tools-for-visual-studio.md)
 ### [CI/CD işlem hatlarını ayarlama](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## İzleme ve iyileştirme
@@ -49,9 +49,10 @@
 ### [İşlemeyi artırmak için ölçeklendirme](stream-analytics-scale-jobs.md)
 ### [Machine Learning işlevleri ölçeği](stream-analytics-scale-with-machine-learning-functions.md)
 
-## Yönet
+## Yönetme
 ### [Giriş ve çıkış kimlik bilgilerini döndürme](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Güncelleştirmeler sırasında iş güvenilirliği](stream-analytics-job-reliability.md)
+### [Uyumluluk düzeyini yapılandırma](stream-analytics-compatibility-level.md)
 
 ## Sorun giderme
 ### [Sorun giderme kılavuzu](stream-analytics-troubleshooting-guide.md)
