@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'lardan ve modüllerden oluşturmak yerine, zaten Microsoft ve topluluk tarafından oluşturulmuş senaryoları çeşitli erişebilir.  Bu senaryolar değişiklik yapmadan ya da kullanabilir veya bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -26,23 +26,14 @@ Azure Automation'da kendi runbook'lardan ve modüllerden oluşturmak yerine, zat
 Runbook'lardan alabilirsiniz [Runbook Galerisi](#runbooks-in-runbook-gallery) ve modüllerden [PowerShell Galerisi](#modules-in-powerShell-gallery).  Ayrıca, geliştirdiğiniz senaryoları paylaşarak topluluğa katkıda bulunabilir.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbook Galerisi runbook'ları
-[Runbook Galerisi](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) runbook'lar çeşitli Microsoft ve Microsoft Azure Automation'a aktarabilirsiniz topluluk sağlar. İçinde barındırılan Galeriden bir runbook indirebilirsiniz [TechNet Komut Merkezi](https://gallery.technet.microsoft.com/scriptcenter/site/upload), veya Klasik Azure portalı ya da Azure portal galerisinden runbook'ları doğrudan aktarabilirsiniz.
+[Runbook Galerisi](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) runbook'lar çeşitli Microsoft ve Microsoft Azure Automation'a aktarabilirsiniz topluluk sağlar. İçinde barındırılan Galeriden bir runbook indirebilirsiniz [TechNet Komut Merkezi](https://gallery.technet.microsoft.com/scriptcenter/site/upload), ya da doğrudan runbook'ları Azure portalında galerisinden aktarabilirsiniz.
 
-Yalnızca Azure Klasik portalında veya Azure portal kullanarak doğrudan Runbook'u Galeriden içeri aktarabilirsiniz. Windows PowerShell kullanarak bu işlev gerçekleştiremiyor.
+Yalnızca Azure portalını kullanarak doğrudan Runbook'u Galeriden içeri aktarabilirsiniz. Windows PowerShell kullanarak bu işlev gerçekleştiremiyor.
 
 > [!NOTE]
 > Runbook'u Galeriden alın ve yükleme ve bir üretim ortamında çalışan çok dikkatli tüm runbook içeriğini doğrulamalıdır. |
 > 
 > 
-
-### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-classic-portal"></a>Klasik Azure portalı ile Runbook Galeriden bir runbook'u içeri aktarma
-1. Azure Portal'ı tıklatın, **yeni**, **uygulama hizmetleri**, **Otomasyon**, **Runbook**, **Galeri'den**.
-2. İlgili runbook'ları görüntülemek için bir kategori seçin ve bir runbook'un ayrıntılarını görüntülemek için seçin. İstediğiniz runbook'u seçin, sağ ok düğmesine tıklayın.
-   
-    ![Runbook galerisi](media/automation-runbook-gallery/runbook-gallery.png)
-3. Runbook'un içeriğini gözden geçirin ve gereksinimlere açıklamasında unutmayın. İşiniz bittiğinde sağ ok düğmesine tıklayın.
-4. Runbook ayrıntılarını girin ve ardından onay işareti düğmesine tıklayın. Runbook adı zaten doldurulur.
-5. Runbook kasasındaki **Runbook'lar** Otomasyon hesabının sekmesi.
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Azure portalı ile Runbook Galeriden bir runbook'u içeri aktarma
 1. Azure portalında, Otomasyon hesabınızı açın.
@@ -77,14 +68,14 @@ Microsoft, diğer müşteriler için yararlı olabilecek düşündüğünüz Run
   * Geliştirme / Test ortamları
   * Olağanüstü Durum Kurtarma
   * İzleme
-  * Düzeltme eki uygulama
+  * Düzeltme eki uygulanıyor
   * Sağlama
   * Düzeltme
   * VM yaşam döngüsü yönetimi
 * Otomasyon galeri saatte bir kez güncelleştirir, böylece katkılarınız hemen göremezsiniz.
 
 ## <a name="modules-in-powershell-gallery"></a>PowerShell galerisinde modülleri
-PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azure Otomasyonu'nda yükleyebilmek için var olan modülleri kullanılabilir [PowerShell Galerisi](http://www.powershellgallery.com).  Bu galeri Azure portalından başlatın ve bunları doğrudan Azure Automation'a yükleyin veya bunları indirebilir ve bunları el ile yükleyin.  Modülleri doğrudan Azure Klasik portalından yükleyemezsiniz, ancak bunları yükleyebilirsiniz, başka bir modül gibi bunları yükleyin.
+PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azure Otomasyonu'nda yükleyebilmek için var olan modülleri kullanılabilir [PowerShell Galerisi](http://www.powershellgallery.com).  Bu galeri Azure portalından başlatın ve bunları doğrudan Azure Automation'a yükleyin veya bunları indirebilir ve bunları el ile yükleyin.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Azure portal ile otomasyon modülü Galeriden bir modülü içeri aktarmak için
 1. Azure portalında, Otomasyon hesabınızı açın.

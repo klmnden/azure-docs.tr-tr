@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçümleri ve günlükleri izlemek için Linux tanılama uzantısını kullanın
 
@@ -50,9 +50,9 @@ Bu yükleme yönergeleri ve [indirilebilir örnek yapılandırma](https://raw.gi
 
 İndirilebilir yapılandırma yalnızca bir örnektir; kendi gereksinimlerinize uyacak şekilde değiştirin.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
-* **Azure Linux Aracısı sürüm 2.2.0 veya daha sonra**. Çoğu Azure VM Linux galeri görüntüleri sürüm 2.2.7 dahil etmek veya daha sonra. Çalıştırma `/usr/sbin/waagent -version` VM'de yüklü sürümünü onaylamak için. VM Konuk aracısının daha eski bir sürümünü çalıştırıyorsa, izleyin [bu yönergeleri](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) güncelleştirin.
+* **Azure Linux Aracısı sürüm 2.2.0 veya daha sonra**. Çoğu Azure VM Linux galeri görüntüleri sürüm 2.2.7 dahil etmek veya daha sonra. Çalıştırma `/usr/sbin/waagent -version` VM'de yüklü sürümünü onaylamak için. VM Konuk aracısının daha eski bir sürümünü çalıştırıyorsa, izleyin [bu yönergeleri](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) güncelleştirin.
 * **Azure CLI**. [Azure CLI 2.0 ayarlama](https://docs.microsoft.com/cli/azure/install-azure-cli) makinenizde ortamı.
 * Zaten yoksa wget komutu: çalıştırmak `sudo apt-get install wget`.
 * Var olan bir Azure aboneliği ve içerdiği verileri depolamak için varolan bir depolama hesabı.
@@ -135,6 +135,10 @@ storageAccountSasToken | Bir [hesap SAS belirteci](https://azure.microsoft.com/b
 mdsdHttpProxy | (isteğe bağlı) Belirtilen depolama hesabına ve uç noktası'na bağlanmak uzantıyı etkinleştirmek için gereken HTTP proxy bilgileri.
 sinksConfig | (isteğe bağlı) Alternatif hedefler için ölçümleri ve olayları teslim edilebilir ayrıntıları. Genişletme tarafından desteklenen her veri havuzu belirli ayrıntılarını izleyen bölümlerde açıklanmıştır.
 
+
+> [!NOTE]
+> Bir Azure dağıtım şablonu uzantısıyla dağıtırken, SAS belirteci ve depolama hesabı önceden oluşturulmalı ve şablona geçirildi. VM, depolama hesabı dağıtmak ve tek bir şablonda uzantısını yapılandırmak. Bir şablonu içindeki bir SAS belirteci oluşturma şu anda desteklenmiyor.
+
 Azure portalı üzerinden gerekli SAS belirteci kolayca oluşturabilirsiniz.
 
 1. Uzantı yazmak için istediğiniz genel amaçlı depolama hesabı seçin
@@ -142,7 +146,7 @@ Azure portalı üzerinden gerekli SAS belirteci kolayca oluşturabilirsiniz.
 1. Daha önce açıklandığı gibi uygun bölümleri olun
 1. "SAS oluştur" düğmesine tıklayın.
 
-![Görüntü](./media/diagnostic-extension/make_sas.png)
+![görüntü](./media/diagnostic-extension/make_sas.png)
 
 Oluşturulan SAS storageAccountSasToken alana kopyalayın; önde gelen soru işareti kaldırın ("?").
 
@@ -301,7 +305,7 @@ Bu isteğe bağlı bir bölüm ölçümleri koleksiyonunu denetler. Ham örnekle
 
 * Ortalama
 * en az
-* Maksimum
+* en fazla
 * Son toplanan değeri
 * Toplama hesaplamak için kullanılan ham örneklerin sayısı
 
@@ -309,10 +313,10 @@ Bu isteğe bağlı bir bölüm ölçümleri koleksiyonunu denetler. Ham örnekle
 ------- | -----
 İç havuzlar | (isteğe bağlı) Hangi LAD gönderir ölçüm sonuçlarını toplanan havuzlarını adlarının virgülle ayrılmış listesi. Tüm toplanan ölçümler için listelenen her havuz yayımlanır. Bkz: [sinksConfig](#sinksconfig). Örnek: `"EHsink1, myjsonsink"`.
 type | Ölçümün gerçek sağlayıcısını tanımlar.
-sınıfı | "Sayacı" ile birlikte sağlayıcının ad alanı içindeki belirli ölçüm tanımlar.
+sınıf | "Sayacı" ile birlikte sağlayıcının ad alanı içindeki belirli ölçüm tanımlar.
 Sayaç | "Sınıf" ile birlikte sağlayıcının ad alanı içindeki belirli ölçüm tanımlar.
 counterSpecifier | Azure ölçümleri ad alanı içindeki belirli ölçüm tanımlar.
-Koşul | (isteğe bağlı) Ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne belirli bir örneği seçer. Daha fazla bilgi için bkz: [ `builtin` ölçüm tanımlarını](#metrics-supported-by-builtin).
+koşul | (isteğe bağlı) Ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne belirli bir örneği seçer. Daha fazla bilgi için bkz: [ `builtin` ölçüm tanımlarını](#metrics-supported-by-builtin).
 sampleRate | Toplanan ve bu ölçüm için ham örnek hızı ayarlar 8601 aralığı BELİRTİR. Ayarlanmadı, toplama aralığı değeri olarak ayarlanmış olup olmadığını [sampleRateInSeconds](#ladcfg). En kısa desteklenen örnek hızı 15 (PT15S) saniyedir.
 Birim | Bu dizeler biri olmalıdır: "Count", "Bayt sayısı", "Saniye", "Yüzde", "CountPerSecond", "BytesPerSecond", "Milisaniyelik". Ölçü birimi tanımlar. Toplanan veri tüketicileri bu birimi eşleştirmek için toplanan veri değerleri bekler. Bu alan LAD yoksayar.
 Görünen adı | Etiket (ilişkili yerel ayarı tarafından belirtilen dilde) bu verileri Azure ölçümleri eklenmiş. Bu alan LAD yoksayar.
@@ -382,9 +386,9 @@ Bu isteğe bağlı bir bölüm rasgele yürütülmesi denetimleri [OMI](https://
 
 Öğe | Değer
 ------- | -----
-Namespace | (isteğe bağlı) Sorgu içinde yürütülmesi gereken OMI ad alanı. Belirtilmezse, "kök/tarafından uygulanan scx", varsayılan değer: [System Center platformlar arası sağlayıcıları](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+ad alanı | (isteğe bağlı) Sorgu içinde yürütülmesi gereken OMI ad alanı. Belirtilmezse, "kök/tarafından uygulanan scx", varsayılan değer: [System Center platformlar arası sağlayıcıları](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 sorgu | Yürütülecek OMI sorgu.
-Tablo | (isteğe bağlı) Azure depolama tablosunda belirtilen depolama hesabı (bkz [ayarların korumalı](#protected-settings)).
+tablo | (isteğe bağlı) Azure depolama tablosunda belirtilen depolama hesabı (bkz [ayarların korumalı](#protected-settings)).
 frequency | (isteğe bağlı) Sorgu yürütme arasındaki saniye sayısı. 300 (5 dakika); varsayılan değer: en düşük değer 15 saniyedir.
 İç havuzlar | (isteğe bağlı) Ham örnek ölçüm sonuçlarını yayımlanan ek havuzlarını adlarının virgülle ayrılmış listesi. Bu ham örnekleri toplama yok veya Azure ölçümleri uzantısı tarafından hesaplanır.
 
@@ -406,8 +410,8 @@ Günlük dosyalarının yakalama denetler. LAD dosyasına yazılır gibi yeni me
 
 Öğe | Değer
 ------- | -----
-Dosya | İzlenen ve yakalanan için günlük dosyasının tam yol adı. Yol, tek bir dosya adı olmalıdır; bir dizin adı veya joker karakterler içeriyor.
-Tablo | (isteğe bağlı) İçine yeni dosya "kuyruğu" satırlarından yazılır belirtilen depolama hesabında (belirtildiği şekilde korumalı yapılandırma), Azure depolama tablo.
+dosya | İzlenen ve yakalanan için günlük dosyasının tam yol adı. Yol, tek bir dosya adı olmalıdır; bir dizin adı veya joker karakterler içeriyor.
+tablo | (isteğe bağlı) İçine yeni dosya "kuyruğu" satırlarından yazılır belirtilen depolama hesabında (belirtildiği şekilde korumalı yapılandırma), Azure depolama tablo.
 İç havuzlar | (isteğe bağlı) Günlük gönderilen hatları için ek havuzlarını adlarının virgülle ayrılmış listesi.
 
 "Tablo" veya "İç havuzlar" ya da her ikisini de belirtilmesi gerekir.
@@ -682,7 +686,7 @@ Her durumda için veri yüklenir:
 
 Performans verilerini görüntülemek veya uyarıları ayarlamak için Azure portalını kullanın:
 
-![Görüntü](./media/diagnostic-extension/graph_metrics.png)
+![görüntü](./media/diagnostic-extension/graph_metrics.png)
 
 `performanceCounters` Verileri her zaman bir Azure Storage tablosunda depolanır. Azure depolama API'leri, birçok diller ve platformlar için kullanılabilir.
 
@@ -695,7 +699,7 @@ Ayrıca, Azure depolama alanındaki verilere erişmek için bu UI araçları kul
 
 Bu oturumunun anlık görüntüsü, bir Microsoft Azure Storage Gezgini test VM üzerinde oluşturulan Azure Storage tablolarının ve doğru yapılandırılmış bir LAD 3.0 uzantısı kapsayıcılardan gösterir. Görüntü ile tam olarak eşleşmiyor [örnek LAD 3.0 yapılandırma](#an-example-lad-30-configuration).
 
-![Görüntü](./media/diagnostic-extension/stg_explorer.png)
+![görüntü](./media/diagnostic-extension/stg_explorer.png)
 
 İlgili bkz [EventHubs belgelerine](../../event-hubs/event-hubs-what-is-event-hubs.md) EventHubs uç noktasına yayımlanan iletilerin kullanma hakkında bilgi edinmek için.
 

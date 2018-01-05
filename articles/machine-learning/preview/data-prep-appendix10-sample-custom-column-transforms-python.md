@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: e915c936af65bc9cac591d1fc011351b1720bb5b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e576d44a854159054d4f7886fe7859ae34875c8f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>Özel sütun Dönüşümler (Python) örneği 
 Bu dönüştürme menüde adıdır **Sütun Ekle (komut)**.
@@ -54,6 +54,12 @@ UNIX (zaten olan bir tarih olduğunu varsayarak Col1) dönem beri geçen saniye 
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
 
+## <a name="hash-a-column-value-into-a-new-column"></a>Yeni bir sütun halinde karma bir sütun değeri
+```python
+    import hashlib
+    hash(row["MyColumnToHashCol1"])
+
+```
 
 
 

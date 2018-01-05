@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlama konuları
 Her üretim dağıtımı için kapasite planlamasının önemli bir adımdır. Bu işlemin bir parçası olarak göz önünde bulundurmanız gereken öğelerin bazıları aşağıda verilmiştir.
@@ -69,7 +69,7 @@ Dayanıklılık katmanı ile Azure altyapının Vm'leriniz sahip ayrıcalıklar�
 
 Bu ayrıcalık, aşağıdaki değerleri ifade edilir:
 
-* Altın - altyapı işleri UD başına iki saatlik bir süre duraklatılabilir. Altın dayanıklılık, yalnızca tam düğümü VM SKU'ları D15_V2, G5 vb. gibi üzerinde etkinleştirilebilir.
+* Altın - altyapı işleri UD başına iki saatlik bir süre duraklatılabilir. Altın dayanıklılık yalnızca tam düğüm L32s, GS5, G5, DS15_v2, D15_v2 (genel olarak tüm VM boyutları 'Örneği notta tek bir müşteriye ayrılmış donanım için ayrılmış olarak' işaretlenen http://aka.ms/vmspecs listelenmiş vb. gibi VM SKU'ları üzerinde etkin Tam düğümü VM'ler)
 * Gümüş - altyapı işleri UD başına 10 dakikalık bir süre duraklatıldı ve tüm standart vm'lerde tek çekirdek ve yukarıdaki kullanılabilir.
 * Bronz - ayrıcalıkların. Varsayılan değer budur. Yalnızca bu dayanıklılık düzeyi düğüm türleri için Çalıştır kullanın _yalnızca_ durum bilgisiz iş yükleri. 
 

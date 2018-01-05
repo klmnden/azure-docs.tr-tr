@@ -3,7 +3,7 @@ title: "SharePoint Azure AD uygulama proxy'si ile uzaktan erişimi etkinleştir 
 description: "Bir şirket içi SharePoint sunucusu Azure AD uygulama proxy'si ile tümleştirme hakkında temel bilgiler yer almaktadır."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: edc5602586ae2397bc039f252be09df969b06925
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6a1b82b82dc89378533e375bd8a5d4868ae5308
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>SharePoint Azure AD uygulama proxy'si ile uzaktan erişimi etkinleştir
 
@@ -27,7 +27,7 @@ Bu makalede, Azure Active Directory (Azure AD) uygulama ara sunucusu ile bir şi
 
 SharePoint Azure AD uygulama proxy'si ile uzaktan erişimi etkinleştirmek için bu makaledeki adım adım bölümler izleyin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede, ortamınızda SharePoint 2013 veya daha yeni zaten sahip olduğunuzu varsayar. Ayrıca, aşağıdaki önkoşulları göz önünde bulundurun:
 
@@ -156,7 +156,7 @@ KCD yapılandırmak için her bağlayıcı makine için aşağıdaki adımları 
   ![Hizmet hesabı için SPN ekleme](./media/application-proxy-remote-sharepoint/users-computers.png)
 
 6. SPN'ler listesinde, hizmet hesabı için daha önce oluşturduğunuz bir tanesini seçin.
-7. **Tamam** düğmesine tıklayın. Tıklatın **Tamam** yeniden değişiklikleri kaydedin.
+7. **Tamam**’a tıklayın. Tıklatın **Tamam** yeniden değişiklikleri kaydedin.
 
 ## <a name="step-2-enable-remote-access-to-sharepoint"></a>2. adım: SharePoint için uzaktan erişimi etkinleştir
 
@@ -198,7 +198,7 @@ Son adım, böylece bu dış URL temel alınarak bağlantılar işler SharePoint
 
   ![Yolun girme](./media/application-proxy-remote-sharepoint/alternate-access3.png)
 
-7. **Kaydet** düğmesine tıklayın.
+7. **Kaydet**’e tıklayın.
 
 Artık Azure AD uygulama proxy'si aracılığıyla harici olarak SharePoint sitesine erişebilirsiniz.
 

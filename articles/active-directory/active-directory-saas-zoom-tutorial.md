@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ve yakınlaştırma ara
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Öğretici: Yakınlaştırma Azure Active Directory Tümleştirme
 
@@ -32,7 +32,7 @@ Yakınlaştırma Azure AD ile tümleştirme ile aşağıdaki avantajları sağla
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme yakınlaştırma ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -113,29 +113,57 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [yakınlaştırma istemci destek ekibi](https://support.zoom.us/hc) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [yakınlaştırma istemci destek ekibi](https://support.zoom.us/hc) bu değerleri almak için.
+
+4. Yakınlaştırma uygulaması SAML onaylar SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. 
+
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, önceki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
+    
+    | Öznitelik Adı | Öznitelik Değeri | Namespace değeri |
+    | ------------------- | -----------|--------- |    
+    | E-posta adresi | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Ad | User.givenName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Soyadı | User.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Telefon numarası | User.telephoneNumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Bölüm | User.Department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
+
+    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+
+    d. İçinde **Namespace** metin kutusuna, ilgili satır için gösterilen ad alanı değeri yazın.
+    
+    e. **Tamam**’a tıklayın. 
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Tıklatın **kaydetmek** düğmesi.
+7. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **yakınlaştırma yapılandırma** 'yi tıklatın **yapılandırma yakınlaştırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+8. Üzerinde **yakınlaştırma yapılandırma** 'yi tıklatın **yapılandırma yakınlaştırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Yakınlaştırma yapılandırma](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Yakınlaştırma yapılandırma](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. Farklı web tarayıcısı penceresinde yakınlaştırma şirket sitenize yönetici olarak oturum açın.
+9. Farklı web tarayıcısı penceresinde yakınlaştırma şirket sitenize yönetici olarak oturum açın.
 
-8. Tıklatın **çoklu oturum açma** sekmesi.
+10. Tıklatın **çoklu oturum açma** sekmesi.
    
     ![Oturum açma tek sekme](./media/active-directory-saas-zoom-tutorial/IC784700.png "çoklu oturum açma")
 
-9. Tıklatın **güvenlik denetimi** sekmesini tıklatın ve ardından Git **çoklu oturum açma** ayarlar.
+11. Tıklatın **güvenlik denetimi** sekmesini tıklatın ve ardından Git **çoklu oturum açma** ayarlar.
 
-10. Çoklu oturum açma bölümünde, aşağıdaki adımları gerçekleştirin:
+12. Çoklu oturum açma bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açma bölüm](./media/active-directory-saas-zoom-tutorial/IC784701.png "çoklu oturum açma")
    
@@ -147,7 +175,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     d. İçinde **veren** metin değerini yapıştırın **SAML varlık kimliği** Azure portalından kopyalanan. 
 
-    e. **Kaydet** düğmesine tıklayın.
+    e. **Kaydet**’e tıklayın.
+
+    > [!NOTE] 
+    > Daha fazla bilgi için yakınlaştırma belgeleri ziyaret [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -183,7 +214,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-zoom-test-user"></a>Yakınlaştırma test kullanıcısı oluşturma
 

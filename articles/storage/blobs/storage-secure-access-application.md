@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 11b141617bea5962c45e1b91cf6629c2edd26c3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Bulutta bir uygulamanın verilere güvenli erişim
 
@@ -33,7 +33,7 @@ Bölümünde dizisinin üç bilgi nasıl yapılır:
 
 [Azure blob depolama](../common/storage-introduction.md#blob-storage) uygulamaları için dosyalarını depolamak için sağlam bir hizmet sunar. Bu öğretici genişletir [önceki konu] [ previous-tutorial] bir web uygulamasından depolama hesabınıza güvenli erişim göstermek için. İşiniz bittiğinde görüntüleri şifrelenir ve küçük resmini erişmek için web uygulaması güvenli SAS belirteçlerini kullanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için önceki depolama öğretici tamamlamış olmanız gerekir: [otomatikleştirme yeniden boyutlandırma karşıya olay kılavuz kullanarak görüntüleri][previous-tutorial]. 
 
@@ -55,7 +55,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 Bölümünde Bu öğretici serilerinden biri, web uygulaması bir ortak kapsayıcı görüntülerden gösteren oluştu. Bu seriyi bölümünde kullandığınız [güvenli erişim imzası (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) küçük resim görüntüleri almak için belirteçleri. SAS belirteci, bir kapsayıcı veya blob tabanlı IP, protokol, zaman aralığı veya izin verilen hakları kısıtlı erişim sağlamak izin verir.
 
-Bu örnekte, kaynak kodu deposu kullanır `sasTokens` güncelleştirilmiş kod örneği sahip şube. Var olan GitHub dağıtımı Sil [az webapp dağıtım kaynağı silme](/cli/azure/webapp/deployments/source#delete). Ardından, GitHub dağıtımı ile web uygulaması için yapılandırma [az webapp dağıtım kaynağı config](/cli/azure/webapp/deployment/source#config) komutu.  
+Bu örnekte, kaynak kodu deposu kullanır `sasTokens` güncelleştirilmiş kod örneği sahip şube. Var olan GitHub dağıtımı Sil [az webapp dağıtım kaynağı silme](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Ardından, GitHub dağıtımı ile web uygulaması için yapılandırma [az webapp dağıtım kaynağı config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) komutu.  
 
 Aşağıdaki komutta `<web-app>` web uygulamanızın adıdır.  
 
@@ -135,7 +135,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 Aşağıdaki sınıfları, özellikleri ve yöntemleri önceki görevde kullanılır:
 
-|sınıfı  |Özellikler| Yöntemler  |
+|Sınıf  |Özellikler| Yöntemler  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.windowsazure.storage.auth.storagecredentials?view=azure-dotnet)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet#Microsoft_WindowsAzure_Storage_CloudStorageAccount_CreateCloudBlobClient)        |
@@ -194,7 +194,7 @@ Date: Mon, 11 Sep 2017 19:27:46 GMT
 
 ## <a name="enable-https-only"></a>Yalnızca HTTPS etkinleştirme
 
-Veri istekleri için ve bir depolama hesabından güvenli olduğundan emin olmak için yalnızca HTTPS isteklerine sınırlayabilirsiniz. Depolama hesabı gerekli protokolü kullanarak güncelleştirme [az depolama hesabı güncelleştirme](/cli/azure/storage/account#update) komutu.
+Veri istekleri için ve bir depolama hesabından güvenli olduğundan emin olmak için yalnızca HTTPS isteklerine sınırlayabilirsiniz. Depolama hesabı gerekli protokolü kullanarak güncelleştirme [az depolama hesabı güncelleştirme](/cli/azure/storage/account#az_storage_account_update) komutu.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Bir Azure yığın ölçek birimi düğümünde bir donanım bileşeni Değiştir
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri*
 
-Bu makalede olmayan hot Swap donanım bileşenleri değiştirmek için genel işlem açıklanır. Gerçek değiştirme adımları farklılık gösterir, özgün donanım üreticisi (OEM) donanım satıcınıza temel. Azure tümleşik yığını sisteme özgü ayrıntılı adımlar için satıcınızın alan değiştirilebilen biriminin (FRU) belgelerine bakın.
+Bu makalede olmayan hot Swap donanım bileşenleri değiştirmek için genel işlem açıklanır. Gerçek değiştirme adımları farklılık özgün donanım üreticisi (OEM) donanım satıcınıza temel. Azure tümleşik yığını sisteme özgü ayrıntılı adımlar için satıcınızın alan değiştirilebilen biriminin (FRU) belgelerine bakın.
 
 Olmayan hot Swap bileşenleri şunları içerir:
 
@@ -40,7 +40,7 @@ Olmayan hot Swap bileşenleri şunları içerir:
 
 Aşağıdaki akış diyagramı olmayan hot Swap donanım bileşeni değiştirmek için genel FRU işlemi gösterilmektedir.
 
-![Akış bileşeni değiştirme akışını gösteren diyagram](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Akış bileşeni değiştirme akışını gösteren diyagram](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 * Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
 
@@ -48,11 +48,11 @@ Aşağıdaki akış diyagramı olmayan hot Swap donanım bileşeni değiştirmek
 
 ## <a name="review-alert-information"></a>Uyarı bilgileri gözden geçirin
 
-Azure yığın sistem durumunu ve izleme sistemi, ağ bağdaştırıcıları ve depolama alanları doğrudan tarafından denetlenen veri sürücülerinin durumunu izler. Diğer donanım bileşenleri izlemez. Diğer tüm donanım bileşenleri için donanım yaşam döngüsü konakta çalışan çözüm izleme satıcıya özgü donanım uyarılar oluşturulur.
+Azure yığın sistem durumunu ve izleme sistemi ağ bağdaştırıcıları ve veri sürücüleri depolama alanları doğrudan tarafından denetlenen sistem durumunu izler. Diğer donanım bileşenleri izlemez. Diğer tüm donanım bileşenleri için donanım yaşam döngüsü konakta çalışan çözüm izleme satıcıya özgü donanım uyarılar oluşturulur.
 
 ## <a name="component-replacement-process"></a>Bileşen değiştirme işlemi
 
-Aşağıdaki adımlar, bir üst düzey genel bakış bileşeni değiştirme işlemi sağlanır. OEM tarafından sağlanan FRU belgelerinize bakarak olmadan adımları izlemeyin.
+Aşağıdaki adımlar bileşeni değiştirme işlemi üst düzey bir genel bakış sağlar. OEM tarafından sağlanan FRU belgelerinize bakarak olmadan adımları izlemeyin.
 
 1. Kullanım [boşaltma](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü bakım moduna eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
 2. Ölçek birimi düğüm bakım modunda olduğunda kullanın [kapatmak](azure-stack-node-actions.md#scale-unit-node-actions) eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
@@ -69,4 +69,5 @@ Aşağıdaki adımlar, bir üst düzey genel bakış bileşeni değiştirme işl
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Hot Swap fiziksel disk değiştirme hakkında daha fazla bilgi için bkz: [disk değiştirme](azure-stack-replace-disk.md).
-- Bir fiziksel düğüm değiştirme hakkında daha fazla bilgi için bkz: [bir ölçek birimi düğümü yerine](azure-stack-replace-node.md). 
+- Bir fiziksel düğüm değiştirme hakkında daha fazla bilgi için bkz: [bir ölçek birimi düğümü yerine](azure-stack-replace-node.md).
+- 

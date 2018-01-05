@@ -2,8 +2,8 @@
 title: "İOS mobil uygulamaları ile çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs"
 description: "Önbellek ve eşitleme çevrimdışı veri için Azure App Service mobile apps'de iOS uygulamalarında kullanmayı öğrenin."
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Çevrimdışı iOS mobil uygulamaları ile eşitlemeyi etkinleştir
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -163,7 +163,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablonun tanımlanmış--SDK tarafın
 | id | Tamsayı 64 |
 | öğe kimliği | Dize |
 | properties | İkili veriler |
-| Tablo | Dize |
+| tablo | Dize |
 | tableKind | Tamsayı 16 |
 
 
@@ -187,7 +187,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablonun tanımlanmış--SDK tarafın
 | id |Dize |
 | anahtar |Dize |
 | keyType |Tamsayı 64 |
-| Tablo |Dize |
+| tablo |Dize |
 | değer |Dize |
 
 ### <a name="data-table"></a>Veri tablosu
@@ -197,11 +197,11 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablonun tanımlanmış--SDK tarafın
 | Öznitelik | Tür | Not |
 | --- | --- | --- |
 | id | Dize, gerekli olarak işaretlenmiş |Uzak Depolama birincil anahtar |
-| Tamamlayın | Boole değeri | Yapılacak iş öğesi alanı |
+| Tamamlayın | Boole | Yapılacak iş öğesi alanı |
 | Metin |Dize |Yapılacak iş öğesi alanı |
 | CreatedAt | Tarih | (isteğe bağlı) Eşlendiği **createdAt** sistem özelliği |
 | updatedAt | Tarih | (isteğe bağlı) Eşlendiği **updatedAt** sistem özelliği |
-| Sürüm | Dize | (isteğe bağlı) Çakışmaları, maps sürüme algılamak için kullanılan |
+| sürüm | Dize | (isteğe bağlı) Çakışmaları, maps sürüme algılamak için kullanılan |
 
 ## <a name="setup-sync"></a>Uygulama eşitleme davranışını değiştirme
 Bu bölümde, uygulama başlatma ya da zaman eklemek ve öğeleri güncelleştirme üzerinde eşitlemez şekilde uygulama değiştirin. Yalnızca Yenile hareketi düğmesini gerçekleştirildiğinde eşitlenir.

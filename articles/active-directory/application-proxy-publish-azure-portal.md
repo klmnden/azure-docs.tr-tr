@@ -3,7 +3,7 @@ title: "Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama | Microsoft Belge
 description: "Azure portalında Azure AD uygulama proxy'si ile şirket içi uygulamaları bulutta yayımlayın."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -12,20 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-<<<<<<< HEAD
-ms.openlocfilehash: e00a939f2b20ab8e0a2ddf0ff91e59db440213ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3639c7d8c3c1e716eaf1a0af0506f6d0d2ad0493
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
@@ -50,7 +44,7 @@ Uygulama proxy'si ile uygulamalarınızı yayımlamak için aşağıdaki adımla
 
 3. Seçin **tüm**seçeneğini belirleyip **şirket içi uygulama**.  
 
-  ![Kendi uygulama ekleme](./media/application-proxy-publish-azure-portal/add-your-own.png)
+  ![Kendi uygulamanızı ekleyin](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
 4. Uygulamanız ile ilgili şu bilgileri sağlayın:
 
@@ -92,7 +86,7 @@ Uygulamanız doğru bir şekilde yayımlanan test etmek için bir test kullanıc
   ![Bir kullanıcı veya Grup Ekle](./media/application-proxy-publish-azure-portal/add-user.png)
 
 3. Ekle atama dikey seçin **kullanıcılar ve gruplar** eklemek istediğiniz hesabı seçin. 
-4. Seçin **atamak**.
+4. **Ata**'yı seçin.
 
 ## <a name="test-your-published-app"></a>Yayımlanan uygulamanızı test etme
 

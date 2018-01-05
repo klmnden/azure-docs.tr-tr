@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Yedekli depolamaya okuma erişimi erişimde arızanın benzetimini gerçekleştirin
 
@@ -33,7 +33,7 @@ Bölümünde dizisinin iki bilgi nasıl yapılır:
 > * Arızanın benzetimini gerçekleştirin
 > * Birincil uç noktası geri yükleme benzetimi
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -88,7 +88,7 @@ Fiddler ve select **kuralları** -> **kuralları Özelleştir...** .  Aşağıda
 
 Uygulama sürdürmek için basın **herhangi bir tuşa** .
 
-Uygulama yeniden çalışmaya başladıktan sonra birincil uç istekleri başarısız başlar. Uygulama birincil uç noktasına 5 kez yeniden dener. Hata eşiğinin beş denemeleri sonra görüntüyü ikincil salt okunur uç noktasından ister. Uygulama görüntüsü başarıyla ikincil uç noktasından 20 kez aldıktan sonra uygulama birincil bitiş noktasına bağlanmaya çalışır. Birincil uç nokta hala ulaşılamaz durumda olduğunda uygulama ikincil uç noktaya okuma sürdürür. Bu deseni [devre kesici](/azure/architecture/patterns/circuit-breaker.md) önceki öğreticide açıklanan düzeni.
+Uygulama yeniden çalışmaya başladıktan sonra birincil uç istekleri başarısız başlar. Uygulama birincil uç noktasına 5 kez yeniden dener. Hata eşiğinin beş denemeleri sonra görüntüyü ikincil salt okunur uç noktasından ister. Uygulama görüntüsü başarıyla ikincil uç noktasından 20 kez aldıktan sonra uygulama birincil bitiş noktasına bağlanmaya çalışır. Birincil uç nokta hala ulaşılamaz durumda olduğunda uygulama ikincil uç noktaya okuma sürdürür. Bu deseni [devre kesici](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) önceki öğreticide açıklanan düzeni.
 
 ![Özelleştirilmiş kural yapıştırın](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 

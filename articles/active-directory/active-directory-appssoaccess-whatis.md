@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?
 Çoklu oturum açma tüm uygulamaları ve iş, yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak yapmak için gereken kaynaklar erişebildiklerinden anlamına gelir. Oturum açıldıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örn. bir parola yazın) ikinci kez.
@@ -49,7 +49,7 @@ Azure AD uygulamalara oturum açmak için üç farklı yolla destekler:
 * **Parola tabanlı çoklu oturum açma** güvenli uygulama parola depolama ve bir web tarayıcı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Bu uygulama tarafından sağlanan var olan oturum açma işlemi yararlanır ancak parolaları yönetmek bir yönetici sağlar ve parolayı bilmeniz kullanıcının gerektirmez.
 * **Varolan çoklu oturum açma** tüm mevcut çoklu oturum açma, uygulama için ayarlanmadı, ancak bu uygulamalar için Office 365 veya Azure AD erişim paneli portalları bağlanmasını sağlar özelliğini kullanabilmeniz Azure AD sağlar ve ayrıca ek sağlar ne zaman uygulamaları var. başlatılan Azure AD'de raporlama.
 
-Bir uygulamaya bir kullanıcı kimlik doğrulaması sonra bunlar Ayrıca uygulama bildiren uygulamayı sağlanan bir hesap kaydı sahip olmanız gerekir burada var. izinler ve erişim düzeyi olan uygulama içinden. Bu hesap kaydını sağlama ya da otomatik olarak gerçekleşebileceği veya kullanıcı oturum açma tek erişimi sağlanan önce el ile bir yönetici tarafından ortaya çıkabilir.
+Bir uygulama ile bir kullanıcı kimliğini doğrulamasından sonra Ayrıca uygulama bildiren uygulamayı sağlanan bir hesap kaydı ihtiyaç duydukları burada var. izinler ve erişim düzeyi olan uygulama içinden. Bu hesap kaydını sağlama ya da otomatik olarak gerçekleşebileceği veya kullanıcı oturum açma tek erişimi sağlanan önce el ile bir yönetici tarafından ortaya çıkabilir.
 
  Bu tek oturum açma modları ve aşağıda sağlama hakkında daha ayrıntılı bilgi.
 

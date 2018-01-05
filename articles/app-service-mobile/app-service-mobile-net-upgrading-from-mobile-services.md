@@ -3,8 +3,8 @@ title: "Azure uygulama hizmeti için Mobile Services'den yükseltme"
 description: "Bir mobil uygulama hizmeti Mobile Services uygulamanıza kolayca yükseltmeyi öğrenin"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Var olan .NET Azure mobil hizmetinizi App Service'e yükseltme
 App Service Mobile, Microsoft Azure kullanarak mobil uygulamaları oluşturmak için yeni bir yoludur. Daha fazla bilgi için bkz: [Mobile Apps nedir?].
@@ -89,7 +89,7 @@ Ardından, WebApiConfig.cs içinde değiştirebilirsiniz:
         // Use this class to set WebAPI configuration options
         HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
 
-İle
+with
 
         HttpConfiguration config = new HttpConfiguration();
         new MobileAppConfiguration()
@@ -139,7 +139,7 @@ Azure Mobile Apps, Sistem özellikleri artık özel bir biçime sahip ve aşağ�
 * CreatedAt
 * updatedAt
 * silindi
-* Sürüm
+* sürüm
 
 Mobile Apps istemci SDK'ları, herhangi bir değişiklik için istemci kodu gerekli; bu nedenle yeni Sistem özellikleri adları kullanın. REST çağrılarını hizmetinize doğrudan yapıyorsanız ancak, daha sonra sorgularınızı uygun şekilde değiştirmeniz gerekir.
 
@@ -155,7 +155,7 @@ Sistem özellikleri adlarını yapılan değişiklikler, çevrimdışı eşitlem
 | id |Dize, gerekli olarak işaretlenmiş |Uzak Depolama birincil anahtar |
 | CreatedAt |Tarih |createdAt sistem özelliğine (isteğe bağlı) eşlemeleri |
 | updatedAt |Tarih |updatedAt sistem özelliğine (isteğe bağlı) eşlemeleri |
-| Sürüm |Dize |(isteğe bağlı) çakışmaları, maps sürüme algılamak için kullanılan |
+| sürüm |Dize |(isteğe bağlı) çakışmaları, maps sürüme algılamak için kullanılan |
 
 #### <a name="querying-system-properties"></a>Sistem özellikleri sorgulama
 Azure Mobile Services ' Sistem özellikleri varsayılan olarak, ancak yalnızca sorgu dizesi kullanılarak istendiklerinde gönderilmez `__systemProperties`. Buna karşılık, Azure Mobile Apps sistemde özelliklerdir **her zaman seçili** server SDK nesne modeli parçası olduğundan.
@@ -199,7 +199,7 @@ CORS kullanıyorsanız sorun ana alanlarını olan `eTag` ve `Location` üstbilg
 ### <a name="push-notifications"></a>Anında İletme Bildirimleri 
 Alım için sunucu SDK'dan eksik bulabilirsiniz ana öğe PushRegistrationHandler sınıftır. Kayıtlar biraz farklı mobil uygulamalarda işlenir ve tagless kayıtlar varsayılan olarak etkinleştirilir. Etiketler yönetme özel API'lerini kullanarak bunu. Lütfen bakın [için etiketler kaydetme](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) daha fazla bilgi için yönergeler.
 
-### <a name="scheduled-jobs"></a>Zamanlanan işler
+### <a name="scheduled-jobs"></a>Zamanlanan İşler
 .NET arka ucuna sahip var olan tüm işleri ayrı ayrı yükseltilmesi gerekir zamanlanmış işler mobil uygulamasında yerleşiktir böylece değil. Bir seçenektir zamanlanmış bir oluşturmak için [Web işi] mobil uygulama kodu sitesinde. Ayrıca iş kodunuzu tutan kurma denetleyicisi ve yapılandırma [Azure Scheduler] Bu uç beklenen zamanlamada isabet.
 
 ### <a name="miscellaneous-changes"></a>Çeşitli değişiklikler

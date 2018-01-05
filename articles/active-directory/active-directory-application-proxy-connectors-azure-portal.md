@@ -3,7 +3,7 @@ title: "Ayrı ağlar ve Azure AD uygulaması Proxy Bağlayıcısı gruplarını 
 description: "Azure AD uygulama proxy'si bağlayıcılarını grupları oluşturmak ve yönetmek nasıl ele alınmaktadır."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: afa710e2605bc1416b082f266010c52d13e83973
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Ayrı ağlarda ve konumları bağlayıcı gruplarını kullanarak uygulama yayımlama
 
@@ -32,7 +32,7 @@ Tüm uygulamaları bir bağlayıcı grubuna atanır. Grupları oluşturmazsanız
 >[!TIP] 
 >Büyük bir uygulama proxy'si dağıtımınız varsa, tüm uygulamaları varsayılan bağlayıcı grubuna atamayın. Bir active Bağlayıcısı gruba atanıncaya kadar bu şekilde, tüm dinamik trafik yeni bağlayıcılar almadığınız. Bu yapılandırma bakım kullanıcılarınızın etkilemeden gerçekleştirebilmeleri için bağlayıcıları bir boşta geri varsayılan grubuna taşıyarak moduna sağlar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bağlayıcılar grubuna emin olmak sahip [birden çok bağlayıcı yüklü](active-directory-application-proxy-enable.md). Yeni bir bağlayıcı yüklediğinizde otomatik olarak birleştiren **varsayılan** bağlayıcı grubu.
 
 ## <a name="create-connector-groups"></a>Bağlayıcı grupları oluşturma

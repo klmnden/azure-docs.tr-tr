@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/29/2017
 ms.author: owend
-ms.openlocfilehash: 982626b3bafbb3857d2d85e9442982e8f46f0501
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama Günlüğü Kurulumu
 
@@ -34,9 +34,9 @@ Seçebileceğiniz **altyapısı**, **hizmet**, ve **ölçümleri** kategoriler.
 
 ### <a name="engine"></a>Altyapısı
 
-Altyapısı seçerek, günlükleri tüm [Xevent'ler](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Olayları tek tek seçemezsiniz. 
+Seçme **altyapısı** tüm günlükleri [Xevent'ler](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Olayları tek tek seçemezsiniz. 
 
-|XEvent kategorileri |Olay Adı  |
+|XEvent kategorileri |Olay adı  |
 |---------|---------|
 |Güvenlik Denetimi    |   Denetim oturum açma      |
 |Güvenlik Denetimi    |   Denetim kapatma      |
@@ -73,17 +73,17 @@ Altyapısı seçerek, günlükleri tüm [Xevent'ler](https://docs.microsoft.com/
 
 ### <a name="all-metrics"></a>Tüm ölçümleri
 
-AllMetrics kategori aynı oturum [sunucusu ölçümlerini](analysis-services-monitor.md#server-metrics) ölçümlerini görüntülenir.
+Ölçümleri kategori aynı oturum [sunucusu ölçümlerini](analysis-services-monitor.md#server-metrics) ölçümlerini görüntülenir.
 
 ## <a name="setup-diagnostics-logging"></a>Tanılama Günlüğü Kurulumu
 
-### <a name="by-using-the-azure-portal"></a>Azure Portalı'nı kullanarak
+### <a name="azure-portal"></a>Azure portalına
 
-1. İçinde [Azure portal](https://portal.azure.com), Azure Analysis Services sunucunuzun tıklatın **tanılama günlükleri** sol gezinti ve ardından **tanılamayı açın**.
+1. İçinde [Azure portal](https://portal.azure.com) > sunucu, tıklatın **tanılama günlükleri** sol gezinti ve ardından **tanılamayı açın**.
 
     ![Azure portalında Azure Cosmos DB için tanılama günlük kaydını etkinleştirmek](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. İçinde **tanılama ayarlarını** sayfasında, aşağıdakileri yapın: 
+2. İçinde **tanılama ayarlarını**, aşağıdakileri yapın: 
 
     * **Ad**. Günlükleri oluşturmak için bir ad girin.
 
@@ -101,8 +101,9 @@ AllMetrics kategori aynı oturum [sunucusu ölçümlerini](analysis-services-mon
 
     Tanılama günlüklerinize herhangi bir noktada gelecekte kaydedilme değiştirmek istiyorsanız, ayarlarını değiştirmek için bu sayfaya geri dönebilirsiniz.
 
-### <a name="by-using-powershell"></a>PowerShell kullanarak
-Alabileceğiniz temel komutlar şunlardır. PowerShell kullanarak bir depolama hesabı için günlük kaydını ayarlama hakkında adım adım yardım istiyorsanız, bkz: [öğretici](#tutorial) bu makalenin ilerisinde yer.
+### <a name="powershell"></a>PowerShell
+
+Alabileceğiniz temel komutlar şunlardır. PowerShell kullanarak bir depolama hesabı için günlük ayarlamayla ilgili adım adım yönergeler istiyorsanız, bu makalenin sonraki bölümlerinde öğretici bakın.
 
 Ölçümleri ve PowerShell kullanarak günlüğü Tanılama'yı etkinleştirmek için aşağıdaki komutları kullanın:
 
@@ -156,13 +157,11 @@ Günlükleri günlüğünü ayarlama, birkaç saat içinde genellikle kullanıla
 * Artık depolama hesabınızda tutmak istemediğiniz günlükleri silin.
 * Bir bekletme dönemi için eski günlükleri depolama hesabınızdan silindi şekilde ayarladığınızdan emin olun.
 
-
-<a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Günlük analizi içinde günlüklerini görüntüle
 
 Ölçümleri ve sunucu olaylarını yan yana çözümleme için günlük analizi, Xevent'ler ile tümleştirilir. Günlük analizi Mimarinizi arasında tanılama günlük verilerini bütünsel bir görünümünü sağlayarak diğer Azure hizmetleriyle olayları alacak şekilde de yapılandırılabilir.
 
-Günlük analizi tanılama verilerini görüntülemek için günlük arama sayfası soldaki menüden ya da sayfa yönetim alanı aşağıdaki görüntüde gösterildiği gibi açın:
+Günlük analizi tanılama verilerini görüntülemek için günlük arama sayfası soldaki menüden veya Yönetim alanında, aşağıda gösterildiği gibi açın.
 
 ![Azure portalında oturum arama seçenekleri](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -174,7 +173,6 @@ Tıklatın **EventClass\_s** veya bir olay adları ve günlük analizi devam bir
 
 Checkout sağlayan bir Web sitesi Gelişmiş sorgu, dashboarding ve günlük analizi veri uyarı yeteneklerini Operations Management Suite emin olun.
 
-<a id="#queries"></a>
 ### <a name="queries"></a>Sorgular
 
 Kullanabileceğiniz sorgular yüzlerce vardır. Başlamanıza yardımcı olmak için birkaç şunlardır.
@@ -199,7 +197,6 @@ Yeni günlük arama sorgu dilini kullanma hakkında daha fazla bilgi için bkz: 
 > Paylaşmak istediğiniz harika bir günlük analizi sorgu var mı? GitHub hesabı varsa, bu makalede ekleyebilirsiniz. Tıklatmanız **Düzenle** bu sayfanın üst sağdaki.
 
 
-<a id="#tutorial"></a>
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Öğretici - PowerShell kullanarak günlük kaydını etkinleştirin
 Hızlı Bu öğreticide, Analysis Services sunucusu olarak bir depolama hesabı aynı abonelikte ve kaynak grubu oluşturun. Günlüğe kaydetme, çıkış yeni depolama hesabı gönderme tanılama etkinleştirmek için Set-AzureRmDiagnosticSetting kullanın.
 
@@ -208,8 +205,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki kaynaklara sahip olmalısınız:
 
 * Var olan bir Azure Analysis Services sunucusu. Bir sunucu kaynağı oluşturma ile ilgili yönergeler için bkz: [Azure portalında bir sunucu oluşturmak](analysis-services-create-server.md), veya [PowerShell kullanarak bir Azure Analysis Services sunucusuna oluşturma](analysis-services-create-powershell.md).
 
-
-### <a id="connect"></a>Aboneliklerinize bağlanma
+### <a name="aconnect-to-your-subscriptions"></a></a>Aboneliklerinize bağlanma
 
 Bir Azure PowerShell oturumu başlatın ve aşağıdaki komutla Azure hesabınızda oturum açın:  
 
@@ -236,7 +232,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>Günlükleriniz için yeni bir depolama hesabı oluşturma
+### <a name="create-a-new-storage-account-for-your-logs"></a>Günlükleriniz için yeni bir depolama hesabı oluşturma
 
 Sunucunuz ile aynı abonelikte olması koşuluyla günlükleriniz için var olan depolama hesabını kullanabilirsiniz. Bu öğretici için yeni bir depolama hesabı Analysis Services günlükleri için ayrılmış da oluşturun. Kolaylaştırmak için depolama hesabı ayrıntıları adlı bir değişkende saklamak **sa**.
 
@@ -247,7 +243,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>Günlükleriniz için server hesabı belirle
+### <a name="identify-the-server-account-for-your-logs"></a>Günlükleriniz için server hesabı belirle
 
 Hesap adı adlı bir değişken ayarlamak **hesap**, burada KaynakAdı hesabının adıdır.
 
@@ -256,7 +252,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>Günlüğe kaydetmeyi etkinleştirme
+### <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
 Günlük kaydını etkinleştirmek için yeni depolama hesabı, server hesabı ve kategori için değişkenleri birlikte Set-AzureRmDiagnosticSetting cmdlet'ini kullanın. Ayarlama aşağıdaki komutu çalıştırın **-etkin** bayrağını **$true**:
 

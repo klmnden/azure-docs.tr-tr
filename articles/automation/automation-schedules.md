@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Otomasyonu’nda runbook zamanlama
-Belirli bir zamanda başlatmak için Azure automation'da bir runbook'u zamanlamak için bir veya daha fazla zamanlamaya bağlayın. Klasik Azure portalı runbook'larda ve runbook'ları Azure portalında bir kez veya bir yinelenmeye saatlik çalıştırma ya da günlük zamanlama için bir zamanlama yapılandırılabilir, ayrıca bunları için haftalık, aylık, haftanın belirli günlerinde veya gün ayın veya ayın belirli zamanlayabilirsiniz.  Bir runbook için birden çok zamanlama bağlanabilir ve bir zamanlama birden çok runbook bağlı olabilir.
+Belirli bir zamanda başlatmak için Azure automation'da bir runbook'u zamanlamak için bir veya daha fazla zamanlamaya bağlayın. Azure portalında runbook'lar için bir kez veya bir yinelenmeye saatlik çalıştırma ya da günlük zamanlama için bir zamanlama yapılandırılabilir. Ayrıca bunları için haftalık, aylık, haftanın belirli gün veya ayın günleri veya ayın belirli zamanlayabilirsiniz.  Bir runbook için birden çok zamanlama bağlanabilir ve bir zamanlama birden çok runbook bağlı olabilir.
 
 > [!NOTE]
 > Zamanlamaları, şu anda Azure Otomasyonu DSC yapılandırmaları desteklemez.
@@ -51,7 +51,7 @@ Aşağıdaki tabloda yer alan cmdlet'ler oluşturmak ve zamanlamaları Azure aut
 | [Kaydı AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Zamanlama runbook'tan dissociates. |
 
 ## <a name="creating-a-schedule"></a>Bir zamanlama oluşturma
-Azure portalında Klasik portalında veya Windows PowerShell ile runbook'lar için yeni bir zamanlama oluşturabilirsiniz. Ayrıca bir runbook'u Azure Klasik veya Azure portalını kullanarak bir zamanlamaya bağladığınızda, yeni bir zamanlama oluşturma seçeneğiniz vardır.
+Azure portalında veya Windows PowerShell ile runbook'lar için yeni bir zamanlama oluşturabilirsiniz. Ayrıca bir runbook'u Azure Klasik veya Azure portalını kullanarak bir zamanlamaya bağladığınızda, yeni bir zamanlama oluşturma seçeneğiniz vardır.
 
 > [!NOTE]
 > Yeni bir zamanlanan iş çalıştırdığınızda azure Automation Otomasyon hesabınızda son modülleri kullanır.  Runbook'larınızı ve bunlar otomatikleştirmek işlemlerini etkileyen önlemek için önce zamanlamaları test etmek için adanmış bir Otomasyon hesabı ile bağlantılı runbook'ları test etmeniz gerekir.  Bu, zamanlanmış doğrulayan runbook'lar düzgün çalışmaya devam eder ve değilse, daha fazla sorun giderme ve güncelleştirilmiş runbook sürümü üretime geçirmeden önce gerekli değişiklikleri uygulamak.  
@@ -63,14 +63,6 @@ Azure portalında Klasik portalında veya Windows PowerShell ile runbook'lar iç
 2. Tıklatın **bir zamanlama Ekle** sayfanın üst kısmındaki.
 4. Üzerinde **yeni zamanlama** bölmesinde, bir **adı** ve isteğe bağlı olarak bir **açıklama** yeni zamanlama için.
 5. Bir kez çalıştırılacağı olup olmadığını veya bir yeniden zamanlamada seçerek **kez** veya **yineleme**.  Seçerseniz **kez** belirtin bir **başlangıç zamanı** ve ardından **oluşturma**.  Seçerseniz **yineleme**, belirtin bir **başlangıç zamanı** ve ne sıklıkta runbook - göre yinelemek istediğiniz sıklığını **saat**, **gün**, **hafta**, ya da **ay**.  Seçerseniz **hafta** veya **ay** aşağı açılan listeden **yineleme seçeneği** bölmesinde ve seçime bağlı görünür **yineleme seçeneği** bölmesinde sunulur ve seçtiyseniz, haftanın günü seçebilirsiniz **hafta**.  Seçtiyseniz **ay**, tarafından seçebilirsiniz **haftanın günlerini** veya takvim ayın belirli günlerine ve son olarak, çalıştırmak ayın son gününde veya ve ardından istiyor musunuz **Tamam**.   
-
-### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>Klasik Azure portalında yeni bir zamanlama oluşturmak için
-1. Azure Klasik portalında Otomasyon seçin ve ardından bir Otomasyon hesabının adını seçin.
-2. Seçin **varlıklar** sekmesi.
-3. Pencerenin alt kısmındaki tıklatın **ayar Ekle**.
-4. Tıklatın **zamanlama Ekle**.
-5. Tür a **adı** ve isteğe bağlı olarak bir **açıklama** yeni zamanlama için. Zamanlamanızı çalıştırabilirsiniz **bir kez**, **saatlik**, **günlük**, **haftalık**, veya **aylık**.
-6. Belirtin bir **başlangıç saati** ve seçtiğiniz zamanlamanın türüne bağlı olarak diğer seçenekleri.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Windows PowerShell ile yeni bir zamanlama oluşturmak için
 Kullanabileceğiniz [yeni AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) Azure Otomasyonu'nda Klasik runbook'lar için yeni bir zamanlama oluşturmak için cmdlet'i veya [yeni AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet'i Azure portalında runbook'lar için. Zamanlama ve çalışmalı sıklığı için başlangıç saatini belirtmeniz gerekir.
@@ -98,14 +90,6 @@ Bir runbook için birden çok zamanlama bağlanabilir ve bir zamanlama birden ç
 2. Zamanlamak için runbook'un adına tıklayın.
 3. Ardından runbook şu anda bir zamanlamaya bağlı değilse yeni bir zamanlama ya da mevcut bir zamanlamayı bağlantısını oluşturmak için seçeneği sunulur.  
 4. Runbook parametrelere sahipse, seçeneğini seçebilmenize **çalıştırma ayarlarını (varsayılan: Azure) Değiştir** ve **parametreleri** bölmesinde bilgileri buna göre girebilecekleri sunulur.  
-
-### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-classic-portal"></a>Klasik Azure portalı ile runbook için bir zamanlama bağlamak için
-1. Klasik Azure portalında seçin **Otomasyon** ve ardından bir Otomasyon hesabı adını tıklatın.
-2. Seçin **Runbook'lar** sekmesi.
-3. Zamanlamak için runbook'un adına tıklayın.
-4. Tıklatın **zamanlama** sekmesi.
-5. Runbook şu anda bir zamanlamaya bağlı olmayan sonra seçeneği sunulur **yeni bir zamanlama Bağla** veya **varolan bir zamanlama Bağla**.  Runbook şu anda bir zamanlamaya bağlıysa, tıklatın **bağlantı** bu seçeneklerine erişmek için pencerenin altındaki.
-6. Runbook'un parametreleri varsa, bunların değerleri istenir.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Windows PowerShell ile bir runbook için bir zamanlama bağlamak için
 Kullanabileceğiniz [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) klasik bir runbook'a bir zamanlama bağlamak için veya [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet'i Azure portalında runbook'lar için.  Parametreleri parametresiyle runbook'un parametreleri için değerler belirtebilirsiniz. Bkz: [Azure Otomasyonu Runbook başlatma](automation-starting-a-runbook.md) parametre değerleri belirtme hakkında daha fazla bilgi için.
@@ -135,14 +119,6 @@ Bir zamanlama devre dışı bıraktığınızda, artık bağlı tüm runbook bu 
 1. Azure portalından Automation hesabınızı seçin **zamanlamaları** bölümünün altında **paylaşılan kaynakları** soldaki.
 2. Ayrıntılar bölmesini açmak için bir zamanlama adına tıklayın.
 3. Değişiklik **etkin** için **Hayır**.
-
-### <a name="to-disable-a-schedule-from-the-azure-classic-portal"></a>Azure Klasik portalından bir zamanlama devre dışı bırakmak için
-Zamanlama için Zamanlama Ayrıntıları sayfası, Klasik Azure portalından bir zamanlama devre dışı bırakabilirsiniz.
-
-1. Azure Klasik portalında Otomasyon seçin ve ardından bir Otomasyon hesabının adını tıklatın.
-2. Varlıklar sekmesini seçin.
-3. Kendi ayrıntı sayfası açmak için bir zamanlama adına tıklayın.
-4. Değişiklik **etkin** için **Hayır**.
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>Windows PowerShell ile bir zamanlama devre dışı bırakmak için
 Kullanabileceğiniz [kümesi AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) klasik bir runbook için varolan bir zamanlamanın özelliklerini değiştirmek için cmdlet veya [kümesi AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet'i Azure portalında runbook'lar için. Zamanlama devre dışı bırakmak için belirtmek **false** için **IsEnabled** parametresi.

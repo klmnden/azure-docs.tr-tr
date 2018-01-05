@@ -3,8 +3,8 @@ title: "İstemci ve sunucu SDK sürüm mobil uygulamaları ve Mobile Services | 
 description: "İstemci SDK'ları listesi ve Mobile Services ve Azure mobil uygulamalar sunucusu SDK sürümleriyle uyumluluk"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobil uygulamaları ve Mobile Services istemci ve sunucu sürüm oluşturma
 Azure Mobile Services en son sürümü **Mobile Apps** Azure uygulama hizmeti özelliğidir.
@@ -87,7 +87,7 @@ Not: Mobile Services istemci SDK'ları *sağlamadığı* bir üstbilgi değeri g
 ### <a name="behavior-of-mobile-services-backends"></a>Mobile Services arka uçlarını davranışı
 | ZUMO-API-VERSION | MS_SkipVersionCheck değeri | Yanıt |
 | --- | --- | --- |
-| Belirtilmemiş. |Herhangi biri |200 - TAMAM |
+| Belirtilmedi |Herhangi biri |200 - TAMAM |
 | Herhangi bir değer |True |200 - TAMAM |
 | Herhangi bir değer |Belirtilen false/değil |400 - Hatalı istek |
 

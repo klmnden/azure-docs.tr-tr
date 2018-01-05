@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler
 
@@ -36,7 +36,7 @@ Azure Otomasyonu DSC, çeşitli makinelerde yönetmek için kullanılabilir:
 Ayrıca, buluttan makine yapılandırmasını yönetmek hazır değilseniz Azure Otomasyonu DSC de yalnızca rapor uç noktası olarak kullanılabilir. Bu DSC şirket içi aracılığıyla (anında iletme) istenen yapılandırmayı ayarlamak ve düğüm uyumluluğunu belirtilen istenen duruma Azure Automation ile zengin raporlama ayrıntıları görüntülemenizi sağlar.
 
 > [!NOTE]
-> Yüklü sanal makine DSC uzantısı 2.7 büyükse, DSC ile Azure Vm'lerini yönetme ekstra ücret ödemeden dahil edilir.  Lütfen [ **fiyatlandırma sayfası Otomasyon** ](https://azure.microsoft.com/en-us/pricing/details/automation/) daha fazla ayrıntı için.
+> Yüklü sanal makine DSC uzantısı 2.70 büyükse, DSC ile Azure Vm'lerini yönetme ekstra ücret ödemeden dahil edilir. Lütfen [ **fiyatlandırma sayfası Otomasyon** ](https://azure.microsoft.com/en-us/pricing/details/automation/) daha fazla ayrıntı için.
 
 
 Aşağıdaki bölümlerde, her tür bir Azure Otomasyonu DSC makineye discovery'yi ekleyebilir nasıl verilmiştir.
@@ -390,7 +390,7 @@ Bir Azure Otomasyonu DSC DSC düğüm olarak bir makine kaydolduktan sonra pek �
 
 Yeniden kayıt işlemi, düğüm başlangıçta, bu belgede açıklanan ekleme yöntemlerden birini kullanarak kayıtlı aynı şekilde gerçekleştirilebilir. Azure Otomasyonu DSC düğüm yeniden önce kaydı gerekmez.
 
-## <a name="related-articles"></a>İlgili makaleler
+## <a name="related-articles"></a>İlgili Makaleler
 
 * [Azure Otomasyonu DSC genel bakış](automation-dsc-overview.md)
 * [Azure Otomasyonu DSC cmdlet'leri](/powershell/module/azurerm.automation/#automation)

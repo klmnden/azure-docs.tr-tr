@@ -14,17 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-<<<<<<< HEAD
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notları değişikliklerden önceki sürümlerden ve bilinen sorunlar özetler.
@@ -65,13 +59,7 @@ Media Services REST API sürümü geçmişi hakkında daha fazla bilgi için bkz
 2.  İOS11 veya GoPro kahramanı 6 kullanılarak yakalanan görüntü gibi H.265(HEVC) video codec ile kodlanmış kaynak video varsa bu videolarınızı kodlamak için Premium Kodlayıcı veya standart Kodlayıcı şimdi kullanabilirsiniz. Lütfen [çevrimiçi Hizmet Koşulları'nı](https://azure.microsoft.com/support/legal/) patent lisansları hakkında önemli bir not için.
 3.  Ardından dil değerler doğru (örneğin, ISO MP4) karşılık gelen dosya biçimi belirtimlerine göre etiketlenir sürece içeren birden çok dil ses izleri, ardından içeriğiniz varsa, bu içerik için kodlanması için standart kodlayıcı kullanabilirsiniz Akış. Sonuç akış Bulucusu kullanılabilir ses dilleri listeler.
 4.  Standart Kodlayıcı şimdi iki yeni salt ses sistem önayarlarını, "AAC ses" ve "AAC iyi kaliteli ses" destekler. Her ikisi de sırasıyla 128 Kb/sn ve 192 kbps bit hızlarında stereo AAC çıktı üretir.
-5.  Görüntü codec birini olduğu sürece Premium Kodlayıcı QuickTime/MOV dosya biçimlerini artık giriş olarak destekler. [Apple ProRes özellikleri listelenen burada](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), ve ses AAC ya da PCM değil.
-
-> [!NOTE]
-> Premium Kodlayıcı, örneğin, giriş olarak QuickTime/MOV dosyalarında Sarmalanan DVC/DVCPro videosunu desteklemiyor.  Ancak, standart Kodlayıcı bu görüntü codec bileşenleri destekler.
->
->
-
+5.  Görüntü codec birini olduğu sürece Premium Kodlayıcı QuickTime/MOV dosya biçimlerini artık giriş olarak destekler. [Apple ProRes özellikleri listelenen burada](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), ve ses AAC ya da PCM değil. Premium Kodlayıcı, örneğin, giriş olarak QuickTime/MOV dosyalarında Sarmalanan DVC/DVCPro videosunu desteklemiyor.  Ancak, standart Kodlayıcı bu görüntü codec bileşenleri destekler.
 6.  Kodlayıcılar içinde hata düzeltmeleri:
     * Artık bir giriş varlık kullanarak iş göndermek ve bu tamamlandıktan sonra (örneğin göre varlık içindeki dosyaların ekleme/silme/yeniden adlandırma) varlık değiştirebilir ve ek göndermek. 
     * Standart Kodlayıcı tarafından üretilen JPEG küçük resimleri geliştirilmiş kalitesi
@@ -569,7 +557,7 @@ Aşağıdaki işlevleri SDK Kasım sürümündeki yeni.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Media Services PlayReady lisans şablonu genel bakış]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [akış depolama şifrelenmiş içerik]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [dinamik paketleme]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin'ın blogu]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [PlayReady ile koruma kesintisiz akış]: http://msdn.microsoft.com/library/azure/dn189154.aspx

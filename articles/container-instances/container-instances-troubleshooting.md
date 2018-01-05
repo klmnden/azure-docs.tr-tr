@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 0b7397e00c2d11c4c7be51421fb40ca6a9fe5779
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Azure kapsayıcı örnekleri dağıtım sorunlarını giderme
 
@@ -203,7 +203,7 @@ Azure'da yük bölgesel kaynak değişen nedeniyle, bir kapsayıcı örnek dağ�
 
 Bu hata dağıtmak çalıştığınız bölgede ağır yükü nedeniyle, o anda kapsayıcısı için belirtilen kaynaklar ayrılamıyor gösterir. Sorunu gidermek için bir veya daha fazla aşağıdaki azaltma adımlarını kullanın.
 
-* Kapsayıcı dağıtım ayarlarınızı kalan içinde tanımlanan parametrelerin içinde doğrulayın [Azure kapsayıcı örnekleri için bölge kullanılabilirliği](container-instances-region-availability.md)
+* Kapsayıcı dağıtım ayarlarınızı kalan içinde tanımlanan parametrelerin içinde doğrulayın [kotalar ve Azure kapsayıcı örnekleri için bölge kullanılabilirliği](container-instances-quotas.md#region-availability)
 * Kapsayıcı daha düşük CPU ve bellek ayarlarını belirtin
 * Farklı bir Azure bölgesine dağıtma
 * Daha sonraki bir zamanda dağıtma

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory koşullu erişim için Geliştirici Kılavuzu | Microsoft Docs"
+title: "Azure Active Directory koşullu erişim için Geliştirici Kılavuzu"
 description: "Geliştirici Kılavuzu ve Azure AD koşullu erişim senaryoları"
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD), uygulamanızın güvenli ve bir hizmet korumak içi
 * Kayıtlı cihazlar belirli hizmetlere erişmek için yalnızca Intune izin verme
 * Kullanıcı konumları ve IP kısıtlama aralıkları
 
-Koşullu erişim özelliklerinin hakkında daha fazla bilgi için bkz: [Klasik Azure portalındaki koşullu erişim](../active-directory-conditional-access-azure-portal.md). 
+Koşullu erişim özelliklerinin hakkında daha fazla bilgi için bkz: [Azure Active Directory'de koşullu erişim](../active-directory-conditional-access-azure-portal.md). 
 
 Bu makalede, geliştiriciler için Azure AD uygulamaları oluşturmak için hangi koşullu erişim gelir odaklanın.  Bilgisi varsayar [tek](active-directory-integrating-applications.md) ve [çok kiracılı](active-directory-devhowto-multi-tenant-overview.md) uygulamaları ve [ortak kimlik doğrulama desenler](active-directory-authentication-scenarios.md).
 
@@ -74,7 +73,7 @@ Geliştiriciler, bu sorunu ele ve Azure ad ile yeni bir istek üzerine ekleyin. 
 
 ## <a name="scenarios"></a>Senaryolar
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Azure AD koşullu erişim, bulunan bir özelliktir [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Lisans gereksinimleri hakkında daha fazla bilgiyi [lisanssız kullanım raporu](../active-directory-conditional-access-unlicensed-usage-report.md).  Geliştiriciler birleştirme [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), Azure AD Premium içeren Enterprise Mobility Suite için ücretsiz bir abonelik içerir.
 
@@ -218,7 +217,7 @@ Bu senaryo denemek için bkz: bizim [JS SPA üzerinde-adına-kodunu örnek](http
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* Özellikleri hakkında daha fazla bilgi edinmek için [Azure AD'de koşullu erişim](../active-directory-conditional-access-azure-portal.md).
+* Özellikleri hakkında daha fazla bilgi edinmek için [Azure Active Directory'de koşullu erişim](../active-directory-conditional-access-azure-portal.md).
 * Daha fazla Azure AD kod örnekleri için bkz: [Github deposuna kod örnekleri](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * ADAL SDK'ın ve erişim başvuru belgeleri hakkında daha fazla bilgi için bkz: [kitaplığı Kılavuzu](active-directory-authentication-libraries.md).
 * Çok kiracılı senaryoları hakkında daha fazla bilgi için bkz: [çok kiracılı desenini kullanarak kullanıcılar oturum nasıl](active-directory-devhowto-multi-tenant-overview.md).

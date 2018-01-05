@@ -4,8 +4,8 @@ description: "Azure App Service Mobile Apps için .NET arka uç sunucusu SDK ile
 keywords: "uygulama hizmeti, azure uygulama hizmeti, mobil uygulama, mobil hizmet, Ölçek, ölçeklenebilir, uygulama dağıtımı, azure uygulama dağıtımı"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps için .NET arka uç sunucu SDK’sı ile çalışma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -35,7 +35,7 @@ Bu konuda anahtar Azure App Service Mobile Apps senaryolarda .NET arka uç sunuc
 SDK sunucusu için başvuru belgeleri burada bulunur: [Azure Mobile Apps .NET başvurusu][1].
 
 ## <a name="create-app"></a>Nasıl yapılır: bir .NET Mobil uygulama arka ucu oluşturma
-Yeni bir proje başlıyorsanız, kullanarak bir uygulama hizmeti uygulaması oluşturabilir [Azure portalı] veya Visual Studio. Uygulama hizmeti uygulamayı yerel olarak çalıştırın veya bulut tabanlı uygulama hizmeti mobil uygulamanıza proje yayımlayın.
+Yeni bir proje başlıyorsanız, kullanarak bir uygulama hizmeti uygulaması oluşturabilir [Azure portal] veya Visual Studio. Uygulama hizmeti uygulamayı yerel olarak çalıştırın veya bulut tabanlı uygulama hizmeti mobil uygulamanıza proje yayımlayın.
 
 Varolan bir projeye mobil özelliklerini ekliyorsanız, bkz: [indirin ve SDK'sını başlatma](#install-sdk) bölümü.
 
@@ -54,7 +54,7 @@ Yükleme [.NET için Azure SDK] [ 4] (sürüm 2.9.0 veya sonrası) Visual Studio
 3. Seçin **ASP.NET Web uygulaması**.
 4. Proje adı girin. Daha sonra, **Tamam**'a tıklayın.
 5. Altında *ASP.NET 4.5.2 şablonları*seçin **Azure mobil uygulaması**. Denetleme **bulutta Barındır** mobil arka uç bu proje yayımlamak bulutta oluşturmak için.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**’a tıklayın.
 
 ## <a name="install-sdk"></a>Nasıl yapılır: indirme ve SDK'sını başlatma
 SDK kullanılabilir [NuGet.org]. Bu paket için SDK'sını kullanmaya başlamak için gerekli temel işlevselliğini içerir. SDK'yı başlatmak için üzerinde eylemler gerçekleştirmek gerekir **HttpConfiguration** nesnesi.
@@ -450,7 +450,7 @@ Mobil arka sahip olduğundan emin olun [Microsoft.Azure.Mobile.Server.Authentica
 Önceki örnekte, yapılandırmanız *authAudience* ve *authIssuer* uygulama Web.config içinde dosya ayarları için her HTTPS şeması kullanarak, uygulamanızın kök URL'si olmalıdır. Benzer şekilde ayarlamalısınız *authSigningKey* uygulamanızı değerini anahtar imzalama kullanıcının olması.
 İmzalama anahtarı edinmek için:
 
-1. Uygulamanızda gidin [Azure portalı]
+1. Uygulamanızda gidin [Azure portal]
 2. Tıklatın **Araçları**, **Kudu**, **Git**.
 3. Kudu Yönetim sitesini'ı tıklatın **ortam**.
 4. Değeri Bul *Web sitesi\_AUTH\_imzalama\_anahtar*.
@@ -463,7 +463,7 @@ Mobil arka sahip olduğundan emin olun [Microsoft.Azure.Mobile.Server.Authentica
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Azure portalı]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

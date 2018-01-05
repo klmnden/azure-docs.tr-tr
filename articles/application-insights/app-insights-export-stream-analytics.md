@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Application Insights dışarı aktarılan verileri işlemek için Stream Analytics kullanın
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) veri işleme için ideal araçtır [Application Insights ' dışarı](app-insights-export-telemetry.md). Akış analizi, çeşitli kaynaklardan veri çeker. Bu dönüştürme ve verilere filtre ve ardından havuzlarını çeşitli için rota.
@@ -76,27 +76,27 @@ Depolama oluşturmanız gerekir böylece sürekli verme verileri Azure depolama 
 JSON biçiminde dosyaları blob yazılır. Her dosya bir veya daha fazla olaylar içerebilir. Bu nedenle olay verileri okumak ve istiyoruz alanları filtrelemek isteriz. Her türlü verilerle yapabileceğimiz bir şey vardır, ancak bizim planı bugün Stream Analytics Power BI veri kanal kullanmaktır.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Bir Azure akış analizi örneği oluşturma
-Gelen [Klasik Azure portalı](https://manage.windowsazure.com/), Azure Stream Analytics hizmeti seçin ve yeni bir Stream Analytics işi oluştur:
+Gelen [Azure portal](https://portal.azure.com/), Azure Stream Analytics hizmeti seçin ve yeni bir Stream Analytics işi oluştur:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Yeni iş oluşturulduğunda ayrıntılarını genişletin:
+Yeni iş oluşturulduğunda seçin **kaynağa gidin**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Blob konum ayarlama
+### <a name="add-a-new-input"></a>Yeni giriş Ekle
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Sürekli verme blobundan giriş gerçekleştirecek şekilde ayarlayın:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Şimdi, depolama, daha önce not ettiğiniz hesabınızdan, birincil erişim anahtarı gerekir. Bu depolama hesabı anahtarı ayarlayın.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Set yol önek deseni
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Tarih biçimi YYYY-AA-GG (tire ile) ayarladığınızdan emin olun.**
 
@@ -114,33 +114,19 @@ Bu örnekte:
 > [!NOTE]
 > Yolun sağ alma emin olmak için depolama inceleyin.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>İlk Kurulumu tamamlayın
-Seri hale getirme biçimi onaylayın:
+## <a name="add-new-output"></a>Yeni çıkış ekleme
+Şimdi, işi seçin > **çıkışları** > **Ekle**.
 
-![Onayla ve sihirbazı kapatın](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Sihirbazı kapatmak ve kurulumun tamamlanması için bekleyin.
 
-> [!TIP]
-> Bazı veri indirmek için örnek komutunu kullanın. Sorgunuz hata ayıklamak için bir test örneği tutun.
-> 
-> 
-
-## <a name="set-the-output"></a>Çıktı ayarlayın
-Şimdi, işi seçin ve çıktı ayarlayın.
-
-![Yeni kanal seçin, çıkışları, Ekle, Power BI'ı tıklatın](./media/app-insights-export-stream-analytics/160.png)
+![Yeni kanal seçin, çıkışları, Ekle, Power BI'ı tıklatın](./media/app-insights-export-stream-analytics/SA010.png)
 
 Sağlayın, **iş veya Okul hesabı** akış analizi, Power BI kaynağa erişmek için yetki vermek için. Ardından çıktı için ve tablo ve hedef Power BI veri kümesi için bir ad oluşturun.
 
-![Üç adları stok](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Sorgu ayarlayın
 Sorgu çıktısını almak için giriş çevrilmesi yönetir.
-
-![İşi seçin ve sorguyu tıklayın. Aşağıdaki örnek yapıştırın.](./media/app-insights-export-stream-analytics/180.png)
 
 Doğru çıkış Al denetlemek için Test işlevini kullanın. Giriş sayfasından sürdü örnek verileri verin. 
 
@@ -162,7 +148,7 @@ Bu sorgu yapıştırın:
 
 * dışarı aktarma girişi biz Giriş akışı verdiğiniz diğer adıdır
 * Biz tanımlanan çıkış diğer pbı çıkış adıdır
-* Kullanırız [dış uygulamak GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) olay adı bir iç içe geçmiş JSON arrray olduğundan. Sonra Seç süre ad örnekleriyle sayısını birlikte olay adı seçer. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) yan tümcesi süreleri 1 dakika içinde öğeleri gruplandırır.
+* Kullanırız [dış uygulamak GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) olay adı bir iç içe geçmiş JSON dizisi olduğundan. Sonra Seç süre ad örnekleriyle sayısını birlikte olay adı seçer. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) yan tümcesi süreleri bir dakika içinde öğeleri gruplandırır.
 
 ### <a name="query-to-display-metric-values"></a>Ölçü değerlerini görüntülemek için sorgu
 ```SQL
@@ -203,10 +189,10 @@ Bu sorgu yapıştırın:
 
 * Bu sorgu boyut dizisindeki sabit dizinindeki olan belirli bir boyut bağlı olarak boyut özelliklerinin değerlerini içerir.
 
-## <a name="run-the-job"></a>İşi çalıştır
+## <a name="run-the-job"></a>İşini çalıştır
 İşten başlatmak için geçmiş bir tarih seçin. 
 
-![İşi seçin ve sorguyu tıklayın. Aşağıdaki örnek yapıştırın.](./media/app-insights-export-stream-analytics/190.png)
+![İşi seçin ve sorguyu tıklayın. Aşağıdaki örnek yapıştırın.](./media/app-insights-export-stream-analytics/SA008.png)
 
 İş çalışıyor kadar bekleyin.
 

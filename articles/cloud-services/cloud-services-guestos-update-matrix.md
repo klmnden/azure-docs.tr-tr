@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/3/2018
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -42,6 +42,10 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizme
 Hangi, bir konuk işletim sistemi değilseniz ya da konuk işletim sistemi iş nasıl Yayımları? Okuma [bu](#how-it-works) bölümü.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+
+###### <a name="january-4-2018"></a>**4 Ocak 2018**
+Aralık konuk işletim sistemi yayımladı.
+
 ###### <a name="december-14-2017"></a>**14 Aralık 2017**
 Kasım konuk işletim sistemi yayımladı.
 
@@ -69,12 +73,6 @@ Haziran konuk işletim sistemi yayımladı.
 ###### <a name="june-16-2017"></a>**16 Haziran 2017**
 Haziran konuk işletim sistemi dağıtımı Haziran 16 başlatıyor ve 11 Temmuz tahmini sürümü vardır.
 
-###### <a name="june-5-2017"></a>**5 Haziran 2017**
-Konuk işletim sistemi serbest bıraktı.
-
-###### <a name="may-17-2017"></a>**17 May 2017**
-Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dışı olmayan işletim sistemi sürümleri [düzeltme] portalından: WA-KONUK-OS-5.4_201612-01, WA-KONUK-OS-4.39_201612-01, WA-KONUK-OS-3.46_201612-01, WA-KONUK-işletim sistemi-2.59_201701-01
-
 
 ## <a name="releases"></a>Sürümleri
 ## <a name="family-5-releases"></a>Aile 5 sürümleri
@@ -90,8 +88,9 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.14_201712-01 |4 Ocak 2018 |POST 5.16 |TBD |
 | WA-GUEST-OS-5.13_201711-01 |14 Aralık 2017 |POST 5.15 |TBD |
-| WA-GUEST-OS-5.12_201710-02 |8 Kasım 2017 |POST 5.14 |TBD |
+|~~WA-GUEST-OS-5.12_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
@@ -113,8 +112,9 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.49_201712-01 |4 Ocak 2018 |POST 4.51 |TBD |
 | WA-GUEST-OS-4.48_201711-01 |14 Aralık 2017 |POST 4.50 |TBD |
-| WA-GUEST-OS-4.47_201710-02 |8 Kasım 2017 |POST 4.49 |TBD |
+|~~WA-GUEST-OS-4.47_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
@@ -136,8 +136,9 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.56_201712-01 |4 Ocak 2018 |POST 3.58 |TBD |
 | WA-GUEST-OS-3.55_201711-01 |14 Aralık 2017 |POST 3.57 |TBD |
-| WA-GUEST-OS-3.54_201710-02 |8 Kasım 2017 |POST 3.56 |TBD |
+|~~WA-GUEST-OS-3.54_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
@@ -159,8 +160,9 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.69_201712-01 |4 Ocak 2018 |POST 2.71 |TBD |
 | WA-GUEST-OS-2.68_201711-01 |14 Aralık 2017 |POST 2.70 |TBD |
-| WA-GUEST-OS-2.67_201710-02 |8 Kasım 2017 |POST 2.69 |TBD |
+|~~WA-GUEST-OS-2.67_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
@@ -246,4 +248,4 @@ Konuk işletim sistemi desteklenebilirlik ve kullanımdan kaldırma İlkesi aç�
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[düzeltme]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

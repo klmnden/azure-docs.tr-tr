@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uygulama verilerinizi Azure storage ile yüksek oranda kullanılabilir yap
 
-Bu öğretici bir dizi birini bir parçasıdır. Bu öğretici, uygulama verilerini azure'da yüksek oranda kullanılabilir hale gösterilmiştir. İşlemi tamamladığınızda, bir blob alır ve yükler .NET core konsol uygulaması sahip bir [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabı. RA-GRS işlemleri birincil sunucudan ikincil bölge'ye yineleyerek çalışır. Bu çoğaltma işlemi, verileri ikincil bölge sonuçta tutarlı olmasını sağlar. Uygulamanın kullandığı [devre kesici](/azure/architecture/patterns/circuit-breaker.md) bağlanmak için hangi uç noktaya belirlemek için desen. Hata benzetimi sırasında uygulama ikincil uç noktasına geçer.
+Bu öğretici bir dizi birini bir parçasıdır. Bu öğretici, uygulama verilerini azure'da yüksek oranda kullanılabilir hale gösterilmiştir. İşlemi tamamladığınızda, bir blob alır ve yükler .NET core konsol uygulaması sahip bir [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabı. RA-GRS işlemleri birincil sunucudan ikincil bölge'ye yineleyerek çalışır. Bu çoğaltma işlemi, verileri ikincil bölge sonuçta tutarlı olmasını sağlar. Uygulamanın kullandığı [devre kesici](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) bağlanmak için hangi uç noktaya belirlemek için desen. Hata benzetimi sırasında uygulama ikincil uç noktasına geçer.
 
 Bölümünde bir dizi öğrenin nasıl yapılır:
 
@@ -109,11 +109,11 @@ Bir konsol penceresi açılır ve uygulama başlar çalışıyor. Uygulamayı y�
 
 ![Çalışan konsol uygulaması](media/storage-create-geo-redundant-storage/figure3.png)
 
-Örnek kodda `RunCircuitBreakerAsync` içinde görev `Program.cs` dosyası kullanarak depolama hesabı bir görüntüsünü karşıdan yüklemek için kullanılan [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) yöntemi. İndirme önce bir [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) tanımlanır. Bir yükleme işlemi başarıyla tamamlandığında veya bir yükleme başarısız olur ve olay işleyicileri, işlem bağlamı tanımlar yeniden deneniyor.
+Örnek kodda `RunCircuitBreakerAsync` içinde görev `Program.cs` dosyası kullanarak depolama hesabı bir görüntüsünü karşıdan yüklemek için kullanılan [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) yöntemi. İndirme önce bir [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) tanımlanır. Bir yükleme işlemi başarıyla tamamlandığında veya bir yükleme başarısız olur ve olay işleyicileri, işlem bağlamı tanımlar yeniden deneniyor.
 
 ### <a name="retry-event-handler"></a>Olay işleyicisi yeniden deneyin
 
-`OperationContextRetrying` Olay işleyicisi görüntü yükleme başarısız olur ve yeniden denemek için ayarlanmış olduğunda çağrılır. Uygulama içinde tanımlanan yeniden deneme sayısı üst sınırına, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) isteği değiştirilir `SecondaryOnly`. Bu ayar, ikincil uç noktasından görüntü indirmeye uygulamaya zorlar. Bu yapılandırma, birincil endpoint süresiz olarak denenmez gibi görüntü istemek için harcanan süre azaltır.
+`OperationContextRetrying` Olay işleyicisi görüntü yükleme başarısız olur ve yeniden denemek için ayarlanmış olduğunda çağrılır. Uygulama içinde tanımlanan yeniden deneme sayısı üst sınırına, [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) isteği değiştirilir `SecondaryOnly`. Bu ayar, ikincil uç noktasından görüntü indirmeye uygulamaya zorlar. Bu yapılandırma, birincil endpoint süresiz olarak denenmez gibi görüntü istemek için harcanan süre azaltır.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -141,7 +141,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Tamamlanan olay işleyicisi isteği
 
-`OperationContextRequestCompleted` Olay işleyicisi görüntü yükleme başarılı olduğunda çağrılır. Uygulama ikincil uç kullanıyorsanız, uygulama Bu uç noktaya kadar 20 kez kullanmaya devam eder. 20 kez uygulama kümeleri sonra [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) geri `PrimaryThenSecondary` ve birincil uç nokta yeniden dener. İstek başarılı olursa, uygulama birincil uç noktasından okumak devam eder.
+`OperationContextRequestCompleted` Olay işleyicisi görüntü yükleme başarılı olduğunda çağrılır. Uygulama ikincil uç kullanıyorsanız, uygulama Bu uç noktaya kadar 20 kez kullanmaya devam eder. 20 kez uygulama kümeleri sonra [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) geri `PrimaryThenSecondary` ve birincil uç nokta yeniden dener. İstek başarılı olursa, uygulama birincil uç noktasından okumak devam eder.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

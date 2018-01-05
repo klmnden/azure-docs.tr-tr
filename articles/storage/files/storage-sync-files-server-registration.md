@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) ile kayıtlı sunucuları yönetme
 Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -147,9 +147,9 @@ Azure dosya eşitleme, veri merkezinizde çalışan tek hizmet nadiren olacağı
 > Sınırları fazla düşük ayarlanması, Azure dosya eşitleme eşitleme ve geri çağırma performansını etkiler.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Azure dosya eşitleme ağ sınırlarını ayarlama
-Kullanarak Azure dosya eşitleme ağ kullanımını kısıtlayabilirsiniz `StorageSyncNetworkLimit` cmdlet'leri. 
+Kullanarak Azure dosya eşitleme ağ kullanımını daraltabilir `StorageSyncNetworkLimit` cmdlet'leri. 
 
-Örneğin, Azure dosya eşitleme 09: 00 ve 18: 00 (17:00 h) iş hafta arasında birden fazla 10 MB/sn kullanmadığından emin olmak için yeni bir ağ sınırı oluşturabilirsiniz: 
+Örneğin, Azure dosya eşitleme 09: 00 ve 18: 00 (17:00 h) iş hafta arasında birden fazla 10 MB/sn kullanmadığından emin olmak için yeni bir kısıtlama sınırı oluşturabilirsiniz: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
