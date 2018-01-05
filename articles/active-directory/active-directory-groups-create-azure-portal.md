@@ -16,14 +16,14 @@ ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1be9947c43c70b7248201b9f470fb3cf5a11519e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Bir grup oluşturun ve Azure Active Directory'de üye ekleme
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-groups-create-azure-portal.md)
+> * [Azure Portal](active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Azure portalını kullanarak Data Lake Store ile Hdınsight kümeleri oluşturma
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 
 Varsayılan depolama veya ek depolama alanı olarak bir Hdınsight kümesi ile bir Azure Data Lake Store hesabı oluşturmak için Azure portalını kullanmayı öğrenin. Ek depolama alanı bir Hdınsight kümesi için isteğe bağlı olsa da, ek depolama hesapları, iş verilerinizi depolamak için önerilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri yerine getirdiğinizi emin olun:
 
 * **Bir Azure aboneliği**. Git [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).

@@ -14,17 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-<<<<<<< HEAD
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı Azure sanal ağı ile tümleştirme
 Bu belgede Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlanması gösterilmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Azure sanal ağlar (Vnet'ler) ile bilginiz yoksa, bu Azure kaynaklarınızı çoğunu erişimi denetlemek Internet olmayan routeable ağ yerleştirmek izin veren bir yetenektir. Bu ağlar sonra VPN teknolojileri çeşitli kullanarak, şirket içi ağlara bağlanabilir. Azure sanal ağlar hakkında daha fazla bilgi edinmek için burada bilgilerle Başlat: [Azure Virtual Network'e genel bakış][VNETOverview]. 
@@ -263,6 +257,10 @@ Uygulamanızı kaynakları şirket erişemiyorsa, denetlemeniz gereken ilk şey,
 * Ağ güvenlik grupları noktanızın Site IP aralığına için erişimi engelliyor
 * Şirket içi güvenlik duvarlarında Site IP aralığı noktanız trafiğini engelliyor
 * Şirket içi ağınıza ulaşmasını noktanızın Site göre trafiği engelleyen ağınızı kullanıcı tanımlı bir Route(UDR) var
+
+## <a name="powershell-automation"></a>PowerShell Otomasyon
+
+Uygulama hizmeti bir Azure sanal PowerShell kullanarak ağ ile tümleştirebilirsiniz. Hazır Çalıştır komut dosyaları için bkz: [bir Azure sanal ağı Azure App Service'te bir uygulamaya Bağlan](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Karma bağlantılar ve uygulama hizmeti ortamları
 Barındırılan sanal ağ kaynaklarına erişimi etkinleştirme üç özellikler vardır. Bunlar:

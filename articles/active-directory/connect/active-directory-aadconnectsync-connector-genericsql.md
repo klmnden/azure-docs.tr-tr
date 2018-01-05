@@ -3,8 +3,8 @@ title: "Genel SQL bağlayıcı | Microsoft Docs"
 description: "Bu makalede, Microsoft'un Genel SQL bağlayıcısının nasıl yapılandırılacağı açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Genel SQL bağlayıcı Teknik Başvurusu
 Bu makalede Genel SQL Bağlayıcısı'nı açıklar. Makale aşağıdaki ürünler için geçerlidir:
@@ -43,7 +43,7 @@ Genel SQL Bağlayıcısı'nı, eşitleme hizmeti ODBC bağlantısı sağlayan bi
 | İşlemler |<li>Tam içeri aktarma ve Delta içeri aktarma, dışarı aktarma</li><li>Dışarı aktarma: Eklemek, güncelleştirme, silme ve değiştirme</li><li>Parola, parola değiştirme</li> |
 | Şema |<li>Nesneler ve özniteliklerin dinamik bulma</li> |
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bağlayıcısı'nı kullanmadan önce aşağıdaki eşitleme sunucusunda sahip emin olun:
 
 * 4.5.2 Microsoft .NET Framework veya daha yenisi
@@ -231,7 +231,11 @@ Genel SQL bağlayıcı desteği tam ve Delta içeri aktarma bu yöntemleri kulla
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tablo/görünüm**  
-Bir nesne için birden çok değerli öznitelikleri almak için virgülle ayrılmış tablo/görünüm adı sağlamanız gerekiyor **adı, birden çok değerli tablo/Görünüm** ve ilgili birleştirme koşulları **katılma koşulu** üst tabloyla.
+Bir nesne için birden çok değerli öznitelikleri almak için tablo/görünüm adı sağlamanız gerekiyor **adı, birden çok değerli tablo/Görünüm** ve ilgili birleştirme koşulları **katılma koşulu** üst tabloyla . Veri kaynağında birden çok değerli birden fazla tablo varsa, tek bir görünüm için UNION kullanabilirsiniz.
+
+>[!IMPORTANT]
+Genel SQL Yönetim Aracısı, yalnızca bir birden çok değerli tablo ile çalışabilirsiniz. Birden çok değerli tablo/görünüm adı birden fazla adın tablosunun koymayın. Genel SQL kısıtlamasıdır.
+
 
 Örnek: Çalışan nesne ve tüm birden çok değerli öznitelikleri içeri aktarmak istediğiniz. Çalışan (ana tablo) ve departman (birden çok değerli) adlı iki tablo vardır.
 Şunları yapın:

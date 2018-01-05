@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme
 
@@ -34,11 +34,11 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | AllocationFailed | Küme veya bölgede kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez. İsteği daha sonra yeniden deneyin veya farklı bir VM boyutu isteyin. | [Linux için sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) ve [Windows için sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Eşzamanlı işlemin tamamlanmasını bekleyin. | |
 | AuthorizationFailed | Hizmet sorumlusu veya hesabınızı dağıtımını tamamlamak için yeterli erişimi yok. Hesabınıza ait olduğu rol ve dağıtım kapsamın erişimini denetleyin. | [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | Kaynak Yöneticisi tarafından beklenen eşleşmeyen dağıtım değerlerini gönderdi. Sorun giderme konusunda yardım için iç durum iletisini kontrol edin. | [Şablon başvurusu](/azure/templates/) ve [desteklenen konumlar](resource-manager-template-location.md) |
+| BadRequest | Kaynak Yöneticisi tarafından beklenen eşleşmeyen dağıtım değerlerini gönderdi. Sorun giderme konusunda yardım için iç durum iletisini kontrol edin. | [Şablon başvurusu](/azure/templates/) ve [desteklenen konumlar](resource-manager-templates-resources.md#location) |
 | Çakışma | Kaynağın geçerli durumunda izin verilmiyor bir işlem istiyor. Örneğin, disk yeniden boyutlandırmaya yalnızca VM oluşturulurken veya VM serbest bırakıldığında izin verilir. | |
 | DeploymentActive | Eşzamanlı dağıtım tamamlamak için bu kaynak grubu için bekleyin. | |
 | DnsRecordInUse | DNS kayıt adı benzersiz olmalıdır. Farklı bir ad sağlayın ya da varolan bir kaydı değiştirin. | |
-| ImageNotFound | VM görüntü ayarlarını kontrol edin. | [Linux resim sorun giderme](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) ve [sorun giderme Windows görüntüleri](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | VM görüntü ayarlarını kontrol edin. |  |
 | InUseSubnetCannotBeDeleted | Bu hata bir kaynak güncelleştirme girişimi sırasında karşılaşabileceğiniz, ancak istek kaynağını oluşturma ve silme ile işlenir. Tüm değişmez değerler belirttiğinizden emin olun. | [Güncelleştirme kaynağı](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Uygun bir kiracı için erişim belirteci alın. Belirteç, hesabınıza ait kiracısındaki yalnızca alabilir. | |
 | InvalidContentLink | Büyük olasılıkla kullanılamıyor iç içe geçmiş bir şablon bağlantı denediniz. İç içe geçmiş şablon için sağladığınız URI kontrol edin. Şablon bir depolama hesabı varsa, URI erişilebilir olduğundan emin olun. Bir SAS belirteci geçmesi gerekebilir. | [Bağlı şablonları](resource-group-linked-templates.md) |
@@ -51,7 +51,7 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | InvalidTemplate | Şablon söz dizimi hataları denetleyin. | [Geçersiz şablon çözümleyin](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | Hesabınızı dağıttığınız kaynak grubu olarak aynı kiracıya ait olup olmadığını denetleyin. | |
 | LinkedInvalidPropertyId | Kaynak Kimliği bir kaynak için doğru biçimde çözümleyemiyor değil. Abonelik kimliği, kaynak grubu adı, kaynak türü, (gerekirse) üst kaynak adı ve kaynak adı dahil olmak üzere kaynak kimliği için gerekli tüm değerleri sağlayın denetleyin. | |
-| LocationRequired | Kaynağınız için bir konum sağlar. | [Konum ayarlama](resource-manager-template-location.md) |
+| LocationRequired | Kaynağınız için bir konum sağlar. | [Konum ayarlama](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | Kaynak sağlayıcı kayıt durumu ve desteklenen konumlardan denetleyin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Aboneliğinizi kaynak sağlayıcısı ile kaydedin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Kaynak sağlayıcı kayıt durumunu denetleyin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |

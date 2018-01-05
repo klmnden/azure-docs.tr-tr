@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>İzleme ve Azure Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetme
 > [!div class="op_single_selector"]
@@ -212,7 +212,7 @@ Etkinlik pencerelerine aşağıdaki durumlardan biri olabilir:
 <td>Atlandı</td><td>-</td><td>Etkinlik penceresinin işlenen değildi.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Bir etkinlik penceresini farklı bir durum ile var olmuş ancak sıfırlanmış.</td>
+<td>Hiçbiri</td><td>-</td><td>Bir etkinlik penceresini farklı bir durum ile var olmuş ancak sıfırlanmış.</td>
 </tr>
 </table>
 
@@ -326,7 +326,7 @@ Aşağıdaki tabloda kullanılabilir olayları ve durumları (ve alt durumlar) l
 | --- | --- | --- |
 | Başlatılan Çalıştır etkinliği |Başlatıldı |Başlangıç |
 | Tamamlanan etkinlik |Başarılı oldu |Başarılı oldu |
-| Tamamlanan etkinlik |Başarısız |Başarısız olan kaynak ayırma<br/><br/>Başarısız yürütme<br/><br/>Süresi Doldu<br/><br/>Başarısız doğrulamayı<br/><br/>terk |
+| Tamamlanan etkinlik |Başarısız |Başarısız olan kaynak ayırma<br/><br/>Başarısız yürütme<br/><br/>Zaman Aşımı<br/><br/>Başarısız doğrulamayı<br/><br/>terk |
 | İsteğe bağlı HDI kümesi oluşturma başlatıldı |Başlatıldı |-|
 | İsteğe bağlı HDI kümesi başarıyla oluşturuldu |Başarılı oldu |-|
 | İsteğe bağlı HDI kümesi silindi |Başarılı oldu |-|

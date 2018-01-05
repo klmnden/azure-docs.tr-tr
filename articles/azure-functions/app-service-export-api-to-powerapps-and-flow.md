@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Bir Azure barındırılan API PowerApps ve Microsoft akış için dışa aktarma
 
@@ -76,7 +76,7 @@ Dışa aktarma tamamlamak için **Express** modu, şu adımları izleyin:
  
     ![PowerApps ve Microsoft Flow Express dışarı aktarma](media/app-service-export-api-to-powerapps-and-flow/export-express.png)
 
-3. **Tamam** düğmesine tıklayın. Özel Bağlayıcısı'nı şimdi yerleşik ve belirttiğiniz ortama eklenir.
+3. **Tamam**’a tıklayın. Özel Bağlayıcısı'nı şimdi yerleşik ve belirttiğiniz ortama eklenir.
 
 Kullanım örnekleri için **Express** Azure işlevleri, moduyla bkz [PowerApps bir işlevi çağırmak](functions-powerapps-scenario.md) ve [Microsoft Flow bir işlevi çağırmak](functions-flow-scenario.md).
 
@@ -95,21 +95,25 @@ Dışa aktarma tamamlamak için **el ile** modu, şu adımları izleyin:
 
     Bu örnek OpenAPI tanımında eklenmiştir API anahtar güvenlik tanımını gösterir.
 
-API tanımı dışa aktardıysanız, PowerApps ve Microsoft Flow özel bir bağlayıcı oluşturmak üzere alın. Aşağıdaki örnek, PowerApps kullanır, ancak özel bağlayıcıları yalnızca bir kez tanımını içeri aktarmak gereken şekilde iki hizmetleri arasında paylaşılır.
+API tanımı dışa aktardıysanız, PowerApps ve Microsoft Flow özel bir bağlayıcı oluşturmak üzere alın. Özel bağlayıcıları yalnızca bir kez tanımını içeri aktarmak gereken şekilde iki hizmetleri arasında paylaşılır.
 
 API tanımı PowerApps ve Microsoft Flow aktarmak için aşağıdaki adımları izleyin:
 
-1. Oturum [web.powerapps.com](https://web.powerapps.com) veya [flow.microsoft.com](https://flow.microsoft.com/). 
+1. Git [powerapps.com](https://web.powerapps.com) veya [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Tıklatın **ayarları** düğmesini (dişli simgesi) sayfası ve seçin, sağ üst **özel Bağlayıcılar**.
+2. Sağ üst köşesinde, dişli simgesine tıklayın ve ardından tıklayın **özel Bağlayıcılar**.
 
-    ![Özel bağlayıcılar](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![Hizmetinde dişli simgesi](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Tıklatın **özel bağlayıcı oluşturma**.
+3. ' I tıklatın **özel bağlayıcı oluşturma**, ardından **OpenAPI tanımını içeri aktar**.
 
-4. Üzerinde **genel** sekmesinde, API için bir ad sağlayın ve ardından OpenAPI tanımı karşıya yükleme veya meta veri URL'sini yapıştırın. Tıklatın **karşıya**, ardından **devam**.
+   ![Özel bağlayıcısı oluşturun](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![Genel sekmesi](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. Özel bağlayıcı için bir ad girin sonra dışarı aktardığınız OpenAPI tanımı gidin ve tıklatın **devam**.
+
+   ![OpenAPI tanımı karşıya yükle](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. Üzerinde **genel** sekmesinde, OpenAPI tanımından gelen bilgileri gözden geçirin.
 
 5. Üzerinde **güvenlik** sekmesinde, istendiğinde, kimlik doğrulama ayrıntıları sağlamak için kimlik doğrulama türü için uygun değerleri girin. Tıklatın **devam**.
 
@@ -168,7 +172,7 @@ Aşağıdaki yapılandırma değerlerini gereklidir:
 > [!IMPORTANT]
 > Başka birinin API tanımı PowerApps ve Microsoft Flow el ile akışının bir parçası içeri aktaracak, bunları istemci Kimliğini ve istemci parolası, sağlamanız gereken *bağlayıcı kaydı*, API'nizi kaynak URL'sini yanı sıra. Bu gizli anahtarları güvenli bir şekilde yönetildiğinden emin olun. **API güvenlik kimlik bilgileri paylaşmaz.**
 
-### <a name="generic-oauth-20"></a>Genel OAuth 2.0
+### <a name="generic-oauth-20"></a>Generic OAuth 2.0
 Genel OAuth 2.0 kullanırken, tüm OAuth 2.0 sağlayıcı ile tümleştirebilirsiniz. Bu, yerel olarak desteklenmeyen özel sağlayıcıları ile çalışmanıza olanak sağlar.
 
 Aşağıdaki yapılandırma değerlerini gereklidir:

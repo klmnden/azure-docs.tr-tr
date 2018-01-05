@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/20/2017
+ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure yedekleme verileri azure'a ilk tam yedeklemesi sırasında ağ ve depolama maliyet tasarrufu birkaç yerleşik verimliliği sahiptir. İlk tam yedekleme tipik olarak büyük miktarlarda veri aktarır ve yalnızca farkları/incrementals aktarım sonraki yedeklemeleri karşılaştırıldığında daha fazla ağ bant genişliği gerektirir. Azure yedekleme ilk yedekleme sıkıştırır. Çevrimdışı dengeli sürecinde, Azure yedekleme disklerini sıkıştırılmış ilk yedek verileri çevrimdışı Azure'a yüklemek için kullanabilirsiniz.  
@@ -31,7 +31,7 @@ Azure Backup ve Azure içeri/dışarı aktarma dengeli çevrimdışı özelliği
 [Azure Yedekleme'nin (ve daha sonra) güncelleştirme Ağustos 2016](http://go.microsoft.com/fwlink/?LinkID=229525) içeren *Azure Disk Hazırlama aracı*, AzureOfflineBackupDiskPrep, adlı:
 
 * Azure içeri/dışarı aktarma aracını kullanarak sürücülerinizin Azure alma için hazırlanmanıza yardımcı olur.
-* Bir Azure alma işi Azure içeri/dışarı aktarma hizmeti için otomatik olarak oluşturur [Klasik Azure portalı](https://manage.windowsazure.com) aksine aynı Azure Backup eski sürümleri ile el ile oluşturma.
+* Otomatik olarak Azure içeri/dışarı aktarma hizmeti için bir Azure içe aktarma işi oluşturur [Azure portal](https://ms.portal.azure.com).
 
 Azure yedekleme veri yükleme tamamlandıktan sonra Azure Backup yedekleme verileri yedekleme Kasası'na kopyalar ve artımlı yedeklemeler zamanlanır.
 
@@ -40,7 +40,7 @@ Azure yedekleme veri yükleme tamamlandıktan sonra Azure Backup yedekleme veril
 >
 >
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * [Azure içeri/dışarı aktarma iş akışı ile öğrenmeniz](../storage/common/storage-import-export-service.md).
 * İş akışı başlatmadan önce aşağıdakilerden emin olun:
   * Bir Azure yedekleme kasası oluşturuldu.
@@ -69,11 +69,11 @@ Bu bölümdeki bilgiler, verilerinizi Azure veri merkezi için teslim ve Azure d
     * **Azure içeri aktarma iş adı**: hangi Azure alma tarafından hizmet ve Azure yedekleme izlemek gönderilen veri aktarımını disklerde Azure için benzersiz bir ad.
     * **Azure yayımlama ayarları**: Abonelik profilinizi hakkında bilgi içeren bir XML dosyası. Ayrıca, aboneliğinizle ilişkili güvenli kimlik bilgileri içerir. Yapabilecekleriniz [dosya indirme](https://manage.windowsazure.com/publishsettings). Yayımlama ayarları dosyası yerel yolu sağlar.
     * **Azure abonelik kimliği**: Azure Alma işinin başlatmak planladığınız abonelik için Azure abonelik kimliği. Birden çok Azure aboneliğiniz varsa, içe aktarma işi ile ilişkilendirmek istediğiniz abonelik Kimliğini kullanın.
-    * **Azure depolama hesabı**: Azure içe aktarma işi ile ilişkilendirilecek sağlanan Azure Abonelikteki depolama hesabı Klasik türü.
+    * **Azure depolama hesabı**: Azure içe aktarma işi ile ilişkili Azure abonelik depolama hesabında.
     * **Azure depolama kapsayıcısının**: Bu işin veriler alınırken burada Azure depolama hesabındaki hedef depolama blob adı.
 
     > [!NOTE]
-    > Sunucunuz için bir Azure kurtarma Hizmetleri Kasası'nı kaydettiğiniz varsa [Azure portal](https://portal.azure.com) değil ve yedeklemeler için bir bulut çözümü sağlayıcısı (CSP) abonelik depolama hesabı Klasik türü Azure'dan oluşturabilirsiniz Portal ve Çevrimdışı Yedekleme iş akışı için kullanın.
+    > Sunucunuz için bir Azure kurtarma Hizmetleri Kasası'nı kaydettiğiniz varsa [Azure portal](https://portal.azure.com) değil ve yedeklemeler için bir bulut çözümü sağlayıcısı (CSP) abonelik depolama hesabı Azure portalından oluşturabilirsiniz ve Çevrimdışı Yedekleme iş akışı için kullanın.
     >
     >
 
@@ -123,7 +123,7 @@ Azure Disk Hazırlık Aracı kurtarma Hizmetleri Aracısı'nı yükleme dizinind
 
     Yedekleme verilerini diskle hazırlamak aracı sonra başlar. Sağlanan disk yedekleme verileri için yeterli alanı yok durumunda aracı tarafından istendiğinde ilave diskler eklemeniz gerekebilir. <br/>
 
-    Aracının başarılı yürütme sonunda, sağladığınız bir veya daha fazla disk Azure dağıtımına için hazırlanır. Ayrıca, ada sahip bir alma işi sırasında sağladığınız **başlatmak Çevrimdışı Yedekleme** iş akışı Azure Klasik portalında oluşturulur. Son olarak, aracı diskleri burada sevk gerek Azure veri merkezi için teslimat adresi ve içe aktarma işi Azure Klasik Portalı'nda bulmak için bağlantı görüntüler.
+    Aracının başarılı yürütme sonunda, sağladığınız bir veya daha fazla disk Azure dağıtımına için hazırlanır. Ayrıca, ada sahip bir alma işi sırasında sağladığınız **başlatmak Çevrimdışı Yedekleme** iş akışı, Azure portalında oluşturulur. Son olarak, aracı diskleri burada sevk gerek Azure veri merkezi için teslimat adresi ve içe aktarma işi Azure Portalı'nda bulmak için bağlantı görüntüler.
 
     ![Azure disk hazırlığı tamamlandı](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -181,7 +181,7 @@ Azure Disk Hazırlık Aracı kurtarma Hizmetleri Aracısı'nı yükleme dizinind
   ![PowerShell çıkışı](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>Azure portalında bir içeri aktarma işi oluşturma
-1. Depolama hesabınıza gidin [Klasik Azure portalı](https://manage.windowsazure.com/), tıklatın **içeri/dışarı aktarma**ve ardından **alma işi oluştur** görev bölmesinde.
+1. Depolama hesabınıza gidin [Azure portal](https://ms.portal.azure.com/), tıklatın **içeri/dışarı aktarma**ve ardından **alma işi oluştur** görev bölmesinde.
 
     ![Azure portalında içeri/dışarı aktarma sekmesi](./media/backup-azure-backup-import-export/azureportal.png)
 

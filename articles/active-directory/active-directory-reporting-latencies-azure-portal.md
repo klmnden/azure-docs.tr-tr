@@ -12,20 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-<<<<<<< HEAD
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
-=======
-ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Gecikme raporlama Azure Active Directory
 
@@ -43,15 +37,15 @@ Etkinlik Raporlama iki alan vardır:
 
 Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler.
 
-| Rapor | Minimum | Ortalama |
-| :-- | --- | --- |
-| Denetim günlükleri | 30 dakika  | 1 saat  |
-| Oturum açma işlemleri | 15 dakika  | 2 saat |
+| Rapor | Minimum | Ortalama | Açıklamalar |
+| :-- | --- | --- | :-- |
+| Denetim günlükleri | 30 dakika  | 1 saat  |Bazı durumlarda, gösterilmeye denetim etkinlik verilerini 2 saate kadar sürebilir.|
+| Oturum açma işlemleri | 15 dakika  | 2 saat |Bazı durumlarda, oturum açma etkinliği veri görünmesini 24 saate kadar sürebilir. Bu, eski office uygulamalarından gelen oturum açma işlemleri etkinlik verilerini içerir. |
 
-Bazı kenar durumlarda bunu gerçekleştirebilirsiniz:
 
-- 2 saat gösterilmeye etkinlik verileri denetim.
-- 24 saat oturum açma etkinliği veri görünmesini sağlar. Bu, eski office uygulamalarından gelen oturum açma işlemleri etkinlik verilerini içerir. 
+
+
+
 
 
 ## <a name="security-reports"></a>Güvenlik raporları

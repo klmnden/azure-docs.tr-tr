@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure yığın depolama kapasitesi yönetme
 
@@ -53,7 +53,7 @@ Birimleri paylaşımlarında Kiracı verilerini tutun. Kiracı veri sayfa BLOB'l
 Bir paylaşım olduğunda düşük boş alan ve eylemlere [geri](#reclaim-capacity) alanı başarılı veya kullanılabilir değil, Azure yığın bulut operatörü olabilir [geçirmek](#migrate-a-container-between) bir paylaşım başka bir blob kapsayıcıları.
 
 - Kapsayıcılar ve bloblar hakkında daha fazla bilgi için bkz: [Blob storage](azure-stack-key-features.md#blob-storage) anahtar özellikler ve Azure yığınında kavramları.
-- Kiracı kullanıcılar Azure yığınında blog depolama ile nasıl çalıştığıyla ilgili daha fazla bilgi için bkz: [Azure yığın depolama hizmetleri](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Kiracı kullanıcılar Azure yığınında blob storage ile nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure yığın depolama hizmetleri](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Kapsayıcılar

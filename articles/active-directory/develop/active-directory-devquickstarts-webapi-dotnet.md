@@ -1,5 +1,5 @@
 ---
-title: "Azure AD .NET web API'si Başlarken | Microsoft Docs"
+title: "Başlarken Azure AD .NET Web API'si | Microsoft Docs"
 description: ".NET MVC web kimlik doğrulama ve yetkilendirme için Azure AD ile tümleşir API'si oluşturma."
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 096beac3a1acae312ccddc6cbd88378370feed39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Azure AD'den taşıyıcı belirteçlerini kullanarak bir web API korunmasına yardımcı olma
+# <a name="azure-ad-net-web-api-getting-started"></a>Başlarken Azure AD .NET Web API'si
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Korunan kaynaklara erişim sağlayan bir uygulama oluşturuyorsanız, bu kaynakları unwarranted erişimi engellemek nasıl bilmeniz gerekir.

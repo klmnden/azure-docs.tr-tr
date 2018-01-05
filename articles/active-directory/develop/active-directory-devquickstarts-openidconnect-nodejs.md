@@ -1,5 +1,5 @@
 ---
-title: "Azure AD ile oturum açma ve oturum kapatma Node.js kullanarak Başlarken | Microsoft Docs"
+title: "Azure AD Node.js web uygulamasına Başlarken | Microsoft Docs"
 description: "Oturum açma için Azure AD ile tümleşen bir Node.js Express MVC web uygulaması oluşturmayı öğrenin."
 services: active-directory
 documentationcenter: nodejs
@@ -12,22 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-<<<<<<< HEAD
-ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3a9bc44ec9fc5a7c5e18139070bac837421efff5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Node.js web uygulamasına oturum açma ve Azure AD ile oturum kapatma
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js web uygulamasına Başlarken
 Burada Passport kullanın:
 
 * Kullanıcı uygulamayı Azure Active Directory (Azure AD) ile oturum açın.

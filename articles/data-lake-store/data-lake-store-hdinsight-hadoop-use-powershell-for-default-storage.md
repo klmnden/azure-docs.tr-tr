@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 2f1793c2de2b68a8b155ada73044c6bc36882612
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>Varsayılan depolama alanı olarak Data Lake Store ile PowerShell kullanarak Hdınsight kümeleri oluşturma
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Hdınsight Data Lake Store ile kullanmak için bazı önemli noktalar şunlardı
 
 PowerShell kullanarak Data Lake Store ile çalışmak üzere Hdınsight yapılandırmak için sonraki beş bölümler'ndaki yönergeleri izleyin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşıladığından emin olun:
 
 * **Bir Azure aboneliği**: Git [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).

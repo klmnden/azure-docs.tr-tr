@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
 ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure işlevleri Java Geliştirici Kılavuzu
 > [!div class="op_single_selector"]

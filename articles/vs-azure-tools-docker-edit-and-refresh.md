@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Yerel Docker kapsayıcısındaki uygulamalar için hata ayıklama
 ## <a name="overview"></a>Genel Bakış
@@ -32,7 +32,7 @@ Bu makalede ayrıca hata ayıklama kesme noktalarını ayarlama gösterilmektedi
 >
 >
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki araçları yüklü olması gerekir.
 
 * [Visual Studio en son sürümü](https://www.visualstudio.com/downloads/)
@@ -54,7 +54,7 @@ Hızlı bir şekilde değişiklikleri yinelemek için bir kapsayıcı içindeki 
 
 1. Çözüm yapılandırma kümesi `Debug` ve basın  **&lt;CTRL + F5 >** docker görüntünüzü oluşturmak ve yerel olarak çalıştırmak için.
 
-    Kapsayıcı görüntü oluşturulduğundan ve Docker kapsayıcısı içinde çalışan sonra Visual Studio, varsayılan tarayıcıda Web uygulamasını başlatır.
+    Kapsayıcı görüntü oluşturulduğundan ve Docker kapsayıcısı içinde çalışan sonra Visual Studio varsayılan tarayıcınızda Web uygulamasını başlatır.
     Microsoft Edge tarayıcı kullanıyorsanız veya aksi halde hatalar varsa, bkz: [sorun giderme](vs-azure-tools-docker-troubleshooting-docker-errors.md) bölümü.
 2. Bizim değişiklik yapmak için burada yapacağız olan hakkında sayfasına gidin.
 3. Visual Studio'ya dönmek ve açık `Views\Home\About.cshtml`.

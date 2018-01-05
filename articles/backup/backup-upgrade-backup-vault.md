@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Yedekleme kasasının kurtarma Hizmetleri Kasası'na yükseltme
 Kurtarma Hizmetleri kasası ve yükseltme sonrası adımlarını var olan bir yedek yükseltme hakkında sık sorulan sorular kasa, bu makalede hangi kurtarma Hizmetleri kasası sağlar genel bir bakış sağlar. Kurtarma Hizmetleri kasası, yedekleme verilerinizi barındıran bir yedekleme kasası Azure Resource Manager eşdeğerdir. Verileri genellikle veri ya da sanal makineleri (VM'ler), iş yükleri, sunucular ve iş istasyonları için yapılandırma bilgilerini kopyalarını olup şirket içi veya azure'de.
@@ -71,7 +71,7 @@ Bir kez, bir kurtarma Hizmetleri Kasası'na yükseltme, raporlar için Azure Bac
 Hayır. Devam eden Yedeklemelerinizin kesintisiz sırasında ve yükseltmeden sonra devam eder.
 
 **Bu yükseltme ortalaması my varolan araçları için nedir?**</br>
-Yükseltmeden sonra çalışmaya devam ettiğinden emin olmak için Resource Manager dağıtım modeli için var olan Otomasyon veya araç güncelleştirmeniz gerekir. PowerShell cmdlet'leri başvurularını başvurun [Service Manager dağıtım modeli](backup-client-automation-classic.md) ve [Resource Manager dağıtım modeli](backup-client-automation.md).
+Yükseltmeden sonra çalışmaya devam ettiğinden emin olmak için Resource Manager dağıtım modeli için var olan Otomasyon veya araç güncelleştirmeniz gerekir. PowerShell cmdlet'leri başvurularını başvurun [Resource Manager dağıtım modeli](backup-client-automation.md).
 
 **Yükseltmeden sonra geri geri alabilirsiniz?**</br>
 Hayır. Kaynakları başarılı bir şekilde yükselttikten sonra geri alma desteklenmiyor.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme
 
@@ -34,7 +34,7 @@ Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltirken veri düzlem
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Otomasyon ve aracı yükseltme yaptıktan sonra yapılan değişiklikler
 
 Altyapınızı kasası yükseltme için hazırlık yaparken, var olan Otomasyon veya yükseltmeden sonra çalışmaya devam ettiğinden emin olmak için araç güncelleştirmeniz gerekir.
-PowerShell cmdlet'leri başvurularını başvurun [Service Manager dağıtım modeli](backup-client-automation-classic.md) ve [Resource Manager dağıtım modeli](backup-client-automation.md).
+PowerShell cmdlet'leri başvurularını başvurun [Resource Manager dağıtım modeli](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Yükseltmeden önce

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: eceeccc0d6225613fdd75a92b894290665168fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Azure AD tümleştirme bir Apache Cordova uygulaması
+# <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +43,7 @@ Bu geliştirmeler yapmak için aktarmanız gerekir:
 3. Grafik API'si sorgulamak için belirteci kullanın için kodu ekleyin ve sonuçları görüntüleyin.
 4. Hedef, Cordova ADAL eklenti eklemek ve Öykünücüler çözümü test istediğiniz tüm platformlar ile Cordova dağıtım projesi oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Uygulama geliştirme hakları olan bir hesabın sahip olduğu bir Azure AD kiracısı.

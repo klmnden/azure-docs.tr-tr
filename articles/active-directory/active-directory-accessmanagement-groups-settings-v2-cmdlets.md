@@ -17,14 +17,14 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Grup Yönetimi için Azure Active Directory sürüm 2 cmdlet'leri
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-groups-create-azure-portal.md)
+> * [Azure Portal](active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -168,7 +168,7 @@ Dizininizden grubunu silmek için Remove-AzureADGroup cmdlet'ini aşağıdaki ş
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
 ## <a name="manage-group-membership"></a>Grup üyeliğini yönet 
-### <a name="add-members"></a>Üye ekleme
+### <a name="add-members"></a>Üye ekle
 Bir gruba yeni üye eklemek için Add-AzureADGroupMember cmdlet'ini kullanın. Bu komut, önceki örnekte kullandık Intune Administrators grubuna üye ekler:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -185,7 +185,7 @@ Varolan bir grubu üyeleri almak için bu örnekte olduğu gibi Get-AzureADGroup
                           72cd4bbd-2594-40a2-935c-016f3cfeeeea User
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
-### <a name="remove-members"></a>Üye kaldırma
+### <a name="remove-members"></a>Üyeleri kaldır
 Gruba daha önce eklediğimiz üye kaldırmak için aşağıda gösterildiği gibi Remove-AzureADGroupMember cmdlet'i kullanın:
 
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -252,7 +252,7 @@ Bir sahip bir gruptan kaldırmak istiyorsanız, Remove-AzureADGroupOwner cmdlet'
 Bir grup, uç noktaları mailNickname veya e-posta adresi grubunun bir parçası olarak kullanılacak diğer belirtmek son kullanıcı izin belirli oluşturulduğunda. Aşağıdaki üst düzey ayrıcalıklı e-posta diğer adlar gruplarıyla yalnızca Azure AD genel yönetici tarafından oluşturulabilir. 
   
 * Uygunsuz kullanım 
-* Yönetici 
+* yönetici 
 * Yönetici 
 * hostmaster 
 * majordomo 
