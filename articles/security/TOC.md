@@ -54,8 +54,10 @@
 #### [Uyumluluk - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Genel Bakış](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [İlkelere genel bakış](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Uyumluluk - Finansal Hizmetler
+##### [Düzenlenen İş Yükleri için Finansal Hizmetler](./blueprints/financial-services-regulated-workloads.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Azure güvenliğini kullanmaya başlama](azure-security-getting-started.md)
 ## [Güvenlikle ilgili en iyi uygulamalar ve modeller](security-best-practices-and-patterns.md)
 ## [Güvenlik hizmetleri ve teknolojileri](azure-security-services-technologies.md)
