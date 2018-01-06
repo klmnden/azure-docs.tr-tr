@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Galerisi | Microsoft Docs
-description: "Paylaşabilir ve analizi kaynaklarını ve Cortana Intelligence Galerisi'nde daha fazlasını keşfedin. Başkalarından öğrenin ve topluluğa kendi katkı yapın."
+title: Azure AI galeri | Microsoft Docs
+description: "Paylaşabilir ve analizi kaynaklarını ve Azure AI galerisinde daha fazlasını keşfedin. Başkalarından öğrenin ve topluluğa kendi katkı yapın."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi kaynakları bulmak ve paylaşmak
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşabilir ve Azure AI Galerisi kaynakları Bul
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Galeride ne bulabilirim?
-Cortana Intelligence Galerisi, kendi analiz çözümleri geliştirmek için kullanabileceğiniz kaynakları çeşitli içerir.
+Azure AI Galerisi, kendi analiz çözümleri geliştirmek için kullanabileceğiniz kaynakları çeşitli içerir.
 
 * **[Denemeler](gallery-experiments.md)**  -Galerisi, çok çeşitli Azure Machine Learning Studio'da geliştirilen denemeler içerir. Bu teknik, karmaşık machine learning sorunlara ilişkin çözüm tam olarak geliştirilen öğrenme belirli bir makine göstermektedir hızlı kavram kanıtı denemeler arasındadır.
 * **[Jupyter not defterleri](gallery-jupyter-notebooks.md)**  - Jupyter not defterleri dahil kodu, veri görselleştirmeleri ve tek bir etkileşimli belgelerinde tuvale.
@@ -48,7 +48,7 @@ Bu temel Galerisi kaynakları birlikte birkaç farklı şekilde mantıksal olara
 
 Son olarak,  **[Competitions](gallery-competitions.md)**  heyecan verici Cortana Intelligence Suite kullanarak karmaşık sorunları çözmek için veri scientsts topluluğu ile rekabet olanağı sunar.
 
-![Cortana Intelligence Galerisi giriş sayfası](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Azure AI Galerisi giriş sayfası](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Bul ve öğrenin
 Herkes göz atın ve Microsoft ve gelişmiş analizler topluluk tarafından katkıda galerisinde farklı türdeki kaynakların arayın.

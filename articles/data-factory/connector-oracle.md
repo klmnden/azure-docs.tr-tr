@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>İlk ve son Azure Data Factory kullanarak Oracle veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Tüm desteklenen havuz veri deposuna Oracle veritabanından veri kopyalama veya 
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlangıç/bitiş genel olarak erişilebilir değil bir Oracle veritabanına veri kopyalamak için bir Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) makale tümleştirmesi çalışma zamanı hakkında ayrıntılı bilgi için. Yerleşik bir Oracle sürücü tümleştirmesi çalışma zamanı sağlar, bu nedenle herhangi bir sürücüsü başlangıç/bitiş Oracle veri kopyalama işlemi sırasında el ile yüklemeniz gerekmez.
 
@@ -57,7 +57,7 @@ Aşağıdaki özellikler, Oracle bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Oracle** | Evet |
-| connectionString | Oracle veritabanına bağlanmak için gereken bilgileri belirtin. Bu alan bir SecureString işaretleyin. | Evet |
+| connectionString | Oracle veritabanına bağlanmak için gereken bilgileri belirtin. Bu alan bir SecureString işaretleyin.<br><br>**Bağlantı türü desteklenen**: kullanmayı tercih edebileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID kullanma:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanma:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -210,7 +210,7 @@ Oracle için veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 | BLOB |Byte]<br/>(yalnızca Oracle 10 g desteklenir ve üzeri) |
 | CHAR |Dize |
 | CLOB |Dize |
-| TARİH |Tarih Saat |
+| DATE |Tarih Saat |
 | KAYAN NOKTA |Ondalık, dize (varsa precision > 28) |
 | TAMSAYI |Ondalık, dize (varsa precision > 28) |
 | UZUN |Dize |

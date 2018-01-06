@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Galerisi koleksiyonları | Microsoft Docs"
-description: "Bul ve Cortana Intelligence Galerisi koleksiyonlarda paylaşın."
+title: "Azure AI galeri koleksiyonları | Microsoft Docs"
+description: "Bul ve Azure AI galeri koleksiyonlarda paylaşın."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Bul ve Cortana Intelligence Galerisi koleksiyonlarda paylaşma
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Bul ve Azure AI galeri koleksiyonlarda paylaşma
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Koleksiyonlar
@@ -31,7 +31,7 @@ Koleksiyonlara gözatmak için [galerisinde](http://gallery.cortanaintelligence.
 
 ![Galeri giriş sayfasında koleksiyonları seçin](./media/gallery-collections/select-collections-in-gallery.png)
 
-**[Koleksiyonları](https://gallery.cortanaintelligence.com/collections)**  sayfa yakın zamanda eklenen ve popüler koleksiyonları listesini görüntüler. Tüm koleksiyonlar görüntülemek için seçin **tümünü görmek**. Belirli bir koleksiyon için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+ **[Koleksiyonları](https://gallery.cortanaintelligence.com/collections)**  sayfa yakın zamanda eklenen ve popüler koleksiyonları listesini görüntüler. Tüm koleksiyonlar görüntülemek için seçin **tümünü görmek**. Belirli bir koleksiyon için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
 
 Koleksiyon Ayrıntıları sayfasında bir koleksiyon hakkında daha fazla bilgi edinebilirsiniz. Bir koleksiyonu Ayrıntılar sayfası açmak için koleksiyon seçin. Bir koleksiyonda Ayrıntıları sayfasında **açıklamaları** bölümünde, açıklama, geri bildirim sağlamak veya için toplanması hakkında sorular sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn koleksiyonu bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek için koleksiyon ayrıntıları sayfasına bağlantı e-posta gönderebilirsiniz.
 
@@ -71,7 +71,7 @@ Sahip olduğunuz öğeleri veya topluluk tarafından katkıda öğeleri içeren 
     !["Genel" veya "Listelenmemiş" seçin](./media/gallery-collections/create-collection-page-3.png)
 7. **Oluştur**’u seçin.
 
-Koleksiyonunuz Cortana Intelligence Galerisi'nde sunulmuştur. Hesap sayfanıza listelendiğini koleksiyonlarınızı **koleksiyonu** sekmesi.
+Koleksiyonunuz Azure AI Galerisi'nde sunulmuştur. Hesap sayfanıza listelendiğini koleksiyonlarınızı **koleksiyonu** sekmesi.
 
 ### <a name="add-items-to-a-collection"></a>Öğeleri bir koleksiyonuna Ekle
 Öğeleri koleksiyonunuza eklemek için bir koleksiyonu açın, seçin **Düzenle**ve ardından **Öğe Ekle**.

@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Galerisi denemelerini | Microsoft Docs
-description: "Bul ve Cortana Intelligence Galerisi'nde denemeler paylaşın."
+title: Azure AI galeri denemelerini | Microsoft Docs
+description: "Bul ve Azure AI galerisinde denemeler paylaşın."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi'nde denemeler Bul
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Azure AI galerisinde denemeler Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Machine Learning Studio'da denemeleri
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="discover"></a>Keşif
 Denemelere gözatmak için [galerisinde](http://gallery.cortanaintelligence.com), galeri giriş sayfasının en üstünde seçin **denemeler**.
 
-**[Denemeler](https://gallery.cortanaintelligence.com/experiments)**  sayfa yakın zamanda eklenen ve popüler denemeler listesini görüntüler. Tüm denemeleri görmek için seçin **tümünü görmek** düğmesi. Belirli bir deneme için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+ **[Denemeler](https://gallery.cortanaintelligence.com/experiments)**  sayfa yakın zamanda eklenen ve popüler denemeler listesini görüntüler. Tüm denemeleri görmek için seçin **tümünü görmek** düğmesi. Belirli bir deneme için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
 
 Deneme Ayrıntıları sayfasında bir denemeyi hakkında daha fazla bilgi edinebilirsiniz. Bir deneme Ayrıntılar sayfasını açmak için denemeyi seçin. Bir deneme üzerinde Ayrıntıları sayfasında **açıklamaları** bölümünde, açıklama, geri bildirim sağlamak veya için denemeler hakkında soru sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn deneme bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek için deneme ayrıntıları sayfasına bağlantı posta.
 
@@ -42,10 +42,10 @@ Deneme Ayrıntıları sayfasında bir denemeyi hakkında daha fazla bilgi edineb
 
 ![Kendi açıklamaları ekleme](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="download"></a>İndir
+## <a name="download"></a>İndirme
 Machine Learning Studio çalışma alanına herhangi bir deneme galerisinde bir kopyasını yükleyebilirsiniz. Ardından, kendi çözümleri oluşturmak için kopya değiştirebilirsiniz.
 
-Cortana Intelligence Galerisi bir denemeyi bir kopyasını almak için iki yol sunar:
+Azure AI galeri bir denemeyi bir kopyasını almak için iki yol sunar:
 
 * **Galeriden**. Galeride gibi bir denemeyi bulursanız, bir kopyasını indirin ve Machine Learning Studio çalışma alanınızda açın.
 * **Studio içinden makine**. Machine Learning Studio'da bir denemeyi galeride şablon olarak yeni bir deneme oluşturmak için kullanabilirsiniz.
@@ -132,7 +132,7 @@ Gerekiyorsa, iş akışında (modüller, parametreleri ve benzeri) Galerisine ya
 
 Denemenizde doğrudan galeri için aşağıdaki bilgilerden değiştirebilirsiniz:
 
-* Deneme adı
+* Deney adı
 * Özet ya da açıklaması
 * Etiketler
 * Görüntü

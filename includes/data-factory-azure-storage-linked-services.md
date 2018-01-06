@@ -27,7 +27,10 @@ Paylaşılan erişim imzası (SAS) depolama hesabınızdaki kaynaklara yetkilend
 
 > [!IMPORTANT]
 > Azure Data Factory artık yalnızca destekler **hizmet SAS** ancak hesap SAS. Bkz: [türleri, paylaşılan erişim imzaları](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) bu iki tür ve nasıl oluşturulacağıyla ilgili ayrıntılar için. Desteklenmeyen bir hesap SAS, Depolama Gezgini değil veya Azure portalından generable SAS URL unutmayın.
-> 
+
+> [!TIP]
+> Depolama hesabınız (Değiştir yer tutucu ve gerekli izin verin) için hizmet SAS oluşturmak için PowerShell komutlarını aşağıda çalıştırabilirsiniz:`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullanarak Azure data factory için bir Azure depolama hesabı bağlantı sağlar. Veri Fabrikası depolama alanındaki tüm/özel kaynakları (blob/kapsayıcısı) kısıtlanmış/zaman sınırlı erişim sağlar. Aşağıdaki tabloda Azure depolama bağlı SAS hizmete özgü JSON öğelerini açıklamasını sağlar. 
 

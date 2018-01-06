@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL Azure veritabanındaki sınırlamaları
 Azure veritabanı PostgreSQL hizmeti için genel önizlemede değil. Aşağıdaki bölümlerde, kapasite ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
@@ -27,12 +27,12 @@ Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama h
 | | |
 | :------------------------- | :---------------- |
 | **En fazla bağlantı**        |                   |
-| Temel 50 işlem birimleri     | 50 bağlantıları    |
-| Temel 100 işlem birimleri    | 100 bağlantılar   |
-| Standart 100 işlem birimleri | 200 bağlantıları   |
-| Standart 200 işlem birimleri | 300 bağlantıları   |
-| Standart 400 işlem birimleri | 400 bağlantıları   |
-| Standart 800 işlem birimleri | 500 bağlantılar   |
+| Temel 50 işlem birimleri     | 55 bağlantıları    |
+| Temel 100 işlem birimleri    | 105 bağlantıları   |
+| Standart 100 işlem birimleri | 150 bağlantıları   |
+| Standart 200 işlem birimleri | 250 bağlantıları   |
+| Standart 400 işlem birimleri | 480 bağlantıları   |
+| Standart 800 işlem birimleri | 950 bağlantıları   |
 | **En fazla işlem birimleri**      |                   |
 | Temel hizmet katmanı         | 100 işlem birimleri |
 | Standart hizmet katmanı      | 800 işlem birimleri |
@@ -40,8 +40,9 @@ Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama h
 | Temel hizmet katmanı         | 1 TB              |
 | Standart hizmet katmanı      | 1 TB              |
 
-Çok fazla bağlantı erişildiğinde, aşağıdaki hata iletisini alabilirsiniz:
+Azure sistemi PostgreSQL server Azure veritabanındaki izlemek için beş bağlantı gerektirir. Çok fazla bağlantı erişildiğinde, aşağıdaki hata iletisini alabilirsiniz:
 > Önemli: ne yazık ki zaten çok fazla sayıda istemci
+
 
 ## <a name="preview-functional-limitations"></a>Önizleme işlevsel sınırlamaları
 ### <a name="scale-operations"></a>Ölçek işlemleri
@@ -52,7 +53,7 @@ Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama h
 ### <a name="server-version-upgrades"></a>Sunucu sürüm yükseltme
 - Ana veritabanı altyapısı sürümleri arasında otomatik geçiş şu anda desteklenmiyor.
 
-### <a name="subscription-management"></a>Abonelik Yönetimi
+### <a name="subscription-management"></a>Abonelik yönetimi
 - Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
 
 ### <a name="point-in-time-restore"></a>belirli bir noktaya geri yükleme

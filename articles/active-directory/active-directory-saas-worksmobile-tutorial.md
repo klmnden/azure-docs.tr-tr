@@ -1,42 +1,43 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile WORKS mobil | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile WORKS mobil arasında yapılandırmayı öğrenin."
+title: "Öğretici: Azure Active Directory Tümleştirme satır WORKS ile | Microsoft Docs"
+description: "Çoklu oturum açma Azure Active Directory ve satır WORKS arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 23d57bf81e15bf23d26a1e323f7cd04ee5f35d13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b15f5d02a7baff0bc56f2928f73822214c595ab0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>Öğretici: Azure Active Directory Tümleştirme ile WORKS mobil
+# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Öğretici: Azure Active Directory Tümleştirme ile satır ÇALIŞIR
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile WORKS mobil tümleştirmek öğrenin.
+Bu öğreticide, satır WORKS Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
 
-Azure AD ile WORKS mobil tümleştirme ile aşağıdaki avantajları sağlar:
+Satır WORKS Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- WORKS mobil erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak ÇALIŞIR mobil (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Satır WORKS erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için satır WORKS açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme WORKS MOBILE ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirme satır ÇALIŞIR yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir WORKS mobil çoklu oturum açma abonelik etkin
+- Bir satır WORKS çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -44,162 +45,153 @@ Azure AD tümleştirme WORKS MOBILE ile yapılandırmak için aşağıdaki öğe
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden WORKS mobil ekleme
+1. Galeriden satır WORKS ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-works-mobile-from-the-gallery"></a>Galeriden WORKS mobil ekleme
-Azure AD WORKS mobil tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden WORKS mobil eklemeniz gerekir.
+## <a name="adding-line-works-from-the-gallery"></a>Galeriden satır WORKS ekleme
+Azure AD satır WORKS tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden satır WORKS eklemeniz gerekir.
 
-**Galeriden WORKS mobil eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden satır WORKS eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **WORKS mobil**.
+4. Arama kutusuna yazın **satır WORKS**seçin **satır WORKS** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_search.png)
+    ![Sonuçlar listesinde satır ÇALIŞIR](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_addfromgallery.png)
 
-5. Sonuçlar panelinde seçin **WORKS mobil**ve ardından **Ekle** uygulama eklemek için düğmesi.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_addfromgallery.png)
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma satır "Britta Simon" adlı bir test kullanıcı tabanlı WORKS ile test etme.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma WORKS "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı MOBILE ile test etme
+Tekli çalışmaya oturum için Azure AD satır WORKS karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının satır WORKS ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen WORKS Mobile'da bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı WORKS Mobile'da arasında bir bağlantı ilişkisi kurulması gerekir.
+Değeri satır ÇALIŞIR atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** WORKS Mobile'da.
+Yapılandırmak ve Azure AD çoklu oturum açma ile satır ÇALIŞIR sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-Yapılandırma ve Azure AD çoklu oturum açma WORKS MOBILE ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Satır WORKS test kullanıcısı oluşturma](#create-a-line-works-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı satır WORKS sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[WORKS mobil test kullanıcısı oluşturma](#creating-a-works-mobile-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı WORKS mobil sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma satır WORKS uygulamanızda yapılandırın.
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma WORKS mobil uygulamanızda yapılandırın.
+**Azure AD çoklu oturum açma ile satır ÇALIŞIR yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-**Azure AD çoklu oturum açma WORKS MOBILE ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+1. Azure portalında üzerinde **satır WORKS** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma**.
 
-1. Azure portalında üzerinde **WORKS mobil** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
-
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_samlbase.png)
 
-3. Üzerinde **WORKS mobil etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **satır ÇALIŞTIĞI etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_url.png)
+    ![Satır ÇALIŞTIĞI etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
-    b. İçinde **tanımlayıcısı** metin değeri olarak yazın`worksmobile.com`
+    b. İçinde **tanımlayıcısı** metin değeri yazın:`worksmobile.com`
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [WORKS mobil istemci destek ekibi](mailto:dl_ssoinfo@worksmobile.com) bu değeri alınamıyor. 
- 
+    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [satır WORKS istemci destek ekibi](mailto:dl_ssoinfo@worksmobile.com) bu değeri alınamıyor.
+
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Raw)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_certificate.png) 
 
 5. Tıklatın **kaydetmek** düğmesi.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-worksmobile-tutorial/tutorial_general_400.png)
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-lineworks-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **WORKS mobil yapılandırma** 'yi tıklatın **yapılandırma WORKS mobil** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **hat WORKS Yapılandırması** 'yi tıklatın **yapılandırmak SATIRINI WORKS** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_configure.png) 
+    ![Hat WORKS yapılandırması](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_configure.png) 
 
-7. Uygulamanız için yapılandırılmış SSO almak için başvurun [WORKS mobil destek ekibi](mailto:dl_ssoinfo@worksmobile.com) ve aşağıdaki bilgileri sağlayın: 
-
-    • İndirilen **sertifika dosyası**
-
-    • **SAML çoklu oturum açma hizmeti URL'si**
-
-    • **SAML varlık kimliği**
-
-    • **Oturum kapatma URL'si**
+7. Çoklu oturum açma yapılandırmak için **satır WORKS** yan, indirilen göndermek için ihtiyacınız **sertifika dosyası, Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** için [satır WORKS desteği Takım](mailto:dl_ssoinfo@worksmobile.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-lineworks-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_02.png) 
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-lineworks-tutorial/create_aaduser_02.png)
+
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+
+    ![Ekle düğmesi](./media/active-directory-saas-lineworks-tutorial/create_aaduser_03.png)
+
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-lineworks-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+
+    d. **Oluştur**’a tıklayın.
  
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_03.png) 
+### <a name="create-a-line-works-test-user"></a>Satır WORKS test kullanıcısı oluşturma
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_04.png) 
+Bu bölümde, Britta Simon satır WORKS adlı bir kullanıcı oluşturun. Lütfen çalışmak [satır WORKS destek ekibi](mailto:dl_ssoinfo@worksmobile.com) satır WORKS platform kullanıcıları eklemek için.
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+Bu bölümde, Britta satır WORKS erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+![Kullanıcı rolü atayın][200] 
 
-    d. **Oluştur**'a tıklayın.
- 
-### <a name="creating-a-works-mobile-test-user"></a>WORKS mobil test kullanıcısı oluşturma
-
- Bu bölümde, Britta Simon WORKS MOBİLE'da adlı bir kullanıcı oluşturun. Lütfen çalışmak [WORKS mobil destek ekibi](mailto:dl_ssoinfo@worksmobile.com) WORKS mobil platformda kullanıcıları eklemek için.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
-
-Bu bölümde, Britta WORKS mobil erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
-
-![Kullanıcı atama][200] 
-
-**WORKS mobil Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Satır WORKS Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **WORKS mobil**.
+2. Uygulamalar listesinde **satır WORKS**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_app.png) 
+    ![Uygulamalar listesinde satır WORKS bağlantı](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Ekleme atama bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
@@ -207,11 +199,11 @@ Bu bölümde, Britta WORKS mobil erişim vererek, Azure çoklu oturum açma kull
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümde, erişim paneli kullanarak Azure AD SSO yapılandırmanızı sınayın.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli WORKS mobil parçasında tıklattığınızda, otomatik olarak WORKS mobil uygulamanıza açan.
+Erişim paneli satır WORKS parçasında tıklattığınızda, otomatik olarak satır WORKS uygulamanıza açan.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
@@ -219,19 +211,17 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_203.png
 

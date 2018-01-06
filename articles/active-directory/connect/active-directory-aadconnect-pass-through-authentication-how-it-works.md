@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: e8eb95649d9af1c8bf801df82f0f78aae0656d9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory doğrudan kimlik doğrulaması: Teknik derinlemesine bakış
 Bu makalede hakkında genel bakış olan Azure Active directory (Azure AD) doğrudan kimlik doğrulama çalışıyor. Ayrıntılı teknik ve güvenlik bilgileri için bkz: [güvenlik derinlemesine](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) makalesi.
@@ -31,7 +31,7 @@ Bir kullanıcı Azure AD tarafından güvenli hale getirilmiş bir uygulamaya ot
 2. Kullanıcı zaten oturum açmamış, Azure AD ile kullanıcının yönlendirildiği **kullanıcı oturum açma** sayfası.
 3. Kullanıcı Azure AD oturum açma sayfası, kullanıcı adı ve parolasını girer ve ardından seçer **oturum** düğmesi.
 4. Oturum açma, isteği alırken azure AD kullanıcı adı ve parola (bir ortak anahtar kullanılarak şifrelenmiş) sıraya koyar.
-5. Bir şirket içi kimlik doğrulama Aracısı sıradan şifrelenmiş parola ve kullanıcı adını alır.
+5. Bir şirket içi kimlik doğrulama Aracısı sıradan şifrelenmiş parola ve kullanıcı adını alır. Aracı sıra gelen istekleri için sık yoklamak değil ancak istekleri önceden belirlenen persistant bağlantısı üzerinden alır unutmayın.
 6. Aracı, özel anahtarı kullanarak parola şifresini çözer.
 7. Kullanıcı Aracısı doğrular ve hangi Active Directory Federasyon Hizmetleri (AD FS) için benzer bir mekanizmadır standart Windows API'leri kullanarak parolası Active Directory karşı kullanır. Kullanıcı adı ya da şirket içi varsayılan kullanıcı adı, genellikle olabilir `userPrincipalName`, ya da Azure AD Connect içinde yapılandırılmış başka bir öznitelik (olarak bilinen `Alternate ID`).
 8. Şirket içi Active Directory etki alanı denetleyicisi (DC) isteği değerlendirir ve uygun yanıtı döndürür (başarılı, başarısız, parolanın süresi doldu veya kullanıcı kilitli) aracısı.

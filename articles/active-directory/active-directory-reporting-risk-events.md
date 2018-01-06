@@ -14,17 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-<<<<<<< HEAD
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
-=======
-ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk olayları
 
@@ -42,7 +36,7 @@ Güvenlik ihlallerini çoğunluğu saldırganlar bir ortamda bir kullanıcının
 
 ![Risk olayı](./media/active-directory-reporting-risk-events/91.png)
 
-Algılanan risk olayı için alma Insight Azure AD aboneliğinizi bağlıdır. (EMS E3 Sunumda dahil) bir Azure AD Premium P1 sürümü varsa, lisansınız tarafından kapsanmayan algılamaların olarak bildirilen **algılanan ek risk ile oturum açma**. Diğer bir deyişle, Azure AD Identity Protection abonelere özel algılamaları algılanan ek risk ile oturum açma risk olayı bakın.
+Algılanan risk olayı için alma Insight Azure AD aboneliğinizi bağlıdır. Azure AD Premium P2 Edition'la tüm temel algılamaların hakkında en ayrıntılı bilgi alın. Azure AD Premium P1 Edition'la lisansınız tarafından kapsanmayan algılamaların risk olayı olarak görünür **algılanan ek risk ile oturum açma**.
 
 
 Bu konuda, hangi risk olaylarını ayrıntılı bir genel bakış olduğunuz ve Azure AD kimliklerinizi korumak için bunları nasıl kullanabileceğiniz sağlar.

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b9b7091a8cb1de3eefcce77cbf82eedfcb33c787
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Veri kopyalama/Dynamics 365 / Dynamics CRM Azure Data Factory kullanma
 
@@ -68,10 +68,10 @@ Aşağıdaki özellikler Dynamics bağlantılı hizmeti için desteklenir:
 | authenticationType | Dynamics sunucusuna bağlanmak için kimlik doğrulama türü. Belirtin **"Office365"** Dynamics Çevrimiçi. | Evet |
 | kullanıcı adı | Dynamics bağlanmak için kullanıcı adını belirtin. | Evet |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Azure anahtar kasası parola koyun ve parola bir "AzureKeyVaultSecret" olarak yapılandırmanız gerekir. ' Dan daha fazla bilgi edinin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Kaynak havuzu için Evet için Hayır'ı |
+| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Kaynak bağlanmışsa Hayır kaynak için Evet havuz için hizmet IR yok |
 
 >[!IMPORTANT]
->Verileri açıkça Dynamics kopyalamak için [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Dynamics ve bağlantılı hizmet ilişkilendirme yakın bir konum aşağıdaki örnekteki gibi.
+>Veri kopyalama işlemi sırasında **içine** Dynamics, varsayılan Azure tümleştirmesi çalışma zamanı, kopyalama yürütmek için kullanılamaz. Kaynağınız bağlı diğer word içinde belirtilen bir IR açıkça hizmet yok [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Dynamics ve ilişkilendirme Dynamics bağlantılı hizmet yakın bir konum aşağıdaki örnekteki gibi.
 
 **Örnek: Dynamics Çevrimiçi Office365 kimlik doğrulaması kullanma**
 

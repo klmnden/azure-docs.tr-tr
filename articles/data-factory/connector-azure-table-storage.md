@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Veri ya da Azure Data Factory kullanarak Azure tablosundan kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +81,10 @@ Paylaşılan erişim imzası (SAS) depolama hesabınızdaki kaynaklara yetkilend
 
 > [!IMPORTANT]
 > Azure Data Factory artık yalnızca destekler **hizmet SAS** ancak hesap SAS. Bkz: [türleri, paylaşılan erişim imzaları](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) bu iki tür ve nasıl oluşturulacağıyla ilgili ayrıntılar için. Azure Portalı'ndan generable SAS URL veya Depolama Gezgini desteklenmeyen bir hesap SAS, değil.
->
+
+> [!TIP]
+> Depolama hesabınız (Değiştir yer tutucu ve gerekli izin verin) için hizmet SAS oluşturmak için PowerShell komutlarını aşağıda çalıştırabilirsiniz:`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Hizmet SAS kimlik doğrulaması kullanmak için aşağıdaki özellikleri desteklenir:
 
@@ -268,7 +271,7 @@ Taşınırken veri & Azure tablosundan aşağıdaki [Azure tablo hizmeti tarafı
 | Edm.Boolean |bool |Bir Boole değeri. |
 | Edm.DateTime |Tarih Saat |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı 1 Ocak 1601 gece 12:00 gece ' başlar (C.E.) UTC. Aralık 9999 31 Aralık sona erer. |
 | Edm.Double |double |Bir 64-bit kayan noktalı değeri. |
-| Edm.Guid |GUID |128-bit bir genel benzersiz tanımlayıcısı. |
+| Edm.Guid |Guid |128-bit bir genel benzersiz tanımlayıcısı. |
 | Edm.Int32 |Int32 |Bir 32 bit tamsayı. |
 | Edm.Int64 |Int64 |64 bitlik bir tamsayı. |
 | Edm.String |Dize |UTF-16 kodlu değer. Dize değerlerini en çok 64 KB olabilir. |

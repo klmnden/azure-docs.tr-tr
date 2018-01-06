@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: c6758e8e1a9d9595ae8efb0b8c5aba0b81b0dc38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>OpenShift azure'da dağıtmak için ortak önkoşulları
 
@@ -94,7 +94,7 @@ Windows'da SSH anahtarları hakkında daha fazla bilgi için bkz: [SSH oluşturm
 OpenShift dağıtım OpenShift asıl güvenli erişim için oluşturulan SSH anahtarı kullanır. SSH anahtarı güvenli bir şekilde almasını dağıtımını etkinleştirmek için aşağıdaki komutu kullanarak anahtarı anahtar kasası depola:
 
 ```azurecli
-az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift.rsa
+az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma 
@@ -123,7 +123,7 @@ Komuttan döndürülen AppID özelliği not edin:
  > [!WARNING] 
  > Güvenli bir parola oluşturduğunuzdan emin olun. [Azure AD parola kuralları ve kısıtlamaları](/azure/active-directory/active-directory-passwords-policy) yönergelerini izleyin.
 
-Hizmet sorumluları hakkında daha fazla bilgi için bkz: [Azure, Azure CLI 2.0 ile hizmet sorumlusu oluşturmak](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Hizmet sorumluları hakkında daha fazla bilgi için bkz: [Azure, Azure CLI 2.0 ile hizmet sorumlusu oluşturmak](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

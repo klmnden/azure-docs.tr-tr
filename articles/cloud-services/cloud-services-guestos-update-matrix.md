@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/05/2018
@@ -42,6 +42,8 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizme
 Hangi, bir konuk işletim sistemi değilseniz ya da konuk işletim sistemi iş nasıl Yayımları? Okuma [bu](#how-it-works) bölümü.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+###### <a name="january-4-2018"></a>**4 Ocak 2018**
+Ocak konuk işletim sistemi için işletim sistemi aileleri 4 yayımlanan (WA-GUEST-OS-4.50_201801-01) & 5 (WA-KONUK-işletim sistemi-5.15_201801-01) ve önemli güvenlik yamaları içerir.  
 
 ###### <a name="january-4-2018"></a>**4 Ocak 2018**
 Aralık konuk işletim sistemi yayımladı.
@@ -88,6 +90,7 @@ Haziran konuk işletim sistemi dağıtımı Haziran 16 başlatıyor ve 11 Temmuz
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.15_201801-01 |4 Ocak 2018 |POST 5.17 |TBD |
 | WA-GUEST-OS-5.14_201712-01 |4 Ocak 2018 |POST 5.16 |TBD |
 | WA-GUEST-OS-5.13_201711-01 |14 Aralık 2017 |POST 5.15 |TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
@@ -112,6 +115,7 @@ Haziran konuk işletim sistemi dağıtımı Haziran 16 başlatıyor ve 11 Temmuz
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.50_201801-01 |4 Ocak 2018 |POST 4.52 |TBD |
 | WA-GUEST-OS-4.49_201712-01 |4 Ocak 2018 |POST 4.51 |TBD |
 | WA-GUEST-OS-4.48_201711-01 |14 Aralık 2017 |POST 4.50 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |

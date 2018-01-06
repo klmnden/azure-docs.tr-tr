@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Galerisi öğreticileri | Microsoft Docs"
-description: "Bul ve öğreticiler Cortana Intelligence Galerisi'nde paylaşın."
+title: "Azure AI galeri öğreticileri | Microsoft Docs"
+description: "Bul ve öğreticiler Azure AI Galerisi'nde paylaşın."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: eee86899c14905655c4217d5fcf3865ca594366f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-tutorials-in-cortana-intelligence-gallery"></a>Bul ve öğreticiler Cortana Intelligence Galerisi'nde paylaşma
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Bul ve öğreticiler Azure AI Galerisi'nde paylaşma
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Öğreticiler
-Cortana Intelligence Galerisi sunar birkaç [öğreticileri](https://gallery.cortanaintelligence.com/tutorials) , yol, machine learning teknolojileri ve kavramları. Öğreticiler da makine öğrenme sorunlarını çözme için gelişmiş yöntemler açıklayabilir.
+Azure AI Galerisi sunar birkaç [öğreticileri](https://gallery.cortanaintelligence.com/tutorials) , yol, machine learning teknolojileri ve kavramları. Öğreticiler da makine öğrenme sorunlarını çözme için gelişmiş yöntemler açıklayabilir.
 
 ## <a name="discover"></a>Keşif
 Öğreticiler göz atmak için [galerisinde](http://gallery.cortanaintelligence.com)altında **daha fazla**seçin **öğreticileri**.
 
 ![Galeri giriş sayfasında öğreticileri seçin](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
-**[Öğreticileri](https://gallery.cortanaintelligence.com/tutorials)**  sayfasında yakın zamanda eklenen ve popüler öğreticilerin bir listesi görüntülenir. Tüm öğreticileri görmek için seçin **tümünü görmek** düğmesi. Belirli bir öğretici için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+ **[Öğreticileri](https://gallery.cortanaintelligence.com/tutorials)**  sayfasında yakın zamanda eklenen ve popüler öğreticilerin bir listesi görüntülenir. Tüm öğreticileri görmek için seçin **tümünü görmek** düğmesi. Belirli bir öğretici için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
 
 Eğitmen Ayrıntıları sayfasında bir öğretici hakkında daha fazla bilgi edinebilirsiniz. Eğitmen Ayrıntılar sayfasını açmak için öğretici seçin. İçinde **açıklamaları** bölümünde bir öğretici Ayrıntıları sayfasında, yorum yapabileceği geribildirim sağlamak veya öğretici hakkında soru sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn öğretici bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek öğretici ayrıntıları sayfasına bir bağlantı e-posta gönderebilirsiniz.
 
@@ -72,7 +72,7 @@ Bir sorunu çözümlemek ya da bir kavram öğrenin diğer kullanıcılara yard�
 
 7. **Oluştur**’u seçin.
 
-Öğreticinizi Cortana Intelligence Galerisi'nde sunulmuştur. Hesap sayfanıza listelenir, öğreticiler **öğeleri** sekmesi.
+Öğreticinizi Azure AI Galerisi'nde sunulmuştur. Hesap sayfanıza listelenir, öğreticiler **öğeleri** sekmesi.
 
 **[Galerisine gidin](http://gallery.cortanaintelligence.com)**
 

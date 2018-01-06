@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Cihaz çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgulama dili
 
@@ -35,6 +35,17 @@ IOT hub'ı sağlayan bilgi almak için güçlü bir SQL benzeri dili ile ilgili 
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ Bu gruplandırma sorgu bir sonuç aşağıdaki örneğe benzer şekilde döndür
         "status": "Error"
     }
 ]
+```
+
+Yansıtma sorguları yalnızca önem verdiğiniz özellikleri döndürülecek geliştiricilerin olanak sağlar. Örneğin, tüm son etkinlik zamanı almak için cihazları kullanın aşağıdaki sorguyu kesildi:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
 ```
 
 ### <a name="c-example"></a>C# örnek
@@ -460,7 +477,7 @@ Her simge ifadeleri sözdiziminde ifade anlamak için aşağıdaki tabloya bakı
 ### <a name="operators"></a>İşleçler
 Aşağıdaki işleçleri desteklenir:
 
-| Ailesi | İşleçler |
+| Aile | İşleçler |
 | --- | --- |
 | Aritmetik |+, -, *, /, % |
 | Mantıksal |VE VEYA DEĞİL |
@@ -469,13 +486,13 @@ Aşağıdaki işleçleri desteklenir:
 ### <a name="functions"></a>İşlevler
 Çiftlerini ve desteklenen tek işleri sorgulanırken işlevi şu şekildedir:
 
-| İşlevi | Açıklama |
+| İşlev | Açıklama |
 | -------- | ----------- |
 | IS_DEFINED(Property) | Özellik değeri atanmış olan gösteren bir Boole değeri döndürür (de dahil olmak üzere `null`). |
 
 Yollar koşullarında aşağıdaki matematik işlevleri desteklenir:
 
-| İşlevi | Açıklama |
+| İşlev | Açıklama |
 | -------- | ----------- |
 | Abs(x) | Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür. |
 | EXP(x) | Belirtilen sayısal ifade üstel değeri döndürür (e ^ x). |
@@ -488,7 +505,7 @@ Yollar koşullarında aşağıdaki matematik işlevleri desteklenir:
 
 Yollar koşullarda, aşağıdaki tür denetleme ve atama işlevleri desteklenir:
 
-| İşlevi | Açıklama |
+| İşlev | Açıklama |
 | -------- | ----------- |
 | AS_NUMBER | Giriş dizesini sayıya dönüştürür. `noop`Giriş bir sayı ise; `Undefined` dize bir sayıyı temsil etmiyor durumunda.|
 | IS_ARRAY | Belirtilen ifade türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür. |
@@ -502,7 +519,7 @@ Yollar koşullarda, aşağıdaki tür denetleme ve atama işlevleri desteklenir:
 
 Yollar koşullarında aşağıdaki dize işlevleri desteklenir:
 
-| İşlevi | Açıklama |
+| İşlev | Açıklama |
 | -------- | ----------- |
 | CONCAT (x, y,...) | İki veya daha fazla dize değerlerini birleştirme sonucu olan bir dize döndürür. |
 | LENGTH(x) | Belirtilen dize ifadesinin karakterlerin sayısını döndürür.|

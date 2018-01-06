@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Galerisi sektöre özgü çözümleri | Microsoft Docs"
-description: "Cortana Intelligence Galerisi'nde endüstri çözümlerinde bulur."
+title: "Azure AI galeri sektöre özgü çözümleri | Microsoft Docs"
+description: "Azure AI galerideki endüstri çözümleri keşfedin."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 0dec0f47eced45c496399bc6b84169116dcc551d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b9f835620153d0e68e8c5504eab00d7b6e0f1e8
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-industry-specific-solutions-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi'nde sektöre özgü çözümlerinde Bul
+# <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI galerideki sektöre özgü çözümleri Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Sektöre özgü Cortana Intelligence çözümleri
-**[Sektörlerde](https://gallery.cortanaintelligence.com/industries)**  Bölümü Galerisi getirir birlikte böyle sektörlerde özgü çeşitli kaynaklar
+ **[Sektörlerde](https://gallery.cortanaintelligence.com/industries)**  Bölümü Galerisi getirir birlikte böyle sektörlerde özgü çeşitli kaynaklar
 
 * [Perakende](https://gallery.cortanaintelligence-int.com/industries/retail) -tahmin, müşteri karmaşası tahmin etmeye ve fiyatlandırma modelleriyle geliştirme satış gibi perakende çözümleri bulun.
 * [Üretim](https://gallery.cortanaintelligence-int.com/industries/manufacturing) - ekipman bakım bekleme ve enerji fiyatları tahmin gibi çözümleri üretim bulun.

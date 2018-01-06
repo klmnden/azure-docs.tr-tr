@@ -1,5 +1,5 @@
 ---
-title: Microsoft Power BI Embedded nedir? | Microsoft Belgeleri
+title: "Azure Power BI Embedded hakkında | Microsoft Docs"
 description: "Power BI Embedded ISV'ler ve geliştiricilerin Power BI özellikleri, bunları hızlı bir şekilde etkileyici görseller, raporlar ve panolar uygulamalarını ekleme yardımcı kullanımını kolaylaştırmak için tasarlanmıştır."
 services: power-bi-embedded
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/04/2018
 ms.author: asaxton
-ms.openlocfilehash: 03ac36b2b3f3e26770f681b101824ddeca29b61f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-power-bi-embedded"></a>Power BI Embedded nedir?
+# <a name="about-power-bi-embedded"></a>Power BI Embedded hakkında
 
 Power BI Embedded ISV'ler ve geliştiricilerin Power BI özellikleri kullanımını kolaylaştırmak için tasarlanmıştır. Power BI Embedded Power BI özellikleri, hızlı bir şekilde etkileyici görseller, raporlar ve panolar uygulamalarınızla eklemenize yardımcı olarak basitleştirir. Microsoft Azure Machine Learning ve IOT gibi Hizmetleri'ni kullanın oluşturulan uygulamaların benzer. Kolay gezinme veri keşfi, uygulamalarında etkinleştirerek, ISV müşterilerine bağlamda hızlı, bilinçli kararlar almanıza imkan sağlar.
 

@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmelerinin gösterir. Belirli bir güncelleştirme Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeleri her zaman taşımak İleri için belirli [ailesi] [ family-explain] de tanıtılan.
+
+## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| Yok | [4056898] |Yalnızca Windows güvenliği |4.50 |3 Ocak 2018 |
+| Yok | [4056890] |Yalnızca Windows güvenliği |5.15 |3 Ocak 2018 |
 
 ## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -574,6 +580,9 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Yok |[3007054] |PIN korumalı yazdırma seçenek her zaman Windows Windows mağazası uygulamasında belgede yazdırırken gösterir |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2999802] |Kesiksiz çizgi noktalı çizgiler yerine Windows yazdırılır |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2896881] |Uzun AddPrinterConnection VBScript komut Windows oturum açma işlemi sırasında kullanıcılar için Yazıcılar eşlemek için kullandığınızda, oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

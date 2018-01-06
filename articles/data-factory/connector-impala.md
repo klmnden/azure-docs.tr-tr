@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory (Beta) kullanarak Apache Impala veri kopyalama | Microsoft Docs
-description: "Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak Apache Impala desteklenen havuz veri depolarına kopyalama öğrenin."
+title: Azure Data Factory (Beta) kullanarak Impala veri kopyalama | Microsoft Docs
+description: "Desteklenen havuz veri depolarına Impala bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 4766e19b1823bdb737be8a90b3e2e2bfe4e48ab9
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: ff6d970b8d4bb5328eb958acc652ba05e1c8be5f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="copy-data-from-apache-impala-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Apache Impala verilerini
+# <a name="copy-data-from-impala-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Impala verilerini
 
-Bu makalede kopya etkinliği Azure Data Factory'de Apache Impala verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede kopya etkinliği Azure Data Factory'de Impala verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
@@ -31,7 +31,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de Apache Impala verileri kopyal
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Apache Impala verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Tüm desteklenen havuz veri deposuna Impala veri kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
 Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak sürücüyü el ile yüklemeniz gerekmez.
 
@@ -39,19 +39,19 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 .NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
-Aşağıdaki bölümler, belirli Data Factory varlıklarını Apache Impala bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, belirli Data Factory varlıklarını Impala bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
 
-Apache Impala bağlantılı hizmetinin aşağıdaki özellikleri desteklenir:
+Aşağıdaki özellikler, Impala bağlantılı hizmetinin için desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **Apache Impala** | Evet |
-| ana bilgisayar | Apache Impala sunucusunun IP adresi veya ana bilgisayar adı. (192.168.222.160 olan)  | Evet |
-| port | İstemci bağlantılarını dinlemek için Apache Impala sunucusunun kullandığı TCP bağlantı noktası. 21050 varsayılan değerdir.  | Hayır |
+| type | Type özelliği ayarlanmalıdır: **Impala** | Evet |
+| konak | Impala sunucusunun IP adresi veya ana bilgisayar adı. (192.168.222.160 olan)  | Evet |
+| port | İstemci bağlantılarını dinlemek için Impala sunucusunun kullandığı TCP bağlantı noktası. 21050 varsayılan değerdir.  | Hayır |
 | authenticationType | Kullanılacak kimlik doğrulama türü. <br/>İzin verilen değerler: **anonim**, **SASLUsername**, **UsernameAndPassword** | Evet |
-| kullanıcı adı | Apache Impala sunucuya erişmek için kullanılan kullanıcı adı. Varsayılan değer SASLUsername anonim kullanıldığında.  | Hayır |
+| kullanıcı adı | Impala sunucuya erişmek için kullanılan kullanıcı adı. Varsayılan değer SASLUsername anonim kullanıldığında.  | Hayır |
 | password | UsernameAndPassword kullanırken kullanıcı adına karşılık gelen parola. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanılarak şifrelenir olup olmadığını belirtir. Varsayılan değer false.  | Hayır |
 | trustedCertPath | Sunucu SSL üzerinden bağlanırken doğrulamak için güvenilen CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik yalnızca SSL üzerinde kendini barındıran IR kullanırken ayarlanabilir Varsayılan değer ile IR yüklü cacerts.pem dosyasıdır  | Hayır |
@@ -64,9 +64,9 @@ Apache Impala bağlantılı hizmetinin aşağıdaki özellikleri desteklenir:
 
 ```json
 {
-    "name": "Apache ImpalaLinkedService",
+    "name": "ImpalaLinkedService",
     "properties": {
-        "type": "Apache Impala",
+        "type": "Impala",
         "typeProperties": {
             "host" : "<host>",
             "port" : "<port>",
@@ -87,19 +87,19 @@ Apache Impala bağlantılı hizmetinin aşağıdaki özellikleri desteklenir:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Apache Impala veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Impala veri kümesi tarafından desteklenen özellikler listesini sağlar.
 
-Apache Impala verileri kopyalamak için kümesine tür özelliği ayarlamak **Apache ImpalaObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Impala verileri kopyalamak için kümesine tür özelliği ayarlamak **ImpalaObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
 
 **Örnek**
 
 ```json
 {
-    "name": "Apache ImpalaDataset",
+    "name": "ImpalaDataset",
     "properties": {
-        "type": "Apache ImpalaObject",
+        "type": "ImpalaObject",
         "linkedServiceName": {
-            "referenceName": "<Apache Impala linked service name>",
+            "referenceName": "<Impala linked service name>",
             "type": "LinkedServiceReference"
         }
     }
@@ -108,15 +108,15 @@ Apache Impala verileri kopyalamak için kümesine tür özelliği ayarlamak **Ap
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Apache Impala kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Impala kaynak tarafından desteklenen özellikler listesini sağlar.
 
-### <a name="apache-impalasource-as-source"></a>Apache ImpalaSource kaynağı olarak
+### <a name="impala-as-source"></a>Kaynak olarak ımpala
 
-Apache Impala verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **Apache ImpalaSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Impala verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **ImpalaSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **Apache ImpalaSource** | Evet |
+| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **ImpalaSource** | Evet |
 | sorgu | Verileri okumak için özel SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
 
 **Örnek:**
@@ -124,11 +124,11 @@ Apache Impala verileri kopyalamak için kopyalama etkinliği için kaynak türü
 ```json
 "activities":[
     {
-        "name": "CopyFromApache Impala",
+        "name": "CopyFromImpala",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Apache Impala input dataset name>",
+                "referenceName": "<Impala input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -140,7 +140,7 @@ Apache Impala verileri kopyalamak için kopyalama etkinliği için kaynak türü
         ],
         "typeProperties": {
             "source": {
-                "type": "Apache ImpalaSource",
+                "type": "ImpalaSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {

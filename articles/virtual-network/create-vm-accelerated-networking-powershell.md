@@ -12,15 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/20/2017
+ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: 8c2cc9ef487ee754f904f04e604ef76c3f9e07af
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile Windows sanal makine oluşturma
+
+> [!IMPORTANT] 
+> Sanal makineler hızlandırılmış etkin ağ ile oluşturulması gerekir. Bu özellik, varolan sanal makinelere etkinleştirilemez. Hızlandırılmış ağ iletişimi etkinleştirmek için aşağıdaki adımları izleyin
+>   1. Sanal makineyi silin
+>   2. Hızlandırılmış ağ ile sanal makine oluşturun
+>
 
 Bu öğreticide, bir Windows sanal makine (VM) ağ hızlandırılmış oluşturmayı öğrenin. Hızlandırılmış ağ önemli ölçüde ağ performansını iyileştirme, bir VM tek köklü g/ç Sanallaştırması (SR-IOV) sağlar. Bu yüksek performanslı yolu gecikme, değişim ve desteklenen VM türlerinde zorlu ağ iş yükleri ile kullanmak için CPU kullanımını azaltır ancak konaktan datapath atlar. Aşağıdaki resimde, iki VM ile ve hızlandırılmış ağ olmadan arasındaki iletişimi gösterir:
 

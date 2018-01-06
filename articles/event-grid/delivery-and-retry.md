@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/05/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Olay kılavuz ileti teslimi ve yeniden deneyin 
 
@@ -62,7 +62,31 @@ Olay kılavuz, küçük rasgele tüm yeniden deneme aralıkları ekler.
 
 ## <a name="retry-duration"></a>Süre yeniden deneyin
 
-Önizleme sırasında Azure olay kılavuz iki saat içinde teslim edilmedi tüm olayları süresi dolar. Genel kullanılabilirlik önce bu süre 24 saate kadar artırılır. 
+Önizleme sırasında Azure olay kılavuz iki saat içinde teslim edilmedi tüm olayları süresi dolar.
+
+## <a name="monitoring"></a>İzleme
+
+Olay teslimler durumunu görmek için portalı kullanabilirsiniz.
+
+Bir olay aboneliği ölçümlerini görmek için arama **olay abonelikleri** kullanılabilir hizmetleri ve seçin.
+
+![Olay abonelikleri arayın](./media/delivery-and-retry/select-event-subscriptions.png)
+
+Olay, abonelik ve konum türüne göre filtreleyin. Seçin **ölçümleri** görüntülemek abonelik için.
+
+![Filtre olay abonelikleri](./media/delivery-and-retry/filter-events.png)
+
+Olay konu ve abonelik için ölçümleri görüntüleyin.
+
+![Olay metrikleri görüntüleyin](./media/delivery-and-retry/subscription-metrics.png)
+
+Özel bir konu yayımladıysanız, ölçümler için görüntüleyebilirsiniz. Konu içeren kaynak grubunu seçin ve konu seçin.
+
+![Özel bir konu seçin](./media/delivery-and-retry/select-custom-topic.png)
+
+Özel olay konu için ölçümleri görüntüleyin.
+
+![Olay metrikleri görüntüleyin](./media/delivery-and-retry/custom-topic-metrics.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

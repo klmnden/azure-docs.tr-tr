@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -47,10 +47,11 @@ Azure'a geçirmek istediğiniz makinelere Azure gereksinimleri ve sınırlamalar
 
 Bir makine Azure için uygun olarak işaretlendikten sonra Azure geçirmek, aşağıdaki ölçütleri kullanarak azure'da bir VM boyutu eşler:
 
-- **Depolama onay**: Azure geçirmek çalışır bir diski azure'da makineye bağlı her disk eşlemek:-rahatlık faktörüyle çarpar (IOPS) saniye başına g/ç Azure geçirme. Bu ayrıca katları her disk rahatlık faktörüyle (MBps) verimini. Bu, etkin sağlar IOPS ve üretilen iş disk. Bunu temel alarak, Azure geçirmek için standart bir disk veya Azure premium disk eşler.
-    - Hizmet bir disk gerekli IOPS ve üretilen iş ile bulamazsanız, Azure için makine uygun değil olarak işaretler.
-    - Uygun bir disk kümesi bulursa, Azure geçirmek Depolama artıklık yöntemi ve değerlendirme ayarlarında belirtilen konuma desteği olanları seçer.
-    - Birden çok uygun diskler varsa, en düşük maliyeti ile bir seçer.
+- **Depolama onay**: Azure geçirmek çalışır bir diski azure'da makineye bağlı her disk eşlemek:
+    - Azure geçirme g/ç (IOPS) saniyede rahatlık faktörüyle çarpar. Bu ayrıca katları her disk rahatlık faktörüyle (MBps) verimini. Bu, etkin sağlar IOPS ve üretilen iş disk. Bunu temel alarak, Azure geçirmek için standart bir disk veya Azure premium disk eşler.
+      - Hizmet bir disk gerekli IOPS ve üretilen iş ile bulamazsanız, Azure için makine uygun değil olarak işaretler.
+      - Uygun bir disk kümesi bulursa, Azure geçirmek Depolama artıklık yöntemi ve değerlendirme ayarlarında belirtilen konuma desteği olanları seçer.
+      - Birden çok uygun diskler varsa, en düşük maliyeti ile bir seçer.
 - **Depolama disk verimliliğini**: [daha fazla bilgi edinin](../azure-subscription-service-limits.md#storage-limits) Azure hakkında disk ve VM sınırlar.
 - **Disk türü**: Azure geçirmek, yalnızca yönetilen diskleri destekler.
 - **Ağ denetimi**: şirket içi makinede NIC sayısını destekleyen bir Azure VM bulmak Azure geçirmek çalışır.

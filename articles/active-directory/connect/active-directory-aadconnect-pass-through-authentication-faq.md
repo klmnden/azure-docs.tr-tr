@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory doğrudan kimlik doğrulaması: Sık sorulan sorular
 
@@ -81,6 +81,12 @@ Evet. Web Proxy Otomatik Bulma (WPAD) şirket içi ortamınızda etkinleştirili
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Aynı sunucuda iki veya daha fazla doğrudan kimlik doğrulama aracısı yükleyebilir miyim?
 
 Hayır, bir doğrudan kimlik doğrulama Aracısı yalnızca tek bir sunucuya yükleyebilirsiniz. Yüksek kullanılabilirlik için doğrudan kimlik doğrulama yapılandırmak istiyorsanız,'ndaki yönergeleri izleyin [Azure Active Directory doğrudan kimlik doğrulaması: Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Doğrudan kimlik doğrulama Aracısı nasıl kaldırılsın mı?
+
+Doğrudan kimlik doğrulama Aracısı çalıştığı sürece etkin kalır ve sürekli olarak kullanıcı oturum açma isteklerini işler. Bir kimlik doğrulama aracısı kaldırmak istiyorsanız, Git **Denetim Masası -> Programlar -> Programlar ve Özellikler** ve her ikisi de kaldırma **Microsoft Azure AD Connect kimlik doğrulama Aracısı** ve  **Microsoft Azure AD Connect aracı güncelleştirici** programlar.
+
+Doğrudan kimlik doğrulama dikey işaretlerseniz [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) önceki adımı tamamladıktan sonra kimlik doğrulama olarak gösteren Aracısı görürsünüz **devre dışı**. Bu _beklenen_. Kimlik Doğrulama Aracısı birkaç gün sonra otomatik olarak listeden bırakılır.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Zaten AD FS için Azure AD oturum açmak için kullandığım. Nasıl, geçişli kimlik doğrulaması için geçiş yapabilirim?
 

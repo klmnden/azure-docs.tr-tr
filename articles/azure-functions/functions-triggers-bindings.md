@@ -1,5 +1,5 @@
 ---
-title: "Tetikleyicileri ve bağlamaları Azure işlevlerinde ile çalışma"
+title: "Tetikleyicileri ve bağlamaları Azure işlevlerinde"
 description: "Kod yürütmeyi çevrimiçi olayları ve bulut tabanlı hizmetlere bağlanmak için Azure işlevleri Tetikleyicileri ve bağlamaları kullanmayı öğrenin."
 services: functions
 documentationcenter: na
@@ -15,24 +15,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 92194b0d54de1271580a237e16e652b761b4d6d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
-Azure işlevleri aracılığıyla Azure ve diğer hizmetleri olaylara yanıt kodu yazmanızı sağlar *Tetikleyicileri* ve *bağlamaları*. Bu makalede Tetikleyicileri kavramsal genel bakış olduğundan ve tüm bağlamaları desteklenen programlama dilleri. Tüm bağlamaları için ortak olan özellikleri aşağıda açıklanmıştır.
+
+Bu makalede Tetikleyicileri ve bağlamaları Azure işlevlerinde kavramsal bir genel bakıştır. Tüm bağlamalar ve tüm desteklenen diller için ortak olan özellikleri aşağıda açıklanmıştır.
 
 ## <a name="overview"></a>Genel Bakış
 
-Tetikleyicileri ve bağlamaları: bir işlev nasıl çağrıldığını tanımlamanın bildirim temelli yolu ve hangi veri ile birlikte çalışır. A *tetikleyici* bir işlev nasıl çağrıldığını tanımlar. Bir işlev tam olarak bir tetikleyici olması gerekir. Tetikleyiciler genellikle işlevi tetiklenen yükü olduğu veri ilişkilendirdiniz.
+A *tetikleyici* bir işlev nasıl çağrıldığını tanımlar. Bir işlev tam olarak bir tetikleyici olması gerekir. Tetikleyiciler genellikle işlevi tetiklenen yükü olduğu veri ilişkilendirdiniz.
 
-Giriş ve çıkış *bağlamaları* kodunuzu içindeki verileri bağlanmak için bildirim temelli bir yolunu sağlar. Benzer şekilde tetikleyicileri, bağlantı dizeleri ve diğer özellikleri işlevi yapılandırmanızda belirtin. Bağlamaları isteğe bağlıdır ve bir işlev birden fazla giriş varsa ve bağlamaları çıktı. 
+Giriş ve çıkış *bağlamaları* kodunuzu içindeki verileri bağlanmak için bildirim temelli bir yolunu sağlar. Bağlamaları isteğe bağlıdır ve bir işlev birden fazla giriş varsa ve bağlamaları çıktı. 
 
-Tetikleyicileri ve bağlamaları kullanarak, daha fazla genel ve mu değil stillerinizin kod Hizmetleri ayrıntılarını yazabilirsiniz ile hangi etkileşim kurar. İşlevi kodunuz için giriş değerleri Hizmetleri yalnızca haline gelen veri. (Yeni bir satır Azure tablo Depolama'da oluşturma) gibi başka bir hizmete veri çıkışı için yönteminin dönüş değerini kullanın. Ya da birden çok değer çıktı gerekiyorsa, bir yardımcı nesnesi kullanın. Tetikleyicileri ve bağlamaları sahip bir **adı** bir tanımlayıcıdır özelliği kodunuzda bağlama erişmek için kullanabilirsiniz.
+Tetikleyicileri ve bağlamaları cmdlet'e kod çalıştığınız Hizmetleri ayrıntılarını engellemenize olanak tanır. Verileri (örneğin, bir kuyruk iletisi içeriği), işlevi işlevi parametreleri alır. İşlev dönüş değerini kullanarak (örneğin, bir kuyruk iletisi oluşturmak için) veri gönderme bir `out` parametresi veya [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values).
 
-Tetikleyicileri ve bağlamaları'nda yapılandırabileceğiniz **tümleştir** Azure işlevleri portalındaki sekmesindedir. Adlı bir dosya UI perde arkasında değiştirir *function.json* işlevi dizindeki dosyayı. Bu dosyayı değiştirerek düzenleyebilirsiniz **Gelişmiş Düzenleyici**.
+Azure portalını kullanarak işlevleri geliştirirken Tetikleyicileri ve bağlamaları yapılandırılan bir *function.json* dosya. Portal, bu yapılandırma için bir kullanıcı Arabirimi sağlar ancak doğrudan değiştirerek dosyasını düzenleyebilirsiniz **Gelişmiş Düzenleyici**.
+
+Sınıf kitaplığı oluşturmak için Visual Studio kullanarak işlevleri geliştirirken, Tetikleyicileri ve bağlamaları yöntemleri ve öznitelikleri ile parametreleri tasarlayarak yapılandırın.
 
 ## <a name="supported-bindings"></a>Desteklenen bağlamaları
 
@@ -42,66 +45,9 @@ Bağlamaları önizlemede veya üretim kullanımı için onaylanan olduğu hakk�
 
 ## <a name="example-queue-trigger-and-table-output-binding"></a>Örnek: bağlama sırası tetikleyici ve tablo çıktısı
 
-Her Azure kuyruk depolamada yeni bir ileti görüntülendiğinde, Azure Table depolama alanına yeni bir satır yazmak istediğinizi varsayalım. Bu senaryo, bir Azure kuyruk kullanarak uygulanabilir tetikleyici ve bir Azure Table Storage çıkış bağlama. 
+Her Azure kuyruk depolama alanında yeni bir ileti görüntülendiğinde, Azure Table depolama alanına yeni bir satır yazmak istediğinizi varsayalım. Bu senaryo, bir Azure kuyruk kullanarak uygulanabilir depolama tetikleyici ve bir Azure Table depolama çıkış bağlama. 
 
-Bir Azure kuyruk depolama tetikleyicisi aşağıdaki bilgileri gerektirir **tümleştir** sekmesi:
-
-* Azure kuyruk depolama için Azure depolama hesabı bağlantı dizesi içeren uygulama ayarı adı
-* Kuyruk adı
-* Kuyruk iletinin içeriğini okuma için kodunuzu tanımlayıcıda `order`.
-
-Azure Table depolama alanına yazmak için aşağıdaki Ayrıntılar ile bir çıktı bağlama kullanın:
-
-* Azure tablo depolaması için Azure depolama hesabı bağlantı dizesi içeren uygulama ayarı adı
-* Tablo adı
-* Çıktı öğeleri veya dönüş değeri işlevinden oluşturmak için kodunuzda tanımlayıcısı.
-
-Bağlamaları bağlantı dizeleri kullanmak en iyi zorlamak için uygulama ayarlarında depolanan değerleri alıştırma *function.json* değil hizmeti gizlilik içeren ve bunun yerine yalnızca adlarını uygulama ayarları içerir.
-
-Sonra kodunuzu Azure Storage ile tümleştirmek için sağlanan tanımlayıcılar kullanın.
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json.Linq;
-
-// From an incoming queue message that is a JSON object, add fields and write to Table Storage
-// The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
-{
-    return new Person() { 
-            PartitionKey = "Orders", 
-            RowKey = Guid.NewGuid().ToString(),  
-            Name = order["Name"].ToString(),
-            MobileNumber = order["MobileNumber"].ToString() };  
-}
- 
-public class Person
-{
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
-    public string Name { get; set; }
-    public string MobileNumber { get; set; }
-}
-```
-
-```javascript
-// From an incoming queue message that is a JSON object, add fields and write to Table Storage
-// The second parameter to context.done is used as the value for the new row
-module.exports = function (context, order) {
-    order.PartitionKey = "Orders";
-    order.RowKey = generateRandomId(); 
-
-    context.done(null, order);
-};
-
-function generateRandomId() {
-    return Math.random().toString(36).substring(2, 15) +
-        Math.random().toString(36).substring(2, 15);
-}
-```
-
-Burada *function.json* önceki kod karşılık gelir. Aynı yapılandırmayı, işlev uygulaması dilinden bağımsız olarak kullanılabileceğini unutmayın.
+Burada bir *function.json* bu senaryo için dosya. 
 
 ```json
 {
@@ -123,9 +69,88 @@ Burada *function.json* önceki kod karşılık gelir. Aynı yapılandırmayı, i
   ]
 }
 ```
+
+İlk öğe `bindings` kuyruk depolama tetikleyici dizisidir. `type` Ve `direction` özelliklerini tetikleyici tanımlayın. `name` Özelliği kuyruk iletisi içeriği alacak işlev parametresi tanımlar. İzlemek için sırasının adı olarak `queueName`, ve bağlantı dizesi tarafından tanımlanan uygulama ayarı `connection`.
+
+İkinci öğe `bindings` dizidir Azure Table Storage bağlama çıktı. `type` Ve `direction` özelliklerini bağlama tanımlayın. `name` Özelliği, nasıl işlevi yeni tablo satırı bu durumda işlevin dönüş değerini kullanarak sağlayacak belirtir. Tablonun adını bulunduğu `tableName`, ve bağlantı dizesi tarafından tanımlanan uygulama ayarı `connection`.
+
 Görüntülemek ve içeriğini düzenlemek için *function.json* Azure portalında tıklatın **Gelişmiş Düzenleyici** seçeneği **tümleştir** işlevinizi sekmesinde.
 
-Daha fazla kod örnekleri ve Azure Storage ile tümleştirme hakkında bilgi için bkz: [Azure işlevleri Tetikleyicileri ve bağlamaları Azure Storage için](functions-bindings-storage.md).
+> [!NOTE]
+> Değeri `connection` bağlantı dizesi, bağlantı dizesinin kendisini içeren bir uygulama ayarı adı. Bağlamaları bağlantısı kullanmak en iyi zorlamak için uygulama ayarlarında depolanan dizeleri alıştırma *function.json* hizmet gizli içermiyor.
+
+Aşağıda, bu tetikleyici ve bağlama ile çalışan bir C# kodu verilmiştir. Kuyruk iletisi içeriği sağlayan parametresinin adı olduğuna dikkat edin `order`; çünkü bu ad gereklidir `name` özellik değeri *function.json* olduğu`order` 
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json.Linq;
+
+// From an incoming queue message that is a JSON object, add fields and write to Table storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
+{
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
+}
+ 
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
+```
+
+JavaScript işlevi ile aynı function.json dosyası kullanılabilir:
+
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
+
+    context.done(null, order);
+};
+
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+Bir sınıf kitaplığı, aynı tetikleyici ve bağlama bilgileri &mdash; kuyruk ve tablo adları, depolama hesapları, işlev giriş ve çıkış parametreleri &mdash; öznitelikleri tarafından sağlanır:
+
+```csharp
+ public static class QueueTriggerTableOutput
+ {
+     [FunctionName("QueueTriggerTableOutput")]
+     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
+     public static Person Run(
+         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
+         TraceWriter log)
+     {
+         return new Person() {
+                 PartitionKey = "Orders",
+                 RowKey = Guid.NewGuid().ToString(),
+                 Name = order["Name"].ToString(),
+                 MobileNumber = order["MobileNumber"].ToString() };
+     }
+ }
+
+ public class Person
+ {
+     public string PartitionKey { get; set; }
+     public string RowKey { get; set; }
+     public string Name { get; set; }
+     public string MobileNumber { get; set; }
+ }
+```
 
 ## <a name="binding-direction"></a>Bağlama yönü
 
@@ -135,9 +160,11 @@ Tüm Tetikleyicileri ve bağlamaları sahip bir `direction` özelliğinde *funct
 - Giriş ve çıkış bağlamaları kullanmak `in` ve`out`
 - Özel bir yön bazı bağlamaları Destek `inout`. Kullanırsanız `inout`, yalnızca **Gelişmiş Düzenleyici** kullanılabilir **tümleştir** sekmesi.
 
+Kullandığınızda [öznitelikleri bir sınıf kitaplığı'nda](functions-dotnet-class-library.md) Tetikleyicileri ve bağlamaları yapılandırmak için yönü bir öznitelik oluşturucuda sağlanan veya parametre türünden sonuçlandı.
+
 ## <a name="using-the-function-return-type-to-return-a-single-output"></a>İşlev dönüş türü tek bir çıktı döndürmek için kullanma
 
-Önceki örnekte işlevi dönüş değeri özel name parametresi kullanılarak elde edilir bir bağlama çıkış sağlamak için nasıl kullanılacağını gösterir `$return`. (Bu yalnızca C#, JavaScript ve F # gibi bir dönüş değerine sahip dillerde desteklenir.) Bir işlev birden çok çıktı bağlaması içeriyorsa `$return` çıkış bağlamaları yalnızca biri için. 
+Önceki örnekte işlevi dönüş değerini belirtilen bir bağlama çıkış sağlamak için nasıl kullanılacağını gösterir *function.json* özel değerini kullanarak `$return` için `name` özelliği. (Bu yalnızca C# kod, JavaScript ve F # gibi bir dönüş değerine sahip dillerde desteklenir.) Bir işlev birden çok çıktı bağlaması içeriyorsa `$return` çıkış bağlamaları yalnızca biri için. 
 
 ```json
 // excerpt of function.json
@@ -149,7 +176,7 @@ Tüm Tetikleyicileri ve bağlamaları sahip bir `direction` özelliğinde *funct
 }
 ```
 
-C#, JavaScript ve F # çıkış bağlamalarla türleri kullanılır Göster aşağıda örnekler nasıl döndür.
+C# kod, JavaScript ve F # çıkış bağlamalarla türleri kullanılır Göster aşağıda örnekler nasıl döndür.
 
 ```cs
 // C# example: use method return value for output binding
@@ -190,9 +217,9 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>DataType özelliği için bağlama
 
-.NET içinde türleri giriş verileri için veri türünü tanımlamak için kullanın. Örneğin, kullanın `string` sıra tetikleyici, ikili ve bir POCO nesne seri durumdan özel bir tür olarak okumak için bir bayt dizisi metnini bağlamak için.
+.NET, parametre türü veri türü için giriş verileri tanımlamak için kullanın. Örneğin, kullanın `string` sıra tetikleyici, ikili ve bir POCO nesne seri durumdan özel bir tür olarak okumak için bir bayt dizisi metnini bağlamak için.
 
-JavaScript gibi dinamik olarak yazılan diller için kullanmak `dataType` bağlama tanımında özelliği. Örneğin, bir HTTP isteği ikili biçimde içeriğini okumak için türü kullanın `binary`:
+JavaScript gibi dinamik olarak yazılan diller için kullanmak `dataType` özelliğinde *function.json* dosya. Örneğin, bir HTTP isteği ikili biçimde içeriğini okumak için ayarlar `dataType` için `binary`:
 
 ```json
 {
@@ -206,6 +233,7 @@ JavaScript gibi dinamik olarak yazılan diller için kullanmak `dataType` bağla
 Diğer seçenekler için `dataType` olan `stream` ve `string`.
 
 ## <a name="resolving-app-settings"></a>Uygulama ayarlarını çözümleme
+
 En iyi uygulama, parolaları ve bağlantı dizeleri yapılandırma dosyalarını yerine uygulama ayarları kullanılarak yönetilmelidir. Bu, bu Sırları erişimi sınırlar ve depolamak güvenli hale getirir *function.json* ortak kaynak denetimi havuzunda.
 
 Uygulama ayarları da ortamına bağlı yapılandırmasını değiştirmek istediğinizde kullanışlıdır. Örneğin, bir test ortamında, farklı bir sıra veya blob depolama kapsayıcısı izlemek isteyebilir.
@@ -228,11 +256,23 @@ Aşağıdaki örnek bir uygulama ayarını kullanan bir Azure kuyruk depolama te
 }
 ```
 
+Sınıf kitaplıkları aynı yaklaşımı kullanabilirsiniz:
+
+```csharp
+[FunctionName("QueueTrigger")]
+public static void Run(
+    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+}
+```
+
 ## <a name="trigger-metadata-properties"></a>Tetikleyici meta veri özellikleri
 
 Bir tetikleyici (örneğin, bir işlev tetiklenen kuyruk iletisini) tarafından sağlanan veri yükü yanı sıra birçok Tetikleyicileri ek meta veri değerleri sağlayın. Bu değerleri C# ve F # veya özelliklerinde giriş parametresi olarak kullanılabilir `context.bindings` JavaScript nesne. 
 
-Örneğin, bir Azure depolama kuyruğu tetikleyicisi aşağıdaki özellikleri destekler:
+Örneğin, bir Azure kuyruk depolama tetikleyicisi aşağıdaki özellikleri destekler:
 
 * QueueTrigger - geçerli bir dize, ileti içeriği tetikleme
 * DequeueCount
@@ -242,9 +282,7 @@ Bir tetikleyici (örneğin, bir işlev tetiklenen kuyruk iletisini) tarafından 
 * NextVisibleTime
 * PopReceipt
 
-Her tetikleyici için meta veri özelliklerini ayrıntılarını karşılık gelen başvuru konusunda açıklanmıştır. Belgeleri de kullanılabilir de **tümleştir** portal sekmesinde, **belgelerine** bağlama yapılandırma alanı aşağıdaki bölümüne.  
-
-Örneğin, bazı gecikmeler BLOB Tetikleyicileri sahip olduğundan, işlevinizi çalıştırmak için bir sıra tetikleyici kullanabilirsiniz (bkz [Blob Depolama tetikleyici](functions-bindings-storage-blob.md#trigger)). Kuyruk iletisini üzerinde tetiklemek için blob filename içerecektir. Kullanarak `queueTrigger` meta veri özelliği, tüm yapılandırmanızı yerine kodunuzu bu davranış belirtebilirsiniz.
+Bu meta veri değerleri erişilebilir *function.json* dosya özellikleri. Örneğin, bir sıra tetikleyici kullanmanız ve kuyruk iletisini okumak istediğiniz bir blob adını içeren varsayalım. İçinde *function.json* kullanabileceğiniz dosyası `queueTrigger` blob meta veri özellik `path` özelliği, aşağıdaki örnekte gösterildiği gibi:
 
 ```json
   "bindings": [
@@ -264,13 +302,13 @@ Her tetikleyici için meta veri özelliklerini ayrıntılarını karşılık gel
   ]
 ```
 
-Bir tetikleyiciden meta veri özelliklerini de kullanılabilir bir *ifade bağlama* aşağıdaki bölümde açıklandığı gibi başka bir bağlama için.
+Her tetikleyici için meta veri özelliklerini ayrıntılarını karşılık gelen başvurusu makalesinde açıklanmıştır. Bir örnek için bkz: [sıra tetikleyici meta verileri](functions-bindings-storage-queue.md#trigger---message-metadata). Belgeleri de kullanılabilir de **tümleştir** portal sekmesinde, **belgelerine** bağlama yapılandırma alanı aşağıdaki bölümüne.  
 
 ## <a name="binding-expressions-and-patterns"></a>İfadeler ve desenler bağlama
 
-Tetikleyicileri ve bağlamaları en güçlü özelliklerden biridir *ifadeleri bağlama*. İçinde bağlama, diğer bağlamaları veya kodunuzu daha sonra kullanılabilir düzeni ifadeler tanımlayabilirsiniz. Tetikleyici meta verileri göster önceki bölümde örnek olarak ifadeleri, bağlama de kullanılabilir.
+Tetikleyicileri ve bağlamaları en güçlü özelliklerden biridir *ifadeleri bağlama*. Bir bağlama için bir yapılandırmada, daha sonra diğer bağlamaları veya kodunuzu kullanılabilir düzeni ifadeler tanımlayabilirsiniz. Tetikleyici meta verileri önceki bölümde gösterildiği gibi bağlama ifadelerinde de kullanılabilir.
 
-Örneğin, belirli bir blob depolama kapsayıcısını, benzer görüntülerinde yeniden boyutlandırmak istediğinizi varsayalım **görüntü Boyutlandır** şablonunda **yeni işlev** sayfası. Git **yeni işlev** dil -> **C#** senaryo -> **örnekleri** -> **ImageResizer CSharp**. 
+Örneğin, bir benzer şekilde belirli blob depolama kapsayıcısını görüntülerinde yeniden boyutlandırmak istediğinizi varsayalım **görüntü Boyutlandır** şablonunda **yeni işlev** sayfasında Azure Portalı'nın (bkz **örnekleri**  senaryosu). 
 
 Burada *function.json* tanımı:
 
@@ -295,7 +333,7 @@ Burada *function.json* tanımı:
 }
 ```
 
-Dikkat `filename` parametresi hem blob tetikleyicinizin tanımını yanı sıra blob kullanılır bağlama çıktı. Bu parametre, işlev kodu de kullanılabilir.
+Dikkat `filename` parametresi hem blob tetikleyicinizin tanımını hem de blob kullanılır bağlama çıktı. Bu parametre, işlev kodu de kullanılabilir.
 
 ```csharp
 // C# example of binding to {filename}
@@ -309,9 +347,41 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
+Sınıf kitaplıkları öznitelikleri bağlama ifadeleri ve desenler aynı kullanabilme uygular. Örneğin, bir sınıf kitaplığı'nda işlevi yeniden boyutlandırma bir görüntü şöyledir:
 
-### <a name="random-guids"></a>Rastgele GUID'leri
-Azure işlevleri aracılığıyla GUID'ler, bağlama oluşturmak için bir kolaylık sözdizimi sağlar `{rand-guid}` ifade bağlama. Aşağıdaki örnekte bir benzersiz blob adı oluşturmak için bu kullanır: 
+```csharp
+[FunctionName("ResizeImage")]
+[StorageAccount("AzureWebJobsStorage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```
+
+### <a name="create-guids"></a>GUID oluşturma
+
+`{rand-guid}` İfade bağlama bir GUID oluşturur. Aşağıdaki örnek, bir benzersiz blob adı oluşturmak için bir GUID kullanır: 
 
 ```json
 {
@@ -324,7 +394,7 @@ Azure işlevleri aracılığıyla GUID'ler, bağlama oluşturmak için bir kolay
 
 ### <a name="current-time"></a>Geçerli zaman
 
-Bağlama deyimi kullanabilirsiniz `DateTime`, çözümler için `DateTime.UtcNow`.
+Bağlama ifadesi `DateTime` çözümler `DateTime.UtcNow`.
 
 ```json
 {
@@ -335,7 +405,7 @@ Bağlama deyimi kullanabilirsiniz `DateTime`, çözümler için `DateTime.UtcNow
 }
 ```
 
-## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Bir bağlama ifadesinde özel giriş özellikleri bağlayın
+## <a name="bind-to-custom-input-properties"></a>Özel giriş özelliklerine bağlama
 
 İfadeler bağlama tetikleyici yükü kendisini tanımlanan özellikler başvuruda bulunabilir. Örneğin, dinamik olarak bir Web kancası sağlanan bir dosya adı gelen bir blob depolama dosyasına bağlamak isteyebilirsiniz.
 
@@ -408,13 +478,14 @@ module.exports = function (context, info) {
 
 ## <a name="configuring-binding-data-at-runtime"></a>Çalışma zamanında veri bağlama yapılandırma
 
-C# ve diğer .NET dilleri bildirim temelli bağlamaları aksine bir kesinlik temelli bağlama desen kullanabilirsiniz *function.json*. Kesinlik temelli bağlama bağlama parametreleri tasarım yerine çalışma zamanında hesaplanması gerektiğinde kullanışlıdır. Daha fazla bilgi için bkz: [kesinlik temelli bağlamaları aracılığıyla çalışma zamanında bağlama](functions-reference-csharp.md#imperative-bindings) C# Geliştirici Başvurusu.
+C# ve diğer .NET dilleri bildirim temelli bağlamaları aksine bir kesinlik temelli bağlama desen kullanabilirsiniz *function.json* ve öznitelikleri. Kesinlik temelli bağlama bağlama parametreleri tasarım yerine çalışma zamanında hesaplanması gerektiğinde kullanışlıdır. Daha fazla bilgi için bkz: [kesinlik temelli bağlamaları aracılığıyla çalışma zamanında bağlama](functions-reference-csharp.md#imperative-bindings) C# Geliştirici Başvurusu.
 
 ## <a name="functionjson-file-schema"></a>Function.JSON dosyası şeması
 
 *Function.json* dosyası şeması şu adreste [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Belirli bir bağlama hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - [HTTP ve web kancaları](functions-bindings-http-webhook.md)

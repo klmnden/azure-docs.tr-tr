@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Klasik web hizmetini yeniden eğitme
 Dağıttığınız Tahmine dayalı Web Hizmeti uç noktası Puanlama varsayılandır. Varsayılan uç noktalar özgün eğitim ve puanlama denemeler ile eşitlenmiş tutulur ve bu nedenle varsayılan uç noktası için eğitilen model değiştirilemez. Web hizmeti çağırma için yeni bir uç noktası için web hizmeti eklemeniz gerekir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Eğitim denemenizi ve Tahmine dayalı denemeye gösterildiği gibi ayarlamış olmanız gerekir [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
@@ -116,7 +116,7 @@ Aşağıdaki örnek kod, nasıl kullanılacağını gösterir *BaseLocation*, *R
 
 Değeri *adı* parametresinde *kaynakları* Tahmine dayalı denemeye kaydedilmiş eğitilen modele kaynak adı eşleşmelidir. Kaynak adı almak için:
 
-1. Oturum [Klasik Azure portalı](https://manage.windowsazure.com).
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Soldaki menüde tıklatın **Machine Learning**.
 3. Adı altında çalışma alanına tıklayın ve ardından **Web Hizmetleri**.
 4. Adı altında tıklatın **Census modeli [Tahmine dayalı exp.]** .

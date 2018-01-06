@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 74d732709e1cc3c97b485cc45e3a4e2c8e3cd11e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Yönetilen hizmet kimliği (MSI) kullanıcı tarafından atanan bir VM kullanarak oturum açın
 
@@ -51,7 +51,7 @@ Aşağıdaki komut dosyası gösterilmektedir nasıl yapılır:
 2. Azure Resource Manager'ı çağırmaz ve bir VM için Azure bölgesi konumu Al. CLI belirteç edinme/kullanımı sizin için otomatik olarak yönetme mvc'deki. VM adınızı değiştirdiğinizden emin olun `<VM NAME>`ve MSI kaynak kimliği için kullanıcı tarafından atanan `<MSI ID>`. MSI kaynak kimliği döndürülür `id` özelliği kullanıcı tarafından atanan bir MSI oluşturulması sırasında (bkz [Azure CLI kullanarak bir VM için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) yapılandırma](msi-qs-configure-cli-windows-vm.md) örnekleri için `az identity create` komutu ).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation

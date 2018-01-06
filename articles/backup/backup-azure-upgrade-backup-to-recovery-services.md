@@ -1,5 +1,5 @@
 ---
-title: "Bir Backup kasasının kurtarma Hizmetleri kasası (Önizleme) yükseltme | Microsoft Docs"
+title: "Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme | Microsoft Docs"
 description: "Yönergeler ve destek bilgileri için bir kurtarma Hizmetleri kasası, Azure yedekleme kasası yükseltmek için."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme
 
@@ -120,7 +120,7 @@ Bir kurtarma Hizmetleri Kasası'na yükseltme yaptıktan sonra (Iaas Vm'leri ve 
 Hayır. Devam eden Yedeklemelerinizin kesintisiz sırasında ve yükseltmeden sonra devam eder.
 
 **En kısa sürede yükseltmeyi düşünüyorsanız yok, my kasalarını ne olur?**</br>
-Tüm yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerli olduğundan, biz, kasa yükseltmenizi yönlendirmeye. Microsoft, sonunda Klasik Portalı'nı Kaldır. 1 Eylül 2017 başlangıç Microsoft Kurtarma Hizmetleri kasaları için yedekleme kasalarını otomatik yükseltme işlemini başlatacak. Kasım sonra 30,2017, PowerShell kullanarak yedekleme kasaları artık oluşturabilirsiniz. Kasanızı dilediğiniz zaman arasında otomatik olarak yükseltilebilir. Microsoft, mümkün olan en kısa sürede kasanızı yükseltme önerir.
+Tüm yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerli olduğundan, biz, kasa yükseltmenizi yönlendirmeye. 1 Eylül 2017 başlangıç Microsoft Kurtarma Hizmetleri kasaları için yedekleme kasalarını otomatik yükseltme işlemini başlatacak. Kasım sonra 30,2017, PowerShell kullanarak yedekleme kasaları artık oluşturabilirsiniz. Kasanızı dilediğiniz zaman arasında otomatik olarak yükseltilebilir. Microsoft, mümkün olan en kısa sürede kasanızı yükseltme önerir.
 
 **Bu yükseltme ortalaması my varolan araçları için nedir?**</br>
 Resource Manager dağıtım modeli için araç güncelleştirin. Kurtarma Hizmetleri kasaları için oluşturulan Resource Manager dağıtım modelinde kullanın. Resource Manager dağıtım modeli için planlama ve, kasa fark Hesap önemlidir. 
@@ -133,9 +133,6 @@ Hayır. Kaynakları başarılı bir şekilde yükselttikten sonra geri alma dest
 
 **My abonelik ya da bunlar yükseltmesini yeteneğine sahip olup olmadığınızı görmek için kaynakları doğrulamak için?**</br>
 Evet. Yükseltme ilk adımda kaynakları yükseltmesini yeteneğine sahip olduğunu doğrular. Ön koşul doğrulama başarısız olursa, yükseltme tamamlanamıyor tüm nedenlerle iletilerini alır.
-
-**Kasa yükseltilmesini sağlamak hangi izinlerin kullanmalı mı?**</br>
-Kasa yükseltme gerçekleştirmek için Azure Klasik portalında abonelik için ortak yönetici olarak eklenmelidir. Zaten Azure portalında sahibi olarak listelenen olsa bile, bu gereklidir. Abonelik için ortak yönetici olup olmadığını öğrenmek için Klasik Azure portalındaki abonelik için bir ortak yönetici eklemeyi deneyin. Bir ortak yönetici eklemek mümkün değilse, bir ortak yönetici ekleyebilirsiniz abonelik, Hizmet Yöneticisi veya ortak yönetici başvurun.
 
 **My CSP tabanlı bir yedekleme kasası yükseltebilir miyim?**</br>
 Hayır. Şu anda, CSP tabanlı Yedekleme kasalarını yükseltemezsiniz. Sonraki sürümlerde CSP tabanlı Yedekleme kasaları yükseltmek için destek ekleyeceğiz.

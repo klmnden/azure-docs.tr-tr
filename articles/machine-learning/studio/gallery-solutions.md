@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Galerisi çözümleri | Microsoft Docs"
-description: "Cortana Intelligence Galerisi'nde çözümlerinde bulur."
+title: "Azure AI galeri çözümleri | Microsoft Docs"
+description: "Azure AI Galerideki çözümleri keşfedin."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 3d249a12b31418b159b3e5391528488f5d9d57a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 813b431b2e8ee22435e302800b7f707f6ba693b9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-solutions-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi'nde çözümlerinde Bul
+# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Azure AI Galerideki çözümleri Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="solutions"></a>Çözümler
@@ -30,7 +30,7 @@ Bunları kendi dahil yönergeleri veya özel bir iş ortağı ile yapın.
 ## <a name="discover"></a>Keşif
   Galerideki çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com) tıklatıp **çözümleri** galeri giriş sayfasının üst.
 
- **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)**  sayfa en son eklenen çözümlerinin listesini görüntüler.
+  **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)**  sayfa en son eklenen çözümlerinin listesini görüntüler.
 Tıklatın **tümünü görmek** tüm çözümleri görüntülemek için.
 Bu sayfadan galerisinde tüm çözümleri göz atabilirsiniz. Ayrıca, sol üst girme arama terimleri ve sayfa filtre ölçütü seçerek arayabilirsiniz.
 

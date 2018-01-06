@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/05/2018
@@ -35,9 +35,9 @@ Azure Cosmos DB'de depolamak ve herhangi bir ölçekte milisaniyelik sipariş ya
 
 Kapsayıcıları mantıksal kaynaklar ve bir veya daha fazla fiziksel bölümleri veya sunucuları yayılabilir. Bölüm sayısı Azure Cosmos depolama boyutu ve kapsayıcının sağlanan işleme dayalı DB tarafından belirlenir. 
 
-10 GB en fazla ile ayrılmış SSD yedekli depolama sabit miktarlı bir fiziksel bölümdür. Her fiziksel bölüm yüksek kullanılabilirlik için çoğaltılır. Bir veya daha fazla fiziksel bölüm kapsayıcısı ayarlama olun. Fiziksel bölüm yönetimi tam olarak Azure Cosmos DB tarafından yönetilir ve karmaşık kodlar yazmak veya bölüm yönetmek yok. Azure Cosmos DB depolama ve işleme açısından sınırsız kapsayıcılardır. 
+Ayrılmış SSD yedekli depolama sabit miktarlı bir fiziksel bölümdür. Her fiziksel bölüm yüksek kullanılabilirlik için çoğaltılır. Bir veya daha fazla fiziksel bölüm kapsayıcısı ayarlama olun. Fiziksel bölüm yönetimi tam olarak Azure Cosmos DB tarafından yönetilir ve karmaşık kodlar yazmak veya bölüm yönetmek yok. Azure Cosmos DB depolama ve işleme açısından sınırsız kapsayıcılardır. 
 
-Bir mantıksal bölüm tek bölüm anahtar değeriyle ilişkili tüm verileri depolar fiziksel bir bölüm içinde bir bölümdür. Aşağıdaki diyagramda, tek bir kapsayıcı üç mantıksal bölümler vardır. Her mantıksal bölüm için bir bölüm anahtarı, LAX, AMS ve MEL sırasıyla depolamaz. Her LAX, AMS ve MEL mantıksal bölüm 10 GB en büyük fiziksel bölüm sınırı aşan kuramaz. 
+Bir mantıksal bölüm tek bölüm anahtar değeriyle ilişkili tüm verileri depolar fiziksel bir bölüm içinde bir bölümdür. Bir mantıksal bölüm 10 GB en sahiptir. Aşağıdaki diyagramda, tek bir kapsayıcı üç mantıksal bölümler vardır. Her mantıksal bölüm için bir bölüm anahtarı, LAX, AMS ve MEL sırasıyla depolamaz. Her LAX, AMS ve MEL mantıksal bölüm 10 GB en büyük mantıksal bölüm sınırı aşan kuramaz. 
 
 ![Kaynak bölümlendirme](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -45,7 +45,7 @@ Bir koleksiyonun ne zaman karşılayan [Önkoşullar bölümleme](#prerequisites
 
 ## <a name="how-does-partitioning-work"></a>Bölümleme nasıl çalışır
 
-Bölümleme nasıl çalışır? Her bir öğeyi benzersiz olarak tanımlamak bölüm anahtarı ve bir satır anahtarı olması gerekir. Bölüm anahtarı, verileriniz için bir mantıksal bölüm görevi görür ve veri bölümleri arasında dağıtmak amacıyla Azure Cosmos DB ile doğal bir sınır sağlar. Bir mantıksal bölüm birden çok fiziksel bölüm yayılabilir, ancak fiziksel bölüm yönetimi Azure Cosmos DB tarafından yönetilen unutmayın. 
+Bölümleme nasıl çalışır? Her bir öğeyi benzersiz olarak tanımlamak bölüm anahtarı ve bir satır anahtarı olması gerekir. Bölüm anahtarı, verileriniz için bir mantıksal bölüm görevi görür ve fiziksel bölümler veri dağıtılmasında doğal bir sınır ile Azure Cosmos DB sağlar. Tek bir mantıksal bölüm için verileri tek bir fiziksel bölüm içinde bulunmalıdır, ancak fiziksel bölüm yönetimi Azure Cosmos DB tarafından yönetilen unutmayın. 
 
 Kısaca, işte Azure Cosmos DB'de bölümleme nasıl çalışır:
 

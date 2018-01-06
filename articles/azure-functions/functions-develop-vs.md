@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Visual Studio için Azure işlevleri araçları  
 
@@ -46,7 +46,8 @@ Oluşturma ve dağıtma işlevleri için ayrıca gerekir:
 
 * Etkin bir Azure aboneliği. Bir Azure aboneliğiniz yoksa [serbest hesapları](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) kullanılabilir.
 
-* Bir Azure depolama hesabı. Bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* Bir Azure depolama hesabı. Bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## <a name="create-an-azure-functions-project"></a>Azure işlevleri projesi oluşturma 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -136,4 +137,4 @@ Azure işlevleri çekirdek araçlarını kullanma hakkında daha fazla bilgi iç
 Azure işlevleri araçları hakkında daha fazla bilgi için sık sorulan sorular bölümüne bakın [Azure işlevleri için Visual Studio 2017 Araçları](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog postası.
 
 Azure işlevleri çekirdek araçları hakkında daha fazla bilgi için bkz: [kod ve yerel olarak Azure işlevlerini test](functions-run-local.md).  
-.NET sınıf kitaplıkları olarak işlevleri geliştirme hakkında daha fazla bilgi için bkz. [.NET sınıf kitaplıklarını Azure İşlevleri ile kullanma](functions-dotnet-class-library.md). Bu konu ayrıca bağlamaları Azure işlevleri tarafından desteklenen çeşitli türlerde bildirmek için öznitelikleri kullanma örnekleri sağlar.    
+.NET sınıf kitaplıkları işlevleri geliştirme hakkında daha fazla bilgi için bkz: [Azure işlevleri C# Geliştirici Başvurusu](functions-dotnet-class-library.md). Bu konu ayrıca bağlamaları Azure işlevleri tarafından desteklenen çeşitli türlerde bildirmek için öznitelikleri kullanma örnekleri bağlar.    
