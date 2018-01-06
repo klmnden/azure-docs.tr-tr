@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT hub'da cihaz çiftlerini kullanın
 
 *Cihaz çiftlerini* meta verileri, yapılandırmaları ve koşullar dahil olmak üzere cihaz durumu bilgilerini depolamak JSON belgeleri. Azure IOT Hub cihaz çifti IOT Hub'ına bağlanan her aygıt için tutar. Bu makalede açıklanır:
+
 
 * Cihaz çifti yapısını: *etiketleri*, *istenen* ve *özellikleri bildirilen*.
 * Cihaz uygulamalarını hem de arka uçları cihaz çiftlerini üzerinde gerçekleştirebileceğiniz işlemler.
@@ -51,8 +52,7 @@ Cihaz çifti içeren bir JSON belgesi şöyledir:
 * **Etiketleri**. Çözüm arka ucu JSON belgesinin bir bölümünü okuma ve yazma. Etiketler cihaz uygulamaları için görünür değildir.
 * **Özellikler istenen**. Aygıt Yapılandırması veya koşulları eşitlemek için bildirilen özellikleriyle birlikte kullanılır. Cihaz uygulaması okuyabilir ve çözüm arka ucu istenen özellikleri ayarlayabilirsiniz. Cihaz uygulaması, ayrıca istenen özelliklerinde değişikliklerin bildirimleri alabilirsiniz.
 * **Özellikler bildirilen**. Aygıt Yapılandırması veya koşulları eşitlemek için istediğiniz özellikleri ile birlikte kullanılır. Cihaz uygulaması bildirilen özellikleri ayarlayabilirsiniz ve çözüm arka ucu okuyabilir ve bunları sorgulayabilirsiniz.
-
-Ayrıca, cihaz çifti JSON belgesi kökündeki saklanan karşılık gelen bir cihaz kimliği salt okunur özelliklerinden içeren [kimlik kayıt defteri][lnk-identity].
+* **Cihaz kimlik özellikleri**. Cihaz çifti JSON belgesi kökündeki saklanan karşılık gelen bir cihaz kimliği salt okunur özelliklerinden içeren [kimlik kayıt defteri][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ Aşağıdaki örnek, bir cihaz çifti JSON belgesi gösterir:
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ Aşağıdaki örnek, bir cihaz çifti JSON belgesi gösterir:
             }
         }
 
-Sistem özellikleri kök nesnesinde yer alan ve kapsayıcı nesneleri için `tags` ve her ikisi de `reported` ve `desired` özellikleri. `properties` Kapsayıcısı bazı salt okunur öğeleri içerir (`$metadata`, `$etag`, ve `$version`) açıklanan [cihaz çifti meta verilerini] [ lnk-twin-metadata] ve [ İyimser eşzamanlılık] [ lnk-concurrency] bölümler.
+Kök nesnesinde cihaz kimlik özelliklerdir ve kapsayıcı nesneleri için `tags` ve her ikisi de `reported` ve `desired` özellikleri. `properties` Kapsayıcısı bazı salt okunur öğeleri içerir (`$metadata`, `$etag`, ve `$version`) açıklanan [cihaz çifti meta verilerini] [ lnk-twin-metadata] ve [ İyimser eşzamanlılık] [ lnk-concurrency] bölümler.
 
 ### <a name="reported-property-example"></a>Bildirilen özelliği örneği
 Önceki örnekte, cihaz çifti içeren bir `batteryLevel` cihaz uygulaması tarafından bildirilen özelliği. Bu özellik, sorgu ve son bildirilen pil düzeyi temelinde cihazlarda çalıştırmak mümkün kılar. Cihaz uygulama raporlama cihaz özellikleri veya bağlantı seçenekleri diğer örnek olarak verilebilir.
@@ -240,7 +246,7 @@ Etiketler, istenen özellikleri ve bildirilen özellikleri JSON nesnelerinin aş
 * Tüm dize değeri uzunluğu en fazla 4 KB olabilir.
 
 ## <a name="device-twin-size"></a>Cihaz çifti boyutu
-IOT hub'ı zorlar toplam değerlerine göre bir 8KB boyutu sınırlaması `tags`, `properties/desired`, ve `properties/reported`, salt okunur öğeleri hariç.
+IOT hub'ı zorlayan bir 8KB boyutu sınırlaması her ilgili toplam değerlerinin `tags`, `properties/desired`, ve `properties/reported`, salt okunur öğeleri hariç.
 Boyutu UNICODE denetim karakterleri (kesimleri C0 ve C1) hariç tüm karakterleri sayma tarafından hesaplanır ve dize sabitleri dışında olan alanları.
 IOT hub'ı bir hata ile bu belgelerin sınırı üstünde boyutunu artırır tüm işlemleri reddeder.
 

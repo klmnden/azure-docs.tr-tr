@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -27,6 +27,7 @@ Bu makale size yardımcı olacak sorun giderme bilgileri ilgili sık karşılaş
 ## <a name="known-problems"></a>Bilinen sorunlar
 
 - Bazı durumlarda, sorunsuz SSO etkinleştirme 30 dakika kadar sürebilir.
+- Devre dışı bırakın ve sorunsuz SSO kiracınız üzerinde yeniden etkinleştirirseniz, kendi önbelleğe alınmış Kerberos biletleri, 10 saat için genellikle geçerli süresi dolmuş kadar kullanıcılar tekli oturum açma deneyimi alacak değil.
 - Edge tarayıcı desteği kullanılamıyor.
 - Office istemcileri, özellikle paylaşılan bir bilgisayar senaryolarda başlangıç kullanıcılar için fazladan oturum açma ister neden olur. Kullanıcıların kendi kullanıcı adları sık, ancak kullanıcıların parolalarını girmeleri gerekir.
 - Sorunsuz SSO başarılı olursa, kullanıcının seçmek için Fırsat yok **Oturumumu açık bırak**. Bu davranış nedeniyle, SharePoint ve OneDrive eşleme senaryolar çalışmaz.
@@ -68,13 +69,15 @@ Gözat **Azure Active Directory** > **oturum açma işlemleri** içinde [Azure A
 Sorunsuz SSO sorunlarını gidermek için aşağıdaki denetim listesini kullanın:
 
 - Azure AD Connect sorunsuz SSO özelliği etkin olduğundan emin olun. Özelliği (örneğin, nedeniyle engellenen bir bağlantı noktası) etkinleştiremezsiniz tümüne sahip olun [Önkoşullar](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) yerinde.
+- Her ikisi de etkinleştirdiyseniz, [Azure AD katılım](../active-directory-azureadjoin-overview.md) ve Kiracı üzerinde sorunsuz SSO emin sorunu Azure AD katılımı ile. Cihaz Azure AD ile kayıtlı ve etki alanına katılmış değilse Azure AD katılım gelen SSO sorunsuz SSO önceliklidir. Azure AD katılım gelen SSO "Windows bağlı" diyen bir oturum açma döşeme kullanıcı görür.
 - Bu Azure AD URL'ler (https://autologon.microsoftazuread-sso.com ve https://aadg.windows.net.nsatc.net) kullanıcının Intranet bölgesi ayarlarının bir parçası olduğundan emin olun.
 - Kurumsal cihaz Active Directory etki alanına katılmış emin olun.
 - Kullanıcı aygıt bir Active Directory etki alanı hesabıyla oturum açmış emin olun.
 - Kullanıcı hesabının sorunsuz SSO burada bırakıldı bir Active Directory ormanından kurulduğundan emin olun.
 - Cihazın şirket ağına bağlı olduğundan emin olun.
 - Cihazın zaman zaman Active Directory ve etki alanı denetleyicileri ile eşitlenir ve beş dakikalık olduklarından emin olun.
-- Cihazda mevcut Kerberos anahtarları kullanarak listesinde `klist` bir komut isteminden komutu. Çıkarılan biletleri emin `AZUREADSSOACCT` bilgisayar hesabı. Kullanıcıların Kerberos biletleri için 12 saat genellikle geçerlidir. Active Directory'de farklı ayarlara sahip olabilir.
+- Cihazda mevcut Kerberos anahtarları kullanarak listesinde `klist` bir komut isteminden komutu. Çıkarılan biletleri emin `AZUREADSSOACCT` bilgisayar hesabı. Kullanıcıların Kerberos biletleri için 10 saat genellikle geçerlidir. Active Directory'de farklı ayarlara sahip olabilir.
+- Devre dışı ve sorunsuz SSO kiracınız üzerinde yeniden etkinleştirilirse, önbelleğe alınan Kerberos biletleri süresi dolmuş kadar kullanıcılar tekli oturum açma deneyimi alacak değil.
 - Mevcut Kerberos anahtarları kullanarak aygıttan Temizleme `klist purge` komut ve yeniden deneyin.
 - JavaScript ile ilgili sorunlar olup olmadığını belirlemek için tarayıcının konsol günlüklerini gözden geçirin (altında **Geliştirici Araçları**).
 - Gözden geçirme [etki alanı denetleyicisi günlükleri](#domain-controller-logs).

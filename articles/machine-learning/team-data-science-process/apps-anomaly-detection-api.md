@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Anomali algılama API makine
 ## <a name="overview"></a>Genel Bakış
@@ -44,15 +44,15 @@ Anomali algılama sunan başlamanıza yardımcı olmak için faydalı araçları
 >
 
 ## <a name="api-deployment"></a>API dağıtımı
-API kullanabilmeniz için burada bir Azure Machine Learning web hizmeti olarak barındırılacak Azure aboneliğinizde dağıtmanız gerekir.  Bunu yapmak [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Bu iki AzureML Web Hizmetleri (ve bunların ilgili kaynaklar), Azure aboneliğinizin - mevsimselliğin algılama anomali algılama için diğeri mevsimselliğin algılama olmadan dağıtır.  Dağıtım tamamlandıktan sonra API'yönetmek kullanamazsınız [AzureML web Hizmetleri](https://services.azureml.net/webservices/) sayfası.  Bu sayfadan API'sini çağırmak için uç noktalarına, API anahtarları yanı sıra örnek kod Bul mümkün olacaktır.  Daha ayrıntılı yönergeler kullanılabilir [burada](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
+API kullanabilmeniz için burada bir Azure Machine Learning web hizmeti olarak barındırılacak Azure aboneliğinizde dağıtmanız gerekir.  Bunu yapmak [Azure AI galeri](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Bu iki AzureML Web Hizmetleri (ve bunların ilgili kaynaklar), Azure aboneliğinizin - mevsimselliğin algılama anomali algılama için diğeri mevsimselliğin algılama olmadan dağıtır.  Dağıtım tamamlandıktan sonra API'yönetmek kullanamazsınız [AzureML web Hizmetleri](https://services.azureml.net/webservices/) sayfası.  Bu sayfadan API'sini çağırmak için uç noktalarına, API anahtarları yanı sıra örnek kod Bul mümkün olacaktır.  Daha ayrıntılı yönergeler kullanılabilir [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>API ölçeklendirme
 Varsayılan olarak, dağıtımınızı 1.000 işlemleri/ay ve 2 işlem saat/ay içeren boş bir fatura geliştirme ve Test planı sahip olur.  Başka bir plana gereksinimlerinize uygun şekilde yükseltebilirsiniz.  Farklı planları fiyatlandırma hakkında ayrıntıları [burada](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) "Üretim Web API fiyatlandırma" altında.
 
 ## <a name="managing-aml-plans"></a>AML yönetme planları 
-Faturalandırma planınıza yönetebilirsiniz [burada](https://services.azureml.net/plans/).  Plan adı API dağıtırken seçtiğiniz kaynak grubu adı yanı sıra, aboneliğiniz için benzersiz bir dizeye dayalı olacak.  Planınızı yükseltmek yönergeler kullanılabilir [burada](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) "faturalandırma planları yönetme" bölümünün altında.
+Faturalandırma planınıza yönetebilirsiniz [burada](https://services.azureml.net/plans/).  Plan adı API dağıtırken seçtiğiniz kaynak grubu adı yanı sıra, aboneliğiniz için benzersiz bir dizeye dayalı olacak.  Planınızı yükseltmek yönergeler kullanılabilir [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) "faturalandırma planları yönetme" bölümünün altında.
 
-## <a name="api-definition"></a>API tanımı
+## <a name="api-definition"></a>API Tanımı
 Web hizmeti REST tabanlı bir API sağlayan bir web veya mobil uygulama, R, Python, Excel gibi farklı yollarla tüketilebilir HTTPS üzerinden vb.  Bu hizmet bir REST API çağrısı aracılığıyla zaman serisi veri göndermek ve aşağıda açıklanan üç anomali türleri birlikte çalışır.
 
 ## <a name="calling-the-api"></a>API çağırma
@@ -108,7 +108,7 @@ Puan API anomali algılama Mevsimlik olmayan zaman serisi veri üzerinde çalı�
 ### <a name="detectors"></a>Algılayıcılar
 Anomali algılama API algılayıcılar 3 geniş kategorilerde destekler. Belirli giriş parametreleri ve her algılayıcı çıktıların hakkında ayrıntılar aşağıdaki tabloda bulunabilir.
 
-| Algılayıcısı kategorisi | Algılayıcısı | Açıklama | Giriş parametreleri | Çıkışları |
+| Algılayıcısı kategorisi | Algılayıcısı | Açıklama | Giriş parametreleri | Çıkışlar |
 | --- | --- | --- | --- | --- |
 | Depo algılayıcılar |TSpike algılayıcısı |Ani ve şu ana kadar değerlerine göre dıps ilk ve üçüncü Dörttebirlikler saptamak |*tspikedetector.sensitivity:* aralığındaki tamsayı değeri 1-10, varsayılan alır: 3; Daha yüksek değerler, böylece daha az hassas yapmadan birden fazla aşırı değeri yakalar |TSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde |
 | Depo algılayıcılar | ZSpike algılayıcısı |Ani ve ne kadar datapoints'ler ortalamasını göre dıps Algıla |*zspikedetector.sensitivity:* aralığındaki tamsayı değeri 1-10, varsayılan alın: 3; Daha yüksek değerleri daha az hassas kolaylaştırarak birden fazla aşırı değeri yakalar |ZSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde | |
@@ -120,18 +120,18 @@ Bu giriş parametreleri hakkında daha ayrıntılı bilgi aşağıdaki tabloda l
 
 | Giriş parametreleri | Açıklama | Varsayılan ayar | Tür | Geçerli aralık | Önerilen aralık |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |tamsayı |10-2000 |Zaman serisi bağımlı |
-| detectors.spikesdips | Algılanmayacağını yalnızca ani, yalnızca dıps veya her ikisi |Her ikisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her ikisi |
-| bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| trenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |tamsayı |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
+| detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |integer |10-2000 |Zaman serisi bağımlı |
+| detectors.spikesdips | Algılanmayacağını yalnızca ani, yalnızca dıps veya her ikisi |Her İkisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her İkisi |
+| bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |double |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| trenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |double |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |integer |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
+| zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |integer |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
+| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |integer |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
 
 ### <a name="output"></a>Çıktı
 API tüm algılayıcılar zaman serisi verileriniz üzerinde çalışır ve anomali puanlarını ve her nokta için ikili depo göstergeleri zamanında döndürür. Aşağıdaki tabloda API'sinden çıkışları listeler. 
 
-| Çıkışları | Açıklama |
+| Çıkışlar | Açıklama |
 | --- | --- |
 | Zaman |Ham verileri veya toplanan (ve/veya) imputed verilerden zaman damgaları, toplama (ve/veya) eksik veri imputation uygulanır |
 | Veriler |Değerleri ham verileri veya toplanan (ve/veya) imputed veri varsa toplama (ve/veya) eksik veri imputation uygulanır |
@@ -156,25 +156,25 @@ Bu giriş parametreleri hakkında daha ayrıntılı bilgi aşağıdaki tabloda l
 
 | Giriş parametreleri | Açıklama | Varsayılan ayar | Tür | Geçerli aralık | Önerilen aralık |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |Toplama aralığı toplama için saniye cinsinden zaman serisi giriş |0 (hiçbir toplama gerçekleştirilir) |tamsayı |0: toplama, > 0 aksi atla |Zaman serisi bağımlı, 1 gün için 5 dakika |
+| preprocess.aggregationInterval |Toplama aralığı toplama için saniye cinsinden zaman serisi giriş |0 (hiçbir toplama gerçekleştirilir) |integer |0: toplama, > 0 aksi atla |Zaman serisi bağımlı, 1 gün için 5 dakika |
 | preprocess.aggregationFunc |Belirtilen AggregationInterval veri toplamak için kullanılan işlevi |Ortalama |Numaralandırılan |Ortalama, Topla, uzunluğu |Yok |
 | preprocess.replaceMissing |Eksik veri impute için kullanılan değerleri |lkv (bilinen son değer) |Numaralandırılan |sıfır, lkv, ortalama |Yok |
-| detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |tamsayı |10-2000 |Zaman serisi bağımlı |
-| detectors.spikesdips | Algılanmayacağını yalnızca ani, yalnızca dıps veya her ikisi |Her ikisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her ikisi |
-| bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| postrenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| negtrenddetector.sensitivity |Negatif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| seasonality.Enable |Mevsimselliğin analiz gerçekleştirilmesi olup |TRUE |Boole değeri |TRUE, false |Zaman serisi bağımlı |
-| seasonality.numSeasonality |Algılanacak düzenli döngüleri sayısı |1 |tamsayı |1, 2 |1-2 |
+| detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |integer |10-2000 |Zaman serisi bağımlı |
+| detectors.spikesdips | Algılanmayacağını yalnızca ani, yalnızca dıps veya her ikisi |Her İkisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her İkisi |
+| bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |double |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| postrenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |double |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| negtrenddetector.sensitivity |Negatif eğilimi algılayıcısı duyarlılık. |3.25 |double |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |integer |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
+| zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |integer |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
+| seasonality.Enable |Mevsimselliğin analiz gerçekleştirilmesi olup |doğru |boole |TRUE, false |Zaman serisi bağımlı |
+| seasonality.numSeasonality |Algılanacak düzenli döngüleri sayısı |1 |integer |1, 2 |1-2 |
 | seasonality.Transform |Mevsimlik olup olmadığını (ve) eğilimi bileşenleri anomali algılama uygulamadan önce kaldırılması |deseason |Numaralandırılan |None, deseason, deseasontrend |Yok |
-| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |tamsayı |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
+| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |integer |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
 
 ### <a name="output"></a>Çıktı
 API tüm algılayıcılar zaman serisi verileriniz üzerinde çalışır ve anomali puanlarını ve her nokta için ikili depo göstergeleri zamanında döndürür. Aşağıdaki tabloda API'sinden çıkışları listeler. 
 
-| Çıkışları | Açıklama |
+| Çıkışlar | Açıklama |
 | --- | --- |
 | Zaman |Ham verileri veya toplanan (ve/veya) imputed verilerden zaman damgaları, toplama (ve/veya) eksik veri imputation uygulanır |
 | OriginalData |Değerleri ham verileri veya toplanan (ve/veya) imputed veri varsa toplama (ve/veya) eksik veri imputation uygulanır |

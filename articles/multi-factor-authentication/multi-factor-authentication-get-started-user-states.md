@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure çok faktörlü kimlik doğrulama kullanıcı durumları"
-description: "Azure MFA kullanıcı durumları hakkında bilgi edinin."
+description: "Azure multi-Factor Authentication kullanıcı durumları hakkında bilgi edinin."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
@@ -15,46 +15,40 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-<<<<<<< HEAD
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
-=======
-ms.openlocfilehash: b7fb5135ac1ae776851d79f936eb860b4b121c71
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ad8d531d633eb65fe90404fdab0499b8e5332db6
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Bir kullanıcı veya grup için iki aşamalı doğrulama zorunlu kılma
 
-İki aşamalı doğrulama gerektirme iki yaklaşım vardır. İlk seçenek, her bağımsız kullanıcı Azure çok faktörlü kimlik doğrulama (MFA) etkinleştirmektir. Kullanıcılar tek tek etkinleştirildiğinde, bunlar her zaman iki aşamalı doğrulamayı (bazı özel durumlarla birlikte, güvenilen IP adreslerinden oturum zaman veya hatırlanan aygıt özelliği açık olup olmadığını gibi) gerçekleştirin. İkinci seçenek belirli koşullar altında iki aşamalı doğrulama gerektiren bir koşullu erişim ilkesi ayarlamaktır.
+İki aşamalı doğrulama gerektirme iki yaklaşım birini alabilir. İlk seçenek, her bir kullanıcı Azure çok faktörlü kimlik doğrulama (MFA) etkinleştirmektir. Kullanıcılar tek tek etkinleştirildiğinde, iki aşamalı doğrulamayı oturum her zaman gerçekleştirdikleri (güvenilen IP ne zaman oturum gibi bazı özel durumlar adresleri veya ne zaman _aygıtları hatırlanan_ özelliği açıktır). İkinci seçenek belirli koşullar altında iki aşamalı doğrulama gerektiren bir koşullu erişim ilkesi ayarlamaktır.
 
 >[!TIP] 
->İki aşamalı doğrulama, ikisini istemek için aşağıdaki yöntemlerden birini seçin. Bir kullanıcı Azure MFA için etkinleştirmeye herhangi koşullu erişim ilkeleri geçersiz kılar.
+>İki aşamalı doğrulama, ikisini istemek için aşağıdaki yöntemlerden birini seçin. Bir kullanıcı Azure çok faktörlü kimlik doğrulamasını etkinleştirme tüm koşullu erişim ilkeleri geçersiz kılar.
 
-## <a name="which-option-is-right-for-you"></a>Hangi sizin için uygun bir seçenektir
+## <a name="which-option-is-right-for-you"></a>Hangi seçeneği sizin için uygun hangisi?
 
-**Azure MFA kullanıcı durumları değiştirerek etkinleştirme** iki aşamalı doğrulama gerektirme geleneksel bir yaklaşımdır. Hem bulutta Azure MFA ve Azure MFA sunucusu için çalışır. Oturum her zaman iki aşamalı doğrulamayı gerçekleştirmek için aynı deneyimi sağlayan tüm kullanıcıların sahip. Bir kullanıcının kullanıcı etkileyebilecek herhangi bir koşullu erişim ilkeleri geçersiz kılar. 
+**Kullanıcı durumları değiştirerek Azure çok faktörlü kimlik doğrulamasını etkinleştirme** iki aşamalı doğrulama gerektirme geleneksel bir yaklaşımdır. Hem bulutta Azure MFA ve Azure MFA sunucusu için çalışır. Her oturum açışınızda sağlayan tüm kullanıcıların iki aşamalı doğrulamayı gerçekleştirin. Bir kullanıcının kullanıcı etkileyebilecek herhangi bir koşullu erişim ilkeleri geçersiz kılar. 
 
-**Koşullu erişim ilkesi ile Azure MFA'yı etkinleştirerek** iki aşamalı doğrulama gerektirme daha esnek bir yaklaşımdır. Yalnızca çalışır bulutta Azure MFA için yine de ve koşullu erişim bir [Özelliği Azure Active Directory Ücretli](https://www.microsoft.com/cloud-platform/azure-active-directory-features). Tek tek kullanıcılar yanı sıra grupları uygulamak koşullu erişim ilkeleri oluşturabilirsiniz. Daha fazla kısıtlama düşük riskli grupları daha yüksek riskli grupları verilebilir veya iki aşamalı doğrulamayı yalnızca yüksek riskli bulut uygulamaları için gereklidir ve düşük riskli için olanları atlandı. 
+**Koşullu erişim ilkesi ile Azure multi-Factor Authentication etkinleştirilerek** iki aşamalı doğrulama gerektirme daha esnek bir yaklaşımdır. Yalnızca bulutta Azure MFA için yine de çalışır ve _koşullu erişim_ olan bir [Özelliği Azure Active Directory Ücretli](https://www.microsoft.com/cloud-platform/azure-active-directory-features). Tek tek kullanıcılar yanı sıra grupları uygulamak koşullu erişim ilkeleri oluşturabilirsiniz. Daha fazla kısıtlama düşük riskli grupları daha yüksek riskli grupları verilebilir veya iki aşamalı doğrulamayı yalnızca yüksek riskli bulut uygulamaları için gereklidir ve düşük riskli için olanları atlandı. 
 
-Bu seçeneklerin ikisi de Azure çok faktörlü kimlik doğrulaması için gereksinimleri açtıktan sonra oturum ilk kez kaydetmek için kullanıcılara sor. Her iki seçenek de ile yapılandırılabilir çalışması [Azure çok faktörlü kimlik doğrulama ayarları](multi-factor-authentication-whats-next.md)
+Her iki seçenek için Azure çok faktörlü kimlik doğrulaması gereksinimleri açtıktan sonra oturum ilk kez kaydetmek için kullanıcılara sor. Her iki seçenek de ile yapılandırılabilir çalışması [Azure çok faktörlü kimlik doğrulama ayarlarını](multi-factor-authentication-whats-next.md).
 
 ## <a name="enable-azure-mfa-by-changing-user-status"></a>Kullanıcı durumu değiştirerek Azure MFA etkinleştir
 
 Azure multi-Factor Authentication kullanıcı hesapları şu üç ayrı duruma sahiptir:
 
-| Durum | Açıklama | Etkilenen tarayıcı olmayan uygulamalar | Etkilenen tarayıcı uygulamaları | Etkilenen Modern kimlik doğrulama |
+| Durum | Açıklama | Etkilenen tarayıcı olmayan uygulamalar | Etkilenen tarayıcı uygulamaları | Etkilenen Modern kimlik doğrulaması |
 |:---:|:---:|:---:|:--:|:--:|
-| Devre dışı |Yeni bir kullanıcı için varsayılan duruma Azure çok faktörlü kimlik doğrulama (MFA) kayıtlı değil. |Hayır |Hayır |Hayır |
-| Etkin |Kullanıcı Azure MFA kayıtlı ancak kayıtlı değil. Bunlar oturum açtığınızda kaydetmek için istenir. |Hayır.  Kayıt işlemi tamamlanana kadar çalışmaya devam eder. | Evet. Oturumun süresi dolduktan sonra MFA kayıt gerekli olacaktır.| Evet. Erişim belirtecinin süresi dolduktan sonra MFA kayıt gerekli olacaktır. |
-| Uygulandı |Kullanıcı kaydolmuş ve kaydolma işlemini için Azure MFA tamamlandı. |Evet.  Uygulamaları, uygulama parolaları gerekir. |Evet. MFA oturum açma gerekli. | Evet. MFA oturum açma gerekli. |
+| Devre dışı |Azure MFA kayıtlı olmayan yeni bir kullanıcı için varsayılan durumu. |Hayır |Hayır |Hayır |
+| Etkin |Kullanıcı Azure MFA kayıtlı ancak kayıtlı değil. Kullanıcılar oturum açtığında kaydetmek için bir uyarı alırsınız. |Hayır.  Kayıt işlemi tamamlanana kadar çalışmaya devam eder. | Evet. Oturumun süresi dolduktan sonra Azure MFA kayıt gerekli değil.| Evet. Erişim belirtecinin süresi dolduktan sonra Azure MFA kayıt gerekli değil. |
+| Uygulandı |Kullanıcı kaydolmuş ve kaydolma işlemini için Azure MFA tamamlandı. |Evet.  Uygulamaları, uygulama parolaları gerekir. |Evet. Azure MFA oturum açmada gereklidir. | Evet. Azure MFA oturum açmada gereklidir. |
 
 Bir kullanıcının durumunu olup bir yönetim bunları Azure MFA kaydetmiştir ve kayıt işlemini tamamlanmadan yansıtır.
 
-Tüm kullanıcılar Başlat *devre dışı*. Azure MFA, durum değişikliklerini kullanıcılar kaydettiğinizde *etkin*. Etkin kullanıcılar oturum açıp kayıt işlemini tamamlayın, durumlarına değişikliklerini *zorunlu*.  
+Tüm kullanıcılar Başlat *devre dışı*. Azure MFA kullanıcılar kaydettiğinizde, durumlarına değişikliklerini *etkin*. Etkin kullanıcılar oturum açıp kayıt işlemini tamamlayın, durumlarına değişikliklerini *zorlanmış*.  
 
 ### <a name="view-the-status-for-a-user"></a>Kullanıcı durumunu görüntüleyin
 
@@ -64,33 +58,33 @@ Burada görüntüleyebilir ve kullanıcı durumlarını Yönetme sayfasına eri�
 2. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
 3. Seçin **çok faktörlü kimlik doğrulaması**.
    ![Çok faktörlü kimlik doğrulama yöntemini seçin](./media/multi-factor-authentication-get-started-user-states/selectmfa.png)
-4. Kullanıcı durumları görüntüler, yeni bir sayfa açar.
+4. Kullanıcı durumları görüntüler yeni bir sayfa açar.
    ![çok faktörlü kimlik doğrulaması kullanıcı durumu - ekran görüntüsü](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
 
 ### <a name="change-the-status-for-a-user"></a>Bir kullanıcının durumunu değiştirme
 
-1. Çok faktörlü kimlik doğrulaması kullanıcılar sayfasına ulaşmak için yukarıdaki adımları kullanın.
-2. Azure MFA için etkinleştirmek istediğiniz kullanıcıyı bulun. Üst kısımdaki görünümü değiştirmeniz gerekebilir. 
+1. Azure çok faktörlü kimlik doğrulaması almak için yukarıdaki adımları kullanın **kullanıcılar** sayfası.
+2. Azure MFA için etkinleştirmek istediğiniz kullanıcıyı bulun. En üstten görünümü değiştirmeniz gerekebilir. 
    ![Kullanıcı - ekran görüntüsü Bul](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 3. Kendi adının yanındaki kutuyu işaretleyin.
-4. Sağdaki hızlı adımlar altında seçin **etkinleştirmek** veya **devre dışı**.
+4. Sağ taraftaki altında **hızlı adımlar**, seçin **etkinleştirmek** veya **devre dışı**.
    ![Seçilen kullanıcının - ekran görüntüsü](./media/multi-factor-authentication-get-started-cloud/user1.png)
 
    >[!TIP]
-   >*Etkin* kullanıcılar otomatik olarak geçiş için *zorlanan* Azure MFA için bunlar kaydetme zaman. Kullanıcı durumu zorunlu şeklinde el ile değiştirmemeniz. 
+   >*Etkin* kullanıcılar otomatik olarak için anahtarlı *zorlanmış* Azure MFA için bunlar kaydetme zaman. Kullanıcı durumunun el ile değişiklik yapmak *zorlanmış*. 
 
 5. Açılır pencere Seçiminizi onaylayın. 
 
-Kullanıcıların etkinleştirdikten sonra e-posta aracılığıyla haber vermelisiniz. Kullanıcılar oturum açtığında kaydetmek için istenir söyleyin. Kuruluşunuz modern kimlik doğrulamayı desteklemeyen tarayıcı olmayan uygulamaları kullanıyorsa, ayrıca, kullanıcılar uygulama parolaları oluşturmanız gerekir. Bir bağlantı da içerebilir bizim [Azure MFA Son Kullanıcı Kılavuzu](./end-user/multi-factor-authentication-end-user.md) başlama yardımcı olmak için.
+Kullanıcıların etkinleştirdikten sonra bunları e-posta ile bildirin. Kullanıcılar oturum açtığında kaydetmek için istenir söyleyin. Ayrıca, kuruluşunuz modern kimlik doğrulamayı desteklemeyen tarayıcı olmayan uygulamaları kullanıyorsa, kullanıcılar uygulama parolaları oluşturmanız gerekir. Bir bağlantı da içerebilir [Azure MFA Son Kullanıcı Kılavuzu](./end-user/multi-factor-authentication-end-user.md) başlama yardımcı olmak için.
 
 ### <a name="use-powershell"></a>PowerShell kullanma
-Kullanıcı durumunu durum kullanarak değiştirmek için [Azure AD PowerShell](/powershell/azure/overview), değiştirme `$st.State`. Üç olası durum şunlardır:
+Kullanarak kullanıcı durumunu değiştirmek için [Azure AD PowerShell](/powershell/azure/overview), değiştirme `$st.State`. Üç olası durum şunlardır:
 
 * Etkin
 * Uygulandı
 * Devre dışı  
 
-Kullanıcıların doğrudan taşıma *zorlanmış* durumu. Kullanıcı MFA kaydı gerçekleştirmediğinden ve [uygulama parolası](multi-factor-authentication-whats-next.md#app-passwords) edinmediğinden, tarayıcı tabanlı olmayan uygulamalar devre dışı kalacaktır. 
+Kullanıcıların doğrudan taşıma *zorlanmış* durumu. Bunu yaparsanız, kullanıcı Azure MFA kaydından gitti değil ve elde edilen çünkü tarayıcı tabanlı olmayan uygulamalar çalışmamaya bir [uygulama parolası](multi-factor-authentication-whats-next.md#app-passwords). 
 
 Toplu etkinleştirme kullanıcıları gerektiğinde PowerShell kullanarak iyi bir seçenektir. Kullanıcıların bir listesini döngüler ve bunları sağlayan bir PowerShell Betiği oluşturun:
 
@@ -100,7 +94,7 @@ Toplu etkinleştirme kullanıcıları gerektiğinde PowerShell kullanarak iyi bi
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-Örnek aşağıda verilmiştir:
+Aşağıdaki komut dosyası örneği verilmiştir:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -114,20 +108,20 @@ Toplu etkinleştirme kullanıcıları gerektiğinde PowerShell kullanarak iyi bi
 
 ## <a name="enable-azure-mfa-with-a-conditional-access-policy"></a>Azure MFA ile koşullu erişim ilkesini etkinleştir
 
-Koşullu erişim Ücretli Azure Active Directory, birçok olası yapılandırma seçenekleriyle özelliğidir. Bu adımları bir ilke oluşturmak için bir yol yol. Hakkında daha fazla bilgi için okuma [Azure Active Directory'de koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md).
+_Koşullu erişim_ Ücretli Azure Active Directory, birçok yapılandırma seçenekleriyle özelliğidir. Bu adımları bir ilke oluşturmak için bir yol yol. Hakkında daha fazla bilgi için okuma [Azure Active Directory'de koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md).
 
 1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
 2. Git **Azure Active Directory** > **koşullu erişim**.
 3. Seçin **yeni ilke**.
-4. Altında **atamaları**seçin **kullanıcılar ve gruplar**. Kullanım **Ekle** ve **hariç** sekmeleri hangi kullanıcıların ve grupların ilke tarafından yönetilen belirtin.
+4. Altında **atamaları**seçin **kullanıcılar ve gruplar**. Kullanım **INCLUDE** ve **hariç** hangi kullanıcıların ve grupların İlkesi yönetir belirtmek için sekmeler.
 5. Altında **atamaları**seçin **bulut uygulamaları**. Dahil etmeyi **tüm bulut uygulamaları**.
 6. Altında **erişim denetimleri**seçin **Grant**. Seçin **çok faktörlü kimlik doğrulaması gerektiren**.
-7. Kapatma **ilkesini etkinleştir** için **üzerinde** ve ardından **kaydetmek**.
+7. Kapatma **ilkesini etkinleştir** için **üzerinde**ve ardından **kaydetmek**.
 
-Koşullu Erişim İlkesi'nde diğer seçenekleri tam olarak iki aşamalı doğrulamayı gerekip gerekmeyeceğini zaman belirtmenizi sağlar. Örneğin, bildiren bir ilke yapabilir: Yükleniciler etki alanına katılmamış cihazlarda güvenilmeyen ağlardan tedarik uygulamamıza erişmeyi denediğinde, iki aşamalı doğrulamayı gerektirir. 
+Koşullu Erişim İlkesi'nde diğer seçenekleri tam olarak iki aşamalı doğrulama gerekli olduğunda belirtme olanağı verir. Örneğin, bunun gibi bir ilke yapabilirsiniz: Yükleniciler etki alanına katılmamış cihazlarda güvenilmeyen ağlardan tedarik uygulamamıza erişmeyi denediğinde, iki aşamalı doğrulamayı gerektirir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- İpuçları almak [koşullu erişim için en iyi uygulamaları](../active-directory/active-directory-conditional-access-best-practices.md)
+- İpuçları almak [koşullu erişim için en iyi uygulamaları](../active-directory/active-directory-conditional-access-best-practices.md).
 
-- Çok faktörlü kimlik doğrulaması ayarlarını yönetme [, kullanıcılar ve aygıtları](multi-factor-authentication-manage-users-and-devices.md)
+- Azure çok faktörlü kimlik doğrulama ayarlarını yönetme [kullanıcılarınızın ve cihazlarının](multi-factor-authentication-manage-users-and-devices.md).

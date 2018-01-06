@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure yığın genel bakış güncelleştirmelerini yönetme
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri*
 
-Microsoft Azure tümleşik yığını genellikle her ay dördüncü Salı günü döner normal bir tempoyla sistemlerde için güncelleştirme paketleri genel kullanılabilirliğine başlangıç serbest bırakır. Kuruluşunuz güncelleştirme bildirimlerini erişim sağlamak için belirli bildirim işlemi hakkında OEM isteyin veya Concepts\Release notes\Integrated sistemlerinde sürüm notları belirli sürümler hakkında daha fazla bilgi için burayı tıklatın.
+Microsoft Azure tümleşik yığını genellikle her ay dördüncü Salı günü döner normal bir tempoyla sistemlerde için güncelleştirme paketleri genel kullanılabilirliğine başlangıç serbest bırakır. Kuruluşunuz güncelleştirme bildirimlerini erişim sağlamak için belirli bildirim işlemi hakkında OEM isteyin veya Overview\Release Notes\Integrated sistemlerinde sürüm notları belirli sürümler hakkında daha fazla bilgi için burayı tıklatın.
 
 Microsoft yazılım güncelleştirmeleri her bir sürümü tek güncelleştirme paketi olarak gelir. Bir Azure yığın işleç olarak kolayca içeri aktarabilirsiniz, güncelleştirme paketleri Yönetici portalı'ndan yükleyin ve bu yükleme ilerleyişini izleyin. 
 

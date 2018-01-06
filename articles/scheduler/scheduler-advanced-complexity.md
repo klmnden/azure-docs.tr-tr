@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Karmaşık zamanlamalar ve Gelişmiş yineleme Azure Zamanlayıcı ile oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -59,7 +59,7 @@ Kullanarak bir basit zamanlama oluşturmak için [Azure Scheduler REST API](http
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -90,12 +90,12 @@ Bu genel bakışta sonra şimdi ayrıntılı bu öğelerin her biri açıklanmak
 | **JSON adı** | **Değer türü** | **Gerekli?** | **Varsayılan değer** | **Geçerli değerler** | **Örnek** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | ***startTime*** |Dize |Hayır |None |ISO-8601 Tarih-Saatleri |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***Yineleme*** |Nesne |Hayır |None |Yinelenme nesnesi |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***Sıklık*** |Dize |Evet |None |"dakika", "saat", "gün", "hafta", "ay" |<code>"frequency" : "hour"</code> |
-| ***aralığı*** |Sayı |Hayır |1 |1-1000 arası. |<code>"interval":10</code> |
+| ***Yineleme*** |Nesne |Hayır |Hiçbiri |Yinelenme nesnesi |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***Sıklık*** |Dize |Evet |Hiçbiri |"dakika", "saat", "gün", "hafta", "ay" |<code>"frequency" : "hour"</code> |
+| ***aralığı*** |Sayı |Evet |None |1-1000 arası. |<code>"interval":10</code> |
 | ***endTime*** |Dize |Hayır |None |Gelecekteki bir zamanı temsil eden Tarih-Saat değeri |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***sayısı*** |Sayı |Hayır |None |>= 1 |<code>"count": 5</code> |
-| ***zamanlama*** |Nesne |Hayır |None |Zamanlama nesnesi |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***sayısı*** |Sayı |Hayır |Hiçbiri |>= 1 |<code>"count": 5</code> |
+| ***zamanlama*** |Nesne |Hayır |Hiçbiri |Zamanlama nesnesi |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Derin Dalış: *startTime*
 Aşağıdaki tabloda yakalamaları nasıl *startTime* bir işlemin nasıl yürütüleceğini denetler.
@@ -125,11 +125,11 @@ Aşağıdaki tabloda açıklanmaktadır *zamanlama* ayrıntılı öğeleri.
 
 | **JSON adı** | **Açıklama** | **Geçerli değerler** |
 |:--- |:--- |:--- |
-| **dakika** |İşin çalışacağı saat, dakika |<ul><li>Tamsayı veya</li><li>Tamsayı dizisi</li></ul> |
-| **saatleri** |İş çalışacağı günün saatleri |<ul><li>Tamsayı veya</li><li>Tamsayı dizisi</li></ul> |
-| **Haftanın günü** |İşin çalışacağı günleri. Yalnızca weekly frequency değeri ile belirtilebilir. |<ul><li>"Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi" ve "Pazar"</li><li>Yukarıdaki değerlerden oluşan dizi (maksimum dizi boyutu: 7)</li></ul>*Değil* büyük küçük harfe duyarlı |
+| **dakika** |İşin çalışacağı saat, dakika |<ul><li>Tamsayı dizisi</li></ul> |
+| **saatleri** |İş çalışacağı günün saatleri |<ul><li>Tamsayı dizisi</li></ul> |
+| **Haftanın günü** |İşin çalışacağı günleri. Yalnızca weekly frequency değeri ile belirtilebilir. |<ul><li>Herhangi bir dizi altındaki değerler (en büyük dizi boyutu 7)<ul><li>"Pazartesi"</li><li>"Salı"</li><li>"Çarşamba"</li><li>"Perşembe"</li><li>"Cuma"</li><li>"Cumartesi"</li><li>"Pazar"</li></ul></li></ul>*Değil* büyük küçük harfe duyarlı |
 | **monthlyOccurrences** |Ayın hangi günleri iş çalışacağını belirler. Yalnızca monthly frequency değeri ile belirtilebilir. |<ul><li>MonthlyOccurrence nesneler dizisi:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *gün* olan iş haftanın günü çalıştırılır, örneğin her Pazar ayın {Pazar}. Gereklidir.</p><p>Oluşum *oluşumu* gün ay sırasında örneğin {Pazar, -1} ayın son Pazar ise. İsteğe bağlı.</p> |
-| **monthDays** |Ayın iş çalıştırılır. Yalnızca monthly frequency değeri ile belirtilebilir. |<ul><li>Herhangi bir değer < = -1 ve >-31 =.</li><li>Herhangi bir değer > = 1 ve < = 31 açın.</li><li>Yukarıdaki değerlerden oluşan bir dizi</li></ul> |
+| **monthDays** |Ayın iş çalıştırılır. Yalnızca monthly frequency değeri ile belirtilebilir. |<ul><li>Aşağıdaki değerleri dizisi</li><ul><li>Herhangi bir değer < = -1 ve >-31 =.</li><li>Herhangi bir değer > = 1 ve < = 31 açın.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Örnekler: Yineleme zamanlamaları
 Yineleme zamanlamaları – zamanlamaya nesnesi ve alt öğelerini odaklanan çeşitli örnekleri verilmiştir.

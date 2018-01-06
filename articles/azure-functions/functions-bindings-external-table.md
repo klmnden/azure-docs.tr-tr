@@ -1,5 +1,5 @@
 ---
-title: "Azure işlevleri dış tablo bağlama (Önizleme) | Microsoft Docs"
+title: "Azure işlevleri (Deneysel) için dış tablo bağlama"
 description: "Dış tablo bağlamaları Azure işlevlerini kullanma"
 services: functions
 documentationcenter: 
@@ -14,24 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-table-binding-preview"></a>Azure işlevleri dış tablo bağlama (Önizleme)
-Bu makalede SaaS sağlayıcıları (örneğin, Sharepoint, Dynamics) tablo verileri işlemek işlev içinde yerleşik bağlamalarla gösterilmiştir. Azure işlevleri, harici tablolar için girdi ve çıktı bağlamaları destekler.
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Azure işlevleri (Deneysel) için dış tablo bağlama
+
+Bu makalede, Sharepoint ve Azure işlevlerinde Dynamics gibi SaaS sağlayıcıları tablo verilerle çalışmak açıklanmaktadır. Giriş ve dış tablolar için bağlamaları çıktı Azure işlevleri destekler.
+
+> [!IMPORTANT]
+> Dış tablo bağlama Deneysel ve hiçbir zaman genellikle kullanılabilir (GA) durumuna ulaşmasını. Yalnızca Azure'da dahil 1.x işlevler ve Azure işlevleri eklemek için herhangi bir plan yok 2.x. SaaS sağlayıcıları veri erişimi gerektiren senaryolar için kullanmayı [işlevlerini çağırma logic apps](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="api-connections"></a>API Bağlantıları
+## <a name="api-connections"></a>API bağlantıları
 
-Tablo bağlamaları ile 3. taraf SaaS sağlayıcılar kimliğini doğrulamak için harici API bağlantıları yararlanın. 
+Tablo bağlamaları üçüncü taraf SaaS sağlayıcıları ile kimlik doğrulaması için harici API bağlantıları yararlanın. 
 
-Bir bağlama atarken, yeni bir API bağlantı oluşturabilir veya var olan bir API bağlantısını aynı kaynak grubunda kullanın
+Bir bağlama atarken yeni bir API bağlantı oluşturabilir veya var olan bir API bağlantısını aynı kaynak grubunda kullanabilirsiniz.
 
-### <a name="supported-api-connections-tables"></a>Desteklenen API bağlantıları (tablo) s
+### <a name="available-api-connections-tables"></a>Kullanılabilir API bağlantıları (tablolar)
 
 |Bağlayıcı|Tetikleyici|Girdi|Çıktı|
 |:-----|:---:|:---:|:---:|
@@ -52,26 +56,35 @@ Bir bağlama atarken, yeni bir API bağlantı oluşturabilir veya var olan bir A
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> Dış tablo bağlantıları da kullanılabilir [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+> Dış tablo bağlantıları da kullanılabilir [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### <a name="creating-an-api-connection-step-by-step"></a>Bir API bağlantı oluşturma: adım adım
+## <a name="creating-an-api-connection-step-by-step"></a>Bir API bağlantı oluşturma: adım adım
 
-1. Bir işlev oluşturun > Özel işlevi ![özel bir işlev oluşturun](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Senaryo `Experimental`  >  `ExternalTable-CSharp` şablonu > Yeni bir `External Table connection` 
- ![Seç tablo giriş şablonu](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. SaaS sağlayıcınızı seçin > bir bağlantı seçin/oluşturmak ![yapılandırma SaaS bağlantı](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. API bağlantınızı seçin > fonksiyon ![Create table işlevi](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. seçin`Integrate` > `External Table`
-    1. Bağlantıyı hedef tablo kullanacak şekilde yapılandırın. Bu ayarlar, SaaS sağlayıcılar arasında çok olur. Aşağıda anahat oldukları [veri kaynağı ayarları](#datasourcesettings)
-![yapılandırma tablosu](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. Azure portal sayfasında işlevi uygulamanız için artı işaretini seçin (**+**) bir işlev oluşturmak için.
 
-## <a name="usage"></a>Kullanım
+1. İçinde **senaryo** kutusunda **Experimental**.
+
+1. Seçin **dış tablo**.
+
+1. Bir dil seçin.
+
+2. Altında **dış tablo bağlantı**, varolan bir bağlantı seçin veya seçin **yeni**.
+
+1. Yeni bir bağlantı için ayarları yapılandırın ve seçin **Authorize**.
+
+1. Seçin **oluşturma** işlevi oluşturmak için.
+
+1. Seçin **tümleştirmek > Dış tablo**.
+
+1. Bağlantıyı hedef tablo kullanacak şekilde yapılandırın. Bu ayarlar, SaaS sağlayıcılar arasında farklılık gösterir. Örnekler aşağıdaki bölümde dahil edilir.
+
+## <a name="example"></a>Örnek
 
 Bu örnek kimliği, Soyadı ve FirstName sütunlarla "Başvurun" adlı bir tablo bağlanır. Kod tablosundaki kişi varlıkları listeler ve adları ve soyadları günlüğe kaydeder.
 
-### <a name="bindings"></a>Bağlamalar
+Burada *function.json* dosyası:
+
 ```json
 {
   "bindings": [
@@ -93,29 +106,8 @@ Bu örnek kimliği, Soyadı ve FirstName sütunlarla "Başvurun" adlı bir tablo
   "disabled": false
 }
 ```
-`entityId`Tablo bağlamaları için boş olması gerekir.
 
-`ConnectionAppSettingsKey`API bağlantı dizesi depolar uygulama ayarı tanımlar. Bir API bağlantısı tümleştir UI eklediğinizde, uygulama ayarı otomatik olarak oluşturulur.
-
-Veri kümeleri tablo Bağlayıcısı sağlar ve her bir veri kümesi tabloları içerir. "Varsayılan" varsayılan veri kümesinin adıdır Bir veri kümesi ve bir tablo çeşitli SaaS sağlayıcıları başlıklarını aşağıda listelenmiştir:
-
-|Bağlayıcı|Veri kümesi|Tablo|
-|:-----|:---|:---| 
-|**SharePoint**|Site|SharePoint listesi
-|**SQL**|Database|Tablo 
-|**Google sayfası**|Elektronik tablo|Çalışma sayfası 
-|**Excel**|Excel dosyası|Sayfa 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>C# kullanımı #
+C# betik kod aşağıdaki gibidir:
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -154,25 +146,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### <a name="sql-server-data-source"></a>SQL Server veri kaynağı
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-##Veri kaynağı ayarları
-
-### <a name="sql-server"></a>SQL Server
-
-Komut dosyasını oluşturun ve ilgili kişi tabloyu doldurmak için aşağıda yer almaktadır. dataSetName "." varsayılandır
+SQL Server'ın bu örneği kullanmak için bir tablo oluşturmak için bir komut şöyledir. `dataSetName`"varsayılan."
 
 ```sql
 CREATE TABLE Contact
@@ -191,11 +167,36 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets"></a>Google E-Tablolar
-Google belgeleri elektronik tablo adında bir çalışma sayfasıyla oluşturmak `Contact`. Bağlayıcı, elektronik tablo görünen adı kullanamazsınız. Örneğin dataSetName kullanılacak iç adını (kalın) gereksinimlerini: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  sütun adlarını eklemek `Id`, `LastName`, `FirstName` ilk satırın üzerinde veri sonra doldurma sonraki satır.
+### <a name="google-sheets-data-source"></a>Google sayfaları veri kaynağı
+
+Bu örnekte Google belgeleri ile kullanmak üzere bir tablo oluşturmak için bir elektronik tablo adında bir çalışma ile oluşturmak `Contact`. Bağlayıcı, elektronik tablo görünen adı kullanamazsınız. Örneğin dataSetName kullanılacak iç adını (kalın) gereksinimlerini: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  sütun adlarını eklemek `Id`, `LastName`, `FirstName` ilk satırın üzerinde veri sonra doldurma sonraki satır.
 
 ### <a name="salesforce"></a>Salesforce
-dataSetName "." varsayılandır
+
+Salesforce ile bu örneği kullanmak için `dataSetName` "varsayılan."
+
+## <a name="configuration"></a>Yapılandırma
+
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya.
+
+|Function.JSON özelliği | Açıklama|
+|---------|----------------------|
+|**türü** | ayarlanmalıdır `apiHubTable`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**yönü** | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**adı** | İşlev kodu olay öğesinde temsil eden değişken adı. | 
+|**bağlantı**| API bağlantı dizesi depolar uygulama ayarı tanımlar. Bir API bağlantısı tümleştir UI eklediğinizde, uygulama ayarı otomatik olarak oluşturulur.|
+|**dataSetName**|Okumak için tabloyu içeren veri kümesinin adı.|
+|**tableName**|Tablonun adı|
+|**Entityıd**|Tablo bağlamaları için boş olması gerekir.
+
+Veri kümeleri tablo Bağlayıcısı sağlar ve her bir veri kümesi tabloları içerir. "Varsayılan" varsayılan veri kümesinin adıdır Bir veri kümesi ve bir tablo çeşitli SaaS sağlayıcıları başlıklarını aşağıda listelenmiştir:
+
+|Bağlayıcı|Veri kümesi|Tablo|
+|:-----|:---|:---| 
+|**SharePoint**|Site|SharePoint listesi
+|**SQL**|Database|Tablo 
+|**Google sayfası**|Elektronik tablo|Çalışma sayfası 
+|**Excel**|Excel dosyası|Sayfa 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

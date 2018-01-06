@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için bulut başlatma desteği
 Bu makale için mevcut destek açıklanır [bulut init](https://cloudinit.readthedocs.io) bir sanal makine (VM) ya da sanal makineyi yapılandırmak için ölçek (VMSS) Azure zamanında sağlama sırasında ayarlar. Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın.  
 
-## <a name="cloud-init-overview"></a>Bulut init genel bakış
+## <a name="cloud-init-overview"></a>Cloud-init genel bakış
 [Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.  Doğru biçim hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [bulut init belgeleri sitesi](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`dosyaları base64 ile kodlanmış metin dosyalarıdır.
 
 Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
@@ -42,12 +42,12 @@ Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığın
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Bulut Init ve Linux Aracısı'nı (WALA) arasındaki fark nedir?
 WALA sağlamak ve sanal makineleri yapılandırmak ve Azure uzantılarını işlemek için kullanılan bir Azure platforma özgü aracısıdır. Biz, bulut init geçerli kendi bulut başlatma komut dosyaları kullanmak mevcut bulut init müşterileri izin vermek üzere yerine Linux Aracısı'nı kullanmak için sanal makineleri yapılandırma görevini geliştirme.  Linux sistemleri yapılandırmak için bulut init komut dosyalarında Yatırımlar varsa vardır **ek ayar gerekmiyor** bunları etkinleştirmek için. 
 
-AzureCLI komut satırı anahtarını eklemezseniz `--custom-data` zaman sağlama sırasında WALA minimum VM VM sağlamak ve Varsayılanları dağıtımla tamamlamak için gereken parametreleri sağlama alır.  Bulut Init başvuruyorsa `--custom-data` değiştirmek, her özel verilerinizi (ayrı ayrı ayarlar ya da tam komut dosyası) içerdiği WALA tanımlanan varsayılan ayarları geçersiz kılar. 
+Azure CLI eklemezseniz `--custom-data` zaman, WALA sağlama sırasında anahtar minimum VM VM sağlamak ve Varsayılanları dağıtımla tamamlamak için gereken parametreleri sağlama alır.  Bulut Init başvuruyorsa `--custom-data` değiştirmek, her özel verilerinizi (ayrı ayrı ayarlar ya da tam komut dosyası) içerdiği WALA varsayılan ayarları geçersiz kılar. 
 
-WALA VM'lerin maksimum VM sağlama süresi içinde çalışmak için kısıtlı zaman bağlantılardır.  Bulut init yapılandırmaları Vm'lere uygulanan zaman kısıtlamaları yoksa ve bir dağıtım zaman aşımına uğramadan tarafından başarısız olmasına neden olmaz. 
+Sanal makineleri WALA yapılandırmalarını zaman sağlama maksimum VM içinden çalışması için zaman kısıtlı.  Bulut init yapılandırmaları Vm'lere uygulanan zaman kısıtlamaları yoksa ve bir dağıtım zaman aşımına uğramadan tarafından başarısız olmasına neden olmaz. 
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Sanal makine etkin bulut init dağıtma
-Bir bulut init etkin sanal makine dağıtımı, dağıtımı sırasında bir bulut init etkin dağıtım başvuran olarak kadar basittir.  Linux dağıtım maintainers etkinleştirmek ve bunların temel Azure yayımlanan görüntülere bulut init tümleştirmek seçmeniz gerekir. Dağıtmak istediğiniz görüntünün bulut init etkin olduğunu doğruladıktan sonra görüntüyü dağıtmak için AzureCLI kullanabilirsiniz. 
+Bir bulut init etkin sanal makine dağıtımı, dağıtımı sırasında bir bulut init etkin dağıtım başvuran olarak kadar basittir.  Linux dağıtım maintainers etkinleştirmek ve bunların temel Azure yayımlanan görüntülere bulut init tümleştirmek seçmeniz gerekir. Dağıtmak istediğiniz görüntünün bulut init etkin olduğunu doğruladıktan sonra görüntüyü dağıtmak için Azure CLI kullanabilirsiniz. 
 
 Bu görüntü dağıtımı ilk adımı sahip bir kaynak grubu oluşturmaktır [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 

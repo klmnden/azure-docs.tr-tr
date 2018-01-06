@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Galerisi competitions | Microsoft Docs
-description: "Cortana Intelligence Galerisi'nde competitions keşfedin."
+title: Azure AI galeri competitions | Microsoft Docs
+description: "Azure AI galerisinde competitions keşfedin."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: e9c1ae9448ad7179c33bbbafa34a4643a4840d0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi'nde competitions Bul
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Azure AI galerisinde competitions Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence Competitions
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 Competitions ile ilgili sık sorulan soruların yanıtları için bkz: [Microsoft Cortana Intelligence Competitions SSS](competition-faq.md).
 
 ## <a name="discover"></a>Keşif
-  Competitions galerisinde göz atmak için açık [galeri](http://gallery.cortanaintelligence.com), farenizi için noktası **daha fazla** galeri üstünde giriş sayfasını ve seçin **Competitions**.
+ **[Competitions](https://gallery.cortanaintelligence.com/competitions)**  sayfa ([aka.ms/CIComp](http://aka.ms/CIComp)) en popüler competitions listesini görüntüler.
 
 ![Galeri giriş sayfasından Competitions seçin](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- **[Competitions](https://gallery.cortanaintelligence.com/competitions)**  sayfa en popüler competitions listesini görüntüler.
-Tıklatın **tümünü görmek** tüm competitions görüntülemek için.
+ 
+ Tıklatın **tümünü görmek** tüm competitions görüntülemek için.
 Bu sayfadan galerisinde tüm competitions göz atabilirsiniz. Ayrıca, sol üst girme arama terimleri ve sayfa filtre ölçütü seçerek arayabilirsiniz.
 
  Tüm rekabet rekabet'in ayrıntılar sayfasını açın ve daha fazla bilgi okumak için tıklayın. Bu sayfada açıklama, geri bildirim sağlamak veya açıklamalar bölümüne aracılığıyla sorular sorun. Bunu arkadaş ya da LinkedIn veya Twitter paylaşım özelliklerini kullanarak iş arkadaşlarınızı bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet edilmesi için rekabet bağlantısını e-posta gönderebilirsiniz.

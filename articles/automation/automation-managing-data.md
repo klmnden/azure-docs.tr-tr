@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 58ba74585f650c570b5962408a3935e9cd2e591c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="managing-azure-automation-data"></a>Azure Otomasyonu verilerini yönetme
 Bu makale bir Azure Otomasyonu ortamının yönetilmesi için birden çok konuları içerir.
@@ -49,13 +49,13 @@ Ancak, uzun bir süre için verileri korumak gerekiyorsa, runbook günlük anali
 Microsoft Azure automation hesabında sildiğinizde, hesaptaki tüm nesnelere runbook'lar, modüller, yapılandırmaları, ayarları, işleri ve varlıkları dahil olmak üzere silinir. Hesap silindikten sonra nesneleri kurtarılamıyor.  Otomasyon hesabınızın içeriğini silmeden önce yedeklemek için aşağıdaki bilgileri kullanın. 
 
 ### <a name="runbooks"></a>Runbook'lar
-Azure yönetim portalını kullanarak komut dosyaları için runbook'larınızın dışa aktarabilirsiniz veya [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) Windows PowerShell cmdlet'i.  Bu komut dosyaları başka bir Otomasyon hesabı içinde anlatıldığı gibi alınabilir [oluşturma veya bir Runbook'u içeri aktarma](https://msdn.microsoft.com/library/dn643637.aspx).
+Azure portalını kullanarak komut dosyaları için runbook'larınızın dışa aktarabilirsiniz veya [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) Windows PowerShell cmdlet'i.  Bu komut dosyaları başka bir Otomasyon hesabı içinde anlatıldığı gibi alınabilir [oluşturma veya bir Runbook'u içeri aktarma](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Tümleştirme modülleri
 Azure Otomasyon tümleştirme modülleri dışarı aktaramazsınız.  Otomasyon hesabı dışında kullanılabilir emin olmalısınız.
 
 ### <a name="assets"></a>Varlıklar
-Dışarı aktarılamıyor [varlıklar](https://msdn.microsoft.com/library/dn939988.aspx) Azure Otomasyonu gelen.  Azure Yönetim Portalı'nı kullanarak, değişkenleri, kimlik, sertifikalar, bağlantıları ve zamanlamaları ayrıntılarını not almanız gerekir.  Başka bir automation'a içeri aktardığınız runbook'lar tarafından kullanılan tüm varlıkları el ile oluşturmanız gerekir.
+Dışarı aktarılamıyor [varlıklar](https://msdn.microsoft.com/library/dn939988.aspx) Azure Otomasyonu gelen.  Azure Portalı'nı kullanarak, değişkenleri, kimlik, sertifikalar, bağlantıları ve zamanlamaları ayrıntılarını not almanız gerekir.  Başka bir automation'a içeri aktardığınız runbook'lar tarafından kullanılan tüm varlıkları el ile oluşturmanız gerekir.
 
 Kullanabileceğiniz [Azure cmdlet'lerini](https://msdn.microsoft.com/library/dn690262.aspx) şifrelenmemiş varlıklar ve bunları kaydetmek ya da ayrıntılarını ileride kullanılmak üzere alınamıyor veya başka bir Otomasyon hesabı eşdeğer varlıklar oluşturun.
 
@@ -64,7 +64,7 @@ Kullanabileceğiniz [Azure cmdlet'lerini](https://msdn.microsoft.com/library/dn6
 Azure Otomasyon sertifikaları dışarı aktaramazsınız.  Herhangi bir sertifika Azure dışında kullanılabilir olduğundan emin olmalısınız.
 
 ### <a name="dsc-configurations"></a>DSC yapılandırmaları
-Azure yönetim portalını kullanarak komut dosyalarının yapılandırmalarınızı dışa aktarabilirsiniz veya [verme AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) Windows PowerShell cmdlet'i. Bu yapılandırmalar aktarılır ve başka bir Otomasyon hesabı kullanılır.
+Azure portalını kullanarak komut dosyalarının yapılandırmalarınızı dışa aktarabilirsiniz veya [verme AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) Windows PowerShell cmdlet'i. Bu yapılandırmalar aktarılır ve başka bir Otomasyon hesabı kullanılır.
 
 ## <a name="geo-replication-in-azure-automation"></a>Azure automation'da coğrafi çoğaltma
 Coğrafi çoğaltma, standart Azure Automation hesaplarında artıklık için farklı bir coğrafi bölge için hesap verileri yedekler. Bir birincil bölge hesabınızı ayarlarken seçebilir ve ardından bir ikincil bölge için otomatik olarak atanır. Birincil bölgesinden kopyaladığınız ikincil veri veri kaybı durumunda sürekli olarak güncelleştirilir.  

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -38,11 +38,17 @@ Hayır. Sorunsuz SSO yalnızca Azure AD dünya çapındaki örneğini içinde ku
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Hangi uygulamaların yararlanmak `domain_hint` veya `login_hint` sorunsuz SSO parametre yeteneğini?
 
-Bu parametreler ve verme olanları Gönder uygulamaların listesini derleme sürecinde duyuyoruz. İlginizi çekiyor mu uygulamalarınız varsa, açıklamalar bölümünde bize bildirin.
+Bu parametreler ve verme olanları Gönder uygulamaların listesini derleme sürecinde duyuyoruz. İlgilendiğiniz uygulamalarınız varsa, açıklamalar bölümünde bize bildirin.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Sorunsuz SSO desteklemiyor `Alternate ID` kullanıcı adı olarak yerine `userPrincipalName`?
 
 Evet. Sorunsuz SSO destekleyen `Alternate ID` içinde Azure AD Connect gösterildiği gibi yapılandırıldığında kullanıcı adı olarak [burada](active-directory-aadconnect-get-started-custom.md). Tüm Office 365 uygulamaları desteklemez `Alternate ID`. Destek deyimi için belirli uygulama belgelerine bakın.
+
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Ne çoklu oturum açma deneyimini arasındaki farkı tarafından sağlanan [Azure AD katılım](../active-directory-azureadjoin-overview.md) ve sorunsuz SSO?
+
+[Azure AD birleştirme](../active-directory-azureadjoin-overview.md) cihazlarını Azure AD ile kaydedilmişse SSO kullanıcılara sağlar. Bu aygıtların mutlaka etki alanına katılmış olması gerekmez. SSO kullanarak sağlanır *birincil yenileme belirteçleri* veya *PRTs*ve Kerberos değil. Windows 10 cihazlarda en iyi kullanıcı deneyimi. SSO Edge tarayıcının otomatik olarak gerçekleşir. Bir tarayıcı uzantısı kullanımı ile Chrome üzerinde de çalışır.
+
+Kiracı'Azure AD katılımı ve sorunsuz SSO kullanabilirsiniz. Bu iki özellik tamamlayıcı. Her iki özellik açıksa, Azure AD katılım gelen SSO sorunsuz SSO öncelik kazanır.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>AD FS kullanarak olmadan Azure AD ile Windows 10 cihazları kaydetmek istediğiniz. Sorunsuz SSO yerine kullanabilir miyim?
 

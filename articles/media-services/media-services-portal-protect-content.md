@@ -1,5 +1,5 @@
 ---
-title: "Azure portalını kullanarak içerik koruma ilkelerini yapılandırma | Microsoft Docs"
+title: "Azure portalını kullanarak içerik koruma ilkeleri yapılandırma | Microsoft Docs"
 description: "Bu makalede Azure portal içerik koruma ilkelerini yapılandırmak için nasıl kullanılacağı gösterilmektedir. Makale ayrıca varlıklarınızı dinamik şifrelemeyi etkinleştirmek nasıl gösterir."
 services: media-services
 documentationcenter: 
@@ -14,107 +14,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: ecc766abb5df38813b3eb6dde98cdc9afd24ac6b
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 805e1246dbc984582528d2b351d2f14ab2e811fc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Azure portalını kullanarak içerik koruma ilkelerini yapılandırma
-Microsoft Azure Media Services (AMS), depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdan güvenli olanak sağlar. Media Services göndermenizi sağlayan içeriğinizi Gelişmiş Şifreleme Standardı ((128-bit şifreleme anahtarları kullanılarak) AES ile), PlayReady ve/veya Widevine DRM ve Apple FairPlay kullanarak ortak şifreleme (CENC) dinamik olarak şifrelenmiş. 
+# <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure portalını kullanarak içerik koruma ilkeleri yapılandırma
+ Azure Media Services ile depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdan güvenliğini sağlayabilirsiniz. Media Services, dinamik olarak Gelişmiş Şifreleme Standardı (AES ile) 128-bit şifreleme anahtarları kullanılarak şifrelenmiş içeriğinizi teslim etmek için kullanabilirsiniz. Sizin de PlayReady ve/veya Widevine dijital hak yönetimi (DRM) ve Apple FairPlay kullanarak ortak şifreleme (CENC) kullanabilirsiniz. 
 
-AMS DRM lisansları teslim etmek için bir hizmet sunar ve AES anahtarları yetkili istemcilere temizleyin. Azure portalında bir oluşturmanızı sağlayan **anahtarı/lisans yetkilendirme ilkesi** şifrelemeleri tüm türleri.
+AES anahtarları yetkili istemcilere temizleyin ve Media Services DRM lisansları teslim etmek için bir hizmet sağlar. Bir anahtar/lisans yetkilendirme ilkesi şifrelemeleri tüm türleri oluşturmak için Azure portalını kullanabilirsiniz.
 
-Bu makalede Azure portal ile bir içerik koruma ilkesi yapılandırma gösterilmektedir. Makale ayrıca varlıklarınızı için dinamik şifreleme uygulamak nasıl gösterir.
+Bu makalede, portal kullanarak içerik koruma İlkesi yapılandırmak gösterilmiştir. Makale ayrıca varlıklarınızı için dinamik şifreleme uygulamak nasıl gösterir.
 
-## <a name="start-configuring-content-protection"></a>İçerik koruma yapılandırma Başlat
-İçerik koruma, AMS hesabınızı genel yapılandırmaya başlamak için portalı kullanmak için aşağıdakileri yapın:
-1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
+## <a name="start-to-configure-content-protection"></a>İçerik koruma yapılandırmak için başlatın
+Media Services hesabınızı kullanarak genel içerik koruma yapılandırmak için portalı kullanmak için aşağıdaki adımları uygulayın:
+
+1. İçinde [portal](https://portal.azure.com/), Media Services hesabınızı seçin.
+
 2. Seçin **ayarları** > **içerik koruma**.
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection001.png)
+    ![Content Protection](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## <a name="keylicense-authorization-policy"></a>Anahtar/lisans yetkilendirme ilkesi
-AMS anahtarını veya lisans isteğinde kullanıcıların kimliklerini doğrulama birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesinin tarafınızdan yapılandırılması ve istemciye delived için istemci anahtarı/lisans sırayla tarafından karşılanır. İçerik anahtarı yetkilendirme ilkesini bir veya daha fazla yetkilendirme kısıtlamaları olabilir: **açmak** veya **belirteci** kısıtlama.
+Media Services anahtarını veya lisans isteğinde kullanıcıların kimliklerini doğrulama birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesini yapılandırmanız gerekir. Anahtar/lisans teslim edilebilir önce istemci İlkesi karşılaması gerekir. İçerik anahtarı yetkilendirme ilkesinin, bir veya daha fazla yetkilendirme kısıtlamaları, açık veya belirteç sınırlamaları olabilir.
 
-Azure portalında bir oluşturmanızı sağlayan **anahtarı/lisans yetkilendirme ilkesi** şifrelemeleri tüm türleri.
+Portal şifrelemeleri tüm türleri için bir anahtar/lisans yetkilendirme ilkesi oluşturmak için kullanabilirsiniz.
 
 ### <a name="open-authorization"></a>Açık yetkilendirme
-Açık sınırlama Sistem anahtarı anahtar istekte herkes için teslim eder, anlamına gelir. Bu kısıtlama, test amaçları için yararlı olabilir. 
+Açık sınırlama Sistem anahtarı anahtar istekte herkes sunduğundan emin anlamına gelir. Bu kısıtlama, test amaçları için yararlı olabilir. 
 
 ### <a name="token-authorization"></a>Belirteci yetkilendirme
-Belirteç kısıtlamalı ilkenin beraberinde bir Güvenli Belirteç Hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services, basit Web belirteçleri (SWT) biçimini ve JSON Web Token (JWT) biçimlerindeki belirteçleri destekler. Media Services, güvenli belirteç hizmetleri sağlamaz. Özel bir STS oluşturabilir veya Microsoft Azure ACS sorunu belirteçleri yararlanın. STS, belirteç kısıtlamasına yapılandırmasında belirtilen belirtilen anahtarı ve sorunu talepleri imzalı bir belirteç oluşturmak için yapılandırılmalıdır. Media Services anahtar teslim hizmeti istenen anahtarı (veya lisans) istemcinin belirtecin geçerli olup olmadığını ve bu belirteci yapılandırmış anahtarı (veya lisans) için talepleri döndürür.
+Belirteç kısıtlanmış İlkesi, bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç tarafından eklenmelidir. Media Services, basit bir web token (SWT) ve JSON Web Token (JWT) biçimlerinde belirteçleri destekler. Media Services bir STS sağlamaz. Özel bir STS oluşturun veya Azure erişim denetimi hizmeti sorunu belirteçleri kullanın. STS, belirteç kısıtlamasına yapılandırmasında belirtilen belirtilen anahtarı ve sorunu talepleri imzalı bir belirteç oluşturmak için yapılandırılmalıdır. Belirtecin geçerli olduğu ve anahtarı (veya lisans) için yapılandırılmış talep belirteci eşleştiğinden, Media Services anahtar teslim hizmeti istemciye istenen anahtarı (veya lisans) döndürür.
 
-Belirteç yapılandırma İlkesi sınırlı olduğunda, birincil doğrulama anahtarı, veren ve İzleyici parametreleri belirtmeniz gerekir. Birincil doğrulama anahtar belirteci ile imzalandığı anahtarı içerir, veren belirtecini veren güvenli belirteç hizmeti. Kaynak belirteci erişimini yetkilendirir veya (bazen kapsam denir) İzleyici belirteç amacı açıklanır. Media Services anahtar teslim hizmeti, bu değerleri belirteci şablon değerleri eşleştiğini doğrular.
+Belirteç kısıtlanmış İlkesi yapılandırdığınızda, birincil doğrulama anahtarı, veren ve İzleyici parametreleri belirtmeniz gerekir. Birincil doğrulama anahtar belirteci ile imzalandığı anahtarı içerir. Verici belirteç veren güvenli bir belirteç hizmetidir. Kaynak belirteci erişimini yetkilendirir veya (bazen kapsam denir) İzleyici belirteç amacı açıklanır. Media Services anahtar teslim hizmeti, bu değerleri belirteci şablon değerleri eşleştiğini doğrular.
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection002.png)
+![Anahtar/lisans yetkilendirme ilkesi](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## <a name="playready-license-template"></a>PlayReady lisans şablonu
-PlayReady lisans şablonu, PlayReady lisans etkin işlevselliği ayarlar. PlayReady lisans şablonu hakkında ayrıntılı bilgi için bkz: [Media Services PlayReady lisans şablonu genel bakış](media-services-playready-license-template-overview.md).
+PlayReady lisans şablonu etkin işlevselliği, PlayReady lisans ayarlar. PlayReady lisans şablonu hakkında daha fazla bilgi için bkz: [Media Services PlayReady lisans şablonu genel bakış](media-services-playready-license-template-overview.md).
 
-### <a name="non-persistent"></a>Kalıcı olmayan
-Lisans kalıcı olarak yapılandırırsanız, player lisans kullanırken, yalnızca bellekte tutulur.  
+### <a name="nonpersistent"></a>Kalıcı olmayan
+Bir lisans kalıcı olmayan olarak yapılandırırsanız, yalnızca player lisans kullanırken bellekte tutulur.  
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection003.png)
+![Kalıcı olmayan içerik koruma](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### <a name="persistent"></a>Kalıcı
-Lisans kalıcı olarak yapılandırırsanız, istemci üzerinde kalıcı depolama alanına kaydedilir.
+Bir lisans kalıcı olarak yapılandırırsanız, istemci üzerinde kalıcı depolama alanına kaydedilir.
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection004.png)
+![Kalıcı içerik koruma](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## <a name="widevine-license-template"></a>Widevine lisans şablonu
-Widevine lisans şablonu, Widevine lisansları etkin işlevselliği ayarlar.
+Widevine lisans şablonu etkin işlevselliği, Widevine lisansları ayarlar.
 
 ### <a name="basic"></a>Temel
-Seçtiğinizde, **temel**, şablonu tüm varsayılanları değerlerle oluşturulur.
+Seçtiğinizde, **temel**, şablonu tüm varsayılan değerlerle oluşturulur.
 
 ### <a name="advanced"></a>Gelişmiş
-Widevine haklar şablonu hakkında ayrıntılı bilgi için bkz: [Widevine lisans şablonu genel bakış](media-services-widevine-license-template-overview.md).
+Widevine haklar şablonu hakkında daha fazla bilgi için bkz: [Widevine lisans şablonu genel bakış](media-services-widevine-license-template-overview.md).
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection005.png)
+![Gelişmiş içerik koruma](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>FairPlay yapılandırması
-FairPlay şifrelemeyi etkinleştirmek için uygulama sertifika ve uygulama gizli anahtarı (İSTEYİN) FairPlay yapılandırma seçeneği sağlamanız gerekir. FairPlay yapılandırması ve gereksinimleri hakkında ayrıntılı bilgi için bkz: [bu](media-services-protect-hls-with-FairPlay.md) makalesi.
+FairPlay şifrelemeyi etkinleştirmek için seçin **FairPlay yapılandırma**. Ardından **uygulaması sertifikası** ve girin **uygulama gizli anahtar**. FairPlay yapılandırma ve gereksinimleri hakkında daha fazla bilgi için bkz: [, HLS Apple FairPlay veya Microsoft PlayReady ile içerik korumak](media-services-protect-hls-with-FairPlay.md).
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection006.png)
+![FairPlay yapılandırması](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## <a name="apply-dynamic-encryption-to-your-asset"></a>Varlık için dinamik şifreleme Uygula
-Dinamik şifreleme yararlanmak için kaynak dosyanızı bit hızı Uyarlamalı MP4 dosyaları kümesine kodlayın gerekir.
+Dinamik şifreleme yararlanmak için kaynak dosyanızı bit hızı Uyarlamalı MP4 dosyaları kümesine kodlayın.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Şifrelemek istediğiniz bir varlığı seçin
 Tüm varlıklarınızı görmek için seçin **ayarları** > **varlıklar**.
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection007.png)
+![Varlıklar seçeneği](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
 ### <a name="encrypt-with-aes-or-drm"></a>AES veya DRM ile şifreleme
-Tuşuna sonra **şifrele** bir varlık üzerinde iki seçenek sunulur: **AES** veya **DRM**. 
+Seçtiğinizde, **şifrele** bir varlık için iki seçenek görürsünüz: **AES** veya **DRM**. 
 
 #### <a name="aes"></a>AES
-AES anahtar şifrelemesi tüm akış protokollerine etkinleştirilecek Temizle: kesintisiz akış, HLS ve MPEG-DASH.
+AES anahtar şifreleme tüm akış protokolleri üzerinde etkin Temizle: kesintisiz akış, HLS ve MPEG-DASH.
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection008.png)
+![Şifreleme yapılandırması](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
-DRM sekmesini seçin, içerik koruma ilkelerinin farklı seçenek sunulur (hangi artık yapılandırmış olmanız gerekir) + akış protokolleri kümesi.
+1. Siz seçtikten sonra **DRM**, (Bu noktası tarafından yapılandırılması gerekir) farklı içerik koruma ilkeleri ve akış protokolleri kümesi bakın:
 
-* **PlayReady ve Widevine MPEG-DASH ile** -PlayReady ve Widevine DRMs MPEG-DASH akışınızı dinamik olarak şifreler.
-* **PlayReady ve Widevine MPEG-DASH ile + HLS ile FairPlay** -PlayReady ve Widevine DRMs olan MPEG-DASH akış dinamik olarak şifreler. Ayrıca, HLS akış FairPlay ile şifreler.
-* **PlayReady yalnızca kesintisiz akış, HLS ve MPEG-DASH ile** -kesintisiz akış, HLS, MPEG-DASH akışları PlayReady DRM ile dinamik olarak şifreler.
-* **Yalnızca MPEG-DASH ile Widevine** -, MPEG-DASH Widevine DRM ile dinamik olarak şifreler.
-* **FairPlay yalnızca HLS ile** -FairPlay olan, HLS akış dinamik olarak şifreler.
+    a. **PlayReady ve Widevine MPEG-DASH ile** PlayReady ve Widevine DRMs MPEG-DASH akışınızı dinamik olarak şifreler.
 
-FairPlay şifrelemesini etkinleştirmek için içerik koruma ayarlar dikey FairPlay yapılandırma seçeneği uygulama sertifika ve uygulama gizli anahtarı (İSTEYİN) sağlamanız gerekir.
+    b. **PlayReady ve Widevine MPEG-DASH ile + FairPlay HLS ile** PlayReady ve Widevine DRMs MPEG-DASH akışınızı dinamik olarak şifreleyin. Bu seçenek ayrıca, HLS akış FairPlay ile şifreler.
 
-![İçerik koruma](./media/media-services-portal-content-protection/media-services-content-protection009.png)
+    c. **PlayReady yalnızca kesintisiz akış, HLS ve MPEG-DASH ile** kesintisiz akış, HLS ve MPEG-DASH akışları PlayReady DRM ile dinamik olarak şifreler.
 
-Şifreleme seçimi yaptıktan sonra basın **Uygula**.
+    d. **Yalnızca MPEG-DASH ile Widevine** MPEG-DASH Widevine DRM ile dinamik olarak şifreler.
+    
+    e. **FairPlay yalnızca HLS ile** FairPlay olan, HLS akış dinamik olarak şifreler.
+
+2. FairPlay şifrelemeyi etkinleştirmek için **içerik koruma genel ayarları** dikey penceresinde, select **FairPlay yapılandırma**. Ardından **uygulaması sertifikası**ve girin **uygulama gizli anahtar**.
+
+    ![Şifreleme türü](./media/media-services-portal-content-protection/media-services-content-protection009.png)
+
+3. Şifreleme seçimi yaptıktan sonra seçin **Uygula**.
 
 >[!NOTE] 
->Yürüt planlıyorsanız, bir AES HLS Safari'de şifrelenmiş bkz [HLS Safari blog postasına şifrelenmiş](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Bir AES ile şifrelenmiş HLS Safari ile oynatmayı düşünüyorsanız, blog gönderisine bakın [şifrelenmiş HLS Safari'de](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Media Services öğrenme yollarını gözden geçirin.
-
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma

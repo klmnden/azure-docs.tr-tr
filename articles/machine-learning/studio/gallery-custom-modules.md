@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Galerisi özel modüller | Microsoft Docs"
-description: "Cortana Intelligence Galerisi özel machine learning modülleri bulur."
+title: "Azure AI galeri özel modüller | Microsoft Docs"
+description: "Azure AI Galerisi'ndeki özel makine öğrenme modülleri bulur."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 4bab94c04f09261eaa88b9e6a225c05f57992ab0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi özel machine learning modülleri Bul
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Özel machine learning modülleri Azure AI galerisinde Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Machine Learning Studio için özel modüller
-Cortana Intelligence Galerisi sunar birkaç [özel modüller](https://gallery.cortanaintelligence.com/customModules) Azure Machine Learning Studio özelliklerini genişletin. Denemelerinizi, daha gelişmiş Tahmine dayalı analiz çözümleri geliştirmek için kullanmak üzere modülleri içeri aktarabilirsiniz.
+Azure AI Galerisi sunar birkaç [özel modüller](https://gallery.cortanaintelligence.com/customModules) Azure Machine Learning Studio özelliklerini genişletin. Denemelerinizi, daha gelişmiş Tahmine dayalı analiz çözümleri geliştirmek için kullanmak üzere modülleri içeri aktarabilirsiniz.
 
 Şu anda, Galeri modülleri teklifleri *zaman serisi analytics*, *ilişkilendirme kuralları*, *algoritmaları Kümeleme* (ötesinde k-ortalamaları), ve  *görselleştirmeleri*ve diğer workhorse yardımcı programı modüller.
 
@@ -34,7 +34,7 @@ Cortana Intelligence Galerisi sunar birkaç [özel modüller](https://gallery.co
 
 ![Galeri giriş sayfasında özel modüller seçin](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
-**[Özel modüller](https://gallery.cortanaintelligence.com/customModules)**  sayfa yakın zamanda eklenen ve popüler modülleri listesini görüntüler. Tüm özel modüller görüntülemek için seçin **tümünü görmek** düğmesi. Belirli bir özel modülü için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+ **[Özel modüller](https://gallery.cortanaintelligence.com/customModules)**  sayfa yakın zamanda eklenen ve popüler modülleri listesini görüntüler. Tüm özel modüller görüntülemek için seçin **tümünü görmek** düğmesi. Belirli bir özel modülü için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
 
 !["Tüm özel modüller göz atmak için select bkz: tüm"](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 
@@ -52,7 +52,7 @@ Ayrıntılar sayfası, özel bir modül **açıklamaları** bölümünde, açık
 ## <a name="import"></a>İçeri Aktarma
 Kendi denemeler herhangi bir özel modülü Galeriden içeri aktarabilirsiniz.
 
-Cortana Intelligence Galerisi modülün bir kopyasını almak için iki yol sunar:
+Azure AI galeri modülün bir kopyasını almak için iki yol sunar:
 
 * **Galeriden**. Galeriden özel bir modülü içeri aktardığınızda, ayrıca modülü kullanmak nasıl bir örnek sağlar bir örnek denemeyi alırsınız.
 * **Studio içinden makine**. Machine Learning Studio'da çalışırken herhangi bir özel modülü içeri aktarabilirsiniz (Bu durumda, örnek deneme alma).

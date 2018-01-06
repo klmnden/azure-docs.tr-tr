@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Süre sonu Office 365 grupları (Önizleme) için yapılandırma
 
@@ -30,9 +30,7 @@ Bunlar için süre sonu özellikleri ayarlayarak artık Office 365 grupları ya�
 -   Silinen herhangi bir Office 365 grubu 30 gün içinde grup sahiplerine veya yönetici tarafından geri yüklenebilir
 
 > [!NOTE]
-> Office 365 grupları için sona erme ayarlamak için bir Azure AD Premium lisansı veya hangi grupların tüm üyeleri için sona erme ayarları uygulanır bir Azure AD temel eğitim lisansı gerekir.
-> 
-> Azure AD temel eğitim Lisanslı müşteriler için: Bu ilke ilk kez yapılandırmak için Azure Active Directory PowerShell cmdlet'lerini kullanın. Bundan sonra PowerShell veya Azure AD portalı, Azure AD kiracınızda bir kullanıcı hesabı yönetici veya genel yönetici olan bir hesabı kullanarak sona erme ayarları güncelleştirebilirsiniz.
+> Office 365 grupları için sona erme ayarlama eklendiği grupların tüm üyeleri için sona erme ayarları uygulanır bir Azure AD Premium lisansı gerektirir.
 
 Azure AD PowerShell cmdlet'leri yükleyip konusunda daha fazla bilgi için bkz: [PowerShell Azure Active Directory Graph - genel Önizleme sürümü 2.0.0.137 için](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 

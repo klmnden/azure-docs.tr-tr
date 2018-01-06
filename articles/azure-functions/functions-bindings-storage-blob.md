@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -210,10 +210,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
-Yöntem parametresi gibi kullanarak, C# ve C# betik blob veri erişim `Stream paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
+Yöntem parametresi gibi kullanarak, C# ve C# betik blob veri erişim `T paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob`("ınout" bağlama yönde gerektirir *function.json*)
 * `CloudBlockBlob`("ınout" bağlama yönde gerektirir *function.json*)
 * `CloudPageBlob`("ınout" bağlama yönde gerektirir *function.json*)
@@ -498,10 +500,16 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 C# sınıfı kitaplıklar ve C# betik blob gibi bir yöntem parametresi kullanılarak erişim `Stream paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader`(yalnızca giriş)
+* `string`(yalnızca giriş)
+* `Byte[]`(yalnızca giriş)
+* `TextWriter`(yalnızca çıktı)
+* `out string`(yalnızca çıktı)
+* `out Byte[]`(yalnızca çıktı)
+*  `CloudBlobStream`(yalnızca çıktı)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob`("ınout" bağlama yönde gerektirir *function.json*)
 * `CloudBlockBlob`("ınout" bağlama yönde gerektirir *function.json*)
 * `CloudPageBlob`("ınout" bağlama yönde gerektirir *function.json*)

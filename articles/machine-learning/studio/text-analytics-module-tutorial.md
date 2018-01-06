@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da metin analiz modelleri oluşturma
 Azure Machine Learning, yapı ve metin analiz modelleriniz faaliyete geçirmek için kullanabilirsiniz. Bu modeller, örneğin, belge sınıflandırma veya düşünceleri çözümleme sorunlarını çözmenize yardımcı olabilir.
@@ -33,7 +33,7 @@ Metin analiz denemesi genellikle gerekir:
 
 Bu öğreticide, biz Amazon Kitap incelemeleri veri kümesini kullanarak düşünceleri analiz modeli aracılığıyla yol olarak bu adımları öğrenin (Bu araştırma incelemesine bakın "Biyografileri, Bollywood, müzik kutuları ve Blenders: etki alanı uyarlama düşünceleri sınıflandırma" John Blitzer, işareti Dredze ve Fernando Pereira; İlişkilendirmesini hesaplama Linguistics (ACL) 2007.) Bu veri kümesi gözden geçirme puanları (1-2 veya 4-5) ve serbest biçimli metin oluşur. Gözden geçirme puan tahmin etmek için belirtilir: düşük (1 - 2) veya yüksek (4-5).
 
-Bu öğreticide Cortana Intelligence Galerisi kapsamdaki denemeler bulabilirsiniz:
+Bu öğreticide Azure AI Galerisi kapsamdaki denemeler bulabilirsiniz:
 
 [Kitap incelemeleri tahmin etme](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

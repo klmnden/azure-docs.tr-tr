@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Azure kullanan ayrıcalıklı uç noktasını yığınında güncelleştirmelerini izleme
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri*
 
-Ayrıcalıklı endpoint Azure yığın güncelleştirme çalışması ilerlemesini izlemek için ve son başarılı adımından çalıştırmak başarısız bir güncelleştirme devam etmek için kullanabilirsiniz. 
+Ayrıcalıklı endpoint ilerleme Azure yığın güncelleştirme çalışma durumunu izlemek için kullanabileceğiniz ve son başarılı adımından çalıştırmak başarısız bir güncelleştirme devam etmek için Azure yığın gereken portal kullanılamaz duruma gelir.  Azure yığın Portalı'nı kullanarak Azure yığınında güncelleştirmeleri yönetmek için önerilen yöntemdir.
 
 Güncelleştirme yönetimi için aşağıdaki yeni PowerShell cmdlet'leri Azure tümleşik yığını sistemler 1710 güncelleştirmesi dahil edilmiştir.
 

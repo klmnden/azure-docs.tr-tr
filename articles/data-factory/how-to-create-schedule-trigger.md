@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Factory'de Tetikleyicileri oluşturma | Microsoft Docs"
+title: "Azure Data Factory'de zamanlama Tetikleyicileri oluşturma | Microsoft Docs"
 description: "Bir işlem hattı bir zamanlamaya göre çalışan bir Azure Data factory'de bir tetikleyici oluşturmayı öğrenin."
 services: data-factory
 documentationcenter: 
@@ -13,23 +13,169 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: shlo
-ms.openlocfilehash: eed286c01604ab0e9ac2113d56cbce268503668d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6b92e8402d372e29e264dc70b128124973d66bb9
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Bir işlem hattı bir zamanlamaya göre çalışan bir Tetikleyici oluşturma
-Bu makalede oluşturmak, başlatma ve tetikleyici izlemek için adımları sağlar. Kavramsal Tetikleyiciler hakkında bilgi için [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
+Bu makalede zamanlama tetikleyici ve oluşturma, başlatma ve tetikleyici izlemek için adımlar hakkında bilgi sağlar. Tetikleyiciler diğer türleri için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
 
+### <a name="schedule-trigger-json-definition"></a>Zamanlama tetikleyici JSON tanımı
+Bir zamanlama tetikleyici oluşturduğunuzda, zamanlama ve yinelenme bu bölümdeki örnekte gösterildiği gibi JSON kullanarak belirtebilirsiniz.
+
+Çalıştırma bir ardışık düzen kazandırın, zamanlama tetiklemesini sağlamak için tetikleyici tanımı'nda belirli ardışık ardışık düzen başvurusu içerir. İşlem hatları ve tetikleyiciler çoka çok ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatabilir. Tek bir tetikleyici birden fazla işlem hattını başlatabilir.
+
+```json
+{
+  "properties": {
+    "type": "ScheduleTrigger",
+    "typeProperties": {
+      "recurrence": {
+        "frequency": <<Minute, Hour, Day, Week, Month>>,
+        "interval": <<int>>,             // optional, how often to fire (default to 1)
+        "startTime": <<datetime>>,
+        "endTime": <<datetime - optional>>,
+        "timeZone": "UTC"
+        "schedule": {                    // optional (advanced scheduling specifics)
+          "hours": [<<0-23>>],
+          "weekDays": : [<<Monday-Sunday>>],
+          "minutes": [<<0-59>>],
+          "monthDays": [<<1-31>>],
+          "monthlyOccurences": [
+               {
+                    "day": <<Monday-Sunday>>,
+                    "occurrence": <<1-5>>
+               }
+           ]
+        }
+      }
+    },
+   "pipelines": [
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "<Name of your pipeline>"
+                },
+                "parameters": {
+                    "<parameter 1 Name>": {
+                        "type": "Expression",
+                        "value": "<parameter 1 Value>"
+                    },
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
+                }
+           }
+      ]
+  }
+}
+```
+
+> [!IMPORTANT]
+>  **Parameters** özelliği, **işlem hatları** içindeki zorunlu bir özelliktir. İşlem hattınız herhangi bir parametre almasa bile, özellik mevcut olmak zorunda olduğundan parametreler için boş bir json ekleyin.
+
+
+### <a name="overview-schedule-trigger-schema"></a>Genel Bakış: Zamanlama tetikleyici şeması
+Aşağıdaki tabloda bir tetikleyici içindeki yinelenme ve zamanlamayla ilgili ana öğelerin genel bir özeti verilmiştir:
+
+JSON özelliği |     Açıklama
+------------- | -------------
+startTime | startTime, Tarih-Saat türündedir. Basit zamanlamalar için startTime ilk yinelenme zamanıdır. Karmaşık zamanlamalar için tetikleyici startTime değerinden önce başlamaz.
+endTime | Tetikleyici için bitiş tarihini ve saatini belirtir. Tetikleyici bu tarihten sonra çalıştırılmaz. endTime değeri geçmişte olamaz. Bu isteğe bağlı bir özelliktir.
+timeZone | Şu anda yalnızca UTC desteklenmektedir.
+yineleme | recurrence nesnesi tetikleyici için yinelenme kurallarını belirtir. recurrence nesnesi şu öğeleri destekler: frequency, interval, endTime, count ve schedule. recurrence tanımlanmışsa frequency değerinin de tanımlanması gerekir. Diğer recurrence öğeleri isteğe bağlıdır.
+frequency | Tetikleyicinin yineleneceği sıklık birimini temsil eder. Desteklenen değerler: `minute`, `hour`, `day`, `week` veya `month`.
+interval | interval pozitif tamsayıdır. Tetikleyicinin çalışma sıklığını belirten frequency için aralığı belirtir. Örneğin interval değeri 3, frequency değeri de "week" ise tetikleyici 3 haftada bir yinelenir.
+schedule | Belirtilen sıklıktaki bir tetikleyici, yinelenmesini bir yinelenme zamanlamasına göre değiştirir. schedule; dakika, saat, haftanın günü, ayın günü ve hafta numarası tabanlı değişiklikleri içerir.
+
+
+### <a name="overview-schedule-trigger-schema-defaults-limits-and-examples"></a>Genel Bakış: Zamanlama tetikleyici şema Varsayılanları, sınırlar ve örnekler
+
+JSON adı | Değer türü | Gerekli mi? | Varsayılan değer | Geçerli değerler | Örnek
+--------- | ---------- | --------- | ------------- | ------------ | -------
+startTime | Dize | Evet | Hiçbiri | ISO-8601 Tarih-Saatleri | ```"startTime" : "2013-01-09T09:30:00-08:00"```
+yineleme | Nesne | Evet | Hiçbiri | Yinelenme nesnesi | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
+interval | Sayı | Hayır | 1 | 1-1000 arası. | ```"interval":10```
+endTime | Dize | Evet | Hiçbiri | Gelecekteki bir zamanı temsil eden Tarih-Saat değeri | `"endTime" : "2013-02-09T09:30:00-08:00"`
+schedule | Nesne | Hayır | Hiçbiri | Zamanlama nesnesi | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
+
+### <a name="deep-dive-starttime"></a>Ayrıntılı Bakış: startTime
+Aşağıdaki tabloda startTime öğesinin bir tetikleyicinin çalıştırılmasını nasıl denetlediği gösterilmektedir:
+
+startTime değeri | Zamanlama olmadan yinelenme | Zamanlama ile yinelenme
+--------------- | --------------------------- | ------------------------
+Başlangıç zamanı geçmişte | Başlangıç zamanından sonraki ilk gelecek çalıştırma zamanını hesaplar ve belirtilen zamanda çalıştırır.<p>İlk çalıştırma zamanına göre hesaplayarak sonraki çalıştırmaları gerçekleştirir.</p><p>Bu tablonun altındaki örneğe bakın.</p> | Tetikleyici belirtilen başlangıç zamanından _önce_ başlamaz. İlk yinelenme, başlangıç zamanından hesaplanan zamanlamaya göre gerçekleştirilir. <p>Sonraki çalıştırmaları yinelenme zamanlamasına göre gerçekleştirir</p>
+Başlangıç zamanı gelecekte veya güncel | Belirtilen başlangıç zamanında bir kez çalışır. <p>İlk çalıştırma zamanına göre hesaplayarak sonraki çalıştırmaları gerçekleştirir.</p> | Tetikleyici belirtilen başlangıç zamanından _önce_ başlamaz. İlk yinelenme, başlangıç zamanından hesaplanan zamanlamaya göre gerçekleştirilir.<p>Sonraki çalıştırmaları yinelenme zamanlamasına göre gerçekleştirir.</p>
+
+startTime geçmişte olduğunda ve yinelenme olduğunda ancak zamanlama olmadığında neler olacağını gösteren örneğe bakalım. Geçerli zamanın `2017-04-08 13:00` olduğunu, startTime değerinin `2017-04-07 14:00` olduğunu ve yinelenmenin iki günde bir (frequency: day ve interval: 2 ile tanımlanmış) olduğunu kabul edelim. startTime değerinin geçmişte olduğuna ve geçerli zamanın öncesinde gerçekleştiğine dikkat edin.
+
+Bu şartlar altında ilk çalıştırma zamanı `2017-04-09 at 14:00` olacaktır. Zamanlayıcı altyapısı çalıştırma yinelenmelerini başlangıç zamanından itibaren hesaplar. Geçmişteki örnekler dikkate alınmaz. Altyapı gelecekte gerçekleşen bir sonraki örneği kullanır. Bu nedenle bu durumda startTime `2017-04-07 at 2:00pm` ve sonraki örnek bu zamandan iki gün sonrası olan `2017-04-09 at 2:00pm` olur.
+
+İlk çalıştırma zamanı startTime `2017-04-05 14:00` veya `2017-04-01 14:00` olsa bile değişmez. İlk çalıştırma sonrasındaki çalıştırmalar zamanlama kullanılarak hesaplanır. Bu nedenle `2017-04-11 at 2:00pm`, sonra `2017-04-13 at 2:00pm`, ardından `2017-04-15 at 2:00pm` vs. olur.
+
+Son olarak bir tetikleyici zamanlamaya sahipse zamanlamada saat ve/veya dakika belirtilmemiş olsa dahi varsayılan olarak ilk çalıştırmanın saat ve/veya tarih değerini alır.
+
+### <a name="deep-dive-schedule"></a>Ayrıntılı Bakış: schedule
+schedule bir yandan tetikleyici çalıştırma sayısını sınırlayabilir. Örneğin frequency parametresi "month" olan bir tetikleyici yalnızca 31. günde çalışan bir zamanlamaya sahipse tetikleyici yalnızca 31. günü olan aylarda çalışır.
+
+Diğer yandan zamanlama, tetikleyici çalıştırma sayısını da genişletebilir. Örneğin frequency parametresi "month" olan bir tetikleyici ayın 1. ve 2. gününde çalışan bir zamanlamaya sahipse tetikleyici ayda bir kez yerine ayın 1. ve 2. günlerinde çalışır.
+
+Birden fazla schedule öğesi belirtilmişse değerlendirme sırası en büyükten en küçüğe doğru (hafta numarası, ayın günü, haftanın günü, saat ve dakika) olur.
+
+Aşağıdaki tabloda schedule öğeleri ayrıntılı bir şekilde açıklanmıştır:
+
+
+JSON adı | Açıklama | Geçerli Değerler
+--------- | ----------- | ------------
+minutes | Tetikleyicinin çalıştığı dakika değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul>
+hours | Tetikleyicinin çalıştığı saat değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul>
+weekDays | Tetikleyicinin çalıştığı hafta günleri. Yalnızca weekly frequency değeri ile belirtilebilir. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday veya Sunday</li><li>Değerlerden herhangi birinin dizisi (en büyük dizi boyutu 7)</li></p>Büyük/küçük harf duyarlı değildir</p>
+monthlyOccurrences | Tetikleyicinin ayın hangi günlerinde çalışacağını belirler. Yalnızca monthly frequency değeri ile belirtilebilir. | monthlyOccurence nesneleri dizisi: `{ "day": day,  "occurrence": occurence }`. <p> day, tetikleyicinin çalıştığı haftanın günüdür. Örneğin `{Sunday}`, ayın her Pazar günüdür. Gereklidir.<p>occurrence, ayın ay içindeki yinelenme günüdür. Örneğin `{Sunday, -1}`, ayın son Pazar günüdür. İsteğe bağlı.
+monthDays | Tetikleyicinin çalıştığı ayın günü. Yalnızca monthly frequency değeri ile belirtilebilir. | <ul><li><= -1 ve >= -31 şartlarını karşılayan herhangi bir değer</li><li>>= 1 ve <= 31 şartlarını karşılayan herhangi bir değer</li><li>Bir değer dizisi</li>
+
+
+## <a name="examples-recurrence-schedules"></a>Örnekler: yineleme zamanlamaları
+Bu bölümde schedule nesnesine ve alt öğelerine odaklanan yinelenme zamanlaması örnekleri verilmiştir.
+
+Bu örnekte interval değerinin 1 olduğu kabul edilmiştir. Aynı zamanda schedule içindeki doğru frequency değerinin kullanıldığını kabul edin. Örneğin frequency için "day" değerini kullanıyorsanız schedule içinde "monthDays" değeri bulunamaz. Bu kısıtlamalar önceki bölümde yer alan tabloda belirtilmiştir.
+
+Örnek | Açıklama
+------- | -----------
+`{"hours":[5]}` | Her gün saat 05:00'te çalışır
+`{"minutes":[15], "hours":[5]}` | Her gün saat 05:15'te çalışır
+`{"minutes":[15], "hours":[5,17]}` | Her gün 05:15 ve 17:15 saatleri arasında çalışır
+`{"minutes":[15,45], "hours":[5,17]}` | Her gün 05:15, 05:45, 17:15 ve 17:45 saatlerinde çalışır
+`{"minutes":[0,15,30,45]}` | 15 dakikada bir çalışır
+`{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Saatte bir çalışır. Bu tetikleyici saatte bir çalışır. Dakika belirtilmişse startTime tarafından denetlenir. Belirtilmemişse oluşturma zamanı tarafından belirlenir. Örneğin başlangıç zamanı veya oluşturma zamanı (hangisi geçerliyse) 12:25 ise tetikleyici 00:25, 01:25, 02:25, …, 23:25 saatlerinde çalışır. Zamanlama frequency değeri "hour", interval değeri 1 olan ve zamanlama olmayan tetikleyiciye eşittir. Farkı bu zamanlamanın farklı frequency ve interval değerleriyle kullanılarak başka tetikleyicilerin de oluşturulabilmesidir. Örneğin frequency değeri "month" olursa zamanlama ayda bir, frequency değeri "day" olduğunda ise her gün çalışır.
+`{"minutes":[0]}` | Her saat başı çalışır. Bu tetikleyici de saatte bir ancak saat başında çalışır (örneğin 00:00, 01:00, 02:00 vs.). Bu ayar frequency değeri "hour", startTime değeri sıfır dakika ve frequency değeri "day" olduğunda zamanlama olmayan ayara eşittir ancak frequency değeri "week" veya "month" olduğunda zamanlama yalnızca haftada bir gün veya ayda bir gün çalıştırılır.
+`{"minutes":[15]}` | Her saat başını 15 dakika geçe çalışır. 00:15'ten başlayarak 01:15, 02:15 gibi saatte bir çalışır ve 22:15 ile 23:15'te biter.
+`{"hours":[17], "weekDays":["saturday"]}` | Her hafta Cumartesi günleri saat 17:00'de çalışır
+`{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Her hafta Pazartesi, Çarşamba ve Cuma günleri saat 17:00'de çalışır
+`{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Her hafta Pazartesi, Çarşamba ve Cuma günleri saat 17:15 ve 17:45'te çalışır
+`{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Haftanın her günü 15 dakikada bir çalışır
+`{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Haftanın her günü 09:00 ve 16:45 saatleri arasında 15 dakikada bir çalışır
+`{"weekDays":["tuesday", "thursday"]}` | Salı ve Perşembe günleri başlangıç saatinde çalışır.
+`{"minutes":[0], "hours":[6], "monthDays":[28]}` | Her ayın 28. gününde saat 06:00'da çalışır (frequency değerinin month olduğu kabul edildiğinde)
+`{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Ayın son günü saat 06:00'da çalışır. Bir tetikleyiciyi ayın son gününde çalıştırmak isterseniz 28, 29, 30 veya 31 yerine -1 değerini kullanın.
+`{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Her ayın ilk ve son günü saat 06:00'da çalışır
+`{monthDays":[1,14]}` | Her ayın ilk ve on dördüncü gününde belirtilen başlangıç zamanında çalışır.
+`{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Her ayın ilk Cuma günü saat 05:00'te çalışır
+`{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Her ayın ilk Cuma gününde belirtilen başlangıç zamanında çalışır.
+`{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Her ayın üçüncü Cuma gününde başlayıp ay sonuna kadar başlangıç zamanında çalışır
+`{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Her ayın ilk ve son Cuma günü saat 05:15'te çalışır
+`{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Her ayın ilk ve son Cuma gününde belirtilen başlangıç zamanında çalışır
+`{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Her ayın beşinci Cuma gününde çalışır. Ayda beşinci Cuma günü yoksa işlem hattı yalnızca beşinci Cuma günlerinde çalışacak şekilde zamanlandığından çalışmaz.  Tetikleyiciyi ayın son yinelenen Cuma gününde çalıştırmak istiyorsanız occurrence değeri için 5 yerine -1 yazın.
+`{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Ayın son Cuma gününde 15 dakikada bir çalışır.
+`{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Her ayın üçüncü Çarşamba günü 05:15, 05:45, 17:15 ve 17:45'te çalışır.
+
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell kullanma
-Bu bölümde Azure PowerShell oluşturma, başlatma ve tetikleyici izlemek için nasıl kullanılacağını gösterir. Bu örnek çalışma görmek istiyorsanız, ilk Git [hızlı başlangıç: Azure PowerShell kullanarak bir veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md). Ardından, aşağıdaki kodu oluşturan ve her 15 dakikada bir zamanlama tetikleyici başlatır ana yöntemine ekleyin. Tetikleyici sahip işlem hattı ilişkilendirilir (**Adfv2QuickStartPipeline**), hızlı bir parçası olarak oluşturun.
+Bu bölümde Azure PowerShell oluşturmak, başlatma ve bir zamanlayıcı tetikleyicisi izlemek için nasıl kullanılacağını gösterir. Bu örnek çalışma görmek istiyorsanız, ilk Git [hızlı başlangıç: Azure PowerShell kullanarak bir veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md). Ardından, aşağıdaki kodu oluşturan ve her 15 dakikada bir zamanlama tetikleyici başlatır ana yöntemine ekleyin. Tetikleyici sahip işlem hattı ilişkilendirilir (**Adfv2QuickStartPipeline**), hızlı bir parçası olarak oluşturun.
 
-1. C:\ADFv2QuickStartPSH\ klasöründe aşağıdaki içeriğe sahip MyTrigger.json adlı bir JSON dosyası oluşturun: 
+1. C:\ADFv2QuickStartPSH\ klasöründe aşağıdaki içeriğe sahip MyTrigger.json adlı bir JSON dosyası oluşturun:
 
     > [!IMPORTANT]
     > Ayarlama **startTime** geçerli UTC saati için ve **endTime** geçerli UTC geçmiş bir saat için JSON dosyayı kaydetmeden önce zaman.
@@ -61,34 +207,34 @@ Bu bölümde Azure PowerShell oluşturma, başlatma ve tetikleyici izlemek için
         }
     }
     ```
-    
-    JSON parçacığında: 
-    - **Türü** tetikleyicisi kümesine **ScheduleTrigger**. 
-    - **Sıklığı** ayarlanır **Minute** ve **aralığı** ayarlanır **15**. Bu nedenle, tetikleyici ardışık düzen 15 dakikada bir başlangıç ve bitiş zamanları arasında çalışır. 
+
+    JSON parçacığında:
+    - **Türü** tetikleyicisi kümesine **ScheduleTrigger**.
+    - **Sıklığı** ayarlanır **Minute** ve **aralığı** ayarlanır **15**. Bu nedenle, tetikleyici ardışık düzen 15 dakikada bir başlangıç ve bitiş zamanları arasında çalışır.
     - **EndTime** bir saat sonra **startTime**, tetikleyici ardışık 15 dakika, 30 dakika ve 45 dakika startTime sonra çalışır. Geçerli UTC saati ve endTime startTime geçmiş bir saat için startTime güncelleştirmek unutmayın.  
-    - Tetikleyici ile ilişkili **Adfv2QuickStartPipeline** ardışık düzen. Birden çok ardışık düzen tetikleyici ile ilişkilendirmek için daha fazla Ekle **pipelineReference** bölümler. 
-    - Hızlı Başlangıç hattında iki alan **parametreleri**. Bu nedenle, bu parametrelerin değerlerini tetikleyiciyle geçirin. 
+    - Tetikleyici ile ilişkili **Adfv2QuickStartPipeline** ardışık düzen. Birden çok ardışık düzen tetikleyici ile ilişkilendirmek için daha fazla Ekle **pipelineReference** bölümler.
+    - Hızlı Başlangıç hattında iki alan **parametreleri**. Bu nedenle, bu parametrelerin değerlerini tetikleyiciyle geçirin.
 2. Kullanarak bir Tetikleyici oluşturma **kümesi AzureRmDataFactoryV2Trigger** cmdlet'i.
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
-3. Tetikleyici durumunu onaylayın **durduruldu** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet'i. 
+3. Tetikleyici durumunu onaylayın **durduruldu** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet'i.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" 
+    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-4. Tetikleyici başlamayı **başlangıç AzureRmDataFactoryV2Trigger** cmdlet: 
+4. Tetikleyici başlamayı **başlangıç AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" 
+    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 5. Tetikleyici durumunu onaylayın **başlatıldı** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet'i.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" 
+    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-6.  PowerShell kullanarak tetikleyici çalıştırır alma **Get-AzureRmDataFactoryV2TriggerRun** cmdlet'i. Tetikleyici çalışmaları hakkında bilgi almak için aşağıdaki komutu düzenli aralıklarla çalıştırın: güncelleştirme **TriggerRunStartedAfter** ve **TriggerRunStartedBefore** tetikleyici tanımında değerleriyle eşleşecek şekilde değerleri . 
+6.  PowerShell kullanarak tetikleyici çalıştırır alma **Get-AzureRmDataFactoryV2TriggerRun** cmdlet'i. Tetikleyici çalışmaları hakkında bilgi almak için aşağıdaki komutu düzenli aralıklarla çalıştırın: güncelleştirme **TriggerRunStartedAfter** ve **TriggerRunStartedBefore** tetikleyici tanımında değerleriyle eşleşecek şekilde değerleri .
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -97,7 +243,7 @@ Bu bölümde Azure PowerShell oluşturma, başlatma ve tetikleyici izlemek için
     Tetikleyici çalıştırır/ardışık çalıştığında Azure portalında izlemek için bkz: [işlem hattını izleme çalıştırır](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
 
 ## <a name="use-net-sdk"></a>.NET SDK kullanma
-Bu bölümde .NET SDK oluşturma, başlatma ve tetikleyici izlemek için nasıl kullanılacağını gösterir. Bu kodu çalışma görmek istiyorsanız, ilk Git [.NET SDK'yı kullanarak data factory oluşturmak için Hızlı Başlangıç](quickstart-create-data-factory-dot-net.md). Ardından, aşağıdaki kodu oluşturan ve her 15 dakikada bir zamanlama tetikleyici başlatır ana yöntemine ekleyin. Tetikleyici sahip işlem hattı ilişkilendirilir (**Adfv2QuickStartPipeline**), hızlı bir parçası olarak oluşturun. 
+Bu bölümde .NET SDK oluşturma, başlatma ve tetikleyici izlemek için nasıl kullanılacağını gösterir. Bu kodu çalışma görmek istiyorsanız, ilk Git [.NET SDK'yı kullanarak data factory oluşturmak için Hızlı Başlangıç](quickstart-create-data-factory-dot-net.md). Ardından, aşağıdaki kodu oluşturan ve her 15 dakikada bir zamanlama tetikleyici başlatır ana yöntemine ekleyin. Tetikleyici sahip işlem hattı ilişkilendirilir (**Adfv2QuickStartPipeline**), hızlı bir parçası olarak oluşturun.
 
 ```csharp
             //create the trigger
@@ -135,7 +281,7 @@ Bu bölümde .NET SDK oluşturma, başlatma ve tetikleyici izlemek için nasıl 
                 }
             };
 
-            // now, create the trigger by invoking CreateOrUpdate method. 
+            // now, create the trigger by invoking CreateOrUpdate method.
             TriggerResource triggerResource = new TriggerResource()
             {
                 Properties = myTrigger
@@ -148,7 +294,7 @@ Bu bölümde .NET SDK oluşturma, başlatma ve tetikleyici izlemek için nasıl 
 
 ```
 
-Çalıştıran bir tetikleyici izlemek için son önce aşağıdaki kodu ekleyin `Console.WriteLine` deyimi: 
+Çalıştıran bir tetikleyici izlemek için son önce aşağıdaki kodu ekleyin `Console.WriteLine` deyimi:
 
 ```csharp
             // Check the trigger runs every 15 minutes
@@ -175,12 +321,12 @@ Bu bölümde .NET SDK oluşturma, başlatma ve tetikleyici izlemek için nasıl 
 Tetikleyici çalıştırır/ardışık çalıştığında Azure portalında izlemek için bkz: [işlem hattını izleme çalıştırır](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
 
 ## <a name="use-python-sdk"></a>Python SDK'sını kullanma
-Bu bölümde Python SDK oluşturma, başlatma ve tetikleyici izlemek için nasıl kullanılacağını gösterir. Bu kodu çalışma görmek istiyorsanız, ilk Git [Python SDK'yı kullanarak data factory oluşturmak için Hızlı Başlangıç](quickstart-create-data-factory-python.md). Ardından, aşağıdaki kod bloğu python komut dosyasında "Çalıştır işlem hattını izleme" kod bloğunu ekleyin. Bu kod belirtilen başlangıç ve bitiş zamanları arasında 15 dakikada bir çalışır bir zamanlama tetikleyici oluşturur. Geçerli UTC saati ve geçerli UTC saati geçmiş bir saat end_time start_time güncelleştirin. 
+Bu bölümde Python SDK oluşturma, başlatma ve tetikleyici izlemek için nasıl kullanılacağını gösterir. Bu kodu çalışma görmek istiyorsanız, ilk Git [Python SDK'yı kullanarak data factory oluşturmak için Hızlı Başlangıç](quickstart-create-data-factory-python.md). Ardından, aşağıdaki kod bloğu python komut dosyasında "Çalıştır işlem hattını izleme" kod bloğunu ekleyin. Bu kod belirtilen başlangıç ve bitiş zamanları arasında 15 dakikada bir çalışır bir zamanlama tetikleyici oluşturur. Geçerli UTC saati ve geçerli UTC saati geçmiş bir saat end_time start_time güncelleştirin.
 
 ```python
     # Create a trigger
     tr_name = 'mytrigger'
-    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC') 
+    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC')
     pipeline_parameters = {'inputPath':'adftutorial/input', 'outputPath':'adftutorial/output'}
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
@@ -197,7 +343,7 @@ Tetikleyici çalıştırır/ardışık çalıştığında Azure portalında izle
 Bir tetikleyici oluşturmak için bir Azure Resource Manager şablonu kullanabilirsiniz. Adım adım yönergeler için bkz: [Resource Manager şablonu kullanarak bir Azure data factory oluşturmak](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Tetikleyici başlangıç saati bir ardışık düzene geçirin
-Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Sürüm 2'de, ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat parametresinin değeri kullanarak bu davranışı elde edebilirsiniz. Aşağıdaki örnekte, tetikleyici zamanlanan saat ardışık düzen parametresi scheduledRunTime için bir değer olarak geçirilir. 
+Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Sürüm 2'de, ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat parametresinin değeri kullanarak bu davranışı elde edebilirsiniz. Aşağıdaki örnekte, tetikleyici zamanlanan saat ardışık düzen parametresi scheduledRunTime için bir değer olarak geçirilir.
 
 ```json
 "parameters": {

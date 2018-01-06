@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 485bc8e21e92b7dc5734458506c6825d349c45f9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/05/2018
@@ -140,7 +140,7 @@ Flux framework hakkında daha fazla bilgi için bkz: [https://storm.apache.org/r
 
 Varsayılan olarak, Hdınsight üzerinde Storm HdfsBolt Storm'ın sınıf yolunda Azure Storage veya Data Lake Store ile iletişim kurmak için kullandığı bileşenlerinin içermez. Bu bileşenler eklemek için aşağıdaki betik eylemi kullanın `extlib` kümenizdeki Storm için dizin:
 
-* Betik URI:`https://gist.githubusercontent.com/Blackmist/dbd4a3f555397a84ac1074ee73484df2/raw/63a76e559efd532021580d079e378c6b2f8c475e/stormextlib.sh`
+* Betik URI:`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Uygulamak için düğümleri: Nimbus, yönetici
 * Parametreler: yok
 

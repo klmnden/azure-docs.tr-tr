@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-the-access-panel"></a>Erişim paneli nedir?
 
@@ -70,7 +70,31 @@ Doğrulandığında, yöneticiniz directory ile tümleşik olan uygulamalar ile 
 
 En azından, CSS etkin olduğundan ve erişim paneli JavaScript destekleyen bir tarayıcı gerektirir. Kullanıcı parola tabanlı çoklu oturum açma (SSO) aracılığıyla uygulamaları için oturum açmanız erişim paneli uzantısı tarayıcınızda yüklü olması gerekir. Uzantı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinizde otomatik olarak yüklenir.
 
-Erişim paneli uzantısı Internet Explorer 8 ve üzeri, kenar, Chrome ve Firefox tarayıcılar için şu anda kullanılamıyor.
+Erişim paneli uzantısı için şu anda kullanılabilir:
+-   Edge Windows 10 Anniversary Edition veya daha yenisi 
+
+-   Chrome--Windows 7 veya daha sonra ve MacOS x veya sonraki sürümlerde
+
+-   Firefox 26,0 veya daha sonra--Windows XP SP2 veya sonraki ve Mac OS X 10,6 veya üzeri
+
+-   Internet Explorer 8, 9, 10, 11--Windows 7 veya üzeri (sınırlı destek)
+
+## <a name="my-apps-secure-sign-in-extension"></a>My Apps Güvenli Oturum Açma Uzantısı
+Uzantı, kullanıcıların parola tabanlı çoklu oturum açma imzalamak gereklidir. Yüklü kullanıcılar ayrıca ek özellikler tıklayarak uzantısına imzalayarak etkinleştirebilir sonra **başlamak oturum**. 
+
+- Kullanıcılar oturum açabilir uygulamalarda doğrudan uygulamanın ziyaret ederek **oturum açma URL'si**. Kullanıcı oturum açma uygulamanızın URL'sine gittiğinde uzantısı bu algılar ve kullanıcının içine uzantı imzalamak seçeneği sağlar.
+- Kullanıcılar de başlatma herhangi bir erişim paneli kullanarak uygulamalarını **hızlı arama** uzantısı özelliğidir. 
+- Uzantı de başlatıldıktan altında son üç uygulamaları kullanıcılara gösterilir **kısa süre önce kullanılan** bölümü.
+> [!NOTE]
+> Ek özellikler, yalnızca kenar, Chrome, Firefox için kullanılabilir.
+
+
+Https://myapps.microsoft.com daha farklı bir My uygulamaları URL kullanıyorsanız, sonra varsayılan URL ancak aşağıdaki adımları yapılandırmanız gerekir:
+1. Uzantısına, imzalanmamış sırada **sağ tıklatın** uzantısı simgesi.
+2. Tıklayın **My uygulamaları URL Seç** menüsünde.
+3. **Seçin** , varsayılan URL.
+4. Uzantı simgesine tıklayın.
+5. Oturum açma seçerek uzantısına **başlamak oturum**.
 
 ## <a name="mobile-app-support"></a>Mobil uygulama desteği
 

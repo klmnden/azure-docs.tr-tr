@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 414c985d21112d658b6e22473f67ed1c3afd00ef
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 1d2b681660ae6f59dec8a287baa853085c64ebeb
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server Aracısı uzantısı (Resource Manager) ile Azure sanal makineler üzerinde yönetim görevlerini otomatik hale getirme
 > [!div class="op_single_selector"]
@@ -46,7 +45,7 @@ SQL Server Iaas Aracısı uzantısı aşağıdaki yönetim görevlerini destekle
 
 Yüklü ve çalışan sonra SQL Server Iaas Aracısı uzantısı bu yönetim özellikleri sanal makinenin Azure portalında ve SQL Server Market görüntüler için Azure PowerShell aracılığıyla ve Azure ile SQL Server panelindeki kullanılabilmesini sağlar PowerShell uzantısı el ile yüklemeleri için. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 VM üzerinde SQL Server Iaas Aracısı uzantısı kullanmak için gereksinimler:
 
 **İşletim sistemi**:
@@ -71,6 +70,9 @@ SQL Server sanal makineye Galerisi görüntülerden birini sağlamak, SQL Server
 ```powershell
 Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 ```
+
+> [!IMPORTANT]
+> Uzantısı yükleme uzantısı zaten yüklü değilse, SQL Server hizmetini yeniden başlatır.
 
 SQL Server Iaas Aracısı uzantısı yalnızca işletim sistemi Windows Server sanal makinede yüklemek mümkündür. Bu, yalnızca bu makinede de el ile SQL Server yüklediyseniz desteklenir. Ardından uzantısını kullanarak el ile aynı yükleyin **kümesi AzureVMSqlServerExtension** PowerShell cmdlet'i.
 
