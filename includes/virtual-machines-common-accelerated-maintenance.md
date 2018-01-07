@@ -8,11 +8,11 @@ Güvenlik açığının ortak açığa çıkması ile biz [planlı bakım zamanl
  
 ## <a name="how-can-i-see-which-of-my-vms-are-already-updated"></a>Nasıl ı görebilir Vm'lerimin hangisinin zaten güncelleştirildi mi? 
 
-Vm'leriniz durumunu görebilir ve yeniden başlatma içinde tamamladığını içinde [VM listesi Azure portalında](https://aka.ms/T08tdc). Güncelleştirme uygulanan veya "Güncelleştirme hala gerekliyse zamanlanmış" varsa, sanal makineleri "Zaten güncelleştirme" ya da listelenir. "Zamanlanmış" başvurmak için VM'lerin görmek istiyorsanız, [Azure hizmet durumu](https://portal.azure.com/).
+Vm'leriniz, durumunu görebilirsiniz ve yeniden başlatma tamamlandı, buna [VM listesi Azure portalında](https://aka.ms/T08tdc). Güncelleştirme uygulanan veya "Güncelleştirme hala gerekliyse zamanlanmış" varsa, sanal makineleri "Zaten güncelleştirme" ya da listelenir. "Zamanlanmış" başvurmak için VM'lerin görmek istiyorsanız, [Azure hizmet durumu](https://portal.azure.com/).
 
 ## <a name="can-i-find-out-exactly-when-my-vms-will-be-rebooted"></a>Tam olarak ne zaman Vm'lerimin yeniden başlatılacak çıkışı bulabilirim?
 
-Yeniden başlatma hakkında uyarı almak için en iyi yolu yapılandırmaktır [zamanlanmış olayları](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Bu VM'nin 15 dakikalık bildirim bakım nedeniyle giderek sağlar – VM için bir API çağrısını yapar ve ayrıca, etkinlik günlüğü girişi Azure İzleyici tetikleyiciye e-postalar, SMS ya da Web kancalarını göndermek için kullanılabilir. Önceki tüm bildirim sağlamak mümkün değil.
+Yeniden başlatma hakkında uyarı almak için en iyi yolu yapılandırmaktır [zamanlanmış olayları](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Bu, 15 dakika bildirim VM bakım nedeniyle giderek sağlar.
 
 ## <a name="can-i-manually-redeploy-now-to-perform-the-required-maintenance"></a>I el ile artık gerekli bakım gerçekleştirmek için yeniden dağıtabilirsiniz? 
 
@@ -24,7 +24,7 @@ Güncelleştirilmiş bir ana bilgisayara yeniden dağıtılan VM ayrılır garan
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Konuk işletim sistemi güncellenmesi gerekiyor mu? 
 
-Bu Azure Altyapı güncelleştirme hiper yönetici düzeyinde bildirilen açığına ve Windows veya Linux VM görüntüleri için bir güncelleştirme gerektirmez. Ancak, her zaman olarak VM görüntüleri için en iyi güvenlik uygulamalarını uygulamak devam. Lütfen, işletim sistemlerinin güncelleştirmeleri ve yönergeler için satıcı ile gerektiğinde bakın. Windows Server VM müşteriler için yönergeler şimdi yayımlanan ve burada kullanılabilir.
+Bu Azure Altyapı güncelleştirme hiper yönetici düzeyinde bildirilen açığına ve Windows veya Linux VM görüntüleri için bir güncelleştirme gerektirmez. Ancak, her zaman olarak VM görüntüleri için en iyi güvenlik uygulamalarını uygulamak devam. Lütfen, işletim sistemlerinin güncelleştirmeleri ve yönergeler için satıcı ile gerektiğinde bakın. Windows Server VM müşteriler için yönerge şimdi yayımlanan ve kullanılabilir [burada](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Bu güncelleştirme Çözümleme sonucunda bir performans etkisi vardır olacak?
 
