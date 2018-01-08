@@ -6,20 +6,20 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98feed192f21cbc2bf9197b6d32646f50ddbd0c5
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
 Kapsayıcılar, bulut uygulamalarını hızlı bir şekilde paketlemek, dağıtmak ve yönetmek için giderek daha fazla tercih edilmektedir. Azure Container Instances, herhangi bir sanal makine sağlamak ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanın en hızlı ve en kolay yolunu sunar.
 
-Yalıtılmış kapsayıcılarda çalışabileceğiniz senaryolar (basit uygulamalar, görev otomasyonu ve sürüm işleri gibi) için Azure Container Instances harika bir çözümdür. Eksiksiz bir kapsayıcı düzenlemesi gerektiren senaryolar (birden çok kapsayıcıda hizmet bulma, otomatik ölçeklendirme ve eşgüdümlü uygulama yükseltmeleri gibi) için [Azure Container Service](https://docs.microsoft.com/azure/container-service/)’i öneririz.
+Yalıtılmış kapsayıcılarda çalışabileceğiniz senaryolar (basit uygulamalar, görev otomasyonu ve sürüm işleri gibi) için Azure Container Instances harika bir çözümdür. Eksiksiz bir kapsayıcı düzenlemesi gerektiren senaryolar (birden çok kapsayıcıda hizmet bulma, otomatik ölçeklendirme ve eşgüdümlü uygulama yükseltmeleri gibi) için [Azure Container Service (AKS)](../aks/index.yml) hizmetini öneririz.
 
 ## <a name="fast-startup-times"></a>Hızlı başlangıç süreleri
 
@@ -39,7 +39,7 @@ Azure Container Instances ile kapsayıcılarınızı İnternet üzerinde genel I
 
 ## <a name="persistent-storage"></a>Kalıcı depolama
 
-Azure Container Instances ile durum alma ve durumu kalıcı hale getirme işlemleri için, Azure dosya paylaşımlarını doğrudan bağlama olanağı sunuyoruz.
+Azure Container Instances ile durum alma ve durumu kalıcı hale getirme işlemleri için, [Azure Dosyaları paylaşımlarını doğrudan bağlama](container-instances-mounting-azure-files-volume.md) olanağı sunuyoruz.
 
 ## <a name="linux-and-windows-containers"></a>Linux ve Windows kapsayıcıları
 
@@ -47,7 +47,7 @@ Azure Container Instances sayesinde, aynı API ile hem Windows hem de Linux kaps
 
 ## <a name="co-scheduled-groups"></a>Birlikte zamanlanmış gruplar
 
-Azure Container Instances, aynı ana makineyi, yerel ağı, depolama alanını ve yaşam döngüsünü paylaşan birden çok kapsayıcı grubunun zamanlanmasını destekler. Böylece ana uygulamanızı, günlüğe kaydetme gibi diğer destekleyici uygulamalarla birleştirebilirsiniz.
+Azure Container Instances, aynı ana makineyi, yerel ağı, depolama alanını ve yaşam döngüsünü paylaşan [birden çok kapsayıcı grubunun](container-instances-container-groups.md) zamanlanmasını destekler. Böylece ana uygulamanızı, günlüğe kaydetme gibi diğer destekleyici uygulamalarla birleştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

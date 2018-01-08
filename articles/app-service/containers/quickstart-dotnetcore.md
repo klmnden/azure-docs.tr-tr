@@ -1,7 +1,7 @@
 ---
-title: "Bir .NET Core web uygulaması oluşturma ve Linux üzerinde App Service'e dağıtma | Microsoft Docs"
-description: "İlk .NET Core Hello World uygulamanızı App Service'e Linux'ta dakika cinsinden dağıtın."
-keywords: "Azure uygulama hizmeti, web uygulaması, dotnet, çekirdek, linux, oss"
+title: "Linux’ta .NET Core web uygulaması oluşturma ve App Service’e dağıtma | Microsoft Docs"
+description: "Linux’ta ilk .NET Core Merhaba Dünya uygulamanızı App Service’e birkaç dakika içinde dağıtın."
+keywords: "azure app service, web uygulaması, dotnet, core, linux, oss"
 services: app-service
 documentationCenter: 
 author: cephalin
@@ -16,15 +16,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
-# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux üzerinde App Service'te bir .NET Core web uygulaması oluşturma
+# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux’ta App Service’te .NET Core web uygulaması oluşturma
 
-[Uygulama hizmeti Linux'ta](app-service-linux-intro.md) düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web hizmetini kullanarak Linux işletim sistemi barındırma sağlar. Bu hızlı başlangıç nasıl oluşturulacağını gösterir bir [.NET Core](https://docs.microsoft.com/aspnet/core/) Linux uygulama hizmeti uygulaması. Web uygulamasını kullanarak oluşturduğunuz [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), ve Git .NET Core kodunuzu web uygulamasına dağıtmak için kullanın.
+> [!NOTE]
+> Bu makalede bir uygulamanın Linux üzerinde App Service'e dağıtımı yapılır. _Windows_'da App Service dağıtmak için bkz. [Azure'da ASP.NET Core web uygulaması oluşturma](../app-service-web-get-started-dotnet.md).
+>
+
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta Linux üzerinde App Service’te [.NET Core](https://docs.microsoft.com/aspnet/core/) uygulaması oluşturma gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak web uygulamasını oluşturabilir ve .NET Core kodunu web uygulamasında dağıtmak için Git'i kullanabilirsiniz.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -35,13 +39,13 @@ Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirs
 Bu hızlı başlangıcı tamamlamak için:
 
 * <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
-* <a href="https://www.microsoft.com/net/download/core" target="_blank">.NET Core SDK yükleme</a>
+* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">.NET Core SDK 1.1 yükleyin</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-app-locally"></a>Uygulama yerel olarak oluşturma
+## <a name="create-the-app-locally"></a>Uygulamayı yerel olarak oluşturma
 
-Makinenizde bir terminal penceresi içinde adlı bir dizin oluşturun `hellodotnetcore` ve geçerli dizini değiştirin.
+Makinenizde bir terminal penceresinde, `hellodotnetcore` adlı bir dizin oluşturup geçerli dizin olarak değiştirin.
 
 ```bash
 md hellodotnetcore
@@ -56,20 +60,20 @@ dotnet new web
 
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-NuGet paketlerini geri yüklemek ve uygulamayı çalıştırın.
+NuGet paketlerini geri yükleyip uygulamayı çalıştırın.
 
 ```bash
 dotnet restore
 dotnet run
 ```
 
-Bir web tarayıcısı açın ve uygulamaya gidin `http://localhost:5000`.
+Bir web tarayıcısı açın ve `http://localhost:5000` konumundaki uygulamaya gidin.
 
 Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
 
-![Tarayıcı ile test](media/quickstart-dotnetcore/dotnet-browse-local.png)
+![Tarayıcı ile test etme](media/quickstart-dotnetcore/dotnet-browse-local.png)
 
-Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın. .NET Core proje için bir Git deposu başlatır.
+Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın. .NET Core projesi için bir Git deposu başlatın.
 
 ```bash
 git init
@@ -89,7 +93,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Yeni oluşturulan web uygulamanıza göz atın. Değiştir  _&lt;uygulama adı >_ ile web uygulaması adı.
+Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini kendi web uygulamanızın adıyla değiştirin.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -130,21 +134,21 @@ To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
-Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
+Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js örnek kod, bir web uygulamasında yerleşik görüntüsü ile çalışıyor.
+Node.js örnek kodu bir web uygulaması yerleşik görüntüsünde çalışıyor.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Tebrikler!** Linux üzerinde App Service'e ilk Node.js uygulamanızı dağıttıktan sonra.
+**Tebrikler!** Linux’ta App Service’e ilk Node.js uygulamanızı dağıttınız.
 
 ## <a name="update-and-redeploy-the-code"></a>Kodu güncelleştirme ve yeniden dağıtma
 
-Yerel dizininde açın _haline_ dosya. Yöntem çağrısının metni küçük değişiklikler yapmak `context.Response.WriteAsync`:
+Yerel dizinde, _Startup.cs_ dosyasını açın. `context.Response.WriteAsync` yöntem çağrısında metinde küçük bir değişiklik yapın:
 
 ```csharp
 await context.Response.WriteAsync("Hello Azure!");
@@ -180,4 +184,4 @@ Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Linux üzerinde Azure App Service'te bir .NET Core ve SQL veritabanı web uygulaması oluşturma](tutorial-dotnetcore-sqldb-app.md)
+> [Linux üzerinde Azure App Service’te .NET Core ve SQL Veritabanı uygulaması oluşturma](tutorial-dotnetcore-sqldb-app.md)

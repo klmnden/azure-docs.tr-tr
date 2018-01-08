@@ -1,5 +1,5 @@
 ---
-title: "Azure Hızlı Başlangıç - Azure portalıyla sanal makine yedekleme | Microsoft Docs"
+title: "Azure Hızlı Başlangıcı - Azure portalıyla VM yedekleme | Microsoft Docs"
 description: "Azure portalıyla sanal makinelerinizi nasıl yedekleyeceğinizi öğrenin"
 services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 68409d7832985bea635e4b6de341ea6aec6f560d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure'daki bir sanal makineyi yedekleme
 Azure yedekleri Azure portalı üzerinden oluşturulabilir. Bu yöntem, Azure yedeklerini ve tüm ilgili kaynakları oluşturup yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında saklanabilecek kurtarma noktaları oluşturur. Bu makalede Azure portalıyla bir sanal makinenin nasıl yedekleneceği anlatılmaktadır. 
 
-Bu hızlı başlangıç belgesi var olan bir Azure sanal makinesinde yedeklemeyi etkinleştirir. Bir sanal makine oluşturmanız gerekiyorsa [Azure portalıyla sanal makine oluşturabilirsiniz](../virtual-machines/windows/quick-create-portal.md).
+Bu hızlı başlangıç belgesi var olan bir Azure VM'de yedeklemeyi etkinleştirir. Bir sanal makine oluşturmanız gerekiyorsa [Azure portalıyla sanal makine oluşturabilirsiniz](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -35,14 +35,14 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 Kurtarma Hizmetleri Kasasına basit bir zamanlanmış günlük yedekleme oluşturma. 
 
 1. Sol taraftaki menüden **Sanal makineler**'i seçin. 
-2. Listeden yedekleyeceğiniz sanal makineyi seçin. Örnek sanal makine hızlı başlangıç komutlarını kullandıysanız sanal makinenin adı *myVM*, kaynak grubunun adı ise *myResourceGroup* olacaktır.
-3. **Ayarlar** bölümünde **Yedekle**'yi seçin. **Yedeklemeyi etkinleştir** penceresi açılır.
+2. Listeden yedekleyeceğiniz sanal makineyi seçin. Örnek VM hızlı başlangıç komutlarını kullandıysanız VM'nin adı *myVM*, kaynak grubunun adı ise *myResourceGroup* olacaktır.
+3. **İşlemler** bölümünde **Yedekle**'yi seçin. **Yedeklemeyi etkinleştir** penceresi açılır.
 
 
 ## <a name="enable-backup-on-a-vm"></a>Bir sanal makinede yedeklemeyi etkinleştirme
 Kurtarma Hizmetleri kasası, Azure sanal makineleri gibi koruma altındaki kaynakların yedeklenen verilerini saklayan bir mantıksal kapsayıcıdır. Koruma altındaki bir kaynak için yedekleme işi çalıştığında Kurtarma Hizmetleri kasasının içinde bir kurtarma noktası oluşturulur. Daha sonra bu kurtarma noktalarından birini kullanarak verileri dilediğiniz zaman geri yükleyebilirsiniz.
 
-1. **Yeni oluştur**'u seçin ve yeni kasa için **myRecoveryServicesVault** gibi bir ad girin.
+1. **Yeni oluştur**'u seçin ve yeni kasa için *myRecoveryServicesVault* gibi bir ad girin.
 2. Seçili değilse **Var olanı kullan**'ı ve açılan menüden sanal makinenin kaynak grubunu seçin.
 
     ![Azure portalında sanal makine yedeklemeyi etkinleştirme](./media/quick-backup-vm-portal/enable-backup.png)
@@ -52,6 +52,8 @@ Kurtarma Hizmetleri kasası, Azure sanal makineleri gibi koruma altındaki kayna
     Bir yedekleme işinin çalışma zamanını ve kurtarma noktalarının saklama süresini tanımlamak için ilke oluşturur ve kullanırsınız. Varsayılan koruma ilkesi yedekleme işini her gün çalıştırır ve kurtarma noktalarını 30 gün boyunca tutar. Sanal makinenizi hızlı bir şekilde koruma altına almak için bu varsayılan ilke değerlerini kullanabilirsiniz. 
 
 3. Varsayılan yedekleme ilkesi değerlerini kabul etmek için **Yedeklemeyi Etkinleştir**'i seçin.
+
+Kurtarma Hizmetleri kasasının oluşturulması birkaç dakika sürer.
 
 
 ## <a name="start-a-backup-job"></a>Bir yedekleme işi başlatma

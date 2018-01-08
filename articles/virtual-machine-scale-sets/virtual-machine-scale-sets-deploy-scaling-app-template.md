@@ -1,10 +1,10 @@
 ---
-title: "Azure sanal makine ölçek kümesinde uygulama dağıtma | Microsoft Docs"
-description: "Azure Resource Manager şablonunu kullanarak bir sanal makine ölçek kümesinde basit bir otomatik ölçeklendirme uygulaması dağıtmayı öğrenin."
+title: "Azure şablonuyla Sanal Makine Ölçek Kümesi oluşturma | Microsoft Docs"
+description: "Azure Resource Manager şablonuyla hızlıca sanal makine ölçek kümesi oluşturmayı öğrenin"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: rwike77
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,297 +13,211 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2017
-ms.author: ryanwi
-ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.author: iainfou
+ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="deploy-an-autoscaling-app-using-a-template"></a>Şablon kullanarak bir otomatik ölçeklendirme uygulaması dağıtma
+# <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0 ile Sanal Makine Ölçek Kümesi oluşturma
+Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu başlangıç makalesinde bir Azure Resource Manager şablonu ile bir sanal makine ölçek kümesi oluşturacaksınız. Ölçek kümesi oluşturmak için [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) veya [Azure portalı](virtual-machine-scale-sets-create-portal.md) da kullanabilirsiniz.
 
-[Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici, [Basit bir ölçek kümesi dağıtma](virtual-machine-scale-sets-mvss-start.md) öğreticisini temel alır ve Azure Resource Manager şablonu kullanılarak bir ölçek kümesinde basit bir otomatik ölçeklendirme uygulamasının nasıl dağıtılacağını açıklar.  PowerShell, CLI veya portalı kullanarak da otomatik ölçeklendirme ayarlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeye genel bakış](virtual-machine-scale-sets-autoscale-overview.md).
 
-## <a name="two-quickstart-templates"></a>İki hızlı başlangıç şablonu
-Ölçek kümesi dağıtırken bir [VM Uzantısını](../virtual-machines/virtual-machines-windows-extensions-features.md) kullanarak bir platform görüntüsü üzerine yeni yazılım yükleyebilirsiniz. VM uzantısı, dağıtım sonrası yapılandırma ve Azure sanal makinelerinde uygulama dağıtımı gibi otomasyon görevleri sunan küçük bir uygulamadır. [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) bölümünde, VM uzantıları kullanılarak bir ölçek kümesine nasıl otomatik ölçeklendirme uygulaması dağıtılacağını gösteren iki farklı örnek sağlanmıştır.
+## <a name="overview-of-templates"></a>Şablonlara genel bakış
+Azure Resource Manager şablonları, ilgili kaynak gruplarını dağıtmanızı sağlar. Şablonlar JavaScript Nesne Gösterimi (JSON) ile yazılmıştır ve uygulamanıza ait Azure altyapısı ortamının tamamını tanımlar. Tek bir şablonda sanal makine ölçek kümesi oluşturabilir, uygulamaları yükleyebilir ve otomatik ölçeklendirme kurallarını yapılandırabilirsiniz. Değişkenleri ve parametreleri kullanarak bu şablonu var olan ölçek kümelerini güncelleştirme veya yenilerini oluşturma amacıyla tekrar kullanabilirsiniz. Şablonları Azure portalı, Azure CLI 2.0 veya Azure PowerShell aracılığıyla dağıtabilir ya da sürekli tümleştirme/sürekli teslim (CI/CD) işlem hatlarından çağırabilirsiniz.
 
-### <a name="python-http-server-on-linux"></a>Linux’ta Python HTTP sunucusu
-[Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) örnek şablonu, bir Linux ölçek kümesinde çalışan basit bir otomatik ölçeklendirme uygulaması dağıtır.  Özel betik VM uzantısı kullanılarak ölçek kümesindeki her VM’de bir Python web çerçevesi olan [Bottle](http://bottlepy.org/docs/dev/) ve basit bir HTTP sunucusu dağıtılır. Tüm VM’lerdeki ortalama CPU kullanımı %60’ı aştığında ölçek kümesinin ölçeği otomatik olarak artırılırken, ortalama CPU kullanımı %30’un altında düştüğünde ölçek azaltılır.
+Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
 
-Ölçek kümesi kaynağına ek olarak *azuredeploy.json* örnek şablonu da sanal ağ, genel IP adresi, yük dengeleyici ve otomatik ölçeklendirme ayarları kaynakları bildirir.  Bir şablonda bu kaynakları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeli Linux ölçek kümesi](virtual-machine-scale-sets-linux-autoscale.md).
 
-*azuredeploy.json* şablonunda, `Microsoft.Compute/virtualMachineScaleSets` kaynağının `extensionProfile` özelliği özel bir betik uzantısını belirtir. `fileUris`, betiğin konumunu belirtir. Bu örnekte iki dosya vardır: Basit bir HTTP sunucusu tanımlayan *workserver.py* ve Bottle’ı yükleyip HTTP sunucusunu başlatan *installserver.sh*. `commandToExecute`, ölçek kümesi dağıtıldıktan sonra çalıştırılacak komutu belirtir.
+## <a name="define-a-scale-set"></a>Ölçek kümesi tanımlama
+Şablon, her bir kaynak türü için yapılandırma tanımlar. Sanal makine ölçek kümesi kaynak türü, tek bir VM ile benzerlik gösterir. Sanal makine ölçek kümesi kaynak türünün ana bölümleri şunlardır:
+
+| Özellik                     | Özellik açıklaması                                  | Örnek şablon değeri                    |
+|------------------------------|----------------------------------------------------------|-------------------------------------------|
+| type                         | Oluşturulacak Azure kaynağı türü                            | Microsoft.Compute/virtualMachineScaleSets |
+| ad                         | Ölçek kümesi adı                                       | myScaleSet                                |
+| location                     | Ölçek kümesinin oluşturulacağı konum                     | Doğu ABD                                   |
+| sku.name                     | Her bir ölçek kümesi örneği için VM boyutu                  | Standard_A1                               |
+| sku.capacity                 | Başlangıçta oluşturulacak VM örneği sayısı           | 2                                         |
+| upgradePolicy.mode           | Değişiklik yapıldığında kullanılacak VM örneği yükseltme modu              | Automatic                                 |
+| imageReference               | VM örnekleri için kullanılacak platform veya özel görüntü | Canonical Ubuntu Server 16.04-LTS         |
+| osProfile.computerNamePrefix | Her bir VM örneği için ad ön eki                     | myvmss                                    |
+| osProfile.adminUsername      | Her bir VM örneği için kullanıcı adı                        | azureuser                                 |
+| osProfile.adminPassword      | Her bir VM örneği için parola                        | P@ssw0rd!                                 |
+
+ Aşağıdaki kod parçacığında bir şablon içindeki temel ölçek kümesi kaynak tanımı gösterilmektedir. Örneği kısa tutmak için sanal ağ arabirim kartı (NIC) yapılandırılması gösterilmemiştir. Bir ölçek kümesi şablonunu özelleştirmek için VM boyutunu veya başlangıç kapasitesini değiştirebilir ya da farklı bir platform veya özel görüntü kullanabilirsiniz.
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "lapextension",
-                "properties": {
-                  "publisher": "Microsoft.Azure.Extensions",
-                  "type": "CustomScript",
-                  "typeHandlerVersion": "2.0",
-                  "autoUpgradeMinorVersion": true,
-                  "settings": {
-                    "fileUris": [
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-                    ],
-                    "commandToExecute": "bash installserver.sh"
-                  }
-                }
-              }
-            ]
-          }
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "myScaleSet",
+  "location": "East US",
+  "apiVersion": "2016-04-30-preview",
+  "sku": {
+    "name": "Standard_A1",
+    "capacity": "2"
+  },
+  "properties": {
+    "upgradePolicy": {
+      "mode": "Automatic"
+    },
+    "virtualMachineProfile": {
+      "storageProfile": {
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage"
+        },
+        "imageReference":  {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "16.04-LTS",
+          "version": "latest"
+        }
+      },
+      "osProfile": {
+        "computerNamePrefix": "myvmss",
+        "adminUsername": "azureuser",
+        "adminPassword": "P@ssw0rd!"
+      }
+    }
+  }
+}
 ```
 
-### <a name="aspnet-mvc-application-on-windows"></a>Windows’da ASP.NET MVC uygulaması
-[Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) örnek şablonu, Windows ölçek kümesinde IIS’de çalışan basit bir ASP.NET MVC uygulaması dağıtır.  IIS ve MVC uygulaması, [PowerShell istenen durum yapılandırması (DSC)](virtual-machine-scale-sets-dsc.md) VM uzantısı kullanılarak dağıtılır.  VM örneğindeki CPU kullanımı 5 dakika boyunca aralıksız olarak %50’nin üzerinde kalırsa ölçek kümesinin ölçeği artar. 
 
-Ölçek kümesi kaynağına ek olarak *azuredeploy.json* örnek şablonu da sanal ağ, genel IP adresi, yük dengeleyici ve otomatik ölçeklendirme ayarları kaynakları bildirir. Bu şablon, uygulama yükseltme işlemini de gösterir.  Bir şablonda bu kaynakları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeli Windows ölçek kümesi](virtual-machine-scale-sets-windows-autoscale.md).
+## <a name="install-an-application"></a>Uygulama yükleme
+Bir ölçek kümesini dağıttığınızda VM uzantıları uygulama yükleme gibi dağıtım sonrası yapılandırma ve otomasyon görevlerini gerçekleştirebilir. Betikler Azure depolama veya GitHub konumlarından indirilebilir ya da Azure portalına uzantı çalışma zamanında iletilebilir. Ölçek kümenize uzantı uygulamak için önceki kaynak örneğine *extensionProfile* bölümünü eklemeniz gerekir. Uzantı profili temelde aşağıdaki özellikleri tanımlar:
 
-*azuredeploy.json* şablonunda, `Microsoft.Compute/virtualMachineScaleSets` kaynağının `extensionProfile` özelliği bir [istenen durum yapılandırması (DSC)](virtual-machine-scale-sets-dsc.md) uzantısı belirtir ve bu da bir WebDeploy paketinden IIS’yi ve varsayılan bir web uygulamasını yükler.  *IISInstall.ps1* betiği sanal makinede IIS’yi yükler ve *DSC* klasöründe bulunur.  MVC web uygulaması *WebDeploy* klasöründe bulunur.  Yükleme betiği ve web uygulamasının yolları, *azuredeploy.parameters.json* dosyasındaki `powershelldscZip` ve `webDeployPackage` parametrelerinde tanımlanır. 
+- Uzantı türü
+- Uzantı yayımcısı
+- Uzantı sürümü
+- Yapılandırma veya yükleme betiklerinin konumu
+- VM örneklerinde yürütülecek komutlar
+
+Uzantı ile uygulama yüklemek için kullanabileceğiniz iki farklı yönteme göz atalım: Özel Betik Uzantısı ile Linux üzerinde bir Python uygulaması yükleme veya PowerShell DSC uzantısı ile Windows üzerinde bir ASP.NET uygulaması yükleme.
+
+### <a name="python-http-server-on-linux"></a>Linux’ta Python HTTP sunucusu
+[Linux'ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale), Özel Betik Uzantısı'nı kullanarak bir Python web çerçevesi olan [Bottle](http://bottlepy.org/docs/dev/) uygulamasını ve basit bir HTTP sunucusu yükler. 
+
+İki betik *fileUris* - *installserver.sh* ve *workserver.py* içinde tanımlanmıştır. Bu dosyalar GitHub'dan indirildikten sonra *commandToExecute*, yüklenecek ve yapılandırılacak uygulama için `bash installserver.sh` tanımlaması yapar:
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "Microsoft.Powershell.DSC",
-                "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.9",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('powershelldscUpdateTagVersion')]",
-                  "settings": {
-                    "configuration": {
-                      "url": "[variables('powershelldscZipFullPath')]",
-                      "script": "IISInstall.ps1",
-                      "function": "InstallIIS"
-                    },
-                    "configurationArguments": {
-                      "nodeName": "localhost",
-                      "WebDeployPackagePath": "[variables('webDeployPackageFullPath')]"
-                    }
-                  }
-                }
-              }
-            ]
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "AppInstall",
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+          ],
+          "commandToExecute": "bash installserver.sh"
+        }
+      }
+    }
+  ]
+}
+```
+
+### <a name="aspnet-application-on-windows"></a>Windows'da ASP.NET uygulaması
+[ASP.NET application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) örnek şablonunda PowerShell DSC uzantısı kullanılarak IIS içinde çalışan bir ASP.NET MVC uygulaması yüklenmektedir. 
+
+*url* ile tanımlandığı üzere GitHub'dan bir yükleme betiği indirilir. Uzantı ardından *function* ve *Script* ile tanımlandığı üzere *IISInstall.ps1* betiğinden *InstallIIS* komutunu çalıştırır. ASP.NET uygulaması da *WebDeployPackagePath* ile tanımlandığı üzere GitHub'dan indirilen bir Web Dağıtımı paketine sahiptir:
+
+```json
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "Microsoft.Powershell.DSC",
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.9",
+        "autoUpgradeMinorVersion": true,
+        "forceUpdateTag": "1.0",
+        "settings": {
+          "configuration": {
+            "url": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/DSC/IISInstall.ps1.zip",
+            "script": "IISInstall.ps1",
+            "function": "InstallIIS"
+          },
+          "configurationArguments": {
+            "nodeName": "localhost",
+            "WebDeployPackagePath": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/WebDeploy/DefaultASPWebApp.v1.0.zip"
           }
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
-[Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) şablonunu dağıtmanın en basit yolu, GitHub’daki benioku dosyalarında bulunan **Azure’a Dağıt** düğmesini kullanmaktır.  Örnek şablonları dağıtmak için PowerShell veya Azure CLI aracını da kullanabilirsiniz.
+[Linux'ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [Windows'da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) şablonunu dağıtmanın en basit yolu, GitHub'daki benioku dosyalarında bulunan **Azure'a dağıtın** düğmesini kullanmaktır.  Örnek şablonları dağıtmak için PowerShell veya Azure CLI aracını da kullanabilirsiniz.
 
-### <a name="powershell"></a>PowerShell
-[Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) dosyalarını GitHub deposundan yerel bilgisayarınızdaki bir klasöre kopyalayın.  *azuredeploy.parameters.json* dosyasını açıp `vmssName`, `adminUsername` ve `adminPassword` parametrelerini güncelleştirin. Aşağıdaki PowerShell betiğini *azuredeploy.json* şablonuyla aynı klasördeki *deploy.ps1* öğesine kaydedin. Örnek şablonu dağıtmak için bir PowerShell komut penceresinden *deploy.ps1* betiğini çalıştırın.
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+Linux üzerine Python HTTP sunucusunu yüklemek için Azure CLI 2.0 kullanabilirsiniz:
 
-```powershell
-param(
- [Parameter(Mandatory=$True)]
- [string]
- $subscriptionId,
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location EastUS
 
- [Parameter(Mandatory=$True)]
- [string]
- $resourceGroupName,
-
- [string]
- $resourceGroupLocation,
-
- [Parameter(Mandatory=$True)]
- [string]
- $deploymentName,
-
- [string]
- $templateFilePath = "template.json",
-
- [string]
- $parametersFilePath = "parameters.json"
-)
-
-<#
-.SYNOPSIS
-    Registers RPs
-#>
-Function RegisterRP {
-    Param(
-        [string]$ResourceProviderNamespace
-    )
-
-    Write-Host "Registering resource provider '$ResourceProviderNamespace'";
-    Register-AzureRmResourceProvider -ProviderNamespace $ResourceProviderNamespace;
-}
-
-#******************************************************************************
-# Script body
-# Execution begins here
-#******************************************************************************
-$ErrorActionPreference = "Stop"
-
-# sign in
-Write-Host "Logging in...";
-Login-AzureRmAccount;
-
-# select subscription
-Write-Host "Selecting subscription '$subscriptionId'";
-Select-AzureRmSubscription -SubscriptionID $subscriptionId;
-
-# Register RPs
-$resourceProviders = @("microsoft.compute","microsoft.insights","microsoft.network");
-if($resourceProviders.length) {
-    Write-Host "Registering resource providers"
-    foreach($resourceProvider in $resourceProviders) {
-        RegisterRP($resourceProvider);
-    }
-}
-
-#Create or check for existing resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
-if(!$resourceGroup)
-{
-    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
-    if(!$resourceGroupLocation) {
-        $resourceGroupLocation = Read-Host "resourceGroupLocation";
-    }
-    Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else{
-    Write-Host "Using existing resource group '$resourceGroupName'";
-}
-
-# Start the deployment
-Write-Host "Starting deployment...";
-if(Test-Path $parametersFilePath) {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
-} else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
-}
+# Deploy template into resource group
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-### <a name="azure-cli"></a>Azure CLI
-```azurecli
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
+Uygulamanızı çalışır halde görmek için [az network public-ip list](/cli/azure/network/public-ip#show) ile yük dengeleyicisinin genel IP adresini alın:
 
-# -e: immediately exit if any command has a non-zero exit status
-# -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
-
-usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
-
-declare subscriptionId=""
-declare resourceGroupName=""
-declare deploymentName=""
-declare resourceGroupLocation=""
-
-# Initialize parameters specified from command line
-while getopts ":i:g:n:l:" arg; do
-    case "${arg}" in
-        i)
-            subscriptionId=${OPTARG}
-            ;;
-        g)
-            resourceGroupName=${OPTARG}
-            ;;
-        n)
-            deploymentName=${OPTARG}
-            ;;
-        l)
-            resourceGroupLocation=${OPTARG}
-            ;;
-        esac
-done
-shift $((OPTIND-1))
-
-#Prompt for parameters is some required parameters are missing
-if [[ -z "$subscriptionId" ]]; then
-    echo "Subscription Id:"
-    read subscriptionId
-    [[ "${subscriptionId:?}" ]]
-fi
-
-if [[ -z "$resourceGroupName" ]]; then
-    echo "ResourceGroupName:"
-    read resourceGroupName
-    [[ "${resourceGroupName:?}" ]]
-fi
-
-if [[ -z "$deploymentName" ]]; then
-    echo "DeploymentName:"
-    read deploymentName
-fi
-
-if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
-    echo "ResourceGroupLocation:"
-    read resourceGroupLocation
-fi
-
-#templateFile Path - template file to be used
-templateFilePath="template.json"
-
-if [ ! -f "$templateFilePath" ]; then
-    echo "$templateFilePath not found"
-    exit 1
-fi
-
-#parameter file path
-parametersFilePath="parameters.json"
-
-if [ ! -f "$parametersFilePath" ]; then
-    echo "$parametersFilePath not found"
-    exit 1
-fi
-
-if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
-    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
-    usage
-fi
-
-#login to azure using your credentials
-az account show 1> /dev/null
-
-if [ $? != 0 ];
-then
-    az login
-fi
-
-#set the default subscription id
-az account set --name $subscriptionId
-
-set +e
-
-#Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
-    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
-    (
-        set -x
-        az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
-    )
-    else
-    echo "Using existing resource group..."
-fi
-
-#Start deployment
-echo "Starting deployment..."
-(
-    set -x
-    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
-)
-
-if [ $?  == 0 ];
- then
-    echo "Template has been successfully deployed"
-fi
+```azurecli-interactive
+az network public-ip list \
+    --resource-group myResourceGroup \
+    --query [*].ipAddress -o tsv
 ```
+
+Yük dengeleyicinin genel IP adresini bir web tarayıcısına şu biçimde girin: *http://<publicIpAddress>:9000/do_work*. Aşağıdaki örnekte gösterildiği gibi yük dengeleyici trafiği VM örneklerinizden birine dağıtır:
+
+![NGINX varsayılan web sayfası](media/virtual-machine-scale-sets-create-template/running-python-app.png)
+
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Windows üzerine ASP.NET uygulamasını yüklemek için Azure PowerShell kullanabilirsiniz:
+
+```azurepowershell-interactive
+# Create a resource group
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+
+# Deploy template into resource group
+New-AzureRmResourceGroupDeployment `
+    -ResourceGroupName myResourceGroup `
+    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+```
+
+Uygulamanızı çalışır halde görmek için [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ile yük dengeleyicinizin genel IP adresini alın:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Yük dengeleyicinin genel IP adresini bir web tarayıcısına şu biçimde girin: *http://<publicIpAddress>/Uygulamam*. Aşağıdaki örnekte gösterildiği gibi yük dengeleyici trafiği VM örneklerinizden birine dağıtır:
+
+![Çalışan IIS sitesi](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
+
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz:
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-[!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

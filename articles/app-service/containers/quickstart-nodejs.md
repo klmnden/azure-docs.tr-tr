@@ -1,6 +1,6 @@
 ---
-title: "Linux üzerinde Azure App Service'teki bir Node.js oluşturun | Microsoft Docs"
-description: "Dakika cinsinden, ilk Node.js Hello World Linux Azure App Service'te dağıtın."
+title: "Linux’ta Azure App Service’te Node.js oluşturma | Microsoft Docs"
+description: "Linux’ta Azure App Service’te ilk Node.js Merhaba Dünya uygulamanızı birkaç dakika içinde dağıtın."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -15,15 +15,19 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: 3f75a49c697898ee52bcec68e520f103061752a8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Node.js web uygulaması oluşturma
+# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux’ta Azure App Service’te bir Node.js web uygulaması oluşturma
 
-[Uygulama hizmeti Linux'ta](app-service-linux-intro.md) düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web hizmetini kullanarak Linux işletim sistemi barındırma sağlar. Bu Hızlı Başlangıç, yerleşik bir görüntü kullanarak bir Node.js uygulaması Linux'ta App Service'e dağıtma gösterir. Yerleşik görüntü kullanarak web uygulaması oluşturma [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), ve Git Node.js kodunuzu web uygulamasına dağıtmak için kullanın.
+> [!NOTE]
+> Bu makalede bir uygulamanın Linux üzerinde App Service'e dağıtımı yapılır. _Windows_'da App Service dağıtmak için bkz. [Azure'da Node.js web uygulaması oluşturma](../app-service-web-get-started-nodejs.md).
+>
+
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta Linux üzerinde yerleşik görüntü kullanarak bir Node.js uygulamasını App Service’e dağıtma gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak yerleşik görüntü ile web uygulamasını oluşturabilir ve Node.js kodunu web uygulamasına dağıtmak için Git kullanabilirsiniz.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -40,7 +44,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-Makinenizde terminal penceresinde örnek uygulama depoyu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+Makinenizde bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -62,7 +66,7 @@ Yerleşik Node.js HTTP sunucusunu başlatmak için bir terminal penceresi açıp
 npm start
 ```
 
-Bir web tarayıcısı açın ve örnek uygulamaya gidin `http://localhost:1337`.
+Bir web tarayıcısı açın ve `http://localhost:1337` konumundaki örnek uygulamaya gidin.
 
 Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
 
@@ -82,7 +86,7 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Yeni oluşturulan web uygulamanıza göz atın. Değiştir  _&lt;uygulama adı >_ ile web uygulaması adı.
+Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini kendi web uygulamanızın adıyla değiştirin.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -128,21 +132,21 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
-Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
+Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js örnek kod, bir web uygulamasında yerleşik görüntüsü ile çalışıyor.
+Node.js örnek kodu bir web uygulaması yerleşik görüntüsünde çalışıyor.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Tebrikler!** Linux üzerinde App Service'e ilk Node.js uygulamanızı dağıttıktan sonra.
+**Tebrikler!** Linux’ta App Service’e ilk Node.js uygulamanızı dağıttınız.
 
 ## <a name="update-and-redeploy-the-code"></a>Kodu güncelleştirme ve yeniden dağıtma
 
-Yerel dizininde açın `index.js` dosya Node.js uygulamasında ve çağrısında metni küçük değişiklikler yapmak `response.end`:
+Yerel dizinde `index.js` dosyasını Node.js uygulaması içinde açın ve `response.end` çağrısındaki metinde küçük bir değişiklik yapın:
 
 ```nodejs
 response.end("Hello Azure!");
