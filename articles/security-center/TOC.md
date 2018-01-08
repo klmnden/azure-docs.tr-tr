@@ -7,14 +7,14 @@
 ## [Platform geçişi](security-center-platform-migration.md)
 ### [Platform geçişi ile ilgili SSS](security-center-platform-migration-faq.md)
 
-# Başlarken
+# başlarken
 ## [Hızlı başlangıç](security-center-get-started.md)
 ## [Planlama ve işlemler](security-center-planning-and-operations-guide.md)
 ## [İzinler](security-center-permissions.md)
 ## [Desteklenen platformlar](security-center-os-coverage.md)
 ## [SSS](security-center-faq.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## [Güvenlik ilkesi](security-center-policies-overview.md)
 ### [Veri toplama](security-center-enable-data-collection.md)
 ### [Güvenlik ilkesi](security-center-policies.md)
@@ -90,6 +90,7 @@
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Güvenlik Merkezi Hazırlığı Yol Haritası](security-center-readiness-roadmap.md)
 ## [Azure Güvenlik, Gizlilik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmete genel bakış](https://azure.microsoft.com/services/security-center/)

@@ -18,7 +18,7 @@
 ## [Self servis parola sıfırlamasını yapılandırma](active-directory-passwords-getting-started.md)
 
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Azure AD mimarisini anlama](active-directory-architecture.md)
 ### [Azure Active Directory’de talep eşlemesi](active-directory-claims-mapping.md)
@@ -73,7 +73,7 @@
 
 ## [Grupları ve üyeleri yönetme](active-directory-manage-groups.md)
 ### Grupları yönetme
-#### [Azure portal](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
 ### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
@@ -93,7 +93,7 @@
 #### [Azure portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlet’ler](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Gelişmiş kurallar oluşturma
-#### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
 ### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
 
@@ -140,7 +140,7 @@
 ### [SSPR Veri gereksinimleri](active-directory-passwords-data.md)
 ### [SSPR Raporlama](active-directory-passwords-reporting.md)
 ### BT Yöneticileri: Parolaları sıfırlama
-#### [Azure portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [SSPR lisanslama](active-directory-passwords-licensing.md)
 ### [Parola geri yazma](active-directory-passwords-writeback.md)
 ### [Sorun giderme](active-directory-passwords-troubleshoot.md)

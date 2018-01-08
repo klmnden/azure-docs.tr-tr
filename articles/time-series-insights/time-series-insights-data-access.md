@@ -3,19 +3,19 @@ title: "Erişim ve Azure zaman serisi Öngörüler yönetmek için güvenliği y
 description: "Bu makalede güvenlik ve izinler yönetim erişimi nasıl yapılandırılacağı ilkeler ve veri erişim ilkeleri Azure zaman serisi Öngörüler güvenli hale getirmek için."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 22c8e4481f2ba4163a55cc1bbb6b33c10379a605
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c7d4079c9106226e0d07aa97c4a52c16ddb257c3
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamına veri erişimi verme
 

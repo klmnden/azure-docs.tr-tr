@@ -4,7 +4,7 @@ description: "Günlük analizi uyarılarını OMS deponuzun önemli bilgileri ta
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 6cfd2a46-b6a2-4f79-a67b-08ce488f9a91
 ms.service: log-analytics
@@ -12,23 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Günlük analizi, uyarıları anlama
 
-Günlük analizi uyarılarını günlük analizi deponuzun önemli bilgiler tanımlayın.  Bu makalede, günlük analizi çalışma nasıl uyarı kuralları ayrıntılarını sağlar ve uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır.
+Günlük analizi uyarılarını günlük analizi deponuzun önemli bilgiler tanımlayın.  Bu makalede bazı büyük olasılıkla ağ gecikmesi veya kapasite işleme ve veri günlüğüne yürüten nedeniyle veri alımı ile sorgulanan, rastgele gecikme olan veri toplama sıklığını göre yapılması gereken tasarım kararlarını açıklanır Analytics deposu.  Ayrıca, günlük analizi çalışma nasıl uyarı kuralları ayrıntılarını sağlar ve uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır.
 
 Uyarı kuralları oluşturma işlemi için aşağıdaki makalelere bakın:
 
 - Kullanarak uyarı kuralları oluşturmak [Azure portalı](log-analytics-alerts-creating.md)
 - Kullanarak uyarı kuralları oluşturmak [Resource Manager şablonu](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
 - Kullanarak uyarı kuralları oluşturmak [REST API'si](log-analytics-api-alerts.md)
+
+## <a name="considerations"></a>Dikkat edilmesi gerekenler
+
+Çeşitli çözümler ve veri türü mevcuttur için veri toplama sıklığı hakkında ayrıntıları [veri koleksiyonu ayrıntıları](log-analytics-add-solutions.md#data-collection-details) çözümleri genel bakış makalesi. Bu makalede belirtildiği gibi koleksiyon sıklığı olarak yedi günde bir kez kadar sık olabilir *bildirim*. Veri toplama sıklığı bir alarm ayarlamadan önce göz önünde bulundurun ve anlamak önemlidir. 
+
+- OMS Aracısı'nı makineler için günlük analizi veri ne sıklıkta gönderir toplama sıklığını belirler. Örneği için toplama sıklığını 10 dakikadır ve sistemdeki diğer bir gecikmeler varsa ardından zaman damgaları iletilen verilerin herhangi bir yere sıfır arasında ve 10 dakika havuza eklenmeden önce eski olabilir ve günlük analizi aranabilir.
+
+- Bir uyarıyı tetikleyen önce böylece sorgulandığında kullanılabilir veri deposu için yazılmış olmalıdır. Yukarıda açıklanan gecikme nedeniyle toplama sıklığı ile veri sorguları için kullanılabilir olduğu saat ile aynı değil. Verileri tam olarak her 10 min toplanabilir olsa da, örneğin, verileri düzensiz aralıklarla veri deposunda kullanılabilir. Hypothetically, sıfır, 10 ile 20 dakika aralıklarla toplanan verileri sırasıyla veya başka bir düzensiz aralıkta alım gecikmesine Etkileyenler 25, 28 ve 35 dakika arama için kullanılabilir. Bu gecikme en kötü durum belgelenen [günlük analizi için SLA](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), toplama sıklığı veya ağ arasındaki gecikme süresi bilgisayar ve günlük analizi hizmeti tarafından sunulan bir gecikme içermez.
 
 
 ## <a name="alert-rules"></a>Uyarı kuralları
@@ -37,11 +45,27 @@ Uyarılar, günlük aramaları düzenli aralıklarla otomatik olarak çalışaca
 
 ![Log Analytics uyarıları](media/log-analytics-alerts/overview.png)
 
+Beklenen bir gecikme süresi ile günlük veri alım olduğundan, veri ve aramak kullanılabilir olduğunda dizin oluşturma arasında mutlak süreye edilemeyebilir.  Toplanan verileri neredeyse gerçek zamanlı kullanılabilirliğini uyarı kurallarını tanımlama dikkate alınması gereken.    
+
+Güvenilirlik uyarıları ve uyarı yanıtlama arasında bir denge yoktur. Yanlış uyarılar ve eksik uyarıları en aza indirmek için Uyarı parametreleri yapılandırmak seçebileceğiniz veya hızlı izlenmekte olan, ancak bazen yanlış veya eksik uyarılar üretir koşullarına yanıt vermek için Uyarı parametreleri seçebilirsiniz.
+
 Uyarı kuralları tarafından aşağıdaki ayrıntıları tanımlanmıştır:
 
 - **Günlük arama**.  Uyarı kural her çalıştığında sorgusu gönderir.  Bu sorgu tarafından döndürülen kayıtları bir uyarı oluşturulup oluşturulmayacağını belirlemek için kullanılır.
-- **Zaman penceresi**.  Sorgu için zaman aralığını belirtir.  Sorgu, geçerli zaman aralığında oluşturulan kayıtları döndürür.  Bu, 5 dakika ile 24 saat arasında herhangi bir değer olabilir. Örneğin, zaman penceresi 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırırsanız, yalnızca saat 12: 15'e ve 13: 15'te arasında oluşturulan kayıtları döndürülür.
-- **Sıklık**.  Sorgunun ne sıklıkta çalıştırılması gerektiğini belirtir. 5 dakika ile 24 saat arasında herhangi bir değer olabilir. Eşit veya bu zaman penceresi'den daha az olmalıdır.  Değeri zaman penceresi'den büyükse, eksik kayıtları riski oluşur.<br>Örneğin, 30 dakikalık bir zaman penceresi ve 60 dakika sıklığını göz önünde bulundurun.  Sorgu 1: 00'dan çalıştırırsanız, 12:30 ve 1:00 arasında kayıt döndürür.  Sorguyu çalıştırabilir sonraki 2:00 kayıtlar 1:30 ve 2:00 arasında ne zaman döndürecektir süresidir.  1:00-1:30 arasında oluşturulan kayıtları hiçbir zaman değerlendirilmesi.
+- **Zaman penceresi**.  Sorgu için zaman aralığını belirtir.  Sorgu, geçerli zaman aralığında oluşturulan kayıtları döndürür.  Bu beş dakika ile 24 saat arasında herhangi bir değer olabilir. Aralığın alım makul gecikme uyum sağlayacak şekilde geniş olması gerekir. Zaman penceresi işleyebilen olmasını istediğiniz en uzun gecikme uzunluğu iki katı olması gerekir.<br> 30 dakikalık gecikme güvenilir olarak uyarıları isterseniz, örneğin, ardından aralık bir saat olması gerekir.  
+
+    Zaman aralığı kadar küçükse, karşılaşması iki Belirtiler vardır.
+
+    - **Eksik uyarıları**. Alım gecikme bazen 60 dakika olmakla birlikte, çoğu zaman, beş dakikadır varsayalım.  Zaman penceresi 30 dakikaya ayarlarsanız gecikme 60 dakika olduğunda uyarı sorgusu çalıştırıldığında verileri için arama kullanılamaz çünkü sonra bir uyarı eksik. 
+   
+        >[!NOTE]
+        >Uyarı eksik neden Tanıla çalışılırken mümkün değildir. Örneğin, yukarıdaki durumda, veriler 60 dakika uyarı sorgu yürütüldükten sonra depoya yazılır. Bir uyarı kaçırılan ve sonraki gün sorgu doğru zaman aralığı içinde yürütülür sonraki gün fark, günlük arama ölçütlerini sonucu eşleşir. Uyarıyı tetiklemesi gereken olduğunu görünür. Uyarı sorgusu çalıştırıldığında verileri henüz kullanılabilir olmadığından aslında, uyarının başlatıldığı değil. 
+        >
+ 
+    - **Yanlış uyarılar**. Bazen uyarı sorguları, olay eksikliklerini belirlemek için tasarlanmıştır. Bir sanal makine için eksik sinyal arayarak çevrimdışı olduğunda bunun bir örneği algılıyor. Olarak yukarıdaki sinyal uyarı zaman penceresi içinde arama için kullanılabilir değilse, sonra bir uyarı sinyal verileri henüz aranabilir olmadığından oluşturulur ve bu nedenle yok. Bu aynı sonucu VM yasal çevrimdışı ve tarafından oluşturulan hiçbir sinyal veriler olarak olur. Sonraki gün içinde doğru zaman penceresi sorgu yürütülürken sinyal vardı ve uyarı başarısız olduğunu gösterir. Uyarı zaman penceresini çok küçük olarak ayarlanmadığından aslında, sinyal henüz Ara kullanılamıyordu.  
+
+- **Sıklık**.  Sorgu ne sıklıkta çalıştırılması gerektiğini ve uyarılar normal örneği için daha iyi yanıt vermesi için kullanılan belirtir. Değer en fazla beş dakika ile 24 saat arasında olabilir ve eşit veya uyarı zaman penceresi'den daha az olmalıdır.  Değeri zaman penceresi'den büyükse, eksik kayıtları riski oluşur.<br>Hedef ise, için güvenilir olarak 30 dakika kadar geciktirir ve normal gecikmesi 10 dakikadır, zaman penceresi bir saat olmalıdır ve sıklığı değeri 10 dakika olmalıdır. Bu, uyarı verileri oluşturulduğunda 10 ile 20 dakika arasında bir 10 dakika alım gecikme sahip verileri olan bir uyarı tetikler.<br>Zaman penceresi çok geniş olduğundan aynı veriler için birden çok uyarı oluşturmamak için [uyarıları bastırma](log-analytics-tutorial-response.md#create-alerts) seçeneği, en az sürece zaman penceresi için uyarıları gizlemek için kullanılabilir.
+  
 - **Eşik**.  Günlük arama sonuçlarını, bir uyarının oluşturulması gerekip gerekmediğini belirlemek için değerlendirilir.  Eşik uyarı kuralları farklı türleri için farklıdır.
 
 Günlük analizi her uyarı kuralı iki türlerinden biridir.  Bu türleri izleyen bölümlerde ayrıntılı olarak açıklanmıştır.
@@ -76,18 +100,15 @@ Bazı durumlarda, bir olay olmaması durumunda bir uyarı oluşturmak isteyebili
 
 Örneğin, işlemci çalıştığında uyarı istiyorsanız %90 üzerindeki aşağıdaki gibi bir sorgu ile eşiği için uyarı kuralı kullanacağınız **0'dan büyük**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-    
+İşlemci üzerinde belirli bir zaman penceresi için % 90 ortalaması olduğunda uyarır istiyorsanız, bir sorgu kullanarak kullanırsınız [ölçmek komutu](log-analytics-search-reference.md#commands) uyarı kuralı için eşik ile aşağıdaki gibi **0'dan büyük**.
 
-İşlemci üzerinde belirli bir zaman penceresi için % 90 ortalaması olduğunda uyarır istiyorsanız, aşağıdaki gibi bir sorgu ile eşiği için uyarı kuralı kullanırsınız **0'dan büyük**.
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
-
-    
 >[!NOTE]
-> Çalışma alanınız Henüz için değil yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), yukarıdaki sorguları ikinci kullanarak aşağıdaki değişeceğinden sonra [ölçmek komutu](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
-> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
+> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), yukarıdaki sorguları aşağıdakiler için değişeceğinden sonra:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>Ölçüm ölçüm uyarı kuralları
@@ -102,7 +123,7 @@ Herhangi bir sorgu için kullanabilirsiniz, ancak bir **sonuç sayısı** uyarı
 
 - **Toplama işlevi**.  Gerçekleştirilen hesaplama ve büyük olasılıkla bir sayısal belirler toplanacak alan.  Örneğin, **count()** kayıt sayısını sorgudan döndürülecek **avg(CounterValue)** aralığı içinde CounterValue alanının ortalamasını döndürür.
 - **Alan grup**.  Bu alan her örneği için bir toplu değeri içeren bir kayıt oluşturulur ve her biri için bir uyarı oluşturulabilir.  Örneğin, her bilgisayar için bir uyarı oluşturmak istiyorsanız, kullanacağınız **bilgisayar tarafından**.   
-- **Aralığı**.  Birleşik verileri zaman aralığını tanımlar.  Örneğin, belirttiğiniz **5minutes**, bir kayıt her örneği için uyarı belirtilen zaman penceresi üzerinden 5 dakikalık aralıklarla toplanan grup alanının oluşturulması.
+- **Aralığı**.  Birleşik verileri zaman aralığını tanımlar.  Örneğin, belirttiğiniz **5 dakika**, bir kayıt her örneği için uyarı belirtilen zaman penceresi üzerinden 5 dakikalık aralıklarla toplanan grup alanının oluşturulması.
 
 #### <a name="threshold"></a>Eşik
 Ölçüm ölçüm uyarı kuralları için eşik bir toplam değerini ve bir dizi tarafından tanımlanır.  Herhangi bir veri noktasını günlük arama bu değeri aştığında bir ihlal dikkate almıştır.  Dizi içinde sonuçlarındaki herhangi bir nesne için belirtilen değeri aşarsa bir uyarı bu nesne için oluşturulur.
@@ -110,11 +131,11 @@ Herhangi bir sorgu için kullanabilirsiniz, ancak bir **sonuç sayısı** uyarı
 #### <a name="example"></a>Örnek
 Burada herhangi bir bilgisayar işlemci kullanımı % 90'ın üç kez üzerinde 30 dakika aşılırsa bir uyarı isteyen bir senaryo düşünün.  Bir uyarı kuralı aşağıdaki ayrıntılarla oluşturursunuz.  
 
-**Sorgu:** Perf | burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" == | AggregatedValue özetlemek bin (TimeGenerated, 5 m), bilgisayar tarafından avg(CounterValue) =<br>
+**Sorgu:** türü Perf ObjectName = işlemci CounterName = "% işlemci zamanı" = | avg(CounterValue) 5 dakika bilgisayar aralığına göre ölçün<br>
 **Zaman penceresi:** 30 dakika<br>
 **Uyarı sıklığı:** 5 dakika<br>
 **Toplam değer:** 90 büyüktür<br>
-**Tetikleyici uyarı temel alarak:** toplam ihlal 2'den büyük<br>
+**Tetikleyici uyarı temel alarak:** toplam ihlal 5'ten büyük<br>
 
 Sorgu her bilgisayar için bir ortalama değer 5 dakika aralıklarla oluşturursunuz.  Bu sorguyu her 5 dakikada bir toplanan veriler için önceki 30 dakika boyunca çalışır.  Örnek verileri varsayılan olarak, üç bilgisayarlar için aşağıda gösterilmiştir.
 
@@ -146,5 +167,5 @@ Tarafından oluşturulan uyarı kayıtları diğer tür vardır [uyarı yönetim
 ## <a name="next-steps"></a>Sonraki adımlar
 * Yükleme [uyarı yönetimi çözümü](log-analytics-solution-alert-management.md) System Center Operations Manager'dan toplanan uyarılar ile birlikte günlük analizi oluşturulan uyarıların çözümlemek için.
 * Daha fazla bilgi edinin [oturum aramaları](log-analytics-log-searches.md) uyarılar oluşturabilir.
-* İzlenecek yollar için tamamlamak [bir Web kancası yapılandırma](log-analytics-alerts-webhooks.md) bir uyarı kuralı ile.  
+* İzlenecek yollar için tamamlamak [bir webook yapılandırma](log-analytics-alerts-webhooks.md) bir uyarı kuralı ile.  
 * Nasıl yazılacağını öğrenmek [Azure automation'daki runbook'lar](https://azure.microsoft.com/documentation/services/automation) uyarılar tarafından tanımlanan sorunları düzeltmek için.

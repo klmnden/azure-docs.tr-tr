@@ -36,6 +36,8 @@
   items:
     - name: Event Hubs’tan veri ambarına veri akışı yapma
       href: event-grid-event-hubs-integration.md
+    - name: Olay aboneliklerine yönelik şablonlar
+      href: event-subscription-template.md
 - name: Başvuru
   items:
     - name: Azure CLI

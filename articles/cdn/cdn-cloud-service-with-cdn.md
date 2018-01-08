@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="intro"></a>Bir bulut hizmeti Azure CDN ile tümleştirme
 Bir bulut hizmeti, bulut hizmetinin konumundan içerik sunan Azure CDN ile tümleştirilebilir. Bu yaklaşım, aşağıdaki avantajları sunar:
@@ -63,7 +63,7 @@ Bu bölümde, bir bulut hizmeti Web rolü için varsayılan ASP.NET MVC uygulama
 1. Visual Studio 2015'te, giderek menü çubuğundan yeni bir Azure bulut hizmeti oluşturma **Dosya > Yeni > Proje > bulut > Azure bulut hizmeti**. Bir ad verin ve tıklatın **Tamam**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
-2. Seçin **ASP.NET Web rolü** tıklatıp  **>**  düğmesi. Tamam'a tıklayın.
+2. Seçin **ASP.NET Web rolü** tıklatıp ** > ** düğmesi. Tamam'a tıklayın.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG)
 3. Seçin **MVC** tıklatıp **Tamam**.
@@ -72,7 +72,7 @@ Bu bölümde, bir bulut hizmeti Web rolü için varsayılan ASP.NET MVC uygulama
 4. Şimdi, bu Web rolü için bir Azure bulut hizmeti yayımlayın. Bulut hizmeti projesine sağ tıklatın ve **Yayımla**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
-5. Henüz Microsoft Azure'da oturum değil,'ı tıklatın **Hesap Ekle...**  açılır tıklatıp **Hesap Ekle** menü öğesi.
+5. Henüz Microsoft Azure'da oturum değil,'ı tıklatın **Hesap Ekle... ** açılır tıklatıp **Hesap Ekle** menü öğesi.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-5-publish-signin.png)
 6. Oturum açma sayfası Azure hesabınızı etkinleştirmek için kullanılan Microsoft hesabıyla oturum açın.
@@ -111,7 +111,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
 ## <a name="create-a-new-cdn-endpoint"></a>Yeni bir CDN uç noktası oluşturma
 **Depolama hesabınız için yeni bir CDN uç noktası oluşturmak için**
 
-1. İçinde [Azure Yönetim Portalı](https://portal.azure.com), CDN profilinize gidin.  Önceki adımda bunu panoya sabitlemiş olabilirsiniz.  Sabitlemediyseniz bunu bulmak için **Gözat**'a, ardından **CDN profilleri**'ne ve uç noktanızı eklemeyi planladığınız profile tıklayabilirsiniz.
+1. [Azure portalında](https://portal.azure.com), CDN profilinize gidin.  Önceki adımda bunu panoya sabitlemiş olabilirsiniz.  Sabitlemediyseniz bunu bulmak için **Gözat**'a, ardından **CDN profilleri**'ne ve uç noktanızı eklemeyi planladığınız profile tıklayabilirsiniz.
    
     CDN profili dikey penceresi görünür.
    
@@ -120,7 +120,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    
     ![Uç nokta ekle düğmesi][cdn-new-endpoint-button]
    
-    **Uç nokta ekleme** dikey penceresi görünür.
+     **Uç nokta ekleme** dikey penceresi görünür.
    
     ![Uç nokta ekleme dikey penceresi][cdn-add-endpoint]
 3. Bu CDN uç noktası için bir **Ad** girin.  Bu ad, `<EndpointName>.azureedge.net` etki alanındaki önbelleğe alınmış kaynaklarınıza erişmek için kullanılır.
@@ -138,7 +138,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>CDN uç noktasını sınama
-Yayımlama durumu olduğunda **tamamlandı**, bir tarayıcı penceresi açın ve gidin  **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. My Kurulum, bu URL'yi şöyledir:
+Yayımlama durumu olduğunda **tamamlandı**, bir tarayıcı penceresi açın ve gidin * *http://<cdnName>*.azureedge.net/Content/bootstrap.css**. My Kurulum, bu URL'yi şöyledir:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -146,18 +146,18 @@ Hangi CDN uç noktası aşağıdaki kaynak URL'de karşılık gelir:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Ne zaman gezinmek için  **http://*&lt;cdnName >*indirin veya gelen bootstrap.css açmak için bağlı olarak istenir, tarayıcınızdaki.azureedge.net/Content/bootstrap.css** yayımlanan Web uygulamanızdan.
+Ne zaman gezinmek için * *http://*&lt;cdnName >*indirin veya gelen bootstrap.css açmak için bağlı olarak istenir, tarayıcınızdaki.azureedge.net/Content/bootstrap.css** yayımlanan Web uygulamanızdan.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-Genel olarak erişilebilir bir URL'de benzer şekilde erişebilirsiniz  **http://*&lt;serviceName >*doğrudan CDN uç noktanız gelen.cloudapp.net/**. Örneğin:
+Genel olarak erişilebilir bir URL'de benzer şekilde erişebilirsiniz * *http://*&lt;serviceName >*doğrudan CDN uç noktanız gelen.cloudapp.net/**. Örneğin:
 
 * / Script yolundan .js dosya
 * / Content içerik dosyanın yolu
 * Herhangi bir denetleyici/eylem
 * CDN uç noktanız, sorgu dizeleri içeren herhangi bir URL, sorgu dizesi etkinleştirilirse
 
-Aslında, yukarıdaki yapılandırma ile tüm bulut hizmetinden barındırabilir  **http://*&lt;cdnName >*.azureedge.net/**. İçin giderseniz **http://camservice.azureedge.net/**, ev/dizinden eylem sonucu alıyorum.
+Aslında, yukarıdaki yapılandırma ile tüm bulut hizmetinden barındırabilir * *http://*&lt;cdnName >*.azureedge.net/**. İçin giderseniz **http://camservice.azureedge.net/**, ev/dizinden eylem sonucu alıyorum.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Bu denetleyici eylemi kurulumu için yukarıdaki adımları izleyin:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Bulut hizmeti yeniden yayımlamanız ve gidin  **http://*&lt;serviceName >*tarayıcınızda.cloudapp.net/MemeGenerator/Index**.
+5. Bulut hizmeti yeniden yayımlamanız ve gidin * *http://*&lt;serviceName >*tarayıcınızda.cloudapp.net/MemeGenerator/Index**.
 
 Form değerleri gönderdiğiniz zaman `/MemeGenerator/Index`, `Index_Post` eylem yöntemine döndürür bağlantı `Show` eylem yöntemi ile ilgili giriş tanımlayıcısı. Bağlantıya tıkladığınızda, aşağıdaki kodu ulaşmak:  
 

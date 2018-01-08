@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, engellemenize, algılamanıza ve Artırılmış görünürlük aracılığıyla tehditleri Microsoft Azure kaynaklarınızın güvenliğini denetlemenize yanıtlamanıza yardımcı olan bir hizmeti ile ilgili sorular yanıtlanmaktadır.
@@ -41,7 +41,7 @@ Güvenlik Merkezi iki katmanı sunulur:
 
 **Ücretsiz katmanı** ortaklarından güvenlik ürün ve Hizmetleri ile Azure kaynaklarını, temel güvenlik ilkesi, güvenlik önerileri ve tümleştirme güvenlik durumunu görünürlük sağlar.
 
-**Standart katmanı** algılama özellikleri dahil olmak üzere, tehdit Intelligence, davranış analizi, anomali algılama, güvenlik olaylarına ve tehdit attribution raporları Gelişmiş tehdit ekler. Standart katmanı ilk 60 gün boyunca ücretsizdir. 60 gün ötesinde hizmeti kullanmaya devam etmek seçmesi gereken, biz otomatik olarak hizmet için kaydedilecek başlatın.  Yükseltmek için seçin [fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing) güvenlik ilkesinde.
+**Standart katmanı** algılama özellikleri dahil olmak üzere, tehdit Intelligence, davranış analizi, anomali algılama, güvenlik olaylarına ve tehdit attribution raporları Gelişmiş tehdit ekler. Standart katman ilk 60 gün boyunca ücretsizdir. 60 gün ötesinde hizmeti kullanmaya devam etmek seçmesi gereken, biz otomatik olarak hizmet için kaydedilecek başlatın.  Yükseltmek için seçin [fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing) güvenlik ilkesinde.
 
 ## <a name="permissions"></a>İzinler
 Azure Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen [yerleşik roller](../active-directory/role-based-access-built-in-roles.md) sağlayan [Rol Tabanlı Erişim Denetimi'ni (RBAC)](../active-directory/role-based-access-control-configure.md) kullanır.
@@ -131,7 +131,7 @@ Bir VM için tarama veri olduğunda bu ileti görüntülenir. Süre (bir saatten
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Güvenlik Merkezi, işletim sistemi güvenlik açıkları, sistem güncelleştirmeleri ve uç nokta koruma sorunları için ne sıklıkta tarama?
 Gecikme Güvenlik Merkezi'nde güvenlik açıkları için güncelleştirmeleri tarar ve sorunları alır:
 
-- İşletim sistemi güvenlik açıkları (Microsoft tarafından) – verileri 48 saat içinde güncelleştirilir
+- İşletim sistemi güvenlik yapılandırmalarını – veri 48 saat içinde güncelleştirildi
 - Sistem güncelleştirmeleri – veri 24 saat içinde güncelleştirildi
 - Endpoint Protection sorunlarını – 8 saat içinde güncelleştirilmiş verileri
 

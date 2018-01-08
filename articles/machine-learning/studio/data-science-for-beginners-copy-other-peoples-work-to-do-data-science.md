@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Yeni başlayanlar seri için veri bilimi
 Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır. Kendi makine öğrenimi denemesinin için kullanılacak Azure AI Galerisi'ndeki kümeleme algoritması örnek bulun.
 
 > [!IMPORTANT]
-> Cortana Intelligence Galerisi adlandırıldı **Azure AI galeri**. Sonuç olarak, metin ve görüntüler bu dökümü biraz eski adı kullanan video farklı.
+> **Cortana Intelligence Galerisi** adlandırıldı **Azure AI galeri**. Sonuç olarak, metin ve görüntüler bu dökümü biraz eski adı kullanan video farklı.
 >
 
 Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#other-videos-in-this-series)
@@ -52,7 +52,7 @@ Bu tek bir yerde, gelen bir başlangıç noktası olarak kendi iş için kullan�
 
 Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır.
 
-## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Azure AI Intelligence Galerisi'nde örnekleri Bul
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Azure AI Galerisi'nde örnekleri Bul
 
 Microsoft adlı bulut tabanlı bir hizmete sahip [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) ücretsiz deneyin Hoş Geldiniz. Bu, bir çalışma alanıyla farklı machine learning algoritmaları ile deneyebilirsiniz ve yerdir, çalışılan çözümünüzün var olduğunda sağlar, web hizmeti olarak başlatın.
 
