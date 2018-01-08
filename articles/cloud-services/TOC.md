@@ -2,12 +2,12 @@
 ## [Cloud Services nedir?](cloud-services-choose-me.md)
 ## [Bulut hizmeti yapılandırma dosyaları ve paketleme](cloud-services-model-and-package.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Örnek .NET Bulut Hizmeti](cloud-services-dotnet-get-started.md)
 ## [Visual Studio için Python Örnek Bulut Hizmeti](cloud-services-python-ptvs.md)
 ## [Microsoft HPC Pack ile karma HPC kümesi oluşturma](cloud-services-setup-hybrid-hpcpack-cluster.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama
 ### [Sanal makine boyutları](cloud-services-sizes-specs.md)
 ### [Güncelleştirmeler](cloud-services-update-azure-service.md)
@@ -44,6 +44,7 @@
 ### [Özel bir Etki Alanı Denetleyicisi’ne bağlanma](cloud-services-connect-to-custom-domain.md)
 
 ## Hizmeti yönetme
+### [Kurgusal yürütmeyi azaltma](mitigate-se.md}
 ### [Genel yönetim görevleri](cloud-services-how-to-manage-portal.md)
 ### [Bulut Hizmetini Yapılandırma](cloud-services-how-to-configure-portal.md)
 ### [Azure Otomasyonu’nu kullanarak bir Bulut Hizmetini yönetme](automation-manage-cloud-services.md)

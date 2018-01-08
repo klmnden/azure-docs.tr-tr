@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: 92708909a472f98b45492f3c0c807634f1c204d7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure yığın 1712 güncelleştirme
 
@@ -31,17 +31,9 @@ Bu makalede yenilikleri ve bilinen sorunlar bu sürüm ve güncelleştirmeyi yü
 
 ## <a name="build-reference"></a>Derleme başvurusu
 
-Azure yığın 1712 güncelleştirme yapı numarası **180103.2**.
+Azure yığın 1712 güncelleştirme yapı numarası **180106.1**. Bir müşteri dağıttıysanız **180103.2** daha önce geçerli gerekmez **180106.1**.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-
-> [!WARNING]
-> Şu anda etkin etkileşimli bir CESARETLENDİRİCİ uzak oturumda değilseniz, Azure yığın güncelleştirme yükleme işlemini başlatmadan önce oturumu çıkmak gerekir. Yazabilirsiniz **çıkmak** oturum çıkmak için uzaktan Konsolu'nda.
-> Varsa var olan CESARETLENDİRİCİ Uzak Oturumlar ilk iki PowerShell komutlarını çalıştırarak denetleyebilirsiniz **Get-PSSession** tüm etkin uzaktan oturumlar, ardından listeler **Remove-PSSession** sonlandırmak için ve Etkin uzaktan oturumlar kaldırın. Azure yığın ortamında CESARETLENDİRİCİ uzak oturumları oluşturmak için kullanılan herhangi bir makineye çalıştırılmak üzere PowerShell komutların vardır. PowerShell komut örnek aşağıda verilmiştir:
-```
-Get-PSSession | Remove-PSSession
-```
-Ayrıca, Azure yığın güncelleştirme bile başlatıldıktan sonra bir CESARETLENDİRİCİ oturumu oluşturmayın.
 
 > [!IMPORTANT]
 > 1712 güncelleştirme yükleme işlemi sırasında sanal makineler oluşturmak çalışmayın. Bkz: [Azure yığın genel bakış güncelleştirmeleri yönetmek](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) daha fazla ayrıntı için.
@@ -100,7 +92,7 @@ Bu bölümde 1712 güncelleştirme yüklemesi sırasında karşılaşabileceğin
 
 ### <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 
-Bu bölümde yükleme sonrası ile ilgili bilinen sorunlar yapı içeren **180103.2**.
+Bu bölümde yükleme sonrası ile ilgili bilinen sorunlar yapı içeren **180106.1**.
 
 #### <a name="portal"></a>Portal
 
@@ -161,6 +153,11 @@ Azure Active Directory Federasyon Hizmetleri (ADFS içinde) ortamlarında, dağ�
 
 Azure yığın 1712 güncelleştirme paketinden indirebilirsiniz [burada](https://aka.ms/azurestackupdatedownload).
 
+## <a name="more-information"></a>Daha fazla bilgi
+
+Microsoft, izlemek ve ayrıcalıklı uç noktası (güncelleştirme 1712 ile yüklü CESARETLENDİRİCİ) kullanarak güncelleştirmeleri sürdürmek için bir yol sağlamıştır.
+
+- Bkz: [izlemek Azure ayrıcalıklı endpoint belgelerini kullanarak yığınında güncelleştirmeleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - Bkz [yönetmek Azure yığın genel bakış güncelleştirmelerinde](azure-stack-updates.md) Azure yığınında güncelleştirme yönetimi genel bakış.

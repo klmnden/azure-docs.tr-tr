@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Planlı bakım
           href: maintenance-notifications.md
+        - name: Kurgusal yürütmeyi azaltma
+          href: mitigate-se.md
         - name: Hızlandırılmış bakım hakkında SSS
           href: accelerated-maintenance.md
         - name: Zamanlanmış olaylar

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager günlük Analizi'ne bağlayın
 System Center Configuration Manager OMS günlük analizi aygıt koleksiyonu veri eşitlemesine bağlanabilir. Bu veri, Configuration Manager hiyerarşisinden OMS kullanılabilir hale getirir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Günlük analizi System Center Configuration Manager geçerli dalı, sürüm 1606 ve üstünü destekler.  
 
 ## <a name="configuration-overview"></a>Yapılandırmasına genel bakış
 Aşağıdaki adımlar Configuration Manager günlük Analizi'ne bağlanmak için işlemi özetlenir.  
 
-1. Azure Yönetim Portalı'nda Configuration Manager bir Web uygulaması ve/veya Web API uygulaması kaydetmek ve istemci Kimliğini ve istemci gizli anahtarı kayıt Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklara erişebilir uygulama ve hizmet sorumlusu oluşturmak için kullanım portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) bu adımı gerçekleştirmek hakkında ayrıntılı bilgi.
-2. Azure Yönetim Portalı'nda [OMS erişim izni olan Configuration Manager (kayıtlı web uygulaması) girin](#provide-configuration-manager-with-permissions-to-oms).
+1. Azure portalında, Configuration Manager bir Web uygulaması ve/veya Web API uygulaması kaydetmek ve istemci Kimliğini ve istemci gizli anahtarı kayıt Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklara erişebilir uygulama ve hizmet sorumlusu oluşturmak için kullanım portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) bu adımı gerçekleştirmek hakkında ayrıntılı bilgi.
+2. Azure portalında [OMS erişim izni olan Configuration Manager (kayıtlı web uygulaması) girin](#provide-configuration-manager-with-permissions-to-oms).
 3. Yapılandırma Yöneticisi'nde [OMS Bağlantısı Ekleme Sihirbazı'nı kullanarak bir bağlantı ekleyin](#add-an-oms-connection-to-configuration-manager).
 4. Yapılandırma Yöneticisi'nde [bağlantı özelliklerini güncelleştirmek](#update-oms-connection-properties) süresi veya kaybolursa şimdiye kadar parola veya istemci gizli anahtarı.
 5. OMS Portalı'ndan bilgilerle [Microsoft Monitoring Agent'ı yükleyip](#download-and-install-the-agent) bilgisayarda çalışan Configuration Manager hizmet bağlantı noktası site sistemi rolü. Aracı için OMS Configuration Manager veri gönderir.
@@ -41,7 +41,7 @@ Aşağıdaki adımlar Configuration Manager günlük Analizi'ne bağlanmak için
 Daha fazla bilgiyi OMS Configuration Manager bağlanma hakkında [verilerini Yapılandırma Yöneticisi'nden Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="provide-configuration-manager-with-permissions-to-oms"></a>Configuration Manager için OMS izinlerle girin
-Aşağıdaki yordam, OMS erişmek için gerekli izinlere sahip Azure Yönetim Portalı sağlar. Özellikle, vermelidir *katkıda bulunan rolü* için OMS Configuration Manager'a bağlanmak Azure Yönetim Portalı izin vermek üzere kaynak grubundaki kullanıcılar.
+Aşağıdaki yordam, OMS erişmek için gerekli izinlere sahip Azure portalı sağlar. Özellikle, vermelidir *katkıda bulunan rolü* için OMS Configuration Manager'a bağlanmak için Azure portal izin vermek üzere kaynak grubundaki kullanıcılar için.
 
 > [!NOTE]
 > OMS Configuration Manager için izinleri belirtmeniz gerekir. Aksi takdirde, Configuration Manager'da Yapılandırma Sihirbazı'nı kullandığınızda, bir hata iletisi alırsınız.
@@ -81,9 +81,9 @@ Bir OMS bağlantısı eklemek için Configuration Manager ortamınızı içermel
 1. İçinde **Yönetim** çalışma Configuration Manager, select **OMS bağlayıcı**. Bu açılır **OMS Bağlantısı Ekleme Sihirbazı'nı**. Seçin **sonraki**.
 2. Üzerinde **genel** aşağıdaki eylemleri yaptıktan ve her öğeye ilişkin ayrıntıları sahip sonra seçin onaylayın **sonraki**.
 
-   1. Azure Yönetim Portalı'nda bir Web uygulaması ve/veya Web API uygulaması Configuration Manager kaydınız ve sahip olduğunuz [kayıt istemci kimliği](../active-directory/active-directory-integrating-applications.md).
-   2. Azure Yönetim Portalı'nda bir uygulama gizli anahtarı Azure Active Directory'de kayıtlı uygulaması oluşturduğunuzu düşünün.  
-   3. Azure Yönetim Portalı'nda OMS erişim izni ile kayıtlı web uygulaması sağladık.  
+   1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması Configuration Manager kaydınız ve sahip olduğunuz [kayıt istemci kimliği](../active-directory/active-directory-integrating-applications.md).
+   2. Azure portalında Azure Active Directory'de kayıtlı uygulama için bir uygulama gizli anahtar oluşturduğunuzu düşünün.  
+   3. Azure portalında OMS erişim izni ile kayıtlı web uygulaması sağladık.  
       ![OMS Sihirbazı genel sayfası bağlantı](./media/log-analytics-sccm/sccm-console-general01.png)
 3. Üzerinde **Azure Active Directory** ekranında, sağlayarak OMS için bağlantı ayarlarınızı yapılandırın, **Kiracı**, **istemci kimliği**, ve **istemci gizli anahtar** seçeneğini belirleyip **sonraki**.  
    ![OMS Sihirbazı Azure Active Directory sayfası bağlantı](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)

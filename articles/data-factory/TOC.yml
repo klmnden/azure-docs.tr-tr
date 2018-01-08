@@ -303,6 +303,8 @@
       items:
         - name: Zamanlama tetikleyicisi oluşturma
           href: how-to-create-schedule-trigger.md
+        - name: Atlayan pencere tetikleyicisi oluşturma
+          href: how-to-create-tumbling-window-trigger.md
 - name: Başvuru
   items:
     - name: .NET

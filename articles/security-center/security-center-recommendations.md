@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 32735a7dfaafd8bbfb983dd809b2204fb1b2fa10
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
 Bu belge, Azure kaynaklarınızı korumanıza yardımcı olmak için Azure Güvenlik Merkezi'nde öneriler kullanmak nasıl aracılığıyla açıklanmaktadır.
@@ -73,7 +73,7 @@ Aşağıdaki tabloda kullanılabilir öneriler ve onu uygularsanız, her biri ya
 | Öneri | Açıklama |
 | --- | --- |
 | [Abonelikler için veri toplamayı etkinleştirin](security-center-enable-data-collection.md) |Her aboneliklerinizi ve tüm Azure sanal makineleri (VM'ler) ve Azure olmayan bilgisayarlar için veri koleksiyonu güvenlik ilkesinde Aç önerir. |
-| [İşletim sistemi güvenlik açıklarını düzeltin](security-center-remediate-os-vulnerabilities.md) |Önerilen yapılandırma kuralları ile işletim sistemi yapılandırmalarını örneğin hizalamak, parolaların kaydedilmesine izin verme önerir. |
+| [Güvenlik yapılandırmalarını Düzelt](security-center-remediate-os-vulnerabilities.md) |Önerilen güvenlik yapılandırma kuralları ile işletim sistemi yapılandırmalarını örneğin hizalamak, parolaların kaydedilmesine izin verme önerir. |
 | [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md) |Windows ve Linux VM'ler ve bilgisayarlar için eksik sistem güvenlik ve kritik güncelleştirmeler dağıtmanızı önerir. |
 | [Bir sadece zaman içinde geçerli ağ erişim denetimi](security-center-just-in-time.md) | Yalnızca süresi VM erişimi uygulamanızı önerir. Özellik önizlemededir zaman yalnızca ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Bkz: [fiyatlandırma](security-center-pricing.md) Güvenlik Merkezi hakkında daha fazla katmanları fiyatlandırma öğrenin. |
 | [Sistem güncelleştirmelerinden sonra yeniden başlatın](security-center-apply-system-updates.md#reboot-after-system-updates) |Sistem güncelleştirmelerini uygulama işlemini tamamlamak için VM’yi yeniden başlatmanızı önerir. |

@@ -71,10 +71,10 @@
       items:
         - name: Desteklenen diller
           href: supported-languages.md
-        - name: 'C# betiği'
-          href: functions-reference-csharp.md
-        - name: .NET sınıf kitaplığı
+        - name: 'C# (sınıf kitaplığı)'
           href: functions-dotnet-class-library.md
+        - name: 'C# betiği (.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
