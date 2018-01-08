@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Uyarlamalı Uygulama Denetimleri (Önizleme)
 Bu kılavuzu kullanarak Azure Güvenlik Merkezi'ndeki uygulama denetimi özelliklerini yapılandırmayı öğrenebilirsiniz.
@@ -36,12 +36,11 @@ Uyarlamalı uygulama denetimleri, Azure'da yer alan VM'lerinizde çalışabilece
 ## <a name="how-to-enable-adaptive-application-controls"></a>Uyarlamalı uygulama denetimleri nasıl etkinleştirilir?
 Uyarlamalı uygulama denetimleri, yapılandırılmış kaynak gruplarında çalıştırılmasına izin verilen bir uygulama kümesi tanımlamanıza yardımcı olur. Bu özellik yalnızca Windows makinelerde kullanılabilir (tüm sürümler, klasik veya Azure Resource Manager). Güvenlik Merkezi'nde uygulama beyaz listesini yapılandırmak için aşağıdaki adımları kullanabilirsiniz:
 
-1.  **Güvenlik Merkezi** panosunu açın ve **Genel Bakış**'a tıklayın.
-2.  **Gelişmiş bulut savunması**'nın altındaki **Uyarlamalı uygulama denetimleri** kutucuğunda toplam VM sayısı ve denetim altında olan VM sayısı gösterilir. Kutucukta ayrıca son bir hafta içinde bulunan sorun sayısı da görüntülenir: 
+1.  **Güvenlik Merkezi** panosunu açın ve sol taraftaki gezinti bölmesinin **Gelişmiş bulut savunması** bölümündeki **Uyarlamalı uygulama denetimleri**'ne tıklayın.
 
-    ![Uyarlamalı uygulama denetimleri](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Savunma](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Daha fazla seçenek için **Uyarlamalı uygulama denetimleri** kutucuğuna tıklayın.
+2. **Uyarlamalı uygulama denetimleri** sayfası açılır.
 
     ![denetimler](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 

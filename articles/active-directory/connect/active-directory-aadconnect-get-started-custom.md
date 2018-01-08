@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 724ccfbe6849c53f7c7e4e20444ac87197763e65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a12bd2ec296acfb810c8805c92941e5bf70c6ccb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -50,12 +50,10 @@ Gerekli bileşenleri yükledikten sonra kullanıcı çoklu oturumu açma yöntem
 | Çoklu Oturum Açma Seçeneği | Açıklama |
 | --- | --- |
 | Parola Karması Eşitleme |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir. Kullanıcı parolaları, parola karması olarak Azure AD ile eşitlenir ve bulutta bir kimlik doğrulaması gerçekleşir. Daha fazla bilgi için bkz. [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md). |
-|Doğrudan Kimlik Doğrulama|Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcının parolası, doğrulanmak üzere şirket içi Active Directory denetleyicisine geçirilir.
+|Doğrudan Kimlik Doğrulama|Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcının parolası, doğrulanmak üzere şirket içi Active Directory etki alanı denetleyicisine geçirilir.
 | AD FS ile Federasyon |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcılar oturum açmak üzere kendi şirket içi AD FS örneklerine yönlendirilir ve şirket içi kimlik doğrulaması gerçekleşir. |
-| Yapılandırmayın |Özellik yüklenmez ve yapılandırılmaz. Zaten 3. taraf bir federasyon sunucunuz varsa veya başka bir çözümden faydalanıyorsanız bu seçeneği belirleyin. |
-|Çoklu Oturum Açmayı Etkinleştir|Bu seçenek hem parola eşitleme hem de Doğrudan kimlik doğrulaması ile kullanılabilir ve masaüstü kullanıcılarına kurumsal ağda çoklu oturum açma deneyimi sağlar.  Daha fazla bilgi için bkz. [Çoklu oturum açma](active-directory-aadconnect-sso.md). </br>AD FS zaten aynı düzeyde çoklu oturum açma olanağı sağladığından, AD FS müşterilerinin bu seçeneği kullanamayacağı unutulmamalıdır.</br>(Aynı zamanda PTA yayımlanmazsa)
-|Oturum Açma Seçeneği|Bu seçenek parola karması eşitleme müşterileri tarafından kullanılabilir ve masaüstü kullanıcılarına kurumsal ağda çoklu oturum açma deneyimi sağlar.  </br>Daha fazla bilgi için bkz. [Çoklu oturum açma](active-directory-aadconnect-sso.md). </br>AD FS zaten aynı düzeyde çoklu oturum açma olanağı sağladığından, AD FS müşterilerinin bu seçeneği kullanamayacağı unutulmamalıdır.
-
+| Yapılandırmayın |Kullanıcı oturum açma özelliği yüklenmez ve yapılandırılmaz. Zaten 3. taraf bir federasyon sunucunuz varsa veya başka bir çözümden faydalanıyorsanız bu seçeneği belirleyin. |
+|Çoklu Oturum Açmayı Etkinleştir|Bu seçenek hem parola eşitleme hem de Doğrudan kimlik doğrulaması ile kullanılabilir ve masaüstü kullanıcılarına kurumsal ağda çoklu oturum açma deneyimi sağlar. Daha fazla bilgi için bkz. [Çoklu oturum açma](active-directory-aadconnect-sso.md). </br>AD FS zaten aynı düzeyde çoklu oturum açma olanağı sağladığından, AD FS müşterilerinin bu seçeneği kullanamayacağı unutulmamalıdır.</br>
 
 ### <a name="connect-to-azure-ad"></a>Azure AD'ye Bağlanma
 Azure AD'ye Bağlanma ekranında, genel yönetici hesabı ve parolasını girin. Önceki sayfada **AD FS ile Federasyon** seçeneğini belirlediyseniz etki alanında federasyon için etkinleştirmeyi düşündüğünüz bir hesap ile oturum açmayın. Azure AD dizininizle sunulan, varsayılan **onmicrosoft.com** etki alanındaki bir hesabı kullanmanız önerilir.
@@ -81,11 +79,10 @@ Orman adını girip **Dizin Ekle**’ye tıkladıktan sonra, bir iletişim kutus
 
 | Seçenek | Açıklama |
 | --- | --- |
-| Mevcut hesabı kullan | Dizin eşitlemesi sırasında Azure AD Connect tarafından AD ormanına bağlanmak için kullanılmak üzere mevcut bir AD DS hesabı sağlamak istiyorsanız bu seçeneği belirleyin. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (ör. FABRIKAM\eşitlemekullanıcısı veya fabrikam.com\eşitlemekullanıcısı) girebilirsiniz. Yalnızca varsayılan okuma izinleri gerekli olduğundan, bu hesap normal bir kullanıcı hesabı olabilir. Ancak senaryonuza bağlı olarak daha fazla izin gerekebilir. Daha fazla bilgi için bkz. [Azure AD Connect Hesapları ve izinleri](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
 | Yeni hesap oluştur | Dizin eşitlemesi sırasında Azure AD Connect’in AD ormanına bağlanması için gereken AD DS hesabını Azure AD Connect sihirbazının oluşturmasını istiyorsanız bu seçeneği belirleyin. Bu seçenek belirlendiğinde, bir kuruluş yöneticisi hesabının kullanıcı adını ve parolasını girmeniz gerekir. Sağlanan kuruluş yöneticisi hesabı, Azure AD Connect sihirbazı tarafından gerekli AD DS hesabını oluşturmak için kullanılır. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (örneğin, FABRIKAM\yönetici veya fabrikam.com\yönetici) girebilirsiniz. |
+| Mevcut hesabı kullan | Dizin eşitlemesi sırasında Azure AD Connect tarafından AD ormanına bağlanmak için kullanılmak üzere mevcut bir AD DS hesabı sağlamak istiyorsanız bu seçeneği belirleyin. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (ör. FABRIKAM\eşitlemekullanıcısı veya fabrikam.com\eşitlemekullanıcısı) girebilirsiniz. Yalnızca varsayılan okuma izinleri gerekli olduğundan, bu hesap normal bir kullanıcı hesabı olabilir. Ancak senaryonuza bağlı olarak daha fazla izin gerekebilir. Daha fazla bilgi için bkz. [Azure AD Connect Hesapları ve izinleri](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
 
 ![Connect Dizini](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
-
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD oturum açma yapılandırması
 Bu sayfa, Azure AD'de doğrulanmış olup şirket içi AD DS'de var olan UPN etki alanlarını gözden geçirmenize olanak sağlar. Ayrıca bu sayfa sayesinde userPrincipalName için kullanılacak özniteliği yapılandırabilirsiniz.
@@ -239,7 +236,7 @@ Azure AD Connect ile AD FS'yi yalnızca birkaç tıklama ile kolayca yapılandı
 >Azure AD Connect bileşenini federasyon güveninizi yönetmek için kullanmıyor olsanız dahi AD FS grubunuzun SSL sertifikasını güncelleştirmek için kullanabilirsiniz.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>AD FS yapılandırması önkoşulları
-Azure AD Connect'i kullanarak AD FS grubunuzu yapılandırmak için uzak sunucularda WinRM'nin etkinleştirildiğinden emin olun. Ayrıca, [Tablo 3 - Azure AD Connect ve Federasyon Sunucuları/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) bölümünde listelenen bağlantı noktaları gereksinimlerini inceleyin.
+Azure AD Connect'i kullanarak AD FS grubunuzu yapılandırmak için uzak sunucularda WinRM'nin etkinleştirildiğinden emin olun. [Federasyon önkoşulları](active-directory-aadconnect-prerequisites.md#prerequisites-for-federation-installation-and-configuration) bölümündeki diğer görevleri tamamladığınızdan emin olun. Ayrıca, [Tablo 3 - Azure AD Connect ve Federasyon Sunucuları/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) bölümünde listelenen bağlantı noktaları gereksinimlerini inceleyin.
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Yeni bir AD FS grubu oluşturma veya var olan bir AD FS grubunu kullanma
 Var olan bir AD FS grubunu kullanabilir veya yeni bir AD FS grubu oluşturmayı seçebilirsiniz. Yeni bir grup oluşturmayı seçerseniz SSL sertifikası sağlamanız gerekir. SSL sertifikası bir parolayla korunuyorsa parolayı girmeniz istenir.
@@ -252,7 +249,7 @@ Var olan bir AD FS grubunu kullanmayı seçerseniz doğrudan AD FS ile Azure AD 
 >Azure AD Connect tek bir AD FS grubunu yönetmek için kullanılabilir. Seçilen AD FS grubunda yapılandırılmış Azure AD federasyon güveni varsa bu güven Azure AD Connect tarafından sıfırdan yeniden oluşturulur.
 
 ### <a name="specify-the-ad-fs-servers"></a>AD FS sunucularını belirtme
-AD FS'yi yüklemek istediğiniz sunucuları girin. Kapasite planlama gereksinimlerinize göre bir veya daha fazla sunucu ekleyebilirsiniz. Bu yapılandırmayı gerçekleştirmeden önce tüm sunucuların Active Directory'ye katılmasını sağlayın. Microsoft, test ve pilot dağıtımlar için tek bir AD FS sunucusunun yüklenmesini önerir. Ardından, ölçeklendirme gereksinimlerinizi karşılamak için ilk yapılandırmadan sonra Azure AD Connect'i tekrar çalıştırarak daha fazla sunucu ekleyebilir ve dağıtabilirsiniz.
+AD FS'yi yüklemek istediğiniz sunucuları girin. Kapasite planlama gereksinimlerinize göre bir veya daha fazla sunucu ekleyebilirsiniz. Bu yapılandırmayı gerçekleştirmeden önce tüm AD FS sunucularının (WAP sunucuları için gerekli değildir) Active Directory'ye katılmasını sağlayın. Microsoft, test ve pilot dağıtımlar için tek bir AD FS sunucusunun yüklenmesini önerir. Ardından, ölçeklendirme gereksinimlerinizi karşılamak için ilk yapılandırmadan sonra Azure AD Connect'i tekrar çalıştırarak daha fazla sunucu ekleyebilir ve dağıtabilirsiniz.
 
 > [!NOTE]
 > Bu yapılandırmayı geçekleştirmeden önce tüm sunucularınızın bir AD etki alanına katıldığından emin olun.
@@ -265,7 +262,7 @@ AD FS'yi yüklemek istediğiniz sunucuları girin. Kapasite planlama gereksiniml
 Web Uygulaması ara sunucusu olarak kullanmak istediğiniz sunucuları girin. Web uygulaması ara sunucusu, çevre ağınızda (extranete yönelik) dağıtılır ve extranetten gelen kimlik doğrulama isteklerini destekler. Kapasite planlama gereksinimlerinize göre bir veya daha fazla sunucu ekleyebilirsiniz. Microsoft, test ve pilot dağıtımlar için tek bir Web uygulaması ara sunucusunun yüklenmesini önerir. Ardından, ölçeklendirme gereksinimlerinizi karşılamak için ilk yapılandırmadan sonra Azure AD Connect'i tekrar çalıştırarak daha fazla sunucu ekleyebilir ve dağıtabilirsiniz. İntranetten gelen kimlik doğrulamalarını gerçekleştirebilmek için, aynı sayıda ara sunucuya sahip olmanızı öneririz.
 
 > [!NOTE]
-> <li> Kullandığınız hesap AD FS sunucularında yerel yönetici değilse yönetici kimlik bilgileri girmeniz istenir.</li>
+> <li> Kullandığınız hesap WAP sunucularında yerel yönetici değilse yönetici kimlik bilgileri girmeniz istenir.</li>
 > <li> Bu adımı gerçekleştirmeden önce Azure AD Connect sunucusu ve Web Uygulaması Ara Sunucusu arasında HTTP/HTTPS bağlantısının olduğundan emin olun.</li>
 > <li> Doğrulama isteklerinin akışına izin vermek için, Web Uygulaması Sunucusu ve AD FS sunucusu arasında HTTP/HTTPS bağlantısının olduğundan emin olun.</li>
 >

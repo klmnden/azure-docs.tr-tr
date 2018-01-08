@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7892200610d2b78c81dc16ff03abb9f0ed386fdc
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Azure PowerShell kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
 

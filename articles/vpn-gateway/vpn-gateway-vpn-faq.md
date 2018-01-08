@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2017
-ms.author: cherylmc,yushwang
-ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.date: 12/20/2017
+ms.author: cherylmc,yushwang,anzaman
+ms.openlocfilehash: 2b648caa51eb457a62e846b74f1b95ca84974635
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway SSS
 
@@ -41,7 +41,7 @@ Windows PowerShell ve Azure REST API'lerini kullanarak birden çok siteye bağla
 Aşağıdaki şirket içi ve dışı bağlantılar desteklenmektedir:
 
 * Siteden Siteye – IPsec üzerinden (IKE v1 ve IKE v2) VPN bağlantısı. Bu bağlantı türüne şirket içi bir VPN cihazı ya da RRAS gerekir. Daha fazla bilgi için bkz. [Siteden Siteye](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
-* Noktadan Siteye – SSTP (Güvenli Yuva Tünel Protokolü) üzerinden VPN bağlantısı. Bu bağlantıya VPN cihazı gerekmez. Daha fazla bilgi için bkz. [Noktadan Siteye](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Noktadan Siteye – SSTP (Güvenli Yuva Tünel Protokolü) veya IKE v2 üzerinden VPN bağlantısı. Bu bağlantıya VPN cihazı gerekmez. Daha fazla bilgi için bkz. [Noktadan Siteye](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Sanal Ağdan Sanal Ağa – Bu bağlantı türü, Siteden Siteye yapılandırmasıyla aynıdır. VNet - VNet, IPsec üzerinden (IKE v1 ve IKE v2) bir VPN bağlantısıdır. VPN cihazı gerekmez. Daha fazla bilgi için bkz. [Sanal Ağdan Sanal Ağa](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Çok Siteli – Birden çok şirket içi sitenin bir sanal ağa bağlanmasına olanak sağlayan Siteden Siteye yapılandırmanın bir çeşididir. Daha fazla bilgi için bkz. [Çok Siteli](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 * ExpressRoute – ExpressRoute genel İnternet üzerinden VPN bağlantısı değil, WAN bağlantınızdan Azure’e doğrudan yapılan bir bağlantıdır. Daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md) ve [ExpressRoute SSS](../expressroute/expressroute-faqs.md).
@@ -74,7 +74,7 @@ Rota tabanlı ağ geçitleri yol tabanlı VPN'leri uygular. Rota temelli VPN'ler
 Hayır. Bir Azure sanal ağ geçidi türü ilke temelli veya rota temelli olarak değiştirilemez. Ağ geçidinin silinip yeniden oluşturulması gerekir ve bu işlem yaklaşık 60 dakika sürer. Ağ geçidinin IP adresi veya Önceden Paylaşılan Anahtar (PSK) korunmaz.
 1. Silinecek ağ geçidiyle ilişkilendirilmiş bağlantıları silin.
 2. Ağ geçidini silin:
-* [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure portalı](vpn-gateway-delete-vnet-gateway-portal.md)
 * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure Powershell - klasik](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [İstenen türde yeni bir ağ geçidi oluşturun ve VPN kurulumunu tamamlayın](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)

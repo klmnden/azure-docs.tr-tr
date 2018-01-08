@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: quickstart
-ms.date: 07/27/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 59336c23eb322453a7c9a487002de9bdf57da633
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: fa2a5f1599fb0d95c89d848860ba9b32139a3dd2
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB hesabı, veritabanı ve graf (kapsayıcı) oluşturma işlemi ve [Apache TinkerPop](http://tinkerpop.apache.org) tarafından kullanıma sunulan [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)'u kullanarak Graph API'si (önizleme) verileri ile çalışma işlemi anlatılmaktadır. Bu öğreticide köşe ve kenarlar oluşturup sorgular, bir köşe özelliğini güncelleştirir, köşeleri sorgular, grafiğin çapraz geçişini yapar ve bir köşeyi bırakırsınız.
+Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB hesabı, veritabanı ve graf (kapsayıcı) oluşturma işlemi ve [Apache TinkerPop](http://tinkerpop.apache.org) tarafından kullanıma sunulan [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)'u kullanarak Graph API'si verileri ile çalışma işlemi anlatılmaktadır. Bu öğreticide köşe ve kenarlar oluşturup sorgular, bir köşe özelliğini güncelleştirir, köşeleri sorgular, grafiğin çapraz geçişini yapar ve bir köşeyi bırakırsınız.
 
 ![Apache Gremlin konsolunda Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Azure CLI kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
 
@@ -35,7 +35,7 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Bloblar her zaman bir kapsayıcıya yüklenir. Kapsayıcılar, blob gruplarını bilgisayarınızdaki dosyaları dizinler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
+Bloblar her zaman bir kapsayıcıya yüklenir. Bu, blob gruplarını bilgisayarınızdaki dosyaları klasörler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
 
 [az storage container create](/cli/azure/storage/container#create) komutunu kullanarak blobları depolamak için bir kapsayıcı oluşturun.
 
@@ -47,7 +47,10 @@ az storage container create --name mystoragecontainer
 
 Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blob depolamada depolanan çoğu dosya blok blobu olarak depolanır. Ekleme blobları, verilerin mevcut içeriği değiştirmeden mevcut bir bloba eklenmesi gerektiğinde (örneğin günlüğe kaydetme için) kullanılır. Sayfa blobları IaaS sanal makinelerinin VHD dosyalarını yedekler.
 
-Bu örnekte, son adımda [az storage blob upload](/cli/azure/storage/blob#upload) komutuyla oluşturduğumuz kapsayıcıya bir blob yükleyeceğiz.
+İlk olarak blob yüklemek için bir dosya oluşturun.
+Azure Cloud Shell kullanıyorsanız dosya oluşturmak için aşağıdaki adımları uygulayın: `vi helloworld` dosya açıldığında **ekle**'ye basın, "Hello world" yazın ve **Esc**'ye basıp `:x` girin ve **Enter**'a basın.
+
+Bu örnekte, son adımda [az storage blob upload](/cli/azure/storage/blob#upload) komutuyla oluşturduğunuz kapsayıcıya bir blob yükleyeceksiniz.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +59,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+Azure Cloud Shell'de dosya oluşturmak için yukarıda anlatılan yöntemi kullandıysanız bu CLI komutunu kullanabilirsiniz (dosya temel dizinde oluşturulduğu için yol belirtmeniz gerekmediğine dikkat edin, normalde yol belirtmeniz gerekir):
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, aksi takdirde üzerine yazılacaktır. Devam etmeden önce istediğiniz sayıda dosyayı karşıya yükleyin.
+
+Aynı anda birden fazla dosya yüklemek için [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch) komutunu kullanabilirsiniz.
 
 ## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 

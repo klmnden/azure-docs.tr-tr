@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Azure AD self servis parola sıfırlama hızlı dağıtımı
 
@@ -36,35 +36,38 @@ Bu kılavuz, çalışan bir deneme sürümü ya da lisanslı bir Azure Active Di
 1. Var olan Azure AD kiracınızda **Parola sıfırlama**'yı seçin.
 
 2. **Özellikler** sayfasında, **Self Servis Parola Sıfırlama Etkinleştirildi** seçeneğinin altında aşağıdakilerden birini seçin:
-    * **Hiçbiri**: SSPR işlevini kimse kullanamaz.
-    * **Seçili**: SSPR işlevini yalnızca sizin seçtiğiniz belirli bir Azure AD grubunun üyeleri kullanabilir. Bu işlevin dağıtımını yaparken kavram kanıtı için bir kullanıcı grubu tanımlamanız ve bu ayarı kullanmanız önerilir.
-    * **Tümü**: SSPR işlevini Azure AD kiracınızda hesabı olan tüm kullanıcılar kullanabilir. Bu ayarı, kavram kanıtını tamamladıktan sonra bu işlevi tüm kiracınıza dağıtmaya hazır olduğunuzda kullanmanızı öneririz.
+   * **Hiçbiri**: SSPR işlevini kimse kullanamaz.
+   * **Seçili**: SSPR işlevini yalnızca sizin seçtiğiniz belirli bir Azure AD grubunun üyeleri kullanabilir. Bu işlevin dağıtımını yaparken kavram kanıtı için bir kullanıcı grubu tanımlamanız ve bu ayarı kullanmanız önerilir.
+   * **Tümü**: SSPR işlevini Azure AD kiracınızda hesabı olan tüm kullanıcılar kullanabilir. Bu ayarı, kavram kanıtını tamamladıktan sonra bu işlevi tüm kiracınıza dağıtmaya hazır olduğunuzda kullanmanızı öneririz.
+
+   > [!IMPORTANT]
+   > Azure Yönetici hesapları, ayarlanan seçenekten bağımsız olarak her zaman parolalarını sıfırlama yetkisine sahiptir. 
 
 3. **Kimlik doğrulama yöntemleri** sayfasında aşağıdakileri seçin:
-    * **Sıfırlamak için gereken yöntem sayısı**: En az bir veya en fazla iki yöntem desteklenir.
-    * **Kullanıcıların kullanılabileceği yöntemler**: En az bir yöntem gerekir, ancak fazladan bir seçeneğin olmasından zarar gelmez.
-        * **E-posta**: Kullanıcının yapılandırılmış kimlik doğrulama e-posta adresine kod içeren bir e-posta gönderir.
-        * **Cep telefonu**: Kullanıcıya, yapılandırılmış cep telefonu numarasına kod içeren bir çağrı veya kısa mesaj alma seçeneği sunar.
-        * **İş telefonu**: Kullanıcıya, yapılandırılmış iş telefonuna kod içeren bir çağrı alma seçeneği sunar.
-        * **Güvenlik soruları**: Şunları seçmeniz gerekir:
-            * **Kaydolma için gereken soruların sayısı**: Başarılı bir kayıt için gereken alt sınır. Kullanıcı, içinden seçilebilecek bir soru havuzu oluşturmak için birden çok soruya yanıt vermeyi seçebilir. Bu seçenek üç ile beş arasında soruya ayarlanabilir ve kullanıcının parolasını sıfırlamak için gereken soru sayısına eşit veya ondan büyük olmalıdır. Kullanıcı güvenlik sorularını seçerken **Özel** düğmesine tıklamışsa, özel sorular ekleyebilir.
-            * **Sıfırlamak için gereken soru sayısı**: Kullanıcının parolasını sıfırlanmasına veya kilidini açmasına izin vermeniz için doğru yanıtlaması gereken üç ile beş arasında soruya ayarlanabilir.
+   * **Sıfırlamak için gereken yöntem sayısı**: En az bir veya en fazla iki yöntem desteklenir.
+   * **Kullanıcıların kullanılabileceği yöntemler**: En az bir yöntem gerekir, ancak fazladan bir seçeneğin olmasından zarar gelmez.
+      * **E-posta**: Kullanıcının yapılandırılmış kimlik doğrulama e-posta adresine kod içeren bir e-posta gönderir.
+      * **Cep telefonu**: Kullanıcıya, yapılandırılmış cep telefonu numarasına kod içeren bir çağrı veya kısa mesaj alma seçeneği sunar.
+      * **İş telefonu**: Kullanıcıya, yapılandırılmış iş telefonuna kod içeren bir çağrı alma seçeneği sunar.
+      * **Güvenlik soruları**: Şunları seçmeniz gerekir:
+         * **Kaydolma için gereken soruların sayısı**: Başarılı bir kayıt için gereken alt sınır. Kullanıcı, içinden seçilebilecek bir soru havuzu oluşturmak için birden çok soruya yanıt vermeyi seçebilir. Bu seçenek üç ile beş arasında soruya ayarlanabilir ve kullanıcının parolasını sıfırlamak için gereken soru sayısına eşit veya ondan büyük olmalıdır. Kullanıcı güvenlik sorularını seçerken **Özel** düğmesine tıklamışsa, özel sorular ekleyebilir.
+         * **Sıfırlamak için gereken soru sayısı**: Kullanıcının parolasını sıfırlanmasına veya kilidini açmasına izin vermeniz için doğru yanıtlaması gereken üç ile beş arasında soruya ayarlanabilir.
             
     ![Kimlik doğrulaması][Authentication]
 
 4. Önerilen: **Özelleştirme**'nin altında, **Yöneticinize başvurun** bağlantısını, tanımladığınız bir sayfa ya da e-posta adresine işaret edecek şekilde değiştirebilirsiniz. Bu bağlantıyı kullanıcılarının destek soruları için zaten kullandığı bir e-posta adresi veya web sitesine ayarlamanız önerilir.
 
 5. İsteğe bağlı: **Kayıt** sayfası yöneticilere aşağıdaki seçenekleri sağlar:
-    * Kullanıcılardan oturum açarken kaydolmalarını isteme.
-    * Kullanıcıların kimlik doğrulaması bilgilerini yeniden onaylamasını istemeden önce geçen gün sayısını ayarlama.
+   * Kullanıcılardan oturum açarken kaydolmalarını isteme.
+   * Kullanıcıların kimlik doğrulaması bilgilerini yeniden onaylamasını istemeden önce geçen gün sayısını ayarlama.
 
 6. İsteğe bağlı: **Bildirimler** sayfası yöneticilere aşağıdaki seçenekleri sağlar:
-    * Parola sıfırlamayı kullanıcılara bildirme.
-    * Diğer yöneticiler parolalarını sıfırladığında tüm yöneticilere bildirme.
+   * Parola sıfırlamayı kullanıcılara bildirme.
+   * Diğer yöneticiler parolalarını sıfırladığında tüm yöneticilere bildirme.
 
 Bu noktada Azure AD kiracınız için SSPR’ı yapılandırdınız. Kullanıcılarınız bundan böyle yönetici müdahalesi olmadan parolalarını güncelleştirmek için [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md) ve [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md) makalelerinde bulunan yönergeleri kullanabilir. Yalnızca bulut kullanıyorsanız burada durabilirsiniz. Öte yandan, isterseniz şirket için Active Directory etki alanında parola eşitlemesini yapılandırmak için bir sonraki bölümden devam edebilirsiniz.
 
-> [!IMPORTANT]
+> [!TIP]
 > Microsoft, Azure yönetici hesapları için güçlü kimlik doğrulama gereksinimleri uyguladığından, SSPR özelliğini yönetici yerine bir kullanıcıyla test edin. Yönetici parolası ilkesiyle ilgili daha fazla bilgi için [parola ilkesi](active-directory-passwords-policy.md#administrator-password-policy-differences) makalemize bakın.
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Var olan kimlik kaynağına eşitlemeyi yapılandırma

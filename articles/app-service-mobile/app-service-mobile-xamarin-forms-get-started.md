@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c7eb78b5049b385ee34c7ac8e3574b064d7ecf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-xamarinforms-app"></a>Xamarin.Forms uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -59,7 +59,7 @@ Bir Mac veya Windows bilgisayarda aşağıdakileri yapın:
 
 1. [Azure Portal] gidin.
 
-2. Mobil uygulamanızın **Ayarlar** dikey penceresinde, **Mobil** başlığı altında **Kullanmaya Başlama** > **Xamarin.Forms**’u seçin. **3. adım** altında **Yeni uygulama oluştur**’u ve ardından **İndir**’i seçin.
+2. Mobil Uygulamanızın ayarlar dikey penceresinde **Hızlı Başlangıç** (Dağıtım altında) > **Xamarin.Forms**'a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
 
    Bu işlem, mobil uygulamanıza bağlı olan istemci uygulaması içeren bir projeyi indirir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 

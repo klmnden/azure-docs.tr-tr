@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik durumunu izleme
 Bu makale, ilkelerle uyumluluğu izlemek için Azure Güvenlik Merkezi'ndeki izleme özelliklerini kullanmanıza yardımcı olur.
@@ -45,13 +45,14 @@ Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policie
 
 ![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Her sekmede birden fazla bölüm olabilir ve her bölümde, sorunu çözmek üzere önerilen adımlarla ilgili daha fazla ayrıntı görmek için ayrı ayrı seçenekler belirleyebilirsiniz. 
+Her sekmede birden fazla bölüm olabilir ve her bölümde, sorunu çözmek üzere önerilen adımlarla ilgili daha fazla ayrıntı görmek için ayrı ayrı seçenekler belirleyebilirsiniz.
 
 #### <a name="monitoring-recommendations"></a>İzleme önerileri
-Bu bölüm, otomatik hazırlaması başlatılmış sanal makinelerin ve bilgisayarların toplam sayısıyla bunların geçerli durumlarını gösterir. Bu girişe tıkladığınızda, **VM Aracısı eksik veya yanıt vermiyor** penceresi açılır. 
+Bu bölüm, otomatik hazırlaması başlatılmış sanal makinelerin ve bilgisayarların toplam sayısıyla bunların geçerli durumlarını gösterir. Bu girişe tıkladığınızda **Aracı sistem durumu sorunlarını izleme** sayfası açılır.
 
-![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Aracı sistem durumu sorunlarını izleme](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+Güvenlik Merkezi'nin başarılı bir şekilde izleyemediği VM'ler ve bilgisayarlar listelenir. Ayrıntılı bilgi için bir VM'yi veya bilgisayarı seçin. Sorun, **İZLEME DURUMU** bölümünde tanımlanır.
 
 #### <a name="recommendations"></a>Öneriler
 Bu bölümde, Azure Güvenlik Merkezi’nin izlediği [her bir sanal makine ve bilgisayar için bir öneri](security-center-virtual-machine-recommendations.md) kümesi bulunur. İlk sütunda öneriler listelenmiştir. İkinci sütunda, bu önerinin etkilediği sanal makinelerin ve bilgisayarların toplam sayısı gösterilmiştir. Üçüncü sütunda, aşağıdaki ekran görüntüsünde gösterildiği gibi sorunun önem derecesi belirtilmiştir.
@@ -79,7 +80,7 @@ Her öneride, tıkladıktan sonra gerçekleştirebileceğiniz bir eylemler küme
   * **Orta**: Bir işlemi tamamlamak veya bir güvenlik açığını ortadan kaldırmak için kritik olmayan adımlar veya ek adımlar gerekiyor.
   * **Düşük**: Bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler sunulmaz ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
 
-Öneri ayrıntılarını görüntülemek için listeden eksik güncelleştirmenin adına tıklayın. 
+Öneri ayrıntılarını görüntülemek için listeden eksik güncelleştirmenin adına tıklayın.
 
 ![Belirli bir sanal makine için eksik sistem güncelleştirmeleri](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ Bulut hizmetleri için işletim sistemi sürümü güncel olmadığında aşağ�
 
 ![Bulut hizmeti ayrıntıları](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Bu öneriyle ilgili daha kesin bir açıklama görmek için **AÇIKLAMA** sütunu altındaki **İşletim sistemi sürümünü güncelleştir**’e tıklayın. 
+Bu öneriyle ilgili daha kesin bir açıklama görmek için **AÇIKLAMA** sütunu altındaki **İşletim sistemi sürümünü güncelleştir**’e tıklayın.
 
 ![Bulut hizmeti önerileri](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 

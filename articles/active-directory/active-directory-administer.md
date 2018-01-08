@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Azure AD dizininizi yönetme
 
@@ -80,7 +80,6 @@ Bu portallardan (veya cmdlet'lerden) birini kullanarak şunları yapabilirsiniz:
 * Azure AD kimlik ve kimlik doğrulama hizmetleri ile şirket içi tümleştirmeyi ayarlama
 
 Azure AD yönetim merkezi, Office 365 Yönetici Merkezi, Microsoft Intune hesap portalı ve Azure AD cmdlet'lerinin tümü, okuma ve yazma işlemlerini kuruluş dizininizle ilişkilendirilen tek bir paylaşılan Azure AD örneğinde gerçekleştirir. Bu araçların her biri, dizin verilerinizdeki değişiklikleri alan bir ön uç arabirimi olarak görev yapar.
-
 Bu hizmetlerde portallar veya cmdlet’lerden birini kullanarak kuruluşunuzun verileri değiştirdiğinizde, değişiklikler, oturum açtığınızda diğer portallarda da gösterilir. Bu veriler, abone olduğunuz Microsoft bulut hizmetleriyle paylaşılır.
 
 Örneğin, Office 365 Yönetim Merkezi'ni kullanarak bir kullanıcının oturum açmasını engellerseniz aynı kullanıcının kuruluşunuzun şu anda abone olduğu diğer hizmetlerde de oturum açması engellenir. Aynı kullanıcı hesabını Microsoft Intune hesap portalında görüntülediğinizde kullanıcının engellendiğini görebilirsiniz.
@@ -117,8 +116,8 @@ Azure AD, bir dizinin silinmesi için belirli koşulların sağlanmasını gerek
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure AD Forumu](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Azure Multi-Factor Authentication Forumu](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Azure soruları için Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
+* [Azure AD Forumu](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Azure Multi-Factor Authentication Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [Azure soruları için StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Azure AD’de yönetici rolü atama](active-directory-assign-admin-roles-azure-portal.md)

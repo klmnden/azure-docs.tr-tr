@@ -1,38 +1,41 @@
 ---
-title: "Azure IOT Hub'a bir sanal cihaz sağlama | Microsoft Belgeleri"
-description: "Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti ile bir sanal cihaz oluşturma ve sağlama"
+title: "C kullanarak Azure IOT Hub'a sanal bir TPM cihazı sağlama | Microsoft Docs"
+description: "Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için C cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama"
 services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/18/2017
+ms.date: 12/20/2017
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6e486b8fb5924c8a021a781742478e9082ca668c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: dd101db9ea3c03a939efb6a64c231d885f33cedc
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-services"></a>IoT Hub Cihazı Sağlama Hizmetleri kullanarak bir sanal cihaz oluşturma ve sağlama
+# <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için C cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 > [!div class="op_single_selector"]
-> * [TPM](quick-create-simulated-device.md)
-> * [X.509](quick-create-simulated-device-x509.md)
+> * [C](quick-create-simulated-device.md)
+> * [Java](quick-create-simulated-device-tpm-java.md)
+> * [C#](quick-create-simulated-device-tpm-csharp.md)
+> * [Python](quick-create-simulated-device-tpm-python.md)
 
 Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde sanal makine oluşturmayı, Windows TPM simülatörünü cihazın [Donanım Güvenlik Modülü (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) olarak çalıştırmayı ve örnek kodlar kullanarak bu sanal cihazı Cihaz Sağlama Hizmeti ve IoT hub’ınızla bağlamayı gösterir. 
 
 Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun.
 
 <a id="setupdevbox"></a>
+
 ## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama 
 
-1. Makinenizde Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/) olduğundan emin olun. Visual Studio yüklemenizde "C++ ile masaüstü geliştirme" iş yükünün etkinleştirilmiş olması gerekir.
+1. Makinenizde Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/) olduğundan emin olun. Visual Studio yüklemenizde ["C++ ile masaüstü geliştirme"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirilmiş olması gerekir.
 
-2. [CMake derleme sistemini](https://cmake.org/download/) indirin ve yükleyin.
+2. [CMake derleme sistemini](https://cmake.org/download/) indirin ve yükleyin. Yükleme **öncesinde**`cmake` makinenize "C++ ile masaüstü geliştirme" iş yüküne sahip bir Visual Studio uygulamasının yüklenmiş olması önemlidir.
 
 3. `git` uygulamasının makinenizde yüklü olduğundan ve komut penceresinden erişilebilir ortam değişkenlerine eklendiğinden emin olun. Yüklenecek `git` araçlarının son sürümleri için [Software Freedom Conservancy’nin Git istemci araçlarına](https://git-scm.com/download/) bakın. Bunlara yerel Git deponuzla etkileşim kurmak için kullanabileceğiniz bir komut satırı uygulaması olan **Git Bash** dahildir. 
 
@@ -53,31 +56,46 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 6. Kod örneği, bir Windows TPM simülatörü kullanır. SAS belirteci kimlik doğrulamasını etkinleştirmek için aşağıdaki komutu çalıştırın. Sanal cihaz için ayrıca bir Visual Studio çözümü oluşturur.
 
     ```cmd/sh
-    cmake -Ddps_auth_type=tpm_simulator ..
+    cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
+
+    `cmake`, C++ derleyicinizi bulamazsa yukarıdaki komutu çalıştırırken derleme hatalarıyla karşılaşabilirsiniz. Bu durumda bu komutu [Visual Studio komut isteminde](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs) çalıştırmayı deneyin. 
 
 7. Ayrı bir komut isteminde, GitHub kök klasörüne gidin ve [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simülatörünü çalıştırın. 2321 ve 2322 bağlantı noktalarında bulunan bir yuva üzerinden dinler. Bu komut penceresini kapatmayın; Hızlı Başlangıç kılavuzu sonuna kadar simülatörü çalışır durumda tutmanız gerekir. 
 
+   *cmake* klasöründeyseniz aşağıdaki komutları çalıştırın:
+
     ```cmd/sh
-    .\azure-iot-sdk-c\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+    cd..
+    .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
-## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Cihaz sağlama hizmetinde bir cihaz kayıt girişi oluşturma
+<a id="simulatetpm"></a>
+
+## <a name="simulate-tpm-device"></a>TPM cihazını benzetme
 
 1. `azure_iot_sdks.sln` adlı *cmake* klasöründe oluşturulan çözümü açın ve Visual Studio'da derleyin.
 
-2. **tpm_device_provision** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. Çözümü çalıştırın. Çıktı penceresinde cihaz kaydı için gereken **_Onay Anahtarını_** ve **_Kayıt Kimliğini_** görüntülenir. Bu değerleri not alın. 
+2. Visual Studio'nın *Çözüm Gezgini* bölmesinde **Sağlama\_Araçlar** klasörüne gidin. **tpm_device_provision** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. 
 
-3. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve Cihaz Sağlama hizmetinizi açın.
+3. Çözümü çalıştırın. Çıktı penceresinde cihaz kaydı için gereken **_Kayıt Kimliği_** ve **_Onay Anahtarı_** görüntülenir. Bu değerleri not alın. 
 
-4. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. 
 
-5. **Kayıt listesi girişi ekle** bölümüne aşağıdaki bilgileri girin:
+<a id="portalenrollment"></a>
+
+## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Portalda bir cihaz kaydı girişi oluşturma
+
+1. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve Cihaz Sağlama hizmetinizi açın.
+
+2. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. 
+
+3. **Kayıt listesi girişi ekle** bölümüne aşağıdaki bilgileri girin:
     - Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
-    - TPM cihazınızın *Kayıt kimliği* ve *Onay anahtarı* bilgilerini girin. 
-    - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
-    - Benzersiz bir cihaz kimliği girin. Cihazınızı adlandırırken gizli veriler kullanmaktan kaçının.
-    - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
+    - TPM cihazınızın *Kayıt kimliği* ve *Onay anahtarı* bilgilerini girin.
+    - İsteğe bağlı olarak, aşağıdaki bilgileri sağlayabilirsiniz:
+        - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
+        - Benzersiz bir cihaz kimliği girin. Cihazınızı adlandırırken gizli veriler kullanmaktan kaçının.
+        - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
     - Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
     ![Portal dikey penceresinde cihaz kayıt bilgilerini girme](./media/quick-create-simulated-device/enter-device-enrollment.png)  
@@ -86,22 +104,33 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 
 
 <a id="firstbootsequence"></a>
+
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>Cihazın ilk önyükleme sırasını benzetim olarak çalıştırma
 
-1. Azure portalında Cihaz Sağlama hizmetiniz için **Genel Bakış** dikey penceresini seçin ve  **_Genel cihaz uç noktası_** ve  **_Kimlik kapsamı_** değerlerini not alın.
+1. Azure Portal'da Cihaz Sağlama hizmetiniz için **Genel Bakış** dikey penceresini seçin ve **_Kimlik Kapsamı_** değerini not alın.
 
     ![Portal dikey penceresinden DPS uç nokta bilgilerini ayıklama](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
-2. Makinenizde Visual Studio'da **dps_client_sample** adlı örnek projeyi seçin ve **dps_client_sample.c** dosyasını açın.
+2. Makinenizdeki Visual Studio *Çözüm Gezgini*'nde **Sağlama\_Örnekler** klasörüne gidin. **prov\_dev\_client\_sample** adlı örnek projeyi seçip **prov\_dev\_client\_sample.c** dosyasını açın.
 
-3. `dps_scope_id` değişkenine _Kimlik kapsamı_ değerini atayın. `dps_uri` değişkeninin _Genel cihaz uç noktası_ ile aynı değere sahip olduğuna dikkat edin. 
+3. `id_scope` değişkenine _Kimlik kapsamı_ değerini atayın. 
 
     ```c
-    static const char* dps_uri = "global.azure-devices-provisioning.net";
-    static const char* dps_scope_id = "[DPS Id Scope]";
+    static const char* id_scope = "[ID Scope]";
     ```
 
-4. **dps_client_sample** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. Örnek uygulamayı çalıştırın. IoT hub bilgilerinizi almak için cihaz önyüklemesi ve Cihaz Sağlama Hizmetine bağlanma benzetimi gerçekleştiren iletilere dikkat edin. Benzetimli cihazınızın, sağlama hizmetinizle bağlantılı IoT hub ile başarıyla sağlanmasından sonra cihaz kimliği hub’ın **Device Explorer** dikey penceresinde görünür. 
+4. Aynı dosyadaki **main()** işlevinin **SECURE_DEVICE_TYPE** parametresinin TPM olarak ayarlandığından emin olun.
+
+    ```c
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    ```
+
+   Varsayılan `hsm_type = SECURE_DEVICE_TYPE_X509;` deyimini açıklama satırı yapın veya silin. 
+
+5. **prov\_dev\_client\_sample** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. Çözümü çalıştırın. 
+
+6. IoT hub bilgilerinizi almak için cihaz önyüklemesi ve Cihaz Sağlama Hizmetine bağlanma benzetimi gerçekleştiren iletilere dikkat edin. Sanal cihazınızın, sağlama hizmetinizle bağlantılı IoT hub ile başarıyla sağlanmasından sonra cihaz kimliği hub'ın **IoT Cihazları** dikey penceresinde görünür. 
 
     ![Cihaz IOT hub'da kayıtlı](./media/quick-create-simulated-device/hub-registration.png) 
 
@@ -114,12 +143,13 @@ Cihaz istemci örneği üzerinde çalışmaya ve inceleme yapmaya devam etmeyi p
 
 1. Makinenizde cihaz istemci örnek çıktı penceresini kapatın.
 1. Makinenizde TPM simülatörü penceresini kapatın.
-1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından Cihaz Sağlama hizmetini seçin. **Tüm kaynaklar** dikey pencerenin en üstündeki **Sil** seçeneğine tıklayın.  
-1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından IoT hub’ınızı seçin. **Tüm kaynaklar** dikey pencerenin en üstündeki **Sil** seçeneğine tıklayın.  
+1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından Cihaz Sağlama hizmetini seçin. Hizmetinizin **Kayıtları Yönetme** dikey penceresini açıp **Bireysel Kayıtlar** sekmesine tıklayın. Bu Hızlı Başlangıç adımlarını kullanarak kaydettiğiniz cihazın *KAYIT KİMLİĞİ* değerini seçip en üstte bulunan **Sil** düğmesine tıklayın. 
+1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından IoT hub’ınızı seçin. Hub'ınızın **IoT Cihazları** dikey penceresini açıp bu Hızlı Başlangıç adımlarını kullanarak kaydettiğiniz cihazın *CİHAZ KİMLİĞİ* değerini seçip en üstte bulunan **Sil** düğmesine tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta makinenizde bir TPM sanal cihazı oluşturdunuz ve Azure IOT Hub cihaz sağlama hizmeti ile IOT hub'ınıza sağladınız. Cihaz sağlama hakkında ayrıntılı bilgi edinmek için Azure portalında Cihaz Sağlama Hizmeti ayarları öğreticisine geçin. 
+Bu hızlı başlangıçta makinenizde bir TPM sanal cihazı oluşturdunuz ve IoT Hub Cihaz Sağlama Hizmeti ile IoT hub'ınıza sağladınız. TPM cihazınızı programlı bir şekilde kaydetmeyi öğrenmek için TPM cihazının programlı kaydının yer aldığı Hızlı Başlangıç adımlarına gidin. 
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Cihazı Sağlama Hizmeti öğreticileri](./tutorial-set-up-cloud.md)
+> [Azure Hızlı Başlangıcı - TPM cihazını Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydetme](quick-enroll-device-tpm-java.md)
+

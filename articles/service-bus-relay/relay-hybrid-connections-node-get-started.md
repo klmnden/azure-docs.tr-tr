@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Geçiş Karma Bağlantıları ile çalışmaya başlama
 
@@ -28,7 +28,7 @@ Bu öğretici [Azure Geçiş Karma Bağlantıları](relay-what-is-it.md#hybrid-c
 
 ## <a name="what-will-be-accomplished"></a>Ne elde edilecek
 
-Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu öğreticide iki konsol uygulaması oluşturulacaktır. Adımlar aşağıdaki gibidir:
+Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu öğreticide iki konsol uygulaması oluşturun. Adımlar aşağıdaki gibidir:
 
 1. Azure portalı kullanılarak Geçiş ad alanı oluşturma.
 2. Azure portalı kullanılarak karma bağlantı oluşturma.
@@ -56,13 +56,13 @@ Daha önce bir karma bağlantı oluşturduysanız [Sunucu uygulaması oluşturma
 
 ## <a name="3-create-a-server-application-listener"></a>3. Sunucu uygulaması (dinleyici) oluşturma
 
-Geçiş hizmetinden ileti dinleyip almak için bir Node.js konsol uygulaması yazılacaktır.
+Geçiş hizmetinden ileti dinleyip almak için bir Node.js konsol uygulaması yazın.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. İstemci uygulaması (gönderici) oluşturma
 
-Geçiş hizmetinden ileti göndermek için bir Node.js konsol uygulaması yazılacaktır.
+Geçiş hizmetinden ileti göndermek için bir Node.js konsol uygulaması yazın.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,7 +76,7 @@ Geçiş hizmetinden ileti göndermek için bir Node.js konsol uygulaması yazıl
 
 Tebrikler, Node.js kullanarak uçtan uca bir Karma Bağlantılar uygulaması oluşturdunuz!
 
-## <a name="next-steps"></a>Sonraki adımlar:
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Geçiş hakkında SSS](relay-faq.md)
 * [Ad alanı oluşturma](relay-create-namespace-portal.md)

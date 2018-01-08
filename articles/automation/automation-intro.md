@@ -1,86 +1,83 @@
 ---
-title: Azure Automation Nedir? | Microsoft Belgeleri
-description: "Azure Automation’ın sağladığı değerleri öğrenin ve runbook’lar oluşturmaya, kullanmaya ve Azure Automation DSC kullanmaya başlayabilmeniz için sık sorulan soruların yanıtlarını alın."
+title: "Azure Otomasyonu'na Genel Bakış | Microsoft Docs"
+description: "Azure Otomasyonu'nu altyapı ve uygulamaların yaşam döngüsünü otomatikleştirmek için kullanmayı öğrenin."
 services: automation
+author: eamonoreilly
 documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "otomasyon nedir, azure otomasyonu, azure otomasyonu örnekleri"
+keywords: "azure otomasyonu, DSC, powershell, istenen durum yapılandırması, güncelleştirme yönetimi, değişiklik izleme, stok, runbook'lar, python, grafik"
 ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/13/2017
+ms.author: eamono
+ms.openlocfilehash: aab15392187a00aebf707f553a097961ce438194
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="azure-automation-overview"></a>Azure Automation’a genel bakış
-Microsoft Azure Automation, kullanıcılara bir bulutta ve kurumsal ortamda sık olarak gerçekleştirilen el ile, uzun süreli, hatasız ve sık tekrarlanan görevleri otomatik hale getirmek için bir yol sunar. Bu zamandan tasarruf sağlar ve normal yönetim görevlerinin güvenilirliğini artırır ve hatta bunları düzenli aralıklarla otomatik olarak gerçekleştirilecek şekilde zamanlar. Runbook’ları kullanarak işlemleri otomatik hale getirebilir ya da İstenen Durum Yapılandırması’nı kullanarak yapılandırmayı otomatik hale getirebilirsiniz. Bu makale, Azure Automation’a ilişkin kısa bir genel bakış sağlar ve bazı sık sorulan soruları yanıtlar. Farklı konulara ilişkin daha ayrıntılı bilgiler için bu kitaplıktaki diğer makalelere başvurabilirsiniz.
+# <a name="an-introduction-to-azure-automation"></a>Azure Otomasyonu'na giriş
 
-## <a name="automating-processes-with-runbooks"></a>Runbook'larla işlemleri otomatik hale getirme
-Bir runbook, Azure Automation’da bazı otomatik işlemleri gerçekleştiren görevler grubudur. Bu, sanal makineyi başlatma ve günlük girişi oluşturma gibi basit bir işlem olabilir ya da birden fazla kaynakta ve hatta birden fazla bulutta veya şirket içi ortamda karmaşık bir işlemi gerçekleştirmek için diğer küçük runbook’ları birleştiren karmaşık bir runbook’unuz olabilir.  
+Azure Otomasyonu, Azure ve Azure harici ortamlarınızda tutarlı yönetim özellikleri sunan bulut tabanlı bir otomasyon ve yapılandırma hizmeti sunar. Bu hizmet süreç otomasyonu, güncelleştirme yönetimi ve yapılandırma özelliklerine sahiptir. Azure Otomasyonu iş yüklerinin ve kaynaklarının dağıtılması, işleme alınması ve yetkilerinin alınması sırasında eksiksiz denetim sağlar.
+Bu makale, Azure Otomasyonu'na ilişkin kısa bir genel bakış sağlar ve bazı sık sorulan soruları yanıtlar. Özellikler hakkında daha fazla bilgi almak için bu genel bakış içindeki bağlantıları ziyaret edin.
 
-Örneğin, sunucuya bağlanma, veritabanına bağlanma, veritabanının mevcut boyutunu alma, eşiğin aşılıp aşılmadığını kontrol etmek ve ardından kesme ve kullanıcıyı bilgilendirme gibi birden fazla adımı içeren maksimum boyuta yaklaşıyorsa, SQL veritabanını kesmek üzere el ile yapılan bir işleminiz olabilir.  Bu adımların her birini el ile gerçekleştirmek yerine, tüm bu adımları tek bir işlem olarak gerçekleştirecek bir runbook oluşturabilirsiniz. Runbook’u çalıştırır, SQL sunucusu adı, veritabanı adı ve alıcı e-posta adresi gibi gerekli bilgileri girer ve işlem tamamlanırken arkanıza yaslanırsınız. 
+## <a name="azure-automation-capabilities"></a>Azure Otomasyon özellikleri
 
-## <a name="what-can-runbooks-automate"></a>Runbook’lar neleri otomatik hale getirir?
-Azure Automation’daki runbook’lar Windows PowerShell ya da Windows PowerShell İş Akışı tabanlıdır, bu nedenle bunlar PowerShell’in yapabileceği her şeyi yapar. Bir uygulama veya hizmetin API’si varsa, bir runbook bununla çalışabilir. Uygulama için bir PowerShell modülünüz varsa, bu modülü Azure Automation’a yükleyebilir ve bu cmdlet’leri runbook’unuza ekleyebilirsiniz. Azure Automation runbook’ları Azure bulutunda çalışır ve bulut kaynaklarına veya herhangi bir buluttan erişilebilen dış kaynaklara erişebilir. [Karma Runbook Çalışanı](automation-hybrid-runbook-worker.md) kullanarak, runbook'lar yerel kaynakları yönetmek için yerel veri merkezinizde çalışabilir. 
+![Otomasyon özelliklerine genel bakış](media/automation-overview/automation-overview.png)
 
-## <a name="getting-runbooks-from-the-community"></a>Topluluktan runbook'ları alma
-[Runbook Galerisi](automation-runbook-gallery.md#runbooks-in-runbook-gallery) Microsoft’tan ve topluluktan ortamınızda değiştirmeden kullanabileceğiniz ya da kendi amaçlarınız doğrultusunda özelleştirebileceğiniz runbook’ları içerir. Bunlar, ayrıca kendi runbook’larınızı oluşturmada başvurular olarak da faydalıdır. Hatta diğer kullanıcıların faydalı bulabileceğini düşündüğünüz kendi runbook’arınızla galeriye katkıda bulanabilirsiniz. 
+### <a name="process-automation"></a>Süreç otomasyonu
 
-## <a name="creating-runbooks-with-azure-automation"></a>Azure Automation ile Runbook’ları oluşturma
-En baştan [kendi runbook'larınızı oluşturabilir](automation-creating-importing-runbook.md) ya da kendi gereksinimleriniz doğrultusunda [Runbook Galerisi](http://msdn.microsoft.com/library/azure/dn781422.aspx)’nden aldığınız runbook’ları değiştirebilirsiniz. Gereksinimlerinize ve PowerShell deneyiminize göre seçebileceğiniz dört farklı [runbook türü](automation-runbook-types.md) vardır. Doğrudan PowerShell kodu ile çalışmayı tercih ediyorsanız, çevrimdışı veya Azure portaldaki [metin düzenleyicisi](http://msdn.microsoft.com/library/azure/dn879137.aspx)nde düzenleyebileceğiniz bir [PowerShell runbook’u](automation-runbook-types.md#powershell-runbooks) ya da [PowerShell İş Akışı runbook’u](automation-runbook-types.md#powershell-workflow-runbooks) kullanabilirsiniz. Temeldeki kodu görmeden bir runbook'u düzenlemek isterseniz, Azure portaldaki [grafik düzenleyicisi](automation-graphical-authoring-intro.md)ni kullanarak [Grafik runbook’u](automation-runbook-types.md#graphical-runbooks) oluşturabilirsiniz. 
+Azure Otomasyonu sık gerçekleştirilen, zaman alan ve hataya açık bulut yönetim görevlerinizi otomatik hale getirme imkanı tanır. Bu otomasyon, işletmenize değer kazandıran işlere odaklanmanıza yardımcı olur. Ayrıca hataları azaltıp verimliliği artırarak, işletim maliyetlerini azaltmanıza da katkıda bulunur. Azure hizmetlerini uçtan uca süreçlerinizi dağıtmak, yapılandırmak ve yönetmek için gerekli olan diğer ortak sistemlerinizle tümleştirebilirsiniz. Bu hizmet PowerShell veya Python ile grafik [runbook'lar yazmanızı](automation-runbook-types.md) mümkün kılar. Karma Runbook çalışanı kullanarak şirket içi ortamları da dahil edebilir, yönetimi tek merkezden gerçekleştirebilirsiniz. [Web kancaları](automation-webhooks.md) istekleri gerçekleştirmek için kullanabileceğiniz bir yöntem sağlamanın yanı sıra ITSM, DevOps ve izleme sistemlerinden otomasyon tetikleyerek hizmet ve operasyon sürekliliğini sağlar.
 
-Okumak yerine izlemeyi mi tercih ediyorsunuz? Mayıs 2015 tarihli Microsoft Ignite oturumuna ait aşağıdaki videoya gözatın. Not: Bu videoda ele alınan kavramlar ve özellikler doğru olsa da, Azure Automation bu videonun kaydedilmesinden sonra değişmiştir; Azure Portal’da daha geniş bir kullanıcı arabirimine sahiptir ve ek özellikleri desteklemektedir.
+### <a name="configuration-management"></a>Yapılandırma yönetimi
 
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3451/player]
-> 
-> 
+Azure Otomasyonu [istenen durum yapılandırması](automation-dsc-overview.md), PowerShell DSC'ye yönelik kurumsal ortamlar için hizmetler için gerekli hizmetleri sağlayan bulut tabanlı bir çözümdür. Azure Otomasyonu DSC kaynaklarınızı yönetebilir ve bunları Azure buluttaki DSC Çekme Sunucusu'ndan alana sanal veya fiziksel makinelere uygulayabilirsiniz. Bu hizmet düğümlerin kendilerine atanan yapılandırmalardan sapması gibi önemli olayları size bildiren zengin raporlar da sağlar. Hem buluttaki hem de şirket içindeki fiziksel ve sanal makinelerin (Windows veya Linux) yapılandırmasını izleyip otomatik olarak güncelleştirebilirsiniz.
 
-## <a name="automating-configuration-management-with-desired-state-configuration"></a>İstenen Durum Yapılandırması ile yapılandırma yönetimini otomatik hale getirme
-[PowerShell DSC](https://technet.microsoft.com/library/dn249912.aspx) tanımlayıcı bir PowerShell söz dizimi kullanan fiziksel ana bilgisayarlar ve sanal makineler için yapılandırmayı yönetmenizi, dağıtmanızı ve uygulamanızı sağlayan bir yönetim platformudur. Merkezi bir DSC Çekme Sunucusu’nda hedef makinelerin otomatik olarak alabileceği ve uygulayabileceği yapılandırmaları tanımlayabilirsiniz. DSC, yapılandırmaları ve kaynakları yönetmek için kullanabileceğiniz bir PowerShell cmdlet'leri grubu sağlar.  
+Konuk içi kaynaklar hakkında stok bilgisi alarak yüklü uygulamalar ve diğer yapılandırma öğeleri hakkında görünürlük sağlayabilirsiniz. Gelişmiş raporlama ve arama özellikleri sayesinde işletim sistemi yapılandırmalarını kavramaya yardımcı olan ayrıntılı bilgilere hızlıca ulaşabilirsiniz. Sorunun kaynağını bulmak için hizmetler, daemon'lar, yazılımlar, kayıt defterleri ve dosyalarda yapılan değişiklikleri izleyebilirsiniz. DSC ayrıca ortamınızda istenmeyen değişiklikler olduğunda tanılama ve uyarma konusunda size yardımcı olabilir.
 
-[Azure Automation DSC](automation-dsc-overview.md), PowerShell DSC’ye yönelik kurumsal ortamlar için hizmetler için gerekli hizmetleri sağlayan bulut tabanlı bir çözümdür.  Azure Automation DSC kaynaklarınızı yönetebilir ve bunları Azure buluttaki DSC Çekme Sunucusu’ndan alana sanal veya fiziksel makinelere uygulayabilirsiniz.  Bu ayrıca, düğümlerin kendilerine atanan yapılandırmalardan sapması ve yeni bir yapılandırma uygulanması gibi önemli olayları size bildiren raporlama hizmetleri de sağlar. 
+### <a name="update-management"></a>Güncelleştirme yönetimi
 
-## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Azure Automation’da kendi DSC yapılandırmalarınızı oluşturma
-[DSC yapılandırmaları](automation-dsc-overview.md) istenen düğüm durumunu belirtir.  Birden çok düğüm, tümünün aynı durumu yapılandırmayı sağlamak üzere aynı yapılandırmayı uygulayabilir.  Yerel makinenizde bir metin düzenleyicisi kullanarak yapılandırma oluşturabilir ve ardından bunu derleyebileceğiniz ve düğümlerini uygulayabileceğiniz Azure Automation’a aktarabilirsiniz.
+Azure Otomasyonu ile karma ortamlardaki Windows ve Linux sistemlerini güncelleştirebilirsiniz. Azure, şirket içi ve diğer bulutlar üzerindeki güncelleştirme uyumluluğu hakkında görünürlük elde edersiniz. Güncelleştirmelerin belirli bir bakım aralığında yüklenmesini sağlamak için zamanlanmış dağıtım oluşturabilirsiniz. Bir makineye yüklenmemesi gereken güncelleştirmeleri dağıtım kapsamından çıkarabilirsiniz.
 
-## <a name="getting-modules-and-configurations"></a>Modülleri ve yapılandırmaları alma
-Runbook’larınızda ve DSC yapılandırmalarınızda kullanabileceğiniz cmdlet’leri içeren [PowerShell modüllerini](automation-runbook-gallery.md#modules-in-powershell-gallery) [PowerShell Galerisi](http://www.powershellgallery.com/)’nden alabilirsiniz. Bu galeriyi Azure portaldan başlatabilir ve modülleri doğrudan Azure Automation’a aktarabilir ya da bunları el ile indirebilir ve içeri aktarabilirsiniz. Modülleri doğrudan Azure portalına yükleyemezsiniz, ancak bunları herhangi başka bir modül gibi indirebilir ve yükleyebilirsiniz. 
+### <a name="shared-capabilities"></a>Paylaşılan özellikler
 
-## <a name="example-practical-applications-of-azure-automation"></a>Azure Automation’ın örnek pratik uygulamalar
-Aşağıda Azure Automation otomasyon senaryosu türlerine ilişkin yalnızca birkaç örnek verilmiştir. 
+Azure Otomasyonu, büyük ölçekli ortamlarınızda otomasyon ve yapılandırma kolaylığı sunmak için bir dizi paylaşılan kaynak sunar.
 
-* Farklı Azure aboneliklerinde sanal makineler oluşturun ve kopyalayın. 
-* Yerel bir makinedeki dosya kopyalarını Azure Blob Storage kapsayıcısına zamanlayın. 
-* Bir hizmet reddi saldırısı algılandığında,istekleri reddetme gibi güvenlik işlevlerini otomatik hale getirin. 
-* Makinelerin yapılandırılmış güvenlik ilkesiyle sürekli hizalanmasını sağlayın.
-* Uygulana kodunun buluta ve şirket içi altyapıya sürekli dağıtımını yönetin. 
-* Azure’da laboratuvar ortamınız için bir Active Directory ormanı oluşturun. 
-* DB en büyük boyuta yaklaşıyorsa, SQL veritabanındaki bir tabloyu kesin. 
-* Bir Azure Web sitesi için ortam ayarlarını uzaktan güncelleştirin. 
+* **[Rol tabanlı erişim denetimi](automation-role-based-access-control.md)**: Hesap erişimini görevlerin yazar özellikleri verilmeden çalıştırılmasını sağlayan bir Otomasyon operatörü rolüyle denetleyin.
+* **[Değişkenler](automation-variables.md)**: Farklı runbook'larda ve yapılandırmalarda kullanılabilecek içeriği tutmak için bir yöntem sağlar. Runbook'larda ve onlara başvuran yapılandırmalarda değişiklik yapmadan değerleri değiştirebilirsiniz.
+* **[Kimlik bilgileri](automation-credentials.md)**: Çalışma zamanında runbook'lar ve yapılandırmalar tarafından kullanılabilecek hassas bilgileri güvenle depolayın.
+* **[Sertifikalar](automation-certificates.md)**: Kimlik doğrulaması ve dağıtılan kaynakların güvenliğini sağlama amacıyla kullanmak üzere depolayın ve çalışma zamanında kullanılabilir duruma getirin.
+* **[Bağlantılar](automation-connections.md)**: Bağlantı kaynaklarındaki sistemlere bağlanırken kullanılacak bilgileri içeren ad/değer çiftlerini depolayın. Bağlantılar, çalışma zamanında kullanılmak üzere runbook ve yapılandırmalarda modül yazarı tarafından tanımlanır.
+* **[Zamanlamalar](automation-schedules.md)**: Otomasyonu önceden tanımlanmış zamanlarda tetikleme amacıyla hizmette kullanılır.
+* **[Kaynak denetimiyle tümleştirme](automation-source-control-integration.md)**: Kod ile yapılandırma gerçekleştirilmesini ve bu sayede runbook'ların veya yapılandırmaların kaynak denetim sistemine alınmasını sağlar.
+* **[PowerShell modülleri](automation-integration-modules.md)**: Bu modüller Azure'u ve diğer sistemleri yönetmek için kullanılır. Microsoft, üçüncü taraf, topluluk veya özel tanımlı cmdlet'ler ve DSC kaynakları için Otomasyon hesabına aktarın.
 
-## <a name="how-does-azure-automation-relate-to-other-automation-tools"></a>Azure Automation’ın diğer otomasyon araçları ile nasıl ilişkilidir?
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) özel bulutta yönetim görevlerini otomatik hale getirmek için tasarlanmıştır. [Microsoft Azure Pack](https://www.microsoft.com/en-us/server-cloud/) bileşeni olarak veri merkezinize yerel olarak yüklenir. SMA ve Azure Automation Windows PowerShell ve Windows PowerShell İş Akışı’nı temel alan aynı runbook biçimini kullanır, ancak SMA desteklemiyor [grafik runbook'lar](automation-graphical-authoring-intro.md)ı desteklemez.  
+### <a name="windows-and-linux"></a>Windows ve Linux
 
-[System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) şirket içi kaynakların otomasyonuna yöneliktir. Azure Automation ve Service Management Automation’dan farklı bir runbook biçimini kullanır ve betiklere gerek kalmadan runbook oluşturmak için grafik arabirimine sahiptir. Runbook'ları, Tümleştirme Paketleri’nde bulunan özellikle Orchestrator için yazılmış olan etkinliklerden oluşur. 
+Azure Otomasyonu, hem karma bulut ortamınızda hem de Windows ve Linux ile çalışacak şekilde tasarlanmıştır. Bu hizmet dağıtılan iş yüklerini ve bu iş yüklerinin üzerinde çalıştığı işletim sistemini otomatik hale getirmek ve yapılandırmak için tutarlı bir yöntem sunar.
 
-## <a name="where-can-i-get-more-information"></a>Daha fazla bilgiyi nereden bulabilirim?
-Azure Automation ve kendi runbook'larınızı oluşturma hakkında daha fazla bilgi almak için kullanabileceğiniz çeşitli kaynaklar vardır. 
+### <a name="community-gallery"></a>Topluluk galerisi
 
-* **Azure Automation Kitaplığı** şu anda bulunduğunuz yerdir. Bu kitaplıktaki makaleler Azure Automation yapılandırılması ve yönetimi ve kendi runbook'larınızı yazma konusunda kapsamlı belgeler sağlar. 
-* [Azure PowerShell cmdlet'leri](http://msdn.microsoft.com/library/jj156055.aspx) Windows PowerShell kullanarak Azure işlemlerini otomatik hale getirme hakkında bilgi sağlar. Runbook'ları Azure kaynakları ile çalışmak için bu cmdlet'leri kullanır. 
-* [Yönetim Web günlüğü](https://azure.microsoft.com/blog/tag/azure-automation/) Microsoft’tan Azure Automation ve diğer yönetim teknolojilerine ilişkin en son bilgileri sağlar. Azure Automation ekibinin en son verdiği bilgilerle güncel kalma için bu web günlüğüne abone olmalısınız. 
-* [Automation Forumu](http://go.microsoft.com/fwlink/p/?LinkId=390561) Microsoft ve Automation topluluk tarafından ele alınması için Azure Automation hakkında sorularınızı yayınlamanıza olanak sağlar. 
-* [Azure Automation Cmdlet'leri](https://msdn.microsoft.com/library/mt244122.aspx) yönetim görevlerini otomatik hale getirmek için bilgiler sağlar. Bu, Automation hesaplarını, varlıkları, runbook’ları, DSC’yi, yönetmek için cmdlet’leri içerir.
+[Otomasyon galerisi](automation-runbook-gallery.md)'ndeki runbook'lara ve modüllere göz atarak PowerShell galerisi ve Microsoft Betik Merkezi süreçlerinizle tümleştirmeye yeni süreçler oluşturmaya başlayın.
 
-## <a name="can-i-provide-feedback"></a>Geribildirim sağlayabilir miyim?
-**Lütfen bize geri bildirimde bulunun.** Bir Azure Automation runbook çözümü veya bir tümleştirme modülü arıyorsanız, Betik Merkezi'ne bir Betik İsteği gönderin. Azure Automation ile ilgili geribildirim ya da özellik isteğiniz varsa, [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback)’da yayınlayın. Teşekkür ederiz! 
+## <a name="common-scenarios-for-automation"></a>Genel Otomasyon senaryoları
 
+Azure Otomasyonu altyapınızın ve uygulamalarınızın yaşam döngüsü boyunca kullanabileceğini yönetim özellikleri sunar. Kuruluşun iş yükü dağıtım ve bakım şeklini değiştirmek için bilgileri sisteme aktarın. PowerShell, istenen durum yapılandırması, Python ve grafik runbook'lar gibi sık kullanılan dillerde içerik oluşturun. Hedefleme, raporlama ve uyumluluk için dağıtılan kaynakların tam stok durumuna sahip olun. Hatalı yapılandırmaya neden olabilecek değişiklikleri tanımlayın ve işletimsel uyumluluğu geliştirin.
+
+* **Kaynak derleme/dağıtma**: Runbook'ları ve Azure Resource Manager şablonlarını kullanarak karma ortamda VM'ler dağıtın. Jenkins ve Visual Studio Team Services gibi geliştirme araçlarıyla tümleştirin.
+* **VM yapılandırma**: Windows ve Linux makinelerini altyapı ve uygulama açısından gereken şekilde yapılandırın ve değerlendirin.
+* **İzleme**: Makinelerdeki sorun yaratan değişiklikleri tanımlayın ve düzeltin veya yönetim sistemine iletin.
+* **Koruma**: Güvenlik uyarısı durumunda VM'yi karantinaya alın. Konuk içi gereksinimleri ayarlayın.
+* **Yönetim**: Ekipler için rol tabanlı erişim denetimini ayarlayın. Kullanılmayan kaynakları kurtarın.
+
+## <a name="pricing-for-automation"></a>Otomasyon fiyatlandırması
+
+Azure Otomasyonu fiyatlandırması için [fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/) sayfasına bakabilirsiniz.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Otomasyon hesabı oluşturma](automation-quickstart-create-account.md)

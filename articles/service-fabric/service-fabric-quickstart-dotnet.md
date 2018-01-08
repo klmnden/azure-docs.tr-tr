@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Azure'da .NET Service Fabric uygulaması oluşturma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -92,7 +92,7 @@ Visual Studio'da uygulamada hata ayıklaması yaparken yerel bir Service Fabric 
 Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
 1. **/VotingWeb/Controllers/VotesController.cs** dosyasını açın ve web API'sinin **Put** yönteminde (47. satır) bir kesme noktası ayarlayın. Dosyayı Visual Studio'daki Çözüm Gezgini'nde arayıp bulabilirsiniz.
 
-2. **/VotingData/ControllersVoteDataController.cs** dosyasını açın ve bu web API'sinin **Put** yönteminde (50. satır) bir kesme noktası ayarlayın.
+2. **/VotingData/Controllers/VoteDataController.cs** dosyasını açın ve bu web API'sinin **Put** yönteminde (50. satır) bir kesme noktası ayarlayın.
 
 3. Tarayıcıya dönün ve bir oylama seçeneğine tıklayın veya yeni oylama seçeneği ekleyin. Web ön ucunun api denetleyicisinde ilk kesme noktasına ulaşırsınız.
     - Burası, tarayıcıda JavaScript'in ön uç hizmetindeki API denetleyicisine istek gönderdiği yerdir.
@@ -171,7 +171,7 @@ Uygulamanıza yeni güncelleştirmeleri dağıtırken, Service Fabric güncelle�
 Uygulamayı yükseltmek için aşağıdakileri yapın:
 
 1. Visual Studio'da **/VotingWeb/Views/Home/Index.cshtml** dosyasını açın.
-2. Metin ekleyerek veya <h2> metni güncelleştirerek sayfadaki başlığı değiştirin. Örneğin, başlığı "Service Fabric Oylama Örneği v2" olarak değiştirin.
+2. Metin ekleyerek veya var olan metni güncelleştirerek sayfadaki başlığı değiştirin. Örneğin, başlığı "Service Fabric Oylama Örneği v2" olarak değiştirin.
 3. Dosyayı kaydedin.
 4. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
 5. Hizmetin ve uygulamanın sürümünü değiştirmek için **Bildirim Sürümü** düğmesine tıklayın.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT Paketi nedir?
 
@@ -30,6 +30,10 @@ Azure IoT Paketi, aşağıdaki özelliklere sahip olan *önceden yapılandırıl
 * Gereksinimlerinizi karşılayacak şekilde özelleştirebilirsiniz
 
 Önceden yapılandırılmış *IoT Paketi* çözümlerinin tümü aynı ilke ve hedeflere göre tasarlanmıştır.
+
+Aşağıdaki videoda önceden yapılandırılmış uzaktan izleme çözümüne genel bakışa yer verilmiştir:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>Önceden yapılandırılmış çözümlere genel bakış
 
@@ -56,9 +60,9 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 
 | Çözüm | Veri alımı | Cihaz kimliği | Cihaz yönetimi | Uç işleme | Komut ve denetim | Kurallar ve eylemler | Tahmine dayalı analiz |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
-| [Uzaktan izleme](iot-suite-remote-monitoring-explore.md)  |Evet |Evet |Evet |-   |Evet |Evet |-   |
-| [Tahmine dayalı bakım](iot-suite-predictive-overview.md)   |Evet |Evet |-   |-   |Evet |Evet |Evet |
-| [Bağlı fabrika](iot-suite-connected-factory-overview.md) |Evet |Evet |Evet |Evet |Evet |Evet |-   |
+| [Uzaktan izleme](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
+| [Tahmine dayalı bakım](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
+| [Bağlı fabrika](iot-suite-connected-factory-overview.md) |Yes |Yes |Yes |Yes |Yes |Yes |-   |
 
 * *Veri alımı*: Bulut ölçeğinde veri girişi.
 * *Cihaz kimliği*: Benzersiz cihaz kimliklerini yönetin ve çözüme cihaz erişimini denetleyin.
@@ -76,14 +80,14 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 
 |                      | Uzaktan izleme  | Tahmine dayalı bakım | Bağlı fabrika |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| IoT Hub’ı              | Evet                |                        | Evet               |
-| Event Hubs           |                    | Evet                    |                   |
-| Zaman Serisi Öngörüleri |                    |                        | Evet               |
-| Kapsayıcı Hizmetleri   | Evet                |                        | Evet               |
-| Akış Analizi     |                    | Evet                    |                   |
-| Web Apps             | Evet                | Evet                    | Evet               |
-| Cosmos DB            | Evet                | Evet                    | Evet               |
-| Azure Tabloları         |                    | Evet                    | Evet               |
+| IoT Hub’ı              | Yes                |                        | Yes               |
+| Event Hubs           |                    | Yes                    |                   |
+| Zaman Serisi Öngörüleri |                    |                        | Yes               |
+| Kapsayıcı Hizmetleri   | Yes                |                        | Yes               |
+| Akış Analizi     |                    | Yes                    |                   |
+| Web Apps             | Yes                | Yes                    | Yes               |
+| Cosmos DB            | Yes                | Yes                    | Yes               |
+| Azure Tabloları         |                    | Yes                    | Yes               |
 
 > [!NOTE]
 > Önceden yapılandırılmış uzaktan izleme çözümünde dağıtılmış kaynaklar hakkında daha fazla bilgi için GitHub’daki bu [makaleye](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) bakın.
