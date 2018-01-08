@@ -12,48 +12,43 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
+ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: 2ad62444e57b0ace6490ac0bbd6ae05dda01e791
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure App Service'te Node.js web uygulaması oluşturma
+
+> [!NOTE]
+> Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için bkz. [Linux üzerinde Azure App Service'te Node.js web uygulaması oluşturma](./containers/quickstart-nodejs.md).
+>
 
 [Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, Azure Web Apps'te ilk Node.js uygulamasının nasıl dağıtılacağı gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak web uygulamasını oluşturabilir ve örnek Node.js kodunu web uygulamasında dağıtmak için Git'i kullanabilirsiniz.
 
 ![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.   
+Mac, Windows veya Linux makinesi kullanarak buradaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.   
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
-* <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
 * <a href="https://nodejs.org/" target="_blank">Node.js ve NPM'yi yükleyin</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+[Https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) adresinden örnek Node.js projesini indirin ve ZIP arşivini ayıklayın.
 
-```bash
-git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
-```
-
-Örnek kodu içeren dizine geçin.
-
-```bash
-cd nodejs-docs-hello-world
-```
+Terminal penceresinde, örnek Node.js projesinin kök dizinine gidin (_index.js_ dosyasını içeren dizin).
 
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
@@ -63,7 +58,7 @@ Yerleşik Node.js HTTP sunucusunu başlatmak için bir terminal penceresi açıp
 npm start
 ```
 
-Bir web tarayıcısı açın ve örnek uygulamaya gidin `http://localhost:1337`.
+Bir web tarayıcısı açın ve `http://localhost:1337` konumundaki örnek uygulamaya gidin.
 
 Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
 
@@ -71,57 +66,54 @@ Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
 
 Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
+[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-![Boş web uygulaması sayfası](media/app-service-web-get-started-php/app-service-web-service-created.png)
+Cloud Shell’de, [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir web uygulaması oluşturun. 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+Aşağıdaki örnekte `<app_name>` kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir). Çalışma zamanı `NODE|6.9` olarak ayarlanmıştır. Desteklenen tüm çalışma zamanlarını görmek için, [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes) komutunu çalıştırın. 
+
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+```
+
+Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
+Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini benzersiz bir uygulama adıyla değiştirin.
 
 ```bash
-Counting objects: 23, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
-Total 23 (delta 8), reused 7 (delta 1)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'bf114df591'.
-remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling node.js deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.js'
-remote: Copying file: 'package.json'
-remote: Copying file: 'process.json'
-remote: Deleting file: 'hostingstart.html'
-remote: Ignoring: .git
-remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.8
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
- * [new branch]      master -> master
+http://<app name>.azurewebsites.net
 ```
+![Boş web uygulaması sayfası](media/app-service-web-get-started-php/app-service-web-service-created.png)
+
+[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
-Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
+Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -141,14 +133,25 @@ Bir metin düzenleyici kullanarak `index.js` dosyasını Node.js uygulaması iç
 response.end("Hello Azure!");
 ```
 
-Yerel terminal penceresi Git yaptığınız değişiklikleri kaydetmek ve kod değişiklikleri Azure'a gönderin.
+Yerel terminal penceresinde, uygulamanızın kök dizinine gidin ve güncelleştirilmiş projeniz için yeni bir ZIP dosyası oluşturun.
 
-```bash
-git commit -am "updated output"
-git push azure master
+```
+# Bash
+zip -r myUpdatedAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
+``` 
+
+[ZIP dosyasını karşıya yükleme](#upload-the-zip-file) altında verilen adımları kullanarak bu yeni ZIP dosyasını Cloud Shell'e yükleyin.
+
+Ardından, Cloud Shell'de karşıya yüklenen ZIP dosyanızı yeniden dağıtın.
+
+```azurecli-interactive
+az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
 ```
 
-Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp yenile öğesine dokunun.
+**Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
@@ -162,7 +165,7 @@ Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın a
 
 Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. 
 
-![Azure portalında App Service dikey penceresi](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![Azure portalında App Service sayfası](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
 
