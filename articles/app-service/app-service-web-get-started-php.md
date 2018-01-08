@@ -12,40 +12,40 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
+ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2f5c295468e5bb54d14b81d52b9ad4b41fcafa81
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: 9a41c08868de853ba82874a63b80316ec834858a
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure’da PHP web uygulaması oluşturma
 
-[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, Azure Web Apps'te bir PHP uygulamasının nasıl dağıtılacağı gösterilmektedir. Cloud Shell’de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak web uygulamasını oluşturabilir ve örnek PHP kodunu web uygulamasına dağıtmak için Git kullanabilirsiniz.
+> [!NOTE]
+> Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için bkz. [Linux üzerinde App Service'te PHP web uygulaması oluşturma](./containers/quickstart-php.md).
+>
+
+[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, Azure Web Apps'te bir PHP uygulamasının nasıl dağıtılacağı gösterilmektedir. Cloud Shell’de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak web uygulamasını oluşturabilir ve örnek PHP kodunu web uygulamasına dağıtmak için [ZIP dosyası](app-service-deploy-zip.md) kullanabilirsiniz.
 
 ![Azure'da çalışan örnek uygulama]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
+Mac, Windows veya Linux makinesi kullanarak buradaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
-* <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
 * <a href="https://php.net" target="_blank">PHP'yi yükleyin</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample-locally"></a>Örnekleri yerel makineye indirme
 
-Bir terminal penceresinde aşağıdaki komutları çalıştırın. Bu işlem, örnek uygulamanın yerel makinenize kopyalanmasını ve örnek kodu içeren dizine gitmenizi sağlar.
+[Https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) adresinden örnek PHP projesini indirin ve ZIP arşivini ayıklayın.
 
-```bash
-git clone https://github.com/Azure-Samples/php-docs-hello-world
-cd php-docs-hello-world
-```
+Terminal penceresinde, örnek PHP projesinin kök dizinine gidin (_index.php_ dosyasını içeren dizin).
 
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
@@ -55,7 +55,7 @@ Yerleşik PHP web sunucusunu başlatmak için bir terminal penceresi açıp ve `
 php -S localhost:8080
 ```
 
-Bir web tarayıcısı açın ve örnek uygulamaya gidin `http://localhost:8080`.
+Bir web tarayıcısı açın ve `http://localhost:8080` konumundaki örnek uygulamaya gidin.
 
 Sayfada gösterilen örnek uygulamada **Merhaba Dünya!** iletisini görürsünüz.
 
@@ -63,9 +63,11 @@ Sayfada gösterilen örnek uygulamada **Merhaba Dünya!** iletisini görürsün�
 
 Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
+[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
+[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
@@ -73,9 +75,31 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+Cloud Shell’de, [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir web uygulaması oluşturun. 
 
-Yeni oluşturulan web uygulamanıza göz atın. Değiştir  _&lt;uygulama adı >_ benzersiz bir uygulama adına sahip.
+Aşağıdaki örnekte `<app_name>` kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir). Çalışma zamanı `PHP|7.0` olarak ayarlanmıştır. Desteklenen tüm çalışma zamanlarını görmek için, [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes) komutunu çalıştırın. 
+
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0"
+```
+
+Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
+Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini benzersiz bir uygulama adıyla değiştirin.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -83,34 +107,9 @@ http://<app name>.azurewebsites.net
 
 ![Boş web uygulaması sayfası](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
-```bash
-Counting objects: 2, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.php'
-remote: Ignoring: .git
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
-```
-
-## <a name="browse-to-the-app-locally"></a>Yerel makinede uygulamanın konumuna gitme
+## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
 Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
 
@@ -132,14 +131,25 @@ Bir yerel metin düzenleyicisi kullanarak `index.php` dosyasını PHP uygulamas�
 echo "Hello Azure!";
 ```
 
-Yerel terminal penceresi Git yaptığınız değişiklikleri kaydetmek ve kod değişiklikleri Azure'a gönderin.
+Yerel terminal penceresinde, uygulamanızın kök dizinine gidin ve güncelleştirilmiş projeniz için yeni bir ZIP dosyası oluşturun.
 
-```bash
-git commit -am "updated output"
-git push azure master
+```
+# Bash
+zip -r myUpdatedAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
+``` 
+
+[ZIP dosyasını karşıya yükleme](#upload-the-zip-file) altında verilen adımları kullanarak bu yeni ZIP dosyasını Cloud Shell'e yükleyin.
+
+Ardından, Cloud Shell'de karşıya yüklenen ZIP dosyanızı yeniden dağıtın.
+
+```azurecli-interactive
+az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
 ```
 
-Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
+**Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
@@ -153,7 +163,7 @@ Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın a
 
 Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
 
-![Azure portalında App Service dikey penceresi](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+![Azure portalında App Service sayfası](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
 Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
 

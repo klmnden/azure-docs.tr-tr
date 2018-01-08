@@ -1,24 +1,16 @@
 ---
 title: "Azure Geçişi Hakkında | Microsoft Azure"
 description: "Azure Geçişi hizmetine genel bir bakış sağlar."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -41,13 +33,12 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 - Şu anda, şirket içi VMware sanal makinelerini (VM) Azure VM’lerine geçiş için değerlendirebilirsiniz.
 
 > [!NOTE]
-> Yol haritasında bulunan Hyper-V desteği birkaç ay içinde etkinleştirilecektir. Bu arada, Hyper-V iş yüklerinin geçişini planlamak için Azure Site Recovery Dağıtım Planlayıcısı’nı kullanmanız önerilir. 
+> Yol haritasında bulunan Hyper-V desteği kısa süre içinde etkinleştirilecektir. Bu arada, Hyper-V iş yüklerinin geçişini planlamak için [Azure Site Recovery Dağıtım Planlayıcısı](http://aka.ms/asr-dp-hyperv-doc)’nı kullanmanız önerilir. 
 
-- Tek bir değerlendirmede 1000 VM’yi ve tek bir Azure Geçişi projesinde 1500 makineyi değerlendirebilirsiniz. Daha fazla makineyi değerlendirmeniz gerekiyorsa, proje veya değerlendirme sayısını artırabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md).
+- Tek keşifte en çok 1000 sanal makine ve tek projede en çok 1500 sanal makine bulabilirsiniz. Ayrıca, tek değerlendirmede en çok 400 sanal makineyi değerlendirebilirsiniz. Daha fazla makineyi bulmanız veya değerlendirmeniz gerekiyorsa, keşiflerin veya değerlendirmelerin sayısını artırabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md).
 - Değerlendirmek istediğiniz VM, vCenter Server sürüm 5.5, 6.0 veya 6.5 ile yönetilmelidir.
 - Azure Geçişi projesini yalnızca Batı Orta ABD bölgesinde oluşturabilirsiniz. Ancak, bu kısıtlama farklı bir hedef Azure konumu için geçiş planlamanızı engellemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
-- Azure Geçişi portalı şu anda yalnızca İngilizce olarak kullanılabilir. 
-- Azure Geçişi şu anda yalnızca [Yerel Olarak Yedekli Depolama (LRS)](../storage/common/storage-introduction.md#replication) çoğaltmasını desteklemektedir.
+- Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Ne için ödeme yapmam gerekiyor?
 
@@ -91,7 +82,7 @@ Tabloda Azure Geçişi iletişimleri için gereken bağlantı noktaları özetle
 |-------------------|------------------------|---------------|---------|
 |Toplayıcı          |Azure Geçişi hizmeti   |TCP 443        |Toplayıcı SSL bağlantı noktası 443 üzerinden hizmete bağlanır|
 |Toplayıcı          |vCenter Server          |Varsayılan 9443   | Varsayılan olarak, toplayıcı bağlantı noktası 9443 üzerinden vCenter sunucusuna bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, toplayıcı VM üzerinde giden bağlantı noktası olarak yapılandırılması gerekir. |
-|Şirket içi VM     | Operations Management Suite (OMS) Çalışma Alanı          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA aracısı Log Analytics’e bağlanmak için TCP 443’ü kullanır. Bu bağlantı noktası yalnızca bağımlılık görselleştirmesi özelliğini kullanıyorsanız ve Microsoft Monitoring Agent’ı (MMA) yüklüyorsanız gereklidir. |
+|Şirket içi VM     | Operations Management Suite (OMS) Çalışma Alanı          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA aracısı Log Analytics’e bağlanmak için TCP 443’ü kullanır. Bu bağlantı noktası yalnızca bağımlılık görselleştirmesi özelliğini kullanıyorsanız ve Microsoft Monitoring Agent’ı (MMA) yüklüyorsanız gereklidir. |
 
 
   

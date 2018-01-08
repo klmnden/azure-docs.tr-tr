@@ -1,9 +1,9 @@
 ---
-title: "Grafik API'sini kullanarak Azure Cosmos DB .NET Framework veya çekirdek uygulama oluşturma | Microsoft Docs"
-description: "Bağlanmak ve Azure Cosmos DB sorgulamak için kullanabileceğiniz bir .NET Framework/Core kod örneği gösterir"
+title: "Graph API'sini kullanarak Azure Cosmos DB NET Framework veya Core uygulaması derleme | Microsoft Docs"
+description: "Azure Cosmos DB’ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir .NET Framework/Core kod örneği sunar"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,25 +13,25 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
-ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: grafik API'sini kullanarak bir .NET Framework veya çekirdek uygulaması oluşturma
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API’si kullanarak bir .NET Framework/Core uygulaması derleme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, veritabanını ve grafiği (kapsayıcı) nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [Grafik API'si](graph-sdk-dotnet.md) (önizleme) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.  
+Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, veritabanını ve grafiği (kapsayıcı) nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [Graph API](graph-sdk-dotnet.md) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.  
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
-Visual Studio yüklü 2017 zaten varsa, en fazla yüklenecek emin olun [Visual Studio 2017 güncelleştirme 3'ü](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
+Visual Studio 2017 zaten yüklüyse, [Visual Studio 2017 Güncelleştirme 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes) sürümünün yüklü olduğundan emin olun.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,15 +39,15 @@ Visual Studio yüklü 2017 zaten varsa, en fazla yüklenecek emin olun [Visual S
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Grafik ekleme
+## <a name="add-a-graph"></a>Graf ekleme
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir Grafik API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi GitHub'dan bir Graph API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
-Bu örnek proje .NET Core proje biçimini kullanarak ve aşağıdaki çerçevelerini hedefleyecek şekilde yapılandırılır:
+Örnek proje .NET Core proje biçimini kullanır ve aşağıdaki çerçeveleri hedeflemek için yapılandırılmıştır:
  - netcoreapp2.0
  - net461
 
@@ -108,31 +108,43 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dos
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. Visual Studio 2017 içinde appsettings.json dosyası açın. 
+1. [Azure portalında](http://portal.azure.com/), **Anahtarlar**’a tıklayın. 
 
-2. Azure portalında, Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. 
+    URI değerinin ilk parçasını kopyalayın.
 
-    ![Azure portalının Anahtarlar sayfasında birincil anahtarı görüntüleme ve kopyalama](./media/create-graph-dotnet/keys.png)
+    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar sayfası](./media/create-graph-dotnet/keys.png)
 
-3. Kopyalama, **URI** değerini portaldan ve uç nokta anahtarının değerini appsettings.json içinde yapın. Değeri kopyalamak için önceki ekran görüntüsünde gösterilen şekilde kopyala düğmesini kullanabilirsiniz.
+2. Visual Studio 2017'de, appsettings.json dosyasını açın ve değeri `endpoint` içinde `FILLME` üzerine yapıştırın. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    Uç nokta değeri şimdi şöyle görünmelidir:
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Graf veritabanı hesabınızı 27 Kasım 2017'den önce oluşturduysanız, `endpoint` değerindeki `documents` öğesini `graphs` olarak değiştirin. Graf veritabanı hesabınızı 27 Kasım 2017'da veya bu tarihten sonra oluşturduysanız, `endpoint` değerindeki `documents` öğesini `gremlin.cosmosdb` olarak değiştirin.
+
+    Uç nokta değeri şimdi şöyle görünmelidir:
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` veya `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. Portaldaki **BİRİNCİL ANAHTAR** değerinizi kopyalayın ve App.config dosyasındaki AuthKey anahtarının değeri yaptıktan sonra değişikliklerinizi kaydedin. 
 
     `"authkey": "FILLME"`
 
+5. Appsettings.json dosyasını kaydedin. 
+
 Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
 ## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
 
-Uygulamayı çalıştırmadan önce güncelleştirmeniz önerilir *Microsoft.Azure.Graphs* en son sürüme paket.
+Uygulamayı çalıştırmadan önce, *Microsoft.Azure.Graphs* paketini son sürüme güncelleştirmeniz önerilir.
 
 1. Visual Studio'nun **Çözüm Gezgini** bölümünde **GraphGetStarted** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
 
-2. NuGet Paket Yöneticisi'nde **güncelleştirmeleri** sekmesinde, yazın *Microsoft.Azure.Graphs* ve denetleme **içeren yayın öncesi** kutusu. 
+2. NuGet Paket Yöneticisi **Güncelleştirmeler** kutusuna *Microsoft.Azure.Graphs* yazın ve **Ön Sürümü Dahil Et** kutusunu işaretleyin. 
 
-3. Sonuçlardan güncelleştirme **Microsoft.Azure.Graphs** paketinin en son sürümünü kitaplığa. Bu işlem Azure Cosmos DB grafik uzantısı kitaplık paketini ve tüm bağımlılıklarını yükler.
+3. Sonuçlardan, **Microsoft.Azure.Graphs** kitaplığını paketin son sürümüne güncelleştirin. Bu işlem Azure Cosmos DB grafik uzantısı kitaplık paketini ve tüm bağımlılıklarını yükler.
 
     Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
@@ -144,9 +156,9 @@ Uygulamayı çalıştırmadan önce güncelleştirmeniz önerilir *Microsoft.Azu
 
 Şimdi Azure portalındaki Veri Gezgini'ne dönerek yeni grafik verilerinize göz atıp sorgu gönderebilirsiniz.
 
-1. Yeni veritabanı, Veri Gezgini'nin Grafikler bölmesinde görüntülenir. **graphdb**, **graphcollz** öğelerini genişletip **Grafik** öğesine tıklayın.
+1. Yeni veritabanı, Veri Gezgini'nin Graflar bölmesinde görüntülenir. **graphdb**, **graphcollz** öğelerini genişletip **Graf** öğesine tıklayın.
 
-2. Grafikteki tüm köşeleri görüntülemek üzere varsayılan sorguyu kullanmak için **Filtre Uygula** düğmesine tıklayın. Örnek uygulama tarafından oluşturulan veriler Grafikler bölmesinde görüntülenir.
+2. Graftaki tüm köşeleri görüntülemek üzere varsayılan sorguyu kullanmak için **Filtre Uygula** düğmesine tıklayın. Örnek uygulama tarafından oluşturulan veriler Grafikler bölmesinde görüntülenir.
 
     Grafiği yakınlaştırıp uzaklaştırabilir, grafik görüntüleme alanını genişletebilir, başka köşeler ekleyebilir ve görüntüleme alanında köşeleri taşıyabilirsiniz.
 
