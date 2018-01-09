@@ -101,6 +101,10 @@ Azure yönetilen diskleri şu anda yönetilen yalnızca yerel olarak yedekli dep
 
 Hayır. Bu özellik şu anda desteklenmiyor. 
 
+**My disk üzerinde bir kira sonu?**
+
+Hayır. Bir kira disk kullanıldığında yanlışlıkla silinmesini önlemek için mevcut olduğundan bu şu anda desteklenmiyor.
+
 **Bilgisayar adı özelliği değiştirmek bir özel (Sistem Hazırlama aracı kullanılarak oluşturulan veya genelleştirilmiş) işletim sistemi diski VM sağlamak için kullanılır?**
 
 Hayır. Bilgisayar adı özelliği güncelleştirilemiyor. Yeni VM, işletim sistemi diski oluşturmak için kullanılan VM üstten devralmaz. 

@@ -112,7 +112,7 @@
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 
-## Yönet
+## Yönetme
 ### IoT hub oluşturma 
 #### [Azure portalını kullanma](iot-hub-create-through-portal.md)
 #### [Azure PowerShell’i kullanma](iot-hub-create-using-powershell.md)
@@ -150,8 +150,8 @@
 ## [.NET (Cihazlar)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Hizmet)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Cihazlar)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js (Cihazlar)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
-## [Node.js (Hizmet)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
+## [Node.js (Cihazlar)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
+## [Node.js (Hizmet)](https://docs.microsoft.com/javascript/api/azure-iothub)
 ## [C cihaz API’si](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
@@ -162,6 +162,7 @@
 
 # İlgili
 ## [Azure IoT Paketi](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Azure IoT Hub Cihazı Sağlama Hizmeti](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Akış Analizi](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
