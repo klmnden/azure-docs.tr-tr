@@ -7,6 +7,7 @@ author: cynthn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
+keywords: spectre, meltdown, specter
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ee1435d91c68f74c9966bb0695c24eb5bb67c07
-ms.sourcegitcommit: 113fe856a110b5522d2759ba1788b01697ae2b32
+ms.openlocfilehash: 81f0a7aacb1fd9d235d5422d22eb850e179c8387
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Kurgusal yürütme yan kanal güvenlik açıkları Azaltıcı Kılavuzu
 

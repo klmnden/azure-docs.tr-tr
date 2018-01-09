@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ebb1d61f3fff85580fe4f616477c5084d1537a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory kullanarak bir Web tablo kaynağından veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,23 @@ Veri Fabrikası şu anda yalnızca veri taşımayı Web tablodan diğer veri dep
 
 > [!IMPORTANT]
 > Bu Web bağlayıcı şu anda bir HTML sayfasından yalnızca ayıklanan tablo içeriği destekler. Bir HTTP/s uç noktasından verileri almak için kullanmak [HTTP Bağlayıcısı](data-factory-http-connector.md) yerine.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Bu Web tablo bağlayıcıyı kullanmak için bir Self-hosted tümleştirmesi çalışma zamanı (diğer adıyla veri yönetimi ağ geçidi) ayarlama ve yapılandırma yapmanız `gatewayName` havuz özelliğinde bağlı hizmeti. Örneğin, Azure Blob Depolama birimine Web tablosundan kopyalamak için Azure Storage bağlı hizmeti aşağıdaki gibi yapılandırın:
+
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
+    }
+  }
+}
+```
 
 ## <a name="getting-started"></a>Başlarken
 Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan verileri taşır kopyalama etkinliği ile işlem hattı oluşturun. 
@@ -86,8 +103,8 @@ Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam l
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type |Veri kümesi türü. ayarlanmalıdır **WebTable** |Evet |
-| Yol |Tabloyu içeren kaynak için göreli bir URL. |Hayır. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. |
-| Dizin |Tablo kaynak dizini. Bkz: [bir HTML sayfasında tablosunun Get dizini](#get-index-of-a-table-in-an-html-page) bir HTML sayfasında bir tablo dizininin alma adımları için bölüm. |Evet |
+| yol |Tabloyu içeren kaynak için göreli bir URL. |Hayır. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. |
+| dizin |Tablo kaynak dizini. Bkz: [bir HTML sayfasında tablosunun Get dizini](#get-index-of-a-table-in-an-html-page) bir HTML sayfasında bir tablo dizininin alma adımları için bölüm. |Evet |
 
 **Örnek:**
 
@@ -156,7 +173,8 @@ Aşağıdaki örnek, bir Azure blob Web tablodan veri kopyalama gösterilmektedi
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
     }
   }
 }
@@ -189,7 +207,7 @@ Aşağıdaki örnek, bir Azure blob Web tablodan veri kopyalama gösterilmektedi
 ```
 
 
-**Azure Blob dataset çıktı**
+**Azure Blob çıktı veri kümesi**
 
 Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1).
 

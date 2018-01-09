@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Connect Health düzenli olarak güncelleştirir. Bu makalede, çıkarılan özellikleri ve sürümleri listelenmektedir.
@@ -34,6 +34,12 @@ Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Conn
   1. Yeni eklenen Aracısı sorun giderme komutları
   2. Aracı kullanılabilirlik iyileştirmeleri 
   3. Hata düzeltmeleri ve genel iyileştirmeler
+  
+## <a name="october-2017"></a>Ekim 2017
+**Aracı güncelleştirmesi:**
+
+ * Azure AD Connect ile sürüm 1.1.649.0 yayımlanan eşitleme (sürüm 3.0.129.0) için Azure AD Connect Health Aracısı
+<br></br> Azure AD Connect ve Azure AD Connect Health aracısını eşitleme için arasında bir sürüm uyumluluk sorunu sabit. Bu sorunu Azure AD Connect 1.1.647.0 sürümüne yerinde yükseltme gerçekleştirme müşterileri etkiler, ancak şu anda sistem durumu aracısı sürüm 3.0.127.0 yok. Yükseltmeden sonra sistem durumu aracısı artık Azure AD sistem durumu hizmeti için Azure AD Connect eşitleme hizmeti ilgili sağlık verilerini gönderebilirsiniz. Bu düzeltme, sistem durumu aracısı sürüm 3.0.129.0 Azure AD Connect yerinde yükseltme sırasında yüklenir. Sistem Durumu Aracısı sürüm 3.0.129.0 Azure AD Connect sürüm 1.1.649.0 uyumluluk sorunu yok.
 
 ## <a name="july-2017"></a>Temmuz 2017
 **Aracı güncelleştirmesi:**
@@ -44,6 +50,8 @@ Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Conn
 *   AD FS (sürüm 3.0.68.0) için Azure AD Connect Health Aracısı
   1. Hata düzeltmeleri ve genel iyileştirmeler
   2. Sovereign bulut desteği
+* Azure AD Connect ile sürüm 1.1.614.0 yayımlanan eşitleme (sürüm 3.0.68.0) için Azure AD Connect Health Aracısı
+1. Microsoft Azure Bulutu ve Microsoft bulut Almanya desteği
 
 ## <a name="april-2017"></a>Nisan 2017      
 **Aracı güncelleştirmesi:**
@@ -58,13 +66,13 @@ Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Conn
 **Aracı güncelleştirmesi:**
 
 * AD FS için Azure AD Connect Health Aracısı \(sürüm 2.6.408.0\)
-  1. İstemci IP adresleri kimlik doğrulama isteklerinin seviyelerinden geliştirmeleri
-  2. Uyarılar ilgili hata düzeltmeleri
+1. İstemci IP adresleri kimlik doğrulama isteklerinin seviyelerinden geliştirmeleri
+2. Uyarılar ilgili hata düzeltmeleri
 * AD DS (sürüm 2.6.408.0) için Azure AD Connect Health Aracısı
-  1. Uyarılar ilgili hata düzeltmeleri.
+1. Uyarılar ilgili hata düzeltmeleri.
 * Azure AD Connect ile sürüm 1.1.281.0 yayımlanan eşitleme (sürüm 2.6.353.0) için Azure AD Connect Health Aracısı
-  1. Eşitleme hatası raporlar için gerekli verileri sağlar
-  2. Uyarılar ilgili hata düzeltmeleri
+1. Eşitleme hatası raporlar için gerekli verileri sağlar
+2. Uyarılar ilgili hata düzeltmeleri
 
 **Yeni Önizleme özellikleri:**
 

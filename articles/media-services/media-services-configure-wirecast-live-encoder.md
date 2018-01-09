@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Tek bit hızlı bir canlı akışı göndermek için Wirecast Kodlayıcı kullanın
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-Bu konuda nasıl yapılandırılacağını göstermektedir [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) AMS bir tek bit hızlı akışın kanallar göndermek için gerçek zamanlı Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir.  Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
+Bu makalede nasıl yapılandırılacağı gösterilmektedir [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) AMS bir tek bit hızlı akışın kanallar göndermek için gerçek zamanlı Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir.  Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
 Bu öğretici, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetmek gösterilmiştir. Bu araç, yalnızca bir Windows Bilgisayarına çalışır. Mac veya Linux varsa, oluşturmak için Azure portalını kullanın [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -42,10 +42,10 @@ Bu öğretici, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Servic
 ## <a name="tips"></a>İpuçları
 * Mümkün olduğunda, bir sabit Internet bağlantısı kullanır.
 * Bir iyi bant genişliği gereksinimlerini belirlerken için udur akış bit çift. Bu zorunlu bir gereksinim olmamasına karşın, Ağ Tıkanıklığı etkisini azaltmaya yardımcı olur.
-* Kodlayıcılar tabanlı yazılım kullanarak, gereksiz tüm programları kapatın.
+* Yazılım tabanlı kodlayıcılar kullanırken, gereksiz tüm programları kapatın.
 
 ## <a name="create-a-channel"></a>Kanal oluşturma
-1. AMSE aracını gidin **canlı** sekmesinde ve içinde kanal alanı sağ tıklatın. Seçin **kanal oluştur...** menüden.
+1. AMSE aracını gidin **canlı** sekmesini tıklatın ve içinde kanal alanı sağ tıklatın. Seçin **kanal oluştur...** menüden.
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -65,12 +65,12 @@ Bu öğretici, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Servic
 Kanal başlatılırken yapabilecekleriniz [Kodlayıcı yapılandırma](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
 > [!IMPORTANT]
-> Kanal hazır bir durumuna geçtiğinde hemen faturalama başladığını unutmayın. Daha fazla bilgi için bkz: [kanalın durumları](media-services-manage-live-encoder-enabled-channels.md#states).
+> Kanal hazır bir durumuna geçtiğinde hemen faturalama başlar. Daha fazla bilgi için bkz: [kanalın durumları](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
 ## <a id=configure_wirecast_rtmp></a>Telestream Wirecast Kodlayıcı yapılandırın
-Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün geri kalanında daha ayrıntılı yapılandırma adımlarını açıklar.
+Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün geri kalanında daha ayrıntılı yapılandırma adımlarını açıklar.
 
 **Video**:
 
@@ -124,7 +124,7 @@ Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün ger
 
     AMSE aracına gidin ve kanal tamamlanma durumunu denetleyin. Durumu değiştiğinden sonra **başlangıç** için **çalıştıran**, giriş URL'yi elde edebilirsiniz.
 
-    Kanal çalıştırırken, kanal adı sağ tıklayın ve ardından aşağıya doğru vurgulu üzerinden gidin **Panoya Kopyala giriş URL** ve ardından **birincil giriş URL**.  
+    Kanal çalıştırırken, kanal adına sağ tıklayın, üzerinden vurgulu aşağıya doğru gidin **Panoya Kopyala giriş URL** ve ardından **birincil giriş URL**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 8. Wirecast içinde **çıkış ayarları** penceresinde, bu bilgileri **adresi** çıkış bölüm ve atama Akış adı alanı.
@@ -132,7 +132,7 @@ Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün ger
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. **Tamam**’ı seçin.
-2. Ana **Wirecast** hazır olduğunuzda, video ve ses giriş kaynağı onaylayın ve ardından isabet **akış** üst sol alt köşesindeki.
+2. Ana **Wirecast** hazır olduğunuzda, video ve ses giriş kaynağı onaylayın ve ardından isabet **akış** sol üst köşesindeki.
 
    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
@@ -144,32 +144,32 @@ Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün ger
 
 ## <a name="test-playback"></a>Testi kayıttan yürütme
 
-AMSE Aracı'na gidin ve sınanacak kanal sağ tıklayın. Menüden, üzerine gelerek **kayıttan yürütme Önizleme** seçip **Azure Media Player ile**.  
+AMSE Aracı'na gidin ve sınanacak kanalı sağ tıklatın. Menüden, üzerine gelerek **kayıttan yürütme Önizleme** seçip **Azure Media Player ile**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Ardından akış player görünürse, kodlayıcı düzgün için AMS bağlanmak için yapılandırıldı.
 
-Bir hata alırsanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ayarlanır. Lütfen bakın [sorun giderme](media-services-troubleshooting-live-streaming.md) Kılavuzu konu.  
+Bir hata alırsanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ayarlanır. Bkz: [sorun giderme](media-services-troubleshooting-live-streaming.md) makale Kılavuzu.  
 
 ## <a name="create-a-program"></a>Bir program oluşturun
 1. Kanal kayıttan yürütme onaylandıktan sonra bir program oluşturun. Altında **canlı** sekmesinde AMSE aracının içinde programı alanı sağ tıklatın ve seçin **Yeni Program Oluştur**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
-2. Program adı ve gerekirse, ayarlamak **arşiv penceresi uzunluğu** (hangi varsayılan olarak 4 saat olarak). Ayrıca, bir depolama konumu belirtin veya varsayılan olarak bırakın.  
+2. Program adı ve gerekirse, ayarlamak **arşiv penceresi uzunluğu** (hangi varsayılan olarak dört saate kadar). Ayrıca, bir depolama konumu belirtin veya varsayılan olarak bırakın.  
 3. Denetleme **Program Şimdi Başlat** kutusu.
 4. Tıklatın **Program oluşturma**.  
 
    >[!NOTE]
    >Program oluşturma kanal oluşturma daha az zaman alır.
        
-5. Program çalışmaya başladıktan sonra program sağ tıklayarak ve giderek tarafından kayıttan yürütme onaylayın **kayıttan yürütme edinin** seçilerek **Azure Media Player ile**.  
-6. Onaylandıktan sonra sağ program yeniden tıklatın ve seçin **çıkış URL'yi Panoya Kopyala** (veya bu bilgileri almak **Program bilgilerine ve ayarlarına** seçeneği menüsünde).
+5. Program çalışmaya başladıktan sonra program sağ tıklayarak ve giderek kayıttan yürütme onaylayın **kayıttan yürütme edinin** seçilerek **Azure Media Player ile**.  
+6. Onaylandıktan sonra programı tekrar sağ tıklayın ve seçin **çıkış URL'yi Panoya Kopyala** (veya bu bilgileri almak **Program bilgilerine ve ayarlarına** seçeneği menüsünde).
 
 Akış bir oynatıcı katıştırılmış veya dinamik görüntülemek için bir izleyici için Dağıtılmış artık hazırdır.  
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Lütfen bakın [sorun giderme](media-services-troubleshooting-live-streaming.md) Kılavuzu konu.
+Bkz: [sorun giderme](media-services-troubleshooting-live-streaming.md) makale Kılavuzu.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

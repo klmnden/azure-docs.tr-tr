@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
 ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning'de özel R modülleri yazma
 Bu konu, yazar ve Azure Machine learning'de özel R modülü dağıtabilirsiniz açıklar. Özel R modülleri nelerdir ve hangi dosyaların bunları tanımlamak için kullanılan açıklanmaktadır. Bir modülün tanımlanması dosyaları oluşturma ve Machine Learning çalışma alanında dağıtım modülü nasıl gösterilmektedir. Özel modülü tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri, dosya ve birden çok çıktıları kullanmayı da ele alınmıştır. 
@@ -28,7 +28,7 @@ Bu konu, yazar ve Azure Machine learning'de özel R modülü dağıtabilirsiniz 
 ## <a name="what-is-a-custom-r-module"></a>Özel bir R Modülü nedir?
 A **özel Modülü** alanınıza yüklenebilir ve bir Azure Machine Learning deneme bir parçası olarak çalıştırılan bir kullanıcı tarafından tanımlanan modüldür. A **özel R Modülü** kullanıcı tanımlı bir R işlev yürüten özel bir modüldür. **R** istatistiksel bilgi işlem ve istatistikçiler ve veri bilimcilerine tarafından algoritmaları uygulamak için yaygın olarak kullanılan grafik için bir programlama dilidir. Şu anda R özel modüller, ancak destek ek dilleri zamanlandığı yönelik için gelecek sürümlerde desteklenen tek dilidir.
 
-Özel modüller sahip **birinci sınıf durum** Azure Machine learning'de diğer modülü gibi kullanılabilir olduğunu herkese açık. Yayımlanan denemeler veya görselleştirmeleri dahil, diğer modüllerle çalıştırılabilir. Modül, giriş ve kullanılacak çıkış bağlantı noktaları, modelleme parametreleri ve diğer çeşitli çalışma zamanı davranışları tarafından uygulanan algoritması üzerinde denetiminiz yoktur. Özel modüller içeren bir denemeyi da kolayca paylaşım Cortana Intelligence Galerisi içine yayımlanabilir.
+Özel modüller sahip **birinci sınıf durum** Azure Machine learning'de diğer modülü gibi kullanılabilir olduğunu herkese açık. Yayımlanan denemeler veya görselleştirmeleri dahil, diğer modüllerle çalıştırılabilir. Modül, giriş ve kullanılacak çıkış bağlantı noktaları, modelleme parametreleri ve diğer çeşitli çalışma zamanı davranışları tarafından uygulanan algoritması üzerinde denetiminiz yoktur. Özel modüller içeren bir denemeyi kolay paylaşım Azure AI Galerisi içine de yayımlanabilir.
 
 ## <a name="files-in-a-custom-r-module"></a>Özel bir R Modülü dosyaları
 Özel bir R modülü, en az iki dosyalarını içeren bir .zip dosyası tanımlanır:
@@ -295,7 +295,7 @@ Bir modül parametresi kullanılarak tanımlanan **Arg** alt öğesi olan **bağ
     * Tümü
   * **Varsayılan** -Sütun Seçici için geçerli varsayılan seçimleri içerir: 
     
-    * None
+    * Hiçbiri
     * NumericFeature
     * NumericLabel
     * NumericScore

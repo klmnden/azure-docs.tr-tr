@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri kullanarak sunucusuz veritabanı hesaplama
 
@@ -34,6 +34,9 @@ Azure Cosmos DB ve Azure işlevleri, veritabanları ve sunucusuz uygulamaları a
 * Alternatif olarak, bir Azure işlevi kullanarak bir Azure Cosmos DB koleksiyonu bağlama bir **bağlama giriş**. Bir işlev çalıştırıldığında giriş bağlamaları kapsayıcıdan verilerini okur.
 * Bir Azure Cosmos DB koleksiyonu kullanılarak için bir işlev bağlama bir **bağlama çıktı**. Bir işlev tamamlandığında, çıkış bağlamaları veri bir kapsayıcıya yazma.
 
+> [!NOTE]
+> Şu anda Azure Cosmos DB tetikleyici, giriş bağlamaları ve çıktı bağlamaları yalnızca SQL API ve grafik API'si hesaplarıyla çalışır.
+
 Aşağıdaki diyagram bu üç tümleştirmeler her gösterir: 
 
 ![Azure Cosmos DB ve Azure işlevlerinin nasıl tümleştirme](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ Azure Cosmos DB tetikleyici, giriş bağlama ve çıktı bağlama aşağıdaki b
 * Bir Azure Cosmos DB tetikleyicisi, farklı bir Azure Cosmos DB kapsayıcı için bir çıktı bağlama ile kullanılabilir. Bir işlev değişikliği akıştaki bir öğe üzerinde bir eylem gerçekleştirdikten sonra (geldiğini aynı kapsayıcı için etkili bir şekilde bir özyinelemeli döngü oluşturacak yazma) başka bir kapsayıcıya yazabilirsiniz. Veya, etkili bir şekilde bir çıkış bağlama kullanarak farklı bir kapsayıcı için bir kapsayıcı değişen tüm öğeleri geçirmek için bir Azure Cosmos DB tetikleyicisi kullanabilirsiniz.
 * Giriş bağlamalar ve Azure Cosmos DB için çıktı bağlamaları aynı Azure işlevinde kullanılabilir. Bu, belirli veri giriş bağlama ile bulmak, Azure işlevinde değiştirme ve ardından onu aynı kapsayıcı ya da farklı bir kapsayıcı değiştirme sonrasında kaydetmek istediğinizde iyi durumda çalışır.
 * Bir giriş bağlaması bir Azure Cosmos DB kapsayıcısına bir Azure Cosmos DB tetikleyicisi aynı işlevi kullanılabilir ve ile ya da bağlama çıktısı olmadan kullanılabilir. Bu birleşim güncel para birimi exchange bilgilerini (bir giriş bağlaması bir exchange kapsayıcısına oturum çekilen) uygulamak için yeni siparişler değişiklik akışına alışveriş sepeti hizmetinizi kullanabilirsiniz. Güncelleştirilmiş alışveriş sepeti toplam geçerli para birimi dönüştürme uygulanan bir çıktı bağlama kullanarak üçüncü bir kapsayıcıya yazılabilir.
-
-> [!NOTE]
-> Şu anda Azure Cosmos DB tetikleyici, giriş bağlamaları ve çıktı bağlamaları yalnızca SQL API ve grafik API'si hesaplarıyla çalışır.
 
 ## <a name="use-cases"></a>Uygulama alanları
 

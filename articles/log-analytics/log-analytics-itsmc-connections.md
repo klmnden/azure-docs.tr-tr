@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>ITSM ürünler/hizmetler ile BT Hizmet Yönetimi Bağlayıcısı (Önizleme) bağlanma
 Bu makale ITSM Ürün/hizmet için BT Hizmet Yönetimi Bağlayıcısı (ITSMC) OMS içinde bağlanıp merkezi olarak, iş öğelerini yönetme hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
@@ -33,7 +33,7 @@ Aşağıdaki ITSM ürünler/hizmetler desteklenir. Ürünü için ITSMC ürün b
 
 Aşağıdaki bölümler, System Center Service Manager ürününüzü OMS ITSMC bağlanmak nasıl kullanılacağı hakkındaki ayrıntıları sağlar.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki önkoşulların karşılandığından emin olun:
 
@@ -90,7 +90,7 @@ Otomatik kullanmak [betik](log-analytics-itsmc-service-manager-script.md) Web uy
 Aşağıdaki gerekli ayrıntıları sağlayarak komut dosyasını çalıştırın:
 
 - Azure Abonelik Ayrıntıları
-- Kaynak grubu adı
+- Kaynak grup adı
 - Konum
 - Service Manager sunucu ayrıntıları (sunucu adı, etki alanı, kullanıcı adı ve parola)
 - Web uygulamanız için site adı öneki
@@ -139,7 +139,7 @@ OMS ITSMC ile Service Manager örneğine bağlar karma bağlantıyı yapılandı
 
 7. Karma bağlantısı oluşturulduktan sonra bağlantıyı seçin ve'ı tıklatın **Ekle seçili karma bağlantı**.
 
-    ![Yeni karma bağlantı](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![Yeni Karma bağlantı](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
 
 #### <a name="configure-the-listener-setup"></a>Dinleyici Kurulumu Yapılandır
 
@@ -153,7 +153,7 @@ Karma bağlantının dinleyicisi Kur yapılandırmak için aşağıdaki yordamı
 
 3. Azure kimlik bilgilerinizle oturum açma ve karma bağlantı oluşturulduğu aboneliğinizi seçin.
 
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 Karma bağlantı başarıyla bağlandı.
 
@@ -170,18 +170,22 @@ Aşağıdaki örnek görüntü başarılı bir bağlantı ayrıntılarını gös
 
 Aşağıdaki bölümler, OMS ITSMC ServiceNow ürününüzü bağlanmak nasıl kullanılacağı hakkındaki ayrıntıları sağlar.
 
-### <a name="prerequisites"></a>Ön koşullar
-
+### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki önkoşulların karşılandığından emin olun:
-
 - Yüklü ITSMC. Daha fazla bilgi: [BT Hizmet Yönetimi Bağlayıcısı çözümünü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow sürümler – Fuji, Geneva, Helsinki desteklenir.
+- ServiceNow desteklenen sürümler: Cakarta, Istanbul, Helsinki, Geneva
 
-ServiceNow yöneticileri, kendi ServiceNow örneği aşağıdakileri yapmanız gerekir:
-- İstemci kimliği ve ServiceNow ürün için istemci parolası oluşturur. İstemci kimliği ve parolası oluşturma hakkında daha fazla bilgi için bkz: [OAuth Kurulumu](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Microsoft OMS tümleştirme (ServiceNow uygulama) için kullanıcı uygulamasını yükleyin. [Daha fazla bilgi edinin](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**ServiceNow yöneticileri kendi ServiceNow örneği şunları yapması gerekir**:
+- İstemci kimliği ve ServiceNow ürün için istemci parolası oluşturur. İstemci kimliği ve parolası oluşturma hakkında daha fazla bilgi için aşağıdaki bilgileri gerektiği gibi bakın:
+
+    - [OAuth Cakarta için ayarlama](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [OAuth Istanbul için ayarlama](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [OAuth Helsinki için ayarlama](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [OAuth Geneva için ayarlama](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Microsoft OMS tümleştirme (ServiceNow uygulama) için kullanıcı uygulamasını yükleyin. [Daha fazla bilgi edinin](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Yüklenen kullanıcı uygulaması için tümleştirme kullanıcı rolü oluşturun. Tümleştirme kullanıcı rolü oluşturma konusunda bilgiler [burada](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Bağlantı yordamı**
 ServiceNow bağlantı oluşturmak için aşağıdaki yordamı kullanın:
@@ -263,7 +267,7 @@ Kullanıcı başarıyla oluşturduktan sonra durumu **denetleyin yükleme Yapıl
 Aşağıdaki bölümler, OMS ITSMC Provance ürününüzü bağlanmak nasıl kullanılacağı hakkındaki ayrıntıları sağlar.
 
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki önkoşulların karşılandığından emin olun:
 
@@ -309,7 +313,7 @@ Daha fazla bilgi: [OMS uyarılar için iş öğeleri oluşturma ITSM](log-analyt
 
 Aşağıdaki bölümler, OMS ITSMC Cherwell ürününüzü bağlanmak nasıl kullanılacağı hakkındaki ayrıntıları sağlar.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki önkoşulların karşılandığından emin olun:
 

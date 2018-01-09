@@ -17,19 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-<<<<<<< HEAD
-ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: 052e65b72cc382168296dc1a4965000107d08881
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama
 
@@ -98,8 +90,6 @@ Azure Hdınsight şu anda aşağıdaki küme türü, her biri belirli işlevleri
 ### <a name="hdinsight-version"></a>Hdınsight sürümü
 Bu küme için Hdınsight'ın sürümünü seçin. Daha fazla bilgi için bkz: [desteklenen Hdınsight sürümleri](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-<<<<<<< HEAD
-=======
 ### <a name="enterprise-security-package"></a>Kurumsal güvenlik paketi
 
 Hadoop, Spark ve etkileşimli sorgu küme türleri için etkinleştirmeyi seçebilirsiniz **Kurumsal güvenlik paketi**. Bu paket, Apache bırakabilmenizi kullanarak ve Azure Active Directory ile tümleştirmek için daha güvenli bir Küme kurulumu seçeneği sağlar. Daha fazla bilgi için bkz: [Kurumsal güvenlik paketi Azure hdınsight'ta](./domain-joined/apache-domain-joined-introduction.md).
@@ -109,7 +99,6 @@ Hadoop, Spark ve etkileşimli sorgu küme türleri için etkinleştirmeyi seçeb
 Etki alanına katılmış Hdınsight oluşturma hakkında daha fazla bilgi için küme için bkz: [oluşturma etki alanına katılmış Hdınsight sandbox ortamını](./domain-joined/apache-domain-joined-configure.md).
 
 
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ## <a name="cluster-login-and-ssh-user-name"></a>Küme oturum açma ve SSH kullanıcı adı
 Hdınsight kümeleri ile küme oluşturma sırasında iki kullanıcı hesapları yapılandırabilirsiniz:
 
@@ -259,7 +248,7 @@ Daha fazla bilgi için bkz: [önyükleme kullanarak özelleştirme Hdınsight k�
 
 Hdınsight ile Azure sanal ağı kullanma hakkında daha fazla bilgi için bkz: [genişletmek Hdınsight Azure sanal ağlar ile](hdinsight-extend-hadoop-virtual-network.md).
 
-Bir Azure sanal ağı içindeki iki küme türleri kullanma örneği için bkz: [Storm ve HBase ile algılayıcı verilerini çözümleme](storm/apache-storm-sensor-data-analysis.md). Sanal ağ için belirli yapılandırma gereksinimlerini içeren bir sanal ağ ile Hdınsight kullanma hakkında daha fazla bilgi için bkz: [Azure Virtual Network kullanarak genişletme Hdınsight yetenekleri](hdinsight-extend-hadoop-virtual-network.md).
+Bir Azure sanal ağı içindeki iki küme türleri kullanma örneği için bkz: [kullanım Spark yapılandırılmış akış ile Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Sanal ağ için belirli yapılandırma gereksinimlerini içeren bir sanal ağ ile Hdınsight kullanma hakkında daha fazla bilgi için bkz: [Azure Virtual Network kullanarak genişletme Hdınsight yetenekleri](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Erişim denetimi sorunlarını giderme
 

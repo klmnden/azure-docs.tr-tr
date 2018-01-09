@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 31251e039414ee6f268aeb54f3eef755fcde9cb3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Microsoft Azure Machine Learning Studio için machine learning algoritması kopya sayfası
 **Microsoft Azure Machine Learning algoritmasını sayfası kopya** Tahmine dayalı analiz modelinin doğru algoritması seçmenize yardımcı olur.
@@ -53,7 +53,7 @@ Karşıdan yükle ve makine öğrenme algoritmasını kopya elinizin altında tu
 
 * Bu algoritması bilgi sayfası sunulan yaklaşık kuralları-in-Flash önerilerdir. Bazı Bükülü ve bazı flagrantly ihlal edildi. Bu, bir başlangıç noktası önermek üzere tasarlanmıştır. Verileriniz üzerinde birkaç algoritmaları arasında head-to-head rekabet çalıştırmak korkutmasın. Her algoritma ilkelerini anlama ve verilerinizi oluşturulan sistem anlamak için sadece hiçbir yedek yoktur.
 
-* Her makine öğrenme algoritmasını kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha iyi bir uyum olabilir. Ancak her zaman en uygun olduğu önceden bilmesi mümkün değildir. Bu gibi durumlarda birkaç algoritmaları kopya sayfada birlikte listelenir. Uygun bir strateji bir algoritma ve sonuçları henüz tatmin edici, değilseniz, diğer deneyin olur. Bir örnek şudur [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/) aynı verilere göre çeşitli algoritmalar çalışır ve sonuçları karşılaştırır deneme: [çok sınıfı sınıflandırıcı karşılaştırın: Harf tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Her makine öğrenme algoritmasını kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha iyi bir uyum olabilir. Ancak her zaman en uygun olduğu önceden bilmesi mümkün değildir. Bu gibi durumlarda birkaç algoritmaları kopya sayfada birlikte listelenir. Uygun bir strateji bir algoritma ve sonuçları henüz tatmin edici, değilseniz, diğer deneyin olur. Bir örnek şudur [Azure AI galeri](http://gallery.cortanaintelligence.com/) aynı verilere göre çeşitli algoritmalar çalışır ve sonuçları karşılaştırır deneme: [çok sınıfı sınıflandırıcı karşılaştırın: Harf tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Machine learning üç ana kategoriye ayrılır: **denetimli öğrenme**, **Denetimsiz öğrenme**, ve **öğrenmeyi öğrenme**.
 

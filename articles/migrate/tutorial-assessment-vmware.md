@@ -2,33 +2,15 @@
 title: "Bulmak ve şirket içi VMware VM'ler Azure ile Azure geçirmek için geçiş için değerlendirmek | Microsoft Docs"
 description: "Bulmak ve şirket içi VMware VM'ler Azure geçiş hizmetini kullanarak azure'a, geçiş için değerlendirmek açıklar."
 author: rayne-wiselman
-<<<<<<< HEAD
-manager: carmonm
-editor: 
-ms.assetid: a2521630-730f-4d8b-b298-e459abdced46
-ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/06/2017
-ms.author: raynew
-ms.openlocfilehash: 448dda89623ca2a1e8de86773c1d6a50e708c151
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/20/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Bul ve şirket içi VMware sanal makineleri geçiş için Azure değerlendirin
 
@@ -91,17 +73,18 @@ Denetleyin. Dağıtmadan önce OVA dosyası güvenlidir.
     - Örnek Kullanım:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Üretilen karma bu ayarları eşleşmelidir.
     
-    OVA için 1.0.8.38 sürümü
+    OVA sürüm 1.0.8.49
     **Algoritması** | **Karma değeri**
     --- | ---
-    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
-    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
-    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+    MD5 | 8779eea842a1ac465942295c988ac0c7 
+    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
+    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
 
-    OVA için 1.0.8.40 sürümü
+    OVA sürümü 1.0.8.40:
+
     **Algoritması** | **Karma değeri**
     --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
@@ -141,7 +124,7 @@ Denetleyin. Dağıtmadan önce OVA dosyası güvenlidir.
     - Adı (FQDN) veya vCenter sunucusunun IP adresini belirtin.
     - İçinde **kullanıcı adı** ve **parola**, Toplayıcı vCenter sunucusu üzerinde sanal makineleri bulmak için kullanacağı salt okunur hesap kimlik bilgilerini belirtin.
     - İçinde **koleksiyonu kapsam**, VM keşfi için kapsamı seçin. Toplayıcı, yalnızca sanal makineleri için belirtilen kapsamda bulabilir. Kapsamı belirli klasör, veri merkezi veya küme ayarlayabilirsiniz. 1000'den fazla VMs içermemelidir. 
-    - İçinde **gruplandırma için etiket kategorisi**seçin **hiçbiri**.
+
 6. İçinde **belirt geçiş proje**portalından kopyalandığından anahtarı ve Azure geçirmek proje kimliği belirtin. Siz bunları kopyalayın, Toplayıcı VM Azure Portalı'nı açın. Projedeki **genel bakış** sayfasında, **Bul makineler**ve değerlerini kopyalayın.  
 7. İçinde **koleksiyonu ilerlemeyi görüntüleme**izlemek bulma ve VM'lerin toplanan meta verilerin kapsamında olduğunu denetleyin. Toplayıcı bir yaklaşık bulma süresi sağlar.
 

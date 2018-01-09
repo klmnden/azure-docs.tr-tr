@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Azure Machine Learning ile Müşteri Değişim Sıklığını Çözümleme
 ## <a name="overview"></a>Genel Bakış
@@ -28,14 +28,14 @@ Bu makalede, Azure Machine Learning kullanılarak oluşturulmuş bir müşteri k
 Bu deneme geliştirilmiş ve Serge Berger, asıl veri Bilimcisi Microsoft'ta ve Roger Barga, önceden Microsoft Azure Machine Learning için ürün Yöneticisi test. Azure belgelerine takım minnettar uzmanlara kabul ettikten ve bu teknik incelemede paylaşmak için teşekkürler.
 
 > [!NOTE]
-> Bu deneme için kullanılan verileri genel kullanıma açık değil. Karmaşası çözümleme için makine öğrenimi modeli oluşturmak nasıl bir örnek için bkz: [perakende karmaşıklığı model şablonunun](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/)
+> Bu deneme için kullanılan verileri genel kullanıma açık değil. Karmaşası çözümleme için makine öğrenimi modeli oluşturmak nasıl bir örnek için bkz: [perakende karmaşıklığı model şablonunun](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Azure AI Galerisi](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>Müşteri karmaşası sorunu
-İşletmeler tüketici Pazar ve tüm kurumsal kesimler karmaşası ile gerekir. Bazen karmaşası aşırı ve ilke kararlarını etkiler. Geleneksel yüksek propensity churners tahmin etmek ve gereksinimlerine, pazarlama kampanyalarının bir danışman hizmeti aracılığıyla veya özel dispensations uygulayarak adres için çözümüdür. Bu yaklaşım, endüstri endüstri ve hatta belirli tüketici küme bir endüstri (örneğin, telekomünikasyon) içinde başka bir farklılık gösterebilir.
+İşletmeler tüketici Pazar ve tüm kurumsal kesimler karmaşası ile gerekir. Bazen karmaşası aşırı ve ilke kararlarını etkiler. Geleneksel yüksek propensity churners tahmin etmek ve gereksinimlerine, pazarlama kampanyalarının bir danışman hizmeti aracılığıyla veya özel dispensations uygulayarak adres için çözümüdür. Bu yaklaşım, endüstri endüstri farklılık gösterebilir. Bunlar bile belirli tüketici kümeden bir endüstri (örneğin, telekomünikasyon) içinde başka bir farklılık gösterebilir.
 
 İşletmeler bu özel müşteri bekletme çalışmalarını en aza indirmek gereken ortak faktördür. Bu nedenle, bir doğal Metodoloji karmaşası olasılığını her müşteriyle Puanlama ve üst N olanları adresini olacaktır. En iyi müşteriler En Karlı olanları olabilir. Örneğin, daha karmaşık senaryolarda, kar işlevi özel dispensation için aday seçim sırasında kullanılmaz. Ancak, bu noktalar karmaşası ilgilenmek için tam stratejisi yalnızca bir parçası değildir. İşletmeler ayrıca hesap risk (ve ilişkili risk toleransınıza), düzeyini ve maliyetini müdahalesi ve yatkýn müşteri kesimleme gitmesi.  
 
@@ -109,7 +109,7 @@ Aşağıdaki diyagramlarda kullanılan veri gösterilmektedir.
  
 
 > Bu veriler özeldir ve bu nedenle modeli ve veri paylaşılamaz unutmayın.
-> Ancak, genel kullanıma açık verileri kullanarak bir benzer modeli için bu örnek, denemeler bkz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/): [Telco müşteri karmaşıklığı](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Ancak, genel kullanıma açık verileri kullanarak bir benzer modeli için bu örnek, denemeler bkz [Azure AI galeri](http://gallery.cortanaintelligence.com/): [Telco müşteri karmaşıklığı](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Cortana Intelligence Suite kullanarak karmaşası analiz modeli nasıl uygulayacağınıza dair hakkında daha fazla bilgi için ayrıca öneririz [bu videoyu](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) üst düzey Program Yöneticisi Wee Hyong Tok tarafından. 
 > 
@@ -222,7 +222,7 @@ Bu raporda bir genel çerçeve kullanarak müşteri karmaşası yaygın sorun ta
 
 [4] [büyük veri pazarlama: müşterilerinize daha etkili bir şekilde gerçekleştirmesine ve sürücü değeri](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco karmaşıklığı model şablonunun](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) içinde [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/) 
+[5] [Telco karmaşıklığı model şablonunun](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) içinde [Azure AI Galerisi](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Ek

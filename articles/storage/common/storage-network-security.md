@@ -13,17 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-<<<<<<< HEAD
-ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure depolama güvenlik duvarları ve sanal ağlar (Önizleme) yapılandırma
 Azure depolama, izin verilen ağlar belirli bir dizi depolama hesaplarınıza güvenli imkan tanıyan katmanlı bir güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağlar uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağrılırken uygulamalar (geçerli erişim tuşu veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -304,7 +298,6 @@ Bu tür hizmet beklendiği gibi çalışmaya izin vermek için ağ kurallarını
 |Azure Event Hubs|Microsoft.EventHub|Olay hub'ları yakalama ile arşiv verileri.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Hdınsight|Microsoft.HDInsight|Küme hazırlama ve yükleme.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure Ağı|Microsoft.Networking|Depolama ve ağ trafiği günlüklerini analiz edin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Backup|Microsoft.RecoveryServices|Yedekleme ve geri yükleme yönetilmeyen disklerin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Storage analytics veri erişimi

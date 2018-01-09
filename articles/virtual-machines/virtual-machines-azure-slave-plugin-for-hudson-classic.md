@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Eklenti Azure ikincil Hudson sürekli tümleştirme ile kullanma
 Hudson için eklenti Azure ikincil dağıtılmış çalıştıran oluşturduğunda Azure bağımlı düğümlerinde sağlamanıza imkan sağlar.
@@ -147,7 +147,7 @@ Bu bölümde, Azure üzerinde bir ikincil düğüm üzerinde çalışacak Hudson
 1. Hudson panosunda tıklatın **yeni iş**.
 2. Oluşturmakta olduğunuz işi için bir ad girin.
 3. İş türü için **serbest stili yazılım işi yapı**.
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 5. İş yapılandırma sayfasında seçin **burada bu proje çalıştırılabilir sınırla**.
 6. Seçin **düğümü ve etiket menü** seçip **linux** (biz Bu etiket önceki bölümde sanal makine şablonu oluştururken, belirtilen).
 7. İçinde **yapı** 'yi tıklatın **Ekle derleme adımı** seçip **Kabuk yürütme**.

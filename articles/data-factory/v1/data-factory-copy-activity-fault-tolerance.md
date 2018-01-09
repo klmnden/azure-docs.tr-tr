@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Hataya dayanıklılık uyumsuz satır atlayarak kopyalama etkinliği ekleyin.
 > [!NOTE]
@@ -43,6 +43,9 @@ Kopyalama etkinliği algılama, atlanıyor ve uyumsuz verilerini günlüğe kayd
 - **İlişkisel bir veritabanına yazılırken birincil anahtar ihlali**
 
     Örneğin: veri kopyalama SQL Server'dan SQL veritabanına. Havuz SQL veritabanında tanımlı bir birincil anahtara, ancak böyle bir birincil anahtar kaynak SQL Server'da tanımlanmadı. Havuz için kaynak olarak mevcut yinelenen satırları kopyalanamaz. Kopyalama etkinliği yalnızca ilk satır kaynak verilerin havuz kopyalar. Yinelenen birincil anahtar değeri içeren sonraki kaynak satırları uyumsuz olarak algılanır ve atlanır.
+
+>[!NOTE]
+>Kopyalama etkinliği, dış veri mekanizması dahil olmak üzere yükleme çağırmak için yapılandırıldığında, bu özelliği uygulanmaz [Azure SQL veri ambarı PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) veya [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). PolyBase'nın yerel hataya dayanıklılık destek belirterek kullanmak verileri PolyBase kullanarak SQL Data Warehouse'a veri yüklemek için "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" kopyalama etkinliğinde.
 
 ## <a name="configuration"></a>Yapılandırma
 Aşağıdaki örnek kopyalama etkinliği uyumsuz satırları atlanıyor yapılandırmak için JSON tanımını sağlar:

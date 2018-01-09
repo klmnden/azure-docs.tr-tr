@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Azure'daki Linux sanal makineleri yedekleyin
 
@@ -62,7 +62,7 @@ Kurtarma Hizmetleri Kasasına basit bir zamanlanmış günlük yedekleme oluştu
 
 ## <a name="restore-a-file"></a>Bir dosya geri yükleme
 
-Yanlışlıkla silme veya bir dosyaya değişiklik, dosya yedekleme Kasası'nı kurtarmak için dosya kurtarma kullanabilirsiniz. Kurtarma noktası yerel sürücü olarak bağlamak için VM'de, çalışan bir komut dosyası kurtarma kullanır. Böylece kurtarma noktasından dosyaları kopyalayın ve VM geri bu sürücüler için 12 saat bağlı kalır.  
+Yanlışlıkla silme veya bir dosyaya değişiklik, dosya yedekleme Kasası'nı kurtarmak için dosya kurtarma kullanabilirsiniz. Kurtarma noktası olarak yerel bir sürücü bağlama VM'de, çalışan bir komut dosyası kurtarma kullanır. Böylece kurtarma noktasından dosyaları kopyalayın ve VM geri bu sürücüler için 12 saat bağlı kalır.  
 
 Bu örnekte, varsayılan nginx web sayfası /var/www/html/index.nginx-debian.html kurtarmak nasıl gösterir. Bu örnekte bizim VM ortak IP adresi *13.69.75.209*. VM olanağını kullanarak IP adresi bulabilirsiniz:
 
@@ -157,7 +157,7 @@ Bu örnekte, varsayılan nginx web sayfası /var/www/html/index.nginx-debian.htm
 
     ![Varsayılan nginx web sayfası](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Yerel bilgisayarınızda Azure portalında hem de tarayıcı sekmesinde geri dönün **3. adım: Kurtarma işleminden sonra diskleri çıkarın** tıklatın **çıkarın diskleri** düğmesi. Bu adımı gerçekleştirmenin unutursanız, mountpoint bağlantısı 12 saat sonra otomatik olarak kapat. Bu 12 saat sonra yeni bir başlatma noktası oluşturmak için yeni bir komut dosyası yüklemeniz gerekir.
+18. Yerel bilgisayarınızda Azure portalında hem de tarayıcı sekmesinde geri dönün **3. adım: Kurtarma işleminden sonra diskleri çıkarın** tıklatın **çıkarın diskleri** düğmesi. Bu adımı gerçekleştirmenin unutursanız, mountpoint bağlantısı 12 saat sonra otomatik olarak kapatılır. Bu 12 saat sonra yeni bir başlatma noktası oluşturmak için yeni bir komut dosyası yüklemeniz gerekir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

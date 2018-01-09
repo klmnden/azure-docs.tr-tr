@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96ca9bb2d7a9f30a7d6492be43bfb44edc02fd93
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure rol örneklerinin iletişimi etkinleştir
 Bulut hizmeti rollerinizi iç ve dış bağlantıları iletişim kurar. Dış bağlantılar denir **giriş uç noktaları** iç bağlantılar denir sırada **iç uç noktalar**. Bu konuda nasıl değiştirileceğini açıklar [hizmet tanımı](cloud-services-model-and-package.md#csdef) uç noktaları oluşturmak için.
@@ -71,7 +71,7 @@ Bir bağlantı noktası aralığı de kullanabilirsiniz.
 ```xml
 <Endpoints>
   <InternalEndpoint name="Endpoint3" protocol="any">
-    <FixedPortRange max="8995" min="8999" />
+    <FixedPortRange max="8999" min="8995" />
   </InternalEndpoint>
 </Endpoints>
 ```

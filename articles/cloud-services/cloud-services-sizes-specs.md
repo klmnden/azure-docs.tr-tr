@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services boyutları
 Bu konu, kullanılabilir boyutları ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekleri açıklar. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtımında dikkat edilecek noktalar sağlar. İçine bir kimliği her boyutuna sahip, [hizmet tanımı dosyası](cloud-services-model-and-package.md#csdef). Fiyatlar her boyutu için kullanılabilir [Cloud Services fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.
@@ -188,10 +188,10 @@ Rol boyutunu ayarlama örneği [Standard_D2](#general-purpose-d) Web rol örneğ
 >
 
 ## <a name="get-a-list-of-sizes"></a>Boyutlarının listesini al
-Boyutlarının listesini almak için PowerShell veya REST API'sini kullanabilirsiniz. REST API belgelenen [burada](https://msdn.microsoft.com/library/azure/dn469422.aspx). Bulut hizmetiniz için şu anda kullanılabilir boyutları listeler bir PowerShell komut kodudur.
+Boyutlarının listesini almak için PowerShell veya REST API'sini kullanabilirsiniz. REST API belgelenen [burada](https://msdn.microsoft.com/library/azure/dn469422.aspx). Verilen bir konuma ait tüm boyutları listeler bir PowerShell komut kodudur. 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRmVMSize -Location 'West Europe'
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

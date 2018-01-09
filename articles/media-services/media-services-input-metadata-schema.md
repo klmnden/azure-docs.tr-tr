@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: 4787e4033e1afda6339b0b917263ecc165e400ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85a3662fec08cfc081095ef252842a30fde7dd27
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="input-metadata"></a>Meta veri girişi
 Kodlama işinin bir giriş varlık (veya varlıklar) ile ilişkili kodlama bazı görevleri gerçekleştirmek istediğiniz üzerinde.  Bir görev tamamlandığında, çıkış varlık oluşturulur.  Çıkış varlığına, video, ses, küçük resimleri, bildirim, vb. içerir. Çıkış varlığına da giriş varlık hakkındaki meta verileri ile bir dosya içeriyor. Meta veri XML dosyasının adı şu biçimdedir: &lt;asset_id&gt;_metadata.xml (örneğin, 41114ad3-eb5e - 4c 57-8d 92-5354e2b7d4a4_metadata.xml), burada &lt;asset_id&gt; giriş varlık AssetID değeri.  
 
 Meta veri dosyası incelemek isterseniz, oluşturabileceğiniz bir **SAS** Bulucu ve dosyayı yerel bilgisayarınıza indirin. Bir SAS Bulucu oluşturun ve dosya indirme konusunda bir örnek bulabilirsiniz [Media Services .NET SDK uzantıları kullanarak](media-services-dotnet-get-started.md).  
 
-Bu konuda öğeleri ve XML Şeması türleri üzerinde anlatılmaktadır giriş metada (&lt;asset_id&gt;_metadata.xml) dayanır.  Çıkış varlığına hakkındaki meta verileri içeren dosyası hakkında daha fazla bilgi için bkz: [çıkış meta verileri](media-services-output-metadata-schema.md).  
+Bu makalede öğeleri ve XML Şeması türleri üzerinde ele giriş metada (&lt;asset_id&gt;_metadata.xml) dayanır.  Çıkış varlığına hakkındaki meta verileri içeren dosyası hakkında daha fazla bilgi için bkz: [çıkış meta verileri](media-services-output-metadata-schema.md).  
 
 > [!NOTE]
-> Bulabileceğiniz [şeması kodu](media-services-input-metadata-schema.md#code) bir [XML örneği](media-services-input-metadata-schema.md#xml) bu konunun sonundaki.  
+> Bulabileceğiniz [şeması kodu](media-services-input-metadata-schema.md#code) bir [XML örneği](media-services-input-metadata-schema.md#xml) bu makalenin sonunda.  
 > 
 > 
 
 ## <a name="AssetFiles"></a>AssetFiles öğesi (kök öğesi)
 Bir koleksiyonu içerir [AssetFile öğesi](media-services-input-metadata-schema.md#AssetFile)kodlama işi için s.  
 
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 | Ad | Açıklama |
 | --- | --- |
@@ -44,7 +44,7 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 ## <a name="AssetFile"></a>AssetFile öğesi
  Öznitelikler ve bir varlık dosyası açıklayan öğeler içerir.  
 
- XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+ Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
@@ -53,13 +53,13 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 | **Boyut**<br /><br /> Gerekli |**xs:Long** |Varlık dosyasının bayt cinsinden boyutu. |
 | **Süre**<br /><br /> Gerekli |**xs: Duration** |İçerik play geri süresi. Örnek: Süre = "PT25M37.757S". |
 | **NumberOfStreams**<br /><br /> Gerekli |**xs:int** |Varlık dosyası akış sayısı. |
-| **FormatNames**<br /><br /> Gerekli |**xs: String** |Biçim adları. |
-| **FormatVerboseNames**<br /><br /> Gerekli |**xs: String** |Biçim ayrıntılı adları. |
+| **FormatNames**<br /><br /> Gerekli |**xs: dize** |Biçim adları. |
+| **FormatVerboseNames**<br /><br /> Gerekli |**xs: dize** |Biçim ayrıntılı adları. |
 | **StartTime** |**xs: Duration** |İçerik başlangıç saati. Örnek: StartTime = "PT2.669S". |
-| **OverallBitRate** |**xs:int** |Ortalama bit hızı Kbps varlık dosyasının. |
+| **OverallBitRate** |**xs: int** |Ortalama bit hızı Kbps varlık dosyasının. |
 
 > [!NOTE]
-> Aşağıdaki 4 alt öğeleri bir sırada yer almalıdır.  
+> Aşağıdaki dört alt öğeleri bir sırada yer almalıdır.  
 > 
 > 
 
@@ -67,26 +67,26 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
 | **Programlar**<br /><br /> minOccurs = "0" | |Tüm koleksiyon [programları öğesi](media-services-input-metadata-schema.md#Programs) varlık dosyası MPEG-TS biçiminde olduğunda. |
-| **VideoTracks**<br /><br /> minOccurs = "0" | |Her fiziksel varlık dosyası, uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla video parçaları içerebilir. Bu öğe tüm koleksiyonunu içerir [VideoTracks öğesi](media-services-input-metadata-schema.md#VideoTracks) varlık dosyası bir parçası. |
-| **AudioTracks**<br /><br /> minOccurs = "0" | |Her fiziksel varlık dosyası, uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla ses izleri içerebilir. Bu öğe tüm koleksiyonunu içerir [AudioTracks öğesi](media-services-input-metadata-schema.md#AudioTracks) varlık dosyası bir parçası. |
+| **VideoTracks**<br /><br /> minOccurs = "0" | |Daha fazla videolar parça, uygun bir kapsayıcı biçimine araya eklemeli veya her fiziksel varlık dosyası sıfır içerebilir. Bu öğe tüm koleksiyonunu içerir [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) varlık dosyası bir parçası. |
+| **AudioTracks**<br /><br /> minOccurs = "0" | |Her fiziksel varlık dosyası, uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla ses izleri içerebilir. Bu öğe tüm koleksiyonunu içerir [AudioTracks](media-services-input-metadata-schema.md#AudioTracks) varlık dosyası bir parçası. |
 | **Meta veriler**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Varlık dosyanın meta verilerini key\value dize olarak temsil. Örneğin:<br /><br /> **&lt;Meta verilerinin anahtarı "language" value = "eng" = /&gt;** |
 
 ## <a name="TrackType"></a>TrackType
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
 | **Kimliği**<br /><br /> Gerekli |**xs:int** |Bu ses veya video izlemeyi sıfır tabanlı dizini.<br /><br /> Bu mutlaka olarak TrackID bir MP4 dosyasında kullanılan değildir. |
 | **Codec** |**xs: String** |Video İzle codec dizesi. |
-| **CodecLongName** |**xs: String** |Ses veya video izleme codec uzun adı. |
+| **CodecLongName** |**xs: dize** |Ses veya video izleme codec uzun adı. |
 | **Zaman temeli**<br /><br /> Gerekli |**xs: String** |Süresi tabanı. Örnek: Zaman temeli "1/48000" = |
 | **NumberOfFrames** |**xs:int** |Çerçeve (video parçalar mevcut) sayısı. |
-| **StartTime** |**xs: Duration** |İzleme başlangıç saati. Örnek: StartTime "PT2.669S" = |
+| **StartTime** |**xs: süresi** |İzleme başlangıç saati. Örnek: StartTime "PT2.669S" = |
 | **Süre** |**xs: Duration** |Süre izler. Örnek: Süre = "PTSampleFormat M37.757S". |
 
 > [!NOTE]
-> Aşağıdaki 2 alt öğeleri bir sırada yer almalıdır.  
+> Aşağıdaki iki alt öğeleri bir sırada yer almalıdır.  
 > 
 > 
 
@@ -101,13 +101,13 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 
  Türü belirli bir ses izleme varlık dosyasında temsil eder.  
 
- XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+ Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
 | **SampleFormat** |**xs: String** |Örnek biçimi. |
-| **ChannelLayout** |**xs: String** |Kanal düzeni. |
+| **ChannelLayout** |**xs: dize** |Kanal düzeni. |
 | **Kanalları**<br /><br /> Gerekli |**xs:int** |(0 veya daha fazla) ses kanal sayısı. |
 | **SamplingRate**<br /><br /> Gerekli |**xs:int** |Saniye başına örnekleri veya Hz ses örnekleme hızı. |
 | **Bit hızı** |**xs:int** |Varlık dosyasından hesaplanan olarak saniyedeki ortalama ses bit hızı. Yalnızca başlangıç akışı yükü kabul edilir ve paketleme yükünü bu sayıma dahil değildir. |
@@ -118,31 +118,31 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 
 Türü belirli bir video izlemek varlık dosyasında temsil eder.  
 
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
 | **FourCC**<br /><br /> Gerekli |**xs: String** |Görüntü codec FourCC kodu. |
-| **Profili** |**xs: String** |Video parçasının profili. |
-| **Düzeyi** |**xs: String** |Video parçasının düzeyi. |
-| **PixelFormat** |**xs: String** |Video parçasının piksel biçimi. |
+| **Profil** |**xs: dize** |Video parçasının profili. |
+| **Düzey** |**xs: dize** |Video parçasının düzeyi. |
+| **PixelFormat** |**xs: dize** |Video parçasının piksel biçimi. |
 | **Genişlik**<br /><br /> Gerekli |**xs:int** |Kodlanmış video genişliğini piksel cinsinden. |
 | **Yükseklik**<br /><br /> Gerekli |**xs:int** |Piksel cinsinden görüntü yüksekliği kodlanmış. |
-| **DisplayAspectRatioNumerator**<br /><br /> Gerekli |**xs:double** |Video görüntü en boy oranını pay. |
+| **DisplayAspectRatioNumerator**<br /><br /> Gerekli |**xs: çift** |Video görüntü en boy oranını pay. |
 | **DisplayAspectRatioDenominator**<br /><br /> Gerekli |**xs:double** |Video görüntü en boy oranını payda. |
-| **DisplayAspectRatioDenominator**<br /><br /> Gerekli |**xs:double** |Video örneği en boy oranını pay. |
-| **SampleAspectRatioNumerator** |**xs:double** |Video örneği en boy oranını pay. |
+| **DisplayAspectRatioDenominator**<br /><br /> Gerekli |**xs: çift** |Video örneği en boy oranını pay. |
+| **SampleAspectRatioNumerator** |**xs: çift** |Video örneği en boy oranını pay. |
 | **SampleAspectRatioNumerator** |**xs:double** |Video örneği en boy oranını payda. |
 | **Kare hızı**<br /><br /> Gerekli |**xs:decimal** |Video kare hızı .3f biçiminde ölçülür. |
 | **Bit hızı** |**xs:int** |Varlık dosyasından hesaplanan olarak kilobit / saniye ortalama video bit hızı. Yalnızca başlangıç akışı yükü kabul edilir ve paketleme ek yük dahil değildir. |
-| **MaxGOPBitrate** |**xs:int** |Max GOP ortalama bit hızı kilobit bu video izlemek için. |
+| **MaxGOPBitrate** |**xs: int** |Max GOP ortalama bit hızı kilobit bu video izlemek için. |
 | **HasBFrames** |**xs:int** |Video parça B çerçeve sayısı. |
 
 ## <a name="MetadataType"></a>MetadataType
 **MetadataType** anahtar/değer dize olarak bir varlık dosya meta verileri tanımlayan genel bir karmaşık türü. Örneğin, anahtar = "dil" değeri "eng" =.  
 
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
@@ -159,29 +159,29 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 | **ProgramId**<br /><br /> Gerekli |**xs:int** |Program Kimliği |
 | **NumberOfPrograms**<br /><br /> Gerekli |**xs:int** |Programları sayısı. |
 | **PmtPid**<br /><br /> Gerekli |**xs:int** |Program eşleme tabloları (PMTs) programlar hakkında bilgi içerir.  Daha fazla bilgi için bkz: [DEVRESEL_ÖDEME](http://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
-| **PcrPid**<br /><br /> Gerekli |**xs:int** |Kod Çözücü tarafından kullanılır. Daha fazla bilgi için bkz: [PCR](http://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
+| **PcrPid**<br /><br /> Gerekli |**xs: int** |Kod Çözücü tarafından kullanılır. Daha fazla bilgi için bkz: [PCR](http://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
 | **StartPTS** |**xs: uzun** |Sunu zaman damgası başlatılıyor. |
 | **EndPTS** |**xs: uzun** |Bitiş sunu zaman damgası. |
 
 ## <a name="StreamDispositionType"></a>StreamDispositionType
 **StreamDispositionType** akış açıklar genel bir karmaşık tür.  
 
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **Varsayılan**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu varsayılan sunu olduğunu göstermek için 1 olarak ayarlayın. |
+| **Varsayılan**<br /><br /> Gerekli |**xs: int** |Bu öznitelik bu varsayılan sunu olduğunu göstermek için 1 olarak ayarlayın. |
 | **Dub**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu Dublaj sunu olduğunu göstermek için 1 olarak ayarlayın. |
-| **Özgün**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu özgün sunu olduğunu göstermek için 1 olarak ayarlayın. |
+| **Özgün**<br /><br /> Gerekli |**xs: int** |Bu öznitelik bu özgün sunu olduğunu göstermek için 1 olarak ayarlayın. |
 | **Açıklama**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu parça yorumlar içerdiğini belirtmek için 1 olarak ayarlayın. |
 | **Sözleri**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu parça sözleri içerdiğini belirtmek için 1 olarak ayarlayın. |
 | **Karaoke**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu karaoke İzle (arka plan müzik, hiçbir vokallerle) temsil eden belirtmek için 1 olarak ayarlayın. |
 | **Zorla**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu zorlanmış sunu olduğunu göstermek için 1 olarak ayarlayın. |
 | **HearingImpaired**<br /><br /> Gerekli |**xs:int** |Bu öznitelik işitme engelli için bu izleme belirtmek için 1 olarak ayarlayın. |
 | **VisualImpaired**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu izleme için görme engelli belirtmek için 1 olarak ayarlayın. |
-| **CleanEffects**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu parça temiz etkileri olduğunu belirtmek için 1 olarak ayarlayın. |
-| **AttachedPic**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu parça resimleri sahip belirtmek için 1 olarak ayarlayın. |
+| **CleanEffects**<br /><br /> Gerekli |**xs: int** |Bu öznitelik bu parça temiz etkileri olduğunu belirtmek için 1 olarak ayarlayın. |
+| **AttachedPic**<br /><br /> Gerekli |**xs: int** |Bu öznitelik bu parça resimleri sahip belirtmek için 1 olarak ayarlayın. |
 
 ## <a name="Programs"></a>Programları öğesi
 Birden çok tutan kapsayıcı öğe **Program** öğeleri.  
@@ -194,7 +194,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
 ## <a name="VideoTracks"></a>VideoTracks öğesi
  Birden çok tutan kapsayıcı öğe **VideoTrack** öğeleri.  
 
- XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+ Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Alt öğeler
 | Ad | Tür | Açıklama |
@@ -204,7 +204,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
 ## <a name="AudioTracks"></a>AudioTracks öğesi
  Birden çok tutan kapsayıcı öğe **AudioTrack** öğeleri.  
 
- XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+ Bu makalenin sonunda XML örneği bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>Öğeleri
 | Ad | Tür | Açıklama |

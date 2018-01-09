@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
-ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
+ms.openlocfilehash: d551a62a59e0a7f63f5fd4862680a271de659a19
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Linux sanal makineleri için işleme planlı bakım bildirimleri
 
@@ -82,7 +82,7 @@ Planlı bakım bilgileri kullanarak görülme [azure vm get örneği Görünüm]
 Yalnızca planlı bakım ise bakım bilgileri döndürülür. Varsa bu etkileri VM herhangi bir bakım zamanlanmış, komut herhangi bir bakım bilgi döndürmez. 
 
 ```azure-cli
-az vm get-instance-view  - g rgName  -n vmName 
+az vm get-instance-view -g rgName -n vmName
 ```
 
 Aşağıdaki değerleri MaintenanceRedeployStatus altında döndürülür: 

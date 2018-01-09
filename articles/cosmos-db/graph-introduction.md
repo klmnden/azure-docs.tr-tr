@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB giriş: grafik API'si
 
@@ -103,11 +103,11 @@ Azure Cosmos DB pazardaki diğer grafik veritabanlarına karşılaştırıldığ
 Azure Cosmos DB belge ve grafik, aynı kapsayıcıları/veritabanları içinde gibi birden çok modelleri de kullanabilirsiniz. Belgeleri yan yana grafik verilerini depolamak için bir belge koleksiyonu kullanabilirsiniz. Bir grafik aynı verileri sorgulamak için JSON SQL sorguları ve Gremlin sorguları kullanabilirsiniz.
 
 ## <a name="get-started"></a>başlarken
-Azure komut satırı arabirimi (CLI), Azure PowerShell veya Azure portalında desteğiyle grafik API'si için Azure Cosmos DB hesapları oluşturmak için kullanabilirsiniz. Hesapları oluşturduktan sonra Azure portalında bir hizmet uç noktası gibi sağlar `https://<youraccount>.graphs.azure.com`, WebSocket ön uç için Gremlin sağlar. TinkerPop uyumlu araçlarınızı gibi yapılandırabilirsiniz [Gremlin konsol](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), bu uç noktasına bağlanmak ve Java, Node.js veya herhangi bir Gremlin istemci sürücüsü uygulamaları oluşturmak için.
+Azure komut satırı arabirimi (CLI), Azure PowerShell veya Azure portalında desteğiyle grafik API'si için Azure Cosmos DB hesapları oluşturmak için kullanabilirsiniz. Hesapları oluşturduktan sonra Azure portalında bir hizmet uç noktası gibi sağlar `https://<youraccount>.gremlin.cosmosdb.azure.com`, WebSocket ön uç için Gremlin sağlar. TinkerPop uyumlu araçlarınızı gibi yapılandırabilirsiniz [Gremlin konsol](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), bu uç noktasına bağlanmak ve Java, Node.js veya herhangi bir Gremlin istemci sürücüsü uygulamaları oluşturmak için.
 
 Aşağıdaki tabloda Azure Cosmos DB karşı kullanabilirsiniz popüler Gremlin sürücüleri gösterir:
 
-| İndir | Belgeler |
+| İndirme | Belgeler |
 | --- | --- |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) |[Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) |
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Github'da gremlin JavaScript](https://github.com/jbmusso/gremlin-javascript) |
@@ -115,7 +115,7 @@ Aşağıdaki tabloda Azure Cosmos DB karşı kullanabilirsiniz popüler Gremlin 
 
 Azure Cosmos DB ayrıca Gremlin genişletme yöntemleri üstüne sahip bir .NET kitaplığı sağlar [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md) NuGet aracılığıyla. Bu kitaplığı "veri bölümlere doğrudan bağlanmak için kullanabileceğiniz bir işlem" Gremlin sunucusu sağlar.
 
-| İndir | Belgeler |
+| İndirme | Belgeler |
 | --- | --- |
 | [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 
