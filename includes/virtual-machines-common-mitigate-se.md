@@ -22,7 +22,7 @@ Aşağıdaki teklifleri işletim sisteminizi güncelleştirmeniz için bizim ön
 <td>Azure Linux sanal makineleri</td> <td>Güncelleştirmeler kullanılabilir olduğunda işletim sistemi sağlayıcınızdan yükleyin. </td>
 </tr>
 <tr>
-<td>Azure Windows sanal makineler </td> <td><ul><li>İşletim sistemi güncelleştirmelerini yüklemeden önce desteklenen bir virüsten koruma uygulaması çalıştığını doğrulayın. Uyumluluk bilgileri için virüsten koruma yazılımı satıcınıza başvurun. </li> <li> Yükleme [Ocak güvenlik dökümü](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Azure Windows sanal makineler </td> <td>İşletim sistemi güncelleştirmelerini yüklemeden önce desteklenen bir virüsten koruma uygulaması çalıştığını doğrulayın. Uyumluluk bilgileri için virüsten koruma yazılımı satıcınıza başvurun.<p> Yükleme [Ocak güvenlik dökümü](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Diğer Azure PaaS Hizmetleri</td> <td>Bu hizmetleri kullanan müşteriler için gereken eylemi yok. Azure, işletim sistemi sürümlerini otomatik olarak güncel tutar. </td>

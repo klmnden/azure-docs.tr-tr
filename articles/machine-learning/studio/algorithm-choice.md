@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning için algoritma seçme
 "Ne makine öğrenme algoritmasının kullanmalıyım?" sorusunun yanıtını her zaman "Bu bağlıdır." olur Boyut, kalite ve veri yapısını bağlıdır. Bu Yanıtla yapmak istediğiniz yere bağlıdır. Bu, nasıl algoritma matematik yönergeler için kullanmakta olduğunuz bilgisayar içine çevrilmiştir üzerinde bağlıdır. Ve bağlı olduğu üzerinde ne kadar süre sahip. Hatta çoğu deneyimli veri bilimcilerine algoritmayı en iyi denemeden önce gerçekleştirecek bildiremez.
@@ -42,7 +42,7 @@ Grafik yolu ve algoritma etiketleri okuma "için  *&lt;yol etiketinin&gt;*, kull
 Bazen bunları bir mükemmel yok. Bunlar tam olan bu konuda endişelenmeyin böylece Flash kural öneriler olarak kullanılması.
 Çeşitli veri bilimcilerine t ile konusu açıklandı en iyi algoritması bulmak için yalnızca emin bunların tümünün denemek için yoludur.
 
-Bir örnek şudur [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/) aynı verilere göre çeşitli algoritmalar çalışır ve sonuçları karşılaştırır deneme: [çok sınıfı sınıflandırıcı karşılaştırın: Harf tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Bir örnek şudur [Azure AI galeri](http://gallery.cortanaintelligence.com/) aynı verilere göre çeşitli algoritmalar çalışır ve sonuçları karşılaştırır deneme: [çok sınıfı sınıflandırıcı karşılaştırın: Harf tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).

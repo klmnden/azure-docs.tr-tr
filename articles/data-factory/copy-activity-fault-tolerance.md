@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/08/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Kopya etkinliği Azure Data factory'de hataya dayanıklılık
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,6 +39,9 @@ Kopyalama etkinliği algılama, atlanıyor ve uyumsuz verilerini günlüğe kayd
 - **Kaynak veri türü ve havuz yerel türü arasındaki uyumsuzluk**. <br/><br/> Örneğin: veri kopyalama bir Blob depolamada CSV dosyasından üç INT türü sütunları içeren bir şema tanımı olan bir SQL veritabanına. 123,456,789 gibi sayısal veriler içeren CSV dosyası satırları başarıyla havuz deposuna kopyalanır. Ancak, 123,456 gibi sayısal olmayan değerler içeren satırları abc uyumsuz olarak algılanır ve atlanır.
 - **Kaynak ve havuz arasında sütun sayısı uyuşmazlığı**. <br/><br/> Örneğin: veri kopyalama bir Blob depolamada CSV dosyasından altı sütunları içeren bir şema tanımı olan bir SQL veritabanına. Altı sütunları içeren CSV dosyası satırları başarıyla havuz deposuna kopyalanır. Daha fazla veya az altı sütunları içeren CSV dosyası satırları uyumsuz olarak algılanır ve atlanır.
 - **İlişkisel bir veritabanına yazılırken birincil anahtar ihlali**.<br/><br/> Örneğin: veri kopyalama SQL Server'dan SQL veritabanına. Havuz SQL veritabanında tanımlı bir birincil anahtara, ancak böyle bir birincil anahtar kaynak SQL Server'da tanımlanmadı. Havuz için kaynak olarak mevcut yinelenen satırları kopyalanamaz. Kopyalama etkinliği yalnızca ilk satır kaynak verilerin havuz kopyalar. Yinelenen birincil anahtar değeri içeren sonraki kaynak satırları uyumsuz olarak algılanır ve atlanır.
+
+>[!NOTE]
+>Kopyalama etkinliği, dış veri mekanizması dahil olmak üzere yükleme çağırmak için yapılandırıldığında, bu özelliği uygulanmaz [Azure SQL veri ambarı PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) veya [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). PolyBase'nın yerel hataya dayanıklılık destek belirterek kullanmak verileri PolyBase kullanarak SQL Data Warehouse'a veri yüklemek için "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" kopyalama etkinliğinde.
 
 ## <a name="configuration"></a>Yapılandırma
 Aşağıdaki örnek kopyalama etkinliği uyumsuz satırları atlanıyor yapılandırmak için JSON tanımını sağlar:
@@ -67,7 +70,7 @@ Aşağıdaki örnek kopyalama etkinliği uyumsuz satırları atlanıyor yapılan
 enableSkipIncompatibleRow | Veya kopyalama sırasında uyumsuz satırları atlanacak belirtir. | True<br/>False (varsayılan) | Hayır
 redirectIncompatibleRowSettings | Zaman uyumsuz satırları günlüğe kaydetmek istediğiniz bir grup olabilir özellik belirtilmiş. | &nbsp; | Hayır
 linkedServiceName | Bağlı hizmetin adı [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) veya [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) Atlanan satırları içeren günlüğü depolamak için. | Adı bir `AzureStorage` veya `AzureDataLakeStore` günlük dosyasını depolamak için kullanmak istediğiniz örneğine başvurur bağlantılı hizmet türü. | Hayır
-Yol | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verileri günlüğe kaydetmek için kullanmak istediğiniz yolu belirtin. Bir yol belirtmezseniz, hizmet bir kapsayıcı oluşturur. | Hayır
+yol | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verileri günlüğe kaydetmek için kullanmak istediğiniz yolu belirtin. Bir yol belirtmezseniz, hizmet bir kapsayıcı oluşturur. | Hayır
 
 ## <a name="monitor-skipped-rows"></a>Atlanan satır izleme
 Çalıştırma kopyalama etkinliği tamamlandıktan sonra kopyalama etkinliği çıktıda Atlanan satır sayısını görebilirsiniz:

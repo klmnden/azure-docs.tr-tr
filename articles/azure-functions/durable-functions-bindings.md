@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) için bağlamaları
 
@@ -66,7 +66,7 @@ Orchestration tetikleyici ilgili bazı notlar şunlardır:
 
 Destekler bağlama orchestration tetikleyici girdi hem çıkarır. Girişi hakkında bilmeniz ve çıkış işleme bazı noktalar şunlardır:
 
-* **girişleri** -Orchestration işlevlerini destekleyen yalnızca [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) parametre türü. Seri durumdan çıkarma girişleri işlevi imzada doğrudan desteklenmez. Kod kullanmalıdır [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) işlevi girişleri orchestrator getirmek yöntemi. Bu girdi, JSON seri hale getirilebilir türler olmalıdır.
+* **girişleri** -Orchestration işlevlerini destekleyen yalnızca [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) parametre türü. Seri durumdan çıkarma işlevi imzada doğrudan girdi desteklenmiyor. Kod kullanmalıdır [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) işlevi girişleri orchestrator getirmek yöntemi. Bu girdi, JSON seri hale getirilebilir türler olmalıdır.
 * **çıkarır** -Orchestration Tetikleyicileri çıkış değerlerinin yanı sıra girişleri destekler. İşlevinin dönüş değeri çıkış değeri atamak için kullanılır ve JSON Serileştirilebilir olmalıdır. Bir işlev döndürürse `Task` veya `void`, `null` değeri çıktısı olarak kaydedilir.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-Burada olacak şekilde bir işlevi çağırmak nasıl oluşturulduğunu gösteren bir "Hello World" örnek çoğu orchestrator işlevleri diğer işlevleri arayın:
+Burada olacak şekilde bir etkinlik işlevi çağırmak nasıl oluşturulduğunu gösteren bir "Hello World" örnek etkinlik İşlevler, çoğu orchestrator işlevleri arayın:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Etkinlik tetikleyici ilgili bazı notlar şunlardır:
 Destekler bağlama etkinlik tetikleyici girdi hem, yalnızca orchestration tetikleyici gibi çıkarır. Girişi hakkında bilmeniz ve çıkış işleme bazı noktalar şunlardır:
 
 * **girişleri** -etkinlik işlevlerini yerel olarak kullanan [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) parametre türü. Alternatif olarak, bir etkinlik işlevi, JSON seri hale getirilebilir bir parametre türü ile bildirilebilir. Kullandığınızda `DurableActivityContext`, çağırabilirsiniz [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) giriş getirme ve seri durumdan etkinlik işlevi için.
-* **çıkarır** -etkinlik Tetikleyicileri çıkış değerlerinin yanı sıra girişleri destekler. İşlevinin dönüş değeri çıkış değeri atamak için kullanılır ve JSON Serileştirilebilir olmalıdır. Bir işlev döndürürse `Task` veya `void`, `null` değeri çıktısı olarak kaydedilir.
+* **çıkarır** -çıktı değerlerinin yanı sıra girişleri desteği etkinliği çalışır. İşlevinin dönüş değeri çıkış değeri atamak için kullanılır ve JSON Serileştirilebilir olmalıdır. Bir işlev döndürürse `Task` veya `void`, `null` değeri çıktısı olarak kaydedilir.
 * **meta veri** -etkinlik işlevleri için bağlayabilirsiniz bir `string instanceId` parametresi üst orchestration örnek kimliği alınamıyor.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ Bağlama orchestration istemci orchestrator işlevleri ile etkileşim işlevler 
 
 Visual Studio kullanıyorsanız, kullanarak orchestration istemciye bağlayabilirsiniz [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET özniteliği.
 
-Komut dosyası dili kullanıyorsanız (örneğin *.csx* dosyaları) geliştirme için orchestration tetikleyici aşağıdaki JSON nesnesi tarafından tanımlanan `bindings` function.json dizisi:
+Komut dosyası dili kullanıyorsanız (örneğin *.csx* dosyaları) geliştirme için orchestration tetikleyici aşağıdaki JSON nesnesi tarafından tanımlanan `bindings` dizisi *function.json*:
 
 ```json
 {
@@ -193,7 +193,7 @@ Komut dosyası dili kullanıyorsanız (örneğin *.csx* dosyaları) geliştirme 
 ```
 
 * `taskHub`-Burada birden çok işlev uygulamalarının aynı depolama hesabını paylaşmak ancak birbirinden yalıtılmış olmasına gerek senaryolarda kullanılır. Belirtilmezse, varsayılan değerden `host.json` kullanılır. Bu değer hedef orchestrator işlevleri tarafından kullanılan değer eşleşmesi gerekir.
-* `connectionName`-Depolama bağlantı dizesi içeren bir uygulama ayarı adı. Bu bağlantı dizesi tarafından temsil edilen depolama hesabının hedef orchestrator işlevler tarafından kullanılan adla aynı olması gerekir. Belirtilmezse, varsayılan bağlantı dizesini işlev uygulaması için kullanılır.
+* `connectionName`-Depolama hesabı bağlantı dizesi içeren bir uygulama ayarı adı. Bu bağlantı dizesi tarafından temsil edilen depolama hesabının hedef orchestrator işlevler tarafından kullanılan adla aynı olması gerekir. Belirtilmezse, varsayılan depolama hesabı bağlantı dizesi işlev uygulaması için kullanılır.
 
 > [!NOTE]
 > Çoğu durumda, bu özellikleri atlayın ve varsayılan davranışı kullanan öneririz.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>İstemci örnek (Visual Studio değil)
 
-Geliştirme için Visual Studio kullanmıyorsanız, aşağıdaki function.json dosyası oluşturabilirsiniz. Bu örnek, bağlama dayanıklı orchestration istemci kullanan sıra tetiklenen bir işlev yapılandırma gösterilmektedir:
+Geliştirme için Visual Studio kullanmıyorsanız, aşağıdaki oluşturabilirsiniz *function.json* dosya. Bu örnek, bağlama dayanıklı orchestration istemci kullanan sıra tetiklenen bir işlev yapılandırma gösterilmektedir:
 
 ```json
 {

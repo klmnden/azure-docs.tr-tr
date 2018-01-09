@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8bd46adc475af35d32b9e329a3765e064120a6e3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f48c9ef6b66cb3c9a687f1d063859e413866e88c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -89,7 +89,22 @@ Bu dosyanın amacı için kullanmak üzere ölçeği denetleyicisini bilgileri s
 
 Oluşturulan *function.json* dosya içeren bir `configurationSource` .NET öznitelikleri bağlamaları için çalışma zamanı söyler özelliği yerine *function.json* yapılandırma. Örnek aşağıda verilmiştir:
 
-{"generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0", "configurationSource": "öznitelikleri", "bağlamaları": [{"tür": "queueTrigger", "queueName": "% giriş sıra adı %", "name": "myQueueItem"}], "devre dışı": false "KomutDosyası": "... \\bin\\FunctionApp1.dll ","entryPoint":"FunctionApp1.QueueTrigger.Run"}
+```json
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "queueTrigger",
+      "queueName": "%input-queue-name%",
+      "name": "myQueueItem"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "..\\bin\\FunctionApp1.dll",
+  "entryPoint": "FunctionApp1.QueueTrigger.Run"
+}
+```
 
 *Function.json* dosyası oluşturma NuGet paketi tarafından gerçekleştirilen [Microsoft\.NET\.Sdk\.işlevler](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Kaynak kodu GitHub deposuna kullanılabilir [azure\-işlevleri\-vs\-yapı\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

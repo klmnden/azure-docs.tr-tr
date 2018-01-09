@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 036c192c5f52a1943bc2799ad6c7e6db7bbffcc4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard Biçimleri ve Kodlayıcılar
 Bu belge, Medya Kodlayıcısı standart ile kullanabileceğiniz dışa aktarma dosyası biçimi ve en yaygın alma listesini içerir.
 
 ## <a name="input-containerfile-formats"></a>Kapsayıcı/dosya biçimleri giriş
-| Dosya biçimleri (dosya uzantıları) | Destekleniyor |
+| Dosya biçimleri (dosya uzantıları) | Desteklenen |
 | --- | --- | --- | --- |
 | (İle H.264 ve AAC codec bileşenleri) FLV (.flv) |Evet |
 | MXF (.mxf) |Evet |
@@ -39,23 +39,23 @@ Bu belge, Medya Kodlayıcısı standart ile kullanabileceğiniz dışa aktarma d
 | QuickTime (.mov) |Evet |
 
 > [!NOTE]
-> Yukarıdaki daha yaygın olarak karşılaşılan dosya uzantıları listesini içerir. Medya Kodlayıcısı standart destek diğer birçok (örneğin: .m2ts, .mpeg2video, .qt). Lütfen bir dosya kodlamak deneyin ve biçimi desteklenmiyor ilgili bir hata iletisi alırsanız bir geri bildirim sağlamak [burada](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Yukarıdaki daha yaygın olarak karşılaşılan dosya uzantıları listesini içerir. Medya Kodlayıcısı standart destek diğer birçok (örneğin: .m2ts, .mpeg2video, .qt). Bir dosya kodlamak deneyin ve biçimi desteklenmiyor ilgili bir hata iletisi alırsanız, görüş [burada](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Giriş kapsayıcılarında ses biçimleri
 Medya Kodlayıcısı standart giriş kapsayıcıları ses aşağıdaki biçimlerde taşıyan destekler:
 
-* MXF, GXF ve QuickTime dosyaları araya eklemeli stereo ile ses izleri veya 5.1 örnekleri olan
+* Araya eklemeli stereo veya 5.1 örnekleri ile ses izleri sahip MXF, GXF ve QuickTime dosyaları
 
 or
 
 * Burada ses ayrı PCM parçaları aktarılan, ancak kanal eşleme (stereo veya 5.1) dosya meta verileri anlaşılan MXF, GXF ve QuickTime dosyaları
 
-Açık/kullanıcı tarafından sağlanan kanal eşleme yakın gelecekte sağlanacak için destekleyen unutmayın.
+Açık/kullanıcı tarafından sağlanan kanal eşleştirmesi için destek yakın gelecekte sağlanır.
 
 ## <a name="input-video-codecs"></a>Görüntü codec bileşenleri giriş
-| Görüntü codec bileşenleri giriş | Destekleniyor |
+| Görüntü codec bileşenleri giriş | Desteklenen |
 | --- | --- | --- | --- |
 | AVC 8 bit/10-en fazla 4 bit: AVCIntra dahil olmak üzere 2:2 |8 bit 4:2:0. ve 4:2:2 |
 | Hırslı DNxHD (içinde MXF) |Evet |
@@ -77,7 +77,7 @@ Açık/kullanıcı tarafından sağlanan kanal eşleme yakın gelecekte sağlana
 | Apple ProRes 4444 XQ |Evet |
 
 ## <a name="input-audio-codecs"></a>Giriş ses codec bileşenleri
-| Giriş ses codec bileşenleri | Destekleniyor |
+| Giriş ses codec bileşenleri | Desteklenen |
 | --- | --- | --- | --- |
 | AAC (AAC-LC, HE AAC ve AAC-HEv2; kadar 5.1) |Evet |
 | MPEG Katman 2 |Evet |

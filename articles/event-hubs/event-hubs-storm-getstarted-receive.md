@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a120cc38b8ecfc6ec29be35eda12978ca8b035e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm kullanarak Event Hubs'dan olayları alma
 
@@ -130,7 +130,7 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] zaten kullanıl
     }
     ```
     
-    Bu Storm Cıvata alınan olayların içeriğini günlüğe kaydeder. Bu kolayca diziler depolama hizmetinde depolamak için genişletilebilir. [Hdınsight algılayıcı analiz öğretici] HBase verileri depolamak için aynı bu yaklaşımı kullanır.
+    Bu Storm Cıvata alınan olayların içeriğini günlüğe kaydeder. Bu kolayca diziler depolama hizmetinde depolamak için genişletilebilir. [Hdınsight Storm olay hub'ı örnekle] Azure Storage ve Power BI verileri depolamak için aynı bu yaklaşımı kullanır.
 11. Adlı bir sınıf oluşturmak **LogTopology** aşağıdaki kod ile:
     
     ```java
@@ -247,7 +247,7 @@ Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi e
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[Hdınsight algılayıcı analiz öğretici]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[Hdınsight Storm olay hub'ı örnekle]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

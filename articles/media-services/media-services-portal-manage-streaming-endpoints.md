@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6f551a7970f226ba40753009b24bd4c5eeb67fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Azure portal ile akış uç noktalarını yönetme
 
-Bu konu, Azure portalında akış uç noktalarını yönetmek için nasıl kullanılacağını gösterir. 
+Bu makalede Azure portal akış uç noktalarını yönetmek için nasıl kullanılacağı gösterilmektedir. 
 
 >[!NOTE]
->Gözden geçirdiğinizden emin olun [genel bakış](media-services-streaming-endpoints-overview.md) konu. 
+>Gözden geçirdiğinizden emin olun [genel bakış](media-services-streaming-endpoints-overview.md) makalesi. 
 
-Akış uç ölçeklendirme hakkında daha fazla bilgi için bkz: [bu](media-services-portal-scale-streaming-endpoints.md) konu.
+Akış uç ölçeklendirme hakkında daha fazla bilgi için bkz: [bu](media-services-portal-scale-streaming-endpoints.md) makalesi.
 
 ## <a name="start-managing-streaming-endpoints"></a>Akış uç noktalarını yönetmeye başlama 
 
@@ -69,7 +69,7 @@ Akış uç noktası aşağıdaki özellikleri yapılandırmanıza olanak sağlar
 Bu özellikler hakkında ayrıntılı bilgi için bkz: [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
->CDN etkinleştirildiğinde IP erişim erişemiyor. IP erişim uygulanabilir için CDN yok.
+>CDN etkinleştirildiğinde, IP erişim erişemiyor. IP erişim uygulanabilir için CDN yok.
 
 Aşağıdakileri yaparak akış uç noktasını yapılandırabilirsiniz:
 
@@ -86,17 +86,17 @@ Alanları kısa bir açıklamasını izler.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Akış uç noktası, Premium ölçeklendirme
 
-Daha fazla bilgi için [bu](media-services-portal-scale-streaming-endpoints.md) konu başlığına bakın.
+Daha fazla bilgi için [bu makaleye](media-services-portal-scale-streaming-endpoints.md) bakın.
 
 ## <a id="enable_cdn"></a>Azure CDN tümleştirmeyi etkinleştir
 
 Yeni bir hesap oluşturduğunuzda, varsayılan akış uç noktası Azure CDN tümleştirme varsayılan olarak etkindir.
 
-Akış uç noktanızı olması gerekir, daha sonra devre dışı bırak/CDN etkinleştir istiyorsanız, **durduruldu** durumu. 2 saate kadar etkin Azure CDN tümleştirme ve değişikliklerin tüm CDN POP etkin olması ele geçirebilir. Ancak, can akış uç noktası ve akış kesintileri olmadan akış uç noktasından başlatın ve tümleştirme tamamlandıktan sonra CDN akış teslim edilecek. Akış uç noktanızı olacak sağlama süresi boyunca **başlangıç** durumu ve degredad performans gözlemlemek.
+Akış uç noktanızı olması gerekir, daha sonra devre dışı bırak/CDN etkinleştir istiyorsanız, **durduruldu** durumu. İki saate kadar etkin Azure CDN tümleştirme ve değişikliklerin tüm CDN POP etkin olması ele geçirebilir. Ancak, can akış uç noktası ve akış kesintileri olmadan akış uç noktasından başlatmak ve tümleştirme tamamlandıktan sonra akışı CDN teslim edilir. Akış uç noktanızı olacak sağlama süresi boyunca **başlangıç** durumu ve degredad performans gözlemlemek.
 
-CDN tümleştirme tüm Azure veri merkezleri execpt Çin ve Federal Government bölgelerde etkinleştirilir.
+CDN tümleştirme Çin ve Federal Hükümet bölgeler dışında tüm Azure veri merkezlerinde etkin.
 
-Etkinleştirildiğinde, **erişim denetimi**, **özel ana bilgisayar adı** ve **Akamai imzası kimlik doğrulaması** yapılandırması devre dışı.
+Etkinleştirildiğinde, **erişim denetimi**, ** özel ana bilgisayar adı, ve **Akamai imzası kimlik doğrulaması** yapılandırması devre dışı.
  
 > [!IMPORTANT]
 > Azure CDN ile Azure Media Services tümleştirme uygulandığını **verizon'dan Azure CDN** için standart akış uç noktaları. Akış uç noktaları premium tüm kullanılarak yapılandırılabilir **Azure CDN fiyatlandırma katmanlarına ve sağlayıcıları**. Azure CDN özellikler hakkında daha fazla bilgi için bkz: [CDN'ye genel bakış](../cdn/cdn-overview.md).
@@ -106,7 +106,7 @@ Etkinleştirildiğinde, **erişim denetimi**, **özel ana bilgisayar adı** ve *
 * CDN akış uç noktası için etkinleştirildiğinde, istemcileri doğrudan kaynaktan içerik isteğinde bulunamaz. İçeriğinizi ile veya olmadan CDN test olanağı gerekiyorsa, CDN etkin olmayan başka bir akış uç noktası oluşturabilirsiniz.
 * Akış uç noktası ana bilgisayar adı aynı CDN etkinleştirdikten sonra kalır. CDN etkinleştirildikten sonra media services iş akışınıza değişiklik gerekmez. Akış uç noktası ana bilgisayar adı strasbourg.streaming.mediaservices.windows.net, CDN etkinleştirdikten sonra Örneğin, tam aynı ana bilgisayar adı kullanılır.
 * Yeni akış uç noktaları için yeni bir uç noktası oluşturarak CDN etkinleştirebilirsiniz; Varolan akış uç noktaları için ilk uç noktayı durdurmak ve ardından CDN bırakmak gerekir.
-* Akış uç noktası standart yalnızca kullanılarak yapılandırılabilir **standart Verizon CDN sağlayıcısı** Azure yönetim portalını kullanarak. Ancak, REST API'lerini kullanarak diğer Azure CDN sağlayıcıları etkinleştirebilirsiniz.
+* Akış uç noktası standart yalnızca kullanılarak yapılandırılabilir **standart Verizon CDN sağlayıcısı** Klasik Azure portalını kullanarak. Ancak, REST API'lerini kullanarak diğer Azure CDN sağlayıcıları etkinleştirebilirsiniz.
 
 ## <a name="configure-cdn-profile"></a>CDN profili yapılandırma
 

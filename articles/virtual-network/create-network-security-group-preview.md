@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Ağ ve uygulama güvenlik grupları (Önizleme) ile ağ trafiği filtreleme
 
@@ -42,14 +42,14 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
 3. Oturum açtığınızda Azure ile `az login` komutu.
 4. Önizleme için aşağıdaki komutları girerek kaydedin:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. Aşağıdaki komutu girerek Önizleme için kayıtlı olduklarını doğrulayın:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
 
 6. Bir kaynak grubu oluşturmak için aşağıdaki bash betiğini çalıştırın:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
 
 7. Üç uygulama güvenlik grupları, her sunucu türü için bir tane oluşturun:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
 
 8. Bir ağ güvenlik grubu oluşturun:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
 
 9. Uygulama güvenlik grupları hedef olarak ayarlama, NSG içinde güvenlik kurallarını oluşturun:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
 
 10. Sanal ağ oluşturma: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
 
 11. Sanal ağ alt ağına ağ güvenlik grubu ilişkilendirin:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
     
 12. Üç ağ arabirimlerinin her sunucu türü için bir tane oluşturun: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       --application-security-groups "DatabaseServers"
     ```
 
-    Ağ arabirimi bir üyesi olan uygulama güvenlik grubunu temel alan ağ arabirimi, yalnızca 9. adımda oluşturduğunuz karşılık gelen güvenlik kuralı uygulanır. Örneğin, yalnızca *WebRule* için etkilidir *myNic1*, ağ arabiriminin bir üyesi olduğundan *Web sunucuları* uygulama güvenlik grubu ve kural belirtir *Web sunucuları* hedefi olarak uygulama güvenlik grubu. *AppRule* ve *DatabaseRule* için kuralları uygulanmaz *myNic1*, ağ arabirimi üyesi olmadığından *AppServers*ve *DatabaseServers* uygulama güvenlik grupları.
+    Ağ arabirimi bir üyesi olan uygulama güvenlik grubunu temel alan ağ arabirimi, yalnızca 9. adımda oluşturduğunuz karşılık gelen güvenlik kuralı uygulanır. Örneğin, yalnızca *AppRule* kuralıdır etkili *myNic2*, ağ arabiriminin bir üyesi olduğundan *AppServers* uygulama güvenlik grubu ve kural belirtir *AppServers* hedefi olarak uygulama güvenlik grubu. *WebRule* ve *DatabaseRule* için kuralları uygulanmaz *myNic2*, ağ arabirimi üyesi olmadığından *Web sunucuları*ve *DatabaseServers* uygulama güvenlik grupları. Her iki *WebRule* ve *AppRule* kuralları etkili *myNic1* ancak, çünkü *myNic1* ağ arabirimi bir üyesidir hem *Web sunucuları* ve *AppServers* uygulama güvenlik gruplarını ve kurallarını belirtin *Web sunucuları* ve *AppServers* hedeflerine olarak uygulama güvenlik grupları. 
 
 13. İlgili ağ arabiriminin, her sanal makineye ekleniyor her sunucu türü için bir sanal makine oluşturun. Bu örnek, Windows sanal makineleri oluşturur, ancak değiştirebileceğiniz *win2016datacenter* için *UbuntuLTS* Linux sanal makineleri yerine oluşturmak için.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. Bir ağ güvenlik grubu oluşturun:
@@ -361,7 +363,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Ağ arabirimi bir üyesi olan uygulama güvenlik grubunu temel alan ağ arabirimi, yalnızca adım 8'de oluşturulan karşılık gelen güvenlik kuralı uygulanır. Örneğin, yalnızca *WebRule* için etkilidir *myNic1*, ağ arabiriminin bir üyesi olduğundan *Web sunucuları* uygulama güvenlik grubu ve kural belirtir *Web sunucuları* hedefi olarak uygulama güvenlik grubu. *AppRule* ve *DatabaseRule* için kuralları uygulanmaz *myNic1*, ağ arabirimi üyesi olmadığından *AppServers*ve *DatabaseServers* uygulama güvenlik grupları.
+    Ağ arabirimi bir üyesi olan uygulama güvenlik grubunu temel alan ağ arabirimi, yalnızca adım 8'de oluşturulan karşılık gelen güvenlik kuralı uygulanır. Örneğin, yalnızca *AppRule* kuralıdır etkili *myNic2*, ağ arabiriminin bir üyesi olduğundan *AppServers* uygulama güvenlik grubu ve kural belirtir *AppServers* hedefi olarak uygulama güvenlik grubu. *WebRule* ve *DatabaseRule* için kuralları uygulanmaz *myNic2*, ağ arabirimi üyesi olmadığından *Web sunucuları*ve *DatabaseServers* uygulama güvenlik grupları. Her iki *WebRule* ve *AppRule* kuralları etkili *myNic1* ancak, çünkü *myNic1* ağ arabirimi bir üyesidir hem *Web sunucuları* ve *AppServers* uygulama güvenlik gruplarını ve kurallarını belirtin *Web sunucuları* ve *AppServers* hedeflerine olarak uygulama güvenlik grupları. 
 
 13. İlgili ağ arabiriminin, her sanal makineye ekleniyor her sunucu türü için bir sanal makine oluşturun. Bu örnek, Windows sanal makineleri oluşturur, ancak komut dosyasını çalıştırmadan önce değiştirebilirsiniz *-Windows* için *- Linux*, *MicrosoftWindowsServer* için*Kurallı*, *Windows Server* için *UbuntuServer* ve *2016 Datacenter* için *14.04.2-LTS*Linux sanal makineleri yerine oluşturmak için.
 
@@ -429,6 +431,33 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
 
 14. **İsteğe bağlı**: içindeki adımları tamamlayarak bu öğreticide oluşturduğunuz kaynakları silmek [silmek kaynakları](#delete-cli).
 
+## <a name="remove-a-nic-from-an-asg"></a>Bir NIC bir ASG Kaldır
+Bir ağ arabirimi bir uygulama güvenlik grubundan kaldırdıktan sonra uygulama güvenlik grubu belirtmeniz kuralların hiçbiri kaldırdığınız ağ arabirimi için uygulanır.
+
+### <a name="azure-cli"></a>Azure CLI
+
+Kaldırmak için *myNic3* tüm uygulama güvenlik gruplarından aşağıdaki komutu girin:
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+Kaldırmak için *myNic3* tüm uygulama güvenlik gruplarından aşağıdaki komutları girin:
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>Kaynakları silin
 
 Bu öğreticiyi tamamladığınızda, böylece kullanım ücretlerine tabi yok, oluşturduğunuz kaynakları silmek isteyebilirsiniz. Bir kaynak grubunun silinmesi, kaynak grubunda bulunan tüm kaynakları siler.
@@ -443,7 +472,7 @@ Bu öğreticiyi tamamladığınızda, böylece kullanım ücretlerine tabi yok, 
 
 CLI oturumunda aşağıdaki komutu girin:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

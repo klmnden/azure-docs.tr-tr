@@ -1,30 +1,23 @@
 ---
-title: "Dosyaları REST kullanarak bir Media Services hesabına veri yükleme | Microsoft Docs"
+title: "Dosyaları REST kullanarak bir Azure Media Services hesabına veri yükleme | Microsoft Docs"
 description: "Oluşturma ve karşıya varlıklar Media Services'e medya içeriği alma hakkında bilgi."
 services: media-services
 documentationcenter: 
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 41df7cbe-b8e2-48c1-a86c-361ec4e5251f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/07/2017
 ms.author: juliako
-<<<<<<< HEAD
-ms.openlocfilehash: 955356ffe6fc524c1528364add7e2c2a336137b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: f198de0bf212f4ae566193954a319bece1e421f6
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c02584e53790ccafe6ed9a5aeffab3f9e40e8b29
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Dosyaları REST kullanarak bir Media Services hesabına veri yükleme
 > [!div class="op_single_selector"]
@@ -32,497 +25,204 @@ ms.lasthandoff: 12/18/2017
 > * [REST](media-services-rest-upload-files.md)
 > * [Portal](media-services-portal-upload-files.md)
 > 
-> 
 
 Media Services’de dijital dosyalar bir varlığa yüklenir. [Varlık](https://docs.microsoft.com/rest/api/media/operations/asset) varlık içerebilir video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkındaki meta verileri.)  Dosyaları varlığa yüklendiğinde, içeriğiniz sonraki işleme ve akışla için bulutta güvenli bir şekilde depolanır. 
 
-> [!NOTE]
-> Aşağıdaki maddeler geçerlidir:
-> 
-> * Media Services IAssetFile.Name özelliğinin değeri, URL akış içeriğini (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmiyor. Değeri **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
-> * Adının uzunluğu 260 karakterden uzun olmamalıdır.
-> * Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Bkz: [bu](media-services-quotas-and-limitations.md) dosya boyutu sınırlaması hakkındaki ayrıntılar için makale.
-> 
+Bu öğreticide, bir dosya ve onunla ilişkili başka bir işlem karşıya öğrenin:
 
-Varlıklar yüklemeyle temel iş akışı, aşağıdaki bölümlere ayrılır:
+> [!div class="checklist"]
+> * Postman karşıya yükleme işlemleri için ayarlama
+> * Media Services’e bağlanmak 
+> * Yazma izni olan bir erişim ilkesi oluşturma
+> * Bir varlık oluşturun
+> * Bir SAS Bulucu oluşturun ve karşıya yükleme URL'si oluşturun
+> * Bir dosyayı karşıya yükleme URL'yi kullanarak blob depolama alanına karşıya yüklemek
+> * Varlığı karşıya yüklediğiniz medya dosyasının bir meta veri oluşturma
 
-* Bir varlık oluşturun
-* (İsteğe bağlı) bir varlık şifrele
-* Blob depolama alanına bir dosyayı karşıya yüklemek
+## <a name="prerequisites"></a>Önkoşullar
 
-AMS toplu varlıklar karşıya yüklemenize olanak sağlar. Daha fazla bilgi için [bu](media-services-rest-upload-files.md#upload_in_bulk) bölüme bakın.
+- Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
+- [Azure portalını kullanarak Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
+- Gözden geçirme [AAD kimlik doğrulamasına genel bakış ile Azure Media Services API erişme](media-services-use-aad-auth-to-access-ams-api.md) makalesi.
+- Yapılandırma **Postman** açıklandığı gibi [Postman yapılandırmak için Media Services REST API çağrıları](media-rest-apis-with-postman.md).
 
-> [!NOTE]
-> Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
-> 
+## <a name="considerations"></a>Dikkat edilmesi gerekenler
+
+Media Services REST API kullanırken aşağıdaki maddeler geçerlidir:
+ 
+* Media Services REST API kullanarak varlıkları erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md). <br/>Bu öğreticide kullanılan Postman koleksiyonu alır gereken tüm üstbilgileri gerçekleşmiş olur.
+* Media Services IAssetFile.Name özelliğinin değeri, URL akış içeriğini (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmiyor. Değeri **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
+* Adının uzunluğu 260 karakterden uzun olmamalıdır.
+* Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Bkz: [bu](media-services-quotas-and-limitations.md) dosya boyutu sınırlaması hakkındaki ayrıntılar için makale.
+
+## <a name="set-up-postman"></a>Postman ayarlayın
+
+Bu öğretici için Postman ayarlama adımları için bkz: [yapılandırma Postman](media-rest-apis-with-postman.md).
 
 ## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 
-AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+1. Bağlantı değerleri ortamınıza ekleyin. 
 
-## <a name="upload-assets"></a>Varlıkları yükleyin
+    Parçası olan bazı değişkenler **MediaServices** [ortam](postman-environment.md) tanımlanan işlemleri yürütülürken başlamadan önce el ile ayarlanması gereken [koleksiyonu](postman-collection.md).
 
-### <a name="create-an-asset"></a>Bir varlık oluşturun
+    İlk beş değişkenleri için değerleri almak için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
-Bir varlık, birden çok türleri veya Media Services, video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları dahil olmak üzere nesne kümeleri için bir kapsayıcıdır. REST API bir varlık oluşturmak için Media Services POST isteği gönderme ve istek gövdesinde Varlığınızı ilgili herhangi bir özellik bilgi yerleştirme gerekir.
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-import-env.png)
+2. Değeri belirtin **MediaFileName** ortam değişkeni.
 
-Bir varlık oluşturma olduğunda belirtebilirsiniz özelliklerden birini **seçenekleri**. **Seçenekler** bir varlığı ile oluşturulan şifreleme seçenekleri açıklayan bir numaralandırma değeridir. Geçerli bir değer değil değerleri bileşimini aşağıdaki listeden değerlerinden biri. 
+    Karşıya yüklemek için planlama medya dosya adını belirtin. Bu örnekte, biz BigBuckBunny.mp4 karşıya alınacaktır. 
+3. İncelemek **AzureMediaServices.postman_environment.json** dosya. Neredeyse tüm işlemleri koleksiyonundaki "test" komut dosyası yürütme görürsünüz. Komut dosyaları tarafından bir yanıt döndürdü ve uygun ortam değişkenlerini ayarlama bazı değerler alır.
 
-* **Hiçbiri** = **0**: şifreleme kullanılmaz. Varsayılan değer budur. Bu seçenek kullanıldığında, içeriğinizin aktarım veya deposunda kalan korunmaz.
-    Aşamalı indirme kullanarak bir MP4 iletmeyi planlıyorsanız bu seçeneği kullanın. 
-* **StorageEncrypted** = **1**: dosyalarınızın karşıya yükleme ve depolama için AES 256 bit şifreleme ile şifrelenmiş isteyip istemediğinizi belirtin.
-  
-    Şifrelenmiş depolama varlığınız olması durumunda, varlık teslim ilkesini yapılandırmanız gerekir. Daha fazla bilgi için bkz: [varlık teslim ilkesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md).
-* **CommonEncryptionProtected** = **2**: ortak bir şifreleme yöntemi (örneğin, PlayReady) ile korunan dosyaları karşıya varsa belirtin. 
-* **EnvelopeEncryptionProtected** = **4**: AES dosyaları ile şifrelenmiş HLS karşıya varsa belirtin. Dosyaları kodlanmış ve Transform Manager tarafından şifrelenmiş gerekir.
+    Örneğin, ilk işlem bir erişim belirteci alan ve ayarlandığını **AccessToken** diğer tüm işlemlerinde kullanılan ortam değişkeni.
 
-> [!NOTE]
-> Varlığınızı şifreleme kullanıyorsa, oluşturmalısınız bir **ContentKey** ve aşağıdaki makalesinde açıklandığı gibi varlık Bağla: [bir ContentKey oluşturma](media-services-rest-create-contentkey.md). Dosyaları varlığa yükleme sonra şifreleme özellikleri güncelleştirmek gereken **AssetFile** aldığınız sırasında değerlerle varlık **varlık** şifreleme. Bunu kullanarak **birleştirme** HTTP isteği. 
-> 
-> 
-
-Aşağıdaki örnek, bir varlık oluşturulacağını gösterir.
-
-**HTTP isteği**
-
-    POST https://media.windows.net/api/Assets HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.17
-    Host: media.windows.net
-
-    {"Name":"BigBuckBunny.mp4"}
-
-**HTTP yanıtı**
-
-Başarılı olursa, aşağıdaki verilir:
-
-    HTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 452
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: https://wamsbayclus001rest-hs.cloudapp.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
-    request-id: e98be122-ae09-473a-8072-0ccd234a0657
-    x-ms-request-id: e98be122-ae09-473a-8072-0ccd234a0657
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Sun, 18 Jan 2015 22:06:40 GMT
-    {  
-       "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Assets/@Element",
-       "Id":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-       "State":0,
-       "Created":"2015-01-18T22:06:40.6010903Z",
-       "LastModified":"2015-01-18T22:06:40.6010903Z",
-       "AlternateId":null,
-       "Name":"BigBuckBunny.mp4",
-       "Options":0,
-       "Uri":"https://storagetestaccount001.blob.core.windows.net/asset-9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-       "StorageAccountName":"storagetestaccount001"
+    ```    
+    "listen": "test",
+    "script": {
+        "type": "text/javascript",
+        "exec": [
+            "var json = JSON.parse(responseBody);",
+            "postman.setEnvironmentVariable(\"AccessToken\", json.access_token);"
+        ]
     }
+    ```
+4. Sol tarafındaki **Postman** penceresinde, tıklatıldığında **1. AAD kimlik doğrulama belirteci alma** -> **alma Azure AD belirteci için hizmet asıl**.
 
-### <a name="create-an-assetfile"></a>Bir AssetFile oluşturma
-[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) varlığı temsil eden bir blob kapsayıcısında depolanır ses veya video dosyası. Bir varlık dosyası her zaman bir varlıkla ilişkilidir ve bir varlığı bir veya daha çok varlık dosyaları içerebilir. Bir varlık dosyası nesne bir blob kapsayıcısında dijital bir dosyayla ilişkili değilse Media Services Kodlayıcısı görev başarısız olur.
+    URL bölümü doldurulup **AzureADSTSEndpoint** (değeri, bu öğreticide daha önce) ortam değişkenini ayarla.
+    
+5. **Gönder**’e basın.
 
-**AssetFile** örneği ve gerçek medya dosyası olan iki farklı nesneler. Medya dosyasının gerçek medya içeriği içerirken AssetFile örneği medya dosyası hakkındaki meta verileri içerir.
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postment-get-token.png)
 
-Bir blob kapsayıcıya bir dijital medyayı dosyanızı karşıya sonra kullanacağınız **birleştirme** (makalenin sonraki bölümlerinde gösterildiği gibi), ortam dosyası hakkındaki bilgilerle AssetFile güncelleştirmeye yönelik HTTP isteği. 
+    "Access_token" içeren yanıt görebilirsiniz. Bu değer "test" komut dosyası alır ve ayarlar **AccessToken** (yukarıda açıklandığı gibi) ortam değişkeni. Ortam değişkenlerini incelerseniz, bu değişken şimdi işlemleri geri kalanı kullanılan erişim belirteci (taşıyıcı belirteci) değeri içeren görürsünüz. 
 
-**HTTP isteği**
+    Belirtecin süresi dolarsa "Get Azure AD belirteci için hizmet asıl" adım yeniden gidin. 
 
-    POST https://media.windows.net/api/Files HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.17
-    Host: media.windows.net
-    Content-Length: 164
+## <a name="create-an-access-policy-with-write-permission"></a>Yazma izni olan bir erişim ilkesi oluşturma
 
-    {  
-       "IsEncrypted":"false",
-       "IsPrimary":"false",
-       "MimeType":"video/mp4",
-       "Name":"BigBuckBunny.mp4",
-       "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
-    }
-
-**HTTP yanıtı**
-
-    HTTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 535
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5')
-    Server: Microsoft-IIS/8.5
-    request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
-    x-ms-request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Mon, 19 Jan 2015 00:34:07 GMT
-
-    {  
-       "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Files/@Element",
-       "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
-       "Name":"BigBuckBunny.mp4",
-       "ContentFileSize":"0",
-       "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-       "EncryptionVersion":null,
-       "EncryptionScheme":null,
-       "IsEncrypted":false,
-       "EncryptionKeyId":null,
-       "InitializationVector":null,
-       "IsPrimary":false,
-       "LastModified":"2015-01-19T00:34:08.1934137Z",
-       "Created":"2015-01-19T00:34:08.1934137Z",
-       "MimeType":"video/mp4",
-       "ContentChecksum":null
-    }
-
-### <a name="creating-the-accesspolicy-with-write-permission"></a>AccessPolicy yazma izni olan oluşturuluyor.
+### <a name="overview"></a>Genel Bakış 
 
 >[!NOTE]
 >Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
 Blob depolama alanına herhangi bir dosya karşıya yüklemeden önce erişim için bir varlık yazma İlkesi hakları ayarlayın. Bunu yapmak için AccessPolicies varlık kümesi için bir HTTP isteği gönderin. Oluşturulduktan sonra bir dakika Cinsiden Süre değer tanımlama veya yanıt olarak bir 500 İç sunucu hata iletisi alırsınız. AccessPolicies hakkında daha fazla bilgi için bkz: [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
-Aşağıdaki örnekte bir AccessPolicy oluşturulacağını gösterir:
+### <a name="create-an-access-policy"></a>Erişim ilkesi oluşturma
 
-**HTTP isteği**
+1. Seçin **AccessPolicy** -> **karşıya yükleme için AccessPolicy oluşturma**.
+2. **Gönder**’e basın.
 
-    POST https://media.windows.net/api/AccessPolicies HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.17
-    Host: media.windows.net
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-access-policy.png)
 
-    {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
+    "Test" komut dosyası AccessPolicy kimliğini alır ve uygun ortam değişkenini ayarlar.
 
-**HTTP isteği**
+## <a name="create-an-asset"></a>Bir varlık oluşturun
 
-    If successful, the following response is returned:
+### <a name="overview"></a>Genel Bakış
 
-    HTTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 312
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: https://wamsbayclus001rest-hs.cloudapp.net/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae')
-    Server: Microsoft-IIS/8.5
-    request-id: 74c74545-7e0a-4cd6-a440-c1c48074a970
-    x-ms-request-id: 74c74545-7e0a-4cd6-a440-c1c48074a970
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Sun, 18 Jan 2015 22:18:06 GMT
+Bir [varlık](https://docs.microsoft.com/rest/api/media/operations/asset) birden çok türleri veya Media Services, video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları dahil olmak üzere nesne kümeleri için bir kapsayıcıdır. REST API bir varlık oluşturmak için Media Services POST isteği gönderme ve istek gövdesinde Varlığınızı ilgili herhangi bir özellik bilgi yerleştirme gerekir.
 
-    {  
-       "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#AccessPolicies/@Element",
-       "Id":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
-       "Created":"2015-01-18T22:18:06.6370575Z",
-       "LastModified":"2015-01-18T22:18:06.6370575Z",
-       "Name":"NewUploadPolicy",
-       "DurationInMinutes":440.0,
-       "Permissions":2
-    }
+Bir varlık oluştururken ekleyebilirsiniz özellikleri biri **seçenekleri**. Aşağıdaki şifreleme seçeneklerden birini belirtebilirsiniz: **hiçbiri** (varsayılan, şifreleme kullanılır) **StorageEncrypted** (istemci-tarafı depolama şifrelemesi ile önceden şifrelenmiş olduğu içerik için) **CommonEncryptionProtected**, veya **EnvelopeEncryptionProtected**. Şifrelenmiş bir varlık olduğunda teslim ilkesini yapılandırmanız gerekir. Daha fazla bilgi için bkz: [varlık teslim ilkeleri yapılandırma](media-services-rest-configure-asset-delivery-policy.md).
 
-### <a name="get-the-upload-url"></a>Karşıya yükleme URL'sini alma
-Gerçek yükleme URL'si almak için bir SAS Bulucu oluşturun. Bulucular bir varlık içindeki dosyalara erişmek istediğiniz istemciler için başlangıç saatini ve bağlantı uç noktasının türünü tanımlayın. Farklı istemci isteklerini gereksinimlerini karşılamak belirli bir AccessPolicy ve varlık çifti için birden çok Bulucu varlık oluşturabilirsiniz. Her bu Bulucuyu StartTime değerinin yanı sıra AccessPolicy Dakika Cinsiden Süre değerinin bir URL kullanılabilir süreyi belirlemek için kullanır. Daha fazla bilgi için bkz: [Bulucu](https://docs.microsoft.com/rest/api/media/operations/locator).
+Varlığınızı şifrelenmişse, oluşturmalısınız bir **ContentKey** ve aşağıdaki makalesinde açıklandığı gibi varlık Bağla: [bir ContentKey oluşturma](media-services-rest-create-contentkey.md). Dosyaları varlığa yükleme sonra şifreleme özellikleri güncelleştirmek gereken **AssetFile** aldığınız sırasında değerlerle varlık **varlık** şifreleme. Bunu kullanarak **birleştirme** HTTP isteği. 
+
+Bu örnekte, şifrelenmemiş bir varlık oluşturuyoruz. 
+
+### <a name="create-an-asset"></a>Bir varlık oluşturun
+
+1. Seçin **varlıklar** -> **varlık oluşturma**.
+2. **Gönder**’e basın.
+
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-asset.png)
+
+    "Test" komut dosyası varlık kimliğini alır ve uygun ortam değişkenini ayarlar.
+
+## <a name="create-a-sas-locator-and-create-the-upload-url"></a>Bir SAS Bulucu oluşturun ve karşıya yükleme URL'si oluşturun
+
+### <a name="overview"></a>Genel Bakış
+
+Bulucu ayarlamak ve AccessPolicy olduktan sonra gerçek dosya Azure Storage REST API'lerini kullanarak bir Azure Blob Storage kapsayıcısı yüklenir. Blok blobları dosyaları yüklemeniz gerekir. Sayfa bloblarını Azure Media Services tarafından desteklenmiyor.  
+
+Azure depolama BLOB'ları ile çalışma hakkında daha fazla bilgi için bkz: [Blob hizmeti REST API'si](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+
+Gerçek yükleme URL'si almak için (aşağıda gösterilen) bir SAS Bulucu oluşturun. Bulucular bir varlık içindeki dosyalara erişmek istediğiniz istemciler için başlangıç saatini ve bağlantı uç noktasının türünü tanımlayın. Farklı istemci isteklerini gereksinimlerini karşılamak belirli bir AccessPolicy ve varlık çifti için birden çok Bulucu varlık oluşturabilirsiniz. Her bu Bulucuyu StartTime değerinin yanı sıra AccessPolicy Dakika Cinsiden Süre değerinin bir URL kullanılabilir süreyi belirlemek için kullanır. Daha fazla bilgi için bkz: [Bulucu](https://docs.microsoft.com/rest/api/media/operations/locator).
 
 Bir SAS URL'si aşağıdaki biçime sahiptir:
 
     {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
 
+### <a name="considerations"></a>Dikkat edilmesi gerekenler
+
 Bazı dikkate alınması gereken noktalar vardır:
 
 * Aynı anda belirli bir varlıkla ilişkilendirilen beşten fazla benzersiz Bulucular sahip olamaz. Daha fazla bilgi için Bulucu bakın.
 * Dosyalarınızı hemen karşıya gerekiyorsa, geçerli tarihten önce beş dakika StartTime değeri ayarlamanız gerekir. Bu; çünkü istemci makine ve Media Services arasında eğme saat olabilir. Ayrıca, StartTime değeri aşağıdaki tarih saat biçiminde olmalıdır: YYYY-MM-: ssZ (örneğin, "2014-05-23T17:53:50Z").    
-* 30-40 saniyenin olması için bir Bulucu kullanılabilir olduğunda oluşturulduktan sonra gecikme. Bu sorun, SAS URL'si ve Kaynak Konum Belirleyicisi için geçerlidir.
+* 30-40 saniyenin olması için bir Bulucu kullanılabilir olduğunda oluşturulduktan sonra gecikme.
 
-Aşağıdaki örnek, Type özelliği (bir SAS Bulucu için "1") ve "2" isteğe bağlı kaynak konum belirleyicisi için istek gövdesinde tarafından tanımlandığı şekilde bir SAS URL'si Bulucu oluşturma gösterir. **Yolu** döndürülen özelliği dosyanızı karşıya yüklemek için kullandığınız URL'yi içerir.
+### <a name="create-a-sas-locator"></a>SAS Bulucu oluşturun
 
-**HTTP isteği**
+1. Seçin **Bulucu** -> **SAS Bulucu oluşturmanız**.
+2. **Gönder**’e basın.
 
-    POST https://media.windows.net/api/Locators HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.17
-    Host: media.windows.net
-    {  
-       "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
-       "AssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-       "StartTime":"2015-02-18T16:45:53",
-       "Type":1
-    }
+    "Test" komut dosyası "Belirttiğiniz medya dosyasının adını temel alarak URL karşıya yükle" ve SAS Bulucu bilgileri oluşturur ve uygun ortam değişkenini ayarlar.
 
-**HTTP yanıtı**
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
-Başarılı olursa, şu yanıtı döndürdü:
+## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Bir dosyayı karşıya yükleme URL'yi kullanarak blob depolama alanına karşıya yüklemek
 
-    HTTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 949
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: https://wamsbayclus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54')
-    Server: Microsoft-IIS/8.5
-    request-id: 2adeb1f8-89c5-4cc8-aa4f-08cdfef33ae0
-    x-ms-request-id: 2adeb1f8-89c5-4cc8-aa4f-08cdfef33ae0
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Mon, 19 Jan 2015 03:01:29 GMT
+### <a name="overview"></a>Genel Bakış
 
-    {  
-       "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Locators/@Element",
-       "Id":"nb:lid:UUID:af57bdd8-6751-4e84-b403-f3c140444b54",
-       "ExpirationDateTime":"2015-02-19T00:05:53",
-       "Type":1,
-       "Path":"https://storagetestaccount001.blob.core.windows.net/asset-f438649c-313c-46e2-8d68-7d2550288247?sv=2012-02-12&sr=c&si=af57bdd8-6751-4e84-b403-f3c140444b54&sig=fE4btwEfZtVQFeC0Wh3Kwks2OFPQfzl5qTMW5YytiuY%3D&st=2015-02-18T16%3A45%3A53Z&se=2015-02-19T00%3A05%3A53Z",
-       "BaseUri":"https://storagetestaccount001.blob.core.windows.net/asset-f438649c-313c-46e2-8d68-7d2550288247",
-       "ContentAccessComponent":"?sv=2012-02-12&sr=c&si=af57bdd8-6751-4e84-b403-f3c140444b54&sig=fE4btwEfZtVQFeC0Wh3Kwks2OFPQfzl5qTMW5YytiuY%3D&st=2015-02-18T16%3A45%3A53Z&se=2015-02-19T00%3A05%3A53Z",
-       "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
-       "AssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-       "StartTime":"2015-02-18T16:45:53",
-       "Name":null
-    }
+Karşıya yükleme URL'si sahip olduğunuza göre doğrudan SAS kapsayıcıya dosyanızı karşıya yüklemek için Azure Blob API'lerini kullanarak biraz kod yazmanız gerekir. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-### <a name="upload-a-file-into-a-blob-storage-container"></a>Bir blob depolama kapsayıcısının içine bir dosyayı karşıya yüklemek
-Bulucu ayarlamak ve AccessPolicy olduktan sonra gerçek dosya Azure Storage REST API'lerini kullanarak bir Azure Blob Storage kapsayıcısı yüklenir. Blok blobları dosyaları yüklemeniz gerekir. Sayfa bloblarını Azure Media Services tarafından desteklenmiyor.  
+- https://docs.microsoft.com/REST/api/storageservices/PUT-BLOB 
+- https://docs.microsoft.com/Azure/Storage/Common/Storage-use-azcopy#upload-BLOBS-to-BLOB-Storage
+- https://docs.microsoft.com/Azure/Storage/BLOBS/Storage-dotnet-How-to-use-BLOBS#Upload-a-BLOB-into-a-Container
 
-> [!NOTE]
-> Bulucu karşıya yüklemek istediğiniz dosyası için dosya adı eklemelisiniz **yolu** önceki bölümde alınan değer. Örneğin, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
-> 
-> 
+### <a name="upload-a-file-with-postman"></a>Postman bir dosyayı karşıya
 
-Azure depolama BLOB'ları ile çalışma hakkında daha fazla bilgi için bkz: [Blob hizmeti REST API'si](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Örnek olarak, bir küçük .mp4 dosyayı karşıya yüklemeyi Postman kullanın. İkili Postman aracılığıyla karşıya dosya boyutu sınırı olabilir.
 
-### <a name="update-the-assetfile"></a>Güncelleştirme AssetFile
-Dosyanızı yüklediğiniz, FileAsset boyut (ve diğer) bilgi güncelleştirin. Örneğin:
+Karşıya yükleme isteği değil parçası **AzureMedia** koleksiyonu. 
 
-    MERGE https://media.windows.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.17
-    Host: media.windows.net
+Oluşturun ve yeni bir isteği ayarlamak:
+1. Tuşuna  **+** , yeni bir istek sekme oluşturmak için.
+2. Seçin **PUT** işlemi ve Yapıştır **{{UploadURL}}** URL.
+2. Bırakın **yetkilendirme** sekmesinde olduğundan (Bu ayarlanmamışsa **taşıyıcı belirteci**).
+3. İçinde **üstbilgileri** sekmesinde, belirtin: **anahtar**: "x-ms-blob-type" ve **değeri**: "BlockBlob".
+2. İçinde **gövde** sekmesini tıklatın, **ikili**.
+4. Belirtilen ada sahip bir dosya seçin **MediaFileName** ortam değişkeni.
+5. **Gönder**’e basın.
 
-    {  
-       "ContentFileSize":"1186540",
-       "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
-       "MimeType":"video/mp4",
-       "Name":"BigBuckBunny.mp4",
-       "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
-    }
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-upload-file.png)
 
+##  <a name="create-a-metadata-in-the-asset"></a>Bir meta veri varlığı oluşturun
 
-**HTTP yanıtı**
+Dosya karşıya sonra varlık, varlıkla ilişkilendirilen blob depolama alanına karşıya medya dosyasının içindeki bir meta veri oluşturmanız gerekir.
 
-Başarılı, aşağıdaki döndürülür: HTTP/1.1 204 İçerik yok
+1. Seçin **AssetFiles** -> **CreateFileInfos**.
+2. **Gönder**’e basın.
 
-### <a name="delete-the-locator-and-accesspolicy"></a>Bulucu ve AccessPolicy Sil
-**HTTP isteği**
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-file-info.png)
 
-    DELETE https://media.windows.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.17
-    Host: media.windows.net
+Dosyayı karşıya yüklenmelidir ve meta verilerini ayarlayın.
 
-**HTTP yanıtı**
+## <a name="validate"></a>Doğrulama
 
-Başarılı olursa, aşağıdaki verilir:
+Dosyası başarıyla karşıya yüklendi, sorgu isteyebilirsiniz doğrulamak için [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) ve karşılaştırma **ContentFileSize** (veya diğer ayrıntıları) yeni varlık görmeyi beklediğiniz için. 
 
-    HTTP/1.1 204 No Content 
-    ...
+Örneğin, aşağıdaki **almak** işlemi, varlık dosyası için dosya verileri getirir (ya da durumda BigBuckBunny.mp4 dosyası). Sorgu kullanarak [ortam değişkenleri](postman-environment.md) , daha önce ayarlayın.
 
-**HTTP isteği**
+    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
 
-    DELETE https://media.windows.net/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae') HTTP/1.1
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.17
-    Host: media.windows.net
+Yanıt boyutu, adı ve diğer bilgileri içerir.
 
-**HTTP yanıtı**
-
-Başarılı olursa, aşağıdaki verilir:
-
-    HTTP/1.1 204 No Content 
-    ...
-
-## <a id="upload_in_bulk"></a>Varlıkları toplu yükleyin
-### <a name="create-the-ingestmanifest"></a>IngestManifest oluşturma
-IngestManifest varlıklar, varlık dosyaları ve küme için alma toplu ilerlemesini belirlemek için kullanılan istatistik bilgileri kümesi için bir kapsayıcıdır.
-
-**HTTP isteği**
-
-    POST https:// media.windows.net/API/IngestManifests HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-    Host: media.windows.net
-    Content-Length: 36
-    Expect: 100-continue
-
-    { "Name" : "ExampleManifestREST" }
-
-### <a name="create-assets"></a>Varlıklar oluşturma
-IngestManifestAsset oluşturmadan önce toplu alanını kullanarak tamamlanacak varlığı oluşturmanız gerekir. Bir varlık, birden çok türleri veya Media Services, video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları dahil olmak üzere nesne kümeleri için bir kapsayıcıdır. REST API bir varlık oluşturmak için Microsoft Azure Media Services için bir HTTP POST isteği gönderme ve istek gövdesinde Varlığınızı ilgili herhangi bir özellik bilgi yerleştirme gerekir. Bu örnekte, varlık ile istek gövdesi dahil StorageEncrption(1) seçeneği kullanılarak oluşturulur.
-
-**HTTP yanıtı**
-
-    POST https://media.windows.net/API/Assets HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-    Host: media.windows.net
-    Content-Length: 55
-    Expect: 100-continue
-
-    { "Name" : "ExampleManifestREST_Asset", "Options" : 1 }
-
-### <a name="create-the-ingestmanifestassets"></a>IngestManifestAssets oluşturma
-IngestManifestAssets toplu alma ile kullanılan varlıklar bir IngestManifest içinde temsil eder. Temel varlık bildirime bağlantı. Azure Media Services IngestManifestAsset ilişkili IngestManifestFiles koleksiyonu göre dosya karşıya yükleme için dahili olarak izler. Bu dosyalar yüklendiğinde varlık tamamlandı. Bir HTTP POST isteği ile yeni bir IngestManifestAsset oluşturabilirsiniz. İstek gövdesinde IngestManifest kimliği ve IngestManifestAsset toplu alma için birlikte bağlanması gereken varlık kimliği içerir.
-
-**HTTP yanıtı**
-
-    POST https://media.windows.net/API/IngestManifestAssets HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-    Host: media.windows.net
-    Content-Length: 152
-    Expect: 100-continue
-    { "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "Asset" : { "Id" : "nb:cid:UUID:b757929a-5a57-430b-b33e-c05c6cbef02e"}}
-
-
-### <a name="create-the-ingestmanifestfiles-for-each-asset"></a>Her varlık için IngestManifestFiles oluşturma
-Bir IngestManifestFile bir varlık için toplu alma bir parçası olarak yüklenen gerçek ses veya video blob nesneyi temsil eder. Varlık bir şifreleme seçeneği kullanmadığınız sürece şifrelemeyle ilgili özellikler gerekli değildir. Bu bölümde kullanılan örnek StorageEncryption daha önce oluşturulan varlığı için kullanan bir IngestManifestFile oluşturma gösterir.
-
-**HTTP yanıtı**
-
-    POST https://media.windows.net/API/IngestManifestFiles HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-    Host: media.windows.net
-    Content-Length: 367
-    Expect: 100-continue
-
-    { "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
-
-### <a name="upload-the-files-to-blob-storage"></a>Blob depolama alanına dosyaları karşıya yükleme
-URI IngestManifest BlobStorageUriForUpload özelliği tarafından sağlanan blob depolama kapsayıcısını varlık dosyaları yükleme yeteneğine sahip herhangi bir yüksek hızlı istemci uygulama kullanabilirsiniz. Bir önem düzeyindeki yüksek hızlı karşıya yükleme hizmetidir [Aspera istendiğinde Azure uygulaması için](http://go.microsoft.com/fwlink/?LinkId=272001).
-
-### <a name="monitor-bulk-ingest-progress"></a>İzleyici toplu ilerleme durumunu alma
-Toplu işlemleri için bir IngestManifest IngestManifest istatistikleri özelliğinin yoklayarak alma ilerlemesini izleyebilirsiniz. Özelliği bir karmaşık tür olup [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). İstatistikleri özelliği yoklamak için IngestManifest kimliği geçirme bir HTTP GET isteği gönder
-
-## <a name="create-contentkeys-used-for-encryption"></a>Şifreleme için kullanılan ContentKeys oluşturma
-Varlığınızı şifreleme kullanıyorsa, varlık dosyaları oluşturmadan önce şifreleme için kullanılacak ContentKey oluşturmanız gerekir. Depolama şifrelemesi için aşağıdaki özellikleri istek gövdesinde yer alması gerekir.
-
-| İstek gövdesi özelliği | Açıklama |
-| --- | --- |
-| Kimlik |Biz kendisini aşağıdaki biçimi kullanarak oluşturacağı ContentKey kimliği "nb:kid:UUID:<NEW GUID>". |
-| ContentKeyType |Bu içerik anahtarı için bir tamsayı olarak içerik anahtar türü budur. Biz depolama şifrelemesi için 1 değerini geçirin. |
-| EncryptedContentKey |256 bitlik (32 bayt) bir değer olan yeni bir içerik anahtar değer oluşturuyoruz. Anahtar GetProtectionKeyId ve GetProtectionKey yöntemleri için bir HTTP GET isteği yürüterek Microsoft Azure Media Services'den alıyoruz depolama şifreleme X.509 sertifikası kullanılarak şifrelenir. |
-| ProtectionKeyId |Bu, bizim içerik anahtarı şifrelemek için kullanılan depolama şifreleme X.509 Sertifika koruma anahtar kimliğidir. |
-| ProtectionKeyType |İçerik anahtarı şifrelemek için kullanılan koruma anahtarı şifreleme türü budur. Bu değer StorageEncryption(1) Bizim örneğimizde olur. |
-| Sağlama toplamı |MD5 hesaplanan sağlama toplamı için içerik anahtarı. İçerik anahtarı kimliği içerikle şifreleyerek hesaplanır. Kod örneği, sağlama toplamı hesaplamak gösterilmiştir. |
-
-**HTTP yanıtı**
-
-    POST https://media.windows.net/api/ContentKeys HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-    Host: media.windows.net
-    Content-Length: 572
-    Expect: 100-continue
-
-    {"Id" : "nb:kid:UUID:316d14d4-b603-4d90-b8db-0fede8aa48f8", "ContentKeyType" : 1, "EncryptedContentKey" : "Y4NPej7heOFa2vsd8ZEOcjjpu/qOq3RJ6GRfxa8CCwtAM83d6J2mKOeQFUmMyVXUSsBCCOdufmieTKi+hOUtNAbyNM4lY4AXI537b9GaY8oSeje0NGU8+QCOuf7jGdRac5B9uIk7WwD76RAJnqyep6U/OdvQV4RLvvZ9w7nO4bY8RHaUaLxC2u4aIRRaZtLu5rm8GKBPy87OzQVXNgnLM01I8s3Z4wJ3i7jXqkknDy4VkIyLBSQvIvUzxYHeNdMVWDmS+jPN9ScVmolUwGzH1A23td8UWFHOjTjXHLjNm5Yq+7MIOoaxeMlKPYXRFKofRY8Qh5o5tqvycSAJ9KUqfg==", "ProtectionKeyId" : "7D9BB04D9D0A4A24800CADBFEF232689E048F69C", "ProtectionKeyType" : 1, "Checksum" : "TfXtjCIlq1Y=" }
-
-### <a name="link-the-contentkey-to-the-asset"></a>ContentKey varlık için bağlantı
-ContentKey bir HTTP POST isteği göndererek bir veya daha fazla varlıklarına ilişkilidir. Aşağıdaki isteği örnek varlığı kimliğe göre ContentKey örnek bağlamak üzere örneğidir
-
-**HTTP yanıtı**
-
-    POST https://media.windows.net/API/Assets('nb:cid:UUID:b3023475-09b4-4647-9d6d-6fc242822e68')/$links/ContentKeys HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-    Host: media.windows.net
-    Content-Length: 113
-    Expect: 100-continue
-
-    { "uri": "https://media.windows.net/api/ContentKeys('nb%3Akid%3AUUID%3A32e6efaf-5fba-4538-b115-9d1cefe43510')"}
-
-**HTTP yanıtı**
-
-    GET https://media.windows.net/API/IngestManifests('nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048') HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-    Host: media.windows.net
-
+    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+    "Name": "BigBuckBunny.mp4",
+    "ContentFileSize": "3186542",
+    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+            
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilgi için bkz. [Varlıkları kodlama](media-services-portal-encode.md).
 
 Yapılandırılmış kapsayıcıya gelen dosyaya göre bir kodlama işi tetiklemek için Azure İşlevleri’ni de kullanabilirsiniz. Daha fazla bilgi için [bu örneğe](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) bakın.
-
-## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-[How to Get a Media Processor]: media-services-get-media-processor.md
 

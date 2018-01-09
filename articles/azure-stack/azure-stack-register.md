@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Azure yığını, Azure aboneliğiniz ile kaydetme
 
@@ -36,7 +36,7 @@ Azure ile Azure yığın kaydetmeden önce şunlara sahip olmalısınız:
 
 - Bir Azure aboneliği için abonelik kimliği. Kimliği almak için Azure oturumu açın, **daha fazla hizmet** > **abonelikleri**, kullanmak istediğiniz aboneliği tıklatın ve altında **Essentials** bulabilirsiniz **Abonelik kimliği**. Çin, Almanya ve US government abonelikler şu anda desteklenmiyor.
 - Kullanıcı adı ve parola abonelik sahibi olan bir hesap için (MSA/2FA hesapları desteklenir).
-- *Azure yığın 1712 güncelleştirme sürümünü (1.0.180103.2) ile başlayan gerekli değil:* Azure Active Directory Azure aboneliği için. Azure portalının sağ üst köşedeki adresindeki, avatar üzerine gelerek, bu dizin Azure içinde bulabilirsiniz.
+- *Azure yığın 1712 güncelleştirme sürümünü (180106.1) ile başlayan gerekli değil:* Azure Active Directory Azure aboneliği için. Azure portalının sağ üst köşedeki adresindeki, avatar üzerine gelerek, bu dizin Azure içinde bulabilirsiniz.
 
 Bu gereksinimleri karşılayan bir Azure aboneliğiniz yoksa, şunları yapabilirsiniz [buradan ücretsiz bir Azure hesabı oluşturma](https://azure.microsoft.com/en-us/free/?b=17.06). Azure yığın kaydetme, Azure aboneliğinizin üzerinde hiçbir ücret doğurur.
 
@@ -126,7 +126,7 @@ Faturalama modeli veya yüklemeniz için dağıtım özellikleri değiştirmek i
 
 
 ## <a name="disconnected-registration"></a>Bağlantısı kesilmiş kayıt
-*Bu bölümdeki bilgiler, Azure yığın 1712 güncelleştirme sürümünü (1.0.180103.2) ile başlayan uygular ve daha önceki sürümlerde desteklenmiyor.*
+*Bu bölümdeki bilgiler, Azure yığın 1712 güncelleştirme sürümünü (180106.1) ile başlayan uygular ve daha önceki sürümlerde desteklenmiyor.*
 
 Bağlantısı kesilmiş bir ortamda Azure yığın kaydediyorsanız Azure yığın ortamından bir kayıt belirtecinizi almak ve kayıt için Azure'a bağlanabilmesi için bir makinede belirtecini kullanmak gerekir.  
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -34,7 +34,7 @@ Azure'nın örnek meta veri hizmeti REST uç noktası aracılığıyla oluşturu
 ## <a name="service-availability"></a>Hizmet kullanılabilirliği
 Tüm genel olarak kullanılabilir tüm hizmet kullanılamıyor Azure bölgeleri. Tüm API sürümü tüm Azure bölgelerde kullanılabilir.
 
-Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen sürümleri
+Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Tüm genel olarak kullanılabilir genel Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel olarak kullanılabilir   | 2017-04-02, 2017-08-01
 [Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel olarak kullanılabilir | 2017-04-02
@@ -75,8 +75,8 @@ Aşağıdaki tabloda, API destekleyebilir diğer veri biçimlerini başvurudur.
 
 API | Varsayılan veri biçimi | Diğer biçimlere
 --------|---------------------|--------------
-/instance | JSON | Metin
-/scheduledevents | JSON | yok
+/instance | json | Metin
+/scheduledevents | json | yok
 
 Varsayılan olmayan yanıt biçimi erişmek için bir istek sorgu dizesi parametresi olarak istenen biçim belirtin. Örneğin:
 
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Dil | Örnek 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.RB
-Lang gidin  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
+Başlayın  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>SSS

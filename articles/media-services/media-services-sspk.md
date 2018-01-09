@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Kit taşıma lisanslama Microsoft® kesintisiz akış istemcisi
 ## <a name="overview"></a>Genel Bakış
-Microsoft kesintisiz akış istemci bağlantı noktası oluşturma Seti (**SSPK** kısaca) katıştırılmış cihaz üreticisinin, kablo ve mobil işleçleri, içerik hizmet sağlayıcıları, el aygıtı üreticileri, bağımsız yazılım satıcılarının (ISV'ler) ve çözüm sağlayıcıları, ürün ve hizmetlerini Uyarlamalı Akış akış için kesintisiz akış biçiminde içeriği oluşturmak için yardımcı olmak için iyileştirilmiş bir kesintisiz akış istemci uygulamasıdır. SSPK bir cihaz ve platform bağımsız edinmediyseniz cihaz ve platform tarafından bağlantı noktası kurulmuş kesintisiz akış istemci uygulamasıdır. 
+Microsoft kesintisiz akış istemci bağlantı noktası oluşturma Seti (**SSPK** kısaca) katıştırılmış cihaz üreticisinin, kablo ve mobil işleçleri, içerik hizmet sağlayıcıları, ahize yardımcı olmak için iyileştirilmiş kesintisiz akış bir istemci uygulaması Üreticiler, bağımsız yazılım satıcılarının (ISV'ler) ve çözüm sağlayıcıları ürünleri ve Hizmetleri kesintisiz akış biçiminde Uyarlamalı içeriği akışla oluşturmak için. Bir cihaz ve cihaz ve platform edinmediyseniz tarafından bağlantı noktası kurulmuş kesintisiz akış istemci platformdan bağımsız uygulaması SSPK olur. 
 
-Aşağıda yüksek düzey bir mimari ve IIS kesintisiz akış bağlantı noktası oluşturma Seti kutusunu Microsoft tarafından sağlanan Smooth Streaming Client uygulamasıdır ve kesintisiz akış içeriği kayıttan yürütmeyi tüm çekirdek mantığını içerir. Bundan sonra belirli bir aygıt veya platformu için iş ortakları tarafından uygun arabirimleri uygulayarak verilen. 
+Aşağıda bir üst düzey mimari ve IIS kesintisiz akış bağlantı noktası oluşturma Seti kutusunu Microsoft tarafından sağlanan Smooth Streaming Client uygulamasıdır ve kesintisiz akış içeriği kayıttan yürütmeyi tüm çekirdek mantığını içerir. Bu içerik daha sonra belirli bir aygıt veya platformu için iş ortakları tarafından uygun arabirimler uygulama tarafından verilen. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -70,7 +70,7 @@ Kesintisiz akış istemci son ürünün lisanslı model olarak altında altında
 * İlk 10.000 cihaz uygulamaları her yıl için hiçbir lisanslı 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Lisans yordamı ve SSPK erişim
-Lütfen e-posta [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) tüm lisans sorgular.
+E-posta [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) tüm lisans sorgular.
 
 [SSPK dağıtım portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) kayıtlı geçici lisans sahipleri için erişilebilir.
 
@@ -103,7 +103,7 @@ Lisans sahipleri için geçici ve son SSPK teknik sorular için gönderme [ smoo
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly elektronik bileşenleri (Huizhou) Co., Ltd.
+* TCL teknoloji elektronik bileşenleri (Huizhou) Co., Ltd.
 * Üst sırrı Yatırımlar, Ltd
 * Vestel Elektronik Sanayi ullanıcı Ticaret A.S.
 * VisualOn, Inc.

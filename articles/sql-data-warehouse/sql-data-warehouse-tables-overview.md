@@ -1,90 +1,149 @@
 ---
-title: "SQL veri ambarı tablolarda genel bakış | Microsoft Docs"
-description: "Azure SQL veri ambarı tabloları ile çalışmaya başlama."
+title: "Tablo Tasarımı giriş - Azure SQL Data Warehouse | Microsoft Docs"
+description: "Azure SQL Data Warehouse tablolarda tasarlama giriş."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
-manager: jenniehubbard
+manager: jhubbard
 editor: 
-ms.assetid: 2114d9ad-c113-43da-859f-419d72604bdf
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.custom: tables
-ms.date: 12/14/2017
+ms.custom: performance
+ms.date: 01/05/2018
 ms.author: barbkess
-ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda genel bakış
-> [!div class="op_single_selector"]
-> * [Genel bakış][Overview]
-> * [Veri türleri][Data Types]
-> * [Dağıt][Distribute]
-> * [Dizin][Index]
-> * [Bölüm][Partition]
-> * [İstatistikleri][Statistics]
-> * [Geçici][Temporary]
-> 
-> 
+# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse tablolarda tasarlama giriş
 
-SQL Data Warehouse'da tablo oluşturma ile çalışmaya başlama basit bir işlemdir.  Temel [CREATE TABLE] [ CREATE TABLE] sözdizimi aşağıdaki büyük olasılıkla genel sözdizimi zaten aşina diğer veritabanlarıyla çalışma.  Bir tablo oluşturmak için tablonuzun adının, sütunlar olarak adlandırın ve her sütun için veri türlerini tanımlamak yeterlidir.  Olduğunuz oluşturursanız tabloları diğer veritabanlarında, bu size tanıdık gelecektir.
+Azure SQL Data Warehouse tablolarda tasarlamak için temel kavramları öğrenin. 
 
-```sql  
-CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
- ``` 
+## <a name="determining-table-category"></a>Tablo kategori belirleme 
 
-Yukarıdaki örnek, müşterilere iki sütunlarla FirstName ve LastName adlı bir tablo oluşturur.  Her sütun 25 karakter verileri sınırlar VARCHAR(25) veri türüne sahip tanımlanır.  Bu temel tabloya yanı sıra diğer özniteliklerini çoğunlukla diğer veritabanları ile aynıdır.  Veri türleri her sütun için tanımlanır ve verilerinizin bütünlüğünü sağlamak.  Dizinleri g/ç azaltarak performansı artırmak için eklenebilir.  Bölümleme veri değiştirmeniz gerektiğinde performansı artırmak için eklenebilir.
+A [yıldız şeması](https://en.wikipedia.org/wiki/Star_schema) verileri olgu ve boyut tabloları düzenler. Bir olgu veya Boyut tablosuna gitmeden önce bazı tablolar tümleştirme veya hazırlama veriler için kullanılır. Bir tablo tasarlarken, tablo verileri bir olgu, boyut veya tümleştirme tablo ait olup olmadığını belirleyin. Bu karara uygun tablo yapısı ve dağıtım bildirir. 
 
-[Yeniden adlandırma] [ RENAME] bir SQL Data Warehouse tablo şöyle görünür:
+- **Olgu tabloları** genellikle bir işlem sistem içinde oluşturulan ve veri ambarına yüklenen nicel verileri içeren. Örneğin, bir perakende iş her gün satış hareketleri oluşturur ve analiz için veri ambarı olgu tablosu için veri yükler.
 
-```sql  
-RENAME OBJECT Customer TO CustomerOrig; 
- ```
+- **Boyut tabloları** değişebilir ancak genellikle değişmeyen özniteliği verileri içerir. Örneğin, bir müşterinin adını ve adresini Boyut tablosunda depolanır ve yalnızca Müşteri'nin profili değiştiğinde güncelleştirildi. Büyük veri tablosu boyutunu en aza indirmek için Müşteri'nin ad ve adres her bir Olgu Tablosu satırda olması gerekmez. Bunun yerine, Olgu Tablosu ve Boyut tablosuna bir müşteri kimliği paylaşabilirsiniz Bir sorgu Müşteri'nin profili ve işlemleri ilişkilendirmek için iki tabloları birleştirebilirsiniz. 
 
-## <a name="distributed-tables"></a>Dağıtılmış tablolar
-SQL veri ambarı gibi dağıtılmış sistemleri tarafından sunulan yeni bir temel öznitelik **dağıtım sütun**.  Dağıtım çok ne, gibi göründüğü bir sütundur.  Bunu nasıl dağıtmak veya bölmek, verilerinizi arka planda belirleyen sütundur.  Dağıtım sütun belirtmeden bir tablo oluşturduğunuzda, tablonun otomatik olarak kullanılarak dağıtılır **hepsini**.  Hepsini bir kez tabloları bazı senaryolarda yeterli olabilirler, ancak dağıtım sütunları tanımlama büyük ölçüde veri taşıma böylece performansı en iyi duruma getirme sorguları sırasında azaltabilir.  Durumlarda tabloyla oluşturmak çok küçük miktarda veri bir tabloda olduğu seçme **çoğaltmak** dağıtım türü her işlem düğümü için veri kopyalar ve veri taşıma sorgu yürütme zaman kaydeder. Bkz: [tablo dağıtma] [ Distribute] dağıtım sütun seçme hakkında daha fazla bilgi için.
+- **Tümleştirme tabloları** tümleştirme veya verileri hazırlamak için bir yer sağlar. Bu tablolar, normal tablolardaki, dış tablolara veya geçici tablolar oluşturulabilir. Örneğin, aşamalandırma tablosu veri yükleme, hazırlama veriler üzerinde dönüşümleri gerçekleştirir ve sonra üretim tabloya veri ekleyin.
 
-## <a name="indexing-and-partitioning-tables"></a>Dizin oluşturma ve tabloları bölümlendirme
-SQL veri ambarı kullanarak daha gelişmiş haline gelir ve performansı en iyi duruma getirmek istediğiniz gibi tablo tasarımı hakkında daha fazla bilgi istersiniz.  Daha fazla bilgi edinmek için üzerinde makalelerine bakın [tablo veri türleri][Data Types], [tablo dağıtma][Distribute], [bir tablodizin] [ Index] ve [bir tablo bölümleme][Partition].
+## <a name="schema-and-table-names"></a>Şema ve tablo adları
+SQL veri ambarı'nda bir veri ambarı veritabanı türüdür. Veri ambarındaki tabloların tümü aynı veritabanı içinde yer alır.  Tablolar arasında birden çok veri ambarlarında katılamaz. Bu davranış, SQL veritabanları arası birleştirmeler destekleyen sunucudan farklıdır. 
 
-## <a name="table-statistics"></a>Tablo istatistikleri
-İstatistikleri bir son derece dışında SQL veri ambarı en iyi performans almak için önemlidir.  SQL veri ambarı değil henüz otomatik oluşturma ve güncelleştirme istatistikleri sizin için Azure SQL veritabanı'nda beklenir ortaya çıkabilir gibi beri bizim makale üzerinde okuma [istatistikleri] [ Statistics] en biri olabilir önemli makaleleri sorgularınızdan en iyi performansı elde emin olmak için okuyun.
+Bir SQL Server veritabanında olgu, boyutu, kullanın veya şema adlarını tümleştirmek. SQL veri ambarı için bir SQL Server veritabanı aktarıyorsanız, en iyi geçirmek için çalıştığını bir şemaya olgu, boyut ve tümleştirme tabloların tümü SQL veri ambarı'nda depolar. Örneğin, tüm tablolarda saklayabilirsiniz [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) WWI adlı bir şema içinde örnek veri ambarı. Aşağıdaki kod oluşturur bir [kullanıcı tanımlı şema](/sql/t-sql/statements/create-schema-transact-sql) WWI çağrılır.
 
-## <a name="temporary-tables"></a>Geçici tablolar
-Geçici tablolar yalnızca oturum boyunca var ve diğer kullanıcılar tarafından görülemeyen tablolardır.  Geçici tablolara başkalarının geçici sonuçları görmemesi ve ayrıca temizleme gereksinimini azaltmak için en iyi yolu olabilir.  Geçici tablolara ayrıca yerel depolama alanını olduğundan, bunlar bazı işlemler için daha hızlı performans sunabilir.  Bkz: [geçici tablo] [ Temporary] makaleleri geçici tabloları hakkında daha fazla ayrıntı için.
+```sql
+CREATE SCHEMA WWI;
+```
 
-## <a name="external-tables"></a>Dış tablolar
-Dış tablolar, Polybase tablolar olarak da bilinen SQL veri ambarından dış verileri SQL Data Warehouse, ancak noktası sorgulanabilir tabloların değildir.  Örneğin, bir dış tablo dosyaları Azure Blob Storage veya Azure Data Lake Store için hangi noktası oluşturabilirsiniz.  Oluşturma ve bir dış tablo sorgulama hakkında daha fazla ayrıntı için bkz: [Polybase ile veri yükleme][Load data with Polybase].  
+SQL veri ambarı'nda tabloları organizasyonu göstermek için tablo adlarının ön eklerin olarak olgu, boyutu ve int'ı kullanın. Aşağıdaki tabloda bazı WideWorldImportersDW şema ve tablo adları gösterir. SQL Server ve SQL Data Warehouse adlarında karşılaştırır. 
+
+| WWI boyut tabloları  | SQL Server | SQL Veri Ambarı |
+|:-----|:-----|:------|
+| Şehir | Dimension.City | WWI. DimCity |
+| Müşteri | Dimension.Customer | WWI. DimCustomer |
+| Tarih | Dimension.Date | WWI. DimDate'i |
+
+| WWI olgu tabloları | SQL Server | SQL Veri Ambarı |
+|:---|:---|:---|
+| Sıra | Fact.Order | WWI. FactOrder |
+| Satış  | Fact.Sale  | WWI. FactSale  |
+| Satın Al | Olgusu | WWI. FactPurchase |
+
+
+## <a name="table-definition"></a>Tablo tanımı 
+
+Aşağıdaki kavramlar tabloları tanımlama anahtar yönleri açıklanmaktadır. 
+
+### <a name="standard-table"></a>Standart tablo
+
+Standart bir tablo, veri ambarı bir parçası olarak Azure storage'da depolanır. Tablo ve verileri bir oturumu açık olup bağımsız olarak kalıcı olmasını sağlar.  Bu örnek iki sütunların bulunduğu bir tablo oluşturur. 
+
+```sql
+CREATE TABLE MyTable (col1 int, col2 int );  
+```
+
+### <a name="temporary-table"></a>Geçici bir tablo
+Geçici bir tablo yalnızca oturum boyunca bulunmaktadır. Geçici bir tabloya diğer kullanımlar geçici sonuçları görmemesi ve temizleme gereksinimini azaltmak için kullanabilirsiniz.  Geçici tablolara ayrıca yerel depolama alanını olduğundan, bunlar bazı işlemler için daha hızlı performans sunabilir.  Daha fazla bilgi için bkz: [geçici tablolar](sql-data-warehouse-tables-temporary.md).
+
+### <a name="external-table"></a>Dış tablo
+Bir dış tablo verileri Azure blob depolama veya Azure Data Lake Store bulunan işaret eder. CREATE TABLE AS SELECT deyimi ile birlikte kullanıldığında, bir dış tablosundan seçerek verileri SQL Data Warehouse'a içeri aktarır. Dış tablolara, bu nedenle veri yüklemek için faydalıdır. Bir yükleme öğretici için bkz: [kullanım verileri Azure blob depolama alanından yüklemek için PolyBase](load-data-from-azure-blob-storage-using-polybase.md).
+
+### <a name="data-types"></a>Veri türleri
+SQL veri ambarı desteklediği veri türleri en yaygın olarak kullanılır. Desteklenen veri türleri listesi için bkz: [veri türleri](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) CREATE TABLE deyimi içinde. Veri türlerinin boyutu en aza sorgu performansını artırmaya yardımcı olur. Veri türleri hakkında yönergeler için bkz [veri türleri](sql-data-warehouse-tables-data-types.md).
+
+### <a name="distributed-tables"></a>Dağıtılmış tablolar
+SQL veri ambarı temel özelliği dağıtımları, Dağıtılmış sistemde adlı 60 dağıtılmış konumda tabloları depolayabilir yoludur.  SQL veri ambarı tablo şu üç yöntemden birini depolayabilirsiniz:
+
+- **Hepsini** depoları tablo satırları rastgele ancak eşit dağıtımlar arasında. Hepsini Tablo Hızlı yükleme performans elde eder, ancak sütun katılma sorgular için diğer yöntemleri'den daha fazla veri taşıma gerektirir. 
+- **Karma** dağıtım dağıtım sütununda değere göre satırları dağıtır. Karma dağıtılmış tablosu büyük tablolarda sorgu birleştirmelerde yüksek performans elde etmek için en olası sahiptir. Dağıtım sütun seçimi etkileyen çeşitli Etkenler vardır. Daha fazla bilgi için bkz: [dağıtılmış tabloları](sql-data-warehouse-tables-distribute.md).
+- **Çoğaltılan** tabloları tablonun tam bir kopyasını kullanılabilir duruma her işlem düğümü üzerinde. Çoğaltılmış tablolarda birleştirmeler veri taşıma gerektirmeyen beri çoğaltılmış tablolar çalıştıracağınız hızlı sorgular. Çoğaltma ek depolama alanı gerektirir ancak ve büyük tablolar için kullanışlı değildir. Daha fazla bilgi için bkz: [Tasarım Kılavuzu çoğaltılmış tablolar için](design-guidance-for-replicated-tables.md).
+
+Tablo kategori genellikle tablo dağıtılmasında seçmek için hangi seçeneği belirler.  
+
+| Tablo kategorisi | Önerilen dağıtım seçeneği |
+|:---------------|:--------------------|
+| Olgusu           | Karma dağıtım kümelenmiş columnstore dizini ile kullanın. İki karma tablolar aynı dağıtım sütunda birleştirilir, performansı artırır. |
+| Boyut      | Çoğaltılmış küçük tablolar için kullanın. Tabloların her işlem düğümü üzerinde depolamak için çok büyük olduğundan, karma dağıtılmış kullanın. |
+| Hazırlanıyor        | Hepsini hazırlama tablosu için kullanın. Yük CTAS ile hızlıdır. Veri hazırlama tablosunda eklendiğinde, INSERT kullanın... Bir üretim tablolara verileri taşımak için bu seçeneği seçin. |
+
+### <a name="table-partitions"></a>Tablo bölümleri
+Bölümlenmiş bir tablodaki depolar ve veri aralıklarını göre tablo satırlarını işlemleri gerçekleştirir. Örneğin, bir tablo gün, ay veya yıl bölümlenmiş. Bir sorgu tarama bölüm içindeki verilere sınırlar sorgu performansı bölüm eleme artırabilir. Bölüm geçiş aracılığıyla veri koruyabilir. SQL veri ambarı verileri zaten dağıtılmış olduğundan, çok fazla bölümler sorgu performansı düşürebilir. Daha fazla bilgi için bkz: [Kılavuzu bölümleme](sql-data-warehouse-tables-partition.md).
+
+### <a name="columnstore-indexes"></a>Columnstore dizinleri
+Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini bir tablo depolar. Bu form, veri depolama yüksek veri sıkıştırma ve sorgu performansını büyük tablolarda erişir.  Kümelenmiş columnstore dizini genellikle en iyi seçimdir, ancak bazı durumlarda kümelenmiş bir dizin veya yığın uygun depolama yapısıdır.
+
+Columnstore özelliklerin listesi için bkz: [columnstore dizinlerinde yenilikler](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Columnstore dizini performansı artırmak için bkz: [columnstore dizinleri için satır grubu kimliğinde kalitesini en üst düzeye](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+
+### <a name="statistics"></a>İstatistikler
+Bir sorgu yürütme için plan oluştururken sorgu iyileştiricisi sütun düzeyi istatistikleri kullanır. Sorgu performansını artırmak için tek tek sütunlarda özellikle sorgu birleşimlerde kullanılan sütun istatistik oluşturulması önemlidir. Oluşturma ve istatistikleri güncelleştirmeyi otomatik olarak gerçekleştirilmez. [İstatistik oluşturma](/sql/t-sql/statements/create-statistics-transact-sql) tablo oluşturduktan sonra. Çok sayıda satır eklenen veya değiştirilen sonra istatistikleri güncelleştirin. Örneğin, bir yükleme sonrası istatistikleri güncelleştirin. Daha fazla bilgi için bkz: [istatistikleri Kılavuzu](sql-data-warehouse-tables-statistics.md).
+
+## <a name="ways-to-create-tables"></a>Tablolar oluşturma yolları
+Yeni bir boş tablo olarak bir tablo oluşturabilirsiniz. Ayrıca, oluşturabilir ve bir select deyimi sonuçlarını içeren bir tablo doldurmak. Tablo oluşturma için T-SQL komutları şunlardır:
+
+| T-SQL deyimi | Açıklama |
+|:----------------|:------------|
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Tüm tablo sütunları ve seçenekleri tanımlayarak boş bir tablo oluşturur. |
+| [DIŞ TABLO OLUŞTURMA](/sql/t-sql/statements/create-external-table-transact-sql) | Bir dış tablo oluşturur. Tablo tanımı SQL veri ambarında depolanır. Tablo verileri Azure Blob storage veya Azure Data Lake Store depolanır. |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | Yeni bir tablo sonuçları bir select deyimi ile doldurur. Tablo sütunları ve veri türleri üzerinde select deyimi sonuçları temel alır. Veri almak için bu deyim bir dış tablosundan seçebilirsiniz. |
+| [DIŞ TABLE AS SELECT OLUŞTURMA](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Sonuçları bir select deyimi, harici bir konuma dışa aktararak yeni bir dış tablo oluşturur.  Azure Blob storage veya Azure Data Lake Store konumdur. |
+
+## <a name="aligning-source-data-with-the-data-warehouse"></a>Veri ambarı ile kaynak verileri hizalama
+
+Veri ambarı tabloları, başka bir veri kaynağından veri yükleyerek doldurulur. Başarılı bir yükleme gerçekleştirmek için kaynak veri sütun numarası ve veri türlerini veri ambarındaki tablo tanımıyla hizalanması gerekir. Hizalamak için veri alma tablolarınızı tasarlama en zor bir parçası olabilir. 
+
+Veri birden çok veri depolarına geliyorsa, verileri veri ambarına getirmek ve bir tümleştirme tablosunda saklayın. Veri integrtion tabloya eklendiğinde, SQL Data Warehouse gücünü dönüşüm işlemleri gerçekleştirmek için kullanabilirsiniz.
 
 ## <a name="unsupported-table-features"></a>Desteklenmeyen tablo özellikleri
-SQL veri ambarı diğer veritabanı tarafından sunulan aynı tablo özelliklerinin çoğunu içerirken, henüz desteklenmeyen bazı özellikler vardır.  Tablo özelliklerden bazıları henüz desteklenmemektedir listesi aşağıdadır.
+SQL veri ambarı birçok destekler, ancak diğer veritabanı tarafından sunulan tüm, tablo özellikleri.  Aşağıdaki listede SQL veri ambarı'nda desteklenmeyen tablo özelliklerden bazıları gösterilir.
 
-| Desteklenmeyen özellikler |
-| --- |
-| Birincil anahtar, yabancı anahtarları, benzersiz ve onay [Tablo sınırlamaları][Table Constraints] |
-| [Benzersiz dizinler][Unique Indexes] |
-| [Hesaplanan sütunlar][Computed Columns] |
-| [Seyrek sütun][Sparse Columns] |
-| [Kullanıcı tanımlı türler][User-Defined Types] |
-| [Sırası][Sequence] |
-| [Tetikleyicileri][Triggers] |
-| [Dizin oluşturulmuş görünümler][Indexed Views] |
-| [Eş anlamlıları][Synonyms] |
+- Birincil anahtar, yabancı anahtarları, benzersiz, onay [Tablo sınırlamaları](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
+
+- [Hesaplanan sütunlar](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
+- [Dizin oluşturulmuş görünümler](/sql/relational-databases/views/create-indexed-views)
+- [Sırası](/sql/t-sql/statements/create-sequence-transact-sql)
+- [Seyrek sütun](/sql/relational-databases/tables/use-sparse-columns)
+- [Vekil anahtarları](). İle uygulama [kimlik](sql-data-warehouse-tables-identity.md).
+- [Eş anlamlıları](/sql/t-sql/statements/create-synonym-transact-sql)
+- [Tetikleyiciler](/sql/t-sql/statements/create-trigger-transact-sql)
+- [Benzersiz dizinler](/sql/t-sql/statements/create-index-transact-sql)
+- [Kullanıcı tanımlı türler](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>Tablo boyutu sorguları
-Alan ve her 60 dağıtımları tabloda tarafından tüketilen satırları belirlemek için basit bir yolu kullanmaktır [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+Alan ve her 60 dağıtımları tabloda tarafından tüketilen satırları belirlemek için basit bir yolu kullanmaktır [DBCC PDW_SHOWSPACEUSED] [DBCC PDW_SHOWSPACEUSED].
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Ancak, DBCC komutlarını kullanarak oldukça sınırlama.  Dinamik Yönetim görünümlerini (Dmv'leri) yanı sıra daha fazla ayrıntı görmek, çok sorgu sonuçları üzerinde daha fazla denetime olanak sağlar.  Bu görünüm için birçok örneklerde bu ve diğer makaleler ifade edilecek oluşturarak başlayın.
+Ancak, DBCC komutlarını kullanarak oldukça sınırlama.  Dinamik Yönetim görünümlerini (Dmv'leri) DBCC komutu'den daha fazla ayrıntı göster. Bu görünüm oluşturarak başlayın.
 
 ```sql
 CREATE VIEW dbo.vTableSizes
@@ -199,7 +258,8 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>Özet Tablo alanı
-Bu sorgu, tablo tarafından alanı ve satır döndürür.  En büyük tabloları tablolardır ve hepsini, çoğaltılmış veya dağıtılmış karma olup olmadıkları görmek için harika bir sorgudur.  Dağıtılmış karma tablolar için dağıtım sütun da gösterir.  Çoğu durumda, en büyük tabloları karma bir kümelenmiş columnstore dizini ile dağıtılmış olmalıdır.
+
+Bu sorgu, tablo tarafından alanı ve satır döndürür.  En büyük tabloları tablolardır ve bunların hepsini, çoğaltılan, olup karma - dağıtılmış görmenizi sağlar.  Karma dağıtılmış tablolar için sorgu dağıtım sütunda görüntülenir.  Çoğu durumda, kümelenmiş columnstore dizini ile karma dağıtılmış en büyük tabloları olmalıdır.
 
 ```sql
 SELECT 
@@ -230,6 +290,7 @@ ORDER BY
 ```
 
 ### <a name="table-space-by-distribution-type"></a>Dağıtım türüne göre tablo alanı
+
 ```sql
 SELECT 
      distribution_policy_name
@@ -244,6 +305,7 @@ GROUP BY distribution_policy_name
 ```
 
 ### <a name="table-space-by-index-type"></a>Dizin türü tablo boşluk
+
 ```sql
 SELECT 
      index_type_desc
@@ -258,6 +320,7 @@ GROUP BY index_type_desc
 ```
 
 ### <a name="distribution-space-summary"></a>Dağıtım alanı özeti
+
 ```sql
 SELECT 
     distribution_id
@@ -273,33 +336,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek için üzerinde makalelerine bakın [tablo veri türleri][Data Types], [tablo dağıtma][Distribute], [bir tablodizin] [ Index], [Bir tablo bölümleme][Partition], [tablo istatistikleri koruma] [ Statistics] ve [Geçici tablolar][Temporary].  En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-
-<!--MSDN references-->
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
-[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
-[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
-[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
-[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
-[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
-[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
-[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
-[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
-
-<!--Other Web references-->
+Veri ambarınız için tabloları oluşturduktan sonra sonraki tabloya veri yüklemek için bir adımdır.  Bir yükleme öğretici için bkz: [PolyBase ile Azure blob depolama biriminden verileri yüklenirken](load-data-from-azure-blob-storage-using-polybase.md).

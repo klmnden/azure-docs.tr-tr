@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Nasıl izleneceğini ve azure'da bir Linux sanal makine güncelleştirmesi
 
@@ -130,7 +130,7 @@ Bir Linux VM ayrılmış bir ana bilgisayar ile etkileşime giren Azure sahiptir
 >
 > Linux tanılama uzantısını 3.0 sürümü yerine etkinleştirilebilir. Daha fazla bilgi için bkz: [belgelerine](./diagnostic-extension.md).
 
-Temel ana ölçümleri kullanılabilir, ancak daha ayrıntılı ve VM özgü ölçümleri, VM Azure tanılama uzantısını yüklemeniz gerekir. Azure tanılama uzantısını ek izleme ve tanılama verilerini sanal makineden alınmasına izin verir. Bu performans ölçümleri görüntüleyebilir ve VM nasıl gerçekleştireceğini temelinde uyarılar oluşturabilir. Tanılama uzantısını Azure portalı üzerinden aşağıdaki şekillerde yüklenir:
+Temel ana ölçümleri kullanılabilir, ancak daha ayrıntılı ve VM özgü ölçümlerini görmek için VM'de Azure tanılama uzantısını yüklemeniz gerekir. Azure tanılama uzantısını ek izleme ve tanılama verilerini sanal makineden alınmasına izin verir. Bu performans ölçümleri görüntüleyebilir ve VM nasıl gerçekleştireceğini temelinde uyarılar oluşturabilir. Tanılama uzantısını Azure portalı üzerinden aşağıdaki şekillerde yüklenir:
 
 1. Azure portalında tıklatın **kaynak grupları**seçin **myResourceGroup**ve ardından **myVM** kaynak listesinde.
 1. Tıklatın **tanılama ayarları**. Liste gösterir *önyükleme tanılama* önceki bölümden zaten etkin. Onay kutusu *temel ölçümleri*.
@@ -167,7 +167,7 @@ Aşağıdaki örnek, ortalama CPU kullanımı için bir uyarı oluşturur.
 
 Güncelleştirme yönetimi kullanarak Azure Linux VM'ler için paket güncelleştirmelerini ve düzeltme eklerini yönetebilirsiniz. Doğrudan, VM'den hızlı bir şekilde kullanılabilir güncelleştirmeleri durumunu değerlendirmek, gerekli güncelleştirmeleri yüklemesini zamanlayabilir ve güncelleştirmelerini VM'ye başarıyla uygulandığını doğrulamak için dağıtım sonuçları gözden geçirin.
 
-Fiyatlandırma bilgileri için bkz: [Otomasyon güncelleştirme yönetimi için fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/)
+Fiyatlandırma bilgisi için bkz. [Güncelleştirme yönetimi için Otomasyon fiyatlandırması](https://azure.microsoft.com/pricing/details/automation/)
 
 ### <a name="enable-update-management-preview"></a>Güncelleştirme yönetimi (Önizleme) etkinleştir
 
@@ -177,40 +177,40 @@ Güncelleştirme yönetimi, VM için etkinleştirme
 1. Listeden bir VM seçin.
 1. VM ekranında içinde **Operations** 'yi tıklatın **güncelleştirme yönetimi**. **Etkinleştirmek güncelleştirme yönetimi** ekranı açılır.
 
-Güncelleştirme yönetimi bu VM için etkin olup olmadığını belirlemek için doğrulama gerçekleştirilir. Günlük analizi çalışma alanı ve bağlantılı Otomasyon hesabı için doğrulama içerir ve çalışma alanında çözümüdür.
+Bu VM için Güncelleştirme yönetimi özelliğinin etkin olup olmadığını belirlemek için doğrulama gerçekleştirilir. Bu doğrulama kapsamında Log Analytics çalışma alanı ve bağlantılı Otomasyon hesabının yanı sıra çözümün çalışma alanında olup olmadığı kontrol edilir.
 
-Günlük analizi çalışma alanı özellikleri ve güncelleştirme yönetimi gibi hizmetleri tarafından oluşturulan verileri toplamak için kullanılır. Çalışma alanını gözden geçirin ve birden fazla kaynaktan verileri çözümlemek için tek bir konum sağlar. Güncelleştirmeleri gerektiren sanal makinelerin başka bir eylem gerçekleştirmek için Azure Otomasyonu VM karşı betikleri gibi karşıdan yüklemek ve güncelleştirmeleri uygulamak için çalıştırmanızı sağlar.
+Günlük analizi çalışma alanı özellikleri ve güncelleştirme yönetimi gibi hizmetleri tarafından oluşturulan verileri toplamak için kullanılır. Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar. Güncelleştirmeleri gerektiren sanal makinelerin başka bir eylem gerçekleştirmek için Azure Otomasyonu VM karşı betikleri gibi karşıdan yüklemek ve güncelleştirmeleri uygulamak için çalıştırmanızı sağlar.
 
-Doğrulama işlemini de VM Microsoft İzleme Aracısı'nı (MMA) ve karma çalışanı sağlanmamışsa görmek için denetler. Bu aracı, VM ile iletişim kurmak ve güncelleştirme durumu hakkında bilgi edinmek için kullanılır. 
+Doğrulama işlemi ayrıca VM'nin Microsoft Monitoring Agent (MMA) ve karma çalışan ile sağlanıp sağlanmadığını da kontrol eder. Bu aracı, VM ile iletişim kurmak ve güncelleştirme durumu hakkında bilgi almak için kullanılır. 
 
 Bu Önkoşullar karşılanmadı bir başlık çözümü etkinleştirme seçeneği veren görüntülenir.
 
-![Güncelleştirme yönetimi yerleşik yapılandırma başlığı](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+![Güncelleştirme Yönetimi ekleme yapılandırması başlığı](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
 
 Çözümü etkinleştirmek için başlığa tıklayın. Doğrulama sonrasında eksik olması için aşağıdaki önkoşullar bulunmuşsa otomatik olarak eklenir:
 
-* [Günlük analizi](../../log-analytics/log-analytics-overview.md) çalışma
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) çalışma alanı
 * [Otomasyon](../../automation/automation-offering-get-started.md)
-* A [karma runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md) VM üzerinde etkin
+* VM üzerinde etkin bir [Karma runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md)
 
 **Güncelleştirme yönetimini etkinleştirme** ekranı açılır. Ayarları yapılandırın ve tıklatın **etkinleştirmek**.
 
 ![Güncelleştirme yönetimi çözümü etkinleştir](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
 Çözüm etkinleştirme 15 dakika kadar sürebilir ve bu süre boyunca, tarayıcı penceresini kapatmaları değil. Çözüm etkinleştirildikten sonra VM Paket Yöneticisi'nden eksik güncelleştirmeler hakkında bilgi için günlük analizi akar.
-Verilerin çözümlemesi için kullanılabilir olması 6 saat arasındaki 30 dakika sürebilir.
+Verilerin çözümlemeye hazır hale gelmesi 30 dakika ile 6 saat arasında sürebilir.
 
 ### <a name="view-update-assessment"></a>Güncelleştirme değerlendirmesini görüntüleme
 
 Sonra **güncelleştirme yönetimi** çözüm etkin olduğunda, **güncelleştirme yönetimi** ekranı görüntülenir. **Eksik güncelleştirmeler** sekmesinde eksik güncelleştirmelerin bir listesini görebilirsiniz.
 
-![Güncelleştirme durumunu görüntüle](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+![Güncelleştirme durumunu görüntüleme](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
 
 ### <a name="schedule-an-update-deployment"></a>Güncelleştirme dağıtımı zamanlama
 
 Güncelleştirmeleri yüklemek için yayın zamanlaması ve bakım penceresi izleyen bir dağıtım zamanlaması.
 
-Tıklayarak VM için yeni bir güncelleştirme dağıtımı zamanlama **zamanlama güncelleştirme dağıtımı** en üstündeki **güncelleştirme yönetimi** ekran. İçinde **yeni güncelleştirme dağıtım** ekranında, aşağıdaki bilgileri belirtin:
+Tıklayarak VM için yeni bir güncelleştirme dağıtımı zamanlama **zamanlama güncelleştirme dağıtımı** en üstündeki **güncelleştirme yönetimi** ekran. **Yeni güncelleştirme dağıtım** ekranında aşağıdaki bilgileri belirtin:
 
 * **Ad** - Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad belirtin.
 * **Dışlanacak güncelleştirmeleri** -Update'ten dışlamak için paket adını girmek için bu seçeneği kullanın.
@@ -235,18 +235,18 @@ O anda çalışıyorsa, durumu **Devam ediyor** olarak gösterilir. Tamamlandık
 Dağıtımdaki bir veya daha fazla güncelleştirmeleriyle hatası varsa, durumudur **başarısız**.
 Tamamlanan güncelleştirme dağıtımına tıklayarak bu güncelleştirme dağıtımının panosunu görebilirsiniz.
 
-![Belirli bir dağıtım için dağıtım durumu Pano güncelleştir](./media/tutorial-monitoring/manage-updates-view-results.png)
+![Belirli bir dağıtım için Güncelleştirme Dağıtımı durum panosu](./media/tutorial-monitoring/manage-updates-view-results.png)
 
 İçinde **güncelleştirme sonuçları** döşeme güncelleştirmeleri ve VM Dağıtım sonuçlarına toplam sayısı bir özeti verilmiştir.
 Sağdaki tabloda her güncelleştirmenin ayrıntılı bir dökümü ile yükleme sonuçları gösterilir ve aşağıdaki değerlerden biri olabilir:
 
-* **Girişiminde bulunulmadı** -yeterli zaman kullanılabilir tanımlanan bakım penceresi süreye göre olduğundan güncelleştirme yüklenmedi.
+* **Denenmedi**: Tanımlanan bakım penceresi süresine göre yeterli süre olmadığından güncelleştirme yüklenmedi.
 * **Başarılı** -güncelleştirme başarıyla indirildi ve VM'de yüklü
 * **Başarısız** -indirin veya VM yüklemek güncelleştirme başarısız oldu.
 
 Dağıtımın oluşturduğu tüm günlük girişlerini görmek için **Tüm günlükler**’e tıklayın.
 
-Tıklatın **çıkış** döşeme güncelleştirme dağıtım hedefteki VM yönetmekten sorumlu runbook iş akışı görürsünüz.
+Hedef VM'de güncelleştirme dağıtımını yönetmekten sorumlu runbook'un iş akışını görmek için **Çıktı** kutucuğuna tıklayın.
 
 Dağıtımla ilgili her türlü hata hakkında ayrıntılı bilgi için **Hatalar**’a tıklayın.
 

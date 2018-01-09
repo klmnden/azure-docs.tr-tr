@@ -21,6 +21,7 @@
 ### [Azure ilkesi kullanarak güvenlik ilkesi](security-center-azure-policy.md)
 ### [E-posta bildirimleri](security-center-provide-security-contact-details.md)
 ### [Fiyatlandırma katmanı](security-center-pricing.md)
+### [Güvenlik yapılandırmaları](security-center-customize-os-security-config.md)
 
 ## [Hazırlama](security-center-onboarding.md)
 ## [Olaylar](security-center-events-dashboard.md)
@@ -54,7 +55,7 @@
 #### [VM Aracısını etkinleştirin](security-center-enable-vm-agent.md)
 #### [Endpoint Protection’ı yükleyin](security-center-install-endpoint-protection.md)
 #### [Sistem güncelleştirmelerinden sonra yeniden başlatın](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [İşletim sistemi güvenlik açıklarını düzeltin](security-center-remediate-os-vulnerabilities.md)
+#### [Güvenlik yapılandırmalarını düzeltme](security-center-remediate-os-vulnerabilities.md)
 #### [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md)
 #### [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md)
 ### [Güvenlik durumunu izleme](security-center-monitoring.md)
@@ -90,7 +91,7 @@
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Güvenlik Merkezi Hazırlığı Yol Haritası](security-center-readiness-roadmap.md)
+## [Hazırlık Yol Haritası](security-center-readiness-roadmap.md)
 ## [Azure Güvenlik, Gizlilik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmete genel bakış](https://azure.microsoft.com/services/security-center/)

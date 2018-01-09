@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d1f2f77dbdfc96adc616e8e5dae8f5839c176096
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -34,7 +34,7 @@ Azure'nın örnek meta veri hizmeti REST uç noktası aracılığıyla oluşturu
 ## <a name="service-availability"></a>Hizmet kullanılabilirliği
 Tüm genel olarak kullanılabilir tüm hizmet kullanılamıyor Azure bölgeleri. Tüm API sürümü tüm Azure bölgelerde kullanılabilir.
 
-Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen sürümleri
+Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Tüm genel olarak kullanılabilir genel Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel olarak kullanılabilir   | 2017-04-02, 2017-08-01
 [Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel olarak kullanılabilir | 2017-04-02
@@ -75,8 +75,8 @@ Aşağıdaki tabloda, API destekleyebilir diğer veri biçimlerini başvurudur.
 
 API | Varsayılan veri biçimi | Diğer biçimlere
 --------|---------------------|--------------
-/instance | JSON | Metin
-/scheduledevents | JSON | Yok
+/instance | json | Metin
+/scheduledevents | json | yok
 
 Varsayılan olmayan yanıt biçimi erişmek için bir istek sorgu dizesi parametresi olarak istenen biçim belirtin. Örneğin:
 
@@ -283,10 +283,10 @@ Veriler | Açıklama | Sunulan sürüm
 -----|-------------|-----------------------
 location | Azure bölgesi VM çalışır durumda | 2017-04-02 
 ad | VM adı | 2017-04-02
-Teklif | VM görüntüsü için bilgi sunar. Bu değer yalnızca Azure resmi Galerisi'nden dağıtılan görüntüleri için mevcuttur. | 2017-04-02
+teklif | VM görüntüsü için bilgi sunar. Bu değer yalnızca Azure resmi Galerisi'nden dağıtılan görüntüleri için mevcuttur. | 2017-04-02
 Yayımcı | VM görüntüsü yayımcısı | 2017-04-02
 SKU | VM görüntüsü için belirli SKU | 2017-04-02
-Sürüm | VM görüntüsü | 2017-04-02
+sürüm | VM görüntüsü | 2017-04-02
 osType | Linux veya Windows | 2017-04-02
 platformUpdateDomain |  [Güncelleştirme etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
 platformFaultDomain | [Hata etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Dil | Örnek 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.RB
-Lang gidin  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
+Başlayın  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>SSS

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 39894ba73c691ad547d8b5ab67ec9d5786a5229c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
 
@@ -60,7 +60,7 @@ Nimbus düğümü Storm kümeleri ile kullanılabilir. Nimbus düğümü dağıt
 
 Bir işi kümeye gönderildiğinde çalışan düğümleri gerçek veri çözümlemesi gerçekleştirme. Çalışan düğüm başarısız olursa, bunu gerçekleştirme görev başka bir çalışan düğümüne gönderilir. Varsayılan olarak, dört alt düğüm Hdınsight oluşturur. Bu numarayı sırasında hem Küme oluşturulduktan sonra gereksinimlerinize uyacak şekilde değiştirebilirsiniz.
 
-### <a name="edge-node"></a>Kenar düğümüne
+### <a name="edge-node"></a>Uç düğüm
 
 Bir kenar düğümüne, veri analizi kümedeki etkin olarak katılmıyor. Hadoop ile çalışırken, geliştiriciler veya veri bilimcilerine tarafından kullanılır. Kenar düğümüne kümedeki diğer düğümlere aynı Azure sanal ağ içinde yaşar ve diğer tüm düğümlere doğrudan erişebilirsiniz. Kenar düğümüne kritik Hadoop Hizmetleri veya analiz işleri çıktığınızda kaynakları bırakmadan kullanılabilir.
 

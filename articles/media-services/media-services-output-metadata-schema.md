@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Meta verileri çıktı
 ## <a name="overview"></a>Genel Bakış
@@ -26,10 +26,10 @@ Kodlama işinin bir giriş varlık (veya varlıklar) ile ilişkili kodlama bazı
 
 Meta veri dosyası incelemek isterseniz, oluşturabileceğiniz bir **SAS** Bulucu ve dosyayı yerel bilgisayarınıza indirin.  
 
-Bu konuda öğeleri ve XML Şeması türleri üzerinde anlatılmaktadır çıktı metada (&lt;source_file_name&gt;_manifest.xml) dayanır. Giriş varlık hakkındaki meta verileri içeren dosyası hakkında daha fazla bilgi için bkz: [giriş meta verileri](media-services-input-metadata-schema.md).  
+Bu makalede öğeleri ve XML Şeması türleri üzerinde ele çıktı metada (&lt;source_file_name&gt;_manifest.xml) dayanır. Giriş varlık hakkındaki meta verileri içeren dosyası hakkında daha fazla bilgi için bkz: [giriş meta verileri](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
-> Tam şeması kod ve bu konunun sonundaki XML örneği bulabilirsiniz.  
+> Tam şeması kod ve bu makalenin sonunda XML örneği bulabilirsiniz.  
 >
 >
 
@@ -55,7 +55,7 @@ Bir XML örneğinde bulabilirsiniz [XML örneği](media-services-output-metadata
 | Ad | Açıklama |
 | --- | --- |
 | **Kaynakları** |Bu AssetFile üretmek için işlenen giriş/kaynak medya dosyaları koleksiyonu. Daha fazla bilgi için bkz: [Source öğesi](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs = "0" maxOccurs = "1" |Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla video parçaları içerebilir. Bu video parçaları koleksiyonudur. Daha fazla bilgi için bkz: [VideoTracks öğesi](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs = "0" maxOccurs = "1" |Her fiziksel AssetFile içinde sıfır veya daha fazla videolar içerebilir uygun bir kapsayıcı biçimi, araya eklemeli izler. Daha fazla bilgi için bkz: [VideoTracks öğesi](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs = "0" maxOccurs = "1" |Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla ses izleri içerebilir. Bu ses izleri koleksiyonudur. Daha fazla bilgi için bkz: [AudioTracks öğesi](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a>Sources öğesi
@@ -79,7 +79,7 @@ Bir XML örneğinde bulabilirsiniz [XML örneği](media-services-output-metadata
 | **Ad**<br/><br/> Gerekli |**xs: String** |Giriş kaynağının dosya adı. |
 
 ## <a name="VideoTracks "></a>VideoTracks öğesi
-Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla video parçaları içerebilir. Bu video parçaları koleksiyonudur.  
+Her fiziksel AssetFile içinde sıfır veya daha fazla videolar içerebilir uygun bir kapsayıcı biçimi, araya eklemeli izler. **VideoTracks** öğesi video tüm parçalar koleksiyonunu temsil eder.  
 
 Bir XML örneğinde bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
 
@@ -96,10 +96,10 @@ Bir XML örneğinde bulabilirsiniz [XML örneği](media-services-output-metadata
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **Kimliği**<br/><br/> minInclusive = "0"<br/><br/> Gerekli |**xs:int** |Bu video izlemeyi sıfır tabanlı dizini. **Not:** bu mutlaka bir MP4 dosyasında kullanılan TrackID değil. |
+| **Kimliği**<br/><br/> minInclusive = "0"<br/><br/> Gerekli |**xs:int** |Bu video izlemeyi sıfır tabanlı dizini. **Not:** bu **kimliği** mutlaka bir MP4 dosyasında kullanılan TrackID değil. |
 | **FourCC**<br/><br/> Gerekli |**xs: String** |Görüntü codec FourCC kodu. |
-| **Profili** |**xs: String** |H264 profili (yalnızca H264 codec için geçerlidir). |
-| **Düzeyi** |**xs: String** |H264 düzeyi (yalnızca H264 codec için geçerlidir). |
+| **Profil** |**xs: String** |H264 profili (yalnızca H264 codec için geçerlidir). |
+| **Düzey** |**xs: String** |H264 düzeyi (yalnızca H264 codec için geçerlidir). |
 | **Genişlik**<br/><br/> minInclusive = "0"<br/><br/> Gerekli |**xs:int** |Kodlanmış video genişliğini piksel cinsinden. |
 | **Yükseklik**<br/><br/> minInclusive = "0"<br/><br/> Gerekli |**xs:int** |Piksel cinsinden görüntü yüksekliği kodlanmış. |
 | **DisplayAspectRatioNumerator**<br/><br/> minInclusive = "0"<br/><br/> Gerekli |**xs:double** |Video görüntü en boy oranını pay. |
@@ -111,7 +111,7 @@ Bir XML örneğinde bulabilirsiniz [XML örneği](media-services-output-metadata
 | **MaxGOPBitrate**<br/><br/> minInclusive = "0" |**xs:int** |Max GOP ortalama bit hızı kilobit bu video izlemek için. |
 
 ## <a name="AudioTracks "></a>AudioTracks öğesi
-Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla ses izleri içerebilir. Bu ses izleri koleksiyonudur.  
+Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla ses izleri içerebilir. **AudioTracks** öğesi bu ses izleri koleksiyonunu temsil eder.  
 
 Bir XML örneğinde bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
 
@@ -510,7 +510,8 @@ Bir XML örneğinde bulabilirsiniz [XML örneği](media-services-output-metadata
 
 
 ## <a name="xml"></a>XML örneği
- Çıktı meta veri dosyası örneği verilmiştir.  
+
+Aşağıdaki XML çıkış meta veri dosyasının bir örnektir.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  

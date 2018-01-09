@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makine sağlama
 Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılmış bir Windows Azure sanal makine (VM) görüntüsüdür. Bulunan araçlar şunlardır:
@@ -57,7 +57,7 @@ Bu veri bilimi VM görüntüsü için yazılım harcamanız yok. Yalnızca hangi
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Veri bilimi sanal makinenin diğer sürümleri
 Bir [Ubuntu](dsvm-ubuntu-intro.md) görüntüdür de çok benzer araçları plus çerçeveleri öğrenme birkaç ek ayrıntılı kullanılabilir. A [CentOS](linux-dsvm-intro.md) görüntüdür de kullanılabilir. Ayrıca sunuyoruz bir [Windows Server 2012 sürümü](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) veri bilimi sanal makinenin yine de birkaç araçları yalnızca Windows Server 2016 Edition'da kullanılabilir.  Aksi takdirde, bu makale Windows Server 2012 sürümü için geçerlidir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bir Microsoft Veri bilimi sanal makine oluşturmadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**: bir tane almak için bkz: [alma Azure ücretsiz deneme sürümü](http://azure.com/free).
@@ -200,5 +200,5 @@ Panolar ve harika görselleştirmeleri oluşturmanıza yardımcı olmak için **
 * Gidin **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** veri analizi Kurumsal ölçekte destekler R RevoScaleR kitaplıkta kullanan örnekler için.  
 * Makaleyi okuyun: [veri bilimi sanal makine yapabileceğiniz 10 şey](http://aka.ms/dsvmtenthings)
 * Sistematik olarak kullanarak uçtan uca analitik çözümleri oluşturmayı öğrenin [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Ziyaret [Azure Machine Learning galeri](http://gallery.cortanaintelligence.com) Azure üzerinde Azure Machine learning ve ilgili verileri kullanan machine learning ve veri analizi için örnek Hizmetleri. Ayrıca bir simge üzerinde sağladık **Başlat** menüsünde ve masaüstünde sanal makinenin Bu galeri.
+* Ziyaret [Azure AI galeri](http://gallery.cortanaintelligence.com) Azure üzerinde Azure Machine learning ve ilgili verileri kullanan machine learning ve veri analizi için örnek Hizmetleri. Ayrıca bir simge üzerinde sağladık **Başlat** menüsünde ve masaüstünde sanal makinenin Bu galeri.
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure MFA uygulama parolaları kullanmak üzere nasıl? | Microsoft Belgeleri"
+title: "Azure MFA uygulama parolaları kullanmak üzere nasıl? | Microsoft Docs"
 description: "Bu sayfa, kullanıcıların uygulama parolaları nedir ve ne için ile kullanıldıkları Azure MFA Algıla anlamasına yardımcı olur."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması'ndaki uygulama parolaları nedir?
 Exchange Active Sync kullanan Apple yerel e-posta istemcisi gibi belirli bir tarayıcı olmayan uygulamaları, şu anda çok faktörlü kimlik doğrulamasını desteklemez. Çok faktörlü kimlik doğrulaması kullanıcı başına etkinleştirilir. Bu, bir kullanıcı için multi-Factor authentication etkinleştirildi ve tarayıcı olmayan uygulamaları kullanmaya çalıştığınız, bunlar yapamıyor olacağı anlamına gelir. Bir uygulama parolası bunun olabilmesini sağlar. Kullanıcı başına MFA üzerinden değil ve koşullu erişim ilkeleri aracılığıyla çok faktörlü kimlik doğrulamasını zorunlu kılarsanız, uygulama parolaları oluşturamazsınız. Erişimi denetlemek için koşullu erişim ilkeleri kullanan uygulamalar, uygulama parolaları gerekmez.
@@ -55,30 +55,12 @@ Uygulama parolalarını nasıl unutmamanız gereken bazı noktalar verilmiştir.
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Azure portalında uygulama parolaları yönetme
 İki aşamalı doğrulamayı Azure ile kullanırsanız, Azure portalı üzerinden uygulama parolaları oluşturmak istediğiniz.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Azure portalında uygulama parolaları oluşturmak için
-1. Klasik Azure portalında oturum açın.
-2. En üstte, kullanıcı adını sağ tıklatın ve ek güvenlik doğrulama'yı seçin.
-3. En üstte düzenleyebileceğinizi sayfasında uygulama parolaları seçin
-4. **Oluştur**'a tıklayın.
-5. Uygulama parolası için bir ad girin ve tıklayın **sonraki**
-6. Uygulama parolasını panoya kopyalayın ve uygulamanıza yapıştırın.
-
-   ![Bulut](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Azure portalında uygulama parolaları silmek için
-1. Klasik Azure portalında oturum açın.
-2. En üstte, kullanıcı adını sağ tıklatın ve ek güvenlik doğrulama'yı seçin.
-3. Ek güvenlik doğrulaması yanındaki üst seçin **uygulama parolaları.**
-4. Silmek istediğiniz uygulama parolası yanındaki seçin **silmek**.
-5. Silme işlemini onaylamak **Evet**.
-6. Uygulama parolası silindikten sonra tıklayabilirsiniz **kapatmak**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Uygulama parolaları MyApps portalı ile yönetin.
 Çok faktörlü kimlik doğrulaması kullanımını emin değilseniz, daha sonra her zaman oluşturabilir ve myapps portalı üzerinden uygulama parolalarını Sil.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Myapps Portalı'nı kullanarak bir uygulama parolası oluşturmak için
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>MyApps Portalı'nı kullanarak bir uygulama parolası oluşturmak için
 1. Oturum [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sağ üst köşedeki adınızın ve seçin **profil**.
 3. Seçin **ek güvenlik doğrulaması**.
@@ -87,12 +69,12 @@ Uygulama parolalarını nasıl unutmamanız gereken bazı noktalar verilmiştir.
 4. Seçin **uygulama parolaları**.
    ![Uygulama parolaları - ekran görüntüsü seçin](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
-5. **Oluştur**'a tıklayın.
+5. **Oluştur**’a tıklayın.
 6. Uygulama parolası için bir ad girin ve tıklayın **sonraki**.
 7. Uygulama parolasını panoya kopyalayın ve uygulamanıza yapıştırın.
    ![Bir uygulama parolası oluşturma](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Myapps Portalı'nı kullanarak bir uygulama parolası silmek için
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>MyApps Portalı'nı kullanarak bir uygulama parolası silmek için
 1. Oturum [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. En üstte profilini seçin.
 3. Seçin **ek güvenlik doğrulaması**.

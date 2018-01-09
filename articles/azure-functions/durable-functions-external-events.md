@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 23c99031ae3146a83867d10bd97d4eee8878188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Dayanıklı işlevlerinde (Azure işlevleri) dış olayları işleme
 
@@ -26,7 +26,7 @@ Orchestrator işlevleri bekleyin ve dış olaylarını dinleyecek seçeneğine s
 
 ## <a name="wait-for-events"></a>Olayların tamamlanmasını bekleme
 
-[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) yöntemi zaman uyumsuz olarak bekleyip dış bir olayı dinleme orchestrator işlevi sağlar. Arayan bildirir *adı* olayın ve *veri şekli* almak bekliyor.
+[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) yöntemi zaman uyumsuz olarak bekleyip dış bir olayı dinleme orchestrator işlevi sağlar. Dinleme orchestrator işlev bildirir *adı* olayın ve *veri şekli* almak bekliyor.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,7 +45,7 @@ public static async Task Run(
 }
 ```
 
-Önceki örnekte, tek bir olay için dinler ve, alındığında eylemi gerçekleştirir.
+Önceki örnekte belirli tek bir olay için dinler ve, alındığında eylemi gerçekleştirir.
 
 Birden çok olaylarını dinleyecek aynı anda üç olası olay bildirimleri biri için bekleyeceği aşağıdaki örnekte, ister.
 
@@ -97,7 +97,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) için bazı giriş sonsuza kadar bekler.  İşlev uygulaması bekleme sırasında güvenli bir şekilde yüklenmemiş olabilir. Bir olay için bu orchestration örneği varsa ve geldiğinde, otomatik olarak uyandırdı ve hemen olayını işler.
 
 > [!NOTE]
-> Bir orchestrator işlevi görevden bekleyen sırada fatura hiçbir Ücret tahakkuk eden `WaitForExternalEvent`, ne kadar bekleyeceğini olsun.
+> İşlev uygulamanız tüketim planlama kullanıyorsa, orchestrator işlevi görevden bekleyen sırada fatura harcamanız alınan `WaitForExternalEvent`, ne kadar bekleyeceğini olsun.
 
 Beklenen türe dönüştürülemiyor olay yükü `T`, bir özel durum.
 

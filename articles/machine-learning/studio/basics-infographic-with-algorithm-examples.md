@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir Bilgi Grafiği: Algoritma örnekleri ile machine learning temel bilgileri
 Bu ortak makine öğrenimi soruları yanıtlamak için kullanılan yaygın olarak kullanılan algoritmalar hakkında bilgi edinmek için makine öğrenme temelleri kolay anlaşılır bilgi grafiği bakış indirin. Algoritma örnekler hangi algoritmaları ve kullanıldıkları anlamak machine learning başlangıç yardımcı olur.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Machine Learning Studio'da popüler algoritmaları
-[Azure Machine Learning Studio](https://studio.azureml.net/) büyük bir Tahmine dayalı analiz algoritmaları kitaplığı ile birlikte gelir. Bilgi grafiği algoritmalarının - regresyon, anomali algılama, kümeleme ve sınıflandırma - dört popüler aileleri tanımlar ve çalışma örneklerde bağlantılar sağlar [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/). Galeri örnek denemelerden ve bu algoritmalar pek çok gerçek dünya çözümleri nasıl uygulanabilir göstermek öğreticiler içerir.
+[Azure Machine Learning Studio](https://studio.azureml.net/) büyük bir Tahmine dayalı analiz algoritmaları kitaplığı ile birlikte gelir. Bilgi grafiği algoritmalarının - regresyon, anomali algılama, kümeleme ve sınıflandırma - dört popüler aileleri tanımlar ve çalışma örneklerde bağlantılar sağlar [Azure AI galeri](https://gallery.cortanaintelligence.com/). Galeri örnek denemelerden ve bu algoritmalar pek çok gerçek dünya çözümleri nasıl uygulanabilir göstermek öğreticiler içerir.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Algoritma örnekleriyle bilgi grafiği indirin
 **[İndirme: Machine learning temelleri algoritması örnekler (PDF) için bağlantılar ile birlikte, bilgi grafiği](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
@@ -37,7 +37,7 @@ Bu ortak makine öğrenimi soruları yanıtlamak için kullanılan yaygın olara
 * Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz: [modeli Başlat] [ initialize-model] Machine Learning Studio algoritması ve modülü Yardımı'nda.
 * Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modülleri A-Z listesi] [ a-z-list] Machine Learning Studio algoritması ve modülü Yardımı'nda.
 * Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).
-* Cortana Intelligence Galerisi'nde ve birçok topluluk tarafından oluşturulmuş kullanılabilir kaynakları genel bakış için bkz: [paylaşımı ve Cortana Intelligence Galerisi kaynakları bulmak](gallery-how-to-use-contribute-publish.md).
+* Azure AI Galerisi ve birçok topluluk tarafından oluşturulmuş kullanılabilir kaynakları genel bakış için bkz: [paylaşımı ve Azure AI Galerisi kaynakları bulmak](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

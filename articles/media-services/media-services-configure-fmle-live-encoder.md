@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be84225eca9cbaa25b9a0dfb8e74e0981b283096
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Tek bit hızlı bir canlı akışı göndermek için FMLE Kodlayıcı kullanın
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-Bu konuda nasıl yapılandırılacağını göstermektedir [Flash medya Canlı Kodlayıcı](http://www.adobe.com/products/flash-media-encoder.html) AMS bir tek bit hızlı akışın kanallar göndermek için (FMLE) Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir. Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
+Bu makalede nasıl yapılandırılacağı gösterilmektedir [Flash medya Canlı Kodlayıcı](http://www.adobe.com/products/flash-media-encoder.html) AMS bir tek bit hızlı akışın kanallar göndermek için (FMLE) Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir. Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
 Bu öğretici, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetmek gösterilmiştir. Bu araç, yalnızca bir Windows Bilgisayarına çalışır. Mac veya Linux varsa, oluşturmak için Azure portalını kullanın [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Bu öğretici AAC kullanmayı açıklar unutmayın. Ancak, FMLE değil destekler AAC varsayılan olarak. AAC uğradıysa MainConcept böyle kodlama için bir eklenti satın almanız gerekir: [AAC eklentisi](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Bu öğretici, AAC kullanmayı açıklar. Ancak, FMLE değil destekler AAC varsayılan olarak. AAC uğradıysa MainConcept böyle kodlama için bir eklenti satın almanız gerekir: [AAC eklentisi](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md)
@@ -44,10 +44,10 @@ Bu öğretici AAC kullanmayı açıklar unutmayın. Ancak, FMLE değil destekler
 ## <a name="tips"></a>İpuçları
 * Mümkün olduğunda, bir sabit Internet bağlantısı kullanır.
 * Bir iyi bant genişliği gereksinimlerini belirlerken için udur akış bit çift. Bu zorunlu bir gereksinim olmamasına karşın, Ağ Tıkanıklığı etkisini azaltmaya yardımcı olur.
-* Kodlayıcılar tabanlı yazılım kullanarak, gereksiz tüm programları kapatın.
+* Yazılım tabanlı kodlayıcılar kullanırken, gereksiz tüm programları kapatın.
 
 ## <a name="create-a-channel"></a>Kanal oluşturma
-1. AMSE aracını gidin **canlı** sekmesinde ve içinde kanal alanı sağ tıklatın. Seçin **kanal oluştur...** menüden.
+1. AMSE aracını gidin **canlı** sekmesini tıklatın ve içinde kanal alanı sağ tıklatın. Seçin **kanal oluştur...** menüden.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
@@ -72,7 +72,7 @@ Kanal başlatılırken yapabilecekleriniz [Kodlayıcı yapılandırma](media-ser
 >
 
 ## <a id=configure_fmle_rtmp></a>FMLE Kodlayıcı yapılandırın
-Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün geri kalanında daha ayrıntılı yapılandırma adımlarını açıklar.
+Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün geri kalanında daha ayrıntılı yapılandırma adımlarını açıklar.
 
 **Video**:
 
@@ -91,7 +91,7 @@ Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün ger
 ### <a name="configuration-steps"></a>Yapılandırma adımları
 1. Gidin kullanılan makinede Flash medya Canlı Kodlayıcı 's (FMLE) arabirim.
 
-    Bir ana sayfa ayarlarını arabirimidir. Lütfen aşağıdaki FMLE kullanarak akış ile kullanmaya başlamak için önerilen ayarları not edin.
+    Bir ana sayfa ayarlarını arabirimidir. Önerilen ayarları FMLE kullanarak akış ile çalışmaya başlamak için aşağıdakileri not edin.
 
    * Biçimi: H.264 kare hızı: 30,00
    * Giriş boyutu: 1280 x 720
@@ -118,7 +118,7 @@ Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün ger
 
     AMSE aracına gidin ve kanal tamamlanma durumunu denetleyin. Durumu değiştiğinden sonra **başlangıç** için **çalıştıran**, giriş URL'yi elde edebilirsiniz.
 
-    Kanal çalıştırırken, kanal adı sağ tıklayın ve ardından aşağıya doğru vurgulu üzerinden gidin **Panoya Kopyala giriş URL** ve ardından **birincil giriş URL**.  
+    Kanal çalıştırırken, kanal adına sağ tıklayın, üzerinden vurgulu aşağıya doğru gidin **Panoya Kopyala giriş URL** ve ardından **birincil giriş URL**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 5. Bu bilgileri **FMS URL** çıkış bölüm ve atama Akış adı alanı.
@@ -136,13 +136,13 @@ Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün ger
 
 ## <a name="test-playback"></a>Testi kayıttan yürütme
 
-AMSE Aracı'na gidin ve sınanacak kanal sağ tıklayın. Menüden, üzerine gelerek **kayıttan yürütme Önizleme** seçip **Azure Media Player ile**.  
+AMSE Aracı'na gidin ve sınanacak kanalı sağ tıklatın. Menüden, üzerine gelerek **kayıttan yürütme Önizleme** seçip **Azure Media Player ile**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
 Ardından akış player görünürse, kodlayıcı düzgün için AMS bağlanmak için yapılandırıldı.
 
-Bir hata alırsanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ayarlanır. Lütfen bakın [sorun giderme](media-services-troubleshooting-live-streaming.md) Kılavuzu konu.  
+Bir hata alırsanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ayarlanır. Bkz: [sorun giderme](media-services-troubleshooting-live-streaming.md) makale Kılavuzu.  
 
 ## <a name="create-a-program"></a>Bir program oluşturun
 1. Kanal kayıttan yürütme onaylandıktan sonra bir program oluşturun. Altında **canlı** sekmesinde AMSE aracının içinde programı alanı sağ tıklatın ve seçin **Yeni Program Oluştur**.  
@@ -155,13 +155,13 @@ Bir hata alırsanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları aya
     >[!NOTE]
     >Program oluşturma kanal oluşturma daha az zaman alır.
         
-5. Program çalışmaya başladıktan sonra program sağ tıklayarak ve giderek tarafından kayıttan yürütme onaylayın **kayıttan yürütme edinin** seçilerek **Azure Media Player ile**.  
-6. Onaylandıktan sonra sağ program yeniden tıklatın ve seçin **çıkış URL'yi Panoya Kopyala** (veya bu bilgileri almak **Program bilgilerine ve ayarlarına** seçeneği menüsünde).
+5. Program çalışmaya başladıktan sonra program sağ tıklayarak ve giderek kayıttan yürütme onaylayın **kayıttan yürütme edinin** seçilerek **Azure Media Player ile**.  
+6. Onaylandıktan sonra programı tekrar sağ tıklayın ve seçin **çıkış URL'yi Panoya Kopyala** (veya bu bilgileri almak **Program bilgilerine ve ayarlarına** seçeneği menüsünde).
 
 Akış bir oynatıcı katıştırılmış veya dinamik görüntülemek için bir izleyici için Dağıtılmış artık hazırdır.  
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Lütfen bakın [sorun giderme](media-services-troubleshooting-live-streaming.md) Kılavuzu konu.
+Bkz: [sorun giderme](media-services-troubleshooting-live-streaming.md) makale Kılavuzu.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

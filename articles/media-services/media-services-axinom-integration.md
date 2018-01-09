@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Azure Media Services’ta Widevine lisansları vermek için Axinom kullanma
 > [!div class="op_single_selector"]
@@ -36,9 +36,9 @@ Bu makalede, tümleştirme ve Axinom tarafından yönetilen Widevine lisans sunu
 
 * Dinamik ortak şifreleme çoklu DRM (PlayReady ve Widevine) karşılık gelen lisans edinme URL'ler ile yapılandırılmasını;
 * Lisans sunucusu gereksinimlerini karşılamak için JWT belirteci oluşturma;
-* Lisans edinme JWT belirteci kimlik doğrulaması ile işleyen Azure Media Player uygulama geliştirme;
+* Lisans edinme JWT belirteci kimlik doğrulaması ile işler Azure Media Player uygulama geliştirme;
 
-Tam sistem ve anahtar, anahtar kimliği, anahtar çekirdek, JTW belirteci ve onun talep tarafından Aşağıdaki diyagramda en iyi şekilde açıklanabilir içeriği akış.
+Tam sistem ve içerik anahtarı akış anahtarı kimlik, anahtar çekirdek, JTW belirteci ve kendi talep en iyi tanımlanabilen tarafından Aşağıdaki diyagramda:
 
 ![ÇİZGİ ve CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -47,13 +47,13 @@ Dinamik koruma ve anahtar teslim ilkesini yapılandırmak için lütfen Mingfei'
 
 Dinamik CENC koruma çoklu DRM ile DASH şunların ikisini de sahip akış için yapılandırabilirsiniz:
 
-1. MS Edge ve bir belirteç yetkilendirme kısıtlamaları olabilir IE11, PlayReady koruma. Belirteç kısıtlamalı ilkenin tarafından bir güvenli belirteç hizmeti (STS), Azure Active Directory gibi bir belirteç olarak eklenmelidir;
+1. MS Edge ve bir belirteç yetkilendirme kısıtlama olabilir IE11, PlayReady koruma. Belirteç kısıtlamalı ilkenin tarafından bir güvenli belirteç hizmeti (STS), Azure Active Directory gibi bir belirteç olarak eklenmelidir;
 2. Widevine koruma Chrome için bunu başka bir STS tarafından verilen belirteci ile belirteci kimlik doğrulamasını isteyebilirsiniz. 
 
-Lütfen bakın [JWT belirteci oluşturma](media-services-axinom-integration.md#jwt-token-generation) bölüm için Axinom'ın Widevine lisans sunucusu neden Azure Active Directory bir STS olarak kullanılamaz.
+Bkz: [JWT belirteci oluşturma](media-services-axinom-integration.md#jwt-token-generation) bölüm için Axinom'ın Widevine lisans sunucusu neden Azure Active Directory bir STS olarak kullanılamaz.
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
-1. Belirtilen Axinom kullanmalısınız anahtar çekirdek (8888000000000000000000000000000000000000) ve oluşturulan veya seçili anahtar anahtar teslim hizmeti yapılandırmak için içerik anahtarı oluşturmak için kimliği. Axinom lisans sunucusu sınama ve üretim için geçerli olan aynı anahtar çekirdek göre içerik anahtarı içeren tüm lisanslar.
+1. Belirtilen Axinom kullanmalısınız anahtar çekirdek (8888000000000000000000000000000000000000) ve oluşturulan veya seçili anahtar anahtar teslim hizmeti yapılandırmak için içerik anahtarı oluşturmak için kimliği. Axinom lisans sunucusu sınama ve üretim için geçerli olan aynı anahtar çekirdek göre içerik anahtarı içeren tüm lisanslar verir.
 2. Test Widevine lisans edinme URL'si: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Hem HTTP hem de HTTS izin verilir.
 
 ## <a name="azure-media-player-preparation"></a>Azure Media Player hazırlama
@@ -65,14 +65,14 @@ Axinom tarafından sağlanan Widevine lisans sunucusunu JWT belirteci kimlik do�
 
 Rest AMP kodunun standart AMP AMP belge olduğu gibi API'dir [burada](http://amp.azure.net/libs/amp/latest/docs/).
 
-Yukarıdaki javascript ayarı özel yetkilendirme üst bilgisi için bir kısa vadeli yaklaşım AMP uzun vadeli yaklaşım yayımlanan resmi önce hala olduğuna dikkat edin.
+AMP resmi uzun vadeli yaklaşım yayımlanmadan önce ayarı özel yetkilendirme üst bilgisi için yukarıdaki javascript hala bir kısa süreli bir yaklaşımdır.
 
 ## <a name="jwt-token-generation"></a>JWT belirteci oluşturma
 Test Axinom Widevine lisans sunucusu JWT belirteci kimlik doğrulaması gerektirir. Ayrıca, JWT belirteci Taleplerde temel veri türü yerine karmaşık nesne türünün biridir.
 
 Ne yazık ki, Azure AD ile ilkel türler yalnızca JWT belirteçleri verebilir. Benzer şekilde, .NET Framework API (System.IdentityModel.tokens.securitytokenhandler ve JwtPayload) yalnızca talepler olarak karmaşık nesne türü giriş olanak sağlar. Ancak, talep hala dize olarak serileştirilir. Bu nedenle biz herhangi bir JWT belirteci için Widevine lisans isteği oluşturmak için iki kullanamazsınız.
 
-John Sheehan'ın [JWT Nuget paketi](https://www.nuget.org/packages/JWT) Biz bu Nuget paketi kullanacaksanız şekilde gereksinimlerini karşılar.
+John Sheehan'ın [JWT NuGet paketi](https://www.nuget.org/packages/JWT) Biz bu NuGet paketi kullanacaksanız şekilde gereksinimlerini karşılar.
 
 Test etmek için gerekli taleplerle Axinom Widevine lisans sunucusu gerektirdiği şekilde oluşturma JWT belirteci için kod aşağıdadır:
 
@@ -136,12 +136,12 @@ Axinom Widevine lisans sunucusu
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 1. AMS PlayReady lisans teslimat hizmetinin gerektirir olsa bile "taşıyıcı =" kimlik doğrulama belirtecini önceki, Axinom Widevine lisans sunucusu onu kullanmaz.
-2. Axinom iletişimi anahtar imzalama anahtarı olarak kullanılır. Ancak, bu bir dize değil bir bayt serisi kodlarken Muamele görmelidir anahtar onaltılık dize olduğuna dikkat edin. Bu ConvertHexStringToByteArray yöntemi tarafından sağlanır.
+2. Axinom iletişimi anahtar imzalama anahtarı olarak kullanılır. Ancak, bu bir dize değil bir bayt serisi kodlarken Muamele görmelidir onaltılık dize anahtardır. Bu ConvertHexStringToByteArray yöntemi tarafından sağlanır.
 
 ## <a name="retrieving-key-id"></a>Anahtar kimliği alma
 JWT'nin oluşturmak için kod belirteci, anahtar kimliği gerekli olduğunu fark etmiş olabilirsiniz. Yükleme AMP player önce hazır olmasını JWT belirteci gereksinimlerini anahtar beri kimliği JWT belirteci üretmek için alınması gerekir.
 
-Anahtarın birden çok yolla elde tutmak için seyri kimliği Örneğin, bir depolayabilir içerik meta veri veritabanındaki birlikte anahtar kimliği. Veya, alabilirsiniz anahtar tire MPD (medya sunu açıklaması) dosyasından kimliği. Aşağıdaki kodu ikincisi ' dir.
+Elbette, anahtarın askıya almak için birden çok yolu vardır kimliği Örneğin, bir depolayabilir içerik meta veri veritabanındaki birlikte anahtar kimliği. Veya, alabilirsiniz anahtar tire MPD (medya sunu açıklaması) dosyasından kimliği. Aşağıdaki kodu ikincisi ' dir.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)

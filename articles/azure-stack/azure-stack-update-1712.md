@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/08/2018
@@ -55,7 +55,6 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 
 #### <a name="new-features"></a>Yeni Özellikler
 
-- Marketten öğeleri oluştururken, yeni kullanıcı deneyimi
 - Test-AzureStack cmdlet'i Azure yığın bulut ayrıcalıklı uç noktası aracılığıyla kullanılabilir doğrulamak için
 - Bağlantısı kesilmiş bir dağıtımı Azure yığınının kaydetmek için özelliği
 - Sertifika ve kullanıcı hesabı süre sonu için izleme uyarıları
@@ -76,7 +75,7 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 
 - [Ocak, 3-2018 — KB4056890 (işletim sistemi yapı 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - Bu güncelleştirme tarafından açıklanan sektör çapında güvenlik sorunu yazılım düzeltmeler içerir [MSRC güvenlik önerisi ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 
 Bu bölümde 1712 güncelleştirme yüklemesi sırasında karşılaşabileceğiniz bilinen sorunları içerir.
@@ -103,7 +102,7 @@ Bu bölümde yükleme sonrası ile ilgili bilinen sorunlar yapı içeren **18010
 
    - Boş bir satır listesi üstündeki görebilirsiniz. Hala beklendiği gibi bir öğe seçin yapabiliyor olmanız gerekir.
    - Açılan listedeki öğeleri listesi kısaysa, öğe adlarının herhangi biri görmeye olmayabilir.
-   - Birden çok kullanıcı aboneliğiniz varsa, kaynak grubu aşağı açılan listesi boş olabilir. 
+   - Birden çok kullanıcı aboneliğiniz varsa, kaynak grubu aşağı açılan listesi boş olabilir.
 
         > [!NOTE]
         > Son iki sorunlarını geçici olarak çözmek için abonelik veya kaynak grubu (biliyorsanız) adını yazın veya bunun yerine PowerShell kullanabilirsiniz.
@@ -124,16 +123,16 @@ Bu bölümde yükleme sonrası ile ilgili bilinen sorunlar yapı içeren **18010
 - Yalnızca bir hata etki alanı ve bir bir güncelleştirme etki alanı ile bir sanal makine kullanılabilirlik yapılandırabilirsiniz.
 - Sanal makine ölçek kümeleri oluşturmak için hiçbir Market deneyim yoktur. Bir şablonu kullanarak bir ölçek oluşturabilirsiniz.
 - Sanal makine ölçek kümeleri için ölçeklendirme ayarları portalda kullanılabilir değildir. Geçici bir çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürümü farklılıkları nedeniyle kullanmalısınız `-Name` yerine parametre `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Ağ
 - Portalı kullanarak bir ortak IP adresi ile bir yük dengeleyicisi oluşturulamıyor. Geçici bir çözüm olarak, yük dengeleyici oluşturmak için PowerShell'i kullanabilirsiniz.
 - Ağ Yük Dengeleyici oluşturduğunuzda, bir ağ adresi çevirisi (NAT) kuralı oluşturmanız gerekir. Bunu yapmazsanız, yük dengeleyici oluşturulduktan sonra bir NAT kuralı eklemeye çalıştığınızda bir hata alırsınız.
 - VM oluşturulur ve bu IP adresi ile ilişkili sonra bir sanal makineden (VM) genel bir IP adresi ilişkisini olamaz. Disassociation çalışmak için görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır. Yeni bir VM için IP adresi yeniden atama olsa bile bu davranış oluşur (genellikle olarak adlandırılan bir *VIP takası*). Tüm gelecekte bu IP adresi sonucu başlangıçta ilişkili VM değil de yeni bir bağlantı üzerinden bağlanma girişiminde bulunur. Şu anda, yeni VM oluşturmak için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
 - Azure yığın işleçleri dağıtmak, Sil, Vnet veya ağ güvenlik gruplarını değiştirmek olabilir. Bu sorun öncelikle aynı paketin sonraki güncelleştirme denemelerinde görülür. Bu, şu an araştırma altında bir güncelleştirme paketleme sorun kaynaklanır.
 - İç yük dengeleyici (ILB) MAC adresleri Linux örnekleri kıran arka uç VM'ler için yanlış bir şekilde işler.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Bu yeni bir SQL veya MySQL SKU kiracılar veritabanları oluşturabilmeniz için önce bir saate kadar sürebilir. 
+- Bu yeni bir SQL veya MySQL SKU kiracılar veritabanları oluşturabilmeniz için önce bir saate kadar sürebilir.
 - Öğeleri doğrudan SQL ve MySQL kaynak sağlayıcısı tarafından gerçekleştirilen değil sunucularda barındırma oluşturulması desteklenmiyor ve eşleşmeyen bir duruma neden olabilir.
 
     > [!NOTE]
@@ -158,6 +157,7 @@ Azure yığın 1712 güncelleştirme paketinden indirebilirsiniz [burada](https:
 Microsoft, izlemek ve ayrıcalıklı uç noktası (güncelleştirme 1712 ile yüklü CESARETLENDİRİCİ) kullanarak güncelleştirmeleri sürdürmek için bir yol sağlamıştır.
 
 - Bkz: [izlemek Azure ayrıcalıklı endpoint belgelerini kullanarak yığınında güncelleştirmeleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - Bkz [yönetmek Azure yığın genel bakış güncelleştirmelerinde](azure-stack-updates.md) Azure yığınında güncelleştirme yönetimi genel bakış.

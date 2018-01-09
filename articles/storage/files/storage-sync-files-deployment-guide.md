@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) dağıtma
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
 
 Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-files-planning.md) ve [bir Azure dosya eşitleme dağıtımını planlama](storage-sync-files-planning.md) önce bu makalede açıklanan adımları tamamlayın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Azure dosya eşitleme dağıtmak istediğiniz aynı bölgede bir Azure Storage hesabını ve Azure dosya paylaşın. Daha fazla bilgi için bkz.
     - [Bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability) Azure dosya eşitleme için.
     - [Depolama hesabı oluşturma](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) bir depolama hesabının nasıl oluşturulacağı hakkında adım adım açıklaması.
@@ -71,6 +71,7 @@ Azure dosya eşitleme Aracısı'nı Windows Server'ın bir Azure dosya paylaşı
 
 > [!Important]  
 > Azure dosya eşitleme ile bir yük devretme kümesi kullanmayı planlıyorsanız, kümedeki her düğümde Azure dosya eşitleme Aracısı yüklenmesi gerekir.
+
 
 Azure dosya eşitleme aracı yükleme paketi oldukça hızlı bir şekilde ve çok fazla ek sorulmadan yüklemeniz gerekir. Şunları yapmanız önerilir:
 - Sorun giderme ve sunucu bakımının basitleştirmek için varsayılan yükleme yolunu (C:\Program Files\Azure\StorageSyncAgent) bırakın.
@@ -118,6 +119,36 @@ Sunucusu uç noktası eklemek için seçin **oluşturma**. Dosyalarınızı art�
 
 > [!Important]  
 > Herhangi bir bulut uç noktası veya eşitleme grubundaki sunucusu uç noktası için değişiklik yapabilirsiniz ve dosyalarınızı eşitleme grubundaki diğer uç noktalarına eşitlendiğinden. (Azure dosya paylaşımı) bulut uç noktasına doğrudan bir değişiklik yaparsanız değişiklikleri ilk Azure dosya eşitleme değişiklik algılama işi tarafından bulunmaları gerekir. Bir değişiklik algılama işi yalnızca bir kez her 24 saatte bir bulut uç noktası için başlatılır. Daha fazla bilgi için bkz: [Azure sık sorulan sorular dosyaları](storage-files-faq.md#afs-change-detection).
+
+## <a name="onboarding-with-azure-file-sync"></a>Azure dosya eşitleme ile ekleme
+Tam dosya uygunluğunu korurken kapalı kalma süresi için önerilen adımları giriş için Azure dosya eşitleme ile ilk kez sıfır ve erişim denetim listesi (ACL) aşağıdaki gibidir:
+ 
+1.  Bir depolama eşitleme hizmeti dağıtın.
+2.  Bir eşitleme grubu oluşturun.
+3.  Azure dosya eşitleme Aracısı tam veri kümesi ile sunucuya yükleyin.
+4.  Bu sunucuyu kaydetmek ve paylaşımı üzerinde bir sunucusu uç noktası oluşturun. 
+5.  Azure dosya paylaşımı (bulut uç noktası) için tam yükleme yapmak eşitleme sağlar.  
+6.  İlk yükleme tamamlandıktan sonra kalan sunucuların her birinde Azure dosya eşitleme aracısı yükleyin.
+7.  Yeni dosya paylaşımları kalan sunucuların her birinde oluşturun.
+8.  İstenirse, bulut katmanlama ilkesiyle yeni dosya paylaşımlarında sunucu uç noktaları oluşturun. (Bu adım için ilk kurulum kullanılabilir olması için ek depolama alanı gerektirir.)
+9.  Gerçek veri aktarımı olmadan tam ad alanının hızlı geri yükleme yapmak için Azure dosya eşitleme Aracısı olanak tanır. Tam ad alanı eşitlemeden sonra eşitleme altyapısı sunucusu uç noktası için bulut katmanlama ilkesini temel alarak yerel disk alanı doldurur. 
+10. Eşitleme işlemi tamamlandıktan ve topolojinizi istediğiniz gibi test emin olun. 
+11. Kullanıcılar ve uygulamalar bu yeni paylaşımına yönlendirin.
+12. İsteğe bağlı olarak, tüm yinelenen paylaşımları sunucularda silebilirsiniz.
+ 
+İlk eklenmesi için ek depolama alanı yok ve var olan paylaşımlar eklemek istiyorsanız, Azure dosya paylaşımlarının verileri önceden oluşturmak. Kapalı kalma süresi kabul edebilir ve kesinlikle ilk onboarding işlemi sırasında veri değişiklikleri sunucu paylaşımlarındaki garanti ve yalnızca, bu yaklaşım önerilir. 
+ 
+1.  Onboarding işlemi sırasında herhangi bir sunucu verileri değiştiremediğinden emin olmak.
+2.  Ön üretim Azure dosya herhangi bir veri aktarımı aracı üzerinden SMB örn kullanarak sunucu verileriyle Robocopy, doğrudan erişimli SMB kopya paylaşır. AzCopy SMB üzerinden verileri karşıya değil Bu nedenle, önceden dağıtım için kullanılamıyor.
+3.  Azure dosya eşitleme topolojisi için var olan paylaşımlar işaret eden istenen sunucu uç noktaları oluşturun.
+4.  Tüm uç noktaları uzlaştırma işlemi son eşitleme sağlar. 
+5.  Uzlaştırma işlemi tamamlandıktan sonra değişiklikler için paylaşımları açabilirsiniz.
+ 
+Şu anda yaklaşım önceden dengeli birkaç kısıtlamaları olduğunu unutmayın- 
+- Dosyalar üzerinde tam uygunluğunu korunmaz. Örneğin, dosyaları, ACL'ler ve zaman damgaları kaybedersiniz.
+- Çalışan ve eşitleme topolojisi tam olarak çalışır durumda önce sunucudaki veri değişiklikleri sunucu uç noktalarda çakışmaları neden olabilir.  
+- Bulut uç nokta oluşturulduktan sonra Azure dosya eşitleme ilk eşitlemeyi başlatmadan önce dosyaları bulutta algılamak için bir işlem yapar. Bu işlemi tamamlamak için geçen süre ağ hızı, kullanılabilir bant genişliğini ve dosya ve klasörleri sayısı gibi çeşitli etkenlere bağlı olarak değişir. Preview sürümünde kaba tahmin için yaklaşık 10 dosyaları saniye başına Algılama işlemi çalıştırır.  Veriler bulutta ön hazırlığı yapmış olduğunda bu nedenle, önceden çalışır hızlı dengeli olsa bile, tam olarak çalışan sistem almak için toplam süreyi önemli ölçüde uzun olabilir.
+
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>DFS Çoğaltma (DFS-R) dağıtımı için Azure dosya eşitleme geçirme
 Azure dosya eşitleme DFS-R dağıtım geçirmek için:

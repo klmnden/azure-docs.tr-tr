@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store için tanılama günlüklerine erişme
 Data Lake Store hesabınızı ve hesabınız için toplanan günlükleri görüntülemek nasıl günlüğü tanılama etkinleştirmek bilgi edinin.
 
-Kuruluşlar, verileri ne sıklıkta erişildiğine, verilerine erişen kullanıcılara listesi gibi bilgiler sağlayan veri erişimi denetim izleri toplamak Azure Data Lake Store hesapları için tanılama günlük kaydını etkinleştirebilir ne kadar verinin depolanma biçimini hesap, vs.
+Kuruluşlar, verileri ne sıklıkta erişildiğine, verilerine erişen kullanıcılara listesi gibi bilgiler sağlayan veri erişimi denetim izleri toplamak Azure Data Lake Store hesapları için tanılama günlük kaydını etkinleştirebilir ne kadar verinin depolanma biçimini hesap, vs. Etkinleştirildiğinde, tanılama ve/veya istekleri en iyi çaba ilkesine göre günlüğe kaydedilir. Hizmet uç noktası karşı yapılan istekleri varsa istekleri ve tanılama günlük girişleri oluşturulur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Store hesabı**. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayın.
 
@@ -51,7 +51,7 @@ Kuruluşlar, verileri ne sıklıkta erişildiğine, verilerine erişen kullanıc
      
    * Denetim günlükleri veya istek günlüklerini veya her ikisini de almak isteyip istemediğinizi belirtin.
    * Verilerin korunması gereken gün sayısını belirtin. Bekletme, yalnızca günlük verileri arşivlemek için Azure depolama hesabı kullanıyorsanız geçerlidir.
-   * **Kaydet** düğmesine tıklayın.
+   * **Kaydet**’e tıklayın.
 
 Tanılama ayarları etkinleştirildiğinde, günlüklerde izleyebilirsiniz **tanılama günlüklerini** sekmesi.
 
