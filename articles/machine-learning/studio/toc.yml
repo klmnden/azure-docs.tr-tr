@@ -15,7 +15,7 @@
       href: faq.md
     - name: Yenilikler
       href: whats-new.md
-- name: Kullanmaya Başlama
+- name: Başlarken
   items:
     - name: İlk denemenizi oluşturma
       href: create-experiment.md
@@ -49,7 +49,7 @@
           href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
     - name: R hızlı başlangıç
       href: r-quickstart.md
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Araçları ve yardımcı programları ayarlama
       items:
@@ -57,7 +57,7 @@
           items:
             - name: Oluştur
               href: create-workspace.md
-            - name: Yönet
+            - name: Yönetme
               href: manage-workspace.md
             - name: Sorun giderme
               href: troubleshooting-creating-ml-workspace.md
@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: İlgili
   items:
-    - name: Cortana Intelligence Galerisi
+    - name: Azure Yapay Zeka Galerisi
       items:
         - name: Genel Bakış
           href: gallery-how-to-use-contribute-publish.md
