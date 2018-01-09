@@ -61,7 +61,7 @@ ACU: 160-180
 
 <sup>1</sup> M-serisi VM'in özelliği Intel® Hyper-Threading Teknolojisi
 
-<sup>2</sup> 64 taneden fazla vCPU'ın bu desteklenen konuk işletim sistemleri birini gerektirir: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 ve Red Hat Enterprise Linux veya CentOS 7.3 LIS 4.2.1 ile 
+<sup>2</sup> 64 taneden fazla vCPU'ın bu desteklenen konuk işletim sistemleri birini gerektirir: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 ve Red Hat Enterprise Linux, CentOS 7.3 veya Oracle Linux 7.3 LIS 4.2.1 ile 
 
 <sup>3</sup> kısıtlı çekirdek boyutları kullanılabilir.
 

@@ -9,7 +9,7 @@
 | &nbsp; |[Azure SQL Veritabanı](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Veri Ambarı](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Search Dizini](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
-| &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Tablo Depolama](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Veritabanları/veri ambarlarında** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Detaylandırma (Beta)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
@@ -61,9 +61,9 @@
 | &nbsp; |[Servicenow'ı (Beta)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Kare (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
-| &nbsp; |[Web Tablosu (HTML tablosu)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |
+| &nbsp; |[Web Tablosu (HTML tablosu)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero (Beta)](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (Beta)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> Bir bağlayıcı olarak işaretlenmiş *Beta* bunu deneyin anlamına gelir out ve bize geri bildirim sağlamak ve üretim ortamında kullanmayın.
+> Bir bağlayıcı olarak işaretlenmiş *Beta* deneyin ve bize geri bildirimde bulunun anlamına gelir. Beta bağlayıcılar çözümünüzdeki bir bağımlılık yap istiyorsanız, lütfen başvurun [Azure Destek](https://azure.microsoft.com/support/).
