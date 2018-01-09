@@ -1,59 +1,39 @@
 # [Genel Bakış](../overview.md)
-## [Görüntüler](about-images.md)
-## [VM uzantıları](agents-and-extensions.md)
-## [Kullanılabilirlik](configure-availability.md)
-## [SSS](faq.md)
+## [VM uzantıları](agents-and-extensions-classic.md)
+## [Kullanılabilirlik](configure-availability-classic.md)
+## [SSS](faq-classic.md)
 
-# Kullanmaya Başlama
-## [Azure portalı ile Linux VM oluşturma](createportal.md)
-## [Azure CLI'yı yükleme](../../../cli-install-nodejs.md)
-## [SSH anahtarları oluşturma](../mac-create-ssh-keys.md)
+# Başlarken
+## [Azure portalı ile Linux VM oluşturma](createportal-classic.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## İşlem
-### [Özel VM oluşturma](create-custom.md)
-### [VM yakalama](capture-image.md)
-### [Bir Linux VM ile Uzak Masaüstü kullanma](remote-desktop.md)
-### [VM uzantılarını yönetme](manage-extensions.md)
-### [Visual Studio ile VM’leri yönetme](manage-visual-studio.md)
-### [Tanılama VM Uzantısı kullanarak VM’leri izleme](../diagnostic-extension.md)
+### [Özel VM oluşturma](create-custom-classic.md)
+### [VM yakalama](capture-image-classic.md)
+### [Bir Linux VM ile Uzak Masaüstü kullanma](remote-desktop-classic.md)
+### [VM uzantılarını yönetme](manage-extensions-classic.md)
 ### [Tanılama VM Uzantısı’nın v2.x sürümünü kullanarak VM’leri izleme](diagnostic-extension-v2.md)
-### [Özel veri ekleme](inject-custom-data.md)
-### [Linux parola veya anahtarlarını sıfırlama, SSH düzeltme ve diskleri denetleme](reset-access.md)
-### [Bakım](planned-maintenance-schedule.md)
-### [CLI kullanarak bir Docker konağı oluşturma](cli-use-docker.md)
-### [Azure portalını kullanarak Docker ana bilgisayarı oluşturma](portal-use-docker.md)
-### [Swarm ile Docker'ı kullanma](../../virtual-machines-linux-docker-swarm.md)
+### [Linux parola veya anahtarlarını sıfırlama, SSH düzeltme ve diskleri denetleme](reset-access-classic.md)
+### [Bakım](planned-maintenance-schedule-classic.md)
 
 ## Depolama'yı kullanma
-### [Veri diski ekleme](attach-disk.md)
-### [Veri diski çıkarma](detach-disk.md)
+### [Veri diski ekleme](attach-disk-classic.md)
+### [Veri diski çıkarma](detach-disk-classic.md)
 
 ## Ağ
 ### [Bağlantı noktalarını VM’nize açma](setup-endpoints.md)
-### [VM'leri sanal ağ veya bulut hizmeti ile bağlama](connect-vms.md)
-
-## Görüntüleri dağıtma
-### [VHD oluşturma ve karşıya yükleme](create-upload-vhd.md)
-### [FreeBSD VHD’si oluşturma ve yükleme](freebsd-create-upload-vhd.md)
-### [Oracle VM görüntüsü listesi](oracle-images.md)
 
 ## İş yüklerini yönetme
-### [SAP](sap-get-started.md)
-### MySQL ve MariaDB
-#### [MariaDB küme öğreticisi](mariadb-mysql-cluster.md)
-#### [OpenSUSE VM’ye MySQL yükleme](mysql-on-opensuse.md)
-#### [MySQL’i kümelemek için yük dengeli kümeler kullanma](mysql-cluster.md)
-#### [MySQL performansını iyileştirme](optimize-mysql.md)
+### [MariaDB küme öğreticisi](mariadb-mysql-cluster.md)
+### [OpenSUSE VM’ye MySQL yükleme](mysql-on-opensuse.md)
+### [MySQL’i kümelemek için yük dengeli kümeler kullanma](mysql-cluster.md)
+### [MySQL performansını iyileştirme](optimize-mysql.md)
 
 ## Uygulamaları çalıştırma
-### [Rails web uygulamasında Ruby](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Rails web uygulamasında Ruby](ruby-rails-web-app.md)
 ### [Cassandra ve Node.js istemcisi](cassandra-nodejs.md)
-### [LAMP yığını](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
-### [Visual Studio ile web uygulaması](web-app-visual-studio.md)
 ### [MPI uygulamalarını çalıştırmak için RDMA kümesi](rdma-cluster.md)
-### [Hudson CI ile Azure bağımlı eklentisini kullanma](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Linux iş yükleri için küme oluşturma](hpcpack-cluster-powershell-script.md)
 #### [Linux düğümleri ile küme yönetme](hpcpack-cluster.md)

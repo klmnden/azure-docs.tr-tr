@@ -10,9 +10,9 @@
 ## [Azure CLI 2.0 kullanma](data-lake-store-get-started-cli-2.0.md)
 
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Verileri yükleme ve taşıma
-### [Azure Data Factory'yi kullanma](../data-factory/data-factory-azure-datalake-connector.md)
+### [Azure Data Factory'yi kullanma](../data-factory/connector-azure-data-lake-store.md)
 ### [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop’u kullanma](data-lake-store-data-transfer-sql-sqoop.md)
@@ -74,7 +74,7 @@
 ### [SQL Server Integration Services ile kullanma](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Diğer Azure tümleştirme seçenekleri](data-lake-store-integrate-with-other-services.md)
 
-## Yönet
+## Yönetme
 ### [Tanılama günlüklerine erişim](data-lake-store-diagnostic-logs.md)
 ### [Yüksek kullanılabilirlik planı](data-lake-store-disaster-recovery-guidance.md)
 
@@ -92,7 +92,7 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Data Lake Store Blogu](https://blogs.msdn.microsoft.com/azuredatalake/)
-## [UserVoice hakkında geri bildirim gönderin](https://feedback.azure.com/forums/327234-data-lake)
+## [UserVoice üzerinden geri bildirim gönderin](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
