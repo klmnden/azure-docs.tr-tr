@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 52eaf66f829f22313c72bd6eeea38b796ff18465
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory etki alanı Hizmetleri: Sık sorulan sorular (SSS)
 Bu sayfa, Azure Active Directory etki alanı hizmetleri hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -47,9 +47,6 @@ Hizmet, bu senaryo doğrudan desteklemez. Yönetilen etki alanınız aynı anda 
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>PowerShell kullanarak Azure AD etki alanı Hizmetleri etkinleştirebilirim?
 Evet. Bkz: [Hizmetleri PowerShell kullanarak Azure AD etki alanını etkinleştirmek için nasıl](active-directory-ds-enable-using-powershell.md).
-
-#### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD etki alanı Hizmetleri, yeni Azure portalında kullanılabilir?
-Evet. Azure AD etki alanı Hizmetleri kullanılarak yapılandırılabilir [Azure portal](https://portal.azure.com). [Klasik Azure portalı](https://manage.windowsazure.com) artık desteklenmiyor.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak Azure AD etki alanı Hizmetleri etkinleştirebilirim?
 Evet. Bkz: [Hizmetleri PowerShell kullanarak Azure AD etki alanını etkinleştirmek için nasıl](active-directory-ds-enable-using-powershell.md).

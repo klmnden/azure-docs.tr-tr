@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d468944883cca80946001724c38dd5ec9ba0d94f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Azure dosyaları - dinamik kalıcı birimlerle sağlama
 
@@ -79,7 +79,7 @@ parameters:
 Kalıcı birim talep depolama sınıf nesnesi dinamik olarak bir depolama sağlamak için kullanır. Azure dosyaları kullanırken, Azure dosya paylaşımının seçilen veya depolama sınıf nesnesinde belirtilen depolama hesabı oluşturulur.
 
 >  [!NOTE]
->   Uygun depolama hesabı AKS kümesi ile aynı kaynak grubunda önceden oluşturulmuş emin olun. Kalıcı birim talep için Azure dosya paylaşımı bir depolama hesabı yoksa sağlama başarısız olur. 
+>   Uygun depolama hesabı AKS küme kaynakları ile aynı kaynak grubunda önceden oluşturulmuş olduğundan emin olun. Bu kaynak grubu gibi bir ada sahip *MC_myAKSCluster_myAKSCluster_eastus*. Kalıcı birim talep için Azure dosya paylaşımı bir depolama hesabı yoksa sağlama başarısız olur. 
 
 Aşağıdaki bildirim kalıcı birim talep oluşturmak için kullanılan `5GB` boyutta `ReadWriteOnce` erişim. PVC erişim modları hakkında daha fazla bilgi için bkz: [erişim modları][access-modes].
 

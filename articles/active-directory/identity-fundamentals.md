@@ -1,5 +1,5 @@
 ---
-title: "Azure Kimlik Yönetimi temelleri | Microsoft Docs"
+title: "Azure Kimlik Yönetimi temelleri"
 description: "Bulut tabanlı kimlikleri üzerinde denetimi korumak için en iyi yolu ve içine nasıl ve ne zaman kullanıcıların Kurumsal uygulamalara ve verilere erişim görünürlük sunulmuştur."
 keywords: 
 author: jeffgilb
@@ -13,13 +13,14 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure Kimlik Yönetimi temelleri
+
 Bulutta ve aygıtlarda, kurumsal ağ dışından daha da fazla şirket dijital kaynakları dinamik olarak bir harika bulut tabanlı kimlik ve erişim yönetimi çözümü zorunlu durumundadır. Bulut tabanlı kimlikleri üzerinde denetimi korumak için en iyi yolu ve içine nasıl ve ne zaman kullanıcıların Kurumsal uygulamalara ve verilere erişim görünürlük sunulmuştur.
 
 Microsoft güvenliğini sağlamak için bulut tabanlı kimlikleri bir on üzerinden ve şimdi ile [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), bu aynı koruma sistemleri için kullanılabilir. Azure AD ile kurumsal yöneticiler kolaylıkla kullanıcı ve yönetici sorumluluk daha iyi güvenlik ve idare zamankinden emin olabilirsiniz.
@@ -27,7 +28,7 @@ Microsoft güvenliğini sağlamak için bulut tabanlı kimlikleri bir on üzerin
 Azure AD Premium olan tüm uygulamalar, kimlik koruması için bir güvenli kimlik sağlayan bir bulut tabanlı kimlik ve erişim yönetimi çözümüyle gelişmiş koruma özellikleri (tarafından geliştirilmiş [Microsoft Intelligence güvenlik grafik](https://www.microsoft.com/en-us/security/intelligence)) ve ayrıcalıklı kimlik yönetimi. Değil yalnızca başka bir izleme veya Raporlama Aracı, Azure AD Premium gerçek zamanlı kullanıcı kimlikleri koruyabilir ve kuruluşunuzun verilerini korumak için risk tabanlı, Uyarlamalı erişim ilkeleri oluşturmanızı sağlar.
 
 Azure AD kimlik yönetimi ve koruması hızlı bir genel bakış için kısa bu videoyu izleyin:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
 Microsoft, her yerde geçen bir kimlik değil yalnızca sağlar, ancak da otomatik hale getirmek için Araçlar güvenli hale getirmek ve yönetmek BT kuruluşunuz içinde. Hatta geliştirilirken bulut sonra hala yönetmek ve kullanıcı parolaları sıfırlama, kullanıcı Grup Yönetimi ve uygulama isteklerini Yardım Masası çağrıları gibi BT görevleri denetlemek için isteğe bağlı yoktur. Daha fazla şey karmaşıklaştırarak, Çalışanlar şimdi kişisel cihazlarını çalışma ve kullanıma hazır SaaS uygulamaları kullanarak getiren. Bu uygulamalarını Bakımı denetime kurumsal veri merkezleri ve genel bulut platformda önemli zor hale getirir.
 

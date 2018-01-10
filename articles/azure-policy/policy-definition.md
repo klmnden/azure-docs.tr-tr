@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -179,7 +179,7 @@ Kullanırken **gibi** koşulu, bir joker (*) değer sağlayabilir.
 
 Kullanırken **eşleşen** koşul, sağlayın `#` bir basamak temsil etmek için `?` bir harf ve o gerçek karakteri temsil etmesi için başka bir karakter. Örnekler için bkz: [onaylanmış VM görüntüleri](scripts/allowed-custom-images.md).
 
-### <a name="fields"></a>Alanları
+### <a name="fields"></a>Alanlar
 Koşullar alanlar kullanılarak oluşturulur. Bir alan kaynağının durumu tanımlamak için kullanılan kaynak istek yükünde özelliklerini temsil eder.  
 
 Aşağıdaki alanları desteklenir:
@@ -200,7 +200,6 @@ Aşağıdaki alanları desteklenir:
 * **Append**: alanları dizi tanımlanmış isteğe ekler
 * **AuditIfNotExists**: kaynak yoksa, denetim sağlar
 * **DeployIfNotExists**: zaten yoksa, bir kaynak dağıtır. Şu anda bu etkiyi yalnızca yerleşik ilkeler aracılığıyla desteklenir.
-* **DenyIfNotExists**: henüz yoksa mevcut oluşturulmasını engeller
 
 İçin **sona**, aşağıdaki ayrıntıları sağlamanız gerekir:
 
@@ -216,7 +215,7 @@ Aşağıdaki alanları desteklenir:
 
 Değer bir dize veya bir JSON biçimi nesnesi olabilir.
 
-İle **AuditIfNotExists**, **DeployIfNotExists**, ve **DenyIfNotExists**, bir alt kaynak varlığını değerlendirmek ve bir kural ve karşılık gelen bir efekt uygulayın ne zaman bu kaynak mevcut değil. Örneğin, bir Ağ İzleyicisi için tüm sanal ağları dağıtılır gerektirebilir.
+İle **AuditIfNotExists** ve **DeployIfNotExists** alt kaynak varlığını değerlendirin ve bu kaynak mevcut değil, bir kural ve karşılık gelen bir efekt uygulayın. Örneğin, bir Ağ İzleyicisi için tüm sanal ağları dağıtılır gerektirebilir.
 Bir sanal makine uzantısı değil dağıtıldığında denetim bir örnek için bkz: [uzantısı yoksa, Denetim](scripts/audit-ext-not-exist.md).
 
 
@@ -337,7 +336,7 @@ Bir kaynak türü için belirli özelliklere erişmek için özellik diğer adla
 | Microsoft.Storage/storageAccounts/sku.name | SKU adına ayarlayın. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Yalnızca depolama hizmeti https trafiğine izin verecek şekilde ayarlayın. |
 
-## <a name="initiatives"></a>Girişimleri
+## <a name="initiatives"></a>Girişimler
 
 Birkaç Grup girişimleri etkinleştir grup için tek bir öğe olarak çalışmak için atamalarını ve yönetimini basitleştirmek için İlke tanımları ilgili. Örneğin, tek bir girişim içindeki tüm ilgili etiketleme ilke tanımları gruplandırabilirsiniz. Her ilke tek tek atamak yerine Initiative uygulayın.
 

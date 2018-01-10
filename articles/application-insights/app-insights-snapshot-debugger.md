@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Anlık görüntü özel durumları .NET uygulamalarında hata ayıklama
 
@@ -75,8 +75,8 @@ Aşağıdaki ortamlarda desteklenir:
 
 1. [Application Insights ASP.NET Core web uygulamanızda etkinleştirmek](app-insights-asp-net-core.md), henüz yapmadınız.
 
-> [!NOTE]
-> Uygulamanızı sürüm 2.1.1 başvuruyor emin veya Microsoft.ApplicationInsights.AspNetCore paketinin daha yeni.
+    > [!NOTE]
+    > Uygulamanızı sürüm 2.1.1 başvuruyor emin veya Microsoft.ApplicationInsights.AspNetCore paketinin daha yeni.
 
 2. Dahil [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
@@ -275,15 +275,39 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 Uygulamalar için _değil_ App Service içinde barındırılan, yükleyici Mini dökümler ile aynı klasörde günlüklerin: `%TEMP%\Dumps\<ikey>` (burada `<ikey>` araçları anahtarınız).
 
-Bulut Hizmetleri rolleri için varsayılan geçici klasör mini döküm dosyası tutamayacak kadar küçük olabilir. Bu durumda, alternatif bir klasör TempFolder özelliği aracılığıyla Applicationınsights.Config'de belirtebilirsiniz.
+### <a name="troubleshooting-cloud-services"></a>Bulut Hizmetleri sorunlarını giderme
+Bulut Hizmetleri rolleri için varsayılan geçici klasör kayıp anlık görüntüler için önde gelen mini döküm dosyası tutamayacak kadar küçük olabilir.
+İhtiyaç duyulan alanı uygulamanızı eşzamanlı anlık görüntü sayısı ve toplam çalışma kümesine bağlıdır.
+Çalışma 32-bit ASP.NET web rolü genellikle 200 MB ve 500 MB arasında kümesidir.
+En az iki eşzamanlı anlık görüntüler için izin vermelidir.
+Örneğin, uygulamanızın toplam çalışma kümesinin 1 GB kullanıyorsa, en az 2 anlık görüntüleri saklamak için GB disk alanı olduğundan emin olmanız gerekir.
+Anlık görüntüler için yerel bir özel kaynak, bulut hizmet rolü yapılandırmak için aşağıdaki adımları izleyin.
 
+1. Yeni bir yerel kaynak, bulut hizmet tanımı (.csdf) dosyasını düzenleyerek, bulut hizmetine ekleyin. Aşağıdaki örnek denilen bir kaynağı tanımlayan `SnapshotStore` 5 GB boyuta sahip.
 ```xml
-<TelemetryProcessors>
-  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-    <!-- Use an alternative folder for minidumps -->
-    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Rolün değiştirme `OnStart` işaret eden bir ortam değişkeni eklemek için yöntemini `SnapshotStore` yerel kaynak.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Tarafından kullanılan geçici klasör konumu geçersiz kılmak için rolün Applicationınsights.config dosyasını güncelleştirme`SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
     </Add>
-</TelemetryProcessors>
+  </TelemetryProcessors>
 ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Anlık görüntüler istisnalar bulmak için Application Insights arama kullanın

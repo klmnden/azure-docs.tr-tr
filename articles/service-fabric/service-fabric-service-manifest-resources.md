@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 01/05/2018
 ms.author: subramar
-ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccfbd03ed6d2cd84f8c2cf789e4fc1e99b1e5bbf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Bir hizmet bildiriminde kaynakları belirtme
 ## <a name="overview"></a>Genel Bakış
@@ -33,6 +33,17 @@ Bir uç nokta kaynağının hizmet bildiriminde tanımlandığında, Service Fab
     <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
     <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
     <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+  </Endpoints>
+</Resources>
+```
+
+Bir tek hizmet paketinde birden fazla kod paketi vardır sonra kod paketi de göndermede bulunulan gerekir **uç noktaları** bölümü.  Örneğin, varsa **ServiceEndpoint2a** ve **ServiceEndpoint2b** farklı kod paketleri, her bitiş noktasıyla ilgili kod paketi başvuran aynı hizmet paketinden uç noktaları olan olan aşağıda açıklanmıştır:
+
+```xml
+<Resources>
+  <Endpoints>
+    <Endpoint Name="ServiceEndpoint2a" Protocol="http" Port="802" CodePackageRef="Code1"/>
+    <Endpoint Name="ServiceEndpoint2b" Protocol="http" Port="801" CodePackageRef="Code2"/>
   </Endpoints>
 </Resources>
 ```

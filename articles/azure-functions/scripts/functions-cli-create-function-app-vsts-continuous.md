@@ -1,32 +1,32 @@
 ---
-title: "Bir işlev uygulaması oluşturma ve Visual Studio Team Services işlevi koddan dağıtma | Microsoft Docs"
+title: "Visual Studio Team Services dağıtılan Azure işlevi oluşturma | Microsoft Docs"
 description: "Bir işlev uygulaması oluşturma ve Visual Studio Team Services işlevi koddan dağıtma"
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Bir uygulama hizmeti oluşturma
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Visual Studio Team Services dağıtılan Azure işlevi oluşturma
 
-Bu senaryoda, kullanan bir işlev uygulaması oluşturmayı öğrenmek [tüketim planı](../functions-scale.md#consumption-plan) ve Visual Studio Team Services (VSTS) depodan sürekli dağıtım ayarlayın. Bu örnek için şunlar gerekir:
+Bu konuda Azure işlevlerinin oluşturmak için nasıl kullanılacağı gösterilmektedir bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) uygulama işlevini kullanarak [tüketim planı](../functions-scale.md#consumption-plan). İşlevlerinizi için bir kapsayıcıdır, işlev uygulaması, bir Visual Studio Team Services (VSTS) depodan sürekli olarak dağıtılır. Bu konuda tamamlamak için şunlara sahip olmalısınız:
 
-* VSTS deposu, yönetici izinlerine sahip işlevleri koda sahip.
-* A [kişisel erişim belirteci (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) GitHub hesabınız için.
+* İşlev uygulaması projenize içeren ve yönetim izinlerine sahip bir VSTS deposu.
+* A [kişisel erişim belirteci (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) VSTS deponuz erişmek için.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI yerel olarak kullanmak isterseniz, Azure CLI Sürüm 2.0 veya sonraki sürümünü çalıştırması gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bunun yerine Azure CLI yerel olarak kullanırsanız, yüklemeniz ve sürüm 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Azure CLI Sürüm belirlemek için çalıştırın `az --version`. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
@@ -38,7 +38,7 @@ Bu örnek bir Azure işlevi uygulamasını oluşturur ve Visual Studio Team Serv
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut, bir kaynak grubu, web uygulaması, documentdb ve tüm ilişkili kaynakları oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut, bir kaynak grubu, depolama hesabı, işlev uygulaması ve tüm ilgili kaynaklar oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
 
 | Komut | Notlar |
 |---|---|

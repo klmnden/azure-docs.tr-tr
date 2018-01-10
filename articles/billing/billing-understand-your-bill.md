@@ -1,5 +1,5 @@
 ---
-title: "Azure için faturanızı anlamak | Microsoft Docs"
+title: "Azure için faturanızı anlamak"
 description: "Okuma ve kullanım ve fatura Azure aboneliğiniz için anlama hakkında bilgi edinin"
 services: 
 documentationcenter: 
@@ -15,17 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-<<<<<<< HEAD
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure faturanızı anlama
 Azure faturasını anlama faturanızı ayrıntılı günlük kullanım dosyasını ve Azure portalında maliyet yönetim raporları ile karşılaştırın.
@@ -40,9 +34,8 @@ Ayrıntılı hüküm ve fatura ve ayrıntılı günlük kullanım dosya açıkla
 Maliyet Yönetimi raporları hakkında daha fazla bilgi için bkz: [Azure portal maliyet Yönetim](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>My fatura ücretlere doğru olup olmadığını nasıl emin?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Daha fazla ayrıntı almak istediğiniz faturanızı üzerinde bir ücret ise, birkaç seçeneğiniz vardır.
 

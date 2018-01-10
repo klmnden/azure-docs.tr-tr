@@ -2,66 +2,70 @@
 title: "Azure Site Recovery ile azure'a şirket içi makineler geçirme | Microsoft Docs"
 description: "Bu makalede, Azure Site Kurtarma'yı kullanarak Azure için şirket içi makineleri geçirmek açıklar."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cfd44f7f06faa7d1d00efa9427dbf5d1d0a89ef1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
-[Azure Site Recovery](site-recovery-overview.md) hizmet yöneten ve çoğaltma, yük devretme ve yeniden çalışma şirket içi makineler ve Azure sanal makineleri (VM'ler) yönetir.
+Kullanmanın yanı sıra [Azure Site Recovery](site-recovery-overview.md) yönetmek ve şirket içi makineler ve Azure Vm'leri olağanüstü durum kurtarma iş devamlılığı ve olağanüstü durum kurtarma (BCDR) amaçları doğrultusunda düzenlemek için hizmet sitesini de kullanabilirsiniz Şirket içi makineleri azure'a geçişini yönetmek için kurtarma.
 
-Bu öğretici, Azure Site Recovery ile şirket içi sanal makineleri ve fiziksel sunucuları geçirmek nasıl gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+
+Bu öğretici, şirket içi sanal makineleri ve fiziksel sunucuları Azure'a geçirmek nasıl gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Dağıtım önkoşulları ayarlama
-> * Site kurtarma için bir kurtarma Hizmetleri kasası oluşturma
-> * Şirket içi yönetim sunucuları dağıtma
-> * Bir çoğaltma ilkesini ayarlayın ve çoğaltmayı etkinleştirme
-> * Çalışma her şeyi emin olmak için bir olağanüstü durum kurtarma ayrıntıya çalışma
+> * Çoğaltma hedefi seçin
+> * Kaynak ve hedef ortamını ayarlama
+> * Bir çoğaltma ilkesini ayarlayın
+> * Çoğaltmayı etkinleştirme
+> * Her şeyin beklendiği gibi çalıştığından emin olmak için bir test geçişi çalıştırma
 > * Azure için tek seferlik bir yük devretmeyi çalıştırma
 
-## <a name="overview"></a>Genel Bakış
+Bir dizi üçüncü öğreticide budur. Bu öğreticinin önceki eğitimlerine görevleri önceden tamamlamış varsayılır:
 
-Çoğaltmayı etkinleştirme ve Azure'a devrederek tarafından bir makineyi geçirin.
+1. [Azure’u hazırlama](tutorial-prepare-azure.md)
+2. Şirket içi hazırlama [VMware](tutorial-prepare-on-premises-vmware.md) veya Hyper-V sunucuları.
+
+Başlamadan önce gözden geçirmek yararlı [VMware](concepts-vmware-to-azure-architecture.md) veya [Hyper-V](concepts-hyper-v-to-azure-architecture.md) mimari olağanüstü durum kurtarma için.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-İşte bu öğretici için yapmanız gerekenler.
-
-- [Hazırlama](tutorial-prepare-azure.md) bir Azure aboneliği, Azure sanal ağı ve bir depolama hesabı gibi Azure kaynakları.
-- [Hazırlama](tutorial-prepare-on-premises-vmware.md) VMware şirket içi VMware sunucularını ve Vm'leri.
-- Paravirtualized sürücüleri tarafından dışarı aktarılan cihazlar desteklenmeyen unutmayın.
+Paravirtualized sürücüleri tarafından dışarı aktarılan cihazlar desteklenmez.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
+1. [Azure Portal](https://portal.azure.com) > **Kurtarma Hizmetleri**’nde oturum açın.
+2. **Yeni** > **İzleme ve Yönetim** > **Backup ve Site Recovery** seçeneğine tıklayın.
+3. İçinde **adı**, kolay ad belirtin **ContosoVMVault**. Birden fazla aboneliğiniz varsa, uygun olanı seçin.
+4. Bir kaynak grubu oluşturmak **ContosoRG**.
+5. Bir Azure bölgesi belirtin. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümündeki coğrafi kullanılabilirlik kısmına bakın.
+6. Kasa panodan hızlı bir şekilde erişmek için tıklatın **panoya Sabitle** ve ardından **oluşturma**.
 
-## <a name="select-a-protection-goal"></a>Koruma hedefi seçin
+   ![Yeni kasa](./media/tutorial-migrate-on-premises-to-azure/onprem-to-azure-vault.png)
+
+Yeni kasa eklenen **Pano** altında **tüm kaynakları**ve ana **kurtarma Hizmetleri kasaları** sayfası.
+
+
+
+## <a name="select-a-replication-goal"></a>Çoğaltma hedefi seçin
 
 Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin.
 1. Tıklatın **kurtarma Hizmetleri kasaları** > kasası.
 2. Kaynak menüye tıklayın **Site Recovery** > **altyapıyı hazırlama** > **koruma hedefi**.
-3. İçinde **koruma hedefi**seçin:
+3. İçinde **koruma hedefi**, geçirmek istediğiniz seçin.
     - **VMware**: seçin **için Azure** > **Evet, VMWare vSphere hiper yönetici ile**.
     - **Fiziksel makine**: seçin **için Azure** > **değil sanallaştırılmış/diğer**.
-    - **Hyper-V**: seçin **Azure'a** > **Evet, Hyper-V ile**.
+    - **Hyper-V**: seçin **Azure'a** > **Evet, Hyper-V ile**. Hyper-V sanal makineleri VMM tarafından yönetiliyorsa seçin **Evet**.
 
 
 ## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
@@ -75,17 +79,21 @@ Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin
 Seçin ve hedef kaynaklarını doğrulayın.
 
 1. **Altyapıyı hazırlama** > **Hedef** seçeneklerine tıklayıp kullanmak istediğiniz Azure aboneliğini seçin.
-2. Hedef dağıtım modelini belirtin.
+2. Resource Manager dağıtım modelini belirtin.
 3. Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağınızın olup olmadığını denetler.
 
-## <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
+## <a name="set-up-a-replication-policy"></a>Bir çoğaltma ilkesini ayarlayın
 
 - [Bir çoğaltma ilkesini ayarlayın](tutorial-vmware-to-azure.md#create-a-replication-policy) VMware VM'ler için.
+- [Bir çoğaltma ilkesini ayarlayın](tutorial-physical-to-azure.md#create-a-replication-policy) fiziksel sunucuları için.
+- [Bir çoğaltma ilkesini ayarlayın](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) Hyper-V sanal makineleri için.
 
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
 - [Çoğaltmayı etkinleştirme](tutorial-vmware-to-azure.md#enable-replication) VMware VM'ler için.
+- [Çoğaltmayı etkinleştirme](tutorial-physical-to-azure.md#enable-replication) fiziksel sunucuları için.
+- [Çoğaltmayı etkinleştirme](tutorial-hyper-v-to-azure.md#enable-replication) Hyper-V sanal makineleri için.
 
 
 ## <a name="run-a-test-migration"></a>Bir test geçişi çalıştırma
@@ -100,7 +108,7 @@ Geçirmek istediğiniz makineler için yük devretme gerçekleştirme.
 1. İçinde **ayarları** > **öğeleri çoğaltılan** makineye tıklayın > **yük devretme**.
 2. İçinde **yük devretme** seçin bir **kurtarma noktası** devretmesini. En son kurtarma noktası seçin.
 3. Şifreleme anahtarı ayarı, bu senaryo için geçerli değildir.
-4. Seçin **yük devretme işlemine başlamadan önce makineyi kapatın** Site Kurtarma'nın bir kapanma kaynak sanal makinelerin yük devretme tetiklemeden yapmaya istiyorsanız. Kapatma başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleyişini izleyin **işleri** sayfası.
+4. Seçin **yük devretme işlemine başlamadan önce makineyi kapatın**. Site Recovery, bir kapanma kaynak sanal makinelerin yük devretme tetiklemeden önce yapın dener. Kapatma başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleyişini izleyin **işleri** sayfası.
 5. Azure VM gibi Azure'da görünüp görünmediğini kontrol edin.
 6. İçinde **öğeleri çoğaltılan**, VM'ye sağ tıklayın > **tam geçiş**. Bu geçiş işlemini tamamlar, sanal makine için çoğaltmayı durdurur ve VM için Site Recovery Faturalaması durdurulur.
 
@@ -108,12 +116,14 @@ Geçirmek istediğiniz makineler için yük devretme gerçekleştirme.
 
 
 > [!WARNING]
-> **Bir yük devretme devam ediyor iptal etme**: yük devretme başlatılmadan önce VM çoğaltma durduruldu. Bir yük devretme devam ediyor, yük devretme durduruyor, iptal ancak VM yeniden çoğaltma olmaz
+> **Bir yük devretme devam ediyor iptal etme**: VM çoğaltma yük devretme başlamadan önce durduruldu. Bir yük devretme devam ediyor, yük devretme durduruyor, iptal ancak VM yeniden çoğaltma olmaz
 
 Bazı senaryolarda, yük devretme tamamlamak için yaklaşık sekiz ile on dakika sürer ek işleme gerektirir. Artık fark edebilirsiniz test fiziksel sunucuları, VMware Linux makineler, DHCP hizmetini etkinleştirir yok VMware Vm'lerini ve aşağıdaki önyükleme sürücüleri yok VMware Vm'leri için yük devretme süreleri: storvsc, vmbus, storflt, Intelide, ATAPI.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+Bu öğreticide Azure VM'ler için şirket içi sanal makineleri geçirildi. Artık Azure VM'ler için olağanüstü durum kurtarma yapılandırabilirsiniz.
+
 > [!div class="nextstepaction"]
-> [Azure VM'ler, Azure geçişten sonra başka bir bölgeye çoğaltılıyor.](site-recovery-azure-to-azure-after-migration.md)
+> [Olağanüstü durum kurtarma ayarlamak](site-recovery-azure-to-azure-after-migration.md) bir şirket içi siteden geçişten sonra Azure VM'ler için.

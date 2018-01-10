@@ -1,6 +1,6 @@
 ---
-title: "IIS günlüklerini günlük analizi | Microsoft Docs"
-description: "Internet Information Services (IIS), günlük dosyalarında günlük analizi tarafından toplanan kullanıcı etkinliği depolar.  Bu makalede, IIS günlüklerini koleksiyonunu ve OMS depoya oluşturdukları kayıtları ayrıntılarını nasıl yapılandırılacağı açıklanmaktadır."
+title: "IIS günlüklerini Azure günlük analizi | Microsoft Docs"
+description: "Internet Information Services (IIS), günlük dosyalarında günlük analizi tarafından toplanan kullanıcı etkinliği depolar.  Bu makalede, IIS günlüklerini koleksiyonunu ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanmaktadır."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="iis-logs-in-log-analytics"></a>IIS günlük analizi günlüğe kaydeder
 Internet Information Services (IIS), günlük dosyalarında günlük analizi tarafından toplanan kullanıcı etkinliği depolar.  

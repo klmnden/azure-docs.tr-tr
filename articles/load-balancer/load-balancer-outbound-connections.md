@@ -3,8 +3,8 @@ title: "Azure'da giden bağlantılar anlama | Microsoft Docs"
 description: "Bu makalede, Azure ortak Internet Hizmetleri ile iletişim kurmak sanal makineleri nasıl sağladığını açıklar."
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Azure’da giden bağlantıları anlama
 
@@ -46,7 +46,7 @@ Kullanabileceğiniz [yük dengeleyici için günlük analizi](load-balancer-moni
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Hiçbir örnek düzeyinde ortak IP adresine sahip yük dengeli VM
 
-Bu senaryoda, VM Azure yük dengeleyici havuzu bir parçasıdır.  VM, kendisine atanmış bir ortak IP adresi yok. Yük Dengeleyici kaynak ortak IP ön uç arka uç havuzu ile bağlamak için bir kural ile yapılandırılmalıdır.  Bu yapılandırma tamamlamazsanız için önceki bölümde açıklandığı gibi davranıştır [hiçbir örnek düzeyinde ortak IP ile tek başına VM](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+Bu senaryoda, VM Azure yük dengeleyici havuzu bir parçasıdır.  VM, kendisine atanmış bir ortak IP adresi yok. Yük Dengeleyici kaynak ortak IP ön uç arka uç havuzu ile arasında bir bağlantı oluşturmak için bir yük dengeleyici kuralı ile yapılandırılmalıdır. Bu yapılandırma tamamlamazsanız için önceki bölümde açıklandığı gibi davranıştır [hiçbir örnek düzeyinde ortak IP ile tek başına VM](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 Yük dengeli VM giden akış oluşturduğunda, Azure ortak yük dengeleyici ön uç genel IP adresine giden akış özel kaynak IP adresi çevirir. Azure kaynak ağ adresi çevirisi (SNAT) bu işlemi gerçekleştirmek için kullanır. Yük dengeleyicinin genel IP adresi kısa ömürlü bağlantı noktaları, VM tarafından kaynaklanan tek tek akışları ayırt etmek için kullanılır. Giden trafik akışları oluşturduğunuzda SNAT kısa ömürlü bağlantı noktaları dinamik olarak ayırır. Bu bağlamda snat Uygulamanız için kullanılan kısa ömürlü bağlantı noktaları SNAT bağlantı noktaları denir.
 

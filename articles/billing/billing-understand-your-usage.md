@@ -1,5 +1,5 @@
 ---
-title: "Azure ayrıntılı kullanımınızı anlamak | Microsoft Docs"
+title: "Azure ayrıntılı kullanımınızı anlamak"
 description: "Okuma ve ayrıntılı kullanımınızı CSV Azure aboneliğiniz için bölümlerini anlama hakkında bilgi edinin"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure ayrıntılı kullanım ücretlerini koşullarınızda anlama 
+
 Ayrıntılı kullanım ücretlerini CSV dosyası geçerli fatura dönemi için günlük ve ölçüm düzeyi kullanım ücretleri içerir. 
 
 Ayrıntılı kullanım dosyanızı almak için bkz: [faturayı ve günlük kullanım verileri faturalama Azure alma](billing-download-azure-invoice-daily-usage-date.md).
@@ -28,15 +29,14 @@ Elektronik tablo uygulamasında açabilirsiniz bir virgülle ayrılmış değerl
 
 Kullanım ücretleri olan toplam **aylık** bir abonelik giderler. Kullanım ücretleri KREDİLERİ veya indirimleri dikkate yok.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Ayrıntılı hüküm ve ayrıntılı kullanım dosyanızın açıklamaları
+
 Aşağıdaki bölümlerde ayrıntılı kullanım dosyasını 2. sürümünü gösterilen önemli terimler açıklanmaktadır.
 
-### <a name="statement"></a>Deyimi
+### <a name="statement"></a>Bildirim
+
 Ayrıntılı kullanım CSV dosyasının üst kısmında ayın fatura döneminde kullanılan hizmetleri gösterir. Aşağıdaki tabloda terimleri ve bu bölümde gösterilen açıklamaları listeler.
 
 | Sözleşme Dönemi | Açıklama |

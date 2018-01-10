@@ -1,5 +1,5 @@
 ---
-title: "En iyi güvenlik uygulamaları, Azure sanal makinesi | Microsoft Docs"
+title: "Azure sanal makinesi en iyi güvenlik uygulamaları"
 description: "Bu makalede, Azure'da bulunan sanal makinelerde kullanılacak en iyi güvenlik uygulamaları çeşitli sağlar."
 services: security
 documentationcenter: na
@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-<<<<<<< HEAD
-ms.openlocfilehash: bfd7208af3252ab69808d09fa7434a2cea7f93a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
-=======
-ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM Güvenlik için en iyi yöntemler
 
@@ -120,7 +114,7 @@ Güvenlik Merkezi, tehditleri için etkin olarak izleyebilir ve olası risklere 
 
 Güvenlik Merkezi Vm'lerinizi Azure içinde bulunan, olası tehditleri tanımlamak nasıl yardımcı olabileceğini anlamak için aşağıdaki videoyu izleyin:
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player]
 
 Güçlü güvenlik tutumunu Vm'leri için zorlamaz kuruluşlar tesis edilmiş güvenlik denetimleri aşmak için olası denemeleri yetkisiz kullanıcılar tarafından farkında kalır.
 

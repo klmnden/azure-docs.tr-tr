@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>R Server ve açık kaynaklı R yetenekleri hdınsight'ta giriş
 
@@ -46,7 +46,7 @@ Erişim için ek Blob ekleme seçeneğiniz vardır ve sağlama işlemi bağıms�
 Aynı zamanda [Azure dosyaları](../../storage/files/storage-how-to-use-files-linux.md) kenar düğümünü kullanmak için bir depolama seçeneği olarak. Azure dosyaları Azure Storage'da Linux dosya sistemine oluşturulmuş bir dosya paylaşımını bağlama olanak sağlar. Hdınsight kümesi R Server için bu veri depolama seçenekleri hakkında daha fazla bilgi için bkz: [Azure depolama seçenekleri hdınsight'ta R Server kümeleri için](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Erişim R Server kümede
-R sunucuya bir tarayıcı kullanarak kenar düğümüne bağlanabilirsiniz. Küme oluşturma sırasında varsayılan olarak yüklenir. Daha fazla bilgi için bkz: [hdınsight'ta R Server ile stared](r-server-get-started.md).
+R sunucuya bir tarayıcı kullanarak kenar düğümüne bağlanabilirsiniz. Küme oluşturma sırasında varsayılan olarak yüklenir. Daha fazla bilgi için bkz: [hdınsight'ta R Server kullanmaya başlama](r-server-get-started.md).
 
 Ayrıca, R Server R konsoluna erişmek için SSH/PuTTY kullanarak komut satırı bağlanabilir. 
 

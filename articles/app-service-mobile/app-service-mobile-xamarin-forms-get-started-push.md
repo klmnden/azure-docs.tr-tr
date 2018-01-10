@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 124c36063482aa3b36844104c0b83b8a6e9598cb
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9c7d56b19a72ec82ff834929790e5049b9369797
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms uygulamanıza anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -49,221 +49,154 @@ Android için Xamarin.Forms Android projesi için anında iletme bildirimleri et
 ### <a name="add-push-notifications-to-the-android-project"></a>Android projesine anında iletme bildirimleri ekleme
 Arka uç FCM ile yapılandırılmış FCM ile kaydetmek için istemciye bileşenleri ve kodları ekleyebilirsiniz. Mobile Apps arka ucu aracılığıyla Azure Notification Hubs ile anında iletme bildirimleri için kaydolun ve bildirim alırsınız.
 
-1. İçinde **Droid** projesinde **bileşenleri** klasörü ve tıklatın **daha almak bileşenleri...** . İçin arama **Google Cloud Messaging istemcisi** bileşeni ve bunu projeye ekleyin. Bu bileşen, bir Xamarin Android projesi için anında iletme bildirimleri destekler.
-2. MainActivity.cs proje dosyasını açın ve dosyanın üst kısmında aşağıdaki deyimini ekleyin:
+1. İçinde **Droid** projesinde **başvuruları > NuGet paketlerini Yönet...** .
+1. NuGet Paket Yöneticisi penceresinde arama **Xamarin.Firebase.Messaging** paketini ve bunu projeye ekleyin.
+1. İçin proje properies içinde **Droid** proje, Android sürüm 7.0 veya üzeri kullanarak derlemek için uygulamayı Ayarla.
+1. Ekleme **google services.json** Firebase konsolundan köküne karşıdan dosya **Droid** proje ve yapı eylemi kümesine **GoogleServicesJson**. Daha fazla bilgi için bkz: [Google Hizmetleri JSON dosyası ekleme](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/#Add_the_Google_Services_JSON_File).
 
-        using Gcm.Client;
-3. Aşağıdaki kodu ekleyin **OnCreate** yöntemini çağırdıktan sonra **LoadApplication**:
+#### <a name="registering-with-firebase-cloud-messaging"></a>Firebase ile kaydetme bulut Mesajlaşma
 
-        try
+1. Açık **AndroidManifest.xml** dosya ve aşağıdaki Ekle `<receiver>` elemanlara `<application>` öğe:
+
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
+          </intent-filter>
+        </receiver>
+
+#### <a name="implementing-the-firebase-instance-id-service"></a>Firebase örnek kimliği hizmeti uygulama
+
+1. Yeni bir sınıf ekleyin **Droid** adlı projesi `FirebaseRegistrationService`, emin olun aşağıdaki `using` deyimleri mevcut dosyanın üst kısmında:
+
+        using System.Threading.Tasks;
+        using Android.App;
+        using Android.Util;
+        using Firebase.Iid;
+        using Microsoft.WindowsAzure.MobileServices;
+
+1. Boş Değiştir `FirebaseRegistrationService` aşağıdaki kodla sınıfı:
+
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
+        public class FirebaseRegistrationService : FirebaseInstanceIdService
         {
-            // Check to ensure everything's set up right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
+            const string TAG = "FirebaseRegistrationService";
 
-            // Register for push notifications
-            System.Diagnostics.Debug.WriteLine("Registering...");
-            GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
-        }
-        catch (Java.Net.MalformedURLException)
-        {
-            CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
-        }
-        catch (Exception e)
-        {
-            CreateAndShowDialog(e.Message, "Error");
-        }
-4. Yeni bir ekleme **CreateAndShowDialog** yardımcı yöntemi, aşağıdaki gibi:
-
-        private void CreateAndShowDialog(String message, String title)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.SetMessage (message);
-            builder.SetTitle (title);
-            builder.Create().Show ();
-        }
-5. Aşağıdaki kodu ekleyin **MainActivity** sınıfı:
-
-        // Create a new instance field for this activity.
-        static MainActivity instance = null;
-
-        // Return the current activity instance.
-        public static MainActivity CurrentActivity
-        {
-            get
+            public override void OnTokenRefresh()
             {
-                return instance;
+                var refreshedToken = FirebaseInstanceId.Instance.Token;
+                Log.Debug(TAG, "Refreshed token: " + refreshedToken);
+                SendRegistrationTokenToAzureNotificationHub(refreshedToken);
+            }
+
+            void SendRegistrationTokenToAzureNotificationHub(string token)
+            {
+                // Update notification hub registration
+                Task.Run(async () =>
+                {
+                    await AzureNotificationHubService.RegisterAsync(TodoItemManager.DefaultManager.CurrentClient.GetPush(), token);
+                });
             }
         }
 
-    Bu geçerli sunan **MainActivity** örnek biz ana kullanıcı Arabirimi iş parçacığı üzerinde çalıştırabilirsiniz.
-6. Initialize `instance` başındaki değişken **OnCreate** şekilde yöntemi.
+    `FirebaseRegistrationService` Sınıftır FCM erişmek için uygulamayı yetkilendirmeniz güvenlik belirteçleri oluşturmak için sorumlu. `OnTokenRefresh` Yöntemi uygulama kaydı belirteci FCM aldığında çağrılır. Belirteçten yöntemi alır `FirebaseInstanceId.Instance.Token` tarafından FCM zaman uyumsuz olarak güncelleştirilen özelliği. `OnTokenRefresh` Yöntemi seyrek çağrılır, uygulamanın yüklenmesi veya kaldırılması uygulama örnek kimliği siler, kullanıcı uygulama verileri sildiğinde, belirteç yalnızca güncelleştirildiğinden ya da güvenlik belirtecinin bırakıldı güvenliği aşılmış. Ayrıca, uygulamanın kendi belirtecini düzenli aralıklarla, genellikle 6 ayda yenileme FCM örnek kimliği hizmet ister.
 
-        // Set the current instance of MainActivity.
-        instance = this;
-7. Yeni bir sınıf dosyası ekleyin **Droid** adlı projesi `GcmService.cs`ve aşağıdakilerden emin olun **kullanarak** deyimleri mevcut dosyanın üst kısmında:
+    `OnTokenRefresh` Yöntemini de çağırır `SendRegistrationTokenToAzureNotificationHub` Azure bildirim Hub'ıyla kullanıcının kayıt belirtecini ilişkilendirmek için kullanılan yöntem.
+
+#### <a name="registering-with-the-azure-notification-hub"></a>Azure bildirim hub'ı ile kaydetme
+
+1. Yeni bir sınıf ekleyin **Droid** adlı projesi `AzureNotificationHubService`, emin olun aşağıdaki `using` deyimleri mevcut dosyanın üst kısmında:
+
+        using System;
+        using System.Threading.Tasks;
+        using Android.Util;
+        using Microsoft.WindowsAzure.MobileServices;
+        using Newtonsoft.Json.Linq;
+
+1. Boş Değiştir `AzureNotificationHubService` aşağıdaki kodla sınıfı:
+
+        public class AzureNotificationHubService
+        {
+            const string TAG = "AzureNotificationHubService";
+
+            public static async Task RegisterAsync(Push push, string token)
+            {
+                try
+                {
+                    const string templateBody = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+                    JObject templates = new JObject();
+                    templates["genericMessage"] = new JObject
+                    {
+                        {"body", templateBody}
+                    };
+
+                    await push.RegisterAsync(token, templates);
+                    Log.Info("Push Installation Id: ", push.InstallationId.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(TAG, "Could not register with Notification Hub: " + ex.Message);
+                }
+            }
+        }
+
+    `RegisterAsync` Yöntemi, JSON ve kayıtları Firebase kayıt belirteci kullanarak bildirim hub'ından, şablon bildirimleri almak için bir basit bildirim iletisi şablonu oluşturur. Bu, Azure bildirim Hub'ından gönderilen bildirimlere kayıt belirtecinizi tarafından temsil edilen aygıt hedeflediğini sağlar.
+
+#### <a name="displaying-the-contents-of-a-push-notification"></a>Anında iletme bildirimi içeriğini görüntüleme
+
+1. Yeni bir sınıf ekleyin **Droid** adlı projesi `FirebaseNotificationService`, emin olun aşağıdaki `using` deyimleri mevcut dosyanın üst kısmında:
 
         using Android.App;
         using Android.Content;
         using Android.Media;
-        using Android.Support.V4.App;
         using Android.Util;
-        using Gcm.Client;
-        using Microsoft.WindowsAzure.MobileServices;
-        using Newtonsoft.Json.Linq;
-        using System;
-        using System.Collections.Generic;
-        using System.Diagnostics;
-        using System.Text;
-8. Dosyanın üst aşağıdaki izin isteklerini ekleyin **kullanarak** deyimleri ve önce **ad alanı** bildirimi.
+        using Firebase.Messaging;
 
-        [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-        [assembly: UsesPermission(Name = "android.permission.INTERNET")]
-        [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-        //GET_ACCOUNTS is only needed for android versions 4.0.3 and below
-        [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
-9. Aşağıdaki sınıf tanımını ad alanına ekleyin.
+1. Boş Değiştir `FirebaseNotificationService` aşağıdaki kodla sınıfı:
 
-       [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-       {
-           public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
-       }
-
-   > [!NOTE]
-   > Değiştir **< PROJECT_NUMBER >** not ettiğiniz daha önce proje numarası ile.    
-   >
-   >
-10. Boş Değiştir **GcmService** yeni yayın alıcı kullanır aşağıdaki kod ile sınıfı:
-
-         [Service]
-         public class GcmService : GcmServiceBase
-         {
-             public static string RegistrationID { get; private set; }
-
-             public GcmService()
-                 : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
-         }
-11. Aşağıdaki kodu ekleyin **GcmService** sınıfı. Bu geçersiz kılmaları **OnRegistered** olay işleyicisi ve uygulayan bir **kaydetmek** yöntemi.
-
-        protected override void OnRegistered(Context context, string registrationId)
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+        public class FirebaseNotificationService : FirebaseMessagingService
         {
-            Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
-            RegistrationID = registrationId;
+            const string TAG = "FirebaseNotificationService";
 
-            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-
-            MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-        }
-
-        public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
-        {
-            try
+            public override void OnMessageReceived(RemoteMessage message)
             {
-                const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+                Log.Debug(TAG, "From: " + message.From);
 
-                JObject templates = new JObject();
-                templates["genericMessage"] = new JObject
-                {
-                    {"body", templateBodyGCM}
-                };
+                // Pull message body out of the template
+                var messageBody = message.Data["message"];
+                if (string.IsNullOrWhiteSpace(messageBody))
+                    return;
 
-                await push.RegisterAsync(RegistrationID, templates);
-                Log.Info("Push Installation Id", push.InstallationId.ToString());
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-                Debugger.Break();
-            }
-        }
-
-    Bu kodu kullanır Not `messageParam` şablonu kayıt parametresi.
-12. Uygulayan aşağıdaki kodu ekleyin **Onmessageoptions**:
-
-        protected override void OnMessage(Context context, Intent intent)
-        {
-            Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
-
-            var msg = new StringBuilder();
-
-            if (intent != null && intent.Extras != null)
-            {
-                foreach (var key in intent.Extras.KeySet())
-                    msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
+                Log.Debug(TAG, "Notification message body: " + messageBody);
+                SendNotification(messageBody);
             }
 
-            //Store the message
-            var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
-            var edit = prefs.Edit();
-            edit.PutString("last_msg", msg.ToString());
-            edit.Commit();
-
-            string message = intent.Extras.GetString("message");
-            if (!string.IsNullOrEmpty(message))
+            void SendNotification(string messageBody)
             {
-                createNotification("New todo item!", "Todo item: " + message);
-                return;
-            }
+                var intent = new Intent(this, typeof(MainActivity));
+                intent.AddFlags(ActivityFlags.ClearTop);
+                var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-            string msg2 = intent.Extras.GetString("msg");
-            if (!string.IsNullOrEmpty(msg2))
-            {
-                createNotification("New hub message!", msg2);
-                return;
-            }
-
-            createNotification("Unknown message details", msg.ToString());
-        }
-
-        void createNotification(string title, string desc)
-        {
-            //Create notification
-            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-
-            //Create an intent to show ui
-            var uiIntent = new Intent(this, typeof(MainActivity));
-
-            //Use Notification Builder
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-
-            //Create the notification
-            //we use the pending intent, passing our ui intent over which will get called
-            //when the notification is tapped.
-            var notification = builder.SetContentIntent(PendingIntent.GetActivity(this, 0, uiIntent, 0))
-                    .SetSmallIcon(Android.Resource.Drawable.SymActionEmail)
-                    .SetTicker(title)
-                    .SetContentTitle(title)
-                    .SetContentText(desc)
-
-                    //Set the notification sound
+                var notificationBuilder = new Notification.Builder(this)
+                    .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
+                    .SetContentTitle("New Todo Item")
+                    .SetContentText(messageBody)
+                    .SetContentIntent(pendingIntent)
                     .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
+                    .SetAutoCancel(true);
 
-                    //Auto cancel will remove the notification once the user touches it
-                    .SetAutoCancel(true).Build();
-
-            //Show the notification
-            notificationManager.Notify(1, notification);
+                var notificationManager = NotificationManager.FromContext(this);
+                notificationManager.Notify(0, notificationBuilder.Build());
+            }
         }
 
-    Bu gelen bildirimlerini işleme ve görüntülenecek bildirim Yöneticisi gönderir.
-13. **GcmServiceBase** uygulamak gerektiren **OnUnRegistered** ve **OnError** şu şekilde yapabilirsiniz işleyici yöntemleri:
 
-        protected override void OnUnRegistered(Context context, string registrationId)
-        {
-            Log.Error("PushHandlerBroadcastReceiver", "Unregistered RegisterationId : " + registrationId);
-        }
-
-        protected override void OnError(Context context, string errorId)
-        {
-            Log.Error("PushHandlerBroadcastReceiver", "GCM Error: " + errorId);
-        }
+    `OnMessageReceived` Bir uygulama FCM bir bildirim aldığında çağrılır, yöntemi, içerik ileti ayıklar ve çağırır `SendNotification` yöntemi. Bu yöntem uygulama çalışırken bildirim alanında görünen bildirim başlatılır yerel bir bildirim iletisi içeriği dönüştürür.
 
 Artık, bir Android cihaz veya öykünücü üzerinde çalışan uygulama hazır test anında iletme bildirimleri bulunur.
 
@@ -418,6 +351,9 @@ Bu bölüm Windows cihazları için WinPhone81 projeleri ve Xamarin.Forms WinApp
 ## <a name="next-steps"></a>Sonraki adımlar
 Anında iletme bildirimleri hakkında daha fazla bilgi edinebilirsiniz:
 
+* [Azure Mobile Apps anında iletme bildirimleri gönderme](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)
+* [Firebase bulut Mesajlaşma](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
+* [İleti Firebase ile uzaktan bildirimleri bulut](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [Anında iletme bildirimi sorunlarını tanılamak](../notification-hubs/notification-hubs-push-notification-fixer.md)  
   Neden bildirimleri bırakılan veya cihazlarda bitmeyen çeşitli nedenleri vardır. Bu konuda çözümlemek ve anında iletme bildirimi hataları kök nedenini anlamak nasıl gösterilmektedir.
 

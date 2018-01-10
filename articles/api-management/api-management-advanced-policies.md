@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="api-management-advanced-policies"></a>API Management ilkeleri Gelişmiş
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -383,7 +383,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|--------------|  
 |Durum kodu|Yanıt durum kodu belirtir ve karşılık gelen örnek veya şema seçmek için kullanılır.|Hayır|200|  
-|içerik türü|Belirtir `Content-Type` yanıt üstbilgi değeri ve karşılık gelen örnek veya şema seçmek için kullanılır.|Hayır|None|  
+|içerik türü|Belirtir `Content-Type` yanıt üstbilgi değeri ve karşılık gelen örnek veya şema seçmek için kullanılır.|Hayır|Hiçbiri|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -412,7 +412,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>Örnek  
- Aşağıdaki örnek istekte forewarding kadar denenir on kez üstel kullanarak yeniden algoritması. Bu yana `first-fast-retry` yanlış olarak tüm denemeleri olan tabi exponsntial yeniden deneme algoritması ayarlanmadı.  
+ Aşağıdaki örnekte, on kez üstel yeniden deneme algoritması kullanılarak en fazla istek iletme denenir. Bu yana `first-fast-retry` yanlış olarak tüm denemeleri olan tabi üstel yeniden deneme algoritması ayarlanmadı.  
   
 ```xml  
   

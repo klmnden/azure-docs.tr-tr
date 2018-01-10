@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 855a03c504667b7141b51ce0470b66a5297c0583
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 5a4fc57606b0cf09f8d20710e3c83637283014ba
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure işlevleri C# betik (.csx) Geliştirici Başvurusu
 
@@ -436,7 +436,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 
 ### <a name="single-attribute-example"></a>Tek öznitelik örneği
 
-Aşağıdaki kod örneği oluşturur bir [depolama blobu çıktı bağlama](functions-bindings-storage-blob.md#input--output) blob ile çalışma zamanında tanımlanan yol sonra Yazar bir dize için blob.
+Aşağıdaki kod örneği oluşturur bir [depolama blobu çıktı bağlama](functions-bindings-storage-blob.md#output) blob ile çalışma zamanında tanımlanan yol sonra Yazar bir dize için blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;

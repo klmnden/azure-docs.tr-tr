@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Ağ ve uygulama güvenlik grupları (Önizleme) ile ağ trafiği filtreleme
 
@@ -31,7 +31,7 @@ Aşağıdaki bölümlerde, güvenlik grupları Azure komut satırı arabirimini 
 Bu makale, ağ güvenlik grupları ağ güvenlik grupları oluştururken kullanmanızı öneririz dağıtım modeli Resource Manager dağıtım modeli üzerinden oluşturmak için adımları sağlar. Bir ağ güvenlik grubu (Klasik) oluşturmak ihtiyacınız varsa bkz [bir ağ güvenlik grubu (Klasik) oluşturun](virtual-networks-create-nsg-classic-ps.md). Azure'nın dağıtım modeliyle bilmiyorsanız bkz [anlamak Azure dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> Bu öğretici, şu anda Önizleme sürümünde olan ağ güvenlik grubu özelliklerini kullanır. Önizleme sürümü özellikleri aynı kullanılabilirlik ve güvenilirlik genel yayın özellikleri olarak yok. Önizleme sırasında özellikler yalnızca aşağıdaki bölgelerde kullanılabilir: WestCentralUS. Ağ güvenlik grupları yalnızca özellikleri genel kullanarak sürüm uygulamak isterseniz bkz [bir ağ güvenlik grubu oluşturun](virtual-networks-create-nsg-arm-pportal.md). 
+> Bu öğretici, şu anda Önizleme sürümünde olan ağ güvenlik grubu özelliklerini kullanır. Önizleme sürümü özellikleri aynı kullanılabilirlik ve güvenilirlik genel yayın özellikleri olarak yok. Ağ güvenlik grupları yalnızca özellikleri genel kullanarak sürüm uygulamak isterseniz bkz [bir ağ güvenlik grubu oluşturun](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## <a name="azure-cli"></a>Azure CLI
 

@@ -1,22 +1,22 @@
 ---
-title: "Bir işlev uygulaması oluşturma ve işlev kodu github'dan dağıtma | Microsoft Docs"
-description: "Bir işlev uygulaması oluşturma ve işlev kodu github'dan dağıtma"
+title: "Github'dan dağıtılan Azure işlevi oluşturma | Microsoft Docs"
+description: "Bir işlev uygulaması oluşturma ve Azure işlevleri kullanarak bir GitHub deposuna işlevi koddan dağıtın."
 services: functions
 ms.service: functions
 keywords: 
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 8b148651d041bbc27e2deccec57b1759ce0095d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4224bc7973cd1e3ca36799db9f23a124fcba807
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Bir uygulama hizmeti oluşturma
+# <a name="create-a-function-in-azure-that-is-deployed-from-github"></a>Github'dan dağıtılan Azure işlevi oluşturma
 
 Bu örnek komut dosyası kullanarak bir işlev uygulaması oluşturur [tüketim planı](../functions-scale.md#consumption-plan) ile ilgili kaynaklarını ve sürekli olarak GitHub deposunu işlevi kodunuzdan dağıtır. Bu örnekte, aşağıdakiler gerekir:
 
@@ -27,7 +27,7 @@ Bu örnek komut dosyası kullanarak bir işlev uygulaması oluşturur [tüketim 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bunun yerine Azure CLI yerel olarak kullanırsanız, yüklemeniz ve sürüm 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Azure CLI Sürüm belirlemek için çalıştırın `az --version`. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
@@ -39,7 +39,7 @@ Bu örnek bir Azure işlevi uygulamasını oluşturur ve işlev kodu github'dan 
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Komut belirli belgeleri tablo bağlanan her komut. Bu komut dosyasını aşağıdaki kullanır:
+Komut belirli belgeleri tablo bağlanan her komut. Bu komut dosyasını aşağıdaki komutları kullanır:
 
 | Komut | Notlar |
 |---|---|

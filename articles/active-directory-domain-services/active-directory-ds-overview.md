@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c00d324adfc1b71d436cb017214af98ff3002cf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) etki alanı Hizmetleri
 ## <a name="overview"></a>Genel Bakış
@@ -37,15 +37,17 @@ Bu yaklaşım, yüksek maliyet ve yönetim yükünü yaşar. Yöneticiler, Azure
 Biz Azure AD etki alanı Hizmetleri kolay alternatif sağlamak için tasarlanmıştır.
 
 ### <a name="watch-an-introductory-video"></a>Bir tanıtım videosunu izleyin
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
 
+>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
 ## <a name="introducing-azure-ad-domain-services"></a>Azure AD etki alanı hizmetlerine giriş
+
 Azure AD etki alanı Hizmetleri yönetilen etki alanı Hizmetleri gibi etki alanına katılma, Windows Server Active Directory ile tamamen uyumlu Grup İlkesi, LDAP, Kerberos/NTLM kimlik doğrulaması sağlar. Bu etki alanı Hizmetleri, dağıtmak, yönetmek ve etki alanı denetleyicileri bulutta düzeltme eki gerek kalmadan kullanabilir. Azure AD etki alanı Hizmetleri, böylece kullanıcılar şirket kimlik bilgilerini kullanarak oturum açması için olası yapma, mevcut Azure AD kiracısı ile tümleşir. Ayrıca, bu nedenle bir sorunsuz 'yükseltme-ve-shift' şirket içi kaynaklar Azure altyapı hizmetleri sağlama kaynaklarına erişim güvenliğini sağlamak için var olan grupları ve kullanıcı hesaplarını kullanabilirsiniz.
 
 Azure AD kiracınıza yalnızca Bulut veya şirket içi Active Directory ile eşitlenmiş olduğuna bakılmaksızın Azure AD etki alanı hizmetleri işlevleri sorunsuz çalışır.
 
 ### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>Yalnızca bulut kuruluşlar için Azure AD etki alanı Hizmetleri
+
 Yalnızca bulutta Azure AD kiracısı (genellikle 'yönetilen kiracılar' adlandırılır), tüm şirket içi kimlik ayak izini sahip değil. Diğer bir deyişle, kullanıcı hesaplarını, parolaları ve grup üyeliklerini tüm yerel buluta - diğer bir deyişle, oluşturulur ve Azure AD içinde yönetilir. Bir süre Contoso salt bulut olduğunu göz önünde bulundurun Azure AD kiracısı. Aşağıdaki çizimde gösterildiği gibi Contoso'nun yönetici Azure altyapı Hizmetleri'nde bir sanal ağ yapılandırdı. Uygulamaları ve sunucu iş yükleri, bu sanal ağ Azure sanal makinelerde dağıtılır. Contoso bir yalnızca bulut Kiracı olduğundan, tüm kullanıcı kimlikleri, kimlik bilgileri ve grup üyeliklerini oluşturulur ve Azure AD içinde yönetilir.
 
 ![Azure AD etki alanı hizmetleri genel bakış](./media/active-directory-domain-services-overview/aadds-overview.png)

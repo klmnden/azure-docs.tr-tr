@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure yedekleme verileri azure'a ilk tam yedeklemesi sırasında ağ ve depolama maliyet tasarrufu birkaç yerleşik verimliliği sahiptir. İlk tam yedekleme tipik olarak büyük miktarlarda veri aktarır ve yalnızca farkları/incrementals aktarım sonraki yedeklemeleri karşılaştırıldığında daha fazla ağ bant genişliği gerektirir. Azure yedekleme ilk yedekleme sıkıştırır. Çevrimdışı dengeli sürecinde, Azure yedekleme disklerini sıkıştırılmış ilk yedek verileri çevrimdışı Azure'a yüklemek için kullanabilirsiniz.  
@@ -46,7 +46,7 @@ Azure yedekleme veri yükleme tamamlandıktan sonra Azure Backup yedekleme veril
   * Bir Azure yedekleme kasası oluşturuldu.
   * İndirilen kasa kimlik bilgileri.
   * Azure Backup aracısını Windows Server/Windows istemci veya System Center Data Protection Manager sunucu üzerinde yüklü ve bilgisayar Azure yedekleme kasasına kayıtlı.
-* [Dosya Azure yayımlama ayarları indirme](https://manage.windowsazure.com/publishsettings) içinden planladığınız geri verilerinizi bilgisayarda.
+* [Dosya Azure yayımlama ayarları indirme](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) içinden planladığınız geri verilerinizi bilgisayarda.
 * Bir ağ paylaşımına veya bilgisayarda ek sürücüye olabilir bir hazırlama konumu hazırlayın. Hazırlama konumu geçici depolama ve geçici olarak bu iş akışı sırasında kullanılır. Hazırlama konumuna ilk kopyanızı tutmak için yeterli disk alanı olduğundan emin olun. Örneğin, 500 GB dosya sunucusunu yedeklemek çalışıyorsanız, hazırlama alanı en az 500 GB olduğundan emin olun. (Daha küçük miktarda sıkıştırma nedeniyle kullanılır.)
 * Desteklenen bir sürücü kullandığınızdan emin olun. Yalnızca 2,5 inç SSD veya 2.5 veya 3,5 inç SATA II/III dahili sabit sürücüler içeri/dışarı aktarma hizmeti ile kullanım için desteklenir. Sabit disk sürücüleri kullanan 10 TB'a kadar. Denetleme [Azure içeri/dışarı aktarma hizmeti belgeleri](../storage/common/storage-import-export-service.md#hard-disk-drives) hizmetini destekleyen sürücüler son kümesi için.
 * BitLocker SATA sürücü yazan bağlandığı bilgisayarda etkinleştirin.
@@ -67,7 +67,7 @@ Bu bölümdeki bilgiler, verilerinizi Azure veri merkezi için teslim ve Azure d
 
     * **Hazırlama konumu**: ilk yedek kopyanın yazılır geçici depolama konumu. Bu, bir ağ paylaşımına veya yerel bilgisayarda olabilir. Kaynak bilgisayar ve kopya bilgisayar farklıysa, hazırlama konumu tam ağ yolunu belirtin önerilir.
     * **Azure içeri aktarma iş adı**: hangi Azure alma tarafından hizmet ve Azure yedekleme izlemek gönderilen veri aktarımını disklerde Azure için benzersiz bir ad.
-    * **Azure yayımlama ayarları**: Abonelik profilinizi hakkında bilgi içeren bir XML dosyası. Ayrıca, aboneliğinizle ilişkili güvenli kimlik bilgileri içerir. Yapabilecekleriniz [dosya indirme](https://manage.windowsazure.com/publishsettings). Yayımlama ayarları dosyası yerel yolu sağlar.
+    * **Azure yayımlama ayarları**: Abonelik profilinizi hakkında bilgi içeren bir XML dosyası. Ayrıca, aboneliğinizle ilişkili güvenli kimlik bilgileri içerir. Yapabilecekleriniz [dosya indirme](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Yayımlama ayarları dosyası yerel yolu sağlar.
     * **Azure abonelik kimliği**: Azure Alma işinin başlatmak planladığınız abonelik için Azure abonelik kimliği. Birden çok Azure aboneliğiniz varsa, içe aktarma işi ile ilişkilendirmek istediğiniz abonelik Kimliğini kullanın.
     * **Azure depolama hesabı**: Azure içe aktarma işi ile ilişkili Azure abonelik depolama hesabında.
     * **Azure depolama kapsayıcısının**: Bu işin veriler alınırken burada Azure depolama hesabındaki hedef depolama blob adı.

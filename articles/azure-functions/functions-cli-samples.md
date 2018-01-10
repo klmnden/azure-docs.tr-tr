@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
-ms.date: 04/11/2017
+ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8c2f0cb27e6e06f70018b7acae7ea5ff7f728d98
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cli-samples"></a>Azure CLI örnekleri
 
@@ -34,12 +34,17 @@ Aşağıdaki tabloda Azure işlevleri için Azure CLI kullanma betikleri bash ba
 | | |
 |**Tümleştirme**||
 | [Bir işlev uygulaması oluşturma ve bir depolama hesabına bağlanma](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Bir işlev uygulaması oluşturma ve bir depolama hesabına bağlanın. |
-| [Bir işlev uygulaması oluşturma ve bir Azure Cosmos Veritabanına bağlanın](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Bir işlev uygulaması oluşturma ve bir Azure Cosmos Veritabanına bağlanın |
+| [Bir işlev uygulaması oluşturma ve bir Azure Cosmos Veritabanına bağlanın](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Bir işlev uygulaması oluşturma ve bir Azure Cosmos Veritabanına bağlanın. |
+| | |
+|**Sürekli dağıtım**||
+| [Github'dan dağıtma](scripts/functions-cli-create-function-app-github-continuous.md) | Github'da depodan dağıtan bir işlev uygulaması oluşturun.  |
+| [VSTS dağıtma](scripts/functions-cli-create-function-app-vsts-continuous.md) | Visual Studio Team Services (VSTS) depodan dağıtan bir işlev uygulaması oluşturun.  |
 | | |
 |**Uygulamayı yapılandırma**||
 | [Eşlemesi bir işlev uygulaması için özel bir etki alanı](scripts/functions-cli-configure-custom-domain.md) | İşlevlerinizi için özel bir etki alanı tanımlayın.  |
 | [Bir işlev uygulaması için bir SSL sertifikası bağlama](scripts/functions-cli-configure-ssl-certificate.md)  |  Özel bir etki alanında işlevleri için SSL sertifikaları karşıya yükleyin. |
-<!--
+
+<!---
 
 |**Scale app**||
 

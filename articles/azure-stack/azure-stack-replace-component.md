@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Bir Azure yığın ölçek birimi düğümünde bir donanım bileşeni Değiştir
 
@@ -55,6 +55,10 @@ Azure yığın sistem durumunu ve izleme sistemi ağ bağdaştırıcıları ve v
 Aşağıdaki adımlar bileşeni değiştirme işlemi üst düzey bir genel bakış sağlar. OEM tarafından sağlanan FRU belgelerinize bakarak olmadan adımları izlemeyin.
 
 1. Kullanım [boşaltma](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü bakım moduna eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
+
+   > [!NOTE]
+   > Herhangi bir durumda, yalnızca tek bir düğüme boşaltmış ve değiştirebilirsiniz aynı anda S2D bozmadan kapalı (depolama alanları doğrudan).
+
 2. Ölçek birimi düğüm bakım modunda olduğunda kullanın [kapatmak](azure-stack-node-actions.md#scale-unit-node-actions) eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
  
    > [!NOTE]

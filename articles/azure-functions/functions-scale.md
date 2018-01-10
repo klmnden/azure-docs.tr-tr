@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevleri ölçek ve barındırma
 
@@ -97,7 +97,7 @@ Barındırma planı tüketimini kullandığınızda işlevi kod dosyaları Azure
 > [!NOTE]
 > Tüketim plan üzerinde bir blob tetikleyici kullanırken olabilir en fazla 10 dakikalık bir gecikmeyle bir işlev uygulaması boşta geçti, yeni BLOB'lar işleme. İşlev uygulaması çalışmaya başladıktan sonra BLOB'ları hemen işlenir. Bu ilk gecikmeyi önlemek için aşağıdaki seçeneklerden birini göz önünde bulundurun:
 > - Always On özellikli ile bir uygulama hizmeti planınız işlev uygulaması barındırır.
-> - Başka bir mekanizma, bir olay kılavuz abonelik veya blob adı içeren bir kuyruk iletisi gibi işleme blob tetiklemek için kullanın. Bir örnek için bkz: [C# betiği ve JavaScript örnek blob'a giriş ve bağlamaları çıkış](functions-bindings-storage-blob.md#input--output---example).
+> - Başka bir mekanizma, bir olay kılavuz abonelik veya blob adı içeren bir kuyruk iletisi gibi işleme blob tetiklemek için kullanın. Bir örnek için bkz: [örnekler blob için girişi bağlamayı](functions-bindings-storage-blob.md#input---example).
 
 ### <a name="runtime-scaling"></a>Çalışma zamanı ölçeklendirme
 

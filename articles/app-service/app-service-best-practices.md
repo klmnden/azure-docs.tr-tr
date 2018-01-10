@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 1a36c11fcce33c0148fa7d0a4e947a9cc37cd276
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure Uygulama Hizmeti için En İyi Uygulamalar
 Bu makalede kullanmak için en iyi uygulamalar özetlenmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -35,9 +35,9 @@ Birlikte bulundurma aynı bölgede bir web uygulaması ve içerik veya verileri 
 Ne zaman fark uygulama izleme aracılığıyla belirtildiği gibi beklenenden daha fazla bellek kullanır veya hizmet önerileri göz önünde bulundurun [uygulama hizmeti otomatik düzeltme özelliği](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Otomatik Düzeltme özelliği için seçeneklerden birini bir bellek eşiğine dayalı özel eylemler sürüyor. Eylemler, çalışan işlem geri dönüştürme üzerindeki--nokta azaltma için bellek dökümü aracılığıyla araştırma için gelen e-posta bildirimleri spektrumun span. Otomatik Düzeltme yapılandırılabilir web.config aracılığıyla ve kolay bir kullanıcı arabirimi aracılığıyla için bu Web günlüğü gönderisinde bölümünde anlatıldığı gibi [App Service destek Site uzantısı](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
 
 ## <a name="CPUresources"></a>Ne zaman uygulamaları beklenenden daha fazla CPU kullanır
-Ne zaman bir uygulama beklenen veya karşılaştığında olandan daha fazla CPU kullanan fark CPU ani izleme aracılığıyla belirtildiği şekilde yinelenen veya ölçeklendirmeyi veya uygulama hizmeti planı kullanıma ölçeklendirme hizmet önerileri göz önünde bulundurun. Uygulamanızı statefull uygulamanız ise durum bilgisiz, ölçekleme çıkış size daha fazla esneklik ve daha yüksek ölçek olası verecektir sırada ölçeklendirmeyi tek seçenek ise. 
+Ne zaman bir uygulama beklenen veya karşılaştığında olandan daha fazla CPU kullanan fark CPU ani izleme aracılığıyla belirtildiği şekilde yinelenen veya ölçeklendirmeyi veya uygulama hizmeti planı kullanıma ölçeklendirme hizmet önerileri göz önünde bulundurun. Uygulamanızı durum bilgisi olan, uygulamanız ise durum bilgisiz, ölçekleme çıkış size daha fazla esneklik ve daha yüksek ölçek olası sunar ancak ölçeklendirmeyi tek seçenek ise. 
 
-"Statefull" vs "durum bilgisiz" uygulamalar hakkında daha fazla bilgi için bu videoyu izleyebilirsiniz: [ölçeklenebilir baştan sona çok katmanlı bir uygulama Microsoft Azure Web uygulaması üzerinde planlama](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Uygulama hizmeti ölçekleme ve otomatik ölçeklendirme seçenekleri hakkında daha fazla bilgi için okumaya devam edin: [bir Web uygulamasını Azure App Service'te ölçeklendirme](web-sites-scale.md).  
+"Durum bilgisi olan" vs "durum bilgisiz" uygulamalar hakkında daha fazla bilgi için bu videoyu izleyebilirsiniz: [ölçeklenebilir baştan sona çok katmanlı bir uygulama Microsoft Azure Web uygulaması üzerinde planlama](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Uygulama hizmeti ölçekleme ve otomatik ölçeklendirme seçenekleri hakkında daha fazla bilgi için okumaya devam edin: [bir Web uygulamasını Azure App Service'te ölçeklendirme](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Ne zaman yuva kaynakları tükendi
 Tükettiğini giden TCP bağlantıları için ortak bir nedeni TCP bağlantılarını yeniden uygulanmadı istemci kitaplıklarının ya da daha yüksek bir düzeyinde Protokolü HTTP - değil işlevden tutma gibi söz konusu olduğunda kullanılır. Lütfen her bir uygulama hizmeti yapılandırılmış veya kodunuz verimli kullanılmasını giden bağlantılar için erişilebilir emin olmak için planınız uygulamalar tarafından başvurulan kitaplıkları için belgelerini gözden geçirin. Ayrıca uygun oluşturma ve yayın veya bağlantıları sızmasını önlemek için temizleme kitaplığı belgeleri yönergeleri izleyin. Bu tür istemci kitaplıkları araştırmalar işlenirken ilerleme etkisi birden çok örneği ölçeğini tarafından azaltıldığından.

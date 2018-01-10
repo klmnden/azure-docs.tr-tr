@@ -4,7 +4,7 @@ description: "Çoklu oturum açma kutusunu ve Azure Active Directory arasında y
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c1a03a4d0a2507f99dd0df8a96b949af8a8412d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Öğretici: Azure Active Directory Tümleştirme kutusu
 
@@ -32,7 +32,7 @@ Kutusunu Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme kutusuyla yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.box.com`
 
-    b. Denetleme **Göster Gelişmiş URL ayarları**.
-
-    c. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://sso.services.box.net/sp/ACS.saml2`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`box.net`
      
     > [!NOTE] 
     > Bu değer gerçek değil. Değerin gerçek oturum açma URL'si ile güncelleştirin. Kişi [kutusunu istemci destek ekibi](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) bu değeri alınamıyor. 
@@ -160,7 +158,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-box-test-user"></a>Kutusunu test kullanıcısı oluşturma
 

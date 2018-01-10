@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7f9431a695f2acaa2067e623788a0c3c3b4183c9
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
 Bu konuda, BT yöneticileri, ayarları ve uygulama veri eşitleme hakkında olabilir bazı sorular yanıtlanmaktadır.
@@ -72,7 +72,7 @@ Windows 10 Kasım 2015 veya sonraki sürümlerde Kurumsal durumda Dolaşım yaln
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Ayarları birden çok kiracıdan Azure AD hesapları için eşitliyor musunuz?
 Birden çok Azure AD farklı hesaplarını Azure AD kiracılarıyla aynı cihaza, her bir Azure AD Kiracı için Azure Rights Management (Azure RMS) ile iletişim kurmak için cihaz kayıt defterini güncelleştirmeniz gerekir.  
 
-1. Her bir Azure AD Kiracı için GUID'i bulun. Azure Portalı'nı açın ve Azure AD kiracısı seçin. Kiracı için tarayıcınızın adres çubuğundaki URL'ye GUID'dir. Örneğin, `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Her bir Azure AD Kiracı için GUID'i bulun. Azure Portalı'nı açın ve Azure AD kiracısı seçin. Kiracı etiketli için Özellikler sayfasında seçilen Kiracı (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) GUID'sidir **dizin kimliği**. 
 2. GUID aldıktan sonra kayıt defteri anahtarını eklemeniz gerekir **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<kimliği GUID Kiracı >**.
    Gelen **kimliği GUID Kiracı** anahtar, adlı yeni bir çok dizeli değer (REG-MULTI-SZ) oluşturma **AllowedRMSServerUrls**. Verileri için aygıt erişen bir Azure kiracılar lisans dağıtım noktası URL'lerini belirtin.
 3. Lisans dağıtım noktası URL'leri çalıştırarak bulabileceğiniz **Get-AadrmConfiguration** cmdlet'i. Varsa değerlerini **Licensingıntranetdistributionpointurl** ve **LicensingExtranetDistributionPointUrl** farklıysa, her iki değeri belirtin. Değerler aynıysa değeri yalnızca bir kez belirtin.

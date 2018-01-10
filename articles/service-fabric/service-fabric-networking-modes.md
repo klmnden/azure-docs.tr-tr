@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -221,8 +221,18 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
     >Linux kümelerinde farklı Hizmetleri için ağ modları karıştırılması desteklenmiyor. 
     >
 
+5. Zaman **açık** modu seçildiğinde, **Endpoint** hizmet bildirimi tanımında açıkça noktasına uç noktasına karşılık gelen kod paketi hizmet paketi yalnızca bir kod olsa bile Bu paketi. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Service Fabric uygulama modelini anlama](service-fabric-application-model.md)
-* [Service Fabric hizmet bildirimi kaynakları hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Service Fabric hizmet bildirimi kaynakları hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Windows Server 2016 Service Fabric Windows kapsayıcı dağıtma](service-fabric-get-started-containers.md)
 * [Service Fabric Linux'ta Docker kapsayıcısı dağıtma](service-fabric-get-started-containers-linux.md)

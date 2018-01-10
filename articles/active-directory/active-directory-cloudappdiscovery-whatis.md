@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/05/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5875cf4cc0938607fa1ff6adf840d513d1fb85bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d0ad06fc7eec07f8e1e0ba47121b6eec01c87df
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="find-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Cloud App Discovery ile yönetilmeyen bulut uygulamaları Bul
 ## <a name="summary"></a>Özet
 
-Cloud App Discovery, Azure Active Directory kuruluşunuzdaki kişiler tarafından kullanılan yönetilmeyen bulut uygulamaları bulmanızı sağlayan Premium özelliğidir. Modern kuruluşlarda, BT departmanları işlerini yapmak için kuruluşları üyeleri kullanan tüm bulut uygulamaları tanımaz genellikle. Yöneticileri Kurumsal verileri, olası veri sıkıntılarına ve diğer güvenlik risklerine yetkisiz erişimi endişeniz neden olurdu görmek kolaydır. Bu tanıma olmaması, bu güvenlik riskleri postalarla göründüğü için göz korkutucu bir plan oluşturma yapabilirsiniz.
+Azure Active Directory'de cloud App Discovery, artık Microsoft Cloud App Security tarafından desteklenen bir Gelişmiş aracısız bulma deneyimi sağlar. Cloud App Discovery'yi kullanmak için yalnızca Azure AD Premium P1 kimlik bilgilerinizle oturum. Bu güncelleştirme, tüm Azure AD Premium P1 müşteriler için ek ücret ödemeden mevcuttur. Makaleyi ile çalışmaya başlama [Azure AD Cloud App Discovery ayarlamak](https://docs.microsoft.com/azure/active-directory/cloudappdiscovery-get-started), ardından denemenin [Microsoft Cloud App Security](https://portal.cloudappsecurity.com/).
 
-> [!TIP] 
-> Azure Active Directory'de tarafından geliştirilmiş (Azure AD), Cloud App Discovery geliştirmeleri kullanıma [Microsoft Cloud App Security ile tümleştirme](https://portal.cloudappsecurity.com).
-
+> [!IMPORTANT] 
+> Geçerli tabanlı aracı bulma ile 5 Mart 2018 üzerinde kapatılmasına deneyimidir Azure AD Cloud App Discovery sonra aracıları devre dışı bırakılır ve veri olacağı silindi. Lütfen önce hazır ve çalışır hizmet kesintisi yaşamamak için yeni deneyimi almak için 5 Mart eylemi uygulayın.  
+ 
 **Cloud App Discovery ile şunları yapabilirsiniz:**
 
 * Kullanılan bulut uygulamalarını bulmak ve bu kullanım ölçme kullanıcı sayısı, akış hacmine veya uygulamaya web isteklerinin sayısı.
