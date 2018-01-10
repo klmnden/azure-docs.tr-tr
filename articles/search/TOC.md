@@ -1,7 +1,7 @@
 # [Genel Bakış](search-what-is-azure-search.md)
 ## [Azure Search nedir?](search-what-is-azure-search.md)
 
-# Kullanmaya Başlama
+# Başlarken
 
 ## [Hizmet oluşturma](search-create-service-portal.md)
 ## [Dizin oluşturma](search-what-is-an-index.md)
@@ -9,7 +9,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Veri ekleme](search-what-is-data-import.md)
-### [Azure portal](search-import-data-portal.md)
+### [Azure portalı](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Dizin arama](search-query-overview.md)
@@ -26,7 +26,7 @@
 ## [Yarı yapılandırılmış verileri arama](search-semi-structured-data.md)
 ## [REST API’yi keşfedin](search-fiddler.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## Planlama ve Tasarım
 ### [SKU seçme](search-sku-tier.md)
@@ -51,7 +51,7 @@
 ### [Azure Blob Depolama dizin oluşturucu](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Tablo Depolama dizin oluşturucu](search-howto-indexing-azure-tables.md)
 ### [Azure SQL dizin oluşturucu](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure Cosmos DB dizinleyici](search-howto-index-documentdb.md)
+### [Azure Cosmos DB dizinleyici](search-howto-index-cosmosdb.md)
 ### [CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
 ### [JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
 ### [Azure sanal makinesinde dizin oluşturucu SQL Server bağlantılarını yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
