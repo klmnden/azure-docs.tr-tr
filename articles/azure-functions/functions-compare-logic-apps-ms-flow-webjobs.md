@@ -1,12 +1,12 @@
 ---
-title: "Akış, Logic Apps, İşlevler ve Web işleri arasında seçim | Microsoft Docs"
-description: "Karşılaştırır ve buna karşılık bulut tümleştirme hizmetleri Microsoft'tan ve kullanmanız gereken hangi hizmetlere karar verin."
+title: "Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma | Microsoft Docs"
+description: "Microsoft'un bulut tümleştirme hizmetlerini karşılaştırın ve hangi hizmetleri kullanacağınıza karar verin."
 services: functions,app-service\logic
 documentationcenter: na
 author: ggailey777
 manager: wpickett
 tags: 
-keywords: "Microsoft akışı, akış, logic apps, azure işlevleri, İşlevler, azure webjobs, Web işleri, olay işleme, dinamik işlem sunucusuz mimarisi"
+keywords: "microsoft flow, flow, akış, mantıksal uygulamalar, azure işlevleri, işlevler, azure web işleri, web işleri, olay işleme, dinamik işlem, sunucusuz mimari"
 ms.assetid: e9ccf7ad-efc4-41af-b9d3-584957b1515d
 ms.service: functions
 ms.devlang: multiple
@@ -16,113 +16,113 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma
-Bu makalede karşılaştırır ve tüm tümleştirme sorunlarını çözmek ve iş süreçlerini otomatikleştirmek aşağıdaki hizmetleri Microsoft bulutta farklılık gösterir:
+Bu makalede, Microsoft bulutunda yer alan ve hepsi tümleştirme sorunlarını çözmeye, iş süreçlerini otomatikleştirmeye yönelik olan aşağıdaki hizmetler karşılaştırılır:
 
-* [Microsoft Akış](https://flow.microsoft.com/)
+* [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure İşlevleri](https://azure.microsoft.com/services/functions/)
-* [Azure uygulama hizmeti Web işleri](../app-service/web-sites-create-web-jobs.md)
+* [Azure App Service Web İşleri](../app-service/web-sites-create-web-jobs.md)
 
-Tüm bu hizmetleri "yapıştırma farklı sistemleri birbirine" yararlı olur. Bunlar tüm giriş, Eylemler, koşullar ve çıkış tanımlayabilirsiniz. Bunların her biri bir zamanlama veya tetikleyici çalıştırabilirsiniz. Ancak, her hizmetin benzersiz avantajları vardır ve bunları karşılaştırma "hangi hizmetin en iyi olduğu?" sorusunu değil Ancak bir "hangi hizmetin en iyisidir bu durum için uygun?" Genellikle, bu hizmetleri birlikte hızlı bir şekilde ölçeklenebilir, tam özellikli bir çözümü oluşturmak için en iyi yoludur.
+Bu hizmetlerin tümü, dağınık sistemleri birbirine "yapıştırmak" için yararlıdır. Tümü giriş, eylemler, koşullar ve çıkış tanımı yapabilir. Her birini belirli bir zamanlamayla veya tetikleyiciyle çalıştırabilirsiniz. Bununla birlikte, her hizmetin kendine özgü avantajları vardır ve "En iyi hizmet hangisi?" bağlamında bir karşılaştırma yapılmaz. Karşılaştırma, "Bu duruma en uygun hizmet hangisi?" bağlamında yapılır. Genellikle, ölçeklendirilebilir, tam özellikli bir tümleştirme çözümünü kısa sürede oluşturmak için en iyi yol bu hizmetlerin bir bileşimini kullanmaktır.
 
 <a name="flow"></a>
 
-## <a name="flow-vs-logic-apps"></a>Akış vs. Logic Apps
-Her ikisi de olduklarından Azure mantıksal uygulamaları ve Microsoft Flow birlikte aşağıdakiler ele *yapılandırma ilk* Integration services. Bunlar işlemleri ve iş akışları oluşturma ve çeşitli SaaS ve kuruluş uygulamalarıyla tümleştirmek kolaylaştırır. 
+## <a name="flow-vs-logic-apps"></a>Flow - Logic Apps
+Microsoft Flow ile Azure Logic Apps'i birlikte tartışabiliriz çünkü her ikisi de *yapılandırmaya öncelik veren* tümleştirme hizmetleridir. Süreçleri ve iş akışlarını oluşturmayı kolaylaştırır, çeşitli SaaS ve kuruluş uygulamalarıyla tümleşik çalışırlar. 
 
-* Akış Logic Apps en üstünde oluşturulmuştur
-* Aynı iş akışı Tasarımcısı'nı sahip
-* [Bağlayıcılar](../connectors/apis-list.md) bir iş ayrıca diğer çalışabilmesi için
+* Flow, Logic Apps'in üzerine yapılandırılmıştır
+* İş akışı tasarımcıları aynıdır
+* Birinde çalışan [Bağlayıcılar](../connectors/apis-list.md) diğerinde de çalışabilir
 
-Akış güçlendirir basit tümleştirmeler gerçekleştirmek için herhangi bir office çalışan (örneğin, SMS için önemli e-postaları alması) aracılığıyla geliştiricilerin giderek olmadan veya BT. Diğer taraftan, Logic Apps kuruluş düzeyinde DevOps ve güvenlik uygulamalarını gerekli olduğu Gelişmiş ya da kritik tümleştirmeler (örneğin, B2B işlemler) etkinleştirebilirsiniz. Zaman içinde karmaşıklığı ulaşması bir iş akışı için genel bir durumdur. Buna uygun olarak, başta bir akış başlayın sonra gerektiği gibi bir mantıksal uygulama dönüştürmek.
+Flow, her türlü ofis çalışanını geliştiricilere veya BT'ye başvurmadan basit tümleştirmeler yapma (örneğin, SharePoint Belge Kitaplığı üzerindeki bir onay işlemi) yönünde güçlendirir. Öte yandan Logic Apps, kurumsal düzeyde DevOps ve güvenlik uygulamaları gerektiğinde gelişmiş tümleştirmelere (örneğin, B2B işlemleri) olanak tanıyabilir. Kurumsal iş akışının zamanla karmaşık hale gelmesi tipik bir durumdur. Buna uygun olarak, önce Flow ile başlayabilir ve daha sonra gerektiğinde bunu Logic Apps'e dönüştürebilirsiniz.
 
-Aşağıdaki tabloda, akış veya Logic Apps belirli bir tümleştirme için en iyi olup olmadığını belirlemenize yardımcı olur.
+Aşağıdaki tablo, belirli bir tümleştirme için Flow'un mu yoksa Logic Apps'in mi daha uygun olduğunu saptamanıza yardımcı olur.
 
 |  | Akış | Logic Apps |
 | --- | --- | --- |
-| Hedef kitle |Office çalışanlarının, iş kullanıcılarının |BT uzmanları, geliştiricilerin |
-| Senaryolar |Self Servis |Kritik |
-| Tasarım aracı |Tarayıcı içi ve mobil uygulama, yalnızca kullanıcı Arabirimi |Tarayıcı içi ve [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [kod görünümü](../logic-apps/logic-apps-author-definitions.md) kullanılabilir |
-| DevOps |Geçici, üretimde geliştirin |Kaynak denetimi, test, destek otomasyon ve yönetilebilirlik, [Azure kaynak yönetimi](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Yönetici deneyimi |[https://Flow.microsoft.com](https://flow.microsoft.com) |[https://Portal.Azure.com](https://portal.azure.com) |
-| Güvenlik |Standart uygulamalar: [veri egemenliği](https://wikipedia.org/wiki/Technological_Sovereignty), [bekleyen şifreleme](https://wikipedia.org/wiki/Data_at_rest#Encryption) hassas verileri için vb. |Azure güvenlik güvencesi: [Azure güvenlik](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), [denetim günlüklerini](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)ve daha fazlası. |
+| Hedef kitle |Ofis çalışanları, iş kullanıcıları veya SharePoint yöneticileri |Uzman tümleştiriciler ve geliştiriciler, BT uzmanları |
+| Senaryolar |Self servis |Gelişmiş tümleştirmeler |
+| Tasarım Aracı |Tarayıcı içi ve mobil uygulama, yalnızca kullanıcı arabirimi |Tarayıcı içi ve [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Cod görünümü](../logic-apps/logic-apps-author-definitions.md) sağlanır |
+| Uygulama Yaşam Döngüsü Yönetimi (ALM) |Üretim dışı ortamlarda tasarlayıp test edin, hazır olduğunuzda üretime geçirin. |DevOps: kaynak denetimi, test, destek, [Azure Kaynak Yönetimi](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)'nde otomasyon ve yönetilebilirlik |
+| Yönetici Deneyimi |Flow Ortamlarını ve Veri Kaybı Önleme (DLP) ilkelerini yönetme, lisansları izleme [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Kaynak Gruplarını, Bağlantıları, Erişim Denetimini ve Günlüğe Kaydetmeyi Yönetme [https://portal.azure.com](https://portal.azure.com) |
+| Güvenlik |Office 365 Güvenlik ve Uyumluluk denetim günlükleri, Veri Kaybı Önleme (DLP), gizli veriler için [bekleyen verileri şifreleme](https://wikipedia.org/wiki/Data_at_rest#Encryption) vs. |Azure'un güvenlik güvencesi: [Azure Güvenliği](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), [denetim günlükleri](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), ve dahası. |
 
 <a name="function"></a>
 
-## <a name="functions-vs-webjobs"></a>İşlevler vs. WebJobs
-Her ikisi de olduklarından Azure işlevleri ve Azure App Service Web işleri birlikte aşağıdakiler ele *kod ilk* tümleştirme hizmetleri ve geliştiricileri için tasarlanmıştır. Bir komut dosyası veya paylaştırılabilen bir kod çeşitli olaylarına yanıt olarak gibi çalıştırmak etkinleştirme [yeni depolama BLOB'lar](functions-bindings-storage.md) veya [bir Web kancası isteği](functions-bindings-http-webhook.md). Kendi benzerlikler şunlardır: 
+## <a name="functions-vs-webjobs"></a>İşlevler - WebJobs
+Azure İşlevleri ile Azure App Service Web İşleri'ni birlikte tartışabiliriz çünkü her ikisi de *koda öncelik veren* tümleştirme hizmetleridir ve geliştiricilere yönelik tasarlanmıştır. [Yeni Depolama Blobları](functions-bindings-storage.md) veya [Web Kancası isteği](functions-bindings-http-webhook.md) gibi çeşitli olaylara yanıt olarak bir betik veya kod parçası çalıştırmanıza olanak tanır. Benzerlikleri şunlardır: 
 
-* Her ikisi de yerleşik [Azure App Service](../app-service/app-service-web-overview.md) ve özellikleri gibi keyfini [kaynak denetimi](../app-service/app-service-continuous-deployment.md), [kimlik doğrulaması](../app-service/app-service-authentication-overview.md), ve [izleme](../app-service/web-sites-monitor.md).
-* Her ikisi de Geliştirici odaklı hizmetleridir.
-* Hem standart komut ve programlama dilleri destekler.
-* Hem NuGet ve NPM'yi destek sahiptir.
+* Her ikisi de [Azure App Service](../app-service/app-service-web-overview.md) üzerine yapılandırılmıştır ve [kaynak denetimi](../app-service/app-service-continuous-deployment.md), [kimlik doğrulama](../app-service/app-service-authentication-overview.md) ve [izleme](../app-service/web-sites-monitor.md) gibi özelliklerden yararlanır.
+* Her ikisi de geliştirici odaklı hizmetlerdir.
+* Her ikisi de standart komut dosyası ve programlama dillerini destekler.
+* Her ikisi de NuGet ve NPM desteğine sahiptir.
 
-İşlevler en iyi şeyler Web işleri hakkında alır ve bunlar üzerine artırır WebJobs doğal evrimi olduğu. Geliştirmeleri içerir: 
+İşlevler, Web İşleri'nin doğal bir evrimini temsil eder; Web İşleri'nin en iyi özelliklerini almış ve bunlar üzerine geliştirilmiştir. Geliştirmeler şunlardır: 
 
 * [Sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) uygulama modeli.
-* Kolaylaştırılmış geliştirme, test ve doğrudan tarayıcıda kodunun çalıştırın.
-* Daha fazla Azure ve 3. taraf hizmetleri ile dahili tümleştirmeyi ister [GitHub Web kancası](https://developer.github.com/webhooks/creating/).
-* Ödeme-kullanım başına ödeme gerek bir [uygulama hizmeti planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+* Rahatça doğrudan tarayıcıda kod geliştirme, test etme ve çalıştırma.
+* Daha çok Azure hizmetiyle ve [GitHub WebHooks](https://developer.github.com/webhooks/creating/) gibi üçüncü taraf hizmetleriyle yerleşik tümleşiklik.
+* Kullandığın kadar ödeme; [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) için ödeme yapmak gerekmez.
 * Otomatik, [dinamik ölçeklendirme](functions-scale.md).
-* (Kullanılan kaynaklar yararlanmak) hala olası uygulama hizmeti plan üzerinde çalışan uygulama hizmeti, var olan müşteriler için.
+* Mevcut App Service müşterileri için, App Service planıyla devam etmek de mümkündür (değerinden az kullanılan kaynaklardan yararlanmak için).
 * Logic Apps ile tümleştirme.
 
-Aşağıdaki tabloda, İşlevler ve Web işleri arasındaki farklar özetlenmektedir:
+Aşağıdaki tabloda, İşlevler ile Web İşleri arasındaki farklar özetlenir:
 
 |  | İşlevler | WebJobs |
 | --- | --- | --- |
-| Ölçeklendirme |Configurationless ölçeklendirme |Uygulama hizmeti planı ile ölçeklendirin |
-| Fiyatlandırma |Kullanım başına ödeme ya da uygulama hizmeti planının bir parçası |Uygulama hizmeti planının bir parçası |
-| Çalışma türü |tetiklenen, zamanlanmış (Zamanlayıcı tetikleyicisi tarafından) |tetiklenen, sürekli, zamanlanmış |
-| Tetikleyici olayları |[Zamanlayıcı](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs'a](functions-bindings-event-hubs.md), [HTTP/Web (GitHub, Slack'e) kancası](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Storage kuyruklarını ve BLOB'ları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |[Azure depolama kuyrukları ve blobları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |
+| Ölçeklendirme |Yapılandırmasız ölçeklendirme |App Service planıyla ölçeklendirme |
+| Fiyatlandırma |Kullandığın kadar ödeme veya App Service planı kapsamında |App Service planı kapsamında |
+| Çalıştırma türü |Tetiklenmiş, zamanlanmış (zamanlayıcı tetikleyicisi tarafından) |Tetiklenmiş, sürekli, zamanlanmış |
+| Tetikleyici olayları |[Zamanlayıcı](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/Web Kancası (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobil Uygulamalar](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Depolama kuyrukları ve blobları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |[Azure Depolama kuyrukları ve blobları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |
 | Tarayıcı içi geliştirme |Destekleniyor |Desteklenmiyor |
 | C# |Destekleniyor |Destekleniyor |
 | F# |Destekleniyor |Desteklenmiyor |
 | JavaScript |Destekleniyor |Destekleniyor |
 | Java |Önizleme | Desteklenmiyor |
 | Bash |Deneysel |Destekleniyor |
-| (.Cmd, .bat) Windows komut dosyası |Deneysel |Destekleniyor |
+| Windows komut dosyası (.cmd, .bat) |Deneysel |Destekleniyor |
 | PowerShell |Deneysel |Destekleniyor |
 | PHP |Deneysel |Destekleniyor |
 | Python |Deneysel |Destekleniyor |
 | TypeScript |Deneysel |Desteklenmiyor |
 
-İşlevler veya Web işleri kullanmak için sonuçta ne zaten App Service ile yaptığınız üzerinde bağlıdır. Kod parçacıkları çalıştırmak istediğiniz bir uygulama hizmeti uygulama varsa ve bunları birlikte aynı DevOps ortamda yönetmek istediğiniz Web işleri kullanın. Aşağıdaki senaryolarda işlevlerini kullanın.
+İşlevler'in mi yoksa Web İşleri'nin mi kullanılacağı, son tahlilde şu anda App Service ile ne yapıyor olduğunuza bağlıdır. Kod parçacıkları çalıştırmak istediğiniz bir App Service uygulamanız varsa ve bunları aynı DevOps ortamında birlikte yönetmek istiyorsanız, Web İşleri'ni kullanın. Aşağıdaki senaryolarda İşlevler'i kullanın.
 
-* Diğer Azure Hizmetleri veya 3. taraf uygulamaları için kod parçacıklarını çalıştırmak isteyebilirsiniz.
-* Uygulama hizmeti uygulamalarınız tümleştirme kodunuzu ayrı ayrı yönetmek istiyorsunuz.
-* Kod parçacıkları mantığı uygulamasından çağırma istiyor. 
+* Diğer Azure hizmetleri veya üçüncü taraf uygulamalar için kop parçacıkları çalıştırmak istiyorsunuz.
+* Tümleştirme kodunuzu App Service uygulamalarınızdan ayrı olarak yönetmek istiyorsunuz.
+* Kod parçacıklarınızı Mantıksal uygulamanın içinden çağırmak istiyorsunuz. 
 
 <a name="together"></a>
 
-## <a name="flow-logic-apps-and-functions-together"></a>Akış, Logic Apps ve işlevleri birlikte
-Daha önce belirtildiği gibi hangi hizmet için uygundur, durumunuza bağlıdır. 
+## <a name="flow-logic-apps-and-functions-together"></a>Flow, Logic Apps ve İşlevler birlikte
+Daha önce de belirtildiği gibi, size en uygun hizmetin hangisi olduğu sizin durumunuza bağlıdır. 
 
-* Basit iş iyileştirme için akışı kullanın.
-* Tümleştirme senaryonuz için akışı çok gelişmiş veya DevOps özellikleri ve güvenlik compliances gerekirse, Logic Apps kullanın.
-* Tümleştirme senaryonuz bir adımda, yüksek oranda özel dönüştürme veya özel bir kod gerektiriyorsa, bir işlev yazdığınızda ve bir eylem mantıksal uygulamanızı olarak Tetik işlevi.
+* Basit bir kurumsal iyileştirme için Flow kullanın.
+* Tümleştirme senaryonuz Flow için fazla gelişmişse veya DevOps özelliklerine ihtiyacınız varsa Logic Apps kullanın.
+* Tümleştirme senaryonuzdaki adımlardan biri için üst düzeyde özel bir dönüştürme veya özelleştirilmiş kod gerekiyorsa, bu durumda bir işlev yazın ve işlevi mantıksal uygulamanızda bir eylem olarak tetikleyin.
 
-Bir mantıksal uygulama bir akışı çağırabilirsiniz. Ayrıca, bir mantıksal uygulama ve bir mantıksal uygulama işlevinde bir işlevde çağırabilirsiniz. Akış, Logic Apps ve işlevleri arasında tümleştirme, zaman içinde iyileştirmek devam eder. Şeyin bir hizmet oluşturmak ve diğer hizmetleri kullanın. Bu nedenle, bu üç teknolojileri yaptığınız tüm Yatırımlar faydalı olur.
+Bir akış içinde bir mantıksal uygulama çağırabilirsiniz. Ayrıca, mantıksal uygulama içinde bir işlev ve işlev içinde de mantıksal uygulama çağırabilirsiniz. Flow, Logic Apps ve İşlevler arasındaki tümleştirme zaman içinde geliştirilmeye devam ediyor. Bir hizmette bir şey oluşturabilir ve bunu diğer hizmetlerde kullanabilirsiniz. Dolayısıyla, bu üç teknolojiye yaptığınız hiçbir yatırım boşa gitmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Her Hizmetleri ile ilk akış, mantıksal uygulama, işlev uygulaması veya Web işi oluşturarak başlayın. Aşağıdaki bağlantılardan herhangi birine tıklayın:
+İlk akışınızı, mantıksal uygulamanızı, işlev uygulamanızı veya Web İşinizi oluşturup hizmetlerden her biriyle çalışmaya başlayın. Aşağıdaki bağlantılardan herhangi birine tıklayın:
 
-* [Microsoft Flow kullanmaya başlama](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Microsoft Flow’u kullanmaya başlama](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Mantıksal uygulama oluşturun.](../logic-apps/logic-apps-create-a-logic-app.md)
 * [İlk Azure İşlevinizi oluşturma](functions-create-first-azure-function.md)
 * [Visual Studio kullanarak Web İşleri’ni dağıtma](../app-service/websites-dotnet-deploy-webjobs.md)
 
-Veya bu Integration services aşağıdaki bağlantıları ile ilgili daha fazla bilgi alın:
+İsterseniz, aşağıdaki bağlantılarda bu tümleştirme hizmetleriyle ilgili daha fazla bilgi bulabilirsiniz:
 
-* [Yararlanmayı Azure işlevleri & Christopher Yılmaz tarafından tümleştirme senaryoları için Azure uygulama hizmeti](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Charles Lamanna tarafından basit yapılan tümleştirmeler](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
-* [Logic Apps canlı Web yayını](http://aka.ms/logicappslive)
-* [Microsoft Akış sık sorulan sorular](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Tümleştirme senaryoları için Azure İşlevleri ve Azure App Service'ten yararlanma - Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Tümleştirmeler Basitleşti - Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Logic Apps Canlı Web Yayını](http://aka.ms/logicappslive)
+* [Microsoft Flow Sık sorulan sorular](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

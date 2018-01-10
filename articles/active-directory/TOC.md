@@ -44,6 +44,7 @@
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 ### [Hesapları paylaşma](active-directory-sharing-accounts.md)
 ### [Kullanıcıları yönetici rollerine atama](active-directory-users-assign-role-azure-portal.md)
+### [Silinen bir kullanıcıyı geri yükleme](active-directory-users-restore.md)
 ### [Başka bir dizinden konuk kullanıcılar ekleme (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [B2B kullanıcıları ekleyen yöneticiler](active-directory-b2b-admin-add-users.md)
 #### [B2B kullanıcıları ekleyen bilgi çalışanları](active-directory-b2b-iw-add-users.md)

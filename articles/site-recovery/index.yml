@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
-  ms.openlocfilehash: e65162e1badfb7a965f96a3207552063075c2834
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 0d66952b5f159ce92b8586f7beb71c25fe7c7b39
+  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 01/10/2018
 abstract:
   description: "Azure Site Recovery, Azure VM’leri, şirket içi VM’ler ve fiziksel sunucular için olağanüstü durum kurtarma hizmetini düzenler ve yönetir. Hızlı başlangıç yönergelerimiz ve öğreticilerimizden yararlanarak çoğaltma, yük devretme ve ilk duruma döndürme işlemlerini nasıl yapacağınızı öğrenin."
 sections:
@@ -54,6 +54,17 @@ sections:
     - html: "<a href=\"tutorial-vmware-to-azure\">Olağanüstü durum kurtarmayı ayarlama</a>"
     - html: "<a href=\"tutorial-dr-drill-azure\">Olağanüstü durum kurtarma tatbikatı çalıştırma</a>"
     - html: "<a href=\"tutorial-vmware-to-azure-failover-failback\">Yük devretme ve yeniden çalışma işlemi çalıştırma</a>"
+  - type: text
+    html: <h3>Hyper-V</h3>
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"tutorial-prepare-azure\">Azure’u hazırlama</a>"
+    - html: "<a href=\"tutorial-prepare-on-premises-hyper-v\">Şirket içi Hyper-V’leri hazırlama</a>"
+    - html: "<a href=\"tutorial-hyper-v-to-azure\">Hyper-V VM’leri için olağanüstü durum kurtarmayı ayarlama</a>"
+    - html: "<a href=\"tutorial-hyper-v-vmm-to-azure\">System Center VMM tarafından yönetilen Hyper-V VM'leri için olağanüstü durum kurtarmayı ayarlama</a>"
+    - html: "<a href=\"tutorial-dr-drill-azure\">Olağanüstü durum kurtarma tatbikatı çalıştırma</a>"
+    - html: "<a href=\"tutorial-hyper-v-to-azure-failover-failback\">Yük devretme ve yeniden çalışma işlemi çalıştırma</a>"
   - type: text
     html: "<h3>Azure’a geçiş</h3>"
   - type: list
