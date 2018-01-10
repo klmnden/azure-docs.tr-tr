@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: OMS Ağ Geçidi
               href: log-analytics-oms-gateway.md
-            - name: Linux aracısı sorunlarını giderme
-              href: log-analytics-agent-linux-support.md
         - name: Veri kaynakları
           items:
             - name: Veri kaynaklarına genel bakış
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: Özel alanlar
               href: log-analytics-custom-fields.md
+            - name: Veri toplayıcı API'si
+              href: log-analytics-data-collector-api.md
     - name: Verileri sorgulama
       items:
         - name: Dil belgeleri
@@ -156,7 +156,7 @@
           href: log-analytics-alerts-webhooks.md
         - name: Uyarı Yönetimi çözümü
           href: log-analytics-solution-alert-management.md
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Aracı yönetimi
           href: log-analytics-agent-manage.md
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: Çalışma alanını silme
           href: log-analytics-manage-del-workspace.md
+    - name: Sorun giderme
+      items:
+        - name: VM Uzantısı ile ilgili sorunları giderme
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Linux aracısı sorunlarını giderme
+          href: log-analytics-agent-linux-support.md
     - name: Çözümleri kullanma
       items:
         - name: Çözümlere genel bakış
           href: log-analytics-add-solutions.md
         - name: Hedef çözümler
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Etkinlik Günlüğü Analizi
-          href: log-analytics-activity.md
-        - name: AD Durumu Denetimi
+        - name: Azure etkinlik günlükleri
+          items:
+            - name: Analiz
+              href: log-analytics-activity.md
+            - name: Abonelikler arasında toplama
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: AD Değerlendirmesi
           href: log-analytics-ad-assessment.md
         - name: AD Çoğaltma Durumu
           href: log-analytics-ad-replication-status.md
@@ -244,8 +254,6 @@
           href: log-analytics-wire-data.md
     - name: Geliştirme
       items:
-        - name: Veri toplayıcı API'si
-          href: log-analytics-data-collector-api.md
         - name: PowerShell cmdlet'leri
           href: log-analytics-powershell-workspace-configuration.md
         - name: Resource Manager şablonları

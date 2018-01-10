@@ -1,9 +1,5 @@
 - name: Site Recovery Belgeleri
   href: index.yml
-- name: Şirket içi makinelerin ve Azure VM’lerinin geçişi
-  href: migrate/tutorial-migrate-on-premises-to-azure.md
-- name: Azure’dan Azure’a olağanüstü durum kurtarma
-  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Genel Bakış
   items:
     - name: Site Recovery nedir?
@@ -35,14 +31,30 @@
           href: tutorial-dr-drill-azure.md
         - name: Yük devretme ve yeniden çalışma işlemlerini çalıştırma
           href: tutorial-vmware-to-azure-failover-failback.md
-    - name: Azure’a geçiş
+    - name: Hyper-V Sanal Makineleri
       items:
         - name: Azure’u hazırlama
+          href: tutorial-prepare-azure.md
+        - name: Şirket içi Hyper-V’leri hazırlama
+          href: tutorial-prepare-on-premises-hyper-v.md
+        - name: Hyper-V VM’leri için olağanüstü durum kurtarmayı ayarlama
+          href: tutorial-hyper-v-to-azure.md
+        - name: VMM bulutlarındaki Hyper-V VM’leri için olağanüstü durum kurtarmayı ayarlama
+          href: tutorial-hyper-v-vmm-to-azure.md
+        - name: Olağanüstü durum kurtarma tatbikatı çalıştırma
+          href: tutorial-dr-drill-azure.md
+        - name: Yük devretme ve yeniden çalışma işlemlerini çalıştırma
+          href: tutorial-hyper-v-to-azure-failover-failback.md
+    - name: Azure’a geçiş
+      items:
+        - name: Azure’ı şirket içi çoğaltmaya hazırlama
           href: tutorial-prepare-azure.md
         - name: Şirket içi makineleri Azure’a geçirme
           href: tutorial-migrate-on-premises-to-azure.md
         - name: AWS örneklerini Azure’a geçirme
           href: tutorial-migrate-aws-to-azure.md
+        - name: Azure VM’lerini başka bir bölgeye geçirme
+          href: tutorial-migrate-azure-to-azure.md
 - name: Kavramlar
   items:
     - name: Azure-Azure arası mimari
@@ -89,45 +101,36 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Olağanüstü durum kurtarma
       items:
-        - name: Azure'a çoğaltma için Hyper-V hazırlığı
-          href: tutorial-prepare-on-premises-hyper-v.md
-        - name: Hyper-V VM’lerinden Azure’a
-          href: tutorial-hyper-v-to-azure.md
-        - name: VMM bulutlarındaki Hyper-V VM’lerini Azure’a geçirme
-          href: tutorial-hyper-v-vmm-to-azure.md
-        - name: Fiziksel sunucuları Azure'a
+        - name: Azure geçişinden sonra Azure VM'leri olağanüstü durumdan kurtarma
+          href: site-recovery-azure-to-azure-after-migration.md
+        - name: Fiziksel sunucuları olağanüstü durumdan Azure’a kurtarma
           href: tutorial-physical-to-azure.md
-        - name: Hyper-V VM’lerinden ikincil siteye
+        - name: Hyper-V VM'lerini ikincil bir siteye çoğaltma
           href: tutorial-vmm-to-vmm.md
-        - name: VMware VM’leri ve fiziksel sunuculardan ikincil siteye
+        - name: VMware VM’lerini ve fiziksel sunucuları ikincil bir siteye çoğaltma
           href: tutorial-vmware-to-vmware.md
         - name: Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
-          href: tutorial-dr-drill-azure.md
+          href: site-recovery-test-failover-to-azure.md
         - name: İkincil sitede olağanüstü durum kurtarma tatbikatı çalıştırma
-          href: tutorial-dr-drill-secondary.md
+          href: site-recovery-test-failover-vmm-to-vmm.md
         - name: Birden çok kiracıyı destekleyen VMware VM’lerinden Azure’a
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-    - name: Yük devretme ve yeniden çalışma
+    - name: Yük devretme ve ilk duruma döndürme
       items:
         - name: Kurtarma planları oluşturma
           href: site-recovery-create-recovery-plans.md
+        - name: Kurtarma planlarına Azure runbook ekleme
+          href: site-recovery-runbook-automation.md
+        - name: Yük devretme
           items:
-            - name: Kurtarma planlarına Azure runbook ekleme
-              href: site-recovery-runbook-automation.md
-        - name: Yük devretme testi çalıştırma
-          items:
-            - name: Azure’a yük devretme testi çalıştırma
-              href: site-recovery-test-failover-to-azure.md
-            - name: VMM bulutları arasında yük devretme testi çalıştırma
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Yük devretme korumalı makineler
-          href: site-recovery-failover.md
-        - name: Fiziksel sunucular için yük devretme ve yeniden çalışma işlemi başlatma
-          href: tutorial-vmware-to-azure-failover-failback.md
-        - name: Hyper-V VM’leri için yük devretme ve yeniden çalışma işlemi başlatma
-          href: tutorial-hyper-v-to-azure-failover-failback.md
-        - name: Şirket içi siteler arasında yük devretme ve yeniden çalışma işlemi başlatma
-          href: tutorial-vmm-to-vmm-failover-failback.md
+            - name: Yük devretme hakkında
+              href: site-recovery-failover.md
+            - name: İkincil bir siteye yük devretme testi çalıştırma
+              href: tutorial-dr-drill-secondary.md
+            - name: Fiziksel sunucular için yük devretme ve yeniden çalışma işlemi başlatma
+              href: physical-to-azure-failover-failback.md
+            - name: Şirket içi siteler arasında yük devretme ve yeniden çalışma işlemi başlatma
+              href: tutorial-vmm-to-vmm-failover-failback.md
         - name: Yük devretme işleminden sonra makineleri yeniden koruma
           items:
             - name: Bir Azure ikincil bölgesinden birincil bölgeye yeniden koruma
@@ -186,25 +189,28 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Fiziksel ortam-Azure arası için hedef ortam
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: VMware’den Azure’a çoğaltma ayarlarını yapılandırma
-          href: site-recovery-setup-replication-settings-vmware.md
-        - name: VMware’den Azure’a geçişte diskleri çoğaltmanın dışında tutma
-          href: site-recovery-exclude-disk.md
-        - name: Hyper-V’den Azure’a geçişte diskleri çoğaltmanın dışında tutma
-          href: site-recovery-hyper-v-exclude-disk.md
-        - name: VMware çoğaltma için Mobility hizmetini dağıtma
-          href: site-recovery-vmware-to-azure-install-mob-svc.md
+        - name: Çoğaltma ayarlarını yapılandırma
           items:
-            - name: System Center Configuration Manager ile Mobility hizmetini dağıtma
-              href: site-recovery-install-mobility-service-using-sccm.md
-            - name: Azure Automation DSC ile Mobility hizmetini dağıtma
-              href: site-recovery-automate-mobility-service-install.md
+            - name: VMware’den Azure’a çoğaltma ayarlarını yapılandırma
+              href: site-recovery-setup-replication-settings-vmware.md
+            - name: VMware’den Azure’a geçişte diskleri çoğaltmanın dışında tutma
+              href: site-recovery-exclude-disk.md
+            - name: Hyper-V’den Azure’a geçişte diskleri çoğaltmanın dışında tutma
+              href: site-recovery-hyper-v-exclude-disk.md
         - name: Çoğaltmayı etkinleştirme
           items:
             - name: Azure-Azure arası çoğaltmayı etkinleştirme
               href: site-recovery-replicate-azure-to-azure.md
             - name: VMware-Azure arası çoğaltmayı etkinleştirme
               href: site-recovery-replicate-vmware-to-azure.md
+        - name: VMware için Mobility hizmetini dağıtma
+          items:
+            - name: Mobility hizmeti hakkında
+              href: site-recovery-vmware-to-azure-install-mob-svc.md
+            - name: System Center Configuration Manager ile Mobility hizmetini dağıtma
+              href: site-recovery-install-mobility-service-using-sccm.md
+            - name: Azure Automation DSC ile Mobility hizmetini dağıtma
+              href: site-recovery-automate-mobility-service-install.md
     - name: Otomatikleştirme
       items:
         - name: PowerShell kullanarak VMware sanal makinelerini Azure’a çoğaltma
@@ -215,12 +221,6 @@
           href: site-recovery-vmm-to-azure-powershell-resource-manager.md
         - name: İkincil VMM sitesine Hyper-V çoğaltma işlemini PowerShell kullanarak ayarlama
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
-    - name: Geçiş
-      items:
-        - name: Azure VM’lerini başka bir Azure bölgesine geçirme
-          href: site-recovery-migrate-azure-to-azure.md
-        - name: Geçirdikten sonra makineleri başka bir Azure bölgesine çoğaltma
-          href: site-recovery-azure-to-azure-after-migration.md
     - name: İş yükleri
       items:
         - name: Active Directory ve DNS

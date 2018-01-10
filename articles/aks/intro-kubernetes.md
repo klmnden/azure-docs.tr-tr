@@ -1,51 +1,43 @@
 ---
-title: "Kubernetes için Azure Container Service’e Giriş | Microsoft Docs"
+title: "Kubernetes için Azure Container Service’e Giriş"
 description: "Kubernetes için Azure Container Service, Azure üzerinde kapsayıcı tabanlı uygulamaları dağıtmayı ve yönetmeyi kolaylaştırır."
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Kubernetes, Docker, Kapsayıcılar, Mikro Hizmetler, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 9fba9fdda3503ec80fede845466858825e3677a5
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 2980d4733dcf138c3a9aa1713cff994bbf5a296c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="introduction-to-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) giriş
+# <a name="introduction-to-azure-container-service-aks"></a>Azure Container Service’e (AKS) Giriş
 
-Azure kapsayıcı hizmeti (AKS) oluşturmak, yapılandırmak ve sanal makinelerin kapsayıcılı uygulamaları çalıştırmak için yapılandırılmış bir kümeyi yönetmek kolaylaştırır. Bu sayede Microsoft Azure’daki kapsayıcı tabanlı uygulamaları dağıtmak ve yönetmek için mevcut becerilerinizi kullanabilir veya kapsamlı ve gelişmeye devam eden topluluk uzmanlığından faydalanabilirsiniz.
+Azure Container Service (AKS), kapsayıcı uygulamalarda çalışmak üzere önceden yapılandırılmış sanal makine kümesi oluşturma, yapılandırma ve yönetim süreçlerini basitleştirir. Bu sayede Microsoft Azure’daki kapsayıcı tabanlı uygulamaları dağıtmak ve yönetmek için mevcut becerilerinizi kullanabilir veya kapsamlı ve gelişmeye devam eden topluluk uzmanlığından faydalanabilirsiniz.
 
-AKS kullanarak, Azure, kurumsal düzeyde özelliklerini hala Kubernetes ve Docker görüntü biçimi aracılığıyla uygulama taşınabilirliği korurken yararlanabilirsiniz.
+AKS’yi kullanarak Azure’un kuruluş düzeyindeki özelliklerinden faydalanırken Kubernetes ve Docker görüntü biçimi aracılığıyla uygulama taşınabilirliğini koruyabilirsiniz.
 
-## <a name="managed-kubernetes-in-azure"></a>Azure'da Kubernetes yönetilen
+## <a name="managed-kubernetes-in-azure"></a>Azure’da Yönetilen Kubernetes
 
-AKS Azure bu sorumluluğu çoğunu boşaltarak Kubernetes küme yönetme işlem yükünü ve karmaşıklığını azaltır. Barındırılan bir Kubernetes hizmeti, sistem durumu izleme ve sizin için bakım gibi kritik görevleri Azure tanıtıcıları. Ayrıca, yalnızca Aracısı düğümleri için yönetici olmayan kümelerinizi içinde ödersiniz. Yönetilen bir Kubernetes hizmet olarak AKS sağlar:
+AKS, sorumluluğun çoğunu Azure’a devrederek bir Kubernetes kümesi yönetmenin karmaşıklığı ve işlemsel yükünü azaltır. Barındırılan bir Kubernetes hizmeti olarak, Azure sistem durumu izleme ve bakım gibi kritik görevleri sizin için gerçekleştirir. Ayrıca, ana düğümler değil yalnızca kümelerinizdeki aracı düğümler için ücret ödersiniz. Yönetilen bir Kubernetes hizmeti olarak AKS aşağıdakileri sağlar:
 
 > [!div class="checklist"]
-> * Otomatik Kubernetes sürüm yükseltme ve düzeltme eki uygulama
+> * Otomatik Kubernetes sürüm yükseltmeleri ve düzeltme eki uygulama
 > * Kolay küme ölçeklendirme
-> * Kendini onarma barındırılan denetim düzlemi (Yöneticileri)
-> * Maliyet tasarrufu - aracı havuzu düğümleri yalnızca çalıştırmak için ödeme
+> * Kendi kendini onaran barındırılan denetim düzlemi (yöneticiler)
+> * Maliyet tasarrufu Yalnızca çalışan aracı havuz düğümleri için ücret ödeyin
 
-AKS kümenizdeki düğümlerin yönetim işleme Azure ile artık birçok el ile Küme yükseltme gibi görevleri gerekmez. Bu kritik bakım görevlerini sizin yerinize Azure işlemesi nedeniyle AKS doğrudan erişim sağlamaz (gibi SSH ile) kümeye.
+AKS kümenizde düğümleri Azure yönetirken, küme yükseltme gibi görevleri el ile gerçekleştirmeniz gerekmez. Azure bu kritik bakım görevlerini sizin için gerçekleştirdiğinden, AKS kümeye doğrudan erişim (SSH ile olduğu gibi) sağlamaz.
 
-## <a name="using-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) kullanma
-AKS amacı barındırma ortamı açık kaynaklı araçları ve bugün müşterileri arasında popüler bir teknoloji kullanarak bir kapsayıcı sağlamaktır. Bu işlem için standart Kubernetes API uç noktalarını kullanıma sunacağız. Bu standart uç noktaları kullanarak, bir Kubernetes kümesiyle iletişim kurma özelliğine sahip olan tüm yazılımlardan faydalanabilirsiniz. Örneğin [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) veya [draft](https://github.com/Azure/draft) arasından seçim yapabilirsiniz.
+## <a name="using-azure-container-service-aks"></a>Azure Container Service’i (AKS) kullanma
+AKS’nin amacı, günümüzde müşteriler arasında popüler olan açık kaynak araçları ve teknolojileri kullanan bir kapsayıcı barındırma ortamı sunmaktır. Bu işlem için standart Kubernetes API uç noktalarını kullanıma sunacağız. Bu standart uç noktaları kullanarak, bir Kubernetes kümesiyle iletişim kurma özelliğine sahip olan tüm yazılımlardan faydalanabilirsiniz. Örneğin [kubectl][kubectl-overview], [helm][helm] veya [draft][draft] arasından seçim yapabilirsiniz.
 
-## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) kullanarak Kubernetes küme oluşturma
-AKS'ı kullanmaya başlamak için bir AKS kümeyle dağıtmak [Azure CLI](./kubernetes-walkthrough.md) veya portal aracılığıyla (Market arama **Azure kapsayıcı hizmeti**). Azure Resource Manager şablonları hakkında daha fazla denetime gereksinim duyan İleri düzey bir kullanıcıysanız açık kaynak [acs-engine](https://github.com/Azure/acs-engine) projesini kullanarak kendi özel Kubernetes kümenizi oluşturup `az` CLI’si ile dağıtabilirsiniz.
+## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Azure Container Service (AKS) kullanan bir Kubernetes kümesi oluşturma
+AKS'yi kullanmaya başlamak için portal aracılığıyla (Market'te **Azure Container Service** ifadesini aratın) veya [Azure CLI][aks-quickstart] ile bir AKS kümesi dağıtın. Azure Resource Manager şablonları hakkında daha fazla denetime gereksinim duyan İleri düzey bir kullanıcıysanız açık kaynak [acs-engine][acs-engine] projesini kullanarak kendi özel Kubernetes kümenizi oluşturup `az` CLI'si ile dağıtabilirsiniz.
 
 ### <a name="using-kubernetes"></a>Kubernetes kullanma
 Kubernetes, kapsayıcılı uygulamaların dağıtımını, ölçeklendirmesini ve yönetimini otomatikleştirir. Aşağıdaki zengin özelliklere sahiptir:
@@ -60,19 +52,29 @@ Kubernetes, kapsayıcılı uygulamaların dağıtımını, ölçeklendirmesini v
 
 ## <a name="videos"></a>Videolar
 
-Azure kapsayıcı hizmeti (AKS) - Azure Cuma Ekim 2017:
+Azure Container Service (AKS) - Azure Friday, Ekim 2017:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
 >
 >
 
-Geliştirmek ve Kubernetes - Azure OpenDev Haziran 2017 uygulamaları dağıtmak için Araçlar:
+Kubernetes’te Uygulama Geliştirme ve Dağıtma Araçları - Azure OpenDev, Haziran 2017:
 
 > [!VIDEO https://channel9.msdn.com/Events/AzureOpenDev/June2017/Tools-for-Developing-and-Deploying-Applications-on-Kubernetes/player]
 >
 >
 
-Dağıtma ve AKS AKS Hızlı Başlangıç ile yönetme hakkında daha fazla bilgi edinin.
+AKS hızlı başlangıçları ile AKS dağıtma ve yönetme hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [AKS Öğreticisi](./kubernetes-walkthrough.md)
+> [AKS Öğreticisi][aks-quickstart]
+
+<!-- LINKS - external -->
+[acs-engine]: https://github.com/Azure/acs-engine
+[draft]: https://github.com/Azure/draft
+[helm]: https://helm.sh/
+[kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+

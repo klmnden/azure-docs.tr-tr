@@ -1,6 +1,6 @@
 ---
-title: "Azure genel bir Web kancası tarafından tetiklenen bir işlev oluşturun | Microsoft Docs"
-description: "Azure işlevleri, bir Web kancası Azure tarafından çağrılan sunucusuz bir işlev oluşturmak için kullanın."
+title: "Azure’da genel web kancası tarafından tetiklenen bir işlev oluşturma | Microsoft Docs"
+description: "Azure’da bir web kancasıyla çağrılan sunucusuz işlev oluşturmak için Azure İşlevleri’ni kullanın."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,20 +13,20 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="create-a-function-triggered-by-a-generic-webhook"></a>Genel bir Web kancası tarafından tetiklenen bir işlev oluşturun
+# <a name="create-a-function-triggered-by-a-generic-webhook"></a>Genel web kancasıyla tetiklenen bir işlev oluşturma
 
-Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. Örneğin, Azure İzleyici tarafından verilen bir uyarı tarafından tetiklenen bir işlev yapılandırabilirsiniz. Bu konu bir kaynak grubu aboneliğinize eklendiğinde, C# kodunun nasıl çalıştırılacağını gösterir.   
+Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. Örneğin, bir işlevi Azure İzleyici tarafından oluşturulan bir uyarıyla tetiklenecek şekilde yapılandırabilirsiniz. Bu konuda, aboneliğinize kaynak grubu eklendiğinde C# kodu yürütme açıklanır.   
 
-![Azure portalında işlevi genel Web kancası tetiklendi](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
+![Azure portalında genel web kancası ile tetiklenen işlev](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
 ## <a name="prerequisites"></a>Ön koşullar 
 
@@ -42,66 +42,70 @@ Bu öğreticiyi tamamlamak için:
 
 Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
-## <a name="create-function"></a>Genel Web kancası tetiklenen bir işlev oluşturun
+## <a name="create-function"></a>Genel web kancası ile tetiklenen bir işlev oluşturma
 
-1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu işlev listedeki birinci işlevi uygulamanız gerekiyorsa seçin **özel işlevi**. Böylece işlev şablonlarının tamamı görüntülenir.
+1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu işlev, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
 
     ![Azure portalındaki İşlevler hızlı başlangıç sayfası](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Seçin **Genel Web kancası - C#** şablonu. C# işlevi için bir ad yazın ve ardından **oluşturma**.
+2. Arama alanına `generic` yazıp genel web kancası tetikleyici şablonunuz için istediğiniz dili seçin. Bu konuda bir C# işlevi kullanılmaktadır.
 
-     ![Azure portalında tetiklenen Genel Web kancası işlevi oluşturma](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Genel web kancası tetikleyici şablonunu seçin](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
 
-2. Yeni işlevinizi tıklatın **<> / Get işlevi URL**, daha sonra kopyalayın ve değeri kaydedin. Web kancası yapılandırmak için bu değeri kullanın. 
+2. İşleviniz için bir **Ad** yazın ve **Oluştur**'u seçin. 
+
+     ![Azure portalında genel web kancası ile tetiklenen işlev oluşturma](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
+
+2. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değeri kopyalayın ve kaydedin. Bu değeri, web kancasını yapılandırmak için kullanırsınız. 
 
     ![İşlev kodunu gözden geçirme](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url.png)
          
-Ardından, bir etkinlik günlüğü uyarı Azure İzleyicisi'nde bir Web kancası uç noktası oluşturun. 
+Sonra, Azure İzleyici’deki bir etkinlik günlüğü uyarısında bir web kancası uç noktası oluşturursunuz. 
 
-## <a name="create-an-activity-log-alert"></a>Bir etkinlik günlüğü uyarı oluşturabilir.
+## <a name="create-an-activity-log-alert"></a>Etkinlik günlüğü uyarısı oluşturma
 
-1. Azure portalında gidin **İzleyici** hizmeti, select **uyarıları**, tıklatıp **etkinlik günlüğü uyarı Ekle**.   
+1. Azure portalında **İzleyici** hizmetine gidin, **Uyarılar**’ı seçin ve **Etkinlik günlüğü uyarısı ekle**’ye tıklayın.   
 
     ![İzleme](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png)
 
 2. Tabloda belirtilen ayarları kullanın:
 
-    ![Bir etkinlik günlüğü uyarı oluşturabilir.](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
+    ![Etkinlik günlüğü uyarısı oluşturma](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
     | Ayar      |  Önerilen değer   | Açıklama                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Etkinlik günlüğü uyarı adı** | kaynak-grubu-oluştur-uyarı | Etkinlik günlüğü uyarı adı. |
-    | **Abonelik** | Aboneliğiniz | Bu öğretici için kullanmakta olduğunuz abonelik. | 
-    |  **Kaynak Grubu** | myResourceGroup | Uyarı kaynakları dağıtılan kaynak grubu. Aynı kaynak grubunda işlevi kullanarak öğreticiyi tamamladıktan sonra temizlemek kolaylaştırır. |
-    | **Olay kategorisi** | Yönetim | Bu kategori Azure kaynaklarında yapılan değişiklikleri içerir.  |
-    | **Kaynak türü** | Kaynak grupları | Kaynak grubu etkinlikler için uyarı filtreleri. |
-    | **Kaynak Grubu**<br/>ve **kaynak** | Tümü | Tüm kaynaklar izleyin. |
-    | **İşlem adı** | Kaynak Grubu oluşturma | İşlemler oluşturmak için uyarıları filtreler. |
-    | **Düzeyi** | Bilgilendirme | Bilgilendirici düzeyi uyarılar içerir. | 
-    | **Durumu** | Başarılı oldu | Uyarılar başarıyla tamamladınız eylemlerine filtreler. |
-    | **Eylem grubu** | Yeni | Bir uyarı verildiğinde hangi eylemini alır tanımlayan yeni bir eylem grubu oluşturun. |
-    | **Eylem grup adı** | Web kancası işlevi | Eylem grubunu tanımlamak için bir ad.  | 
+    | **Etkinlik günlüğü uyarısı adı** | resource-group-create-alert | Etkinlik günlüğü uyarısının adı. |
+    | **Abonelik** | Aboneliğiniz | Bu öğretici için kullandığınız abonelik. | 
+    |  **Kaynak Grubu** | myResourceGroup | Uyarı kaynaklarının dağıtıldığı kaynak grubu. İşlev uygulamanızla aynı kaynak grubunu kullanmanız, öğreticiyi tamamladıktan sonra temizlik yapmanızı kolaylaştırır. |
+    | **Olay kategorisi** | Yönetim | Bu kategori, Azure kaynaklarında yapılan değişiklikleri içerir.  |
+    | **Kaynak türü** | Kaynak grupları | Kaynak grubu etkinliklerine yönelik uyarıları filtreler. |
+    | **Kaynak Grubu**<br/>ve **Kaynak** | Tümü | Tüm kaynakları izleyin. |
+    | **İşlem adı** | Kaynak Grubu oluşturma | İşlem oluşturmak için uyarıları filtreleyin. |
+    | **Düzey** | Bilgilendirici | Bilgilendirici düzeydeki uyarılar dahil edin. | 
+    | **Durum** | Başarılı oldu | Başarıyla tamamlanan eylemlere yönelik uyarıları filtreler. |
+    | **Eylem grubu** | Yeni | Bir uyarı oluşturulduğunda gerçekleştirilecek eylemi tanımlayan yeni bir eylem grubu oluşturun. |
+    | **Eylem grubu adı** | function-webhook | Eylem grubunu tanımlamak için bir ad.  | 
     | **Kısa ad** | funcwebhook | Eylem grubu için kısa bir ad. |  
 
-3. İçinde **Eylemler**, tabloda belirtildiği gibi ayarları kullanarak bir eylem ekleyin: 
+3. **Eylemler**’de, tabloda belirtilen ayarları kullanarak bir eylem ekleyin: 
 
-    ![Bir eylem grubu Ekle](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings-2.png)
+    ![Eylem grubu ekleme](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings-2.png)
 
     | Ayar      |  Önerilen değer   | Açıklama                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Ad** | CallFunctionWebhook | Eylem için bir ad. |
-    | **Eylem türü** | Web Kancası | Uyarı yanıta bir Web kancası URL'si olarak adlandırılmasıdır. |
-    | **Ayrıntılar** | İşlev URL'si | Daha önce kopyaladığınız işlevi Web kancası URL'sini yapıştırın. |v
+    | **Eylem türü** | Web Kancası | Uyarıya verilen yanıt, bir Webhook URL’sine çağrı yapılmasıdır. |
+    | **Ayrıntılar** | İşlev URL'si | İşlevin daha önce kopyaladığınız web kancası URL’sini yapıştırın. |v
 
-4. Tıklatın **Tamam** uyarı ve eylem grubu oluşturulamıyor.  
+4. Uyarıyı ve eylem grubunu oluşturmak için **Tamam**’a tıklayın.  
 
-Bir kaynak grubu, aboneliğinizde oluşturulduğunda Web kancası şimdi adı verilir. Ardından, istek gövdesinde JSON günlük verileri işlemek için işlev kodunu güncelleştirin.   
+Artık aboneliğinizde bir kaynak grubu oluşturulursa web kancasına çağrı yapılır. Daha sonra, işlevinizdeki kodu isteğin gövdesindeki JSON günlük verilerini işleyecek şekilde güncelleştirin.   
 
 ## <a name="update-the-function-code"></a>İşlev kodunu güncelleştirme
 
-1. Portal işlevi uygulamanızda geri gidin ve işlevinizi genişletin. 
+1. Portaldan işlev uygulamanıza dönün ve işlevinizi genişletin. 
 
-2. Portalda işlevindeki C# betik kodu aşağıdaki kodla değiştirin:
+2. Portalda, işlevdeki C# betik kodunu şu kodla değiştirin:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -141,19 +145,19 @@ Bir kaynak grubu, aboneliğinizde oluşturulduğunda Web kancası şimdi adı ve
     }
     ```
 
-Şimdi, aboneliğinizde yeni bir kaynak grubu oluşturarak işlevi test edebilirsiniz.
+Artık aboneliğinizde yeni bir kaynak grubu oluşturarak işlevi test edebilirsiniz.
 
 ## <a name="test-the-function"></a>İşlevi test etme
 
-1. Kaynak grubu seçin Azure portalının sol simgesini **+ Ekle**, bir **kaynak grubu adı**ve seçin **oluşturma** boş bir kaynak grubu oluşturmak için.
+1. Azure portalının solundaki kaynak grubu simgesine tıklayıp **+ Ekle**’yi seçin, bir **Kaynak grubu adı** yazın ve **Oluştur**’u seçerek boş bir kaynak grubu oluşturun.
     
     ![Bir kaynak grubu oluşturun.](./media/functions-create-generic-webhook-triggered-function/functions-create-resource-group.png)
 
-2. İşlevinizi için geri dönün ve genişletin **günlükleri** penceresi. Kaynak grubu oluşturulduktan sonra Web kancası etkinlik günlüğü uyarıyı tetikleyen ve işlev yürütür. Günlüklere yazılan yeni kaynak grubu adını görürsünüz.  
+2. İşlevinize dönün ve **Günlükler** penceresini genişletin. Kaynak grubu oluşturulduktan sonra eylem günlüğü uyarısı web kancasını tetikler ve işlev yürütülür. Yeni kaynak grubunun adının günlüklere yazıldığını görürsünüz.  
 
-    ![Bir test uygulama ayarı ekleyin.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
+    ![Test amaçlı bir uygulama ayarı ekleyin.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
 
-3. (İsteğe bağlı) Geri dönün ve sizin oluşturduğunuz kaynak grubunu silebilirsiniz. Bu etkinlik Tetik işlevi değil unutmayın. Bunun nedeni, operations filtrelenir uyarı tarafından silin. 
+3. (İsteğe bağlı) Geri dönün ve oluşturduğunuz kaynak grubunu silin. Bu etkinliğin işlevi tetiklemediğini unutmayın. Bunun nedeni, silme işlemlerinin uyarı tarafından filtrelenmesidir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -161,9 +165,9 @@ Bir kaynak grubu, aboneliğinizde oluşturulduğunda Web kancası şimdi adı ve
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Genel bir Web kancası bir istek alındığında çalıştırılan bir işlev oluşturdunuz. 
+Genel bir web kancasından istek alındığında çalışan bir işlev oluşturdunuz. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md). C# işlevleri geliştirme hakkında daha fazla bilgi için bkz: [Azure işlevleri C# betik Geliştirici Başvurusu](functions-reference-csharp.md).
+Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md). C# dilinde işlev geliştirme hakkında daha fazla bilgi edinmek için bkz. [Azure İşlevleri C# betiği geliştirici başvurusu](functions-reference-csharp.md).
 

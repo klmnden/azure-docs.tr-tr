@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub web kancası tarafından tetiklenen bir işlev oluşturma
 
@@ -51,9 +51,13 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
     ![Azure portalındaki İşlevler hızlı başlangıç sayfası](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Seçin **GitHub Web kancası** istediğiniz dili için şablon. **İşlevinizi adlandırın** ve ardından **Oluştur**'a tıklayın.
+2. Arama alanına `github` yazıp GitHub web kancası tetikleyici şablonunuz için istediğiniz dili seçin. 
 
-     ![Azure portalında GitHub web kancası ile tetiklenen bir işlev oluşturma](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![GitHub web kancası tetikleyici şablonunu seçin](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. İşleviniz için bir **Ad** yazın ve **Oluştur**'u seçin. 
+
+     ![Azure portalında GitHub web kancası ile tetiklenen işlevi yapılandırma](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değerleri kopyalayın ve kaydedin. **</> GitHub parolasını al** için de aynı işlemi yapın. GitHub’da web kancasını yapılandırırken bu değerleri kullanırsınız.
 

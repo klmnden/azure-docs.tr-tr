@@ -64,6 +64,7 @@
 #### [Otomatik yönlendirme ile varlıklar arasında zincir oluşturma](service-bus-auto-forwarding.md)
 #### [İşlem gerçekleştirme](service-bus-transactions.md)
 #### [Eşleştirilmiş ad alanı uygulama](service-bus-paired-namespaces.md)
+### [Uçtan uca izleme ve tanılama](service-bus-end-to-end-tracing.md)
 ## Yönetme
 ### [Azure İzleyici ile Service Bus’ı izleme](service-bus-metrics-azure-monitor.md)
 ### [Service Bus yönetim kitaplıkları](service-bus-management-libraries.md)

@@ -254,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Robomongo kullanma
               href: mongodb-robomongo.md
+            - name: Mongoose'u kullanma
+              href: mongodb-mongoose.md
             - name: MongoDB özellik desteği
               href: mongodb-feature-support.md
             - name: Angular öğretici serisi

@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js Web Uygulamanızı İzlemeye Başlama
 
@@ -28,7 +28,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 - Bir Azure Aboneliği ve var olan bir Node.js web uygulaması gerekir.
 
-Bir Node.js web uygulamanız yoksa [Node.js web uygulaması oluşturma hızlı başlangıcı](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)’nı izleyerek bir tane oluşturabilirsiniz.
+Bir Node.js web uygulamanız yoksa [Node.js web uygulaması oluşturma hızlı başlangıcı](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)’nı izleyerek bir tane oluşturabilirsiniz.
  
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -67,11 +67,11 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
    npm install applicationinsights --save
    ```
 
-3. Uygulamanızın ilk .js dosyasını düzenleyin ve aşağıdaki iki satırı betiğinizin en üst kısmına ekleyin. [Node.js hızlı başlangıç uygulamasını kullanıyorsanız](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs), index.js dosyasını değiştirin. 
+3. Uygulamanızın ilk .js dosyasını düzenleyin ve aşağıdaki iki satırı betiğinizin en üst kısmına ekleyin. [Node.js hızlı başlangıç uygulamasını kullanıyorsanız](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), index.js dosyasını değiştirin. &lt;instrumentation_key&gt; yerine uygulamanızın izleme anahtarını yazın. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
-   appInsights.setup('<instrumentation_key').start();
+   appInsights.setup('<instrumentation_key>').start();
    ```
 
 4. Uygulamanızı yeniden başlatın.
@@ -135,4 +135,4 @@ Sonraki hızlı başlangıçlar veya öğreticilerle devam etmeyi planlıyorsan�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Performans sorunlarını bulma ve tanılama](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Performans sorunlarını bulma ve tanılama](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
