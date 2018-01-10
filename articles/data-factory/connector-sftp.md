@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bfe4ab71bb7311d1bbca27f8de196b2297c2a994
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 65ddd1efac11bd7f4795e7319e0f66c17f8d5a4f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SFTP sunucusundan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,8 +50,8 @@ Aşağıdaki özellikleri, bağlantılı SFTP hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Sftp**. |Evet |
-| ana bilgisayar | SFTP sunucunun adı veya IP adresi. |Evet |
-| port | SFTP sunucunun dinlediği bağlantı noktası.<br/>İzin verilen değerler: tamsayı, varsylan değerdir **22**. |Hayır |
+| konak | SFTP sunucunun adı veya IP adresi. |Evet |
+| port | SFTP sunucunun dinlediği bağlantı noktası.<br/>İzin verilen değerler: tamsayı, varsayılan değer: **22**. |Hayır |
 | skipHostKeyValidation | Ana anahtar doğrulama atlamak bu seçeneği belirtin.<br/>İzin verilen değerler: **true**, **false** (varsayılan).  | Hayır |
 | hostKeyFingerprint | Ana makine anahtarı, parmak izi belirtin. | "SkipHostKeyValidation" false olarak ayarlarsanız Evet.  |
 | authenticationType | Kimlik doğrulama türü belirtin.<br/>İzin verilen değerler: **temel**, **SshPublicKey**. Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtar kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellikleri ve JSON örnekleri sırasıyla bölümler. |Evet |

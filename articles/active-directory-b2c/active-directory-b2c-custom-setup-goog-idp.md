@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkelerini kullanma OAuth2 kimlik sağlayıcısı Google + Ekle
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Bu kılavuz size nasıl oturum açma hesabından Google + kullanım yoluyla kullanıcılar için etkinleştirileceğini gösterir [özel ilkeler](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bölümündeki adımları tamamlamanız [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
@@ -81,7 +81,7 @@ Google + Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak
 
     ![Google + - uygulama türünü seçme](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Sağlayan bir **adı** uygulamanız için girin `https://login.microsoftonline.com` içinde **yetkili JavaScript çıkış** alan, ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yetkili URI'ler yeniden yönlendirme** alan. Değiştir **{tenant}** , kiracının adlı (örneğin, contosob2c.onmicrosoft.com). **{Tenant}** duyarlıdır. **Oluştur**'a tıklayın.
+13.  Sağlayan bir **adı** uygulamanız için girin `https://login.microsoftonline.com` içinde **yetkili JavaScript çıkış** alan, ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yetkili URI'ler yeniden yönlendirme** alan. Değiştir **{tenant}** , kiracının adlı (örneğin, contosob2c.onmicrosoft.com). **{Tenant}** duyarlıdır. **Oluştur**’a tıklayın.
 
     ![Google + - yetkili JavaScript çıkış sağlayın ve URI'ler yeniden yönlendirme](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
@@ -175,7 +175,7 @@ Kimlik sağlayıcısı ayarlandığına.  Ancak, oturumu-up/oturum açma ekranla
 1.  Temel dosya ilkenizin (örneğin, TrustFrameworkBase.xml) açın.
 2.  Bul `<UserJourneys>` öğesi ve tüm içeriğini kopyalayın `<UserJourneys>` düğümü.
 3.  Uzantı dosyası (örneğin, TrustFrameworkExtensions.xml) açın ve Bul `<UserJourneys>` öğesi. Öğe yoksa, ekleyin.
-4.  Tüm içeriğini yapıştırın `<UserJournesy>` bir alt öğesi olarak kopyaladığınız düğümü `<UserJourneys>` öğesi.
+4.  Tüm içeriğini yapıştırın `<UserJourney>` bir alt öğesi olarak kopyaladığınız düğümü `<UserJourneys>` öğesi.
 
 ### <a name="display-the-button"></a>Görüntü düğmesi
 `<ClaimsProviderSelections>` Öğesi talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar.  `<ClaimsProviderSelection>`öğesi, bir oturumu-up/oturum açma sayfasında bir kimlik sağlayıcısı düğmesini benzerdir. Eklerseniz bir `<ClaimsProviderSelection>` öğesi Google + hesap için yeni bir düğme görüntülenir sayfasında bir kullanıcı adlandırıldığını olduğunda. Bu öğe eklemek için:
@@ -243,6 +243,14 @@ Google + hesabı kimlik sağlayıcısı Ayrıca, kullanıcı eklemek isteyebilir
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>İlke kiracınız için karşıya yükleme
+1.  İçinde [Azure portal](https://portal.azure.com), içine geçiş [bağlam Azure AD B2C kiracınızın](active-directory-b2c-navigate-to-b2c-context.md), açarak **Azure AD B2C** dikey.
+2.  Seçin **kimlik deneyimi Framework**.
+3.  Açık **tüm ilkeler** dikey.
+4.  Seçin **karşıya İlkesi**.
+5.  Denetleme **varsa ilkesi üzerine** kutusu.
+6.  **Karşıya yükleme** TrustFrameworkExtensions.xml ve doğrulama başlayabildiğinden emin olun.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Özel Profil Düzenleme İlkesi Şimdi Çalıştır kullanarak test
 

@@ -1,24 +1,20 @@
 ---
 title: "Yönetilmeyen (sayfa bloblarını) ve Microsoft Azure Windows VM'ler için diskleri depolama yönetilen hakkında | Microsoft Docs"
 description: "İle ilgili temel bilgileri öğrenin (sayfa bloblarını) yönetilmeyen ve yönetilen azure'da Windows sanal makineler için diskleri depolama."
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
-ms.service: storage
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Azure Windows VM'ler için diskleri depolama hakkında
 Yalnızca başka bir bilgisayarda gibi azure'daki sanal makinelerde bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak diskleri kullanın. Tüm Azure sanal makineler en az iki disk – bir Windows işletim sistemi diski ve geçici bir diske sahip. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün sanal bir Azure depolama hesabında depolanan sabit diskler (VHD). Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir. 
@@ -51,7 +47,7 @@ Uygulama verileri veya tutmak için gereksinim duyduğunuz diğer veri depolamak
 
 Bir görüntüden sanal makine oluşturduğunuzda azure bir işletim sistemi diski oluşturur. Veri diskleri içeren bir görüntü kullanırsanız, sanal makine oluştururken Azure ayrıca veri diskleri oluşturur. Aksi halde, sanal makineyi oluşturduktan sonra veri diski ekleyin.
 
-Veri diski bir sanal makine için herhangi bir zamanda göre ekleyebileceğiniz **ekleme** sanal makineye disk. Karşıya veya depolama hesabınız veya bir Azure sizin için oluşturduğu kopyalanan VHD kullanabilirsiniz. Bir veri diski eklemeyi hala bağlıyken depolama biriminden silinemez şekilde VHD 'kira' koyarak VHD dosyasını VM ile ilişkilendirir.
+Veri diski bir sanal makine için herhangi bir zamanda göre ekleyebileceğiniz **ekleme** sanal makineye disk. Karşıya veya depolama hesabınıza kopyalanan VHD kullanın veya Azure sizin için oluşturduğu boş bir VHD kullanın. Bir veri diski eklemeyi hala bağlıyken depolama biriminden silinemez şekilde VHD 'kira' koyarak VHD dosyasını VM ile ilişkilendirir.
 
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]

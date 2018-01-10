@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 1ad9200376bc4959e7572ae8d5be11b278a42cc0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Bulutta Azure IOT Hub'ına IOT DevKit AZ3166 Bağlan
 
@@ -104,7 +104,7 @@ DevKit üzerinde çalışan varsayılan uygulama, en son bellenim sürümünü d
 > [!NOTE] 
 > V1.1 itibaren DevKit ST güvenli yükleyicisinde sağlar. Büyük olasılıkla çalışması için v1.1 altında çalıştırıyorsanız bellenimini yükseltmeniz gerekir.
 
-Bellenim yükseltmesi gerekiyorsa, ekran geçerli ve en son bellenim sürümleri gösterir. Yükseltme için izleyin [yükseltme bellenim](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) Kılavuzu.
+Bellenim yükseltmesi gerekiyorsa, ekran geçerli ve en son bellenim sürümleri gösterir. Yükseltme için izleyin [yükseltme bellenim](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) Kılavuzu.
 
 ![Geçerli ve en son bellenim sürümleri görüntüleme](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 
@@ -186,7 +186,7 @@ Yüklediğiniz .zip dosyasını tüm gerekli araçları ve DevKit geliştirme i�
 .Zip dosyasını aşağıdaki araçları ve paketleri içerir. Bazı bileşenleri yüklü zaten varsa, betik algılamak ve onları atlayın.
 
 * Node.js ve Yarn: otomatik görevler ve Kurulum komut dosyası için çalışma zamanı.
-* [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): Azure kaynaklarını yönetmek için platformlar arası komut satırı deneyimi.
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): Azure kaynaklarını yönetmek için platformlar arası komut satırı deneyimi.
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code): DevKit geliştirme için basit kod düzenleyicisini.
 * [Visual Studio Code uzantısı Arduino için](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Visual Studio Code Arduino geliştirme sağlar uzantısı.
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): Arduino uzantısı dayanan aracı.

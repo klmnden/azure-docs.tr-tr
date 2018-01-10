@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 3f519f9d6c92dde50d02009220a6eb1eea1bfeb7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory ile desteklenen ortamlar işlem
 > [!NOTE]
@@ -49,8 +49,7 @@ Azure Hdınsight herhangi bir zamanda dağıtılabilir birden çok Hadoop küme 
 15 Aralık 2017 sonra:
 
 - Artık Linux tabanlı Hdınsight sürüm 3.3 (veya önceki sürümler) oluşturmak mümkün olmayacaktır isteğe bağlı Hdınsight bağlı hizmeti Azure Data Factory v1 kullanarak kümeleri. 
-
-- Varsa [osType ve/veya Version özelliği](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) açıkça belirtilmediği var olan Azure Data Factory v1 isteğe bağlı Hdınsight bağlı hizmeti JSON tanımlarında varsayılan değer değiştirilmesi gelen **sürüm 3.1, osType = = Windows** için **sürüm 3.6, osType = Linux =**.
+- Varsa [osType ve/veya Version özelliği](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) açıkça belirtilmediği var olan Azure Data Factory v1 isteğe bağlı Hdınsight bağlı hizmeti JSON tanımlarında varsayılan değer değiştirilmesi gelen **sürüm 3.1, osType = = Windows** için **sürümü =[son HDI varsayılan sürümü](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType Linux =**.
 
 31 Temmuz 2018 sonra:
 
@@ -58,10 +57,10 @@ Azure Hdınsight herhangi bir zamanda dağıtılabilir birden çok Hadoop küme 
 
  **Önerilen Eylemler** 
 
-- Güncelleştirme [osType ve/veya Version özelliği](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) yeni Linux tabanlı Hdınsight için etkilenen Azure Data Factory v1 isteğe bağlı Hdınsight bağlı hizmeti tanımlarını sürümleri (Hdınsight emin olmak için 3.6) en son Hadoop kullanabilirsiniz ekosistemi bileşenlerini ve düzeltmeler. 
-- 15 Aralık 2017 test önce Azure veri fabrikası V1 Hive, Pig, MapReduce ve Hadoop etkilenen bağlantılı emin olmak için hizmet başvuru etkinlikleri akış yeni ile uyumlu olduklarından *osType* ve/veya  *Sürüm* varsayılan değer (sürüm 3.6, osType = Linux =) veya açık Hdınsight sürüm ve de için yükselttiğiniz osType. Uyumluluğu hakkında daha fazla bilgi için lütfen gözden [Linux tabanlı bir kümeye bir Windows tabanlı Hdınsight kümeden geçiş](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) ve [Hadoop bileşenleri ve Hdınsight ile kullanılabilir sürümlerini nelerdir?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) belgeleri Web sayfaları. 
+- Güncelleştirme [osType ve/veya Version özelliği](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) yeni Linux tabanlı Hdınsight için etkilenen Azure Data Factory v1 isteğe bağlı Hdınsight bağlı hizmeti tanımlarını sürümleri (Hdınsight emin olmak için 3.6) en son Hadoop kullanabilirsiniz ekosistemi bileşenlerini ve düzeltmeler. 
+- 15 Aralık 2017 test önce Azure veri fabrikası V1 Hive, Pig, MapReduce ve Hadoop etkilenen bağlantılı emin olmak için hizmet başvuru etkinlikleri akış yeni ile uyumlu olduklarından *osType* ve/veya  *Sürüm* varsayılan değer (sürüm 3.6, osType = Linux =) veya açık Hdınsight sürüm ve de için yükselttiğiniz osType. Uyumluluğu hakkında daha fazla bilgi için lütfen gözden [Linux tabanlı bir kümeye bir Windows tabanlı Hdınsight kümeden geçiş](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) ve [Hadoop bileşenleri ve Hdınsight ile kullanılabilir sürümlerini nelerdir?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) belgeleri Web sayfaları. 
 - Açıkça Windows tabanlı Hdınsight kümeleri oluşturmak için Azure Data Factory v1On isteğe bağlı Hdınsight bağlı hizmeti kullanmaya devam etmek istiyorsanız osType Windows 15 Aralık 2017 önce ayarlayın. Ancak, Linux tabanlı Hdınsight kümelerine 31 Temmuz 2018 önce geçirme hala öneririz. 
-- Azure Data Factory v1DotNet özel etkinliği yürütmek için isteğe bağlı Hdınsight bağlı hizmeti kullanıyorsanız, bunun yerine, bir Azure Batch bağlı hizmeti kullanmak için DotNet özel etkinlik JSON tanımını güncelleştirin. Daha fazla bilgi almak [Azure DataFactory ardışık düzeninde özel etkinlikleri kullanmak](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) belgeleri Web sayfası. 
+- Azure Data Factory v1DotNet özel etkinliği yürütmek için isteğe bağlı Hdınsight bağlı hizmeti kullanıyorsanız, bunun yerine, bir Azure Batch bağlı hizmeti kullanmak için DotNet özel etkinlik JSON tanımını güncelleştirin. Daha fazla bilgi almak [Azure DataFactory ardışık düzeninde özel etkinlikleri kullanmak](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) belgeleri Web sayfası. 
 
 >[!Note]
 >Varolan Getir bilgisayarınızı kendi küme (BYOC) Hdınsight bağlı hizmeti Azure Data Factory v1 ya da BYOC kullanan ve isteğe bağlı HDInsightLinked Azure Data Factory v2 hizmetinde kullanan müşteriler için en son sürümünü destekleyen ilke ofAzure Hdınsight kümeleri zaten zorlanan, bu nedenle, hiçbir eylem gerekli değildir. 
@@ -100,17 +99,15 @@ Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tan�
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.5",
-            "clusterSize": 1,
-            "timeToLive": "00:05:00",
+            "version": "3.6",
             "osType": "Linux",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",            
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
 ```
-
-Bir Windows tabanlı Hdınsight kümesi kullanmak üzere ayarlanmış **osType** için **windows** veya varsayılan değer olarak özelliği kullanmayın: windows.  
 
 > [!IMPORTANT]
 > HDInsight kümesi JSON’da belirttiğiniz blob depolamada (**linkedServiceName**) bir **varsayılan kapsayıcı** oluşturur. HDInsight, küme silindiğinde bu kapsayıcıyı silmez. Bu davranış tasarım gereğidir. İsteğe bağlı HDInsight bağlı hizmetiyle, HDInsight kümesi her oluşturulduğunda, burada mevcut canlı bir küme (**timeToLive**) olmadıkça bir dilim gerekir ve işlem bittiğinde silinir. 
@@ -125,10 +122,10 @@ Bir Windows tabanlı Hdınsight kümesi kullanmak üzere ayarlanmış **osType**
 | type                         | Type özelliği ayarlanmalı **HDInsightOnDemand**. | Evet      |
 | ClusterSize                  | Kümedeki çalışan/veri düğüm sayısı. Hdınsight kümesi için bu özelliği belirtmeniz çalışan düğüm sayısı ile birlikte 2 baş düğümler ile oluşturulur. Düğüm boyutu 4 çalışan düğümlü bir küme 24 çekirdek alır, böylece 4 çekirdeğe sahip Standard_D3 olduğundan (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*4 = 8 çekirdek baş düğümler için). Bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) Standard_D3 katmanı hakkında ayrıntılı bilgi için. | Evet      |
 | TimeToLive                   | İsteğe bağlı Hdınsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı Hdınsight kümesi kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir.<br/><br/>Örneğin, bir etkinlik Çalıştır 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme 6 etkinlik işleme dakika çalıştırdıktan sonra 5 dakika boyunca etkin kalır. Başka bir etkinlik 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma bir pahalı işlemi (işlem zaman alabilir), bunu kullanımı isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası performansını artırmak için bu ayarı olarak gerekli olur.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız, küme etkinlik Çalıştır tamamlandıktan hemen sonra silindi. Yüksek bir değer ayarlarsanız, kümenin yüksek maliyetlerini gereksiz yere kaynaklanan boşta kalmasını ancak. Bu nedenle, gereksinimlerinize göre uygun değere ayarlamak önemlidir.<br/><br/>Timetolive özellik değerini uygun şekilde ayarlarsanız, birden çok ardışık düzen isteğe bağlı Hdınsight kümesi örneğini paylaşabilirsiniz. | Evet      |
-| Sürüm                      | Hdınsight küme sürümü. Varsayılan değer 3.1 Windows kümesi için ve 3.2 Linux kümesi için ' dir. | Hayır       |
+| sürüm                      | Hdınsight küme sürümü başvurmak için [desteklenen Hdınsight sürümleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) için izin verilen Hdınsight sürümleri. Belirtilmezse, kullanan [son HDI varsayılan sürümü](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Hayır       |
 | linkedServiceName            | Depolamak ve veri işleme için isteğe bağlı küme tarafından kullanılacak azure depolama bağlı hizmeti. Hdınsight kümesi, bu Azure depolama hesabı ile aynı bölgede oluşturulur.<p>Şu anda bir Azure Data Lake Store depolama alanı olarak kullanan bir isteğe bağlı Hdınsight kümesi oluşturulamıyor. Bir Azure Data Lake Store'da işleme Hdınsight sonuç verileri depolamak istiyorsanız, Azure Blob depolama alanından Azure Data Lake Store'a veri kopyalamak için kopyalama etkinliği kullanın. </p> | Evet      |
 | additionalLinkedServiceNames | Data Factory hizmetinin bunları sizin adınıza kaydedebilirsiniz böylece Hdınsight için ek depolama hesapları hizmeti bağlı belirtir. Bu depolama hesaplarından linkedServiceName tarafından belirtilen depolama hesabı ile aynı bölgede oluşturulan Hdınsight kümesi ile aynı bölgede olması gerekir. | Hayır       |
-| osType                       | İşletim sistemi türü. İzin verilen değerler: (varsayılan) Windows ve Linux | Hayır       |
+| osType                       | İşletim sistemi türü. İzin verilen değerler: Linux ve Windows. Belirtilmezse, Linux varsayılan olarak kullanılır.  <br/>Linux tabanlı Hdınsight kümeleri olarak Windows'da Hdınsight için sona erme tarihi olan 31 Temmuz 2018 kullanarak recommand. | Hayır       |
 | hcatalogLinkedServiceName    | Azure SQL adını HCatalog veritabanına işaret hizmeti bağlı. İsteğe bağlı Hdınsight kümesi meta depo Azure SQL veritabanı kullanılarak oluşturulur. | Hayır       |
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON örneği
@@ -162,6 +159,8 @@ Ayrıca, isteğe bağlı Hdınsight kümesinin ayrıntılı yapılandırma için
   "properties": {
     "type": "HDInsightOnDemand",
     "typeProperties": {
+      "version": "3.6",
+      "osType": "Linux",
       "clusterSize": 16,
       "timeToLive": "01:30:00",
       "linkedServiceName": "adfods1",

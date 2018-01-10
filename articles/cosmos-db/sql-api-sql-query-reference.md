@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB: SQL söz dizimi sorgu başvurusu | Microsoft Docs"
 description: "Azure Cosmos DB SQL sorgu dili için başvuru belgeleri."
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,18 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
-<<<<<<< HEAD:articles/cosmos-db/documentdb-sql-query-reference.md
-ms.openlocfilehash: 4907df15fddfb7d8d6128dc994b0920ca601f2c7
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 64c5e1284cd8a0413ebc73b1659822078f62d2ef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: laviswa
+ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3:articles/cosmos-db/sql-api-sql-query-reference.md
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos veritabanı SQL söz dizimi başvurusu
 

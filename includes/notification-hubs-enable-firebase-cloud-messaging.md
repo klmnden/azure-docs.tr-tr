@@ -7,4 +7,5 @@
 3. Firebase konsolunda projenize ait dişli çark simgesine ve ardından **Proje Ayarları**'na tıklayın.
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
-4. Proje ayarlarınızdaki **Cloud Messaging** sekmesine tıklayın ve **Sunucu anahtarı** ile **Gönderen kimliği** değerini kopyalayın. Bu değerler daha sonra bildirim hub'ı erişim ilkesini ve bildirim işleyicinizi uygulamada yapılandırmak için kullanılacaktır.
+4. Tıklatın **genel** proje ayarlarınızı sekmesini tıklatın ve ardından indirme **google services.json** Server API anahtarı ve istemci kimliğini içeren dosya
+5. Tıklatın **Cloud Messaging** sekmesi, proje ayarlarınızı ve değerini kopyalayın **eski sunucu anahtarı**. Bu değer, bildirim hub'ı erişim ilkesini yapılandırmak için kullanılır.

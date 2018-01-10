@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı ve/veya uzantısı ile ilgili sorunları
 
@@ -28,7 +28,14 @@ Bu makale, yedekleme hataları iletişim sorunlarını VM aracısı ve uzantıs�
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM Aracısı Azure yedekleme ile iletişim kuramıyor
+
+> [!NOTE]
+> Azure Linux VM'de Yedeklemelerinizin ve 4 Ocak 2018 sonrasında bu hata ile başarısız başlattıysanız etkilenen VM'ler içinde aşağıdaki komutu çalıştırın ve yedeklemeleri yeniden deneyin
+
+    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık almak için VM Aracısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri olan sırayla yedekleme hatasına neden olabilecek tetiklenen, gelen anlık görüntü engelleyebilir. Sorun giderme adımları verilen sırayla aşağıda izleyin ve işlemi yeniden deneyin.
+
 ##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1. neden: [VM Internet erişim yok](#the-vm-has-no-internet-access)
 ##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Neden 2: [aracı VM'yi yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)

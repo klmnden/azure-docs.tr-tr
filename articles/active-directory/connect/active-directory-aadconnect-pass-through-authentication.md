@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 02b1b3f2a567f6073b891a0376eddbc87cd268aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory doğrudan kimlik doğrulaması
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory (Azure AD) doğrudan kimlik doğrulaması, kullanıcıların şirket içi ve bulut tabanlı uygulamalar aynı parola kullanarak oturum açmak olanak tanır. Bu özellik, kullanıcılarınızın daha iyi bir deneyim - anımsaması, daha az bir parola sağlar ve kullanıcılarınızın oturum açma unuttunuz olasılığı olduğundan BT Yardım Masası maliyetlerini azaltır. Azure AD kullanarak kullanıcılar oturum açtığında, bu özellik kullanıcıların parolalarını şirket içi Active Directory'nizi karşı doğrudan doğrular.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Bu özellik için bir alternatiftir [Azure AD parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-synchronization.md), bulut kimlik doğrulaması kuruluşlara aynı avantajı sağlar. Ancak, belirli kuruluşlardaki güvenlik ve uyumluluk ilkeleri kullanıcıların parolalarını bile iç sınırlarının dışında bir karma form göndermek için bu kuruluşların izin vermez. Doğrudan kimlik doğrulaması gibi kuruluş için doğru çözümdür.
 

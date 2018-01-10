@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: crdun
-ms.openlocfilehash: a92fc21881375989f4ebd192c2c42e419e7aee59
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c80265432f4ee3120e3125b45712dc0e7a434708
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps için yönetilen istemci kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -428,7 +428,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user to choose the resolution between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),

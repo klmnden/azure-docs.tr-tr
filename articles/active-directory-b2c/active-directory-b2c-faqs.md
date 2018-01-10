@@ -13,17 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-<<<<<<< HEAD
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -111,7 +105,7 @@ Hayır, Azure AD B2C Azure AD Premium aynı kümesi raporları desteklemiyor. An
 Evet!  Hakkında bilgi edinin [dil özelleştirme](active-directory-b2c-reference-language-customization.md), genel önizlemede değil.  36 diller için çeviriler sağladığımız ve gereksinimlerinize uygun olarak herhangi bir dize geçersiz kılabilirsiniz.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Azure AD B2C tarafından sunulan my kaydolma ve oturum açma sayfalarında kendi URL'leri kullanabilir miyim? Örneğin, URL login.microsoftonline.com login.contoso.com için değiştirebilirim?
-Şu anda değil. Bu özellik bizim yol haritası üzerinde kullanılabilir. Etki alanınızda doğrulama **etki alanları** Klasik Azure portalı sekmesinde bu amacı gerçekleştirmenize değil.
+Şu anda değil. Bu özellik bizim yol haritası üzerinde kullanılabilir. Etki alanınızda doğrulama **etki alanları** Azure portalında sekmesinde bu hedef gerçekleştirmek değil.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>My Azure AD B2C kiracısı nasıl silebilirim?
 Azure AD B2C kiracınızın silmek için aşağıdaki adımları izleyin:

@@ -1,24 +1,20 @@
 ---
 title: "Yönetilmeyen (sayfa bloblarını) ve Microsoft Azure Linux VM'ler için diskleri depolama yönetilen hakkında | Microsoft Docs"
 description: "İle ilgili temel bilgileri öğrenin (sayfa bloblarını) yönetilmeyen ve yönetilen Azure Linux sanal makinelerinin diskleri depolama."
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 7be8dd52-98f7-4187-9b78-55197915bc9b
-ms.service: storage
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: fee78c87c1d73f2a0816d6e52ad48a93eef8dfc3
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Azure Linux VM'ler için diskleri depolama hakkında
 Yalnızca başka bir bilgisayarda gibi azure'daki sanal makinelerde bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak diskleri kullanın. Tüm Azure sanal makineler en az iki disk – Linux işletim sistemi diski ve geçici bir diske sahip. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün gerçekte sanal bir Azure depolama hesabında depolanan sabit diskler (VHD). Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir. 
@@ -45,7 +41,7 @@ Azure geçici disk nasıl kullandığı hakkında daha fazla bilgi için bkz: [g
 Uygulama verileri veya tutmak için gereksinim duyduğunuz diğer veri depolamak için bir sanal makineye bağlı VHD veri disktir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski maksimum 4095 GB kapasitesine sahiptir. Kaç tane veri diskleri ve depolama türü için iliştirebilirsiniz diskleri barındırmak için kullanabileceğiniz sanal makine boyutunu belirler.
 
 > [!NOTE]
-> Sanal makineler kapasiteleri hakkında daha fazla ayrıntı için [Linux sanal makineler için Boyutlar](../windows/sizes.md).
+> Sanal makineler kapasiteleri hakkında daha fazla ayrıntı için [Linux sanal makineler için Boyutlar](./sizes.md).
 > 
 
 Bir görüntüden sanal makine oluşturduğunuzda azure bir işletim sistemi diski oluşturur. Veri diskleri içeren bir görüntü kullanırsanız, sanal makine oluştururken Azure ayrıca veri diskleri oluşturur. Aksi halde, sanal makineyi oluşturduktan sonra veri diski ekleyin.

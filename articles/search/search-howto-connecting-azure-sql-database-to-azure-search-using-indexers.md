@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search'te Azure SQL veritabanına bağlanma
 
@@ -26,7 +26,7 @@ Sorgulayabileceğiniz önce bir [Azure Search dizini](search-what-is-an-index.md
 
 Bu makalede kullanmanın mekanizması kapsayan [dizin oluşturucular](search-indexer-overview.md), ancak aynı zamanda yalnızca Azure SQL veritabanları (örneğin, tümleşik değişiklik izleme) ile kullanılabilen özellikleri açıklar. 
 
-Azure SQL veritabanları ek olarak, Azure Search'te dizin oluşturucular için sağlar [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md), ve [Azure tablo depolaması](search-howto-indexing-azure-tables.md). Diğer veri kaynakları için destek istemek için geri bildirim sağlayan [Azure Search geri bildirim Forumunda](https://feedback.azure.com/forums/263029-azure-search/).
+Azure SQL veritabanları ek olarak, Azure Search'te dizin oluşturucular için sağlar [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md), ve [Azure tablo depolaması](search-howto-indexing-azure-tables.md). Diğer veri kaynakları için destek istemek için geri bildirim sağlayan [Azure Search geri bildirim Forumunda](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Dizin oluşturucular ve veri kaynakları
 
@@ -44,7 +44,7 @@ Ayarlama ve bir Azure SQL Dizin Oluşturucu kullanarak yapılandırma:
 
 * İçeri aktarma veri Sihirbazı'nda [Azure portalı](https://portal.azure.com)
 * Azure arama [.NET SDK'sı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure arama [REST API'si](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* Azure arama [REST API'si](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 Bu makalede, REST API oluşturmak için kullanacağız **dizin oluşturucular** ve **veri kaynakları**.
 
@@ -302,8 +302,8 @@ SQL dizin oluşturucu birkaç yapılandırma ayarlarını gösterir:
 
 | Ayar | Veri türü | Amaç | Varsayılan değer |
 | --- | --- | --- | --- |
-| queryTimeout |Dize |SQL sorgusu yürütme için zaman aşımı ayarlar |5 dakika ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |bool |ORDER BY yan tümcesi atlamak için yüksek su işareti ilke tarafından kullanılan SQL sorgusu neden olur. Bkz: [yüksek su işareti İlkesi](#HighWaterMarkPolicy) |False |
+| queryTimeout |string |SQL sorgusu yürütme için zaman aşımı ayarlar |5 dakika ("00: 05:00") |
+| disableOrderByHighWaterMarkColumn |bool |ORDER BY yan tümcesi atlamak için yüksek su işareti ilke tarafından kullanılan SQL sorgusu neden olur. Bkz: [yüksek su işareti İlkesi](#HighWaterMarkPolicy) |yanlış |
 
 Bu ayarları kullanılan `parameters.configuration` dizin oluşturucu tanımında nesne. Örneğin, sorgu zaman aşımı 10 dakika olarak ayarlamak için oluşturmak veya dizin oluşturucu aşağıdaki yapılandırma ile güncelleştir:
 

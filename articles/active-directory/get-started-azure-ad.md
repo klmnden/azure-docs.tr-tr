@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Azure AD’yi kullanmaya başlama
 Modern Kimlik Yönetimi, uygulamaların ve hizmetlerin yalnızca kimliği doğrulanmış kullanıcılar için kullanılabilirliği sağlamak için ölçeklenebilir, tutarlı reliablity gerektirir. Yeterli bir hizmet (SaaS) uygulamaları olarak onaylanan, Genel yazılım erişim sağlamak için bir yol kullanıcılar, BT ihtiyaçlarını kimlik yönetimi gereksinimlerini desteklemek için ana bilgisayar iç iş kolu uygulamaları için bir yol, geliştirmek için bile yolları şirket içi ve uygulama geliştirme ve kullanım. Tüm bu gereksinimlerin bir bulut tabanlı kimlik yönetimi çözümü gereksinimi için gelin.      
 
 Azure Active Directory (Azure AD) olduğu Microsoft çok kiracılı, bulut tabanlı dizin ve Kimlik Yönetimi Hizmeti. Azure AD çekirdek Dizin Hizmetleri, Gelişmiş Kimlik Yönetimi ve uygulamaya erişim yönetimi birleştirir. Çok kiracılı, coğrafi olarak dağıtılan, yüksek kullanılabilirlik tasarımı, buna yönelik en kritik işletme ihtiyaçlarınıza bağlı Azure AD anlamına gelir.
 
-Azure AD kimlik yönetimi özelliklerini şirket içi kaynak bilgileri, eşitleme özelliği de dahil olmak üzere, tam bir paketi içeren özelleştirilebilir şirket markası, basit lisans yönetimi ve hatta Self Servis parola yönetimi.  Kolay bu özellikleri ayarlamak güvenli bulut tabanlı uygulamalar için Azure AD ile çalışmaya başlamak, BT işlemlerini kolaylaştırır, maliyetleri azaltmak ve kurumsal uyumluluk hedefleri karşılandığından emin olun yardımcı yardımcı olabilir.
+Azure AD kimlik yönetimi özelliklerini şirket içi kaynak bilgileri, eşitleme özelliği de dahil olmak üzere, tam bir paketi içeren özelleştirilebilir şirket markası, basit lisans yönetimi ve hatta Self Servis parola yönetimi. Bu dağıtımı kolay yetenekleri yardımcı olabilecek Azure AD ile bulut tabanlı uygulamalar güvenli, BT işlemlerini kolaylaştırır, maliyetleri azaltmak için çalışmaya başlamak ve kurumsal uyumluluk hedefleri karşılandığından emin olmak.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -80,7 +80,7 @@ Aşağıdaki örneklerde olduğu gibi kuralları ayarlamak için Grup tabanlı l
 ### <a name="verification-step"></a>Doğrulama adımı
 Atanan gözden geçirme ve altında kullanılabilir lisans **Azure Active Directory** > **lisansları** > **tüm ürünleri**.
 
-## <a name="configure-self-service-password-reset"></a>Self Servis parola sıfırlama yapılandırın
+## <a name="configure-self-service-password-reset"></a>Kendi kendine parola sıfırlamayı yapılandırın
 [Self Servis parola sıfırlama (SSPR)](active-directory-passwords-getting-started.md) basit bir yol sıfırlamak veya bunların parolaları veya hesaplarının kilidini açmak kullanıcıların BT yöneticilerine sunmaktadır. Sistem, kullanıcıların sistemi kullanması sırasında kötüye kullanım veya uygunsuz kullanım konusunda uyaran bildirimlerle birlikte izlemeye yönelik ayrıntılı raporlama içerir.
 
 ### <a name="verification-step"></a>Doğrulama adımı
@@ -88,6 +88,6 @@ Gözden geçirme etkin SSPR özellikleri altında **Azure Active Directory** > *
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Active Directory ürün sayfası](https://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory Hizmeti sayfası](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory fiyatlandırma bilgileri sayfası](https://azure.microsoft.com/pricing/details/active-directory/)

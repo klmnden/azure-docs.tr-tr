@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 Bu öğretici, uygulamanızın dağıtılacağı gösterilmiştir [Azure Web Apps](app-service-web-overview.md) , yerel bilgisayarınızda bir Git deposundan. Uygulama hizmetini destekleyen bu yaklaşımı **yerel Git** dağıtım seçeneği [Azure Portal].  
 Bu makalede açıklanan Git komutların çoğu kullanarak bir uygulama hizmeti uygulaması oluştururken, otomatik olarak gerçekleştirilir [Azure komut satırı arabirimi] açıklandığı gibi [burada](app-service-web-get-started-dotnet.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Git. İkili yükleme indirebilirsiniz [burada](http://www.git-scm.com/downloads).  
@@ -71,8 +71,8 @@ App Service uygulamanız için bir Git deposu etkinleştirmek için aşağıdaki
 1. [Azure Portal]’da oturum açın.
 2. App Service uygulamanızın dikey penceresinde tıklayın **ayarlar > dağıtım kaynağı**. Tıklatın **Kaynak Seç**, ardından **yerel Git deposu**ve ardından **Tamam**.  
    
-    ![Yerel Git deposu](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Bu ilk zaman ayarınız Azure deposunu ise, bunun için oturum açma kimlik bilgileri oluşturmanız gerekir. Yerel Git deposundan Azure depo ve anında iletme değişiklikleri oturum kullanır. Uygulamanızın dikey penceresinden tıklayın **ayarlar > Dağıtım kimlik bilgileri**, dağıtım kullanıcı adı ve parola yapılandırın. İşiniz bittiğinde tıklatın **kaydetmek**.
+    ![Yerel 'Git' Havuzu](./media/app-service-deploy-local-git/local_git_selection.png)
+3. Bu ilk zaman ayarınız Azure deposunu ise, bunun için oturum açma kimlik bilgileri oluşturmanız gerekir. Yerel Git deposundan Azure depo ve anında iletme değişiklikleri oturum kullanır. Uygulamanızın dikey penceresinden tıklayın **Dağıtım > Dağıtım kimlik bilgileri**, dağıtım kullanıcı adı ve parola yapılandırın. İşiniz bittiğinde tıklatın **kaydetmek**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 

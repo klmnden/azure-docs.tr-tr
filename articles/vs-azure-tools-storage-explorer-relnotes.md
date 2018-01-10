@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure Storage Gezgini (Önizleme) sürüm notları | Microsoft Docs"
+title: "Microsoft Azure Storage Gezgini (Önizleme) sürüm notları"
 description: "Microsoft Azure Storage Gezgini (Önizleme) için sürüm notları"
 services: storage
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c709be1a509ce9ad6b6b494dea80419b3ea126c4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage Gezgini (Önizleme) sürüm notları
 
@@ -372,9 +372,9 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 ### <a name="version-089--088"></a>Sürüm 0.8.9 / 0.8.8
 02/23/2017
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
 #### <a name="new"></a>Yeni
@@ -405,7 +405,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 12/16/2016
 ### <a name="version-087"></a>Sürüm 0.8.7
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
 #### <a name="new"></a>Yeni
 
@@ -493,7 +493,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 09/12/2016
 ### <a name="version-084"></a>Sürüm 0.8.4
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
 #### <a name="new"></a>Yeni
 
@@ -514,7 +514,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 08/03/2016
 ### <a name="version-083"></a>Sürüm 0.8.3
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
 #### <a name="new"></a>Yeni
 
@@ -540,7 +540,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 07/07/2016
 ### <a name="version-082"></a>Sürüm 0.8.2
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
 #### <a name="new"></a>Yeni
 
@@ -563,11 +563,11 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 06/15/2016
 ### <a name="version-080"></a>Sürüm 0.8.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/ycfQhKztSIY?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
 #### <a name="new"></a>Yeni
 
@@ -608,10 +608,9 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 
 ### <a name="version-07201603250"></a>Sürüm 0.7.20160325.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/imbgBRHX65A?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
-
+>[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
 #### <a name="new"></a>Yeni
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2B işbirliği nedir? | Microsoft Belgeleri"
+title: "Azure Active Directory B2B işbirliği nedir? | Microsoft Docs"
 description: "Azure Active Directory B2B işbirliği Kurumsal uygulamalarınıza seçmeli olarak erişmek için iş ortaklarıyla etkinleştirerek, şirketler arası ilişkilerinizi destekler."
 services: active-directory
 documentationcenter: 
@@ -17,15 +17,15 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.openlocfilehash: eef95f80f8107c13cd057c56eb5219a353acc854
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3167b0b4b33eee11f388efd1d2088f6bc5cc639
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği nedir?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 Azure AD iş işletmeden işletmeye (B2B) işbirliği özelliklerinden herhangi diğer kuruluştan, küçük veya büyük kullanıcılarla güvenle ve güvenli bir şekilde çalışması için Azure AD kullanan herhangi bir kuruluş etkinleştirin. Bu kuruluşlardan Azure AD ile veya olmadan, hatta bir BT kuruluşu ile veya olmadan olabilir. 
 

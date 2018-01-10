@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/08/2018
 ms.author: denlee
-ms.openlocfilehash: bcd29d0b21d7624f6de10fc27e3dfce2fb3406c6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ba8a53f2018727cc4fa225b2d4ce14d9f1d7467
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark ile gerçek zamanlı büyük veri analizi Azure Cosmos DB bağlayıcıya hızlandırmak
 
@@ -31,7 +31,7 @@ Bu videoda Azure Cosmos DB baş Program Yöneticisi Denny Lee ile daha fazla bil
 
 Spark GraphX ve Gremlin grafik Azure Cosmos DB API'leri ile çalışmak için bkz: [Spark ve Apache TinkerPop Gremlin kullanarak grafik analytics gerçekleştirmek](spark-connector-graph.md).
 
-## <a name="download"></a>İndir
+## <a name="download"></a>İndirme
 
 Başlamak için Azure Cosmos DB bağlayıcısından Spark karşıdan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/) github'daki.
 
@@ -54,9 +54,9 @@ Resmi olarak desteklenen sürümler:
 
 | Bileşen | Sürüm |
 |---------|-------|
-|Apache Spark|2.0+|
-| Scala| 2.11|
-| Azure Cosmos DB SQL Java SDK'sı | 1.10.0 |
+|Apache Spark|2.0.2, 2.1.0, 2.2.0|
+| Scala| 2.10, 2.11|
+| Azure Cosmos DB SQL Java SDK'sı | 1.14.0, 1.15.0 |
 
 Bu makalede, Python (aracılığıyla pyDocumentDB) ve Scala arabirimleri kullanarak bazı basit örneklerini çalıştırma yardımcı olur.
 
@@ -181,21 +181,22 @@ Ayrıca JAR en son sürümlerini indirebilirsiniz [ *serbest* klasörü](https:/
 ### <a name="include-the-azure-cosmos-db-spark-jar"></a>Azure Cosmos DB Spark JAR Ekle
 Herhangi bir kod çalıştırmadan önce Azure Cosmos DB Spark JAR eklemeniz gerekir.  Kullanıyorsanız **spark Kabuk**, kullanarak JAR içerebilir sonra **--Kavanoz** seçeneği.  
 
-```
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-with-dependencies.jar
+```bash
+spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0-uber.jar
 ```
 
 Bağımlılıklar olmadan JAR çalıştırmak istiyorsanız, aşağıdaki kodu kullanın:
 
 ```bash
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
+spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar,/$location/azure-documentdb-1.14.0.jar,/$location/azure-documentdb-rx-0.9.0-rc2.jar,/$location/json-20140107.jar,/$location/rxjava-1.3.0.jar,/$location/rxnetty-0.4.20.jar 
 ```
 
 Azure Hdınsight Jupyter Not Defteri hizmeti gibi bir Not Defteri hizmeti kullanıyorsanız, kullanabileceğiniz **spark Sihirli** komutlar:
 
 ```
 %%configure
-{ "jars": ["wasb:///example/jars/azure-documentdb-1.10.0.jar","wasb:///example/jars/azure-cosmosdb-spark-0.0.3.jar"],
+{ "name":"Spark-to-Cosmos_DB_Connector", 
+  "jars": ["wasb:///example/jars/1.0.0/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-1.14.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-rx-0.9.0-rc2.jar", "wasb:///example/jars/1.0.0/json-20140107.jar", "wasb:///example/jars/1.0.0/rxjava-1.3.0.jar", "wasb:///example/jars/1.0.0/rxnetty-0.4.20.jar"],
   "conf": {
     "spark.jars.excludes": "org.scala-lang:scala-reflect"
    }
@@ -207,7 +208,7 @@ Azure Hdınsight Jupyter Not Defteri hizmeti gibi bir Not Defteri hizmeti kullan
 ### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>Spark Azure Cosmos Bağlayıcısı'nı kullanarak Veritabanına bağlanın
 İletişim taşıma biraz daha karmaşık olsa da, Azure Cosmos DB Spark'tan Bağlayıcısı'nı kullanarak bir sorgu yürütme önemli ölçüde daha hızlıdır.
 
-Aşağıdaki kod parçacığını bir Spark bağlamında Bağlayıcısı'nı kullanmayı gösterir.
+Aşağıdaki kod parçacığını bir Spark oturumda Bağlayıcısı'nı kullanmayı gösterir; Lütfen `azure-cosmosdb-spark` [GitHub deposuna](https://github.com/Azure/azure-cosmosdb-spark) Python örnekleri için.
 
 ```
 // Import Necessary Libraries
@@ -218,7 +219,7 @@ import com.microsoft.azure.cosmosdb.spark._
 import com.microsoft.azure.cosmosdb.spark.config.Config
 
 // Configure connection to your collection
-val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
+val baseConfig = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
 "Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
 "Database" -> "DepartureDelays",
 "preferredRegions" -> "Central US;East US2;",
@@ -226,7 +227,7 @@ val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.co
 "SamplingRatio" -> "1.0"))
 
 // Create collection connection
-val coll = spark.sqlContext.read.cosmosDB(readConfig2)
+val coll = spark.sqlContext.read.cosmosDB(baseConfig)
 coll.createOrReplaceTempView("c")
 ```
 
@@ -255,7 +256,7 @@ df.show()
 
 Bağlayıcısı'nı kullanarak Spark Azure Cosmos Veritabanına bağlanma genellikle senaryoları için burada:
 
-* Scala kullanın ve de belirtildiği gibi bir Python sarmalayıcı içerecek şekilde güncelleştirmek istediğiniz [sorunu 3: ekleme Python sarmalayıcı ve örnekler](https://github.com/Azure/azure-cosmosdb-spark/issues/3).
+* Python ve/veya Scala kullanmak istediğiniz.
 * Büyük miktarda veri Apache Spark ve Azure Cosmos DB arasında aktarmak var.
 
 Sorgu performans farkı hakkında bir fikir vermek için bkz: [sorgu Test çalışmalarını wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).

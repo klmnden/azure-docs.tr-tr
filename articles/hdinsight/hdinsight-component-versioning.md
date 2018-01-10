@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve Hdınsight ile kullanılabilir sürümlerini nelerdir?
 
@@ -74,26 +74,38 @@ Windows kümeleri için bileşen sürümü denetlemek için başka bir Uzak Masa
 Bkz: [Hdınsight sürüm notları](hdinsight-release-notes.md) Hdınsight'in en son sürümleri üzerinde ek sürüm notları.
 
 ## <a name="supported-hdinsight-versions"></a>Desteklenen Hdınsight sürümleri
-Aşağıdaki tabloda Azure portalında şu anda kullanılabilir Hdınsight sürümleri listelenmiştir. Her Hdınsight sürümüne karşılık gelen HDP sürümleri ürün sürüm tarihleri ile birlikte listelenir. Bilinen zaman destek sona erme ve sona erme tarihleri de sağlanır.
+Aşağıdaki tablolarda Hdınsight sürümleri listelenmiştir. Her Hdınsight sürümüne karşılık gelen HDP sürümleri ürün sürüm tarihleri ile birlikte listelenir. Bilinen zaman destek sona erme ve sona erme tarihleri de sağlanır.
+
+### <a name="available-versions"></a>Kullanılabilir sürümleri
+
+Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer deployement yöntemleri yanı sıra Azure Portalı'nı kullanılabilir Hdınsight sürümleri listelenmiştir.
+
+| Hdınsight sürümü | HDP sürüm | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure portalındaki kullanılabilirliği | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Hdınsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 Nisan 2017 | | |Evet |Evet |
+| Hdınsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 Eylül 2016 |5 Eylül 2017 |31 May 2018 |Evet |Evet |
+| Hdınsight 3.3 |2.3 HDP |Windows Server 2012 R2 |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2018 |Evet |Hayır |
 
 > [!NOTE]
 > Bir sürümünün süresi doldu için destek sonra Microsoft Azure Portalı aracılığıyla kullanılamayabilir. Ancak, küme sürümlerindeki kullanılabilir kullanarak devam `Version` Windows PowerShell parametresinde [yeni AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) komut ve sona erme tarihi sürüm kadar .NET SDK'sı.
-> 
-> İki baş düğümler ile yüksek oranda kullanılabilir küme Hdınsight sürüm 2.1 ve üzeri için varsayılan olarak dağıtılır. Hdınsight sürüm 1.6 kümeler için kullanılamaz.
+>
 
-| Hdınsight sürümü | HDP sürüm | VM İŞLETİM SİSTEMİ | Yüksek kullanılabilirlik | Sürüm tarihi | Azure portalındaki kullanılabilirliği | Destek sona erme tarihi | Sona erme tarihi |
+### <a name="retired-versions"></a>Kullanımdan Kaldırılan sürümleri
+
+Aşağıdaki tabloda, Hdınsight sürümlerine listeler **değil** Azure Portalı'nda kullanılabilir.
+
+| Hdınsight sürümü | HDP sürüm | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure portalındaki kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Hdınsight 3.6 |HDP 2.6 |Ubuntu 16 |Evet |4 Nisan 2017 |Evet | | |
-| Hdınsight 3.5 |HDP 2,5 |Ubuntu 16 |Evet |30 Eylül 2016 |Evet |5 Eylül 2017 |31 May 2018 |
-| Hdınsight 3.4 |2.4 HDP |Ubuntu 14.0.4 LTS |Evet |29 Mart 2016 |Evet |29 Aralık 2016 |9 Ocak 2018 |
-| Hdınsight 3.3 |2.3 HDP |Windows Server 2012 R2 |Evet |2 aralık 2015 |Evet |27 Haziran 2016 |31 Temmuz 2018 |
-| Hdınsight 3.3 |2.3 HDP |Ubuntu 14.0.4 LTS |Evet |2 aralık 2015 |Evet |27 Haziran 2016 |31 Temmuz 2017 |
-| Hdınsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS veya Windows Server 2012 R2 |Evet |18 Şubat 2015 |Hayır |1 Mart 2016 |1 Nisan 2017 |
-| Hdınsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Evet |24 Haziran 2014 |Hayır |18 Mayıs 2015 |30 Haziran 2016 |
-| Hdınsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Evet |11 Şubat 2014 |Hayır |17 Eylül 2014 |30 Haziran 2015 |
-| Hdınsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Evet |28 Ekim 2013 |Hayır |12 Mayıs 2014 |31 Mayıs 2015 |
-| Hdınsight 1.6 |HDP 1.1 | |Hayır |28 Ekim 2013 |Hayır |26 Nisan 2014 |31 Mayıs 2015 |
+| Hdınsight 3.4 |2.4 HDP |Ubuntu 14.0.4 LTS |29 Mart 2016 |29 Aralık 2016 |9 Ocak 2018 |Evet |Hayır |
+| Hdınsight 3.3 |2.3 HDP |Ubuntu 14.0.4 LTS |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2017 |Evet |Hayır |
+| Hdınsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS veya Windows Server 2012 R2 |18 Şubat 2015 |1 Mart 2016 |1 Nisan 2017 |Evet |Hayır |
+| Hdınsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 Haziran 2014 |18 Mayıs 2015 |30 Haziran 2016 |Evet |Hayır |
+| Hdınsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 Şubat 2014 |17 Eylül 2014 |30 Haziran 2015 |Evet |Hayır |
+| Hdınsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 Ekim 2013 |12 Mayıs 2014 |31 Mayıs 2015 |Evet |Hayır |
+| Hdınsight 1.6 |HDP 1.1 | |28 Ekim 2013 |26 Nisan 2014 |31 Mayıs 2015 |Hayır |Hayır |
 
+> [!NOTE]
+> İki baş düğümler ile yüksek oranda kullanılabilir küme Hdınsight sürüm 2.1 ve üzeri için varsayılan olarak dağıtılır. Hdınsight sürüm 1.6 kümeler için kullanılamaz.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Hdınsight için Kurumsal güvenlik paketi
 
@@ -144,7 +156,7 @@ Hdınsight sürüm 3.4 ile başlayarak, Microsoft Hdınsight yalnızca, Linux i�
 ## <a name="faqs"></a>SSS
 
 ### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>Windows'da Hdınsight devre dışı bırakma için zaman çizelgesi nedir?
-31 Temmuz 2018 Windows'da Hdınsight için devre dışı bırakma tarihidir. Planlanan tarihten bölgeniz için farklı olması durumunda, ayrı olarak bildirilir. 
+31 Temmuz 2018 Windows'da Hdınsight için devre dışı bırakma tarihidir. Planlanan tarihten bölgeniz için farklı ise, ayrı olarak bildirilir. 
 
 ### <a name="what-is-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>Hdınsight Windows üzerinde var olan müşteriler için devre dışı bırakma etkisi nedir?
 Windows'da Hdınsight kullanımdan kaldırıldıktan sonra yeni bir Hdınsight Windows Küme oluşturun veya var olan bir Hdınsight Windows kümesine yeniden boyutlandırma olamaz. Hdınsight sürüm 3.3 desteği, 27 Haziran 2016 tarihinde süresi doldu. Bu nedenle, destek veya hata düzeltmeleri Hdınsight 3.3 veya önceki sürümlerinde yoktur. Hdınsight'ın gelecek sürümlerinde, yalnızca Linux işletim sisteminde kullanılabilir. Hiçbir gelecek sürümlerde Windows'da hdınsight olacaktır.
@@ -171,9 +183,9 @@ Kullanarak Linux küme bağımlılığı çözümleyebilir [Mono proje](http://w
 Hayır, fiyatlandırma ya da OS Hdınsight için aynıdır. 
 
 ### <a name="what-are-the-customer-advantages-associated-with-the-move-to-only-using-hdinsight-on-linux"></a>Taşıma işlemi yalnızca Hdınsight Linux üzerinde kullanma ile ilgili müşteri yararları nelerdir?
-* Zaman-açık kaynak büyük veri teknolojileri Hdınsight hizmeti aracılığıyla market
+* Zaman-Hdınsight hizmeti aracılığıyla açık kaynak büyük veri teknolojileri için market
 * Büyük topluluk ve destek için ekosistemi
-* Açık kaynak topluluğu tarafından etkin geliştirme Hadoop ve diğer büyük veri teknolojileri için çalışma olanağı
+* Açık kaynak topluluk tarafından etkin geliştirme Hadoop ve diğer büyük veri teknolojileri için çalışma olanağı
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux'ta Hdınsight Windows'da hdınsight'ta kullanılabilenleri ötesinde ek işlevsellik sağlar mı?
 Hdınsight sürüm 3.4 ile başlayarak, Microsoft Hdınsight yalnızca, Linux işletim sistemine yayımladı. Sonuç olarak, bazı bileşenleri Hdınsight içinde yalnızca Linux için kullanılabilir. Apache bırakabilmenizi, Kafka, etkileşimli sorgu, Spark, Hdınsight uygulamaları, bunlar ve Azure Data Lake Store birincil dosya sistemi olarak. 

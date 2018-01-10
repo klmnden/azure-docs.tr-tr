@@ -13,26 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/23/2017
+ms.date: 01/08/2018
 ms.author: sasubram
-<<<<<<< HEAD
-ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
-=======
-ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: sasubram
+ms.openlocfilehash: 4c43082281cbc95ae75b65a2aefadbbab6d7cd30
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği ile ilgili SSS
 
 Bu Azure Active Directory (Azure AD) işletmeden işletmeye (B2B) işbirliği hakkında sık sorulan sorular (SSS) düzenli olarak yeni konular içerecek şekilde güncelleştirildi.
-
-### <a name="is-azure-ad-b2b-collaboration-available-in-the-azure-classic-portal"></a>Azure AD B2B işbirliği Azure Klasik Portalı'nda var mı?
-Hayır. Azure AD B2B işbirliği özellikleri yalnızca [Azure portal](https://portal.azure.com) ve [erişim paneli](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Bizim B2B işbirliği Konuk kullanıcılar için daha sezgisel böylece biz oturum açma sayfamızı özelleştirebilir miyim?
 Kesinlikle! Bkz: bizim [blog gönderisi bu özellik hakkında](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Kuruluşunuzun oturum açma sayfasını özelleştirme hakkında daha fazla bilgi için bkz: [şirket oturum açmak için markası ve erişim paneli sayfaları ekleme](customize-branding.md).

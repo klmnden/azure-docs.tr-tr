@@ -1,5 +1,5 @@
 ---
-title: "Günlük analizi ile Azure etkinlik günlükleri görüntüleme | Microsoft Docs"
+title: "Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini analiz edin | Microsoft Docs"
 description: "Azure etkinlik günlükleri çözüm çözümlemek ve tüm Azure abonelikleri Azure etkinlik günlüğü aramak için kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Azure etkinlik günlüklerini görüntüle
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini analiz edin
 
 ![Azure etkinlik günlükleri simgesi](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -50,14 +50,14 @@ Günlük analizi, etkinlik günlükleri ücretsiz toplar ve ücretsiz 90 gün i�
 
 Diğer çoğu günlük analizi çözümleri, etkinlik günlükleri için aracıları tarafından toplanan veriler değil. Çözüm tarafından kullanılan tüm verileri doğrudan Azure'dan gelir.
 
-| Bağlı Kaynak | Destekleniyor | Açıklama |
+| Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
 | [Windows aracıları](log-analytics-windows-agent.md) | Hayır | Çözüm Windows aracılardan bilgi toplamaz. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Çözüm, Linux aracılarını bilgi toplamaz. |
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | Çözüm bağlı SCOM yönetim grubunda aracılardan gelen bilgiler toplamaz. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Çözüm, Azure depolama biriminden bilgi toplamaz. |
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure etkinlik günlüğü bilgilerine erişmek için bir Azure aboneliğinizin olması gerekir.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bul ve performans önerileri uygulayın
 
@@ -41,7 +41,7 @@ Performans önerileri üzerinde aşağıdaki şekilde gösterilene benzer tablo 
 
 Öneriler olası etkilerini performansı şu kategorilere göre sıralanır:
 
-| Etkisi | Açıklama |
+| Etki | Açıklama |
 |:--- |:--- |
 | Yüksek |Yüksek etkisi önerileri en önemli performans etkisi sağlamalıdır. |
 | Orta |Orta etkisi önerileri performansını artırmak, ancak önemli ölçüde değil. |
@@ -56,7 +56,7 @@ Ayrıca, geçmiş işlemleri durumunu görüntüleyebilirsiniz. Daha fazla ayrı
 
 "Dizin oluşturma" öneri Azure portalında bir örneği burada verilmiştir.
 
-![Dizin oluşturma](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+![Dizin oluştur](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Önerileri uygulama
 Azure SQL veritabanına nasıl önerilerdir üzerinde tam denetim verir aşağıdaki üç seçenekten birini kullanarak etkin: 
@@ -91,13 +91,17 @@ Seçili öneri veritabanı üzerinde uygulanır.
 2. Ayrıntılarını görüntülemek için listeden atılan bir öğe seçin.
 3. İsteğe bağlı olarak, tıklayın **geri atmak** dizin, ana listesine eklemek için **önerileri**.
 
+> [!NOTE]
+> Lütfen unutmayın SQL veritabanı [otomatik ayarlama](sql-database-automatic-tuning.md) etkin, ve listeden bir öneri el ile atılan değilse, bu tür öneri hiçbir zaman otomatik olarak uygulanır. Bir öneri atarak, kullanıcıların otomatik ayarlama durumlarda belirli bir öneri uygulanan döndürmemelidir kılarken etkin olması kullanışlı bir yoludur.
+> Bu davranış geri At seçeneğini belirleyerek atılan önerileri geri önerileri listesine ekleyerek geri dönebilirsiniz.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Otomatik ayarlamayı etkinleştirme
 Öneriler otomatik olarak uygulamak için Azure SQL veritabanı ayarlayabilirsiniz. Öneriler kullanılabilir duruma geldiğinde, bunlar otomatik olarak uygulanır. Performans etkisi olumsuz olursa hizmet tarafından yönetilen tüm öneriler gibi öneri döndürüldü.
 
 1. Üzerinde **önerileri** sayfasında, **otomatikleştirme**:
    
-    ![Advisor ayarları](./media/sql-database-advisor-portal/settings.png)
+    ![Danışman ayarları](./media/sql-database-advisor-portal/settings.png)
 2. Otomatik hale getirmek için Eylemler seçin:
    
     ![Dizinleri önerilir](./media/sql-database-advisor-portal/automation.png)
@@ -119,12 +123,12 @@ Bir öneri uygulama eşzamanlı olarak gerçekleşebilir değil. Portal, öneri 
 | Durum | Açıklama |
 |:--- |:--- |
 | Beklemede |Komut alındı ve çalıştırılmak üzere zamanlanmış öneri uygulayın. |
-| Yürütme |Öneri uygulanmaktadır. |
+| Yürütülüyor |Öneri uygulanmaktadır. |
 | Doğrulama |Öneri başarıyla uygulandı ve hizmet avantajlarını ölçme. |
 | Başarılı |Öneri başarıyla uygulandı ve avantajları ölçülür. |
 | Hata |Öneriyi uygulama işlemi sırasında bir hata oluştu. Bu geçici bir sorun veya büyük olasılıkla bir şema, tablo olarak değiştirin ve komut dosyası artık geçerli değil. |
-| Geri alma |Öneri uygulandı, ancak kullanıcı dışı olarak kabul edildi ve otomatik olarak geri döndürülüyor. |
-| Döndürüldü |Öneri geri döndürüldü. |
+| Geri döndürülüyor |Öneri uygulandı, ancak kullanıcı dışı olarak kabul edildi ve otomatik olarak geri döndürülüyor. |
+| Geri döndürüldü |Öneri geri döndürüldü. |
 
 Daha fazla ayrıntı görmek için bir işlem içi öneri listeden tıklatın:
 

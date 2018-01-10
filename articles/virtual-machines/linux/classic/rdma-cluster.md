@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI uygulamalarını çalıştırmak için bir Linux RDMA kümesi oluşturma
 Azure ile Linux RDMA kümedeki ayarlamak öğrenin [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) paralel ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için. Bu makalede bir kümede Intel MPI çalıştırmak için Linux HPC görüntüsünü hazırlamak için adımları sağlar. Hazırlık sonra bu görüntü ve RDMA özellikli Azure VM boyutlarını (şu anda H16r, H16mr, A8 veya A9) birini kullanarak sanal makineleri bir küme dağıtın. Küme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı düşük gecikmeli, yüksek verimlilik bir ağ üzerinden verimli bir şekilde iletişim kuran MPI uygulamaları çalıştırmak için kullanın.
@@ -42,7 +42,7 @@ Aşağıdaki adımlar, Azure CLI Azure Marketi'nden SUSE Linux Enterprise Server
 >
 >
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * **İstemci bilgisayar**: Azure ile iletişim kurmak için bir Mac, Linux veya Windows istemci bilgisayar gerekir. Bu adımlarda Linux istemci kullandığınız varsayılır.
 * **Azure aboneliği**: bir aboneliğiniz yoksa oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde. Daha büyük kümeleri için Kullandıkça Öde aboneliğine veya diğer satın alma seçenekleri göz önünde bulundurun.
 * **VM boyutu kullanılabilirlik**: RDMA özellikli aşağıdaki örneği boyutlarıdır: H16r, H16mr, A8 ve A9. Denetleme [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/) Azure bölgelerindeki kullanılabilirlik.
@@ -304,7 +304,7 @@ cluster12
 Küme yapılandırmasını ve RDMA ağ bağlantısını doğrulamak için pingpong Kıyaslama aşağıdaki Intel MPI komutu çalıştırır.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 İki düğümle bir çalışma kümesinde aşağıdaki gibi bir çıktı görmeniz gerekir. Azure RDMA ağ üzerinde gecikme düzeyinde veya altında 3 mikrosaniye ileti için en çok 512 bayt boyutları bekler.

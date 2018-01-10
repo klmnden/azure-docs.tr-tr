@@ -1,5 +1,5 @@
 ---
-title: "Azure faturanızı anlamak | Microsoft Docs"
+title: "Azure faturanızı anlamak"
 description: "Azure aboneliğinizin kullanımını ve faturasını okuma ve anlama hakkında bilgi edinin"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure fatura koşullarınızda anlama
+
 Fatura ücretlerinizi özetini sağlar ve ödeme için yönergeler sağlar. Taşınabilir Belge Biçimi (.pdf) İndirilebilecek [Azure portal](https://portal.azure.com/) veya e-posta ile gönderilebilir. Daha fazla bilgi için bkz: [faturayı ve günlük kullanım verileri faturalama Azure alma](billing-download-azure-invoice-daily-usage-date.md).
 
 Dikkat edilecek bazı noktalar:
@@ -31,9 +32,7 @@ Dikkat edilecek bazı noktalar:
 
 -   Uluslararası müşteriler için fatura tablolarda listelenen ücretleri, yalnızca tahmin amaçlıdır. Banka dönüştürme oranları farklı maliyetlerini olabilir.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Ayrıntılı hüküm ve faturanızı açıklamaları
 Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları üzerinde gördüğünüz önemli terimler listelenmektedir.

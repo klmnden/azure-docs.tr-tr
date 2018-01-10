@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'ye yeni kullanıcı ekleme
-Bu makalede Azure Active Directory'de (Azure AD), kuruluşunuzdaki yeni kullanıcı ekleme açıklayan bir Azure portalını kullanarak bir zamanda veya şirket içi Windows Server AD kullanıcı hesabı verilerinizi eşitleyerek. 
+Bu makalede silin veya, kuruluşunuzda Azure portalını kullanarak orgnization kullanıcının Azure Active Directory (Azure AD) Kiracı veya şirket içi Windows Server AD kullanıcı hesabı verilerinizi eşitleyerek kullanıcıların nasıl ekleneceğini açıklar. 
 
 ## <a name="add-cloud-based-users"></a>Bulut tabanlı kullanıcıları ekleme
 1. Oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) dizini için genel yönetici olan bir hesapla.
@@ -48,8 +48,11 @@ Bu makalede Azure Active Directory'de (Azure AD), kuruluşunuzdaki yeni kullanı
 
 ### <a name="learn-more"></a>Daha fazla bilgi edinin 
 * [Başka bir dizinden Konuk kullanıcılar ekleme](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Bir kullanıcı, Azure AD'de rol atama](active-directory-users-assign-role-azure-portal.md)
+* [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
+* [Silinmiş bir kullanıcı geri yükleme](active-directory-users-restore.md)
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu hızlı başlangıç Azure AD Premium için yeni kullanıcı ekleme öğrendiniz. 
