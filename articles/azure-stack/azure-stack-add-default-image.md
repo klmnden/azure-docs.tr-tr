@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Windows Server 2016 VM görüntüsü Azure yığın Marketinde ekleme
 
@@ -34,15 +34,15 @@ Varsayılan olarak, hiçbir sanal makine görüntü Azure yığın Marketi'nde k
 
 2. Seçin **daha fazla hizmet** > **Market Yönetim** > **azure'dan Ekle**. 
 
-3. Bulma veya arama **Windows Server 2016 Datacenter – Eval** görüntü ve ardından **karşıdan**.
+3. Bulma veya arama **Windows Server 2016 Datacenter** görüntü ve ardından **karşıdan**.
 
    ![Görüntü Azure'dan indirin](media/azure-stack-add-default-image/download-image.png)
 
-Yükleme tamamlandığında, görüntü altında kullanılabilir **Market Yönetim**. Görüntü ayrıca altında kullanılabilir **sanal makineleri**.
+Yükleme tamamlandığında, görüntü altında kullanılabilir **Market Yönetim**. Görüntü ayrıca altında kullanılabilir **işlem** ve yeni sanal makineler oluşturmak kullanılabilir.
 
 ## <a name="add-the-image-by-using-powershell"></a>PowerShell kullanarak görüntü ekleme
 
-### <a name="prerequisites"></a>Ön koşullar 
+### <a name="prerequisites"></a>Önkoşullar 
 
 Aşağıdaki Önkoşullar, araçtan çalıştırmak [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) veya kullanıyorsanız Windows tabanlı bir dış istemci, [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
@@ -113,7 +113,7 @@ Aşağıdaki Önkoşullar, araçtan çalıştırmak [Geliştirme Seti](azure-sta
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
+    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
@@ -137,7 +137,7 @@ Windows Server 2016 VM görüntüsü en son toplu güncelleştirmeyi olduğundan
 
 ## <a name="parameters"></a>Parametreler
 
-|AzsServer2016VMImage yeni parametreleri|Gerekli mi?|Açıklama|
+|AzsServer2016VMImage yeni parametreleri|Gerekli|Açıklama|
 |-----|-----|------|
 |ISOPath|Evet|Karşıdan yüklenen Windows Server 2016 ISO tam yolu.|
 |Net35|Hayır|Windows Server 2016 görüntüde .NET 3.5 çalışma zamanı yükler. Varsayılan olarak, bu değeri ayarlamak **doğru**.|
@@ -145,7 +145,7 @@ Windows Server 2016 VM görüntüsü en son toplu güncelleştirmeyi olduğundan
 |VHDSizeInMB|Hayır|Azure yığın ortamınıza eklenecek VHD görüntüsü boyutu (MB) cinsinden ayarlar. Varsayılan olarak, bu değer 40.960 MB olarak ayarlanır.|
 |CreateGalleryItem|Hayır|Market öğesi için Windows Server 2016 görüntü oluşturulması gerekip gerekmediğini belirtir. Varsayılan olarak, bu değeri ayarlamak **doğru**.|
 |location |Hayır |Windows Server 2016 görüntü yayımlanması gerekir konumunu belirtir.|
-|IncludeLatestCU|Hayır|En son Windows Server 2016 toplu güncelleştirme yeni VHD'ye uygular.|
+|IncludeLatestCU|Hayır|En son Windows Server 2016 toplu güncelleştirme yeni VHD'ye uygular (en son güncelleştirme ya da sonraki iki seçenekten birini kullanın işaret ettiğinden emin olmak için komut dosyası lütfen denetleyin). |
 |CUUri |Hayır |Belirli bir URİ'den çalıştırmak için toplu güncelleştirme Windows Server 2016 ayarlar. |
 |CUPath |Hayır |Yerel bir yoldan çalıştırmaya için toplu güncelleştirme Windows Server 2016 ayarlar. Bu seçenek, bağlantısı kesilmiş bir ortam Azure yığın örneğinde dağıttıysanız yararlıdır.|
 

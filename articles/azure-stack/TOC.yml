@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Çok kiracılı modeli etkinleştirme
               href: azure-stack-enable-multitenancy.md
+        - name: Gizli anahtarları döndürme
+          href: azure-stack-rotate-secrets.md
     - name: Hizmet sunma
       items:
         - name: Hizmet sunmaya genel bakış
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Azure Stack’te tanılama
           href: azure-stack-diagnostics.md
+        - name: Azure yığını için doğrulama
+          href: azure-stack-diagnostic-test.md
         - name: Azure Stack Geliştirme Seti’ni yeniden dağıtma
           href: azure-stack-redeploy.md
 - name: Başvuru

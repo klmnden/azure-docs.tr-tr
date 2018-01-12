@@ -17,7 +17,7 @@
     - name: Küme kapasitesi planlama
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Küme depolama alanını kullanma
       items:
@@ -68,7 +68,7 @@
         - name: SSH tüneli kullanma
           href: ../hdinsight-linux-ambari-ssh-tunnel.md
           maintainContext: true
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Linux kümeleri oluşturma
           href: ../hdinsight-hadoop-provision-linux-clusters.md
@@ -121,6 +121,8 @@
         - name: Hadoop işleri için veri yükleme
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Psql kullanarak Phoenix’e toplu veri yükleme
+          href: apache-hbase-phoenix-psql.md
         - name: Data Lake Store ile birden çok HDInsight kümesi
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true

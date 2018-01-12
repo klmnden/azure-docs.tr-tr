@@ -8,10 +8,10 @@
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Hızlı Başlangıçlar
   items:
-    - name: Depolama hesabı oluşturma - PowerShell
-      href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Depolama hesabı oluşturma - CLI
-      href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Depolama hesabı oluşturma
+      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Bloblarla çalışma - Azure portal
+      href: storage-quickstart-blobs-portal.md
     - name: Blob’larla çalışma - PowerShell
       href: storage-quickstart-blobs-powershell.md
     - name: Blob’larla çalışma - CLI
@@ -70,6 +70,10 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
+    - name: .NET
+      href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Java
+      href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Kavramlar
   items:
     - name: Planlama ve tasarım
@@ -94,16 +98,32 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Premium Depolama
           items:
-            - name: VM Diskleri için yüksek performanslı Premium Depolama
-              href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Site Recovery kullanarak Premium Depolamaya geçiş
-              href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Yüksek performans tasarımı
-              href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: VM Diskleri için yüksek performanslı Premium Depolama
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
+                - name: Azure Site Recovery kullanarak Premium Depolamaya geçiş
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Yüksek performans tasarımı
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
+            - name: Windows
+              items:
+                - name: VM Diskleri için yüksek performanslı Premium Depolama
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
+                - name: Azure Site Recovery kullanarak Premium Depolamaya geçiş
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Yüksek performans tasarımı
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
         - name: Standart Depolama
           items:
-            - name: Uygun maliyetli Standart Depolama ile yönetilmeyen ve yönetilen VM Diskleri
-              href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: VM Diskleri için Standart Depolama
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
+            - name: Windows
+              items:
+                - name: VM Diskleri için Standart Depolama
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
     - name: Güvenlik
       items:
         - name: Güvenlik kılavuzu
@@ -146,6 +166,8 @@
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Geliştirme
       items:
+        - name: REST
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-blobs.md
         - name: Java
@@ -172,8 +194,6 @@
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Yönetme
       items:
-        - name: Azure Blob'ları için PowerShell
-          href: storage-how-to-use-blobs-powershell.md
         - name: Azure Depolama için PowerShell
           href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Çin, Kamu ve Almanya bulutları için PowerShell'
