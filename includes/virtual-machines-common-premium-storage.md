@@ -60,7 +60,7 @@ Premium depolama özelliklerden bazıları şunlardır:
     Azure depolama hesabınızın yönetilmeyen diskleriniz için bir kapsayıcı olarak kullanır. Bir Azure DS serisi, DSv2 serisi, GS serisi, oluşturduğunuzda veya Fs-serisi VM yönetilmeyen disklerle ve premium depolama hesabı, işletim sisteminizi seçin ve veri diskleri bu depolama hesabında depolanır.
 
 ## <a name="supported-vms"></a>Desteklenen VM'ler
-Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi, Ls-serisi ve Fs-serisi VM'ler. Bu VM türleriyle standart ve premium depolama diskleri kullanabilirsiniz. Premium depolama diskleri depolama uyumlu Premium olmayan VM dizisi ile kullanamazsınız.
+Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi, Ls serisi, Fs-serisi ve B-serisi VM'ler. Bu VM türleriyle standart ve premium depolama diskleri kullanabilirsiniz. Premium depolama diskleri depolama uyumlu Premium olmayan VM dizisi ile kullanamazsınız.
 
 VM türler ve Windows için Azure boyutları hakkında daha fazla bilgi için bkz: [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md). Linux VM türler ve Azure boyutları hakkında bilgi için bkz: [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md).
 
@@ -156,7 +156,7 @@ Premium Storage ölçeklenebilirlik ve performans hedefleri hakkında bilmeniz g
 
     Bir g/ç boyutu 256 KB'tır. Aktarılan veri 256 KB'den az ise, 1 g/ç birim olarak kabul edilir. Daha büyük g/ç boyutları olarak birden çok g/ç boyutu sayılır 256 KB. Örneğin, 1.100 KB g/ç 5 g/ç birimleri kabul edilir.
 
-* **Üretilen iş**
+* **Aktarım hızı**
 
     Üretilen iş sınırı disk yazma işlemlerini içerir ve önbellekten hizmet olmayan disk okuma işlemleri içerir. Örneğin, 100 MB/sn'ye disk başına P10 disk vardır. Geçerli işleme bir P10 disk için bazı örnekleri aşağıdaki tabloda gösterilmiştir:
 
