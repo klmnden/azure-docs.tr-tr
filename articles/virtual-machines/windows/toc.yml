@@ -125,7 +125,11 @@
         - name: 'C# kullanma'
           href: csharp.md
         - name: Özelleştirilmiş disk kullanma
-          href: create-vm-specialized.md
+          items:
+            - name: Portal
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'C# ile şablon kullanma'
           href: csharp-template.md
         - name: Chef ile VM oluşturma

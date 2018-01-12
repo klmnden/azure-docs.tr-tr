@@ -12,6 +12,8 @@
   items:
     - name: Yönetilen uygulama dosyaları oluşturma
       href: publish-service-catalog-app.md
+    - name: Market uygulaması oluşturma
+      href: publish-marketplace-app.md
 - name: Örnekler
   items:
     - name: Azure CLI

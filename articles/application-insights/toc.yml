@@ -226,7 +226,7 @@
           href: app-insights-api-filtering-sampling.md
         - name: Örnekleme
           href: app-insights-sampling.md
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Fiyatlandırmayı ve veri hacmini yönetme
           href: app-insights-pricing.md
@@ -265,6 +265,10 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+- name: Örnekler
+  items:
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
 - name: Başvuru
   items:
     - name: Analytics sorgu dili

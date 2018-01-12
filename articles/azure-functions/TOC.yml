@@ -85,7 +85,7 @@
       href: functions-best-practices.md
     - name: İşlevler Proxy’leri
       href: functions-proxies.md
-    - name: İşlevler Çalışma Zamanı
+    - name: Şirket içi işlevler
       href: functions-runtime-overview.md
     - name: Dayanıklı İşlevler
       items:
@@ -182,7 +182,7 @@
         - name: Blob depolama
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Dış dosya
