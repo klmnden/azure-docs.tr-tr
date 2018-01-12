@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 12/08/2017
   ms.author: tamram
-  ms.openlocfilehash: 04198a4f256be34dc0b79413c792f2e979b918ed
-  ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+  ms.openlocfilehash: f19fc44c2d8f4a8af7f757983020eaee6f94b241
+  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 12/13/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Microsoft Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Azure Depolama; Blob depolama, Dosya Depolama ve Kuyruk depolama hizmetlerinden oluşur.  Hızlı başlangıç yönergelerimiz ve öğreticilerimizden yararlanarak Azure Depolama’dan nasıl yararlanabileceğimizi öğrenin."
 sections:
@@ -28,6 +28,9 @@ sections:
   - type: table
     style: dataMatrix
     columns:
+    - image:
+        src: media/index/portal.svg
+        text: Portal
     - image:
         src: media/index/logo_powershell.svg
         text: PowerShell
@@ -45,14 +48,16 @@ sections:
     rows:
     - title: "Depolama hesabı oluştur"
       values:
-      - href: /azure/storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - href: /azure/storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: /azure/storage/common/storage-quickstart-create-account?tabs=portal
+      - href: /azure/storage/common/storage-quickstart-create-account?tabs=powershell
+      - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
       - href: 
       - href: 
       - href: 
       - href: 
     - title: "Blob hızlı başlangıçları"
       values:
+      - href: /azure/storage/blobs/storage-quickstart-blobs-portal
       - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
       - href: /azure/storage/blobs/storage-quickstart-blobs-cli
       - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
