@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IOT hub'ınızdaki kimlik kayıt defterinde anlama
 
@@ -84,7 +84,7 @@ Zaman uyumsuz işlemleri kullanarak bir IOT hub'ın kimlik kayıt defterine topl
 
 Belirli bir IOT çözüm depolar cihaz verileri bu çözüm belirli gereksinimlerine bağlıdır. Ancak, en az bir çözüm cihaz kimliklerini ve kimlik doğrulama anahtarları depolamanız gerekir. Azure IOT Hub kimlikleri, kimlik doğrulama anahtarları ve durum kodları gibi her bir cihaz için değerler saklayabilirsiniz bir kimlik kayıt defterini içerir. Bir çözüm, herhangi bir ek aygıt veri depolamak için tablo, blob depolama veya Cosmos DB gibi diğer Azure hizmetleriyle kullanabilirsiniz.
 
-*Cihaz sağlama* ilk cihaz veri depolarına çözümünüzdeki ekleme işlemidir. Hub'ınıza bağlanmak yeni bir cihaz etkinleştirmek için bir cihaz kimliği ve anahtarları IOT Hub kimlik kayıt defterine eklemeniz gerekir. Hazırlama işleminin bir parçası olarak, diğer çözüm depolarında aygıta özgü verileri başlatma gerekebilir.
+*Cihaz sağlama* ilk cihaz veri depolarına çözümünüzdeki ekleme işlemidir. Hub'ınıza bağlanmak yeni bir cihaz etkinleştirmek için bir cihaz kimliği ve anahtarları IOT Hub kimlik kayıt defterine eklemeniz gerekir. Hazırlama işleminin bir parçası olarak, diğer çözüm depolarında aygıta özgü verileri başlatma gerekebilir. Azure IOT Hub cihaz sağlama hizmeti, sıfır-touch, yalnızca insan etkileşimi olmadan bir veya daha fazla IOT hub'ları için sağlama zaman etkinleştirmek için de kullanabilirsiniz. Daha fazla bilgi için bkz: [hizmet belgeleri sağlama][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Cihaz sinyal
 
@@ -149,10 +149,10 @@ Bir cihaz kimlikleri aşağıdaki özelliklerle JSON belgeleri olarak temsil edi
 | deviceId |gerekli, güncelleştirmelerinin salt okunur |Büyük küçük harf duyarlı dize (en fazla 128 karakter uzunluğunda) ASCII 7 bit alfasayısal karakterler ve belirli özel karakterler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | Generationıd |gerekli, salt okunur |Bir IOT hub tarafından üretilen, büyük küçük harf duyarlı dize en çok 128 karakter uzunluğunda. Bu değer ile aynı cihazları ayırt etmek için kullanılır **DeviceID**, silinmiş ve yeniden oluşturulacak. |
 | ETag |gerekli, salt okunur |Göre zayıf bir ETag cihaz kimliğini temsil eden bir dize [RFC7232][lnk-rfc7232]. |
-| kimlik doğrulama |İsteğe bağlı |Kimlik doğrulama bilgileri ve güvenlik malzemeleri içeren bileşik bir nesne. |
-| auth.symkey |İsteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bileşik bir nesne. |
+| kimlik doğrulama |isteğe bağlı |Kimlik doğrulama bilgileri ve güvenlik malzemeleri içeren bileşik bir nesne. |
+| auth.symkey |isteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bileşik bir nesne. |
 | durum |Gerekli |Bir erişim göstergesidir. Olabilir **etkin** veya **devre dışı**. Varsa **etkin**, cihaz bağlanmasına izin verilir. Varsa **devre dışı**, bu cihazı herhangi bir aygıt'e yönelik uç nokta erişemiyor. |
-| statusReason |İsteğe bağlı |Cihaz kimliği durum nedeni depolayan bir 128 karakter uzunluğundaki dize. Tüm UTF-8 karakterlere izin verilir. |
+| statusReason |isteğe bağlı |Cihaz kimliği durum nedeni depolayan bir 128 karakter uzunluğundaki dize. Tüm UTF-8 karakterlere izin verilir. |
 | statusUpdateTime |Salt okunur |Son durum güncelleştirmesi saat ve tarihi gösteren bir zamana bağlı göstergesi. |
 | connectionState |Salt okunur |Bağlantı durumunu gösteren bir alan: ya da **bağlı** veya **bağlantı kesildi**. Bu alan cihaz bağlantı durumunun IOT Hub görünümünü temsil eder. **Önemli**: Bu alan yalnızca geliştirme/hata ayıklama amacıyla kullanılmalıdır. Bağlantı durumu yalnızca MQTT veya AMQP kullanarak aygıtlar için güncelleştirilmiştir. Ayrıca, protokol düzeyi ping (ping MQTT veya AMQP ping) dayalıdır ve yalnızca 5 dakika cinsinden bir maksimum gecikme olabilir. Bu nedenlerle, olabilir hatalı pozitif sonuç gibi cihazlar bağlı olarak bildirilen ancak, kesilir. |
 | connectionStateUpdatedTime |Salt okunur |Son saat ve tarihi bağlantı durumunu gösteren bir zamana bağlı göstergesi güncelleştirildi. |
@@ -184,6 +184,11 @@ Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıda
 
 * [Azure IOT Hub ile çalışmaya başlama][lnk-getstarted-tutorial]
 
+IOT Hub cihaz sağlama hizmeti kullanarak zero touch, yalnızca zaman sağlama etkinleştirmek için bkz: keşfetmek için: 
+
+* [Azure IOT Hub cihaz hizmet sağlama][lnk-dps]
+
+
 <!-- Links and images -->
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
@@ -205,3 +210,4 @@ Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıda
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

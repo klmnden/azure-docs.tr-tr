@@ -12,14 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 543e8a591acc76918aa7159e6a31b67d85849148
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: a16c5011986c16aae26efaaa6191568b04f46567
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-location-based-services---geocoding-coverage"></a>Azure konumu coğrafi kodlama kapsamı Hizmetleri - temel
-Azure konum tabanlı hizmetler (lb) adresleri, yerler ve dünyanın coğrafi diğer varlıklar bakarak ayrıntılı coğrafi kodlama bilgi sağlar. Bu, burada bunlar ve doğruluk çeşitli düzeylerde ararken arama hizmeti adresleri bulmak beklediğiniz olamaz bilmek isteyen müşteriler için önemlidir. Bölgeler düşük güvenilirlik kapsamı ile arama yaparken, düşük güvenilirlik arama sonuçları beklediğiniz olamaz. Aşağıdaki tabloda Azure lb arama coğrafi kodlama için kapsam bilgileri sağlar.
+Azure konum tabanlı hizmetler (lb) adresleri, yerler ve dünyanın coğrafi diğer varlıklar bakarak ayrıntılı coğrafi kodlama bilgi sağlar. Bu, burada bunlar ve doğruluk çeşitli düzeylerde ararken arama hizmeti adresleri bulmak beklediğiniz olamaz bilmek isteyen müşteriler için önemlidir. Bölgeler düşük güvenilirlik kapsamı ile arama yaparken, düşük güvenilirlik arama sonuçları bekleyebilirsiniz. Aşağıdaki tabloda Azure lb arama coğrafi kodlama için kapsam bilgileri sağlar.
 
 
 |Bölge  |Adres noktaları  |Ev numaraları |Sokak düzeyi|
@@ -41,9 +41,9 @@ Azure konum tabanlı hizmetler (lb) adresleri, yerler ve dünyanın coğrafi di�
 |Dominicana     |         |         |✓         |
 |Ekvador     |         |         |✓         |
 |El Salvador     |         |         |✓         |
-|Fransız Guyanası     |         |         |✓         |
+|Fransız Ginesi     |         |         |✓         |
 |Grenada     |         |         |✓         |
-|Guadeloupe     |         |✓         |✓         |
+|Guadalupe     |         |✓         |✓         |
 |Guatemala     |         |         |✓         |
 |Guam     |✓         |✓         | ✓        |
 |Haiti     |         |         |✓         |
@@ -88,7 +88,7 @@ Azure konum tabanlı hizmetler (lb) adresleri, yerler ve dünyanın coğrafi di�
 |Andorra     |✓         |✓         |✓         |
 |Avusturya     |✓         |✓         | ✓        |
 |Belçika     |✓         |✓         |✓         |
-|Bosna Hersek     |         |         |✓         |
+|Bosna-Hersek     |         |         |✓         |
 |Bulgaristan     |         |✓         |✓         |
 |Belerus     |         |         |✓         |
 |Hırvatistan     |✓         |✓         |✓         |
@@ -123,7 +123,7 @@ Azure konum tabanlı hizmetler (lb) adresleri, yerler ve dünyanın coğrafi di�
 |Polonya     |✓         |✓         |✓         |
 |Portekiz     |✓         |✓         | ✓        |
 |Romanya     |         |✓         |✓         |
-|Rusya     |✓         |✓         |✓        |
+|Rusya Federasyonu     |✓         |✓         |✓        |
 |San Marino     |✓         |✓         | ✓        |
 |Sırbistan     |         |✓         |✓         |
 |Slovakya     |✓         |✓         |✓         |
@@ -182,7 +182,7 @@ Azure konum tabanlı hizmetler (lb) adresleri, yerler ve dünyanın coğrafi di�
 |Nijerya     |         |         |✓         |
 |Umman     |         |         |✓         |
 |Katar     |         |         |✓         |
-|Réunion     |         |✓         | ✓        |
+|Reunion     |         |✓         | ✓        |
 |Ruanda     |         |         | ✓        |
 |Sao Tome ve Principe, Demokratik Cumhuriyeti     |         |         |✓         |
 |Suudi Arabistan     |         |         |✓         |
@@ -239,7 +239,7 @@ Azure lb aşağıdaki bölgelerde ararken Şehir düzeyi doğruluk sağlar:
 |     |Timor-Leste         |
 |     |Fiji         |
 |     |Fransız Polinezyası         |
-|     |Heard Adası ve McDonald Adaları         |
+|     |Heard ve McDonald Adaları         |
 |     |Japonya        |
 |     |Kiribati         |
 |     |Laos         |
@@ -286,8 +286,8 @@ Azure lb aşağıdaki bölgelerde ararken Şehir düzeyi doğruluk sağlar:
 |**Orta Doğu ve Afrika**     |         |
 |     |Afganistan         |
 |     |Bouvet Adası         |
-|     |Fransız Güney bölgeleri         |
-|     |Zambia         |
+|     |Fransız Güney Toprakları         |
+|     |Gambiya         |
 |     |İran         |
 |     |İsrail         |
 |     |Maldivler      |

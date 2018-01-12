@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/09/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8ad3886742449c32c94e425e975ff9105ebcfbd8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4954dcb4cb03407b85ad35aec94920e39644844b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure kapsayıcı örnekleri ve kapsayıcı orchestrators
 
@@ -73,6 +73,6 @@ Azure kapsayıcı örneği kullanarak, ilk kapsayıcı oluşturmak [Hızlı Baş
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/azure/aci-connector-k8s
+[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

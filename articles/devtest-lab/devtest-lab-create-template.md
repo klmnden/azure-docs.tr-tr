@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: 7605a65d784a9586a4d88625996f4a1c8f154e9d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Bir VHD dosyasındaki özel bir görüntü oluşturun
 
@@ -34,15 +34,15 @@ Aşağıdaki adımlar, Azure portalını kullanarak bir VHD'yi dosyasından öze
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 
 1. İstenen Laboratuvar labs listesinden seçin.  
 
-1. Laboratuvar 's dikey penceresinde, seçin **yapılandırma**. 
+1. Laboratuvar ait ana bölmede, seçin **yapılandırma ve ilkeleri**. 
 
-1. Laboratuvar üzerinde **yapılandırma** dikey penceresinde, select **özel görüntülerini (VHD)**.
+1. Üzerinde **yapılandırma ve ilkeleri** bölmesinde, **özel görüntüleri**.
 
-1. Üzerinde **özel görüntüleri** dikey penceresinde, select **+ Ekle**.
+1. Üzerinde **özel görüntüleri** bölmesinde, **+ Ekle**.
 
     ![Özel görüntü ekleme](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -50,21 +50,21 @@ Aşağıdaki adımlar, Azure portalını kullanarak bir VHD'yi dosyasından öze
 
 1. Özel görüntü açıklamasını girin. Bu açıklama, bir VM oluşturulurken temel görüntü listesinde görüntülenir.
 
-1. Seçin **VHD**.
+1. İçin **işletim sistemi türü**, şunlardan birini seçin **Windows** veya **Linux**.
 
-1. Gelen **VHD** dikey penceresinde istenen VHD dosyasını seçin.
+    - Seçerseniz **Windows**, onay kutusu belirtin olup olmadığını *sysprep* makinede çalıştırın. 
+    - Seçerseniz **Linux**, onay kutusu belirtin olup olmadığını *deprovision* makinede çalıştırın. 
 
-1. Seçin **Tamam** kapatmak için **VHD** dikey.
+1. Seçin bir **VHD** açılır menüsünden. Yeni özel görüntü oluşturmak için kullanılan VHD budur. Gerekirse, seçin **PowerShell kullanarak bir VHD'yi karşıya**.
 
-1. Seçin **işletim sistemi yapılandırması**.
-
-1. Üzerinde **işletim sistemi yapılandırması** sekmesinde, ya da seçin **Windows** veya **Linux**.
-
-1. Varsa **Windows** olan onay kutusunu seçildiyse olup olmadığını *Sysprep* makinede çalıştırın. 
-
-1. Seçin **Tamam** kapatmak için **işletim sistemi yapılandırması** dikey.
+1. Özel görüntü oluşturmak için kullanılan görüntü, Microsoft tarafından yayımlanmayan varsa planı adı, planı teklif ve planı yayımcı da girebilirsiniz.
 
 1. Seçin **Tamam** özel görüntüsü oluşturulamadı.
+
+Birkaç dakika sonra özel görüntü oluşturulur ve Laboratuvar ait depolama hesabı içinde depolanır. Yeni bir VM oluşturmak bir laboratuvar kullanıcı istediği zaman, görüntü temel görüntü listesinde tarafından kullanılabilir.
+
+![Özel görüntü temel görüntü listesinde kullanılabilir](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -73,6 +73,6 @@ Aşağıdaki adımlar, Azure portalını kullanarak bir VHD'yi dosyasından öze
 - [Özel resimler veya formüller?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Azure DevTest Labs arasında özel resimler kopyalama](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - [Laboratuvarınızı için bir VM ekleme](./devtest-lab-add-vm.md)

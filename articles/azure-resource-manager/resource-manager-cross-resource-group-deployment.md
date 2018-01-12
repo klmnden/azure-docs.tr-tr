@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Birden fazla abonelik veya kaynak grubu için Azure kaynaklarını dağıtma
 
@@ -121,7 +121,7 @@ Aşağıdaki örnekte iki depolama hesabı - bir dağıtım sırasında belirtil
 
 Ayarlarsanız `resourceGroup` var olmayan bir kaynak grubu adı için dağıtım başarısız olur.
 
-Örnek şablonu dağıtmak için Azure PowerShell veya Azure CLI May 2017 veya sonraki bir sürümünü kullanın.
+Örnek şablonu dağıtmak için Azure PowerShell 4.0.0 veya üstü ya da Azure CLI 2.0.0 kullanın veya sonraki bir sürümü.
 
 ## <a name="use-the-resourcegroup-function"></a>Kullanım resourceGroup() işlevi
 

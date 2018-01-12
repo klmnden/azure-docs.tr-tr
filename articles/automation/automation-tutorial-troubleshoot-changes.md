@@ -6,14 +6,14 @@ keywords: "değişiklik, izleme, otomasyon"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: HT
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Bir olay tetikleme
 > * Değişiklikleri görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -158,7 +158,7 @@ Değişiklik izleme ve Stok çözümünü etkinleştirdikten sonra sonuçları *
 
 VM'nizin içinde **İŞLEMLER** bölümünden **Değişiklik izleme**'yi seçin.
 
-![OMS klasik portalında uyarı oluşturma](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Değişikliklerin listesini VM'ye gösteren ekran görüntüsü](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 Grafik, zaman içinde gerçekleştirilen değişiklikleri gösterir.
 Etkinlik Günlüğü bağlantısı eklediğinizde en üstteki çizgi grafik Azure Etkinlik Günlüğü olaylarını görüntüler.

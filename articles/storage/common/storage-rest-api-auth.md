@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Azure Storage REST API kullanma
+# <a name="using-the-azure-storage-rest-api"></a>Azure Depolama REST API’sini kullanma
 
 Bu makalede, Blob Depolama hizmeti REST API'lerini kullanma ve arama hizmeti için kimlik doğrulaması yapmayı gösterir. Açısından bakıldığında REST çağrısı yapma REST ve hiçbir fikir hakkında hiçbir şey bilmez birinin yazılır, ancak bir uygulama geliştiricisi değildir. REST çağrısı başvuru belgelerine bakın ve gerçek bir REST çağrısı – Çevir bkz hangi alanların Git nerede? REST görüşmesi ayarlayabilmeniz öğrenme sonra diğer depolama hizmeti REST API'leri birini kullanmak için bu bilgiyi kullanabilir.
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 Uygulama kapsayıcıları bir depolama hesabı için blob depolama birimindeki listeler. Bu makaledeki kod denemek için aşağıdaki öğeleri gerekir: 
 
@@ -32,7 +32,7 @@ Uygulama kapsayıcıları bir depolama hesabı için blob depolama birimindeki l
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-* Genel amaçlı depolama hesabı. Herhangi bir depolama hesabı yoksa, kullanarak bir tane oluşturabilirsiniz [Azure portal](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md), veya [Azure CLI](storage-quickstart-create-storage-account-cli.md).
+* Genel amaçlı depolama hesabı. Bir depolama hesabı henüz yoksa bkz [depolama hesabı oluşturma](storage-quickstart-create-account.md).
 
 * Bu makaledeki örnek, bir depolama hesabında kapsayıcıları listesinde gösterilmiştir. Çıkışı görmek için bazı kapsayıcıları başlamadan önce depolama depolama hesabındaki blob ekleyin.
 
@@ -40,13 +40,13 @@ Uygulama kapsayıcıları bir depolama hesabı için blob depolama birimindeki l
 
 Örnek uygulama, C# ile yazılmış bir konsol uygulamasıdır.
 
-Kullanım [git](https://git-scm.com/) geliştirme ortamınızı uygulamaya bir kopyasını indirmek için. 
+Uygulamanın bir kopyasını geliştirme ortamınıza indirmek için [Git](https://git-scm.com/)'i kullanın. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Bu komut, yerel git klasörünüze depoya klonlar. Visual Studio çözümü açmak için storage-dotnet-rest-api-with-auth klasörü arayın, açın ve üzerinde StorageRestApiAuth.sln çift tıklayın. 
+Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümü açmak için storage-dotnet-rest-api-with-auth klasörü arayın, açın ve üzerinde StorageRestApiAuth.sln çift tıklayın. 
 
 ## <a name="why-do-i-need-to-know-rest"></a>Neden REST bilmeniz gerekiyor mu?
 

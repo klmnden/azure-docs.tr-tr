@@ -1,5 +1,5 @@
 ---
-title: 'Sorun giderme: Azure AD SSPR''yi | Microsoft Docs'
+title: "Sorun giderme - Azure Active Directory Self Servis parola sıfırlama"
 description: "Sorun giderme Azure AD Self Servis parola sıfırlama"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bb04ca30d43a8cf8af2b1dbc00330ba7924bb5b5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c489cf13574c49161b2dde22500f4ab7478a928b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorun giderme
 

@@ -32,12 +32,12 @@ Dsv3-serisi boyutları üzerinde 2.4 GHz Intel Xeon® E5-2673 v3 dayalı (Haswel
 
 | Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3200/48                                | 2/orta                                   |
-| Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6400/96                                | 2/orta                                   |
-| Standard_D8s_v3  | 8      | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12.800/192                              | 4/yüksek                                       |
-| Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600/384                              | 8/yüksek                                       |
-| Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8 / çok yüksek                                       |
-| Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / çok yüksek                                       |
+| Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3200/48                                | 2 / 1,000                                   |
+| Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6400/96                                | 2 / 2,000                                   |
+| Standard_D8s_v3  | 8      | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12.800/192                              | 4 / 4,000                                      |
+| Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600/384                              | 8 / 8,000                                      |
+| Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8 / 16,000                                               |
+| Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / 30,000                                               |
 
 <sup>1</sup> Dsv3-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi
 
@@ -52,12 +52,12 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 
 | Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum NIC/Ağ bant genişliği |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
-| Standard_D2_v3  | 2         | 8           | 50             | 4              | 3000/46/23                                               | 2/orta                 |
-| Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2/orta                 |
-| Standard_D8_v3  | 8         | 32          | 200            | 16             | 12000/187/93                                             | 4/yüksek                     |
-| Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8/yüksek                     |
-| Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / çok yüksek                     |
-| Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / çok yüksek                     |
+| Standard_D2_v3  | 2         | 8           | 50             | 4              | 3000/46/23                                               | 2 / 1,000                    |
+| Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2 / 2,000                    |
+| Standard_D8_v3  | 8         | 32          | 200            | 16             | 12000/187/93                                             | 4 / 4,000                    |
+| Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / 8,000                    |
+| Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / 16,000                             |
+| Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / 30,000                             |
 
 <sup>1</sup> Dv3-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi
 

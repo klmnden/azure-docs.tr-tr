@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 1/11/2018
 ms.author: johnkem
-ms.openlocfilehash: 59f0cba66a5d8d2a528700861efff86967c1c748
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Bir dış aracı tarafından izleme verileri tüketim için bir olay hub'ına akış Azure
 
@@ -92,7 +92,7 @@ Hiç şekilde yönlendirme uygulama verileri azure'da bir olay hub'ına izleme g
 
 Bir olay hub'ına Azure İzleyicisi ile İzleme verilerinizin yönlendirme, iş ortağı SIEM ve izleme araçları ile kolayca tümleştirmenize olanak sağlar. Çoğu araç olay hub bağlantı dizesine ve olay hub'ından veri okumak için Azure aboneliğiniz için belirli izinler gerektirir. Azure İzleyici tümleştirme araçlarıyla kapsamlı olmayan bir listesi aşağıda verilmiştir:
 
-* **IBM QRadar** -QRadar Bağlayıcısı olay hub'ları için şu anda beta. Yakında IBM düzeltme merkezi veya otomatik olarak QRadar'ın otomatik güncelleştirme işlemi aracılığıyla el ile yüklemek kullanıma sunulacaktır.
+* **IBM QRadar** -Merkezi'nden Microsoft Azure DSM ve Microsoft Azure olay hub'ı protokolü kullanılabilir [IBM Destek Web sitesi](http://www.ibm.com/support). Yapabilecekleriniz [Azure ile tümleştirme burada hakkında daha fazla bilgi](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** - [Splunk için Azure İzleyici eklentisi](https://splunkbase.splunk.com/app/3534/) Splunkbase ve açık kaynaklı proje bulunur. [Belgesidir burada](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
 * **SumoLogic** -SumoLogic verileri event hub'ındaki kullanmak üzere ayarlamak için yönergeler [kullanılabilir burada](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 

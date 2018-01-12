@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory doğrudan kimlik doğrulaması: Akıllı kilitleme
 
@@ -36,7 +36,7 @@ Akıllı kilitleme, oturum açma işlemleri orijinal kullanıcıların oturum a�
 Yani, kullanıcılarınızın Active Directory hesapları kilitleme saldırganlar engellemeniz gerekiyor geçişli kimlik doğrulaması parola doğrulama isteklerini şirket içi Active Directory'ye iletir. Active Directory sahip kendi hesap kilitleme ilkeleri, özellikle [hesap kilitleme eşiği](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) ve [sıfırlama hesap kilitleme sayacını](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx) ilkeleri. Azure AD kilitleme eşiği ve kilitleme süresi değerleri saldırıları bulutta şirket içi Active Directory düşmeden önce filtrelemek için uygun şekilde yapılandırın.
 
 >[!NOTE]
->Akıllı kilitleme özelliğini ücretsiz ve _üzerinde_ tüm müşteriler için varsayılan olarak. Ancak, Kiracı grafik API'sini kullanarak Azure AD kilitleme eşiği ve kilitleme süresi değerleri değiştirmek istiyorsanız, en az bir Azure AD Premium P2 lisansına sahip olması gerekiyor. Bir Azure AD Premium P2 lisansı gerekmez _kullanıcı başına_ doğrudan kimlik doğrulaması ile akıllı kilitleme özelliğini almak için.
+>>Akıllı kilitleme özelliğini ücretsiz ve _üzerinde_ tüm müşteriler için varsayılan olarak. Ancak, Azure AD kilitleme eşiği ve grafik API'sini kullanarak kilitleme süresi değerleri değiştirme kiracınız için Azure AD Premium P2 etkinleştirilmesi gerekir. 
 
 Kullanıcılarınızın şirket içi Active Directory hesapları da korunduğundan emin olmak için emin olmanız gerekir:
 

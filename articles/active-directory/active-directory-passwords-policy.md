@@ -1,5 +1,5 @@
 ---
-title: "İlke: Azure AD SSPR'yi | Microsoft Docs"
+title: "İlkeleri - Azure Active Directory Self Servis parola sıfırlama"
 description: "Azure AD Self Servis parola sıfırlama ilkesi seçenekleri"
 services: active-directory
 keywords: "Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -40,16 +40,16 @@ Microsoft güçlü bir varsayılan zorlar *iki ağ geçidi* parola sıfırlama i
   * Faturalama yöneticisi
   * Partner Tier1 Desteği
   * Partner Tier2 Desteği
-  * Exchange Hizmet Yöneticisi
-  * Lync Hizmet Yöneticisi
+  * Exchange hizmeti yöneticisi
+  * Lync hizmeti yöneticisi
   * Kullanıcı Hesap Yöneticisi
-  * Directory yazıcılarının
+  * Dizin yazıcılar
   * Genel yönetici veya şirket Yöneticisi
   * SharePoint Hizmet Yöneticisi
-  * Uyumluluk Yöneticisi
-  * Uygulama Yöneticisi
+  * Uyumluluk yöneticisi
+  * Uygulama yöneticisi
   * Güvenlik yöneticisi
-  * Ayrıcalıklı Rol Yöneticisi
+  * Ayrıcalıklı rol yöneticisi
   * Microsoft Intune Hizmet Yöneticisi
   * Uygulama proxy Hizmet Yöneticisi
   * CRM Hizmet Yöneticisi

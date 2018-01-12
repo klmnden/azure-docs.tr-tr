@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
-ms.openlocfilehash: c02584e53790ccafe6ed9a5aeffab3f9e40e8b29
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Dosyaları REST kullanarak bir Media Services hesabına veri yükleme
 > [!div class="op_single_selector"]
@@ -173,9 +173,9 @@ Bazı dikkate alınması gereken noktalar vardır:
 
 Karşıya yükleme URL'si sahip olduğunuza göre doğrudan SAS kapsayıcıya dosyanızı karşıya yüklemek için Azure Blob API'lerini kullanarak biraz kod yazmanız gerekir. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- https://docs.microsoft.com/REST/api/storageservices/PUT-BLOB 
-- https://docs.microsoft.com/Azure/Storage/Common/Storage-use-azcopy#upload-BLOBS-to-BLOB-Storage
-- https://docs.microsoft.com/Azure/Storage/BLOBS/Storage-dotnet-How-to-use-BLOBS#Upload-a-BLOB-into-a-Container
+- [Azure Storage REST API kullanma](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [BLOB YERLEŞTİRME](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+- [Blob depolama alanına BLOB yükleme](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Postman bir dosyayı karşıya
 

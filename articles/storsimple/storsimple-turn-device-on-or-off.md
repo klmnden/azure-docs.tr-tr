@@ -4,7 +4,7 @@ description: "Yeni bir StorSimple cihazında kapatın, kapatıldı veya güç ke
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Açma veya StorSimple 8000 serisi aygıtınızı kapatın
 
@@ -147,16 +147,16 @@ EBOD Muhafazası ve birincil muhafaza arasındaki bağlantıyı zarar görmesi v
 * [Cihaz EBOD muhafazası ile](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Birincil muhafaza aygıtla<a name="8100a">
-Sıralı ve denetimli bir şekilde cihazı kapatmak için Klasik Azure portalı veya Windows PowerShell aracılığıyla StorSimple için bunu yapabilirsiniz. 
+Sıralı ve denetimli bir şekilde cihazı kapatmak için Azure portalı üzerinden veya Windows PowerShell aracılığıyla StorSimple için bunu yapabilirsiniz. 
 
 > [!IMPORTANT]
 > Bir çalışan aygıtı aygıtın arkasında güç düğmesini kullanarak kapatmayı değil.
 > 
-> Cihazı kapatmadan önce tüm aygıt bileşenlerinin sağlıklı olduğundan emin olun. Klasik Azure portalında gidin **aygıtları** > **Bakım** > **donanım durum**ve tüm bileşenlerin durumunun yeşil olduğunu doğrulayın. Bu, yalnızca sağlıklı bir sistem için geçerlidir. Sistem aşağı kapatılıyor düzgün çalışmayan bir bileşeni Değiştir, başarısız (kırmızı) görür veya ilgili bileşeni (sarı) durumunun düşürülmüş **donanım durum**.
+> Cihazı kapatmadan önce tüm aygıt bileşenlerinin sağlıklı olduğundan emin olun. Azure portalında gidin **aygıtları** > **İzleyici** > **donanım durumu**ve tüm bileşenlerin durumunun yeşil olduğunu doğrulayın. Bu, yalnızca sağlıklı bir sistem için geçerlidir. Sistem aşağı kapatılıyor düzgün çalışmayan bir bileşeni Değiştir, başarısız (kırmızı) görür veya ilgili bileşeni (sarı) durumunun düşürülmüş **donanım durum**.
 > 
 > 
 
-StorSimple veya Klasik Azure portalı için Windows PowerShell eriştikten sonra adımları [bir StorSimple cihazı kapatmanız](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+StorSimple veya Azure portalında için Windows PowerShell eriştikten sonra adımları [bir StorSimple cihazı kapatmanız](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Cihaz EBOD muhafazası ile<a name="8600a">
 > [!IMPORTANT]

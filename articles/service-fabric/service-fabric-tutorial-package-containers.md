@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Paket ve bir Service Fabric uygulaması olarak kapsayıcıları dağıtın
 
@@ -34,7 +34,7 @@ Bu öğretici iki serisinde bir parçasıdır. Bu öğreticide, bir şablon olu�
 > * Dağıtma ve uygulamayı çalıştırma 
 > * Uygulamayı oluşturan Temizle
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Kapsayıcı görüntüleri gönderilen kayıt defterine Azure kapsayıcı içinde oluşturulan [Kısım 1](service-fabric-tutorial-create-container-images.md) Bu öğretici serisi kullanılır.
 - Linux geliştirme ortamıdır [ayarlanan](service-fabric-tutorial-create-container-images.md).
@@ -65,10 +65,11 @@ Service fabric şablon oluşturucu Yeoman kullanarak terminal durumundan uygulam
     ```bash
     yo azuresfcontainer
     ```
-2. Uygulamanızı "TestContainer" ve "azurevotefront" uygulama hizmeti adlandırın.
-3. Ön uç depoyu için - örneğin 'test.azurecr.io/azure-vote-front:v1' ACR kapsayıcı görüntü yolu belirtin. 
-4. Komutları bırakmak için Enter tuşuna basın bölümü boş.
-5. Örnek sayısını 1 belirtin.
+2. Lütfen "uygulamanızı adlandırın içinde TestContainer" yazın
+3. Lütfen "ad, uygulama hizmeti için azurevotefront" yazın.
+4. ACR kapsayıcı görüntü yolu sağlamak için ön uç depodaki - örneğin '\<acrName >.azurecr.io / azure-oy-ön: v1'. \<AcrName > alan önceki öğreticide kullanılan değer ile aynı olması gerekir.
+5. Komutları bırakmak için Enter tuşuna basın bölümü boş.
+6. Örnek sayısını 1 belirtin.
 
 Giriş ve çıkış çalıştırma aşağıdaki gösterir yo komutu:
 
@@ -86,12 +87,12 @@ Giriş ve çıkış çalıştırma aşağıdaki gösterir yo komutu:
    create TestContainer/uninstall.sh
 ```
 
-Yeoman kullanılarak zaten oluşturulmuş bir uygulamaya başka bir kapsayıcı hizmeti eklemek için aşağıdaki adımları uygulayın:
+Başka bir kapsayıcı hizmeti zaten Yeoman kullanılarak oluşturulmuş bir uygulama eklemek için aşağıdaki adımları gerçekleştirin:
 
-1. Değişiklik dizinine **TestContainer** dizini
+1. Dizin bir düzeye değiştirin **TestContainer** dizin, örneğin, *. / TestContainer*
 2. `yo azuresfcontainer:AddService` öğesini çalıştırın 
 3. 'Azurevoteback' hizmet adı
-4. Arka uç depoyu için - örneğin 'test.azurecr.io/azure-vote-back:v1' ACR kapsayıcı görüntü yolu girin
+4. Kapsayıcı görüntü yolu sağlamak için Redis - ' alpine: redis'
 5. Bölüm boş komutları bırakmak için Enter tuşuna basın
 6. "1" örnek sayısı belirtin.
 
@@ -99,7 +100,7 @@ Kullanılan hizmet eklemek için girişleri tüm gösterilmektedir:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
+? Input the Image Name: alpine:redis
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -107,13 +108,16 @@ Kullanılan hizmet eklemek için girişleri tüm gösterilmektedir:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Bu öğretici kalanı için çalışıyoruz **TestContainer** dizin.
+Bu öğretici kalanı için çalışıyoruz **TestContainer** dizin. Örneğin, *./TestContainer/TestContainer*. Bu dizinin içindekileri aşağıdaki gibi olması gerekir.
+```bash
+$ ls
+ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
+```
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Uygulama bildirimini kimlik bilgileriyle Azure kapsayıcı kayıt için yapılandırın.
 Kimlik bilgilerini sağlamak ihtiyacımız Service Fabric'ın Azure kapsayıcı kayıt defterinden kapsayıcı görüntüleri çekmesini **ApplicationManifest.xml**. 
 
-
-ACR Örneğiniz için oturum açın. Kullanım [az acr oturum açma](/cli/azure/acr#az_acr_login) işlemi tamamlamak için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad sağlayın.
+ACR Örneğiniz için oturum açın. Kullanım **az acr oturum açma** işlemi tamamlamak için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad sağlayın.
 
 ```bash
 az acr login --name <acrName>
@@ -127,7 +131,7 @@ Ardından, kapsayıcı kaydınız parola almak için aşağıdaki komutu çalı�
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-İçinde **ApplicationManifest.xml**, altında kod parçacığını ekleyin **ServiceManifestImport** hizmetlerinin her biri için öğesi. Ekle, **acrName** için **AccountName** alan ve önceki komuttan döndürülen parola için kullanıldığından **parola** alan. Tam **ApplicationManifest.xml** bu belgenin sonuna sağlanır. 
+İçinde **ApplicationManifest.xml**, altında kod parçacığını ekleyin **ServiceManifestImport** öğesi için ön uç hizmeti. Ekle, **acrName** için **AccountName** alan ve önceki komuttan döndürülen parola için kullanıldığından **parola** alan. Tam **ApplicationManifest.xml** bu belgenin sonuna sağlanır. 
 
 ```xml
 <Policies>
@@ -140,7 +144,7 @@ az acr credential show -n <acrName> --query passwords[0].value
 
 ### <a name="configure-communication-port"></a>İletişim bağlantı noktasını yapılandırın
 
-İstemcilerin hizmetinizle iletişim kurabilmesi için bir HTTP uç noktası yapılandırın.  Açık *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* dosyası ve bir uç nokta kaynağının bildirme **ServiceManifest** öğesi.  Protokolü, bağlantı noktasını ve adını ekleyin. Bu öğretici için hizmet bağlantı noktası 80 üzerinde dinler. 
+İstemcilerin hizmetinizle iletişim kurabilmesi için bir HTTP uç noktası yapılandırın. Açık *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* dosyası ve bir uç nokta kaynağının bildirme **ServiceManifest** öğesi.  Protokolü, bağlantı noktasını ve adını ekleyin. Bu öğretici için hizmet bağlantı noktası 80 üzerinde dinler. Aşağıdaki kod parçacığında altına yerleştirilmiş *ServiceManifest* kaynak etiketi.
   
 ```xml
 <Resources>
@@ -154,21 +158,21 @@ az acr credential show -n <acrName> --query passwords[0].value
 
 ```
   
-Benzer şekilde, arka uç hizmetine Service Manifest değiştirin. Bu öğretici için 6379 redis varsayılan korunur.
+Benzer şekilde, arka uç hizmetine Service Manifest değiştirin. Açık *./TestContainer/azurevotebackPkg/ServiceManifest.xml* ve bir uç nokta kaynağının bildirme **ServiceManifest** öğesi. Bu öğretici için 6379 redis varsayılan korunur. Aşağıdaki kod parçacığında altına yerleştirilmiş *ServiceManifest* kaynak etiketi.
+
 ```xml
 <Resources>
   <Endpoints>
     <!-- This endpoint is used by the communication listener to obtain the port on which to 
             listen. Please note that if your service is partitioned, this port is shared with 
             replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+    <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
   </Endpoints>
 </Resources>
 ```
 Sağlama **UriScheme**kapsayıcı uç nokta bulunabilirlik için Service Fabric adlandırma hizmetiyle otomatik olarak kaydeder. Arka uç hizmet için tam bir ServiceManifest.xml örnek dosya bu makalenin sonundaki örnek olarak sağlanır. 
 
 ### <a name="map-container-ports-to-a-service"></a>Bir hizmet eşlemesi kapsayıcı bağlantı noktaları
-    
 Küme kapsayıcılarında kullanıma sunmak için biz de 'ApplicationManifest.xml' bağlantı noktası bağlamasında oluşturmanız gerekir. **PortBinding** İlkesi başvuruları **uç noktaları** tanımlanmış biz **ServiceManifest.xml** dosyaları. Bu uç noktalar için gelen istekleri kapsayıcı bağlantı noktalarına açılır ve burada ilişkisindeki eşlenmiş. İçinde **ApplicationManifest.xml** dosya, uç noktaları için bağlantı noktası 80 ve 6379 bağlamak için aşağıdaki kodu ekleyin. Tam **ApplicationManifest.xml** bu belgenin sonuna kullanılabilir. 
   
 ```xml
@@ -195,13 +199,13 @@ Service Fabric'ın bu DNS adına arka uç hizmetine atamak ad içinde belirtilme
 </Service>
 ```
 
-Ön uç hizmeti Redis örneğinin DNS adını bilmek bir ortam değişkeni okur. Ortam değişkeni Dockerfile gösterildiği gibi tanımlanır:
+Ön uç hizmeti Redis örneğinin DNS adını bilmek bir ortam değişkeni okur. Bu ortam değişkenini Docker görüntü oluşturmak için kullanılan Dockerfile içinde zaten tanımlandı ve herhangi bir eylemi buraya alınması gerekir.
   
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
   
-Ön uç kullandığı işler python komut dosyası bu DNS adı çözümlemek ve gösterildiği gibi arka uç redis deposuna bağlanmak için:
+Aşağıdaki kod parçacığını nasıl Dockerfile açıklanan ortam değişkeni ön uç Python kodu seçer gösterilmektedir. Herhangi bir eylemi buraya alınması gerekir. 
 
 ```python
 # Get DNS Name
@@ -218,15 +222,15 @@ Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi veya bir Gru
 
 Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Burada herkes uygulamaları dağıtabilir ve platform hakkında bilgi edinin Service Fabric ekibi tarafından korunur. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
 
-Kendi küme oluşturma hakkında daha fazla bilgi için bkz: [Azure üzerinde bir Service Fabric kümesi oluştur](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Derleme ve uygulamayı kümeye dağıtma
 Service Fabric CLI kullanarak Azure küme uygulama dağıtabilirsiniz. Service Fabric CLI makinenize yüklü değilse, yönergeleri izleyin [burada](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) yükleyin. 
 
-Azure’daki Service Fabric kümesine bağlanın.
+Azure’daki Service Fabric kümesine bağlanın. Yer tutucu uç noktası kendi ile değiştirin. Uç nokta birine benzer tam bir URL olması gerekir.
 
 ```bash
-sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:19080
+sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
 ```
 
 Sağlanan yükleme komut dosyası kullanma **TestContainer** uygulama paketi kümenin görüntü deposuna kopyalama, uygulama türünü kaydetme ve uygulama örneğini oluşturmak için dizin.
@@ -269,7 +273,6 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
     <ServiceManifestRef ServiceManifestName="azurevotebackPkg" ServiceManifestVersion="1.0.0"/>
       <Policies> 
         <ContainerHostPolicies CodePackageRef="Code">
-          <RepositoryCredentials AccountName="myaccountname" Password="<password>" PasswordEncrypted="false"/>
           <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
         </ContainerHostPolicies>
       </Policies>
@@ -303,7 +306,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-front:v1</ImageName>
+            <ImageName>acrName.azurecr.io/azure-vote-front:v1</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -316,7 +319,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="8080" Protocol="http"/>
+      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
     </Endpoints>
   </Resources>
 
@@ -337,7 +340,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-back:v1</ImageName>
+            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -349,7 +352,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+      <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
     </Endpoints>
   </Resources>
  </ServiceManifest>

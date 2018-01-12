@@ -4,7 +4,7 @@ description: "Kaldırmak için değiştirin ve StorSimple Cihazınızda yedek pi
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>StorSimple Cihazınızda yedek pil modülü değiştirin
 
@@ -67,7 +67,7 @@ Bir alan değiştirebilen birim StorSimple cihazınız için yedek pil modülüd
    | 4 |PCM TAMAM |
    | 5 |DC Güç kesintisi |
    | 6 |Sağlıklı pil |
-3. Başarısız pille PCM kaldırmak için adımları [bir PCM kaldırmak](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+3. Başarısız pille PCM kaldırmak için adımları [bir PCM kaldırmak](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. Kaldırılan PCM ile kaldırın ve aşağıdaki çizimde gösterildiği gibi pil modül işleyiciyi Yukarı Döndür ve pil Kaldır kadar çekme.
    
     ![PCM'den pil çıkarılıyor](./media/storsimple-battery-replacement/IC741019.png)
@@ -82,7 +82,7 @@ StorSimple cihazınızın birincil muhafazada PCM değiştirme pil modülünü y
 #### <a name="to-install-the-battery-module"></a>Pil modülünü yüklemek için
 1. Yedek pil modülü PCM uygun yönde yerleştirin.
 2. Bu süreç boyunca tüm bağlayıcı oturak için pil modül işleyiciyi basın.
-3. Yönergeleri izleyerek birincil muhafazada PCM Değiştir [güç ve soğutma modülü StorSimple Cihazınızda Değiştir](storsimple-power-cooling-module-replacement.md).
+3. Yönergeleri izleyerek birincil muhafazada PCM Değiştir [güç ve soğutma modülü StorSimple Cihazınızda Değiştir](storsimple-8000-power-cooling-module-replacement.md).
 4. Bu değişiklik tamamlandıktan sonra aygıtınıza gidin ve gidin **İzleyici** > **donanım durumu** Azure portalında. Yüklemenin başarılı olduğunu emin olmak için pil durumunu doğrulayın. Yeşil durum pil sağlıklı olduğunu gösterir.
 
 ## <a name="maintain-the-backup-battery-module"></a>Yedek pil modülü koru

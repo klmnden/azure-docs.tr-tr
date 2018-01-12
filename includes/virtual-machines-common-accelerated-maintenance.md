@@ -24,7 +24,7 @@ Güncelleştirilmiş bir ana bilgisayara yeniden dağıtılan VM ayrılır garan
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Konuk işletim sistemi güncellenmesi gerekiyor mu? 
 
-Bu Azure Altyapı güncelleştirme hiper yönetici düzeyinde bildirilen açığına ve Windows veya Linux VM görüntüleri için bir güncelleştirme gerektirmez. Ancak, her zaman olarak VM görüntüleri için en iyi güvenlik uygulamalarını uygulamak devam. Lütfen, işletim sistemlerinin güncelleştirmeleri ve yönergeler için satıcı ile gerektiğinde bakın. Windows Server VM müşteriler için yönerge şimdi yayımlanan ve kullanılabilir [burada](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
+Bu Azure Altyapı güncelleştirme hiper yönetici düzeyinde bildirilen açığına ve Windows veya Linux VM görüntüleri için bir güncelleştirme gerektirmez. Ancak, her zaman olarak VM görüntüleri için en iyi güvenlik uygulamalarını uygulamak devam. Lütfen, işletim sistemlerinin güncelleştirmeleri ve yönergeler için satıcı ile gerektiğinde bakın. Windows Server VM müşteriler için yönerge şimdi yayımlanan ve kullanılabilir [burada](../articles/virtual-machines/windows/mitigate-se.md).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Bu güncelleştirme Çözümleme sonucunda bir performans etkisi vardır olacak?
 

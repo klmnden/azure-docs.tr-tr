@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Operations Management Suite hizmet Haritası çözümde kullanın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz şekilde sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine bağlı sistemler. Bir aracı yüklemesini dışındaki bağlantı noktaları üzerinden tüm TCP bağlı mimarisi herhangi bir yapılandırma gerekli ve hizmet eşlemesi sunucuları, işlemleri arasındaki bağlantıları gösterir.
@@ -333,34 +333,34 @@ Bir tür kayıtlarıyla *ServiceMapProcess_CL* hizmet Haritası aracılarıyla s
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 
 ### <a name="list-all-known-machines"></a>Bilinen tüm makineler listesi
-Tür ServiceMapComputer_CL = | Yinelenenleri kaldırma ResourceId
+ServiceMapComputer_CL | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Yönetilen tüm bilgisayarlara fiziksel bellek kapasitesini listeleyin.
-Tür ServiceMapComputer_CL = | PhysicalMemory_d, ComputerName_s seçin | Yinelenenleri kaldırma ResourceId
+ServiceMapComputer_CL | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından | Proje PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Liste bilgisayar adı, DNS, IP ve işletim sistemi.
-Tür ServiceMapComputer_CL = | seçin ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s | Yinelenenleri kaldırma ResourceId
+ServiceMapComputer_CL | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından | Proje ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Komut satırında "sql" tüm işlemlerle Bul
-Tür ServiceMapProcess_CL CommandLine_s = = \*sql\* | ResourceId yinelenenleri kaldırma
+ServiceMapProcess_CL | Burada CommandLine_s contains_cs "sql" | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Bir makine (en son kayıt) tarafından kaynak adı bulunamadı
-Türü ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" = | Yinelenenleri kaldırma ResourceId
+(ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" aramada | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>IP adresini kullanarak bir makine (en son kayıt) bulunamadı
-Türü ServiceMapComputer_CL "10.229.243.232" = | Yinelenenleri kaldırma ResourceId
+(ServiceMapComputer_CL) "10.229.243.232" aramada | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Belirtilen bir makinedeki tüm bilinen işlemleri listele
-Tür ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b =" | Yinelenenleri kaldırma ResourceId
+ServiceMapProcess_CL | Burada MachineResourceName_s "m-559dbcd8-3130-454d-8d1d-f624e57961bc" == | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından
 
 ### <a name="list-all-computers-running-sql"></a>SQL çalıştıran tüm bilgisayarları listeleyin
-Tür ServiceMapComputer_CL ResourceName_s IN = {türü ServiceMapProcess_CL = \*sql\* | Ayrı MachineResourceName_s} | Yinelenenleri kaldırma ResourceId | Farklı ComputerName_s
+ServiceMapComputer_CL | Burada, ResourceName_s (((ServiceMapProcess_CL) aramada "\*sql\*" | farklı MachineResourceName_s)) | ayrı ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>My veri merkezinde curl tüm benzersiz ürün sürümleri listesi
-Tür ServiceMapProcess_CL ExecutableName_s = curl = | Farklı ProductVersion_s
+ServiceMapProcess_CL | Burada ExecutableName_s "curl" == | farklı ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>CentOS çalıştıran tüm bilgisayarları bir bilgisayar grubu oluştur
-Tür ServiceMapComputer_CL OperatingSystemFullName_s = = \*CentOS\* | Farklı ComputerName_s
+ServiceMapComputer_CL | Burada OperatingSystemFullName_s contains_cs "CentOS" | farklı ComputerName_s
 
 
 ## <a name="rest-api"></a>REST API

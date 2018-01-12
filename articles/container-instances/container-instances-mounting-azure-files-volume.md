@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be502e6aef39ee4ed8cfc1f8926cb556dc1defb1
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Azure kapsayıcı örneği ile bir Azure dosya paylaşımını bağlama
 
@@ -92,6 +92,46 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 ```
 
 Kullanabileceğiniz [Azure portal] [ portal] veya bir aracı [Microsoft Azure Storage Gezgini] [ storage-explorer] almak ve yazılan dosyasını inceleyin Dosya Paylaşımı.
+
+## <a name="mount-multiple-volumes"></a>Birden çok birim bağlama
+
+Bir kapsayıcı örneğinde birden çok birimi bağlamak, kullanarak dağıtmanız gerekir bir [Azure Resource Manager şablonu](/azure/templates/microsoft.containerinstance/containergroups).
+
+İlk olarak, paylaşım detayları sağlayın ve doldurarak birimleri tanımlama `volumes` içinde dizi `properties` şablon bölümünü. Örneğin, iki Azure dosya paylaşımlarının adlı oluşturduysanız *share1* ve *share2* depolama hesabındaki *myStorageAccount*, `volumes` dizi görüneceği aşağıdakine benzer:
+
+```json
+"volumes": [{
+  "name": "myvolume1",
+  "azureFile": {
+    "shareName": "share1",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+},
+{
+  "name": "myvolume2",
+  "azureFile": {
+    "shareName": "share2",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+}]
+```
+
+Ardından, içinde gibi birimlerini kapsayıcı grubundaki her kapsayıcı için doldurmak `volumeMounts` içinde dizi `properties` kapsayıcı tanımının bölümü. Örneğin, bu iki birim bağlar *myvolume1* ve *myvolume2*, önceden tanımlanmış:
+
+```json
+"volumeMounts": [{
+  "name": "myvolume1",
+  "mountPath": "/mnt/share1/"
+},
+{
+  "name": "myvolume2",
+  "mountPath": "/mnt/share2/"
+}]
+```
+
+Örnek bir Azure Resource Manager şablonu ile kapsayıcı örnek dağıtım görmek için bkz: [çok kapsayıcı grupları Azure kapsayıcı durumlarda dağıtmak](container-instances-multi-container-group.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

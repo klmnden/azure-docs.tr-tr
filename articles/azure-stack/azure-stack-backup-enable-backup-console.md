@@ -1,6 +1,6 @@
 ---
 title: "Yönetim Portalı'ndan Azure yığını için yedeklemeyi etkinleştirme | Microsoft Docs"
-description: "Böylece bir hata olduğunda Azure yığın geri altyapı geri Hizmet Yönetim Portalı aracılığıyla etkinleştirin."
+description: "Böylece bir hata olduğunda Azure yığın geri altyapı Yedekleme Hizmet Yönetim Portalı aracılığıyla etkinleştirin."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -8,23 +8,26 @@ manager: femila
 editor: 
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
-ms.workload: na
+ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: a5a9757d871c343ba663862de7b6d75b9dd21c31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 456a0db9771f5963c8d4375d54a22257f6ca1c56
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yedekleme Azure yığını için Yönetim Portalı'ndan etkinleştir
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Altyapı geri Hizmet Yönetim Portalı aracılığıyla Azure yığın yedeklemeleri oluşturabilmesi etkinleştirin. Bunlar kullanabileceğiniz bir hata olduğunda ortamınızı geri yüklemek için ups yedekler.
+Azure yığın yedeklemeleri oluşturabilmesi altyapı Yedekleme Hizmet Yönetim Portalı aracılığıyla etkinleştirin. Bu yedeklemeler, ortamınızın bir arıza olması durumunda geri yüklemek için kullanabilirsiniz.
+
+> [!Note]  
+> Konsolu aracılığıyla yedekleme etkinleştirmeden önce yedekleme hizmeti yapılandırmanız gerekir. Yedekleme hizmeti PowerShell kullanarak yapılandırabilirsiniz. Daha fazla bilgi için bkz: [PowerShell ile Azure yığınının yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Yedeklemeyi etkinleştirme
 
@@ -33,9 +36,9 @@ Altyapı geri Hizmet Yönetim Portalı aracılığıyla Azure yığın yedekleme
 
     ![Azure yığın - yedekleme denetleyicisi ayarları](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Yolunu yazın **yedekleme depolama konumu**. Ayrı bir aygıta bir dosya paylaşımında barındırılan yolu için bir Evrensel Adlandırma Kuralı (UNC) dize kullanmanız gerekir. Bir UNC dize paylaşılan dosyaları veya aygıt konumunu belirtir. Hizmet için bir IP adresi kullanabilirsiniz. Bir olağanüstü durum durumunda yedek verilerin kullanılabilirliğini sağlamak için cihaz ayrı bir konumda olmalıdır.
+3. Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihaz üzerinde barındırılan bir dosya paylaşımına yol için bir Evrensel Adlandırma Kuralı (UNC) dizesi kullanın. Bir UNC dize paylaşılan dosyaları veya aygıt konumunu belirtir. Hizmet için bir IP adresi kullanabilirsiniz. Olağanüstü durum sonra yedek verilerin kullanılabilirliğini sağlamak için aygıt ayrı bir konumda olmalıdır.
     > [!Note]  
-    > Kurumsal ortamınıza ad çözümlemesi Azure yığın altyapı ağdan ortamınızı destekleyip desteklemediğini IP yerine bir FQDN kullanabilirsiniz.
+    > Ortamınızı Kurumsal ortamınıza ad çözümlemesi Azure yığın altyapı ağdan destekliyorsa, IP yerine bir FQDN kullanabilirsiniz.
 4. Tür **kullanıcıadı** etki alanı ve kullanıcı adı'nı kullanarak. Örneğin, `Contoso\administrator`.
 5. Tür **parola** kullanıcı için.
 5. Parolayı yeniden yazın **parolayı onayla**.
@@ -46,5 +49,5 @@ Bir yedekleme yürütmek için Azure yığın araçları yükleyin ve ardından 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - Yedekleme, bkz: çalıştırmayı öğrenin [Azure yığın yedekleme](azure-stack-backup-back-up-azure-stack.md ).
-- Yedekleme çalıştığını doğrulamak bilgi [Onayla yedekleme Yönetim Portalı'nda tamamlandı](azure-stack-backup-back-up-azure-stack.md ).
+ - Bir yedekleme işinin öğrenin. Bkz: [Azure yığın yedekleme](azure-stack-backup-back-up-azure-stack.md ).
+- Yedekleme çalıştığını doğrulamak öğrenin. Bkz: [Onayla yedekleme Yönetim Portalı'nda tamamlandı](azure-stack-backup-back-up-azure-stack.md ).

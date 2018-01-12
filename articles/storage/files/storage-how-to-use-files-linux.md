@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 32e33d5fe99d884801e451b8f7e7989f979074e3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a87f8572af2620420faa0e3c2e575aa8add42ab
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-azure-files-with-linux"></a>Azure dosyaları'ı Linux ile kullanma
 [Azure Dosyaları](storage-files-introduction.md), Windows'un kolay kullanılan bulut dosya sistemidir. Azure dosya paylaşımları kullanarak Linux dağıtımları içinde takılı [CIFS çekirdek istemci](https://wiki.samba.org/index.php/LinuxCIFS). Bu makale bir Azure dosya paylaşımı bağlamak için iki yol gösterir: isteğe bağlı ile `mount` komut ve üzerinde önyükleme bir girişe oluşturarak `/etc/fstab`.
@@ -97,8 +97,11 @@ ms.lasthandoff: 12/20/2017
 3. **Aşağıdaki satırı eklemek için aşağıdaki komutu kullanın `/etc/fstab`** : değiştirmek unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` uygun bilgilerle.
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs nofail,vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
+
+> [!Note]  
+> Eklediğiniz emin olun `nofail` seçeneğini `/etc/fstab` VM askıda yanlış yapılandırılması veya başka bir hata durumunda önyükleme sırasında Azure dosya paylaşımına bağlanması sırasında girişi, aksi takdirde.
 
 > [!Note]  
 > Kullanabileceğiniz `sudo mount -a` düzenledikten sonra Azure dosya paylaşımını bağlama için `/etc/fstab` yerine yeniden başlatılıyor.

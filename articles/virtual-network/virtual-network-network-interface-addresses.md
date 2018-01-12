@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -138,9 +138,9 @@ Varsayılan olarak, Azure DHCP sunucuları için özel bir IPv4 adresi atamak [b
 > [!WARNING]
 > IPv4 adresi birincil bir sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini olarak ayarlarsanız birincil ağ arabirimi birincil IP yapılandırmasının atanan özel bir IPv4 adresi herhangi bir zamanda farklı bir sanal makineye bağlı Azure içinde sanal makine bağlantısı kesilir.
 
-Sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini el ile ayarlamak gerekli olduğu senaryolar vardır. Örneğin, el ile bir Windows işletim sistemi birincil ve ikincil IP adreslerini bir Azure sanal makinesi birden çok IP adresi eklerken ayarlamanız gerekir. Bir Linux sanal makine için yalnızca ikincil IP adreslerini el ile ayarlamanız gerekebilir. Bkz: [eklemek IP adresleri bir VM işletim sistemine](virtual-network-multiple-ip-addresses-portal.md#os-config) Ayrıntılar için. İşletim sistemi içinde IP adresini el ile ayarladığınızda, her zaman adresler statik (yerine dinamik) atama yöntemi kullanarak bir ağ arabirimi için IP yapılandırması atamanız önerilir. Statik yöntemini kullanarak adresi atayarak adresi Azure içinde değiştirmez sağlar. Bir IP yapılandırması için atanan adresi değiştirmek gerekiyorsa, önermiştir:
+Sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini el ile ayarlamak gerekli olduğu senaryolar vardır. Örneğin, el ile bir Windows işletim sistemi birincil ve ikincil IP adreslerini bir Azure sanal makinesi birden çok IP adresi eklerken ayarlamanız gerekir. Bir Linux sanal makine için yalnızca ikincil IP adreslerini el ile ayarlamanız gerekebilir. Bkz: [eklemek IP adresleri bir VM işletim sistemine](virtual-network-multiple-ip-addresses-portal.md#os-config) Ayrıntılar için. Bir IP yapılandırması için atanan adresi değiştirmek gerekiyorsa, önermiştir:
 
-1. Sanal makine bir adresi Azure DHCP sunucularından alıyor emin olmak için işletim sisteminde DHCP dön IP adresinin atamasını değiştirmek ve sanal makineyi yeniden başlatın.
+1. Sanal makineyi Azure DHCP sunucularından bir adresi aldığından emin olun. Bulduktan sonra işletim sisteminde DHCP dön IP adresinin atamasını değiştirmek ve sanal makineyi yeniden başlatın.
 2. Durdur (deallocate) sanal makine.
 3. Azure'daki IP yapılandırması için IP adresini değiştirin.
 4. Sanal makineyi başlatın.

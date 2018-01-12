@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 40e343ab75a2c2508d64ec0aeb293f5154813135
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: HT
+ms.openlocfilehash: 4696f3b9602c1da01d9706f15f38cdf5bc0f3372
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>System Center Configuration Manager’ı OMS Güncelleştirme Yönetimi ile Tümleştirme
 
@@ -26,7 +26,7 @@ PC, sunucu ve mobil cihazları yönetmek için System Center Configuration Manag
 
 Günümüzde OMS ile Configuration Manager arasında var olan tümleştirmeye ek olarak, Configuration Manager’da yazılım güncelleştirme dağıtımları oluşturup ön hazırlığını yapabilir ve [Güncelleştirme Yönetimi çözümünü](../operations-management-suite/oms-solution-update-management.md) kullanarak tamamlanmış güncelleştirme dağıtımlarının ayrıntılı durumunu öğrenebilirsiniz. Configuration Manager’ı güncelleştirme uyumluluğu raporlama amacıyla kullanırken Windows sunucularınızla güncelleştirme dağıtımlarını yönetmek için kullanmıyorsanız, güvenlik güncelleştirmeleri OMS Güncelleştirme Yönetimi çözümü ile yönetilirken Configuration Manager’a rapor göndermeye devam edebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Güncelleştirme Yönetimi çözümü](../operations-management-suite/oms-solution-update-management.md), Log Analytics çalışma alanınıza eklenmiş ve Otomasyon hesabınızla aynı kaynak grubu ve bölgesinde ilişkilendirilmiş olmalıdır.   
 * Şu anda System Center Configuration Manager ortamınız tarafından yönetilen Windows sunucularının da Güncelleştirme Yönetimi çözümü etkin olan Log Analytics çalışma alanına rapor göndermesi gerekir.  

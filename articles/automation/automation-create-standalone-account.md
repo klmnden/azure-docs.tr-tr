@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 Bu konu başlığında, runbook işlerinin gelişmiş izlemesini sağlayan ek yönetim çözümlerini veya OMS Log Analytics tümleştirmesini dahil etmeden Azure Otomasyonu’nu değerlendirip öğrenmek istiyorsanız, Azure portalından Otomasyon hesabı oluşturma işlemini göstermektedir.  Daha sonra dilediğiniz zaman bu yönetim çözümlerini ekleyebilir veya Log Analytics ile tümleştirebilirsiniz.  Otomasyon hesabı ile, Azure Resource Manager veya Azure klasik dağıtımında kaynakları yöneten runbook’ların kimliğini doğrulayabilirsiniz.

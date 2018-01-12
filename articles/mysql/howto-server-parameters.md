@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 22e19ca3377b623ae15a28a109cb5de419247ba4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Sunucu parametreleri Azure veritabanı'nda MySQL için Azure portalını kullanarak nasıl yapılandırılır
 
@@ -32,8 +32,7 @@ Azure veritabanı MySQL için bazı sunucu parametreleri yapılandırmasını de
 Desteklenen sunucu parametrelerin listesi sürekli olarak artmaktadır. Sunucu parametreleri sekmesi Azure portalında tanım almak ve sunucu parametreleri uygulama gereksinimlerinize göre yapılandırmak için kullanın. 
 
 ## <a name="nonconfigurable-server-parameters"></a>Nonconfigurable sunucu parametreleri
-
-Aşağıdaki parametreleri yapılandırılabilir ve için bağlı değildir, [fiyatlandırma katmanı](concepts-service-tiers.md). 
+InnoDB arabellek havuzu ve en fazla bağlantı olmayan yapılandırılabilir ve bağlı için [fiyatlandırma katmanı](concepts-service-tiers.md). 
 
 | **Fiyatlandırma katmanı** | **InnoDB arabellek havuzu (MB)** | **En fazla bağlantı** |
 | :------------------------ | :-------- | :----------- |
@@ -44,9 +43,13 @@ Aşağıdaki parametreleri yapılandırılabilir ve için bağlı değildir, [fi
 | Standart 400 | 10240 | 800 | 
 | Standart 800 | 20480 | 1600 |
 
- Temel katmanındaki Innodb_file_per_table: kapalı
+Bu ek sunucu nonconfigurable sistemde parametreleridir <br>
+ Temel katmanındaki Innodb_file_per_table: kapalı<br>
+ innodb_flush_log_at_trx_commit = 1<br>
+ sync_binlog = 1<br>
+ innodb_log_file_size = 512 MB<br>
  
-Önceki tabloda listelenmeyen tüm diğer sunucu sürümleri için varsayılan değerlerine parametrelerinin [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) ve [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Burada listelenmeyen diğer sunucu sürümleri için MySQL out-of-box varsayılan değerlerine parametrelerinin [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) ve [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [MySQL için Azure veritabanı için bağlantı kitaplıkları](concepts-connection-libraries.md).

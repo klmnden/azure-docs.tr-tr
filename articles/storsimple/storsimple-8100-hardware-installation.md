@@ -4,7 +4,7 @@ description: "Kutusundan çıkarma, rafa monte etme ve dağıtma ve yazılım ya
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Kutusundan çıkarma, rafa monte ve StorSimple 8100 cihazınızın kablolarını bağlama
 ## <a name="overview"></a>Genel Bakış
@@ -38,7 +38,7 @@ Cihazınızı paketinden çıkarma önce aşağıdaki bilgileri gözden geçirin
 Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tamamlayın.
 
 #### <a name="to-unpack-your-device"></a>Cihazınızı paketinden çıkarma için
-1. Kutunun ve paketleme köpük zemine crushes, keser, su hasar ya da belirgin herhangi bir zarar için inceleyin. Kutusu veya paketleme ciddi bir şekilde bozuksa, kutunun açmayın. Lütfen [Microsoft Support başvurun](storsimple-contact-microsoft-support.md) aygıt iyi çalışma sırayla olup olmadığını değerlendirin yardımcı olacak.
+1. Kutunun ve paketleme köpük zemine crushes, keser, su hasar ya da belirgin herhangi bir zarar için inceleyin. Kutusu veya paketleme ciddi bir şekilde bozuksa, kutunun açmayın. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) aygıt iyi çalışma sırayla olup olmadığını değerlendirin yardımcı olacak.
 2. Kutunun ayıklayın. Aşağıdaki resimde, StorSimple Cihazınızı paketten görünümünü gösterir.
    
      ![Depolama Cihazınızı paketinden çıkarma](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
@@ -64,7 +64,7 @@ Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tama
    * 1 raf-Seti (donanım bağlama ile 2 yan rayları) bağlama
    * Alma başlatıldı belgeleri
      
-     Yukarıda listelenen öğelerden herhangi birini almadı varsa [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).
+     Yukarıda listelenen öğelerden herhangi birini almadı varsa [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
 
 Sonraki adım rafa monte Cihazınızı olacak.
 
@@ -156,7 +156,7 @@ Sonraki adım, güç, ağ ve seri erişim için Cihazınızı kablo olacak.
 ## <a name="cable-your-storsimple-8100-device"></a>StorSimple 8100 cihazınızın kablolarını bağlama
 Aşağıdaki yordamlar, StorSimple 8100 cihazınız güç, ağ ve seri bağlantılar için kablo açıklanmaktadır.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Cihazınızı kablolama başlamadan önce ihtiyacınız:
 
 * Depolama aygıtı, tamamen açılmış ve raf bağladı.
@@ -220,7 +220,7 @@ Yüksek kullanılabilirlik ve performans için göz önünde bulundurun:
 * Mümkün olduğunda, bir çift ağ arabiriminin bulut erişim (1 GbE) ve iSCSI (10 GbE önerilen) için başka bir çifti her denetleyicisinde yapılandırın.
 * Mümkün olduğunda, ağ arabirimlerinin her denetleyicisinden anahtar arızasına karşı kullanılabilirliğini sağlamak için iki farklı anahtarlara bağlayın. Şekilde gösterilmektedir iki 10 GbE ağ arabirimleri, veri 2 ve veri 3, iki farklı anahtarlara bağlı her denetleyicisinden.
 
-Daha fazla bilgi için bkz **ağ arabirimleri** altında [StorSimple cihazınız için yüksek kullanılabilirlik gereksinimlerini](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+Daha fazla bilgi için bkz **ağ arabirimleri** altında [StorSimple cihazınız için yüksek kullanılabilirlik gereksinimlerini](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > SFP + vericilerinin, 10 GbE ağ arabirimleri ile kullanıyorsanız, sağlanan QSFP kullanın-SFP + bağdaştırıcıları. Daha fazla bilgi için Git [, StorSimple Cihazınızda 10 GbE ağ arabirimleri için desteklenen donanım](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -246,5 +246,5 @@ Seri bağlantı noktanızın kablo için aşağıdaki adımları gerçekleştiri
 Cihazınız artık güç, ağ erişimi ve seri bağlantı kablolu. Yazılım yapılandırmak ve Cihazınızı dağıtmak için sonraki adım olacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bilgi edinmek için nasıl [şirket içi StorSimple Cihazınızı yapılandırmak ve dağıtmak](storsimple-deployment-walkthrough-u2.md).
+Bilgi edinmek için nasıl [şirket içi StorSimple Cihazınızı yapılandırmak ve dağıtmak](storsimple-8000-deployment-walkthrough-u2.md).
 

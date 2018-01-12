@@ -4,7 +4,7 @@ description: "Destek isteği oturum ve StorSimple 8000 serisi aygıtınızda des
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="contact-microsoft-support"></a>Microsoft Destek'e Başvur
 
@@ -64,7 +64,7 @@ Bağlı olarak, [destek planı](https://azure.microsoft.com/support/plans/), do�
 
     1. İçinde **başvurun seçenekleri**, tercih edilen iletişim yönteminiz (telefon veya e-posta) ve dili girin. Yanıt süresi, abonelik plana göre otomatik olarak seçilir.
     2. Kişi bilgileri adı, e-posta, isteğe bağlı kişi, ülke sağlamak. Seçin **Kaydet kişi değişikliklerini gelecekteki destek istekleri** onay kutusu.
-    3. **Oluştur**'a tıklayın.
+    3. **Oluştur**’a tıklayın.
    
         ![Yeni portal aracılığıyla kişinin MS desteği](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
@@ -79,15 +79,15 @@ Bir destek bileti oluşturduktan sonra portal üzerinden bu biletin yaşam döng
 
 1. Yardım ve Destek sayfasına ulaşmak için gidin **Gözat > Yardım + Destek**.
 
-    ![Destek isteklerini yönet](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
+    ![Destek isteklerini yönetin](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
 2. Tüm destek istekleri tablolu bir listesi görüntülenir **Yardım + Destek** dikey.
 
-    ![Destek isteklerini yönet](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Destek isteklerini yönetin](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Seçin ve bir destek isteği'ni tıklatın. Durum ve bu isteği ayrıntılarını görüntüleyebilirsiniz. Tıklatın **+ yeni ileti** bu istekte takip etmek istiyorsanız.
 
-    ![Destek isteklerini yönet](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Destek isteklerini yönetin](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell içinde bir destek oturumu Başlat
 
@@ -97,7 +97,7 @@ Bir destek oturumu başlatmak için aşağıdaki adımları gerçekleştirin:
 
 #### <a name="to-start-a-support-session"></a>Bir destek oturumu başlatmak için
 
-1. Cihaz seri Konsolu kullanarak doğrudan veya uzak bir bilgisayardan telnet oturumu aracılığıyla erişin. Bunu yapmak için adımları izleyin [kullan cihaz seri konsoluna bağlanmak için PuTTY](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Cihaz seri Konsolu kullanarak doğrudan veya uzak bir bilgisayardan telnet oturumu aracılığıyla erişin. Bunu yapmak için adımları izleyin [kullan cihaz seri konsoluna bağlanmak için PuTTY](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. Açılan oturumda basın **Enter** bir komut istemi almak için anahtar.
 3. Seri konsol menüsünde seçeneğini 1, **oturum oturum tam erişim**.
 4. İsteminde aşağıdaki parolasını yazın:
@@ -115,4 +115,4 @@ Bir destek oturumu başlatmak için aşağıdaki adımları gerçekleştirin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi edinmek için nasıl [tanılamak ve StorSimple 8000 serisi Cihazınızı ilgili sorunları](storsimple-troubleshoot-deployment.md)
+Bilgi edinmek için nasıl [tanılamak ve StorSimple 8000 serisi Cihazınızı ilgili sorunları](storsimple-8000-troubleshoot-deployment.md)

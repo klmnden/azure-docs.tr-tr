@@ -15,9 +15,9 @@ ms.date: 01/03/2018
 ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 42135b5f34b3caf194d4a8373baa9a9e621a51c7
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: HT
+ms.openlocfilehash: ddcc6464b1d0d7ba7443e5a3a548cfa4cf0d88c8
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2018
 ---
@@ -208,6 +208,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-intralinks-tutorial.png)| [Intralinks](active-directory-saas-intralinks-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-iqnavigatorvms-tutorial.png)| [IQNavigator VM'ler](active-directory-saas-iqnavigatorvms-tutorial.md)||
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-iqualify-tutorial.png)| [iQualify LMS](active-directory-saas-iqualify-tutorial.md)
+| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-iriusrisk-tutorial.png)| [IriusRisk](active-directory-saas-iriusrisk-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-itslearning-tutorial.png)| [itslearning](active-directory-saas-itslearning-tutorial.md)
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-itrp-tutorial.png)| [ITRP](active-directory-saas-itrp-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-jitbit-helpdesk-tutorial.png)| [Jitbit Yardım Masası](active-directory-saas-jitbit-helpdesk-tutorial.md)|
@@ -328,6 +329,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.png)| [RightAnswers](active-directory-saas-rightanswers-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-rightscale-tutorial.png)| [RightScale](active-directory-saas-rightscale-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_RolePoint.png)| [RolePoint](active-directory-saas-rolepoint-tutorial.md)|
+| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-rollbar-tutorial.png)| [Rollbar](active-directory-saas-rollbar-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-runmyprocess-tutorial.png)| [RunMyProcess](active-directory-saas-runmyprocess-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.png)| [Salesforce korumalı alan](active-directory-saas-salesforce-sandbox-tutorial.md)| [Salesforce korumalı alan - kullanıcı hazırlama](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.png)| [Salesforce](active-directory-saas-salesforce-tutorial.md)| [Salesforce - kullanıcı hazırlama](active-directory-saas-salesforce-provisioning-tutorial.md)|

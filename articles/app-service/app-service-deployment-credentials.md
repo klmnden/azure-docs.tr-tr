@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Dağıtım kimlik bilgileri Azure App Service için yapılandırma
 [Azure uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714) iki tür kimlik bilgilerini destekler [yerel Git dağıtımı](app-service-deploy-local-git.md) ve [FTP/S dağıtım](app-service-deploy-ftp.md). Bu, Azure Active Directory kimlik bilgileri ile aynı değildir.
@@ -55,7 +55,7 @@ Dağıtım kimlik bilgilerinizi ayarladıktan sonra bulabileceğiniz *Git* dağ�
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-ve ve *FTP* dağıtım kullanıcıadı uygulamanızın **özellikleri**.
+ve *FTP* dağıtım kullanıcıadı uygulamanızın **özellikleri**.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 

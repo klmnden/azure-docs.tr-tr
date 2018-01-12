@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7de85aa76dd449b97a5572f665d98378872eee88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f22b6f361f0c5bea547721309bb0f75b62f18d92
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="virtual-machine-network-throughput"></a>Sanal makine ağ verimliliği
+# <a name="virtual-machine-network-bandwidth"></a>Sanal makine ağ bant genişliği
 
-Azure çeşitli sanal makine boyutları ve türleri, her performans özellikleri farklı karışımını içeren sunar. Ağ verimliliği (veya bant genişliği) megabit (Mbps) cinsinden bunun bir yetenektir. Sanal makineleri paylaşılan donanımda barındırıldığından, ağ kapasitesi oldukça aynı donanımını paylaşan sanal makineler arasında paylaşılması gerekir. Daha büyük sanal makineler daha küçük sanal makinelerden görece daha fazla bant genişliği ayrılır.
+Azure çeşitli VM boyutları ve türleri, her performans özellikleri farklı karışımını içeren sunar. Ağ verimliliği (veya bant genişliği) megabit (Mbps) cinsinden bunun bir yetenektir. Sanal makineleri paylaşılan donanımda barındırıldığından, ağ kapasitesi oldukça aynı donanımını paylaşan sanal makineler arasında paylaşılması gerekir. Daha büyük sanal makineler daha küçük sanal makinelerden görece daha fazla bant genişliği ayrılır.
  
 Her bir sanal makine için ayrılan ağ bant genişliği, sanal makineden çıkış (giden) trafiği üzerinde ölçülen. Sanal makine bırakarak tüm ağ trafiğini doğru hedef bağımsız olarak ayrılmış sınırı sayılır. Örneğin, bir sanal makine 1000 MB/sn sınırı varsa, aynı sanal ağda veya Azure dışında başka bir sanal makine için giden trafik hedefleyen olup olmadığını bu sınırı geçerlidir.
  

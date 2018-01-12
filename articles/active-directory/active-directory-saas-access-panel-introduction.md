@@ -15,11 +15,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>Erişim paneli nedir?
 
@@ -85,9 +85,11 @@ Uzantı, kullanıcıların parola tabanlı çoklu oturum açma imzalamak gerekli
 - Kullanıcılar oturum açabilir uygulamalarda doğrudan uygulamanın ziyaret ederek **oturum açma URL'si**. Kullanıcı oturum açma uygulamanızın URL'sine gittiğinde uzantısı bu algılar ve kullanıcının içine uzantı imzalamak seçeneği sağlar.
 - Kullanıcılar de başlatma herhangi bir erişim paneli kullanarak uygulamalarını **hızlı arama** uzantısı özelliğidir. 
 - Uzantı de başlatıldıktan altında son üç uygulamaları kullanıcılara gösterilir **kısa süre önce kullanılan** bölümü.
-> [!NOTE]
-> Ek özellikler, yalnızca kenar, Chrome, Firefox için kullanılabilir.
 
+> [!NOTE]
+> Ek özellikler, yalnızca kenar, Chrome ve Firefox için kullanılabilir.
+>
+>
 
 Https://myapps.microsoft.com daha farklı bir My uygulamaları URL kullanıyorsanız, sonra varsayılan URL ancak aşağıdaki adımları yapılandırmanız gerekir:
 1. Uzantısına, imzalanmamış sırada **sağ tıklatın** uzantısı simgesi.

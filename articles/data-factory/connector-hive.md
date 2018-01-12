@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: af9050d41502f55b0426b858654b8af6985b93ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0a1d8ff4b9821b0d41b6225872472a9d5aedffc7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory kullanarak kovanından veri kopyalama 
 
@@ -34,7 +34,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli Hive bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -45,7 +45,7 @@ Aşağıdaki özellikler Hive bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **yığını** | Evet |
-| ana bilgisayar | IP adresi veya ana bilgisayar adı (yalnızca serviceDiscoveryMode etkin olduğunda) birden çok ana bilgisayar için ';' ile ayrılmış Hive sunucu.  | Evet |
+| konak | IP adresi veya ana bilgisayar adı (yalnızca serviceDiscoveryMode etkin olduğunda) birden çok ana bilgisayar için ';' ile ayrılmış Hive sunucu.  | Evet |
 | port | Hive sunucusunun istemci bağlantılarını dinlemek için kullandığı TCP bağlantı noktası.  | Hayır |
 | Sunucu türü | Hive sunucu türü. <br/>İzin verilen değerler: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Hayır |
 | thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, ** HTTP ** | Hayır |

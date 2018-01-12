@@ -1,6 +1,6 @@
 ---
 title: "PowerShell ile Azure yığınının yedeklemeyi etkinleştirme | Microsoft Docs"
-description: "Böylece bir hata olduğunda Azure yığın geri altyapı geri hizmeti Windows PowerShell ile etkinleştirin."
+description: "Böylece bir hata olduğunda Azure yığın geri Windows PowerShell ile hizmet altyapı yedeklemeyi etkinleştirin."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: b4f48b7fd07c5fb590b6989e04e9084c86142d2a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>PowerShell ile Azure yığınının yedeklemeyi etkinleştirme
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Böylece bir hata olduğunda Azure yığın geri altyapı geri hizmeti Windows PowerShell ile etkinleştirin. Yedeklemeyi etkinleştirmek için yedekleme başlatın ve işleci yönetim uç noktası aracılığıyla yedekleme bilgi almak için PowerShell cmdlet'leri erişebilir.
+Böylece bir hata olduğunda Azure yığın geri Windows PowerShell ile hizmet altyapı yedeklemeyi etkinleştirin. Yedeklemeyi etkinleştirmek için yedekleme başlatın ve işleci yönetim uç noktası aracılığıyla yedekleme bilgi almak için PowerShell cmdlet'leri erişebilir.
 
 ## <a name="download-azure-stack-tools"></a>Azure yığın araçları yükleyin
 
@@ -90,6 +90,9 @@ Aynı PowerShell oturumunda aşağıdaki komutları çalıştırın:
    $encryptionkey = New-EncryptionKeyBase64
    ```
 
+> [!Warning]  
+> Anahtarı oluşturmak için AzureStack araçları kullanmanız gerekir.
+
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Yedeklemeyi etkinleştirmek için yedekleme paylaşımı, kimlik bilgileri ve şifreleme anahtarı sağlayın
 
 Aynı PowerShell oturumunda, aşağıdaki PowerShell komut dosyası değişkenleri ortamınız için ekleyerek düzenleyin. Altyapı yedekleme hizmetine yedekleme paylaşımı, kimlik bilgileri ve şifreleme anahtarı sağlamak için güncelleştirilmiş komut dosyasını çalıştırın.
@@ -98,18 +101,18 @@ Aynı PowerShell oturumunda, aşağıdaki PowerShell komut dosyası değişkenle
 |---              |---                                        |
 | $username       | Tür **kullanıcıadı** kullanıcı adı ve etki alanı için paylaşılan sürücü konumunu kullanarak. Örneğin, `Contoso\administrator`. |
 | $password       | Tür **parola** kullanıcı için. |
-| $sharepath      | Yolunu yazın **yedekleme depolama konumu**. Ayrı bir aygıta bir dosya paylaşımında barındırılan yolu için bir Evrensel Adlandırma Kuralı (UNC) dize kullanmanız gerekir. Bir UNC dize paylaşılan dosyaları veya aygıt konumunu belirtir. Yedekleme verilerini kullanılabilirliğini sağlamak için aygıt ayrı bir konumda olmalıdır. |
+| $sharepath      | Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihaz üzerinde barındırılan bir dosya paylaşımına yol için bir Evrensel Adlandırma Kuralı (UNC) dize kullanmanız gerekir. Bir UNC dize paylaşılan dosyaları veya aygıt konumunu belirtir. Yedekleme verilerini kullanılabilirliğini sağlamak için aygıt ayrı bir konumda olmalıdır. |
 
    ```powershell
-   $username = "domain\backupoadmin"
+    $username = "domain\backupoadmin"
     $password = "password"
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-
-Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
-
+    
+    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
+   
 ##  <a name="confirm-backup-settings"></a>Yedekleme ayarlarını Onayla
 
 Aynı PowerShell oturumunda aşağıdaki komutları çalıştırın:

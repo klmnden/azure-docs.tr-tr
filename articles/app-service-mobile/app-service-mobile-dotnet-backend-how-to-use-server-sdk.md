@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps için .NET arka uç sunucu SDK’sı ile çalışma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -244,6 +244,10 @@ Kimlik doğrulama sunucu projenizi genişleterek ekleyebileceğiniz **MobileAppC
 Mobile Apps arka istemcilerin kimliğini doğrulamak nasıl hakkında bilgi edinmek için [uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Nasıl yapılır: uygulamanız için özel kimlik doğrulamasını kullan
+> [!IMPORTANT]
+> Özel kimlik doğrulamasını etkinleştirmek için önce Azure portalında uygulama hizmetiniz için bir sağlayıcı seçmeden App Service kimlik doğrulamasını etkinleştirmeniz gerekir. Bu barındırıldığında WEBSITE_AUTH_SIGNING_KEY ortam değişkeni olanak tanır.
+> 
+> 
 App Service kimlik doğrulama/yetkilendirme sağlayıcılardan biri kullanmak istemiyorsanız, kendi oturum açma sistem uygulayabilirsiniz. Yükleme [Microsoft.Azure.Mobile.Server.Login] ile kimlik doğrulama belirteci oluşturma yardımcı olmak üzere paket.  Kullanıcı kimlik bilgilerini doğrulamak için kendi kodunuzu girin. Örneğin, güvenlik ve karma parolaları bir veritabanında karşı denetleyebilirsiniz. Aşağıdaki örnekte `isValidAssertion()` yöntemi (başka bir yerde tanımlanır) için bu denetimleri sorumlu.
 
 Özel kimlik doğrulama bir ApiController oluşturma ve gösterme sunulan `register` ve `login` eylemler. İstemci, kullanıcıdan bilgi toplamak için özel bir kullanıcı Arabirimi kullanmanız gerekir.  Bilgi, standart HTTP POST çağrısıyla API sonra gönderilir. Onaylama işlemi sunucuyu doğrular sonra bir belirteç kullanarak verilen `AppServiceLoginHandler.CreateToken()` yöntemi.  ApiController **vermemelisiniz** kullanmak `[MobileAppController]` özniteliği.

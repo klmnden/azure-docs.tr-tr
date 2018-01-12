@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure depolama güvenlik duvarları ve sanal ağlar (Önizleme) yapılandırma
 Azure depolama, izin verilen ağlar belirli bir dizi depolama hesaplarınıza güvenli imkan tanıyan katmanlı bir güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağlar uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağrılırken uygulamalar (geçerli erişim tuşu veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -39,6 +39,10 @@ Ağ kurallarının var olan depolama hesaplarına uygulanabilir veya yeni depola
 Ağ kurallarının uygulandıktan sonra tüm istekler için zorunlu tutulmaz.  Belirli bir IP adresi hizmete erişim SAS belirteci hizmet için **sınırı** erişim belirteci sahibinin ancak değil yeni erişime yapılandırılmış ağ kuralları ötesinde yapın. 
 
 (Bağlama dahil olmak üzere operations çıkarın ve disk g/ç) sanal makine diski trafiği **değil** ağ kurallarından etkilenen.  Sayfa bloblarını REST erişimi ağ kuralları tarafından korunur.
+
+> [!NOTE]
+> Yedekleme ve geri yükleme, yönetilmeyen diskleri depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri şu anda desteklenmiyor.  Daha fazla bilgi için bkz: [yedekleme ve geri yükleme VM sınırlamaları](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 Klasik depolama hesaplarını **sağlamadığı** güvenlik duvarları ve sanal ağları destekler.
 

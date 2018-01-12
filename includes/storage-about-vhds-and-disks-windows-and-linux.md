@@ -5,7 +5,7 @@ Azure’da kullanılan VHD’ler, Azure’daki standart veya premium depolama he
 
 Azure, sabit bir disk VHD biçimini destekler. Sabit biçim, mantıksal diski dosya içinde doğrusal olarak düzenlediğinden, disk farkı X'in içeriği blob farkı X konumunda depolanır. Blob'un sonundaki küçük bir alt bilgi VHD'nin özelliklerini tanımlar. Çoğunlukla, sabit biçim alanı israf eder, çünkü çoğu diskte kullanılmayan büyük aralıklar vardır. Ancak, Azure .vhd dosyalarını seyrek biçimde depoladığından aynı anda hem sabit hem de dinamik disklerin avantajlarından yararlanırsınız. Daha ayrıntılı bilgi için bkz. [Sanal sabit diskleri kullanmaya başlama](https://technet.microsoft.com/library/dd979539.aspx).
 
-Azure’da disk veya görüntü oluşturmak için kaynak olarak kullanmak istediğiniz tüm .vhd dosyaları salt okunur özelliktedir. Bir disk veya görüntü oluşturduğunuzda, Azure .vhd dosyalarının kopyalarını oluşturur. Bu kopyalar, VHD’yi nasıl kullandığınıza bağlı olarak salt okunur veya okuma-yazma niteliktedir.
+Diskleri veya görüntüleri oluşturmak için bir kaynak olarak kullanmak istediğiniz Azure tüm .vhd dosyaları salt okunur, .vhd dosyaları karşıya veya Azure depolama birimine (olabilen okuma-yazma veya salt okunur) kullanıcı tarafından kopyalanan dışında. Bir disk veya görüntü oluşturduğunuzda, Azure .vhd dosyalarını kaynağı kopyalarını oluşturur. Bu kopyalar, VHD’yi nasıl kullandığınıza bağlı olarak salt okunur veya okuma-yazma niteliktedir.
 
 Bir görüntüden sanal makine oluşturduğunuzda Azure, sanal makine için kaynak .vhd dosyasının kopyası olan bir disk oluşturur. Yanlışlıkla silmeye karşı korumak üzere Azure, bir görüntü, işletim sistemi diski ya da veri diski oluşturmak için kullanılan her kaynak .vhd dosyasına kira koyar.
 

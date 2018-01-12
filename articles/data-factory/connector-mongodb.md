@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory kullanarak MongoDB verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,12 +39,13 @@ Tüm desteklenen havuz veri deposuna MongoDB veritabanından veri kopyalayabilir
 - MongoDB **sürümleri 2.4, 2.6, 3.0 ve 3.2**.
 - Verileri kullanarak kopyalama **temel** veya **anonim** kimlik doğrulaması.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Genel olarak erişilebilir değil bir MongoDB veritabanından veri kopyalamak için bir Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) daha ayrıntılı bilgi için makalenin. Yerleşik bir MongoDB sürücü tümleştirmesi çalışma zamanı sağlar, bu nedenle herhangi bir sürücüsü başlangıç/bitiş MongoDB veri kopyalama işlemi sırasında el ile yüklemeniz gerekmez.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını MongoDB bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -177,14 +178,14 @@ Veri adresinden kopyalarken, aşağıdaki eşlemelerini MongoDB veri türlerinde
 | MongoDB veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | İkili |Byte] |
-| Boole değeri |Boole değeri |
-| Tarih |Tarih saat |
+| Boole |Boole |
+| Tarih |Tarih Saat |
 | NumberDouble |Çift |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Dize |
 | Dize |Dize |
-| UUID |GUID |
+| UUID |Guid |
 | Nesne |Renormalized içine iç içe geçmiş ayırıcı olarak "_" sütunlarla düzleştirme |
 
 > [!NOTE]
@@ -205,14 +206,14 @@ Sanal tablolar Normalleştirilmemiş verilere erişmek sürücüyü etkinleştir
 
 Örneğin, burada ExampleTable MongoDB tabloda, her hücrede – faturaları nesnelerinin bir dizisi olan bir sütun ve bir dizi skaler türler – derecelendirmeleri bir sütunla olur.
 
-| _ıd | Müşteri adı | Faturalar | Hizmet düzeyi | Derecelendirme |
+| _ıd | Müşteri adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123" öğesi: "toaster", fiyat: "456", indirim: "0.2"}, {invoice_id: "124" öğesi: "fırın", fiyat: "1235" indirim: "0.2"}] |Gümüş |[5,6] |
 | 2222 |XYZ |[{invoice_id: "135" öğesi: "fridge", fiyat: "12543", indirim: "0,0"}] |Altın |[1,2] |
 
 Sürücü bu tek tablo göstermek için birden çok sanal tablo oluşturur. İlk sanal "örnekte gösterilen ExampleTable" adlı temel tablo tablodur. Temel tablo özgün tablonun tüm verileri içerir, ancak diziler verilerden çıkarıldı ve sanal tablolarda genişletilir.
 
-| _ıd | Müşteri adı | Hizmet düzeyi |
+| _ıd | Müşteri adı | Hizmet Düzeyi |
 | --- | --- | --- |
 | 1111 |ABC |Gümüş |
 | 2222 |XYZ |Altın |

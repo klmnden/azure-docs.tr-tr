@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olayları ve ölçümleri için Application Insights API'si
 
@@ -414,32 +414,34 @@ SDK sunucusu, HTTP isteklerini günlüğe kaydetmek için TrackRequest kullanır
 Ancak, istek telemetri göndermek için önerilen burada isteği görevi gören yoludur bir <a href="#operation-context">işlemi bağlam</a>.
 
 ## <a name="operation-context"></a>İşlem bağlamı
-Ortak bir işlem kimliği ekleyerek bunları telemetri öğelerini birlikte ilişkilendirebilirsiniz Standart isteği izleme modülü, özel durumlar ve bir HTTP istek gerçekleştirilirken gönderilen diğer olayları için bunu yapar. İçinde [arama](app-insights-diagnostic-search.md) ve [Analytics](app-insights-analytics.md), kimliği istekle ilişkili tüm olayları kolayca bulmak için kullanabilirsiniz.
+İşlem bağlamı ile ilişkilendirerek telemetri öğeleri birlikte ilişkilendirebilirsiniz. Standart isteği izleme modülü, özel durumlar ve bir HTTP istek gerçekleştirilirken gönderilen diğer olayları için bunu yapar. İçinde [arama](app-insights-diagnostic-search.md) ve [Analytics](app-insights-analytics.md), kendi işlemi kimliği kullanarak istek ile ilişkili herhangi bir olayı kolayca bulabilirsiniz
 
-En kolay yolu Kimliğini ayarlamak için bu yöntemi kullanarak bir işlem bağlamı ayarlamaktır:
+Bkz: [Telemetri bağıntı Application ınsights'ta](application-insights-correlation.md) bağıntı hakkında daha fazla ayrıntı için.
+
+Telemetri el ile izlerken bu yöntemi kullanarak telemetri bağıntı emin olmak için en kolay yolu:
 
 *C#*
 
 ```C#
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Bir işlemin bağlamını ayarlanması birlikte `StartOperation` telemetri öğesi, belirttiğiniz türü oluşturur. İşlemi çıkardığınızda veya açıkça çağırırsanız telemetri öğesi gönderir `StopOperation`. Kullanırsanız `RequestTelemetry` telemetri türü olarak başlatma ve durdurma arasında zaman aralıklarında süresinin ayarlanır.
 
-İşlem bağlamı iç içe olamaz. Bir işlem bağlamı zaten var. sonra Kimliğini ile oluşturulan öğesi de dahil olmak üzere içerilen tüm öğelerin ilişkilendirildiği `StartOperation`.
+Bir işlem kapsamı içinde bildirilen telemetri öğeler 'alt' gibi işlem haline gelir. İşlem bağlamı iç içe geçmiş. 
 
 Aramada, işlem bağlamı oluşturmak için kullanılan **ilgili öğeler** listesi:
 
@@ -900,7 +902,7 @@ SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz.
 
 [Özellikler ekleme](app-insights-api-filtering-sampling.md#add-properties) uygulayarak telemetri için `ITelemetryInitializer`. Örneğin, diğer özelliklerinden sürüm numaraları veya hesaplanan değerler ekleyebilirsiniz.
 
-[Filtreleme](app-insights-api-filtering-sampling.md#filtering) değiştirebilir veya SDK'dan gelen uygulayarak gönderilmeden önce telemetri atmak `ITelemetryProcessor`. Ne gönderildiğinde veya atılan denetlemek, ancak ölçümlerinizi etkisi hesaba sahip. Öğeler atılsın nasıl bağlı olarak, ilgili öğeleri arasında gezinme becerisini kaybedebilirsiniz.
+[Filtreleme](app-insights-api-filtering-sampling.md#filtering) değiştirebilir veya SDK'dan gelen uygulayarak gönderilmeden önce telemetri atmak `ITelemetryProcesor`. Ne gönderildiğinde veya atılan denetlemek, ancak ölçümlerinizi etkisi hesaba sahip. Öğeler atılsın nasıl bağlı olarak, ilgili öğeleri arasında gezinme becerisini kaybedebilirsiniz.
 
 [Örnekleme](app-insights-api-filtering-sampling.md) uygulamanızdan portala gönderilen verilerin hacmi azaltmak için paketlenmiş bir çözümdür. Bunu görüntülenen ölçümlerin etkilemeden yapar. Ve bunu özel durumlar, istekleri ve sayfa görünümleri gibi ilgili öğeleri arasında gezinme tarafından sorunları tanılama yeteneğinizi etkilemeden yapar.
 

@@ -4,7 +4,7 @@ description: "Kutusundan çıkarma, rafa monte etme ve dağıtma ve yazılım ya
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Kutusundan çıkarma, rafa monte ve StorSimple 8600 cihazınızın kablolarını bağlama
 ## <a name="overview"></a>Genel Bakış
@@ -38,7 +38,7 @@ Cihazınızı paketinden çıkarma önce aşağıdaki bilgileri gözden geçirin
 Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tamamlayın.
 
 #### <a name="to-unpack-your-device"></a>Cihazınızı paketinden çıkarma için
-1. Kutunun ve paketleme köpük zemine crushes, keser, su hasar ya da belirgin herhangi bir zarar için inceleyin. Kutusu veya paketleme ciddi bir şekilde bozuksa, kutunun açmayın. Lütfen [Microsoft Support başvurun](storsimple-contact-microsoft-support.md) aygıt iyi çalışma sırayla olup olmadığını değerlendirin yardımcı olacak.
+1. Kutunun ve paketleme köpük zemine crushes, keser, su hasar ya da belirgin herhangi bir zarar için inceleyin. Kutusu veya paketleme ciddi bir şekilde bozuksa, kutunun açmayın. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) aygıt iyi çalışma sırayla olup olmadığını değerlendirin yardımcı olacak.
 2. Dış kutusunu açın ve ardından birincil ve EBOD kutularının karşılık gelen iki kutuları kaldırın. Artık birincil ve EBOD kutularının da ayıklayın. Aşağıdaki şekilde kasaları birini paketten görünümünü gösterir.
    
     ![Depolama Cihazınızı paketinden çıkarma](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -66,7 +66,7 @@ Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tama
    * 2 bağlama setleri (donanım, her 2 EBOD Muhafazası ve birincil kasası için takma ile 4 yan rayları), raf her kutusunda 1
    * Başlatılan belgeleri alma
      
-     Yukarıda listelenen öğelerden herhangi birini almadı varsa [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).  
+     Yukarıda listelenen öğelerden herhangi birini almadı varsa [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).  
 
 Sonraki adım rafa monte Cihazınızı olacak.
 
@@ -167,7 +167,7 @@ Sonraki adım, güç, ağ ve seri erişim için Cihazınızı kablo olacak.
 ## <a name="cable-your-storsimple-8600-device"></a>StorSimple 8600 cihazınızın kablolarını bağlama
 Aşağıdaki yordamlar, StorSimple 8600 model Cihazınızı güç, ağ ve seri bağlantılar için kablo açıklanmaktadır.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Cihazınızın kablolarını bağlama başlamadan önce gerekir:
 
 * Birincil muhafaza ve EBOD muhafazası tamamen açılmış
@@ -234,7 +234,7 @@ Cihaz kablo, en düşük yapılandırmayı gerektirir:
 Yüksek kullanılabilirlik ve performans için göz önünde bulundurun:
 
 * Mümkün olduğunda, bir çift ağ arabiriminin bulut erişim (1 GbE) ve iSCSI (10 GbE önerilen) için başka bir çifti her denetleyicisinde yapılandırın.
-* Mümkün olduğunda, ağ arabirimlerinin her denetleyicisinden anahtar arızasına karşı kullanılabilirliğini sağlamak için iki farklı anahtarlara bağlayın. Şekilde gösterilmektedir iki 10 GbE ağ arabirimleri, veri 2 ve veri 3, iki farklı anahtarlara bağlı her denetleyicisinden. Daha fazla bilgi için bkz **ağ arabirimleri** altında [StorSimple cihazınız için yüksek kullanılabilirlik gereksinimlerini](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Mümkün olduğunda, ağ arabirimlerinin her denetleyicisinden anahtar arızasına karşı kullanılabilirliğini sağlamak için iki farklı anahtarlara bağlayın. Şekilde gösterilmektedir iki 10 GbE ağ arabirimleri, veri 2 ve veri 3, iki farklı anahtarlara bağlı her denetleyicisinden. Daha fazla bilgi için bkz **ağ arabirimleri** altında [StorSimple cihazınız için yüksek kullanılabilirlik gereksinimlerini](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > SFP + vericilerinin, 10 GbE ağ arabirimleri ile kullanıyorsanız, sağlanan QSFP kullanın-SFP + bağdaştırıcıları. Daha fazla bilgi için Git [, StorSimple Cihazınızda 10 GbE ağ arabirimleri için desteklenen donanım](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -266,5 +266,5 @@ Seri bağlantı noktanızın kablo için aşağıdaki adımları gerçekleştiri
 Cihazınızı güç, ağ erişimi ve seri bağlantı kabloları tamamladınız. Sonraki adım, Cihazınızda yazılımı yapılandırmaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık hazırsınız [şirket içi StorSimple Cihazınızı yapılandırmak ve dağıtmak](storsimple-deployment-walkthrough-u2.md).
+Artık hazırsınız [şirket içi StorSimple Cihazınızı yapılandırmak ve dağıtmak](storsimple-8000-deployment-walkthrough-u2.md).
 

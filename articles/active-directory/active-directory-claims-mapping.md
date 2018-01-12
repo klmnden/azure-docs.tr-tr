@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) eşleme talepleri
 
@@ -56,7 +56,7 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |_claim_sources|
 |access_token|
 |account_type|
-|ACR|
+|acr|
 |Aktör|
 |actortoken|
 |AIO|
@@ -96,12 +96,12 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |domain_netbios_name|
 |e_exp|
 |e-posta|
-|uç noktası|
+|endpoint|
 |enfpolids|
 |exp|
 |expires_on|
 |grant_type|
-|Grafik|
+|Graf|
 |group_sids|
 |gruplar|
 |hasgroups|
@@ -118,7 +118,7 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |ıdentityprovider|
 |IDP|
 |in_corp|
-|Örneği|
+|örnek|
 |IpAddr|
 |isbrowserhostedapp|
 |ISS|
@@ -296,7 +296,7 @@ ID öğesi, kaynak bilgisayarda hangi özelliğinin değeri için talep sağlar 
 |Kullanıcı|Şirket adı|Kuruluş Adı|
 |Kullanıcı|streetAddress|Posta Adresi|
 |Kullanıcı|posta kodu|Posta Kodu|
-|Kullanıcı|preferredlanguange|Tercih edilen dili|
+|Kullanıcı|preferredlanguange|Tercih Edilen Dil|
 |Kullanıcı|onpremisesuserprincipalname|Şirket içi UPN|
 |Kullanıcı|mailnickname|Posta takma adı|
 |Kullanıcı|extensionattribute1|1 uzantısı özniteliği|
@@ -401,9 +401,9 @@ Seçilen yönteme bağlı olarak, bir dizi girişleri ve çıkışları beklenir
 |Kullanıcı|extensionattribute15|Uzantı özniteliği 15|
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tablo 6: SAML NameID için izin verilen dönüştürme yöntemleri
-|TransformationMethod|Kısıtlamaları|
+|TransformationMethod|Kısıtlamalar|
 | ----- | ----- |
-|ExtractMailPrefix|None|
+|ExtractMailPrefix|Hiçbiri|
 |Birleştir|Birleştirilen soneki doğrulanmış bir etki alanı kaynak Kiracı olmalıdır.|
 
 ### <a name="custom-signing-key"></a>Özel anahtar imzalama
@@ -419,7 +419,7 @@ Seçilen yönteme bağlı olarak, bir dizi girişleri ve çıkışları beklenir
 
 Azure AD'de belirteçleri belirli hizmet asıl adı için gösterilen talep özelleştirdiğinizde birçok senaryo mümkündür. Bu bölümde, ilke türü eşleme talep kullanma kavramak yardımcı olabilecek bazı yaygın senaryolar üzerinden yol.
 
-#### <a name="prerequisites"></a>Ön koşullar
+#### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki örneklerde, oluşturmak, güncelleştirmek, bağlantı ve ilkelerini için hizmet asıl adı silin. Azure AD ile yeni başladıysanız, bu örnekleri ile devam etmeden önce Azure AD kiracısı alma hakkında bilgi edinin öneririz. 
 
 Başlamak için aşağıdaki adımları uygulayın:
@@ -490,7 +490,7 @@ Bu örnekte, "JoinedData" için bağlı hizmet asıl adı verilen Jwt'ler için 
     1. Bir ilke oluşturmak için bu komutu çalıştırın: 
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
     ```
     
     2. Yeni ilke görmek ve objectID ilkeyi almak üzere aşağıdaki komutu çalıştırın: 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 41842806aecfc0ed6ac663262305785a23c5ba5d
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SQL Server gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,12 +40,13 @@ Tüm desteklenen havuz veri deposuna / SQL Server veritabanına veri kopyalamak 
 - SQL sorgusu veya saklı yordam kullanarak veri kaynağı olarak alınıyor.
 - Havuz veri hedef tablo ya da kopyalama sırasında özel mantık olan bir saklı yordam çağırma sonuna ekleme.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Genel olarak erişilebilir değil bir SQL Server veritabanından veri Kopyala kullanmak için Self-hosted tümleştirmesi çalışma zamanı ayarlamak gerekir. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) Ayrıntılar için makale. Yerleşik bir SQL Server veritabanı sürücü tümleştirmesi çalışma zamanı sağlar, bu nedenle herhangi bir sürücüsü / SQL Server veritabanına veri kopyalama işlemi sırasında el ile yüklemeniz gerekmez.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, SQL Server veritabanı bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -482,25 +483,25 @@ SQL Server başlangıç/bitiş veri kopyalama işlemi sırasında aşağıdaki e
 |:--- |:--- |
 | bigint |Int64 |
 | İkili |Byte] |
-| bit |Boole değeri |
+| bit |Boole |
 | char |Dize, Char] |
-| Tarih |Tarih saat |
-| Tarih saat |Tarih saat |
-| datetime2 |Tarih saat |
+| tarih |Tarih Saat |
+| Tarih saat |Tarih Saat |
+| datetime2 |Tarih Saat |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
 | Kayan nokta |Çift |
-| Görüntü |Byte] |
+| görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
 | nchar |Dize, Char] |
 | ntext |Dize, Char] |
 | sayısal |Ondalık |
 | nvarchar |Dize, Char] |
-| Gerçek |Tek |
+| Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih saat |
+| smalldatetime |Tarih Saat |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |
@@ -508,7 +509,7 @@ SQL Server başlangıç/bitiş veri kopyalama işlemi sırasında aşağıdaki e
 | time |TimeSpan |
 | timestamp |Byte] |
 | Mini tamsayı |Int16 |
-| benzersiz tanımlayıcı |GUID |
+| benzersiz tanımlayıcı |Guid |
 | varbinary |Byte] |
 | varchar |Dize, Char] |
 | xml |XML |

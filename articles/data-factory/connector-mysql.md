@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: d91ff1738f423928699f056a4d529d764889a6e9
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory kullanarak MySQL verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Tüm desteklenen havuz veri deposuna MySQL veritabanından veri kopyalayabilirsi
 
 Özellikle, bu MySQL bağlayıcı MySQL destekler **sürüm 5.1 ve yukarıdaki**.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu MySQL bağlayıcıyı kullanmak için aktarmanız gerekir:
 
@@ -46,7 +46,8 @@ Bu MySQL bağlayıcıyı kullanmak için aktarmanız gerekir:
 > MySQL Connector/Net daha yüksek bir sürüme yükseltmek için "Uzak taraf aktarım akışı. kapatıldığı için kimlik doğrulaması başarısız oldu" hata isabet durumunda göz önünde bulundurun.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını MySQL bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -58,7 +59,7 @@ Aşağıdaki özellikleri, bağlantılı MySQL hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **MySql** | Evet |
 | sunucu | MySQL sunucu adı. | Evet |
-| Veritabanı | MySQL veritabanının adı. | Evet |
+| veritabanı | MySQL veritabanının adı. | Evet |
 | Şema | Veritabanı şemasında adı. | Hayır |
 | kullanıcı adı | MySQL veritabanına bağlanmak için kullanıcı adını belirtin. | Evet |
 | password | Belirttiğiniz kullanıcı hesabı için parola belirtin. Bu alan SecureString işaretleyin. | Evet |

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: d529e66c80c6a3e305ffdf9a2df181a976e07127
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Hdınsight'ta Hadoop kümeleri üzerinde boş kenar düğümleri kullanın
 
@@ -64,7 +64,7 @@ Edge düğüm sanal makine boyutu Hdınsight küme çalışan düğümü vm boyu
 Bir edge düğümünü oluşturduktan sonra SSH kullanarak kenar düğümüne bağlanmak ve Hdınsight Hadoop kümesinde erişmek için istemci araçlarını çalıştırın.
 
 > [!WARNING] 
-> Hdınsight ile boş kenar düğümünü kullanarak şu anda önizlemede değil. Kenar düğümüne yüklenir özel bileşenler Microsoft ticari koşulların elverdiği oranda makul desteği alabilirsiniz. Bu, karşılaştığınız sorunları çözme konusunda neden olabilir. Veya daha fazla yardım almak için topluluk kaynaklarına adlandırılabilir. En etkin topluluktan Yardım almak için sitelere bazıları şunlardır:
+> Kenar düğümüne yüklenir özel bileşenler Microsoft ticari koşulların elverdiği oranda makul desteği alabilirsiniz. Bu, karşılaştığınız sorunları çözme konusunda neden olabilir. Veya daha fazla yardım almak için topluluk kaynaklarına adlandırılabilir. En etkin topluluktan Yardım almak için sitelere bazıları şunlardır:
 >
 > * [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://StackOverflow.com](http://stackoverflow.com).

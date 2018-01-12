@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 13c24a9fc08b4479a63d37fadb0fd02624e51b64
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e9983cb29c59ebf29dd247c2e6f70cc052eab39d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Hdınsight'ta Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek için betik eylemi kullanın
 > [!div class="op_single_selector"]
@@ -82,8 +82,6 @@ Aşağıdakilere sahip olmanız gerekir:
     Sonuç şuna benzeyecektir:
     
     ![TensorFlow kod yürütmeyi](./media/apache-spark-python-package-installation/execution.png "yürütme TensorFlow kodu")
-
-
 
 ## <a name="seealso"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)

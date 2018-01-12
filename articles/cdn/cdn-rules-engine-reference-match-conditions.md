@@ -1,6 +1,6 @@
 ---
-title: "Eşleşen içerik teslim ağı kurallar altyapısı için koşullar | Microsoft Docs"
-description: "Azure içerik teslim ağı başvuru belgelerine altyapısı eşleşme koşulları ve özellikleri kuralları."
+title: "Eşleşen Azure CDN kurallar altyapısı için koşullar | Microsoft Docs"
+description: "Azure içerik teslim ağı başvuru belgelerine altyapısı eşleşme koşullar kuralları."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 944675f4b055c3d0c2559db53e4807a5c00bda64
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9986e654b076df099e3912f9da628728723b5c3d
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="match-conditions-for-the-content-delivery-network-rules-engine"></a>İçerik teslim ağı kurallar altyapısı için koşullara uyan
-Bu makalede Azure içerik teslim ağı için kullanılabilir eşleşme koşullar ayrıntılı açıklamaları listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
+# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için koşullara uyan
+Bu makalede kullanılabilir eşleşme koşullar için Azure içerik teslim ağı (CDN) ayrıntılı açıklamaları listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
 
 İkinci bir kural eşleşen koşulu parçasıdır. Bir eşleşme koşulu, belirli türde bir özellik kümesi gerçekleştirilecek istekler tanımlar.
 
@@ -106,7 +106,7 @@ URL sorgu joker karakter | Belirtilen isteğin sorgu dizesi değerleri karşıla
 
 Her zaman eşleştirme koşulu varsayılan bir özellik için tüm istekleri geçerlidir.
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -125,7 +125,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -141,7 +141,7 @@ Anahtar bilgileri:
  - İçerik erişim noktası istenen içerik kullanılmalıdır hizmeti tanımlar.
  - Bir ve IF deyimi, belirli bir eşleşme koşulu birleştirmek için kullanmayın. Örneğin, bir müşteri kaynak eşleşme koşul CDN kaynak eşleşme koşul birleştirme hiçbir zaman eşleşen bir eşleşme deseni oluşturursunuz. Bu nedenle, iki CDN kaynak eşleşme koşul ve IF deyimi aracılığıyla birleştirilemez.
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -164,7 +164,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -193,7 +193,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -222,7 +222,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -243,7 +243,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -257,7 +257,7 @@ Anahtar bilgileri:
   - Bir sınır CNAME yapılandırma
 - Bir ve IF deyimi, belirli bir eşleşme koşulu birleştirmek için kullanmayın. Örneğin, bir müşteri kaynak eşleşme koşul CDN kaynak eşleşme koşulu ile birleştirerek hiçbir zaman eşleşen bir eşleşme deseni oluşturursunuz. Bu nedenle, iki müşteri kaynak eşleşme koşul ve IF deyimi aracılığıyla birleştirilemez.
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -292,7 +292,7 @@ Yayınlanma Tarihi | % {wurfl_cap_release_date} | Yıl ve ay aygıtı WURFL veri
 Çözümleme yüksekliği | % {wurfl_cap_resolution_height} | Cihazın yüksekliğini piksel cinsinden belirten bir tamsayı. | 768
 Çözümleme genişliği | % {wurfl_cap_resolution_width} | Cihazın genişliğini piksel cinsinden belirten bir tamsayı. | 1024
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -309,7 +309,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -329,7 +329,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -350,7 +350,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -377,7 +377,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski 
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -405,7 +405,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -430,7 +430,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -446,7 +446,7 @@ Anahtar bilgileri:
   - Kaynak No-Cache yoksay
   - İç Max-eski
 
-[Başa dön](#azure-cdn-rules-engine-match-conditions)
+[Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 

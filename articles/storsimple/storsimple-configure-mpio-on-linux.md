@@ -4,7 +4,7 @@ description: "MPIO CentOS 6.6 çalıştıran bir Linux konağına bağlı StorSi
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS çalıştıran bir StorSimple konakta MPIO'yu yapılandırın
 Bu makalede, Centos 6.6 ana bilgisayar sunucusunda çoklu yol oluşturma g/ç (MPIO) yapılandırmak için gereken adımları açıklar. Ana bilgisayar sunucusu Microsoft Azure StorSimple Cihazınızı iSCSI başlatıcıları aracılığıyla yüksek kullanılabilirlik için bağlı. Bu, çok yollu aygıtlar ve yalnızca StorSimple birimler için özel kurulum otomatik olarak bulmayı ayrıntılı olarak açıklanmaktadır.
@@ -26,9 +26,8 @@ Bu makalede, Centos 6.6 ana bilgisayar sunucusunda çoklu yol oluşturma g/ç (M
 Bu yordam, StorSimple 8000 serisi cihazlar, tüm modelleri için geçerlidir.
 
 > [!NOTE]
-> Bu yordam, StorSimple sanal cihaz için kullanılamaz. Daha fazla bilgi için sanal cihazınız için ana bilgisayar sunucularının nasıl yapılandırılacağı bakın.
-> 
-> 
+> Bu yordam bir StorSimple bulut uygulaması için kullanılamaz. Daha fazla bilgi için ana bilgisayar sunucularının, bulut uygulaması için nasıl yapılandırılacağı bakın.
+
 
 ## <a name="about-multipathing"></a>Çoklu yol oluşturma hakkında
 Çoklu yol oluşturma özelliği, bir konak sunucusu ile bir depolama aygıtı arasında birden çok g/ç yollar yapılandırmanıza olanak sağlar. Bu g/ç yolları ayrı kablo, anahtarlar, ağ arabirimleri ve denetleyicileri dahil edebileceğiniz fiziksel SAN bağlantılardır. Çoklu yol oluşturma tüm toplanan yollar ile ilişkili yeni bir cihaz yapılandırmak için g/ç yolu toplar.
@@ -67,7 +66,7 @@ Bir Linux konağına bağlı bir StorSimple cihazı, yüksek kullanılabilirlik 
 
 Aşağıdaki yordamda, iki ağ arabirimine sahip bir konağa iki ağ arabirimi ile bir StorSimple cihazı bağlı olduğunda çoklu yol oluşturma yapılandırmak açıklanmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu bölümde, CentOS sunucu ve StorSimple cihazınız için yapılandırma önkoşulları ayrıntıları verilmektedir.
 
 ### <a name="on-centos-host"></a>CentOS konakta
@@ -298,7 +297,7 @@ Bu Yük Dengeleme algoritması etkin denetleyiciye tüm kullanılabilir multipat
 
     Yalnızca bir ana bilgisayar arabirimi ve iki yollarını burada görürseniz, arabirimler konakta iSCSI için etkinleştirmeniz gerekir. İzleyebileceğiniz [ayrıntılı Linux belgelerindeki yönergeleri](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Bir birim StorSimple cihazı CentOS sunucuya açıktır. Daha fazla bilgi için bkz: [6. adım: birim oluşturma](storsimple-deployment-walkthrough.md#step-6-create-a-volume) , StorSimple Cihazınızda Klasik Azure Portalı aracılığıyla.
+2. Bir birim StorSimple cihazı CentOS sunucuya açıktır. Daha fazla bilgi için bkz: [6. adım: birim oluşturma](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) , StorSimple Cihazınızda Azure Portalı aracılığıyla.
 
 3. Kullanılabilir yollar doğrulayın. Şunu yazın:
 
@@ -341,7 +340,7 @@ A. Herhangi bir değişiklik yaptıysanız `multipath.conf` dosya, çoklu yol ol
 
 Q. StorSimple cihazında iki ağ arabirimi ve ana bilgisayarda iki ağ arabirimi etkin. Kullanılabilir yollar listelediğinizde, yalnızca iki yolu bakın. Bkz. dört kullanılabilir yolları beklenir.
 
-A. Yönlendirilebilir ve iki yolu aynı alt ağda olduğundan emin olun. Ağ arabirimleri farklı VLAN'ları ve değil yönlendirilebilir varsa, yalnızca iki yolu görürsünüz. Bu doğrulamanın bir yolu, her iki ana arabirimlerinden StorSimple cihazında bir ağ arabirimi ulaşabildiğimizden emin olmaktır. Etmeniz [Microsoft Support başvurun](storsimple-contact-microsoft-support.md) gibi bu doğrulama yalnızca bir destek oturumu yapılabilir.
+A. Yönlendirilebilir ve iki yolu aynı alt ağda olduğundan emin olun. Ağ arabirimleri farklı VLAN'ları ve değil yönlendirilebilir varsa, yalnızca iki yolu görürsünüz. Bu doğrulamanın bir yolu, her iki ana arabirimlerinden StorSimple cihazında bir ağ arabirimi ulaşabildiğimizden emin olmaktır. Etmeniz [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) gibi bu doğrulama yalnızca bir destek oturumu yapılabilir.
 
 Q. Kullanılabilir yollar listelediğinizde, herhangi bir çıktı görmezsiniz.
 

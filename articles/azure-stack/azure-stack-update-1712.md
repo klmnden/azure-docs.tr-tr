@@ -3,7 +3,7 @@ title: "Azure yığın 1712 güncelleştirme | Microsoft Docs"
 description: "Azure yığın 1712 güncelleştirmesi nedir hakkında bilgi edinin tümleşik sistemleri, bilinen sorunlar ve güncelleştirme karşıdan yükleme konumu."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure yığın 1712 güncelleştirme
 
@@ -58,7 +58,7 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 - Test-AzureStack cmdlet'i Azure yığın bulut ayrıcalıklı uç noktası aracılığıyla kullanılabilir doğrulamak için
 - Bağlantısı kesilmiş bir dağıtımı Azure yığınının kaydetmek için özelliği
 - Sertifika ve kullanıcı hesabı süre sonu için izleme uyarıları
-- Eklenen güncelleştirme BMCCredential cmdlet'te CESARETLENDİRİCİ BMC parola döndürme için
+- Eklenen kümesi BmcPassword cmdlet'te CESARETLENDİRİCİ BMC parola döndürme için
 - İsteğe bağlı günlük kaydını desteklemek için ağ günlük güncelleştirmeler
 - Yeniden görüntü oluşturma işlemi için sanal makine ölçek kümeleri (VMSS) desteği
 - CloudAdmin oturum açma için bilgi noktası modu ERCS VM'de etkinleştir

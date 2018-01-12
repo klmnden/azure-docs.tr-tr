@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.openlocfilehash: a5d2994eb1203274454fc31c3ee9bf7a21562f75
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veritabanından veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,8 @@ Tüm desteklenen havuz veri deposuna başlangıç/bitiş Azure SQL veritabanına
 - Havuz veri hedef tablo ya da kopyalama sırasında özel mantık olan bir saklı yordam çağırma sonuna ekleme.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Azure SQL veritabanı bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -452,25 +453,25 @@ Başlangıç/bitiş Azure SQL veritabanı veri kopyalama işlemi sırasında aş
 |:--- |:--- |
 | bigint |Int64 |
 | İkili |Byte] |
-| bit |Boole değeri |
+| bit |Boole |
 | char |Dize, Char] |
-| Tarih |Tarih saat |
-| Tarih saat |Tarih saat |
-| datetime2 |Tarih saat |
+| tarih |Tarih Saat |
+| Tarih saat |Tarih Saat |
+| datetime2 |Tarih Saat |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
 | Kayan nokta |Çift |
-| Görüntü |Byte] |
+| görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
 | nchar |Dize, Char] |
 | ntext |Dize, Char] |
 | sayısal |Ondalık |
 | nvarchar |Dize, Char] |
-| Gerçek |Tek |
+| Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih saat |
+| smalldatetime |Tarih Saat |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |
@@ -478,7 +479,7 @@ Başlangıç/bitiş Azure SQL veritabanı veri kopyalama işlemi sırasında aş
 | time |TimeSpan |
 | timestamp |Byte] |
 | Mini tamsayı |Bayt |
-| benzersiz tanımlayıcı |GUID |
+| benzersiz tanımlayıcı |Guid |
 | varbinary |Byte] |
 | varchar |Dize, Char] |
 | xml |XML |

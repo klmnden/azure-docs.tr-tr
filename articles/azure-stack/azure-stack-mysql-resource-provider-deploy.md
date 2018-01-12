@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 Bir MySQL kaynak sağlayıcı Azure yığında dağıtabilirsiniz. Kaynak sağlayıcısı dağıttıktan sonra MySQL sunucuları ve Azure Resource Manager dağıtım şablonları aracılığıyla veritabanları oluşturabilir ve bir hizmet olarak MySQL veritabanları sağlar. Web sitelerinde yaygın olarak kullanılan MySQL veritabanları, birçok Web sitesi platformları destekler. Kaynak sağlayıcısı dağıttıktan sonra örnek olarak, WordPress Web siteleri Azure Web Apps platformundan hizmet (PaaS) eklentisi için Azure yığın oluşturabilirsiniz.
 
-İnternet erişimi olmayan bir sistemde MySQL sağlayıcı dağıtmak için dosyayı kopyalayabilirsiniz [bağlayıcı net 6.9.9.msi mysql](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) bir yerel paylaşıma. Ardından, istendiğinde bu paylaşım adı sağlayın. Azure ve Azure yığın PowerShell modüllerini de yüklemeniz gerekir.
+İnternet erişimi olmayan bir sistemde MySQL sağlayıcı dağıtmak için dosyayı kopyalayabilirsiniz [bağlayıcı net 6.10.5.msi mysql](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) bir yerel paylaşıma. Ardından, istendiğinde bu paylaşım adı sağlayın. Azure ve Azure yığın PowerShell modüllerini de yüklemeniz gerekir.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>MySQL Server Kaynak sağlayıcısı bağdaştırıcısı mimarisi
@@ -71,10 +71,9 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
 
     | Azure yığın derleme | MySQL RP yükleyici |
     | --- | --- |
-    | 1.0.180102.3 | **Daha fazla bilgi için lütfen bekleyin, geçerli derlemeleri yüklenmez ancak birden çok düğümde bir Azure yığını yükseltmeden sonra çalışmaya devam eder.** |
-    | 1.0.171122.1 | [MySQL RP sürüm 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 veya 1.0.180106.1 (çok düğümlü) | [MySQL RP sürüm 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP sürüm 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP sürüm 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP sürüm 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. ASDK için bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
 
@@ -165,7 +164,7 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbi
 | **AzCredential** | Azure yığın Hizmet yöneticisi hesabı için kimlik bilgilerini sağlayın. Azure yığın dağıtmak için kullanılan aynı kimlik bilgilerini kullanın). | _Gerekli_ |
 | **VMLocalCredential** | MySQL kaynak sağlayıcısı VM yerel yönetici hesabının kimlik bilgilerini tanımlar. | _Gerekli_ |
 | **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı sağlayın. |  _Gerekli_ |
-| **DependencyFilesLocalPath** | İçeren bir yerel paylaşıma yolu [bağlayıcı net 6.9.9.msi mysql](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Bir sağlarsanız, sertifika dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
+| **DependencyFilesLocalPath** | İçeren bir yerel paylaşıma yolu [bağlayıcı net 6.10.5.msi mysql](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Bir sağlarsanız, sertifika dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
 | **DefaultSSLCertificatePassword** | .Pfx sertifika için parola | _Gerekli_ |
 | **MaxRetryCount** | Bir hata varsa her işlemini yeniden denemek istiyor kaç kez tanımlayın.| 2 |
 | **RetryDuration** | Zaman aşımı saniye içinde yeniden denemeler arasında tanımlayın. | 120 |

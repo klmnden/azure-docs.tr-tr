@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Sorun gidermek için sistem durum raporlarını kullanma
 Azure Service Fabric bileşenleri kutunun sağ dışında kümedeki tüm varlıklar üzerinde sistem durumu raporları sağlar. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) oluşturur ve sistem raporlarına dayalı varlıklar siler. Bu da onları varlık etkileşimleri yakalayan bir hiyerarşide düzenler.
@@ -56,7 +56,7 @@ Rapor kira genel zaman aşımı yaşam süresi (TTL) belirtir. Koşul etkin kald
 * **Özellik**: ile başlayan **Komşuları** ve düğüm bilgiler yer almaktadır.
 * **Sonraki adımlar**: neden Komşuları örneğin çalındığında araştırmak, küme düğümleri arasındaki iletişimi denetleyin.
 
-### <a name="rebuild"></a>Yeniden oluşturma
+### <a name="rebuild"></a>Yeniden derle
 
 **Yük Devretme Yöneticisi** hizmet (**FM**) küme düğümleri hakkında bilgi yönetir. FM verilerini kaybeder ve veri kaybı, garanti edemez gider, küme düğümleri hakkında en güncel bilgileri içeriyor. Bu durumda, sistem geçtiği bir **yeniden**, ve **System.FM** durumunu yeniden oluşturmak için kümedeki tüm düğümlerden verileri toplar. Bazı durumlarda, ağ veya düğüm sorunlar nedeniyle yeniden takılmış durduruldu veya. Aynı ile oluşabilir **Yük Devretme Yöneticisi ana** hizmet (**FMM**). **FMM** where ve durum bilgisiz sistem hizmeti tüm **FMs** kümedeki. **FMMs** her zaman 0 olarak en yakın kimlikli birincil düğümdür. Bu düğüm bırakılan, bir **yeniden** tetiklenir.
 Önceki koşullardan biri oluştuğunda **System.FM** veya **System.FMM** bir hata raporu bayrak. Rebuild iki aşamaya birinde takılmış:
@@ -100,7 +100,7 @@ HealthEvents          :
 ```
 
 
-### <a name="certificate-expiration"></a>Sertifika süre sonu
+### <a name="certificate-expiration"></a>Sertifika bitiş tarihi
 **System.FabricNode** düğüm tarafından kullanılan sertifikalar sona erme olduğunda bir uyarı bildirir. Düğüm başına üç sertifika vardır: **Certificate_cluster**, **Certificate_server**, ve **Certificate_default_client**. Geçerlilik süresi en az iki hafta sonra rapor sistem durumu Tamam olur. Sona erme iki hafta içinde olduğunda, rapor türü bir uyarıdır. Bu olayların TTL sonsuzdur ve kümenin bir düğümü ayrıldığında, bunlar kaldırılır.
 
 * **SourceId**: System.FabricNode
@@ -743,7 +743,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndir
+### <a name="download"></a>İndirme
 Uygulama paketi yükleme başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting
@@ -821,7 +821,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndir
+### <a name="download"></a>İndirme
 Hizmet paketi indirme işlemi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting

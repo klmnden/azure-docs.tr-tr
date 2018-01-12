@@ -1,6 +1,6 @@
 ---
-title: "OMS günlük analizi uyarılarını yanıtlarını | Microsoft Docs"
-description: "Günlük analizi uyarılarını OMS deponuzun önemli bilgileri tanımlamak ve önceden sorunları size bildiren veya düzeltmenize girişiminde Eylemler çağırma.  Bu makalede, bir uyarı kuralı ve ayrıntıları yapabilecekleri farklı eylemler oluşturmayı açıklar."
+title: "Azure günlük analizi uyarılarını yanıtlarını | Microsoft Docs"
+description: "Günlük analizi uyarılarını Azure alanınızdaki önemli bilgileri tanımlamak ve önceden sorunları size bildiren veya düzeltmenize girişiminde Eylemler çağırma.  Bu makalede, bir uyarı kuralı ve ayrıntıları yapabilecekleri farklı eylemler oluşturmayı açıklar."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Günlük analizi uyarı kurallarında eylemleri ekleyin
 Zaman bir [uyarı günlük analizi oluşturulan](log-analytics-alerts.md), seçeneğiniz vardır [uyarı kuralı yapılandırma](log-analytics-alerts.md) bir veya daha fazla eylemleri gerçekleştirmek için.  Bu makalede, her tür yapılandırma hakkında ayrıntılar ve kullanılabilir farklı eylemler açıklanmaktadır.
@@ -39,7 +39,7 @@ E-posta eylemler özellikler aşağıdaki tabloda gerektirir.
 | Özellik | Açıklama |
 |:--- |:--- |
 | Konu |E-postayla konu.  Posta gövdesini değiştiremezsiniz. |
-| Alıcıları |Tüm e-posta alıcıları adresleri.  Birden fazla adres belirtirseniz, adreslerini noktalı virgül (;) ayırın. |
+| Alıcılar |Tüm e-posta alıcıları adresleri.  Birden fazla adres belirtirseniz, adreslerini noktalı virgül (;) ayırın. |
 
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
@@ -57,7 +57,7 @@ Web kancası eylemleri özellikler aşağıdaki tabloda gerektirir.
 Web kancası bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yükü içerir.  Varsayılan olarak, aşağıdaki tabloda değerleri yükü içerir.  Bu yük özel bir kendi tarihle seçebilirsiniz.  Bu durumda, değişkenleri tabloda her parametre için değer özel yükünüzü dahil etmek için kullanabilirsiniz.
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), sonra webook yükü değişti.  Ayrıntılar biçimi olan [Azure günlük analizi REST API](https://aka.ms/loganalyticsapiresponse).  Bir örnekte görebilirsiniz [örnekleri](#sample-payload) aşağıda.
+> Çalışma alanınız [yeni Log Analytics sorgu diline](log-analytics-log-search-upgrade.md) yükseltilmişse ağ kancası yükü değiştirilmiştir.  Biçimle ilgili ayrıntılar için bkz. [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Bir örnekte görebilirsiniz [örnekleri](#sample-payload) aşağıda.
 
 | Parametre | Değişken | Açıklama |
 |:--- |:--- |:--- |
@@ -71,7 +71,7 @@ Web kancası bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yük
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Sorgu saati UTC biçiminde başlatın. |
 | SearchQuery |#searchquery |Uyarı kuralı tarafından kullanılan günlük arama sorgusu. |
 | SearchResults |Aşağıya bakın |JSON biçiminde sorgu tarafından döndürülen kaydeder.  5. 000'ilk kayıtları sınırlıdır. |
-| Workspaceıd |#workspaceid |OMS çalışma alanı kimliği. |
+| Workspaceıd |#workspaceid |Günlük analizi çalışma alanı kimliği. |
 
 Örneğin, adlı tek bir parametre içeren aşağıdaki özel yükü belirtebilir *metin*.  Bu Web kancası çağırır hizmet, bu parametre bekleniyor.
 
@@ -97,11 +97,11 @@ Bu örnek yükü için Web kancası gönderildiğinde aşağıdaki gibi bir şey
     }
 
 
-Dış bir hizmeti başlatmak için bir Web kancası ile bir uyarı kuralı oluşturma tam bir örnek size yol [Slack'e ileti göndermek için OMS günlük analizi uyarı Web kancası eylem oluşturma](log-analytics-alerts-webhooks.md).
+Dış bir hizmeti başlatmak için bir Web kancası ile bir uyarı kuralı oluşturma tam bir örnek size yol [Slack'e ileti göndermek için günlük analizi uyarı Web kancası eylem oluşturma](log-analytics-alerts-webhooks.md).
 
 
 ## <a name="runbook-actions"></a>Runbook eylemleri
-Runbook eylemleri, Azure Automation'da bir runbook başlatın.  Bu eylemin türünü kullanmak için bilmeniz gereken [Otomasyon çözümünü](log-analytics-add-solutions.md) yüklenir ve OMS çalışma alanınızda yapılandırılır.  Otomasyon çözümünü yapılandırılmış Otomasyon hesabında runbook'ları arasından seçim yapabilirsiniz.
+Runbook eylemleri, Azure Automation'da bir runbook başlatın.  Bu eylemin türünü kullanmak için bilmeniz gereken [Otomasyon çözümünü](log-analytics-add-solutions.md) yüklenir ve günlük analizi çalışma alanınızda yapılandırılır.  Otomasyon çözümünü yapılandırılmış Otomasyon hesabında runbook'ları arasından seçim yapabilirsiniz.
 
 Runbook eylemleri özellikler aşağıdaki tabloda gerektirir.
 
@@ -115,7 +115,7 @@ Runbook eylemleri başlatmak kullanarak runbook bir [Web kancası](../automation
 Runbook'un parametreleri doğrudan doldurulamıyor ancak [$WebhookData parametresi](../automation/automation-webhooks.md) oluşturulduğu günlük arama sonuçları dahil olmak üzere Uyarı ayrıntılarını içerir.  Runbook tanımlamanız gereken **$WebhookData** uyarı özelliklerine erişmek için bir parametre olarak.  Uyarı verileri json biçiminde adlı tek bir özellik bulunur **SearchResult** (için runbook eylemleri ve standart yükü Web kancası eylemleri) veya **SearchResults** (Web kancası eylemleri özel Yükü de dahil olmak üzere **IncludeSearchResults ": true**) içinde **RequestBody** özelliği **$WebhookData**.  Bu, aşağıdaki tabloda özelliklere sahip olacaktır.
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), sonra da runbook yükü değişti.  Ayrıntılar biçimi olan [Azure günlük analizi REST API](https://aka.ms/loganalyticsapiresponse).  Bir örnekte görebilirsiniz [örnekleri](#sample-payload) aşağıda.  
+> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), sonra da runbook yükü değişti.  Biçimle ilgili ayrıntılar için bkz. [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Bir örnekte görebilirsiniz [örnekleri](#sample-payload) aşağıda.  
 
 | Node | Açıklama |
 |:--- |:--- |
