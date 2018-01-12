@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell için Azure yığın yükle  
 
@@ -31,7 +31,7 @@ Bu makalede Azure yığını için PowerShell yüklemek için yönergeleri açı
 > [!NOTE]
 > Aşağıdaki adımları PowerShell 5.0 gerektirir. Sürümünüzü denetlemek için $PSVersionTable.PSVersion çalıştırın ve "Ana" sürümüne karşılaştırın.
 
-Azure yığını için PowerShell komutlarını PowerShell Galerisi aracılığıyla yüklenir. VPN üzerinden bağlı ve aşağıdaki komutu çalıştırırsanız regiser PSGallery deposu için Geliştirme Seti ya da Windows tabanlı bir dış istemci yükseltilmiş bir PowerShell oturumu açın:
+Azure yığını için PowerShell komutlarını PowerShell Galerisi aracılığıyla yüklenir. PSGallery depo kaydetmek için VPN yoluyla bağlı ve aşağıdaki komutu çalıştırırsanız yükseltilmiş bir PowerShell oturumu Geliştirme Seti ya da Windows tabanlı bir dış istemci açın:
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Gerekli sürümü yüklemeden önce tüm mevcut Azure PowerShell modülleri kald
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* VPN bağlantısı kuracak planlıyorsanız, Geliştirme Seti ya da Windows tabanlı bir dış istemci oturum açın. "Azure" ile başlayan tüm klasörleri silin `C:\Program Files (x86)\WindowsPowerShell\Modules` ve `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` klasörler. Bu klasörlerin silinmesi, tüm mevcut PowerShell modülleri "AzureStackAdmin" ve "Genel" kullanıcı kapsamlarından kaldırır. 
+* VPN bağlantısı kuracak planlıyorsanız, Geliştirme Seti ya da Windows tabanlı bir dış istemci oturum açın. "Azure" ile başlayan tüm klasörleri silin `C:\Program Files\WindowsPowerShell\Modules` ve `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` klasörler. Bu klasörlerin silinmesi, tüm mevcut PowerShell modülleri "AzureStackAdmin" ve "Genel" kullanıcı kapsamlarından kaldırır. 
 
 Aşağıdaki bölümlerde Azure yığını için PowerShell yüklemek için gereken adımlar açıklanmaktadır. PowerShell Azure yığında içinde çalıştırılır bağlı, kısmen bağlı veya bağlantısı kesilmiş bir senaryoda yüklenebilir. 
 
@@ -126,7 +126,6 @@ Bağlantısı kesilmiş bir senaryoda, PowerShell modülleri Internet bağlantı
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 

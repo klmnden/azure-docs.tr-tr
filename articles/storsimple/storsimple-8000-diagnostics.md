@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>8000 serisi cihaz sorunlarını gidermek için StorSimple Tanılama Aracı'nı kullanın
 
@@ -32,15 +32,15 @@ Tanılama Aracı öncelikle StorSimple 8000 serisi şirket içi cihazlar için (
 
 Bu araç, StorSimple Cihazınızı Windows PowerShell arabirimi çalıştırılabilir. Cihazınızı yerel arabiriminin erişmek için iki yol vardır:
 
-* [Cihaz seri konsoluna bağlanmak için PuTTY kullanın](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [StorSimple için Windows PowerShell aracılığıyla aracı uzaktan erişim](storsimple-remote-connect.md).
+* [Cihaz seri konsoluna bağlanmak için PuTTY kullanın](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [StorSimple için Windows PowerShell aracılığıyla aracı uzaktan erişim](storsimple-8000-remote-connect.md).
 
 Bu makalede, cihaz seri konsoluna PuTTY üzerinden bağlı olduğunuzu varsayar.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Tanılama Aracı'nı çalıştırmak için
 
 Aygıt Windows PowerShell arabirimine bağlandıktan sonra cmdlet'i çalıştırmak için aşağıdaki adımları gerçekleştirin.
-1. İçindeki adımları izleyerek cihaz seri konsoluna oturum [kullan cihaz seri konsoluna bağlanmak için PuTTY](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. İçindeki adımları izleyerek cihaz seri konsoluna oturum [kullan cihaz seri konsoluna bağlanmak için PuTTY](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Aşağıdaki komutu yazın:
 
@@ -85,11 +85,11 @@ Bu test donanım bileşenleri, USM bellenim ve sisteminizde çalışan disk bell
 * Bildirilen donanım bileşenleri testin başarısız veya sistemde olmayan bu bileşenlerdir.
 * USM bellenim ve disk bellenim sürümleri denetleyici 0, denetleyici 1 için bildirilen ve sisteminizdeki paylaşılan bileşenleri. Donanım bileşenleri tam listesi için aşağıdaki adrese gidin:
 
-    * [Birincil muhafazada bileşenleri](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [EBOD muhafazası bileşenleri](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Birincil muhafazada bileşenleri](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [EBOD muhafazası bileşenleri](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Donanım sınaması başarısız bileşenleri bildirirse [Microsoft Support olan hizmet isteği oturum](storsimple-contact-microsoft-support.md).
+> Donanım sınaması başarısız bileşenleri bildirirse [Microsoft Support olan hizmet isteği oturum](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>8100 cihazda donanım testi örnek çıktısı
 
@@ -210,7 +210,7 @@ Bu test, sistem bilgisi, güncelleştirmelere, küme bilgilerini ve cihazınız 
 * Model, cihaz seri numarasını, saat dilimi, denetleyici durumu ve sistem üzerinde çalışan ayrıntılı yazılım sürüm sistem bilgilerini içerir. Çıkış olarak bildirilen çeşitli sistem parametreleri anlamak için şu adrese gidin [sistem bilgileri yorumlama](#appendix-interpreting-system-information).
 
 * Normal ve Bakım modu kullanılabilir olup olmadığını güncelleştirme kullanılabilirlik raporlar ve ilişkili paket adları. Varsa `RegularUpdates` ve `MaintenanceModeUpdates` olan `false`, bu güncelleştirmeleri kullanılabilir olmadığını gösterir. Cihazınız güncel olduğundan.
-* Küme bilgilerini tüm HCS küme gruplarını ve bunlarla ilgili durumlar çeşitli mantıksal bileşenler hakkında bilgiler içerir. Bu bölümdeki çevrimdışı küme grubu raporunun görürseniz [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).
+* Küme bilgilerini tüm HCS küme gruplarını ve bunlarla ilgili durumlar çeşitli mantıksal bileşenler hakkında bilgiler içerir. Bu bölümdeki çevrimdışı küme grubu raporunun görürseniz [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
 * Hizmet bilgileri, cihazda çalışan tüm HCS ve CIS Hizmetleri durumları ve adlarını içerir. Bu bilgileri cihaz sorunu gidermeye Microsoft Support yardımcı olur.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Örnek çıktı sistemi test 8100 cihazda çalıştırın
@@ -417,9 +417,9 @@ Burada, hangi çeşitli Windows PowerShell parametreleri için sistem bilgileri 
 |-------------------------|------------------|
 | Örnek Kimliği             | Benzersiz bir tanımlayıcı her denetleyici yok veya bir GUID ile ilişkili.|
 | Ad                    | Azure portalı üzerinden aygıt dağıtımı sırasında yapılandırılan cihaz kolay adı. Varsayılan kolay cihaz seri numarasını adıdır. |
-| modeli                   | StorSimple 8000 serisi Cihazınızı modeli. Model 8100 veya 8600 olabilir.|
+| Model                   | StorSimple 8000 serisi Cihazınızı modeli. Model 8100 veya 8600 olabilir.|
 | seri numarası            | Cihaz seri numarasını fabrikada atanır ve 15 karakterden uzun. Örneğin, 8600 SHX0991003G44HT gösterir:<br> 8600 – aygıt modelidir.<br>SHX – üretim sitesi olur.<br> 0991003 - belirli bir ürün var. <br> G44HT benzersiz seri numaraları oluşturmak için en son 5 rakamlı artırılır-. Bu ardışık olmayabilir.|
-| saat dilimi                | Aygıt saat aygıt dağıtımı sırasında Azure Portalı'nda yapılandırılan dilimi.|
+| TimeZone                | Aygıt saat aygıt dağıtımı sırasında Azure Portalı'nda yapılandırılan dilimi.|
 | CurrentController       | StorSimple Cihazınızı Windows PowerShell arabirimi üzerinden bağlanan denetleyici.|
 | ActiveController        | Cihazınızda etkin olduğunda ve tüm ağ ve disk işlemleri denetleme denetleyicisi. Bu denetleyici 0 veya denetleyici 1 olabilir.  |
 | Controller0Status       | Denetleyici 0 aygıtınızda durumu. Denetleyici durum normal, kurtarma modunda veya erişilemiyor olabilir.|

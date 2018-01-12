@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory kullanarak Teradata verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Tüm desteklenen havuz veri deposuna Teradata veritabanından veri kopyalayabili
 - Teradata **sürüm 12 ve yukarıdaki**.
 - Verileri kullanarak kopyalama **temel** veya **Windows** kimlik doğrulaması.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu Teradata bağlayıcıyı kullanmak için aktarmanız gerekir:
 
@@ -46,7 +46,8 @@ Bu Teradata bağlayıcıyı kullanmak için aktarmanız gerekir:
 - Yükleme [Teradata için .NET veri sağlayıcısı](http://go.microsoft.com/fwlink/?LinkId=278886) sürüm 14 veya yukarıdaki tümleştirme çalışma zamanı makinede.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Teradata bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -171,7 +172,7 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Teradata 
 | ByteInt |Int16 |
 | char |Dize |
 | CLOB |Dize |
-| Tarih |Tarih saat |
+| Tarih |Tarih Saat |
 | Ondalık |Ondalık |
 | Çift |Çift |
 | Grafiği |Dize |
@@ -198,7 +199,7 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Teradata 
 | Tamsayı |Int16 |
 | Zaman |TimeSpan |
 | Saat dilimi süresiyle |Dize |
-| zaman damgası |Tarih saat |
+| Zaman damgası |Tarih Saat |
 | Saat dilimi zaman damgası |DateTimeOffset |
 | VarByte |Byte] |
 | VarChar |Dize |

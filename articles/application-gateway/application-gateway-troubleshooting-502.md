@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Uygulama ağ geçidi olarak hatalı ağ geçidi hatalarında sorun giderme
 
@@ -80,8 +80,8 @@ Varsa, DNS sunucusu arka uç havuzu üyenin FQDN doğru çözümleyemiyorsa oldu
 
 | Araştırma özelliği | Değer | Açıklama |
 | --- | --- | --- |
-| Araştırma URL'si |http://127.0.0.1/ |URL yolu |
-| aralığı |30 |Saniye cinsinden yoklama aralığı |
+| Yoklama URL'si |http://127.0.0.1/ |URL yolu |
+| Aralık |30 |Saniye cinsinden yoklama aralığı |
 | Zaman aşımı |30 |Zaman aşımı saniye cinsinden araştırma |
 | Sağlıksız durum eşiği. |3 |Yeniden deneme sayısı araştırma. Sağlıksız eşik arka arkaya araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenmiş. |
 
@@ -106,7 +106,7 @@ Varsa, DNS sunucusu arka uç havuzu üyenin FQDN doğru çözümleyemiyorsa oldu
 | Protokol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır |
 | Host |Araştırma göndermek için ana bilgisayar adı. Yalnızca uygulama ağ geçidinde çok siteli yapılandırıldığında uygulanabilir. Bu VM ana bilgisayar adından farklıdır. |
 | Yol |Araştırma göreli yolu. Geçerli yol başlar '/'. Yoklama için gönderilen \<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\> |
-| aralığı |Aralığı saniye cinsinden araştırma. Bu iki ardışık araştırmalar arasında zaman aralığıdır. |
+| Aralık |Aralığı saniye cinsinden araştırma. Bu iki ardışık araştırmalar arasında zaman aralığıdır. |
 | Zaman aşımı |Zaman aşımı saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir. |
 | Sağlıksız durum eşiği. |Yeniden deneme sayısı araştırma. Sağlıksız eşik arka arkaya araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenmiş. |
 
@@ -118,8 +118,7 @@ Varsa, DNS sunucusu arka uç havuzu üyenin FQDN doğru çözümleyemiyorsa oldu
 * Uygulama ağ geçidi tek bir site için yapılandırılmışsa, varsayılan olarak ana bilgisayar adı '127.0.0.1' içinde özel araştırma aksi belirtilmedikçe belirtilmesi gerekir.
 * Http:// çağrısına emin\<konak\>:\<bağlantı noktası\>\<yolu\> 200 bir HTTP Sonuç kodu döndürür.
 * Aralık, zaman aşımı ve UnhealtyThreshold kabul edilebilir aralık içinde olduğundan emin olun.
-* Bir HTTPS kullanarak araştırma, arka uç sunucusunun kendisi üzerinde bir geri dönüş sertifikası yapılandırarak arka uç sunucusuna SNI gerektirmeyen emin olun. 
-* Aralık, zaman aşımı ve UnhealtyThreshold kabul edilebilir aralık içinde olduğundan emin olun.
+* Bir HTTPS kullanarak araştırma, arka uç sunucusunun kendisi üzerinde bir geri dönüş sertifikası yapılandırarak arka uç sunucusuna SNI gerektirmeyen emin olun.
 
 ## <a name="request-time-out"></a>İstek zaman aşımı
 

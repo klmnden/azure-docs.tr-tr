@@ -2,25 +2,25 @@
 title: "Koşullu erişim - Azure SQL veritabanı ve veri ambarı | Microsoft belge"
 description: "Azure SQL veritabanı ve veri ambarı için koşullu erişim yapılandırma hakkında bilgi edinin."
 services: sql-database
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 ms.custom: security
 ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: rickbyh
+ms.author: mireks
 ms.workload: Inactive
-ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı ile koşullu erişim (MFA)  
 
 SQL Database ve SQL Data Warehouse Microsoft koşullu erişimi destekler. Aşağıdaki adımlar SQL veritabanına bir koşullu erişim politikasını yapılandırmak nasıl gösterir.  
 
-## <a name="prerequisites"></a>Ön koşullar  
+## <a name="prerequisites"></a>Önkoşullar  
 - SQL Database veya SQL Data Warehouse Azure Active Directory kimlik doğrulamayı destekleyecek şekilde yapılandırmanız gerekir. Belirli adımlar için bkz: [yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md).  
 - Çok faktörlü kimlik doğrulaması etkinleştirildiğinde, en son SSMS gibi desteklenen aracı ile bağlanmalıdır. Daha fazla bilgi için bkz: [SQL Server Management Studio Azure SQL veritabanını yapılandırma çok faktörlü kimlik doğrulamasını](sql-database-ssms-mfa-authentication-configure.md).  
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri kullanarak sunucusuz veritabanı hesaplama
 
@@ -153,7 +153,7 @@ Artık Azure Cosmos DB ve Azure işlevleri şimdi gerçekte bağlanın:
 * [Azure portalında bir Azure Cosmos DB tetikleyicisi oluşturma](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Bir Azure Cosmos DB giriş bağlaması ile bir Azure işlevleri HTTP tetikleyicisi oluşturun](https://aka.ms/cosmosdbinputbind)
 * [Azure işlevleri ve Cosmos DB kullanarak yapılandırılmamış veri depolayın](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Azure Cosmos DB bağlamalar ve Tetikleyicileri](../azure-functions/functions-bindings-documentdb.md)
+* [Azure Cosmos DB bağlamalar ve Tetikleyicileri](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

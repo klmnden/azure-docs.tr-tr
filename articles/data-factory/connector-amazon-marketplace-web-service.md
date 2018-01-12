@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4774d9db2487baeba1f94e026d17864d6e837810
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 949052900f341f2a933196fbd798d8b89facbd57
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Amazon Market Web hizmetinden veri Kopyala
 
@@ -37,7 +37,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Amazon Market Web hizmet Bağlayıcısı için Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -48,7 +48,7 @@ Aşağıdaki özellikler, Amazon Market Web bağlantılı hizmeti için destekle
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AmazonMWS** | Evet |
-| uç noktası | Amazon MWS sunucunun (diğer bir deyişle, mws.amazonservices.com) uç noktası  | Evet |
+| endpoint | Amazon MWS sunucunun (diğer bir deyişle, mws.amazonservices.com) uç noktası  | Evet |
 | marketplaceID | Verileri almak istediğiniz Amazon Market kimliği. Birden çok Market kimlikleri verileri almak için virgül ile ayırın (`,`). (diğer bir deyişle, A2EUQ1WTGCTBG2)  | Evet |
 | sellerID | Amazon satıcı kimliği  | Evet |
 | mwsAuthToken | Amazon MWS kimlik doğrulama belirteci. Bu alan Data Factory hizmeti tarafından güvenli bir şekilde saklayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama acitivity izin [anahtar kasasına kimlik bilgilerini depolama ](store-credentials-in-key-vault.md). | Evet |

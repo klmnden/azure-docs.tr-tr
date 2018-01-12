@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 0dd2c7aa0f8e845c8aae42575c3e46e3ac17ad63
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Tüm desteklenen havuz veri deposuna PostgreSQL veritabanından veri kopyalayabi
 
 Özel olarak, PostgreSQL bu PostgreSQL bağlayıcı destekler **sürüm 7.4 ve yukarıdaki**.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu PostgreSQL bağlayıcıyı kullanmak için aktarmanız gerekir:
 
@@ -44,7 +44,8 @@ Bu PostgreSQL bağlayıcıyı kullanmak için aktarmanız gerekir:
 - Yükleme [PostgreSQL için Ngpsql veri sağlayıcısı](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 3.1.9 tümleştirmesi çalışma zamanı makinede arasındaki sürümüyle.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını PostgreSQL bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -56,7 +57,7 @@ Aşağıdaki özellikler PostgreSQL bağlantılı hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **PostgreSql** | Evet |
 | sunucu | PostgreSQL sunucunun adıdır. |Evet |
-| Veritabanı | PostgreSQL veritabanının adı. |Evet |
+| veritabanı | PostgreSQL veritabanının adı. |Evet |
 | Şema | Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
 | kullanıcı adı | PostgreSQL veritabanına bağlanmak için kullanıcı adını belirtin. |Evet |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan bir SecureString işaretleyin. |Evet |

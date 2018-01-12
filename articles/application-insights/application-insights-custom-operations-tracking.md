@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK ile özel işlemler izleme
 
@@ -40,14 +40,14 @@ Application Insights web SDK IIS ardışık düzeninde çalışan ASP.NET uygula
 
 Özel İzleme gerektiren başka bir öğeleri kuyruktan alır çalışan bir örnektir. Bazı sıraları, bu sıraya ileti eklemek için arama bağımlılık olarak izlenir. Ancak, ileti işleme açıklayan yüksek düzeyli işlemi otomatik olarak toplanmaz.
 
-Biz bu tür işlemlerini nasıl izlemek görelim.
+Bu tür işlemler nasıl izleneceğini görelim.
 
 Yüksek bir düzeyde, görev oluşturmaktır `RequestTelemetry` ve bilinen özelliklerini ayarlama. İşlemi tamamlandıktan sonra telemetri izler. Aşağıdaki örnekte bu görevin nasıl yapılacağı gösterilmektedir.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>HTTP isteği Owın kendini barındıran uygulama
-Bu örnekte, biz izleyin [bağıntı için HTTP Protokolü](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Var. açıklanan üstbilgileri almak beklemeniz gerekir.
+Bu örnekte, izleme bağlamı göre yayılır [bağıntı için HTTP Protokolü](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Var. açıklanan üstbilgileri almak beklemeniz gerekir.
 
-``` C#
+```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
     private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
@@ -121,16 +121,18 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 Bağıntı için HTTP protokolü ayrıca bildirir `Correlation-Context` üstbilgi. Ancak, kolaylık sağlamak için burada atlanır.
 
 ## <a name="queue-instrumentation"></a>Sıra Araçları
-Bağıntı ayrıntıları geçirmek için bir protokolü, HTTP iletişimi için oluşturduk. Bazı sıraları protokollerle ileti birlikte ve yapamazsınız başkalarıyla ek meta veri geçirebilirsiniz.
+Varken [bağıntı için HTTP Protokolü](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) HTTP isteği bağıntı ayrıntılarla geçirmek için aynı ayrıntıları kuyruk iletisini nasıl geçtiğini tanımlamak her sıra Protokolü sahiptir. Bazı sıra protokolleri (örneğin, AMQP) geçirme ek meta veri ve diğerlerinin (gibi Azure depolama kuyruğu) ileti yükü kodlanacak bağlam gerektiren izin verir.
 
-### <a name="service-bus-queue"></a>Service Bus  kuyruğu
-Azure ile [Service Bus kuyruğuna](../service-bus-messaging/index.md), ileti birlikte bir özellik paketi geçirebilirsiniz. Bağıntı kimliği geçirmek için kullanırız
+### <a name="service-bus-queue"></a>Service Bus Kuyruğu
+Application Insights izler Service Bus Mesajlaşma hizmeti çağrıları yeni [.NET için Microsoft Azure ServiceBus istemcisi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) sürüm 3.0.0 ve daha yüksek.
+Kullanırsanız [ileti işleyicisi deseni](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) iletileri işlemek için yapılır: hizmetiniz tarafından gerçekleştirilen tüm Service Bus çağrıları otomatik olarak izlenir ve diğer telemetri öğeleri ile bağlantılı. Başvurmak [Microsoft Application Insights ile izleme Service Bus istemci](../service-bus-messaging/service-bus-end-to-end-tracing.md) el ile iletilerinin işlenme.
 
-Service Bus kuyruğuna TCP tabanlı protokollerini kullanır. Application Insights işlemlerini otomatik olarak izlemez sıra işlemleri biz bunları el ile izlemek için. Dequeue işlemi anında stilinde bir API'dir ve bunu izlemek kaydedemiyoruz.
+Kullanırsanız [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) örnek, daha fazla - okumadan paket izlemek (ve ilişkilendirmek) nasıl göstermek için hizmet veri yolu hizmet veri yolu kuyruğu AMQP protokolünü kullanır ve Application Insights değil olarak çağırır otomatik olarak kuyruk işlemlerini izler.
+Bağıntı tanımlayıcıları ileti özelliklerinde geçirilir.
 
 #### <a name="enqueue"></a>Sıraya alma
 
-```C#
+```csharp
 public async Task Enqueue(string payload)
 {
     // StartOperation is a helper method that initializes the telemetry item
@@ -168,7 +170,7 @@ public async Task Enqueue(string payload)
 ```
 
 #### <a name="process"></a>İşlem
-```C#
+```csharp
 public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
@@ -208,7 +210,7 @@ Olduğundan emin olun `Microsoft.ApplicationInsights.DependencyCollector.HttpDep
 
 Application Insights el ile yapılandırırsanız, oluşturma ve başlatma emin olun `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` benzer şekilde:
  
-``` C#
+```csharp
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
 // You can prevent correlation header injection to some domains by adding it to the excluded list.
@@ -224,14 +226,14 @@ Application Insights işlem kimliği depolama istek kimliği ile ilişkilendirme
 #### <a name="enqueue"></a>Sıraya alma
 Depolama kuyrukları HTTP API desteklediğinden, sıranın sahip tüm işlemlerin Application Insights tarafından otomatik olarak izlenir. Çoğu durumda, bu araçları yeterli olacaktır. Ancak, tüketici tarafında izlemeleri üretici izlemeleri ile ilişkilendirmek için bazı bağıntı bağlam benzer şekilde nasıl biz bağıntı için HTTP protokolü bunu için geçmesi gerekir. 
 
-Bu örnekte, biz isteğe bağlı izlemek `Enqueue` işlemi. Şunları yapabilirsiniz:
+Bu örnek nasıl izleneceğini gösterir `Enqueue` işlemi. Şunları yapabilirsiniz:
 
  - **(Varsa) yeniden deneme ilişkilendirmek**: hepsi, üst bir ortak sahip olan `Enqueue` işlemi. Aksi durumda, gelen istek alt olarak izlenen. Sıra birden fazla mantıksal isteği varsa, yeniden deneme içinde hangi çağrısı sonuçlandı bulmak zor olabilir.
  - **Depolama günlükleri (varsa ve gerektiğinde) ilişkilendirmek**: Application Insights telemetri ile bağıntılı.
 
 `Enqueue` Üst işlemi (örneğin, bir gelen HTTP istek) alt bir işlemdir. HTTP bağımlılık çağrısı alt öğesi olan `Enqueue` işlemi ve gelen isteğin en alt:
 
-```C#
+```csharp
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
@@ -285,7 +287,7 @@ Benzer şekilde `Enqueue`, depolama kuyruğu gerçek bir HTTP isteğine Applicat
 
 Çoğu durumda, sıranın HTTP isteği diğer izlemeleri ile ilişkilendirmek yararlı olabilir. Aşağıdaki örnekte nasıl yapılacağını gösterir:
 
-``` C#
+```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
     var telemetry = new DependencyTelemetry
@@ -334,9 +336,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>İşlem
 
-Aşağıdaki örnekte, nasıl biz gelen HTTP istek izleme için benzer bir şekilde gelen ileti izleme:
+Aşağıdaki örnekte, bir gelen iletiyi bir şekilde benzer şekilde gelen HTTP isteği izlenir:
 
-```C#
+```csharp
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
@@ -366,7 +368,7 @@ public async Task Process(MessagePayload message)
 
 Benzer şekilde, diğer kuyruk işlemlerini izleme eklenmiş. Peek işlemi benzer şekilde dequeue işlem olarak işaretlenir. Kuyruk yönetim işlemlerini izleme gerekli değildir. Application Insights HTTP gibi işlemleri izler ve çoğu durumda yeterlidir.
 
-İleti silinmesini izleme zaman işlemi (bağıntı) tanımlayıcıları ayarladığınızdan emin olun. Alternatif olarak, kullanabileceğiniz `Activity` API. Ardından Application Insights, sizin yerinize yaptığından telemetri öğeler üzerinde işlem tanımlayıcıları ayarlamanız gerekmez:
+İleti silinmesini izleme zaman işlemi (bağıntı) tanımlayıcıları ayarladığınızdan emin olun. Alternatif olarak, kullanabileceğiniz `Activity` API. Ardından Application Insights SDK'sı, sizin yerinize yaptığından telemetri öğeler üzerinde işlem tanımlayıcıları ayarlamanız gerekmez:
 
 - Yeni bir `Activity` sıradan bir öğe kurduktan sonra.
 - Kullanım `Activity.SetParentId(message.ParentId)` tüketici ve üretici günlükleriyle ilişkilendirmek için.
@@ -375,7 +377,7 @@ Benzer şekilde, diğer kuyruk işlemlerini izleme eklenmiş. Peek işlemi benze
 - Durdur `Activity`.
 - Kullanım `Start/StopOperation`, veya arama `Track` telemetri el ile.
 
-### <a name="batch-processing"></a>Toplu işleme
+### <a name="batch-processing"></a>Toplu işlem
 Bazı kuyruklar, bir istek ile birden fazla ileti dequeue. Bu tür iletileri işleme büyük olasılıkla bağımsızdır ve farklı mantıksal işlemlerini ait. Bu durumda, ilişkilendirmek olası değil `Dequeue` belirli ileti işleme işlemi.
 
 Her ileti kendi zaman uyumsuz denetim akışı işlenmesi. Daha fazla bilgi için bkz: [giden bağımlılıkları izleme](#outgoing-dependencies-tracking) bölümü.
@@ -383,7 +385,7 @@ Her ileti kendi zaman uyumsuz denetim akışı işlenmesi. Daha fazla bilgi içi
 ## <a name="long-running-background-tasks"></a>Uzun süre çalışan arka plan görevleri
 Bazı uygulamalar kullanıcı isteklerinden kaynaklanabilir uzun süre çalışan işlemlerini başlatın. İzleme/Araçları açısından bakıldığında, istek veya bağımlılık izleme farklı değil: 
 
-``` C#
+```csharp
 async Task BackgroundTask()
 {
     var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
@@ -411,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-Bu örnekte, kullandığımız `telemetryClient.StartOperation` oluşturmak için `RequestTelemetry` ve bağıntı bağlam doldurun. İşlemi zamanlanan gelen istekler tarafından oluşturulan bir üst işlemi sahip varsayalım. Sürece `BackgroundTask` başlatır aynı zaman uyumsuz olarak gelen bir istek akışı denetle, o üst işlemi ile ilişkilendirilir. `BackgroundTask`ve tüm iç içe geçmiş telemetri öğeler otomatik olarak bile isteği sona erdikten sonra neden isteği ile ilişkili.
+Bu örnekte, `telemetryClient.StartOperation` oluşturur `RequestTelemetry` ve bağıntı bağlam doldurur. İşlemi zamanlanan gelen istekler tarafından oluşturulan bir üst işlemi sahip varsayalım. Sürece `BackgroundTask` başlatır aynı zaman uyumsuz olarak gelen bir istek akışı denetle, o üst işlemi ile ilişkilendirilir. `BackgroundTask`ve tüm iç içe geçmiş telemetri öğeler otomatik olarak bile isteği sona erdikten sonra neden isteği ile ilişkili.
 
 Görev, herhangi bir işlem yok arka plan iş parçacığından başladığında (`Activity`) ile ilişkili `BackgroundTask` herhangi bir üst sahip değil. Ancak, bu işlemleri iç içe. Görevden bildirilen tüm telemetri öğeleri bağıntılı olan `RequestTelemetry` oluşturulan `BackgroundTask`.
 
@@ -428,9 +430,33 @@ Kendi bağımlılık türü veya Application Insights tarafından desteklenmeyen
 - İşlemi durdurmak `StopOperation` bu tamamlandığında.
 - Özel durumları işleme.
 
+```csharp
+public async Task RunMyTaskAsync()
+{
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1"))
+    {
+        try 
+        {
+            var myTask = await StartMyTaskAsync();
+            // Update status code and success as appropriate.
+        }
+        catch(...) 
+        {
+            // Update status code and success as appropriate.
+        }
+    }
+}
+```
+
+İşlemi atma neden durdurulacak işlemi yerine arama yapabilirsiniz şekilde `StopOperation`.
+
+*Uyarı*: Bazı durumlarda unhanded özel durum olabilir [engellemek](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` operations izlenmez şekilde çağrılabilir.
+
+### <a name="parallel-operations-processing-and-tracking"></a>Paralel işlemler işleme ve izleme
+
 `StopOperation`yalnızca başlatıldığından işlemi durdurur. Geçerli çalışan işlemin durdurmak istediğiniz bir eşleşmiyorsa `StopOperation` hiçbir şey yapmaz. Paralel aynı yürütme bağlamı olarak birden çok işlemi başlatırsanız bu durum gerçekleşebilir:
 
-```C#
+```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
@@ -440,31 +466,31 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// FAILURE!!! This will do nothing and will not report telemetry for the first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-Her zaman çağrı emin `StartOperation` ve göreviniz kendi bağlamında çalıştırın:
-```C#
-public async Task RunMyTaskAsync()
+Her zaman çağrı emin olun `StartOperation` ve işlem aynı işlemde **zaman uyumsuz** yöntemi paralel olarak çalışan işlemlerini yalıtır. İşlem zaman uyumlu ise (veya zaman uyumsuz değil) işlemi kaydırma ve ile izleme `Task.Run`:
+
+```csharp
+public void RunMyTask(string name)
 {
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    try 
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>(name))
     {
-        var myTask = await StartMyTaskAsync();
+        Process();
         // Update status code and success as appropriate.
     }
-    catch(...) 
-    {
-        // Update status code and success as appropriate.
-    }
-    finally 
-    {
-        telemetryClient.StopOperation(operation);
-    }
+}
+
+public async Task RunAllTasks()
+{
+    var task1 = Task.Run(() => RunMyTask("task 1"));
+    var task2 = Task.Run(() => RunMyTask("task 2"));
+    
+    await Task.WhenAll(task1, task2);
 }
 ```
 

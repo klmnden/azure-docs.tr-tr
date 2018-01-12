@@ -1,26 +1,23 @@
 ---
 title: "Azure Active Directory kimlik doğrulaması - SQL yapılandırma | Microsoft Docs"
-description: "SQL Database ve SQL Data Warehouse için Azure Active Directory kimlik doğrulaması kullanarak bağlanmak öğrenin."
+description: "SQL veritabanı ve SQL Data Warehouse için Azure AD yapılandırdıktan sonra Azure Active Directory kimlik doğrulaması - kullanarak nasıl bağlayacağınızı öğrenin."
 services: sql-database
-documentationcenter: 
-author: BYHAM
-manager: jhubbard
-editor: 
-tags: 
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: Active
-ms.date: 07/10/2017
-ms.author: rickbyh
-ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 01/09/2018
+ms.author: mireks
+ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme
 
@@ -32,33 +29,14 @@ Bu makalede oluşturun ve Azure AD doldurmak ve Azure SQL Database ve SQL Data W
 ## <a name="create-and-populate-an-azure-ad"></a>Oluşturma ve Azure AD doldurma
 Azure AD oluşturabilir ve kullanıcılar ve gruplar ile doldurabilirsiniz. Azure AD, ilk Azure AD olabilir yönetilen etki alanı. Azure AD, bir şirket içi Active Directory etki alanı birleştirildiyse Hizmetleri'nde Azure AD ile de olabilir.
 
-Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/active-directory-aadconnect.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD'yi Windows PowerShell kullanarak yönetme](/powershell/azure/overview?view=azureadps-2.0) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](../active-directory/active-directory-aadconnect-ports.md).
+Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/active-directory-aadconnect.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](../active-directory/active-directory-administer.md), [Azure AD'yi Windows PowerShell kullanarak yönetme](/powershell/azure/overview?view=azureadps-2.0) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](..//active-directory/connect/active-directory-aadconnect-ports.md).
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>İsteğe bağlı: İlişkilendir ya da şu anda Azure aboneliğinizle ilişkili olan active directory değiştirme
-Kuruluşunuz için Azure AD dizini veritabanınızı ilişkilendirmek için dizin veritabanını barındıran Azure aboneliği için güvenilen bir dizin oluşturun. Daha fazla bilgi için bkz. [Azure aboneliklerinin Azure AD ile ilişkisi](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>İlişkilendirme veya bir Azure aboneliğinin Azure Active Directory'ye ekleme
 
-**Ek bilgi:** her Azure aboneliği Azure AD örneğiyle birlikte bir güven ilişkisi vardır. Bu; Azure aboneliğinin kullanıcılar, hizmetler ve cihazlar için kimlik doğrulaması yapmak üzere bu dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak bir abonelik yalnızca bir dizine güvenir. Dizin, aboneliğinizde güvendiği görebilirsiniz **ayarları** adresindeki sekmesinde [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Aboneliğin bir dizinle arasındaki bu güven ilişkisi, bir aboneliğin daha çok abonelik alt kaynakları gibi olan, Azure'daki tüm diğer kaynaklarla (web siteleri, veritabanları ve benzeri) sahip olduğu ilişkiye benzer nitelikte değildir. Bir aboneliğin süresi dolarsa abonelikle ilişkili bu diğer kaynaklara erişim de durdurulur. Ancak dizin Azure içinde kalır, siz de başka bir aboneliği bu dizinle ilişkilendirebilir, dizin kullanıcılarını yönetmeye devam edebilirsiniz. Kaynaklar hakkında daha fazla bilgi için bkz: [azure'da kaynak erişimini anlama](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Azure aboneliğinize Azure Active Directory veritabanını barındıran Azure aboneliği için güvenilen bir dizin dizini yaparak ilişkilendirin. Ayrıntılar için bkz [Azure aboneliklerinin Azure AD ile ilişkili](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Dizin değiştirici Azure portalında etki alanı ile ilişkili abonelik geçiş yapmak için kullanın.
 
-Aşağıdaki yordamlar belirli bir aboneliğe için ilişkili dizininin nasıl değiştirileceğini gösterir.
-1. Bağlanma, [Klasik Azure portalı](https://manage.windowsazure.com/) Azure Abonelik Yöneticisi kullanarak.
-2. Sol başlığında seçin **ayarları**.
-3. Aboneliklerinizi ayarları ekranında görüntülenir. İstenen abonelik görünmüyorsa tıklatın **abonelikleri** en üstte açılan **FİLTRESİ tarafından dizin** kutusuna ve aboneliklerinizi içeren dizini seçin ve ardından tıklatın**UYGULA**.
-   
-    ![Abonelik seç][4]
-4. İçinde **ayarları** alanında, aboneliğinizi tıklayın ve ardından **dizini Düzenle** sayfanın sonundaki.
-   
-    ![ad ayarları portalı][5]
-5. İçinde **dizini Düzenle** kutusuna SQL Server veya SQL Data Warehouse ile ilişkili Azure Active Directory'yi seçin ve ardından sonraki oka tıklayın.
-   
-    ![Düzen dizini seçin][6]
-6. İçinde **Onayla** dizin eşleme iletişim kutusunu Onayla "**tüm ortak Yöneticiler kaldırılır.**"
-   
-    ![Edit directory onaylayın][7]
-7. Portal yeniden Denetle'yi tıklatın.
-
-   > [!NOTE]
-   > Ne zaman dizini, tüm ortak Yöneticiler, Azure AD kullanıcıları ve grupları, erişimi değiştirin ve yedeklenen dizin kaynak kullanıcıları kaldırılır ve artık bu abonelik veya kaynaklarına erişimi. Yalnızca, Hizmet Yöneticisi olarak, erişim için yeni dizinine göre ilkeleri yapılandırabilirsiniz. Bu değişiklik, tüm kaynaklara yaymak için önemli bir süre alabilir. Dizini değiştirme ayrıca SQL Database ve SQL Data Warehouse için Azure AD Yöneticisi değiştirir ve veritabanı erişimi var olan Azure AD kullanıcısı için izin verme. Azure AD yönetim olmalıdır (aşağıda açıklandığı gibi) sıfırlama ve yeni Azure AD kullanıcıları oluşturulmalıdır.
-   >  
+   **Ek bilgi:** her Azure aboneliği Azure AD örneğiyle birlikte bir güven ilişkisi vardır. Bu; Azure aboneliğinin kullanıcılar, hizmetler ve cihazlar için kimlik doğrulaması yapmak üzere bu dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak bir abonelik yalnızca bir dizine güvenir. Aboneliğin bir dizinle arasındaki bu güven ilişkisi, bir aboneliğin daha çok abonelik alt kaynakları gibi olan, Azure'daki tüm diğer kaynaklarla (web siteleri, veritabanları ve benzeri) sahip olduğu ilişkiye benzer nitelikte değildir. Bir aboneliğin süresi dolarsa abonelikle ilişkili bu diğer kaynaklara erişim de durdurulur. Ancak dizin Azure içinde kalır, siz de başka bir aboneliği bu dizinle ilişkilendirebilir, dizin kullanıcılarını yönetmeye devam edebilirsiniz. Kaynaklar hakkında daha fazla bilgi için bkz: [azure'da kaynak erişimini anlama](../active-directory/active-directory-b2b-admin-add-users.md). Bunun hakkında daha fazla güvenilir ilişki bakın öğrenmek için [ilişkilendirmek veya bir Azure aboneliğinin Azure Active Directory'ye nasıl ekleneceğini](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Azure SQL server için Azure AD Yöneticisi oluşturma
 (Bir SQL veritabanı ya da SQL veri ambarı barındıran) her Azure SQL sunucusu, tüm Azure SQL server'ın yönetici haklarına sahip tek sunucu yöneticisi hesabı ile başlar. İkinci bir SQL Server Yöneticisi, bir Azure AD hesabı olan oluşturulması gerekir. Bu asıl ana veritabanı bir kapsanan veritabanı kullanıcı olarak oluşturulur. Yönetici olarak, sunucu yönetici hesapları, üyesi **db_owner** her kullanıcı rolünde veritabanı ve her kullanıcı veritabanı olarak girin **dbo** kullanıcı. Sunucu yönetici hesapları hakkında daha fazla bilgi için bkz: [yönetme veritabanları ve oturum açma bilgileri Azure SQL veritabanında](sql-database-manage-logins.md).
@@ -73,7 +51,7 @@ Azure Active Directory coğrafi çoğaltma ile kullanırken, Azure Active Direct
 
 Aşağıdaki iki yordamdan Azure portalında ve PowerShell kullanarak Azure SQL server için Azure Active Directory yönetici sağlama gösterir.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure portalına
 1. İçinde [Azure portal](https://portal.azure.com/), sağ üst köşede, açılan olası etkin dizinlerin bir liste için bağlantınızı tıklatın. Doğru Active Directory varsayılan olarak Azure AD seçin. Bu adım, her ikisi için aynı abonelik kullanılır emin Azure SQL server ile Active Directory ile abonelik ilişkisi bağlar. Azure AD ve SQL Server. (Azure SQL Azure SQL Database veya Azure SQL Data Warehouse barındırma sunucusu olması.)   
     ![ad seçin][8]   
     

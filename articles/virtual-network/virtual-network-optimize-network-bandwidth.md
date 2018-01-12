@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d424eae90d82c7306b4ef948dbc793d867c8b26f
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure sanal makineleri için ağ verimliliğini en iyi duruma getirme
 
@@ -46,7 +46,7 @@ Windows VM destekliyorsa [hızlandırılmış ağ](create-vm-accelerated-network
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : True
+    Enabled                  : True
     ```
 
 ## <a name="linux-vm"></a>Linux VM
@@ -154,4 +154,5 @@ Linux Tümleştirme hizmetleri sürüm 4.2 hakkında daha fazla Hyper-V için g�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * En iyi duruma getirilmiş sonuçla bkz [bant genişliği/verimlilik Azure VM sınama](virtual-network-bandwidth-testing.md) senaryonuz için.
+* Konusunda bilgi [bant genişliği sanal makinelere ayrılır] (sanal-makine-ağ-throughput.md)
 * Daha fazla bilgi edinin [Azure Virtual Network sık sorulan sorular (SSS)](virtual-networks-faq.md)

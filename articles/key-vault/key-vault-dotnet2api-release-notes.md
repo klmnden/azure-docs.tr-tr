@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure anahtar kasası .NET 2.0 - sürüm notları ve Geçiş Kılavuzu
 Azure anahtar kasası .NET ile birlikte çalışan geliştiricilere aşağıdaki notları ve rehberlik içindir / C# Kitaplığı. 1.0 sürümünden 2.0 sürümüne geçiş içinde güncelleştirme sayısı kodunuzu işlevsel iyileştirmeler yararlanabilir ve ekler gibi özellik için sırayla geçiş işlerinde gerektiren bu yapıldı **anahtar kasası sertifikaları**  destekler.
@@ -36,10 +36,11 @@ Anahtar kasası sertifikaları destek sağlar, x509 yönetimi için sertifikalar
 
 ## <a name="net-support"></a>.NET desteği
 
-* **.NET 4.0** Azure anahtar kasası .NET 2.0 sürümü tarafından desteklenmeyen / C# Kitaplığı
-* **.NET core** Azure anahtar kasası .NET 2.0 sürümü tarafından desteklenen / C# Kitaplığı
+* **.NET 4.0** Azure anahtar kasası .NET kitaplığı 2.0 sürümü tarafından desteklenmiyor
+* **.NET framework 4.5.2** Azure anahtar kasası .NET kitaplığı 2.0 sürümü tarafından desteklenmiyor
+* **.NET standart 1.4** Azure anahtar kasası .NET kitaplığı 2.0 sürümü tarafından desteklenmiyor
 
-## <a name="namespaces"></a>ad alanları
+## <a name="namespaces"></a>Ad Alanları
 
 * Ad alanı için **modelleri** değiştirilirse **Microsoft.Azure.KeyVault** için **Microsoft.Azure.KeyVault.Models**.
 * **Microsoft.Azure.KeyVault.Internal** ad alanı bırakıldı.

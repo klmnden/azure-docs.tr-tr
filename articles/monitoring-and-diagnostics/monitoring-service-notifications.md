@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 198aa74622c0f938aabe6540e2321e16aa9beb21
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure portalını kullanarak hizmet durumu bildirimlerine görüntüleme
 
@@ -41,7 +41,7 @@ kanallar | Aşağıdaki değerlerden birini: **yönetici** veya **işlemi**.
 correlationId | Genellikle bir GUID dize biçiminde. Aynı işlemi genellikle ait olayları aynı correlationıd değeri paylaşır.
 eventDataId | Bir olay benzersiz tanımlayıcısı.
 EventName | Bir olay başlığı.
-düzey | Bir olay düzeyi. Aşağıdaki değerlerden birini: **kritik**, **hata**, **uyarı**, **bilgilendirici**, veya **ayrıntılı** .
+düzey | Bir olay düzeyi. Aşağıdaki değerlerden birini: **kritik**, **hata**, **uyarı** veya **bilgilendirici**.
 resourceProviderName | Etkilenen kaynak için kaynak sağlayıcı adı.
 Kaynak türü| Etkilenen kaynağın kaynak türü.
 alt durum | Genellikle HTTP durum kodu karşılık gelen REST çağrısı, ancak alt açıklayan diğer dizeleri de içerir. Örneğin: Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu Hata (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu: 504).

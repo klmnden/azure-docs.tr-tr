@@ -14,22 +14,16 @@ ms.devlang: json
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: richrund
-<<<<<<< HEAD
-ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Günlük analizi Azure Resource Manager şablonları kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve günlük analizi çalışma alanları yapılandırmak için. Şablonları ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
 
-* Çalışma Alanı oluşturma
+* Çalışma alanı oluşturma
 * Bir çözüm Ekle
 * Kaydedilen Aramalar oluşturun
 * Bir bilgisayar grubu oluşturun
@@ -69,7 +63,7 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
 10. Özel günlük Topla 
 11. IIS ve Windows olay günlükleri Azure altyapınıza bir depolama hesabına yazılan Topla
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -475,10 +469,12 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
 3. Şablonu dağıtmak için PowerShell veya komut satırını kullanın
 
 #### <a name="powershell"></a>PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### <a name="command-line"></a>Komut satırı
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```

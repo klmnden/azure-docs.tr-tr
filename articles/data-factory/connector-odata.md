@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Azure Data Factory kullanarak OData kaynağından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ Tüm desteklenen havuz veri deposuna OData kaynaktan veri kopyalayabilirsiniz. K
 - Aşağıdaki kimlik doğrulamaları kullanarak veri kopyalama: **anonim**, **temel**, ve **Windows**.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını OData bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -50,7 +51,7 @@ Aşağıdaki özellikleri, bağlantılı OData hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **OData** |Evet |
-| URL | OData hizmet kök URL'si. |Evet |
+| url | OData hizmet kök URL'si. |Evet |
 | authenticationType | OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü.<br/>İzin verilen değerler: **anonim**, **temel**, ve **Windows**. Not OAuth desteklenmiyor. | Evet |
 | Kullanıcı adı | Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. | Hayır |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan SecureString işaretleyin. | Hayır |
@@ -132,7 +133,7 @@ OData veri kopyalamak için veri kümesi için tür özelliği ayarlamak **OData
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Veri kümesi türü özelliği ayarlamak: **ODataResource** | Evet |
-| Yol | OData kaynak yolu. | Hayır |
+| yol | OData kaynak yolu. | Hayır |
 
 **Örnek**
 
@@ -208,11 +209,11 @@ OData veri kopyalama işlemi sırasında aşağıdaki eşlemelerini OData veri t
 | Edm.Binary | Byte] |
 | Edm.Boolean | bool |
 | Edm.Byte | Byte] |
-| Edm.DateTime | Tarih saat |
+| Edm.DateTime | Tarih Saat |
 | Edm.Decimal | Ondalık |
 | Edm.Double | Çift |
-| Edm.Single | Tek |
-| Edm.Guid | GUID |
+| Edm.Single | Bekar |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

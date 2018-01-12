@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarılar için Web kancaları
 Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimlerini almak için Web kancası uç noktalarını yapılandırabilirsiniz. Web kancası ile işlem sonrası ya da özel eylemler için diğer sistemlere bu bildirimler yönlendirebilirsiniz. Bu makalede, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir.
@@ -145,16 +145,16 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 | resourceId |Etkilenen kaynağının kaynak kimliği. |
 | resourceGroupName |Etkilenen kaynak kaynak grubu adı. |
 | properties |Kümesi `<Key, Value>` çiftleri (diğer bir deyişle, `Dictionary<String, String>`) olay ayrıntılarını içerir. |
-| Olay |Olay hakkında meta veriler içeren öğe. |
+| event |Olay hakkında meta veriler içeren öğe. |
 | Yetkilendirme |Olay rol tabanlı erişim denetimi özellikleri. Bu özellikler, eylem, rolü ve kapsamı genellikle içerir. |
 | category |Olay kategorisi. Yönetim, uyarı, güvenlik, ServiceHealth ve öneri desteklenen değerler içerir. |
-| Arayan |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep gerçekleştiren kullanıcı e-posta adresi. Belirli sistem çağrıları için null olabilir. |
+| çağıran |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep gerçekleştiren kullanıcı e-posta adresi. Belirli sistem çağrıları için null olabilir. |
 | correlationId |Genellikle bir GUID dize biçiminde. Correlationıd değeri olaylarla aynı büyük eyleme ait ve genellikle bir correlationıd değeri paylaşın. |
 | eventDescription |Olay açıklaması statik metin. |
 | eventDataId |Olay için benzersiz tanımlayıcı. |
 | EventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
 | httpRequest |İstek genellikle clientRequestId, clientIpAddress ve HTTP yöntemini içerir (örneğin, PUT). |
-| düzeyi |Aşağıdaki değerlerden birini: Kritik hata, uyarı, bilgilendirici ve ayrıntılı. |
+| düzey |Aşağıdaki değerlerden birini: Kritik hata, uyarı ve bilgi. |
 | Operationıd |Tek bir işlem için karşılık gelen olayları arasında paylaşılan genellikle bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Olay Özellikleri. |

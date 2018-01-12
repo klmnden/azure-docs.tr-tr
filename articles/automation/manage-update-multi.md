@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/30/2017
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 9bd6a290320958e2bc534ceb0abbcb647084920b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: HT
+ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -29,7 +29,7 @@ Güncelleştirme yönetimini kullanarak Windows ve Linux makineleriniz için gü
 - Gerekli güncelleştirmeleri yüklemeyi zamanlama.
 - Güncelleştirme yönetiminin etkin olduğu tüm sanal makinelere güncelleştirmelerin başarıyla uygulandığını doğrulamak için dağıtım sonuçlarını gözden geçirme.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Güncelleştirme yönetimini kullanmak için şunlar gerekir:
 
@@ -110,7 +110,7 @@ Sanal makine ve bilgisayarlarda yüklü aracılar, güncelleştirmelerle ilgili 
 
 Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açıklanmaktadır:
 
-| Bağlı kaynak | Destekleniyor | Açıklama |
+| Bağlı kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
 | Windows aracıları |Evet |Güncelleştirme yönetimi, Windows aracılarından sistem güncelleştirme bilgilerini toplar ve gerekli güncelleştirmelerin yüklemesini başlatır. |
 | Linux aracıları |Evet |Güncelleştirme yönetimi, Linux aracılarından sistem güncelleştirme bilgilerini toplar ve desteklenen dağıtımlarda gerekli güncelleştirmelerin yüklemesini başlatır. |

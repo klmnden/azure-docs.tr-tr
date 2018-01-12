@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Azure Otomasyonu’nu Kullanmaya Başlama
 
@@ -41,7 +41,7 @@ Bir HRW üzerinde çalışan runbook’lar, bilgisayardaki yerel Sistem hesabı 
 
 Azure Otomasyonu'nda depolanan DSC yapılandırmaları, Azure sanal makinelerine doğrudan uygulanabilir. Diğer fiziksel ve sanal makineler, yapılandırmaları Azure Automation DSC çekme sunucusundan isteyebilir.  Şirket içi fiziksel veya sanal Windows ve Linux sistemlerinizin yapılandırmalarını yönetmek için, Automation DSC çekme sunucusunu destekleyen herhangi bir altyapı dağıtmanız gerekmez; yalnızca TCP bağlantı noktası 443 üzerinden OMS hizmetiyle iletişim kurarak Automation DSC tarafından yönetilecek her sistemden giden İnternet erişimi gereklidir.   
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="automation-dsc"></a>Automation DSC
 Azure Automation DSC çeşitli makineleri yönetmek için kullanılabilir:
@@ -87,10 +87,6 @@ Azure Otomasyonu’nda Azure cmdlet’lerini kullanarak kaynaklara karşı gerç
 * **Runbook’lar** - Windows PowerShell’i temel alarak Azure Otomasyonu’nda bazı otomatik işlemleri gerçekleştiren görevler gruplarıdır.    
 
 Her Otomasyon hesabı için Otomasyon kaynakları tek bir Azure bölgesiyle ilişkilendirilir, ancak Otomasyon hesapları aboneliğinizdeki tüm kaynakları yönetebilir. Kaynakların belirli bir bölgede yalıtılmasını gerektiren ilkeleriniz varsa, farklı bölgelerde Otomasyon hesapları oluşturun.
-
-> [!NOTE]
-> Azure portalında oluşturulan Automation hesapları ve içerdikleri kaynaklara Klasik Azure portalında erişilemez. Bu hesapları veya kaynaklarını Windows PowerShell’le yönetmek istiyorsanız, Azure Resource Manager modüllerini kullanmanız gerekir.
-> 
 
 Azure portalında bir Otomasyon hesabı oluşturduğunuzda otomatik olarak iki kimlik doğrulama varlığı oluşturursunuz:
 

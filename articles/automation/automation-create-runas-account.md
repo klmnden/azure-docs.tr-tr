@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: HT
+ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Farklı Çalıştır hesaplarıyla Otomasyon hesabı kimlik doğrulamasını güncelleştirme 
 Mevcut Otomasyon hesabınızı Azure portalından güncelleştirebilir veya aşağıdaki durumlarda PowerShell kullanabilirsiniz:
@@ -40,7 +40,7 @@ Mevcut Otomasyon hesabınızı Azure portalından güncelleştirebilir veya aşa
 * Belirtilen Otomasyon hesabında *AzureClassicRunAsCertificate* adlı bir Otomasyon sertifikası varlığı oluşturur. Sertifika varlığı, yönetim sertifikası tarafından kullanılan sertifika özel anahtarını içerir.
 * Belirtilen Otomasyon hesabında *AzureClassicRunAsConnection* adlı bir Otomasyon bağlantı varlığı oluşturur. Bağlantı varlığı; abonelik adı, subscriptionId ve sertifika varlık adını içerir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 [PowerShell kullanarak Farklı Çalıştır hesapları oluşturmayı](#create-run-as-account-using-powershell) seçerseniz bu işlem için şunlar gerekir:
 
 * Azure Resource Manager 3.4.1 veya sonrasındaki modülleri içeren Windows 10 ve Windows Server 2016. PowerShell betiği önceki Windows sürümlerini desteklemez.
@@ -225,7 +225,7 @@ Bu PowerShell betiği aşağıdaki yapılandırmalar için destek içerir:
               $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
               $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
               $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                      "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                      "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
                       "Then click Upload and upload the .cer format of #CERT#"
 
                if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
@@ -277,7 +277,7 @@ Bu PowerShell betiği aşağıdaki yapılandırmalar için destek içerir:
 
 Betik başarıyla yürütüldükten sonra aşağıdakilere dikkat edin:
 * Otomatik olarak imzalanan bir ortak sertifika (.cer dosyası) ile Klasik Farklı Çalıştır hesabı oluşturduysanız, betik bu hesabı oluşturup bilgisayarınızdaki geçici dosya klasörüne, PowerShell oturumunu yürütmek için kullandığınız *%USERPROFILE%\AppData\Local\Temp* kullanıcı profili altında kaydeder.
-* Kurumsal ortak sertifika (.cer file) ile bir Klasik Farklı Çalıştır hesabı oluşturduysanız bu sertifikayı kullanın. [Klasik Azure portalında yönetim API sertifikasını yükleme](../azure-api-management-certs.md) yönergelerini izleyin ve ardından [Azure Klasik Dağıtım Kaynakları ile kimlik doğrulamaya yönelik örnek kodunu](automation-verify-runas-authentication.md#classic-run-as-authentication) kullanarak klasik dağıtım kaynakları ile kimlik bilgisi yapılandırmasını doğrulayın. 
+* Kurumsal ortak sertifika (.cer file) ile bir Klasik Farklı Çalıştır hesabı oluşturduysanız bu sertifikayı kullanın. Yönergeleri izleyin [yönetim API sertifikası Azure portalına](../azure-api-management-certs.md)ve ardından kullanarak Klasik dağıtım kaynaklarla kimlik bilgisi yapılandırmasını doğrulamak [örnek kimlik doğrulaması için kod Azure Klasik dağıtım kaynaklarla](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Klasik Farklı Çalıştır hesabı *oluşturmadıysanız*, Resource Manager kaynakları kimlik doğrulaması yapmak ve kimlik bilgisi yapılandırmasını doğrulamak için [Service Management kaynakları ile kimlik doğrulamaya yönelik örnek kodu](automation-verify-runas-authentication.md#automation-run-as-authentication) kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

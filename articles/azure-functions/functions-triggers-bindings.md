@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 92194b0d54de1271580a237e16e652b761b4d6d4
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -495,7 +495,7 @@ Belirli bir bağlama hakkında daha fazla bilgi için aşağıdaki makalelere ba
 - [Tablo depolama](functions-bindings-storage-table.md)
 - [Olay Hub’ı](functions-bindings-event-hubs.md)
 - [Service Bus](functions-bindings-service-bus.md)
-- [Azure Cosmos DB](functions-bindings-documentdb.md)
+- [Azure Cosmos DB](functions-bindings-cosmosdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)

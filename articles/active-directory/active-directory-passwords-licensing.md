@@ -1,5 +1,5 @@
 ---
-title: 'Lisans: Azure AD SSPR''yi | Microsoft Docs'
+title: "Lisans Self Servis parola sıfırlama - Azure Active Directory"
 description: "Lisans gereksinimlerini Azure AD Self Servis parola sıfırlama"
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ff9f80cfe9991000fdee45421fc74e662a4dfd1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Lisans gereksinimleri için Azure AD Self Servis parola sıfırlama
 
 Azure Active Directory (Azure AD) parola sıfırlama işlevi için sırayla, *kuruluşunuzda atanan en az bir Lisansı olmalıdır*. Kullanıcı başına parola sıfırlama deneyimi lisans biz zorlamaz. Microsoft lisans sözleşmenize ile uyumluluğu korumak için premium özellikleri kullanan kullanıcılara lisans atamanız gerekir.
 
 * **Yalnızca bulut kullanıcıları**: Office 365 herhangi SKU veya Azure AD temel Ücretli
-* **Bulut** veya **şirket içi kullanıcıların**: Azure AD Premium P1 veya P2, Enterprise Mobility + Security (EMS) veya güvenli üretken Enterprise (Parametreyi)
+* **Bulut** veya **şirket içi kullanıcıların**: Azure AD Premium P1 veya P2, Enterprise Mobility + Security (EMS) veya Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>Parola geri yazma için gerekli lisansları
 
@@ -42,6 +42,7 @@ Parola geri yazma özelliğini kullanmak için aşağıdaki lisansları Kiracı'
 
 > [!WARNING]
 > Tek başına Office 365 planları lisans *parola geri yazma desteklemeyen* ve bu işlevlerin çalışması önceki planlardan sahip olması gerekir.
+>
 
 Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda bulunabilir:
 
@@ -69,4 +70,3 @@ Bazı Microsoft Hizmetleri tüm konumlarda kullanılabilir değil. Yönetici bir
 * [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
 * [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
 * [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
-

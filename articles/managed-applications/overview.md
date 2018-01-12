@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Azure yönetilen uygulamalara genel bakış
 
@@ -48,6 +48,8 @@ Hizmet Kataloğu yönetilen uygulama yayımlama hakkında daha fazla bilgi için
 
 Satıcılar hizmetlerini faturalandırmak isteyen bir yönetilen uygulamayı Azure Market üzerinden sunabilirsiniz. Uygulamanın satıcısına yayımlar sonra kuruluş dışındaki kullanıcılar için kullanılabilir. Bu yaklaşım, yönetilen hizmet sağlayıcıları (MSP'ler), bağımsız yazılım satıcılarının (ISV'ler) ve sistem tümleştiricileri (SIS) çözümleri, tüm Azure müşterilerine sunabilir.
 
+Bir yönetilen uygulamayı Marketi'nde yayımlama hakkında daha fazla bilgi için bkz: [Market uygulaması oluşturma](publish-marketplace-app.md).
+
 ## <a name="resource-groups-for-managed-applications"></a>Yönetilen uygulamalar için kaynak grupları
 
 Genellikle, bir yönetilen uygulama için Kaynaklar iki kaynak grubu içinde bulunur. Bir kaynak grubu tüketici yönetir ve bir kaynak grubu yayımcı yönetir. Yönetilen uygulama tanımlarken, yayımcı erişim düzeylerini belirler. Aşağıdaki resimde, burada yayımcı yönetilen kaynak grubu için sahip rolünü istekleri bir senaryo gösterilmektedir. Yayımcı salt okunur kilit tüketici için bu kaynak grubunda yerleştirilir.
@@ -70,4 +72,4 @@ Tüketici yönetilen uygulamayı sildiğinde, yönetilen kaynak grubunu da silin
 
 * Giriş için tanımlama ve yönetilen bir uygulamayı dağıtmak için bkz: [oluşturma ve Azure dağıtma yönetilen Azure CLI ile uygulama](managed-apps-quickstart-cli.md)
 * Bir iç uygulama yayımlama hakkında daha fazla bilgi için bkz: [hizmet Kataloğu uygulaması oluştur](publish-service-catalog-app.md).
-
+* Marketi'nde yayımlama yönetilen uygulamalar hakkında daha fazla bilgi için bkz: [Market uygulaması oluşturma](publish-marketplace-app.md).

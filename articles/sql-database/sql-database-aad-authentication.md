@@ -3,8 +3,8 @@ title: "Azure Active Directory kimlik doğrulama - Azure SQL (genel bakış) | M
 description: "SQL Database ve SQL Data Warehouse ile kimlik doğrulaması için Azure Active Directory kullanma hakkında bilgi edinin"
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
-ms.author: rickbyh
-ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.author: mireks
+ms.openlocfilehash: ff6e4405819d1e7134eb5cdfd7d8ad712dc2a654
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>SQL Database veya SQL Data Warehouse ile kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanma
 Azure Active Directory kimlik doğrulama mekanizmasıdır Microsoft Azure SQL veritabanına bağlanma bir ve [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) kimlikleri Azure Active Directory (Azure AD) kullanarak. Azure AD kimlik doğrulaması ile veritabanı kullanıcıları kimlikleri ve diğer Microsoft Hizmetleri tek bir merkezi konumda merkezi olarak yönetebilir. Merkezi kimlik yönetimi, veritabanı kullanıcıları yönetmek için tek bir yer sağlar ve izin Yönetimi basitleştirir. Avantajları şunlardır:
@@ -100,7 +100,7 @@ Azure Active Directory kimlik doğrulaması kullanarak Azure AD kimlikleri bir v
 * [SQL Server için Microsoft JDBC sürücüsü 6.0](https://www.microsoft.com/download/details.aspx?id=11774) destekleyen Azure AD kimlik doğrulama. Ayrıca bkz [bağlantı özelliklerini ayarlama](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase, Azure AD kimlik doğrulama kullanarak kimlik doğrulaması yapamaz.   
 * Azure AD kimlik doğrulaması SQL veritabanı için Azure portal tarafından desteklenen **alma veritabanı** ve **verme veritabanı** dikey pencereleri. İçeri ve dışarı aktarma Azure AD kimlik doğrulaması kullanarak PowerShell komutunu da desteklenir.   
-* Azure AD kimlik doğrulaması, CLI kullanarak SQL Database ve SQL Data Warehouse için desteklenir. Daha fazla bilgi için bkz: [yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md) ve [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
+* Azure AD kimlik doğrulaması, CLI kullanarak SQL Database ve SQL Data Warehouse için desteklenir. Daha fazla bilgi için bkz: [yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md) ve [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Oluşturma ve Azure AD doldurmak ve ardından Azure SQL Database veya Azure SQL Data Warehouse ile Azure AD'yi yapılandırma konusunda bilgi almak için bkz: [yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md).

@@ -1,5 +1,5 @@
 ---
-title: "Sık sorulan sorular: Azure AD SSPR'yi | Microsoft Docs"
+title: "Azure Active Directory SSS - Self Servis parola sıfırlama"
 description: "Azure AD Self Servis parola hakkında sık sorulan sorular Sıfırla"
 services: active-directory
 keywords: "Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 697b82c8197a9a7ff4c60ce6fa60e098396c2bca
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi sık sorulan sorular
 

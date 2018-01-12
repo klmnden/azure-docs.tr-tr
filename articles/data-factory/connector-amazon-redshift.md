@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Amazon Azure Data Factory kullanarak Redshift veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,13 +39,14 @@ Verileri Amazon Redshift tüm desteklenen havuz veri deposuna kopyalayabilirsini
 > [!TIP]
 > Büyük miktarlarda verinin Redshift kopyalarken en iyi performansı elde etmek için yerleşik Redshift UNLOAD Amazon S3 aracılığıyla kullanmayı düşünün. Bkz [Amazon Redshift verileri kopyalamak için kullanım UNLOAD](#use-unload-to-copy-data-from-amazon-redshift) ayrıntıları bölümü.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Kopyalama yapıyorsanız bir şirket içi veri veri depolamak kullanarak [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md), tümleştirme çalışma zamanı (makinenin IP adresini kullan) Amazon Redshift kümesine erişimi verin. Bkz: [küme erişim yetkisi](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) yönergeler için.
 * Bir Azure veri deposuna veri kopyalama olup [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) işlem IP adresi ve Azure veriler tarafından kullanılan SQL aralıkları için merkezleri.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Amazon Redshift bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -214,7 +215,7 @@ Amazon Redshift veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Am
 | BIGINT |Int64 |
 | BOOLE DEĞERİ |Dize |
 | CHAR |Dize |
-| TARİH |Tarih Saat |
+| DATE |Tarih Saat |
 | ONDALIK |Ondalık |
 | ÇİFT DUYARLIKLI |Çift |
 | TAMSAYI |Int32 |

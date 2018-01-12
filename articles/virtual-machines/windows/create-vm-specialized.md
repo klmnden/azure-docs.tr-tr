@@ -4,7 +4,7 @@ description: "Resource Manager dağıtım modelinde kullanarak işletim sistemi 
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -13,23 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 01/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 39cbd30102813a4502cd25811589d04a9adb0aa5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="create-a-windows-vm-from-a-specialized-disk"></a>Özelleştirilmiş bir diskten bir Windows VM oluşturma
+# <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>PowerShell kullanarak özel bir diskten bir Windows VM oluşturma
 
-Powershell kullanarak işletim sistemi diski olarak özel bir yönetilen disk ekleyerek yeni bir VM oluşturun. Özelleştirilmiş bir disk kullanıcı hesapları, uygulamaları ve diğer Durum verilerini orijinal VM tutar mevcut bir VM'yi sanal sabit disk (VHD) bir kopyasını arasındadır. 
+Özel bir yönetilen disk işletim sistemi diski olarak ekleyerek yeni bir VM oluşturun. Özelleştirilmiş bir disk kullanıcı hesapları, uygulamaları ve diğer Durum verilerini orijinal VM tutar mevcut bir VM'yi sanal sabit disk (VHD) bir kopyasını arasındadır. 
 
 Yeni bir VM oluşturmak için özel bir VHD kullandığınızda, yeni VM orijinal VM bilgisayar adını korur. Diğer bilgisayar özgü bilgiler de olması tutulur ve bazı durumlarda, bu yinelenen bilgiler sorunlara neden. Ne tür bilgisayara özgü bilgileri uygulamalarınızı VM kopyalarken kullanır dikkat edin.
 
-İki seçeneğiniz vardır:
-* [Bir VHD’yi karşıya yükleme](#option-1-upload-a-specialized-vhd)
-* [Mevcut bir Azure VM'yi kopyalama](#option-2-copy-an-existing-azure-vm)
+Birkaç seçeneğiniz vardır:
+* [Varolan bir yönetilen diski kullanmak](#option-1-use-an-existing-disk). Düzgün çalışmayan bir VM'niz varsa, bu yararlıdır. VM yeniden yeni bir VM oluşturmak için yönetilen disk silebilirsiniz. 
+* [Bir VHD’yi karşıya yükleme](#option-2-upload-a-specialized-vhd) 
+* [Var olan bir Azure VM anlık görüntülerini kullanarak kopyalayın](#option-3-copy-an-existing-azure-vm)
+
+Azure portal için de kullanabilirsiniz [özelleştirilmiş bir VHD'den yeni bir VM oluşturmak](create-vm-specialized-portal.md).
 
 Bu konuda yönetilen diskleri kullanmayı gösterir. Eski dağıtım varsa gerektiren bir depolama hesabı kullanarak, bkz: [depolama hesabındaki özelleştirilmiş bir VHD'den bir VM oluşturma](sa-create-vm-specialized.md)
 
@@ -41,8 +44,20 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 Daha fazla bilgi için bkz: [Azure PowerShell sürüm](/powershell/azure/overview).
 
+## <a name="option-1-use-an-existing-disk"></a>Seçenek 1: varolan bir diski kullan
 
-## <a name="option-1-upload-a-specialized-vhd"></a>Seçenek 1: özel bir VHD yüklemek
+Sildiğiniz bir VM olan ve yeni bir VM oluşturun, kullanmak için işletim sistemi diski yeniden istiyorsanız [Get-AzureRmDisk](/azure/powershell/get-azurermdisk).
+
+```powershell
+$resourceGroupName = 'myResourceGroup'
+$osDiskName = 'myOsDisk'
+$osDisk = Get-AzureRmDisk `
+-ResourceGroupName $resourceGroupName `
+-DiskName $osDiskName
+```
+Şimdi bu disk için işletim sistemi diski olarak iliştirebilirsiniz bir [yeni VM](#create-the-new-vm).
+
+## <a name="option-2-upload-a-specialized-vhd"></a>Seçenek 2: özel bir VHD yüklemek
 
 Hyper-V ya da VM başka bir buluttan dışarı gibi bir şirket içi sanallaştırma aracı ile oluşturulan özel bir VM VHD'den karşıya yükleyebilirsiniz.
 
@@ -76,14 +91,20 @@ Bir depolama hesabı oluşturmanız gerekiyorsa, şu adımları izleyin:
     Adlı bir kaynak grubu oluşturmak için *myResourceGroup* içinde *Batı ABD* bölge, türü:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzureRmResourceGroup `
+       -Name myResourceGroup `
+       -Location "West US"
     ```
 
 2. Adlı depolama hesabı oluşturma *mystorageaccount* kullanarak bu kaynak grubundaki [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
-        -SkuName "Standard_LRS" -Kind "Storage"
+    New-AzureRmStorageAccount `
+       -ResourceGroupName myResourceGroup `
+       -Name mystorageaccount `
+       -Location "West US" `
+       -SkuName "Standard_LRS" `
+       -Kind "Storage"
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Depolama hesabınız VHD karşıya yükle 
@@ -92,8 +113,9 @@ Kullanım [Ekle AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) d
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $resourceGroupName -Destination $urlOfUploadedVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
+   -Destination $urlOfUploadedVhd `
+   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
 
@@ -121,7 +143,8 @@ Yeni VM için yeni bir kaynak grubu oluşturun.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+New-AzureRmResourceGroup -Location $location `
+   -Name $destinationResourceGroup
 ```
 
 Yeni işletim sistemi diski karşıya yüklenen VHD'den oluşturun. 
@@ -130,12 +153,13 @@ Yeni işletim sistemi diski karşıya yüklenen VHD'den oluşturun.
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
+    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-2-copy-an-existing-azure-vm"></a>Seçenek 2: mevcut bir Azure VM'yi kopyalama
+## <a name="option-3-copy-an-existing-azure-vm"></a>Seçenek 3: mevcut bir Azure VM'yi kopyalama
 
 Bir VM anlık görüntüsü tarafından yönetilen disklerde kullanır ve ardından bu anlık görüntü kullanarak yeni bir oluşturmak için disk ve yeni bir VM yönetilen VM bir kopyasını oluşturabilirsiniz.
 
@@ -156,24 +180,33 @@ $snapshotName = 'mySnapshot'
 VM nesnesini alın.
 
 ```powershell
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
+$vm = Get-AzureRmVM -Name $vmName `
+   -ResourceGroupName $resourceGroupName
 ```
 İşletim sistemi disk adı alın.
 
  ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $vm.StorageProfile.OsDisk.Name
+$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
+   -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
 Anlık görüntü yapılandırmasını oluşturun. 
 
  ```powershell
-$snapshotConfig =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -OsType Windows -CreateOption Copy -Location $location 
+$snapshotConfig =  New-AzureRmSnapshotConfig `
+   -SourceUri $disk.Id `
+   -OsType Windows `
+   -CreateOption Copy `
+   -Location $location 
 ```
 
 Anlık görüntü alın.
 
 ```powershell
-$snapShot = New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName
+$snapShot = New-AzureRmSnapshot `
+   -Snapshot $snapshotConfig `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName
 ```
 
 
@@ -187,7 +220,8 @@ Yeni VM için yeni bir kaynak grubu oluşturun.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+New-AzureRmResourceGroup -Location $location `
+   -Name $destinationResourceGroup
 ```
 
 İşletim sistemi disk adı ayarlayın. 
@@ -218,15 +252,20 @@ Alt ağ oluşturun. Bu örnek adlı bir alt ağı oluşturur **mySubNet**, kayna
    
 ```powershell
 $subnetName = 'mySubNet'
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+   -Name $subnetName `
+   -AddressPrefix 10.0.0.0/24
 ```
 
 Sanal ağ oluşturun. Bu örnek olarak sanal ağ adını ayarlar **myVnetName**, konuma **Batı ABD**ve sanal ağ adres öneki **10.0.0.0/16**. 
    
 ```powershell
 $vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $destinationResourceGroup -Location $location `
-    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+$vnet = New-AzureRmVirtualNetwork `
+   -Name $vnetName -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -AddressPrefix 10.0.0.0/16 `
+   -Subnet $singleSubnet
 ```    
 
 
@@ -242,8 +281,10 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGroup -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
+$nsg = New-AzureRmNetworkSecurityGroup `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -Name $nsgName -SecurityRules $rdpRule
     
 ```
 
@@ -256,7 +297,9 @@ Genel IP oluşturun. Bu örnekte, ortak IP adresi adı ayarlamak **myIP**.
    
 ```powershell
 $ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationResourceGroup -Location $location `
+$pip = New-AzureRmPublicIpAddress `
+   -Name $ipName -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
    -AllocationMethod Dynamic
 ```       
 
@@ -264,8 +307,11 @@ NIC oluşturun Bu örnekte, NIC adı ayarlamak **myNicName**.
    
 ```powershell
 $nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$nic = New-AzureRmNetworkInterface -Name $nicName `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location -SubnetId $vnet.Subnets[0].Id `
+   -PublicIpAddressId $pip.Id `
+   -NetworkSecurityGroupId $nsg.Id
 ```
 
 

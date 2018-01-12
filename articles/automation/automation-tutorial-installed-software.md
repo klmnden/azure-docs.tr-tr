@@ -6,15 +6,15 @@ keywords: "stok, otomasyon, değişiklik, izleme"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 49eedd975e456d97f9eee44f9b00993b115ad4fa
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: HT
+ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure ve Azure harici makinelerinizde yüklü olan yazılımları keşfetme
 
@@ -27,7 +27,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Yüklü olan yazılımları görüntüleme
 > * Yüklü olan yazılımların stok günlüklerinde arama yapma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -67,7 +67,7 @@ Doğrulama sonrasında aşağıdaki önkoşullardan birinin karşılanmadığı 
 * [Otomasyon](./automation-offering-get-started.md)
 * VM üzerinde etkin bir [Karma runbook çalışanı](./automation-hybrid-runbook-worker.md)
 
-**Değişiklik İzleme ve Stok** ekranı açılır. Kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**'e tıklayın. Bu alanların gri renkte olması VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir.
+**Değişiklik İzleme ve Stok** ekranı açılır. Kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**'e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir.
 
 ![Değişiklik izleme çözümünü etkinleştirme penceresi](./media/automation-tutorial-installed-software/installed-software-enable.png)
 

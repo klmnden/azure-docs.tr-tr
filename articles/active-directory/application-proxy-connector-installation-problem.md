@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Uygulama Proxy Aracısı Bağlayıcısı yükleme sorunu
 
@@ -37,9 +37,9 @@ Bir bağlayıcı yüklemesi başarısız olduğunda, kök nedeni genellikle aşa
 
 **Hedef:** AAD uygulama proxy'si kayıt uç noktasını yanı sıra Microsoft oturum açma sayfasına bağlayıcı makineye bağlanabildiğinizi doğrulayın.
 
-1.  Bir tarayıcı açın ve aşağıdaki web sayfasına gidin: <https://aadap-portcheck.connectorporttest.msappproxy.net> ve orta ABD ve Doğu ABD veri merkezleri 9090 ve 9091 bağlantı noktaları ile bağlantıyı çalışmakta olduğunu doğrulayın.
+1.  Bir tarayıcı açın ve aşağıdaki web sayfasına gidin: <https://aadap-portcheck.connectorporttest.msappproxy.net> , 80 ve 443 numaralı bağlantı noktalarını ile orta ABD ve Doğu ABD veri merkezlerine bağlantısının çalışır durumda olduğunu doğrulayın.
 
-2.  Bu bağlantı noktalarının hiçbirinde yoksa başarılı (yeşil bir onay yok), güvenlik duvarı veya arka uç proxy sahip olduğunu doğrulayın \*. msappproxy.net bağlantı 9090 ve 9091 doğru tanımlanmadı.
+2.  Bu bağlantı noktalarının hiçbirinde yoksa başarılı (yeşil bir onay yok), güvenlik duvarı veya arka uç proxy sahip olduğunu doğrulayın \*. msappproxy.net bağlantı noktaları 80 ve 443 doğru tanımlanmadı.
 
 3.  Bir tarayıcı (ayrı sekmesi) açın ve aşağıdaki web sayfasına gidin: <https://login.microsoftonline.com>, bu sayfaya oturum açabileceğiniz emin olun.
 

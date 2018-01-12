@@ -1,12 +1,11 @@
 ---
 title: "Tehdit algılama - Azure SQL veritabanı | Microsoft Docs"
-description: "Tehdit algılama veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar."
+description: "Tehdit Algılama, veritabanına ilişkin olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar."
 services: sql-database
 documentationcenter: 
 author: rmatchoro
-manager: jhubbard
+manager: shaik
 editor: v-romcal
-ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
 ms.custom: security
 ms.devlang: NA
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
-ms.author: ronmat; ronitr
-ms.openlocfilehash: 647bd11fe305e255ab492939586241e28557ead8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.author: ronmat
+ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL veritabanı tehdit algılama
 
@@ -78,7 +77,7 @@ SQL veritabanı tehdit algılama, uyarıları ile tümleşir [Azure Güvenlik Me
 
 * Tehdit algılama hakkında daha fazla bilgi edinmek için bkz [Azure blogu](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Daha fazla bilgi edinmek [Azure SQL veritabanı denetimi](sql-database-auditing.md)
-* Daha fazla bilgi edinmek [Azure Güvenlik Merkezi](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+* Daha fazla bilgi edinmek [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Fiyatlandırma hakkında daha fazla ayrıntı için bkz: [SQL Database fiyatlandırması sayfası](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
 * PowerShell komut dosyası örneği için bkz: [PowerShell kullanarak denetim ve tehdit algılama yapılandırın](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 

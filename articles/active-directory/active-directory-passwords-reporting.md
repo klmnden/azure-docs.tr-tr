@@ -1,5 +1,5 @@
 ---
-title: 'Raporlama: Azure AD SSPR''yi | Microsoft Docs'
+title: "Raporlar - Azure Active Directory Self Servis parola sıfırlama"
 description: "Azure AD Self Servis parola üzerinde raporlama olayları Sıfırla"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a6edc777b7b6ec3cfeacc8c548bb3c6ad306303c
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c1f8beaf73bfa424c9a5c86df430822b5626282b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 

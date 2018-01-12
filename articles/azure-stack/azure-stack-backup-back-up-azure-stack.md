@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: df1f4c6fadd08b17a1a1eb8bbe41ab71ae4729fc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: daea97c0f5ee6ef855dc50c1ed6c7934aa85a1c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="back-up-azure-stack"></a>Azure yığınına yedekleyin
 
@@ -31,7 +31,7 @@ Yerinde yedeklemeyle Azure yığında bir talep üzerine yedekleme gerçekleşti
 Windows PowerShell ile yükseltilmiş istemi açın ve aşağıdaki komutları çalıştırın:
 
    ```powershell
-   Start-AzSBackup -Location $location
+   Start-AzSBackup -Location $location.Name
    ```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Yedekleme Yönetim Portalı'nda tamamlandı onaylayın

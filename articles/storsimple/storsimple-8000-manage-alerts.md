@@ -4,7 +4,7 @@ description: "StorSimple uyarı koşulları ve önem derecesi, uyarı bildirimle
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b7f9a2b7eb3dbf4cc97fac9a410359e068e67eb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e86b6af562208e51e36b4679fd088ea399ce70b8
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple uyarıları görüntülemek ve yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 
@@ -35,7 +35,7 @@ Bu öğretici, sık karşılaşılan uyarı koşulları, uyarı önem düzeyleri
 StorSimple Cihazınızı yanıt koşullar çeşitli uyarılar oluşturur. En sık karşılaşılan uyarı koşullar şunlardır:
 
 * **Donanım sorunları** – donanımınız sistem durumu hakkında size bu uyarılar. Bunlar, bir ağ arabirimi sorunlar varsa, bellenim yükseltmeleri, gerekiyorsa ya da veri sürücülerinizin biri ile ilgili bir sorun varsa bilmenizi sağlar.
-* **Bağlantı sorunları** – Bu uyarılar veri aktarma zorluk olduğunda oluşur. İletişim sorunları veri aktarımı sırasında ve Azure depolama hesabından veya cihazlar ve StorSimple cihaz Yöneticisi hizmeti arasında bağlantı eksikliği nedeniyle oluşabilir. İletişim sorunları en zor hatanın çok fazla sayıda noktası olmadığından düzeltmek bazılarıdır. Her zaman ilk ağ bağlantısı ve Internet erişimi için daha gelişmiş sorun giderme açın devam etmeden önce kullanılabilir olduğunu doğrulamanız gerekir. Sorun giderme ile ilgili daha fazla yardım için Git [Bağlantıyı Sına cmdlet ile ilgili sorunları giderme](storsimple-troubleshoot-deployment.md).
+* **Bağlantı sorunları** – Bu uyarılar veri aktarma zorluk olduğunda oluşur. İletişim sorunları veri aktarımı sırasında ve Azure depolama hesabından veya cihazlar ve StorSimple cihaz Yöneticisi hizmeti arasında bağlantı eksikliği nedeniyle oluşabilir. İletişim sorunları en zor hatanın çok fazla sayıda noktası olmadığından düzeltmek bazılarıdır. Her zaman ilk ağ bağlantısı ve Internet erişimi için daha gelişmiş sorun giderme açın devam etmeden önce kullanılabilir olduğunu doğrulamanız gerekir. Sorun giderme ile ilgili daha fazla yardım için Git [Bağlantıyı Sına cmdlet ile ilgili sorunları giderme](storsimple-8000-troubleshoot-deployment.md).
 * **Performans sorunlarını** – sisteminizi ağır bir yük altında olduğu zaman gibi en iyi şekilde gerçekleştirirken değil, bu uyarılar nedeniyle oluşur.
 
 Ayrıca, güvenlik, güncelleştirmelerinin veya iş hataları ilgili uyarıları görebilirsiniz.
@@ -125,7 +125,7 @@ Aşağıdaki tablolarda, ek bilgi ve öneriler yanı sıra kullanılabiliyorsa k
 * [Yerel olarak sabitlenmiş birim uyarılarını](#locally-pinned-volume-alerts)
 * [Ağ uyarıları](#networking-alerts)
 * [Performans uyarıları](#performance-alerts)
-* [Güvenlik Uyarıları](#security-alerts)
+* [Güvenlik uyarıları](#security-alerts)
 * [Destek Paketi uyarıları](#support-package-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Bulut bağlantı uyarıları
@@ -188,8 +188,8 @@ StorSimple üretim Cihazınızda bulut bağlantı başarısız olursa, cihaz dur
 |:--- |:--- |:--- |
 | Yerel birim oluşturulmasını <*birim adı*> başarısız oldu. |Birim oluşturma işi başarısız oldu. <*Başarısız, hata koduna karşılık gelen hata iletisi*>. |Bağlantı sorunları alanı oluşturma işlemi başarıyla tamamlanmasını engelliyor. Yerel olarak sabitlenmiş birimlerin sıkı sağlanır ve bulut katmanlı birimlere değişkenlere alanı oluşturma işlemi içerir. Hiçbir bağlantı sorunları varsa, cihazda yerel alan tüketmiş olabilir. Bu işlemi yeniden denemeden önce alanı aygıtta olup olmadığını belirler. |
 | Yerel birim genişlemesi <*birim adı*> başarısız oldu. |Birim değişiklik işi nedeniyle başarısız oldu <*başarısız, hata koduna karşılık gelen hata iletisi*>. |Bağlantı sorunları Birim genişletme işlemi başarıyla tamamlanmasını engelliyor. Yerel olarak sabitlenmiş birimlerin sıkı sağlanır ve bulut katmanlı birimlere değişkenlere mevcut alanını genişletme işlemi içerir. Hiçbir bağlantı sorunları varsa, cihazda yerel alan tüketmiş olabilir. Bu işlemi yeniden denemeden önce alanı aygıtta olup olmadığını belirler. |
-| Birim dönüştürülmesi <*birim adı*> başarısız oldu. |Birim türünden yerel olarak dönüştürmek için toplu dönüştürme işi katmanlı başarısız sabitlenmiş. |Yerel olarak sabitlenmiş türüne dönüştürme birimin katmanlı çalıştırılamadı tamamlandı. İşlemin başarıyla tamamlanmasını engelleyen bir bağlantı sorunu olmadığından emin olun. Git sorunları bağlantı sorunlarını giderme için [Test HcsmConnection cmdlet ile ilgili sorunları giderme](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Dönüştürme sırasında buluta yerel olarak sabitlenmiş birimin verilerden bazıları geçmiş beri özgün yerel olarak sabitlenmiş birim artık katmanlı birim işaretlendi. Sonuç katmanlı birim hala geri kazanılacak gelecekteki yerel birimleri için cihazda yerel alan bırakmalısınız.<br>Tüm bağlantı sorunlarını giderin, uyarıyı temizleyin ve bu birimi tüm verileri yerel olarak yeniden kullanılabilir hale getirileceğini emin olmak için geri özgün yerel olarak sabitlenmiş birim türüne dönüştürün. |
-| Birim dönüştürülmesi <*birim adı*> başarısız oldu. |Birim türünden dönüştürmek için toplu dönüştürme işi katmanlı yerel olarak sabitlenmiş için başarısız oldu. |Birimin türüne dönüştürme katmanlı yerel olarak sabitlenmiş için tamamlanamadı. İşlemin başarıyla tamamlanmasını engelleyen bir bağlantı sorunu olmadığından emin olun. Git sorunları bağlantı sorunlarını giderme için [Test HcsmConnection cmdlet ile ilgili sorunları giderme](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Bu birimi için cihazda sıkı sağlanan alanı gelecekteki yerel birimler için artık alınabilmesini karşın bulutta bulunan veriler dönüştürme işleminin bir parçası olarak özgün katmanlı birim artık yerel olarak sabitlenmiş bir birim işaretlenmiş.<br>Tüm bağlantı sorunlarını giderin, uyarıyı temizleyin ve bu birim sıkı cihazda sağlanan yerel alan geri alınabilmesini sağlamak için geri özgün katmanlı birim türüne dönüştürün. |
+| Birim dönüştürülmesi <*birim adı*> başarısız oldu. |Birim türünden yerel olarak dönüştürmek için toplu dönüştürme işi katmanlı başarısız sabitlenmiş. |Yerel olarak sabitlenmiş türüne dönüştürme birimin katmanlı çalıştırılamadı tamamlandı. İşlemin başarıyla tamamlanmasını engelleyen bir bağlantı sorunu olmadığından emin olun. Git sorunları bağlantı sorunlarını giderme için [Test HcsmConnection cmdlet ile ilgili sorunları giderme](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Dönüştürme sırasında buluta yerel olarak sabitlenmiş birimin verilerden bazıları geçmiş beri özgün yerel olarak sabitlenmiş birim artık katmanlı birim işaretlendi. Sonuç katmanlı birim hala geri kazanılacak gelecekteki yerel birimleri için cihazda yerel alan bırakmalısınız.<br>Tüm bağlantı sorunlarını giderin, uyarıyı temizleyin ve bu birimi tüm verileri yerel olarak yeniden kullanılabilir hale getirileceğini emin olmak için geri özgün yerel olarak sabitlenmiş birim türüne dönüştürün. |
+| Birim dönüştürülmesi <*birim adı*> başarısız oldu. |Birim türünden dönüştürmek için toplu dönüştürme işi katmanlı yerel olarak sabitlenmiş için başarısız oldu. |Birimin türüne dönüştürme katmanlı yerel olarak sabitlenmiş için tamamlanamadı. İşlemin başarıyla tamamlanmasını engelleyen bir bağlantı sorunu olmadığından emin olun. Git sorunları bağlantı sorunlarını giderme için [Test HcsmConnection cmdlet ile ilgili sorunları giderme](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Bu birimi için cihazda sıkı sağlanan alanı gelecekteki yerel birimler için artık alınabilmesini karşın bulutta bulunan veriler dönüştürme işleminin bir parçası olarak özgün katmanlı birim artık yerel olarak sabitlenmiş bir birim işaretlenmiş.<br>Tüm bağlantı sorunlarını giderin, uyarıyı temizleyin ve bu birim sıkı cihazda sağlanan yerel alan geri alınabilmesini sağlamak için geri özgün katmanlı birim türüne dönüştürün. |
 | Yerel alan tüketim yerel anlık görüntüleri için yaklaşan <*birim grubu adı*> |Yerel anlık görüntüleri yedekleme ilkesinin alana yakında çalışabilir ve ana bilgisayar yazma hataları önlemek için geçersiz kılındı. |Bu yedekleme İlkesi grupla ilişkili birimler yüksek veri karmaşası yanında sık yerel anlık görüntüleri hızlı bir şekilde tüketilmesi cihazda yerel alan neden oluyor. Artık gerekli olmayan tüm yerel anlık görüntüleri silin. Ayrıca, daha az sıklıkta yerel anlık görüntülerini almak ve bulut anlık görüntüleri düzenli olarak gerçekleştirilecek sağlamak Bu yedekleme ilkesi için yerel anlık görüntü zamanlamaları güncelleştirin. Bu eylemler katılmaz, bu anlık görüntüler için yerel alan yakında tükendi ve sistem onlara konağı yazma başarıyla işlenmeyi devam etmesini sağlamak için otomatik olarak silecektir. |
 | Yerel anlık görüntüleri <*birim grubu adı*> geçersiz hale getirildi. |Yerel anlık görüntüler için <*birim grubu adı*> geçersiz kılınan ve cihazda yerel alan aşan silinemiyor. |Bu gelecekte oluşmaz emin olmak için bu yedekleme ilkesi için yerel anlık görüntü zamanlama gözden geçirin ve artık gerekli olmayan tüm yerel anlık görüntüleri silin. Bu yedekleme İlkesi grupla ilişkili birimler yüksek veri karmaşası yanında sık yerel anlık görüntüleri hızlı bir şekilde tüketilmesi cihazda yerel alan neden olabilir. |
 | Geri Yükleme <*yedekleme öğesi kimlikleri kaynak*> başarısız oldu. |Geri yükleme işi başarısız oldu. |Yedekleme, yerel olarak sabitlenmiş veya bu yedekleme İlkesi yerel olarak sabitlenmiş ve katmanlı birimlerin bir karışımını doğrulamak yedekleme listesi yenileme hala geçerli olur. Yedekleme geçerliyse, bulut bağlantı sorunları geri yükleme işleminin başarıyla tamamlanmasını engelliyor mümkündür. Bu anlık görüntü grubunun bir parçası geri yerel olarak sabitlenmiş birimlerin tüm cihaza indirilip verilerini yoktur ve bu anlık görüntü grubundaki bir katmanlı ve yerel olarak sabitlenmiş birimleri karışımı varsa, birbirleri ile eşitlenmiş olmaz. Geri yükleme işlemi başarıyla tamamlamak için bu gruptaki çevrimdışı konaktaki birimlerinin almak ve geri yükleme işlemini yeniden deneyin. Geri yükleme işlemi sırasında gerçekleştirilen birim verilerini yapılan tüm değişiklikler kaybolacak unutmayın. |
@@ -199,15 +199,15 @@ StorSimple üretim Cihazınızda bulut bağlantı başarısız olursa, cihaz dur
 | Uyarı metni | Olay | Daha fazla bilgi / önerilen eylemleri |
 |:--- |:--- |:--- |
 | StorSimple hizmetleri başlayamadı. |DataPath hata |Sorun devam ederse, Microsoft Destek'e başvurun. |
-| Yinelenen IP adresi 'Data0 için' algılandı. | |Sistem '10.0.0.1' IP adresi için bir çakışma algıladı. Aygıttaki ağ kaynağı 'Data0'  *<device1>*  çevrimdışı. Bu IP adresi bu ağdaki herhangi bir varlık tarafından kullanılmaz emin olun. Ağ sorununu gidermek için şu adrese gidin [sorun giderme için Get-NetAdapter cmdlet'i](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Bu sorunu çözme konusunda yardım almak için ağ yöneticinize başvurun. Sorun devam ederse, Microsoft Destek'e başvurun. |
-| IPv4 (veya IPv6) 'Data0' Çevrimdışı adresidir. | |IP adresi '10.0.0.1.' ile ağ kaynak 'Data0' ve önek uzunluğu '22' cihazda  *<device1>*  çevrimdışı. Bu arabirim bağlı olduğu anahtar bağlantı noktalarını çalışır durumda olduğundan emin olun. Ağ sorununu gidermek için şu adrese gidin [sorun giderme için Get-NetAdapter cmdlet'i](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Yinelenen IP adresi 'Data0 için' algılandı. | |Sistem '10.0.0.1' IP adresi için bir çakışma algıladı. Aygıttaki ağ kaynağı 'Data0'  *<device1>*  çevrimdışı. Bu IP adresi bu ağdaki herhangi bir varlık tarafından kullanılmaz emin olun. Ağ sorununu gidermek için şu adrese gidin [sorun giderme için Get-NetAdapter cmdlet'i](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Bu sorunu çözme konusunda yardım almak için ağ yöneticinize başvurun. Sorun devam ederse, Microsoft Destek'e başvurun. |
+| IPv4 (veya IPv6) 'Data0' Çevrimdışı adresidir. | |IP adresi '10.0.0.1.' ile ağ kaynak 'Data0' ve önek uzunluğu '22' cihazda  *<device1>*  çevrimdışı. Bu arabirim bağlı olduğu anahtar bağlantı noktalarını çalışır durumda olduğundan emin olun. Ağ sorununu gidermek için şu adrese gidin [sorun giderme için Get-NetAdapter cmdlet'i](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Kimlik doğrulama hizmetine bağlanamadı. |DataPath hata |URLthat kimliğini doğrulamak için kullanılan ulaşılabilir değil. Güvenlik Duvarı kurallarınız StorSimple cihaz için belirtilen URL desenlerini eklediğinizden emin olun. Azure portalında URL desenlerini hakkında daha fazla bilgi için https://aka.ms/ss-8000-network-reqs için gidin. Azure Bulutu kullanıyorsanız, URL desenlerini https://aka.ms/ss8000-gov-network-reqs içinde gidin.|
 
 ### <a name="performance-alerts"></a>Performans uyarıları
 
 | Uyarı metni | Olay | Daha fazla bilgi / önerilen eylemleri |
 |:--- |:--- |:--- |
-| Cihaz yük aştı <*eşik*>. |Beklenen yanıt süreleri daha yavaş çalışır. |Cihazınızı kullanımı ağır bir giriş/çıkış yük altında bildirir. Bu, Cihazınızı yanı sıra gerektiği çalışmamasına neden olabilir. Başka bir cihaza taşınamıyor veya artık gerekli olan cihaza bağlı ve varsa belirlemek iş yükleri gözden geçirin.| StorSimple hizmetleri başlayamadı. |DataPath hata |Sorun devam ederse, Microsoft Destek'e başvurun. |ve Git geçerli durumunu [Cihazınızı izlemek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-monitor-device.md) |
+| Cihaz yük aştı <*eşik*>. |Beklenen yanıt süreleri daha yavaş çalışır. |Cihazınızı kullanımı ağır bir giriş/çıkış yük altında bildirir. Bu, Cihazınızı yanı sıra gerektiği çalışmamasına neden olabilir. Başka bir cihaza taşınamıyor veya artık gerekli olan cihaza bağlı ve varsa belirlemek iş yükleri gözden geçirin.| StorSimple hizmetleri başlayamadı. |DataPath hata |Sorun devam ederse, Microsoft Destek'e başvurun. |ve Git geçerli durumunu [Cihazınızı izlemek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-monitor-device.md) |
 
 ### <a name="security-alerts"></a>Güvenlik uyarıları
 
@@ -227,5 +227,5 @@ StorSimple üretim Cihazınızda bulut bağlantı başarısız olursa, cihaz dur
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinmek [StorSimple hataları ve işletimsel bir aygıtı sorun giderme](storsimple-troubleshoot-operational-device.md).
+Daha fazla bilgi edinmek [StorSimple hataları ve cihaz dağıtım sorunlarını giderme](storsimple-8000-troubleshoot-deployment.md).
 

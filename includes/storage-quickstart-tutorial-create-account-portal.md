@@ -1,20 +1,19 @@
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Azure portalı kullanarak depolama hesabı oluşturma
+## <a name="create-a-storage-account-by-using-the-azure-portal"></a>Azure portalını kullanarak bir depolama hesabı oluşturun
 
 İlk olarak, bu hızlı başlangıçta kullanmak için yeni bir genel amaçlı depolama hesabı oluşturun. 
 
-1. [Azure portalına](https://portal.azure.com) gidin ve Azure hesabınızı kullanarak oturum açın. 
-2. Hub menüsünde, **Yeni** > **Depolama** > **Depolama hesabı - blob, dosya, tablo, kuyruk**’u seçin. 
-3. Depolama hesabınız için benzersiz bir ad girin. Depolama hesabınızı adlandırırken bu kuralları göz önünde bulundurun:
-    - Ad 3 ile 24 karakter uzunluğunda olmalıdır.
-    - Ad yalnızca sayılar ve küçük harfler içerebilir.
-4. Aşağıdaki varsayılan değerlerin ayarlandığından emin olun: 
-    - **Dağıtım modeli** **Resource manager** olarak ayarlanmış.
+1. Git [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) ve Azure hesabınızı kullanarak oturum açın. 
+2. Depolama hesabınız için benzersiz bir ad girin. Depolama hesabınızı adlandırırken bu kuralları göz önünde bulundurun:
+    - Adı 3-24 karakter uzunluğunda olmalıdır.
+    - Ad, sayılar ve yalnızca küçük harfler içerebilir.
+3. Aşağıdaki varsayılan değerlerin ayarlandığından emin olun: 
+    - **Dağıtım modeli** ayarlanır **Resource Manager**.
     - **Hesap türü** **Genel amaçlı** olarak ayarlanmış.
     - **Performans** **Standart** olarak ayarlanmış.
     - **Çoğaltma** **Yerel Olarak Yedekli Depolama (LRS)** olarak ayarlanmış.
-5. Aboneliğinizi seçin. 
-6. **Kaynak grubu için**, yeni bir tane oluşturun ve benzersiz bir ad verin. 
-7. Depolama hesabınız için kullanılacak **Konum**’u seçin.
-8. Depolama hesabınızı oluşturmak için **Panoya sabitle**’yi işaretleyin ve **Oluştur**’a tıklayın. 
+4. Aboneliğinizi seçin. 
+5. **Kaynak grubu için**, yeni bir tane oluşturun ve benzersiz bir ad verin. 
+6. Depolama hesabınız için kullanmak istediğiniz konumu seçin.
+7. Seçin **panoya Sabitle** seçip **oluşturma** depolama hesabınızı oluşturmak için. 
 
-Depolama hesabınız oluşturulduktan sonra panoya sabitlenir. Açmak için tıklayın. **Ayarlar** altında **Erişim anahtarları**'na tıklayın. Birincil anahtarı seçip ilişkili **Bağlantı dizesini** panoya kopyalayın, ardından daha sonra kullanmak için bir metin düzenleyiciye yapıştırın.
+Depolama hesabınız oluşturulduktan sonra bu panosuna sabitlediğiniz. Açmak için seçin. Altında **ayarları**seçin **erişim anahtarları**. Birincil anahtarı seçin ve ilişkili bağlantı dizesini Pano'ya kopyalayın. Dize daha sonra kullanmak için bir metin düzenleyicisine yapıştırın.

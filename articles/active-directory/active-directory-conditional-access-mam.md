@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: aaf2da57d8653371ab0b46e47474442aa4be1d65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory Uygulama temelli koşullu erişim  
 
@@ -64,7 +64,7 @@ Bu konu, aşina olduğunuzu varsayar:
 - [Koşullu erişim ilkeleri geçişini](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bir uygulama bağlı olarak koşullu erişim ilkesi oluşturmak için bir Enterprise Mobility + güvenlik veya bir Azure Active Directory premium aboneliği varsa ve kullanıcıları EMS veya Azure AD için lisansına sahip olması gerekir. 
 
@@ -389,9 +389,9 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     - **Onaylanmış istemci uygulamasını (Önizleme) gerektirir**
 
-    - **Seçili denetimleri birini gerektirir**   
+    - **Seçili tüm denetimler gerektirir**   
  
-    ![Koşullu erişim](./media/active-directory-conditional-access-mam/11.png)
+    ![Koşullu erişim](./media/active-directory-conditional-access-mam/13.png)
 
 
 

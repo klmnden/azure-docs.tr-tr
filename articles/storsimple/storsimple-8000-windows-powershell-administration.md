@@ -4,7 +4,7 @@ description: "StorSimple Cihazınızı yönetmek için StorSimple için Windows 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Cihazınızı yönetmek için StorSimple için Windows PowerShell kullanın
 
@@ -126,8 +126,8 @@ Görüntüleme dilini kullanarak ayarlamak dil bağımsızdır **Dili Değiştir
 
 Windows PowerShell uzaktan iletişimini bağlanmak için HTTP veya HTTPS kullanın. Aşağıdaki öğreticilerde yönergeleri kullanın:
 
-* [HTTP kullanarak uzaktan bağlanma](storsimple-remote-connect.md#connect-through-http)
-* [HTTPS kullanarak uzaktan bağlanma](storsimple-remote-connect.md#connect-through-https)
+* [HTTP kullanarak uzaktan bağlanma](storsimple-8000-remote-connect.md#connect-through-http)
+* [HTTPS kullanarak uzaktan bağlanma](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>Bağlantı güvenlik konuları
 
@@ -184,5 +184,5 @@ Windows PowerShell arabiriminde Yardım kolayca güncelleştirebilirsiniz. Siste
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yukarıdaki iş akışları birini gerçekleştirirken, StorSimple cihazınızla herhangi bir sorunla karşılaşırsanız, başvurmak [StorSimple dağıtım sorunlarını giderme araçları](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Yukarıdaki iş akışları birini gerçekleştirirken, StorSimple cihazınızla herhangi bir sorunla karşılaşırsanız, başvurmak [StorSimple dağıtım sorunlarını giderme araçları](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

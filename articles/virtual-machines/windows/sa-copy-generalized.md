@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: d7f4a9558175835eba9096e6845726f21c7459d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 39ac47df65743dc807b060f34a6df16977ef49a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Bir Azure sanal makineden bir yönetilmeyen VM görüntüsü oluşturma
 
@@ -27,7 +28,7 @@ Bu makalede, depolama hesapları kullanmayı ele alır. Bir depolama hesabı yer
 
 Bu makalede bir depolama hesabı kullanarak Azure PowerShell genelleştirilmiş bir Azure VM görüntüsünü oluşturmak için nasıl kullanılacağı gösterilmektedir. Ardından, başka bir VM oluşturmak için görüntüyü kullanabilirsiniz. Görüntü, işletim sistemi diski ve sanal makineye bağlı veri disklerinden içerir. Yeni VM oluşturduğunuzda, bu kaynakları ayarlamak gereken şekilde görüntünün sanal ağ kaynaklarına içermez. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Azure PowerShell sürüm gerek 1.0.x ya da daha yeni yüklü. PowerShell henüz yüklemediyseniz, okuma [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) yükleme adımları için.
 
 ## <a name="generalize-the-vm"></a>VM generalize 
@@ -47,7 +48,7 @@ Kullanarak bir Linux VM genelleştirmek `sudo waagent -deprovision+user` ve VM y
 2. Bir yönetici olarak komut istemi penceresi açın. Dizinine değiştirin **%windir%\system32\sysprep**ve ardından çalıştırın `sysprep.exe`.
 3. İçinde **Sistem Hazırlama aracı** iletişim kutusunda **girin sistem Out-of-Box deneyimi (OOBE)**, emin olun **Generalize** onay kutusu seçilidir.
 4. İçinde **kapatma seçenekleri**seçin **kapatma**.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**’a tıklayın.
    
     ![Sysprep Başlat](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep tamamlandığında, sanal makineyi kapatır. 
@@ -57,7 +58,7 @@ Kullanarak bir Linux VM genelleştirmek `sudo waagent -deprovision+user` ve VM y
 > 
 > 
 
-## <a name="log-in-to-azure-powershell"></a>Azure PowerShell oturum açın
+## <a name="log-in-to-azure-powershell"></a>Azure PowerShell'de oturum açma
 1. Azure PowerShell'i açın ve Azure hesabınızda oturum açın.
    
     ```powershell

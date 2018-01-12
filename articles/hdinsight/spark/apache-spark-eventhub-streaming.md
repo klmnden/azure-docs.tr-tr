@@ -4,7 +4,7 @@ description: "Örnek veri akışı Azure Event Hub'ına olayları alıp gönderm
 keywords: "Apache spark akış, spark akış, spark örnek, apache spark akış örneği, olay hub'ı azure örneği, spark örnek"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: d0678388fea79797c3cb4cd84deeab827981ebff
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: jgao
+ms.openlocfilehash: 43ae956ca284485cc68f8120a31af1c493c0b254
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark akış: Hdınsight'ta Spark ile Azure Event Hubs işlem verilerini küme
 
@@ -33,7 +33,7 @@ Bu makalede, aşağıdaki adımları içerir örnek akış bir Apache Spark olu�
 
 3. Verileri farklı saklama sistemlerine kalıcı hale getirmek için analitik komut zincirleri akış yapı veya anında verilerinden öngörü edinme.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 

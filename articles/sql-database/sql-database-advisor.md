@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-recommendations"></a>Performans önerileri
 
@@ -36,7 +36,7 @@ Azure SQL veritabanı sürekli olarak yürütülmekte olan sorguları izler ve p
 
 Create Index öneri uygulandıktan sonra Azure SQL Database sorguları performans taban çizgisi performansı ile karşılaştırın. Yeni dizin performans geliştirmeleri geldiyseniz öneri başarılı olarak işaretlenir ve etkisi raporu kullanılabilir olacaktır. Dizini avantajları getirmek kaydetmedi durumda otomatik olarak döndürülecek. Önerileri kullanarak yalnızca veritabanı performansını artırır, böylece Azure SQL veritabanı sağlar.
 
-Tüm **Create Index** önerisi bir geri alma veritabanı veya havuz DTU kullanımı son 20 dakika veya depolama kullanımı % 90 olup olmadığını % 80 ise öneri uygulama izin vermiyor İlkesi yok. Bu durumda, öneri Ertelenen.
+Tüm **Create Index** önerisi bir geri alma havuzu veya veritabanı kaynak kullanımı yüksekse, öneri uygulama izin vermiyor İlkesi yok. Geri alma İlkesi, hesap CPU, veri g/ç, günlük GÇ ve kullanılabilir depolama alanı alır. CPU, veri g/ç veya günlük GÇ son 30 dakika içinde % 80 oluşturmak yerine daha yüksek olduğunda dizin ertelendi. Dizin oluşturulduktan sonra kullanılabilir depolama alanı % 10 olacaksa öneri hata durumuna geçer. İşlem, birkaç gün sonra otomatik hala ayarlama o dizini yararlı olacaktır inanırsa yeniden başlatılacak. Bu işlem, dizin oluşturmak için yeterli kullanılabilir depolama alanı veya dizin olarak yararlı artık görülmez kadar yinelenir.
 
 ## <a name="drop-index-recommendations"></a>Dizin kaldırma önerileri
 Eksik bir dizin algılama yanı sıra, Azure SQL veritabanı sürekli varolan dizinleri performansını analiz eder. Dizin kullanılmazsa, Azure SQL veritabanı bırakmadan öneririz. Bir dizini bırakmadan iki durumda da önerilir:

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory kullanarak Cassandra verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,12 +39,13 @@ Tüm desteklenen havuz veri deposuna Cassandra veritabanından veri kopyalayabil
 - Cassandra **sürümleri 2.X**.
 - Verileri kullanarak kopyalama **temel** veya **anonim** kimlik doğrulaması.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Genel olarak erişilebilir değil Cassandra veritabanından veri kopyalamak için bir Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) daha ayrıntılı bilgi için makalenin. Yerleşik bir Cassandra sürücü tümleştirmesi çalışma zamanı sağlar, bu nedenle herhangi bir sürücüsü başlangıç/bitiş Cassandra veri kopyalama işlemi sırasında el ile yüklemeniz gerekmez.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Cassandra bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -55,7 +56,7 @@ Aşağıdaki özellikler Cassandra bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type |Type özelliği ayarlanmalıdır: **Cassandra** |Evet |
-| ana bilgisayar |Bir veya daha fazla IP adresleri veya ana bilgisayar adlarını Cassandra sunucuları.<br/>IP adreslerini veya aynı anda tüm sunucularına bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
+| konak |Bir veya daha fazla IP adresleri veya ana bilgisayar adlarını Cassandra sunucuları.<br/>IP adreslerini veya aynı anda tüm sunucularına bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
 | port |İstemci bağlantılarını dinlemek için Cassandra sunucusunun kullandığı TCP bağlantı noktası. |Hayır (varsayılan olarak 9042) |
 | authenticationType | Cassandra veritabanına bağlanmak için kullanılan kimlik doğrulama türü.<br/>İzin verilen değerler: **temel**, ve **anonim**. |Evet |
 | kullanıcı adı |Kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
@@ -173,16 +174,16 @@ Cassandra veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Cassandr
 | ASCII |Dize |
 | BIGINT |Int64 |
 | BLOB |Byte] |
-| BOOLE DEĞERİ |Boole değeri |
+| BOOLE DEĞERİ |Boole |
 | ONDALIK |Ondalık |
 | ÇİFT |Çift |
-| KAYAN NOKTA |Tek |
+| KAYAN NOKTA |Bekar |
 | INET |Dize |
 | INT |Int32 |
 | METİN |Dize |
-| ZAMAN DAMGASI |Tarih saat |
-| TIMEUUID |GUID |
-| UUID |GUID |
+| ZAMAN DAMGASI |Tarih Saat |
+| TIMEUUID |Guid |
+| UUID |Guid |
 | VARCHAR |Dize |
 | VARINT |Ondalık |
 

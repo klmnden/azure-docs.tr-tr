@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, engellemenize, algılamanıza ve Artırılmış görünürlük aracılığıyla tehditleri Microsoft Azure kaynaklarınızın güvenliğini denetlemenize yanıtlamanıza yardımcı olan bir hizmeti ile ilgili sorular yanıtlanmaktadır.
@@ -61,6 +61,10 @@ Güvenlik İlkesi, Azure aboneliğinizde veri koleksiyonunu etkinleştirebilirsi
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Veri toplama etkin olduğunda ne olur?
 Veri toplama etkin olduğunda, tüm var olan Microsoft Monitoring Agent otomatik olarak sağlanır ve desteklenen herhangi bir yeni dağıtılan sanal makineler abonelikte.
+
+İşlem oluşturma olayı 4688 aracının verir ve *CommandLine* olay 4688 içinde alan. VM üzerinde oluşturulan yeni işlemleri tarafından olay günlüğüne kaydedilir ve Güvenlik Merkezi algılama hizmetleri tarafından izlenen. Her yeni işlem için kayıtlı ayrıntıları hakkında bilgi için bkz: [4688 açıklama alanlarında](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Aracı ayrıca VM üzerinde oluşturulan 4688 olayları toplar ve bunları aramada depolar.
+
+Güvenlik Merkezi VM şüpheli etkinlik algılarsa, müşteri e-posta ile varsa bildirilir [güvenlik bilgilerini](security-center-provide-security-contact-details.md) sağlanmış. Bir uyarı da Güvenlik Merkezi'nin güvenlik uyarıları panosunda görünür olur.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>İzleme Aracısı Sunucularım performansını etkiler mi?
 Aracı nominal miktarda sistem kaynağı tüketir ve performans üzerinde çok az etkisi olması gerekir. Performans etkisi ve aracı ve uzantı ile ilgili daha fazla bilgi için bkz [planlama ve işlemler Kılavuzu](security-center-planning-and-operations-guide.md#data-collection-and-storage).

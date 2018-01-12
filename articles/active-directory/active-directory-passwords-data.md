@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6704db9a722de78d9460703330cf3fdbc238b7d2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Parola sıfırlama son kullanıcı kayıt gerektirmeden dağıtma
 
@@ -39,7 +39,7 @@ Azure AD Connect varsayılan ayarları kullanırsanız, aşağıdaki eşlemeleri
 
 | Şirket içi Active Directory | Azure AD | Azure AD kimlik doğrulama kişi bilgisi |
 | --- | --- | --- |
-| telephoneNumber | Ofis telefonu | Diğer telefon |
+| telephoneNumber | Ofis telefonu | Alternatif telefon |
 | Mobil | Cep telefonu | Telefon |
 
 

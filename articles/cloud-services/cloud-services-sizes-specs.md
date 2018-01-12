@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services boyutları
 Bu konu, kullanılabilir boyutları ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekleri açıklar. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtımında dikkat edilecek noktalar sağlar. İçine bir kimliği her boyutuna sahip, [hizmet tanımı dosyası](cloud-services-model-and-package.md#csdef). Fiyatlar her boyutu için kullanılabilir [Cloud Services fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.
@@ -32,7 +32,7 @@ Bu konu, kullanılabilir boyutları ve bulut Hizmeti rol örnekleri (web rolleri
 Azure'da birden fazla standart boyut seçeneği vardır. Bu boyutlarla ilgili önemli noktalardan bazıları şunlardır:
 
 * D Serisi VM'ler, daha yüksek işlem gücüne ve geçici süreli disk performansına ihtiyaç duyan uygulamaları çalıştıracak şekilde tasarlanmıştır. D Serisi VM'ler daha hızlı işlemcilere, daha yüksek bellek-çekirdek oranına ve geçici disk için katı hal sürücüsüne (SSD) sahiptir. Ayrıntılı bilgi için Azure blogundaki [Yeni D Serisi Sanal Makine Boyutları](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) duyurusunu inceleyin.
-* Orijinal D Serisinin üzerine geliştirilen Dv2 Serisi, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
+* Dv3-serisi, Dv2 serisi, özgün D-serisi için bir devamı olarak geliştirilen, daha güçlü bir CPU özellikleri. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 * En fazla belleği sunan G Serisi VM'ler, Intel Xeon E5 V3 ailesi işlemcilere sahip ana bilgisayarlarda çalışır.
 * A-series VM'ler çeşitli donanım türleri ve işlemciler üzerinde dağıtılabilir. Çalışan örneğin üzerinde dağıtılmış donanım bağımsız olarak tutarlı işlemci performans sağlamak için donanımı, temel boyutu azaltılır. Bu boyutun dağıtıldığı fiziksel donanımı belirlemek için Sanal Makinenin içinden sanal donanımı sorgulayın.
 * A0 boyutunun fiziksel donanım üzerindeki abone sayısı planlanandan fazladır. Yalnızca bu boyutta diğer müşteri dağıtımları, çalışan iş yükünüzün performansını etkileyebilir. Göreli performans aşağıda beklenen temel düzey olarak belirtilmiştir ve %15 oranında değişiklik gösterebilir.
@@ -42,7 +42,7 @@ Sanal makinenin boyutu, fiyatlandırmayı etkiler. Boyut, sanal makinenin işlem
 Aşağıdaki önemli noktalar boyut konusunda karar vermenize yardımcı olabilir:
 
 * A8-A11 ve H Serisi boyutlar *yoğun işlem gücü kullanımlı örnekler* olarak da bilinir. Bu boyutları çalıştıran donanım; yüksek performanslı bilgi işlem (HPC) kümesi uygulamaları, modellemeler ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar için tasarlanmış ve iyileştirilmiştir. A8-A11 Serisinde, Intel Xeon E5-2670 @ 2,6 GHZ, H Serisinde ise Intel Xeon E5-2667 v3 @ 3,2 GHz işlemciler kullanılmaktadır. Ayrıntılı bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [yüksek performanslı işlem VM boyutları](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Dv2 serisi, D-serisi, G serisi, daha hızlı CPU talep uygulamaları için ideal, daha iyi yerel disk performans ya da daha yüksek bellek taleplerini sahip. Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
+* Dv3 serisi, Dv2 serisi, D-serisi, G serisi, daha hızlı CPU talep, daha iyi yerel disk performans ya da daha yüksek bellek taleplerini sahip uygulamalar için idealdir. Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
 * Azure veri merkezlerindeki fiziksel ana bilgisayarlardan bazıları A5 – A11 gibi daha büyük sanal makine boyutlarını desteklemeyebilir. Sonuç olarak, hata iletisi görebilirsiniz **sanal makine {makine adı} yapılandırılamadı** veya **sanal makine {makine adı} oluşturulamadı** zaman mevcut bir sanal makine yeni bir boyuta yeniden boyutlandırma; 16 Nisan 2013 önce; oluşturulan bir sanal ağda yeni bir sanal makine oluşturma veya var olan yeni bir sanal makine ekleme bulut hizmeti. Bkz: [hata: "sanal makine yapılandırma başarısız oldu"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) her dağıtım senaryosu için geçici çözümler için Destek Forumu üzerinde.
 * Ayrıca aboneliğiniz, belirli boyut ailelerinde dağıtabileceğiniz çekirdek sayısını da sınırlıyor olabilir. Artırmak istediğini kotalar için Azure Desteği'ne başvurun.
 
@@ -61,12 +61,13 @@ Kavram, Azure işlem birimi (Azure SKU'ları üzerinde işlem (CPU) performans k
 | [ExtraSmall](#a-series) |50 |
 | [Küçük ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210-250* |
-| [G1-5](#g-series) |180-240* |
+| [Bir v2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [E v3](#ev3-series) |160 - 190* |
+| [G](#g-series) |180-240* |
 | [H](#h-series) |290-300* |
 
 * işaretli ACU'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo Boost teknolojisinden faydalanır. Performans artışının oranı VM boyutuna, iş yüküne ve aynı ana bilgisayarda çalışan iş yüklerine göre değişiklik gösterebilir.
@@ -142,6 +143,29 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/aşırı yüksek |
 | İçin Standard_D15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
 
+## <a name="dv3-series"></a>Dv3 serisi
+
+| Boyut            | CPU çekirdekleri | Bellek: GiB   | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_D2_v3  | 2         | 8             | 16                   | 2/orta |
+| Standard_D4_v3  | 4         | 16            | 32                   | 2/yüksek |
+| Standard_D8_v3  | 8         | 32            | 64                   | 4/yüksek |
+| Standard_D16_v3 | 16        | 64            | 128                  | 8/aşırı yüksek |
+| Standard_D32_v3 | 32        | 128           | 256                  | 8/aşırı yüksek |
+| Standard_D64_v3 | 64        | 256           | 512                  | 8/aşırı yüksek |
+
+## <a name="ev3-series"></a>Ev3 serisi
+
+| Boyut            | CPU çekirdekleri | Bellek: GiB   | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_E2_v3  | 2         | 16            | 32                   | 2/orta |
+| Standard_E4_v3  | 4         | 32            | 64                   | 2/yüksek |
+| Standard_E8_v3  | 8         | 64            | 128                  | 4/yüksek |
+| Standard_E16_v3 | 16        | 128           | 256                  | 8/aşırı yüksek |
+| Standard_E32_v3 | 32        | 256           | 512                  | 8/aşırı yüksek |
+| Standard_E64_v3 | 64        | 432           | 864                  | 8/aşırı yüksek |
+
+
 ## <a name="g-series"></a>G Serisi
 | Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -188,10 +212,10 @@ Rol boyutunu ayarlama örneği [Standard_D2](#general-purpose-d) Web rol örneğ
 >
 
 ## <a name="get-a-list-of-sizes"></a>Boyutlarının listesini al
-Boyutlarının listesini almak için PowerShell veya REST API'sini kullanabilirsiniz. REST API belgelenen [burada](https://msdn.microsoft.com/library/azure/dn469422.aspx). Verilen bir konuma ait tüm boyutları listeler bir PowerShell komut kodudur. 
+Boyutlarının listesini almak için PowerShell veya REST API'sini kullanabilirsiniz. REST API belgelenen [burada](https://msdn.microsoft.com/library/azure/dn469422.aspx). Tüm boyutları kullanılabilir için bulut hizmetlerini listeleyecek bir PowerShell komut kodudur. 
 
 ```powershell
-Get-AzureRmVMSize -Location 'West Europe'
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

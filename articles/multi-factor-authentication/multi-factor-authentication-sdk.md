@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Yapı multi-Factor Authentication özel uygulamalar (SDK)
 
@@ -38,7 +38,7 @@ API'ler Azure Active Directory'de kayıtlı kullanıcılara erişimi olmadığı
 
 
 ## <a name="download-the-sdk"></a>SDK'sını indirin
-Azure çok faktörlü SDK'sını indirme gerektiren bir [Azure multi-Factor Auth sağlayıcısı](multi-factor-authentication-get-started-auth-provider.md).  Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları ait olsa bile bu tam Azure aboneliği gerektirir. SDK kullanım beri SDK indirilmesi genel yöntemler kullanımdan çıkarıldı olmuştur. SDK'sını indirin gerekiyorsa, Microsoft ile bir destek servis talebi açmanız gerekir.
+Azure çok faktörlü SDK'sını indirme gerektiren bir [Azure multi-Factor Auth sağlayıcısı](multi-factor-authentication-get-started-auth-provider.md).  Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları ait olsa bile bu tam Azure aboneliği gerektirir. SDK kullanım beri SDK indirilmesi genel yöntemler hizmetten. SDK'sını indirin gerekiyorsa, Microsoft ile bir destek servis talebi açmanız gerekir. SDK, SDK'i zaten kullanmakta olduğunuz müşterilerine sağlanmıştır. Yeni müşteriler edildi olmaz.
 
 ## <a name="whats-in-the-sdk"></a>SDK'ın nedir
 SDK'yı aşağıdaki öğeleri içerir:

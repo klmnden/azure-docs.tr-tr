@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ölçek birimi düğümü Eylemler Azure yığınında
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri*
 
 Bu makalede, bir ölçek birimi ve ilişkili düğümlerini durumunu görüntülemek nasıl ve kullanılabilir düğüm Eylemler kullanmayı açıklar. Düğüm Eylemler gücüyle, güç kapalı dahil boşaltma sürdürmek ve onarın. Genellikle, alan değiştirmesi bölümlerinin veya düğüm kurtarma senaryoları için sırasında bu düğüm eylemlerini kullanın.
+
+> [!Important]  
+> Bu makalede açıklanan tüm düğüm Eylemler aynı anda yalnızca hedef bir düğüm olmalıdır.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Bir ölçek birimi ve düğümlerini durumunu görüntüleme
 
@@ -75,13 +79,17 @@ Düğüm işlemsel durumu hangi seçeneklerin kullanılabilir olduğunu belirler
 
 **Kapatmak** eylem düğümü devre dışı bırakır. Güç düğmesine basın gibi aynı olur. Mevcut **değil** işletim sistemine bir kapatma sinyali göndermek. Operations planlı kapatma için öncelikle bir ölçek birimi düğüm boşaltma emin olun.
 
-Bu eylem genellikle bir düğüm askıdaki durumda ve artık isteklerine yanıt kullanılır.  
+Bu eylem genellikle bir düğüm askıdaki durumda ve artık isteklerine yanıt kullanılır.
+
+> [!Important] 
+> Bu işlevsellik yalnızca PowerShell ile kullanılabilir. Daha sonra yeniden Azure yığın Yönetici portalı'nda kullanılabilir olacaktır.
+
 
 Eylem PowerShell aracılığıyla kapatma çalıştırmak için:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 Eylem kapatma işe yaramazsa olası durumda da, bunun yerine BMC web arabirimi kullanın.
 
@@ -89,11 +97,14 @@ Eylem kapatma işe yaramazsa olası durumda da, bunun yerine BMC web arabirimi k
 
 **Üzerinde güç** eylem düğümde kapatır. Güç düğmesine basın gibi aynı olur. 
 
+> [!Important] 
+> Bu işlevsellik yalnızca PowerShell ile kullanılabilir. Daha sonra yeniden Azure yığın Yönetici portalı'nda kullanılabilir olacaktır.
+
 PowerShell aracılığıyla eylemi güç çalıştırmak için:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 Eylem gücüyle işe yaramazsa olası durumda da, bunun yerine BMC web arabirimi kullanın.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Bir Azure dosya eşitleme (Önizleme) sunucu uç nokta Ekle/Kaldır
 Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -27,12 +27,12 @@ A *sunucusu uç noktası* üzerinde belirli bir konumu temsil eden bir *kayıtl�
 
 Bkz: [Azure dosya eşitleme (Önizleme) dağıtma](storage-sync-files-deployment-guide.md) Azure dosya eşitleme uçtan uca dağıtma hakkında bilgi için.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Sunucusu uç noktası oluşturmak için önce aşağıdaki ölçütleri karşılandığından emin olmalısınız: 
 - Sunucu, Azure dosya eşitleme aracısının yüklü olduğundan ve kaydedildi. Azure dosya eşitleme Aracısı'nı yüklemek için yönergeleri bulunabilir [kaydı/kaydı sunucu bir Azure dosya eşitleme (Önizleme) ile](storage-sync-files-server-registration.md) makalesi. 
 - Bir depolama eşitleme hizmeti dağıtıldıktan emin olun. Bkz: [Azure dosya eşitleme (Önizleme) dağıtma](storage-sync-files-deployment-guide.md) depolama eşitleme hizmetinin nasıl dağıtılacağı hakkında ayrıntılı bilgi için. 
 - Eşitleme grubu dağıtıldı emin olun. Bilgi edinmek için nasıl [eşitleme grubu oluşturma](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Sunucu internet'e bağlı olduğunu ve Azure erişilebilir olduğundan emin olun.
+- Sunucu internet'e bağlı olduğunu ve Azure erişilebilir olduğundan emin olun. Hizmetimiz ile sunucu arasındaki tüm iletişimi için 443 numaralı bağlantı noktasını kullanın.
 
 ## <a name="add-a-server-endpoint"></a>Bir sunucu uç nokta ekleyin
 Sunucusu uç noktası eklemek için istenen eşitleme grubuna gidin ve "sunucusu uç noktası Ekle"'yi seçin.

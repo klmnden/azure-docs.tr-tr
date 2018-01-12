@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management sayfası şablonları
 Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
@@ -39,7 +39,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
  ![Oturum açma sayfası](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM oturum açma sayfasında Geliştirici Portalı şablonları")  
   
-### <a name="default-template"></a>Varsayılan şablonu  
+### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 <h2 class="text-center">{% localized "SigninStrings|WebAuthenticationSigninTitle" %}</h2>  
@@ -108,16 +108,16 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -127,10 +127,10 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a>Kaydol  
@@ -138,7 +138,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
  ![Oturum açma sayfasına](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "sayfasında Geliştirici Portalı şablonları APIM kaydolma")  
   
-### <a name="default-template"></a>Varsayılan şablonu  
+### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 <h2 class="text-center">{% localized "SignupStrings|PageTitleSignup" %}</h2>  
@@ -186,7 +186,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
  ![Sayfa bulunamadı](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM Portal şablonları sayfasında Geliştirici bulunamadı")  
   
-### <a name="default-template"></a>Varsayılan şablonu  
+### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 <h2>{% localized "NotFoundStrings|PageTitleNotFound" %}</h2>  
@@ -225,11 +225,11 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|referenceCode|Dize|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan kod.|  
-|hata kodu|Dize|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan kod.|  
-|emailBody|Dize|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan gövde e-posta.|  
-|requestedUrl|Dize|Sayfa bulunamadı, istenen URL.|  
-|referrerUrl|Dize|İstenen URL başvuran URL.|  
+|referenceCode|string|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan kod.|  
+|hata kodu|string|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan kod.|  
+|emailBody|string|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan gövde e-posta.|  
+|requestedUrl|string|Sayfa bulunamadı, istenen URL.|  
+|referrerUrl|string|İstenen URL başvuran URL.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   

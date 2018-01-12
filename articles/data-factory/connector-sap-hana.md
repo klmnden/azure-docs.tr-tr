@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP HANA veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ SAP HANA veritabanından veri tüm desteklenen havuz veri deposuna kopyalayabili
 > [!NOTE]
 > Verileri kopyalamak için **içine** SAP HANA veri deposuna, genel ODBC bağlayıcı kullanın. Bkz: [SAP HANA havuz](connector-odbc.md#sap-hana-sink) ayrıntılarla. SAP HANA bağlayıcı ve ODBC bağlayıcı için bağlantılı Hizmetleri farklı türde Not böylece yeniden kullanılamaz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu SAP HANA bağlayıcıyı kullanmak için aktarmanız gerekir:
 
@@ -50,7 +50,8 @@ Bu SAP HANA bağlayıcıyı kullanmak için aktarmanız gerekir:
 - SAP HANA ODBC sürücüsü tümleştirmesi çalışma zamanı makineye yükleyin. SAP HANA ODBC sürücüsünü yükleyebilirsiniz [SAP yazılım İndirme Merkezi](https://support.sap.com/swdc). Arama anahtar sözcüğü ile **Windows için SAP HANA İSTEMCİSİ**.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, SAP HANA bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -169,16 +170,16 @@ SAP HANA veri kopyalama işlemi sırasında aşağıdaki eşlemelerini SAP HANA 
 | BLOB | Byte] |
 | BOOLE DEĞERİ | Bayt |
 | CLOB | Byte] |
-| TARİH | Tarih saat |
+| DATE | Tarih Saat |
 | ONDALIK | Ondalık |
-| ÇİFT | Tek |
+| ÇİFT | Bekar |
 | INT | Int32 |
 | NVARCHAR | Dize |
-| GERÇEK | Tek |
-| SECONDDATE | Tarih saat |
+| GERÇEK | Bekar |
+| SECONDDATE | Tarih Saat |
 | TAMSAYI | Int16 |
 | SAAT | TimeSpan |
-| ZAMAN DAMGASI | Tarih saat |
+| ZAMAN DAMGASI | Tarih Saat |
 | MİNİ TAMSAYI | Bayt |
 | VARCHAR | Dize |
 

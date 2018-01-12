@@ -3,8 +3,8 @@ title: "Çok faktörlü kimlik doğrulama - Azure SQL yapılandırma | Microsoft
 description: "SQL Database ve SQL Data Warehouse için SSMS ile Multi-Factored kimlik doğrulaması kullanmayı öğrenin."
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/27/2017
-ms.author: rickbyh
-ms.openlocfilehash: a6895f7a145c7b925703e4deb32411d51e7a3cab
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.author: mireks
+ms.openlocfilehash: fe056288fbc04db0a6892c9a501c58ed85967734
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio ve Azure AD için çok faktörlü kimlik doğrulamasını yapılandırma
 
@@ -67,7 +67,7 @@ Doğrulama tamamlandıktan sonra normal olarak geçerli kimlik bilgileri ve güv
 - Evrensel kimlik doğrulaması ile Azure SQL veritabanı çok faktörlü kimlik doğrulamasına genel bakış için bkz: [SQL Database ve SQL Data Warehouse (MFA desteği SSMS)](sql-database-ssms-mfa-authentication.md).  
 - Başkalarının, veritabanına erişim izni vermek: [SQL veritabanı kimlik doğrulaması ve yetkilendirme: erişim verme](sql-database-manage-logins.md)  
 - Diğer güvenlik duvarı üzerinden bağlanabilir emin olun: [Azure portalını kullanarak bir Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma](sql-database-configure-firewall-settings.md)  
-- Kullanırken **Active Directory - Evrensel MFA ile** kimlik doğrulaması, ADAL izleme kullanılabilir başlayarak olduğunu [SSMS 17,3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Varsayılan olarak, ADAL izlemeyi kullanarak devre dışı bırakabilirsiniz **Araçları**, **seçenekleri** menüsü altında **Azure Hizmetleri**, **Azure bulut**,  **ADAL çıkış penceresi izleme düzeyini**, izlenen etkinleştirerek **çıkış** içinde **Görünüm** menüsü. İzlemeler çıktı penceresinde seçerken kullanılabilir **Azure Active Directory seçeneği**.   
+- Kullanırken **Active Directory - Evrensel MFA ile** kimlik doğrulaması, ADAL izleme kullanılabilir başlayarak olduğunu [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Varsayılan olarak, ADAL izlemeyi kullanarak devre dışı bırakabilirsiniz **Araçları**, **seçenekleri** menüsü altında **Azure Hizmetleri**, **Azure bulut**,  **ADAL çıkış penceresi izleme düzeyini**, izlenen etkinleştirerek **çıkış** içinde **Görünüm** menüsü. İzlemeler çıktı penceresinde seçerken kullanılabilir **Azure Active Directory seçeneği**.   
 
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png

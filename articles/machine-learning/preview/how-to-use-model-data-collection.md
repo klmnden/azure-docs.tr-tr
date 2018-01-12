@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6a40a85426d2be72fa688548f7ab30e7e5f92146
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Veri toplama kullanarak model verileri toplama
 
-Model girişleri ve bir web hizmetinden tahminleri arşivlemek için Azure Machine Learning çalışma modeli veri koleksiyonu özelliğini kullanabilirsiniz.
+Model girişleri ve bir web hizmetinden tahminleri arşivlemek için Azure Machine Learning modeli veri koleksiyonu özelliğini kullanabilirsiniz.
 
 ## <a name="install-the-data-collection-package"></a>Veri Toplama Paketi Yükle
 Linux ve Windows, veri toplama Kitaplığı yerel olarak yükleyebilirsiniz.
@@ -37,6 +37,12 @@ Linux üzerinde ilk libxml ++ Kitaplığı yükleyin. Sudo altında verilmiş ol
 Ardından aşağıdaki komutu çalıştırın:
 
     pip install azureml.datacollector
+
+## <a name="set-environment-variables"></a>Ortam değişkenlerini ayarlama
+
+Model veri koleksiyonu, iki ortam değişkenlerini bağlıdır. AML_MODEL_DC_STORAGE_ENABLED ayarlanmalıdır **true** (tüm küçük harf) ve AML_MODEL_DC_STORAGE ayarlanmalıdır Azure depolama hesabı bağlantı dizesi verileri depolamak istediğiniz.
+
+Web hizmeti azure'da bir kümede çalışırken zaten bu ortam değişkenleri ayarlanır. Yerel olarak çalıştırırken, kendiniz ayarlamanız gerekir. Docker kullanıyorsanız, ortam değişkenleri geçirmek için komutu Çalıştır docker -e parametresini kullanın.
 
 ## <a name="collect-data"></a>Veri toplama
 
@@ -88,7 +94,7 @@ Blob depolama alanına toplanan verileri görüntülemek için:
 
     a. Azure Machine Learning çalışma ekranına gidin, proje üzerinde çalışıyorsanız ve bir komut isteminden açmak seçin **dosya** menüsü.
     
-    b. Girin `az ml env show -v` ve denetleme *storage_account* değeri. Depolama hesabınız adıdır.
+    b. Girin `az ml env show -v` ve denetleme *storage_account* değeri. Bu değer, depolama hesabınızın adıdır.
 
 5. Seçin **kapsayıcıları** kaynak dikey menü ve kapsayıcı adlı **modeldata**. Depolama hesabı yayılıyor Başlat verileri görmek için ilk web hizmeti isteğine sonraki 10 dakika kadar beklemeniz gerekebilir. Veriler aşağıdaki kapsayıcı yoluyla bloblara akar:
 
@@ -98,9 +104,9 @@ Verileri Azure bloblarından tüketilen çeşitli yollarla, Microsoft yazılım 
 - Azure Machine Learning çalışma ekranı:, .csv dosyası bir veri kaynağı olarak ekleyerek, Azure Machine Learning çalışma .csv dosyasını açın.
 - Excel: günlük .csv dosyaları hesap çizelgesi olarak açın.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): BLOB'lar .csv verilerden çekilen verilerle grafikleri oluşturun.
-- [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview): .csv veri büyük bölümünü bir veri çerçevesi oluşturun.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): .csv veri büyük bölümünü bir veri çerçevesi oluşturun.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): yük .csv verilerini bir Hive tablo ve SQL sorguları doğrudan blob gerçekleştirin.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): yük .csv verilerini bir Hive tablo ve SQL sorguları doğrudan blob gerçekleştirin.
 

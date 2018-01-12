@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 75c3b514b8cb7758399efb92cb9e0738c855f022
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory kullanarak DB2'den veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,12 +48,13 @@ Tüm desteklenen havuz veri deposuna DB2 veritabanından veri kopyalayabilirsini
 > - DB2 için i (AS400): güç kullanıcı oturum açma kullanıcısı için kopyalama etkinliği kullanmadan önce Koleksiyonu Oluştur olanak tanır. Komut:`create collection <username>`
 > - DB2 için z/OS veya LUW: kopyalama etkinliği çalışmak üzere yüksek ayrıcalıklı bir hesap - power user veya Yönetim Paketi yetkilileri ve bağlama, BINDADD, GRANT YÜRÜTMEK için genel izinleri - kullanın ve sonra gerekli paket kopyalama sırasında otomatik olarak oluşturulur. Daha sonra geri normal bir kullanıcı için sonraki kopyalama çalışmalarınız için geçiş yapabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Genel olarak erişilebilir değil bir DB2 veritabanından veri Kopyala kullanmak için Self-hosted tümleştirmesi çalışma zamanı ayarlamak gerekir. Kendini barındıran tümleştirme çalışma zamanları hakkında bilgi edinmek için [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) makalesi. Yerleşik bir DB2 sürücü tümleştirmesi çalışma zamanı sağlar, bu nedenle herhangi bir sürücüsü DB2'den veri kopyalama işlemi sırasında el ile yüklemeniz gerekmez.
 
 ## <a name="getting-started"></a>Başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını DB2 Bağlayıcısı tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -65,7 +66,7 @@ Aşağıdaki özellikler DB2 bağlantılı hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Db2** | Evet |
 | sunucu |DB2 sunucunun adıdır. |Evet |
-| Veritabanı |DB2 veritabanının adı. |Evet |
+| veritabanı |DB2 veritabanının adı. |Evet |
 | Şema |Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
 | authenticationType |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulama türü.<br/>Değer izin verilen: **temel**. |Evet |
 | kullanıcı adı |DB2 veritabanına bağlanmak için kullanıcı adını belirtin. |Evet |
@@ -194,10 +195,10 @@ DB2'den veri kopyalama işlemi sırasında aşağıdaki eşlemelerini DB2 veri t
 | LongVarChar |Dize |
 | LongVarGraphic |Dize |
 | sayısal |Ondalık |
-| Real |Tek |
+| Real |Bekar |
 | Tamsayı |Int16 |
 | Zaman |TimeSpan |
-| zaman damgası |Tarih saat |
+| Zaman damgası |Tarih Saat |
 | VarBinary |Byte] |
 | VarChar |Dize |
 | VarGraphic |Dize |

@@ -9,18 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview-samples
+ms.custom: overview-samples, mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: On Demand
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 1d1692cc43a7a5ec50c0689706d93a784a5fed88
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: fd60a8987e6c57cf72eb7766f6a1b784e46a894d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL veritabanı için Azure PowerShell örnekleri
 
@@ -47,5 +47,5 @@ Aşağıdaki tabloda, Azure SQL veritabanı için örnek Azure PowerShell betikl
 | **Veritabanları arasında eşitleme verileri**||
 | [SQL veritabanları arasında eşitleme verileri](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği veri birden çok Azure SQL veritabanları arasında eşitlemek için eşitleme yapılandırır. |
 | [Şirket içi SQL Database ve SQL Server arasında veri eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği veri bir Azure SQL veritabanı ile bir SQL Server içi veritabanı arasında eşitlemek için eşitleme yapılandırır. |
-|||
+| [SQL veri eşitleme eşitleme Şeması'nı güncelleştirme](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği ekler veya öğeleri veri eşitleme eşitleme şemasından kaldırır. |
 |||

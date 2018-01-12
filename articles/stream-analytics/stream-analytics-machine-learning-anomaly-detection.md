@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>ANOMALYDETECTION işlecini kullanarak
 
@@ -89,7 +89,7 @@ Bu anomali puanları birini bir eşik kestiği zaman belirli bir türdeki bir an
 
 **ANOMALYDETECTION** , olay için hesaplama işlevi girer olay çalıştırır ve bir puan üretilen anlamına gelir penceresi semantiği kayan kullanır. Hesaplama dağıtım olay değerlerin değiştirilmesi durumunda denetleyerek çalışması Exchangeability Martingales temel alır. Bu durumda, olası anomali algılandı. Döndürülen puanı bu anomali güven düzeyinin göstergesidir. Dahili bir iyileştirme olarak **ANOMALYDETECTION** göre bir olay anomali puanı hesaplar *d* için *2B* , olayların nerede *d*belirtilen algılama pencere boyutu.
 
-**ANOMALYDETECTION** Giriş zaman serisi tekdüzen olmasını bekler. Bir olay akışı dönen üzerinden toplama veya pencere atlamalı Tekdüzen yapılabilir. Olaylar arasındaki boşluk her zaman toplama penceresinden daha küçük olduğu senaryolarda atlayan pencere zaman serisi Tekdüzen yapmak yeterli olur. Boşluk daha büyük olabilir, boşlukları atlamalı pencerenin kullanarak son değeri tekrarlayarak doldurulabilir. Bu iki senaryoya izler örnek tarafından işlenebilir. Şu anda `FillInMissingValuesStep` adım olamaz atlandı. Bu adım olmaması, bir derleme hataya neden olur.
+**ANOMALYDETECTION** Giriş zaman serisi tekdüzen olmasını bekler. Bir olay akışı dönen üzerinden toplama veya pencere atlamalı Tekdüzen yapılabilir. Olaylar arasındaki boşluk her zaman toplama penceresinden daha küçük olduğu senaryolarda atlayan pencere zaman serisi Tekdüzen yapmak yeterli olur. Boşluk daha büyük olabilir, boşlukları atlamalı pencerenin kullanarak son değeri tekrarlayarak doldurulabilir. Bu iki senaryoya izler örnek tarafından işlenebilir.
 
 ## <a name="performance-guidance"></a>Performans rehberi
 
@@ -105,8 +105,6 @@ Bu anomali puanları birini bir eşik kestiği zaman belirli bir türdeki bir an
 
 Aşağıdaki sorgu, bir anomali algılanırsa bir uyarı çıktısını almak için kullanılabilir.
 Giriş akışı Tekdüzen olmadığı durumlarda, toplama adım Tekdüzen zaman serisi dönüştürme yardımcı olabilir. Örnek kullanır **AVG** ancak toplama türünü kullanıcı senaryoya bağlıdır. Ayrıca, bir zaman serisinin boşluklar toplama penceresinden daha büyük olduğunda, olacaktır olayı yok (göredir penceresi semantiği kayan) tetikleyici anormallik algılama zaman serisinde. Sonuç olarak, sonraki olay geldiğinde bütünlüğünü varsayım kırılır. Böyle durumlarda, zaman serisinde boşlukları doldurarak yolu gerekir. Olası bir yaklaşım son olay her atlama penceresinde, aşağıda gösterildiği gibi almaktır.
-
-Önce belirtildiği gibi yok atla `FillInMissingValuesStep` şimdilik adım. Bu adımı atlayarak bir derleme hataya neden olur.
 
     WITH AggregationStep AS 
     (

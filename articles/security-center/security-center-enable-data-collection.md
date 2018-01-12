@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi veri toplama
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve güvenlik açıkları ve tehditleri izlemek üzere Azure olmayan bilgisayarları veri toplar. Microsoft izleme çeşitli güvenlikle ilgili yapılandırmaları ve olay günlüklerini makineden okur ve verileri analiz için çalışma alanınızda kopyalar aracısı kullanarak verileri toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri), çalışan işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği. Microsoft Monitoring Agent ayrıca alanınıza kilitlenme bilgi döküm dosyaları kopyalar.
@@ -90,14 +90,24 @@ Güvenlik Merkezi, araştırma, Denetim ve tehdit algılama için yeterli olayla
 
 Ait olayları belirlemek için **ortak** ve **en az** olay kümeleri, biz çalışılan müşteriler ve endüstri standartları filtrelenmemiş sıklığını her olay ve kullanımı hakkında bilgi edinmek için. Bu işlemde aşağıdaki yönergeleri kullandık:
 
-- **En az** -Bu, başarılı bir ihlal gösterebilir olayları ve çok düşük bir biriminiz önemli olayları kapsadığından emin olun. Örneğin, kullanıcı başarılı ve başarısız oturum açma (olay kimlikleri 4624 4625) bu küme içeriyor, ancak denetlemek için önemli, ancak algılama için anlamlı ve görece yüksek hacimli içeren oturum kapatma içermiyor. Bu kümesinin veri hacmi çoğunu, oturum açma olayları ve işlem oluşturma olayı (olay kimliği 4688).
+- **En az** -Bu, başarılı bir ihlal gösterebilir olayları ve çok düşük bir biriminiz önemli olayları kapsadığından emin olun. Örneğin, kullanıcı başarılı ve başarısız oturum açma (olay kimlikleri 4624 4625) bu küme içeriyor, ancak denetlemek için önemli, ancak algılama için anlamlı ve görece yüksek hacimli içeren oturum kapatma içermiyor. Bu veri hacmi çoğunu olduğundan oturum açma olayları ve işlem oluşturma olayı (olay kimliği 4688 bkz Güvenlik Merkezi'nin [SSS](security-center-faq.md#what-happens-when-data-collection-is-enabled) işlem oluşturma olayı 4688 hakkında daha fazla bilgi için).
 - **Ortak** -tam kullanıcı denetim izi bu kümesindeki sağlayın. Örneğin, bu küme, kullanıcı oturumu ve kullanıcı oturumu (olay kimliği 4634) içerir. Güvenlik grubu değişikliklerini, anahtar etki alanı denetleyicisi Kerberos işlemleri ve endüstri kuruluşlar tarafından önerilen diğer olaylar gibi eylemleri denetim içerir.
 
 Çok düşük birim olayları birimi küçültmek ve belirli olayları da filtre olduğu tüm olayları üzerinden seçmek için ana motivasyon yap ortak eklendi.
 
 Güvenlik ve App Locker olay kimlikleri her küme için tam bir dökümünü şöyledir:
 
-   ![Olay kimlikleri][4]
+| Veri katmanı | Toplanan olay göstergeleri |
+| --- | --- |
+| En Az | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
+| Ortak (varsayılan) | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
+| | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
+| | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
+| | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
+| | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
+| | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 Filtreleme ilkeniz seçmek için:
 1. Üzerinde **güvenlik ilkesi & ayarları** dikey penceresinde filtreleme ilkesi altında seçin **güvenlik olaylarını**.
@@ -137,6 +147,5 @@ Bu makalede gösterilen, nasıl veri toplama ve Güvenlik Merkezi çalışır ot
 [1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[4]: ./media/security-center-enable-data-collection/event-id.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
 [6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png

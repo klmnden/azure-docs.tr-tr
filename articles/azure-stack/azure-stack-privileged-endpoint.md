@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure yığınında ayrıcalıklı uç noktası kullanma
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Bir Azure yığın operatör olarak, Yönetici portalı'nı, PowerShell veya Azure Resource Manager API'leri en günlük yönetim görevleri için kullanmanız gerekir. Ancak, bazı ortak işlemleri daha az kullanmanız gerekir *ayrıcalıklı uç nokta*. Bu uç noktaya gerekli bir görevi gerçekleştirmenize yardımcı olmak için yeterli yetenekleri sağlayan bir önceden yapılandırılmış Uzaktan PowerShell konsoludur. Uç nokta PowerShell cmdlet'leri yalnızca sınırlı sayıda kullanıma sunmak için JEA (yalnızca yeterince yönetim) yararlanır. Ayrıcalıklı uç noktasına erişmek ve kısıtlı bir cmdlet kümesi çağırmak için bir düşük ayrıcalıklı hesap kullanılır. Hiç yönetici hesabı gereklidir. Ek güvenlik için komut dosyası izin verilmiyor.
+Bir Azure yığın operatör olarak, Yönetici portalı'nı, PowerShell veya Azure Resource Manager API'leri en günlük yönetim görevleri için kullanmanız gerekir. Ancak, bazı ortak işlemleri daha az kullanmanız gerekir *ayrıcalıklı endpoint* (CESARETLENDİRİCİ). Bu uç noktaya gerekli bir görevi gerçekleştirmenize yardımcı olmak için yeterli yetenekleri sağlayan bir önceden yapılandırılmış Uzaktan PowerShell konsoludur. Uç nokta PowerShell cmdlet'leri yalnızca sınırlı sayıda kullanıma sunmak için JEA (yalnızca yeterince yönetim) yararlanır. Ayrıcalıklı uç noktasına erişmek ve kısıtlı bir cmdlet kümesi çağırmak için bir düşük ayrıcalıklı hesap kullanılır. Hiç yönetici hesabı gereklidir. Ek güvenlik için komut dosyası izin verilmiyor.
 
 Ayrıcalıklı uç noktası aşağıdaki gibi görevleri gerçekleştirmek için kullanabilirsiniz:
 
@@ -98,6 +98,7 @@ Ayrıcalıklı uç noktasına yalnızca donanım yaşam döngüsü konak veya ay
     - Remove-CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
+    - Test-AzureStack
     - Stop-AzureStack
     - Get-ClusterLog
 

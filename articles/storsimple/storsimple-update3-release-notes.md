@@ -4,7 +4,7 @@ description: "Yeni özellikler, sorunlar ve geçici çözümler için StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 282383f0887e546c7d569494eeab42805f789fb2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c22e3859fad55a8632d62aaf5f656081d6d662bd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>3 sürüm notları, StorSimple 8000 serisi cihazınız için güncelleştirme
 > [!NOTE]
-> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+> StorSimple için klasik portal kullanım dışıdır. StorSimple Cihaz Yöneticileriniz, yeni Azure portalına kullanımdan kaldırma zamanlamasına göre otomatik olarak taşınacaktır. Bu taşımayla ilgili bir e-posta ve portal bildirimi alacaksınız. Bu belge de yakında kullanımdan kaldırılacaktır. Taşıma hakkında tüm sorularınız için bkz. [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -42,7 +42,7 @@ Lütfen StorSimple çözümünüzde güncelleştirme dağıtmadan önce sürüm 
 ## <a name="whats-new-in-update-3"></a>Güncelleştirme 3'te yenilikler nelerdir?
 Güncelleştirme 3'te, aşağıdaki anahtar geliştirmeler ve hata düzeltmeleri yapıldı.
 
-* **Alan geri kazanma değişiklikleri otomatik** – daha hızlı yürütme sonuçlanan Sistem bekleme denetleyicisini güncelleştirme 3, başlangıç alan geri kazanma algoritmaları çalıştırmak. Alan geri kazanma ile çalışmak için gerekli bağlantı noktaları hakkında daha fazla bilgi için bkz [ağ gereksinimleri StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+* **Alan geri kazanma değişiklikleri otomatik** – daha hızlı yürütme sonuçlanan Sistem bekleme denetleyicisini güncelleştirme 3, başlangıç alan geri kazanma algoritmaları çalıştırmak. Alan geri kazanma ile çalışmak için gerekli bağlantı noktaları hakkında daha fazla bilgi için bkz [ağ gereksinimleri StorSimple](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 * **Performans iyileştirmeleri** – güncelleştirme 3'ü okuma-yazma performansı bulut için iyileştirilmiştir.
 * **Geçiş ile ilgili geliştirmeler** – bu sürümde, çeşitli hata düzeltmeleri ve geliştirmeleri bitti için geçiş özelliğini 5000/7000 Serisi cihazlar 8000 serisi cihazlar için. Geçiş özelliğini kullanma hakkında daha fazla bilgi için Git [8000 serisi aygıt 5000/7000 Serisi cihaz geçiş](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
 * **İlgili düzeltmeleri izleme** - bu sürümde, hataları ile ilgili izleme grafikleri, hizmet panosunu ve cihaz Pano giderildi.
@@ -69,7 +69,7 @@ Aşağıdaki tabloda bu sürümdeki bilinen sorunlara özetini sağlar.
 | 3 |Depolama hesapları |Depolama hesabını silmek için Depolama Birimi hizmetini kullanarak desteklenmeyen bir senaryodur. Bu kullanıcı verileri alınamıyor bir durum neden. | |Evet |Evet |
 | 4 |Cihaz yük devretme |Farklı bir hedef cihazlara aynı kaynak cihazdaki birim kapsayıcısının birden çok yük devretme desteklenmiyor. Tek bir ölü CİHAZDAN birden çok aygıt yük devretme veri sahipliği kaybetmek birim kapsayıcıları aygıt üzerinden başarısız ilk hale getirir. Bu tür bir yük devretme sonrasında, bu birim kapsayıcıları görünür veya Klasik Azure portalında görüntülediğinizde farklı şekilde davranır. | |Evet |Hayır |
 | 5 |Yükleme |SharePoint yükleme için StorSimple bağdaştırıcısı sırasında aygıt IP başarıyla tamamlamak bir yükleme için sırayla sağlamanız gerekir. | |Evet |Hayır |
-| 6 |Web proxy |Web proxy yapılandırması belirtilen protokol olarak HTTPS varsa, cihazı hizmeti iletişimi etkilenecek ve cihaz çevrimdışı. Destek paketleri aygıtınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP sahip olduğundan emin olun. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](storsimple-configure-web-proxy.md)’ya gidin. |Evet |Hayır |
+| 6 |Web proxy |Web proxy yapılandırması belirtilen protokol olarak HTTPS varsa, cihazı hizmeti iletişimi etkilenecek ve cihaz çevrimdışı. Destek paketleri aygıtınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP sahip olduğundan emin olun. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](storsimple-8000-configure-web-proxy.md)’ya gidin. |Evet |Hayır |
 | 7 |Web proxy |Yapılandırma ve web proxy bir kayıtlı cihazda etkinleştirirseniz, Cihazınızı etkin denetleyicisinde yeniden başlatmanız gerekir. | |Evet |Hayır |
 | 8 |Yüksek bulut gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye sırasını) ve yüksek g/ç iş yükü bileşimini karşılaştığında, düzeyi düşürülmüş bir duruma aygıt birimleri gidin ve g/ç "cihaz hazır değil" hatası ile başarısız. |El ile aygıt denetleyicileri yeniden başlatın veya bu durumdan kurtarmak için bir aygıt yük devretme gerçekleştirmek gerekir. |Evet |Hayır |
 | 9 |Azure PowerShell |StorSimple cmdlet'ini kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** yeni oluşturabilmesi için ilk nesneyi seçmek için **VolumeContainer** nesnesi, cmdlet tüm nesneleri döndürür. |Cmdlet parantez içine aşağıdaki gibi kaydır: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - ilk 1 - bekleme** |Evet |Evet |

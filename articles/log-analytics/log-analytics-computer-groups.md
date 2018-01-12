@@ -1,5 +1,5 @@
 ---
-title: "Günlük analizi bilgisayar gruplarında oturum aramaları | Microsoft Docs"
+title: "Azure günlük analizi bilgisayar gruplarında oturum aramaları | Microsoft Docs"
 description: "Günlük analizi bilgisayar gruplarında, belirli bir bilgisayar kümesi kapsam günlük aramaları izin verir.  Bu makalede, bilgisayar grupları ve günlük aramada kullanma oluşturmak için kullanabileceğiniz farklı yöntemler açıklanmaktadır."
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Günlük analizi bilgisayar gruplarında aramaları oturum
 
@@ -46,7 +46,7 @@ Aşağıdaki tabloda, bir bilgisayar grubu tanımlayan özellikleri açıklanmak
 
 | Özellik | Açıklama |
 |:---|:---|
-| Görünen ad   | Portalda görüntülemek için arama adı. |
+| Görünen Ad   | Portalda görüntülemek için arama adı. |
 | Kategori       | Portal aramalarda düzenlemek için kategori. |
 | Sorgu          | Bilgisayar grubu için sorgu. |
 | İşlev diğer adı | Sorguda bilgisayar grubu tanımlamak için kullanılan benzersiz bir diğer ad. |
@@ -83,7 +83,7 @@ Active Directory güvenlik grupları günlük analizi almak için günlük anali
 Gruplar içe aktarılırken menüsü algılanan grup üyeliğine sahip bilgisayarların sayısını ve içe grupları listeler.  Ya geri dönmek için bu bağlantıları tıklatabilirsiniz **ComputerGroup** bu bilgilerle kaydeder.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-WSUS grup üyeliklerini içeri aktarmak için günlük analizi yapılandırdığınızda, bilgisayarlara OMS Aracısı ile hedefleme grup üyeliğini analiz eder.  İstemci-tarafı kullanıyorsanız hedefleme, OMS için bağlı ve tüm WSUS parçası olan herhangi bir bilgisayar gruplarını hedefleme için günlük analizi içe grup üyeliğine sahiptir. Sunucu tarafı kullanıyorsanız hedefleme, OMS Aracısı olması için OMS içeri aktarılacak grup üyeliği bilgileri için WSUS sunucusunda yüklenmelidir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir. 
+WSUS grup üyeliklerini içeri aktarmak için günlük analizi yapılandırdığınızda, bilgisayarlara OMS Aracısı ile hedefleme grup üyeliğini analiz eder.  İstemci-tarafı kullanıyorsanız hedefleme, günlük Analizi'ne bağlı ve tüm WSUS parçası olan herhangi bir bilgisayar gruplarını hedefleme için günlük analizi içe grup üyeliğine sahiptir. Sunucu tarafı kullanıyorsanız hedefleme, OMS Aracısı sırada grup üyeliği bilgileri için günlük analizi aktarılması için WSUS sunucusunda yüklenmelidir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir. 
 
 Günlük analizi ' içe aktarma WSUS grupları için günlük analizi yapılandırma **Gelişmiş ayarları** Azure portalında.  Seçin **bilgisayar grupları**, **WSUS**ve ardından **içeri aktarma WSUS grup üyeliklerini**.  Başka bir yapılandırma işlemi gerekmez.
 
@@ -145,7 +145,7 @@ Aşağıdaki sorgu UpdateSummary kayıtları yalnızca bilgisayarlar için etki 
 
 
 ## <a name="computer-group-records"></a>Bilgisayar grubu kaydı
-Active Directory veya WSUS oluşturulan her bilgisayar grubu üyeliği OMS deposunda bir kayıt oluşturulur.  Bu kayıtları bir türüne sahip **ComputerGroup** ve aşağıdaki tabloda özelliklere sahiptir.  Kayıtları günlük aramaları tabanlı bilgisayar gruplarının oluşturulmaz.
+Active Directory veya WSUS oluşturulan her bilgisayar grubu üyeliği için günlük analizi çalışma alanındaki bir kayıt oluşturulur.  Bu kayıtları bir türüne sahip **ComputerGroup** ve aşağıdaki tabloda özelliklere sahiptir.  Kayıtları günlük aramaları tabanlı bilgisayar gruplarının oluşturulmaz.
 
 | Özellik | Açıklama |
 |:--- |:--- |

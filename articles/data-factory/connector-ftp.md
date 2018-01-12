@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 925171ab00bcf2e36e1f8109dceac72ad33be51e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak FTP sunucusundan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ Tüm desteklenen havuz veri deposuna FTP sunucusundan veri kopyalayabilirsiniz. 
 - Dosyaları olarak kopyalama- ya da dosyalarıyla ayrıştırma [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>başlarken
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](create-self-hosted-integration-runtime.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli FTP tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -50,7 +51,7 @@ Aşağıdaki özellikleri, bağlantılı FTP hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Ftp_sunucusu**. | Evet |
-| ana bilgisayar | Adını veya FTP sunucusunun IP adresini belirtin. | Evet |
+| konak | Adını veya FTP sunucusunun IP adresini belirtin. | Evet |
 | port | FTP sunucusunun dinlediği bağlantı noktasını belirtin.<br/>İzin verilen değerler: tamsayı, varsayılan değer: **21**. | Hayır |
 | enableSsl | FTP SSL/TLS kanalı üzerinden kullanılıp kullanılmayacağını belirtin.<br/>İzin verilen değerler: **true** (varsayılan), **false**. | Hayır |
 | enableServerCertificateValidation | FTP SSL/TLS kanalı üzerinden kullanırken sunucu SSL sertifika doğrulamasını etkinleştirmek bu seçeneği belirtin.<br/>İzin verilen değerler: **true** (varsayılan), **false**. | Hayır |

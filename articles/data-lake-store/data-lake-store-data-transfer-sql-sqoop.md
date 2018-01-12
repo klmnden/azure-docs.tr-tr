@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ac73006f3589bf6d8adb0d7935b694b444d1415c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2611b50114a9fae003fe6e77300780a9af0698cc
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Data Lake Store ile Sqoop kullanarak Azure SQL veritabanı arasında veri kopyalama
 Apache Sqoop içeri ve dışarı aktarma Azure SQL veritabanı ve Data Lake Store arasında veri için nasıl kullanılacağını öğrenin.
@@ -28,7 +28,7 @@ Büyük veri uygulamaları günlükleri ve dosyaları gibi yapılandırılmamı�
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) ilişkisel veritabanları ve Data Lake Store gibi bir büyük veri deposu arasında veri aktarımı için tasarlanmış bir araçtır. Azure SQL veritabanı gibi bir ilişkisel veritabanı yönetim sistemine (RDBMS) verilerini Data Lake Store aktarmak için kullanabilirsiniz. Ardından dönüştürme ve büyük veri iş yüklerini kullanarak verileri analiz ve ardından verileri bir RDBMS dışarı aktarabilirsiniz. Bu öğreticide, bir Azure SQL veritabanı ilişkisel veritabanı olarak gelen içeri/dışarı aktarma için kullanın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).

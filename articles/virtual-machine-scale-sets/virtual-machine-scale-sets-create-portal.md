@@ -1,5 +1,5 @@
 ---
-title: "Azure portalında ayarlamak Linux sanal makine ölçek oluşturun | Microsoft Docs"
+title: "Azure portalında bir sanal makine ölçek kümesi oluşturma | Microsoft Docs"
 description: "Hızla bir sanal makine ölçek Azure portalında oluşturmayı öğrenin"
 keywords: "Sanal makine ölçekleme kümeleri"
 services: virtual-machine-scale-sets
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa6bf6b34d8b93ffa9aceaf7c6112c63d4cb9f1c
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure portalında bir sanal makine ölçek kümesi oluşturma
-Bir sanal makine ölçek kümesini dağıtmak ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetmenize olanak sağlar. Ölçek kümesindeki VM'lerin sayısını elle ölçeklendirme ya da CPU, bellek isteğe bağlı veya ağ trafiğini gibi kaynak kullanımına bağlı olarak otomatik ölçeklendirme kurallarını tanımlayabilirsiniz. Bu alma başlatılan makalede, Azure portalında kümesi bir sanal makine ölçek oluşturun. Bir ölçek kümesi de oluşturabilirsiniz [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) veya [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
+Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu alma başlatılan makalede, Azure portalında kümesi bir sanal makine ölçek oluşturun. Bir ölçek kümesi de oluşturabilirsiniz [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) veya [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -76,8 +76,8 @@ Artık gerekli, kaynak grubunu silin, Ölçek kümesi ve ilişkili tüm kaynakla
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu alma başlatılan makalede, Azure portalında ayarlamak temel bir ölçek oluşturuldu. Daha fazla esneklik ve Otomasyon için aşağıdaki nasıl yapılır makaleleri ile ayarlamak, ölçeğini genişletin:
+Bu alma başlatılan makalede, Azure portalında ayarlamak temel bir ölçek oluşturuldu. Daha fazla ölçeklenebilirlik ve otomasyon için ölçek kümenizi aşağıdaki nasıl yapılır makaleleriyle genişletin:
 
-- [Sanal makine ölçek kümeleri, uygulamanızda dağıtma](virtual-machine-scale-sets-deploy-app.md)
-- İle otomatik olarak ölçeklendirme [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), veya [Azure portalı](virtual-machine-scale-sets-autoscale-portal.md)
-- [Otomatik işletim sistemi yükseltme, Ölçek kümesi VM örnekleri için kullanın](virtual-machine-scale-sets-automatic-upgrade.md)
+- [Uygulamanızı sanal makine ölçek kümelerine dağıtma](virtual-machine-scale-sets-deploy-app.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md) veya [Azure portalı](virtual-machine-scale-sets-autoscale-portal.md) ile otomatik ölçeklendirme
+- [Ölçek kümesi VM örnekleriniz için otomatik işletim sistemi yükseltmelerini kullanma](virtual-machine-scale-sets-automatic-upgrade.md)

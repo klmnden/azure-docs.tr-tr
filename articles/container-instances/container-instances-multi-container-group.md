@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/10/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ffebf06e2e013f909410fa4861420a5ae3d4dcf
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
 
@@ -28,89 +28,95 @@ Bu belge, Azure Resource Manager şablonu dağıtarak basit çok kapsayıcı sep
 
 Adlı bir dosya oluşturun `azuredeploy.json` ve aşağıdaki JSON dosyasını buraya kopyalayın.
 
-Bu örnekte, bir kapsayıcı grubu iki kapsayıcıları ve genel bir IP adresi ile tanımlanır. Gruptaki ilk kapsayıcı bir internet'e yönelik uygulama çalışır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar.
+Bu örnekte, iki kapsayıcı, bir kapsayıcı grubuyla bir ortak IP adresi ve iki kullanıma sunulan bağlantı noktası tanımlanır. Gruptaki ilk kapsayıcı bir internet'e yönelik uygulama çalışır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar.
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-  },
+  "parameters": {},
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
     "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
-    "resources": [
-      {
-        "name": "myContainerGroup",
-        "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2017-08-01-preview",
-        "location": "[resourceGroup().location]",
-        "properties": {
-          "containers": [
-            {
-              "name": "[variables('container1name')]",
-              "properties": {
-                "image": "[variables('container1image')]",
-                "resources": {
-                  "requests": {
-                    "cpu": 1,
-                    "memoryInGb": 1.5
-                    }
+  "resources": [
+    {
+      "name": "myContainerGroup",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2017-10-01-preview",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
                 },
-                "ports": [
-                  {
-                    "port": 80
-                  }
-                ]
-              }
-            },
-            {
-              "name": "[variables('container2name')]",
-              "properties": {
-                "image": "[variables('container2image')]",
-                "resources": {
-                  "requests": {
-                    "cpu": 1,
-                    "memoryInGb": 1.5
-                    }
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
                 }
               }
             }
-          ],
-          "osType": "Linux",
-          "ipAddress": {
-            "type": "Public",
-            "ports": [
-              {
-                "protocol": "tcp",
-                "port": "80"
-              }
-            ]
           }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
         }
       }
-    ],
-    "outputs": {
-      "containerIPv4Address": {
-        "type": "string",
-        "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
-      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
     }
   }
+}
 ```
 
 Bir özel kapsayıcı görüntü kayıt defterini kullanmak için JSON belgesi aşağıdaki biçime sahip bir nesne ekleyin.
 
 ```json
 "imageRegistryCredentials": [
-    {
+  {
     "server": "[parameters('imageRegistryLoginServer')]",
     "username": "[parameters('imageRegistryUsername')]",
     "password": "[parameters('imageRegistryPassword')]"
-    }
+  }
 ]
 ```
 
@@ -141,9 +147,9 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 Çıktı:
 
 ```bash
-Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
-----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
+Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
+----------------  ---------------  -------------------  --------------------------------------------------------------  ---------------------  ---------------  --------  ----------
+myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="view-logs"></a>Günlükleri görüntüle
@@ -158,9 +164,9 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 ```bash
 listening on port 80
-::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [09/Jan/2018:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [09/Jan/2018:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [09/Jan/2018:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Yan araba kapsayıcısı için günlükleri görmek için ikinci kapsayıcı adı belirterek aynı komutu çalıştırın.
@@ -172,7 +178,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 Çıktı:
 
 ```bash
-Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
+Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -185,7 +191,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Mon, 18 Dec 2017 23:19:34 GMT
+Date: Tue, 09 Jan 2018 23:25:11 GMT
 Connection: keep-alive
 ```
 
