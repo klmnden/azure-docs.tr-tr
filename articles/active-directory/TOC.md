@@ -217,7 +217,7 @@
 #### [Kullanıcı hesabı hazırlamayı yönetme](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Kurumsal uygulamalar için çoklu oturum açmayı yönetme](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Kullanıcının deneyiminde üçüncü taraf bir uygulamayı gizleme](active-directory-coreapps-hide-third-party-app.md)
+#### [Uygulamayı kullanıcı deneyiminden gizleme](active-directory-coreapps-hide-third-party-app.md)
 ### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
@@ -283,6 +283,7 @@
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Denetimler](active-directory-conditional-access-controls.md)
+#### [Konum koşulu](active-directory-conditional-access-locations.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)

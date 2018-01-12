@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Geliştirme
       items:
+        - name: Özel MapReduce programlarını çalıştırma
+          href: apache-hadoop-run-custom-programs.md
         - name: 'C# ile MapReduce akış programları geliştirme'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Java MapReduce programları geliştirme
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Apache Hive’ı ayıklama, dönüştürme ve yükleme (ETL) aracı olarak kullanma'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 'Ölçekli bir biçimde ayıklama, dönüştürme ve yükleme'
+          href: apache-hadoop-etl-at-scale.md
         - name: Boş kenar düğümlerini kullanma
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Application Insights telemetri günlüklerini çözümleme
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: HDInsight için gelişmiş analiz
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: Kümeleri genişletme
       items:
         - name: Bootstrap ile kümeleri özelleştirme
@@ -378,6 +386,8 @@
         - name: Küme performansını izleme
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Hadoop günlüklerini analiz etme
+          href: apache-hadoop-debug-jobs.md
 - name: Başvuru
   items:
     - name: Kod örnekleri

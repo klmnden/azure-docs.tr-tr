@@ -38,6 +38,8 @@
       href: event-grid-event-hubs-integration.md
     - name: Olay aboneliklerine yönelik şablonlar
       href: event-subscription-template.md
+    - name: Olay teslimi izleme
+      href: monitor-event-delivery.md
 - name: Başvuru
   items:
     - name: Azure CLI
