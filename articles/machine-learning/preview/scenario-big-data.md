@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
 
@@ -51,7 +51,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 * Windows 10 (Bu örnekte yönergeleri genellikle macOS sistemleri için aynıdır).
 * Bir veri bilimi sanal makine (DSVM) Linux (Ubuntu), tercihen Doğu ABD bölgede burada verileri bulur. İzleyerek bir Ubuntu DSVM sağlayabilirsiniz [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Ayrıca bkz [Bu Hızlı Başlangıç](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). En az 8 çekirdek ve 32 GB bellek bir sanal makine kullanmanızı öneririz. 
 
-İzleyin [yönerge](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) AML çalışma ekranı için VM parola daha az sudoer erişimini etkinleştirmek için.  Kullanmayı tercih edebileceğiniz [oluşturmak ve VM AML çalışma ekranı içinde kullanmak için SSH anahtar tabanlı kimlik doğrulaması](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Bu örnekte, VM erişmek için parola kullanın.  Aşağıdaki tabloda, sonraki adımlara DSVM bilgileri ile kaydedin:
+İzleyin [yönerge](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) AML çalışma ekranı için VM parola daha az sudoer erişimini etkinleştirmek için.  Kullanmayı tercih edebileceğiniz [oluşturmak ve VM AML çalışma ekranı içinde kullanmak için SSH anahtar tabanlı kimlik doğrulaması](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Bu örnekte, VM erişmek için parola kullanın.  Aşağıdaki tabloda, sonraki adımlara DSVM bilgileri ile kaydedin:
 
  Alan adı| Değer |  
  |------------|------|

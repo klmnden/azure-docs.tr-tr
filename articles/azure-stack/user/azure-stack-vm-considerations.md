@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Sanal makineler Azure yığınında dikkate alınacak noktalar
 
@@ -40,9 +40,9 @@ Sanal makine, bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları Azu
 |Sanal makine kullanılabilirlik kümeleri|Birden çok hata etki alanlarını (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı<br>Yönetilen disk desteği|Tek hata etki alanı<br>Tek güncelleştirme etki alanı<br>Yönetilen disk desteği yok|
 |Sanal makine ölçek kümeleri|Otomatik ölçek desteklenen|Otomatik-ölçek desteklenmiyor.<br>Daha fazla örnek portal, Resource Manager şablonları veya PowerShell kullanılarak ayarlanan bir ölçek ekleyin.
 
-## <a name="virtual-machine-sizes"></a>Sanal makine boyutları 
+## <a name="virtual-machine-sizes"></a>Sanal makine boyutları
 
-Azure yığın Geliştirme Seti aşağıdaki boyutları destekler: 
+Azure yığın aşağıdaki boyutları destekler:
 
 | Tür | Boyut | Desteklenen boyutlar aralığı |
 | --- | --- | --- |
@@ -55,9 +55,9 @@ Azure yığın Geliştirme Seti aşağıdaki boyutları destekler:
 |Bellek için iyileştirilmiş|DS serisi|DS11 - DS14|
 |Bellek için iyileştirilmiş |DSv2 serisi|DS11_v2 - DS14_v2|
 
-Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığını ve Azure arasında tutarlı değil. Örneğin, bu bellek, çekirdek sayısı ve sayı/oluşturulabilmesi için veri diski boyutunun içerir. Ancak, aynı VM boyutu Azure yığınında performansını belirli bir Azure yığın ortamda temel özelliklerine bağlıdır.
+Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığını ve Azure arasında tutarlı değil. Örneğin, bu tutarlılık çekirdek sayısı ve sayı/oluşturulabilmesi için veri diski boyutunun bellek miktarını içerir. Ancak, aynı VM boyutu Azure yığınında performansını belirli bir Azure yığın ortamda temel özelliklerine bağlıdır.
 
-## <a name="virtual-machine-extensions"></a>Sanal makine uzantıları 
+## <a name="virtual-machine-extensions"></a>Sanal makine uzantıları
 
  Azure yığın Geliştirme Seti aşağıdaki sanal makine uzantısı sürümlerini destekler:
 
@@ -65,15 +65,15 @@ Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığın
 
 Azure yığın ortamınızda kullanılabilen sanal makine uzantıları listesini almak için aşağıdaki PowerShell betiğini kullanın:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>API sürümleri 
+## <a name="api-versions"></a>API sürümleri
 
 Sanal makine özellikleri Azure yığın Development Kit'te aşağıdaki API sürümlerini destekler:
 
@@ -81,7 +81,7 @@ Sanal makine özellikleri Azure yığın Development Kit'te aşağıdaki API sü
 
 Azure yığın ortamınızda kullanılabilir sanal makine özellikleri için API sürümü almak için aşağıdaki PowerShell betiğini kullanabilirsiniz:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `

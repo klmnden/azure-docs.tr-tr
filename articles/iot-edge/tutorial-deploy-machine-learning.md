@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/13/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2afdb257421b1333f451eb9d0dd4c2af5a12e946
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning IOT kenar modül olarak dağıtma - Önizleme
 
@@ -30,12 +30,12 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğreticide oluşturduğunuz Azure Machine Learning modülü cihazınız tarafından oluşturulan sıcaklık verileri okur ve (bir anomali olarak adlandırılır) bir hata tahmin yalnızca upstream iletileri Azure IOT Hub'ına gönderir. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Hızlı Başlangıç ya da ilk öğreticide oluşturduğunuz Azure IOT sınır cihazı.
 * IOT kenar cihazın bağlandığı IOT hub'ın IOT Hub bağlantı dizesi.
 * Bir Azure Machine Learning hesabı. Hesap oluşturmak için'ndaki yönergeleri izleyin [oluşturma Azure Machine Learning hesapları ve Azure Machine Learning çalışma ekranı yükleme](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). Bu öğretici için çalışma ekranı uygulama yüklemeniz gerekmez. 
-* Azure ML makinenizde modülü yönetimi. Ortamınızı ayarlama ve bir hesap oluşturmak için'ndaki yönergeleri izleyin [Model Yönetimi Kurulumu](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration).
+* Azure ML makinenizde modülü yönetimi. Ortamınızı ayarlama ve bir hesap oluşturmak için'ndaki yönergeleri izleyin [Model Yönetimi Kurulumu](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Azure ML kapsayıcı oluşturma
 Bu bölümde eğitilen model dosyalarını indirmek ve bunları Azure ML kapsayıcıya dönüştürün.  

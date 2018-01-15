@@ -14,11 +14,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 269e936cb79ba4138285f5dbd326413d70d5924d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Jenkins ve Azure kapsayıcı örneği kullanarak azure'da bir projeyi derleme
 
@@ -30,7 +30,7 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 > * Yükleme ve Azure kapsayıcı aracıları eklentisi Jenkins için yapılandırma
 > * Azure kapsayıcı örnekleri oluşturmak için kullanmak [yay PetClinic örnek uygulama](https://github.com/spring-projects/spring-petclinic)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği** - Azure satın alma seçenekleri hakkında bilgi edinmek için bkz: [Azure satın alma](https://azure.microsoft.com/pricing/purchase-options/) veya [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -329,4 +329,4 @@ az group delete -n <resourceGroup>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
-> [Jenkins en son makaleleri ve örnekleri görmek için Azure hub'ına ziyaret edin](https://docs.microsoft.com/en-us/azure/jenkins/)
+> [Jenkins en son makaleleri ve örnekleri görmek için Azure hub'ına ziyaret edin](https://docs.microsoft.com/azure/jenkins/)

@@ -11,17 +11,24 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure zaman serisi Öngörüler nedir?
 
 Zaman serisi Öngörüler depolamak, Görselleştirme ve büyük miktarlarda IOT cihazları tarafından oluşturulan gibi zaman serisi veri sorgulama için yerleşik olarak bulunur.  Depolamak, yönetmek, sorgu veya Bulut zaman serisi verileri görselleştirmek istiyorsanız, zaman serisinin Öngörüler sağ sizin için olasıdır.  
 
-Uygulamanın, dahili tüketim veya kullanmak, dış müşterileri için oluşturuluyorsa zaman serisi Öngörüler dizin oluşturma, depolama ve zaman serisi veri toplamak için bir arka ucu olarak kullanılabilir.  En üstte bir özel görsel ve kullanıcı deneyimi oluşturabilirsiniz.  Zaman serisi Öngörüler bu senaryoyu etkinleştirmek için REST sorgu API'lerini kullanıma sunar.  
+Zaman serisi Öngörüler dört anahtar işleri sahiptir:
+
+- İlk olarak, onu tam olarak Azure IOT Hub ve Azure Event Hubs gibi bulut ağ geçitleri ile tümleşiktir. Kolayca bu olay kaynakları bağlanır ve iletiler ve temiz satırları ve sütunları verilerde sahip yapıları JSON ayrıştırır. Meta veri telemetri ile birleştirir ve verilerinizi bir sütun deposu dizinleri.
+- İkinci olarak, verilerinizin depolama zaman serisi Öngörüler yönetir. Verilerin her zaman kolayca erişilebilir olduğundan emin olmak için verilerinizi bellek ve SSD'ın 400 güne kadar saklar. İsteğe bağlı – saniye cinsinden olayları milyarlarca etkileşimli olarak sorgulayabilirsiniz.
+- Üçüncü zaman serisi Öngörüler TSI explorer aracılığıyla Giden kutusu görselleştirme sağlar.  
+- Dördüncü zaman serisi Öngörüler TSI Explorer'da ve hem özel uygulamalara zaman serisi verilerinizi katıştırma tümleştirmek kolay API'leri kullanarak bir sorgu hizmeti sağlar.  
+
+Uygulamanın, dahili tüketim veya kullanmak, dış müşterileri için oluşturuluyorsa zaman serisi Öngörüler dizin oluşturma, depolama ve zaman serisi veri toplama için arka uç kullanılabilir. En üstte bir özel görsel ve kullanıcı deneyimi oluşturabilirsiniz.  Zaman serisi Öngörüler sorgu bu senaryoyu etkinleştirmek için API'lerini gösterir.  
 
 Zaman serisi verilerinizi olduğu konusunda emin değilseniz, işte bilmeniz gerekir.  Zaman serisi veri bir varlık veya işlem zaman içinde nasıl değiştiğini temsil eder.  Bir zaman damgası vardır ve zaman eksen en anlamlı olan benzersizdir.  Zaman serisi veri genellikle zaman sırayla ulaştığında ve genellikle veritabanınız için bir güncelleştirme olarak değil, bir ekleme olarak kabul edilir.  Zaman serisi Öngörüler yakalar ve bir satır olarak her yeni bir olay depolar çünkü değişiklik geriye dönük arayın ve gelecekteki değişiklik tahmin etmek için etkinleştirme zamanla ölçülür.  Büyük birimleri depolanması, dizin oluşturma, sorgulama, çözümleme ve görselleştirme zaman serisi veri zor olabilir.  
 

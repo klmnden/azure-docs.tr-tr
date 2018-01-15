@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 14/12/2017
+ms.date: 1/02/2018
 ms.author: bsiva
-ms.openlocfilehash: 3cf2478eb810961604e1218731f5303abd0f611a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ee4847a61392a8eacde82ea62c3812d601b489f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="replicate-and-failover-vmware-virtual-machines-to-azure-using-azure-site-recovery-powershell"></a>Azure Site Recovery PowerShell kullanarak Azure çoğaltılacağı ve yük devretme VMware sanal makineler
 
@@ -109,7 +109,7 @@ C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
 ## <a name="set-the-vault-context"></a>Kasa bağlamını ayarlayın
 
 > [!TIP]
-> Azure Site Recovery PowerShell Modülü (AzureRm.RecoveryServices.SiteRecovery Modülü) çoğu cmdlet'leri için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzureRmRecoveryServicesAsr**\<nesnesi >* ve eşdeğer şeklinde diğer adlar  *\<işlemi >-**ASR**\<nesnesi >*. Bu makalede, Okuma Kolaylığı için cmdlet diğer adlar kullanılmaktadır.
+> Azure Site Recovery PowerShell Modülü (AzureRm.RecoveryServices.SiteRecovery Modülü) çoğu cmdlet'leri için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzureRmRecoveryServicesAsr**\<nesnesi >* ve biçiminde eşdeğer diğer adlar  *\<İşlemi >-**ASR**\<nesnesi >*. Bu makalede, Okuma Kolaylığı için cmdlet diğer adlar kullanılmaktadır.
 
 Set-ASRVaultContext cmdlet'ini kullanarak kasası bağlamını ayarlayın. Bir kez ayarlandıktan sonra sonraki Azure Site kurtarma işlemleri PowerShell oturumunda seçilen kasa bağlamında gerçekleştirilir. Aşağıdaki örnekte, $vault kasası ayrıntılarının değişkeni PowerShell oturumu için kasa bağlamı belirtmek için kullanılır.
  ```azurepowershell
@@ -329,7 +329,7 @@ VCenter sunucudan bulunmak sanal makineler için yaklaşık 15-20 dakika sürer.
 Bulunan bir sanal makineyi korumak için aşağıdaki ayrıntıları gerekir:
 * Çoğaltılacak korunabilir öğe.
 * Sanal makine için çoğaltmak için depolama hesabı. Ayrıca, bir günlük depolama, premium depolama hesabı için sanal makineleri koruma için gereklidir.
-* İşlem çoğaltma için kullanılacak sunucu. Kullanılabilir işlem sunucularının listesini alınan ve kaydedilen ***$ProcessServers [0]****(dosya genişletme)* ve ***$ProcessServers [1]*** *(ConfigurationServer)* değişkenleri.  
+* İşlem çoğaltma için kullanılacak sunucu. Kullanılabilir işlem sunucularının listesini alınan ve kaydedilen ***$ProcessServers [0]****(dosya genişletme)* ve ***$ProcessServers [1]*** *(ConfigurationServer)* değişkenleri.
 * Mobility hizmeti yazılım makinelere göndermeli yükleme için kullanılacak hesabı. Kullanılabilir hesaplar listesindeki alınan ve depolanan ***$AccountHandles*** değişkeni.
 * Koruma kapsayıcısı eşlemesini çoğaltma için kullanılacak çoğaltma ilkesi için.
 * Kaynak grubu sanal makine yük devretme oluşturulması gerekir.

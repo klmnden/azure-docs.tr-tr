@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/41/2017
   ms.author: carolz
-  ms.openlocfilehash: 54c154aed61e78c60ee1cb353e46baecd6befb09
-  ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+  ms.openlocfilehash: 889ec9829a76435daedc38bee66fd0f6c2846ba5
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 10/19/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Log Analytics, Microsoft Azure'un genel izleme çözümünün bir parçasıdır. Log Analytics, bulut ortamlarını ve şirket içi ortamları izleyerek kullanılabilirliği ve performansı korur. Kullanılabilirlik ile performansı korumak için iş yükleri ve sistemlerle ilgili bilgi edinin. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl toplayacağınızı, çözümleyeceğinizi ve verileriniz üzerinde nasıl işlem yapabileceğinizi öğrenin."
 sections:
@@ -29,7 +29,7 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg
+        src: https://docs.microsoft.com/azure/media/index/virtualmachine.svg
       text: "Azure VM’leri"
       href: /azure/log-analytics/log-analytics-quick-collect-azurevm
     - image:

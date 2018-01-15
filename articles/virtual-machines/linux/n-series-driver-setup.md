@@ -4,7 +4,7 @@ description: "Linux Azure'da çalışan N-serisi VM'ler için NVIDIA GPU sürüc
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 01/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N-serisi Vm'lerinde NVIDIA GPU sürücüleri yükleyin
 
@@ -167,7 +167,7 @@ Sürücü yüklüyse, aşağıdakine benzer bir çıktı görürsünüz. Unutmay
 
 RDMA ağ bağlantısı gibi NC24r aynı kullanılabilirlik kümesinde dağıtılan RDMA özellikli N-serisi Vm'lerinde etkinleştirilebilir. RDMA ağ Intel MPI ile çalışan uygulamalar için ileti geçirme arabirimi (MPI) trafiğini destekler 5.x veya sonraki bir sürümü. Ek gereksinimler izleyin:
 
-### <a name="distributions"></a>Dağıtımları
+### <a name="distributions"></a>Dağıtımlar
 
 RDMA bağlantısı destekleyen Azure Marketi aşağıdaki görüntüleri birinden RDMA özellikli N-serisi VM'ler dağıtın:
   
@@ -214,11 +214,11 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 5. Kılavuz sürücü yükleyip yeniden açın:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 
 6. Ne zaman sorulan X yapılandırma dosyanızı güncelleştirmek için seçin NVIDIA xconfig yardımcı programı çalıştırmak istediğinizi **Evet**.
@@ -279,11 +279,11 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 5. Kılavuz sürücü yükleyip yeniden açın:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 6. Ne zaman sorulan X yapılandırma dosyanızı güncelleştirmek için seçin NVIDIA xconfig yardımcı programı çalıştırmak istediğinizi **Evet**.
 

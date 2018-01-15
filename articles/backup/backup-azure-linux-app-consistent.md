@@ -1,6 +1,6 @@
 ---
 title: "Azure yedekleme: uygulama tutarlı Linux VM'ler yedeklerini | Microsoft Docs"
-description: "Uygulamayla tutarlı yedeklemeler, Linux sanal makineleriniz için Azure'a güvence altına almak için komut dosyalarını kullanın. Komut dosyaları, yalnızca bir Resource Manager dağıtımında Linux VM'ler için geçerlidir; komut dosyaları Windows sanal makineler veya Hizmet Yöneticisi dağıtımları için geçerli değildir. Bu makalede sorun giderme dahil olmak üzere komut dosyaları, yapılandırma adımlarını alır."
+description: "Linux sanal makinelerinizin Azure uygulamayla tutarlı yedeklemeler oluşturun. Bu makalede, Azure dağıtılan Linux Vm'leri yedekleme için komut dosyası framework yapılandırma açıklanmaktadır. Bu makalede, sorun giderme bilgileri de içerir."
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,35 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Azure Linux VM'ler (Önizleme) uygulama tutarlı yedekleme
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Uygulama tutarlı yedekleme Azure Linux VM'ler
 
-Bu makale konuşmaları Linux hakkında önceden komut dosyası ve framework ve nasıl Azure Linux VM'ler, uygulamayla tutarlı yedeklemeler yapılacak kullanılmadan sonrası komut.
-
-> [!Note]
-> Öncesi betiğini ve sonrası betik framework yalnızca Azure Resource Manager tarafından dağıtılan Linux sanal makineleri için desteklenir. Uygulama tutarlılığı için komut dosyalarını Service Manager tarafından dağıtılan sanal makineler ya da Windows sanal makineleri için desteklenmez.
->
+Vm'leriniz yedekleme anlık görüntülerini alırken, uygulama tutarlılığı geri sonra VM'ler önyükleme uygulamalarınızı başlattığınızda anlamına gelir. Uygulama tutarlılığı hayal edebildiğiniz gibi son derece önemlidir. Emin olmak için uygulama tutarlı, uygulamayla tutarlı yedeklemeler almak için Linux öncesi betiğini ve sonrası betik framework kullanabilirsiniz, Linux VM'ler şunlardır. Öncesi betiğini ve sonrası betik framework Azure Resource Manager tarafından dağıtılan Linux sanal makineleri destekler. Uygulama tutarlılığı için komut dosyalarını Service Manager tarafından dağıtılan sanal makineler ya da Windows sanal makineleri desteklemez.
 
 ## <a name="how-the-framework-works"></a>Framework nasıl çalışır?
 
-Framework özel öncesi betikleri çalıştırmak için bir seçenek sağlar ve VM anlık görüntülerini alırken sonrası komut dosyaları. Öncesi komut dosyaları yalnızca VM anlık görüntü alın ve VM anlık alma hemen sonra sonrası komut dosyaları çalıştırılır önce çalıştırılır. Bu VM anlık görüntülerini alırken uygulamanız ve ortamınız denetleme esnekliği sağlar.
+Framework özel öncesi betikleri çalıştırmak için bir seçenek sağlar ve VM anlık görüntülerini alırken sonrası komut dosyaları. Yalnızca VM anlık görüntü ve VM anlık alma hemen sonra çalıştırın sonrası betikleri olabilmesi öncesi betikleri çalıştırın. Öncesi ve sonrası komut dosyalarını VM anlık görüntülerini alırken uygulamanız ve ortamınız, denetleme esnekliği sağlar.
 
-Bu senaryoda, uygulamayla tutarlı bir VM yedeğinin emin olmak önemlidir. Öncesi betiği sessiz moda IOs için uygulama yerel API'leri çağırmak ve bellek içi içerik diske boşaltır. Bu anlık görüntü uygulama tutarlı olmasını sağlar (diğer bir deyişle, uygulama gelen VM önyüklendiğinde yukarı geri yükleme sonrası). Sonrası komut dosyası, IOs çözme için kullanılabilir. Uygulamanın normal işlemler post VM anlık görüntü devam edebilmeniz için uygulamanın yerel API'lerini kullanarak bunu yapar.
+Öncesi komut dosyaları yerel uygulama API'leri, hangi sessiz moda IOs çağırır ve bellek içi içerik diske boşaltır. Bu Eylemler, anlık görüntü uygulama tutarlı olduğundan emin olun. Sonrası komut dosyalarını normal işlemler VM anlık görüntü sonrası sürdürmek uygulama sağlar IOs çözme için yerel uygulama API'leri kullanın.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Öncesi betiğini ve sonrası betik yapılandırma adımları
 
 1. Yedeklemek istediğiniz Linux VM kök kullanıcı olarak oturum açın.
 
-2. Karşıdan **VMSnapshotScriptPluginConfig.json** gelen [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)ve ardından kopyalayın **/etc/azure** yedekleme oluşturacağız tüm VM'ler klasör. Oluşturma **/etc/azure** zaten yoksa dizin.
+2. Gelen [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), indirme **VMSnapshotScriptPluginConfig.json** ve kopyalayın **/etc/azure** yedeklemek istediğiniz tüm VM'ler için klasör. Varsa **/etc/azure** klasörü mevcut değil, oluşturun.
 
-3. Öncesi betiği ve uygulamanız, yedeklemeyi planladığınız tüm VM'ler için sonrası betiği kopyalayın. Komut dosyaları, VM üzerinde herhangi bir konuma kopyalayabilirsiniz. Komut dosyalarında tam yolunu güncelleştirdiğinizden emin olun **VMSnapshotScriptPluginConfig.json** dosya.
+3. Öncesi betiği ve yedekleme planladığınız tüm sanal makineleri üzerinde uygulamanız için sonrası betiği kopyalayın. Komut dosyaları, VM üzerinde herhangi bir konuma kopyalayabilirsiniz. Komut dosyalarında tam yolunu güncelleştirdiğinizden emin olun **VMSnapshotScriptPluginConfig.json** dosya.
 
 4. Bu dosyalar için aşağıdaki izinleri emin olun:
 
@@ -51,8 +47,8 @@ Bu senaryoda, uygulamayla tutarlı bir VM yedeğinin emin olmak önemlidir. Önc
    - **Sonrası betik** izni "700." Örneğin, yalnızca "root" kullanıcı olmalıdır "Okuma", "yazma" ve "Yürütme izinleri bu dosyaya".
 
    > [!Important]
-   > Çerçeve, kullanıcıların çok fazla güç sağlar. Güvenli ve kritik JSON ve komut dosyaları için yalnızca "root" kullanıcı erişimi önemlidir.
-   > Önceki gereksinimleri karşılanmadığı takdirde komut çalışmaz. Bu dosya sistemi/kilitlenme tutarlı yedekleme sonuçlanır.
+   > Çerçeve, kullanıcıların çok fazla güç sağlar. Framework güvenli ve yalnızca "root" kullanıcı kritik JSON ve komut dosyalarını erişimi olduğundan emin olun.
+   > Gereksinimleri karşılanmadığı takdirde komut dosyası çalıştırılmadığından, bir dosya sistemi kilitlenme ve tutarsız yedekleme sonuçlanır.
    >
 
 5. Yapılandırma **VMSnapshotScriptPluginConfig.json** burada açıklandığı gibi:
@@ -62,9 +58,9 @@ Bu senaryoda, uygulamayla tutarlı bir VM yedeğinin emin olmak önemlidir. Önc
 
     - **postScriptLocation**: yedeklenecek giderek VM'de sonrası komut dosyasının tam yolunu girin.
 
-    - **preScriptParams**: öncesi komut dosyasına geçirilmesi gereken isteğe bağlı parametreleri sağlamak. Tüm parametreleri tırnak içine olmalıdır ve birden çok parametre varsa virgülle ayrılmış olması gerekir.
+    - **preScriptParams**: öncesi komut dosyasına geçirilmesi gereken isteğe bağlı parametreleri sağlamak. Tüm parametreleri tırnak işaretleri içinde olmalıdır. Birden çok parametre kullanırsanız, Parametreler virgül ile ayırın.
 
-    - **postScriptParams**: sonrası komut dosyasına geçirilmesi gereken isteğe bağlı parametreleri sağlamak. Tüm parametreleri tırnak içine olmalıdır ve birden çok parametre varsa virgülle ayrılmış olması gerekir.
+    - **postScriptParams**: sonrası komut dosyasına geçirilmesi gereken isteğe bağlı parametreleri sağlamak. Tüm parametreleri tırnak işaretleri içinde olmalıdır. Birden çok parametre kullanırsanız, Parametreler virgül ile ayırın.
 
     - **preScriptNoOfRetries**: öncesi betiği yeniden varsa herhangi bir hata sonlandırmadan önce sayısını ayarlayın. Sıfır anlamına gelir tek deneyin ve bir hata olduğunda hiçbir yeniden deneyin.
 

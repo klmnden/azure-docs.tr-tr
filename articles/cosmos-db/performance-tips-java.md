@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: ca16a7fe424e9c50ce87b150442dd18ff0d6ce91
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 4d7657d305332cc0014187d52396ae3af4818d5e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -80,7 +80,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
    <a id="max-connection"></a>
 3. **Ağ geçidi modu kullanırken ana bilgisayar başına MaxPoolSize artırın**
 
-    Azure Cosmos DB istekleri HTTPS/REST ağ geçidi modu kullanırken yapılır ve olan varsayılan bağlantı sınırını ana bilgisayar adı veya IP adresi başına tabi. Böylece istemci kitaplığı Azure Cosmos DB birden çok eşzamanlı bağlantıların kullanabilir MaxPoolSize daha yüksek bir değer (200-1000) ayarlamanız gerekebilir. İçin varsayılan değer Java SDK [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) 100'dür. Kullanım [setMaxPoolSize]( https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) değerini değiştirmek için.
+    Azure Cosmos DB istekleri HTTPS/REST ağ geçidi modu kullanırken yapılır ve olan varsayılan bağlantı sınırını ana bilgisayar adı veya IP adresi başına tabi. Böylece istemci kitaplığı Azure Cosmos DB birden çok eşzamanlı bağlantıların kullanabilir MaxPoolSize daha yüksek bir değer (200-1000) ayarlamanız gerekebilir. İçin varsayılan değer Java SDK [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) 100'dür. Kullanım [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) değerini değiştirmek için.
 
 4. **Paralel sorgular bölümlenmiş koleksiyonlar için ayarlama**
 
@@ -96,7 +96,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
 5. **Geri Çekilme getRetryAfterInMilliseconds aralıklarla uygulama**
 
-    Performans testi sırasında istekleri küçük oranını kısıtlanan kadar yük artırmanız gerekir. Kısıtlanan, istemci uygulamasına geri Çekilme kısıtlama üzerinde sunucu belirtilen yeniden deneme aralığını gerekir. Geri Çekilme uyarak denemeler arasındaki bekleme süresi en az miktarda harcamanızı sağlar. Yeniden deneme ilkesi desteği eklenmiştir sürüm 1.8.0 ve üzeri, [Java SDK'sı](documentdb-sdk-java.md). Daha fazla bilgi için bkz: [Exceeding ayrılmış işleme sınırları](request-units.md#RequestRateTooLarge) ve [getRetryAfterInMilliseconds](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Performans testi sırasında istekleri küçük oranını kısıtlanan kadar yük artırmanız gerekir. Kısıtlanan, istemci uygulamasına geri Çekilme kısıtlama üzerinde sunucu belirtilen yeniden deneme aralığını gerekir. Geri Çekilme uyarak denemeler arasındaki bekleme süresi en az miktarda harcamanızı sağlar. Yeniden deneme ilkesi desteği eklenmiştir sürüm 1.8.0 ve üzeri, [Java SDK'sı](documentdb-sdk-java.md). Daha fazla bilgi için bkz: [Exceeding ayrılmış işleme sınırları](request-units.md#RequestRateTooLarge) ve [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
 6. **İstemci-iş yükünü ölçeklendirme**
 
     Yüksek işleme düzeyleri sınıyorsanız (> 50.000 RU/s), istemci uygulaması makine çıkışı CPU veya ağ kullanımını capping nedeniyle ayak bağı. Bu noktaya ulaştıysanız, daha fazla Azure Cosmos DB hesabı birden çok sunucu arasında istemci uygulamalarının ölçeklendirme tarafından anında devam edebilirsiniz.
@@ -112,7 +112,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Sayısını azaltmak için ağ gidiş dönüşleri uygulanabilir tüm sonuçları almak için gereken, sayfa boyutu kullanarak artırabilirsiniz [x-ms-max-öğesi-count](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) en fazla 1000 istek üstbilgisi. Burada yalnızca birkaç sonuçları görüntülemek için gereken durumlarda Örneğin, kullanıcı arabirimi veya uygulama API yalnızca 10 döndürürse birer sonuçları, aynı zamanda okuma ve sorgular için tüketilen verimlilik azaltmak için 10 sayfa boyutunu azaltabilirsiniz.
 
-    Sayfa boyutu kullanarak da yerleştirebilir [setPageSize yöntemi](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
+    Sayfa boyutu kullanarak da yerleştirebilir [setPageSize yöntemi](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
 ## <a name="indexing-policy"></a>Dizin Oluşturma İlkesi
  
@@ -143,7 +143,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Bir sorgu karmaşıklığını kaç tane istek birimi için bir işlem tüketilen etkiler. Koşulları sayısı, koşulları, UDF'ler sayısı ve tüm kaynak veri kümesi boyutunu yapısını sorgu işlemlerinin maliyetini etkiler.
 
-    Herhangi bir işlem yükü ölçmek için (oluşturma, güncelleştirme veya silme) incelemek [x-ms-istek-ücret](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) üstbilgi (veya eşdeğer RequestCharge özelliği [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) veya [FeedResponse<T> ](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_response) bu işlemler tarafından tüketilen isteği birim sayısını ölçmek için.
+    Herhangi bir işlem yükü ölçmek için (oluşturma, güncelleştirme veya silme) incelemek [x-ms-istek-ücret](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) üstbilgi (veya eşdeğer RequestCharge özelliği [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) veya [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) bu işlemler tarafından tüketilen isteği birim sayısını ölçmek için.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -163,7 +163,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     SDK'ları tüm örtük olarak bu yanıt catch, yeniden deneme sonra sunucu tarafından belirtilen üstbilgi saygı ve isteği yeniden deneyin. Hesabınızı eşzamanlı olarak birden çok istemci tarafından erişilen sürece, sonraki yeniden deneme işlemi başarılı olur.
 
-    Birden fazla istemci üst üste istek hızı tutarlı bir şekilde işletim varsa, 9 istemci tarafından dahili olarak ayarlanmış varsayılan yeniden deneme sayısı yeterli değil; Bu durumda, istemci oluşturur bir [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) uygulamaya 429 ile durum kodu. Varsayılan yeniden deneme sayısı kullanarak değiştirilebilir [setRetryOptions](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) üzerinde [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) örneği. İstek istek hızı çalışmaya devam ederse, varsayılan olarak, 30 saniye sonra bir toplam bekleme süresi 429 durum koduyla DocumentClientException döndürülür. Bu geçerli yeniden deneme sayısı en fazla yeniden deneme sayısından daha az olduğunda bile oluşur, varsayılan 9 veya kullanıcı tanımlı bir değer olmalıdır.
+    Birden fazla istemci üst üste istek hızı tutarlı bir şekilde işletim varsa, 9 istemci tarafından dahili olarak ayarlanmış varsayılan yeniden deneme sayısı yeterli değil; Bu durumda, istemci oluşturur bir [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) uygulamaya 429 ile durum kodu. Varsayılan yeniden deneme sayısı kullanarak değiştirilebilir [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) üzerinde [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) örneği. İstek istek hızı çalışmaya devam ederse, varsayılan olarak, 30 saniye sonra bir toplam bekleme süresi 429 durum koduyla DocumentClientException döndürülür. Bu geçerli yeniden deneme sayısı en fazla yeniden deneme sayısından daha az olduğunda bile oluşur, varsayılan 9 veya kullanıcı tanımlı bir değer olmalıdır.
 
     Dayanıklılık ve kullanılabilirlik çoğu uygulamalar geliştirmek için otomatik yeniden deneme davranışı yardımcı olsa da, bu performans kıyaslamaları, özellikle gecikme süresini ölçme zaman yaparken at odds gelebilir.  Denemeyi sunucu kısıtlama isabetler ve sessiz bir şekilde yeniden denemek için SDK istemci neden olursa istemci gözlenen gecikme çıkmasına. Performans denemeleri sırasında gecikme ani önlemek için her işlem tarafından döndürülen farkı ölçmek ve istekleri ayrılmış istek hızı çalıştığından emin olun. Daha fazla bilgi için bkz: [istek birimleri](request-units.md).
 3. **Daha fazla üretilen işi için daha küçük belgeler için Tasarım**

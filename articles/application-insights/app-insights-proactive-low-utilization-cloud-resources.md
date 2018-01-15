@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c852d07d771a1eef0e6c2e4ef27cd36f31d8ddd
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="low-utilization-of-cloud-resources-preview"></a>Düşük kullanımı bulut kaynaklarının (Önizleme)
 
 Application Insights otomatik olarak uygulamanızdaki her rol örneğinin CPU tüketimi analiz eder ve düşük CPU kullanımı örnekleriyle algılar. Bu algılama, Azure kaynaklarınızı azaltmak ve her rol yararlanan rol örnekleri sayısını azaltarak ya da rollerinin sayısını azaltarak maliyetleri azaltmak sağlar.
 
-Bu özellik, başka hiçbir özel kurulum gerektirir [performans sayaçları yapılandırma](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) uygulamanız için. Uygulamanızı yeterli CPU performans sayacı telemetri (% işlemci zamanı) oluşturduğunda etkin olur.
+Bu özellik, başka hiçbir özel kurulum gerektirir [performans sayaçları yapılandırma](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) uygulamanız için. Uygulamanızı yeterli CPU performans sayacı telemetri (% işlemci zamanı) oluşturduğunda etkin olur.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Bu tür akıllı algılama bildirim ulaştıklarında?
 Tipik bir bildirim, birçok Web/çalışan rolü örneklerinizi düşük CPU kullanımı sergilemesine oluşur.

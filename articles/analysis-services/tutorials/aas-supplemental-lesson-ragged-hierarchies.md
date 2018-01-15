@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Ek ders - Düzensiz hiyerarşiler
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Bu ek derste, farklı düzeylerde boş değerler (üyeler) içeren hiyerarşileri özetlerken karşılaşılan ortak bir sorunu çözümlersiniz. Örneğin, bir üst düzey yöneticiye bağlı departman yöneticilerinin ve yönetici olmayan çalışanların olduğu bir kuruluşta. Veya, Ülke-Bölge-Şehirden oluşan ve Washington D.C., Vatikan gibi bazı şehirlerde üst Eyalet veya Bölgenin olmadığı coğrafi hiyerarşilerde. Bir hiyerarşinin boş üyeleri olduğunda, hiyerarşi genellikle farklı veya düzensiz düzeylere iner.
 
@@ -33,7 +31,7 @@ Bu ek derste, farklı düzeylerde boş değerler (üyeler) içeren hiyerarşiler
   
 Bu dersi tamamlamak için tahmini süre: **20 dakika**  
   
-## <a name="prerequisites"></a>Ön koşullar  
+## <a name="prerequisites"></a>Önkoşullar  
 Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır. Bu ek dersteki görevleri gerçekleştirmeden önce tüm önceki dersleri tamamlamış veya bir Adventure Works İnternet Satışları örnek model projesini tamamlamış olmanız gerekir. 
 
 Öğreticinin bir parçası olarak AW İnternet Satışları projesini oluşturduysanız, modeliniz henüz düzensiz veriler veya hiyerarşiler içermemektedir. Bu ek dersi tamamlamak için bazı ek tablolar ilave ederek sorunu oluşturmanız, ilişki, hesaplanmış sütunlar, bir ölçü ve yeni bir Kuruluş hiyerarşisi oluşturmanız gerekir. Bu kısım yaklaşık 15 dakika sürer. Ardından, sorunu yalnızca birkaç dakika içinde çözersiniz.  

@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
-  ms.openlocfilehash: 13bfcbfdb180ee50efa392ad43d58839e7e52cf0
-  ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+  ms.openlocfilehash: 6ab2ecc6e2082939b51eef8a95fe68a9303ab47c
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: MT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 10/13/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Stack, şirketinizin veya hizmet sağlayıcınızın veri merkezinden Azure hizmetleri sağlama olanağı sunan bir hibrit bulut platformudur. Bir geliştirici olarak Azure Stack’te uygulama derleyebilirsiniz. Daha sonra bu uygulamaları Azure Stack’te dağıtabilir veya Azure Stack bulut ve Azure arasındaki bağlantıdan yararlanan tamamen karma uygulamalar derleyebilirsiniz. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kaynak oluşturma ve uygulamaları dağıtma hakkında bilgi edinin.<br/><br/>Altyapı yöneten ve hizmetleri sunan bir Azure yığın işleç değilseniz, bkz bizim <a href=\"/azure/azure-stack/\">işleci belgelerine</a>."
 sections:
@@ -38,7 +38,7 @@ sections:
       text: PowerShell
       href: azure-stack-quick-create-vm-windows-powershell.md
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-windows-cli.md
   - type: paragraph
@@ -55,7 +55,7 @@ sections:
       text: PowerShell
       href: azure-stack-quick-create-vm-linux-powershell.md
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-linux-cli.md
 - title: "Adım Adım Öğreticiler"

@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 6019437763f82fa14b8677b6c7ec7f0c6938fda7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a55209256c29fa62cc2da72f9653fbc7fc0e7c54
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Tahmine dayalı bakım gerçek dünya senaryoları için derin öğrenme
 
@@ -28,7 +28,7 @@ Tahmine dayalı bakım senaryolarda verileri donanım durumunu izlemek için zam
 
 Bu öğreticide, biz LSTM ağ konumunda açıklanan senaryo ve veri kümesi için yapı [Tahmine dayalı Bakım](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). Uçak motorları kalan kullanım ömrü tahmin etmek için ağ kullanırız. Şablonun sanal uçak algılayıcı değerlerini uçak motorunun gelecekte ne zaman başarısız olur tahmin etmek için kullanır. Bu tahmin kullanarak, önceden hatası önlemek için planlı Bakım.
 
-Bu öğretici kullanır [Keras](https://keras.io/) derin kitaplığı ve Microsoft Bilişsel Araç Seti öğrenme [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) bir arka uç olarak.
+Bu öğretici kullanır [Keras](https://keras.io/) derin kitaplığı ve Microsoft Bilişsel Araç Seti öğrenme [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) bir arka uç olarak.
 
 Bu öğretici için örnekleri olan bir genel GitHub depo altındadır [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
 
@@ -44,7 +44,7 @@ Veri biçimi inceleyin ve kendi tarihle örnek verileri değiştirmek önce şab
 
 - Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir).
 - Azure Machine Learning çalışma ekranı, oluşturulan bir çalışma alanıyla.
-- Model operationalization için: Azure Machine Learning Operationalization kurma, bir yerel dağıtım ortamı ve bir [Azure Machine Learning modeli yönetim hesabı](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+- Model operationalization için: Azure Machine Learning Operationalization kurma, bir yerel dağıtım ortamı ve bir [Azure Machine Learning modeli yönetim hesabı](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
 
 ## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
 
@@ -128,7 +128,7 @@ Bu senaryonun ilgili bölümleri düzenleyin ve olanları açıklandığı gibi 
 
 ## <a name="references"></a>Başvurular
 
-- [Tahmine dayalı bakım çözüm şablonu](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
+- [Tahmine dayalı bakım çözüm şablonu](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
 - [Tahmine dayalı bakım modelleme Kılavuzu](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 - [Tahmine dayalı Bakım Kılavuzu Python not defteri modelleme](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 - [PySpark kullanarak Tahmine dayalı bakım](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)

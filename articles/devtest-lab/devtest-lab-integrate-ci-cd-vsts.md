@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-craic
-ms.openlocfilehash: db2ee6a25626f0a47bf86c5ee286fddc2441d3f8
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 6c6bd4fbd89ec87cbbdbfb9ed42f86a484acf7ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs VSTS sürekli tümleştirme ve teslim ardışık düzen tümleştirme
 Kullanabileceğiniz *Azure DevTest Labs görevleri* , Visual Studio Team Services (VSTS) kolayca yüklü uzantısı CI/CD derleme bırakma hattınızı Azure DevTest Labs ile tümleştirme. Uzantı üç görev yükler: 
@@ -111,7 +111,7 @@ Dağıtımın sonraki aşamasına sonraki dağıtımları için "altın görünt
    > [!NOTE]
    > Sonraki dağıtımları için kullanmak üzere VM oluşturmak için bkz: [Azure DevTest Labs görevleri](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmet bağlantıları** listelemek veya Azure aboneliğinizi daha kısıtlı izinleri bağlantı oluşturun. Daha fazla bilgi için bkz: [Azure Resource Manager Hizmeti uç noktası](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmet bağlantıları** listelemek veya Azure aboneliğinizi daha kısıtlı izinleri bağlantı oluşturun. Daha fazla bilgi için bkz: [Azure Resource Manager Hizmeti uç noktası](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. İçin **Laboratuvar adı**, daha önce oluşturduğunuz örneğinin adını seçin.
 
@@ -141,7 +141,7 @@ Dağıtımın sonraki aşamasına sonraki dağıtımları için "altın görünt
 
    a. İçin **Azure bağlantı türü**seçin **Azure Resource Manager**.
 
-   b. İçin **Azure RM abonelik**, altındaki listeden bir bağlantı seçin **kullanılabilir Azure hizmet bağlantıları**, ya da Azure aboneliğinizi daha kısıtlı izinleri bağlantı oluşturun. Daha fazla bilgi için bkz: [Azure Resource Manager Hizmeti uç noktası](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. İçin **Azure RM abonelik**, altındaki listeden bir bağlantı seçin **kullanılabilir Azure hizmet bağlantıları**, ya da Azure aboneliğinizi daha kısıtlı izinleri bağlantı oluşturun. Daha fazla bilgi için bkz: [Azure Resource Manager Hizmeti uç noktası](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    c. İçin **komut dosyası türü**seçin **komut dosyası**.
  
@@ -168,7 +168,7 @@ Sonraki aşamaya Azure DevTest Labs örneğinizi yeni dağıtılan VM görüntü
    > [!NOTE]
    > Görüntüsü oluşturmak için bkz: [Azure DevTest Labs görevleri](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. İçin **Azure RM abonelik**, **kullanılabilir Azure hizmet bağlantıları** listesinde, listeden bir bağlantı seçin veya Azure aboneliğinizi daha kısıtlı izinleri bağlantı oluşturun. Daha fazla bilgi için bkz: [Azure Resource Manager Hizmeti uç noktası](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. İçin **Azure RM abonelik**, **kullanılabilir Azure hizmet bağlantıları** listesinde, listeden bir bağlantı seçin veya Azure aboneliğinizi daha kısıtlı izinleri bağlantı oluşturun. Daha fazla bilgi için bkz: [Azure Resource Manager Hizmeti uç noktası](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. İçin **Laboratuvar adı**, daha önce oluşturduğunuz örneğinin adını seçin.
 
@@ -189,7 +189,7 @@ Son aşaması, Azure DevTest Labs örneğinde dağıtılan VM silmektir. Gelişt
       > [!NOTE]
       > VM silmek için bkz: [Azure DevTest Labs görevleri](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmet bağlantıları** listelemek veya Azure aboneliğinizi daha kısıtlı izinleri bağlantı oluşturun. Daha fazla bilgi için bkz: [Azure Resource Manager Hizmeti uç noktası](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmet bağlantıları** listelemek veya Azure aboneliğinizi daha kısıtlı izinleri bağlantı oluşturun. Daha fazla bilgi için bkz: [Azure Resource Manager Hizmeti uç noktası](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
  
    b. İçin **Laboratuvar VM kimliği**, önceki bir görev tarafından VM Laboratuvar Kimliğini otomatik olarak doldurulur ortam değişkeninin varsayılan adıyla değiştirdiyseniz burada düzenleyin. Varsayılan değer **$(labVMId)**.
 

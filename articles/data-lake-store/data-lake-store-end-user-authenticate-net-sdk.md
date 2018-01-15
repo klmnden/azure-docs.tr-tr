@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ad9a66e02318ad4a84d65062114c916721047888
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması
 > [!div class="op_single_selector"]
@@ -62,27 +62,32 @@ Bu makalede, Azure Data Lake Store ile son kullanıcı kimlik doğrulaması yapm
         ![NuGet kaynağı ekleme](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Yeni bir Azure Data Lake hesabı oluşturma")
    4. **NuGet Paket Yöneticisi**'ni kapatın.
 
-6. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
+6. Açık **Program.cs**
+7. Using replease deyimleri aşağıdaki satırlar:
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```     
 
 ## <a name="end-user-authentication"></a>Son kullanıcı kimlik doğrulaması
 Bu kod parçacığında .NET istemci uygulamanızda ekleyin. Yer tutucu değerlerini (önkoşul olarak listelenen) bir Azure AD yerel uygulamadan alınan değerlerle değiştirin. Bu kod parçacığında, uygulamanız için kimlik doğrulaması sağlar **etkileşimli olarak** Data Lake Store ile başka bir deyişle, Azure kimlik bilgilerinizi girmeniz istenir.
 
 Kullanım kolaylığı için aşağıdaki kod parçacığında, istemci kimliği ve yeniden yönlendirme hiçbir Azure aboneliği için geçerli bir URI için varsayılan değerleri kullanır. Aşağıdaki kod parçacığında, yalnızca Kiracı kimliğiniz için değer sağlamanız gerekir Verilen yönergeleri kullanarak Kiracı kimliği alabilir [Kiracı Kimliğinizi alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
+- Main() işlevi aşağıdaki kodla değiştirin:
+
+    ```csharp
     private static void Main(string[] args)
     {
         //User login via interactive popup
@@ -96,6 +101,7 @@ Kullanım kolaylığı için aşağıdaki kod parçacığında, istemci kimliği
         var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
         var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 Yukarıdaki kod parçacığında hakkında bilmeniz gerekenler birkaç:
 

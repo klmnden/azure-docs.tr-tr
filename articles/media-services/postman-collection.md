@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: 06b8ff964bfc3526724036dc8c26f766b9c1fa1d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="import-the-postman-collection"></a>Postman koleksiyonunu alma
 
@@ -28,7 +28,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
     "info": {
         "name": "Azure Media Services Operations",
         "_postman_id": "3a9a704f-ec11-3433-a0dc-54e4fe39e9d8",
-        "description": "Azure Media Service REST API v 2.0 Collection\n\nSupports AD service principal authentication\nFor details see:https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-connect-with-aad\n\n",
+        "description": "Azure Media Service REST API v 2.0 Collection\n\nSupports AD service principal authentication\nFor details see:https://docs.microsoft.com/azure/media-services/media-services-rest-connect-with-aad\n\n",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
@@ -105,7 +105,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
         },
         {
             "name": "AccessPolicy",
-            "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/accesspolicy\n\nAn AccessPolicy defines the permissions and duration of storage SAS or streaming access to an Asset.",
+            "description": "https://docs.microsoft.com/rest/api/media/operations/accesspolicy\n\nAn AccessPolicy defines the permissions and duration of storage SAS or streaming access to an Asset.",
             "item": [
                 {
                     "name": "Create AccessPolicy for ReadOnly",
@@ -160,7 +160,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "AccessPolicies"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
                     },
                     "response": []
                 },
@@ -229,7 +229,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "AccessPolicies"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
                     },
                     "response": []
                 },
@@ -283,7 +283,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "AccessPolicies"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/accesspolicy#list_accesspolicies"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/accesspolicy#list_accesspolicies"
                     },
                     "response": []
                 },
@@ -337,7 +337,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "AccessPolicies{'{{accessPolicyId}}')"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/accesspolicy#list_accesspolicies"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/accesspolicy#list_accesspolicies"
                     },
                     "response": []
                 }
@@ -555,7 +555,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Locators"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators\n"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators\n"
                     },
                     "response": []
                 },
@@ -2335,7 +2335,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
         },
         {
             "name": "Filter",
-            "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/filter#filter_properties\n",
+            "description": "https://docs.microsoft.com/rest/api/media/operations/filter#filter_properties\n",
             "item": [
                 {
                     "name": "List Filters",
@@ -2403,7 +2403,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Filters"
                             ]
                         },
-                        "description": "List Filters\n\n[List Filters documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/filter#list_filters)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "List Filters\n\n[List Filters documentation](https://docs.microsoft.com/rest/api/media/operations/filter#list_filters)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -2473,7 +2473,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Filters('{{filterId}}')"
                             ]
                         },
-                        "description": "Delete Filters\n\n[Delete Filters documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/filter#delete_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Delete Filters\n\n[Delete Filters documentation](https://docs.microsoft.com/rest/api/media/operations/filter#delete_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -2546,7 +2546,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Filters"
                             ]
                         },
-                        "description": "Create Filter\n\n[Create Filter documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/filter#create_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Filter\n\n[Create Filter documentation](https://docs.microsoft.com/rest/api/media/operations/filter#create_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -2619,7 +2619,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Filters"
                             ]
                         },
-                        "description": "Create Filter\n\n[Create Filter documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/filter#create_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Filter\n\n[Create Filter documentation](https://docs.microsoft.com/rest/api/media/operations/filter#create_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 }
@@ -2627,7 +2627,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
         },
         {
             "name": "AssetFilters",
-            "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/assetfilter",
+            "description": "https://docs.microsoft.com/rest/api/media/operations/assetfilter",
             "item": [
                 {
                     "name": "List AssetFilters",
@@ -2695,7 +2695,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Filters"
                             ]
                         },
-                        "description": "List Filters\n\n[List Filters documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/filter#list_filters)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "List Filters\n\n[List Filters documentation](https://docs.microsoft.com/rest/api/media/operations/filter#list_filters)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -2765,7 +2765,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Filters('{{filterId}}')"
                             ]
                         },
-                        "description": "Delete AssetFilter\n\n[Delete AssetFilter documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/assetfilter#delete_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Delete AssetFilter\n\n[Delete AssetFilter documentation](https://docs.microsoft.com/rest/api/media/operations/assetfilter#delete_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -2838,7 +2838,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Filters"
                             ]
                         },
-                        "description": "Create AssetFilter\n\n[Create AssetFilter documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/assetfilter#create_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create AssetFilter\n\n[Create AssetFilter documentation](https://docs.microsoft.com/rest/api/media/operations/assetfilter#create_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -2911,7 +2911,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Filters"
                             ]
                         },
-                        "description": "Update AssetFilter\n\n[Update AssetFilter documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/assetfilter#update_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Update AssetFilter\n\n[Update AssetFilter documentation](https://docs.microsoft.com/rest/api/media/operations/assetfilter#update_a_filter)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 }
@@ -3337,7 +3337,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Jobs"
                             ]
                         },
-                        "description": "Create Job\nA job is an entity that contains metadata about a set of tasks. Each task performs an atomic operation on the input asset(s). A job is typically used to process one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded. \n\n    NOTE: It is very important to use the JSON Verbose Accept header for the Job to submit properly. Set the Accept header to application/json;odata=verbose\n    \nThis sample creates a Job with a custom encoding profile.  For details see [Customizing Media Encoder Standard presets](https://docs.microsoft.com/en-us/azure/media-services/media-services-custom-mes-presets-with-dotnet)\nOr for JSON samples of our system presets, see the [Sample Presets page](https://docs.microsoft.com/en-us/azure/media-services/media-services-mes-presets-overview)\n\n[Job Entity REST API](https://msdn.microsoft.com/en-us/library/azure/hh974289.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Job\nA job is an entity that contains metadata about a set of tasks. Each task performs an atomic operation on the input asset(s). A job is typically used to process one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded. \n\n    NOTE: It is very important to use the JSON Verbose Accept header for the Job to submit properly. Set the Accept header to application/json;odata=verbose\n    \nThis sample creates a Job with a custom encoding profile.  For details see [Customizing Media Encoder Standard presets](https://docs.microsoft.com/azure/media-services/media-services-custom-mes-presets-with-dotnet)\nOr for JSON samples of our system presets, see the [Sample Presets page](https://docs.microsoft.com/azure/media-services/media-services-mes-presets-overview)\n\n[Job Entity REST API](https://msdn.microsoft.com/en-us/library/azure/hh974289.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": [
                         {
@@ -3540,7 +3540,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Jobs"
                             ]
                         },
-                        "description": "Create Indexer Job\n\nThis job submits a Speech Analytics job with custom configuration settings. \nNote that it uses the Media Processor ID for Indexer: \n\t\"MediaProcessorId\": \"nb:mpid:UUID:1927f26d-0aa5-4ca1-95a3-1a3f95b0f706\"\n\nAnd it uses a custom configuration JSON:\n\t \"Configuration\": \"{'Version':'1.0','Features':[{'Options':{'Formats':['WebVtt','TTML'],'Language':'EnUs','Type':'RecoOptions'},'Type':'SpReco'}]}\",\n\t \nFor details on configuring the settings of the speech analyzer, read the [Indexing Media Files](https://docs.microsoft.com/en-us/azure/media-services/media-services-process-content-with-indexer2) article\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Indexer Job\n\nThis job submits a Speech Analytics job with custom configuration settings. \nNote that it uses the Media Processor ID for Indexer: \n\t\"MediaProcessorId\": \"nb:mpid:UUID:1927f26d-0aa5-4ca1-95a3-1a3f95b0f706\"\n\nAnd it uses a custom configuration JSON:\n\t \"Configuration\": \"{'Version':'1.0','Features':[{'Options':{'Formats':['WebVtt','TTML'],'Language':'EnUs','Type':'RecoOptions'},'Type':'SpReco'}]}\",\n\t \nFor details on configuring the settings of the speech analyzer, read the [Indexing Media Files](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) article\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -3609,7 +3609,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Jobs"
                             ]
                         },
-                        "description": "This example submits a redaction job.\nFor details on configuration settings, refer to the [Redact faces with Azure Media Analytics](https://docs.microsoft.com/en-us/azure/media-services/media-services-face-redaction) article. \n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "This example submits a redaction job.\nFor details on configuration settings, refer to the [Redact faces with Azure Media Analytics](https://docs.microsoft.com/azure/media-services/media-services-face-redaction) article. \n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -3898,7 +3898,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
         },
         {
             "name": "Locator",
-            "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#create_a_locator\n\nLocator provides an entry point to access the files contained in an Asset. An AccessPolicy is used to define the permissions and duration that a client has access to a given Asset. Locators can have a many to one relationship with an AccessPolicy, such that different Locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Using a Shared Access Signature (REST API).",
+            "description": "https://docs.microsoft.com/rest/api/media/operations/locator#create_a_locator\n\nLocator provides an entry point to access the files contained in an Asset. An AccessPolicy is used to define the permissions and duration that a client has access to a given Asset. Locators can have a many to one relationship with an AccessPolicy, such that different Locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Using a Shared Access Signature (REST API).",
             "item": [
                 {
                     "name": "List Locators",
@@ -3950,7 +3950,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Locators"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators"
                     },
                     "response": []
                 },
@@ -4020,7 +4020,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Locators"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators"
                     },
                     "response": []
                 },
@@ -4077,7 +4077,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Locators"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators"
                     },
                     "response": []
                 },
@@ -4134,7 +4134,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Locators('{{locatorId}}')"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators"
                     },
                     "response": []
                 },
@@ -4188,7 +4188,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "AccessPolicies"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators"
                     },
                     "response": []
                 }
@@ -4646,7 +4646,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
         },
         {
             "name": "Programs",
-            "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/program#program_properties",
+            "description": "https://docs.microsoft.com/rest/api/media/operations/program#program_properties",
             "item": [
                 {
                     "name": "Get Programs",
@@ -4714,7 +4714,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Programs"
                             ]
                         },
-                        "description": "List Programs\n\n[List Programs documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#list_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "List Programs\n\n[List Programs documentation](https://docs.microsoft.com/rest/api/media/operations/program#list_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -4785,7 +4785,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Start"
                             ]
                         },
-                        "description": "Start Programs\n\n[Start a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#start_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Start Programs\n\n[Start a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#start_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -4855,7 +4855,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Programs('{{programId}}')"
                             ]
                         },
-                        "description": "Delete Programs\n\n[Delete a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#delete_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Delete Programs\n\n[Delete a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#delete_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -4928,7 +4928,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Programs('{{programId}}')"
                             ]
                         },
-                        "description": "Update Programs\n\n[Update a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#update_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Update Programs\n\n[Update a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#update_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -4999,7 +4999,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Stop"
                             ]
                         },
-                        "description": "Strop Programs\n\n[Stop a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#stop_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Strop Programs\n\n[Stop a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#stop_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -5072,7 +5072,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Programs"
                             ]
                         },
-                        "description": "Create Program\n\n[Create Programs documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#create_programs)\n\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Program\n\n[Create Programs documentation](https://docs.microsoft.com/rest/api/media/operations/program#create_programs)\n\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 }
@@ -5080,7 +5080,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
         },
         {
             "name": "StreamingEndpoint",
-            "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/streamingendpoint#create_streaming_endpoints\n",
+            "description": "https://docs.microsoft.com/rest/api/media/operations/streamingendpoint#create_streaming_endpoints\n",
             "item": [
                 {
                     "name": "List StreamingEndpoints",
@@ -5148,7 +5148,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "StreamingEndpoints"
                             ]
                         },
-                        "description": "List StreamingEndpoints\n\n[List StreamingEndpoints documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/streamingendpoint#list_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "List StreamingEndpoints\n\n[List StreamingEndpoints documentation](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint#list_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -5218,7 +5218,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "StreamingEndpoints('{{streamingEndpointId}}')"
                             ]
                         },
-                        "description": "List StreamingEndpoints\n\n[List StreamingEndpoints documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/streamingendpoint#list_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "List StreamingEndpoints\n\n[List StreamingEndpoints documentation](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint#list_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -5289,7 +5289,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Start"
                             ]
                         },
-                        "description": "Start StreamingEndpoints\n\n[Start StreamingEndpoint documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/streamingendpoint#start_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Start StreamingEndpoints\n\n[Start StreamingEndpoint documentation](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint#start_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -5360,7 +5360,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Start"
                             ]
                         },
-                        "description": "Start StreamingEndpoints\n\n[Stop StreamingEndpoint documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/streamingendpoint#stop_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Start StreamingEndpoints\n\n[Stop StreamingEndpoint documentation](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint#stop_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -5434,7 +5434,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "Scale"
                             ]
                         },
-                        "description": "Scale StreamingEndpoints\n\n[Scale StreamingEndpoint documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/streamingendpoint#scale_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Scale StreamingEndpoints\n\n[Scale StreamingEndpoint documentation](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint#scale_create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -5507,7 +5507,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "StreamingEndpoints"
                             ]
                         },
-                        "description": "Create StreamingEndpoints\n\n[Create StreamingEndpoints documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/streamingendpoint#create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create StreamingEndpoints\n\n[Create StreamingEndpoints documentation](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint#create_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -5580,7 +5580,7 @@ Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Service
                                 "StreamingEndpoints"
                             ]
                         },
-                        "description": "Update StreamingEndpoints\n\n[Update StreamingEndpoints documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/streamingendpoint#update_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Update StreamingEndpoints\n\n[Update StreamingEndpoints documentation](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint#update_streaming_endpoints)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 }

@@ -1,3 +1,4 @@
+<!-- Not used for Ls-series -->
 
 ## <a name="size-table-definitions"></a>Boyut tablosu tanımları
 

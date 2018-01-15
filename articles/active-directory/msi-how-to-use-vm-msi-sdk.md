@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 46fd75668999537dfbc9fd82c1f166e126b6f547
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c9bd57080c95e4aad45515a0814471194261286
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-with-azure-sdks"></a>Azure SDK'ları ile bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Bu makale, kendi ilgili Azure SDK'ın destek MSI kullanımını göstermek SDK örnekleri listesini sağlar.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Bu makale, kendi ilgili Azure SDK'ın destek MSI kullanımını göstermek SDK örnekleri listesini sağlar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e4604a154c16b785db1ab903587ae4a35d93c05
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 837525d70f28c0710b8a8b86d411a7854402207f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-security-detection-pack-preview"></a>Uygulama güvenlik algılama paketi (Önizleme)
 
 Application Insights otomatik olarak, uygulamanız tarafından oluşturulan telemetri analiz eder ve olası güvenlik sorunlarını algılar. Bu özellik, olası güvenlik sorunlarını tanımlamak ve uygulama düzelttikten veya gerekli güvenlik önlemleri alarak işlemek sağlar.
 
-Bu özellik, başka hiçbir özel kurulum gerektirir [telemetri göndermek için uygulamanızı yapılandırmaya](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-overview).
+Bu özellik, başka hiçbir özel kurulum gerektirir [telemetri göndermek için uygulamanızı yapılandırmaya](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Bu tür akıllı algılama bildirim ulaştıklarında?
 Üç tür algılanan güvenlik sorunları vardır:

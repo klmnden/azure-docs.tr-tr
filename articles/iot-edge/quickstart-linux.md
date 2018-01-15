@@ -6,27 +6,31 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Hızlı Başlangıç:, ilk IOT kenar modülünü Azure portalından Linux aygıta dağıtmak - Önizleme
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Hızlı Başlangıç: ilk IOT kenar modülünüzün bir Linux veya Mac aygıta dağıtmak - Önizleme
 
 Azure IOT kenar bulut gücünü nesnelerin interneti aygıtlarınızı taşır. Bu konuda, bulut arabirimi önceden oluşturulmuş kodu uzaktan IOT kenar cihazına dağıtmak için nasıl kullanılacağını öğrenin.
 
 Etkin bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap] [ lnk-account] başlamadan önce.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu görevi gerçekleştirmek için bilgisayarınızda veya bir sanal makine bir nesnelerin interneti aygıt benzetimini yapmak için kullanın. Bir IOT sınır cihazı başarıyla dağıtmak için aşağıdaki hizmetler gerekir:
+Bu Hızlı Başlangıç, bilgisayar veya sanal makine bir nesnelerin interneti aygıtı gibi kullanır. Bir IOT sınır cihazı makinenize etkinleştirmek için aşağıdaki hizmetleri gereklidir:
 
-- [Docker Linux'ta yüklemek] [ lnk-docker-ubuntu] ve emin olun çalıştığından. 
-- Ubuntu, dahil olmak üzere çoğu Linux dağıtımları Python 2.7 yüklü zaten var. PIP yüklendiğinden emin olmak için aşağıdaki komutu kullanın: `sudo apt-get install python-pip`.
+* Python PIP, IOT kenar çalışma zamanı yüklenemedi.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* IOT kenar modüllerini çalıştırmak için docker
+   * [Linux için Docker yükleme] [ lnk-docker-ubuntu] ve çalışır durumda olduğundan emin olun. 
+   * [Mac için Docker yükleme] [ lnk-docker-mac] ve çalışır durumda olduğundan emin olun. 
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Azure CLI ile IOT hub oluşturma
 
@@ -135,6 +139,7 @@ Bir IOT kenar modülünü IOT kenar cihazına dağıtmak öğrendiniz. Böylece 
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

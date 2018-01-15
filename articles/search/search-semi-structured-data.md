@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Bulut depolama alanında arama yarı yapılandırılmış veriler
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>2. Kısım: Bulut depolama alanında arama yarı yapılandırılmış veriler
 
-Bu iki bölümlü öğretici serisinde Azure arama kullanarak yarı yapılandırılmış ve yapılandırılmamış verileri arama öğrenin. Bu öğretici Azure blob'larda depolanan JSON gibi yarı yapılandırılmış veri arama gösterilmiştir. Yarı yapılandırılmış veri etiketleri veya içerik veri içinde ayrı işaretler içerir. Bu resmi bir ilişkisel veritabanı şeması gibi bir veri modeli göre yapılandırılmamış, yapılandırılmış veri farklıdır.
+İki bölümlü öğretici serisinde Azure arama kullanarak yarı yapılandırılmış ve yapılandırılmamış verileri arama öğrenin. [Bölüm 1](../storage/blobs/storage-unstructured-search.md) yapılandırılmamış veriler üzerinde arama gitti, ancak aynı zamanda depolama hesabı oluşturma gibi Bu öğretici için önemli Önkoşullar dahil. 
 
-Bu bölümünde şu konulara nasıl yapılır:
+Kısım 2'de Azure blob'larda depolanan JSON gibi yarı yapılandırılmış veriler için odak geçer. Yarı yapılandırılmış veri etiketleri veya içerik veri içinde ayrı işaretler içerir. Wholistically dizine gerekir yapılandırılmamış verileri gibi bir alan başına temelinde gezinilebilen bir ilişkisel veritabanı şeması, bir veri modeli aynılarını resmi olarak yapılandırılmış veri arasındaki fark böler.
+
+Kısım 2'de bilgi nasıl yapılır:
 
 > [!div class="checklist"]
-> * Oluşturma ve bir Azure Search hizmeti içinde bir dizin doldurma
-> * Azure Search Hizmeti dizininizi aramak için kullanın
+> * Bir Azure blob kapsayıcısı için bir Azure Search veri kaynağını yapılandırma
+> * Oluşturma ve bir Azure Search dizini ve kapsayıcı gezinme ve aranabilir içeriği ayıklamak için dizin oluşturucu doldurma
+> * Yeni oluşturduğunuz dizin arama
 
 > [!NOTE]
-> "JSON dizisi Azure Search'te bir önizleme özelliği desteğidir. Portalda şu anda kullanılabilir değil. Bu nedenle, biz bu özellik ve API'yi çağırmak için bir REST istemci aracı sağlayan REST API Önizleme kullanıyorsunuz."
+> Bu öğreticide şu anda Azure Search'te bir önizleme özelliğidir JSON dizisi desteği kullanır. Portalda kullanılabilir değildir. Bu nedenle, biz bu özellik ve API'yi çağırmak için bir REST istemci aracı sağlayan REST API Önizleme kullanıyorsunuz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için:
-* Tamamlamak [önceki Öğreticisi](../storage/blobs/storage-unstructured-search.md)
-    * Bu öğreticinin önceki öğreticide oluşturulan depolama hesabı ve arama hizmeti kullanır
-* REST istemcisi yüklemek ve bir HTTP isteği oluşturmak nasıl anlama
+* Tamamlanmasından [önceki öğretici](../storage/blobs/storage-unstructured-search.md) önceki öğreticide oluşturulan depolama hesabı ve arama hizmeti sağlayan.
 
+* REST istemcisi ve bir HTTP isteği oluşturmak nasıl bir anlayış yüklemesi. Bu öğreticinin amaçları doğrultusunda kullanıyoruz [Postman](https://www.getpostman.com/). Farklı bir REST istemcisi zaten belirli bir rahat kullanırsanız çekinmeyin.
 
-## <a name="set-up-the-rest-client"></a>REST istemcisi ayarlama
+## <a name="set-up-postman"></a>Postman ayarlayın
 
-Bu öğreticiyi tamamlamak için bir REST istemci gerekir. Bu öğreticinin amaçları doğrultusunda kullanıyoruz [Postman](https://www.getpostman.com/). Farklı bir REST istemcisi zaten belirli bir rahat kullanırsanız çekinmeyin.
+Postman başlatın ve bir HTTP isteği ayarlamak. Bu araçla bilginiz yoksa bkz [Azure Search REST Fiddler veya Postman kullanarak API'lerini keşfedin](search-fiddler.md) daha fazla bilgi için.
 
-Postman yükledikten sonra onu başlatın.
-
-Azure REST çağrıları yapma, ilk kez kullanıyorsanız, Bu öğretici için kısa bir giriş önemli bileşenlerinin şöyledir: "POST" Bu öğreticide her çağrı isteği metodu değil "Content-type" ve "api anahtarını." üstbilgisi tuşlar olan "Application/json" ve "Yönetici anahtarınızı" başlığı anahtarların değerlerdir (Yönetici anahtarı için bir arama birincil anahtarınızı yer tutucu) sırasıyla. Gövde aramanız gerçek içeriği nereye ' dir. Kullanmakta olduğunuz istemcinin bağlı olarak nasıl, sorgunuzu üzerinde bazı farklılıklar olabilir, ancak temel olanlardır.
+"POST" Bu öğreticide her çağrı isteği metodu değil "Content-type" ve "api anahtarını." üstbilgisi tuşlar olan "Application/json" ve "Yönetici anahtarınızı" başlığı anahtarların değerlerdir (Yönetici anahtarı için bir arama birincil anahtarınızı yer tutucu) sırasıyla. Gövde aramanız gerçek içeriği nereye ' dir. Kullanmakta olduğunuz istemcinin bağlı olarak nasıl, sorgunuzu üzerinde bazı farklılıklar olabilir, ancak temel olanlardır.
 
   ![Yarı yapılandırılmış arama](media/search-semi-structured-data/postmanoverview.png)
 

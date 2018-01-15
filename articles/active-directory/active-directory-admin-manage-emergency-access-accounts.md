@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 039012b8ba0b83f6338128a2200d1232ae6467f3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Azure AD'de Acil Durum erişimi yönetici hesaplarını yönetin 
 
@@ -48,11 +48,11 @@ Bir seçenek olan kullanıcıların kalıcı üyesi olmak için *genel yönetici
 
 Güvenliği aşılmış bir paroladan kaynaklanan bir saldırı riskini azaltmak için tüm tek tek kullanıcılar için çok faktörlü kimlik doğrulaması gerektiren Azure AD önerir. Bu grup, Yöneticiler ve diğerlerinin tümü (örneğin, finansal görevlileri) güvenliği aşılmış hesabı önemli bir etkisi yoktur eklemeniz gerekir. 
 
-Ancak, kuruluşunuz paylaşılan cihazlar yoksa, çok faktörlü kimlik doğrulaması için bu Acil erişim hesapları mümkün olmayabilir. Bir koşullu erişim ilkesi gerektirecek şekilde yapılandırıyorsanız [her Yönetim için çok faktörlü kimlik doğrulaması kayıt](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) Azure AD için ve diğer bağlı yazılım hizmet (SaaS) uygulamaları olarak ihtiyacınız olabilecek ilkesini yapılandırmak Bu gereksinimden Acil erişim hesapları dışlamak için dışarıda bırakılacak.
+Ancak, kuruluşunuz paylaşılan cihazlar yoksa, çok faktörlü kimlik doğrulaması için bu Acil erişim hesapları mümkün olmayabilir. Bir koşullu erişim ilkesi gerektirecek şekilde yapılandırıyorsanız [her Yönetim için çok faktörlü kimlik doğrulaması kayıt](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) Azure AD için ve diğer bağlı yazılım hizmet (SaaS) uygulamaları olarak ihtiyacınız olabilecek ilkesini yapılandırmak Bu gereksinimden Acil erişim hesapları dışlamak için dışarıda bırakılacak.
 
 ### <a name="initial-configuration-with-approvals"></a>İlk yapılandırma ile onaylar
 
-Kullanıcılarınız için uygun ve etkinleştirmek için onaylayanlar yapılandırmak için başka bir seçenektir *genel yönetici* rol. Bu seçenek, kuruluşunuzun Azure AD Premium P2 aboneliklere sahip olması gerekir. Ayrıca, birden çok kişiler ve ağ ortamı arasında paylaşılan kullanım için uygun bir çok faktörlü kimlik doğrulaması seçeneği de gerekir. Bu gereksinimleri olduklarından etkinleştirmesi *genel yönetici* rolü daha önce çok faktörlü kimlik doğrulaması gerçekleştirmiş kullanıcıların gerektirir. Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management çok faktörlü kimlik doğrulaması zorunlu kılma](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Kullanıcılarınız için uygun ve etkinleştirmek için onaylayanlar yapılandırmak için başka bir seçenektir *genel yönetici* rol. Bu seçenek, kuruluşunuzun Azure AD Premium P2 aboneliklere sahip olması gerekir. Ayrıca, birden çok kişiler ve ağ ortamı arasında paylaşılan kullanım için uygun bir çok faktörlü kimlik doğrulaması seçeneği de gerekir. Bu gereksinimleri olduklarından etkinleştirmesi *genel yönetici* rolü daha önce çok faktörlü kimlik doğrulaması gerçekleştirmiş kullanıcıların gerektirir. Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management çok faktörlü kimlik doğrulaması zorunlu kılma](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
 Acil erişim hesapları için kişisel aygıtları ile ilişkili multi-Factor Authentication kullanarak önermiyoruz. Gerçek acil durumlarda kişisel cihaz sahip bir çok faktörlü kimlik doğrulaması kayıtlı bir cihaz erişmesi gereken kişi olmayabilir. 
 
@@ -60,7 +60,7 @@ Ayrıca, tehdit göz önünde bulundurun. Örneğin, Acil Durum doğal afet gibi
 
 ## <a name="ongoing-monitoring"></a>Devam eden izleme
 
-İzleyici [Azure AD oturum açma ve denetim günlüklerini](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) hiçbir oturum açma işlemleri için ve Denetim erişim Acil Durum hesapları etkinliğinden. Normalde bu hesapların oturum olması ve bunları kullanımını anormal ve güvenlik incelenmesi büyük olasılıkla olacak şekilde, değişiklik değil.
+İzleyici [Azure AD oturum açma ve denetim günlüklerini](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) hiçbir oturum açma işlemleri için ve Denetim erişim Acil Durum hesapları etkinliğinden. Normalde bu hesapların oturum olması ve bunları kullanımını anormal ve güvenlik incelenmesi büyük olasılıkla olacak şekilde, değişiklik değil.
 
 ## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Hesap denetimini doğrulama düzenli aralıklarla olmalıdır
 

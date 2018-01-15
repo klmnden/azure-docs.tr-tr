@@ -1,5 +1,7 @@
 
-**Son Güncelleştirme'ı belge**: 6 Ocak 18:30:00 PST.
+
+
+**Son Güncelleştirme'ı belge**: 12 Ocak, 15:00 PST.
 
 Son açıklanması bir [CPU güvenlik açıklarının yeni sınıf](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kurgusal yürütme yan kanal saldırıları olarak bilinen daha fazla netlik aramayı müşterilerden soruları sonuçlandı.  
 
@@ -43,9 +45,7 @@ Linux kullanıyorsanız ve güvenilmeyen kod barındırma kullanıcı alanına a
 
 
 
-
-
-
+Donanım satıcıları tarafından mikro kodları güncelleştirmeleri aldığımız gibi bu en iyi uygulamaları güncelleştirmeye devam eder. Güncelleştirilmiş yönergeler için gözden geçirin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

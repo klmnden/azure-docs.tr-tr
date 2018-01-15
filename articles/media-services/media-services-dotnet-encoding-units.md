@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK ile kodlama ölçeklendirme
 > [!div class="op_single_selector"]
@@ -54,9 +54,6 @@ Ayrılmış birim türü ve .NET SDK kullanarak ayrılan birimler kodlama sayıs
 
 ## <a name="opening-a-support-ticket"></a>Bir destek bileti açmadan
 Varsayılan olarak her Media Services hesabı kodlama ve 5 isteğe bağlı akışa ayrılan birimler en fazla 25 ölçeklendirebilirsiniz. Bir destek bileti açılarak daha yüksek bir sınır isteyebilir.
-
-### <a name="open-a-support-ticket"></a>Bir destek bileti açın
-Azure portalında Git [Yardım + Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Azure'a açmadınız, kimlik bilgilerinizi girmeniz istenir.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

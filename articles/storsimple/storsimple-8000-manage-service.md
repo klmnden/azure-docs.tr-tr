@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 serisi cihazlar için StorSimple cihaz Yöneticisi hizmeti dağıtma
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 11/17/2017
 StorSimple cihaz Yöneticisi hizmeti Microsoft Azure üzerinde çalışır ve birden çok StorSimple cihazını bağlanır. Hizmeti oluşturduktan sonra böylece yönetici yükünü en aza tek, merkezi bir konumdan StorSimple cihaz Yöneticisi hizmetine bağlanan tüm cihazları yönetmek için kullanabilirsiniz.
 
 Bu öğretici oluşturma, silme, hizmetinin geçişini ve hizmet kayıt anahtarı yönetimi için gereken adımları açıklar. Bu makalede yer alan bilgileri yalnızca StorSimple 8000 serisi cihazlar için geçerlidir. StorSimple sanal dizileri hakkında daha fazla bilgi için Git [, StorSimple sanal dizisi için StorSimple Aygıt Yöneticisi'ni hizmet dağıtma](storsimple-virtual-array-manage-service.md).
+
+> [!NOTE]
+> Tüm Klasik StorSimple cihaz yöneticileri otomatik olarak yeni Azure portalına taşındı. Herhangi bir sorunuz varsa, bkz: [SSS: taşıma Azure portalına](storsimple-8000-move-azure-portal-faq.md). Azure Hizmet Yönetimi (ASM) PowerShell cmdlet'leri, yeni Azure portalına Git sonra desteklenmez. Cihazlarınızı yönetmek ve gidin komut güncelleştirme [StorSimple cihazları yönetmek için betikler kullanım Azure Resource Manager SDK tabanlı](storsimple-8000-automation-azurerm-scripts.md) daha fazla bilgi için. Yeni Azure portalına güncelleştirme 5.0 veya üstünü çalıştıran cihazları destekler. Cihazınız güncel değilse, güncelleştirme 5 hemen yükleme. Daha fazla bilgi için Git [yükleme güncelleştirme 5](storsimple-8000-install-update-5.md). Bir StorSimple bulut uygulaması (8010/8020) kullanıyorsanız, bulut uygulaması güncelleştirilemiyor. En son sürümünü yazılım güncelleştirme 5.0 ile yeni bir bulut uygulaması oluşturun ve sonra oluşturulan yeni bulut uygulaması yük için kullanın. Güncelleştirme 4.0 veya önceki sürümleri çalıştıran tüm cihazlara yaşar [yönetim işlevleri azaltılmış](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Hizmet oluşturma
 StorSimple cihaz Yöneticisi hizmet oluşturmak için sahip olmanız gerekir:
@@ -57,86 +60,6 @@ Her StorSimple cihaz Yöneticisi hizmeti için aşağıdaki öznitelikler mevcut
 * **Durum** – olabilir hizmetinin durumunu **etkin**, **oluşturma**, veya **çevrimiçi**.
 * **Konum** –, StorSimple cihazı dağıtılacak coğrafi konum.
 * **Abonelik** – hizmetiniz ile ilişkili fatura abonelik.
-
-## <a name="move-a-service-to-azure-portal"></a>Azure portalına hizmet taşıma
-StorSimple 8000 serisi artık Azure portalında yönetilebilir. StorSimple cihazlarını yönetmek için bir hizmetiniz varsa, Azure portalında hizmetinizi taşıma öneririz. StorSimple Yöneticisi hizmetiniz için Klasik Azure portalı 30 Eylül 2017 sonra desteklenmiyor. Yeni Azure portalına taşımak istiyorsanız, bkz [geçiş için ilgili önemli noktalar](#considerations-for-transition). 
-
-> [!NOTE]
-> 5 Ekim 2017 başlayarak, Klasik StorSimple cihaz yöneticileri, otomatik olarak yeni Azure portalına taşınacaktır. Bu aşamalı ve e-posta ve portal bildirimleri aracılığıyla taşıma hakkında güncelleştireceğiz. Herhangi bir sorunuz varsa, bkz: [SSS: taşıma Azure portalına](storsimple-8000-move-azure-portal-faq.md).
-
-### <a name="considerations-for-transition"></a>Geçiş için ilgili önemli noktalar
-
-Hizmet taşımadan önce yeni Azure portalına geçirme etkisini gözden geçirin.
-
-> [!NOTE]
-> Yeni Azure portalına taşıdıktan sonra varolan Azure Hizmet Yönetimi (ASM) PowerShell cmdlet'lerini desteklenmez. Azure Resource Manager SDK'sı aracılığıyla, cihazlarınızı yönetmek için betikler güncelleştirin. Daha fazla bilgi için Git [StorSimple cihazları yönetmek için betikler kullanım Azure Resource Manager SDK tabanlı](storsimple-8000-automation-azurerm-scripts.md).
-> Yeni Azure portalına güncelleştirme 3.0 veya üstünü çalıştıran cihazları destekler. Cihazınız güncel değilse, güncelleştirme 5 mümkün olan en kısa sürede uygulamak kesinlikle öneririz.
-
-#### <a name="before-you-transition"></a>Önce geçiş
-
-* Cihazınızı güncelleştirme 3.0 veya üstü çalışıyor. Cihazınızı daha eski bir sürümü çalıştırıyorsa, düzeltme yöntemiyle güncelleştirme 5 yüklemenizi öneririz. Daha fazla bilgi için Git [yükleme güncelleştirme 5](storsimple-8000-install-update-5.md). Bir StorSimple bulut uygulaması (8010/8020) kullanıyorsanız, bulut uygulaması güncelleştirilemiyor. En son sürümünü yazılım güncelleştirme 5.0 ile yeni bir bulut uygulaması oluşturun ve sonra oluşturulan yeni bulut uygulaması yük devri için kullanın.
-
-* Yeni Azure portalına geçti sonra StorSimple Cihazınızı yönetmek için Azure Klasik portalı kullanamazsınız.
-
-* Geçiş benzer ve cihaz için kapalı kalma süresi yok.
-
-* Belirtilen abonelik altında tüm StorSimple cihaz yöneticileri dönüştürülür.
-
-#### <a name="during-the-transition"></a>Geçiş sırasında
-
-* Cihazınızı portaldan yönetemez.
-* Katmanlama ve zamanlanmış yedeklemeler gibi işlemleri oluşmaya devam.
-* Geçiş işlemi devam ederken eski StorSimple cihaz yöneticileri silmeyin.
-
-#### <a name="after-the-transition"></a>Geçişten sonra
-
-* Bu gibi durumlarda, cihazlarınızı artık Klasik portalda yönetebilirsiniz.
-
-* Var olan Azure Hizmet Yönetimi (ASM) PowerShell cmdlet'lerini desteklenmez. Cihazlarınızı aracılığıyla Azure Kaynak Yöneticisi'ni yönetmek için betikler güncelleştirin. Resource Manager SDK'sını kullanarak örnek komut dosyaları için başvuruda [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
-
-* Hizmet ve cihaz yapılandırmanızı korunur. Tüm birimler ve yedekleme de Azure portalında geçti.
-
-### <a name="begin-transition"></a>Begin geçiş
-
-Azure portalı hizmetinize geçiş için aşağıdaki adımları gerçekleştirin.
-
-1. Mevcut StorSimple Yöneticisi hizmetiniz yeni Azure portalına gidin.
-    ![Daha fazla hizmet](./media/storsimple-8000-manage-service/service-browse01.png) ![Select Aygıt Yöneticisi](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. StorSimple cihaz Yöneticisi hizmeti Azure portalında kullanılabilir olduğunu bildiren bir bildirim görür. Azure portalında hizmet StorSimple cihaz Yöneticisi hizmet olarak adlandırılır.
-    ![Geçiş bildirim](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. Tam geçiş işleminin etkisini gözden geçirdiğinizden emin olun.
-    2. Klasik Portalı'ndan taşınır StorSimple cihaz yöneticileri listesini gözden geçirin.
-
-3. Tıklatın **geçirmek**. Geçiş başlar ve tamamlanması birkaç dakika sürer.
-
-Geçiş tamamlandıktan sonra Azure portalında StorSimple cihaz Yöneticisi hizmeti üzerinden aygıtlarınızı yönetebilirsiniz. Azure portalına geçirmek için bir seçenek görmezsiniz ancak taşımak yapabileceğiniz istiyorsanız [bir istek göndermek](https://aka.ms/ss8000-cx-signup).
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Operations Update 3. 0'den önceki sürümleri çalıştıran cihazlarda desteklenir
-Azure Portal'da, yalnızca güncelleştirme 3.0 ve üzeri çalıştıran StorSimple cihazlar desteklenir. Eski sürümlerini çalıştıran cihazlar sınırlı bir desteği. Azure portalına geçirdikten sonra hangi işlemleri Update 3. 0'den önceki sürümleri çalıştıran cihazlarda desteklenir anlamak için aşağıdaki tabloyu kullanın.
-
-| İşlem                                                                                                                       | Destekleniyor      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Bir cihaz kaydetme                                                                                                               | Evet            |
-| Cihaz ayarları genel gibi ağ ve güvenlik yapılandırma                                                                | Evet            |
-| Tarama, indirme ve güncelleştirmeleri yükle                                                                                             | Evet            |
-| Aygıt devre dışı bırakma                                                                                                               | Evet            |
-| Cihazı sil                                                                                                                   | Evet            |
-| Oluşturma, değiştirme ve bir birim kapsayıcısı Sil                                                                                   | Hayır             |
-| Oluşturma, değiştirme ve bir birim Sil                                                                                             | Hayır             |
-| Oluşturma, değiştirme ve bir yedekleme ilkesi silme                                                                                      | Hayır             |
-| El ile yedekleyin                                                                                                            | Hayır             |
-| Zamanlanmış yedekleyin                                                                                                         | Uygulanamaz |
-| Bir yedekleme kümesini geri yükleme                                                                                                        | Hayır             |
-| Güncelleştirme 3.0 ve sonraki sürümleri çalıştıran bir cihaza kopyalama <br> Kaynak aygıt güncelleştirme 3.0 sürümünü çalıştırıyor.                                | Evet            |
-| Update 3. 0'den önceki sürümleri çalıştıran bir cihazda kopyalamak                                                                          | Hayır             |
-| Yük devretme kaynak aygıt olarak <br> (güncelleştirme 3.0 çalıştıran bir cihazda güncelleştirme 3.0 için önceki ve sonraki sürümünü çalıştıran bir aygıttan)                                                               | Evet            |
-| Hedef aygıt olarak yük devretme <br> (güncelleştirme 3.0 önce yazılım sürümü çalıştıran bir cihaza)                                                                                   | Hayır             |
-| Bir uyarı temizleyin                                                                                                                  | Evet            |
-| Görünüm yedekleme ilkeleri, yedekleme kataloğu, birimler, birim kapsayıcıları, izleme grafikleri, işleri ve klasik Portalı'nda oluşturulan uyarılar | Evet            |
-| Açma veya aygıt denetleyicileri kapatma                                                                                              | Evet            |
-
 
 ## <a name="delete-a-service"></a>Bir hizmeti silin
 
@@ -262,6 +185,31 @@ Hizmet verileri şifreleme aygıtınızda güncelleştirmek için aşağıdaki a
 2. PowerShell'i açın ve komut istemine yazın:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Bu komut dosyası, bu hizmet verileri şifreleme anahtarı Aygıt Yöneticisi'ni altındaki tüm 8010/8020 bulut cihazları ayarlanan güvence altına alır.
+
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Operations güncelleştirme 5.0'den önceki sürümleri çalıştıran cihazlarda desteklenir
+Azure Portal'da, yalnızca güncelleştirme 5.0 ve üstünü çalıştıran StorSimple cihazlar desteklenir. Eski sürümlerini çalıştıran cihazlar sınırlı bir desteği. Azure portalına geçirdikten sonra hangi işlemleri güncelleştirme 5.0'den önceki sürümleri çalıştıran cihazlarda desteklenir anlamak için aşağıdaki tabloyu kullanın.
+
+| İşlem                                                                                                                       | Desteklenen      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Bir cihaz kaydetme                                                                                                               | Evet            |
+| Cihaz ayarları genel gibi ağ ve güvenlik yapılandırma                                                                | Evet            |
+| Tarama, indirme ve güncelleştirmeleri yükle                                                                                             | Evet            |
+| Aygıt devre dışı bırakma                                                                                                               | Evet            |
+| Cihazı sil                                                                                                                   | Evet            |
+| Oluşturma, değiştirme ve bir birim kapsayıcısı Sil                                                                                   | Hayır             |
+| Oluşturma, değiştirme ve bir birim Sil                                                                                             | Hayır             |
+| Oluşturma, değiştirme ve bir yedekleme ilkesi silme                                                                                      | Hayır             |
+| El ile yedekleyin                                                                                                            | Hayır             |
+| Zamanlanmış yedekleyin                                                                                                         | Uygulanamaz |
+| Bir yedekleme kümesini geri yükleme                                                                                                        | Hayır             |
+| Güncelleştirme 3.0 ve sonraki sürümleri çalıştıran bir cihaza kopyalama <br> Kaynak aygıt güncelleştirme 3.0 sürümünü çalıştırıyor.                                | Evet            |
+| Update 3. 0'den önceki sürümleri çalıştıran bir cihazda kopyalamak                                                                          | Hayır             |
+| Yük devretme kaynak aygıt olarak <br> (güncelleştirme 3.0 çalıştıran bir cihazda güncelleştirme 3.0 için önceki ve sonraki sürümünü çalıştıran bir aygıttan)                                                               | Evet            |
+| Hedef aygıt olarak yük devretme <br> (güncelleştirme 3.0 önce yazılım sürümü çalıştıran bir cihaza)                                                                                   | Hayır             |
+| Bir uyarı temizleyin                                                                                                                  | Evet            |
+| Görünüm yedekleme ilkeleri, yedekleme kataloğu, birimler, birim kapsayıcıları, izleme grafikleri, işleri ve klasik Portalı'nda oluşturulan uyarılar | Evet            |
+| Açma veya aygıt denetleyicileri kapatma                                                                                              | Evet            |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi edinmek [StorSimple dağıtım işlemi](storsimple-8000-deployment-walkthrough-u2.md).

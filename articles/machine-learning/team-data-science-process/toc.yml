@@ -78,7 +78,7 @@
       href: team-data-science-process-for-data-scientists.md
     - name: DevOps’a yönelik
       href: team-data-science-process-for-devops.md
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Azure ML’de TDSP kullanma
       href: ../preview/how-to-use-tdsp-in-azure-ml.md
@@ -223,7 +223,7 @@
 - name: İlgili
   items:
     - name: Microsoft Bilişsel Araç Seti - CNTK
-      href: 'https://docs.microsoft.com/en-us/cognitive-toolkit/'
+      href: 'https://docs.microsoft.com/cognitive-toolkit/'
       maintainContext: true
     - name: Cortana Intelligence İş Ortağı Çözümleri
       items:
@@ -240,7 +240,7 @@
             - name: Anormallik algılama
               href: apps-anomaly-detection-api.md
             - name: Bilişsel hizmetler
-              href: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+              href: 'https://docs.microsoft.com/azure/cognitive-services/'
             - name: Tahmine dayalı bakım
               items:
                 - name: Genel Bakış

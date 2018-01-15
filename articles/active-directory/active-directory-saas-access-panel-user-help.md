@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>My uygulamaları portalıyla Yardım gerekiyor mu?
 
@@ -76,7 +76,7 @@ Yükleme çalıştıktan sonra aşağıdaki adımları, sorunlarla karşılaşı
 - Tarayıcınızı yeniden başlatın ve My uygulamaları portalında oturum açın.
 
 - Tarayıcınızın tanımlama bilgilerini temizleyin ve My uygulamaları portalında oturum açın.
-- İzleyin [erişim paneli uzantısı Internet Explorer için sorun giderme](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting) için IE Uzantısı Yapılandırma Kılavuzu erişim için bir tanılama aracı ve adım adım yönergeler.
+- İzleyin [erişim paneli uzantısı Internet Explorer için sorun giderme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) için IE Uzantısı Yapılandırma Kılavuzu erişim için bir tanılama aracı ve adım adım yönergeler.
 
 ## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Oturum açma My uygulamaları güvenli uzantısı nasıl kullanabilirim?
 My uygulamalar varsayılan URL uzantısı değiştirme

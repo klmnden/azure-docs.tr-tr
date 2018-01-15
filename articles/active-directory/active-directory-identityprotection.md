@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Kimlik Koruması
 
@@ -132,7 +132,7 @@ Oturum açma risk düzeyi bir oturum açma girişimi meşru bir kullanıcı hesa
 
 Bir azaltma, saldırgan güvenliği aşılmış kimlik veya cihaz kimliği veya cihaza güvenli bir duruma geri yüklemeden yararlanma yeteneği sınırlamak için bir eylemdir. Bir azaltma kimlik veya aygıtla ilişkili önceki oturum açma risk olaylarını çözümlenmiyor.
 
-Riskli oturum açma işlemleri otomatik olarak azaltmak için oturum açma riski güvenlik policicies yapılandırabilirsiniz. Bu ilkeleri kullanarak, kullanıcı veya oturum açma riskli oturum açma işlemleri engelleme veya kullanıcının gerektiren çok faktörlü kimlik doğrulaması gerçekleştirmek için risk düzeyini göz önünde bulundurun. Bu Eylemler, bir saldırgan zarar görmesine neden bir çalınan kimlik bilgisinden faydalanmakta engelleyebilir ve kimliğini güvenli hale getirmek için biraz zaman verebilir.
+Riskli oturum açma işlemleri otomatik olarak azaltmak için oturum açma riski güvenlik ilkelerini yapılandırabilirsiniz. Bu ilkeleri kullanarak, kullanıcı veya oturum açma riskli oturum açma işlemleri engelleme veya kullanıcının gerektiren çok faktörlü kimlik doğrulaması gerçekleştirmek için risk düzeyini göz önünde bulundurun. Bu Eylemler, bir saldırgan zarar görmesine neden bir çalınan kimlik bilgisinden faydalanmakta engelleyebilir ve kimliğini güvenli hale getirmek için biraz zaman verebilir.
 
 ### <a name="sign-in-risk-security-policy"></a>Oturum açma riski güvenlik ilkesi
 Bir özel oturum açma riski değerlendirir ve önceden tanımlanmış koşullara ve kurallarına göre Azaltıcı Etkenler geçerli bir koşullu erişim ilkesi oturum açma riski ilkesidir.

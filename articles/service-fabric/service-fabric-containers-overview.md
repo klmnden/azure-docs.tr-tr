@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric ve kapsayıcıları
 > [!NOTE]
-> Windows 10'daki bir Service Fabric kümesine kapsayıcıları dağıtma henüz desteklenmiyor. 
+> Windows 10 veya Docker CE ile bir Service Fabric kümesine kapsayıcıları dağıtılması desteklenmez. 
 >   
+
+> [!NOTE]
+> Service Fabric sürüm 6.1, Windows Server sürümü 1709 Önizleme desteği vardır. Açık ağ ve DNS hizmeti doku Windows Server sürüm 1709 ile çalışmaz. 
+> 
 
 ## <a name="introduction"></a>Giriş
 Azure Service fabric bir [orchestrator](service-fabric-cluster-resource-manager-introduction.md) makine bir küme içinde kullanım ve yüksek ölçüde ölçeklendirmeyi iyileştirme yıllık ile Microsoft Hizmetleri. Hizmetleri kullanmanın birçok yönden geliştirilebilir [Service Fabric modellerini programlama](service-fabric-choose-framework.md) dağıtma [Konuk yürütülebilir dosyalar](service-fabric-deploy-existing-app.md). Varsayılan olarak, Service Fabric dağıtır ve bu hizmetleri işlemler olarak etkinleştirir. İşlemler hızlı etkinleştirme ve küme kaynaklarının yüksek yoğunluk kullanım sağlar. Service Fabric kapsayıcı görüntüleri Hizmetleri'nde de dağıtabilirsiniz. Önemlisi işlemlerde Hizmetleri ve Hizmetleri aynı uygulamada kapsayıcılardaki karıştırabilirsiniz.   
@@ -61,7 +65,7 @@ Aşağıdaki şekilde sanallaştırmasının ve yalıtım düzeyi işletim siste
 ## <a name="scenarios-for-using-containers"></a>Kapsayıcıları kullanma senaryoları
 Burada bir kapsayıcı iyi bir seçimdir tipik örnekler şunlardır:
 
-* **IIS kaldırın ve shift**: Varolan varsa [ASP.NET MVC](https://www.asp.net/mvc) kullanmaya devam etmek istediğiniz uygulamaları geçirmek yerine bir kapsayıcıda bunları put ASP.NET Core onları. Bu ASP.NET MVC uygulamaları Internet Information Services (IIS) bağlıdır. Bu kapsayıcı görüntüleri uygulamalarla precreated IIS görüntüden paketini ve bunları Service Fabric ile dağıtabilirsiniz. Bkz: [kapsayıcı Windows Server görüntülerinde](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) Windows kapsayıcıları hakkında bilgi için.
+* **IIS kaldırın ve shift**: Varolan varsa [ASP.NET MVC](https://www.asp.net/mvc) kullanmaya devam etmek istediğiniz uygulamaları geçirmek yerine bir kapsayıcıda bunları put ASP.NET Core onları. Bu ASP.NET MVC uygulamaları Internet Information Services (IIS) bağlıdır. Bu kapsayıcı görüntüleri uygulamalarla precreated IIS görüntüden paketini ve bunları Service Fabric ile dağıtabilirsiniz. Bkz: [kapsayıcı Windows Server görüntülerinde](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) Windows kapsayıcıları hakkında bilgi için.
 * **Karışık kapsayıcıları ve Service Fabric mikro**: uygulamanızın bir parçası için var olan bir kapsayıcı görüntüsünü kullanın. Örneğin, kullanabilirsiniz [NGINX kapsayıcısı](https://hub.docker.com/_/nginx/) uygulama ve durum bilgisi olan hizmetler daha yoğun arka uç hesaplama için web ön ucu için.
 * **"Gürültülü komşu" Hizmetleri etkisini azaltmak**: bir konakta bir hizmetin kullandığı kaynakları kısıtlamak için kapsayıcıları kaynak İdaresi özelliğini kullanabilirsiniz. Hizmetleri birçok kaynaklarını tüketebilir ve diğer performans (örneğin, uzun süre çalışan, sorgu benzeri işlemi) etkiler, bu hizmetleri kaynak İdaresi kapsayıcılarına yerleştirmeyi düşünün.
 
@@ -90,6 +94,6 @@ Bu makalede, öğrenilen kapsayıcıları hakkında bir kapsayıcı orchestrator
 
 [Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma](service-fabric-get-started-containers-linux.md)
 
-[Windows kapsayıcıları hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Windows kapsayıcıları hakkında daha fazla bilgi edinin](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

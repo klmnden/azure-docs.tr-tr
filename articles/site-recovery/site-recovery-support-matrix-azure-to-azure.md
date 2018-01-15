@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-<<<<<<< HEAD
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 08352e35daa85a6496adc57eed5f12621a6b300c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure'dan Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -86,8 +80,8 @@ Destek sözü edilen işletim sisteminde çalışan herhangi bir iş yükü içi
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6,8, 6.9, 7.0, 7.1, 7.2, 7.3
-- CentOS 6.5, 6.6, 6.7, 6,8, 6.9, 7.0, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6,8 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6,8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 LTS Server [ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
@@ -106,11 +100,14 @@ Destek sözü edilen işletim sisteminde çalışan herhangi bir iş yükü içi
 
 **Sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic 3.13.0-117-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-75-generic 4.4.0-21-Generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic 3.13.0-121-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-81-generic 4.4.0-21-Generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic 3.13.0-125-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-83-generic 4.4.0-21-Generic |
+14.04 LTS | 9.12 | 3.13.0-24-Generic 3.13.0-132-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-96-generic 4.4.0-21-Generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic 3.13.0-137-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-104-generic 4.4.0-21-Generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic 4.4.0-81-generic için<br/>4.8.0-34-Generic 4.8.0-56-generic için<br/>4.10.0-24-generic 4.10.0-14-Generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic 4.4.0-83-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-27-generic 4.10.0-14-Generic |
+16.04 LTS | 9.12 | 4.4.0-21-Generic 4.4.0-96-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-35-generic 4.10.0-14-Generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic 4.4.0-104-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-42-generic 4.10.0-14-Generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Desteklenen dosya sistemleri ve Linux işletim sistemi çalıştıran Azure sanal makinelerinde Konuk depolama yapılandırmaları
 
