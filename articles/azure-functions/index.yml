@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 01-23-2017
   ms.author: carolz
-  ms.openlocfilehash: 05af130d89d78bedb43f4c5cf69203acfa17c64c
-  ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+  ms.openlocfilehash: 8e7bb72878af9d1e310ac2ffa7e90c14b3909633
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 11/29/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure İşlevleri, açıkça sağlamak veya altyapıyı yönetmek zorunda kalmadan, isteğe bağlı olarak kod çalıştırmanıza olanak sağlayan bir <a href=\"https://azure.microsoft.com/overview/serverless-computing/\">sunucusuz</a> işlem hizmetidir. Çok çeşitli olaylara yanıt olarak bir komut dosyası veya kod parçası çalıştırmak için Azure İşlevleri’ni kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure İşlevleri’ni kullanmayı öğrenin."
   aside:
@@ -39,7 +39,7 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/media/common/i_http.svg
+        src: https://docs.microsoft.com/media/common/i_http.svg
       text: HTTP
       href: /azure/azure-functions/functions-create-first-azure-function
     - image:

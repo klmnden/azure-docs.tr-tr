@@ -15,11 +15,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
-  ms.openlocfilehash: d50c30ccb4fe6d5d6c56edb2a53d4822796af6d4
-  ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+  ms.openlocfilehash: b9f76a98894485f48d495f32f352672784b86316
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Service Fabric’i kullanmayı öğrenin."
 sections:
@@ -109,7 +109,7 @@ sections:
     className: cardsD
     items:
     - title: "Komut Satırı"
-      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
     - title: Diller
       html: "<p><a href=\"/java/api/overview/azure/servicefabric\">Java API’si</a></p><p><a href=\"/dotnet/api/overview/azure/service-fabric?view=azure-dotnet\">.NET</a></p><p><a href=\"/azure/service-fabric/service-fabric-service-model-schema\">Hizmet modeli XML şeması</a></p>"
     - title: REST

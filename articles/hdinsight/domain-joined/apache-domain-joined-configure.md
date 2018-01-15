@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Etki alanına katılmış Hdınsight sandbox ortamını yapılandırma
 
@@ -27,11 +27,18 @@ Tek başına Active Directory ile Azure Hdınsight kümesi ayarlama öğrenin ve
 
 Hdınsight kümesi etki alanına katılmış olmadan her küme yalnızca bir Hadoop HTTP kullanıcı hesabı ve bir SSH kullanıcı hesabı olabilir.  Birden çok kullanıcı kimlik doğrulaması kullanılarak elde edilir:
 
--   Tek başına bir Active Directory Azure Iaas'da çalışan
--   Azure Active Directory
+-   Tek başına bir Active Directory Azure Iaas üzerinde çalışıyor.
+-   Azure Active Directory.
 -   Müşterinin şirket içi ortamda çalışan active Directory.
 
-Tek başına bir Active Directory kullanarak Azure Iaas üzerinde çalışan bu makalede ele alınmıştır. Bu, bir müşteri Hdınsight'ta çok kullanıcılı destek almak için izleyebileceğiniz basit mimarisidir. 
+Tek başına bir Active Directory kullanarak Azure Iaas üzerinde çalışan bu makalede ele alınmıştır. Bu, bir müşteri Hdınsight'ta çok kullanıcılı destek almak için izleyebileceğiniz basit mimarisidir. Bu makalede, bu yapılandırma için iki yaklaşım kapsar:
+
+- Seçenek 1: tek başına active directory ve Hdınsight kümesi oluşturmak için bir Azure kaynak yönetimi şablonu kullanın.
+- Seçenek 2: Tüm işlem aşağıdaki adımları ayrılır:
+    - Bir şablonu kullanarak bir Active Directory oluşturun.
+    - LDAPS ayarlayın.
+    - AD kullanıcıları ve grupları oluşturma
+    - Hdınsight kümesi oluşturma
 
 > [!IMPORTANT]
 > Oozie etki alanına katılmış Hdınsight üzerinde etkin değil.
@@ -39,7 +46,50 @@ Tek başına bir Active Directory kullanarak Azure Iaas üzerinde çalışan bu 
 ## <a name="prerequisite"></a>Önkoşul
 * Azure aboneliği
 
-## <a name="create-an-active-directory"></a>Bir Active Directory oluşturun
+## <a name="option-1-one-step-approach"></a>Seçenek 1: tek adımlı yaklaşımı
+Bu bölümde, Azure portalından bir Azure kaynak yönetimi şablonunu açın. Şablon tek başına bir Active Directory oluşturmak için kullanılır ve Hdınsight kümesi. Şu anda etki alanına katılmış Hadoop kümesi, Spark kümesi ve etkileşimli sorgu kümesi oluşturabilirsiniz.
+
+1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon bulunan [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/).
+   
+    Spark kümesi oluşturmak için:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fspark%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Etkileşimli sorgu küme oluşturmak için:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Finteractivequery%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Hadoop kümesi oluşturmak için:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fhadoop%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+2. Değerleri girin, seçin **hüküm ve koşulları yukarıda belirtildiği ediyorum**seçin **panoya Sabitle**ve ardından **satın alma**. Fare imlecinizi açıklamaları görmek için bir açıklama işareti alanlarının yanındaki getirin. Değerleri çoğunu doldurulduğunu. Varsayılan değerleri veya kendi değerlerinizi kullanabilirsiniz.
+
+    - **Kaynak grubu**: bir Azure kaynak grubu adı girin.
+    - **Konum**: yakın olan bir konum seçin.
+    - **Yeni depolama hesabı adı**: bir Azure depolama hesabı adı girin. Bu yeni depolama hesabı varsayılan depolama hesabı olarak PDC, BDC ve Hdınsight kümesi tarafından kullanılır.
+    - **Yönetici kullanıcı adı**: etki alanı yönetici kullanıcı adı girin.
+    - **Yönetici parolası**: etki alanı yönetici parolası girin.
+    - **Etki alanı adı**: varsayılan ad *contoso.com*.  Etki alanı adını değiştirirseniz, aynı zamanda güncelleştirmelisiniz **güvenli LDAP sertifikası** alan ve **kuruluş birimi DN** alan.
+    - **Küme adı**: Hdınsight küme adını girin.
+    - **Küme türü**: Bu değeri değiştirmeyin. Küme türü değiştirmek istiyorsanız, son adımda belirli bir şablon kullanın.
+
+    Bazı değerleri şablonda sabit kodlanmış, örneğin, çalışan düğümü örnek sayısı iki.  Sabit kodlanmış değerler değiştirmek için tıklatın. **Düzen şablonu**.
+
+    ![Hdınsight küme etki alanına katılmış Düzen şablonu](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
+
+Şablonu başarıyla tamamlandıktan sonra kaynak grubunda oluşturduğunuz 23 kaynak yok.
+
+## <a name="option-2-multi-step-approach"></a>Seçenek 2: çok adımlı yaklaşımı
+
+Bu bölümde dört adım vardır:
+
+1. Bir şablonu kullanarak bir Active Directory oluşturun.
+2. LDAPS ayarlayın.
+3. AD kullanıcıları ve grupları oluşturma
+4. Hdınsight kümesi oluşturma
+
+### <a name="create-an-active-directory"></a>Bir Active Directory oluşturun
 
 Azure Resource Manager şablonu, Azure kaynak oluşturmak kolaylaştırır. Bu bölümde, kullandığınız bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) yeni bir orman ve etki alanı ile iki sanal makine oluşturmak için. İki sanal makine, bir birincil etki alanı denetleyicisi ve bir yedek etki alanı denetleyicisi olarak görev yapar.
 
@@ -69,7 +119,7 @@ Azure Resource Manager şablonu, Azure kaynak oluşturmak kolaylaştırır. Bu b
 
 Kaynak oluşturmak için yaklaşık 20 dakika sürer.
 
-## <a name="setup-ldaps"></a>LDAPS Kurulumu
+### <a name="setup-ldaps"></a>LDAPS Kurulumu
 
 Basit Dizin Erişim Protokolü (LDAP) okuma ve AD için yazmak için kullanılır.
 
@@ -102,11 +152,11 @@ Basit Dizin Erişim Protokolü (LDAP) okuma ve AD için yazmak için kullanılı
 
     ![Hdınsight etki alanına katılmış AD sertifikası yapılandırma](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-2. Tıklatın ** solda, rol hizmetlerini seçin **sertifika yetkilisi**ve ardından **sonraki**.
+2. Tıklatın **rol hizmetlerini** sol tarafta seçin **sertifika yetkilisi**ve ardından **sonraki**.
 3. Sihirbazı izleyin, yordamın geri kalanını için varsayılan ayarları kullanın (tıklatın **yapılandırma** son adımı sırasında).
 4. Sihirbazı kapatmak için **Kapat**'a tıklayın.
 
-## <a name="optional-create-ad-users-and-groups"></a>(İsteğe bağlı) AD kullanıcıları ve grupları oluşturma
+### <a name="optional-create-ad-users-and-groups"></a>(İsteğe bağlı) AD kullanıcıları ve grupları oluşturma
 
 **AD kullanıcıları ve grupları oluşturma**
 1. Uzak Masaüstü kullanarak PDC Bağlan
@@ -122,7 +172,7 @@ Basit Dizin Erişim Protokolü (LDAP) okuma ve AD için yazmak için kullanılı
 > [!IMPORTANT]
 > Bir etki alanına katılmış Hdınsight küme oluşturmadan önce PDC sanal makinenin yeniden başlatılması gerekir.
 
-## <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Hdınsight kümesi VNet oluşturma
+### <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Hdınsight kümesi VNet oluşturma
 
 Bu bölümde, öğreticinin önceki bölümlerinde Resource Manager şablonu kullanılarak oluşturulan sanal ağ bir Hdınsight kümesine eklemek için Azure Portalı'nı kullanın. Bu makalede, yalnızca etki alanına katılmış kümesi yapılandırması için belirli bilgiler yer almaktadır.  Genel bilgi için bkz: [Azure portalını kullanarak Hdınsight oluşturma Linux tabanlı kümelerde](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 

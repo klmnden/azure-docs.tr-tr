@@ -14,22 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-<<<<<<< HEAD
-ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 251f7fc99f1c8d79f31118df11b7522930903c25
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e5dd1ebd290c950c7f2bda3dae088f3ee7f836fd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ni kullanarak bir Service Fabric kümesi oluştur 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portalı](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -80,7 +74,7 @@ Güvenli küme oluşturma kavramı, Linux oldukları ya da Windows kümeleri ayn
 Ek sertifikaların herhangi bir sayıda yönetici veya kullanıcı istemci işlemleri için belirtilebilir. Varsayılan olarak küme sertifika yönetici istemci ayrıcalıklarına sahiptir. Bu ek istemci sertifikaları kümesine yüklenmemelidir, bunu yalnızca bir küme yapılandırmasında izin olarak belirtilmesi gerekiyor, ancak, bunlar kümeye bağlanın ve herhangi bir yönetim gerçekleştirmek için istemci bilgisayarlarında yüklü olması gerekir işlemler.
 
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 Güvenli küme oluşturma kavramı, Linux oldukları ya da Windows kümeleri aynıdır. Bu kılavuz, azure powershell veya yeni kümeleri oluşturmak için azure CLI kullanımını kapsar. Önkoşullar ya da bulunmaktadır 
 
 -  [Azure PowerShell 4.1 ve yukarıdaki] [ azure-powershell] veya [Azure CLI 2.0 ve üstü][azure-CLI].
@@ -701,7 +695,7 @@ Bu noktada, Azure Active Directory sağlayan yönetim kimlik doğrulama ile güv
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-portal]: https://portal.azure.com/

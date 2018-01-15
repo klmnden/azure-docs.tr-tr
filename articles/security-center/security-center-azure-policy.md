@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure İlkesi ile Güvenlik Merkezi güvenlik ilkelerini tümleştirme
-Bu makale, Azure İlkesi ile desteklenen Azure Güvenlik Merkezi güvenlik ilkelerini yapılandırmanıza yardımcı olur. 
+Bu makale, Azure İlkesi ile desteklenen Azure Güvenlik Merkezi güvenlik ilkelerini yapılandırmanıza yardımcı olur.
 
 ## <a name="how-security-policies-work"></a>Güvenlik ilkeleri nasıl çalışır?
 Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsayılan bir güvenlik ilkesi oluşturur. Güvenlik Merkezi'nde ilkeleri düzenleyebilir ya da [Azure İlkesi](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)’ni kullanarak aşağıdakileri yapabilirsiniz:
@@ -50,8 +50,8 @@ Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesin
 
 5. Bir ilke tanımını silmek için **İlkeler ve Parametreler** altında, silmek istediğiniz tanımın yanındaki **Sil** öğesini seçin.
 
-6. **Kaydet** düğmesine tıklayın.  
-    Azure İlkesi üzerinden Güvenlik Merkezi’ne atanmış varsayılan ilkeyi gösteren **Kullanılabilir Tanımlar** penceresi açılır. 
+6. **Kaydet**’e tıklayın.  
+    Azure İlkesi üzerinden Güvenlik Merkezi’ne atanmış varsayılan ilkeyi gösteren **Kullanılabilir Tanımlar** penceresi açılır.
 
 7. (İsteğe bağlı) **Kullanılabilir Tanımlar** penceresinde aşağıdakilerden birini yapın:
 
@@ -68,12 +68,12 @@ Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesin
 
 ## <a name="available-security-policy-definitions"></a>Kullanılabilir güvenlik ilkesi tanımları
 
-Varsayılan güvenlik ilkesinde mevcut olan ilke tanımlarını anlamak için aşağıdaki tabloya bakın: 
+Varsayılan güvenlik ilkesinde mevcut olan ilke tanımlarını anlamak için aşağıdaki tabloya bakın:
 
 | İlke | Etkin ilke ne yapar? |
 | --- | --- |
 | Sistem güncelleştirmeleri |Windows Update veya Windows Server Update Services kaynağından kullanılabilir güvenlik güncelleştirmelerinin ve kritik güncelleştirmelerin günlük listesini alır. Alınan liste, sanal makineleriniz için yapılandırılan hizmete bağlıdır ve eksik güncelleştirmelerin uygulanmasını önerir. Linux sistemleri için bu ilke, kullanılabilir güncelleştirmeleri olan paketleri belirlemek üzere distro ile sağlanan paket yönetim sistemini kullanır. Ayrıca, [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md) sanal makinelerinden güvenlik güncelleştirmelerini ve kritik güncelleştirmeleri denetler. |
-| İşletim sistemi güvenlik açıkları |Sanal makineyi saldırılara açık hale getirebilecek sorunları belirlemek üzere işletim sistemi yapılandırmalarını günlük olarak çözümler. İlke ayrıca bu güvenlik açıklarını gidermek üzere yapılandırma değişiklikleri yapılmasını önerir. İzlenmekte olan belirli yapılandırmalar hakkında daha fazla bilgi için [önerilen temel kurallar listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) konusunu inceleyin. (Şu an için Windows Server 2016 tam olarak desteklenmemektedir.) |
+| Güvenlik yapılandırmaları |Sanal makineyi saldırılara açık hale getirebilecek sorunları belirlemek üzere işletim sistemi yapılandırmalarını günlük olarak çözümler. İlke ayrıca bu güvenlik açıklarını gidermek üzere yapılandırma değişiklikleri yapılmasını önerir. İzlenmekte olan belirli yapılandırmalar hakkında daha fazla bilgi için [önerilen temel kurallar listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) konusunu inceleyin. (Şu an için Windows Server 2016 tam olarak desteklenmemektedir.) |
 | Uç nokta koruması |Virüsleri, casus yazılımları ve diğer kötü amaçlı yazılımları tanımlamaya ve kaldırmaya yardımcı olmak için tüm Windows sanal makinelerine (VM) sağlamak üzere uç nokta ayarlanmasını önerir. |
 | Disk şifrelemesi |Bekleyen verilerin korunmasını geliştirmek için tüm sanal makinelerde disk şifrelemesini etkinleştirmeyi önerir. |
 | Ağ güvenlik grupları |Ortak uç noktalara sahip sanal makinelere gelen ve giden trafiği denetlemek için [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md)'nın yapılandırılmasını önerir. Aksi belirtilmediği sürece bir alt ağ için yapılandırılan ağ güvenlik grupları tüm sanal makine ağ arabirimleri tarafından devralınır. Bir ağ güvenlik grubunun yapılandırılıp yapılandırılmadığını denetlemenin yanı sıra, bu ilke gelen trafiğe izin veren kuralları tanımlamak için gelen güvenlik kurallarını değerlendirir. |

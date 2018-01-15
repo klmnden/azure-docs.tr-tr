@@ -9,18 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-<<<<<<< HEAD
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
-=======
-ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -124,7 +118,7 @@ Oturum açtıktan sonra çalışma ekranı uygulama boş bir ekranda dönen Teke
 3. Uygulamayı yeniden başlatın.
 
 ## <a name="cant-delete-experimentation-account"></a>Deneme hesabı silinemiyor
-Bir deneme hesabı silmek için CLI kullanabilirsiniz, ancak alt çalışma alanları ve bu alt çalışma içinde alt projeleri silmeniz gerekir. Aksi takdirde, bir hata görürsünüz.
+Bir deneme hesabı silmek için CLI kullanabilirsiniz, ancak alt çalışma alanları ve bu alt çalışma içinde alt projeleri silmeniz gerekir. Aksi takdirde, "iç içe kaynaklar silinmeden önce hata kaynak silinemiyor." konusuna bakın
 
 ```azure-cli
 # delete a project
@@ -151,6 +145,8 @@ Kullanarak çalışan bir deneme kazandırın varsa `az ml experiment submit` ve
 - Ctrl + c macOS üzerinde kullanın
 
 Bu yalnızca CLI penceresinde çıkış akışı keser unutmayın. Yürütülmekte olan bir işi aslında durdurmaz. Devam eden işi iptal etmek istiyorsanız, kullanmak `az ml experiment cancel -r <run_id> -t <target name>` komutu.
+
+Break anahtar olmayan klavye Windows bilgisayarlarda, olası alternatifler Fn B, Ctrl Fn B veya Fn + Esc içerir. Belirli bir tuş bileşimini donanım satıcınızın belgelerine bakın.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker hata "okuma: bağlantı reddedildi"
 Bazen yerel bir Docker kapsayıcısı karşı çalıştırırken şu hatayı görebilirsiniz: 
@@ -204,7 +200,7 @@ $ docker system prune -a
 
 Ayrıca, bir veri diski ekleyin ve görüntüleri saklamak için veri diski kullanmak için Docker altyapısına yapılandırın. Burada [bir veri diski ekleme](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Daha sonra [Docker görüntüleri depoladığı değişiklik](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Veya, işletim sistemi diski genişletebilirsiniz ve Docker altyapısı yapılandırması touch gerekmez. Burada [nasıl işletim sistemi diski genişletebilirsiniz](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+Veya, işletim sistemi diski genişletebilirsiniz ve Docker altyapısı yapılandırması touch gerekmez. Burada [nasıl işletim sistemi diski genişletebilirsiniz](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
 #Deallocate VM (stopping will not work)

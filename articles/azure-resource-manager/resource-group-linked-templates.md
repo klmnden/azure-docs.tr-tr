@@ -12,31 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-<<<<<<< HEAD
-ms.openlocfilehash: 7d6e8f123dd04b98df10b5a941396d7140bcc023
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Azure kaynaklarını dağıtırken bağlı şablonları kullanma
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlantılı ve şablonları Azure kaynaklarını dağıtırken iç içe geçmiş kullanma
 
-Çözümünüzü dağıtmak için birden çok bağlantılı şablonları ile tek bir şablon ya da ana şablon kullanabilirsiniz. Orta çözümlerine küçük için tek bir şablon anlamak ve sürdürmek daha kolay olur. Tüm kaynaklara ve tek bir dosyada değerleri görüyor. Gelişmiş senaryolar için bağlı şablonları hedeflenen bileşenlere çözüm bölmek etkinleştirmeniz ve şablonlarını yeniden kullanabilirsiniz.
+Çözümünüzü dağıtmak için birden fazla ilgili şablonları ile tek bir şablon ya da ana şablon kullanabilirsiniz. İlgili şablon ana şablondan bağlantılı ayrı bir dosya ya da ana şablonu içinde iç içe bir şablon olabilir.
+
+Orta çözümlerine küçük için tek bir şablon anlamak ve sürdürmek daha kolay olur. Tüm kaynaklara ve tek bir dosyada değerleri görüyor. Gelişmiş senaryolar için bağlı şablonları hedeflenen bileşenlere çözüm bölmek etkinleştirmeniz ve şablonlarını yeniden kullanabilirsiniz.
 
 Bağlantılı şablon kullanırken, dağıtım sırasında parametre değerlerini alır bir ana şablon oluşturun. Ana Şablon bağlı tüm şablonları içerir ve gerektiğinde bu şablonları değerleri geçirir.
 
 ![bağlı şablonları](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Bir şablona bağlantı
+## <a name="link-or-nest-a-template"></a>Bir şablonu içe veya bağlantı
 
 Farklı bir şablona bağlamak için ekleme bir **dağıtımları** ana şablonunuz için kaynak.
 
@@ -48,17 +42,17 @@ Farklı bir şablona bağlamak için ekleme bir **dağıtımları** ana şablonu
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-Dağıtım kaynağı için sağladığınız özelliklerini bir dış şablonu bağlama veya bir satır içi şablon ana şablon katıştırma göre farklılık gösterir.
+Dağıtım kaynağı için sağladığınız özelliklerini bir dış şablonu bağlama veya bir satır içi şablon ana şablonundaki iç içe geçme göre farklılık gösterir.
 
-### <a name="inline-template"></a>Satır içi şablon
+### <a name="nested-template"></a>İç içe geçmiş şablonu
 
-Bağlantılı şablon katıştırmak için kullanın **şablonu** özelliği ve şablonu içerir.
+Ana Şablon şablonda yerleştirmek için kullanmak **şablonu** özelliği ve şablon söz dizimi belirtin.
 
 ```json
 "resources": [
@@ -71,8 +65,6 @@ Bağlantılı şablon katıştırmak için kullanın **şablonu** özelliği ve 
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -84,12 +76,13 @@ Bağlantılı şablon katıştırmak için kullanın **şablonu** özelliği ve 
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+İç içe geçmiş şablonları için parametreleri veya iç içe geçmiş şablonda tanımlanan değişkenler kullanamazsınız. Parametreler ve değişkenler ana şablondan kullanabilirsiniz. Önceki örnekte `[variables('storageName')]` iç içe geçmiş şablonunu değil ana şablonundan bir değer alır. Dış şablonlar bu kısıtlama geçerli değildir.
 
 ### <a name="external-template-and-external-parameters"></a>Dış şablon ve dış parametreleri
 
@@ -317,9 +310,9 @@ Bir yük dengeleyici dağıtırken önceki şablondan genel IP adresi kullanmak 
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Dağıtım geçmişi bağlı şablonları
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Dağıtım geçmişi bağlantılı ve iç içe geçmiş şablonlarında
 
-Resource Manager her bağlantılı bir şablon dağıtım geçmişini ayrı bir dağıtımda olarak işler. Bu nedenle, bir ana şablon üç bağlı şablonları ile dağıtım geçmişi görünür:
+Kaynak Yöneticisi'ni her bir şablon dağıtım geçmişini ayrı bir dağıtımda olarak işler. Bu nedenle, bir ana şablon üç bağlantılı veya iç içe geçmiş şablonları ile dağıtım geçmişi görünür:
 
 ![Dağıtım geçmişi](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -488,65 +481,11 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 Aşağıdaki örnekler bağlı Şablonları'nın yaygın kullanımları gösterir.
 
-<<<<<<< HEAD
-Dağıtmak için [ana şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) ve [bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json), PowerShell kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
-```
-
-Veya Azure CLI:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
-```
-
-### <a name="load-balancer-with-public-ip-address-in-linked-template"></a>Bağlantılı şablonundaki ortak IP adresine sahip yük dengeleyici
-
-Dağıtmak için [ana şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) ve [bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json), PowerShell kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
-```
-
-Veya Azure CLI:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
-```
-
-### <a name="multiple-public-ip-addresses-in-linked-template"></a>Bağlantılı şablonunda birden çok ortak IP adresleri
-
-Dağıtmak için [ana şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) ve [bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json), PowerShell kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
-```
-
-Veya Azure CLI:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
-```
-=======
 |Ana şablon  |Bağlantılı şablonu |Açıklama  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Bağlantılı şablondan dize verir. |
 |[Genel IP adresine sahip yük dengeleyici](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Genel IP adresi bağlantılı şablondan döndürür ve yük dengeleyici bu değeri ayarlar. |
 |[Birden çok IP adresi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Birden çok ortak IP adresleri bağlantılı şablonunda oluşturur.  |
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

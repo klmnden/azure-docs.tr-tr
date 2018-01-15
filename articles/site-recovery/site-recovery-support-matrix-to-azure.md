@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Şirket içinden Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 Bu makalede, çoğaltma ve kurtarma için Azure, Azure Site Recovery için desteklenen yapılandırmalar ve bileşenleri özetlenmektedir. Azure Site Recovery gereksinimleri hakkında daha fazla bilgi için bkz: [Önkoşullar](site-recovery-prereq.md).
 
 > [!NOTE]
-> Site Recovery sağlayıcısı ve aracı uyumluluk için destek matrisi Güncelleştirmeler ile elde etmek için en son sürümüne güncelleştirdiğinizden emin olun.
+> Site Recovery sağlayıcısı ve aracı için destek matrisi güncelleştirmeleri uyumluluğu elde etmek için en son sürümüne güncelleştirdiğinizden emin olun.
 
 
 ## <a name="support-for-deployment-options"></a>Dağıtım seçenekleri için destek
@@ -68,34 +68,34 @@ Aşağıdaki tabloda, Azure Site Recovery kullanırken çeşitli dağıtım sena
 
  **VMware/fiziksel sunucu** | **Hyper-V (ile/VMM olmadan)** |
 --- | --- |
-64-bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi olan sunucu)\*, Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1<br/><br/> Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.3 <br/><br/>CentOS: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.3 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, Red Hat uyumlu çekirdek ya da kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Makineler SLES 11 SP4 ' SLES 11 SP3 çoğaltılan yükseltme desteklenmez. Çoğaltılmış bir makineden SLES 11 SP4 ' SLES 11SP3 yükseltildiyse, çoğaltmayı devre dışı bırakın ve makine yükseltme sonrası yeniden korumak gerekir.) | Bir konuk işletim sistemi [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868.aspx)
+64-bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi olan sunucu)\*, Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1<br/><br/> Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4<br/><br/>CentOS: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, Red Hat uyumlu çekirdek ya da kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Makineler SLES 11 SP4 ' SLES 11 SP3 çoğaltılan yükseltme desteklenmez. Çoğaltılmış bir makineden SLES 11 SP4 ' SLES 11SP3 yükseltildiyse, çoğaltmayı devre dışı bırakın ve makine yükseltme sonrası yeniden korumak gerekir.) | Bir konuk işletim sistemi [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \*Windows Server 2016 Nano Server desteklenmiyor.
-
->[!IMPORTANT]
->(VMware/fiziksel sunucularını Azure'a çoğaltma için geçerlidir)
 >
-> Red Hat Enterprise Linux Server 7 + ve CentOS 7 + sunucularda, çekirdek sürüm 3.10.0-514 Azure Site Recovery Mobility hizmeti 9.8 sürümünden itibaren desteklenmektedir.<br/><br/>
-> Mobility hizmetinin 9.8 sürümünden daha düşük bir sürümü ile 3.10.0-514 çekirdek müşteriler çoğaltmasını devre dışı bırakın, Mobility hizmeti sürümü 9.8 sürüme güncelleştirin ve ardından çoğaltma işlemini yeniden etkinleştirmek için gereklidir.
+> Linux dağıtımları üzerinde ikincil sürüm yayın/güncelleştirme dağıtımının bir parçası olan stok tekrar desteklenir.
+>
+> Linux dağıtım noktasında bir Azure Site Recovery ana sürümleri arasında yükseltme VMware sanal makinesi korumalı veya fiziksel sunucu desteklenmiyor. Yükseltilirken işletim sistemi ana sürümleri (örneğin CentOS 7.* için CentOS 6.*) arasında makinesi için çoğaltma devre dışı bırakmak, makinedeki işletim sistemini yükseltme ve çoğaltma işlemini yeniden etkinleştirin.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/fiziksel sunucular için desteklenen Ubuntu çekirdek sürümleri
 
 **Sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic 3.13.0-117-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-75-generic 4.4.0-21-Generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic 3.13.0-121-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-81-generic 4.4.0-21-Generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic 3.13.0-128-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-91-generic 4.4.0-21-Generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic 3.13.0-132-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-96-generic 4.4.0-21-Generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic 3.13.0-137-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-104-generic 4.4.0-21-Generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic 4.4.0-81-generic için<br/>4.8.0-34-Generic 4.8.0-56-generic için<br/>4.10.0-24-generic 4.10.0-14-Generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic 4.4.0-91-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-32-generic 4.10.0-14-Generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic 4.4.0-96-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-35-generic 4.10.0-14-Generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic 4.4.0-104-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-42-generic 4.10.0-14-Generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Desteklenen dosya sistemleri ve Linux (VMware/fiziksel sunucuları) üzerinde Konuk depolama yapılandırmaları
 
-Aşağıdaki dosya sistemleri ve depolama yapılandırması yazılım VMware veya fiziksel sunucuları üzerinde çalışan Linux sunucularda desteklenir:
+Aşağıdaki dosya sistemleri ve depolama yapılandırması yazılımı VMware veya fiziksel sunucuları üzerinde çalışan Linux sunucularda desteklenir:
 * Dosya sistemleri: ext3, ext4, ReiserFS (Suse Linux Enterprise Server yalnızca), XFS
 * Birim Yöneticisi: LVM2
 * Çok yollu yazılım: cihaz Eşleyici
@@ -105,8 +105,7 @@ Birden çok sıra blok g/ç cihazları desteklenmez.<br/>
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları desteklenmez.<br/>
 
 >[!Note]
-> Linux sunuculara aşağıdaki dizinleri (varsa ayrı bölümleri/dosya-sistemleri ayarlanmış) tüm kaynak sunucudaki aynı disk (işletim sistemi disk) üzerinde olmalıdır: / (kök), / Boot/usr, /usr/local, /var, / etc<br/><br/>
-> Meta veri sağlama toplamı gibi XFS bağlanan dosya sistemlerinin XFSv5 özellikleri mobilite hizmetinin 9.10 sürümünden başlayarak desteklenir. XFSv5 özellikleri kullanıyorsanız, Mobility hizmeti sürümü 9.10 veya sonraki sürümünü çalıştırdığınızdan emin olun. Süper blok XFS kullanarak bölümün denetlemek için xfs_info yardımcı programını kullanabilirsiniz. Ftype 1 olarak ayarlanırsa, XFSv5 özellikleri kullanılıyor.
+> Linux sunuculara aşağıdaki dizinleri (varsa ayrı bölümleri/dosya-sistemleri ayarlanmış) tüm kaynak sunucudaki aynı disk (işletim sistemi disk) üzerinde olmalıdır: / (kök), / Boot/usr, /usr/local, /var, / etc; / Boot bir disk bölümüne olması ve bir LVM birim olmaması<br/><br/>
 >
 
 

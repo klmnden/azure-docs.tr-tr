@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Azure Search dizin oluşturucuyu kullanarak Azure SQL veritabanında gezinme
 
@@ -38,7 +38,7 @@ Bu öğreticide, [Azure Search .NET istemci kitaplıklarını](https://aka.ms/se
 > * Dizinde arama yapma
 > * Portalda dizin oluşturucu yapılandırmasını görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Etkin bir Azure hesabı. Hesabınız yoksa, [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/free/). 
 
@@ -286,8 +286,8 @@ Bu hizmetleri kullanmaya devam etmeyecekseniz, şu adımları izleyerek Azure Po
 Daha fazla bilgi edinmek ve desteklenen diğer veri kaynaklarına özgü görevleri görmek için, aşağıdaki makalelere bakın:
 
 * [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Azure Tablo Depolama](search-howto-indexing-azure-tables.md)
 * [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md)
 * [Azure Search Blob dizin oluşturucu kullanarak CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
 * [Azure Search Blob dizin oluşturucu ile JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)

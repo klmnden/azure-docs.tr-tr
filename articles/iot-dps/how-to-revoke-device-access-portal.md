@@ -12,17 +12,17 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7985fba68ef2c6f651c64756f8c534928b573de5
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 6f1dad648b228163219c8f722eed3897f4ba4d22
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Azure Portalı'nda sağlama hizmetinize cihaz erişimi iptal etme
 
 Cihaz kimlik bilgilerinin doğru yönetim IOT çözümleri gibi yüksek profilli sistemler için önemlidir. Bu sistemlere en iyi yöntem, kullanıcıların kimlik bilgilerini bir SAS belirteci ya da bir X.509 sertifikası burada tehlikeye girebilir durumlarda cihazlar için erişimi iptal etme NET bir plana sağlamaktır. Bu makalede, cihaz erişimi sağlama adımda iptal açıklar.
 
-Cihaz sağlandıktan sonra bir IOT hub'ına cihaz erişimi iptal etme hakkında bilgi edinmek için. bkz: [aygıtları devre dışı](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Cihaz sağlandıktan sonra bir IOT hub'ına cihaz erişimi iptal etme hakkında bilgi edinmek için. bkz: [aygıtları devre dışı](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
 
 > [!NOTE] 
 > Yeniden deneme ilkesi için erişimi iptal aygıtların farkında olun. Örneğin, bir sonsuz yeniden deneme ilkesi aygıtla hizmet kaynakları harcayan ve büyük olasılıkla performansı etkileyen sağlama Hizmeti'ne, kaydolmak sürekli olarak deneyebilirsiniz.

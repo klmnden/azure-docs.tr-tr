@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 1/3/2018
 ms.author: v-rogara
-ms.openlocfilehash: 5fb3771b591e92b1c55f4f9748a2e16b46ccdae2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 0902792b2367aa56285e7e074e184ffa35fca466
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows AzCopy kullanarak depolama hesapları arasında BLOB'ları geçirme
 
@@ -62,7 +62,7 @@ Sorunu yaşadı ve örnek belirli bir kapsayıcıdan çalıştırmanız gerekir:
 ```Powershell
 # Run the script in a new open Powershell window, which has not run other cmdlets, or AzCopy performance could suffer .
 # Install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
-# Install AzCopy before runing the script: https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy
+# Install AzCopy before runing the script: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy
 # Do not modify the Source or Destination accounts while the script is running
 
  param (

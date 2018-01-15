@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Uygulamalar arası SSO'nun ADAL kullanarak iOS etkinleştirme
 Kullanıcıların yalnızca bir kez kimlik bilgilerini girin ve bu kimlik bilgilerini otomatik olarak gerekir böylece çoklu oturum açma (SSO) iş arasında sağlayan uygulamalar artık müşteriler tarafından bekleniyordu. Ekranda bir telefon araması veya ilerideki kodu gibi ek bir etmen (2FA) kez birlikte küçük, genellikle kullanıcı adı ve parola girme zorluk hızlı memnuniyetsizliği kullanıcı sonuçlarında ürününüz için birden fazla kez bunun var.
@@ -294,10 +294,7 @@ Destek sertifikası tabanlı kimlik doğrulaması ikinci "msauth" uygulamanızda
 #### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>4. adım: iOS9: uygulamanıza bir yapılandırma parametresi ekleme
 ADAL kullanan – canOpenURL: Aracısı cihazda yüklü olup olmadığını denetlemek için. İOS 9 Apple ne uygulama düzenleri sorgulayabilir aşağı kilitli. LSApplicationQueriesSchemes kısmına "msauth" eklemeniz gerekir, `info.plist file`.
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array><string>msauth</string>
-</array>
+<key>LSApplicationQueriesSchemes</key> <array> <string>msauth</string></array>
 
 ### <a name="youve-configured-sso"></a>SSO yapılandırdıktan!
 Şimdi Microsoft Identity SDK otomatik olarak hem kimlik bilgileri, uygulamalar arasında paylaşmak ve cihazlarında varsa, aracı çağırma.

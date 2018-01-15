@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b1d4e1e54d945c6edb0054da7b465b31de8c82a1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal ile cihaz kayıtlarını yönetme
 
@@ -27,7 +27,7 @@ A *cihaz kaydı* tek bir cihazı veya grubun belirli bir noktada Azure IOT Hub c
 
 Aygıtlarınızı sağlama hizmeti ile kaydetmek için iki yolu vardır:
 
-* Bir **kayıt grup** olabilen aynı imzalama sertifikası tarafından imzalanmış X.509 sertifikalarının ortak bir kanıtlama mekanizması paylaşan aygıtları bir grup için bir giriş [kök sertifika](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), fiziksel aygıttaki aygıt sertifika üretmek için kullanılan. Çok sayıda istenen ilk yapılandırmasını paylaşan cihazlar için veya cihazlar için bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz. Yalnızca X.509 kanıtlama mekanizması olarak kullanan cihazları kaydedebilmeniz için Not *kayıt grupları*. 
+* Bir **kayıt grup** olabilen aynı imzalama sertifikası tarafından imzalanmış X.509 sertifikalarının ortak bir kanıtlama mekanizması paylaşan aygıtları bir grup için bir giriş [kök sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), fiziksel aygıttaki aygıt sertifika üretmek için kullanılan. Çok sayıda istenen ilk yapılandırmasını paylaşan cihazlar için veya cihazlar için bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz. Yalnızca X.509 kanıtlama mekanizması olarak kullanan cihazları kaydedebilmeniz için Not *kayıt grupları*. 
 
     Portalında aşağıdaki adımları kullanarak cihazları bir grup için bir kayıt grubu oluşturun:
 

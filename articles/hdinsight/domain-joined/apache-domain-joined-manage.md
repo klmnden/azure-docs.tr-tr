@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Etki alanına katılmış Hdınsight kümelerini yönetme
 Kullanıcılar ve roller etki alanına katılmış ve etki alanına katılmış Hdınsight kümelerini yönetme konusunda bilgi edinin.
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Kurumsal güvenlik paketi kümeleriyle erişin.
+
+Kurumsal güvenlik (daha önce Hdınsight Premium olarak da bilinir) paketi burada kimlik doğrulaması Active Directory ve yetkilendirme Apache bırakabilmenizi ve depolama ACL'ler (ADLS ACL'ler) tarafından gerçekleştirilir küme, çok kullanıcılı erişim sağlar. Yetkilendirme birden çok kullanıcı arasında güvenli sınırları sağlar ve yalnızca ayrıcalıklı kullanıcıların yetkilendirme ilkelerine bağlı olarak veri erişimi sağlar.
+
+Güvenlik ve kullanıcı yalıtımı Kurumsal güvenlik paketi ile bir Hdınsight kümesi için önemlidir. Bu gereksinimleri karşılamak üzere Kurumsal güvenlik paketi kümeyle SSH erişimi engellenir. Aşağıdaki tabloda, her küme türü için önerilen erişim yöntemleri gösterilmektedir:
+
+|İş yükü|Senaryo|Erişim yöntemi|
+|--------|--------|-------------|
+|Hadoop|Hive – etkileşimli işleri/sorgular |<ul><li>[Beeline](#beeline)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Etkileşimli işleri/sorguları, PySpark etkileşimli|<ul><li>[Beeline](#beeline)</li><li>[Livy ile Zeppelin](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Batch senaryoları – Spark gönderme, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Etkileşimli sorgu (LLAP)|Etkileşimli|<ul><li>[Beeline](#beeline)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Herhangi biri|Özel bir uygulama yükleyin|<ul><li>[Betik eylemleri](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+Standart API'lerini kullanarak, güvenlik açısından yardımcı olur. Ayrıca, aşağıdaki faydaları alın:
+
+1.  **Yönetim** – kodunuzu yönetmek ve standart API'lerini kullanarak işleri otomatikleştirmek – Livy vb. HS2.
+2.  **Denetim** – SSH ile denetlemek için hangi kullanıcıların SSH yolu yoktur kümeye vardı. Kullanıcı bağlamında yürütülmesi gibi işleri standart uç noktaları oluşturulan olduğunda bu durum olmayacaktır. 
+
+
+
+### <a name="beeline"></a>Beeline kullanın 
+Beeline makinenize, yükleyin ve ortak internet üzerinden bağlanma, aşağıdaki parametreleri kullanın: 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Yerel olarak yüklenmiş Beeline varsa ve bir Azure sanal ağ üzerinden bağlanma, aşağıdaki parametreleri kullanın: 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Bir headnode tam etki alanı adını bulmak için yönetmek Ambari REST API belge kullanarak Hdınsight'ta bilgileri kullanın.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Kullanıcıları etki alanına katılmış Hdınsight kümeleri
 Küme oluşturma sırasında oluşturulan iki kullanıcı hesapları olmayan etki alanına katılmış bir Hdınsight kümesi vardır:
 
-* **Ambari yönetici**: Bu hesap olarak da bilinen, *Hadoop kullanıcı* veya *HTTP kullanıcı*. Bu hesap için Ambari https:// sırasında oturum açmak için kullanılan&lt;clustername >. azurehdinsight.net. Ayrıca, Ambari görünümleri sorguları çalıştırmak için harici araçlar (yani PowerShell, Templeton, Visual Studio) aracılığıyla işleri çalıştırıp BI Araçları (yani Excel, Powerbı veya Tableau) ve Hive ODBC sürücüsü ile kimlik doğrulaması için de kullanılabilir.
+* **Ambari yönetici**: Bu hesap olarak da bilinen, *Hadoop kullanıcı* veya *HTTP kullanıcı*. Bu hesap için Ambari https:// sırasında oturum açmak için kullanılan&lt;clustername >. azurehdinsight.net. Ayrıca, Ambari görünümleri sorguları çalıştırmak için harici araçlar (örneğin, PowerShell, Templeton, Visual Studio) aracılığıyla işleri çalıştırıp BI Araçları (örneğin, Excel, Powerbı veya Tableau) ve Hive ODBC sürücüsü ile kimlik doğrulaması için de kullanılabilir.
 * **SSH kullanıcı**: Bu hesap ile SSH kullanılabilir ve sudo komutları yürütün. Linux VM'ler için kök ayrıcalıklarına sahiptir.
 
 Bir etki alanına katılmış Hdınsight kümesi üç Ambari yönetici yanı sıra yeni kullanıcılar ve SSH kullanıcı sahiptir.
@@ -43,7 +95,7 @@ Bir etki alanına katılmış Hdınsight kümesi üç Ambari yönetici yanı sı
     Diğer AD kullanıcılar da bu ayrıcalıklarına sahip unutmayın.
 
     Bırakabilmenizi tarafından yönetilmeyen ve bu nedenle güvenli olmayan bazı bitiş noktaları (örneğin, Templeton) kümedeki vardır. Bu uç noktaları, küme yönetim etki alanı kullanıcısı dışındaki tüm kullanıcılar için kilitlendiğini.
-* **Normal**: küme oluşturma sırasında birden çok active directory grupları sağlayabilir. Bu gruplardaki kullanıcıların bırakabilmenizi ve Ambari senkronize edilir. Bu kullanıcılar etki alanı kullanıcıları ve yalnızca bırakabilmenizi yönetilen uç noktaları (örneğin, Hiveserver2) erişebilir. RBAC ilkeleri ve bu kullanıcılara uygulanabilir denetim sağlar.
+* **Normal**: küme oluşturma sırasında birden çok active directory grupları sağlayabilir. Bu gruplardaki kullanıcıların bırakabilmenizi ve Ambari eşitlenir. Bu kullanıcılar etki alanı kullanıcıları ve yalnızca bırakabilmenizi yönetilen uç noktaları (örneğin, Hiveserver2) erişimi. RBAC ilkeleri ve bu kullanıcılara uygulanabilir denetim sağlar.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Etki alanına katılmış Hdınsight kümeleri rolleri
 Etki alanına katılmış Hdınsight aşağıdaki rolleri vardır:
@@ -63,8 +115,9 @@ Etki alanına katılmış Hdınsight aşağıdaki rolleri vardır:
     ![Etki alanına katılmış Hdınsight rolleri izinleri](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Ambari Yönetimi kullanıcı arabirimini açın
+
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
-2. Hdınsight kümenize bir dikey pencerede açın. Bkz: [listesi ve Göster kümeleri](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Hdınsight kümenizi açın. Bkz: [listesi ve Göster kümeleri](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. Tıklatın **Pano** Ambari'yi açmak için üstteki menüden.
 4. Ambari için Küme Yöneticisi etki alanı kullanıcı adı ve parola kullanarak oturum açın.
 5. Tıklatın **yönetici** üst açılır menüsünden sağ köşesindeki ve ardından **yönetmek Ambari**.

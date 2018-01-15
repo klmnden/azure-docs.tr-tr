@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> Azure Active Directory Tümleştirme sağlanmıştır [Geliştirici ve Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) yalnızca katmanlarını.
+> Azure Active Directory Tümleştirme sağlanmıştır [geliştirici, standart ve Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) yalnızca katmanlarını.
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Azure API Management'te Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl
 ## <a name="overview"></a>Genel Bakış
@@ -106,7 +106,7 @@ Tıklatın **kaydetmek** yapılandırmayı kaydedin ve anahtarı görüntülemek
 
 Geçiş yayımcı portalına dönün ve içine anahtarını yapıştırın **gizli** metin kutusu.
 
-![İstemci Gizli Anahtarı][api-management-client-secret]
+![İstemci Parolası][api-management-client-secret]
 
 **Kiracılar izin** hangi dizinleri API Management hizmet örneği API erişimi belirtir. Azure Active Directory örnekleri için erişim vermek istediğiniz etki alanlarını belirtin. Birden çok etki alanı, satır başı, boşluk veya virgülle ayırabilirsiniz.
 

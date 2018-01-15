@@ -13,17 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-<<<<<<< HEAD
-ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
-=======
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -34,7 +28,7 @@ Arka uç hizmetlerini ağda erişebilmesi için azure API Management (VNET) sana
 > Azure API Management hem Klasik hem de Azure Kaynak Yöneticisi sanal ağlar destekler.
 >
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmalısınız:
 
@@ -117,8 +111,6 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 | * / 3443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|Azure portalı ve Powershell yönetim uç noktası |İç |
 | * / 80, 443 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Azure Storage, Azure Service Bus ve Azure Active Directory bağımlılığını (uygunsa).|Dış & iç | 
 | * / 1433 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure SQL Uç noktalara erişimi** |Dış & iç |
-| * / 11000 - 11999 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure SQL v12 erişim** |Dış & iç |
-| * / 14000 - 14999 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure SQL v12 erişim** |Dış & iç |
 | * / 5671, 5672 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Olay hub'ı İlkesi ve İzleme Aracısı günlüğü bağımlılığı |Dış & iç |
 | * / 445 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Azure dosya paylaşımı için GIT bağımlılığı |Dış & iç |
 | * / 25028 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|E-postaları göndermek için SMTP geçişi Bağlan |Dış & iç |

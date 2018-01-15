@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: dobett
-ms.openlocfilehash: 8ae91e0dc0f3173b770bc8360a85abfe5d1e7740
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Bir sınır ağ geçidi Windows veya Linux bağlı Fabrika önceden yapılandırılmış çözümü dağıtma
 
@@ -179,6 +179,6 @@ Bağlı Fabrika kendi OPC UA sunucuları eklemek için önceden yapılandırılm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bağlı Fabrika önceden yapılandırılmış çözüm mimarisi hakkında daha fazla bilgi için bkz: [bağlı Fabrika önceden yapılandırılmış çözüm izlenecek](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Bağlı Fabrika önceden yapılandırılmış çözüm mimarisi hakkında daha fazla bilgi için bkz: [bağlı Fabrika önceden yapılandırılmış çözüm izlenecek](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
-Hakkında bilgi edinin [OPC yayımcı başvuru uygulaması](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-publisher).
+Hakkında bilgi edinin [OPC yayımcı başvuru uygulaması](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

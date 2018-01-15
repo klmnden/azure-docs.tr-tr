@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>IOT kenar dağıtımları tek cihazlar için veya ölçekte anlamak - Önizleme
 
@@ -59,7 +59,7 @@ Her modül için yapılandırma meta verilerini içerir:
 
 Hedef durumu gereksinimlerini karşılayan yeni aygıtları dahil etmek veya artık dağıtım yaşam süresi yapmak aygıtları kaldırmak için sürekli olarak değerlendirilir. Hizmeti herhangi bir hedef koşul değişiklik algılarsa, dağıtım yeniden. Örneğin, hedef koşulu tags.environment olan bir dağıtım A sahip 'üretim' =. Dağıtımı devre dışı kazandırın, 10 üretim aygıtı yok. Modüller, bu 10 cihazların başarıyla yüklenir. IOT kenar aracı durumu 10 toplam cihaz olarak 10 başarıyla yanıtları, 0 yanıtı hatası ve 0 bekleyen yanıtları gösterilir. Tags.environment ile daha fazla 5 cihaz Ekle şimdi 'üretim' =. Hizmet değişikliği algılar ve IOT kenar aracı durumu 15 toplam aygıt, 10 başarıyla olur yanıtları, 0 hata yanıtları ve beş yeni cihazlara dağıtmak çalıştığında 5 bekleyen yanıtlar.
 
-Herhangi bir Boolean koşul cihaz çiftlerini etiketler veya DeviceID hedef cihazlar seçmek için kullanın. Koşul etiketleriyle kullanmak istiyorsanız, "etiketler" özellikleri aynı düzeyde altında cihaz çiftine :{} bölümü eklemeniz gerekir. [Cihaz çifti etiketleri hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+Herhangi bir Boolean koşul cihaz çiftlerini etiketler veya DeviceID hedef cihazlar seçmek için kullanın. Koşul etiketleriyle kullanmak istiyorsanız, "etiketler" özellikleri aynı düzeyde altında cihaz çiftine :{} bölümü eklemeniz gerekir. [Cihaz çifti etiketleri hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Hedef koşul örnekleri:
 * DeviceID 'linuxprod1' =

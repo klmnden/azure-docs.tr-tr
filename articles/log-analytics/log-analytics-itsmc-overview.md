@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>ITSM iş öğelerini BT Hizmet Yönetimi Bağlayıcısı (Önizleme) kullanarak merkezi olarak yönetme
 
@@ -106,7 +106,7 @@ ServiceDeskWorkItemType_s "Olay" =
 - Kategori
 - Başlık
 - Açıklama
-- Oluşturulduğu Tarihi
+- Oluşturma Tarihi
 - Kapatılma tarihi
 - Çözümlenme tarihi
 - Son Değişiklik Tarihi
@@ -135,7 +135,7 @@ ServiceDeskWorkItemType_s "ChangeRequest" =
 - Risk
 - Etki
 - Atanan
-- Oluşturulduğu Tarihi
+- Oluşturma Tarihi
 - Kapatılma tarihi
 - Son Değişiklik Tarihi
 - İstenen tarih
@@ -156,7 +156,7 @@ ServiceDeskWorkItemType_s "ChangeRequest" =
 | Impact_s |Etki|
 | Priority_s | Öncelik |
 | CreatedBy_s | Tarafından açılmış |
-| ResolvedBy_s | Çözümleyen|
+| ResolvedBy_s | Çözen:|
 | ClosedBy_s  | Tarafından kapatıldı |
 | Source_s| İlgili kişi türü |
 | AssignedTo_s | Atanan  |
@@ -227,7 +227,7 @@ Yerinde ITSMC çözümüyle OMS bağlı ITSM aracınızı iş öğelerini oluşt
 
     Bu onay kutusunu günlük girişlerini bu uyarı altında herhangi bir sayıda için yalnızca bir iş öğesi oluşturmak için seçili bırakın.
 
-7. **Kaydet** düğmesine tıklayın.
+7. **Kaydet**’e tıklayın.
 
 Oluşturduğunuz OMS uyarı altında görülebilir **ayarları**>**uyarıları**. Belirtilen uyarının koşulu karşılandığında karşılık gelen ITSM bağlantı çalışma öğeleri oluşturulur.
 
@@ -281,7 +281,7 @@ Aşağıdaki yordamı kullanın:
 
 6. Seçin **iş öğesi** açılır menüsünden türü.
    ITSM ürününüzü tarafından gerekli alanları doldurun veya varolan bir şablonu kullanmak üzere seçin.
-7. **Tamam** düğmesine tıklayın.
+7. **Tamam**’a tıklayın.
 
 Azure uyarı kuralı oluşturma/düzenleme yaparken ITSM eylemi olan bir eylem grubu kullanın. Uyarıyı tetikleyen iş öğesi ITSM aracında oluşturulur.
 
@@ -292,11 +292,11 @@ Azure uyarı kuralı oluşturma/düzenleme yaparken ITSM eylemi olan bir eylem g
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>OMS ITSM bağlantı sorunlarını giderme
 1.  Bağlantılı kaynağın kullanıcı Arabirimi ile gelen bağlantı başarısız olursa bir **bağlantı kaydetmede hata** iletisi, aşağıdaki adımları uygulayın:
- - ServiceNow, Cherwell ve Provance bağlantıları için  
-        -doğru girdiğiniz kullanıcı adı, parola, istemci kimliği ve istemci parolası bağlantıların her biri için emin olun.  
-        -karşılık gelen ITSM üründe bağlantıyı kurmak için yeterli ayrıcalıklara sahip olmadığını denetleyin.  
- - Service Manager bağlantılarında  
-        -Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturulur emin olun. Şirket içi Service Manager makineyle bağlantı kuran başarıyla doğrulamak için Web uygulaması URL'si yapma belgelerindeki ayrıntılı olarak ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+- ServiceNow, Cherwell ve Provance bağlantıları için  
+       -doğru girdiğiniz kullanıcı adı, parola, istemci kimliği ve istemci parolası bağlantıların her biri için emin olun.  
+       -karşılık gelen ITSM üründe bağlantıyı kurmak için yeterli ayrıcalıklara sahip olmadığını denetleyin.  
+- Service Manager bağlantılarında  
+       -Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturulur emin olun. Şirket içi Service Manager makineyle bağlantı kuran başarıyla doğrulamak için Web uygulaması URL'si yapma belgelerindeki ayrıntılı olarak ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  ServiceNow verileri için günlük analizi eşitlenmedi, örneği değil uykuda ServiceNow emin olun. ServiceNow geliştirme örnekleri bazen boştayken uzun bir süre için uyku moduna gidin. Aksi takdirde, sorunu bildirin.
 3.  OMS uyarıları yangın ancak iş öğeleri ITSM üründe oluşturulmamış veya yapılandırma öğeleri oluşturulan/iş öğeleri veya herhangi diğer genel bilgi için aşağıdaki konumlarda aramak için bağlı değil:

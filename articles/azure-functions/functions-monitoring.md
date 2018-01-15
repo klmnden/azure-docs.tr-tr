@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure işlevleri izleme
 
@@ -37,8 +37,8 @@ Bir işlev uygulaması Application Insights'a veri göndermek, bir Application I
 
 * [İşlev uygulaması oluşturduğunuzda, bağlı bir Application Insights örneği oluşturmayı](#new-function-app).
 * [Varolan bir işlev uygulaması bir Application Insights bağlanın](#existing-function-app).
- 
-### <a name="new-function-app"></a>Yeni bir işlev uygulaması
+
+### <a name="new-function-app"></a>Yeni işlev uygulaması
 
 Application Insights işlev uygulaması üzerinde etkinleştirmek **oluşturma** sayfa:
 
@@ -64,7 +64,15 @@ Application Insights işlev uygulaması üzerinde etkinleştirmek **oluşturma**
 
    ![Uygulama ayarlarına izleme anahtarı Ekle](media/functions-monitoring/add-ai-key.png)
 
-1. **Kaydet** düğmesine tıklayın.
+1. **Kaydet**’e tıklayın.
+
+## <a name="disable-built-in-logging"></a>Yerleşik günlüğünü devre dışı bırak
+
+Application Insights etkinleştirirseniz, devre dışı bırakmanızı öneririz [Azure depolama kullanan yerleşik günlük](#logging-to-storage). Yerleşik günlük hafif iş yükleri ile test etmek için kullanışlıdır ancak yüksek yük üretim kullanımı için tasarlanmamıştır. Üretim izlemek için Application Insights önerilir. Yerleşik günlük üretimde kullanılırsa, günlük kaydı Azure depolama alanında azaltma nedeniyle eksik olabilir.
+
+Yerleşik günlüğü devre dışı bırakmak için Sil `AzureWebJobsDashboard` uygulama ayarı. Azure portalında uygulama ayarları silme hakkında daha fazla bilgi için bkz: **uygulama ayarları** bölümünü [bir işlev uygulaması yönetme](functions-how-to-use-azure-function-app-settings.md#settings).
+
+Application Insights ve devre dışı bırak yerleşik günlük etkinleştirdiğinizde **İzleyici** sekmesi bir işlev Azure portalında Application Insights'a alır.
 
 ## <a name="view-telemetry-data"></a>Telemetri verileri görüntüleme
 
@@ -78,7 +86,7 @@ Application Insights kullanma hakkında daha fazla bilgi için bkz: [Application
 
 Üzerinde [hataları](../application-insights/app-insights-asp-net-exceptions.md) sekmesinde grafikler oluşturabilirsiniz ve uyarılar, özel durumlar işlevi hataları ve sunucu tabanlı. **İşlem adı** işlev adı. Hataları bağımlılıklar uygulamadan sürece gösterilmiyor [özel telemetri](#custom-telemetry-in-c-functions) bağımlılıklar için.
 
-![Hatalar](media/functions-monitoring/failures.png)
+![Başarısızlıklar](media/functions-monitoring/failures.png)
 
 Üzerinde [performans](../application-insights/app-insights-performance-counters.md) sekmesinde, performans sorunlarını analiz edebilirsiniz.
 
@@ -153,7 +161,7 @@ Azure işlevleri Günlükçü de içeren bir *günlük düzeyi* her günlüğü 
 |Uyarı     | 3 |
 |Hata       | 4 |
 |Kritik    | 5 |
-|None        | 6 |
+|Hiçbiri        | 6 |
 
 Günlük düzeyi `None` sonraki bölümde açıklanmıştır. 
 
@@ -464,58 +472,41 @@ Diğer hizmetlere işlevi olan bağımlılıkları otomatik olarak gösterme, an
 
 ## <a name="monitoring-without-application-insights"></a>Application Insights izleme
 
-Daha fazla veri ve verileri çözümlemek için daha iyi yol sağladığından işlevleri izlemek için Application Insights öneririz. Ancak, aynı zamanda telemetri ve günlük verilerini Azure portal sayfalarına bir işlev uygulaması için bulabilirsiniz. 
+Daha fazla veri ve verileri çözümlemek için daha iyi yol sağladığından işlevleri izlemek için Application Insights öneririz. Ancak da günlükleri ve telemetri verilerini Azure portal sayfalarına bir işlev uygulaması için bulabilirsiniz.
 
-Seçin **İzleyici** bir işlev ve sekmesini işlevi yürütmeleri listesini alın. Bir işlev yürütme süresi, giriş verilerini, hataları ve ilişkili günlük dosyalarını gözden geçirmek için seçin.
+### <a name="logging-to-storage"></a>Depolama için günlükleri
 
-> [!IMPORTANT]
-> Kullanırken [barındırma planı tüketim](functions-overview.md#pricing) Azure işlevleri için **izleme** işlev uygulaması parçasında herhangi bir veri gösterme. Platform dinamik olarak ölçeklendirir ve işlem örnekleri tarafından yönetilir olmasıdır. Bu ölçümler tüketim plan üzerinde anlamlı değildir.
+Yerleşik günlüğü bağlantı dizesinde belirtilen depolama hesabı kullanan `AzureWebJobsDashboard` uygulama ayarı. Bu uygulama ayarı yapılandırıldıysa, Azure portalında günlük verilerini görebilirsiniz. Bir işlev uygulaması sayfasında bir işlevi seçin ve ardından **İzleyici** sekmesi ve işlev yürütmeleri listesini alın. Bir işlev yürütme süresi, giriş verilerini, hataları ve ilişkili günlük dosyalarını gözden geçirmek için seçin.
+
+Application Insights kullanın ve varsa [devre dışı yerleşik günlük](#disable-built-in-logging), **İzleyici** sekmesini Application Insights'a alır.
 
 ### <a name="real-time-monitoring"></a>Gerçek zamanlı izleme
 
-Gerçek zamanlı izleme kullanılabilir tıklayarak **canlı olay akışı** işlevi üzerinde **İzleyici** sekmesi. Canlı olay akışında bir grafikte yeni bir tarayıcı sekmesinde görüntülenir.
+Bir komut satırı oturumu için günlük dosyalarını kullanarak bir yerel iş istasyonunda'akış [Azure komut satırı arabirimi (CLI) 2.0](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Verilerinizi doldurulmalıdır başarısız olmasına neden olabilecek bilinen bir sorun yoktur. Canlı olay akışının içeren tarayıcı sekmesini kapatın ve ardından gerekebilir **canlı olay akışı** olay akışı verilerinizi düzgün bir şekilde doldurmak yeniden izin vermek için. 
-
-Bu istatistikler gerçek zamanlı ancak gerçek yürütme verileri Grafikleme yaklaşık 10 saniye gecikme süresi olabilir.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Bir komut satırından izleme günlük dosyaları
-
-Yerel iş istasyonunda Azure komut satırı arabirimi (CLI) 1.0 veya PowerShell kullanarak bir komut satırı oturumu için günlük dosyalarını akışını sağlayabilirsiniz.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Azure CLI 1.0 ile işlevi uygulama günlük dosyaları İzle
-
-Başlamak için [Azure CLI 1.0 yüklemeyi](../cli-install-nodejs.md) ve [Azure'da oturum aç](/cli/azure/authenticate-azure-cli).
-
-Klasik Hizmet Yönetimi modunu etkinleştirmek, aboneliğinizi seçin ve günlük dosyalarını akış için aşağıdaki komutları kullanın:
+Azure CLI 2.0 için aşağıdaki komutları kullanın oturum açmak için aboneliğiniz ve akış günlük dosyalarını seçin:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>PowerShell ile işlevi uygulama günlük dosyaları İzle
-
-Başlamak için [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
-
-Azure hesabınızda eklemek, aboneliğinizi seçin ve günlük dosyalarını akışla aktarmak için aşağıdaki komutları kullanın:
+Azure PowerShell için aşağıdaki komutları kullanın, Azure hesabınızı eklemek için aboneliğiniz ve akış günlük dosyalarını seçin:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Daha fazla bilgi için bkz: [nasıl yapılır: akış günlükleri web uygulamaları için](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Daha fazla bilgi için bkz: [günlükleri akışını nasıl](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Application Insights hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/application-insights/)
+Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-> [!div class="nextstepaction"]
-> [İşlevlerini kullanan günlük framework hakkında daha fazla bilgi edinin](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [ASP.NET oturum çekirdek](/aspnet/core/fundamentals/logging/)

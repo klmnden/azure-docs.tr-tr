@@ -4,7 +4,7 @@ description: "Akış analizi ve gerçek zamanlı veri işleme ile birlikte IoT a
 keywords: "iot çözümü, iot ile çalışmaya başlama"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
 Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere akış işleme mantığı oluşturmayı öğreneceksiniz. Çözümünüzü hızlı ve ekonomik bir şekilde nasıl oluşturacağınızı göstermek için gerçek hayattaki bir Nesnelerin İnterneti (IoT) kullanım örneğinden yararlanacağız.
@@ -31,11 +31,7 @@ Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere
 ## <a name="scenario"></a>Senaryo
 Endüstriyel otomasyon alanında faaliyet gösteren Contoso şirketi, üretim süreçlerini tamamen otomatik hale getirmiştir. Bu fabrikada bulunan makineler, gerçek zamanlı olarak veri akışları yayabilen algılayıcılara sahiptir. Bu senaryoda bir üretim katı yöneticisi, algılayıcı verilerinden gerçek zamanlı bilgiler alarak belirli kalıpları aramak ve bunlara yönelik işlemler yapmak istiyor. Gelen veri akışındaki ilginç kalıpları bulmak için algılayıcı verilerinden Akış Analizi Sorgu Dili'ni (SAQL) kullanacağız.
 
-Burada, veriler bir Texas Instruments algılayıcı etiketi cihazında oluşturulmaktadır.
-
-![Texas Instruments algılayıcı etiketi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-Verilerin yükü JSON biçimindedir ve aşağıdaki gibi görünür:
+Burada, veriler bir Texas Instruments algılayıcı etiketi cihazında oluşturulmaktadır. Verilerin yükü JSON biçimindedir ve aşağıdaki gibi görünür:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -68,7 +64,7 @@ Kullanım kolaylığı için, bu başlangıç kılavuzunda gerçek algılayıcı
    
     ![iş oluşturma sürüyor](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>Azure Akış Analizi sorgusu oluşturma
+## <a name="create-an-azure-stream-analytics-query"></a>Azure Akış Analizi sorgusu oluşturma
 İşiniz oluşturulduktan sonra, işinizi açıp sorgu oluşturabilirsiniz. İlgili kutucuğa tıklayarak işinize kolayca erişebilirsiniz.
 
 ![İş kutucuğu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)

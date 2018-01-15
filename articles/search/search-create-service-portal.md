@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
-Oluşturma veya bir Azure Search Hizmeti Portalı'nda sağlamak öğrenin. PowerShell yönergeleri için bkz: [PowerShell ile yönetme Azure Search](search-manage-powershell.md).
+Oluşturma veya bir Azure Search Hizmeti Portalı'nda sağlamak öğrenin. 
+
+PowerShell tercih ediyorsunuz? Azure Kaynak Yöneticisi'ni [hizmet şablonu](https://azure.microsoft.com/resources/templates/101-azure-search-create/). Başlarken Yardım için bkz: [PowerShell ile yönetme Azure Search](search-manage-powershell.md) arka planı için.
 
 ## <a name="subscribe-free-or-paid"></a>(Ücretsiz veya Ücretli) abone olma
 

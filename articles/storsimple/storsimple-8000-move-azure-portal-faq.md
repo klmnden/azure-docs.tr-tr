@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 06e8d99aa2ad4eb11e594a729c6dab39d5cd1eb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>StorSimple cihaz Yöneticisi hizmeti Azure portalında Klasikten taşıma: sık sorulan sorular (SSS)
 
@@ -38,7 +38,7 @@ Sorular ve yanıtlar Aşağıdaki kategorilerde düzenlenir:
 
 ### <a name="once-i-have-moved-to-azure-portal-can-i-still-create-a-storsimple-manager-service-in-the-classic-portal"></a>Bir kez ı taşınmış Azure portalına Klasik portalda hala bir StorSimple Yöneticisi hizmeti oluşturabilir mi?
 
-Hayır. Azure portalında, StorSimple Yöneticisi hizmetiniz geçirdikten sonra Klasik portalda yeni bir hizmet oluşturulamıyor. Ayrıca, Cihazınızı Klasik portalı üzerinden yönetemez. Daha fazla bilgi için Git [hizmetinizi Azure portalına taşıma](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Hayır. Azure portalında, StorSimple Yöneticisi hizmetiniz geçirdikten sonra Klasik portalda yeni bir hizmet oluşturulamıyor. Ayrıca, [Klasik Portalı'nı 8 Ocak 2018 kullanılamaz](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### <a name="i-have-multiple-storsimple-managers-running-in-the-classic-portal-can-i-choose-which-ones-to-move-to-the-azure-portal"></a>Klasik portalda çalıştıran birden çok StorSimple yöneticileri var. Azure portalına taşımaya hangilerinin seçebilir miyim?
 
@@ -67,14 +67,14 @@ Evet. Var olan 8010/8020 bulut uygulamaları ile ilişkili sanal makineleri Azur
 
 Oluşturduysanız 8010/8020 güncelleştirme 3.0 çalıştıran StorSimple bulut cihazları model ve yukarıdaki, yeni Azure portalına taşınacağını hizmetiniz tarafından etkilenmez. Bulut gereçleriniz herhangi bir sorun olmadan tam olarak yönetmek olması gerekir. 
 
-Klasik portalda Update 3. 0'den önceki sürümleri çalıştıran cihazları daha sonra yalnızca mevcut işlevselliğini sınırlı bulut varsa. Daha fazla bilgi için Git [güncelleştirme 3'den önceki sürümleri çalıştıran cihazlar için desteklenmeyen işlemler listesi](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Klasik portalda Update 3. 0'den önceki sürümleri çalıştıran cihazları daha sonra yalnızca mevcut işlevselliğini sınırlı bulut varsa. Daha fazla bilgi için Git [güncelleştirme 3'den önceki sürümleri çalıştıran cihazlar için desteklenmeyen işlemler listesi](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Bulut gerecini güncelleştiremezsiniz. Yeni bir bulut uygulaması oluşturabilir ve varolan birim kapsayıcıları oluşturulan yeni bulut uygulaması için yük devretme için en son yazılım sürümünü kullanın. Daha fazla bilgi için Git [bulut uygulaması yük devri](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance)
 
 
 ### <a name="my-storsimple-8000-series-device-is-running-update-20-i-migrated-my-service-to-new-azure-portal-my-device-connected-successfully-but-it-seems-that-i-am-not-able-to-fully-manage-my-device-how-do-i-resolve-this-behavior"></a>StorSimple 8000 serisi cihazımı Update 2.0 çalışıyor. I Hizmetim yeni Azure portalına geçirildi. Cihazımı başarıyla bağlandı, ancak tam olarak cihazımı yönetebilmek için değilim olduğunu gibi görünüyor. Bu davranışı nasıl giderebilirim?
 
-Yeni Azure portalına yalnızca güncelleştirme 3.0 çalıştıran StorSimple cihazlar için ve daha yüksek desteklenir. Cihazınızı güncelleştirme 2.0 çalışıyorsa, bu cihaz için kullanılabilir olan işlevsellik yalnızca sınırlı. Daha fazla bilgi için Git [güncelleştirme 3'den önceki sürümleri çalıştıran cihazlar için desteklenmeyen işlemler listesi](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Yeni Azure portalına yalnızca güncelleştirme 3.0 çalıştıran StorSimple cihazlar için ve daha yüksek desteklenir. Cihazınızı güncelleştirme 2.0 çalışıyorsa, bu cihaz için kullanılabilir olan işlevsellik yalnızca sınırlı. Daha fazla bilgi için Git [güncelleştirme 3'den önceki sürümleri çalıştıran cihazlar için desteklenmeyen işlemler listesi](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Cihazınız tam olarak yönetmek için Cihazınızda en son güncelleştirmeyi yükleyin. Daha fazla bilgi için Git [yükleme güncelleştirme 5](storsimple-8000-install-update-5.md).
 
@@ -130,11 +130,9 @@ Hayır. Yeni Azure portalına taşınacağını hizmetiniz ile olmamalıdır etk
 
 ## <a name="moving-storsimple-data-manager-service"></a>StorSimple veri Yöneticisi hizmeti taşıma
 
-### <a name="i-am-using-storsimple-data-manager-service-how-should-i-proceed-with-this-move"></a>StorSimple veri Yöneticisi hizmeti kullanıyorum. Bu taşıma ile nasıl devam?
+### <a name="i-am-using-storsimple-data-manager-service-in-classic-azure-portal-how-should-i-proceed-with-this-move"></a>Klasik Azure Portalı'nda StorSimple veri Yöneticisi hizmeti kullanıyorum. Bu taşıma ile nasıl devam?
 
-StorSimple veri Yöneticisi hizmeti kullanıyorsanız, StorSimple cihaz yöneticileri ilk Azure portalına taşımanız gerekir. Taşıma işlemi tamamlandıktan sonra yeni StorSimple veri yöneticileri Azure portalında oluşturun. StorSimple veri taşıma önce oluşturulan yöneticilerini çalışmaz.
-
-StorSimple cihaz Yöneticisi hizmet geçişi hakkında daha fazla bilgi için Git [hizmetinizi Azure portalına taşıma](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). StorSimple veri Yöneticisi oluşturma hakkında daha fazla bilgi için Git [StorSimple veri Yöneticisi hizmeti oluşturmanız](storsimple-data-manager-ui.md).
+StorSimple veri Yöneticisi hizmeti kullanıyorsanız, otomatik olarak Azure portalına taşınmıştır.
 
 ## <a name="miscellaneous"></a>Muhtelif Hükümler
 
@@ -148,7 +146,7 @@ Hayır. Cihazlar, birimler, birim kapsayıcıları veya Azure portalında yedekl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi edinmek için adım adım nasıl [StorSimple Aygıt Yöneticisi'ni hizmetinizi Azure portalına taşıma](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Daha fazla bilgi edinmek [desteklenen işlemler güncelleştirme 5.0'den önceki sürümleri çalıştıran cihazlarda](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 

@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 8cff85337ac7f5d1c0e00f09128cbbd4fa79741e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-4-create-relationships"></a>4. Ders: İlişki oluşturma
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-relationships"></a>İlişki oluştur
 
 Bu derste, verileri içeri aktarıp farklı tablolar arasında yeni ilişkiler oluşturduğunuzda otomatik olarak oluşturulan ilişkileri doğrularsınız. İlişki, iki tablo arasında kurulan ve bu tablolardaki verilerin nasıl bağıntılı olması gerektiğini belirleyen bir bağlantıdır. Örneğin, DimProduct tablosu ile DimProductSubcategory tablosu arasında, her ürünün bir alt kategoriye ait olması temelinde bir ilişki mevcuttur. Daha fazla bilgi edinmek için bkz. [İlişkiler](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
 Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
-## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [3. Ders: Tarih Tablosu olarak işaretleme](../tutorials/aas-lesson-3-mark-as-date-table.md). 
+## <a name="prerequisites"></a>Önkoşullar  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [3. Ders: Tarih Tablosu olarak işaretleme](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Mevcut ilişkileri gözden geçirme ve yeni ilişki ekleme  
 Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWorksDW2014 veritabanından yedi tablo aldınız. İlişkisel bir veritabanındaki verileri içeri aktardığınızda, verilerle birlikte genellikle mevcut ilişkiler de otomatik olarak içeri aktarılır. Veri Al seçeneğinin veri modelindeki ilişkileri otomatik olarak oluşturması için veri kaynağındaki tabloların arasında ilişki olması gerekir.

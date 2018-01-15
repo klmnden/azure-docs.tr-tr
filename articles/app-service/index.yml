@@ -14,21 +14,21 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: f262930d6e21883a2bef67414ed92b1dd92290ba
-  ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+  ms.openlocfilehash: e79c80d894ec798df28f9d447097b2d8070baf61
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 10/13/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Web Apps, altyapı yönetimine gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Web Apps’i kullanmayı öğrenin."
   aside:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
+      src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250
     title: "Node.js ve Azure App Service ile bir web uygulaması oluşturun. (2:41)"
-    href: https://azure.microsoft.com/en-us/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
+    href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
     width: 250
 sections:
 - title: "5 Dakikalık Hızlı Başlangıçlar"
@@ -39,38 +39,38 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
       text: .NET
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-dotnet
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
       text: Node.js
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
       text: PHP
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-php
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-java
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_python.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
       text: Python
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-python
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-python
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_html5.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
       text: HTML
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-html
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
   - type: paragraph
     text: "Sürekli dağıtım yapmayı öğrenin:"
   - type: list
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
+        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: VSTS
-      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: "Adım Adım Öğreticiler"
   items:
   - type: paragraph
@@ -78,10 +78,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/en-us/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase\">Azure SQL DB ile .NET</a> veya <a href=\"/en-us/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app\">MongoDB ile Node.js</a> kullanarak uygulama oluşturma"
-    - html: "<a href=\"/en-us/azure/app-service/app-service-web-tutorial-custom-domain\">Mevcut bir özel etki alanını uygulamanıza eşleme</a>"
-    - html: "<a href=\"/en-us/azure/app-service/app-service-web-tutorial-custom-SSL\">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>"
-    - html: "<a href=\"/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network\">Uygulamanıza CDN ekleme</a>"
+    - html: "<a href=\"/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase\">Azure SQL DB ile .NET</a> veya <a href=\"/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app\">MongoDB ile Node.js</a> kullanarak uygulama oluşturma"
+    - html: "<a href=\"/azure/app-service/app-service-web-tutorial-custom-domain\">Mevcut bir özel etki alanını uygulamanıza eşleme</a>"
+    - html: "<a href=\"/azure/app-service/app-service-web-tutorial-custom-SSL\">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>"
+    - html: "<a href=\"/azure/app-service/app-service-web-tutorial-content-delivery-network\">Uygulamanıza CDN ekleme</a>"
 - title: "Ücretsiz Pluralsight Video Eğitimi"
   items:
   - type: list
@@ -106,7 +106,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
     - html: <a href="/cli/azure/appservice">Azure CLI</a>
 - title: "Başvuru"
   items:
@@ -115,8 +115,8 @@ sections:
     className: cardsD
     items:
     - title: "Komut Satırı"
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
     - title: Diller
-      html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
-      html: "<p><a href=\"/en-us/rest/api/appservice\">REST API başvurusu</a></p>"
+      html: "<p><a href=\"/rest/api/appservice\">REST API başvurusu</a></p>"

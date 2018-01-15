@@ -1,5 +1,5 @@
 ---
-title: "Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz? | Microsoft Belgeleri"
+title: "Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz? | Microsoft Docs"
 description: "Azure Site Recovery hizmeti ile olağanüstü durum kurtarma kullanılarak korunabilen iş yüklerini açıklar."
 services: site-recovery
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
 
@@ -110,11 +110,11 @@ Uzak Masaüstü Hizmetleri (RDS), sanal masaüstü altyapısını (VDI), oturum 
 
 | **RDS** |**Azure VM’lerini Azure’a çoğaltma** | **Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** | **Fiziksel sunucuları ikincil bir siteye çoğaltma** | **Fiziksel sunucuları Azure'a çoğaltma** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** |Hayır|Yes |Hayır |Yes |Hayır |Yes |Hayır |
-| **Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** |Hayır|Yes |Hayır |Yes |Hayır |Yes |Hayır |
+| **Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** |Hayır|Evet |Hayır |Evet |Hayır |Evet |Hayır |
+| **Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** |Hayır|Evet |Hayır |Evet |Hayır |Evet |Hayır |
 | **Uzak uygulamalar ve Masaüstü oturumları (UPD'siz)** |Evet|Evet |Evet |Evet |Evet |Evet |Evet |
 
-[Azure Site Recovery kullanarak RDS için olağanüstü durum kurtarmayı ayarlayın](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
+[Azure Site Recovery kullanarak RDS için olağanüstü durum kurtarmayı ayarlayın](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 RDS'yi koruma hakkında [daha fazla bilgi edinin](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb).
 

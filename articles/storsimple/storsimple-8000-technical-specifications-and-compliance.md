@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Teknik Özellikleri ve StorSimple aygıt için uyumluluğu
 
@@ -80,7 +80,7 @@ StorSimple cihazları sabit disk ve katı hal sürücüleri bir karışımını 
 | Toplam kullanılabilir kapasite * |~ 15 TB |~ 38 TB |
 | En fazla çözüm Kapasite (bulut dahil) |200 TB |500 TB |
 
-<sup>* </sup>- *Toplam kullanılabilir kapasite verileri, meta verileri ve arabellekleri için kapasite içerir.*
+<sup>* </sup>- *Toplam kullanılabilir kapasite verileri, meta verileri ve arabellekleri için kapasite içerir. Yerel olarak sabitlenmiş birimlerin sağlayabilirsiniz 8100 cihazda 8,5 TB'ye kadar veya daha büyük 8600 aygıtta 22,5 TB'a kadar. Daha fazla bilgi için Git [StorSimple yerel olarak sabitlenmiş birimleri](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Muhafaza boyut ve Ağırlık belirtimleri
 

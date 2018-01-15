@@ -7,16 +7,16 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Linux sanal bir cihaz üzerinde Azure IOT kenar dağıtma - Önizleme
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Linux veya MacOS sanal bir cihaz üzerinde Azure IOT kenar dağıtma - Önizleme
 
 Azure IOT kenar, tüm verileri buluta itme zorunda kalmak yerine cihazlarınızda analizi ve veri işleme gerçekleştirmenizi sağlar. IOT kenar öğreticileri Azure hizmetlerine veya özel kod yerleşik modülleri, farklı türlerde dağıtmak nasıl gerçekleştirileceğini gösterir ancak önce test etmek için bir aygıt gerekir. 
 
@@ -31,12 +31,16 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 Bu öğreticide oluşturduğunuz sanal cihaz sıcaklık ve nem Basıncı verileri oluşturan bir izleyicisidir. İşletme öngörüleri için verileri analiz modülleri dağıtarak yapılacağını burada iş bağlı diğer Azure IOT kenar öğreticileri oluşturun. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğretici, bir bilgisayar veya Linux çalıştıran sanal makine bir nesnelerin interneti aygıt benzetimini yapmak için kullanmakta olduğunuz olduğunu varsayar. Bir IOT sınır cihazı başarıyla dağıtmak için aşağıdaki hizmetler gerekir:
+Bu öğretici, bilgisayar veya sanal makine bir nesnelerin interneti aygıtı gibi kullanır. Bir IOT sınır cihazı makinenize etkinleştirmek için aşağıdaki hizmetleri gereklidir:
 
-- [Linux için Docker yükleme] [ lnk-docker-ubuntu] ve emin olun çalıştığından. 
-- Ubuntu, dahil olmak üzere çoğu Linux dağıtımları Python 2.7 yüklü zaten var. PIP yüklendiğinden emin olmak için aşağıdaki komutu kullanın: `sudo apt-get install python-pip`.
+* Python PIP, IOT kenar çalışma zamanı yüklenemedi.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* IOT kenar modüllerini çalıştırmak için docker
+   * [Linux için Docker yükleme] [ lnk-docker-ubuntu] ve çalışır durumda olduğundan emin olun. 
+   * [Mac için Docker yükleme] [ lnk-docker-mac] ve çalışır durumda olduğundan emin olun. 
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -130,4 +134,5 @@ Bu öğretici, tüm diğer IOT kenar öğreticileri için önkoşuldur. Azure IO
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

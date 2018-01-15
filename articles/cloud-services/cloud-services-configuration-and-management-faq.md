@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 7a1dc5d755303d12aa070308a19ab81ef2b911fb
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için yapılandırma ve yönetme sorununu: sık sorulan sorular (SSS)
 
@@ -105,8 +105,8 @@ Yönetim sertifikaları yenilemek için PowerShell komutlarını kullanabilirsin
 Bir başlangıç komut dosyası (toplu işlem/cmd/PowerShell) kullanarak bu görevi otomatikleştirmek ve hizmet tanımı dosyasında bu başlangıç komut dosyasını kaydedin. Başlangıç betiği ve sertifika (.p7b dosyası) başlangıç betiği aynı dizine proje klasöründe ekleyin.
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
-- [Nasıl yapılandırılacağı ve başlangıç görevleri çalıştırmak için bir bulut hizmeti](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
-- [Genel bulut hizmeti başlangıç görevleri](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Nasıl yapılandırılacağı ve başlangıç görevleri çalıştırmak için bir bulut hizmeti](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Genel bulut hizmeti başlangıç görevleri](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>İzleme ve günlüğe kaydetme
 

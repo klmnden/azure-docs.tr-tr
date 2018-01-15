@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
 Bu makale Azure Güvenlik Merkezi'nde bulunan farklı güvenlik uyarısı türlerini ve ilgili öngörüleri anlamanıza yardımcı olur. Uyarıların ve olayların nasıl yönetileceği hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md).
@@ -144,7 +144,6 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
 * **Şüpheli belge kimlik bilgileri**: Bu uyarı, bir dosyayı yürütmek için kullanılan kötü amaçlı yazılımın şüpheli ve yaygın bir önceden hesaplanmış parola karması kullandığını belirtir.
 * **Dinamik PS betiği oluşturma**: Bu uyarı bir PowerShell betiğinin dinamik olarak oluşturulduğunu belirtir. Saldırganlar IDS sistemlerinden kurtulmak amacıyla aşamalı olarak betik derlemek için bu tekniği kullanır.
 * **Metasploit göstergeleri**: Bu uyarı, bir dizi saldırgan yeteneği ve aracı sağlayan Metasploit çerçevesiyle ilişkili etkinliği gösterir.
-* **SENSE ile kurcalama**: Bu uyarı Windows Defender ATP'nin güvenlik izleme hizmeti SENSE’i devre dışı bırakma girişimini gösterir.
 * **Şüpheli hesap etkinliği**: Bu uyarı yakın zamanda güvenliği aşılmış bir hesabı kullanarak bir makineye bağlanma girişiminde bulunulduğunu gösterir.
 * **Olası şüpheli zamanlama görevlerine erişim**: Bu uyarı, saldırganlar tarafından planlı bir şekilde kötü amaçlı programları yürütmek için kullanılabilen bir cron işinin yürütüldüğünü belirtir.
 * **Olası şüpheli komut geçmişi dosya erişimi**: Bu uyarı, komut geçmişi dosyasına olağan dışı erişim olduğunu belirtir.
@@ -189,7 +188,7 @@ Güvenlik Merkezi ağ tehdidi algılaması, Azure IPFIX (İnternet Protokolü Ak
 
 Güvenlik Merkezi kaynak analizi, [Azure SQL Veritabanı tehdidi algılama](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) özelliği ile tümleştirme gibi hizmet olarak platform (PaaS) hizmetlerine odaklanır. Bu alanlardan elde edilen analiz sonuçlarına bağlı olarak, Güvenlik Merkezi kaynakla ilgili bir uyarı tetikler.
 
-* **Olası SQL eklemesi**: SQL ekleme, kötü amaçlı bir kodun daha sonra ayrıştırma ve yürütme amacıyla SQL Server örneğine geçirildiği dizelere eklendiği bir saldırıdır. SQL Server sözdizimsel açıdan geçerli olan aldığı tüm sorguları yürüttüğü için SQL deyimleri oluşturan her türlü yordam, ekleme güvenlik açıklarına karşı gözden geçirilmelidir. SQL Tehdit Algılama özelliği, Azure SQL veritabanlarınızda gerçekleşebilecek şüpheli olayları belirlemek üzere machine learning, davranış analizi ve anormallik algılaması kullanır. Örneğin: 
+* **Olası SQL eklemesi**: SQL ekleme, kötü amaçlı bir kodun daha sonra ayrıştırma ve yürütme amacıyla SQL Server örneğine geçirildiği dizelere eklendiği bir saldırıdır. SQL Server sözdizimsel açıdan geçerli olan aldığı tüm sorguları yürüttüğü için SQL deyimleri oluşturan her türlü yordam, ekleme güvenlik açıklarına karşı gözden geçirilmelidir. SQL Tehdit Algılama özelliği, Azure SQL veritabanlarınızda gerçekleşebilecek şüpheli olayları belirlemek üzere machine learning, davranış analizi ve anormallik algılaması kullanır. Örnek: 
     * Eski bir çalışan tarafından veritabanı erişimi denendi
     * SQL ekleme saldırıları
     * Evdeki bir kullanıcıdan üretim veritabanına olağan dışı erişim

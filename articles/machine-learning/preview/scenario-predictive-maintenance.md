@@ -11,17 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-<<<<<<< HEAD
-ms.openlocfilehash: 2687eb022bce0b71c217f0be611c8fabdfb66040
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
-=======
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Tahmine dayalı bakım gerçek dünya senaryosu.
 
@@ -38,11 +32,11 @@ Genel GitHub depo bağlantısını aşağıdadır: [https://github.com/Azure/Mac
 
 Varlık ağır sektörlerde işletmelerde tarafından karşılaştığı önemli sorun mekanik sorunları gecikmeleri ile ilişkili önemli maliyet oluşturur. Çoğu işletme ortaya çıkmadan önce bunları önceden önlemek için bu sorunları ortaya olduğunda tahmin etmeye ilginizi çekiyor mu. Kapalı kalma süresini azaltarak maliyetleri azaltmak ve büyük olasılıkla güvenliği artırmak için belirtilir. 
 
-Bu senaryo gelen fikirleri alır [Tahmine dayalı bakım playbook](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) sanal bir veri kümesi için Tahmine dayalı bir model oluşturma göstermek için. Örnek veri birçok Tahmine dayalı bakım kullanım durumlarında gözlenen ortak öğeler türetilir.
+Bu senaryo gelen fikirleri alır [Tahmine dayalı bakım playbook](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) sanal bir veri kümesi için Tahmine dayalı bir model oluşturma göstermek için. Örnek veri birçok Tahmine dayalı bakım kullanım durumlarında gözlenen ortak öğeler türetilir.
 
 İş bu benzetimli veri sorunları tarafından bileşen hatalarına neden tahmin etmek için sorunudur. İş soru bu nedenle olan "*bir bileşen hatası nedeniyle bir makine arıza olasılık nedir*?" Bu sorun çok sınıflı sınıflandırma sorunu (makine başına birden çok bileşeni) olarak biçimlendirilmiş ve makine öğrenme algoritmasını Tahmine dayalı bir model oluşturmak için kullanılır. Model makinelerden toplanan geçmiş verileri eğitildi. Bu senaryoda, kullanıcı bu tür bir model Azure Machine Learning çalışma ekranı ortamında gerçekleştirilmesinin çeşitli adımları geçer.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir [Azure hesabı](https://azure.microsoft.com/en-us/free/) (ücretsiz deneme kullanılabilir).
 * Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu'na](./quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için.

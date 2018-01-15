@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: ca386cfd23b010af25fa9afb00fdad322e3e2946
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8f25773541deba2a94d3adc0c9b61c1b90a90aa6
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-7-create-key-performance-indicators"></a>7. Ders: Ana Performans Göstergeleri oluşturma
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-key-performance-indicators"></a>Ana Performans Göstergeleri oluşturma
 
 Bu derste Ana Performans Göstergeleri (KPI) oluşturursunuz. KPI’lar bir *Temel* ölçü ile tanımlanmış bir değerin performansını, yine bir ölçü ya da mutlak değerle tanımlanmış bir *Hedef* değere göre ölçmek için kullanılır. Raporlama istemci uygulamalarında KPI’lar, iş uzmanlarına iş başarısı özetini anlamanın veya eğilimleri belirlemenin hızlı ve kolay bir yöntemini sunabilir. Daha fazla bilgi için bkz. [KPI’lar](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   
 Bu dersin tahmini tamamlanma süresi: **15 dakika**  
   
-## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [6. Ders: Ölçü oluşturma](../tutorials/aas-lesson-6-create-measures.md).   
+## <a name="prerequisites"></a>Önkoşullar  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [6. Ders: Ölçü oluşturma](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Ana Performans Göstergeleri oluşturma  
   

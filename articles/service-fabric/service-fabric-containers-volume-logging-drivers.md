@@ -14,17 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-<<<<<<< HEAD
-ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Docker birim eklentiler ve günlük sürücüleri, kapsayıcıdaki kullanın
 Azure Service Fabric destekleyen belirtme [Docker birim eklentileri](https://docs.docker.com/engine/extend/plugins_volume/) ve [Docker günlük sürücüleri](https://docs.docker.com/engine/admin/logging/overview/) kapsayıcı hizmetiniz için. Verilerinizi kalıcı [Azure dosyaları](https://azure.microsoft.com/services/storage/files/) zaman, kapsayıcı taşınmış veya farklı bir ana bilgisayarda yeniden.
@@ -45,6 +39,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
+
+> [!NOTE]
+> Windows Server 2016 Datacenter konakta SMB başlatmalar desteklemez ([yalnızca sürüm 1709 Windows Server'da desteklenen](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Azure dosyaları birim sürücüleri gibi belirli birim sürücüleri kullanımını engeller. Bunun yerine, bir kapsayıcı kullanılarak doğrudan içinde paylaşımları bağlayabilir **net kullanım**. 
+>   
+
 
 ## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Eklenti belirtin veya bildiriminde sürücüsü
 Eklentiler uygulama bildiriminde aşağıdaki gibi belirtilir:

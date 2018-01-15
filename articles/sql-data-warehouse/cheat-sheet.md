@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 12/14/2017
 ms.author: acomet
-ms.openlocfilehash: dc55f4333bef1c609978887f293539bbee8b1c29
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 2d17385ff255ddf7b85baa81600a2af60d015540
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse için kopya sayfası
 Bu sayfa, veri ambarı çözümünüzün ana kullanım örnekleri için tasarlamanıza yardımcı olmalıdır. Bu kopya sayfası Yolculuğunuzun dünya çapındaki veri ambarı oluşturma için harika bir destek olmalıdır, ancak her adım ayrıntıları hakkında daha fazla bilgi öneririz. İlk olarak, hangi SQL veri ambarı hakkında harika bu makaleyi okuduktan öneririz  **[ve değil]**.
@@ -45,7 +45,7 @@ Verileriniz için ilk yükleme öneririz  **[ADLS içine]**  veya Azure Blob Dep
 |:--- |:--- |
 | Dağıtım | Hepsini Bir Kez Deneme |
 | Dizinleme | Yığın |
-| Bölümleme | None |
+| Bölümleme | Hiçbiri |
 | Kaynak Sınıfı | largerc veya xlargerc |
 
 Daha fazla bilgi edinmek  **[veri geçişi], [veri yükleme]**  ile  **[daha ayrıntılı yönergeler] yüklendiği**. 
@@ -157,8 +157,8 @@ Bir tıklatın, bağlı bileşen SQL DW SQL DB veritabanlarından içinde dağı
 [SQL DW yararlanarak tipik mimarileri]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [ve değil]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [veri geçişi]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[çoğaltılmış tablolar]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[dağıtılmış tablolar]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[ADLS içine]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+[çoğaltılmış tablolar]:https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables
+[dağıtılmış tablolar]:https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
+[ADLS içine]: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store
+[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
+[sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

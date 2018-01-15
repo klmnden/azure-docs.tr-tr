@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Belirteç alımı için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Bu makalede, belirteç edinme yanı sıra işleme belirteci süre sonu ve HTTP hataları gibi önemli konular hakkında yönergeler için çeşitli kod ve komut dosyası örnekler verilmektedir.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Bu makalede, belirteç edinme yanı sıra işleme belirteci süre sonu ve HTTP hataları gibi önemli konular hakkında yönergeler için çeşitli kod ve komut dosyası örnekler verilmektedir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -261,7 +262,7 @@ Bir hata oluşursa, karşılık gelen HTTP yanıt gövdesi JSON ile hata ayrınt
 
 Bu bölümde, olası hata yanıtları belgeler. A "200 Tamam" durumu başarılı bir yanıt ve erişim belirteci yanıt gövdesinde JSON, access_token öğesi bulunur.
 
-| Durum kodu | Hata | Hata açıklaması | Çözüm |
+| Durum kodu | Hata | Hata Açıklaması | Çözüm |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Hatalı istek | invalid_resource | AADSTS50001: uygulama adlı  *\<URI\>*  adlı Kiracı bulunamadı  *\<KİRACI kimliği\>*. Uygulama değil Kiracı Yöneticisi tarafından yüklendikten veya Kiracı herhangi bir kullanıcı tarafından izin verdiği gerçekleşebilir. Yanlış Kiracı kimlik doğrulama isteği gönderilen. \ | (Yalnızca Linux) |
 | 400 Hatalı istek | bad_request_102 | Gerekli meta veriler üstbilgisi belirtilmedi | Her iki `Metadata` isteği üstbilgisi alanının isteğinizden eksik veya yanlış biçimlendirilmiş. Değer olarak belirtilmelidir `true`, tüm alt durumda. "Örnek istek" bölümüne bakın [geri KALAN bölümü önceki](#rest) bir örnek.|

@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-10-create-partitions"></a>10. Ders: Bölüm oluşturma
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-partitions"></a>Bölüm oluşturma
 
 Bu derste, FactInternetSales tablosunu diğer bölümlerden bağımsız olarak işlenebilecek (yenilenebilecek) daha küçük mantıksal kısımlara ayıran bölümler oluşturursunuz. Varsayılan olarak, modelinize eklediğiniz her tablonun tablodaki tüm sütun ve satırları içeren tek bir bölümü vardır. FactInternetSales tablosu için verileri yıla göre bölmek, yani tablodaki beş yılın her biri için birer bölüm oluşturmak istiyoruz. Daha sonra her bölüm bağımsız olarak işlenebilir. Daha fazla bilgi edinmek için bkz. [Bölümler](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular). 
   
 Bu dersin tahmini tamamlanma süresi: **15 dakika**  
   
-## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [9. Ders: Hiyerarşi Oluşturma](../tutorials/aas-lesson-9-create-hierarchies.md).  
+## <a name="prerequisites"></a>Önkoşullar  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [9. Ders: Hiyerarşi Oluşturma](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
 ## <a name="create-partitions"></a>Bölüm oluşturma  
   
