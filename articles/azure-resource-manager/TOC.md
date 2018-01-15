@@ -9,14 +9,14 @@
 ## [Şablonlar için VS Code uzantısı](resource-manager-vscode-extension.md)
 ## [Resource Manager ile Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Şablon oluşturma
 ### [Şablon bölümleri](resource-group-authoring-templates.md)
 #### [Parametreler](resource-manager-templates-parameters.md)
 #### [Değişkenler](resource-manager-templates-variables.md)
 #### [Kaynaklar](resource-manager-templates-resources.md)
 #### [Çıkışlar](resource-manager-templates-outputs.md)
-### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
+### [Bağlantılı ve iç içe şablonlar](resource-group-linked-templates.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
 ### [Birden çok örnek oluşturma](resource-group-create-multiple.md)
 ### [Güncelleştirme kaynağı](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -40,10 +40,10 @@
 ### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Dağıtım sırasında güvenlik değerlerini geçirme](resource-manager-keyvault-parameter.md)
 
-## Yönet
+## Yönetme
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure portal](resource-group-portal.md)
+### [Azure portalı](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
@@ -55,7 +55,7 @@
 ### Hizmet sorumlusu oluşturma
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure portal](resource-group-create-service-principal-portal.md)
+#### [Azure portalı](resource-group-create-service-principal-portal.md)
 ### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)
 

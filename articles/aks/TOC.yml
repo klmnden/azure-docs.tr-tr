@@ -35,6 +35,8 @@
       href: scale-cluster.md
     - name: AKS kümesini yükseltme
       href: upgrade-cluster.md
+    - name: ACR ile kimlik doğrulama
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
     - name: Helm ile uygulamaları çalıştırma
       href: kubernetes-helm.md
     - name: Draft ile uygulama geliştirme
