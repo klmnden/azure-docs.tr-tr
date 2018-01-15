@@ -29,6 +29,8 @@
           maintainContext: true
     - name: Geliştirme
       items:
+        - name: HBase .NET SDK'sını kullanma
+          href: apache-hbase-rest-sdk.md
         - name: Java uygulamaları geliştirme
           href: apache-hbase-build-java-maven-linux.md
         - name: Boş kenar düğümlerini kullanma
@@ -39,6 +41,8 @@
           maintainContext: true
         - name: Phoenix ve SQLLine kullanma
           href: apache-hbase-phoenix-squirrel-linux.md
+        - name: Phoenix Sorgu Sunucusu REST SDK'sını kullanma
+          href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: Kümeleri genişletme
       items:
         - name: Bootstrap ile kümeleri özelleştirme
@@ -112,9 +116,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Ambari web kullanıcı arabirimiyle kümeleri en iyi duruma getirme
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Ambari REST API’si kullanma
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: HDInsight kümesi için günlükleri yönetme
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Depolama hesapları ekleme
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -154,6 +164,9 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
+        - name: Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: HDFS sorunlarını giderme
           href: ../hdinsight-troubleshoot-hdfs.md
           maintainContext: true

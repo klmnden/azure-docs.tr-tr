@@ -6,13 +6,13 @@
       href: how-iot-edge-works.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Uca dağıtma - Linux
+    - name: Uca dağıtma - Linux/Mac
       href: quickstart-linux.md
     - name: Uca dağıtma - Windows
       href: quickstart.md
 - name: Öğreticiler
   items:
-    - name: Bir Edge cihazını benzetme - Linux
+    - name: Bir Edge cihazının simülasyonunu gerçekleştirme - Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: Bir Edge cihazını benzetme - Windows
       href: tutorial-simulate-device-windows.md

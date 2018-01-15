@@ -1,55 +1,73 @@
-# [Genel Bakış](search-what-is-azure-search.md)
-## [Azure Search nedir?](search-what-is-azure-search.md)
+# Genel Bakış
+## [Azure Search Hakkında](search-what-is-azure-search.md)
 
-# Başlarken
+# Hızlı Başlangıçlar
 
 ## [Hizmet oluşturma](search-create-service-portal.md)
-## [Dizin oluşturma](search-what-is-an-index.md)
-### [Azure Portal](search-create-index-portal.md)
-### [.NET](search-create-index-dotnet.md)
-### [REST](search-create-index-rest-api.md)
-## [Veri ekleme](search-what-is-data-import.md)
-### [Azure portalı](search-import-data-portal.md)
-### [.NET](search-import-data-dotnet.md)
-### [REST](search-import-data-rest-api.md)
-## [Dizin arama](search-query-overview.md)
-### [Azure Portal](search-explorer.md)
-### [.NET](search-query-dotnet.md)
-### [REST](search-query-rest-api.md)
+## Portal
+### [Dizin oluşturma](search-create-index-portal.md)
+### [Veri içeri aktarma](search-import-data-portal.md)
+### [Arama Gezgini](search-explorer.md)
+## .NET
+### [Dizin oluşturma](search-create-index-dotnet.md)
+### [Veri içeri aktarma](search-import-data-dotnet.md)
+### [Search](search-query-dotnet.md)
+## REST
+### [Dizin oluşturma](search-create-index-rest-api.md)
+### [Veri içeri aktarma](search-import-data-rest-api.md)
+### [Search](search-query-rest-api.md)
+### [REST istemcileri ile test](search-fiddler.md)
 
 # Öğreticiler
 
-## [.NET’te geliştirme](search-howto-dotnet-sdk.md)
-## [.NET’te eş anlamlılar önizlemesi](search-synonyms-tutorial-sdk.md)
-## [.NET’te SQL veri dizini oluşturucu](search-indexer-tutorial.md)
-## [Portal kılavuzu](search-get-started-portal.md)
-## [Yarı yapılandırılmış verileri arama](search-semi-structured-data.md)
-## [REST API’yi keşfedin](search-fiddler.md)
+## [1 - Azure SQL Veritabanı'nı dizinleme](search-indexer-tutorial.md)
+## [2 - Azure bloblarını dizinleme](search-semi-structured-data.md)
+## [3 - .NET’e eş anlamlı sözcükler ekleme](search-synonyms-tutorial-sdk.md)
+## [4 - Portal kılavuzu](search-get-started-portal.md)
 
-# Nasıl yapılır
+# Örnekler
+## [Azure kod örnekleri](https://azure.microsoft.com/resources/samples/?service=search)
+## [GitHub örnekleri](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
-## Planlama ve Tasarım
+# Kavramlar
+## [Tam metin araması](search-lucene-query-architecture.md)
+## [Dizinleme](search-what-is-data-import.md)
+## [Dizin tanımı](search-what-is-an-index.md)
+## [Dil çözümleme](search-analyzers.md)
+
+# Nasıl yapılır kılavuzları
+
+## Planlama ve tasarım
 ### [SKU seçme](search-sku-tier.md)
 ### [Hizmet sınırlamaları](search-limits-quotas-capacity.md)
 ### [Hizmet ölçeklenebilirliği](search-capacity-planning.md)
 ### [Çoklu müşteri mimarisi için tasarım desenleri](search-modeling-multitenant-saas-applications.md)
+### [Performans ve iyileştirme](search-performance-optimization.md)
+
 ## Güvenlik
-### [Veri ve çalışma güvenliği](search-security-overview.md)
-### [Kimlik filtreleriyle koruma](search-security-trimming-for-azure-search.md)
-### [Active Directory ile koruma](search-security-trimming-for-azure-search-with-aad.md)
+### [Veri ve işletimsel güvenlik](search-security-overview.md)
+### [Kimlik filtreleri kullanarak güvenli hale getirme](search-security-trimming-for-azure-search.md)
+### [Active Directory kullanarak güvenli hale getirme](search-security-trimming-for-azure-search-with-aad.md)
+
 ## Geliştirme
 ### [API sürümleri](search-api-versions.md)
+### [.NET’te geliştirme](search-howto-dotnet-sdk.md)
 ### [Node.js’de geliştirme](search-get-started-nodejs.md)
 ### [Java’da geliştirme](search-get-started-java.md)
 ### [SDK’yı yükseltme](search-dotnet-sdk-migration.md)
 ### [REST API’yi yükseltme](search-api-migration.md)
 ### [Karmaşık veri türlerini modelleme](search-howto-complex-data-types.md)
 ### [Eş zamanlı güncelleştirmelerini tanımlama](search-howto-concurrency.md)
-### [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=search)
-## Veri yükleme
-### [Dizin Oluşturucu’ya genel bakış](search-indexer-overview.md)
-### [Azure Blob Depolama dizin oluşturucu](search-howto-indexing-azure-blob-storage.md)
-### [Azure Tablo Depolama dizin oluşturucu](search-howto-indexing-azure-tables.md)
+### [Disk belleği sonuçları](search-pagination-page-layout.md)
+
+## Metin analizi
+### [Dil çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support)
+### [Özel çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+
+## Veri dizinleme
+### [Dizin oluşturuculara genel bakış](search-indexer-overview.md)
+### [Azure Blob depolama dizin oluşturucu](search-howto-indexing-azure-blob-storage.md)
+### [Azure Tablo depolama dizin oluşturucu](search-howto-indexing-azure-tables.md)
 ### [Azure SQL dizin oluşturucu](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 ### [Azure Cosmos DB dizinleyici](search-howto-index-cosmosdb.md)
 ### [CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
@@ -57,32 +75,24 @@
 ### [Azure sanal makinesinde dizin oluşturucu SQL Server bağlantılarını yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Dizin oluşturucularda alan eşlemeleri](search-indexer-field-mappings.md)
 ##  Arama
-### [Tam metin araması nasıl çalışır?](search-lucene-query-architecture.md)
-### Sorgu Oluşturma
-#### [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-#### [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Lucene sorgu örnekleri](search-query-lucene-examples.md)
-### Azure Search'te çözümleyiciler
-#### [Genel Bakış](search-analyzers.md)
-#### [Dil çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support)
-#### [Özel çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
-### Azure Search'te filtreler
-#### [Genel Bakış](search-filters.md)
-#### [Model filtreleri](search-filters-facets.md)
-#### [Dil filtreleri](search-filters-language.md)
-#### [İfade söz dizimi başvurusu](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### [Disk belleği sonuçları](search-pagination-page-layout.md)
-### [Puanlama](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-### [Öneriler](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+### [Temel sorgu oluşturma](search-query-overview.md)
+### [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+### [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+### [Lucene sözdizimi sorgu örnekleri](search-query-lucene-examples.md)
 ### [Çok yönlü gezinme](search-faceted-navigation.md)
-### [Eş anlamlılar önizleme](search-synonyms.md)
-### [moreLikeThis önizlemesi](search-more-like-this.md)
-## Yönetim ve Analiz
-### [Azure portalını kullanarak yönetme](search-manage.md)
-### [PowerShell’i kullanarak yönetme](search-manage-powershell.md)
+### [Puanlama modelleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Öneriler](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+### [Eş anlamlılar (önizlemede)](search-synonyms.md)
+## Filtreler
+### [Filtrelere genel bakış](search-filters.md)
+### [Model filtreleri](search-filters-facets.md)
+### [OData ifadesi söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+
+## Yönetim ve analiz
+### [Yönetim (portal)](search-manage.md)
+### [PowerShell (Azure Search)](search-manage-powershell.md)
 ### [Kullanımı ve istatistikleri izleme](search-monitor-usage.md)
 ### [Arama trafiği analizi](search-traffic-analytics.md)
-### [Performans ve iyileştirme](search-performance-optimization.md)
 
 # Başvuru
 
@@ -97,7 +107,6 @@
 
 ## [SSS - Sık Sorulan Sorular](search-faq-frequently-asked-questions.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/search/)
-## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=search)
 ## Eğitim yazılımı ve öğreticiler
 ### [Videolar ve öğreticiler](search-video-demo-tutorial-list.md)
@@ -107,11 +116,7 @@
 ### [Canlı tanıtım uygulamaları](https://searchsamples.azurewebsites.net/)
 ### [İş listeleri uygulaması](http://aka.ms/azjobsdemo)
 ## İş ortağı ve topluluk
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [MSDN Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Azure Search MSDN Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blog: İlişkisel verileri modelleme](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [blog: Çok düzeyli model oluşturma](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-
-
-
