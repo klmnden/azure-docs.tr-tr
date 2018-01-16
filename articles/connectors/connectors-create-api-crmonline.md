@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Mantıksal uygulama akışlarından Dynamics 365'e bağlanın
 
@@ -30,7 +30,7 @@ Logic Apps ile (çevrimiçi) Dynamics 365 bağlama ve kayıtları oluşturma, ö
 
 Bu konuda yeni bir sağlama Dynamics 365'te oluşturulduğunda Dynamics 365'te bir görev oluşturan bir mantıksal uygulama oluşturulacağını gösterir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Bir Azure hesabı.
 * Dynamics 365 (çevrimiçi) hesabı.
 
@@ -118,7 +118,7 @@ Alan türü  |Nasıl kullanılır  |Nerede bulunacağını  |Ad  |Veri türü
 Metin alanları|Metin alanları tek satırlık bir metin veya metin türü alan dinamik içerik gerektirir. Örnekler kategori ve alt kategori alanlarını içerir.|Ayarlar > özelleştirmeleri > Sistem Özelleştirme > varlıklar > Görev > alanları |category |Tek satırlık metin        
 Tamsayı alanları | Bazı alanlar, tamsayı veya tamsayı türünde bir alan dinamik içerik gerektirir. Örnek tamamlanma yüzdesi ve süre verilebilir. |Ayarlar > özelleştirmeleri > Sistem Özelleştirme > varlıklar > Görev > alanları |TamamlanmaYüzdesi |Tam sayı         
 Tarih alanları | Bazı alanlar, tarih gg/aa/yyyy biçiminde veya bir tarih alanı dinamik içerik girilmesini gerektirir. Oluşturma tarihi, başlangıç tarihi, gerçek başlatma, son zaman tutun, gerçek bitiş ve son tarih örnekler. | Ayarlar > özelleştirmeleri > Sistem Özelleştirme > varlıklar > Görev > alanları |createdon |Tarih ve saat
-Bir kayıt kimliği hem arama gerektiren alanlar yazın |Başka bir varlık kaydı başvuru bazı alanları kayıt kimliği ve arama türü gerektirir. |Ayarlar > özelleştirmeleri > Sistem Özelleştirme > varlıklar > hesabı > alanları  | Hesap Kimliği  | Birincil anahtar
+Bir kayıt kimliği hem arama gerektiren alanlar yazın |Başka bir varlık kaydı başvuru bazı alanları kayıt kimliği ve arama türü gerektirir. |Ayarlar > özelleştirmeleri > Sistem Özelleştirme > varlıklar > hesabı > alanları  | Hesap Kimliği  | Birincil Anahtar
 
 ### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Daha fazla örnekleri bir kayıt kimliği ve arama gerektiren alanlar yazın
 Önceki tabloda genişleterek, daha fazla dinamik içerik listeden seçilen değerlerle çalışmıyor alanları örnekleri aşağıda verilmiştir. Bunun yerine, bu alanların PowerApps alanlara girilen her iki kayıt kimliği ve arama türü gerektirir.  

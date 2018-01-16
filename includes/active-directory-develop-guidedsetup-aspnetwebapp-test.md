@@ -22,7 +22,7 @@ Denetleyici görünümüne göz sonra kullanıcı için temel özelliklerini iç
 |**Ad** |Kullanıcının tam adı | Kullanıcı adı ve soyadı.
 |**Kullanıcı Adı** |Kullanıcı<span>@domain.com</span> | Kullanıcıyı tanımlamak için kullanılan kullanıcı adı.
 |**Konu** |Konu |Kullanıcı web üzerinden benzersiz olarak tanımlayan bir dize.|
-|**Kiracı kimliği** |GUID | A **GUID** benzersiz olarak temsil eden kullanıcının Azure AD kuruluş.|
+|**Kiracı kimliği** |Guid | A **GUID** benzersiz olarak temsil eden kullanıcının Azure AD kuruluş.|
 
 Ayrıca, kimlik doğrulama isteğine olan tüm talepler tablosu görmeniz gerekir. Daha fazla bilgi için bkz: [bir Azure AD kimlik belirtecinde bulunan talepleri listesi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 

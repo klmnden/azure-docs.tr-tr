@@ -10,7 +10,7 @@ Bulut Kabuk oturumlarında dosyaları kalıcı hale getirmek için Azure File st
 ### <a name="create-new-storage"></a>Yeni depolama alanı oluşturma
 
 Temel ayarlar kullanın ve yalnızca bir abonelik seçin, bulut Kabuk üç kaynakları en yakın olan desteklenen bölgede sizin adınıza oluşturur:
-* Kaynak grubu:`cloud-shell-storage-<region>`
+* Kaynak grubu: `cloud-shell-storage-<region>`
 * Depolama hesabı:`cs<uniqueGuid>`
 * Dosya Paylaşımı:`cs-<user>-<domain>-com-<uniqueGuid>`
 

@@ -27,7 +27,7 @@ Topluluk üyeleri GitHub kullanıcı arabirimini kullanarak veya depo için çat
 azure-docs deposundaki tüm içerik https://docs.microsoft.com/azure adresindeki belge düzenini takip eder. Bu depoda iki kök klasör bulunur: Bu depo iki kök klasör içerir:
 
 ### <a name="articles"></a>\articles
-*\articles* klasörü *.md* uzantılı markdown dosyaları olarak biçimlendirilmiş belge makaleleri içerir. Bu makaleler, genellikle Azure hizmetine göre gruplandırılır.
+*\articles* klasörü *.md* uzantılı markdown dosyaları olarak biçimlendirilmiş belge makalelerini içerir. Bu makaleler, genellikle Azure hizmetine göre gruplandırılır.
 
 *\articles* klasörü kök dizindeki makalelerin medya dosyaları için *\media* adlı bir klasör içerir. Bu klasörün içinde her makalenin resim dosyalarını içeren alt klasörler bulunur.  Hizmet klasörlerinde her bir hizmet klasöründeki makaleler için ayrı bir medya klasörü vardır.  Makale resim klasörleri, *.md* dosya uzantısı dışında makale dosyaları ile aynı ada sahiptir. 
 
