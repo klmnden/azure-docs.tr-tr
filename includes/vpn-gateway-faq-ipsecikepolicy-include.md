@@ -38,7 +38,7 @@ Aşağıdaki tabloda, müşteriler tarafından yapılandırılabilecek şifrelem
 * IPsec şifreleme algoritması
 * IPsec bütünlük algoritması
 * PFS Grubu
-* Trafik Seçicisi (*)
+* Trafik Seçicisi ( * )
 
 SA yaşam süreleri yalnızca yerel belirtimlerdir ve bunların eşleşmesi gerekmez.
 
