@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: ad8d531d633eb65fe90404fdab0499b8e5332db6
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Bir kullanıcı veya grup için iki aşamalı doğrulama zorunlu kılma
 
