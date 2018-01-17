@@ -19,7 +19,7 @@ ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Mantıksal uygulama akışlarından Dynamics 365'e bağlanın
 
@@ -40,7 +40,7 @@ Bu konuda yeni bir sağlama Dynamics 365'te oluşturulduğunda Dynamics 365'te b
 
 2.  Azure arama kutusuna `Logic apps`, ve ENTER tuşuna basın.
 
-      ![Logic Apps Bul](./media/connectors-create-api-crmonline/find-logic-apps.png)
+      ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
 3.  Altında **Logic apps**, tıklatın **Ekle**.
 

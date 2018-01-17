@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e213e6fcf10e98cb8e4344692475eb8d41d1afb5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Azure Active Directory oturum açma etkinliği raporu API Başvurusu
 Bu konuda, Azure Active Directory hakkındaki konuları API raporlama koleksiyonu bir parçasıdır.  
@@ -46,7 +46,7 @@ $role = Get-MsolRole | ? Name -eq "Security Reader"
 Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
 ```
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu rapor raporlama API aracılığıyla erişmek için şunlara sahip olmalısınız:
 
 * Bir [Azure Active Directory Premium P1 veya P2 edition](active-directory-editions.md)
@@ -57,7 +57,7 @@ Bu API aracılığıyla da erişebilirsiniz [Graph Explorer'a](https://graphexpl
 
 Bu konunun odak Graph Explorer'a noktasıdır. Bu PowerShell örnek için bkz [PowerShell Betiği](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
-## <a name="api-endpoint"></a>API uç noktası
+## <a name="api-endpoint"></a>API Endpoint
 Bu API aşağıdaki temel URI'yi kullanarak erişebilirsiniz:  
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta  
@@ -121,7 +121,7 @@ Bir tarih aralığı kullanma
 Datetime parametresi UTC biçiminde olmalıdır 
 
 - - -
-### <a name="userid"></a>Kullanıcı Kimliği
+### <a name="userid"></a>userId
 **İşleçler desteklenen**: eq
 
 **Örnek**:
@@ -146,7 +146,7 @@ UserId değeri bir dize değeridir
 UserPrincipalName değeri bir dize değeridir
 
 - - -
-### <a name="appid"></a>AppID
+### <a name="appid"></a>appId
 **İşleçler desteklenen**: eq
 
 **Örnek**:

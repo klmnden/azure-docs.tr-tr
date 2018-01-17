@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Microsoft Azure SUSE Linux VM’lerde SAP NetWeaver’ı çalıştırma
 Bu makalede, çeşitli Microsoft Azure SUSE Linux sanal makineleri (VM'ler) SAP NetWeaver çalıştırırken göz önünde bulundurmanız gerekenler açıklanmaktadır. 19 Mayıs 2016 itibariyle SAP NetWeaver resmi olarak SUSE Linux sanal makineleri Azure üzerinde desteklenir. Linux sürümleri, SAP çekirdek sürümler ve diğer Önkoşullar ilgili tüm ayrıntıları SAP Not 1928533 bulunabilir "Azure SAP uygulamaları: desteklenen ürünleriyle ve Azure VM türler".
@@ -105,7 +105,7 @@ Bir VM sonunda deprovision adım olmadan (örneğin, Canlı var olan bir SAP yü
 
 Ne makalesinde açıklanan ek olarak, bu dosyayı kaldırmanızı öneririz:
 
-   /lib/udev/Rules.d/75-persistent-NET-Generator.Rules
+   /lib/udev/rules.d/75-persistent-net-generator.rules
 
 Aracı birden çok NIC olmadığı sürece, olası sorunları önlemenize yardımcı olmak için Azure Linux (waagent) de yükleyebilirsiniz.
 
@@ -162,5 +162,5 @@ Gnome Masaüstü'nü kullanarak bir SAP GUI dahil olmak üzere tek bir VM içind
    ```
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>Oracle Linux bulutta SAP desteği
-Sanallaştırılmış ortamlarda Oracle Linux üzerinde gelen destek bir kısıtlama yoktur. Bu destek kısıtlama Azure özgü konu olmamasına karşın, anlamak önemlidir. SAP, Oracle SUSE veya Red Hat gibi Azure genel bulutunda desteklemez. Bu konuda tartışmak için Oracle doğrudan başvurun.
+Sanallaştırılmış ortamlarda Oracle Linux üzerinde gelen destek bir kısıtlama yoktur. Bu destek kısıtlama Azure özgü konu olmamasına karşın, anlamak önemlidir. SAP, Oracle SUSE veya Red Hat gibi Azure genel bulutunda desteklemez. Sırada çalışan, Oracle DB Azure içinde tam olarak Oracle Linux üzerinde SAP tarafından desteklenir (SAP Not 1928533 bakın). Diğer birleşimleri gerekirse, Oracle doğrudan başvurun.
 

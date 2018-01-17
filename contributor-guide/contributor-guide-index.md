@@ -20,7 +20,7 @@ ms.openlocfilehash: a461f9b625b3561ece9ea10027b529b0a94e4c53
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-technical-content-contributors-guide-index"></a>Azure teknik içeriğe katkıda bulunanlar Kılavuzu dizini
 

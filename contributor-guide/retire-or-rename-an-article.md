@@ -2,4 +2,4 @@
 
 Bu kılavuz, docs.microsoft.com iç katkıda bulunanlar Kılavuzu'na taşınmıştır.
 
-[https://aka.MS/retire-or-Rename](https://aka.ms/retire-or-rename)
+[https://aka.ms/retire-or-rename](https://aka.ms/retire-or-rename)

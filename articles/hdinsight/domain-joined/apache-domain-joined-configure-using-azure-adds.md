@@ -3,7 +3,7 @@ title: "Azure Active Directory etki alanı Hizmetleri - Azure kullanarak etki al
 description: "Ayarlama ve Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma konusunda bilgi edinin"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 0dfda9b87e970f7bf0ae2df699897b9c8bb73004
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma
 
@@ -37,7 +37,7 @@ Bu makalede, Azure Active Directory etki alanı Hizmetleri'ni kullanan bir etki 
 Hdınsight kümesi oluşturmadan önce bir Azure AD DS oluşturmanız gerekir. Bir Azure EKLER oluşturmak için bkz: [etkinleştirmek Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Yalnızca Kiracı yöneticileri, etki alanı hizmetleri oluşturmak için gerekli ayrıcalıklara sahiptir. 
+> Yalnızca Kiracı yöneticileri, etki alanı hizmetleri oluşturmak için gerekli ayrıcalıklara sahiptir. Azure Data Lake Storage durumunda - AAD Kiracı nerede >> AADDS etkinleştirmek aboneliğin varsayılan Kiracı oluşturduğunuz Azure Data Lake storage hesabını ve küme olması gerekir.
 
 Etki alanı hizmeti sağlandıktan sonra bir hizmet hesabı oluşturmanız gerekir **Azure AD DC Yöneticiler** Hdınsight kümesi oluşturmak için Grup. Hizmet hesabı üzerinde Azure AD genel yönetici olması gerekir.
 

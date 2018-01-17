@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 15f6d422f3171ae5161e0d4d4bcd8ec98529c766
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: dc38772097dddb7c7135d55598373d7ab544f9ea
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="offline-fairplay-streaming"></a>Çevrimdışı FairPlay akış
+# <a name="offline-fairplay-streaming-for-ios"></a>FairPlay çevrimdışı akış iOS için 
  Azure Media Services, iyi tasarlanmış bir dizi sağlar [içerik koruma hizmetleri](https://azure.microsoft.com/services/media-services/content-protection/) bu kapsar:
 
 - Microsoft PlayReady
@@ -105,7 +105,7 @@ AssetDeliveryPolicyConfigurationKey aşağıda gösterildiği gibi ekleyin:
 
 Bu adımdan sonra aşağıdaki üç girdileri FPS varlık teslim ilkesini < Dictionary_AssetDeliveryPolicyConfigurationKey > dizesinde içerir:
 
-* AssetDeliveryPolicyConfigurationKey.FairPlayBaseLicenseAcquisitionUrl ya da kullanılan FPS KSM/anahtar sunucusu gibi etkenlere ve aynı varlık teslim yeniden olup bağlı olarak AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl birden çok varlık arasında İlkesi
+* AssetDeliveryPolicyConfigurationKey.FairPlayBaseLicenseAcquisitionUrl or AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl, depending on factors such as the FPS KSM/key server used and whether you reuse the same asset delivery policy across multiple assets
 * AssetDeliveryPolicyConfigurationKey.CommonEncryptionIVForCbcs
 * AssetDeliveryPolicyConfigurationKey.AllowPersistentLicense
 
@@ -121,11 +121,11 @@ FPS çevrimdışı modda desteği ve sonrasında yalnızca ios'ta 10 kullanılab
 
         - API'ları başlatmak ve yüklemeleri iptal etmek için ve cihazları devre dışı varolan varlıkları silmek için kullanılan gibi indirme HLS akış yönetin.
         - Yükleme ilerleme durumunu izleyin.
-    - Kod dosyaları AssetListTableViewController.swift ve AssetListTableViewCell.swift: AssetListTableViewController olduğundan bu örnek ana arabirimi. Örnek yürütmek, indirin, silmek veya bir yüklemeyi iptal etmek için kullanabileceğiniz varlıklar listesini sağlar. 
+    - AssetListTableViewController.swift and AssetListTableViewCell.swift code files: AssetListTableViewController is the main interface of this sample. Örnek yürütmek, indirin, silmek veya bir yüklemeyi iptal etmek için kullanabileceğiniz varlıklar listesini sağlar. 
 
 Bu adımlar çalışan bir iOS oynatıcı ayarlamak nasıl gösterir. FPS Server SDK 4.0.1 sürümünü HLSCatalog örnekten Başlat varsayıldığında, aşağıdaki kod değişiklikleri yapın:
 
-HLSCatalog\Shared\Managers\ContentKeyDelegate.swift içinde yöntemi uygulaması `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` aşağıdaki kodu kullanarak. "DrmUr" HLS URL'sine atanmış bir değişken olmasına izin verin.
+In HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implement the method `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` by using the following code. "DrmUr" HLS URL'sine atanmış bir değişken olmasına izin verin.
 
 ```swift
     var ckcData: Data? = nil
@@ -158,7 +158,7 @@ HLSCatalog\Shared\Managers\ContentKeyDelegate.swift içinde yöntemi uygulaması
     return ckcData
 ```
 
-HLSCatalog\Shared\Managers\ContentKeyDelegate.swift içinde yöntemi uygulaması `requestApplicationCertificate()`. Bu uygulama sertifikası (yalnızca ortak anahtar) aygıtıyla katıştırmak mı web sertifikadaki ana bilgisayar bağlıdır. Aşağıdaki uygulama test örneklerinde kullanılan barındırılan uygulama sertifikasını kullanır. "CertUrl" uygulama sertifika URL'sini içeren bir değişkeni olmasına izin verin.
+In HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implement the method `requestApplicationCertificate()`. Bu uygulama sertifikası (yalnızca ortak anahtar) aygıtıyla katıştırmak mı web sertifikadaki ana bilgisayar bağlıdır. Aşağıdaki uygulama test örneklerinde kullanılan barındırılan uygulama sertifikasını kullanır. "CertUrl" uygulama sertifika URL'sini içeren bir değişkeni olmasına izin verin.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {

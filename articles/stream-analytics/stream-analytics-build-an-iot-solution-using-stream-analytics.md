@@ -4,8 +4,8 @@ description: "Başlangıç Öğreticisi gişe senaryosu Stream Analytics IOT ç�
 keywords: "IOT çözüm, pencere işlevleri"
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Akış analizi kullanarak bir IOT çözüm oluşturma
+
 ## <a name="introduction"></a>Giriş
 Bu öğreticide, Azure akış analizi verilerinizden gerçek zamanlı Öngörüler almak için nasıl kullanılacağını öğreneceksiniz. Geliştiriciler, kolayca geçmiş kayıtlarını veya iş öngörüleri türetmek için başvuru verileri ile tıklatın akışlar, günlükler ve cihaz tarafından oluşturulan olaylar gibi veri akışları birleştirebilirsiniz. Microsoft Azure üzerinde barındırılan bir tam olarak yönetilen, gerçek zamanlı akış hesaplama hizmet olarak Azure akış analizi yerleşik dayanıklılık, düşük gecikme süresi ve siz yukarı ve dakika içinde çalışan almak için ölçeklenebilirlik sağlar.
 
@@ -33,7 +34,7 @@ Bu öğreticiyi tamamladıktan sonra aşağıdakileri gerçekleştirebilirsiniz:
 * Stream Analytics güvenle kullanarak çözümleri müşterileriniz için akış geliştirin.
 * Sorunları gidermek için izleme ve deneyimi günlüğü kullanın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
 
 * En son sürümünü [Azure PowerShell](/powershell/azure/overview)
@@ -54,14 +55,14 @@ Bu öğretici, iki veri akışları ile çalışır. Giriş ve çıkış Ücretl
 ### <a name="entry-data-stream"></a>Girdi veri akışı
 Ücretli istasyonları girerken giriş veri akışı araba hakkında bilgiler içerir.
 
-| TollID | EntryTime | LicensePlate | Durum | Yapma | modeli | VehicleType | VehicleWeight | Ücretli | Etiket |
+| TollID | EntryTime | LicensePlate | Durum | Yapma | Model | VehicleType | VehicleWeight | Ücretli | Etiket |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
-| 3 |2014-09-10 12:02:00.000 |ABC 1004 |U |Ford |Taurus |1 |0 |5 |456789123 |
-| 2 |2014-09-10 12:03:00.000 |XYZ 1003 |U |Toyota |Corolla |1 |0 |4 | |
+| 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
+| 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4 x 4 |1 |0 |6 |321987654 |
+| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
 
 Aşağıda, sütunların kısa bir açıklaması verilmiştir:
 
@@ -72,7 +73,7 @@ Aşağıda, sütunların kısa bir açıklaması verilmiştir:
 | LicensePlate |Aracın Lisans kalıbı sayısı |
 | Durum |Amerika Birleşik Devletleri bir durumda |
 | Yapma |Otomobil üreticisi |
-| modeli |Otomobil model numarası |
+| Model |Otomobil model numarası |
 | VehicleType |Yolcu taşıtlardan veya ticari araçları için 2 ya da 1 |
 | WeightType |Araç ağırlık ton cinsinden; yolcu araçları için 0 |
 | Ücretli |ABD Doları Ücretli değeri |
@@ -101,11 +102,11 @@ Aşağıda, sütunların kısa bir açıklaması verilmiştir:
 ### <a name="commercial-vehicle-registration-data"></a>Ticari araç kayıt verileri
 Öğretici, bir statik veritabanının anlık görüntüsü bir ticari araç kayıt kullanır.
 
-| LicensePlate | RegistrationId | Süresi dolmuş |
+| LicensePlate | RegistrationId | Süresi Doldu |
 | --- | --- | --- |
 | SVT 6023 |285429838 |1 |
 | XLZ 3463 |362715656 |0 |
-| İCLOU 1005 |876133137 |1 |
+| BAC 1005 |876133137 |1 |
 | RIV 8632 |992711956 |0 |
 | SNY 7188 |592133890 |0 |
 | ELH 9896 |678427724 |1 |
@@ -116,7 +117,7 @@ Aşağıda, sütunların kısa bir açıklaması verilmiştir:
 | --- | --- |
 | LicensePlate |Aracın Lisans kalıbı sayısı |
 | RegistrationId |Aracın 's kayıt kimliği |
-| Süresi dolmuş |Aracın kayıt durumunu: araç kayıt etkinse 0 kayıt süresi 1 |
+| Süresi Doldu |Aracın kayıt durumunu: araç kayıt etkinse 0 kayıt süresi 1 |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Azure akış analizi için ortamını ayarlama
 Bu öğreticiyi tamamlamak için bir Microsoft Azure aboneliği gerekir. Microsoft, ücretsiz deneme sürümü için Microsoft Azure hizmetleri sunar.
@@ -175,24 +176,11 @@ Ayrıca, aşağıdaki ekran görüntüsüne benzer başka bir pencere görürsü
 Artık Azure portalında kaynaklarınızı görüyor olmalısınız. Git <https://portal.azure.com>ve hesabı kimlik bilgilerinizle oturum açın. Şu anda bazı işlevler Klasik Portalı'nı kullanan olduğunu unutmayın. Bu adımları açıkça gösterilir.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
-Azure portalında tıklatın **daha fazla hizmet** sol yönetim bölmesinin üzerinde. Tür **olay hub'ları** alanında sağlanan ve tıklayın **olay hub'ları**. Bu görüntülemek için yeni bir tarayıcı penceresi başlatır **SERVICE BUS** alanında **Klasik portal**. Burada Setup.ps1 komut dosyası tarafından oluşturulan olay hub'ı görebilirsiniz.
 
-![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-İle başlayan tıklatın *tolldata*. Tıklatın **olay hub'ları** sekmesi. Adlı iki olay hub görürsünüz *girişi* ve *çıkmak* bu ad alanında oluşturuldu.
-
-![Klasik Portalı'nda olay hub'ları sekmesi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+Azure portalından tıklatın **daha fazla hizmet** sol yönetim bölmesinin üzerinde. Tür **olay hub'ları** sağlanan alana ile başlayan yeni bir olay hub'ı ad alanı görebilirsiniz **tolldata**. Bu namesapce Setup.ps1 betiği tarafından oluşturulur. Adlı iki olay hub görürsünüz **girişi** ve **çıkmak** bu ad alanında oluşturuldu.
 
 ### <a name="azure-storage-container"></a>Azure depolama kapsayıcısı
-1. Azure portalına, tarayıcı Open sekmesine geri dönün. Tıklatın **depolama** öğreticide kullanılan Azure depolama kapsayıcısının görmek için Azure portalının sol tarafında.
-   
-    ![Depolama menü öğesi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. İle başlayan tıklatın *tolldata*. Tıklatın **KAPSAYICILARI** oluşturulan kapsayıcı görmek için sekmesini.
-   
-    ![Azure portalında kapsayıcıları sekmesi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Tıklatın **tolldata** araç kayıt verileri karşıya yüklenen JSON dosyaları görmek için kapsayıcı.
-   
-    ![Kapsayıcı registration.json dosyasında ekran görüntüsü](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+Azure portalından, depolama hesaplarınıza göz atın, ile başlayan bir depolama hesabı görmelisiniz **tolldata**. Tıklatın **tolldata** araç kayıt verileri karşıya yüklenen JSON dosyaları görmek için kapsayıcı.
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 1. Tarayıcıda açılan ilk sekme Azure Portalı'na geri gidin. Tıklatın **SQL veritabanları** öğreticide kullanılır ve SQL veritabanı görmek için Azure portalının sol tarafında **tolldatadb**.
@@ -216,7 +204,7 @@ Visual Studio'dan (hedef) SQL veritabanına bağlan:
 6. Tıklatın **seçin veya bir veritabanı adı girin**seçip **TollDataDB** veritabanı olarak.
    
     ![Bağlantı Ekle iletişim kutusu](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
-7. **Tamam** düğmesine tıklayın.
+7. **Tamam**’a tıklayın.
 8. Sunucu Gezgini'ni açın.
    
     ![Sunucu Gezgini](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
@@ -291,7 +279,7 @@ Uygulama Ayrıntıları ilgileniyorsanız, ancak TollApp uygulamanın kaynak kod
 4. Girin **tolladmin** içinde **kullanıcıadı** alanı **123toll!** içinde **parola** alan ve **TollDataRefJoin** içinde **tablo** alan.
    
     ![SQL veritabanı ayarları](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
-5. **Oluştur**'a tıklayın.
+5. **Oluştur**’a tıklayın.
 
 ## <a name="azure-stream-analytics-query"></a>Azure Stream analytics sorgusu
 **Sorgu** sekmesi gelen verileri dönüştüren bir SQL sorgusu içerir.
@@ -323,9 +311,9 @@ Hakkında daha fazla ayrıntı için okuma [zaman Yönetimi](https://msdn.micros
 
 Bu klasör, aşağıdaki dosyaları içerir:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Soru 1: Ücretli Stand girme taşıtlardan sayısı
 1. Azure Portalı'nı açın ve oluşturulan Azure Stream Analytics işiniz gidin. Tıklatın **sorgu** sekmesinde ve önceki bölümde sorgudan yapıştırın.

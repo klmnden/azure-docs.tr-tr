@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric ters proxy
 Azure Service Fabric yerleşik ters proxy bulmak ve http uç noktaları olan diğer hizmetleri ile iletişim Service Fabric kümede çalışan mikro yardımcı olur.
@@ -39,11 +39,13 @@ Ters proxy diğer hizmetlere istekleri göndermek için kullanılacak İstemci H
 
 ![İç iletişim][1]
 
+> [!NOTE]
 > **Desteklenen platformlar**
 >
 > Service Fabric ters proxy şu anda aşağıdaki platformları destekler
 > * *Windows Küme*: Windows 8 ve sonraki veya Windows Server 2012 ve üzeri
 > * *Linux kümesi*: Ters Proxy Linux kümeleri için şu anda kullanılamıyor
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Mikro hizmetler küme dışındaki ulaşmasını
 Varsayılan dış iletişim modelini mikro için burada her hizmetin doğrudan dış istemcilerden erişilemez bir katılımı modelidir. [Azure yük dengeleyici](../load-balancer/load-balancer-overview.md), mikro dış istemcileri arasındaki bir ağ sınırında olduğu ağ adresi çevirisi gerçekleştirir ve iç IP: BağlantıNoktası uç noktaları dış isteklerini iletir. Mikro hizmet ait uç nokta dış istemcilere doğrudan erişilebilir olması için ilk küme hizmetinin kullandığı her bağlantı noktası trafik iletmek için yük dengeleyici yapılandırmanız gerekir. Ayrıca, çoğu mikro, özellikle durum bilgisi olan mikro kümenin tüm düğümlerinde dinamik yok. Mikro yük devretme düğümlerinde arasında taşıyabilirsiniz. Böyle durumlarda, yük dengeleyici etkin olduğu trafiği ileterek çoğaltmalarının hedef düğüm konumu belirlenemiyor.

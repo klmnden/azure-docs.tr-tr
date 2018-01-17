@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory kimlik koruması Kılavuzu sözlüğü
 ### <a name="at-risk-user"></a>Risk (kullanıcı)
@@ -58,7 +58,7 @@ Aynı kullanıcı için iki oturum açma işleminden en az biri bir alışılmad
 ### <a name="investigation"></a>Araştırma
 Etkinlikler, günlükler ve düzeltme veya azaltma adımları gerekli olup olmadığını karar vermek için bir risk olayı ile ilgili diğer ilgili bilgileri gözden geçirme işlemi, varsa ve nasıl kimliğini aşılmış ve anlamak anlamak nasıl kimlik gizliliği kullanıldı.
 
-### <a name="leaked-credentials"></a>Sızan kimlik bilgileri
+### <a name="leaked-credentials"></a>Sızdırılan kimlik bilgileri
 Geçerli kullanıcı kimlik bilgilerini (kullanıcı adı ve parola) koyu web bizim Araştırmacıları tarafından yayımlandığını bulunduğunda tetiklenen bir risk olayı.
 
 ### <a name="mitigation"></a>Risk azaltma

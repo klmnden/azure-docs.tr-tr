@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de özellik eşlemeleri için ifade yazma
 Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznitelik eşlemelerini tür bir ifade eşlemesi biridir. Bunlar için kullanıcılarınızın veri SaaS uygulaması için daha kabul edilebilir biçimlere dönüştürme olanak sağlayan bir betik benzeri ifadesi yazmanız gerekir.
@@ -27,7 +27,7 @@ Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznit
 
 * Tüm ifadesi parantez içinde bağımsız değişken adından sonra oluşur işlevleri bakımından tanımlanmış olması gerekir: <br>
   *FunctionName (<< bağımsız değişkeni 1 >>, <<argument N>>)*
-* Birbirine içinde işlevleri iç içe. Örneğin: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+* Birbirine içinde işlevleri iç içe. Örneğin: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * Bağımsız değişkenler üç farklı türde işlevlerini geçirebilirsiniz:
   
   1. Öznitelikleri kare köşeli parantez içine alınmalıdır. Örneğin: [attributeName]
@@ -49,7 +49,7 @@ Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznit
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğinin adı |
-| **son eki** |Gerekli |Dize |Kaynak değerin sonuna istediğiniz dize. |
+| **suffix** |Gerekli |Dize |Kaynak değerin sonuna istediğiniz dize. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -175,7 +175,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |**Kaynak** güncelleştirmek için değer. |
 | **defaultValue** |İsteğe bağlı |Dize |Kaynak herhangi bir anahtarı eşleşmediğinde kullanılacak varsayılan değeri. Boş bir dize olabilir (""). |
-| **anahtarı** |Gerekli |Dize |**Anahtar** karşılaştırmak için **kaynak** ile değer. |
+| **key** |Gerekli |Dize |**Anahtar** karşılaştırmak için **kaynak** ile değer. |
 | **değer** |Gerekli |Dize |Değiştirme değeri için **kaynak** eşleşen. |
 
 ## <a name="examples"></a>Örnekler
@@ -189,7 +189,7 @@ Bir kullanıcı adı almak için bir kullanıcının e-posta bilinen etki alanı
 **Giriş / Çıkış örneği:** <br>
 
 * **Giriş** (posta): "john.doe@contoso.com"
-* **Çıktı**: "john.doe"
+* **OUTPUT**:  "john.doe"
 
 ### <a name="append-constant-suffix-to-user-name"></a>Kullanıcı adı için sabit soneki ekleme
 Salesforce korumalı alan kullanıyorsanız, ek bir sonek eşitlemeden önce tüm kullanıcı adları eklemek gerekebilir.
@@ -200,7 +200,7 @@ Salesforce korumalı alan kullanıyorsanız, ek bir sonek eşitlemeden önce tü
 **Giriş/Çıkış örneği:** <br>
 
 * **Giriş**: (userPrincipalName): "John.Doe@contoso.com"
-* **ÇIKTI**: "John.Doe@contoso.com.test"
+* **OUTPUT**:  "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Birleştirme bölümleri adı ve Soyadı tarafından kullanıcı diğer adı oluştur
 Kullanıcının ilk adını, ilk 3 harf ve kullanıcının soyadını ilk 5 harfini gerçekleştirerek kullanıcı diğer adı oluşturmak gerekir.
@@ -212,7 +212,7 @@ Kullanıcının ilk adını, ilk 3 harf ve kullanıcının soyadını ilk 5 harf
 
 * **Giriş** (givenName): "John"
 * **Giriş** (Soyadı): "Doe"
-* **Çıktı**: "JohDoe"
+* **OUTPUT**:  "JohDoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Çıkış tarihi belirli biçiminde bir dize olarak
 Belirli bir biçimde SaaS uygulamasına tarihleri göndermek istiyor. <br>
@@ -225,7 +225,7 @@ Belirli bir biçimde SaaS uygulamasına tarihleri göndermek istiyor. <br>
 **Giriş/Çıkış örneği:**
 
 * **Giriş** (extensionAttribute1): "20150123105347.1Z"
-* **ÇIKTI**: "2015-01-23"
+* **OUTPUT**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Önceden tanımlanmış seçenekleri kümesini temel alan bir değer değiştirin
 Azure AD'de depolanan durum kodunu göre kullanıcının saat dilimi tanımlamanız gerekir. <br>
@@ -237,7 +237,7 @@ Durum kodu önceden tanımlanmış seçeneklerinden herhangi birini eşleşmiyor
 
 **Giriş/Çıkış örneği:**
 
-* **Giriş** (durum): "QLD"
+* **INPUT** (state): "QLD"
 * **Çıktı**: "Avustralya/Brisbane"
 
 ## <a name="related-articles"></a>İlgili Makaleler

@@ -2,4 +2,4 @@
 
 Bu kılavuz, docs.microsoft.com iç katkıda bulunanlar Kılavuzu'na taşınmıştır.
 
-[https://aka.MS/art-Guidance](https://aka.ms/art-guidance)
+[https://aka.ms/art-guidance](https://aka.ms/art-guidance)

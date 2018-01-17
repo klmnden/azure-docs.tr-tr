@@ -1,10 +1,10 @@
 ---
-title: "Service Fabric Explorer kullanarak kümenizi Görselleştirme | Microsoft Docs"
-description: "Service Fabric Explorer inceleme ve bulut uygulamaları ve Microsoft Azure Service Fabric kümesindeki düğümler yönetmek için bir web tabanlı araçtır."
+title: "Azure Service Fabric Explorer kullanarak kümenizi Görselleştirme | Microsoft Docs"
+description: "Service Fabric Explorer inceleme ve bulut uygulamaları ve Microsoft Azure Service Fabric kümesindeki düğümler yönetmek için bir uygulamadır."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: mikkelhegn
+manager: msfussell
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
@@ -12,25 +12,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
-ms.author: ryanwi
-ms.openlocfilehash: 965ffc0f8cec26cccbe6e6459731afc234111f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/08/2018
+ms.author: mikhegn
+ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer ile kümenizi görselleştirme
-Service Fabric Explorer inceleme ve uygulamaları ve bir Azure Service Fabric kümesindeki düğümler yönetmek için bir web tabanlı araçtır. Her zaman kümenizi nerede çalıştığına bakmaksızın kullanılabilir olması için Service Fabric Explorer doğrudan küme içinde barındırılır.
+
+Service Fabric Explorer (SFX) inceleme ve Azure Service Fabric kümeleri yönetmek için bir açık kaynak aracıdır. Service Fabric Explorer, Windows ve Linux için bir masaüstü uygulamasıdır. MacOS desteği yakında geliyor.
+
+## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer indirme
+
+Service Fabric Explorer masaüstü uygulaması olarak indirmek için aşağıdaki bağlantıları kullanın:
+
+- Windows
+  - https://aka.ms/sfx-windows
+
+- Linux
+  - https://aka.ms/sfx-linux-x86
+  - https://aka.ms/sfx-linux-x64
+
+> [!NOTE]
+> Service Fabric Explorer'ın Masaüstü sürümünü küme desteği az veya daha fazla özelliğe sahip olabilir. Tam özellik uyumluluğundan emin olmak için kümeye dağıtılan Service Fabric Explorer sürümüne geri dönebilir.
+>
+>
+
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Service Fabric Explorer kümeden çalıştırma
+
+Service Fabric Explorer ayrıca bir Service Fabric kümenin HTTP yönetim uç barındırılır. Kümenin HTTP yönetim uç noktasına SFX bir web tarayıcısında başlatın, herhangi bir tarayıcıdan - örneğin https://clusterFQDN:19080 göz atın.
+
+Geliştirici iş istasyonu kurulumu için http://localhost: 19080/Explorer giderek yerel kümenizde Service Fabric Explorer başlatabilirsiniz. Bu makalede bakabilir [geliştirme ortamınızı hazırlama](service-fabric-get-started.md).
+
+## <a name="connect-to-a-service-fabric-cluster"></a>Service Fabric kümeye bağlanın
+Bir Service Fabric kümeye bağlanmak için küme yönetim uç noktası'nı (FQDN/IP) ve HTTP yönetim uç nokta bağlantı noktası (varsayılan olarak 19080) gerekir. Örneğin https://mysfcluster.westus.cloudapp.azure.com:19080. İstasyonunuzda yerel kümeye bağlanmak için "Localhost'a Bağlan" onay kutusunu kullanın.
+
+### <a name="connect-to-a-secure-cluster"></a>Güvenli bir kümeye bağlanma
+Service Fabric kümenize, sertifikalar veya Azure Active Directory (AAD) kullanarak, istemci erişimi denetleyebilirsiniz.
+
+Güvenli bir kümeye bağlanmaya çalışırsanız, sonra küme yapılandırmasına bağlı olarak, bir istemci sertifikası sunan veya AAD kullanarak oturum gerekecektir.
 
 ## <a name="video-tutorial"></a>Video öğretici
 
 Service Fabric Explorer kullanmayı öğrenmek için aşağıdaki Microsoft Virtual Academy videoyu izleyin:
 
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
+> [!NOTE]
+> Bu videoda, Service Fabric Explorer değil Masaüstü sürümünü bir Service Fabric kümesi içinde barındırılan gösterir.
+>
+>
 
-## <a name="connect-to-service-fabric-explorer"></a>Service Fabric Gezgini'ne Bağlan
-Yönergeleri izlediyseniz [geliştirme ortamınızı hazırlama](service-fabric-get-started.md), http://localhost: 19080/Explorer giderek yerel kümenizde Service Fabric Explorer başlatabilirsiniz.
+[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Service Fabric Explorer düzeni anlama
 Soldaki ağaç kullanarak Service Fabric Explorer gidebilirsiniz. Ağaç kökünde küme Panosu uygulama ve düğüm durumu özetini dahil olmak üzere kümenizi genel bir bakış sağlar.
@@ -68,25 +101,6 @@ Service Fabric Explorer düğümleri, uygulamaları ve Hizmetleri, küme içinde
 > [!TIP]
 > Her öğe yanındaki üç nokta işaretine tıklayarak aynı eylemleri gerçekleştirebilirsiniz.
 >
->
-
-Aşağıdaki tabloda her bir varlık için kullanılabilir eylemleri listeler:
-
-| **Varlık** | **Eylem** | **Açıklama** |
-| --- | --- | --- |
-| Uygulama türü |Sağlamayı kaldırma türü |Uygulama paketi kümenin görüntü deposundan kaldırır. Bu türdeki tüm uygulamaları önce kaldırılmasını gerektirir. |
-| Uygulama |Uygulamayı Silme |Tüm hizmetler ve durumlarına (varsa) dahil olmak üzere uygulama silin. |
-| Hizmet |Hizmet silme |Hizmet ve durumuna (varsa) silin. |
-| Node |Etkinleştir |Düğüm etkinleştirin. |
-| Node | (Ara) devre dışı bırakma | Geçerli durumunda düğümü duraklatır. Hizmetleri çalışmaya devam eder, ancak bir kesinti veya veri tutarsızlığı önlemek için gerekli olmadıkça Service Fabric proaktif olarak herhangi bir şey üzerine veya onu devre dışı taşımaz. Bu eylem, genellikle belirli bir düğümde İnceleme sırasında taşımayın emin olmak için hata ayıklama hizmetlerini etkinleştirmek için kullanılır. | |
-| Node | (Yeniden) devre dışı bırakma | Güvenli bir şekilde tüm bellek içi Hizmetleri bir düğümü kapalı ve kalıcı Hizmetleri kapatın taşıyın. Genellikle kullanılmaz ana bilgisayar işlemlerini ya da makinenin yeniden başlatılması gerekir. | |
-| Node | (Verileri Kaldır) devre dışı bırakma | Güvenli bir şekilde yeterli yedek çoğaltmaları oluşturduktan sonra düğüm üzerinde çalışan tüm hizmetleri kapatın. Genellikle bir düğümü kullanılır (veya en az depolama alanı) dışında Komisyonu kalıcı olarak kullanıldığını. | |
-| Node | Düğüm durumu Kaldır | Bir düğümün çoğaltmaları bilgisi kümeden kaldırın. Genellikle, zaten başarısız olan bir düğümün kurtarılamaz kabul edilir olduğunda kullanılır. | |
-| Node | Yeniden Başlatma | Bir düğüm düğümü yeniden başlatarak arızanın benzetimini gerçekleştirin. Daha fazla bilgi [burada](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
-
-Birçok Eylemler bozucu olduğundan, işlem tamamlanmadan önce maksadınızı onaylamak için istenebilir.
-
-> [!TIP]
 > Service Fabric Explorer gerçekleştirilebilir her eylem otomasyonunu sağlamak için PowerShell veya bir REST API'si gerçekleştirilebilir.
 >
 >
@@ -96,27 +110,11 @@ Service Fabric Explorer, verilen uygulama türü ve sürümü için uygulama ör
 ![Service Fabric Explorer'da uygulama örneğini oluşturma][sfx-create-app-instance]
 
 > [!NOTE]
-> Service Fabric Explorer ile oluşturulan uygulama örnekleri şu anda parametreli olamaz. Bunlar, varsayılan parametre değerleri kullanılarak oluşturulur.
+> Uygulama örnekleri oluştururken Service Fabric Explorer parametreleri desteklemez. Uygulama örnekleri varsayılan parametre değerlerini kullanın.
 >
 >
-
-## <a name="connect-to-a-remote-service-fabric-cluster"></a>Uzak bir Service Fabric kümeye bağlanın
-Kümenin endpoint biliyor ve yeterli izinlere sahip herhangi bir tarayıcıdan Service Fabric Explorer erişebilir. Service Fabric Explorer kümede çalışan başka bir hizmete olmasıdır.
-
-### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Uzak bir küme için Service Fabric Explorer uç noktası bulunamadı
-Belirli bir küme için Service Fabric Explorer ulaşmak için tarayıcınızı noktası:
-
-http://&lt;küme endpoint bilgisayarınızı&gt;: 19080/Explorer
-
-Azure kümeleri için tam URL de Azure Portalı'nın küme essentials bölmesinde kullanılabilir.
-
-### <a name="connect-to-a-secure-cluster"></a>Güvenli bir kümeye bağlanma
-Service Fabric kümenize, sertifikalar veya Azure Active Directory (AAD) kullanarak, istemci erişimi denetleyebilirsiniz.
-
-Service Fabric Gezgini'ne güvenli bir kümede bağlanmaya çalışırsanız, ardından kümenin yapılandırmasına bağlı olarak, bir istemci sertifikası sunan veya AAD kullanarak oturum gerekecek.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Test Edilebilirlik genel bakış](service-fabric-testability-overview.md)
 * [Visual Studio'da, Service Fabric uygulamaları yönetme](service-fabric-manage-application-in-visual-studio.md)
 * [PowerShell kullanarak Service Fabric uygulama dağıtımı](service-fabric-deploy-remove-applications.md)
 

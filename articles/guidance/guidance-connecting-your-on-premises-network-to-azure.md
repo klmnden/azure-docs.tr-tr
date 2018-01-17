@@ -19,7 +19,7 @@ ms.openlocfilehash: 37d83d3b6dea1763d85f2411816ba2fee4279100
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Şirket içi ağınızı Azure'a bağlanılıyor
 Microsoft, çeşitli bulut hizmetleri sağlar. Tüm hizmetlere ortak Internet üzerinden bağlanabilirsiniz, ancak bazı Internet üzerinden veya Microsoft'a doğrudan, özel bir bağlantı üzerinden sanal özel ağ (VPN) tüneli kullanarak Hizmetleri bağlanabilir. Bu makale, hangi bağlantı seçeneği tükettiğiniz Microsoft bulut hizmetlerine türlerine göre gereksinimlerinizi en iyi şekilde karşılayacağını belirlemek yardımcı olur. Çoğu kuruluş, aşağıda açıklanan birden çok bağlantı türlerini kullanın.

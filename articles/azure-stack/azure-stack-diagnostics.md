@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure yığın tanılama araçları
 
@@ -132,10 +132,10 @@ if($s)
    | SeedRingServices        | SLB                    | SQL                |   
    | SRP                     | Depolama                | StorageController  |
    | URP                     | UsageBridge            | virtualMachines    |  
-   | EDİLDİ                     | WASPUBLIC              | WDS                |
+   | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Bir grafik kullanıcı arabirimini kullanarak günlüklerini toplayın
+### <a name="bkmk_gui"></a>Bir grafik kullanıcı arabirimini kullanarak günlüklerini toplayın
 Azure yığın günlükleri almak Get-AzureStackLog cmdlet'i için gerekli parametreleri sağlayarak yerine, ana Azure yığın araçları GitHub araçları deposunu http://aka.ms/AzureStackTools konumunda bulunan kullanılabilir açık kaynak Azure yığın araçları da kullanabilirsiniz.
 
 **ERCS_AzureStackLogs.ps1** PowerShell Betiği GitHub araçları deposunda depolanır ve düzenli olarak güncelleştirilir. Kullanılabilir en son sürümüne sahip olduğunuzdan emin olmak için doğrudan http://aka.ms/ERCS indirmelisiniz. Yönetici bir PowerShell oturumundan başlatıldı, komut dosyası ayrıcalıklı uç noktasına bağlanır ve Get-AzureStackLog sağlanan parametrelerle çalıştırır. Hiçbir parametre kullanılmazsa, komut dosyasını bir grafik kullanıcı arabirimi aracılığıyla parametreler için sormadan için varsayılan olarak ayarlanır.
@@ -159,3 +159,4 @@ ERCS_AzureStackLogs.ps1 PowerShell komut dosyası hakkında daha fazla bilgi iç
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Microsoft Azure yığın sorunlarını giderme](azure-stack-troubleshooting.md)
+

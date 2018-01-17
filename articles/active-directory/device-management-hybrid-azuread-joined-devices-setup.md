@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -41,7 +41,7 @@ Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim k
 
 ### <a name="windows-current-devices"></a>Geçerli Windows cihazları
 
-- Windows masaüstü işletim sistemi çalıştıran cihazlar için Windows 10 Anniversary güncelleştirme (sürüm 1607) kullanılmasını öneririz veya sonraki bir sürümü. 
+- Windows masaüstü işletim sistemi çalıştıran cihazlar için desteklenen sürüm Windows 10 Anniversary güncelleştirme (sürüm 1607) olan veya sonraki bir sürümü. 
 - Geçerli Windows cihazlarının kaydı **olan** parola karma eşitlemesi yapılandırmaları gibi Federasyon olmayan ortamlarda desteklenir.  
 
 
@@ -69,11 +69,11 @@ Azure AD Connect:
 
 Aşağıdaki URL'ler için Azure AD kuruluş ağınızdaki bilgisayarların kayıt bilgisayarlardan erişilebilir olduğundan emin olun:
 
-- https://enterpriseregistration.Windows.NET
+- https://enterpriseregistration.windows.net
 
 - https://login.microsoftonline.com
 
-- https://Device.Login.microsoftonline.com
+- https://device.login.microsoftonline.com
 
 Kuruluşların bir giden proxy üzerinden Internet erişimi gerektiriyorsa, Azure AD ile kaydetmek Windows 10 bilgisayarları etkinleştirmek için Web Proxy Otomatik Bulma (WPAD) uygulamanız gerekir.
 

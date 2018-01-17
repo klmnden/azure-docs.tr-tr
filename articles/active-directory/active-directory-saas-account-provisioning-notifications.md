@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: d056ed0b7030079f3ea47a56c65e08a9ecfe4583
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16ec2b320f733d8828b0046c20f7f7b0e341daf9
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="account-provisioning-notifications"></a>Hesap Sağlama Bildirimleri
 Kullanıcı sağlama ile üçüncü taraf SaaS uygulamalarında kullanıcıları yönetme sürecini otomatik hale getirebilirsiniz. <br>
@@ -38,7 +38,7 @@ Bir dağıtım listesi alıcısı olarak girebilirsiniz. Ancak, bildirim e-posta
 
 Hesap sağlama bildirimleri etkin varsa, kullanıcı sağlama için ilgili önemli sorunları hakkında postaları alır. Ancak, bir e-posta aşırı önlemek için yalnızca bir bildirim e-posta her SaaS uygulaması için bildirim e-posta etkinleştirilmiş günde alırsınız.
 
-## <a name="related-articles"></a>İlgili makaleler
+## <a name="related-articles"></a>İlgili Makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Kullanıcı sağlama/sağlamayı SaaS uygulamaları için otomatik hale getirme](active-directory-saas-app-provisioning.md)
 * [Kullanıcı sağlama öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)

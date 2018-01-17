@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Dosyaları Azure sanal makinesi yedeklemeden Kurtar
 
@@ -65,12 +65,15 @@ Dosya ve klasörleri geri yükleme noktasından geri yüklemek için sanal makin
     Sınırlı erişimi olan bir bilgisayarda bir betik çalıştırırsanız, erişimi olduğundan emin olun:
 
     - download.microsoft.com
-    - Azure VM yedeklemeler için kullandığınız azure uç noktaları
+    - [Azure VM yedeklemeler için kullandığınız azure uç noktaları](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - Giden bağlantı noktası 3260
 
-   Linux için komut dosyası kurtarma noktasına bağlanmak için 'open-iSCSI' ve 'lshw' bileşenleri gerektirir. Bileşenleri betiğin çalıştırıldığı bilgisayarda mevcut değilse, komut dosyası bileşenleri yüklemek için izin ister. İzin sağlamak gerekli bileşenleri yüklemek için.  
-         
-   Yedeklenen VM olarak aynı (veya uyumlu) işletim sistemine sahip herhangi bir makinede komut dosyasını çalıştırın. Bkz: [uyumlu işletim sistemi tablo](backup-azure-restore-files-from-vm.md#system-requirements) uyumlu işletim sistemleri için. Korumalı Azure sanal makine Windows depolama alanları (için Windows Azure VM) veya LVM/RAID diziler (için Linux VM'ler) kullanıyorsa, aynı sanal makineye yürütülebilir dosya veya komut dosyası çalışamaz. Bunun yerine, uyumlu bir işletim sistemi ile diğer herhangi bir makinede yürütülebilir dosya veya komut dosyasını çalıştırın.
+    Linux için komut dosyası kurtarma noktasına bağlanmak için 'open-iSCSI' ve 'lshw' bileşenleri gerektirir. Bileşenleri betiğin çalıştırıldığı bilgisayarda mevcut değilse, komut dosyası bileşenleri yüklemek için izin ister. İzin sağlamak gerekli bileşenleri yüklemek için.
+    
+    Download.microsoft.com erişimi betik çalıştırdığı makine ve kurtarma noktası verileri arasında güvenli bir kanal oluşturmak için kullanılan bileşenleri yüklemek için gereklidir.         
+
+    Yedeklenen VM olarak aynı (veya uyumlu) işletim sistemine sahip herhangi bir makinede komut dosyasını çalıştırın. Bkz: [uyumlu işletim sistemi tablo](backup-azure-restore-files-from-vm.md#system-requirements) uyumlu işletim sistemleri için. Korumalı Azure sanal makine Windows depolama alanları (için Windows Azure VM) veya LVM/RAID diziler (için Linux VM'ler) kullanıyorsa, aynı sanal makineye yürütülebilir dosya veya komut dosyası çalışamaz. Bunun yerine, uyumlu bir işletim sistemi ile diğer herhangi bir makinede yürütülebilir dosya veya komut dosyasını çalıştırın.
+ 
 
 ### <a name="identifying-volumes"></a>Birimleri tanımlama
 

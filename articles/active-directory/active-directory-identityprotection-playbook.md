@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b76d6a31dfe600a4639b830bfbbb5cacfc158dd6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory kimlik koruması Kılavuzu
 Bu playbook size yardımcı olur:
@@ -106,7 +106,7 @@ Güvenlik açıkları tarafından hatalı aktör yararlanan bir Azure AD ortamda
     a. Bloğuna, select **orta** altında **blok oturum**.
     
     b. Güvenli parola değişikliğini uygulamak için seçin **orta** altında **çok faktörlü kimlik doğrulaması gerektiren**.
-11. **Kaydet** düğmesine tıklayın.
+11. **Kaydet**’e tıklayın.
 12. Bir kullanıcı bir yükseltilmiş risk düzeyi ile kullanarak oturum açma tarafından risk bağlı olarak koşullu erişim artık test edebilirsiniz. Kullanıcı risk Orta ise ya da engellenecek ilkeniz yapılandırmasına bağlı olarak, oturum açma işleminiz olduğundan veya parolanızı değiştirmek için zorlanır. 
     <br><br>
     ![Playbook](./media/active-directory-identityprotection-playbook/201.png "Playbook")
