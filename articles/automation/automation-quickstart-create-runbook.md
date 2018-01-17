@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u oluşturma
 
@@ -71,7 +72,7 @@ Runbook oluşturulduktan sonra çalışır durumda olduğunu doğrulamak için t
 
 1. **PowerShell Runbook'unu Düzenle** sayfasında **Yayımla**'ya tıklayarak runbook'u hesaptaki runbook'un resmi sürümü olarak yayımlayın.
 
-   ![Runbook'a genel bakış](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Runbook test işi](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Runbook'u çalıştırma
 
@@ -83,11 +84,11 @@ Runbook yayımlandıktan sonra genel bakış sayfası gösterilir.
 
 1. Varsayılan değerin kullanılması için **Ad** alanın boş bırakıp **Tamam**'a tıklayın. Runbook işi gönderilir ve iş sayfası açılır.
 
-   ![Runbook test işi](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Runbook test işi](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. **İş durumu**, **Çalışıyor** veya **Tamamlandı** ise **Çıktı**'ya tıklayarak **Çıktı** bölmesini açıp runbook çıktısını görüntüleyebilirsiniz.
 
-    ![Runbook test işi](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Runbook test işi](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
