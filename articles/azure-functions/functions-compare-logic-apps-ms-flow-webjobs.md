@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma
 Bu makalede, Microsoft bulutunda yer alan ve hepsi tümleştirme sorunlarını çözmeye, iş süreçlerini otomatikleştirmeye yönelik olan aşağıdaki hizmetler karşılaştırılır:
@@ -81,7 +81,7 @@ Aşağıdaki tabloda, İşlevler ile Web İşleri arasındaki farklar özetlenir
 | Ölçeklendirme |Yapılandırmasız ölçeklendirme |App Service planıyla ölçeklendirme |
 | Fiyatlandırma |Kullandığın kadar ödeme veya App Service planı kapsamında |App Service planı kapsamında |
 | Çalıştırma türü |Tetiklenmiş, zamanlanmış (zamanlayıcı tetikleyicisi tarafından) |Tetiklenmiş, sürekli, zamanlanmış |
-| Tetikleyici olayları |[Zamanlayıcı](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/Web Kancası (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobil Uygulamalar](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Depolama kuyrukları ve blobları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |[Azure Depolama kuyrukları ve blobları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |
+| Tetikleyici olayları |[Zamanlayıcı](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-cosmosdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/Web Kancası (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobil Uygulamalar](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Depolama kuyrukları ve blobları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |[Azure Depolama kuyrukları ve blobları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |
 | Tarayıcı içi geliştirme |Destekleniyor |Desteklenmiyor |
 | C# |Destekleniyor |Destekleniyor |
 | F# |Destekleniyor |Desteklenmiyor |
