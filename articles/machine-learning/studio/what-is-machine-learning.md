@@ -1,5 +1,5 @@
 ---
-title: Azure'da Machine Learning nedir? | Microsoft Belgeleri
+title: Azure'da Machine Learning nedir? | Microsoft Docs
 description: "Bulutta makine öğrenimine ilişkin temel kavramları açıklar, bunu ne için kullanabileceğinizi anlatır ve makine öğrenimi terimlerini tanımlar."
 keywords: "makine öğrenimi nedir, makine öğrenimi terimleri,tahmine dayalı,tahmine dayalı analiz nedir,makine öğrenimi terimleri"
 services: machine-learning
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Azure bulutta Machine Learning’e giriş
 
@@ -33,7 +33,7 @@ Kısa bir genel bakış için [Yeni Başlayanlar için Veri Bilimi](data-science
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Microsoft Azure bulutta Machine Learning nedir?
 Azure Machine Learning, tahmine dayalı modelleri analiz çözümleri olarak hızlı bir şekilde oluşturmayı ve dağıtmayı mümkün kılan bulut tabanlı ve tahmine dayalı analiz hizmetidir.
 
-Kullanıma hazır algoritma kitaplığıyla çalışabilir, bunları kullanarak internete bağlı bir bilgisayarda model oluşturabilir ve tahmine dayalı çözümünüzü hızlıca dağıtabilirsiniz. [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/)’deki kullanıma hazır örnekler ve çözümlerle çalışmaya başlayın.
+Kullanıma hazır algoritma kitaplığıyla çalışabilir, bunları kullanarak internete bağlı bir bilgisayarda model oluşturabilir ve tahmine dayalı çözümünüzü hızlıca dağıtabilirsiniz. [Azure AI Gallery](https://gallery.cortanaintelligence.com/)’deki kullanıma hazır örnekler ve çözümlerle çalışmaya başlayın.
 
 ![Machine learning nedir? Azure Machine Learning'de tahmine dayalı analizleri faaliyete geçirmenin temel iş akışı.](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -48,9 +48,9 @@ Azure Machine Learning, büyük bir algoritma kitaplığından model oluşturmay
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: Tahmine dayalı modeller oluşturma
 [Machine Learning Studio](what-is-ml-studio.md)'da modülleri sürükleyerek, bırakarak ve bağlayarak hızla tahmine dayalı modeller oluşturabilirsiniz. Farklı birleşimlerle denemeler yapabilir ve [ücretsiz deneyebilirsiniz](https://studio.azureml.net/?selectAccess=true&o=2).
 
-* [Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md)’de başkaları tarafından yazılan analiz çözümlerini deneyebilir veya kendi çözümlerinizle katkı sağlayabilirsiniz. Denemeler hakkında topluluğa soru veya yorum gönderin ya da LinkedIn ve Twitter gibi sosyal ağlar aracılığıyla deneme bağlantılarını paylaşın.
+* [Azure AI Gallery](gallery-how-to-use-contribute-publish.md)’de başkaları tarafından yazılan analiz çözümlerini deneyebilir veya kendi çözümlerinizle katkı sağlayabilirsiniz. Denemeler hakkında topluluğa soru veya yorum gönderin ya da LinkedIn ve Twitter gibi sosyal ağlar aracılığıyla deneme bağlantılarını paylaşın.
 
-  ![Azure Cortana Intelligence Galerisi'nde tahmine dayalı denemeleri deneyin veya kendinizinkini paylaşın.](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Azure AI Galerisi'nde tahmine dayalı denemeleri deneyin veya kendinizinkini paylaşın](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Tahmine dayalı modellerinizi hızla başlatmak için Machine Learning Studio'daki büyük [Machine Learning algoritmaları ve modülleri](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) kitaplığını kullanın. Örnek denemeler, R ve Python paketleri, Xbox ve Bing gibi Microsoft işletmelerinden en iyi sınıf algoritmalar arasından seçim yapın. Özel [R](extend-your-experiment-with-r.md) ve [Python](execute-python-scripts.md) betiklerinizle Studio modüllerini genişletin.
 
   ![Tahmine dayalı analiz nedir? Azure Machine Learning Studio'da tahmine dayalı bir analiz denemesi örneği](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)

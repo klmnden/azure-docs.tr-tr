@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Makine öğrenimi öğreticisi: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
@@ -81,7 +81,7 @@ Bu makine öğrenimi öğreticisinde, modelinizi oluşturmak, eğitmek ve puanla
 [5. Adım: Yeni otomobil fiyatlarını tahmin etme]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Aşağıdaki denemenin çalışan bir kopyasını [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com)’nde bulabilirsiniz. **[İlk veri bilimi denemeniz - Otomobil fiyat tahmini](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**’ne gidin ve denemenin bir kopyasını Machine Learning Studio çalışma alanınıza indirmek için **Studio’da Aç**’a tıklayın.
+> Aşağıdaki denemenin çalışan bir kopyasını [Azure AI Gallery](https://gallery.cortanaintelligence.com)’de bulabilirsiniz. **[İlk veri bilimi denemeniz - Otomobil fiyat tahmini](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**’ne gidin ve denemenin bir kopyasını Machine Learning Studio çalışma alanınıza indirmek için **Studio’da Aç**’a tıklayın.
 
 
 ## <a name="step-1-get-data"></a>1. Adım: Verileri alma
@@ -327,7 +327,7 @@ Son deneme şuna benzer şekilde görünecektir:
 Artık ilk makine öğrenimi öğreticinizi tamamladığınıza ve denemenizi kurduğunuza göre, modeli iyileştirmeye devam edebilir ve ardından tahmine dayalı web hizmeti olarak dağıtabilirsiniz.
 
 - **Modeli geliştirmek için yineleme** - Örneğin, tahmininizde kullandığınız özellikleri değiştirebilirsiniz. Veya [Doğrusal Regresyon][linear-regression] algoritmasının özelliklerini değiştirebilir veya tamamen farklı bir algoritma deneyebilirsiniz. Ayrıca, denemenize tek bir seferde birden çok makine öğrenimi algoritması ekleyebilir ve [Model Değerlendirme][evaluate-model] modülünü kullanarak ikisini karşılaştırabilirsiniz.
-Tek bir denemede birden çok modeli karşılaştırma örneği için [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com)’nde [Regresörleri Karşılaştırma](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5)’ya bakın.
+Tek bir denemede birden çok modeli karşılaştırma örneği için [Azure AI Gallery](https://gallery.cortanaintelligence.com)’de [Regresörleri Karşılaştırma](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5)’ya bakın.
 
     > [!TIP]
     > Denemenizin herhangi bir yinelemesini kopyalamak için sayfanın en altındaki **FARKLI KAYDET** düğmesini kullanın. Sayfanın en altındaki **ÇALIŞTIRMA GEÇMİŞİNİ GÖRÜNTÜLE** seçeneğine tıklayarak denemenizin tüm yinelemelerini görebilirsiniz. Daha fazla ayrıntı için bkz. [Azure Machine Learning Studio'da deneme yinelemelerini yönetme][runhistory].

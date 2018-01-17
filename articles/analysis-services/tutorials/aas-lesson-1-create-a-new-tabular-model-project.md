@@ -13,30 +13,28 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-1-create-a-tabular-model-project"></a>1. Ders: Tablosal model projesi oluşturma
+# <a name="create-a-tabular-model-project"></a>Tablosal model projesi oluşturma
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-Bu derste, SQL Server Veri Araçları’nı (SSDT) kullanarak 1400 uyumluluk düzeyinde yeni bir tablosal model projesi oluşturursunuz. Yeni projeniz oluşturulduktan sonra, veri eklemeye ve modelinizi yazmaya başlayabilirsiniz. Bu ders, SSDT’de tablosal model yazma ortamı hakkında temel bilgiler de sağlamaktadır.  
+Bu derste, SQL Server Veri Araçları (SSDT) ile Visual Studio’yu kullanarak 1400 uyumluluk düzeyinde yeni bir tablosal model projesi oluşturursunuz. Yeni projeniz oluşturulduktan sonra, veri eklemeye ve modelinizi yazmaya başlayabilirsiniz. Bu ders, Visual Studio’da tablosal model yazma ortamı hakkında temel bilgiler de sağlamaktadır.  
   
 Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
-## <a name="prerequisites"></a>Ön koşullar  
+## <a name="prerequisites"></a>Önkoşullar  
 Bu konu, tablosal model yazma öğreticisindeki ilk derstir. Bu dersi tamamlamak için karşılamanız gereken çeşitli ön koşullar vardır. Daha fazla bilgi edinmek için bkz. [Azure Analysis Services - Adventure Works Öğreticisi](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## <a name="create-a-new-tabular-model-project"></a>Yeni tablosal model projesi oluşturma  
   
 #### <a name="to-create-a-new-tabular-model-project"></a>Yeni bir tablosal model projesi oluşturmak için  
   
-1.  SSDT’deki **Dosya** menüsünde **Yeni** > **Proje**’ye tıklayın.  
+1.  Visual Studio’daki **Dosya** menüsünde **Yeni** > **Proje**’ye tıklayın.  
   
 2.  **Yeni Proje** iletişim kutusunda, **Yüklü** > **İş Zekası** > **Analysis Services** seçeneğini genişletin ve **Analysis Services Tablosal Proje**’ye tıklayın.  
   
@@ -44,11 +42,11 @@ Bu konu, tablosal model yazma öğreticisindeki ilk derstir. Bu dersi tamamlamak
   
     Varsayılan olarak **Çözüm Adı** proje adıyla aynıdır, ancak farklı bir çözüm adı yazabilirsiniz.  
   
-4.  **Tamam** düğmesine tıklayın.  
+4.  **Tamam**’a tıklayın.  
   
 5.  **Tablosal model tasarımcısı** iletişim kutusunda **Tümleşik çalışma alanı**’nı seçin.  
   
-    Model yazıldığı sırada, çalışma alanı projeyle aynı ada sahip bir tablosal model veritabanı barındırır. Çalışma alanının tümleşik olması sayesinde SSDT yerleşik bir örneği kullandığından, yalnızca model yazmak için ayrı bir Analysis Services sunucu örneği yükleme gereksinimi ortadan kalkar.
+    Model yazıldığı sırada, çalışma alanı projeyle aynı ada sahip bir tablosal model veritabanı barındırır. Çalışma alanının tümleşik olması sayesinde Visual Studio yerleşik bir örneği kullandığından, yalnızca model yazmak için ayrı bir Analysis Services sunucu örneği yükleme gereksinimi ortadan kalkar.
       
 6.  **Uyumluluk düzeyi**’nde **SQL Server 2017 / Azure Analysis Services (1400)** seçeneğini belirleyin.   
  
@@ -58,9 +56,9 @@ Bu konu, tablosal model yazma öğreticisindeki ilk derstir. Bu dersi tamamlamak
       
   
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>SSDT tablosal model yazma ortamını anlama  
-Artık yeni bir tablosal model projesi oluşturduğunuza göre, SSDT’deki tablosal model yazma ortamını keşfetmeye biraz zaman ayırabiliriz.  
+Artık yeni bir tablosal model projesi oluşturduğunuza göre, Visual Studio’daki tablosal model yazma ortamını keşfetmeye biraz zaman ayırabiliriz.  
   
-Projeniz oluşturulduktan sonra SSDT’de açılır. Sağ taraftaki **Tablosal Model Gezgini**’nde, modelinizdeki nesnelerin ağaç görünümünü görürsünüz. Henüz içeri veri aktarmadığınızdan klasörler boştur. Bir nesne klasörüne sağ tıklayarak menü çubuğuna benzer şekilde çeşitli eylemler gerçekleştirebilirsiniz. Bu öğreticide ilerledikçe, model projenizdeki farklı nesnelere gitmek için Tablosal Model Gezgini’ni kullanırsınız.
+Projeniz oluşturulduktan sonra Visual Studio’da açılır. Sağ taraftaki **Tablosal Model Gezgini**’nde, modelinizdeki nesnelerin ağaç görünümünü görürsünüz. Henüz içeri veri aktarmadığınızdan klasörler boştur. Bir nesne klasörüne sağ tıklayarak menü çubuğuna benzer şekilde çeşitli eylemler gerçekleştirebilirsiniz. Bu öğreticide ilerledikçe, model projenizdeki farklı nesnelere gitmek için Tablosal Model Gezgini’ni kullanırsınız.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 

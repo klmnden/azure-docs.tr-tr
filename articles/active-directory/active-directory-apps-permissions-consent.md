@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory’de uygulamalar, izinler ve onay
-Azure Active Directory’de dizininize uygulamalar ekleyebilirsiniz.  Uygulamalar, uygulama türüne bağlı olarak değişir.  Klasik portalda uygulamaları görüntülemek için bir dizin seçin ve uygulamaları belirleyin.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+Azure Active Directory’de dizininize uygulamalar ekleyebilirsiniz.  Uygulamalar, uygulama türüne bağlı olarak değişir.  Portalda uygulamaları görüntülemek için bir dizin seçin ve uygulamaları belirleyin.
 
 > [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor.
+> Microsoft, Azure AD’yi bu makalede bahsedilen Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor.
 
 ## <a name="types-of-apps"></a>Uygulama türleri
 
@@ -73,9 +71,7 @@ Yerel istemcilerin kimliği doğrulanmadığı için, yerel istemci uygulaması 
 
 ## <a name="controls"></a>Denetimler
 
-Bu davranışların tümü için kullanılabilen farklı yönetici denetimlerinin listesi aşağıda verilmiştir. Yönetici denetimlerine portalın dizin menüsü altındaki yapılandırma bölümünden erişilebilir.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+Bu davranışların tümü için kullanılabilen farklı yönetici denetimlerinin listesi aşağıda verilmiştir.
 
 Azure portalında, **yönetim**, **kullanıcı ayarları** altında.
 
@@ -85,18 +81,14 @@ Azure portalında, **yönetim**, **kullanıcı ayarları** altında.
 
 - Kullanıcıların uygulamalara onay verip veremeyeceğini denetleyebilirsiniz:
 
-Klasik portalda **Kullanıcılar uygulamalara veri erişim izinleri verebilir**
-![](media/active-directory-apps-permissions-consent/apps8.png) seçeneğini belirtin.
-
 Azure portalında, **kullanıcılar uygulamaların verilerine erişmesine izin verebilir**’i seçin.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Kullanıcıların kendi tek kiracılı LOB uygulamalarına kaydolup olamayacağını denetleyebilirsiniz: Klasik portalda **Kullanıcılar tümleştirilmiş uygulamalar ekleyebilir**
-![](media/active-directory-apps-permissions-consent/apps9.png) seçeneğini belirtin.
+- Kullanıcıların kendi tek kiracılı iş kolu (LOB) uygulamalarını kaydedip kaydedemeyeceğini denetleyebilirsiniz:
 
-Azure portalında, **kullanıcılar uygulamaların verilerine erişmesine izin verebilir**’i seçin.
+Azure portalında **kullanıcılar uygulamaları kaydedebilir** öğesini seçin.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ Azure portalında, **kullanıcılar uygulamaların verilerine erişmesine izin v
 >- Kullanıcılar tek kiracılı LOB uygulamaları kaydederken, yönetici onayı gerektiren izinler için diğer uygulamalara temsilci atanmış izinler isteyemez.
 >- Kullanıcılar sahibi olmadıkları uygulamalarda değişiklik yapamaz.
 
-
-
-- Kullanıcıların parola SSO (diğer adıyla “parola kasası oluşturma”) kullanan önceden tümleştirilmiş uygulamalar ekleyip ekleyemeyeceğini denetleyebilirsiniz ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- Uygulamalara hangi koşullar altında erişilebileceğini denetleyebilirsiniz (koşullu erişim). Bu durumun hem istemci uygulaması hem de kaynak uygulama için geçerli olduğunu unutmayın. Dolayısıyla, “Office 365 Exchange Online” uygulamasına yalnızca uyumlu makinelerden erişilebileceğini belirten bir koşullu erişim ilkesi ayarladığınızı varsayalım.  Bu ilke aynı zamanda bir kullanıcı Exchange Online izinleri isteyen bir istemci uygulamayı kullanmaya çalıştığında etkili olur.
-
-
-
-- Hangi uygulamalara onay verildiğini ve hangilerinin kullanıldığını görebilirsiniz.
-
-1.  Bir kullanıcı bir uygulamaya onay verdiğinde, kiracıda bir ServicePrincipal nesnesi oluşturulur. ServicePrincipal oluşturma işlemi, denetim raporuna eklenir.
-2.  Kullanıcı oturum açma etkinliği raporları, kullanıcının hangi uygulamada oturum açtığını belirtir. 
 
 ## <a name="example"></a>Örnek
 

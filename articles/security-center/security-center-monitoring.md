@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik durumunu izleme
 Bu makale, ilkelerle uyumluluğu izlemek için Azure Güvenlik Merkezi'ndeki izleme özelliklerini kullanmanıza yardımcı olur.
@@ -48,11 +48,11 @@ Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policie
 Her sekmede birden fazla bölüm olabilir ve her bölümde, sorunu çözmek üzere önerilen adımlarla ilgili daha fazla ayrıntı görmek için ayrı ayrı seçenekler belirleyebilirsiniz.
 
 #### <a name="monitoring-recommendations"></a>İzleme önerileri
-Bu bölüm, otomatik hazırlaması başlatılmış sanal makinelerin ve bilgisayarların toplam sayısıyla bunların geçerli durumlarını gösterir. Bu girişe tıkladığınızda **Aracı sistem durumu sorunlarını izleme** sayfası açılır.
+Bu bölüm, otomatik hazırlaması başlatılmış sanal makinelerin ve bilgisayarların toplam sayısıyla bunların geçerli durumlarını gösterir. Bu örnekte şu öneri mevcuttur: **Aracı sistem durumu sorunlarını izleme**.  Bu öneriyi seçin.
 
 ![Aracı sistem durumu sorunlarını izleme](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Güvenlik Merkezi'nin başarılı bir şekilde izleyemediği VM'ler ve bilgisayarlar listelenir. Ayrıntılı bilgi için bir VM'yi veya bilgisayarı seçin. Sorun, **İZLEME DURUMU** bölümünde tanımlanır.
+**Aracı sistem durumu sorunlarını izleme** açılır. Güvenlik Merkezi'nin başarılı bir şekilde izleyemediği VM'ler ve bilgisayarlar listelenir. Ayrıntılı bilgi için bir VM'yi veya bilgisayarı seçin. **İZLEME DURUMU**, Güvenlik Merkezi’nin izlemeyi neden yapamadığını belirtir. **İZLEME DURUMU** değerleri, açıklamaları ve çözüm adımlarının listesi için bkz. [Güvenlik Merkezi sorun giderme kılavuzu](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
 
 #### <a name="recommendations"></a>Öneriler
 Bu bölümde, Azure Güvenlik Merkezi’nin izlediği [her bir sanal makine ve bilgisayar için bir öneri](security-center-virtual-machine-recommendations.md) kümesi bulunur. İlk sütunda öneriler listelenmiştir. İkinci sütunda, bu önerinin etkilediği sanal makinelerin ve bilgisayarların toplam sayısı gösterilmiştir. Üçüncü sütunda, aşağıdaki ekran görüntüsünde gösterildiği gibi sorunun önem derecesi belirtilmiştir.
