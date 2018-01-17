@@ -255,4 +255,4 @@ Bu basit örnekte, tüm iOS cihazlarınıza anında iletme bildirimleri yayımla
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[Azure Portal]: https://portal.azure.com
+[Azure portalındaki]: https://portal.azure.com
