@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning Studio nedir? | Microsoft Belgeleri
+title: Azure Machine Learning Studio nedir? | Microsoft Docs
 description: "Kullanıma hazır bir algoritmalar ve modüller kitaplığından hızla model oluşturmaya yönelik bir sürükle ve bırak aracı olan Azure ML Studio'ya genel bakış."
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 923bf1163e4d27e8c453fc2fcd58ebb80222bd6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a96e80fa3ece14c40159c6937a0e34c1ebc634ff
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
@@ -64,9 +64,9 @@ Burada iki seçenek vardır: Başladığınız sayfa olan **Ana Sayfa** ve **Stu
 * **AYARLAR** - Hesabınızı ve kaynaklarınızı yapılandırmak için kullanabileceğiniz ayarlar koleksiyonu.
 
 ### <a name="gallery"></a>Galeri
-**Galeri** sekmesine tıkladığınızda **[Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/)** açılır. Galeri, bir veri bilimcileri ve geliştiricileri topluluğunun Cortana Intelligence Suite bileşenleri kullanılarak oluşturduğu çözümleri paylaştığı yerdir.
+**Galeri** sekmesine tıkladığınızda **[Azure AI Gallery](http://gallery.cortanaintelligence.com/)** açılır. Galeri, bir veri bilimcileri ve geliştiricileri topluluğunun Cortana Intelligence Suite bileşenleri kullanılarak oluşturduğu çözümleri paylaştığı yerdir.
 
-Galeri hakkında daha fazla bilgi için bkz. [Cortana Intelligence Galerisi'nde çözüm paylaşma ve keşfetme](gallery-how-to-use-contribute-publish.md).
+Galeri hakkında daha fazla bilgi için bkz. [Azure AI Gallery'de çözüm paylaşma ve keşfetme](gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Deneme bileşenleri
 Bir deneme, tahmine dayalı bir modeli oluşturmak için birlikte bağladığınız analitik modüllere veri sağlayan veri kümelerinden oluşur. Geçerli bir deneme özellikle şu özelliklere sahiptir:

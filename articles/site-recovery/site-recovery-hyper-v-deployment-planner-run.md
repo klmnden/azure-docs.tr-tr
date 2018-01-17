@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: bb4ec5cfd455ab0cc22ab693c2a07eed9883dc76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısını çalıştırma
 
@@ -107,6 +107,15 @@ Profil oluşturma sırasında, Azure Site Recovery’nin çoğaltma sırasında 
 
 Çeşitli sanal makine kümeleri için aracın birden çok örneğini çalıştırabilirsiniz. Sanal makine adlarının, profil kümelerinin hiçbirinde yinelenmediğinden emin olun. Örneğin, 10 sanal makine (VM1 - VM10) profili oluşturdunuz ve birkaç gün sonra beş sanal makine (VM11 - VM15) profili daha oluşturmak istiyorsunuz; bu durumda, ikinci sanal makine kümesi (VM11 - VM15) için başka bir komut satırı konsolundan aracı çalıştırabilirsiniz. Ancak, ikinci sanal makine kümesinde birinci profil oluşturma örneğinden herhangi bir sanal makine adı olmadığından veya ikinci çalıştırma için farklı bir çıktı dizini kullandığınızdan emin olun. Aracın iki örneği aynı sanal makinelerin profilini oluşturmak için kullanılır ve aynı çıktı dizinini kullanırsa, oluşturulan rapor hatalı olacaktır. 
 
+Varsayılan olarak araç, 1000 VM'ye kadar profil ve rapor oluşturmak üzere yapılandırılmıştır. *ASRDeploymentPlanner.exe.config* dosyasındaki MaxVMsSupported anahtar değerini değiştirerek sınırı değiştirebilirsiniz.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Varsayılan ayarlarla, örneğin 1500 VM profili oluşturmak için iki VMList.txt dosyası oluşturun. Biri 1000 VM, diğeri 500 VM ile listelenir. ASR Dağıtım Planlayıcısı’nın iki örneğinden birini VMList1.txt, diğerini VMList2.txt ile çalıştırın. Her iki VMList VM’lerin profil verilerini depolamak için aynı dizin yolunu kullanabilirsiniz. 
+
+Başta aracın raporu oluşturmak üzere çalıştırıldığı sunucunun RAM boyutu olmak üzere donanım yapılandırmasına göre, işlem yetersiz bellek nedeniyle başarısız olabilir. Donanımınız iyiyse, MaxVMsSupported değerini daha yüksek bir değerle değiştirebilirsiniz.  
+
 Sanal makine yapılandırması, profil oluşturma işleminin başında bir kez yakalanır ve VMDetailList.xml adlı bir dosyada depolanır. Rapor oluşturulduğunda bu bilgiler kullanılır. Profil oluşturmanın başlangıcı ile bitişi arasında VM yapılandırmasında meydana gelen hiçbir değişiklik (örneğin, çekirdek, disk veya ağ arabirimi sayısının artması) yakalanmaz. Profili oluşturulmuş bir VM yapılandırması profil oluşturma sırasında değiştiyse, rapor oluştururken en son VM bilgilerini almaya yönelik geçici çözüm aşağıda verilmiştir:
 
 * VMdetailList.xml dosyasını yedekleyip, dosyayı geçerli konumundan silin.
@@ -169,6 +178,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-OfferId|(İsteğe bağlı) Belirtilen abonelikle ilişkili teklif. Varsayılan olarak MS-AZR-0003P (Kullandıkça Öde) kullanılır.|
 |-Currency|(İsteğe bağlı) Oluşturulan raporda maliyetin gösterileceği para birimi. Varsayılan olarak ABD doları ($) veya en son kullanılan para birimi kullanılır.<br>[Desteklenen para birimleri](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies) listesine başvurun.|
 
+Varsayılan olarak araç, 1000 VM'ye kadar profil ve rapor oluşturmak üzere yapılandırılmıştır. *ASRDeploymentPlanner.exe.config* dosyasındaki MaxVMsSupported anahtar değerini değiştirerek sınırı değiştirebilirsiniz.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+
 ### <a name="examples"></a>Örnekler
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Örnek 1: Profili oluşturulan veriler yerel sürücüde olduğunda raporu varsayılan değerlerle oluşturma
 ```
@@ -206,6 +221,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
+
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Hesaplama için kullanılan yüzdelik değer
 **Rapor oluşturulurken, profil oluşturma sırasında toplanan performans ölçümlerinin hangi varsayılan yüzdelik dilim değeri araç tarafından kullanılır?**

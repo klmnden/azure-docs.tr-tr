@@ -1,7 +1,7 @@
 ---
-title: "Örnek makine öğrenimi denemelerini kopyalama - Azure | Microsoft Docs"
-description: "Cortana Intelligence Gallery ve Microsoft Azure Machine Learning ile yeni denemeler oluşturmak için örnek makine öğrenimi denemelerini nasıl kullanacağınızı öğrenin."
-keywords: "machine learning örnekleri, örnek deneme, machine learning örneği"
+title: "Machine learning örneklerinden denemeler oluşturma - Azure | Microsoft Docs"
+description: "Azure AI Gallery ve Azure Machine Learning ile yeni denemeler oluşturmak için örnek makine öğrenimi denemelerini nasıl kullanacağınızı öğrenin."
+keywords: "machine learning örnekleri, örnek deneme, machine learning örneği, AI örnekleri"
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2017
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ea19f137acb23d3527315aae2624c746e138545
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Örnek denemeleri kopyalayarak yeni makine öğrenimi denemeleri oluşturma
-Sıfırdan makine öğrenimi denemeleri oluşturmayı öğrenmek yerine [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/)’deki örnek denemelerle nasıl çalışmaya başlayacağınızı öğrenin. Örnekleri kullanarak kendi makine öğrenimi çözümünüzü oluşturabilirsiniz.
+# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery’de çalışma örneklerinden machine learning denemeleri oluşturma
+
+Sıfırdan makine öğrenimi denemeleri oluşturmayı öğrenmek yerine [Azure AI Gallery](https://gallery.cortanaintelligence.com/)’deki örnek denemelerle nasıl çalışmaya başlayacağınızı öğrenin. Örnekleri kullanarak kendi makine öğrenimi çözümünüzü oluşturabilirsiniz.
 
 Galeride Microsoft Azure Machine Learning ekibi tarafından sağlanan örnek denemelerin yanı sıra Machine Learning topluluğu tarafından paylaşılan örnek denemeler yer almaktadır. Ayrıca, denemeler hakkında soru sorabilir veya yorum yazabilirsiniz.
 
@@ -30,7 +31,7 @@ Galeriyi nasıl kullanacağınızı görmek için [Yeni Başlayanlar için Veri 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="find-an-experiment-to-copy-in-cortana-intelligence-gallery"></a>Cortana Intelligence Gallery’de kopyalanacak bir deneme bulma
+## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Azure AI Gallery'de kopyalanacak bir deneme bulma
 Hangi denemelerin kullanılabildiğini görmek için [Galeri](https://gallery.cortanaintelligence.com/)'ye gidin ve sayfanın en üst kısmında **Denemeler**'e tıklayın.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>En yeni ve en popüler denemeleri bulma
@@ -42,8 +43,8 @@ Tüm denemelere gözatmak için:
 1. Sayfanın üstündeki **Tümüne gözat**'a tıklayın.
 2. Galeri'deki tüm denemeleri görmek için sol tarafta bulunan **Kategoriler** bölümündeki **Daraltma ölçütü** seçeneğinin altından **Denemeler**'i seçin.
 3. Gereksinimlerinize uyan denemeleri birkaç farklı yolla bulabilirsiniz:
-   * **Soldaki filtreleri seçin.** Örneğin, PCA tabanlı bir anomali algılama algoritması kullanan denemelere göz atmak için: **Kategoriler**'in altında **Denemeler** seçiliyken **Tümünü göster**'e tıklayın. Ardından, **Kullanılan Algoritmalar** altında **PCA Tabanlı Anomali Algılama**’yı seçin. <br></br>
-     ![Filtreleri seçin](./media/sample-experiments/refine-the-view.png)
+   * **Soldaki filtreleri seçin.** Örneğin, PCA tabanlı bir anomali algılama algoritması kullanan denemelere göz atmak için: **Kategoriler** altında **Deneme**'ye tıklayın. Ardından, **Kullanılan Algoritmalar** altında **Tümünü Göster**’e tıklayın ve iletişim kutusunda **PCA Tabanlı Anomali Algılama**’yı seçin. Bu seçeneği görmek için kaydırmanız gerekebilir.<br></br>
+     ![Filtreleri seçme](./media/sample-experiments/choose-an-algorithm.png)
    * **Arama kutusunu kullanın.** Örneğin, Microsoft tarafından paylaşılan iki sınıflı destekli vektör makinesi algoritması kullanan rakam tanıma ile ilgili denemeleri bulmak için arama kutusuna "rakam tanıma" yazın. Daha sonra, **Deneme**, **Yalnızca Microsoft içeriği** ve **İki Sınıflı Destekli Vektör Makinesi**'ni seçin:<br></br>
      ![Arama kutusunu kullanma](./media/sample-experiments/search-for-experiments.png)
 4. Hakkında daha fazla bilgi almak için bir denemeye tıklayın.

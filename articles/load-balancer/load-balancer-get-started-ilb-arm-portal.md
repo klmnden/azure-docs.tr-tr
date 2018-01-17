@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b983ca9ff28aac7f0e0501f353c48deeb6adcd5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Azure portalını kullanarak iç yük dengeleyici oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure portalı](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Şablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -43,7 +43,7 @@ Azure portalından iç yük dengeleyici oluşturmak için aşağıdaki adımlar�
 1. Tarayıcı penceresi açın, [Azure portalına](http://portal.azure.com) gidin ve Azure hesabınızla oturum açın.
 2. Ekranın sol üst kenarından **Yeni** > **Ağ** > **Yük dengeleyici**’yi seçin.
 3. **Yük dengeleyici oluştur** dikey penceresinde yük dengeleyiciniz için bir **Ad** girin.
-4. **Düzen** bölümünde **İç**’e tıklayın.
+4. **Tür** altında **İç**’e tıklayın.
 5. **Sanal ağ**’a tıklayıp yük dengeleyiciyi oluşturmak istediğiniz sanal ağı seçin.
 
    > [!NOTE]
@@ -66,16 +66,16 @@ Yük dengeleme kuralını yapılandırmadan önce arka uç adres havuzu ve araş
 ### <a name="step-1-configure-a-backend-pool"></a>1. Adım: Arka uç havuzu yapılandırma
 
 1. Azure portalında **Gözat** > **Yük dengeleyiciler**'e ve ardından daha önce oluşturduğunuz yük dengeleyiciye tıklayın.
-2. **Ayarlar** dikey penceresinde **Arka uç havuzları**’na tıklayın.
-3. **Arka uç adres havuzları** dikey penceresinde **Ekle**’ye tıklayın.
-4. **Arka uç havuzu ekle** dikey penceresinde arka uç havuzu için bir **Ad** girin ve ardından **Tamam**’a tıklayın.
+2. **Ayarlar** sayfasında **Arka uç havuzları**’na tıklayın.
+3. **Arka uç adres havuzları** sayfasında **Ekle**’ye tıklayın.
+4. **Arka uç havuzu ekle** sayfasında arka uç havuzu için bir **Ad** girin ve ardından **Tamam**’a tıklayın.
 
 ### <a name="step-2-configure-a-probe"></a>2. Adım: Araştırma yapılandırma
 
 1. Azure portalında **Gözat** > **Yük dengeleyiciler**'e ve ardından daha önce oluşturduğunuz yük dengeleyiciye tıklayın.
-2. **Ayarlar** dikey penceresinde **Araştırmalar**’a tıklayın.
-3. **Araştırmalar** dikey penceresinde **Ekle**’ye tıklayın.
-4. **Araştırma ekle** dikey penceresinde araştırma için bir **Ad** girin.
+2. **Ayarlar** sayfasında **Durum araştırmaları**’na tıklayın.
+3. **Durum araştırmaları** sayfasında **Ekle**’ye tıklayın.
+4. **Durum araştırması ekle** sayfasında araştırma için bir **Ad** girin.
 5. **Protokol**'ün altında **HTTP** (web siteleri için) veya **TCP** (diğer TCP tabanlı uygulamalar için) seçin.
 6. **Bağlantı noktası** bölümünde araştırmaya erişirken kullanılacak bağlantı noktasını belirtin.
 7. **Yol**’un altında (yalnızca HTTP araştırmaları için) araştırma olarak kullanılacak yolu belirtin.
@@ -86,17 +86,17 @@ Yük dengeleme kuralını yapılandırmadan önce arka uç adres havuzu ve araş
 ### <a name="step-3-configure-load-balancing-rules"></a>3. Adım: Yük dengeleme kurallarını yapılandırma
 
 1. Azure portalında **Gözat** > **Yük dengeleyiciler**'e ve ardından daha önce oluşturduğunuz yük dengeleyiciye tıklayın.
-2. **Ayarlar** dikey penceresinde **Yük dengeleme kuralları**’na tıklayın.
-3. **Yük dengeleme kuralları** dikey penceresinde **Ekle**’ye tıklayın.
-4. **Yük dengeleme kuralı ekle** dikey penceresinde kural için bir **Ad** girin.
-5. **Protokol**'ün altında **HTTP** (web siteleri için) veya **TCP** (diğer TCP tabanlı uygulamalar için) seçin.
+2. **Ayarlar** sayfasında **Yük dengeleme kuralları**’na tıklayın.
+3. **Yük dengeleme kuralları** sayfasında **Ekle**’ye tıklayın.
+4. **Yük dengeleme kuralı ekle** sayfasında kural için bir **Ad** girin.
+5. **Protokol** altında **TCP** veya **UDP**’yi seçin.
 6. **Bağlantı noktası** bölümünde istemcilerin yük dengeleyiciye bağlanmak için kullanacağı bağlantı noktasını belirtin.
 7. **Arka uç bağlantı noktası** bölümünde arka uç havuzunda kullanılacak bağlantı noktasını belirtin (genelde yük dengeleyici bağlantı noktası ve arka uç bağlantı noktası aynıdır).
 8. **Arka uç havuzu** altında daha önce oluşturduğunuz arka uç havuzunu seçin.
 9. **Oturum kalıcılığı** bölümünde oturumların ne kadar sürmesini istediğinizi belirtin.
 10. **Boşta kalma zaman aşımı (dakika)** bölümünde boşta kalma zaman aşımını belirtin.
 11. **Kayan IP (doğrudan sunucu dönüşü)** bölümünde **Devre dışı** veya **Etkin**’e tıklayın.
-12. **Tamam** düğmesine tıklayın.
+12. **Tamam**’a tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

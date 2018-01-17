@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0209142da5d94e0ed863a07c9ea694232421cfb
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
 
@@ -94,7 +94,7 @@ Olay Onayı özelliğini kullanmıyorsanız ve kullanıcılarınız şirket ağ�
 Azure portalından Azure Multi-Factor Authentication Sunucusu'nu indirmek için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
-2. **Active Directory** > **Multi-Factor Authentication**'ı seçin.
+2. **Active Directory** > **MFA Sunucusu**'nu seçin.
 3. **Sunucu ayarları**'nı seçin.
 4. **İndir**'i seçin ve indirme sayfasındaki talimatları izleyerek yükleyiciyi kaydedin. 
 

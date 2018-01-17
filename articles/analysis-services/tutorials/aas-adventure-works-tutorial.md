@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works Öğreticisi
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+Bu öğreticide, [SQL Server Veri Araçları (SSDT) ile Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)’yu kullanarak 1400 uyumluluk düzeyinde bir tablosal modelin nasıl oluşturulduğu ve dağıtıldığı ile ilgili dersler sağlanmaktadır.  
 
-Bu öğreticide, [SQL Server Veri Araçları’nı (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) kullanarak 1400 uyumluluk düzeyinde bir tablosal modelin nasıl oluşturulduğu ve dağıtıldığı ile ilgili dersler sağlanmaktadır.  
-
-Analysis Services ve tablosal modelleme konusunda yeniyseniz, basit bir tablosal model oluşturup dağıtmayı öğrenmenin en hızlı yolu bu öğreticiyi tamamlamaktır. Ön koşullar karşılandıktan sonra, tamamlanması iki ila üç saat arası sürmelidir.  
+Analysis Services ve tablosal modelleme konusunda yeniyseniz, Visual Studio kullanarak basit bir tablosal model oluşturup dağıtmayı öğrenmenin en hızlı yolu bu öğreticiyi tamamlamaktır. Ön koşullar karşılandıktan sonra, tamamlanması iki ila üç saat arası sürmelidir.  
   
 ## <a name="what-you-learn"></a>Öğrenecekleriniz   
   
--   SSDT’de **1400 uyumluluk düzeyinde** yeni bir tablosal model projesi oluşturma.
+-   SSDT ile Visual Studio’da **1400 uyumluluk düzeyinde** yeni bir tablosal model projesi oluşturma.
   
--   İlişkisel veritabanındaki verileri bir tablosal model projesinde içeri aktarma.  
+-   İlişkisel veritabanındaki verileri bir tablosal model projesi çalışma alanı veritabanına aktarma.  
   
 -   Modelde tablolar arasındaki ilişkileri oluşturma ve yönetme.  
   
@@ -47,16 +45,16 @@ Analysis Services ve tablosal modelleme konusunda yeniyseniz, basit bir tablosal
   
 -   Bir **Azure Analysis Services** sunucusuna ya da şirket içi SQL Server 2017 Analysis Services sunucusuna tablosal model dağıtma.  
   
-## <a name="prerequisites"></a>Ön koşullar  
+## <a name="prerequisites"></a>Önkoşullar  
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:  
   
--   Modelinizin dağıtılacağı bir Azure Analysis Services veya SQL Server 2017 Analysis Services örneği. Ücretsiz [Azure Analysis Services denemesi](https://azure.microsoft.com/services/analysis-services/) için kaydolun ve [bir sunucu oluşturun](../analysis-services-create-server.md). Veya kaydolun ve [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp)’ı indirin. 
+-   Bir Azure Analysis Services sunucusu. Ücretsiz [Azure Analysis Services denemesi](https://azure.microsoft.com/services/analysis-services/) için kaydolun ve [bir sunucu oluşturun](../analysis-services-create-server.md). 
 
--   [AdventureWorksDW2014 örnek veritabanını](http://go.microsoft.com/fwlink/?LinkID=335807) ile bir SQL Server Veri Ambarı veya Azure SQL Veri Ambarı. Bu örnek veritabanı, bu öğreticinin tamamlanması için gereken verileri içerir. [Ücretsiz SQL Server sürümlerini](https://www.microsoft.com/sql-server/sql-server-downloads) indirin. Veya ücretsiz bir [Azure SQL Veritabanı denemesi](https://azure.microsoft.com/services/sql-database/) için kaydolun. 
+-   **Örnek AdventureWorksDW veritabanını** içeren bir [Azure SQL Veri Ambarı](../../sql-data-warehouse/create-data-warehouse-portal.md) veya [Adventure Works örnek veritabanını](http://go.microsoft.com/fwlink/?LinkID=335807) içeren bir SQL Server Veri Ambarı.
 
-    **Önemli:** Örnek veritabanını şirket içi bir SQL Server’a, tablolu modelinizi ise bir Azure Analysis Services sunucusuna yüklerseniz [Şirket içi veri ağ geçidi](../analysis-services-gateway.md) gerekir.
+    **Önemli:** Örnek veritabanını bir şirket içi SQL Server Veri Ambarına, modelinizi ise bir Azure Analysis Services sunucusuna yüklerseniz [Şirket içi veri ağ geçidi](../analysis-services-gateway.md) gerekir.
 
--   [SQL Server Veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx)’nın (SSDT) en son sürümü.
+-   Visual Studio için [SQL Server Veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx)’nın (SSDT) en son sürümü.
 
 -   [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en son sürümü.    
 

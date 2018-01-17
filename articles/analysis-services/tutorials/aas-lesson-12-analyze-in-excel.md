@@ -13,26 +13,24 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>12. Ders: Excel’de çözümleme
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>Excel'de Çözümle
 
 Bu derste, Excel’de çözümleme özelliğini kullanarak Microsoft Excel’i açar, model çalışma alanı ile otomatik bir bağlantı oluşturur ve çalışma sayfasına otomatik olarak bir PivotTable eklersiniz. Excel’de çözümleme özelliği, modelinizi dağıtmadan önce model tasarımınızın etkililiğini test etmenin hızlı ve kolay bir yolunu sağlamak üzere tasarlanmıştır. Bu derste herhangi bir veri çözümlemesi yapmayacaksınız. Dersin amacı, model yazarı olarak model tasarımınızı test etmek için kullanabileceğiniz araçları tanımanızı sağlamaktır.   
   
-Bu dersi tamamlamak için Excel’in SSDT ile aynı bilgisayarda yüklü olması gerekir.
+Bu dersi tamamlamak için Excel’in Visual Studio ile aynı bilgisayarda yüklü olması gerekir.
   
 Bu dersi tamamlamak için tahmini süre: **Beş dakika**  
   
-## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [11. Ders: Rol oluşturma](../tutorials/aas-lesson-11-create-roles.md).  
+## <a name="prerequisites"></a>Önkoşullar  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [11. Ders: Rol oluşturma](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Varsayılan ve İnternet Satışları perspektiflerini kullanarak göz atma  
 Bu ilk görevlerde, tüm model nesnelerinizi içeren varsayılan perspektifi ve daha önceki İnternet Satışları perspektifini kullanarak modelinize göz atacaksınız. İnternet Satışları perspektifi, Müşteri tablo nesnesini içermez.  

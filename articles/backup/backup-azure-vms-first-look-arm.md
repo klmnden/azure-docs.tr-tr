@@ -13,21 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Azure sanal makinelerini Kurtarma Hizmetleri kasalarına yedekleme
-> [!div class="op_single_selector"]
-> * [VM'leri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md)
-> * [VM'leri yedekleme kasasıyla koruma](backup-azure-vms-first-look.md)
->
->
 
 Bu öğretici, bir kurtarma hizmetleri kasası oluşturmaya ve bir Azure sanal makinesini (VM) yedeklemeye yönelik adımlar boyunca size yol gösterir. Kurtarma hizmetleri kasaları şunları korur:
 
@@ -48,15 +43,13 @@ Neleri yedekleyip neleri yedekleyemeyeceğinizle ilgili daha fazla bilgi edinmek
 >
 >
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
-
 Korumak istediğiniz sanal makine sayısına bağlı olarak farklı başlangıç noktalarından başlayabilirsiniz. Tek bir işlemde birden çok sanal makine yedeklemek istiyorsanız Kurtarma Hizmetleri Kasası'na gidin ve [yedekleme işini kasa panosundan başlatın](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Tek bir sanal makineyi yedeklemek istiyorsanız VM yönetim dikey penceresinden yedekleme işini başlatabilirsiniz.
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Yedekleme işini VM yönetim dikey penceresinden yapılandırın
 
-Aşağıdaki adımları, Azure portalında sanal makine yönetimi dikey penceresinden yedekleme işini yapılandırmak için kullanın. Bu adımlar klasik portaldaki sanal makineler için geçerli değildir.
+Aşağıdaki adımları, Azure portalında sanal makine yönetimi dikey penceresinden yedekleme işini yapılandırmak için kullanın. Aşağıdaki adımlar yalnızca Azure portalındaki sanal makineler için geçerlidir.
 
-1. [Azure portalında](https://portal.azure.com/) oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Hub menüsünde **Diğer Hizmetler**’e tıklayıp Filtre listesine **Sanal makineler** yazın. Siz yazarken kaynakların listesini filtrelenir. Sanal makineler seçeneğini gördüğünüzde seçin.
 
   ![Hub menüsünde metin iletişim kutusunu açmak için Diğer Hizmetler'e tıklayın ve Sanal makineler yazın](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea5274f6bfd2d6c68509f52d93b6875d3a43a5a0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Kılavuz: Azure Machine Learning Studio'da kredi riski değerlendirmesi için tahmine dayalı bir analiz çözümü geliştirme
 
@@ -55,6 +55,6 @@ Bu kredi riski değerlendirme çözümünü oluşturmak için aşağıdaki adım
 6. [Web hizmetine erişme](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> Bu kılavuzda geliştirdiğimiz denemenin çalışan bir kopyasını [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com)’nde bulabilirsiniz. **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Kılavuz - Kredi riski tahmini) sayfasına gidin ve **Open in Studio** (Studio’da Aç) seçeneğine tıklayarak denemenin bir kopyasını Machine Learning Studio çalışma alanınıza indirin.
+> Bu kılavuzda geliştirdiğimiz denemenin çalışan bir kopyasını [Azure AI Gallery](https://gallery.cortanaintelligence.com)’de bulabilirsiniz. **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Kılavuz - Kredi riski tahmini) sayfasına gidin ve **Open in Studio** (Studio’da Aç) seçeneğine tıklayarak denemenin bir kopyasını Machine Learning Studio çalışma alanınıza indirin.
 > 
 > Bu kılavuz, [Galeri](http://gallery.cortanaintelligence.com/)’den de edinebileceğiniz [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (İkili Sınıflandırma: Kredi riski tahmini) örnek denemesinin basitleştirilmiş bir biçimini temel alır.

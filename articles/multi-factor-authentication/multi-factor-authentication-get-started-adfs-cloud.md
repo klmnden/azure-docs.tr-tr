@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
 Kuruluşunuz Azure Active Directory ile birleştiriliyorsa, Azure AD’nin erişebildiği kaynakları güvenli hale getirmek için Azure Multi-Factor Authentication ya da Active Directory Federation Services (AD FS) kullanın. Azure Active Directory kaynaklarını Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri ile güvenli hale getirmek için aşağıdaki yordamları kullanın.
@@ -83,16 +83,13 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Azure Multi-Factor Authentication Güvenilen IP’leri Federasyon Kullanıcıları ile Yapılandırma
 Talepler yapıldığına göre, artık güvenilen IP’leri yapılandırabiliriz.
 
-1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
-2. Solda, **Active Directory**'ye tıklayın.
-3. Dizin altında, güvenilen IP'leri ayarlamak istediğiniz dizini seçin.
-4. Seçtiğiniz Dizinde **Yapılandır**'a tıklayın.
-5. Çok faktörlü kimlik doğrulaması bölümünde, **Hizmet ayarlarını yönet**'e tıklayın.
-6. Hizmet Ayarları sayfasındaki güvenilen IP'ler altında bulunan **İntranetimde bulunan şirket dışındaki kullanıcıların istekleri için çok öğeli kimlik doğrulamayı atla** seçeneğini belirleyin.  
+1. [Azure Portal](https://portal.com)’da oturum açın.
+2. **Azure Active Directory** > **Koşullu erişim** > **Adlandırılmış konumlar**’ı seçin.
+3. **Koşullu erişim - Adlandırılmış konumlar** dikey penceresinde **MFA güvenilen IP'lerini yapılandır**’ı seçin
 
-   ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. **Kaydet**’e tıklayın.
-8. Güncelleştirmeler uygulandıktan sonra **Kapat**'a tıklayın.
+   ![Azure AD koşullu erişim adlandırılmış konumlar MFA güvenilen IP'lerini yapılandır](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. Hizmet Ayarları sayfasındaki **güvenilen IP'ler** altında bulunan **İntranetimde bulunan şirket dışındaki kullanıcıların istekleri için çok öğeli kimlik doğrulamayı atla** seçeneğini belirleyin.  
+5. **Kaydet**’e tıklayın.
 
 Bu kadar! Bu noktada, birleştirilmiş Office 365 kullanıcıları yalnızca talep kurumsal intranet dışından kaynaklandığı zaman MFA kullanmalıdır.

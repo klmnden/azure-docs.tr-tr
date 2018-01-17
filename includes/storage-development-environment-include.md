@@ -2,15 +2,15 @@
 Ardından, geliştirme ortamınızı Visual Studio’da ayarlayın; böylece bu kılavuzdaki kod örneklerini denemeye hazır olursunuz.
 
 ### <a name="create-a-windows-console-application-project"></a>Windows konsol uygulaması projesi oluşturma
-Visual Studio'da yeni bir Windows konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2017’de konsol uygulaması oluşturmayı gösterir, ancak adımlar, diğer Visual Studio sürümlerindekilerle aynıdır.
+Visual Studio'da yeni bir Windows konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2017’de bir konsol uygulaması oluşturmayı gösterir. Adımlar Visual Studio’nun diğer sürümlerinde de benzerdir.
 
-1. **Dosya** > **Yeni** > **Proje**’yi seçin
-2. **Yüklü** > **Şablonlar** > **Visual C#** > **Windows Klasik Masaüstü** öğesini seçin
-3. **Konsol Uygulaması (.NET Framework)** öğesini seçin
-4. **Ad:** alanına uygulamanız için bir ad girin
-5. **Tamam**’ı seçin
+1. **Dosya** > **Yeni** > **Proje**’yi seçin.
+2. **Yüklü** > **Şablonlar** > **Visual C#** > **Windows Klasik Masaüstü** öğesini seçin.
+3. **Konsol Uygulaması (.NET Framework)** öğesini seçin.
+4. **Ad** alanına uygulamanız için bir ad girin.
+5. **Tamam**’ı seçin.
 
-![Visual Studio'da proje oluşturma iletişim kutusu](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Visual Studio'da Yeni Proje iletişim kutusunun ekran görüntüsü](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
 Bu öğreticideki tüm kod örnekleri konsol uygulamanızın `Program.cs` dosyasındaki `Main()` yöntemine eklenebilir.
 
@@ -25,8 +25,8 @@ Bu öğreticiyi tamamlamak için projenizde başvurmanız gereken iki paket vard
 Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın:
 
 1. **Çözüm Gezgini**'nde projenize sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. Çevrimiçi olarak "WindowsAzure.Storage" ifadesini arayın ve Depolama İstemci Kitaplığı’nı ve bağımlılıklarını yüklemek için **Yükle**’ye tıklayın.
-3. Çevrimiçi olarak "WindowsAzure.ConfigurationManager" ifadesini arayın ve Azure Yapılandırma Yöneticisi’ni yüklemek için **Yükle**’ye tıklayın.
+2. Çevrimiçi olarak "WindowsAzure.Storage" ifadesini arayın ve Depolama İstemci Kitaplığı’nı ve bağımlılıklarını yüklemek için **Yükle**’yi seçin.
+3. Çevrimiçi olarak "WindowsAzure.ConfigurationManager" ifadesini arayın ve Azure Yapılandırma Yöneticisi’ni yüklemek için **Yükle**’yi seçin.
 
 > [!NOTE]
 > Depolama İstemcisi Kitaplığı paketi [.NET için Azure SDK](https://azure.microsoft.com/downloads/) uygulamasında da bulunur. Ancak, istemci kitaplığının her zaman en son sürümüne sahip olmanızı sağlamak için Depolama istemcisi Kitaplığını NuGet’ten yüklemenizi öneririz.
@@ -39,7 +39,7 @@ Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın
 Bu kılavuzdaki örnekleri çalıştırmak için iki ortam seçeneğiniz vardır:
 
 * Kodunuzu buluttaki bir Azure Storage hesabına karşı çalıştırabilirsiniz. 
-* Kodunuzu Azure Storage öykünücüsüne karşı çalıştırabilirsiniz. Depolama öykünücüsü, buluttaki Azure Storage hesabına öykünen bir yerel ortamdır. Öykünücü, uygulamanız geliştirildiği sırada kodunuzu test etmek ve hatalarını ayıklamak için bağımsız bir seçenektir. Öykünücü iyi bilinen hesabı ve anahtarı kullanır. Daha fazla bilgi için bkz. [Geliştirme ve Sınama için Azure Depolama Öykünücüsünü Kullanma](../articles/storage/common/storage-use-emulator.md)
+* Kodunuzu Azure Storage öykünücüsüne karşı çalıştırabilirsiniz. Depolama öykünücüsü, buluttaki Azure Storage hesabına öykünen bir yerel ortamdır. Öykünücü, uygulamanız geliştirildiği sırada kodunuzu test etmek ve hatalarını ayıklamak için bağımsız bir seçenektir. Öykünücü iyi bilinen hesabı ve anahtarı kullanır. Daha fazla bilgi için bkz. [Geliştirme ve test için Azure depolama öykünücüsünü kullanma](../articles/storage/common/storage-use-emulator.md).
 
 Buluttaki bir depolama hesabını hedefliyorsanız, depolama hesabınız için birincil erişim anahtarını Azure portalından kopyalayın. Daha fazla bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme ve kopyalama](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
@@ -51,7 +51,7 @@ Buluttaki bir depolama hesabını hedefliyorsanız, depolama hesabınız için b
 ### <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 .NET için Azure Storage İstemcisi Kitaplığı,depolama hizmetlerine erişilmesi amacıyla uç noktaları ve kimlik bilgilerini yapılandıracak depolama bağlantı dizesinin kullanılmasını destekler. Depolama bağlantı dizenizi korumanın en iyi yolu bir yapılandırma dosyasında tutmaktır. 
 
-Bağlantı dizeleri hakkında daha fazla bilgi için bkz. [Azure Storage Bağlantı Dizesi Yapılandırma](../articles/storage/common/storage-configure-connection-string.md).
+Bağlantı dizeleri hakkında daha fazla bilgi için bkz. [Azure Depolama’da bir bağlantı dizesi yapılandırma](../articles/storage/common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > Depolama hesabı anahtarınız depolama hesabınızın kök parolasına benzer. Depolama hesabı anahtarınızı korumak için her zaman özen gösterin. Diğer kullanıcılara dağıtmaktan, sabit kodlamaktan ve başkalarının erişebileceği düz metin dosyasına kaydetmekten kaçının. Anahtarınızın tehlikede olduğunu düşünüyorsanız, Azure portalını kullanarak hesap anahtarınızı yeniden oluşturun.

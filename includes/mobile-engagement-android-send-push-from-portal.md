@@ -2,7 +2,7 @@
 
 Mobile Engagement’ın sizin adınıza anında iletme bildirimleri göndermesine izin vermek için API Anahtarınıza erişim izni vermeniz gerekir. Bu da, anahtarınızın yapılandırıp Mobile Engagement portalına girilerek gerçekleştirilir.
 
-1. Klasik Azure Portalı’nızdan bu proje için kullanmakta olduğunuz uygulamadan emin olun ve alttaki **Katıl** düğmesine tıklayın:
+1. Azure Portalı’ndan bu proje için kullanmakta olduğunuz uygulamadan emin olun ve alttaki **Katıl** düğmesine tıklayın:
 
     ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 

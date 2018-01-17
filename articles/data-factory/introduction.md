@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,9 +119,9 @@ Data Factory kavramları hakkında daha fazla bilgi için aşağıdaki makaleler
 
 Azure Data Factory’nin kendisi verileri depolamaz. Veri taşımayı desteklenen veri depoları arasında, verilerin işlenmesini de başka bölgelerde veya şirket içi bir ortamda işlem hizmetleri kullanarak düzenlemek için veri temelinde iş akışları oluşturmanızı sağlar. Hem programlama, hem de kullanıcı arabirimi mekanizmalarını kullanarak iş akışlarını izlemenizi ve yönetmenizi de sağlar.
 
-Data Factory yalnızca Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde kullanılabilir olsa da, Data Factory'de veri taşımayı destekleyen hizmet birçok bölgede küresel olarak kullanılabilmektedir. Veri deposunun güvenlik duvarı ardında kaldığı durumlarda şirket içi ortamınızda yüklü bir Veri Yönetimi Ağ Geçidi bunun yerine verileri taşır.
+Data Factory yalnızca Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde kullanılabilir olsa da, Data Factory'de veri taşımayı destekleyen hizmet birçok bölgede küresel olarak kullanılabilmektedir. Bir veri deposunun güvenlik duvarı ardında kaldığı durumlarda şirket içi ortamınızda yüklü bir Şirket İçinde Barındırılan Integration Runtime bunun yerine verileri taşır.
 
-Örneğin, Azure HDInsight kümesi ve Azure Machine Learning gibi işlem ortamlarınızın Batı Avrupa bölgesinde çalıştığını varsayalım. Kuzey Avrupa’da bir Azure Data Factory örneği oluşturup geliştirebilir ve bunu Batı Avrupa’daki işlem ortamlarınızda iş zamanlamak için kullanabilirsiniz. Data Factory'nin işlem ortamınızda işi tetiklemesi birkaç milisaniye alsa da, bilgi işlem ortamınızda işin çalıştırılma süresi değişmez.
+Örneğin, Azure HDInsight kümesi ve Azure Machine Learning gibi işlem ortamlarınızın Batı Avrupa bölgesinde çalıştığını varsayalım. Doğu ABD veya Doğu ABD 2’de bir Azure Data Factory örneği oluşturup geliştirebilir ve bunu Batı Avrupa’daki işlem ortamlarınızda iş zamanlamak için kullanabilirsiniz. Data Factory'nin işlem ortamınızda işi tetiklemesi birkaç milisaniye alsa da, bilgi işlem ortamınızda işin çalıştırılma süresi değişmez.
 
 ## <a name="compare-with-version-2"></a>Sürüm 2 ile karşılaştırma
 Data Factory hizmetinin 1 ve 2 numaralı sürümleri arasındaki farkların listesi için bkz. [Sürüm 1 ile karşılaştırma](compare-versions.md). 

@@ -3,7 +3,7 @@ title: "Azure Uygulama Hizmetinde Mobile Apps Hakkında"
 description: "App Service’in kurumsal mobil uygulamalarınıza sağladığı avantajları öğrenin."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"> </a>Azure Uygulama Hizmetinde Mobile Apps Hakkında
 Azure Uygulama Hizmeti, profesyonel geliştiricilere yönelik tam olarak yönetilen bir [hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) teklifidir. Bu hizmet, web, mobil ve tümleştirme senaryoları için zengin bir özellik kümesi sağlar. 
@@ -65,7 +65,7 @@ Aşağıdaki platform özellikleri mobil üretim siteleri için yararlıdır:
 
   [hazırlık ortamları] hakkında daha fazlasını keşfedin.
 
-* **Sürekli dağıtım**: App Service, SCM sisteminizin bir dalına ileterek arka ucunuzun yeni bir sürümü otomatik olarak oluşturmanızı sağlayarak, ortak tedarik zinciri yönetimi (SCM) sistemleriyle tümleştirilebilir.
+* **Sürekli dağıtım**: App Service, SCM sisteminizin bir dalına ileterek arka ucunuzun yeni bir sürümü otomatik olarak oluşturmanızı sağlayarak, ortak kaynak denetimi yönetimi (SCM) sistemleriyle tümleştirilebilir.
 
   [dağıtım seçenekleri](../app-service/app-service-deploy-local-git.md) hakkında daha fazlasını keşfedin.
 

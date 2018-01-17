@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 638e654cb9e7a2454b37beb6067cb5a2fb9a57b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d180a83d7b0a8e02ed04d8771d2ad2c6fa386c6
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama
 Kimlik doğrulaması için [parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md) özelliğine ve tek ormanlı bir topolojiye sahipseniz Azure AD Connect **Hızlı Ayarları** kullanılır. **Hızlı Ayarlar** varsayılan seçenek olup yaygın olarak dağıtılan senaryo için kullanılır. Şirket içi dizininizi buluta genişletmek için yalnızca birkaç tıklama yapmanız yeterli.
@@ -36,7 +36,8 @@ Bu adımların nasıl gerçekleştirildiğini [videolar](#videos) bölümünden 
 4. Hızlı ayarlar ekranında **Hızlı ayarları kullan**'a tıklayın.  
    ![Azure AD Connect'e Hoş Geldiniz](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Azure AD'ye Bağlanma ekranında Azure AD'niz için genel yönetici kullanıcı adını ve parolasını girin. **İleri**’ye tıklayın.  
-   ![Azure AD'ye Bağlanma](./media/active-directory-aadconnect-get-started-express/connectaad.png) Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
+   ![Azure AD'ye Bağlanma](./media/active-directory-aadconnect-get-started-express/connectaad.png)  
+   Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. AD DS'ye Bağlanma ekranında kuruluş yöneticisi hesabına ilişkin kullanıcı adını ve parolayı girin. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (örneğin, FABRIKAM\yönetici veya fabrikam.com\yönetici) girebilirsiniz. **İleri**’ye tıklayın.  
    ![AD DS'ye Bağlanma](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. [**Azure AD oturum açma yapılandırması**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) sayfası, yalnızca [önkoşullar](active-directory-aadconnect-prerequisites.md) bölümündeki [etki alanlarınızı doğrulama](../active-directory-domains-add-azure-portal.md) adımını tamamlamamış olmanız halinde görüntülenir.
@@ -53,8 +54,8 @@ Bu adımların nasıl gerçekleştirildiğini [videolar](#videos) bölümünden 
 Hızlı yüklemeyi kullanmaya ilişkin video için bkz.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure AD Connect'i yüklediniz, artık [yüklemeyi doğrulayabilir ve lisans atayabilirsiniz](active-directory-aadconnect-whats-next.md).
@@ -66,10 +67,10 @@ Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Oto
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.
 
 ## <a name="related-documentation"></a>İlgili belgeler
-| Konu başlığı |
-| --- | --- |
-| Azure AD Connect'e genel bakış |
-| Özelleştirilmiş ayarları kullanarak yükleme |
-| DirSync'ten yükseltme |
-| Yükleme için kullanılan hesaplar |
 
+| Konu | Bağlantı |
+| --- | --- |
+| Azure AD Connect'e genel bakış | [Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
+| Özelleştirilmiş ayarları kullanarak yükleme | [Azure AD Connect özel yüklemesi](active-directory-aadconnect-get-started-custom.md) |
+| DirSync'ten yükseltme | [Azure AD eşitleme aracından (DirSync) yükseltme](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+| Yükleme için kullanılan hesaplar | [Azure AD Connect kimlik bilgileri ve izinleri hakkında daha fazla bilgi](active-directory-aadconnect-accounts-permissions.md) |

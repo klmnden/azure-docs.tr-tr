@@ -13,28 +13,26 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>2. Ders: Verileri alma
+# <a name="get-data"></a>Verileri alma
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-Bu derste, SSDT’deki Verileri Al özelliğini kullanarak AdventureWorksDW2014 örnek veritabanına erişir, verileri seçer, önizleme ve filtreleme uygular ve sonra model çalışma alanınıza aktarırsınız.  
+Bu derste, SSDT’deki Verileri Al özelliğini kullanarak AdventureWorks örnek veritabanına erişir, verileri seçer, önizleme ve filtreleme uygular ve sonra model çalışma alanınıza aktarırsınız.  
   
 Verileri Al’ı kullanarak birçok farklı kaynaktaki verileri içeri aktarabilirsiniz: Azure SQL Veritabanı, Oracle, Sybase, OData Feed, Teradata, dosyalar ve daha fazlası. Veriler bir Power Query M formül ifadesi kullanılarak da sorgulanabilir.
 
 > [!NOTE]
-> Bu öğreticideki görevler ve görüntüler şirket içi sunucuda AdventureWorksDW2014 veritabanına bağlanmayı gösterir. Bazı durumlarda Azure'daki AdventureWorksDW2014 veritabanı farklı olabilir.
+> Bu öğreticideki görevler ve görüntüler şirket içi sunucuda AdventureWorksDW2014 veritabanına bağlanmayı gösterir. Bazı durumlarda Azure'daki AdventureWorks veritabanı farklı olabilir.
   
 Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
-## <a name="prerequisites"></a>Ön koşullar  
+## <a name="prerequisites"></a>Önkoşullar  
 Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [1. Ders: Yeni tablosal model projesi oluşturma](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Bağlantı oluşturma  

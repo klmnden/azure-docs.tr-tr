@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ccc9694f74b655d5b9497378632f05defdbcbf0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 663a850cf46bf002808b9f791d9e8daefb6cc308
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Azure portal ile Windows sanal makinesi oluşturma
 
@@ -38,7 +38,7 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
 
-3. Sanal makine bilgilerini girin. Burada girilen kullanıcı adı ve parola, sanal makinede oturum açarken kullanılır. İşlem tamamlandığında **Tamam**’a tıklayın.
+3. Sanal makine bilgilerini girin. Burada girilen kullanıcı adı ve parola, sanal makinede oturum açarken kullanılır. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır. İşlem tamamlandığında **Tamam**’a tıklayın.
 
     ![Portal dikey penceresinde VM’niz ile ilgili temel bilgileri girin](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
@@ -87,7 +87,7 @@ Ağ güvenlik grubu (NSG), gelen ve giden trafiğin güvenliğini sağlar. Azure
 3. Sol menüdeki ayarlar altında **Gelen güvenlik kuralları**’na tıklayın.
 4. **Ekle**'ye tıklayın.
 5. **Ad** alanına **http** yazın. **Bağlantı noktası aralığı** değerinin 80, **Eylem** ayarının **İzin Ver** olarak belirlendiğinden emin olun. 
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**’a tıklayın.
 
 
 ## <a name="view-the-iis-welcome-page"></a>IIS karşılama sayfasını görüntüleme
