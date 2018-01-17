@@ -135,8 +135,9 @@
 ### [AES-128 şifrelemesi](media-services-protect-with-aes128.md)
 ### [Akış için PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 ### [Akış için FairPlay](media-services-protect-hls-with-fairplay.md)
-### [Çevrimdışı PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
-### [Çevrimdışı FairPlay](media-services-protect-hls-with-offline-fairplay.md)
+### [Windows 10 için çevrimdışı PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [iOS için çevrimdışı FairPlay](media-services-protect-hls-with-offline-fairplay.md)
+### [Android için çevrimdışı Widevine](offline-widevine-for-android.md)
 ### [Azure portalında yapılandırma](media-services-portal-protect-content.md)
 ### [DRM lisanslarını teslim etme](media-services-deliver-keys-and-licenses.md)
 ### ContentKeys oluşturma

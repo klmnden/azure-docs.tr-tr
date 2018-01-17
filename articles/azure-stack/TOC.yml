@@ -19,7 +19,7 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Azure Stack dağıtma
+    - name: Azure yığın değerlendir
       href: azure-stack-deploy-overview.md
 - name: Öğreticiler
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Kavramlar
   items:
-    - name: Planlama konusunda dikkat edilmesi gerekenler
-      href: azure-stack-planning-considerations.md
     - name: Hizmet ilkesi
       href: azure-stack-servicing-policy.md
     - name: Önemli özellikler ve kavramlar
@@ -43,7 +41,7 @@
       href: azure-stack-manage-basics.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Dağıtma
+    - name: ASDK dağıtma
       items:
         - name: Önkoşullar
           href: azure-stack-deploy.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: Test VM’si oluşturma
           href: azure-stack-provision-vm.md
+    - name: Azure tümleşik yığını sistemleri dağıtma
+      items:
+        - name: Dağıtım Planlama konuları
+          href: azure-stack-deployment-planning.md
+        - name: Dağıtım Planlama kararları
+          href: azure-stack-deployment-decisions.md
+        - name: Dağıtmak için Azure bağlı
+          href: azure-stack-connected-deployment.md
+        - name: Dağıtma Azure'dan bağlantısı kesildi
+          href: azure-stack-disconnected-deployment.md
+        - name: Azure yığın dağıtım PKI gereksinimleri
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Azure yığın dağıtımı için PKI sertifikaları alma
+              href: azure-stack-get-pki-certs.md
+        - name: Azure yığın kaydetme
+          href: azure-stack-registration.md
     - name: Veri merkezi tümleştirmesi
       items:
         - name: DNS

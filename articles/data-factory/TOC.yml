@@ -11,6 +11,10 @@
   items:
     - name: Veri fabrikası oluşturma
       items:
+        - name: Kullanıcı Arabirimi (UI)
+          href: quickstart-create-data-factory-portal.md
+        - name: Veri Kopyalama aracı
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: Portal
-          href: quickstart-create-data-factory-portal.md
         - name: Resource Manager şablonu
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: Öğreticiler
   items:
     - name: 1 - SSIS paketlerini Azure'a dağıtma
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: Kullanıcı Arabirimi (UI)
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 - Buluttaki verileri kopyalama
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: Veri Kopyalama aracı
+          href: tutorial-copy-data-tool.md
+        - name: Kullanıcı Arabirimi (UI)
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3 - Şirket içi verileri buluta kopyalama
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: Veri Kopyalama aracı
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: Kullanıcı Arabirimi (UI)
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4 - Verileri toplu halde kopyalama
-      href: tutorial-bulk-copy.md
+      items:
+        - name: Kullanıcı Arabirimi (UI)
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5 - Veri artımlı olarak kopyalama
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1 - Bir tablodan kopyalama
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: Kullanıcı Arabirimi (UI)
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Birden çok tablodan kopyalama
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Değişiklik izleme özelliğini kullanma
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: Kullanıcı Arabirimi (UI)
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Buluttaki verileri dönüştürme
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: Kullanıcı Arabirimi (UI)
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Sanal ağdaki verileri dönüştürme
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: Kullanıcı Arabirimi (UI)
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 - Denetim akışı
-      href: tutorial-control-flow.md
+      items:
+        - name: Kullanıcı Arabirimi (UI)
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: Örnekler
   items:
     - name: Kod örnekleri
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Veri fabrikalarını görsel olarak yazma
+      href: author-visually.md
     - name: Veri kopyalama
       items:
-        - name: Desteklenen kaynaklardan hedeflere veri kopyalama
+        - name: Kopyalama Etkinliği’ni kullanarak veri kopyalama
           href: copy-activity-overview.md
+        - name: Veri Kopyalama aracı
+          href: copy-data-tool.md
         - name: Bölümlenmiş verileri okuma veya yazma
           href: how-to-read-write-partitioned-data.md
         - name: Bağlayıcılar
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Data Lake Store’u yükleme
+                  href: load-azure-data-lake-store.md
             - name: MySQL için Azure Veritabanı
               href: connector-azure-database-for-mysql.md
             - name: PostgreSQL için Azure Veritabanı
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Veri Ambarı
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: SQL Veri Ambarı’nı yükleme
+                  href: load-azure-sql-data-warehouse.md
             - name: Azure Table Storage
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Azure’da SSIS paketlerini çalıştırma
       items:
-        - name: Azure-SSIS tümleştirmesi çalışma zamanı oluşturma
-          href: create-azure-ssis-integration-runtime.md
         - name: Azure SSIS tümleştirmesi çalışma zamanını VNET’e bağlama
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Azure SSIS tümleştirmesi çalışma zamanını yönetme
