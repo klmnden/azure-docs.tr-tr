@@ -96,6 +96,7 @@
 ##### [Uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md)
 ##### [Uygulama yükseltmede verileri serileştirme](service-fabric-application-upgrade-data-serialization.md)
 ##### [Uygulama yükseltme ile ilgili gelişmiş konular](service-fabric-application-upgrade-advanced.md)
+#### [Birden çok ortam için uygulamaları yönetme](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Hata analizi ile uygulamaları test etme](service-fabric-testability-overview.md)
 #### [ImageStoreConnectionString ayarı](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Bir Windows/VS geliştirme ortamında çalışma
 ### [Visual Studio'da uygulamaları yönetme](service-fabric-manage-application-in-visual-studio.md)
 ### [Visual Studio'da güvenli bağlantı yapılandırma](service-fabric-visualstudio-configure-secure-connections.md)
-### [Uygulamanızı birden çok ortam için yapılandırma](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Visual Studio’da .NET hizmetinde hata ayıklama](service-fabric-debugging-your-application.md)
 ### [Genel hatalar ve özel durumlar](service-fabric-errors-and-exceptions.md)
 ### [Yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## Uygulama yaşam döngüsünü yönetme
 ### [Uygulamaları paketleme](service-fabric-package-apps.md)
+### [Yapılandırma dosyalarıyla parametreleri kullanma](service-fabric-how-to-parameterize-configuration-files.md)
+### [Parametreleri kullanarak bağlantı noktası numaralarını belirtme](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Ortam değişkenlerini belirtme](service-fabric-how-to-specify-environment-variables.md)
 
 ### Uygulama dağıtma veya kaldırma
 #### [Yerel bir kümede uygulamaları dağıtma](service-fabric-get-started-with-a-local-cluster.md)
@@ -273,7 +276,7 @@
 ## Küme oluşturma ve yönetme
 ### Azure’da kümeler
 #### Oluştur
-##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
+##### [Azure portalı](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Ölçek
 ##### [El ile](service-fabric-cluster-scale-up-down.md)
@@ -328,6 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Hizmet modeli XML şeması](service-fabric-service-model-schema.md)
+## [Ortam değişkenleri](service-fabric-environment-variables-reference.md)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
