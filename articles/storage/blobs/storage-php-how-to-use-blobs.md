@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/11/2018
 ms.author: tamram
-ms.openlocfilehash: 9de2f7e81d75669267fe6448030c118d06b3f88a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc7fd799eddca14e728f965601acd244d88870c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-php"></a>Php'den BLOB storage kullanma
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Genel Bakış
 Azure Blob Storage, bulutta nesne/blob olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır.
 
-Bu kılavuz Azure blob hizmeti kullanılarak yaygın senaryolar gerçekleştirme gösterir. PHP ve kullanım örnekleri yazılır [PHP için Azure Storage istemci Kitaplığı][download]. Kapsamdaki senaryolar dahil **karşıya**, **listeleme**, **indirme**, ve **silme** BLOB'lar. BLOB'ları hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
+Bu kılavuz Azure blob hizmeti kullanılarak yaygın senaryolar gerçekleştirme gösterir. PHP ve kullanım örnekleri yazılır [PHP için Azure Storage blobu istemci Kitaplığı][download]. Kapsamdaki senaryolar dahil **karşıya**, **listeleme**, **indirme**, ve **silme** BLOB'lar. BLOB'ları hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -40,7 +40,24 @@ Azure blob hizmete erişen bir PHP uygulaması oluşturmak için yalnızca sın�
 Bu kılavuzda, bir PHP uygulamasının içinde yerel olarak veya bir Azure web rolü, çalışan rolü veya Web sitesi içinde çalışan kodu adlı Blob Depolama hizmeti özellikleri kullanın.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure istemci kitaplıkları Al
-[!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
+### <a name="install-via-composer"></a>Oluşturucu yükleyin
+1. Adlı bir dosya oluşturun **composer.json** projenizi kök ve aşağıdaki kodu ekleyin:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/azure-storage-blob": "*"
+      }
+    }
+    ```
+2. Karşıdan  **[composer.phar] [ composer-phar]**  proje kök.
+3. Bir komut istemi açın ve proje kök dizininde aşağıdaki komutu yürütün
+   
+    ```
+    php composer.phar install
+    ```
+
+Alternatif olarak gidin [Azure Storage PHP istemci Kitaplığı] [ download] kaynak kodunu kopyalama github'da.
 
 ## <a name="configure-your-application-to-access-the-blob-service"></a>Blob hizmetine erişmek için uygulamanızı yapılandırın
 Azure blob hizmeti API'ları kullanmak için aktarmanız gerekir:
@@ -48,11 +65,11 @@ Azure blob hizmeti API'ları kullanmak için aktarmanız gerekir:
 1. Otomatik Yükleyiciden kullanarak dosya başvuru [require_once] deyimi, ve
 2. Kullanabileceğinize sınıfları başvuru.
 
-Aşağıdaki örnek otomatik Yükleyiciden dosya ve başvuru dahil gösterilmektedir **ServicesBuilder** sınıfı.
+Aşağıdaki örnek otomatik Yükleyiciden dosya ve başvuru dahil gösterilmektedir **BlobRestProxy** sınıfı.
 
 ```php
 require_once 'vendor/autoload.php';
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 ```
 
 Aşağıdaki örneklerde `require_once` deyimi her zaman gösterilir, ancak yalnızca örnek yürütmek gerekli sınıfları başvurulur.
@@ -72,7 +89,7 @@ Depolama öykünücüsü erişmek için:
 UseDevelopmentStorage=true
 ```
 
-Herhangi bir Azure hizmeti istemcisi oluşturmak için kullanmanız gerekir **ServicesBuilder** sınıfı. Şunları yapabilirsiniz:
+Bir Azure Blob hizmeti istemcisi oluşturmak için kullanmanız gerekir **BlobRestProxy** sınıfı. Şunları yapabilirsiniz:
 
 * doğrudan bağlantı dizesi geçirin veya
 * Ortam değişkenleri Web uygulamanız bağlantı dizesini depolamak için kullanın. Bkz: [Azure web uygulaması yapılandırma ayarları](../../app-service/web-sites-configure.md) bağlantı dizelerini yapılandırma belge.
@@ -82,11 +99,12 @@ Burada özetlenen örnekler için bağlantı dizesi doğrudan geçirilir.
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 ```
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
@@ -97,15 +115,15 @@ A **BlobRestProxy** nesnesi ile bir blob kapsayıcı oluşturun olanak tanır **
 ```php
 require_once 'vendor\autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
-use MicrosoftAzure\Storage\Common\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
-// Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+// Create blob client.
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 
 // OPTIONAL: Set public access policy and metadata.
@@ -134,7 +152,7 @@ $createContainerOptions->addMetaData("key2", "value2");
 
 try    {
     // Create container.
-    $blobRestProxy->createContainer("mycontainer", $createContainerOptions);
+    $blobClient->createContainer("mycontainer", $createContainerOptions);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -156,20 +174,20 @@ Bir BLOB dosya karşıya yüklemek için kullanmak **BlobRestProxy -> createBloc
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 $content = fopen("c:\myfile.txt", "r");
 $blob_name = "myblob";
 
 try    {
     //Upload blob
-    $blobRestProxy->createBlockBlob("mycontainer", $blob_name, $content);
+    $blobClient->createBlockBlob("mycontainer", $blob_name, $content);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -189,15 +207,15 @@ BLOB'ları bir kapsayıcıda listelemek için kullanın **BlobRestProxy -> listB
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 try    {
     // List blobs.
-    $blob_list = $blobRestProxy->listBlobs("mycontainer");
+    $blob_list = $blobClient->listBlobs("mycontainer");
     $blobs = $blob_list->getBlobs();
 
     foreach($blobs as $blob)
@@ -221,16 +239,16 @@ Bir blob indirmek için arama **BlobRestProxy -> getBlob** yöntemi,'ı çağır
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 
 try    {
     // Get blob.
-    $blob = $blobRestProxy->getBlob("mycontainer", "myblob");
+    $blob = $blobClient->getBlob("mycontainer", "myblob");
     fpassthru($blob->getContentStream());
 }
 catch(ServiceException $e){
@@ -251,15 +269,15 @@ Bir blobu silmek için blob adını ve kapsayıcı adı geçirmek **BlobRestProx
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 try    {
     // Delete blob.
-    $blobRestProxy->deleteBlob("mycontainer", "myblob");
+    $blobClient->deleteBlob("mycontainer", "myblob");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -277,15 +295,15 @@ Son olarak, bir blob kapsayıcısını silmek için kapsayıcı adına geçirmek
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 try    {
     // Delete container.
-    $blobRestProxy->deleteContainer("mycontainer");
+    $blobClient->deleteContainer("mycontainer");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -303,8 +321,6 @@ Artık Azure blob hizmeti temel bilgileri öğrendiğinize göre daha karmaşık
 * Ziyaret [depolama PHP istemci kitaplığı için API Başvurusu](http://azure.github.io/azure-storage-php/)
 * Bkz: [Gelişmiş Blob örnek](https://github.com/Azure/azure-storage-php/blob/master/samples/BlobSamples.php).
 
-Daha fazla bilgi için Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
-
 [download]: https://github.com/Azure/azure-storage-php
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
@@ -312,3 +328,5 @@ Daha fazla bilgi için Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
+[install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[composer-phar]: http://getcomposer.org/composer.phar

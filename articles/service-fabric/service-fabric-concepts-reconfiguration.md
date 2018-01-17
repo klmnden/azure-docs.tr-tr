@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: ee2808286012720210070817d7ee6c2349247858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8371c4b268e1181e61542261ad7fc5fd04f6e59c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric içinde yeniden yapılandırma
 A *yapılandırma* çoğaltmaları ve kendi rolleri için durum bilgisi olan hizmet bölümü olarak tanımlanır.

@@ -2,4 +2,4 @@
 
 Bu kılavuz, docs.microsoft.com iç katkıda bulunanlar Kılavuzu'na taşınmıştır.
 
-[https://aka.MS/Git-Commands-Master](https://aka.ms/git-commands-master)
+[https://aka.ms/git-commands-master](https://aka.ms/git-commands-master)

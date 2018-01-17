@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi;andkjell
-ms.openlocfilehash: c852e33621ba7f4280858f3990380b518535b514
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b757f6d75e5025049a381d3b64576f0b19a7ca8
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Eşitleme: Teknik Kavramlar
 Bu makalede konu özetidir [anlama mimarisi](active-directory-aadconnectsync-technical-concepts.md).

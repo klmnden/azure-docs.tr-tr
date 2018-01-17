@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b5b48edda76bedc14d5528fa82f1d9b7bfffe53a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Microsoft iş için Windows Hello kuruluşunuzda etkinleştir
 Sonra [Windows 10 etki alanına katılmış cihazları Azure Active Directory ile bağlanma](active-directory-azureadjoin-devices-group-policy.md), Microsoft iş için Windows Hello kuruluşunuzda etkinleştirmek için aşağıdakileri yapın:
@@ -52,11 +52,11 @@ Ayrıca sertifikaları dağıtmak için kullandığınız zaman System Center Co
 
 1. Sunucu Yöneticisi'ni açın ve gidin **Araçları** > **Grup İlkesi Yönetimi**.
 2. Grup İlkesi Yönetimi'nden Azure AD katılım etkinleştirmek istediğiniz etki alanı için karşılık gelen etki alanı düğümü gidin.
-3. Sağ **Grup İlkesi nesneleri**seçip **yeni**. Grup İlkesi nesnesi, örneğin, etkinleştirmek için Windows Hello iş adlandırın. **Tamam** düğmesine tıklayın.
+3. Sağ **Grup İlkesi nesneleri**seçip **yeni**. Grup İlkesi nesnesi, örneğin, etkinleştirmek için Windows Hello iş adlandırın. **Tamam**’a tıklayın.
 4. Yeni Grup İlkesi nesneniz sağ tıklayın ve ardından **Düzenle**.
 5. Gidin **Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları** > **Windows bileşenleri** > **iş için Windows Hello**.
 6. Sağ **etkinleştirmek için Windows Hello iş**ve ardından **Düzenle**.
-7. Seçin **etkin** seçenek düğmesine ve ardından **Uygula**. **Tamam** düğmesine tıklayın.
+7. Seçin **etkin** seçenek düğmesine ve ardından **Uygula**. **Tamam**’a tıklayın.
 8. Bu gibi durumlarda, Grup İlkesi nesnesi artık bir konuma bağlayabilirsiniz. Tüm kuruluşunuzda etki alanına katılmış Windows 10 cihazları için bu ilkeyi etkinleştirmek için Grup İlkesi etki alanına bağlayın. Örneğin:
    * Windows 10 etki alanına katılmış bilgisayarları nerede bulunacağı Active Directory'de belirli kuruluş birimi (OU)
    * Azure AD ile kayıtlı otomatik olarak Windows 10 etki alanına katılmış bilgisayarları içeren belirli bir güvenlik grubu

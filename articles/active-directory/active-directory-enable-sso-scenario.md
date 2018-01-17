@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: dc69da316870f897fb126d8033e09a066bf89153
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory ile uygulamaları yönetme
 Gerçek iş akışı veya içeriği işletmeler tüm uygulamalar için iki temel gereksinimlere sahiptir:

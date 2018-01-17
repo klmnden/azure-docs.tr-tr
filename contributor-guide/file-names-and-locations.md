@@ -2,4 +2,4 @@
 
 Bu kılavuz, docs.microsoft.com iç katkıda bulunanlar Kılavuzu'na taşınmıştır.
 
-[https://aka.MS/Azure-File-Names](https://aka.ms/azure-file-names)
+[https://aka.ms/azure-file-names](https://aka.ms/azure-file-names)

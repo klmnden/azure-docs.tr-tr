@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: billmath
-ms.openlocfilehash: 0dbd3bbb9a45b206d9c89a1083b62852c1b2285a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50534fd1fd94eeb4eec7748857a0b7baf93cb9d2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitleme ile parola eşitlemeyi uygulama
 Bu makale, şirket içi Active Directory örneğinden bir bulut tabanlı Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
@@ -159,7 +159,7 @@ Sunucunuz Federal Bilgi İşleme Standardı (FIPS göre) kilitli, MD5 devre dı�
 **MD5 için parola eşitlemeyi etkinleştirmek için aşağıdaki adımları gerçekleştirin:**
 
 1. %ProgramFiles%\Azure AD Sync\Bin gidin.
-2. Miiserver.exe.config açın.
+2. Open miiserver.exe.config.
 3. Dosyanın sonunda yapılandırma/çalışma zamanı düğümüne gidin.
 4. Aşağıdaki düğüm ekleyin:`<enforceFIPSPolicy enabled="false"/>`
 5. Yaptığınız değişiklikleri kaydedin.

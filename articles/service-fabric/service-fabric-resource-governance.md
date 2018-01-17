@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="resource-governance"></a>Kaynak İdaresi 
 
@@ -115,8 +115,7 @@ Kaynak İdaresi sınırları uygulama bildirimi (ServiceManifestImport bölümü
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ Bu örnekte, hizmet paketi adlı **ServicePackageA** nereye yerleştirileceğini
 Bu nedenle, bu örnekte, bir çekirdek iki üç CodeA1 alır ve CodeA2 üçte bir çekirdek (ve aynı yazılım garantisi ayırma) alır. CpuShares kod paketler için belirtilmezse Service Fabric çekirdek bunları arasında eşit olarak böler.
 
 Her iki kod paketi için 1024 MB bellek (ve aynı yazılım garantisi ayırma) sınırlı olacak şekilde bellek sınırları kesin. Kod paketleri (kapsayıcıları veya işlemler), bu sınır ve bir bellek yetersiz özel durum bunu sonuçlarında denenirse daha fazla bellek ayrılamıyor. Kaynak sınırı zorlamasının çalışması için, hizmet paketi içindeki tüm kod paketlerinin bellek sınırlarının belirtilmiş olması gerekir.
+
+### <a name="using-application-parameters"></a>Uygulama parametreleri kullanma
+
+Kaynak İdaresi belirtirken kullanmak mümkün [uygulama parametreleri](service-fabric-manage-multiple-environment-app-configuration.md) birden çok uygulama yapılandırmalarını yönetme. Aşağıdaki örnek, uygulama parametreleri kullanımını gösterir:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+Bu örnekte, her bir hizmet paketi 4 çekirdek ve 2 GB bellek nereden üretim ortamı için varsayılan parametre değerlerini ayarlanır. Uygulama parametreleri dosyalarını ile varsayılan değerleri değiştirmek mümkündür. Bu örnekte, bir parametre dosyası uygulamayı yerel olarak test etmek için üretim daha az kaynak nereden kullanılabilir: 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> Uygulama parametrelerle belirten kaynak İdaresi Service Fabric sürüm 6.1 itibaren kullanılabilir.<br> 
+>
+> Kaynak İdaresi belirtmek için uygulama parametresiz kullanıldığında Service Fabric sürüm 6.1 önce bir sürüm indirgenemez. 
+
 
 ## <a name="other-resources-for-containers"></a>Kapsayıcıları için diğer kaynaklar
 CPU ve bellek yanı sıra kapsayıcıları için diğer kaynak sınırları belirtin mümkündür. Bu sınırlar kod paketi düzeyinde belirtilen ve kapsayıcı başlatıldığında uygulanır. Aksine CPU ve bellek Küme Kaynak Yöneticisi'ni bu kaynaklar farkında değildir ve olmaz herhangi kapasite denetimleri yapmak veya bunları için Yük Dengeleme. 

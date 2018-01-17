@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|API Management istemci iletişimi|Dış |
 | * / 3443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|Azure portalı ve Powershell yönetim uç noktası |İç |
-| * / 80, 443 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Azure Storage, Azure Service Bus ve Azure Active Directory bağımlılığını (uygunsa).|Dış & iç | 
+| * / 80, 443 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure Storage bağımlılığını**, Azure Service Bus ve Azure Active Directory (uygunsa).|Dış & iç | 
 | * / 1433 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure SQL Uç noktalara erişimi** |Dış & iç |
 | * / 5671, 5672 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Olay hub'ı İlkesi ve İzleme Aracısı günlüğü bağımlılığı |Dış & iç |
 | * / 445 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Azure dosya paylaşımı için GIT bağımlılığı |Dış & iç |
@@ -132,7 +132,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
  * Azure API Management içeren alt ağa uygulanan UDR Internet sonraki atlama türü olan 0.0.0.0/0 tanımlar.
  Bu adımları etkilerini, alt düzey UDR tünel, zorunlu ExpressRoute böylece Azure API Yönetimi'nden giden Internet erişimi sağlama öncelikli olacağını ' dir.
 
-**Ağ sanal Gereçleri aracılığıyla yönlendirme**: kullanan varsayılan yol (0.0.0.0/0) ile UDR API Management alt ağdan hedefleyen Internet trafiği yönlendirmek için Azure'da çalışan bir ağ vitrual Gereci aracılığıyla yapılandırmaları tam engeller API Management ve gerekli hizmetler arasındaki iletişim. Bu yapılandırma desteklenmiyor. 
+**Ağ sanal Gereçleri aracılığıyla yönlendirme**: kullanan varsayılan yol (0.0.0.0/0) ile UDR API Management alt ağdan hedefleyen Internet trafiği yönlendirmek için Azure'da çalışan bir ağ sanal gereç aracılığıyla yapılandırmaları tam engeller API Management ve gerekli hizmetler arasındaki iletişim. Bu yapılandırma desteklenmiyor. 
 
 >[!WARNING]  
 >Azure API Management ile ExpressRoute yapılandırmaları desteklenmez, **yanlış arası-özel eşleme yoluna ortak eşleme yolu yolları tanıtma**. Yapılandırılmış, ortak eşleme sahip ExpressRoute yapılandırmaları alacağı Yol tanıtımlarını Microsoft'tan çok sayıda Microsoft Azure IP adres aralıkları için. Bu adres aralıklarını yanlış cross-özel eşleme yoluna üzerinde tanıtılan, sonuç tüm giden ağ paketlerinin Azure API Management örneğinin alt ağdan hatalı zorla bir müşterinin şirket içi ağ tünelli ise Altyapı. Bu ağ akışı Azure API Management keser. Bu sorun için çözüm ortak eşleme yolu arası reklam yolları özel eşleme yoluna önlemektir.

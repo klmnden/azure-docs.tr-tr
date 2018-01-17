@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişimi kullanmaya başlama
 
@@ -33,7 +33,7 @@ Bu konu, ortamınızdaki bir konum koşula göre koşullu bir erişim test etmek
 Yalnızca Kurumsal intranet bağlantısı gerçekleştirilmez erişim uygulamalar için çok faktörlü kimlik doğrulaması gerektirmek için birçok kuruluşta bir ortak gerekli değildir. Azure Active Directory ile konum temelli koşullu erişim ilkesini yapılandırarak bu amacı kolayca gerçekleştirebilirsiniz. Bu konu, ilgili ilke yapılandırmaya ilişkin ayrıntılı yönergeler sağlar. İlke yararlanır [güvenilen IP'leri](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) şirkete yapılan erişim denemesi ayırt etmek için intranet ve diğer tüm konumlara kullanıcının.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu konuda açıklanan senaryo özetlenen kavramları hakkında bilgi sahibi olduğunu varsayar [Azure Active Directory koşullu erişim](active-directory-conditional-access-azure-portal.md).
 

@@ -2,4 +2,4 @@
 
 Bu kılavuz, docs.microsoft.com iç katkıda bulunanlar Kılavuzu'na taşınmıştır.
 
-[https://aka.MS/markdown-Links](https://aka.ms/markdown-links)
+[https://aka.ms/markdown-links](https://aka.ms/markdown-links)

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 41ae5d019e303246d7c7c2b06cf73280f6472b6e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory ayarlama katılmış cihazlarda
 
@@ -28,7 +28,7 @@ Azure Active Directory'de (Azure AD) ile cihaz yönetimi, güvenlik ve uyumlulu�
 Azure AD denetiminde çalışma şirkete ait Windows 10 cihazları getirmek istiyorsanız, bunu Azure AD alanına katılmış cihazları yapılandırarak gerçekleştirebilirsiniz. Bu konu ile ilgili adımları sağlar. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Windows 10 cihazına katılmak için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Azure AD kiracınızda aygıtları katılma iznine sahip ek olarak, daha az aygıtlarının yapılandırılmış en büyük değerden daha kayıtlı olmalıdır. Daha fazla bilgi için bkz: [aygıt ayarlarını yapılandır](device-management-azure-portal.md#configure-device-settings).
 
@@ -52,7 +52,7 @@ Windows 10 cihazına katılmak için cihaz Kayıt Hizmeti'ni aygıtlarını kayd
 
 Bu bölümde, Azure AD ile Windows 10 Cihazınızı eklemek için adımları sağlar. Azure AD ile başarıyla Cihazınızı katıldıysanız, **erişim iş veya Okul** iletişim bunu belirten bir **bağlı \<Azure AD\>**  girişi.
 
-![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/13.png)
+![Bağlı](./media/device-management-azuread-joined-devices-setup/13.png)
 
 
 **Windows 10 Cihazınızı katılmak için:**
@@ -87,7 +87,7 @@ Bu bölümde, Azure AD ile Windows 10 Cihazınızı eklemek için adımları sa�
 
 6. Üzerinde **parola gir** iletişim kutusunda, parolanızı girin ve ardından **oturum**.
 
-    ![Parolayı girin](./media/device-management-azuread-joined-devices-setup/05.png)
+    ![Parola girin](./media/device-management-azuread-joined-devices-setup/05.png)
 
 
 7. Üzerinde **kuruluşunuzun bu olduğundan emin olun** iletişim kutusunda, tıklatın **katılma**.
@@ -103,16 +103,16 @@ Bu bölümde, Azure AD ile Windows 10 Cihazınızı eklemek için adımları sa�
 
 Bir aygıt için Azure AD alanına katılıp katılmadığını doğrulamak için gözden geçirebilirsiniz **erişim iş veya Okul** aygıtınızda iletişim.
 
-![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/13.png)
+![Bağlı](./media/device-management-azuread-joined-devices-setup/13.png)
 
 Alternatif olarak, aşağıdaki komutu çalıştırabilirsiniz:`dsregcmd /status`  
 Başarıyla alanına katılmış bir cihazda **AzureAdJoined** olan **Evet**.
 
-![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/14.png)
+![Bağlı](./media/device-management-azuread-joined-devices-setup/14.png)
 
 Ayrıca, Azure AD portalı aygıt ayarlarını gözden geçirebilirsiniz.
 
-![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/15.png)
+![Bağlı](./media/device-management-azuread-joined-devices-setup/15.png)
 
 Daha fazla bilgi için bkz: [aygıtları bulmak](device-management-azure-portal.md#locate-devices).
 

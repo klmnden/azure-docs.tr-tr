@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory denetim API Başvurusu
 Bu konuda, Azure Active Directory hakkındaki konuları API raporlama koleksiyonu bir parçasıdır.  
@@ -45,7 +45,7 @@ Bkz.:
 * Genel Yöneticiler
 * API erişme yetkisi olan herhangi bir uygulama (app yetkilendirme olabilir Kurulum genel yöneticinin iznine dayanılarak yalnızca)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu rapor raporlama API'si erişmek için sahip olmanız gerekir:
 
 * Bir [Azure Active Directory ücretsiz ya da daha iyi edition](active-directory-editions.md)
@@ -56,7 +56,7 @@ Bu API aracılığıyla da erişebilirsiniz [Graph Explorer'a](https://graphexpl
 
 Bu konunun odak Graph Explorer'a noktasıdır. Bu PowerShell örnek için bkz [PowerShell Betiği](active-directory-reporting-api-audit-samples.md#powershell-script).
 
-## <a name="api-endpoint"></a>API uç noktası
+## <a name="api-endpoint"></a>API Endpoint
 Bu API aşağıdaki URI'ı kullanarak erişebilirsiniz:  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
@@ -95,7 +95,7 @@ Oturum açma için API ilgili verileri, aşağıdaki filtreleri desteklenir:
 * [Hedef/upn](#targetupn) -aktör aktör'ın kullanıcı asıl adı (UPN) biçiminde tanımlar   
 
 - - -
-### <a name="activitydate"></a>Tarihi
+### <a name="activitydate"></a>activityDate
 **İşleçler desteklenen**: eq, ge, le, gt, lt
 
 **Örnek**:
@@ -182,7 +182,7 @@ büyük küçük harfe duyarlı
 Büyük küçük harfe duyarsızdır
 
 - - -
-### <a name="actorobjectid"></a>Aktör/objectID
+### <a name="actorobjectid"></a>actor/objectId
 **İşleçler desteklenen**: eq
 
 **Örnek**:
@@ -216,7 +216,7 @@ Büyük küçük harfe duyarsızdır
 * Tam ad alanını Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity sorgulanırken eklemeniz gerekir
 
 - - -
-### <a name="targetobjectid"></a>Hedef/objectID
+### <a name="targetobjectid"></a>target/objectId
 **İşleçler desteklenen**: eq
 
 **Örnek**:

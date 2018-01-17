@@ -4,4 +4,4 @@
 
 Bu kılavuz, docs.microsoft.com iç katkıda bulunanlar Kılavuzu'na taşınmıştır.
 
-Bkz: [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)
+See [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)

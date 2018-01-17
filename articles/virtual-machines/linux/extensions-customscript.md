@@ -15,28 +15,33 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 53a241f12373acdb5d40575915d8d6c2f3c86b9a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 53adef0f512c54e036a981dbaa0d08453db6b194
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Azure özel betik uzantısı ile Linux sanal makineleri kullanma
-Özel betik uzantısının indirir ve Azure sanal makinelerde komut dosyaları çalıştırılır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Komut dosyaları Azure depolama veya diğer erişilebilir Internet konumdan indirilen veya çalışma zamanı uzantısı sağlanan. Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir ve Azure CLI, PowerShell, Azure portalında veya Azure sanal makine REST API'sini kullanarak da çalıştırılabilir.
+# <a name="use-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Azure özel betik uzantısı ile Linux sanal makineleri kullanma
+Özel betik uzantısının indirir ve Azure sanal makinelerde betikleri çalıştırır. Bu uzantı, dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için yararlıdır. Azure Storage veya başka bir erişilebilir Internet konum komut dosyaları indirebilir veya uzantısı çalışma zamanına sağlayabilir. 
 
-Bu belgede Azure CLI ve Azure Resource Manager şablonu özel betik uzantısı kullanma ayrıntıları ve ayrıca Linux sistemlerde sorun giderme adımlarını ayrıntıları.
+Özel betik uzantısının Azure Resource Manager şablonları ile tümleşir. Ayrıca Azure CLI, PowerShell, Azure portalında veya Azure sanal makineleri REST API'sini kullanarak çalıştırabilirsiniz.
+
+Bu makalede Azure clı'dan özel betik uzantısının kullanmayı ve Azure Resource Manager şablonu kullanarak uzantısı çalıştırmaya nasıl ayrıntıları. Bu makalede, ayrıca Linux sistemleri için sorun giderme adımları sağlar.
 
 ## <a name="extension-configuration"></a>Uzantı yapılandırması
-Özel betik uzantısı yapılandırma komut dosyası konumunu ve çalıştırılacak komut gibi belirtir. Bu yapılandırma, komut satırında veya bir Azure Resource Manager şablonunda belirtilen yapılandırma dosyalarında depolanabilir. Duyarlı veri şifrelenir ve yalnızca sanal makine içinde şifresi bir korumalı bir yapılandırma depolanabilir. Korumalı yapılandırma, bir parola gibi gizli yürütme komutu içerir yararlıdır.
+Özel betik uzantısı yapılandırma komut dosyası konumunu ve çalıştırılacak komut gibi belirtir. Bu yapılandırma yapılandırma dosyalarını depolamak, komut satırında belirtin veya bir Azure Resource Manager şablonu belirtin. 
+
+Duyarlı veri şifrelenir ve yalnızca sanal makine içinde şifresi bir korumalı bir yapılandırma depolayabilirsiniz. Korumalı yapılandırma, bir parola gibi gizli yürütme komutu içerir yararlıdır.
 
 ### <a name="public-configuration"></a>Genel yapılandırma
-Şema:
+Genel yapılandırma Şeması aşağıdaki gibidir.
 
-**Not** -bu özellik adları büyük/küçük harfe duyarlıdır. Dağıtım sorunlarını önlemek için aşağıda görüldüğü gibi adları kullanın.
+>[!NOTE]
+>Bu özellik adları büyük/küçük harfe duyarlıdır. Dağıtım sorunlarını önlemek için aşağıda gösterildiği gibi adları kullanın.
 
-* **commandToExecute**: (gerekli, string) yürütmek için giriş noktası komut dosyası
-* **fileUris**: (isteğe bağlı, dize dizisi) yüklenecek dosyaları için URL'leri.
-* **zaman damgası** (isteğe bağlı, tamsayı) yalnızca bu alanın değerini değiştirerek yeniden Çalıştır komut dosyasının tetiklemek için bu alanı kullanabilirsiniz.
+* **commandToExecute** (gerekli, string): çalıştırmak için giriş noktası komut dosyası.
+* **fileUris** (isteğe bağlı, dize dizisi): dosyaların indirilmesi URL.
+* **zaman damgası** (isteğe bağlı, tamsayı): betik zaman damgası. Yeniden çalıştırılan komut dosyasının tetiklemek istiyorsanız bu alanın değeri değiştirin.
 
 ```json
 {
@@ -46,13 +51,14 @@ Bu belgede Azure CLI ve Azure Resource Manager şablonu özel betik uzantısı k
 ```
 
 ### <a name="protected-configuration"></a>Korumalı yapılandırma
-Şema:
+Korumalı yapılandırma Şeması aşağıdaki gibidir.
 
-**Not** -bu özellik adları büyük/küçük harfe duyarlıdır. Dağıtım sorunlarını önlemek için aşağıda görüldüğü gibi adları kullanın.
+>[!NOTE]
+>Bu özellik adları büyük/küçük harfe duyarlıdır. Dağıtım sorunlarını önlemek için aşağıda gösterildiği gibi adları kullanın.
 
-* **commandToExecute**: (isteğe bağlı, dize) yürütmek için giriş noktası komut dosyası. Parolalar gibi gizli komutunuzu içeriyorsa, bu alan kullanın.
-* **storageAccountName**: (isteğe bağlı, dize) depolama hesabının adı. Depolama kimlik belirtirseniz, tüm fileUris Azure BLOB'ları için URL'leri olması gerekir.
-* **storageAccountKey**: (isteğe bağlı, dize) depolama hesabının erişim anahtarı.
+* **commandToExecute** (isteğe bağlı, dize): çalıştırmak için giriş noktası komut dosyası. Parolalar gibi gizli komutunuzu içeriyorsa, bu alanı kullanın.
+* **storageAccountName** (isteğe bağlı, dize): depolama hesabı adı. Depolama kimlik belirtirseniz, tüm dosya URI için Azure BLOB'ları URL'leri olması gerekir.
+* **storageAccountKey** (isteğe bağlı, dize): depolama hesabının erişim anahtarı.
 
 ```json
 {
@@ -63,13 +69,13 @@ Bu belgede Azure CLI ve Azure Resource Manager şablonu özel betik uzantısı k
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-Özel betik uzantısının çalıştırmak için Azure CLI kullanarak, bir yapılandırma dosyası veya dosya URI'si ve komut dosyası yürütme komutu en az içeren dosyaları oluşturun.
+Özel betik uzantısının çalıştırmak için Azure CLI kullanırken bir yapılandırma dosyası veya dosya oluşturun. En azından, dosyanın URI ve komut yürütme yapılandırma dosyalarını içerir.
 
 ```azurecli
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-İsteğe bağlı olarak ayarları komutta JSON biçimli dize olarak belirtilebilir. Yürütme sırasında ve ayrı yapılandırma dosyası olmadan belirtilmesi için yapılandırmasını sağlar.
+İsteğe bağlı olarak, JSON biçimli dize olarak komutta ayarları belirtebilirsiniz. Yürütme sırasında ve ayrı yapılandırma dosyası olmadan belirtilmesi için yapılandırmasını sağlar.
 
 ```azurecli
 az vm extension set '
@@ -82,7 +88,7 @@ az vm extension set '
 
 ### <a name="azure-cli-examples"></a>Azure CLI örnekleri
 
-**Örnek 1** -komut dosyası ile genel yapılandırması.
+#### <a name="public-configuration-with-script-file"></a>Komut dosyası ile ortak yapılandırma
 
 ```json
 {
@@ -97,7 +103,7 @@ Azure CLI komutu:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-**Örnek 2** -herhangi bir komut dosyası ile genel yapılandırması.
+#### <a name="public-configuration-with-no-script-file"></a>Herhangi bir komut dosyası ile ortak yapılandırma
 
 ```json
 {
@@ -111,7 +117,9 @@ Azure CLI komutu:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-**Örnek 3** - bir ortak yapılandırma dosyası URI komut dosyasını belirtmek için kullanılır ve korumalı yapılandırma dosyası çalıştırılacak komutu belirtmek için kullanılır.
+#### <a name="public-and-protected-configuration-files"></a>Genel ve korumalı yapılandırma dosyaları
+
+URI komut dosyasını belirtmek için bir ortak yapılandırma dosyası kullanın. Çalıştırılacak komutu belirtmek için korumalı yapılandırma dosyası kullanın.
 
 Genel yapılandırma dosyası:
 
@@ -135,11 +143,12 @@ Azure CLI komutu:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
 ```
 
-## <a name="resource-manager-template"></a>Resource Manager Şablonu
-Azure özel betik uzantısının Resource Manager şablonu kullanarak sanal makine dağıtımı aynı anda çalıştırabilirsiniz. Bunu yapmak için doğru biçimlendirilmiş JSON Dağıtım şablonuna ekleyin.
+## <a name="resource-manager-template"></a>Resource Manager şablonu
+Resource Manager şablonu kullanarak sanal makine dağıtımı sırasında Azure özel betik uzantısının çalıştırabilirsiniz. Bunu yapmak için doğru biçimlendirilmiş JSON Dağıtım şablonuna ekleyin.
 
 ### <a name="resource-manager-examples"></a>Resource Manager örnekleri
-**Örnek 1** -genel yapılandırması.
+
+#### <a name="public-configuration"></a>Genel yapılandırma
 
 ```json
 {
@@ -168,7 +177,7 @@ Azure özel betik uzantısının Resource Manager şablonu kullanarak sanal maki
 }
 ```
 
-**Örnek 2** -korumalı yapılandırmasında yürütme komutu.
+#### <a name="execution-command-in-protected-configuration"></a>Korumalı yapılandırmasında yürütme komutu
 
 ```json
 {
@@ -199,22 +208,22 @@ Azure özel betik uzantısının Resource Manager şablonu kullanarak sanal maki
 }
 ```
 
-.Net görmek için tam bir örnek - çekirdek müzik deposu Demo [müzik deposu Demo](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Tam bir örnek için bkz: [.NET müzik deposu demo](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Özel betik uzantısının çalıştığında, komut dosyası oluşturulur veya aşağıdaki örneğe benzer bir dizine indirilir. Komut çıktısı da bu dizinine kaydedilir `stdout` ve `stderr` dosya.
+Özel betik uzantısının çalıştığında, komut dosyası oluşturulur veya aşağıdaki örneğe benzer bir dizine indirilir. Komut çıktısı da bu dizinine kaydedilir `stdout` ve `stderr` dosyaları.
 
 ```bash
 /var/lib/waagent/custom-script/download/0/
 ```
 
-Azure betik uzantısı burada bulunabilir bir günlük üretir.
+Azure betik uzantısı burada bulabilirsiniz bir günlük üretir:
 
 ```bash
 /var/log/azure/custom-script/handler.log
 ```
 
-Özel betik uzantısının yürütme durumu ayrıca Azure CLI ile alınabilir.
+Azure CLI kullanarak özel betik uzantısının yürütme durumunu da alabilir:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
@@ -232,6 +241,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>Sonraki Adımlar
-Diğer VM betik uzantıları hakkında daha fazla bilgi için bkz: [Linux için Azure betik uzantısı genel bakış](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="next-steps"></a>Sonraki adımlar
+Diğer VM betik uzantıları hakkında daha fazla bilgi için bkz: [Linux Azure betik uzantısı genel bakış](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

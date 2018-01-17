@@ -18,7 +18,7 @@ ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web uygulamaları için özel etki alanı adı satın alma
 
@@ -171,9 +171,9 @@ Seçin **ana bilgisayar adını eklemek**.
 ### <a name="configure-hostname"></a>Ana bilgisayar adı yapılandırma
 İçinde **ana bilgisayar adını eklemek** iletişim kutusunda, uygulama hizmet etki alanınız veya herhangi bir alt etki alanı tam etki alanı adını yazın. Örneğin:
 
-- kontoso.NET
-- www.kontoso.NET
-- ABC.kontoso.NET
+- kontoso.net
+- www.kontoso.net
+- abc.kontoso.net
 
 Tamamlandığında, seçin **doğrulama**. Ana bilgisayar adı kayıt türü sizin için otomatik olarak seçilir.
 

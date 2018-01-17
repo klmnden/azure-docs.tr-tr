@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: e4977edd19d77b78f08163a6c0ff750fdbefcb3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Sorun giderme Azure Active Directory'de Kurumsal durumda Dolaşım ayarları
 
@@ -93,7 +93,7 @@ Windows 10 v1607 istemci 23 Ağustos 2016 sahip olduğundan emin olun toplu gün
 
 ---
 
-### <a name="internet-explorer-favorites-do-not-sync"></a>Internet Explorer Sık Kullanılanlar eşitleme değil
+### <a name="internet-explorer-favorites-do-not-sync"></a>Internet Explorer Favorites do not sync
 
 Windows 10 Kasım güncelleştirme (sürüm 1511) çalıştıran aygıtları etkiler.
 
@@ -109,7 +109,7 @@ Veri sızıntısı, ile korunan verileri önlemek için [Windows bilgi koruması
 
 
 **Önerilen eylem**  
-yok. Windows için gelecekteki güncelleştirmeleri bu sorun çözülebilir.
+Yok. Windows için gelecekteki güncelleştirmeleri bu sorun çözülebilir.
 
 ---
 
@@ -118,7 +118,7 @@ yok. Windows için gelecekteki güncelleştirmeleri bu sorun çözülebilir.
 Etki alanına katılmış aygıtlar eşitleme tarihi ayarı için saat ve bölge değil yararlanır: otomatik saat. Otomatik saat kullanarak diğer tarih, saat ve bölge ayarları geçersiz kılar ve eşitleme bu ayarları neden. 
 
 **Önerilen eylem**  
-yok. 
+Yok. 
 
 ---
 
@@ -135,7 +135,7 @@ Windows 10 v1511 istemcisi toplu güncelleştirme olduğundan emin olun ([KB3140
 Windows Cihazınızı bir akıllı kart veya sanal akıllı kart kullanarak oturum açmaya çalışırsanız ayarları eşitleme çalışmayı durdurur.     
 
 **Önerilen eylem**  
-yok. Windows için gelecekteki güncelleştirmeleri bu sorun çözülebilir.
+Yok. Windows için gelecekteki güncelleştirmeleri bu sorun çözülebilir.
 
 ---
 

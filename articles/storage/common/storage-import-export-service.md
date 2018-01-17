@@ -14,17 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-<<<<<<< HEAD
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
-=======
-ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -41,13 +35,13 @@ Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob D
 2.  Toplam veri boyutuna bağlı olarak, gerekli 2,5 inç SSD veya 2,5" veya sayısını 3,5" SATA II veya III sabit disk sürücüsü temin edin.
 3.  Kullanarak doğrudan SATA sabit sürücüleri eklemek veya bir windows makinesine dış USB bağdaştırıcısı ile.
 4.  Her sabit sürücü üzerinde tek bir NTFS birimi oluşturun ve birime bir sürücü harfi atama. Hiçbir bağlama.
-5.  NTFS birimi bit kasası şifrelemeyi etkinleştirin. Üzerinde https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx to enable encryption on the windows machine. yönergeleri kullanın
+5.  Windows makine şifrelemesini etkinleştirmek için NTFS birimi bit kasası şifrelemeyi etkinleştirin. Üzerinde https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx. yönergeleri kullanın
 6.  Diskleri kopyalama & Yapıştır veya sürükle & bırak veya Robocopy veya böyle bir araç kullanarak bu şifrelenmiş tek NTFS birimlerine tamamen verileri kopyalayın.
 7.  Https://www.microsoft.com/en-us/download/details.aspx?id=42659 WAImportExport V1 indirin
 8.  İçin varsayılan klasörü waimportexportv1 sıkıştırmasını açın. Örneğin, C:\WaImportExportV1  
 9.  Yönetici olarak çalıştır ve PowerShell veya komut satırı açın ve dizin sıkıştırması açılmış klasöre geçin. Örneğin, cd C:\WaImportExportV1
-10. Kopya bir not defteri için komut satırı aşağıda ve komut satırı oluşturmak üzere düzenleyebilirsiniz.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session #1 /sk:***/t:D == /bk:*** /srcdir:D: \ /dstdir:ContainerName / /skipwrite
+10. Aşağıdaki komut satırını Not Defteri'ne kopyalayın ve bir komut satırı oluşturmak üzere düzenleyebilirsiniz.
+  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
     
     bir dosyanın adını /j: .jrn uzantısı ile günlük dosyası çağrılır. Sürücü bir günlük dosyası oluşturulur ve bu nedenle disk seri numarası günlük dosyası adı olarak kullanmak için önerilir.
     /SK: azure depolama hesabı anahtarı. / t: edilmeye diskinin sürücü harfi. Örneğin, D /bk: sürücü /srcdir bit kasası anahtarıdır: edilmeye diskinin sürücü harfi ve ardından: \. Örneğin, D:\
@@ -61,12 +55,12 @@ Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob D
 
 1. Günlük https://portal.azure.com/ açın ve daha fazla hizmet altında -> depolama "içeri/dışarı aktarma işleri" ->'ı tıklatın **oluşturma içeri/dışarı aktarma işi**.
 
-2. Temel kavramları bölümünde, "Alma içine Azure" seçin, iş adı bir dize girin, bir abonelik seçin, girin veya bir kaynak grubu seçin. İçe aktarma işi için açıklayıcı bir ad girin. Girdiğiniz ad içerebilir yalnızca küçük harfler, sayılar, tire ve alt çizgi, bir harf ile başlamalı ve boşluk içeremez unutmayın. Devam eden ve bunlar tamamlandığında çalışırken işlerinizi izlemek için seçtiğiniz ad kullanır.
+2. Temel kavramları bölümünde, "Alma içine Azure" seçin, iş adı bir dize girin, bir abonelik seçin, girin veya bir kaynak grubu seçin. İçe aktarma işi için açıklayıcı bir ad girin. Girdiğiniz ad içerebilir yalnızca küçük harfler, sayılar, tire ve alt çizgi, bir harf ile başlamalı ve boşluk içeremez unutmayın. Devam eden ve bunlar tamamlandığında çalışırken işlerinizi izlemek için seçtiğiniz ad kullanın.
 
 3. İş Ayrıntıları bölümünde sürücü hazırlık adımında elde ettiğiniz sürücü günlük dosyalarını karşıya yükleyin. Waimportexport.exe version1 kullandıysanız hazırlandıktan her sürücü için bir dosyayı karşıya yüklemeyi gerekir. Verileri "Alma hedefi" depolama hesabı bölümünde alınacağı depolama hesabı seçin. Teslim konum, seçilen depolama hesabı bölgeye göre otomatik olarak doldurulur.
    
    ![Adım 3 - içe aktarma işi oluşturma](./media/storage-import-export-service/import-job-03.png)
-4. İade bilgileri bölümünden sevkiyat, taşıyıcı aşağı açılan listeden seçin ve o taşıyıcı ile oluşturduğunuz geçerli taşıyıcı hesap numarası girin. Microsoft, içe aktarma işi tamamlandıktan sonra geri için sürücüleri sevk etmek için bu hesabı kullanır. Bir tam ve geçerli kişi adı, telefon, e-posta, adres, şehir, ZIP, durumu/proviince ve ülke/bölge sağlar.
+4. İade bilgileri bölümünden sevkiyat, taşıyıcı aşağı açılan listeden seçin ve o taşıyıcı ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içe aktarma işi tamamlandıktan sonra geri için sürücüleri sevk etmek için bu hesabı kullanır. Bir tam ve geçerli kişi adı, telefon, e-posta, adres, şehir, ZIP, durumu/proviince ve ülke/bölge sağlar.
    
 5. Özet bölümünde Azure sevkiyat adresini DataCenter Azure DC disklere sevkiyat için kullanılmak üzere sağlanır. İş adı ve tam adresini sevkiyat etikette açıklanan emin olun. 
 
@@ -89,8 +83,8 @@ Bu hizmet gibi senaryolarda kullanabilirsiniz:
 * : Azure Storage'da depolamak için şirket içi verilerinizin yedekleri yedekleyin.
 * Veri kurtarma: kurtarmak büyük miktarda veri depolama alanına depolanır ve şirket içi konumunuz teslim sahip.
 
-## <a name="prerequisites"></a>Ön koşullar
-Bu bölümde bu hizmeti kullanmak için gereken önkoşulları listeler. Lütfen dikkatle sürücülerinizin göndermeden önce gözden geçirin.
+## <a name="prerequisites"></a>Önkoşullar
+Bu bölümde, bu hizmeti kullanmak için gereken önkoşulları listeler. Dikkatle sürücülerinizin göndermeden önce gözden geçirin.
 
 ### <a name="storage-account"></a>Depolama hesabı
 Var olan bir Azure aboneliği ve içeri/dışarı aktarma hizmetini kullanmak için bir veya daha fazla depolama hesabı olması gerekir. Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesaplarında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz: [bir depolama hesabı oluşturmak nasıl](storage-create-storage-account.md#create-a-storage-account).
@@ -102,13 +96,16 @@ Azure içeri/dışarı aktarma hizmeti verileri kopyalamak için kullanabileceğ
 Alma işlemini veya depodan dışarı aktarma işlemini başlatmak için önce bir iş oluşturun. Bir iş, bir içeri aktarma işi veya bir dışarı aktarma işinin olabilir:
 
 * Şirket içi Azure depolama hesabınıza olan verileri aktarmak istediğinizde bir alma işi oluşturun.
-* Depolama hesabınız için bize gönderilen sabit sürücüler için şu anda depolanan verileri aktarmak istediğinizde bir dışarı aktarma işinin oluşturun. Bir proje oluşturduğunuzda, bir Azure veri merkezi için bir veya daha fazla sabit sürücüler sevkiyat olmalıdır, içeri/dışarı aktarma hizmeti bildirin.
+* Microsoft'a gönderilen sabit sürücüleri depolama hesabınıza şu anda depolanan verileri aktarmak istediğinizde bir dışarı aktarma işinin oluşturun. Bir proje oluşturduğunuzda, bir Azure veri merkezi için bir veya daha fazla sabit sürücüler sevkiyat olmalıdır, içeri/dışarı aktarma hizmeti bildirin.
 
 * Bir içeri aktarma işi için verilerinizi içeren sabit sürücüler sevkiyat.
 * Bir dışarı aktarma işi için boş sabit disk sürücüler sevkiyat.
 * İş başına en fazla 10 sabit disk sürücülerinin gönderebilirsiniz.
 
 Bir alma oluşturma veya Azure portalını kullanarak iş dışarı aktarma veya [Azure depolama içeri/dışarı aktarma REST API](/rest/api/storageimportexport).
+
+> [!Note]
+> RDFE API'ları 28 Şubat 2018 sonraki sürümlerde desteklenmez. Hizmeti kullanmaya devam etmek için geçirilecek [ARM içeri/dışarı aktarma REST API'leri](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json). 
 
 ### <a name="waimportexport-tool"></a>WAImportExport aracı
 Oluşturmanın ilk adımı bir **alma** iş sevk edilen sürücülerinizin alma için hazırlamak için. Sürücülerinizin hazırlamak için yerel bir sunucuya bağlanın ve yerel sunucuda WAImportExport aracını çalıştırın. Bu WAImportExport aracı verilerinizi diske kopyalama, sürücüde BitLocker ile verileri şifrelemek ve sürücü günlük dosyaları oluşturma kolaylaştırır.
@@ -120,7 +117,7 @@ WAImportExport aracı yalnızca 64-bit Windows işletim sistemiyle uyumlu değil
 En son sürümünü indirme [WAImportExport aracı](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). WAImportExport aracını kullanma hakkında daha fazla ayrıntı için bkz: [WAImportExport aracını kullanarak](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
->**Önceki sürümü:** yapabilecekleriniz [WAImportExpot V1 karşıdan](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) aracı sürümü ve başvurmak [WAImportExpot V1 kullanım kılavuzda](storage-import-export-tool-how-to-v1.md). Aracı'nın WAImportExpot V1 sürümü için destek sağlar **veri zaten diske önceden yazıldığında diskleri hazırlama**. Ayrıca kullanılabilir yalnızca anahtar SAS anahtarı ise WAImportExpot V1 aracı kullanmanız gerekecektir.
+>**Önceki sürümü:** yapabilecekleriniz [WAImportExpot V1 karşıdan](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) aracı sürümü ve başvurmak [WAImportExpot V1 kullanım kılavuzda](storage-import-export-tool-how-to-v1.md). Aracı'nın WAImportExpot V1 sürümü için destek sağlar **veri zaten diske önceden yazıldığında diskleri hazırlama**. Kullanılabilir yalnızca anahtar SAS anahtarı ise, WAImportExpot V1 aracını kullanmanız gerekir.
 
 >
 
@@ -130,14 +127,14 @@ Yalnızca 2,5 inç SSD veya 2,5" veya 3,5" SATA II veya III iç HDD içeri/dış
 İçeri aktarma işi için yalnızca ilk veri birimi sürücüde işlenir. Veri birimi NTFS ile biçimlendirilmiş olması gerekir.
 
 > [!IMPORTANT]
-> Yerleşik bir USB bağdaştırıcısı ile gelen dış sabit disk sürücülerinin, bu hizmet tarafından desteklenmiyor. Ayrıca, bir dış HDD kasa içinde disk kullanılamaz; Lütfen dış HDD göndermeyin.
+> Yerleşik bir USB bağdaştırıcısı ile gelen dış sabit disk sürücülerinin, bu hizmet tarafından desteklenmiyor. Ayrıca, bir dış HDD kasa içinde disk kullanılamaz; Dış HDD göndermeyin.
 > 
 > 
 
-İç HDD veri kopyalamak için kullanılan dış USB bağdaştırıcıları listesi aşağıdadır. Anker 68UPSATAA - 02BU Anker 68UPSHHDS BU Startech SATADOCK22UE Orico 6628SUS3 C SİY (6628 serisi) Thermaltake BlacX etkin takas SATA dış sabit sürücü yerleştirme istasyon (USB 2.0 & eSATA)
+İç HDD veri kopyalamak için kullanılan dış USB bağdaştırıcıları listesi aşağıda verilmiştir. Anker 68UPSATAA - 02BU Anker 68UPSHHDS BU Startech SATADOCK22UE Orico 6628SUS3 C SİY (6628 serisi) Thermaltake BlacX etkin takas SATA dış sabit sürücü yerleştirme istasyon (USB 2.0 & eSATA)
 
 ### <a name="encryption"></a>Şifreleme
-BitLocker Sürücü Şifrelemesi'ni kullanarak sürücüdeki verilerin şifrelenmesi gerekir. Bunu esnasında bu verilerinizi korur.
+BitLocker Sürücü Şifrelemesi'ni kullanarak sürücüdeki verilerin şifrelenmesi gerekir. Bunu esnasında bu şifreleme verilerinizi korur.
 
 İçeri aktarma işi için şifreleme gerçekleştirmenin iki yolu vardır. İlk veri kümesi CSV dosyası sürücü hazırlanması sırasında WAImportExport Aracı'nı çalıştırırken kullanırken seçeneği belirtmek için yoludur. İkinci el ile sürücüde BitLocker şifrelemesini etkinleştirmek ve şifreleme anahtarını driveset CSV WAImportExport aracı komut satırı sürücü hazırlanması sırasında çalıştırırken belirtmek için bir yoludur.
 
@@ -149,7 +146,7 @@ Azure sürücüye göndermeden önce WAImportExport aracını kullanarak sabit s
 Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. BitLocker Sürücü Şifrelemesi bu işletim sistemlerini desteklemez.
 
 ### <a name="locations"></a>Konumlar
-Azure içeri/dışarı aktarma hizmeti için ve tüm ortak Azure depolama hesapları arasından veri kopyalamayı destekler. Sabit disk sürücülerinin aşağıdaki konumlardan birine gönderebilirsiniz. Depolama hesabınız, burada, Azure portal veya içeri/dışarı aktarma REST API'sini kullanarak işini oluştururken bir alternatif sevkiyat konumu sağlanan belirtilmemiş bir ortak Azure konumda ise.
+Azure içeri/dışarı aktarma hizmeti için ve tüm ortak Azure depolama hesapları arasından veri kopyalamayı destekler. Sabit disk sürücülerinin listelenen konumlardan birine gönderebilirsiniz. Depolama hesabınız, burada, Azure portal veya içeri/dışarı aktarma REST API'sini kullanarak işini oluştururken bir alternatif sevkiyat konumu sağlanan belirtilmemiş bir ortak Azure konumda ise.
 
 Sevkiyat konumlar desteklenir:
 
@@ -186,35 +183,35 @@ Sevkiyat konumlar desteklenir:
 * Almanya Orta
 * Almanya Kuzeydoğu
 
-### <a name="shipping"></a>Aktarma
+### <a name="shipping"></a>Sevkiyat
 **Veri merkezine sevkiyat sürücüler:**
 
-Bir içe veya dışa aktarma işi oluştururken, teslimat adresi sürücülerinizin dağıtmayı desteklenen konumlardan birinin sağlanacaktır. Sağlanan teslimat adresi depolama hesabınız konumuna bağlıdır, ancak depolama hesabı konumu ile aynı olmayabilir.
+Bir içe veya dışa aktarma işi oluştururken, teslimat adresi sürücülerinizin dağıtmayı desteklenen konumlardan birinin sağlanacaktır. Sağlanan sevkiyat adresi depolama hesabınız konumuna bağlıdır, ancak depolama hesabı konumu ile aynı olamaz.
 
 FedEx, UPS veya DHL sürücülerinizin teslimat adresine sevk etmek için kullanılabilir.
 
 **Veri Merkezi sürücülerden sevkiyat:**
 
-Bir içe veya dışa aktarma işi oluştururken, bir dönüş adresi geri, işi tamamlandıktan sonra sürücüleri sevkiyat yapılırken kullanılacak Microsoft sağlamanız gerekir. Lütfen işlem gecikmelerden kaçınmak için geçerli bir dönüş adresi sağlayın emin olun.
+Bir içe veya dışa aktarma işi oluştururken, bir dönüş adresi geri, işi tamamlandıktan sonra sürücüleri sevkiyat yapılırken kullanılacak Microsoft sağlamanız gerekir. İşlem gecikmelerden kaçınmak için geçerli bir dönüş adresi sağlayın emin olun.
 
-Taşıyıcı zincirini korumak için uygun izleme olması gerekir. Geçerli bir FedEx, UPS veya DHL taşıyıcı sağlamalısınız hesap sürücüleri geri aktarma için Microsoft tarafından kullanılacak numarası. FedEx, UPS veya DHL hesap numarası, sürücüler geri ABD ve Avrupa konumlardan sevkiyat için gereklidir. DHL hesap numarası, sürücüler geri Asya ve Avustralya'da konumlardan sevkiyat için gereklidir. Oluşturabileceğiniz bir [FedEx](http://www.fedex.com/us/oadr/) (için ABD ve Avrupa) veya [DHL](http://www.dhl.com/) bir yoksa (Asya ve Avustralya) taşıyıcı hesap. Bir taşıyıcı hesap numarası zaten varsa, Lütfen geçerli olduğunu doğrulayın.
+Taşıyıcı zincirini korumak için uygun izleme olması gerekir. UPS, geçerli bir FedEx sağlamanız gerekir veya sürücüler aktarma için Microsoft tarafından kullanılacak DHL taşıyıcı hesap numarası yedekleyin. Bir FedEx, UPS veya DHL hesap numarası, sürücüler geri ABD ve Avrupa konumlardan sevkiyat için gereklidir. DHL hesap numarası, sürücüler geri Asya ve Avustralya'da konumlardan sevkiyat için gereklidir. Bir yoksa oluşturabileceğiniz bir [FedEx](http://www.fedex.com/us/oadr/) (için ABD ve Avrupa) veya [DHL](http://www.dhl.com/) (Asya ve Avustralya) taşıyıcı hesap. Bir taşıyıcı hesap numarası zaten varsa, Lütfen geçerli olduğunu doğrulayın.
 
 Paketlerinizi sevkiyat içinde koşulların en izlemelisiniz [Microsoft Azure Hizmet Koşulları'nı](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> Lütfen sevkiyat fiziksel ortam uluslararası sınırların arası gerekebilir unutmayın. Fiziksel ortam ve veri içe aktarılan ve/veya ilgili yasalarına uygun olarak dışarı olduğunu sağlamaktan sorumludur. Fiziksel medya göndermeden önce medya ve verilerinizi yasal olarak tanımlanan veri merkezine gönderilebilir olduğunu doğrulamak için advisers danışın. Bu, Microsoft zamanında ulaştığında emin olmaya yardımcı olur. Örneğin, uluslararası sınırların arası herhangi bir paket (dışında Kenarlıklar Avrupa Birliği içinde çapraz) paket eşlik için ticari bir fatura gerekir. Taşıyıcı Web sitesinden ticari fatura doldurulmuş bir kopyasını yazdırmak. Ticari faturalar örnektir [DHL ticari fatura](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) ve [FedEx ticari fatura](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Microsoft dışarı aktarma belirtmedi olduğundan emin olun.
+> Gönderim yapıyorsanız fiziksel ortam uluslararası sınırların geçilecek gerekebileceğini unutmayın. Fiziksel ortam ve veri içe aktarılan ve/veya ilgili yasalarına uygun olarak dışarı olduğunu sağlamaktan sorumludur. Fiziksel medya göndermeden önce medya ve verilerinizi yasal olarak tanımlanan veri merkezine gönderilebilir olduğunu doğrulamak için advisers danışın. Bu, Microsoft zamanında ulaştığında sağlamaya yardımcı olur. Örneğin, uluslararası sınırların kestiği herhangi bir paket (dışında Kenarlıklar Avrupa Birliği içinde çapraz) paket eşlik için ticari bir fatura gerekir. Taşıyıcı Web sitesinden ticari fatura doldurulmuş bir kopyasını yazdırmak. Ticari faturalar örnektir [DHL ticari fatura](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) ve [FedEx ticari fatura](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Microsoft dışarı aktarma belirtmedi olduğundan emin olun.
 > 
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Azure içeri/dışarı aktarma hizmeti nasıl çalışır?
 İşlerini oluşturarak ve sabit disk sürücülerinin bir Azure veri merkezine sevkiyat Azure içeri/dışarı aktarma hizmetini kullanarak Azure depolama ve şirket içi site arasında veri aktarımı. Sevk her sabit diskin tek bir iş ile ilişkilidir. Her bir iş, tek bir depolama hesabıyla ilişkilendirilir. Gözden geçirme [önkoşullar bölümünde](#pre-requisites) dikkatle bu hizmetin desteklenen veri türleri gibi özellikleri hakkında bilgi edinmek için disk türlerini, konumlarını ve sevkiyat.
 
-Bu bölümde, dahil edilen adımları almak ve işleri dışarı aktarma yüksek düzeyde açıklanır. Daha sonra [Hızlı Başlat bölümünde](#quick-start), bir içeri aktarma oluşturmak ve işi vermek için adım adım yönergeler sağlıyoruz.
+Bu bölümde, içeri ve dışarı aktarma işlerinin söz konusu yüksek düzey adımlar açıklanmaktadır. Daha sonra [Hızlı Başlat bölümünde](#quick-start), bir içeri aktarma oluşturmak ve işi vermek için adım adım yönergeler sağlanır.
 
 ### <a name="inside-an-import-job"></a>İçe aktarma işi
 Yüksek bir düzeyde bir alma işi aşağıdaki adımları içerir:
 
-* İçeri aktarılacak veri ve ihtiyacınız olacak sürücü sayısını belirler.
+* İçeri aktarılacak veri ve duyduğunuz sürücü sayısını belirler.
 * Verilerinizi Azure depolama alanında hedef blob veya dosya konumunu belirleyin.
 * Bir veya daha fazla sabit disk sürücülerine verilerinizi kopyalamak ve BitLocker ile şifrelemek için WAImportExport aracını kullanın.
 * Azure portalı veya içeri/dışarı aktarma REST API kullanarak hedef depolama hesabınızda bir alma işi oluşturun. Azure portalını kullanıyorsanız, sürücü günlük dosyalarını karşıya yükleyin.
@@ -234,7 +231,7 @@ Yüksek bir düzeyde bir alma işi aşağıdaki adımları içerir:
 
 Yüksek bir düzeyde bir dışarı aktarma işinin aşağıdaki adımları içerir:
 
-* Dışa aktarılacak veri ve ihtiyacınız olacak sürücü sayısını belirler.
+* Dışa aktarılacak veri ve duyduğunuz sürücü sayısını belirler.
 * Kaynak BLOB veya verilerinizi Blob depolamada kapsayıcı yollarını belirleyin.
 * Bir dışarı aktarma işinin Azure portalı veya içeri/dışarı aktarma REST API kullanarak kaynak depolama hesabınızı oluşturun.
 * Kaynak BLOB veya kapsayıcısı yollarının verilerinizi dışarı aktarma işi belirtin.
@@ -248,18 +245,18 @@ Yüksek bir düzeyde bir dışarı aktarma işinin aşağıdaki adımları içer
     ![Şekil 2:Export iş akışı](./media/storage-import-export-service/exportjob.png)
 
 ### <a name="viewing-your-job-and-drive-status"></a>İş ve sürücü durumunu görüntüleme
-Alma durumunu izlemek veya Azure portalından işleri verebilirsiniz. Tıklatın **içeri/dışarı aktarma** sekmesi. İşleriniz listesini sayfasında görüntülenir.
+Alma durumunu izlemek veya Azure portalından işleri verebilirsiniz. Tıklatın **içeri/dışarı aktarma** sekmesi. İşleriniz Listesi sayfasında görüntülenir.
 
 ![Görünüm iş durumu](./media/storage-import-export-service/jobstate.png)
 
-Sürücünüzü işlemde olduğu bağlı olarak aşağıdaki iş durumlardan birini görürsünüz.
+Sürücünüzü işlemde olduğu bağlı olarak aşağıdaki iş durumlardan birine bakın.
 
 | İş Durumu | Açıklama |
 |:--- |:--- |
 | Oluşturma | Bir işi oluşturulduktan sonra durumu oluşturma için ayarlanır. Proje oluşturma durumundayken içeri/dışarı aktarma hizmeti sürücüleri veri merkezine sevk edilmiş değil varsayar. Bir işi haftaya kadar iki daha sonra otomatik olarak hizmet tarafından silinir, oluşturma durumda kalabilir. |
-| Aktarma | Paketinizi sevk sonra Azure portalında izleme bilgilerini güncelleştirmeniz gerekir.  Bu iş "İçine aktarma" açın. İş için iki haftalık sevkiyat durumunda kalır. 
+| Sevkiyat | Paketinizi sevk sonra Azure portalında izleme bilgilerini güncelleştirmeniz gerekir.  Bu iş "İçine aktarma" açın. İş için iki haftalık sevkiyat durumunda kalır. 
 | Alındı | Tüm sürücüleri veri merkezinde alınmış olan sonra iş durumu için alınan ayarlanır. |
-| Aktarma | En az bir sürücü işleme başladıktan sonra iş durumu aktarma için ayarlanacak. Ayrıntılı bilgi için aşağıdaki sürücü durumları bölümüne bakın. |
+| Aktarılıyor | En az bir sürücü işleme başladıktan sonra iş durumu aktarma için ayarlanacak. Ayrıntılı bilgi için aşağıdaki sürücü durumları bölümüne bakın. |
 | Paketleme | Tüm sürücüler işlemeyi tamamladıktan sonra sürücüleri size geri gönderilir kadar iş paketleme durumda yerleştirilir. |
 | Tamamlandı | İş bir hata olmadan tamamlandı, müşteri için tüm sürücülerin sevk edilmiş sonra iş tamamlandı durumuna ayarlanır. İş Tamamlandı durumunda otomatik olarak 90 gün sonra silinir. |
 | Kapalı | İş işleme sırasında hataları olmuştur, müşteri için tüm sürücülerin sevk edilmiş sonra iş kapalı duruma ayarlanır. İş kapalı durumda otomatik olarak 90 gün sonra silinir. |
@@ -272,7 +269,7 @@ Aşağıdaki tabloda her bir iş sürücüde geçirir her durumu açıklar.
 | Belirtilen | Azure portalından, iş oluşturulduğunda bir içeri aktarma işi için bir sürücü için ilk durumu belirtilen durumudur. İş oluşturulduğunda, hiçbir sürücü belirtildiği için dışa aktarma işi, ilk sürücü durumu alınan durumudur. |
 | Alındı | İçeri/dışarı aktarma hizmeti işleci bir içeri aktarma işi için sevkiyat şirketten alınan sürücüleri işlendiğinde alınan duruma sürücü geçişleri. Bir dışarı aktarma işi için ilk sürücü durumu alınan durumudur. |
 | NeverReceived | Sürücü NeverReceived durumuna işi için paket ulaşır ancak paketin sürücü içermiyor taşınır. İki hafta teslimat hizmeti aldı, ancak paket henüz veri merkezinde geldi değil bu yana olması durumunda bir sürücü de bu duruma taşıyabilirsiniz. |
-| Aktarma | Windows Azure depolama alanına sürücüden veri aktarmak hizmet başladığında, bir sürücü aktarma durumuna taşınır. |
+| Aktarılıyor | Windows Azure depolama alanına sürücüden veri aktarmak hizmet başladığında, bir sürücü aktarma durumuna taşınır. |
 | Tamamlandı | Hizmet başarıyla hatasız tüm verileri aktarıldığında bir sürücü tamamlandı durumuna taşınır.
 | CompletedMoreInfo | Hizmet gelen veya sürücüye veri kopyalanırken bazı sorunlarla karşılaştı, bir sürücü CompletedMoreInfo durumuna taşınır. Hataları, uyarı veya bilgilendirme iletileri BLOB'lar üzerine hakkında bilgiler içerebilir.
 | ShippedBack | Sürücü, veri merkezi arkadan dönüş adresi sevk edilmiş zaman ShippedBack durumuna taşınır. |
@@ -410,7 +407,7 @@ Aşağıdaki ön denetimleri sürücülerinizin dışa aktarma işi için hazır
 1. Dışarı aktarma işini oluşturmak için gidin depolama daha fazla hizmet -> Azure portalındaki "içeri/dışarı aktarma işleri" ->. Tıklatın **oluşturma içeri/dışarı aktarma işi**.
 2. Adım 1 temel bilgileri, "Azure dışarı aktarma" seçin, iş adı bir dize girin, bir abonelik seçin, girin veya bir kaynak grubu seçin. İçe aktarma işi için açıklayıcı bir ad girin. Girdiğiniz ad içerebilir yalnızca küçük harfler, sayılar, tire ve alt çizgi, bir harf ile başlamalı ve boşluk içeremez unutmayın. Devam eden ve bunlar tamamlandığında çalışırken işlerinizi izlemek için seçtiğiniz ad kullanır. Bu dışarı aktarma işi için sorumlu kişi için kişi bilgilerini sağlayın. 
 
-3. Adım 2 iş ayrıntıları, veri depolama hesabı bölümünde verilecek depolama hesabı seçin. Teslim konumu otomatik olarak olması doldurulur seçilen depolama hesabı bölgeyi temel alan. Depolama hesabınızdan boş sürücü veya sürücüler için vermek istediğiniz hangi blob verileri belirtin. Depolama hesabındaki tüm blob verilerini dışarı aktarmak seçebilirsiniz veya BLOB veya dışarı aktarmak için BLOB'ları ayarlar belirtebilirsiniz.
+3. Adım 2 iş ayrıntıları, veri depolama hesabı bölümünde verilecek depolama hesabı seçin. Teslim konum, seçilen depolama hesabı bölgeye göre otomatik olarak doldurulur. Depolama hesabınızdan boş sürücü veya sürücüler için vermek istediğiniz hangi blob verileri belirtin. Depolama hesabındaki tüm blob verilerini dışarı aktarmak seçebilirsiniz veya BLOB veya dışarı aktarmak için BLOB'ları ayarlar belirtebilirsiniz.
    
    Dışarı aktarmak için bir blob belirtmek için kullanın **eşit** Seçicisi ve blob kapsayıcı adı ile başlayan, göreli yolunu belirtin. Kullanım *$root* kök kapsayıcısı belirtin.
    
@@ -426,13 +423,13 @@ Aşağıdaki ön denetimleri sürücülerinizin dışa aktarma işi için hazır
    | İle başlar |/Music/ |Kapsayıcıdaki tüm blob'lara aktarır **müzik** |
    | İle başlar |/ Müzik/love |Kapsayıcıdaki tüm blob'lara aktarır **müzik** önek ile başlayan **memnuniyet** |
    | Eşit |$root/logo.bmp |Dışarı aktarma blob **logo.bmp** kök kapsayıcısında |
-   | Eşit |Videos/Story.mp4 |Dışarı aktarma blob **story.mp4** kapsayıcısında **videolar** |
+   | Eşit |videos/story.mp4 |Dışarı aktarma blob **story.mp4** kapsayıcısında **videolar** |
    
    Bu ekran görüntüsünde gösterildiği gibi işleme sırasında hataları önlemek için geçerli biçimler blob yollarında sağlamanız gerekir.
    
    ![Adım 3 dışa aktarma işi - oluşturma](./media/storage-import-export-service/export-job-03.png)
 
-4. Adım 3 bilgisi sevkiyat geri dönün, taşıyıcı aşağı açılan listeden seçin ve o taşıyıcı ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içe aktarma işi tamamlandıktan sonra geri için sürücüleri sevk etmek için bu hesabı kullanır. Bir tam ve geçerli kişi adı, telefon, e-posta, adres, şehir, ZIP, durumu/proviince ve ülke/bölge girin.
+4. Adım 3 bilgisi sevkiyat geri dönün, taşıyıcı aşağı açılan listeden seçin ve o taşıyıcı ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içe aktarma işi tamamlandıktan sonra geri için sürücüleri sevk etmek için bu hesabı kullanır. Bir tam ve geçerli kişi adı, telefon, e-posta, adres, şehir, ZIP, durumu/proviince ve ülke/bölge sağlar.
    
  5. Özet sayfasında, Azure DC disklere aktarma için kullanılacak Azure veri merkezinde sevkiyat adresi sağlanır. İş adı ve tam adresini sevkiyat etikette açıklanan emin olun. 
 
@@ -460,7 +457,7 @@ Bu hizmet kullanırken müşterilerin karşılaştığı en yaygın soruları ka
 
 **Azure içeri/dışarı aktarma hizmetini kullanarak Azure File storage kopyalayabilir miyim?**
 
-Evet, Azure içeri/dışarı aktarma hizmeti Azure dosya Storge alınacak destekler. Azure dosyaları dışarı aktarma şu anda desteklemiyor.
+Evet, Azure içeri/dışarı aktarma hizmetini Azure File Storage alınacak destekler. Azure dosyaları dışarı aktarma şu anda desteklemiyor.
 
 **Azure içeri/dışarı aktarma hizmeti için CSP abonelikler var mı?**
 
@@ -501,7 +498,7 @@ Hayır. Her iki içeri aktarma için kendi sürücüleri sevk ve işleri dışar
 
 ** Bu hizmet ** tarafından alınan veri nasıl erişebilir mi
 
-Verileri Azure depolama hesabınızın altında Azure portalı üzerinden erişilebilir veya ayrı bir araç kullanarak Depolama Gezgini çağrılır. https://docs.microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-With-Storage-Explorer 
+Verileri Azure depolama hesabınızın altında Azure portalı üzerinden erişilebilir veya ayrı bir araç kullanarak Depolama Gezgini çağrılır. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **İçeri aktarma işi tamamlandıktan sonra ne depolama hesabında my veri görünümü ister? Belgelerim dizini hiyerarşi korunur?**
 
@@ -542,7 +539,7 @@ Lütfen [alma PST dosyaları veya Office 365 SharePoint verileri](https://techne
 
 Lütfen [Çevrimdışı Yedekleme iş akışı Azure Yedekleme'de](../../backup/backup-azure-backup-import-export.md).
 
-**HDD için en fazla sayıda bir sevkiyat içinde nedir?**
+**En fazla sayısını HDD için bir sevkiyat nedir?**
 
 Herhangi bir sayıda HDD bir sevkiyat olabilir ve diskleri için birden çok iş aitse önerilir bir) karşılık gelen iş adlarıyla etiketli diske sahip. b) -1 ile sonekine izleme numarasıyla işleri güncelleştirme-2 vb.
   

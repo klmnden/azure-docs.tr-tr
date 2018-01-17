@@ -16,7 +16,7 @@ ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 ## <a name="setting-up-powershell"></a>PowerShell ayarlama
 Azure PowerShell kullanmadan önce aşağıdaki adımları izleyin.
