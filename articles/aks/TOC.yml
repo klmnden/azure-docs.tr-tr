@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 - Kümeyi yükseltme
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Kavramlar
+  items:
+    - name: Kotalar ve bölgesel sınırlar
+      href: container-service-quotas.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: AKS kümesini ölçeklendirme
@@ -49,6 +53,8 @@
       href: kubernetes-service-principal.md
     - name: Veri hacimlerini yapılandırma
       items:
+        - name: Azure Diskleri - Kalıcı Hacim
+          href: azure-disks-dynamic-pv.md
         - name: Azure Dosyaları - Kalıcı Hacim
           href: azure-files-dynamic-pv.md
         - name: Azure dosyaları - Hacim

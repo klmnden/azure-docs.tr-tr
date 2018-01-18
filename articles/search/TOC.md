@@ -54,7 +54,10 @@
 ### [.NET’te geliştirme](search-howto-dotnet-sdk.md)
 ### [Node.js’de geliştirme](search-get-started-nodejs.md)
 ### [Java’da geliştirme](search-get-started-java.md)
-### [SDK’yı yükseltme](search-dotnet-sdk-migration.md)
+### SDK’yı yükseltme
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [.NET Yönetim SDK'sı](search-dotnet-mgmt-sdk-migration.md)
 ### [REST API’yi yükseltme](search-api-migration.md)
 ### [Karmaşık veri türlerini modelleme](search-howto-complex-data-types.md)
 ### [Eş zamanlı güncelleştirmelerini tanımlama](search-howto-concurrency.md)

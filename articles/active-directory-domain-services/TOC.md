@@ -15,7 +15,7 @@
 ## [4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
 ## [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## [Azure CSP aboneliklerinde Azure AD Domain Services kullanma](active-directory-ds-csp.md)
 ## [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
 ## Yönetilen bir etki alanına katılma
@@ -44,7 +44,12 @@
 ## Sorun giderme
 ### [SSS’ler](active-directory-ds-faqs.md)
 ### [Sorun giderme kılavuzu](active-directory-ds-troubleshooting.md)
+### [Sorun giderme uyarıları](active-directory-ds-troubleshoot-alerts.md)
+#### [Bozuk bir NSG yapılandırmasını düzeltme](active-directory-ds-troubleshoot-nsg.md)
+#### [Eksik hizmet asıl adlarını geri yükleme](active-directory-ds-troubleshoot-service-principals.md)
+#### [Güvenli LDAP hataları](active-directory-ds-troubleshoot-ldaps.md)
 ### [Eşleşmeyen kiracı hatalarını düzeltme](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
