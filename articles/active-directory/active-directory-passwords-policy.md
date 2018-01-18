@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -85,7 +85,7 @@ Azure AD ile oturum açmak için gereken her bir kullanıcı hesabını hesaplar
 
 | Özellik | UserPrincipalName gereksinimleri |
 | --- | --- |
-| İzin verilen karakter |<ul> <li>A-Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| İzin verilen karakter |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
 | Karakterlere izin verilmez |<ul> <li>Tüm "@" kullanıcı etki alanı adından ayırarak olmayan karakter.</li> <li>Nokta karakteri içeremez "." hemen önceki "@" simgesi</li></ul> |
 | Uzunluk kısıtlamaları |<ul> <li>Toplam uzunluğu 113 karakterden uzun olamaz</li><li>Önce en fazla 64 karakter olabilir "@" simgesi</li><li>Sonra en fazla 48 karakter olabilir "@" simgesi</li></ul> |
 
@@ -95,7 +95,7 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 
 | Özellik | Gereksinimler |
 | --- | --- |
-| İzin verilen karakter |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Karakterlere izin verilmez |<ul><li>Unicode karakterler.</li><li>Alanları.</li><li> Güçlü parolalar: bir nokta karakterini içeremez "." hemen önceki "@" simgesi.</li></ul> |
 | Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 16 karakter.</li><li>Güçlü parolalar: dışı üç dört birini gerektirir:<ul><li>Küçük harf karakterler.</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Simgeler (önceki parola kısıtlamaları bakın).</li></ul></li></ul> |
 | Parola geçerlilik süresi |<ul><li>Varsayılan değer: **90** gün.</li><li>Kullanarak yapılandırılabilir bir değerdir `Set-MsolPasswordPolicy` Azure Active Directory modülü için Windows PowerShell cmdlet'i.</li></ul> |

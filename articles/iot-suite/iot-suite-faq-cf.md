@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>IOT paketi bağlı fabrikası için sık sorulan sorular önceden yapılandırılmış çözümü
 
@@ -104,20 +104,20 @@ Azure Portalı'nı kullanarak bağlantı dizesini de bulabilirsiniz. Kaynak grub
 
 Benzetim self aşağıdaki cihazları kaydeder:
 
-* Proxy.Beijing.corp.contoso
-* Proxy.capetown.corp.contoso
-* Proxy.Mumbai.corp.contoso
-* Proxy.munich0.corp.contoso
-* Proxy.Rio.corp.contoso
-* Proxy.Seattle.corp.contoso
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* proxy.beijing.corp.contoso
+* proxy.capetown.corp.contoso
+* proxy.mumbai.corp.contoso
+* proxy.munich0.corp.contoso
+* proxy.rio.corp.contoso
+* proxy.seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
-Kullanarak [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [iothub-explorer](https://github.com/azure/iothub-explorer) aracı, hangi aygıtların çözümünüzü kullanarak IOT hub ile kaydedilen kontrol edebilirsiniz. Bu araçları kullanmak için bağlantı dizesi için IOT hub'ı dağıtımınızda gerekir.
+Kullanarak [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [IOT uzantısı için Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) aracı, hangi aygıtların çözümünüzü kullanarak IOT hub ile kaydedilen kontrol edebilirsiniz. Cihaz Gezgini'ni kullanmak için bağlantı dizesi için IOT hub, dağıtımınızdaki gerekiyor. Azure CLI 2.0 için IOT uzantısını kullanmak için IOT Hub adınızı gerekir.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Günlük verileri benzetimi bileşenlerini nasıl alabilirim?
 
@@ -135,20 +135,26 @@ Alternatif olarak VM SSH aracılığıyla oturum açın ve çalışma zamanında
 
 Yayımcı aygıtlardan biri tarafından gönderilen verileri inceleyin:
 
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
 IOT Hub'ına gönderilen veri görürseniz, benzetimi ile ilgili bir sorun yoktur. İlk çözümleme adım olarak günlük dosyaları benzetimi bileşenlerinin çözümlemeniz gerekir. Bkz: [benzetimi bileşenlerini günlük verilerini nasıl alabilirim?](#how-can-i-get-log-data-from-the-simulation-components) Ardından, durdurmak ve benzetimi başlatmak ve hala gönderilen veri yoksa benzetimi tamamen güncelleştirmek deneyin. Bkz: [VM'deki benzetimi nasıl güncelleştirebilirim?](#how-do-i-update-the-simulation-in-the-vm)
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Bağlı Fabrika çözümümde nasıl etkileşimli bir harita etkinleştirilsin mi?
 
-Etkileşimli bir harita bağlı Fabrika çözümünüzdeki etkinleştirmek için Kurumsal planı için varolan bir Bing haritaları API'si olması gerekir. Www.azureiotsuite.com bağlı Fabrika çözümden dağıttığınızda Kurumsal planı için Bing haritaları API'si varsa, etkileşimli harita sizin için otomatik olarak etkinleştirilir.
+Etkileşimli bir harita bağlı Fabrika çözümünüzdeki etkinleştirmek için Kurumsal planı için varolan bir Bing haritaları API'si olması gerekir.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Bing Haritalar API'si kuruluş hesabı için nasıl oluşturulur?
+Gelen dağıtırken [www.azureiotsuite.com](http://www.azureiotsuite.com), dağıtım işlemi aboneliğiniz Kurumsal planı için etkinleştirilmiş bir Bing haritaları API'si sahiptir ve etkileşimli bir harita bağlı Fabrika otomatik olarak dağıtan doğrular. Bu durumda değilse, hala etkileşimli bir harita dağıtımınızda şu şekilde etkinleştirebilirsiniz:
+
+Dağıttığınızda kullanarak `build.ps1` GitHub deposunu bağlı fabrikada komut dosyası ve kurumsal planı için Bing haritaları API'si sahip, ortam değişkeni `$env:MapApiQueryKey` sorgu anahtarı planınız için derleme penceresinde. Etkileşimli harita otomatik olarak etkinleştirilir.
+
+Kurumsal planı için Bing haritaları API'si yoksa, bağlı Fabrika çözümden dağıtmak [www.azureiotsuite.com](http://www.azureiotsuite.com) veya kullanarak `build.ps1` komut dosyası. Daha sonra kurumsal planı için Bing haritaları API'si açıklandığı gibi aboneliğinize eklediğiniz [kuruluş hesabı için Bing haritaları API'si nasıl oluşturabilirim?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Açıklandığı gibi bu hesabın sorgu anahtarını arayın [Kurumsal QueryKey için Bing haritaları API'nizi edinme](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) ve bu anahtar kaydedin. Azure Portalı'na gidin ve bağlı Fabrika dağıtımınızdaki uygulama hizmeti kaynağa erişim. Gidin **uygulama ayarları**, bir bölümü nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** aldığınız sorgu anahtarı. Ayarları kaydetmek ve ardından gidin **genel bakış** ve uygulama hizmetini yeniden başlatın.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Bing Haritalar API'si kuruluş hesabı için nasıl oluşturulur
 
 Ücretsiz elde edebilirsiniz *iç işlemleri düzey 1 Bing Haritalar kuruluş için* planı. Ancak, yalnızca iki bu planlarını bir Azure aboneliğine ekleyebilirsiniz. Kurumsal hesap için Bing haritaları API'si yoksa, Azure portalında tıklayarak oluşturmak **+ kaynak oluşturma**. İçin arama **Kurumsal için Bing haritaları API'si** ve onu oluşturmak için istemleri izleyin.
 

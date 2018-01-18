@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory içinde SQL Server saklı yordamı etkinliğini kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,10 +74,10 @@ Aşağıdaki tabloda bu JSON özellikleri açıklanmaktadır:
 | ------------------------- | ---------------------------------------- | -------- |
 | ad                      | Etkinlik adı                     | Evet      |
 | açıklama               | Etkinlik hangi amaçla kullanıldığına açıklayan metin | Hayır       |
-| type                      | Saklı yordam etkinliği için etkinlik türü SqlServerStoredProcedure değil. | Evet      |
-| linkedServiceName         | Azure SQL Database veya Azure SQL Data Warehouse veya SQL Server başvuru veri fabrikasında bağlı hizmet olarak kayıtlı. Bu bağlantılı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
-| storedProcedureName       | Azure SQL veya çıktı tablosu kullanır bağlantılı hizmet tarafından temsil edilen Azure SQL Data Warehouse veya SQL Server veritabanı içinde saklı yordamın adını belirtin. | Evet      |
-| storedProcedureParameters | Saklı yordam parametreleri için değerleri belirtin. Kullanım `"param1": { "value": "param1Value","type":"param1Type" }` parametresi geçirmek için değerler ve bunların yerel tür veri kaynağı tarafından desteklenen. Bir parametre için null geçirmeniz gereken kullanırsanız *"param1": {"value": null}* (tüm küçük harf). | Hayır       |
+| type                      | Saklı yordam etkinliği için etkinlik türüdür **SqlServerStoredProcedure** | Evet      |
+| linkedServiceName         | Başvuru **Azure SQL veritabanı** veya **Azure SQL Data Warehouse** veya **SQL Server** veri fabrikasında bağlı hizmet olarak kayıtlı. Bu bağlantılı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
+| storedProcedureName       | Çağrılacak saklı yordamın adını belirtin. | Evet      |
+| storedProcedureParameters | Saklı yordam parametreleri için değerleri belirtin. Kullanım `"param1": { "value": "param1Value","type":"param1Type" }` parametre değerlerini ve veri kaynağı tarafından desteklenen türlerine geçirmek için. Bir parametre için null geçirmeniz gereken kullanırsanız `"param1": { "value": null }` (tüm küçük harf). | Hayır       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalelere bakın: 
@@ -85,7 +85,7 @@ Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalel
 * [U-SQL etkinliği](transform-data-using-data-lake-analytics.md)
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
 * [Pig etkinliği](transform-data-using-hadoop-pig.md)
-* [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
+* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)

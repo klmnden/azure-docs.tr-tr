@@ -3,7 +3,7 @@ title: "Azure AD Connect eşitleme: mimarisini anlama | Microsoft Docs"
 description: "Bu konuda, Azure AD Connect eşitleme mimarisini açıklar ve kullanılan terimler açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6150dca80a137e9787d943bfe9abb4224e6fe6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect eşitleme: mimarisini anlama
 Bu konu, Azure AD Connect eşitleme için temel mimarisini kapsar. Birçok yönden öncelleri MIIS 2003, ILM 2007 ve FIM 2010 için benzer. Azure AD Connect eşitleme bu teknolojiler evrimi ' dir. Tüm önceki teknolojiler hakkında bilginiz varsa, bu konu içeriği de size tanıdık gelecektir. Eşitleme için yeniyseniz, bu konu, ilgilidir. Ancak değil (Bu konuda eşitleme altyapısı olarak adlandırılır) Azure AD Connect eşitleme özelleştirmeleri yaparken başarılı olması için bu konunun ayrıntılarını bilmek gereksinimi.
@@ -180,7 +180,7 @@ Güncelleştirilen verileri hazırlama nesneleriyle bekleyen alma olarak işaret
 * **Ekleme**. Bağlayıcı alanı içinde yeni alma nesne hazırlama nesnesidir. Eşitleme altyapısı bu tür alma gibi ek meta veri işleme için bekleyen işaretler.
 * **Güncelleştirme**. Eşitleme altyapısı karşılık gelen hazırlama nesnesini bağlayıcı alanı bulur ve böylece güncelleştirmeleri öznitelikleri için meta veri deposunda işlenebilir içeri aktarma bekleyen bu türü olarak işaretler. Nesnesini yeniden adlandırma güncelleştirmeleri içerir.
 * **Silme**. Eşitleme altyapısı karşılık gelen hazırlama nesnesini bağlayıcı alanı bulur ve böylece birleştirilmiş nesne silinebilir içeri aktarma bekleyen bu türü olarak işaretler.
-* **Silme ve ekleme**. Eşitleme altyapısı karşılık gelen hazırlama nesnesini bağlayıcı alanı bulur, ancak nesne türleri eşleşmiyor. Bu durumda, bir değişiklik hazırlanan delete ekleme. Bir silme-add-değiştirme, nesne türünü değiştiğinde farklı kural kümesini bu nesne için geçerli olduğundan, bu nesnenin tam bir eşitleme gerçekleşmelidir eşitleme altyapısı gösterir.
+* **Delete/Add**. Eşitleme altyapısı karşılık gelen hazırlama nesnesini bağlayıcı alanı bulur, ancak nesne türleri eşleşmiyor. Bu durumda, bir değişiklik hazırlanan delete ekleme. Bir silme-add-değiştirme, nesne türünü değiştiğinde farklı kural kümesini bu nesne için geçerli olduğundan, bu nesnenin tam bir eşitleme gerçekleşmelidir eşitleme altyapısı gösterir.
 
 Hazırlama bir nesnenin bekleyen alma durumu ayarlayarak, önemli ölçüde bunun nedenle veri güncelleyen nesneleri işlemek sistem verdiğinden eşitleme sırasında işlenen veri miktarını azaltmak mümkündür.
 

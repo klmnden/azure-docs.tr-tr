@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect eşitleme: userCertificate özniteliği tarafından işleme LargeObject hatalardır | Microsoft Docs"
+title: "Azure AD Connect - userCertificate özniteliği tarafından LargeObject hatalardır | Microsoft Docs"
 description: "Bu konu, kullanıcı sertifikasını özniteliği tarafından kaynaklanan LargeObject hataları için düzeltme adımları sağlar."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect eşitleme: userCertificate özniteliği tarafından kaynaklanan işleme LargeObject hataları
 
@@ -89,10 +90,10 @@ Etkin ve kullanıcı nesneleri için kullanıcı sertifikasını özniteliği i�
     | Öznitelik | Değer |
     | --- | --- |
     | Yön |**Giden** |
-    | MV nesne türü |**Kişi** |
+    | MV nesne türü |**Person** |
     | Bağlayıcı |*Azure AD Bağlayıcısı adı* |
     | Bağlayıcı nesne türü |**Kullanıcı** |
-    | MV özniteliği |**kullanıcı sertifikasını** |
+    | MV özniteliği |**userCertificate** |
 
 3. Kullanıcı nesnelerinin userCertficiate özniteliği dışarı aktarmak için Azure AD Bağlayıcısı OOB (out-of-box) eşitleme kuralları kullanıyorsanız, bunu geri almanız gerekir *"Çıkışı için AAD – kullanıcı ExchangeOnline"* kuralı.
 4. Aşağı Not **öncelik** bu eşitleme kuralı değeri.
@@ -117,7 +118,7 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam filtresi** ve **daha yüksek �
     | Açıklama | *Bir açıklama belirtin* | Örneğin, *"UserCertificate özniteliği 15'ten fazla değerlere sahipse, NULL verin."* |
     | Bağlı sistem | *Azure AD Bağlayıcısı seçin* |
     | Bağlı sistem nesne türü | **Kullanıcı** | |
-    | Meta veri deposu nesne türü | **kişi** | |
+    | Meta veri deposu nesne türü | **person** | |
     | Bağlantı türü | **Birleştir** | |
     | Öncellik | *1-99 arasında bir sayı seçtiniz* | Seçilen sayı varolan herhangi bir eşitleme kural kullanılmamalıdır ve daha düşük bir değere sahip (ve bu nedenle, daha yüksek öncelik) mevcut eşitleme kuralı daha. |
 
@@ -127,8 +128,8 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam filtresi** ve **daha yüksek �
 
     | Öznitelik | Değer |
     | --- | --- |
-    | Akış türü |**İfade** |
-    | Target özniteliği |**kullanıcı sertifikasını** |
+    | Akış türü |**Expression** |
+    | Hedef Öznitelik |**userCertificate** |
     | Kaynak özniteliği |*Aşağıdaki ifade kullanmak*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Tıklatın **Ekle** eşitleme kuralı oluşturmak için düğmesi.

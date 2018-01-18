@@ -1,5 +1,5 @@
 ---
-title: "Active Directory Federasyon Hizmetleri Yönetimi ve Azure AD Connect ile özelleştirme | Microsoft Docs"
+title: "Azure AD Connect - AD FS yönetimi ve özelleştirme | Microsoft Docs"
 description: "Azure AD Connect ve AD FS oturum açma ile kullanıcı deneyimi Azure AD Connect ve PowerShell özelleştirmesini ile AD FS yönetimi."
 keywords: "AD FS, ADFS, AD FS yönetimi, AAD bağlanma, bağlan, oturum açma, AD FS özelleştirmesi, onarım güven, O365, Federasyon, bağlı olan taraf"
 services: active-directory
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Yönetmek ve Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak nasıl yöneteceğinizi ve Active Directory Federasyon Hizmetleri (AD FS) özelleştirme açıklanır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak AD FS görevler içerir.
@@ -48,7 +49,7 @@ Azure AD Connect, güven onarmak için AD FS ile Azure AD güven ve uygun eylemi
    ![Onarım AAD ve ADFS güveni](media/active-directory-aadconnect-federation-management/RepairADTrust1.PNG)
 
 2. Üzerinde **Azure ad Connect** sayfasında, Azure AD genel yönetici kimlik bilgilerinizi sağlayın ve tıklayın **sonraki**.
-   ![Azure AD'ye bağlanma](media/active-directory-aadconnect-federation-management/RepairADTrust2.PNG)
+   ![Azure AD'ye Bağlanma](media/active-directory-aadconnect-federation-management/RepairADTrust2.PNG)
 
 3. Üzerinde **uzaktan erişim kimlik bilgileri** sayfasında, etki alanı yöneticisi kimlik bilgilerini girin.
 
@@ -168,7 +169,7 @@ Azure AD Connect kullanarak Azure AD ile birleştirilecek bir etki alanına ekle
 
 4. Sonraki sayfada, sihirbaz, şirket içi dizininizle Azure AD etki alanlarının bir listesini sağlar. Etki alanı listesinden seçin.
 
-   ![Azure AD etki alanı](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
+   ![Azure AD domain](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
     Etki alanını seçtikten sonra sihirbazın daha sihirbazın gerçekleştireceği eylemleri ve yapılandırma etkisini ilgili bilgileri sağlar. Henüz Azure AD'de doğrulanmış olmayan bir etki alanı seçerseniz bazı durumlarda, sihirbaz, etki alanı doğrulamanıza yardımcı olacak bilgiler sağlar. Bkz: [özel etki alanı adınızı Azure Active Directory'ye ekleme](../active-directory-domains-add-azure-portal.md) daha fazla ayrıntı için.
 
@@ -261,7 +262,7 @@ Varsayılan kural yalnızca UPN soneki alır ve veren kimliği talep kullanır. 
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-**Talep değeri:** http://sub.contoso.com/adfs/services/trust/
+**Claim value:**  http://sub.contoso.com/adfs/services/trust/
 
 Yalnızca kök etki alanı verenin talep değeri sağlamak için talep kuralı aşağıdaki eşleşecek şekilde değiştirin:
 

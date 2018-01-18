@@ -3,7 +3,7 @@ title: "Lotus Domino Bağlayıcısı | Microsoft Docs"
 description: "Bu makalede, Microsoft'un Lotus Domino bağlayıcısının nasıl yapılandırılacağı açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino Bağlayıcısı Teknik Başvurusu
 Bu makalede Lotus Domino Bağlayıcısı açıklanmaktadır. Makale aşağıdaki ürünler için geçerlidir:
@@ -43,7 +43,7 @@ Lotus Domino Bağlayıcısı, eşitleme hizmeti IBM'in Lotus Domino sunucusuyla 
 
 Lotus Domino Bağlayıcısı'nı Lotus Notes istemci Lotus Domino sunucusu ile iletişim kurmak için kullanır. Bu bağımlılık gruplarındaki sonucu olarak, desteklenen Lotus Notes istemcisi eşitleme sunucusuna yüklenmesi gerekir. İstemci ve sunucu arasındaki iletişimin Lotus Notes .NET birlikte çalışabilirliği (Interop.domino.dll) arabirimi aracılığıyla uygulanır. Bu arabirim Microsoft.NET platform ve Lotus Notes istemci arasındaki iletişimi kolaylaştırır ve Lotus Domino belgeler ve görünümler erişimi destekler. Delta içeri aktarma için da C++ yerel arabirimi (Seçilen delta alma yöntemine bağlı olarak) kullanılır mümkündür.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bağlayıcısı'nı kullanmadan önce eşitleme sunucusunda aşağıdaki önkoşullara sahip olduğunuzdan emin olun:
 
 * 4.5.2 Microsoft .NET Framework veya daha yenisi
@@ -119,7 +119,7 @@ Bağlantı sayfasında Lotus Domino sunucu adını belirtmek ve oturum açma kim
 
 Domino sunucu özelliği sunucu adı için iki biçim destekler:
 
-* serverName
+* ServerName
 * ServerName/DirectoryName
 
 **ServerName/DirectoryName** biçimi olduğundan bu öznitelik için tercih edilen biçim bağlayıcı Domino sunucusu kurduğunda daha hızlı yanıt sağlar.
@@ -130,7 +130,7 @@ Sağlanan UserID dosya eşitleme hizmeti yapılandırma veritabanında depolanı
 
 * **None**. Bağlayıcı hiçbir delta içeri aktarmalar yapmaz.
 * **Ekleme/güncelleştirme**. Bağlayıcı mu delta içeri aktarma ekleme ve güncelleştirme işlemlerinde. Silme için bir **tam içeri aktarma** işlemi gereklidir. Bu işlem, .net birlikte çalışabilirliği kullanıyor.
-* **Ekleme/güncelleştirme/silme**. Bağlayıcı mu delta içeri aktarma ekleme, güncelleştirme ve silme işlemleri. Bu işlem, yerel C++ arabirimleri kullanıyor.
+* **Add/Update/Delete**. Bağlayıcı mu delta içeri aktarma ekleme, güncelleştirme ve silme işlemleri. Bu işlem, yerel C++ arabirimleri kullanıyor.
 
 İçinde **şema seçenekleri** aşağıdaki seçeneklere sahip olursunuz:
 
@@ -182,7 +182,7 @@ Doğru özniteliklerinde katılarak \_kişi nesneleri MV nesne katılması.
 Bu nesneler VC sahiptir =\_ilgili kişi kendi DN eklediniz.
 
 #### <a name="import-settings-conflict-object"></a>Ayarları içeri aktarmak, nesne çakışıyor
-**Çakışma nesne Dışla**
+**Exclude Conflict Object**
 
 Büyük bir Domino uygulamasında birden fazla nesne çoğaltma sorunları nedeniyle aynı DN olması mümkündür. Bu durumlarda, iki farklı UniversalIDs ancak aynı DN nesneleriyle bağlayıcı görür. Bu çakışma bağlayıcı alanı oluşturulan geçici bir nesne neden olur. Bağlayıcı Domino içinde çoğaltma kurbana seçilen nesneleri yoksayabilirsiniz. Bu onay kutusu seçili tutmanız önerilir.
 
@@ -198,7 +198,7 @@ Sahip değilse **directory Yardım** yüklü, ikincil adres defterleri adını s
 #### <a name="multivalued-transformation"></a>Birden çok değerli dönüştürme
 Lotus Domino birçok öznitelikte birden çok değerli. Karşılık gelen meta veri deposu öznitelikleri genellikle tek değerli. İçeri ve dışarı aktarma işlemi seçeneği yapılandırarak, etkilenen öznitelikleri gerekli çeviri ile yardımcı olmak bağlayıcı etkinleştirin.
 
-**Dışarı aktarma**  
+**Export**  
 Dışa aktarma işlemi seçeneği iki modlarını destekler:
 
 * Öğe Ekle

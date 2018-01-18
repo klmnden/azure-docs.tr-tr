@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Hdınsight ile betik eylemi geliştirme
 
@@ -118,7 +118,7 @@ Karşıdan yükle ve her şeyi aboneliğinizi Azure depolama hesabında arşivle
 > [!IMPORTANT]
 > Kullanılan depolama hesabı başka bir depolama hesabı üzerinde Küme ya da bir ortak, salt okunur kapsayıcı için varsayılan depolama hesabı olması gerekir.
 
-Örneğin, Microsoft tarafından sağlanan örnekleri depolanmış [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) depolama hesabı. Bu Hdınsight ekibi tarafından korunan bir ortak, salt okunur kapsayıcıdır.
+Örneğin, Microsoft tarafından sağlanan örnekleri depolanmış [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) depolama hesabı. Bu konum Hdınsight ekibi tarafından korunan bir ortak, salt okunur kapsayıcıdır.
 
 ### <a name="bPS4"></a>Önceden derlenmiş kaynakları kullanın
 
@@ -314,7 +314,7 @@ fi
 
 ## <a name="deployScript"></a>Betik eylemi dağıtma denetim listesi
 
-Biz bu komut dosyaları dağıtmak hazırlarken sürdü adımlar şunlardır:
+Bir komut dosyası dağıtmak hazırlarken adımları Al şunlardır:
 
 * Dağıtım sırasında küme düğümleri tarafından erişilebilen bir yerde özel komut dosyaları içeren dosyaları yerleştirin. Örneğin, kümenin varsayılan depolama. Dosyaları herkese açık şekilde okunabilir barındırma hizmetleri de depolanabilir.
 * Komut dosyası impotent olduğunu doğrulayın. Bunun yapılması, birden çok kez aynı düğümde yürütülmek üzere betik sağlar.

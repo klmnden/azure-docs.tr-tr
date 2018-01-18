@@ -3,7 +3,7 @@ title: "Azure yönetim Azure Active Directory'de koşullu erişim ile yönetme"
 description: "Azure yönetim erişimi yönetmek için koşullu erişim Azure AD'de kullanma hakkında bilgi edinin."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
-ms.openlocfilehash: 6b5ca97c0a6360a250bc3e91f6a8ece179a7725f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22d0e53c201853e2c316089479ffbd4d9e5d92be
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Azure Yönetim için koşullu erişim ile yönetme
 
@@ -30,7 +30,7 @@ Azure Yönetim için bir ilke oluşturmak için seçtiğiniz **Microsoft Azure M
 
 ![Azure yönetimi için koşullu erişim](./media/conditional-access-azure-mgmt.png)
 
-Oluşturduğunuz ilke Klasik Azure portalı, Azure portal, Azure Resource Manager sağlayıcısı, Klasik dahil olmak üzere tüm Azure yönetim uç noktaları için hizmet yönetim API'leri ve PowerShell uygulanır.
+Oluşturduğunuz ilke Klasik Azure portalı, Azure portal, Azure Resource Manager sağlayıcısı, Klasik dahil olmak üzere tüm Azure yönetim uç noktaları için hizmet yönetim API'leri ve Azure PowerShell uygulanır.
 
 > [!CAUTION]
 > Koşullu erişim anladığınızdan emin olmak için Azure yönetim erişimi yönetmek üzere bir ilke ayarlamadan önce çalışır. Portal kendi erişimini engelleme koşulları oluşturmayın emin olun.

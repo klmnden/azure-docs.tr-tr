@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
 
@@ -110,7 +110,7 @@ Internet üzerinden aşağıdaki yöntemleri kullanarak doğrudan erişilemeyen 
 
 Baş düğümler üzerinde çalışan hizmetleri durumunu denetlemek için Ambari Web kullanıcı arabirimini veya Ambari REST API kullanın.
 
-### <a name="ambari-web-ui"></a>Ambari Web kullanıcı Arabirimi
+### <a name="ambari-web-ui"></a>Ambari Web UI
 
 Ambari Web kullanıcı arabirimini https://CLUSTERNAME.azurehdinsight.net görülebilir. **CLUSTERNAME** değerini kümenizin adıyla değiştirin. İstenirse, kümeniz için HTTP kullanıcı kimlik bilgilerini girin. Varsayılan HTTP kullanıcı adı **yönetici** ve küme oluştururken, girdiğiniz parola paroladır.
 

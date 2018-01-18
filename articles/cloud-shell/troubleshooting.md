@@ -12,19 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/2/2017
+ms.date: 01/17/2018
 ms.author: damaerte
-ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure bulut Kabuk sorunlarını giderme
 
 Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
 
 ## <a name="general-resolutions"></a>Genel çözümleri
+
+### <a name="early-timeouts-in-firefox"></a>FireFox erken zaman aşımlarına
+- **Ayrıntılar**: Bulut Kabuk tarayıcınıza giriş/çıkış geçirmek için bir açık websocket kullanır. FireFox erken erken zaman aşımları bulut Kabuğu'nda neden websocket kapatabilirsiniz hazır ilkeleri vardır.
+- **Çözümleme**: açık FireFox gidin "hakkında: yapılandırma" URL kutusuna. Search for "network.websocket.timeout.ping.request" and change the value from 0 to 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Depolama iletişim kutusu - hata: 403 RequestDisallowedByPolicy
 - **Ayrıntılar**: Bulut Kabuk üzerinden depolama hesabı oluştururken, yöneticiniz tarafından yerleştirilen bir Azure ilkesi nedeniyle başarısız olur Hata iletisi içerir:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`

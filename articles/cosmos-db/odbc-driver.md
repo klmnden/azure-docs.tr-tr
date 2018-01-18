@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Azure Cosmos ODBC sürücüsüyle BI analiz araçları kullanarak veritabanına bağlan
 
@@ -38,9 +38,11 @@ ODBC sürücüsü nereden geldiğini budur. ODBC sürücüsünü kullanarak, tab
 
 1. Ortamınız için sürücüleri yükleyin:
 
-    * [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) 64-bit Windows için
-    * [Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) 32-bit 64-bit Windows için
-    * [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) 32-bit Windows için
+    | Yükleyici | Desteklenen işletim sistemleri| 
+    |---|---| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) 64-bit Windows için| Windows 8.1 veya daha sonra 64 bit sürümleri, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 ve Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) 32-bit 64-bit Windows için| Windows 8.1 veya daha sonra 64 bit sürümleri, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ve Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) 32-bit Windows için|Windows 8.1 veya daha sonra 32 bit sürümleri, Windows 8, Windows 7, Windows XP ve Windows Vista.|
 
     Başlatan MSI dosyası yerel olarak çalıştır **Microsoft Azure Cosmos DB ODBC sürücüsünü Yükleme Sihirbazı'nı**. 
 2. ODBC sürücüsü yüklemek için giriş varsayılan kullanarak Yükleme Sihirbazı'nı tamamlayın.
@@ -58,16 +60,16 @@ ODBC sürücüsü nereden geldiğini budur. ODBC sürücüsünü kullanarak, tab
     ![Azure Cosmos DB ODBC sürücüsü DSN Kurulum penceresi](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Veri kaynağı adı**: ODBC DSN için kendi kolay ad. Bu ad, Azure Cosmos DB hesabınıza benzersiz olduğundan, birden çok hesabı varsa, bu nedenle uygun şekilde adlandırın.
     - **Açıklama**: veri kaynağı kısa bir açıklaması.
-    - **Ana bilgisayar**: Azure Cosmos DB hesabınız için URI. Bu Azure portalında Azure Cosmos DB anahtarlar dikey penceresinden aşağıdaki ekran görüntüsünde gösterildiği gibi alabilirsiniz. 
-    - **Erişim tuşu**: birincil veya ikincil, okuma-yazma veya salt okunur anahtarı aşağıdaki ekran görüntüsünde gösterildiği gibi Azure portalında Azure Cosmos DB anahtarlar dikey penceresinden. DSN salt okunur veri işleme ve raporlama için kullanılan salt okunur anahtarı kullanmanızı öneririz.
-    ![Azure Cosmos DB anahtarlar dikey penceresi](./media/odbc-driver/odbc-driver-keys.png)
+    - **Ana bilgisayar**: Azure Cosmos DB hesabınız için URI. Bu Azure portalında Azure Cosmos DB anahtarları sayfasından aşağıdaki ekran görüntüsünde gösterildiği gibi alabilirsiniz. 
+    - **Erişim tuşu**: birincil veya ikincil, okuma-yazma veya salt okunur anahtarı Azure Cosmos DB anahtarlardan sayfasında Azure Portalı'nda aşağıdaki ekran görüntüsünde gösterildiği gibi. DSN salt okunur veri işleme ve raporlama için kullanılan salt okunur anahtarı kullanmanızı öneririz.
+    ![Azure Cosmos DB anahtarları sayfası](./media/odbc-driver/odbc-driver-keys.png)
     - **Erişim anahtarı şifrelemek**: Bu makinenin kullanıcı temelli en iyi seçenek seçin. 
 4. Tıklatın **Test** düğmesi Azure Cosmos DB hesabınıza bağlandığınızdan emin olun. 
 5. Tıklatın **Gelişmiş Seçenekler** ve aşağıdaki değerleri ayarlayın:
     - **Sorgu tutarlılık**: seçin [tutarlılık düzeyi](consistency-levels.md) işlemleriniz için. Varsayılan oturumdur.
     - **Yeniden deneme sayısı**: ilk istek hizmet azaltma nedeniyle tamamlanmazsa bir işlem yeniden deneneceğini sayısını girin.
     - **Şema dosyası**: çeşitli seçenekler burada sahip.
-        - Bu giriş (boş), olduğu gibi bırakarak varsayılan olarak, ilk sayfa verileri her koleksiyon şeması belirlemek tüm koleksiyonlar için sürücü tarar. Bu koleksiyon eşleme bilinir. Tanımlanan bir şema dosyası olmadan sürücü her bir sürücü oturumu için tarama yapması ve daha yüksek başlama DSN kullanarak bir uygulama süresi neden olabilir. Bir şema dosyası her zaman için DSN ilişkilendirmek öneririz.
+        - Bu giriş (boş), olduğu gibi bırakarak varsayılan olarak, ilk sayfa verileri her koleksiyon şeması belirlemek tüm koleksiyonlar için sürücü tarar. Bu koleksiyon eşleme bilinir. Tanımlanan bir şema dosyası olmadan sürücü her bir sürücü oturumu için tarama yapması ve daha yüksek başlangıç saati DSN kullanarak bir uygulama, bir neden olabilir. Bir şema dosyası her zaman için DSN ilişkilendirmek öneririz.
         - Bir şema dosyası zaten varsa (kullanılarak oluşturulan bir büyük olasılıkla [şema Düzenleyicisi](#schema-editor)), tıklayabilirsiniz **Gözat**, dosyaya gidin, tıklatın **kaydetmek**ve ardından **Tamam**.
         - Yeni bir şema oluşturmak istiyorsanız, tıklatın **Tamam**ve ardından **şema Düzenleyicisi** ana penceresinde. İle devam [şema Düzenleyicisi](#schema-editor) bilgi. Yeni şema dosyasını oluşturduktan sonra geri gitmek lütfen unutmayın **Gelişmiş Seçenekler** penceresi yeni oluşturulan şema dosyası içerir.
 
@@ -109,7 +111,7 @@ Aşağıdaki adımları kullanarak bir veya daha fazla koleksiyonda verileri iç
     b. Yalnızca belirli değerleri girdiğiniz özniteliği için örnekleme kapsam istiyorsanız, öznitelik seçimi kutusunda seçin ve ardından bir değer girin **değeri** kutusu, örneğin, Seattle ve ENTER tuşuna basın. Öznitelikler için birden çok değer eklemeye devam edebilirsiniz. Yalnızca doğru öznitelik değerleri girerken seçili olduğundan emin olun.
 
     Örneğin dahil, bir **öznitelikleri** değeri Şehir ve istediğiniz Tablonuzun yalnızca bir şehir değer satırlarla New York ve Dubai dahil sınırlamak, öznitelikler kutusu ve New York ve ardından Dubai içinde Şehir girersiniz **değerleri** kutusu.
-4. **Tamam** düğmesine tıklayın. 
+4. **Tamam**’a tıklayın. 
 5. Buna örneklemek istediğiniz koleksiyonları eşleme tanımlarında tamamladıktan sonra **şema Düzenleyicisi** penceresinde tıklatın **örnek**.
      Her sütun için değiştirebileceğiniz sütun SQL adı, SQL türü, SQL uzunluğu (varsa), Ölçek (varsa), duyarlık (varsa) ve null atanabilir.
     - Ayarlayabileceğiniz **sütunu gizle** için **true** sorgu sonuçlarındaki bu sütununu hariç tutmak istiyorsanız. Sütunları gizleme sütun işaretli = true hala şemanın bir parçası olsa seçimi ve yansıtma, döndürülmez. Örneğin, "_" ile başlayan tüm Azure Cosmos DB gerekli sistem özellikleri gizleyebilirsiniz.
@@ -130,7 +132,7 @@ Dilediğiniz gibi birçok görünümler oluşturabilirsiniz. İşiniz bittiğind
 
 ODBC uyumlu bir araçlarıyla DocumentADB bağlanmak için yeni DSN kullanabilirsiniz - Bu adım yalnızca, Power BI Desktop bağlanmak ve bir Power BI görselleştirmesi oluşturmak nasıl gösterir.
 
-1. Power BI Desktop açın.
+1. Open Power BI Desktop.
 2. Tıklatın **veri alma**.
 3. İçinde **Veri Al** penceresinde tıklatın **diğer** | **ODBC** | **Bağlan**.
 4. İçinde **gelen ODBC** penceresi, veri kaynağının adını ve ardından select **Tamam**. Bırakabilirsiniz **Gelişmiş Seçenekler** girişleri boş.
@@ -148,4 +150,4 @@ Aşağıdaki hata iletisini alırsanız olun **konak** ve **erişim tuşu** Azur
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Cosmos DB hakkında daha fazla bilgi için bkz: [Azure Cosmos DB nedir?](introduction.md).
+Azure Cosmos DB hakkında daha fazla bilgi için bkz: ['na Hoş Geldiniz Azure Cosmos DB](introduction.md).

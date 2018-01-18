@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -135,6 +135,8 @@ Tek tek dosyaların eşitlemesi başarısız oluyorsa:
 
     > [!NOTE]
     > Azure dosya eşitleme, VSS anlık görüntüleri tanımlayıcıları açık dosyaları eşitlemek için düzenli aralıklarla alır.
+
+Şu anda başka bir abonelik veya taşıma için kaynak taşıma desteklemiyoruz için farklı bir Azure AD Kiracı.  Abonelik için farklı bir kiracı geçerse, Azure dosya paylaşımı için sahiplik değişikliği göre hizmetimizi erişilemez duruma gelir. Kiracı değiştirdiyseniz, sunucu uç noktaları ve bulut uç noktası silmeniz gerekir (bkz: eşitleme Grup Yönetimi yeniden kullanılacak Azure dosya paylaşımı temizlemek nasıl yönergeler için bölüm) ve eşitleme grubunu yeniden oluşturun.
 
 ## <a name="cloud-tiering"></a>Bulut katmanlaması 
 Bulutta hataları için iki yol katmanlama:

@@ -3,7 +3,7 @@ title: "Bağlayıcısı sürüm yayımlama geçmişi | Microsoft Docs"
 description: "Bu konu bağlayıcıları tüm sürümleri, Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) için listeler."
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -13,18 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
-ms.author: fimguy
-<<<<<<< HEAD
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: billmath
+ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="connector-version-release-history"></a>Bağlayıcı Sürümü Yayınlama Geçmişi
 Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) bağlayıcıları sık sık güncelleştirilir.
@@ -217,7 +211,7 @@ Mart 2016 öncesinde bağlayıcıları destek konuları yayımlanmıştır.
 * [KB3008177](https://support.microsoft.com/kb/3008177) -1.0.0419, 2014 Eylül
 * [KB2936070](https://support.microsoft.com/kb/2936070) -4.3.1082, Mart 2014
 
-**Webservices'a**
+**WebServices**
 
 * [KB3008178](https://support.microsoft.com/kb/3008178) -1.0.0419, 2014 Eylül
 

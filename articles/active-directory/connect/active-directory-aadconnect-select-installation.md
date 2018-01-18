@@ -3,7 +3,7 @@ title: "Azure AD Connect: yükleme türünü seçin. | Microsoft Docs"
 description: "Bu konuda, Azure AD Connect için kullanılacak yükleme türü seçme açıklanmaktadır"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Azure AD Connect için kullanmak üzere hangi yükleme türünü seçin
 Azure AD Connect, yeni yükleme için iki yükleme türleri vardır: Express ve özelleştirilebilir. Bu konuda, yükleme sırasında kullanmak için hangi seçeneği karar vermenize yardımcı olur.
@@ -41,7 +41,7 @@ Bunu varsayılır:
 
 Seçenekler burada Express kullanmaya devam edebilirsiniz:
 
-- Tüm OU'larda eşitlemek istemediğiniz yaparsanız hala Express kullanın ve son sayfasında seçimini kaldırın **eşitleme işlemini başlat...** *. Yükleme Sihirbazı'nı yeniden çalıştırın ve OU'larda değiştirme [yapılandırma seçenekleri](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) ve zamanlanmış eşitleme etkinleştirin.
+- Tüm OU'larda eşitlemek istemediğiniz yaparsanız hala Express kullanın ve son sayfasında seçimini kaldırın **... eşitleme işlemini başlatmak ***. Yükleme Sihirbazı'nı yeniden çalıştırın ve OU'larda değiştirme [yapılandırma seçenekleri](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) ve zamanlanmış eşitleme etkinleştirin.
 - Azure AD Premium, parola geri yazma gibi özelliklerden birini, etkinleştirmek istediğiniz. İlk ilk yükleme almak için express gidin. Yükleme Sihirbazı'nı yeniden çalıştırın ve değiştirme [yapılandırma seçenekleri](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Özel

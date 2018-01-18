@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarım konuları - karma kimlik yönetimi görevleri belirlemek | Microsoft Docs"
+title: "Karma kimlik tasarımı - yönetim görevleri Azure | Microsoft Docs"
 description: "Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Karma kimlik yaşam döngüsü planlaması
 Kimlik, enterprise mobility ve uygulama erişim stratejilerin temellerinden biridir. Mobil cihaz veya SaaS uygulaması için imzalama olup olmadığını kimliğinizi her şeyi erişmesini için anahtardır. En yüksek düzeyde bir kimlik yönetimi çözümü birleştirin ve otomatikleştirmek ve kaynakları sağlama işlemidir merkezileştirme içeren, kimlik depoları arasında eşitleniyor kapsar. Kimlik çözümü, şirket içi ve bulut arasında merkezi bir kimlik olabilir ve aynı zamanda merkezi kimlik doğrulaması ve güvenli bir şekilde paylaşmak koruyup dış kullanıcılar ve işletmelerin işbirliği yapmak için Kimlik Federasyonu çeşit kullanmanız gerekir. Kaynakları işletim sistemlerini ve uygulamaları kişilere çeşitli ya da bir kuruluşla ilişkili. Organizasyon yapısı sağlama ilkeleri ve yordamlarıyla uyum sağlayacak şekilde değiştirilebilir.

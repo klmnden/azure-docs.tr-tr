@@ -3,7 +3,7 @@ title: "Azure AD Connect eşitleme: filtrelemeyi yapılandırma | Microsoft Docs
 description: "Azure AD Connect eşitleme filtrelemenin nasıl yapılandırılacağı açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: cbcf448ccff22219adb8c7d3652e7698ef4d231e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış ormandaki tüm etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için Exchange Online ve Skype Kurumsal, gibi Office 365 iş yükleri kullanarak kullanıcıların tam genel adres listesinden yararlanır. Varsayılan yapılandırma ile kullanıcılar bir şirket içi Exchange veya Lync uygulamasıyla olurdu aynı deneyimi gerekir.
@@ -256,7 +256,7 @@ Bu örnekte, böylece yalnızca kullanıcılar, posta ve userPrincipalName biten
 5. Açılır pencerede yanıt **Evet** kuralın bir kopyası oluşturulamıyor.
 6. Üzerinde **açıklama** sayfasında, değişiklik **öncelik** 50 gibi kullanılmayan bir değere.
 7. Tıklatın **Scoping filtre** sol gezinti ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **posta**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değeri**, türü  **@contoso.com** ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **userPrincipalName**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değeri**, türü  **@contoso.com** .
-8. **Kaydet** düğmesine tıklayın.
+8. **Kaydet**’e tıklayın.
 9. Yapılandırmayı tamamlamak için çalıştırmanız gerekir bir **tam eşitleme**. Bölüm okuma devam [Uygula ve değişiklikleri doğrulamak](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Uygulama ve değişiklikleri doğrulayın

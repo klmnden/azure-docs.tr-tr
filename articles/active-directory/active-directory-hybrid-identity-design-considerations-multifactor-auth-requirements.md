@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - çok faktörlü kimlik doğrulama gereksinimlerini belirleme"
+title: "Karma kimlik tasarımı - çok faktörlü kimlik doğrulama gereksinimlerini Azure | Microsoft Docs"
 description: "Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5b3a8ce6e4203dfb3700f324e32687dd910118af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seohack1
+ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü çok faktörlü kimlik doğrulama gereksinimlerini belirleme
 Veri ve uygulamaları bulutta ve herhangi bir CİHAZDAN erişen kullanıcılar ile yeteneği bu dünyasında bu bilgileri güvenlik altına almanın en önemli haline gelmiştir.  Her gün yeni bir başlık güvenlik ihlali hakkında yoktur.  Olmasına karşın, bu tür ihlallerine karşı garanti, çok faktörlü kimlik doğrulaması, ek bir bu ihlallerini önlemeye yardımcı olmak için güvenlik katmanı sağlar.

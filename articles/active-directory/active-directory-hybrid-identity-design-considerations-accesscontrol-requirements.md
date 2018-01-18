@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - belirlemek erişim denetimi gereksinimlerine | Microsoft Docs"
+title: "Karma kimlik tasarımı erişim denetimi gereksinimlerine Azure | Microsoft Docs"
 description: "Kimlik ve karma bir ortamda kullanıcıları için kaynaklar için erişim gereksinimleri tanımlama ayaklar kapsar."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için erişim denetimi gereksinimleri belirleme
 Bir kuruluş kendi karma kimlik çözümü tasarlarken, bu fırsatı kullanıcılar için kullanılabilir hale getirmek için planlama kaynaklar için erişim gereksinimleri gözden geçirmek için kullanabilirsiniz. Veri erişimi olan tüm dört ayaklar kimliğini, çapraz:

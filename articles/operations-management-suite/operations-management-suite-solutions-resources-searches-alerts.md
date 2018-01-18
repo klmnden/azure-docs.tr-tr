@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Günlük analizi ekleme arar ve Uyarıları kaydedilmiş OMS yönetim çözümü (Önizleme)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/17/2017
 > [!NOTE]
 > Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [Operations Management Suite (OMS) yönetimi çözümleri oluşturma](operations-management-suite-solutions-creating.md)  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [bir yönetim çözümü oluşturma](operations-management-suite-solutions-creating.md) ve yapısı bir [Resource Manager şablonu](../resource-group-authoring-templates.md) ve çözüm dosya.
 
 
@@ -45,17 +45,14 @@ Her günlük analizi kaynak adına çalışma adıdır.  Bu çözümle yapılır
 ## <a name="log-analytics-api-version"></a>Günlük analizi API sürümü
 Resource Manager şablonunda tanımlanan tüm günlük analizi kaynaklarını özelliğine sahip **apiVersion** kaynak kullanması gereken API sürümü tanımlar.  Bu kullanan kaynaklar için farklı bir sürümdür [eski ve yükseltilmiş sorgu dili](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- Aşağıdaki tabloda, eski ve yükseltilmiş çalışma alanlarını ve her biri için farklı bir sözdizimi belirtmek için bir örnek sorgu için günlük analizi API sürümleri belirtir. 
+ Aşağıdaki tabloda, eski ve yükseltilmiş çalışma alanlarında Kaydedilmiş aramaları için günlük analizi API sürümleri belirtir: 
 
-| Çalışma alanında sürümü | API sürümü | Örnek sorgu |
+| Çalışma alanında sürümü | API sürümü | Sorgu |
 |:---|:---|:---|
-| V1 (eski)   | 2015-11-01-Önizleme | Tür olay EventLevelName = hata =             |
-| v2 (yükseltme) | 2017-03-15-Önizleme | Olay &#124; Burada EventLevelName "Error" ==  |
+| V1 (eski)   | 2015-11-01-Önizleme | Eski biçimi.<br> Örnek: Yazın olay EventLevelName = hata =  |
+| v2 (yükseltme) | 2015-11-01-Önizleme | Eski biçimi.  Yükleme yükseltilmiş biçimine dönüştürülür.<br> Örnek: Yazın olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; Burada EventLevelName "Error" ==  |
+| v2 (yükseltme) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; Burada EventLevelName "Error" ==  |
 
-Çalışma alanları farklı sürümleri tarafından desteklenir aşağıdakileri göz önünde bulundurun.
-
-- Eski sorgu dili kullanmanızı şablonları yükseltilmiş veya eski bir çalışma alanında yüklenebilir.  Kullanıcı tarafından çalıştırdığınızda yükseltilen bir çalışma alanında yüklediyseniz, ardından sorguları yeni dil için kolay bir şekilde dönüştürülür.
-- Yükseltilen sorgu dili kullanmanızı şablonları yükseltilmiş bir çalışma alanında yalnızca yüklenebilir.
 
 
 ## <a name="saved-searches"></a>Kaydedilen aramalar
@@ -130,7 +127,7 @@ Zamanlama kaynaklar için özellikler aşağıdaki tabloda açıklanmıştır.
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
-| Etkin       | Evet | Oluşturulduğunda uyarının etkin olup olmadığını belirtir. |
+| enabled       | Evet | Oluşturulduğunda uyarının etkin olup olmadığını belirtir. |
 | interval      | Evet | Ne sıklıkta sorgu dakika içinde çalışır. |
 | QueryTimeSpan | Evet | Sonuçları değerlendirileceği üzerinden dakika cinsinden süre uzunluğu. |
 
@@ -200,7 +197,7 @@ Bu bölüm gereklidir.  Uyarı eşiği özelliklerini tanımlar.
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
-| işleci | Evet | Aşağıdaki değerlerden karşılaştırma işleci:<br><br>**gt büyük =<br>lt = küçüktür** |
+| İşleç | Evet | Aşağıdaki değerlerden karşılaştırma işleci:<br><br>**gt büyük =<br>lt = küçüktür** |
 | Değer | Evet | Sonuçları karşılaştırmak için değer. |
 
 
@@ -213,7 +210,7 @@ Bu bölümde isteğe bağlıdır.  Bir ölçüm ölçüm uyarı içerir.
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
 | TriggerCondition | Evet | Eşik ihlallerini veya aşağıdaki değerlerden ardışık ihlallerini toplam sayısını olup olmadığını belirtir:<br><br>**Toplam<br>ardışık** |
-| işleci | Evet | Aşağıdaki değerlerden karşılaştırma işleci:<br><br>**gt büyük =<br>lt = küçüktür** |
+| İşleç | Evet | Aşağıdaki değerlerden karşılaştırma işleci:<br><br>**gt büyük =<br>lt = küçüktür** |
 | Değer | Evet | Sayısı uyarıyı tetikleyecek ölçütler karşılanması gerekir. |
 
 ##### <a name="throttling"></a>Azaltma
@@ -228,9 +225,9 @@ Bu bölümde isteğe bağlıdır.  Bazı süreyi bir uyarı oluşturulduktan son
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
-| Alıcıları | Evet | Bir uyarı aşağıdaki örnekte olduğu gibi oluşturulduğunda, bildirim göndermek için e-posta adreslerini virgülle ayrılmış listesi.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Alıcılar | Evet | Bir uyarı aşağıdaki örnekte olduğu gibi oluşturulduğunda, bildirim göndermek için e-posta adreslerini virgülle ayrılmış listesi.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Konu | Evet | Posta konu satırı. |
-| Eki | Hayır | Ekleri şu anda desteklenmemektedir.  Bu öğe dahil ise olmalıdır **hiçbiri**. |
+| Ek | Hayır | Ekleri şu anda desteklenmemektedir.  Bu öğe dahil ise olmalıdır **hiçbiri**. |
 
 
 ##### <a name="remediation"></a>Düzeltme
@@ -240,7 +237,7 @@ Bu bölümde isteğe yanıt olarak uyarı başlatmak üzere bir runbook'u istiyo
 |:--|:--|:--|
 | RunbookName | Evet | Başlatmak için runbook'un adı. |
 | WebhookUri | Evet | Runbook için Web kancası URI'si. |
-| Süre sonu | Hayır | Tarih ve saat düzeltme süresi dolar. |
+| Süre Sonu | Hayır | Tarih ve saat düzeltme süresi dolar. |
 
 #### <a name="webhook-actions"></a>Web kancası eylemleri
 
@@ -271,7 +268,7 @@ Web kancası eylem kaynaklar için özellikler aşağıdaki tabloda açıklanmı
 | type | Evet | Eylem türü.  Bu **Web kancası** Web kancası eylemleri için. |
 | ad | Evet | Eylem görünen adı.  Bu konsolunda görüntülenmez. |
 | wehookUri | Evet | Web kancası için URI. |
-| CustomPayload | Hayır | Web kancası için gönderilecek özel yükü. Web kancası bekleniyor üzerinde biçimi bağlıdır. |
+| customPayload | Hayır | Web kancası için gönderilecek özel yükü. Web kancası bekleniyor üzerinde biçimi bağlıdır. |
 
 
 

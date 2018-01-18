@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - belirlemek olay rResponse gereksinimleri | Microsoft Docs"
+title: "Karma kimlik tasarımı - olay yanıtlama gereksinimlerini Azure | Microsoft Docs"
 description: "Tarafından yararlanılabilir karma kimlik çözümü için izleme ve raporlama özelliklerini belirlemek tanımlamak ve olası tehditleri azaltmak amacıyla önlemler almak için BT"
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dd612c0634782ed758835b8bf264fcc884c428fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için olay yanıtlama gereksinimlerini belirleyin
 Büyük veya orta ölçekli kuruluşlarda büyük olasılıkla sahip olacak bir [güvenlik olay yanıtlama](https://technet.microsoft.com/library/cc700825.aspx) yardımcı olmak üzere BT buna göre eylemleri olay düzeyine. Hedefe karşı belirli bir eylemi gerçekleştiren kişiye tanımlayan yardımcı olmak için kullanılabileceğinden kimlik yönetimi sistemi olay yanıtlama işlemindeki önemli bir bileşendir. Karma kimlik çözümü tarafından yararlanılabilir izleme ve raporlama özelliklerini sağlayabilir tanımlamak ve bir olası tehdidi azaltmak amacıyla önlemler almak için BT. Bir genel olay yanıtlama planında planının bir parçası aşağıdaki aşamaları olacaktır:

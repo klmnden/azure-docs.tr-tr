@@ -9,28 +9,30 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 8c98c58042e7f1d1726eaad6ee03d1531b6c910e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 429828515411986dc7b3586360cb9923a5bb20de
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Azure veritabanı en düşük kapalı kalma geçiş PostgreSQL için
-Microsoft Migrations, Attunity ve Azure veritabanı geçiş hizmeti ile birlikte sağlanan Microsoft birlikte sponsorlu, birleşik bir sunumu için Attunity Replicate kullanarak PostgreSQL için Azure veritabanına varolan PostgreSQL veritabanınızı geçirebilirsiniz Microsoft müşterileri için hiçbir ek ücret ödemeden. Attunity çoğaltmak için Microsoft Migrations veritabanı geçiş en düşük kapalı kalma süresi de sağlar ve geçiş işlemi sırasında işlevsel olması kaynak veritabanı devam eder.
+Varolan PostgreSQL veritabanınızı Attunity çoğaltmak için Microsoft Migrations kullanarak PostgreSQL için Azure veritabanına geçirebilirsiniz. Attunity Replicate Attunity ve Microsoft tarafından birleşik bir tekliftir. Azure veritabanı geçiş hizmeti ile birlikte Microsoft müşterileri için hiçbir ek ücret ödemeden dahil edilir. 
 
-Attunity Replicate çeşitli kaynakları ve hedefler arasında veri eşitlemeye sağlayan bir veri çoğaltma ile her veritabanı tablosu ilişkili veri ve şema oluşturma komut dosyasında yayılıyor aracıdır. Attunity Replicate herhangi bir yapı (örneğin, SP, Tetikleyiciler, İşlevler, vb.) yayılması değil ya da dönüştürme, örneğin, T-SQL için böyle yapılara barındırılan PL/SQL kodu.
+Kaynak veritabanı işlemi boyunca işletimsel tutar ve veritabanı geçişler sırasında kapalı kalma süresini en aza indirmek Attunity Replicate yardımcı olur.
+
+Attunity Replicate çeşitli kaynakları ve hedefleri arasında veri eşitlemeye sağlayan bir veri çoğaltma aracıdır. Her veritabanı tablosu ile ilişkili veri ve şema oluşturma komut dosyasında yayar. Attunity Replicate herhangi bir yapı (örneğin, SP, Tetikleyiciler, İşlevler ve benzeri) veya dönüştürme, örneğin, T-SQL böyle yapılara içinde barındırılan PL/SQL kodunu dağıtılmaz.
 
 > [!NOTE]
-> Attunity Replicate geçiş senaryoları, geniş kapsamlı bir kümesini destekler, ancak belirli bir alt kaynak/hedef çifti için destek Microsoft Migrations Attunity Replicate odaklanmıştır.
+> Geçiş senaryoları geniş bir dizi Attunity Replicate desteklemesine rağmen belirli bir alt kaynak/hedef çifti için destek odaklanır.
 
 En düşük kapalı kalma geçiş gerçekleştirmeye işlemine genel bakış içerir:
 
-1. **PostgreSQL kaynağı şemasını geçirme** kullanarak PostgreSQL veritabanı için bir Azure veritabanı [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) komut - n parametresiyle ve ardından kullanarak [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) komutu.
+* **PostgreSQL kaynağı şemasını geçirme** kullanarak PostgreSQL veritabanı için bir Azure veritabanı [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) komut - n parametresiyle ve ardından kullanarak [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) komutu.
 
-2. **İlk yükleme ve sürekli veri eşitleme kaynak veritabanından hedef veritabanına ayarlama** Attunity çoğaltmak için Microsoft Migrations kullanarak. Bunun yapılması kaynak veritabanı salt okunur olarak Azure üzerinde uygulamalarınızı hedef PostgreSQL veritabanına geçiş hazırlanırken ayarlanmalıdır süresini en aza indirir.
+* **İlk yükleme ve sürekli veri eşitleme kaynak veritabanından hedef veritabanına ayarlama** Attunity çoğaltmak için Microsoft Migrations kullanarak. Bunun yapılması kaynak veritabanı salt okunur olarak Azure üzerinde uygulamalarınızı hedef PostgreSQL veritabanına geçiş hazırlanırken ayarlanmalıdır süresini en aza indirir.
 
-Microsoft Migrations teklifi için Attunity çoğaltmak hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
- - Microsoft Migrations Attunity Replicate [web sayfası](https://aka.ms/attunity-replicate).
- - [Karşıdan](http://discover.attunity.com/download-replicate-microsoft-lp6657.html) Microsoft geçişler için Attunity çoğaltılır.
- - Attunity Replicate [topluluk](https://microsoft.attunity.com/), Hızlı Başlangıç Kılavuzu, eğitim ve destek.
- - PostgreSQL PostgreSQL için Azure veritabanına geçirmek için Attunity kullanma hakkında adım adım yönergeler için bkz [veritabanı Geçiş Kılavuzu](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).
+Microsoft teklifi Migrations Attunity çoğaltmak hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+ - Git [Attunity çoğaltmak için Microsoft Migrations](https://aka.ms/attunity-replicate) Web sayfası.
+ - Karşıdan [Attunity Replicate Microsoft geçişler için](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
+ - Git [Attunity çoğaltmak topluluk](https://microsoft.attunity.com/) bir Hızlı Başlangıç Kılavuzu, eğitim ve destek için.
+ - PostgreSQL PostgreSQL için Azure veritabanına geçirmek için Attunity Replicate kullanma hakkında adım adım yönergeler için bkz: [veritabanı Geçiş Kılavuzu](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).

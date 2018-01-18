@@ -6,14 +6,14 @@ keywords:
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 269f77e5015175e45e0078926ef06699811889a4
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cad28b4e6d4e46058641da19795cd71efdbd0c92
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-c-module-with-azure-iot-edge"></a>C# modül Azure IOT Edge geliştirmek için Visual Studio Code kullanma
 Bu makalede kullanmaya yönelik ayrıntılı yönergeler sağlanmaktadır [Visual Studio Code](https://code.visualstudio.com/) geliştirmek ve IOT kenar modüllerinizi dağıtmak için ana geliştirme aracı olarak. 
@@ -48,21 +48,37 @@ IOT hub aygıtlarınızı VS kodunuzda listelemek için iki yolu vardır. Devam 
 1. Komut Palette (F1 veya Ctrl + Shift + P) yazın ve seçin **Azure: oturum**. Ardından  **kopya* & açık** pencerede. (Ctrl + V) kodu tarayıcınıza yapıştırın ve Devam Et düğmesine tıklayın. Ardından Azure hesabınızla oturum açın. Hesap bilgilerinizi VS Code durum çubuğunda görebilirsiniz.
 2. Komut Palette (F1 veya Ctrl + Shift + P) yazın ve seçin **IOT: IOT Hub'ı seçin**. Önce önceki öğreticide IOT hub'ınızı oluşturulduğu abonelik de seçin. Ardından IOT sınır cihazı içeren IOT hub'ı seçin.
 
+    ![Cihaz listesi](./media/how-to-vscode-develop-csharp-module/device-list.png)
 
 #### <a name="set-iot-hub-connection-string"></a>IOT hub bağlantı dizesine ayarlayın
-1. Komut Palette (F1 veya Ctrl + Shift + P) yazın ve seçin **IOT: IOT Hub bağlantı dizesine ayarlamak**. Bağlantı dizesi ilkesi altında yapıştırdığınız emin olun **iothubowner** (bunu IOT hub'ınızın paylaşılan erişim ilkeleri Azure portalında bulabilirsiniz).
+Komut Palette (F1 veya Ctrl + Shift + P) yazın ve seçin **IOT: IOT Hub bağlantı dizesine ayarlamak**. Bağlantı dizesi ilkesi altında yapıştırdığınız emin olun **iothubowner** (bunu IOT hub'ınızın paylaşılan erişim ilkeleri Azure portalında bulabilirsiniz).
  
-
 IOT Hub cihazları sol kenar çubuğu Explorer'da aygıt listesinde görebilirsiniz.
 
 ### <a name="start-your-iot-edge-runtime-and-deploy-a-module"></a>IOT kenar çalışma zamanı başlatma ve bir modül dağıtma
 Yükleyin ve Azure IOT kenar çalışma zamanı aygıtınızda başlatın. Ve IOT Hub'ına telemetri verileri gönderecek benzetimli algılayıcı modül dağıtın.
 1. Komut Palette seçin **kenar: Kurulum kenar** ve cihaz kimliği, IOT kenar'ı seçin Veya Edge cihaz kimliği aygıt listesinde sağ tıklatın ve seçin **Kurulum kenar**.
+
+    ![Kurulum kenar çalışma zamanı](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
+
 2. Komut Palette seçin **kenar: Başlangıç kenar** kenar çalışma zamanı başlatmak için. Tümleşik terminal karşılık gelen çıktılarında görebilirsiniz.
+
+    ![Başlangıç kenar çalışma zamanı](./media/how-to-vscode-develop-csharp-module/start-edge.png)
+
 3. Docker Explorer'da kenar çalışma zamanı durumunu kontrol edin. Yeşil gelir çalışıyor. IOT kenar çalışma zamanı başarıyla başlatıldı.
-4. Edge çalışma zamanı çalıştıran artık, bilgisayarınızı şimdi başka bir deyişle, bir sınır cihazının benzetimini yapar. Edge Cihazınızı gönderme tutar sensorthing benzetimini sonraki adımdır. Komut Palette yazıp seçin **kenar: kenar oluşturmak yapılandırma dosyası**. Ve bu dosyayı oluşturmak için bir klasör seçin. Oluşturulan deployment.json dosyasında satır Değiştir "<registry>/<image>:<tag>" ile `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+
+    ![Edge çalışma zamanı çalışıyor](./media/how-to-vscode-develop-csharp-module/edge-runtime.png)
+
+4. Edge çalışma zamanı çalıştıran artık, bilgisayarınızı şimdi başka bir deyişle, bir sınır cihazının benzetimini yapar. Edge Cihazınızı gönderme tutar sensorthing benzetimini sonraki adımdır. Komut Palette yazıp seçin **kenar: kenar oluşturmak yapılandırma dosyası**. Ve bu dosyayı oluşturmak için bir klasör seçin. Oluşturulan deployment.json dosyasında içeriğinin yerine geçecek `<registry>/<image>:<tag>` ile `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` ve dosyayı kaydedin.
+
+    ![Algılayıcı Modülü](./media/how-to-vscode-develop-csharp-module/sensor-module.png)
+
 5. Seçin **kenar: sınır cihazı için dağıtımı oluşturma** ve yeni bir dağıtım oluşturmak için kenar cihaz kimliği seçin. Edge cihaz kimliği aygıt listesinde sağ tıklatın ve seçin **sınır cihazı için dağıtımı oluşturma**. 
-6. Docker explorer'ın sanal algılayıcı ile çalıştırma başlatın, IOT kenar görmeniz gerekir. Docker Explorer'da kapsayıcıya sağ tıklayın. Docker günlükleri her modül için izleyebilirsiniz.
+
+6. Docker explorer'ın sanal algılayıcı ile çalıştırma başlatın, IOT kenar görmeniz gerekir. Docker Explorer'da kapsayıcıya sağ tıklayın. Docker günlükleri her modül için izleyebilirsiniz. Ayrıca, modül listesinde cihaz listesinde görüntüleyebilirsiniz.
+
+    ![Modül listesi](./media/how-to-vscode-develop-csharp-module/module-list.png)
+
 7. Edge cihaz Kimliğinizi sağ tıklayın ve VS code'da D2C iletileri izleyebilirsiniz.
 8. IOT kenar çalışma zamanı ve algılayıcı modülü durdurmak için türü seçin ve **kenar: Durdur kenar** komutu paletindeki.
 
@@ -97,12 +113,18 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
  
 3. Seçin **dosya** > **klasörü açın**.
 4. Gözat **FilterModule** klasörü ve tıklatın **klasörü seçin** proje VS Code'da açın.
-5. VS Code Explorer'da tıklatın **Program.cs** açın.
+5. VS Code Explorer'da tıklatın **Program.cs** açın. Üstündeki **program.cs**, ad alanları içerir.
+   ```csharp
+   using Microsoft.Azure.Devices.Shared;
+   using System.Collections.Generic;  
+   using Newtonsoft.Json;
+   ```
+
 6. Ekleme `temperatureThreshold` değişkenini **Program** sınıfı. Bu değişken, IOT Hub'ına gönderilecek verileri sırayla ölçülen sıcaklık aşmalıdır değeri ayarlar. 
 
-    ```csharp
-    static int temperatureThreshold { get; set; } = 25;
-    ```
+   ```csharp
+   static int temperatureThreshold { get; set; } = 25;
+   ```
 
 7. Ekleme `MessageBody`, `Machine`, ve `Ambient` için sınıfları **Program** sınıfı. Bu sınıfların gelen ileti gövdesini beklenen şemasını tanımlayın.
 
@@ -225,16 +247,22 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
     }
     ```
 
-11. Projeyi derlemek için sağ **FilterModule.csproj** dosya Gezgini ve tıklatın **yapı IOT kenar Modülü**. Bu işlem modülü derler ve ikili ve bağımlılıklarını Docker görüntüsünü oluşturmak için kullanılan bir klasöre dışa aktarır.
+11. Projeyi derlemek için sağ **FilterModule.csproj** dosya Gezgini ve tıklatın **yapı IOT kenar Modülü**. Bu işlem modülü derler ve ikili ve bağımlılıklarını Docker görüntüsünü oluşturmak için kullanılan bir klasöre dışa aktarır. 
 
+    ![Modül oluşturma](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Docker görüntü oluşturma ve kayıt defterine yayımlama
 
 1. VS Code Explorer'da genişletin **Docker** klasör. Kapsayıcı platformunuz için klasör ya da genişletin **linux x64** veya **windows nano**.
 2. Sağ **Dockerfile** dosya ve tıklayın **yapı IOT kenar modülü Docker görüntü**. 
+
+    ![Docker yansıması oluştur](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
+
 3. İçinde **Klasör Seç** penceresinde göz atın veya girin `./bin/Debug/netcoreapp2.0/publish`. Tıklatın **EXE_DIR Klasör Seç**.
 4. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. Örneğin: `<your container registry address>/filtermodule:latest`. Yerel kayıt defterine dağıtıyorsanız, olmalıdır `localhost:5000/filtermodule:latest`.
-5. Görüntü Docker deponuza iletin. Kullanım **kenar: anında IOT kenar modülü Docker görüntü** komut ve VS Code pencerenin üstündeki açılır metin kutusuna resim URL'si girin. Yukarıdaki adım içinde kullanılan aynı resim URL'si kullanın.
+5. Görüntü Docker deponuza iletin. Kullanım **kenar: anında IOT kenar modülü Docker görüntü** komut ve VS Code pencerenin üstündeki açılır metin kutusuna resim URL'si girin. Yukarıdaki adım içinde kullanılan aynı resim URL'si kullanın. Konsol günlüğünü denetleyin ve görüntünün başarıyla gönderilen emin olun.
+
+    ![Docker görüntü anında](./media/how-to-vscode-develop-csharp-module/push-image.png) ![basılmış docker görüntüsü](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
 ### <a name="deploy-your-iot-edge-modules"></a>IOT kenar modüllerinizi dağıtma
 
@@ -264,21 +292,26 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
 
 2. Değiştir **yollar** altındaki içerik bölümü ile:
     ```json
-    {
-        "routes": {
-            "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-            "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-        }
-    }
+    "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+    "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
    > Burada bu iletileri akış çalışma zamanında bildirim temelli kuralları tanımlar. Bu öğreticide, iki yol gerekir. İlk yol FilterMessages işleyici ile yapılandırılmış uç noktası olduğu sıcaklık algılayıcısı iletilerden "input1" uç noktası aracılığıyla filtresi modülü için taşımaları. İkinci yol filtresi modülü gelen iletileri IOT Hub'ına taşımaları. Bu rotadaki kenar Hub'ın IOT Hub'ına iletileri göndermek için söyler özel bir hedef Yukarı Akış.
 
 3. Bu dosyayı kaydedin.
 4. Komut Palette seçin **kenar: sınır cihazı için dağıtımı oluşturma**. Ardından IOT kenar cihaz Kimliğinizi bir dağıtım oluşturmak için seçin. Cihaz kimliği aygıt listesinde sağ tıklatın ve seçin **sınır cihazı için dağıtımı oluşturma**.
+
+    ![Dağıtım oluşturma](./media/how-to-vscode-develop-csharp-module/create-deployment.png)
+
 5. Seçin `deployment.json` , güncelleştirildi. Çıktı penceresinde dağıtımınız için karşılık gelen çıkışları görebilirsiniz.
+
+    ![Dağıtım başarılı oldu](./media/how-to-vscode-develop-csharp-module/deployment-succeeded.png)
+
 6. Edge çalışma zamanı komutu Palette başlatın. **Edge: Başlangıç köşesi**
 7. Çalışma zamanı Başlat Docker Explorer'da benzetimli algılayıcı ve filtresi modülü ile çalışmasını, IOT kenar görebilirsiniz.
+
+    ![IOT uç çözümünün çalışıyor](./media/how-to-vscode-develop-csharp-module/solution-running.png)
+
 8. Edge cihaz Kimliğinizi sağ tıklayın ve VS code'da D2C iletileri izleyebilirsiniz.
 
 

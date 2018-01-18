@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>IIS web sunucusu sanal bir makinede Windows Azure SSL sertifikalarıyla güvenli
-Web sunucularının güvenliğini sağlamak için bir Güvenli Yuva daha sonra (SSL) sertifikası web trafiğini şifrelemek için kullanılabilir. Bu SSL sertifikalarını Azure anahtar kasası depolanabilir ve Azure'da Windows sanal makineleri (VM'ler) sertifikaların güvenli dağıtımlar izin. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Web sunucularının güvenliğini sağlamak için bir Güvenli Yuva Katmanı (SSL) sertifikası web trafiğini şifrelemek için kullanılabilir. Bu SSL sertifikalarını Azure anahtar kasası depolanabilir ve Azure'da Windows sanal makineleri (VM'ler) sertifikaların güvenli dağıtımlar izin. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Azure anahtar kasası oluşturma

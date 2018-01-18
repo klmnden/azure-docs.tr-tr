@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - içerik yönetimi gereksinimlerini belirleme | Microsoft Docs"
+title: "Karma kimlik tasarımı - içerik yönetimi gereksinimlerini Azure | Microsoft Docs"
 description: "İşinizin içerik yönetimi gereksinimlerini belirleme hakkında bilgi sağlar. Genellikle bir kullanıcı kendi aygıt olduğunda kendisi de kendisine kullanan uygulamayı göre değişen birden çok kimlik olabilir. Hangi içerik Kurumsal kimlik bilgileri kullanılarak oluşturulan olanları karşı kişisel kimlik bilgileri kullanılarak oluşturulmuş ayırt etmek önemlidir. Kimlik çözümünüzü bulut ile etkileşim sırasında son kullanıcının sorunsuz bir deneyim sağlamak üzere hizmetler kendi gizlilik sağlamak ve veri sızıntısına karşı koruma artırın."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f2689306150f400f5a3cdf000a9ca590b397d812
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için içerik yönetimi gereksinimlerini belirleyin
 İşletmeniz için içerik yönetimi gereksinimlerini anlama doğrudan kullanmak için hangi karma kimlik çözümü üzerinde kararınızı etkileyebilir. Birden çok aygıt ve kullanıcılar kendi aygıtlarını getirip yeteneği artışı ile ([KCG](http://aka.ms/byodcg)), şirket kendi verilerini korumanız gerekir, ancak bu ayrıca kullanıcının gizliliğini korumanız gerekir. Genellikle bir kullanıcı kendi aygıt olduğunda kendisi de kendisine kullanan uygulamayı göre değişen birden çok kimlik olabilir. Hangi içerik Kurumsal kimlik bilgileri kullanılarak oluşturulan olanları karşı kişisel kimlik bilgileri kullanılarak oluşturulmuş ayırt etmek önemlidir. Kimlik çözümünüzü bulut ile etkileşim sırasında son kullanıcının sorunsuz bir deneyim sağlamak üzere hizmetler kendi gizlilik sağlamak ve veri sızıntısına karşı koruma artırın. 

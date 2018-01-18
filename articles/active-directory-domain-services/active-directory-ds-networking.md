@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için ağ konuları
 ## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin
@@ -74,15 +74,15 @@ Aşağıdaki bağlantı noktalarını hizmetine Azure AD etki alanı Hizmetleri 
 * Bu bağlantı noktası, nsg'deki erişmesine izin vermek için zorunludur. Bu bağlantı noktası erişimi olmadan, yönetilen etki alanınızı Azure AD dizini ile eşitlenmiş değil. Kullanıcılar yönetilen etki alanınıza parolalarını yapılan değişiklikler eşitlenmez oturum açmak mümkün olmayabilir.
 * Azure IP adresi aralığına ait IP adresleri için bu bağlantı noktasına gelen erişimi kısıtlayabilirsiniz.
 
-**Bağlantı noktası 5986 (PowerShell uzaktan iletişimi)** 
+**Bağlantı noktası 5986 (PowerShell uzaktan iletişimi)**
 * PowerShell uzaktan iletişimi yönetilen etki alanınızda kullanarak yönetim görevlerini gerçekleştirmek için kullanılır.
 * Bu bağlantı noktası, nsg'deki üzerinden erişime izin vermek için zorunludur. Bu bağlantı noktası erişimi olmadan, yönetilen etki alanınızı güncelleştirilmiş, yapılandırılmış, yedeklenen veya izlenen olamaz.
-* Aşağıdaki kaynak IP adresleri için bu bağlantı noktasına gelen erişimi kısıtlayabilirsiniz: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* Aşağıdaki kaynak IP adresleri için bu bağlantı noktasına gelen erişimi kısıtlayabilirsiniz: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * Yönetilen etki alanınız için etki alanı denetleyicileri genellikle bu bağlantı noktasında dinleme değil. Yalnızca bir yönetim veya bakım işlemi yönetilen etki alanı için gerçekleştirilmesi gerektiğinde hizmet yönetilen etki alanı denetleyicilerinde Bu bağlantı noktası açar. İşlemi tamamlanır tamamlanmaz hizmet yönetilen etki alanı denetleyicilerinde Bu bağlantı noktasını kapatır.
 
-**Bağlantı noktası 3389 (Uzak Masaüstü)** 
-* Yönetilen etki alanınız için etki alanı denetleyicilerine Uzak Masaüstü bağlantıları için kullanılır. 
-* Bu bağlantı noktası, NSG üzerinden açma isteğe bağlıdır. 
+**Bağlantı noktası 3389 (Uzak Masaüstü)**
+* Yönetilen etki alanınız için etki alanı denetleyicilerine Uzak Masaüstü bağlantıları için kullanılır.
+* Bu bağlantı noktası, NSG üzerinden açma isteğe bağlıdır.
 * Bu bağlantı noktası da büyük ölçüde yönetilen etki alanınızda devre dışı kalır. PowerShell uzaktan iletişimi kullanarak yönetim ve izleme görevlerini gerçekleştirilen beri bu düzenek sürekli olarak kullanılmaz. Bu bağlantı noktası Microsoft Gelişmiş sorun giderme adımları için yönetilen etki alanınız uzaktan bağlanmak için gereken nadir durumlarda kullanılır. Sorun giderme işlemi tamamlandıktan hemen sonra bağlantı noktası kapalı.
 
 **Bağlantı noktası 636 (güvenli LDAP)**
@@ -99,7 +99,7 @@ Aşağıdaki tabloda, örnek bir Azure AD etki alanı Hizmetleri yönetilen etki
 
 Ayrıca, NSG Internet üzerinden güvenli LDAP erişim kilitlemek nasıl gösterilmektedir. Güvenli LDAP erişim yönetilen etki alanınıza internet üzerinden değil etkinleştirdiyseniz, bu kuralı atla. NSG gelen LDAPS erişim TCP bağlantı noktası IP adreslerinin üzerinden 636 belirtilen kümesinden yalnızca izin veren kurallar kümesini içerir. Belirtilen IP adreslerini Internet üzerinden LDAPS erişime izin verecek şekilde NSG kuralı DenyAll NSG kural daha yüksek önceliğe sahip.
 
-![Örnek internet üzerinden LDAPS erişimi güvenli hale getirmek için NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Örnek internet üzerinden LDAPS erişimi güvenli hale getirmek için NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **Daha fazla bilgi** - [bir ağ güvenlik grubu oluşturun](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -126,7 +126,7 @@ Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz Azure Klasik sanal ağı
     ![Eşleme kullanarak sanal ağ bağlantısı](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Daha fazla bilgi - sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **Siteden siteye VPN bağlantıları kullanarak VNet-VNet bağlantıları**: başka bir sanal ağ (VNet-VNet) sanal ağa bağlanma benzer bir şirket içi site konumuna sanal bir ağa bağlanma. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır.
 
     ![VPN ağ geçidi kullanarak sanal ağ bağlantısı](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

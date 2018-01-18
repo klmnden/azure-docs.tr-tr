@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
 İlke ifadeleri sözdizimi C# 6.0 şeklindedir. Her bir ifadenin örtük olarak sağlanan erişimi [bağlamı](api-management-policy-expressions.md#ContextVariables) değişkeni ve bir izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türü.  
@@ -88,14 +88,14 @@ ms.lasthandoff: 01/12/2018
 |Newtonsoft.Json.Linq.JToken|Tüm yöntemleri desteklenir|  
 |Newtonsoft.Json.Linq.JTokenType|Tüm yöntemleri desteklenir|  
 |Newtonsoft.Json.Linq.JValue|Tüm yöntemleri desteklenir|  
-|System.Collections.Generic.IReadOnlyCollection < T\>|Tümü|  
-|System.Collections.Generic.IReadOnlyDictionary < TKey, TValue >|Tümü|  
+|System.Collections.Generic.IReadOnlyCollection<T\>|Tümü|  
+|System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|Tümü|  
 |System.Collections.Generic.ISet < TKey, TValue >|Tümü|  
-|System.Collections.Generic.KeyValuePair < TKey, TValue >|Anahtar değeri|  
+|System.Collections.Generic.KeyValuePair<TKey,  TValue>|Anahtar değeri|  
 |System.Collections.Generic.List < TKey, TValue >|Tümü|  
 |System.Collections.Generic.Queue < TKey, TValue >|Tümü|  
 |System.Collections.Generic.Stack < TKey, TValue >|Tümü|  
-|System.Convert'i|Tümü|  
+|System.Convert|Tümü|  
 |System.DateTime|Tümü|  
 |System.DateTimeKind|UTC|  
 |System.DateTimeOffset|Tümü|  
@@ -172,33 +172,33 @@ ms.lasthandoff: 01/12/2018
   
 |Bağlam değişkeni|İzin verilen yöntemler, özellikler ve parametre değerleri|  
 |----------------------|-------------------------------------------------------|  
-|bağlam|API: IApi<br /><br /> Dağıtım<br /><br /> Son hata<br /><br /> İşlem<br /><br /> Ürün<br /><br /> İstek<br /><br /> RequestId: GUID<br /><br /> Yanıt<br /><br /> Abonelik<br /><br /> İzleme: bool<br /><br /> Kullanıcı<br /><br /> Değişkenleri: IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|  
-|bağlamı. API|Kimliği: dize<br /><br /> IsRevisionCurrent: bool<br /><br />  Ad: dize<br /><br /> Yol: dize<br /><br /> Düzeltme: dize<br /><br /> ServiceUrl: IUrl<br /><br /> Sürüm: dize |  
+|bağlam|API: IApi<br /><br /> Dağıtım<br /><br /> Geçen: TimeSpan - zaman damgası değerini ve geçerli saat arasındaki zaman aralığı<br /><br /> Son hata<br /><br /> İşlem<br /><br /> Ürün<br /><br /> İstek<br /><br /> RequestId: GUID - benzersiz istek tanımlayıcısı<br /><br /> Yanıt<br /><br /> Abonelik<br /><br /> Zaman damgası: DateTime - istek alındığında zaman içinde nokta<br /><br /> İzleme: bool - gösterir izleme açmak veya kapatmak olup olmadığını <br /><br /> Kullanıcı<br /><br /> Değişkenleri: IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|  
+|context.Api|Id: string<br /><br /> IsRevisionCurrent: bool<br /><br />  Ad: dize<br /><br /> Yol: dize<br /><br /> Düzeltme: dize<br /><br /> ServiceUrl: IUrl<br /><br /> Sürüm: dize |  
 |bağlamı. Dağıtım|Bölge: dize<br /><br /> ServiceName: dize<br /><br /> Sertifikalar: IReadOnlyDictionary < string, X509Certificate2 >|  
-|bağlamı. Son hata|Kaynak: dize<br /><br /> Neden: dize<br /><br /> İleti: dize<br /><br /> Kapsam: dize<br /><br /> Bölüm: dize<br /><br /> Yol: dize<br /><br /> Policyıd: dize<br /><br /> İçerik hakkında daha fazla bilgi için. Son hata, bkz: [hata işleme](api-management-error-handling-policies.md).|  
-|bağlamı. İşlemi|Kimliği: dize<br /><br /> Yöntem: dize<br /><br /> Ad: dize<br /><br /> UrlTemplate: dize|  
-|bağlamı. Ürün|API: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Gruplar: IEnumerable < IGroup\><br /><br /> Kimliği: dize<br /><br /> Ad: dize<br /><br /> Durum: enum ProductState {NotPublished, yayımlanan}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
-|bağlamı. İstek|Gövde: IMessageBody<br /><br /> Sertifika: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Üstbilgileri: IReadOnlyDictionary < dize, string [] ><br /><br /> IPADDRESS: dize<br /><br /> MatchedParameters: IReadOnlyDictionary < dize, dize ><br /><br /> Yöntem: dize<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|  
-|dize bağlamı. Request.Headers.GetValueOrDefault (headerName: string, defaultValue: dize)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Virgülle ayrılmış istek üstbilgi değerleri döndürür veya `defaultValue` üstbilgi bulunmazsa.|  
+|bağlamı. Son hata|Kaynak: dize<br /><br /> Neden: dize<br /><br /> İleti: dize<br /><br /> Kapsam: dize<br /><br /> Bölüm: dize<br /><br /> Yol: dize<br /><br /> PolicyId: string<br /><br /> İçerik hakkında daha fazla bilgi için. Son hata, bkz: [hata işleme](api-management-error-handling-policies.md).|  
+|context.Operation|Id: string<br /><br /> Yöntem: dize<br /><br /> Ad: dize<br /><br /> UrlTemplate: dize|  
+|context.Product|API: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Gruplar: IEnumerable < IGroup\><br /><br /> Id: string<br /><br /> Ad: dize<br /><br /> Durum: enum ProductState {NotPublished, yayımlanan}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
+|context.Request|Gövde: IMessageBody<br /><br /> Sertifika: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Üstbilgileri: IReadOnlyDictionary < dize, string [] ><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary < dize, dize ><br /><br /> Yöntem: dize<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|  
+|string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Virgülle ayrılmış istek üstbilgi değerleri döndürür veya `defaultValue` üstbilgi bulunmazsa.|  
 |bağlamı. Yanıt|Gövde: IMessageBody<br /><br /> Üstbilgileri: IReadOnlyDictionary < dize, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: dize|  
 |dize bağlamı. Response.Headers.GetValueOrDefault (headerName: string, defaultValue: dize)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Üstbilgi değerlerini virgülle ayrılmış yanıtı döndürür veya `defaultValue` üstbilgi bulunmazsa.|  
-|bağlamı. Abonelik|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Kimliği: dize<br /><br /> Anahtar: dize<br /><br /> Ad: dize<br /><br /> PrimaryKey: dize<br /><br /> SecondaryKey: dize<br /><br /> StartDate: DateTime?|  
-|bağlamı. Kullanıcı|E-posta: dize<br /><br /> Ad: dize<br /><br /> Gruplar: IEnumerable < IGroup\><br /><br /> Kimliği: dize<br /><br /> Kimlikler: IEnumerable < IUserIdentity\><br /><br /> Soyadı: dize<br /><br /> Not: dize<br /><br /> RegistrationDate: DateTime|  
-|IApi|Kimliği: dize<br /><br /> Ad: dize<br /><br /> Yol: dize<br /><br /> Protokolleri: IEnumerable < dize\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
-|IGroup|Kimliği: dize<br /><br /> Ad: dize|  
+|bağlamı. Abonelik|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Anahtar: dize<br /><br /> Ad: dize<br /><br /> PrimaryKey: dize<br /><br /> SecondaryKey: dize<br /><br /> StartDate: DateTime?|  
+|context.User|E-posta: dize<br /><br /> Ad: dize<br /><br /> Gruplar: IEnumerable < IGroup\><br /><br /> Id: string<br /><br /> Kimlikler: IEnumerable < IUserIdentity\><br /><br /> Soyadı: dize<br /><br /> Not: dize<br /><br /> RegistrationDate: DateTime|  
+|IApi|Id: string<br /><br /> Ad: dize<br /><br /> Yol: dize<br /><br /> Protokolleri: IEnumerable < dize\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
+|IGroup|Id: string<br /><br /> Ad: dize|  
 |IMessageBody|Olarak < T\>(preserveContent: bool = false): Burada T: dize, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> `context.Request.Body.As<T>` Ve `context.Response.Body.As<T>` İleti gövdeleri belirtilen türde bir istek ve yanıt okumak için kullanılan yöntemleri `T`. Varsayılan olarak yöntemi özgün ileti gövdesi akışına kullanır ve bunu döndükten sonra kullanılamaz oluşturur. Gövde akışını bir kopyası üzerinde çalışması yöntemi sağlayarak önlemek için ayarlanmış `preserveContent` parametresi `true`. Git [burada](api-management-transformation-policies.md#SetBody) bir örnek görmek için.|  
 |IUrl|Ana bilgisayar: dize<br /><br /> Yol: dize<br /><br /> Bağlantı noktası: int<br /><br /> Sorgu: IReadOnlyDictionary < dize, string [] ><br /><br /> Sorgu dizesi: dize<br /><br /> Düzen: dize|  
-|IUserIdentity|Kimliği: dize<br /><br /> Sağlayıcı: dize|  
+|IUserIdentity|Id: string<br /><br /> Sağlayıcı: dize|  
 |ISubscriptionKeyParameterNames|Başlık: dize<br /><br /> Sorgu: dize|  
-|IUrl.Query.GetValueOrDefault dize (queryParameterName: string, defaultValue: dize)|queryParameterName: dize<br /><br /> defaultValue: dize<br /><br /> Virgülle ayrılmış sorgu parametresi değerleri döndürür veya `defaultValue` parametresi bulunmazsa.|  
+|string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: dize<br /><br /> defaultValue: dize<br /><br /> Virgülle ayrılmış sorgu parametresi değerleri döndürür veya `defaultValue` parametresi bulunmazsa.|  
 |T bağlamı. Variables.GetValueOrDefault < T\>(variableName: string, defaultValue: T)|variableName: dize<br /><br /> defaultValue: T<br /><br /> Değişken değeri yazmak için cast döndürür `T` veya `defaultValue` değişkeni bulunmazsa.<br /><br /> Belirtilen tür döndürülen değişkeninin gerçek türü eşleşmezse, bu yöntem bir özel durum oluşturur.|  
 |BasicAuthCredentials AsBasic(input: this string)|Giriş: dize<br /><br /> Giriş parametresi geçerli bir HTTP temel kimlik doğrulaması yetkilendirme isteği üstbilgisi değer içeriyorsa, yöntem türünde bir nesne döndürür `BasicAuthCredentials`; Aksi halde yöntem null değeri döndürür.|  
 |bool TryParseBasic (giriş: Bu dize, sonuç: BasicAuthCredentials Giden)|Giriş: dize<br /><br /> Sonuç: BasicAuthCredentials çıkışı<br /><br /> Giriş parametresi istek üstbilgisi geçerli bir HTTP temel kimlik doğrulaması yetkilendirme değer içeriyorsa yöntem döndürür `true` ve sonuç parametresinin türünde bir değer içeren `BasicAuthCredentials`; Aksi takdirde yöntemi döndürür `false`.|  
-|BasicAuthCredentials|Parola: dize<br /><br /> UserId: dize|  
+|BasicAuthCredentials|Parola: dize<br /><br /> UserId: string|  
 |Jwt AsJwt(input: this string)|Giriş: dize<br /><br /> Giriş parametresi geçerli bir JWT belirteci değer içeriyorsa, yöntem türünde bir nesne döndürür `Jwt`; Aksi takdirde yöntemi döndürür `null`.|  
 |bool TryParseJwt (giriş: Bu dize, sonuç: Jwt Giden)|Giriş: dize<br /><br /> Sonuç: Jwt çıkışı<br /><br /> Yöntem giriş parametresi geçerli bir JWT belirteci değeri içerip içermediğini döndürür `true` ve sonuç parametresinin türünde bir değer içeren `Jwt`; Aksi takdirde yöntemi döndürür `false`.|  
-|Jwt|Algoritma: dize<br /><br /> İzleyici: IEnumerable < dize\><br /><br /> Talepleri: IReadOnlyDictionary < dize, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> Kimliği: dize<br /><br /> Sertifikayı veren: dize<br /><br /> NotBefore: DateTime?<br /><br /> Konu: dize<br /><br /> Türü: dize|  
-|Jwt.Claims.GetValueOrDefault dize (claimName: string, defaultValue: dize)|claimName: dize<br /><br /> defaultValue: dize<br /><br /> Talep değerlerini virgülle ayrılmış döndürür veya `defaultValue` üstbilgi bulunmazsa.|
+|Jwt|Algoritma: dize<br /><br /> İzleyici: IEnumerable < dize\><br /><br /> Talepleri: IReadOnlyDictionary < dize, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Sertifikayı veren: dize<br /><br /> NotBefore: DateTime?<br /><br /> Konu: dize<br /><br /> Türü: dize|  
+|string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: dize<br /><br /> defaultValue: dize<br /><br /> Talep değerlerini virgülle ayrılmış döndürür veya `defaultValue` üstbilgi bulunmazsa.|
 |Byte [] şifrele (giriş: Bu byte [], algoritma: string, anahtarı: byte [], iv:byte[])|Giriş - şifrelenmesi için düz metin<br /><br />algoritma - bir simetrik şifreleme algoritması adı<br /><br />anahtar - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Şifrelenmiş düz metin döndürür.|
 |Byte [] şifrele (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm)|Giriş - şifrelenmesi için düz metin<br /><br />algoritma - şifreleme algoritması<br /><br />Şifrelenmiş düz metin döndürür.|
 |Byte [] şifrele (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm, anahtarı: byte [], iv:byte[])|Giriş - şifrelenmesi için düz metin<br /><br />algoritma - şifreleme algoritması<br /><br />anahtar - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Şifrelenmiş düz metin döndürür.|

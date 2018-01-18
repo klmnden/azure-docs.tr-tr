@@ -27,9 +27,9 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 | Geri bildirim iletileri için en fazla teslim sayısı <br/> (buluttan cihaza iletiye yanıt olarak) |100 |
 | Buluttan cihaza iletiye yanıt olarak <br/> geri bildirim iletileri için en fazla TTL |2 gün |
 | En büyük cihaz ikizi boyutu <br/> (etiketler, rapor edilen özellikler ve istenen özellikler) | 8 KB |
-| Cihaz ikizi dize değerinin en büyük boyutu | 512 bayt |
+| Cihaz ikizi dize değerinin en büyük boyutu | 4 KB |
 | Cihaz ikizindeki en büyük nesne derinliği | 5 |
-| Doğrudan yöntem yükünün en büyük boyutu | 8 KB |
+| Doğrudan yöntem yükünün en büyük boyutu | 128 KB |
 | En büyük iş geçmişi bekletme süresi | 30 gün |
 | En fazla eşzamanlı iş sayısı | 10 (S3 için), 5 (S2 için), 1 (S1 için) |
 | En fazla ek uç nokta sayısı | 10 (S1, S2, S3 için) |
@@ -53,7 +53,7 @@ Aşağıdaki kotalar aşıldığında IoT Hub hizmeti istekleri kısıtlar:
 | Buluttan cihaza gönderim | (için S1 ve S2) 83.33/sec/Unit (5000/min/birim) (S3) 1.67/sec/unit (min/100/birimi). |
 | Buluttan cihaza alım |833.33/sec/Unit (50000/min/birim) (S3) 16.67/sec/unit (1000/min/birim) (S1 ve S2). |
 | Dosya karşıya yükleme işlemleri |83.33 dosya karşıya yükleme bildirimleri/sn/birim (5000/min/birim) (S3), 1,67 dosya karşıya yükleme bildirimleri/sn/birimi (min/100/birimi) (S1 ve S2). <br/> Bir Azure Depolama hesabı için tek seferde 10000 SAS URI’si çıkarılabilir.<br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
-| Doğrudan yöntemler | 3000/sn/birim (S3), 60/sn/birim (S2), 20/sn / (S1) birim |
+| Doğrudan yöntemler | 24MB/sn/birim (S3), 480KB/sn/birim (S2), 160KB/sn/birim (S1)<br/> 8 ölçer boyutunu azaltma KB temel. |
 | Cihaz ikizi okumaları | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
 | Cihaz ikizi güncelleştirmeleri | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
 | İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | (için S2) 83.33/sec/Unit (5000/min/birim) (S3) 1.67/sec/unit (min/100/birimi), (için S1) 1.67/sec/unit (min/100/birim) |

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - dizin eşitleme gereksinimlerini belirleme | Microsoft Docs"
+title: "Karma kimlik tasarımı - dizin eşitleme gereksinimlerini Azure | Microsoft Docs"
 description: "Hangi gereksinimler tüm kullanıcılar arasında eşitlemek için gerekli olan tanımlamak şirket içi ve bulut kuruluş için on =."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Dizin eşitleme gereksinimlerini belirleyin
 Eşitleme, kullanıcıların kendi şirket içi kimliğine göre bulutta bir kimlik sağlama tüm hakkında olur. Kimlik doğrulaması veya şirket dışı kimlik doğrulaması için eşitlenmiş hesap kullanacakları olup olmadığına bakılmaksızın, kullanıcıların hala bulutta bir kimliğe sahip gerekir.  Bu kimlik korunur ve düzenli aralıklarla güncelleştirilen gerekecektir.  Güncelleştirmeleri başlık değişikliklerden parola değişiklikleri için birçok biçimde olabilir.  

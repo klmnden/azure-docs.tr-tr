@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: SSL sertifikası bir Active Directory Federasyon Hizmetleri (AD FS) grubu için güncelleştirme | Microsoft Docs"
+title: "Azure AD Connect - güncelleştirme SSL sertifikası için bir AD FS grubunu | Microsoft Docs"
 description: "Bu belge ayrıntıları Azure AD Connect kullanarak AD FS grubunda SSL sertifikasını güncelleştirmek için adımları izleyin."
 services: active-directory
 keywords: "Azure ad connect, adfs ssl güncelleştirme, adfs sertifika güncelleştirme, değişiklik adfs sertifika, yeni adfs sertifika, adfs sertifika ssl sertifikası, güncelleştirme ssl sertifikası adfs, adfs ssl sertifikası, adfs, ssl, sertifika, adfs hizmet iletişimi sertifikasına, güncelleştirme Federasyon yapılandırma, güncelleştirme adfs Federasyon yapılandırma, aad bağlanma"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Bir Active Directory Federasyon Hizmetleri (AD FS) grubu için SSL sertifikasını güncelleştir
 
@@ -33,7 +34,7 @@ Tüm Federasyon ve üç basit adımda Web uygulaması Ara sunucusu (WAP) sunucul
 >[!NOTE]
 >AD FS tarafından kullanılan sertifikalar hakkında daha fazla bilgi için bkz: [AD FS tarafından kullanılan sertifikaları anlama](https://technet.microsoft.com/library/cc730660.aspx).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **AD FS grubu**: AD FS grubunuzu tabanlı Windows Server 2012 R2 veya sonrası olduğundan emin olun.
 * **Azure AD Connect**: Azure AD Connect sürümü 1.1.553.0 olduğundan emin olun ya da daha yüksek. Görev kullanacağınız **güncelleştirme AD FS SSL sertifikası**.

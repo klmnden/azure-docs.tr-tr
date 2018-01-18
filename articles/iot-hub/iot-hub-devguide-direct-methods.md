@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT hub'ı doğrudan yöntemleri çağırma
 IOT Hub, bulutta cihazlarda doğrudan yöntemlerini çağırmasına olanak sağlar. Başarılı veya başarısız hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra), bir HTTP çağrısıyla benzer bir cihaz istek-yanıt etkileşim doğrudan yöntemleri temsil eder. Bu yaklaşım, Acil eylem seyri aygıt bir aygıtı (çevrimdışı SMS yöntem çağrısı daha pahalı olması) ise, bir SMS Uyandırma bir cihaza gönderme gibi yanıt verebilmesini olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır.
-
 Her cihaz yöntemi tek bir cihazı hedefler. [İşlerini] [ lnk-devguide-jobs] doğrudan yöntemlerini birden çok aygıta çağırmak için bir yol sağlar ve zamanlama yöntem çağırma bağlantısı kesilmiş aygıtları için.
 
 Herkesle **service bağlanma** IOT Hub üzerindeki izinleri bir aygıtta bir yöntemi çağırma.
@@ -44,7 +43,7 @@ Zaman uyumlu yöntemleri ve ya da başarılı doğrudan veya zaman aşımı sür
 
 Yöntemleri doğrudan HTTPS salt bulut yan ve MQTT veya AMQP aygıt taraftaki.
 
-Yöntem istekleri ve yanıtları için yükü, bir JSON belgesi en fazla 8 KB ' dir.
+Yöntem istekleri ve yanıtları için yükü, bir JSON belgesi en fazla 128 KB ' dir.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Bir arka uç uygulamasından doğrudan bir yöntem çağırma
 ### <a name="method-invocation"></a>Yöntem çağırma

@@ -3,7 +3,7 @@ title: "Azure AD Connect eşitleme: işlevleri başvurusu | Microsoft Docs"
 description: "Azure AD Connect eşitleme bildirim temelli hazırlama ifadelerini başvuru."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: işlevleri başvurusu
 Azure AD Connect işlevleri eşitleme sırasında bir öznitelik değeri işlemek için kullanılır.  
@@ -1242,7 +1242,7 @@ Değer, özel bir dize döndürür hata işlevi de olabilir.
 Bazı önemli şehirlerde konuşma dilini döndürür, aksi takdirde bir hata döndürür.
 
 - - -
-### <a name="trim"></a>Kırpma
+### <a name="trim"></a>Kırp
 **Açıklama:**  
 Kırpma işlevi baştaki ve sondaki boşlukları bir dizeden kaldırır.
 
@@ -1269,7 +1269,7 @@ UCase işlev bir dize içindeki tüm karakterleri büyük harfe dönüştürür.
 "TEST" döndürür.
 
 - - -
-### <a name="where"></a>Burada
+### <a name="where"></a>Konum
 
 **Açıklama:**  
 Belirli bir koşula dayalı birden çok değerli özniteliği (veya bir ifade çıktısını) değerleri kümesini döndürür.

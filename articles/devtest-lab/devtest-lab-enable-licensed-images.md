@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarınızda lisanslı bir görüntüde etkinleştir
 
-Azure DevTest Labs'de lisanslı bir görüntü hüküm ve görüntünün laboratuvara kullanıcılar için erişilebilir hale gelmeden önce kabul edilmesi gereken koşulları – genellikle gelen bir üçüncü taraf – içeren biridir. Aşağıdaki bölümlerde, sanal makineler oluşturmak için kullanılabilir; böylece lisanslı görüntülerle çalışma konusunda açıklanmaktadır.
+Azure DevTest Labs'de lisanslı bir görüntü hüküm ve koşulları – genellikle görüntünün laboratuvara kullanıcılar için erişilebilir hale gelmeden önce kabul edilmesi gereken bir üçüncü taraf – içeren biridir. Aşağıdaki bölümlerde, sanal makineler oluşturmak için kullanılabilir; böylece lisanslı görüntülerle çalışma konusunda açıklanmaktadır.
 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Lisanslı bir görüntü kullanıcılar için kullanılabilir olup olmadığını belirleme
 Kullanıcıların lisanslı bir görüntüden sanal makineleri oluşturmasını sağlayan ilk adımı, hüküm ve koşulları için lisanslı görüntü benimsenmiş emin olmaktır. Aşağıdaki adımlar nasıl lisanslı bir görüntü teklif durumunu görüntüleyebilir ve, gerekirse, onun hüküm ve koşulları kabul gösterir.
@@ -53,12 +53,14 @@ Lisanslı bir görüntü Laboratuvar kullanıcılar için kullanılabilir olduğ
 
 Aşağıdaki adımları izleyerek lisanslı bir görüntü için programlı dağıtımı etkinleştirebilirsiniz:
 
-1. İçinde [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) listesinde **Market görüntülerini**, kullanıcıların erişim sahibi istediğiniz lisanslı bir görüntüsünü belirleyin ancak, koşulları değil kabul edildi. Örneğin, ya da durumunu gösteren bir veri bilimi sanal makine görebilirsiniz **koşullarını kabul** veya **koşulları gözden geçirme gereken**.
+1. İçinde [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)listesine gidin **Market görüntülerini**.
+
+1. Hangi kullanıcıların erişim sahibi olmasını istediğiniz ancak, koşulları kabul edilmemiş için lisanslı bir görüntü tanımlayın. Örneğin, ya da durumunu gösteren bir veri bilimi sanal makine görebilirsiniz **koşullarını kabul** veya **koşulları gözden geçirme gereken**.
 
     ![Programlamayla dağıtımın penceresini yapılandırma](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Veri bilimi VM'ler Azure sanal makine görüntüleri, önceden yüklenmiş ve yapılandırılmış veri analizi, machine learning ve AI eğitim için yaygın olarak kullanılan birkaç popüler araçları ile test bağımsızdır. [Linux ve Windows için Azure veri bilimi sanal makine için giriş](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) büyük bir bölümünü DSVMs hakkında bilgi sağlar.
+   > Veri bilimi VM'ler veri analizi, machine learning ve AI eğitim için yaygın olarak kullanılan birkaç popüler araçları ile test önceden yüklenmiş ve yapılandırılmış Azure sanal makine görüntüleri, bağımsızdır. [Linux ve Windows için Azure veri bilimi sanal makine için giriş](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) büyük bir bölümünü DSVMs hakkında bilgi sağlar.
    >
    >
 

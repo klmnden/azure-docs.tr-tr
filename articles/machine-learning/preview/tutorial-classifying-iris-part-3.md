@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 08ac10a160ef6305322714eb9d134be95c3b5e17
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
@@ -134,37 +134,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
 
    Komut satırı istemi geçerli proje klasörünüzün bulunduğu **c:\temp\myIris>** konumunda açılır.
 
-2. **Microsoft.ContainerRegistry** adlı Azure kaynak sağlayıcısının aboneliğinize kayıtlı olduğundan emin olun. 3. adımda bir ortam oluşturabilmeniz için bu kaynak sağlayıcısını kaydetmeniz gerekir. Aşağıdaki komutu kullanarak önceden kaydedilip kaydedilmediğini kontrol edebilirsiniz:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   Şunun gibi bir çıktı görmeniz gerekir: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   **Microsoft.ContainerRegistry** kayıtlı değilse aşağıdaki komutu kullanarak kaydedebilirsiniz:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   Kayıt işlemi birkaç dakika sürebilir. Durumunu denetlemek için önceki **az provider list** komutunu veya aşağıdaki komutu kullanın:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   Çıktının üçüncü satırında **"registrationState": "Registering"** ifadesi gösterilir. Birkaç dakika bekleyin ve çıktıda **"registrationState": "Registered"** gösterilene kadar **show** komutunu tekrarlayın.
-
-   >[!NOTE] 
-   Bir ACS kümeye dağıtıyorsanız, kaydetmeniz **Microsoft.ContainerService** de tam aynı yaklaşımı kullanarak kaynak sağlayıcısı.
-
-3. Ortamı oluşturun. Bu adımı her ortam için bir kez çalıştırmanız gerekir. Örneğin, geliştirme ortamı için bir kez ve üretim için bir kez çalıştırın. Bu ilk ortam için _yerel modu_ kullanın. Aşağıdaki komutta `-c` veya `--cluster` anahtarını kullanarak daha sonra _küme modunda_ bir ortam oluşturabilirsiniz.
+2. Ortamı oluşturun. Bu adımı her ortam için bir kez çalıştırmanız gerekir. Örneğin, geliştirme ortamı için bir kez ve üretim için bir kez çalıştırın. Bu ilk ortam için _yerel modu_ kullanın. Aşağıdaki komutta `-c` veya `--cluster` anahtarını kullanarak daha sonra _küme modunda_ bir ortam oluşturabilirsiniz.
 
    Aşağıdaki kurulum komutu için, abonelik üzerinde Katkıda Bulunan erişimine sahip olmanız gerektiğini aklınızda bulundurun. Bu erişiminiz yoksa, en azından içine dağıtım yaptığınız kaynak grubu üzerinde Katkıda Bulunan erişime ihtiyacınız vardır. İkincisini yapmak için, kurulum komutunun içinde `-g` bayrağını kullanıp kaynak grubunu adını belirtmelisiniz. 
 
@@ -176,17 +146,17 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    
    Küme adından ortamı tanımlayabilirsiniz. Konumun, Azure portalından oluşturduğunuz Model Yönetimi hesabıyla aynı konumda olması gerekir.
 
-4. Bir Model Yönetimi hesabı oluşturun. (Tek seferlik bir kurulumdur.)  
+3. Bir Model Yönetimi hesabı oluşturun. (Tek seferlik bir kurulumdur.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Model Yönetimi hesabını ayarlayın.  
+4. Model Yönetimi hesabını ayarlayın.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Ortamı ayarlayın.
+5. Ortamı ayarlayın.
 
    Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak ortamı çalışır duruma getirmek için gereken ortam değişkenlerini ayarlayın. Daha önce 4. adımda kullandığınız ortam adının aynısını kullanın. Kurulum işlemi tamamlandıktan sonra komut penceresinde verilen kaynak grubu adının aynısını kullanın.
 
@@ -194,7 +164,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Yerel web hizmeti dağıtımı için hazır hale getirme ortamınızı doğru şekilde yapılandırdığınızdan emin olmak için aşağıdaki komutu girin:
+6. Yerel web hizmeti dağıtımı için hazır hale getirme ortamınızı doğru şekilde yapılandırdığınızdan emin olmak için aşağıdaki komutu girin:
 
    ```azurecli
    az ml env show

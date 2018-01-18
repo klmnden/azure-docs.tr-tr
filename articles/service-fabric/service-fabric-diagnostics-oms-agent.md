@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/31/2017
 ms.author: dekapur
-ms.openlocfilehash: e1a45f9924291382bb1bbdc969e97ee54a7b6132
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>OMS Aracısı bir kümeye ekleme
 
@@ -52,7 +52,7 @@ OMS Aracısı, kümeye eklemek için en iyi yolu, Azure CLI ile API sanal makine
     Linux kümesi için:
 
     ```sh
-    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId'}":'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
+    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
     ```
 
     Bir Windows kümeye eklenen OMS Aracısı bir örneği burada verilmiştir.

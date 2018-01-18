@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Azure uygulama hizmeti üzerinde yüksek yoğunluklu barındırma
 Uygulama hizmeti kullanırken, uygulamanız tarafından iki kavramları ayrılmış kapasiteden ayrılmış:
@@ -87,7 +87,7 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp. SiteConfig.NumberOfWorkers farklı $newapp biçimidir. MaxNumberOfWorkers. Uygulama ölçeklendirme $newapp kullanır. Uygulama ölçek özelliklerini belirlemek için SiteConfig.NumberOfWorkers.
+> $newapp. SiteConfig.NumberOfWorkers $newapp farklıdır. MaxNumberOfWorkers. Uygulama ölçeklendirme $newapp kullanır. Uygulama ölçek özelliklerini belirlemek için SiteConfig.NumberOfWorkers.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ni kullanarak uygulama ölçeklendirme başına
 

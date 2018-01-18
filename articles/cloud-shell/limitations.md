@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e498582d78d2807070c943dfd838dd9efeb4ed2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure bulut Kabuk sınırlamaları
 
@@ -56,7 +56,9 @@ Bulut Kabuk etkileşimli kullanım durumları için tasarlanmıştır. Sonuç ol
 ### <a name="user-permissions"></a>Kullanıcı izinleri
 
 İzinler, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yüklemesi, `$Home` dizin kalıcı değildir.
-Belirli komutları içinde rağmen `clouddrive` gibi dizin `git clone`, uygun izinlere sahip değilsiniz, `$Home` dizin izinlere sahiptir.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB sınırlı izinleri
+Belirli komutların içinde `clouddrive` gibi dizin `git clone`, belirli dosyaları okuma/yazma için uygun izinlere sahip değil. Bu sorunu isabet, yeniden gelen deneyin, `$Home` SMB sınırlamaları olmayan dizin.
 
 ### <a name="editing-bashrc"></a>.Bashrc düzenleme
 

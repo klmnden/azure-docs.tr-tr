@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kablo verileri 2.0 (Önizleme) çözümüne günlük analizi
 
@@ -80,7 +80,7 @@ Günlük analizi için bağlı yönetim grubu ile System Center Operations Manag
 
 Doğrudan aracı kullanıyorsanız, günlük analizi veya OMS ağ geçidine bağlanmak için OMS aracısının kendisi yapılandırmanız gerekir. OMS ağ geçidi'nden indirebilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Gerektirir [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) çözümü sunar.
 - Kablo verileri çözüm'ın önceki sürümünü kullanıyorsanız, önce onu kaldırmanız gerekir. Ancak, özgün kablo verileri çözüm yakalanan tüm veriler kablo verileri 2.0 ve günlük arama hala mevcut değil.
@@ -186,10 +186,10 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirir
 
-| **Dosya** | **İŞLETİM SİSTEMİ** | **Sürüm** | **SHA-256** |
+| **Dosya** | **OS** | **Sürüm** | **SHA-256** |
 | --- | --- | --- | --- |
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
@@ -217,7 +217,7 @@ Windows çalıştıran her bilgisayarda bağımlılık Aracısı'nı yüklemek i
 
 Bir komut satırından yüklemek için aşağıdaki tablodaki seçenekleri kullanın. Yükleme bayrakları listesini görmek için yükleyiciyi kullanarak çalıştırmak /? aşağıdaki gibi bayrak.
 
-InstallDependencyAgent Windows.exe /?
+InstallDependencyAgent-Windows.exe /?
 
 | **Bayrağı** | **Açıklama** |
 | --- | --- |
@@ -375,9 +375,6 @@ Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
 Aracıları yüklü olan ve çözüm yükledikten sonra çalışma alanınızda kablo verileri 2.0 kutucuğu görüntülenir.
 
-> [!NOTE]
-> Şu anda, kablo verileri görüntülemek için OMS Portalı'nı kullanmanız gerekir. Kablo verileri görüntülemek için Azure Portalı'nı kullanamazsınız.
-
 ![Kablo verileri döşeme](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Kablo verileri 2.0 çözümünü kullanarak
@@ -424,11 +421,11 @@ Türüne sahip bir kayıt _WireData_ her giriş veri türü için oluşturulur. 
 |---|---|
 | Bilgisayar | Burada veri toplanan bilgisayar adı |
 | TimeGenerated | Kayıt zamanı |
-| Yerel IP | Yerel bilgisayarın IP adresi |
+| LocalIP | Yerel bilgisayarın IP adresi |
 | SessionState | Bağlantısı kesilmiş veya bağlı |
 | ReceivedBytes | Alınan bayt miktarı |
 | ProtocolName | Kullanılan ağ protokolün adı |
-| İpversion değeri | IP sürümü |
+| IPVersion | IP sürümü |
 | Yön | Gelen veya giden |
 | MaliciousIP | Bilinen kötü amaçlı bir kaynak IP adresi |
 | Önem Derecesi | Amaçlı olduğundan kuşkulanılan yazılımın önem derecesi |
@@ -439,7 +436,7 @@ Türüne sahip bir kayıt _WireData_ her giriş veri türü için oluşturulur. 
 | SessionEndTime | Oturumun bitiş saati |
 | LocalSubnet | Burada veri toplanan alt ağ |
 | LocalPortNumber | Yerel bağlantı noktası numarası |
-| Uzak IP | Uzak bilgisayar tarafından kullanılan uzak IP adresi |
+| RemoteIP | Uzak bilgisayar tarafından kullanılan uzak IP adresi |
 | RemotePortNumber | Uzak IP adresiyle kullanılan bağlantı noktası numarası |
 | SessionID | İki IP adresi arasındaki iletişimi oturumunu tanımlayan benzersiz bir değer |
 | SentBytes | Gönderilen bayt sayısı |

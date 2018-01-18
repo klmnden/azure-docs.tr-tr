@@ -3,7 +3,7 @@ title: "Azure AD Connect eşitleme: Zamanlayıcı | Microsoft Docs"
 description: "Bu konuda, Azure AD Connect eşitleme yerleşik Zamanlayıcı özelliğinde açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 418dcf67844bff7352b63db31ddfa3be3f7f29e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect eşitleme: Zamanlayıcı
 Bu konu, Azure AD Connect eşitleme yerleşik zamanlayıcıda (paketini açıklar Eşitleme altyapısı).
@@ -131,7 +131,7 @@ Bu bölümde belgelenen cmdlet'leri yalnızca yapı içinde kullanılabilir [1.1
 
 Ardından yerleşik Zamanlayıcı gereksinimlerinizi karşılamadığı, PowerShell kullanarak bağlayıcılar zamanlayabilirsiniz.
 
-### <a name="invoke-adsyncrunprofile"></a>Çağırma ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Bu şekilde bir bağlayıcı için bir profil başlatabilirsiniz:
 
 ```

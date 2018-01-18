@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazıları listelenmiştir. Bu belge şu anda tüm Azure hizmetlerini kapsamaz. Zamanla, liste genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -52,7 +52,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 * [Application Insights](#application-insights-limits)
 * [Otomasyon](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
-* [Azure Event kılavuz](#azure-event-grid-limits)
+* [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis Önbelleği](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -61,6 +61,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
+* [Kapsayıcı hizmeti (AKS)](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -84,7 +85,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
 * [Site Recovery](#site-recovery-limits)
-* [SQL Veritabanı](#sql-database-limits)
+* [SQL Database](#sql-database-limits)
 * [SQL Veri Ambarı](#sql-data-warehouse-limits)
 * [Depolama](#storage-limits)
 * [StorSimple sistemi](#storsimple-system-limits)
@@ -127,6 +128,9 @@ Azure Resource Manager ve Azure kaynak gruplarını kullanırken aşağıdaki s�
 Aşağıdaki tablo özellikler ve temel, standart ve Premium sınırları ayrıntıları [hizmet katmanları](./container-registry/container-registry-skus.md).
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>Kapsayıcı hizmeti (AKS) sınırları
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Ağ limitleri
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]

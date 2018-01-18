@@ -284,10 +284,11 @@
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Denetimler](active-directory-conditional-access-controls.md)
 #### [Konum koşulu](active-directory-conditional-access-locations.md)
-#### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Başlarken](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
+#### [Durum aracı](active-directory-conditional-access-whatif.md)
 #### Görevler
 ##### [Klasik MFA ilkesini geçirme](active-directory-conditional-access-migration-mfa.md)
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
@@ -305,7 +306,7 @@
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md)
+#### [Başlarken](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Kimlik Koruması](active-directory-identityprotection.md)
 #### [Etkinleştirme](active-directory-identityprotection-enable.md)

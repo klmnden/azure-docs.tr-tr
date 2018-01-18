@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
-> [!div class="op_single_selector"]
-> * [Denetim](sql-data-warehouse-auditing-overview.md)
-> * [Tehdit algılama](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
-SQL veri ambarı denetim kayıtla Azure depolama hesabınızdaki denetim veritabanınızdaki olayları günlüğe sağlar. Denetim, yönetmeliklere uygunluğu korumanıza, veritabanı etkinliklerini anlamanıza ve ifade eden tutarsızlıklar ve iş endişeleri veya güvenlik ihlalleri hakkında daha fazla bilgi kavramanıza yardımcı olabilir. Ayrıca SQL Data Warehouse denetim Microsoft Power BI ile ayrıntıya raporlama ve analiz için ile tümleştirir.
+SQL veri ambarı denetim kayıtla Azure depolama hesabınızdaki denetim veritabanınızdaki olayları günlüğe sağlar. Denetim, yönetmeliklere uygunluğu korumanıza, veritabanı etkinliklerini anlamanıza ve ifade eden tutarsızlıklar ve iş endişeleri veya güvenlik ihlalleri hakkında daha fazla bilgi kavramanıza yardımcı olabilir. Ayrıca SQL Data Warehouse denetim Microsoft Power BI ile raporlama ve analiz için ile tümleştirir.
 
 Denetleme Araçları etkinleştirmek ve uyumluluk standartlarına bağlılığı kolaylaştırmak ancak Uyumluluk garanti etmez. Bu destek standartları uyumluluğu Azure hakkında daha fazla bilgi programlar için bkz: <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Güven Merkezi</a>.
 
-* [Veritabanı denetim temelleri]
-* [Veritabanınız için denetimi ayarlamanız]
-* [Denetim günlüklerini ve raporları analiz eder.]
-
-## <a id="subheading-1"></a>Azure SQL veri ambarı veritabanı denetimi temelleri
+## <a id="subheading-1"></a>Denetim temelleri
 SQL veri ambarı veritabanı denetimi yapmanıza olanak sağlar:
 
 * **Korumak** seçili olayların bir denetim izi. Denetlenecek veritabanı eylemleri kategorilerini tanımlayabilirsiniz.
@@ -59,19 +50,19 @@ Etkinlikleri ve denetlenen olayları hakkında daha fazla bilgi için bkz: <a hr
 
 Denetim günlükleri, Azure depolama hesabında depolanır. Bir denetim günlük Bekletme dönemi tanımlayabilirsiniz.
 
-Bir denetim ilkesi, belirli bir veritabanı veya varsayılan sunucu ilkesi olarak tanımlanabilir. Varsayılan sunucu denetim ilkesi tanımlanmış bir özel geçersiz kılma veritabanı denetim ilkesi bulunmayan tüm veritabanları için bir sunucu üzerinde uygulanır.
+Varsayılan sunucu ilkesi olarak veya belirli bir veritabanı için bir denetim ilkesi tanımlayabilirsiniz. Bir özel geçersiz kılma veritabanı denetim ilkesi tanımlı olmayan sunucudaki tüm veritabanları için bir varsayılan sunucu denetim ilkesi uygulanır.
 
 Denetimi kullanıyorsanız onay denetim ayarlamadan önce bir ["Alt düzey istemci."](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Veritabanınız için denetimi ayarlamanız
 1. Başlatma <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
-2. Git **ayarları** denetlemek istediğiniz SQL Data Warehouse dikey. İçinde **ayarları** dikey penceresinde, select **denetim ve tehdit algılama**.
+2. Git **ayarları** denetlemek istediğiniz SQL Data Warehouse için. Seçin **denetim ve tehdit algılama**.
    
     ![][1]
 3. Ardından, tıklayarak denetimi etkinleştirmek **ON** düğmesi.
    
     ![][3]
-4. Denetim yapılandırma dikey penceresinde, seçin **depolama ayrıntıları** denetim günlüklerini depolama dikey penceresini açın. Günlükleri kaydedileceği Azure depolama hesabı ve, bekletme süresini seçin. 
+4. Denetim yapılandırmasını panelinde seçin **depolama ayrıntıları** denetim günlüklerini depolama panelini açmak için. Günlükleri ve Bekletme dönemi için Azure depolama hesabı seçin. 
 >[!TIP]
 >En iyi önceden yapılandırılmış raporları şablonları almak için tüm denetlenen veritabanları için aynı depolama hesabı kullanın.
    
@@ -91,11 +82,12 @@ Denetim günlüklerini toplanan deposu tablolarla koleksiyonunda bir **SQLDBAudi
 ## <a id="subheading-4"></a>Depolama anahtarını yeniden üretme
 Üretimde büyük bir olasılıkla depolama anahtarlarınızı düzenli aralıklarla yenileyin. Anahtarlarınızı yenilerken İlkesi kaydetmeniz gerekir. İşlem aşağıdaki gibidir:
 
-1. (Bölüm denetim kurulumunda yukarıda) denetim yapılandırma dikey penceresinde geçiş **depolama erişim tuşu** gelen *birincil* için *ikincil* ve **KAYDETMEK**.
+1. Bölüm denetimi önceki kurulumunda açıklanan yapılandırma Panosu denetimde değiştirme **depolama erişim tuşu** gelen *birincil* için *ikincil* ve  **Kaydet**.
 
    ![][4]
-2. Depolama yapılandırma dikey penceresine gidin ve **yeniden** *birincil erişim anahtarını*.
-3. Denetim yapılandırma dikey penceresine geri dönün, geçiş **depolama erişim tuşu** gelen *ikincil* için *birincil* ve basın **KAYDETMEK**.
+2. Depolama yapılandırması Masası'na gidin ve **yeniden** *birincil erişim anahtarını*.
+3. Denetim yapılandırmasını Masası'na geri gidin, 
+4. geçiş **depolama erişim tuşu** gelen *ikincil* için *birincil* ve basın **KAYDETMEK**.
 4. UI depolama geri gidin ve **yeniden** *ikincil erişim anahtarını* (sonraki için hazırlık olarak anahtarları döngüsü yenileyin.
 
 ## <a id="subheading-5"></a>Otomasyon (PowerShell/REST API)
@@ -103,18 +95,41 @@ Ayrıca, aşağıdaki Otomasyon araçları kullanarak Azure SQL Data Warehouse'd
 
 * **PowerShell cmdlet'leri**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
-   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Kullanım AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Denetime ve dinamik veri maskeleme için alt düzey istemci desteği
+TDS yeniden yönlendirmeyi destekleyen SQL istemcilerinin denetim çalışır.
+
+TDS 7.4 uygulayan herhangi bir istemci yeniden yönlendirme de desteklemelidir. Bu özel durumlar yeniden yönlendirme özelliğini tam olarak desteklenmez ve Node.JS hangi yeniden yönlendirmesi için Tedious uygulanmadı JDBC 4.0 içerir.
+
+"Alt düzey istemciler" için TDS sürüm 7.3 desteklemek ve aşağıda sunucunun FQDN bağlantı dizesinde aşağıdaki gibi değiştirin:
+
+- Bağlantı dizesindeki özgün sunucunun FQDN: <*sunucu adı*>. database.windows.net
+- Bağlantı dizesindeki değiştirilmiş sunucu FQDN: <*sunucu adı*> .database. **güvenli**. windows.net
+
+"Alt düzey istemciler" kısmi bir listesine içerir:
+
+* .NET 4.0 ve aşağıdaki
+* ODBC 10.0 ve aşağıdaki.
+* JDBC (JDBC TDS 7.4 desteklerken, bu TDS yeniden yönlendirme özelliğini tam olarak desteklenmez)
+* Can sıkıcı (için Node.JS)
+
+**Açıklama:** önceki sunucu FDQN değişikliği bir yapılandırma gereksinimini adım olmadan her veritabanı (geçici azaltma) de bir SQL Server düzeyi denetim ilkesi uygulamak için yararlı olabilir.     
+
+
+
 
 <!--Anchors-->
-[Veritabanı denetim temelleri]: #subheading-1
-[Veritabanınız için denetimi ayarlamanız]: #subheading-2
-[Denetim günlüklerini ve raporları analiz eder.]: #subheading-3
+[Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
@@ -125,11 +140,3 @@ Ayrıca, aşağıdaki Otomasyon araçları kullanarak Azure SQL Data Warehouse'd
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

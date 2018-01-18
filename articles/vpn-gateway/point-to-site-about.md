@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 010/19/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Noktadan siteye VPN hakkında
 
@@ -36,7 +36,7 @@ Noktadan siteye VPN aşağıdaki protokollerden birini kullanabilirsiniz:
 Windows ve Mac cihazları oluşan bir karma istemci ortamınız varsa, SSTP ve Ikev2 yapılandırın.
 
 >[!NOTE]
->P2S için Ikev2 şu anda önizlemede ve Resource Manager dağıtım modeli için kullanılabilir.
+>P2S için Ikev2 Resource Manager dağıtım modeli için kullanılabilir. Klasik dağıtım modeli için kullanılabilir değil.
 >
 
 ## <a name="authentication"></a>P2S VPN istemcileri nasıl doğrulanır?
@@ -57,28 +57,36 @@ AD etki alanı kimlik doğrulama, kuruluş etki alanı kimlik bilgilerini kullan
 
 Bir RADIUS sunucusu, ayrıca diğer dış kimlik sistemleri ile tümleştirebilirsiniz. Bu, çok faktörlü seçenekleri de dahil olmak üzere, P2S VPN için kimlik doğrulama seçenekleri bolca yukarı açar.
 
->[!NOTE]
->RADIUS kimlik doğrulaması P2S için şu anda önizlemede değil.
->
-
 ! [noktası siteye]] (./media/point-to-site-about/p2s.png "Noktadan siteye")
 
 ### <a name="configuration-requirements-for-client-devices"></a>İstemci cihazları için yapılandırma gereksinimleri
 
 Kullanıcılar yerel VPN istemcileri, Windows ve Mac cihazlarda P2S için kullanır. Azure VPN istemcisi yapılandırma zip sağlar Azure'a bağlanmak için bu yerel istemciler tarafından gerekli ayarları içeren dosya.
 
-  * Windows cihazları için kullanıcıların cihazlarına yüklemesi bir yükleyici paketi, VPN istemci yapılandırmasında oluşur.
-  * Mac cihazlar için kullanıcıların cihazlarına yüklemesi mobileconfig dosya oluşur.
+* Windows cihazları için kullanıcıların cihazlarına yüklemesi bir yükleyici paketi, VPN istemci yapılandırmasında oluşur.
+* Mac cihazlar için kullanıcıların cihazlarına yüklemesi mobileconfig dosya oluşur.
 
 Zip dosyası bazı önemli ayarları değerleri bu aygıtlar için kendi profili oluşturmak için kullanabileceğiniz Azure tarafında de sağlar. Bazı değerleri, VPN ağ geçidi adresi, yapılandırılmış tünel türünü, yollar ve ağ geçidi doğrulaması için kök sertifikasını içerir.
 
-### <a name="which-gateway-skus-support-p2s-vpn"></a>Hangi ağ geçidi SKU'ları destek P2S VPN?
+### <a name="gwsku"></a>Hangi ağ geçidi SKU'ları destek P2S VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
 * Toplam Aktarım Hızı Kıyaslaması, tek bir ağ geçidi üzerinde yer alan birden fazla tünelin ölçümlerine bağlıdır. Garantili verimlilik Internet trafiği koşulları ve uygulama davranışları nedeniyle değil.
 * Fiyatlandırma bilgileri Fiyatlandırma sayfasında bulunabilir. 
 * SLA (hizmet düzeyi sözleşmesi) bilgileri SLA sayfasında bulunabilir.
+
+>[!NOTE]
+>Temel SKU Ikev2 veya RADIUS kimlik doğrulamasını desteklemez.
+>
+
+## <a name="configure"></a>P2S bağlantısı nasıl yapılandırırım?
+
+P2S yapılandırma oldukça birkaç belirli adım gerektirir. Aşağıdaki makaleler, P2S yapılandırması ve VPN istemci cihazları yapılandırmak için bağlantıları yol için adımları içerir:
+
+* [P2S bağlantısı - RADIUS kimlik doğrulamasını yapılandırma](point-to-site-how-to-radius-ps.md)
+
+* [P2S bağlantısı - Azure yerel sertifika kimlik doğrulamasını yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## <a name="faqcert"></a>Yerel Azure sertifika kimlik doğrulaması hakkında SSS
 
@@ -90,6 +98,6 @@ Zip dosyası bazı önemli ayarları değerleri bu aygıtlar için kendi profili
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-[P2S bağlantılarının - RADIUS kimlik doğrulamasını yapılandırma](point-to-site-how-to-radius-ps.md)
+* [P2S bağlantısı - RADIUS kimlik doğrulamasını yapılandırma](point-to-site-how-to-radius-ps.md)
 
-[P2S bağlantılarının - Azure yerel sertifika kimlik doğrulamasını yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [P2S bağlantısı - Azure yerel sertifika kimlik doğrulamasını yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md)

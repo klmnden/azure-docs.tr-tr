@@ -1,24 +1,24 @@
 ---
 title: "PowerShell ile Azure Table depolama işlemleri | Microsoft Docs"
 description: "PowerShell ile Azure Table depolama işlemleri"
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 0174b6fe02008a1c22a165b077c694af7e8618ab
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure Table depolama işlemleri 
 
@@ -58,7 +58,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Konumların listesini alma
 
-Kullanmak istediğiniz konumu bilmiyorsanız, kullanılabilir konumlarını listeleyebilirsiniz. Liste görüntülendikten sonra kullanmak istediğiniz bir bulun. Bu örneklerde **eastus**. Bu değer değişken depolamak **konumu** gelecekte kullanım için.
+Kullanmak istediğiniz konumdan emin değilseniz, kullanılabilir konumları listeleyebilirsiniz. Liste görüntülendikten sonra, kullanmak istediğiniz öğeyi bulun. Bu örneklerde **eastus**. Bu değer değişken depolamak **konumu** gelecekte kullanım için.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -76,7 +76,7 @@ $resourceGroup = "pshtablesrg"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>Depolama hesabı oluşturma
+## <a name="create-storage-account"></a>Depolama hesabı oluştur
 
 Yerel olarak yedekli depolama (LRS) kullanarak standart genel amaçlı depolama hesabı oluşturma [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alır. Bir depolama hesabı üzerinde hareket ederken, tekrar tekrar kimlik bilgileri sağlama yerine bağlamı başvuru.
 
@@ -151,7 +151,7 @@ Nasıl yapılır bu makalede PowerShell, ortak Azure Table depolama işlemleriyl
 
 Daha fazla bilgi için aşağıdaki makalelere bakın
 
-* [Depolama PowerShell cmdlet'leri](/powershell/module/azurerm.storage#storage)
+* [Depolama PowerShell cmdlet’leri](/powershell/module/azurerm.storage#storage)
 
 * [Azure depolama tablolardan PowerShell ile çalışma](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 

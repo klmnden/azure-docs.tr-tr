@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Oluşturma ve VPN istemcisi yapılandırma dosyalarını P2S RADIUS kimlik doğrulaması (Önizleme) yükleme
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Oluşturun ve VPN istemcisi yapılandırma dosyalarını P2S RADIUS kimlik doğrulaması için yükleyin
 
 VPN istemcisi yapılandırma dosyalarını bir zip dosyasında bulunur. Yapılandırma dosyaları noktası Site bir sanal ağa bağlanmak yerel bir Windows veya Mac Ikev2 VPN istemcisi için gerekli ayarları sağlar. RADIUS sunucusu birden çok kimlik doğrulama seçenekleri sağlar ve bu nedenle, her seçenek için VPN istemci yapılandırmasında değişir.
 
@@ -95,7 +95,7 @@ Sertifika kimlik doğrulaması için yerel Windows VPN istemcisi yapılandırmak
 5. Profili yükleme sırasında kullanıcı adı ve VPN kimlik doğrulaması için kullanılan parola belirtmek için seçeneği de verilir. Bu bilgileri girmek için zorunlu değildir. Belirtilmişse, bilgileri kaydedilir ve bir bağlantı başlattığınızda otomatik olarak kullanılır. Tıklatın **yükleme** devam etmek için.
 
   ![ayarlar](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-6. Profil bilgisayarınıza yüklemek için gerekli gerekli ayrıcalıkların bir kullanıcı adı ve parola girin. **Tamam** düğmesine tıklayın.
+6. Profil bilgisayarınıza yüklemek için gerekli gerekli ayrıcalıkların bir kullanıcı adı ve parola girin. **Tamam**’a tıklayın.
 
   ![Kullanıcı adı ve parola](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 7. Bir kez yüklendikten sonra görünür profilidir **profilleri** iletişim kutusu. Bu iletişim kutusunu de daha sonra açılabilir **sistem tercihleri**.
@@ -161,7 +161,7 @@ Yerel VPN istemcisi Mac sertifika kimlik doğrulamasını yapılandırmak için 
 1. İçeri aktarma **VpnServerRoot** ve **RadiusServerRoot** kök sertifikaları Mac için Bu, Mac üzerinden dosya kopyalama ve çift yapılabilir.  
 Tıklatın **Ekle** almak için.
 
-  **VpnServerRoot Ekle**
+  **Add VpnServerRoot**
 
   ![Sertifika Ekle](./media/point-to-site-vpn-client-configuration-radius/addcert.png)
 
@@ -187,7 +187,7 @@ Tıklatın **Ekle** almak için.
   ![identity](./media/point-to-site-vpn-client-configuration-radius/identity.png)
 7. İçinde **yerel kimliği** alanında, sertifika (5. adım) adını belirtin. Bu örnekte, "ikev2Client.com" dir. Ardından **Uygula** değişiklikleri kaydetmek için düğmesi.
 
-  ![Uygula](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
+  ![uygula](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 8. Üzerinde **ağ** iletişim kutusunda, tıklatın **Uygula** tüm değişiklikleri kaydetmek için. Ardından **Bağlan** Azure VNet P2S bağlantısı başlatmak için.
 
 ## <a name="otherauth"></a>Diğer kimlik doğrulama türleri veya protokolleri ile çalışma

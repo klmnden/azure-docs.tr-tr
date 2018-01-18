@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health hakkında sık sorulan sorular
 Bu makale, Azure Active Directory (Azure AD) Connect Health hakkında sık sorulan sorular (SSS) yanıtlarını içerir. Bu SSS, özellikleri, sınırlamalar ve Destek faturalama modeli içerir hizmetini kullanma hakkında sorular kapsar.
@@ -45,6 +45,7 @@ Hizmet tarafından sağlanan özellikleri rolü ve işletim sistemine göre fark
 * İlk Connect Health aracısını en az bir Azure AD Premium lisansı gerektirir.
 * Her bir ek kayıtlı aracının 25 ek Azure AD Premium lisansı gerektirir.
 * Aracı sayısı, tüm izlenen rolleri arasında (AD FS, Azure AD Connect ve/veya AD DS) kayıtlı olan aracıları toplam sayısı eşdeğerdir.
+* AAD Connect Health lisans, belirli kullanıcılara lisans atamak gerektirmez. Yalnızca geçerli lisans gerekli sahip olması gerekir.
 
 Lisans bilgileri üzerinde bulunan de [Azure AD fiyatlandırma sayfası](https://aka.ms/aadpricing).
 

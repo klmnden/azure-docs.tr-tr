@@ -3,7 +3,7 @@ title: "Azure AD Connect eşitleme hizmeti özelliklerini ve yapılandırma | Mi
 description: "Azure AD Connect eşitleme hizmeti için hizmet tarafı özelliklerini açıklar."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 830692d6df6856e73b8c192db91edf75fdcaec35
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
 Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
@@ -31,7 +31,7 @@ Bu konuda açıklanmaktadır nasıl özelliklerini aşağıdaki **Azure AD Conne
 Bu ayarlar ile yapılandırılan [Azure Active Directory için Windows PowerShell Modülü](http://aka.ms/aadposh). İndirin ve Azure AD Connect'ten ayrı olarak yükleyin. Bu konudaki belgelenen cmdlet'leri de tanıtılan [2016 Mart sürümünden (yapı 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Bu konudaki belgelenen cmdlet'leri yok veya aynı sonucu verir değil, en son sürümü çalıştırdığınızdan emin olun.
 
 Azure AD dizininizi yapılandırmasında görmek için çalıştırın `Get-MsolDirSyncFeatures`.  
-![Get-MsolDirSyncFeatures sonucu](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
+![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
 
 Bu ayarların çoğu, yalnızca Azure AD Connect tarafından değiştirilebilir.
 

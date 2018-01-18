@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: daea97c0f5ee6ef855dc50c1ed6c7934aa85a1c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>Azure yığınına yedekleyin
 
@@ -26,13 +26,22 @@ ms.lasthandoff: 01/10/2018
 
 Yerinde yedeklemeyle Azure yığında bir talep üzerine yedekleme gerçekleştirin. Altyapı Yedekleme hizmetini etkinleştirmek gerekirse bkz [Azure yığınının Yönetim Portalı'ndan yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-console.md).
 
+> [!Note]  
+>  Azure yığın araçları içeren **başlangıç AzSBackup** cmdlet'i. Araçları yükleme ile ilgili yönergeler için bkz: [Azure yığınında PowerShell ile başlamak ve çalıştırmak](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+
 ## <a name="start-azure-stack-backup"></a>Azure yığın Yedeklemeyi Başlat
 
-Windows PowerShell ile yükseltilmiş istemi açın ve aşağıdaki komutları çalıştırın:
+Yükseltilmiş bir istemi işleci yönetim ortamında ile Windows PowerShell'i açın ve aşağıdaki komutları çalıştırın:
 
-   ```powershell
-   Start-AzSBackup -Location $location.Name
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Yedekleme Yönetim Portalı'nda tamamlandı onaylayın
 

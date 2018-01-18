@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama | Microsoft Docs"
+title: "Azure Active Directory kimlik koruması için Microsoft Graph | Microsoft Docs"
 description: "Azure Active Directory'den ilgili bilgileri ve risk olaylarını listesi için Microsoft Graph sorgu öğrenin."
 services: active-directory
 keywords: "Azure active directory kimlik koruması, risk olay, güvenlik açığı, güvenlik ilkesi, Microsoft Graph"
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fafad74f46baaf56a8220dab05028781b2f2258e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama
 Microsoft Graph olan Microsoft unified API uç noktasını ve giriş, [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, bir listesi için Microsoft Graph sorgu sayesinde [risk olayları](active-directory-identityprotection-risk-events-types.md) ve bilgi ilişkili. Bu makalede bu API sorgulama başlamanızı sağlar. Bir ayrıntılı giriş, tam belgelere ve Graph Explorer'da erişim için bakın [Microsoft Graph site](https://graph.microsoft.io/).
@@ -75,7 +76,7 @@ Başlamadan önce ihtiyacınız vardır:
    
     c. İçinde **oturum açma URL'si** metin kutusuna, türü `http://localhost`.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
 
 4. Açmak için **ayarları** uygulamalar listesinde sayfaya, yeni oluşturulan uygulama kayıt'a tıklayın. 
 
@@ -132,7 +133,7 @@ Başlamadan önce ihtiyacınız vardır:
     
     b. Olarak **süresi**seçin **1 yıl**.
 
-    c. **Kaydet** düğmesine tıklayın.
+    c. **Kaydet**’e tıklayın.
    
     d. Anahtar değerini kopyalayın ve güvenli bir konuma yapıştırın.   
    

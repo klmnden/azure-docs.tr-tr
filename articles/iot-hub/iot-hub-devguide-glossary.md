@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-<<<<<<< HEAD
-ms.openlocfilehash: 87ab620444df4588cc43a3691cb215006561090d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 23008d3619af4606703bca41f370e14cf020a16a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan ortak terimleri bazıları listelenmektedir.
@@ -77,7 +71,7 @@ Bir bitiş noktasına bağlanmak için gereken bilgileri yalıtan uygulama kodun
 - *Cihaz bağlantı dizelerini* bir IOT hub'ında cihaz'te Uç noktalara bağlanmak aygıtları etkinleştirin.
 - *IOT Hub bağlantı dizelerini* bir IOT hub'ındaki service'te Uç noktalara bağlanmak arka uç uygulamaları etkinleştirme.
 
-## <a name="custom-endpoints"></a>Özel uç noktaları
+## <a name="custom-endpoints"></a>Özel uç noktalar
 Oluşturabileceğiniz özel [uç noktaları](iot-hub-devguide-endpoints.md) tarafından gönderilen iletileri sunmak için bir IOT hub'ında bir [yönlendirme kuralı](#routing-rules). Özel uç noktaları, doğrudan bir olay hub'ı, Service Bus kuyruğuna veya Service Bus konu bağlanın.
 
 ## <a name="custom-gateway"></a>Özel ağ geçidi
@@ -184,13 +178,13 @@ Kullanabileceğiniz [IOT Hub kaynak sağlayıcısı REST API](https://docs.micro
 ## <a name="iot-suite"></a>IoT Paketi
 Azure IOT paketi önceden yapılandırılmış çözümleri birden çok Azure hizmetleriyle birlikte paketler. Bu önceden yapılandırılmış çözümler, ortak IOT senaryolarını uçtan uca uygulamaları ile hızlı bir şekilde başlamak etkinleştirin. Daha fazla bilgi için bkz: [Azure IOT paketi nedir?](../iot-suite/iot-suite-overview.md)
 
-## <a name="iothub-explorer"></a>ıothub Gezgini
-[İothub-explorer](https://github.com/azure/iothub-explorer) platformlar arası, komut satırı aracıdır. Aracı, cihazlarınızı yönetmenize olanak tanır [kimlik kayıt defteri](#identity-registry)göndermek ve iletileri ve dosyaları, almasını ve IOT hub işlemlerini izleyebilirsiniz.
+## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 IOT uzantısı
+[Azure CLI 2.0 IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) platformlar arası, komut satırı aracıdır. Aracı, cihazlarınızı yönetmenize olanak tanır [kimlik kayıt defteri](#identity-registry)göndermek ve iletileri ve dosyaları, almasını ve IOT hub işlemlerini izleyebilirsiniz.
 
 ## <a name="job"></a>İş
 Çözüm arka ucunuz kullanabilirsiniz [işleri](iot-hub-devguide-jobs.md) zamanlamak ve IOT hub'ınıza kayıtlı cihazlar üzerinde etkinliklerini izlemek için. Etkinlikler dahil cihaz çifti güncelleştirme [özelliklerini istenen](#desired-properties), güncelleştirme cihaz çifti [etiketleri](#tags)ve çağırma [doğrudan yöntemleri](#direct-method). [IOT hub'ı](#iot-hub) işleri için de kullanır [için içeri ve dışarı aktarma](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) gelen [kimlik kayıt defteri](#identity-registry).
 
-## <a name="jobs-rest-api"></a>İşlerini REST API'si
+## <a name="jobs-rest-api"></a>Jobs REST API
 [İşleri REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) yönetmenize olanak veren [işleri](#job) IOT hub'ınıza çalıştıran.
 
 ## <a name="mqtt"></a>MQTT
@@ -226,7 +220,7 @@ Bağlamında bir [cihaz çifti](iot-hub-devguide-device-twins.md), özellikleri 
 ## <a name="routing-rules"></a>Yönlendirme kuralları
 Yapılandırdığınız [yönlendirme kuralları](iot-hub-devguide-messages-read-custom.md) cihaz-bulut iletileri yönlendirmek için IOT hub'bir [yerleşik uç nokta](#built-in-endpoints) veya [özel uç noktaları](#custom-endpoints) çözüm arka ucu tarafından işlenecek.
 
-## <a name="sasl-plain"></a>SASL DÜZ
+## <a name="sasl-plain"></a>SASL PLAIN
 SASL DÜZ bir protokolüdür, [AMQP](#advanced-message-queue-protocol) Protokolü güvenlik belirteçleri aktarımı için kullanır.
 
 ## <a name="shared-access-signature"></a>Paylaşılan erişim imzası

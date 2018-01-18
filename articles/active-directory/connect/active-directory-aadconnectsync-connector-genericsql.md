@@ -3,7 +3,7 @@ title: "Genel SQL bağlayıcı | Microsoft Docs"
 description: "Bu makalede, Microsoft'un Genel SQL bağlayıcısının nasıl yapılandırılacağı açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
-ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: billmath
+ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Genel SQL bağlayıcı Teknik Başvurusu
 Bu makalede Genel SQL Bağlayıcısı'nı açıklar. Makale aşağıdaki ürünler için geçerlidir:
@@ -226,7 +226,7 @@ Genel SQL bağlayıcı desteği tam ve Delta içeri aktarma bu yöntemleri kulla
 * Tablo
 * Görünüm
 * Saklı Yordam
-* SQL sorgusu
+* SQL Sorgusu
 
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
@@ -282,7 +282,7 @@ Genel SQL bağlayıcı desteği gibi dört desteklenen yöntemleri kullanarak ve
 * Tablo
 * Görünüm
 * Saklı Yordam
-* SQL sorgusu
+* SQL Sorgusu
 
 **Tablo/görünüm**  
 Tablo/görünüm seçeneği belirlerseniz, bağlayıcı verme işlemini gerçekleştirmek için ilgili sorgular oluşturur.

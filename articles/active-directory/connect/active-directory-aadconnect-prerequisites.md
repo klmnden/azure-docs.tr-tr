@@ -3,7 +3,7 @@ title: "Azure AD Connect: Önkoşulları ve donanım | Microsoft Docs"
 description: "Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 1dc33bbd686d97f21c7b9d61752d9f2c584a79fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD için Önkoşullar Bağlan
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -117,7 +117,7 @@ Bağlantı sorunlarınız, daha fazla bilgi için bkz: [bağlantı sorunlarını
 ### <a name="powershell-and-net-framework"></a>PowerShell ve .net Framework
 Azure AD Connect Microsoft PowerShell ve .NET Framework 4.5.1 bağlıdır. Bu sürüm veya sunucunuzda yüklü sonraki bir sürümü gerekir. Windows Server sürümüne bağlı olarak aşağıdakileri yapın:
 
-* Windows Server 2012 R2
+* Windows Server 2012R2
   * Microsoft PowerShell varsayılan olarak yüklenir. Hiçbir eylem gerekli değildir.
   * .NET framework 4.5.1 veya sonraki sürümlerinde Windows Update aracılığıyla sunulur. Denetim Masası'ndaki Windows Server için en son güncelleştirmeleri yüklediğinizden emin olun.
 * Windows Server 2008R2 ve Windows Server 2012

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d641971811f20b2a6e9c14f134cf0d80f95944eb
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlantılı ve şablonları Azure kaynaklarını dağıtırken iç içe geçmiş kullanma
 
@@ -82,7 +82,8 @@ Ana Şablon şablonda yerleştirmek için kullanmak **şablonu** özelliği ve �
 ]
 ```
 
-İç içe geçmiş şablonları için parametreleri veya iç içe geçmiş şablonda tanımlanan değişkenler kullanamazsınız. Parametreler ve değişkenler ana şablondan kullanabilirsiniz. Önceki örnekte `[variables('storageName')]` iç içe geçmiş şablonunu değil ana şablonundan bir değer alır. Dış şablonlar bu kısıtlama geçerli değildir.
+> [!NOTE]
+> İç içe geçmiş şablonları için parametreleri veya iç içe geçmiş şablonda tanımlanan değişkenler kullanamazsınız. Parametreler ve değişkenler ana şablondan kullanabilirsiniz. Önceki örnekte `[variables('storageName')]` iç içe geçmiş şablonunu değil ana şablonundan bir değer alır. Dış şablonlar bu kısıtlama geçerli değildir.
 
 ### <a name="external-template-and-external-parameters"></a>Dış şablon ve dış parametreleri
 

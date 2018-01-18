@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: dobett
-ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT hub'ı kotalar ve azaltma
 
@@ -42,11 +42,13 @@ Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir
 | Buluttan cihaza gönderim | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
 | Buluttan cihaza alım <br/> (yalnızca cihaz HTTPS kullandığında)| 16.67/sec/Unit (min/1000/birim) | 16.67/sec/Unit (min/1000/birim) | 833.33/sec/Unit (min/50000/birim) |
 | Karşıya dosya yükleme | 1.67 dosya karşıya yükleme bildirimleri/sn/birim (min/100/birim) | 1.67 dosya karşıya yükleme bildirimleri/sn/birim (min/100/birim) | 83.33 dosya karşıya yükleme bildirimleri/sn/birim (min/5000/birim) |
-| Doğrudan yöntemler | 20/sn/birim | 60/sn/birim | 3000/sn/birim | 
+| Doğrudan yöntemler | 160KB/sn/birim<sup>1</sup> | 480KB/sec/unit<sup>1</sup> | 24MB/sn/birim<sup>1</sup> | 
 | Cihaz ikizi okumaları | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
 | Cihaz ikizi güncelleştirmeleri | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
 | İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
 | İşler işlemleri için cihaz başına aktarım hızı | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
+
+<sup>1</sup>8 KB olduğunu ölçer boyutunu azaltma
 
 Açıklamak önemlidir *cihaz bağlantılarını* kısıtlama yeni cihaz bağlantılarını kurulabileceği bir IOT hub ile oranı yönetir. *Cihaz bağlantılarını* kısıtlama en fazla eş zamanlı cihaz sayısını belirleyen değil. IOT hub için sağlanan birim sayısını azaltma bağlıdır.
 
@@ -75,6 +77,7 @@ IOT hub'ı diğer işlemsel sınırları uygular:
 | Cihaz bulut Mesajlaşma | Maksimum ileti boyutu 256 KB |
 | Bulut cihaz Mesajlaşma | Maksimum ileti boyutu 64 KB |
 | Bulut cihaz Mesajlaşma | İletiler teslim için bekleyen maksimum 50'dir |
+| Doğrudan yöntemi | En fazla doğrudan yöntemi yükü boyutu 128 KB'dir |
 
 > [!NOTE]
 > Şu anda en fazla tek bir IOT hub'ına bağlanabileceğiniz aygıtlar 500.000 sayısıdır. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).

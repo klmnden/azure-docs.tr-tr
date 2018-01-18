@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/16/2018
 ms.author: carlrab
-ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 8cf926bab45705802cfaca95973ec1071d8d175a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantısı mimarisi 
 
@@ -71,7 +71,7 @@ Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri içi
 | Orta ABD | 23.99.160.139 | 13.67.215.62 |
 | Doğu Asya | 191.234.2.139 | 52.175.33.150 |
 | Doğu ABD 1 | 191.238.6.43 | 40.121.158.30 |
-| Doğu ABD 2 | 191.239.224.107 | 40.79.84.180 |
+| Doğu ABD 2 | 191.239.224.107 | 40.79.84.180 * |
 | Hindistan Orta | 104.211.96.159  | |
 | Hindistan Güney | 104.211.224.146  | |
 | Hindistan Batı | 104.211.160.80 | |
@@ -92,6 +92,8 @@ Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri içi
 | Batı ABD 1 | 23.99.34.75 | 104.42.238.205 |
 | Batı ABD 2 | 13.66.226.202  | |
 ||||
+
+\***Not:** *Doğu ABD 2* üçüncül bir IP adresini de sahip `2.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL veritabanı bağlantı ilkesini değiştirme
 
@@ -163,7 +165,7 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 ## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Azure CLI 2.0 aracılığıyla bağlantı ayarlarını değiştirmek için komut dosyası
 
 > [!IMPORTANT]
-> Bu komut dosyası gerektirir [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Bu komut dosyası gerektirir [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 Aşağıdaki CLI betiği nasıl bağlantı İlkesi değiştirileceğini gösterir.
