@@ -5,26 +5,26 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure ortamınızda uyumlu olmayan kaynakları belirlemek için bir ilke ataması oluşturma
-Azure’da uyumluluğu anlamanın ilk adımı kendi mevcut kaynaklarınızın durumunu bilmektir. Bu hızlı başlangıç, yönetilen disk kullanmayan sanal makineleri belirlemek üzere ilke ataması oluşturma işleminde size yol gösterir.
+Azure’da uyumluluğu anlamanın ilk adımı, kaynaklarınızın durumunu belirlemektir. Bu hızlı başlangıç, yönetilen disk kullanmayan sanal makineleri belirlemek üzere ilke ataması oluşturma işleminde size yol gösterir.
 
-Bu işlemin sonunda, yönetilen disk kullanmayan ve bu nedenle *uyumsuz* olan sanal makineleri başarılı bir şekilde belirlemiş olacaksınız.
+Bu işlemin sonunda, yönetilen disk kullanmayan sanal makineleri başarılı bir şekilde belirlemiş olacaksınız. Bu sanal makineler, ilke ataması ile *uyumsuzdur*.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="create-a-policy-assignment"></a>İlke ataması oluşturma
 
-Bu hızlı başlangıçta, bir ilke ataması oluşturup *Yönetilen Diskleri Olmayan Sanal Makineleri Denetle* ilke tanımını atayacağız.
+Bu hızlı başlangıçta, bir ilke ataması oluşturup *Yönetilen Diskleri Olmayan Sanal Makineleri Denetle* ilke tanımını atayacaksınız.
 
 1. Azure İlkesi sayfasının sol bölmesinde **Atamalar**'ı seçin.
 2. **Atamalar** bölmesinin üst kısmında **İlke Ata**'yı seçin.
@@ -41,21 +41,23 @@ Bu hızlı başlangıçta, bir ilke ataması oluşturup *Yönetilen Diskleri Olm
    - Etiketi ve değerini uygula
    - SQL Server Sürüm 12.0 gerektir
 
-4. *Yönetilen disk kullanmayan VM'leri denetle* tanımını bulmak için ilke tanımlarınızda arama yapın. Bu ilkeye tıklayın ve sonra da **Ata**'ya tıklayın.
+    Kullanılabilir tüm yerleşik ilkelerin tam listesi için bkz. [İlke şablonları](json-samples.md).
+
+4. *Yönetilen disk kullanmayan VM'leri denetle* tanımını bulmak için ilke tanımlarınızda arama yapın. Bu ilkeye tıklayın ve **Seç**'e tıklayın.
 
    ![Doğru ilke tanımını bulma](media/assign-policy-definition/select-available-definition.png)
 
-5. İlke ataması için görünen **Ad** sağlayın. Bizim durumumuzda, *Yönetilen disk kullanmayan VM'leri denetleme* adını kullanalım. İsteğe bağlı bir **Açıklama** da ekleyebilirsiniz. Açıklamada bu ilke atamasının bu ortamda oluşturulan ve yönetilen disk kullanmayan tüm sanal makineleri nasıl tanımladığına ilişkin ayrıntılar sağlanır.
+5. İlke ataması için görünen **Ad** sağlayın. Bizim durumumuzda, *Yönetilen disk kullanmayan VM'leri denetleme* adını kullanalım. İsteğe bağlı bir **Açıklama** da ekleyebilirsiniz. Açıklamada ilke atamasının yönetilen disk kullanmayan tüm sanal makineleri nasıl tanımladığına ilişkin ayrıntılar sağlanır.
 6. İlkenin mevcut kaynaklara uygulanmasını güvence altına almak için fiyatlandırma katmanını **Standart** olarak değiştirin.
 
-   Azure İlkesi içinde iki fiyatlandırma katmanı vardır: *Ücretsiz* ve *Standart*. Ücretsiz katmanıyla, ilkeleri yalnızca gelecek kaynaklarda zorunlu tutabilirsiniz; Standart katmanıyla ise, uyumluluk durumunuzu daha iyi anlayabilmek için ilkeleri mevcut kaynaklarda da zorunlu tutarsınız. Sınırlı Önizleme aşamasında olduğumuzdan, henüz bir fiyatlandırma modeli yayımlamadık. Dolayısıyla *Standart*'ı seçtiğinizde fatura almayacaksınız. Fiyatlandırma hakkında daha fazla bilgi için şu konuya bakın: [Azure İlkesi fiyatlandırması](https://azure.microsoft.com/pricing/details/azure-policy/).
+   Azure İlkesi içinde iki fiyatlandırma katmanı vardır: *Ücretsiz* ve *Standart*. Ücretsiz katmanıyla, ilkeleri yalnızca gelecek kaynaklarda zorunlu tutabilirsiniz; Standart katmanıyla ise, uyumluluk durumunuzu daha iyi anlayabilmek için ilkeleri mevcut kaynaklarda da zorunlu tutarsınız. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Azure İlkesi fiyatlandırması](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. İlkenin uygulanmasını istediğiniz **Kapsam**'ı seçin.  Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler. Bir abonelikten kaynak gruplarına kadar değişiklik gösterebilir.
-8. Önceden kaydolduğunuz aboneliği (veya kaynak grubunu) seçin. Bu örnekte biz bu **Azure Analytics Capacity Dev** aboneliğini kullanıyoruz ama sizin seçenekleriniz farklı olabilir.
+8. Önceden kaydolduğunuz aboneliği (veya kaynak grubunu) seçin. Bu örnekte **Azure Analytics Capacity Dev** aboneliği kullanılmaktadır, ancak sizin seçenekleriniz farklı olabilir. **Seç**'e tıklayın.
 
    ![Doğru ilke tanımını bulma](media/assign-policy-definition/assign-policy.png)
 
-9. **Ata**'yı seçin.
+9. **Dışlamalar** alanını şimdilik boş bırakın ve sonra **Ata**’ya tıklayın.
 
 Artık ortamınızın uyumluluk durumunu anlamak için uyumlu olmayan kaynakları belirlemeye hazırsınız.
 
@@ -65,9 +67,9 @@ Sol bölmede **Uyumluluk**’u seçin ve oluşturduğunuz ilke atamasını aray�
 
 ![İlke uyumluluğu](media/assign-policy-definition/policy-compliance.png)
 
-Bu yeni atamayla uyumlu olmayan mevcut kaynaklar varsa, **Uyumlu olmayan kaynaklar** sekmesinde görünür.
+Bu yeni atamayla uyumlu olmayan mevcut kaynaklar varsa **Uyumlu olmayan kaynaklar** altında görünür.
 
-Bir koşul mevcut kaynaklarınız genelinde değerlendirilir ve bunlardan bazıları için doğru sonucunu verirse, bu kaynaklar ilkeyle uyumlu değil olarak işaretlenir. Bu tabloda, bugün kullanabildiğimiz farklı eylemlerin koşul değerlendirme sonucuyla ve kaynaklarınızın uyumluluk durumuyla nasıl çalıştığı gösterilir.
+Bir koşul mevcut kaynaklarınıza göre değerlendirilip true sonucunu verdiğinde, bu kaynaklar ilkeyle uyumlu değil olarak işaretlenir. Yukarıdaki örnek resim uyumlu olmayan kaynakları gösterir. Aşağıdaki tabloda, elde edilen uyumluluk durumu için farklı ilke eylemlerinin koşul değerlendirmesi ile nasıl çalıştığı gösterilmektedir. Azure portalında değerlendirme mantığı görünmese de, uyumluluk durumu sonuçları gösterilir. Uyumluluk durumu sonucu uyumlu veya uyumsuz şeklindedir.
 
 |Kaynak  |İlkedeki Koşulun Değerlendirme Sonucu  |İlkedeki Eylem   |Uyumluluk Durumu  |
 |-----------|---------|---------|---------|
@@ -82,7 +84,7 @@ Bir koşul mevcut kaynaklarınız genelinde değerlendirilir ve bunlardan bazıl
 
 Bu koleksiyondaki diğer kılavuzlar, bu hızlı başlangıcı temel alır. Sonraki kılavuzlarla çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız Azure portalında bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.
 1. Sol bölmede **Atamalar**'ı seçin.
-2. Yeni oluşturduğunuz atamayı arayın.
+2. Oluşturduğunuz atamayı arayın ve ardından sağ tıklayın.
 
    ![Atamayı silme](media/assign-policy-definition/delete-assignment.png)
 
@@ -90,7 +92,7 @@ Bu koleksiyondaki diğer kılavuzlar, bu hızlı başlangıcı temel alır. Sonr
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir kapsamdaki tüm kaynakların uyumlu olduğundan emin olmak ve uyumlu olmayanları belirlemek için o kapsama ilke tanımı atadınız.
+Bu hızlı başlangıçta bir kapsama ilke tanımı atadınız. İlke tanımı, kapsamdaki tüm kaynakların uyumlu olmasını sağlar ve hangilerinin uyumlu olmadığını belirler.
 
 ilkeleri atama hakkında daha fazla bilgi edinmek ve **gelecekte** oluşturulacak kaynakların uyumlu olduğundan emin olmak için şu öğreticiyle devam edin:
 

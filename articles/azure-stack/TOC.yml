@@ -233,9 +233,9 @@
               href: azure-stack-supported-os.md
             - name: Özel bir sanal makine görüntüsü ekleme
               href: azure-stack-add-vm-image.md
-            - name: Sanal makine ölçek kümeleri ekleme
+            - name: Bir sanal makine ölçek kümesi sunar
               href: azure-stack-compute-add-scalesets.md
-            - name: Linux sanal makineleri dağıtma
+            - name: Teklif Linux sanal makineleri
               href: azure-stack-linux.md
         - name: Kullanım ve faturalandırma
           items:
