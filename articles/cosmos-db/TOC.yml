@@ -235,8 +235,6 @@
               items:
                 - name: SQL dil bilgisi kopya kağıdı
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: Stack Overflow
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Videolar
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Hizmet güncelleştirmeleri
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: SSS
       href: faq.md
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: Beyzbol örneği ile açıklanan veri tutarlılığı
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
