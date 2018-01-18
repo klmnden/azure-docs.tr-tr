@@ -3,7 +3,7 @@ title: "Azure AD Connect eşitleme: bir yapılandırma değişikliği Azure AD C
 description: "Azure AD Connect eşitleme yapılandırmasında değişiklik konusunda size yol göstermektedir."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 1fd07d506b2edc789d71001ac520b9ebddc3e1d9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ed71272d2d10cd8b71fd3b2722d3ba033f1b51f9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: varsayılan yapılandırmanın bir değişiklik yapma
 Bu konunun amacı, Azure AD Connect eşitleme varsayılan yapılandırmasında değişiklik konusunda size yol sağlamaktır. Bu, bazı ortak senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırma bazı basit değişiklikler yapmak yapabiliyor olmanız gerekir.
@@ -273,14 +273,14 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
     | Açıklama | *Özel bir açıklama belirtin* |  |
     | Bağlı sistem | *Şirket içi çekme AD Bağlayıcısı* |  |
     | Bağlı sistem nesne türü | **Kullanıcı** |  |
-    | Meta veri deposu nesne türü | **Kişi** |  |
+    | Meta veri deposu nesne türü | **Person** |  |
     | Bağlantı türü | **Birleştir** |  |
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
 5. Tutmak **Scoping filtre** tüm nesneleri dahil edecek boş. Azure AD Connect dağıtımınızı göre kapsam filtresi ince ayar gerekebilir.
 6. Git **dönüştürme sekmesi** ve aşağıdaki dönüştürme kuralı uygular:
 
-    | Akış türü | Target özniteliği | Kaynak | Bir kez Uygula | Birleştirme türü |
+    | Akış türü | Hedef Öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     |Doğrudan | PreferredDataLocation | Kaynak özniteliği seçin | İşaretli | Güncelleştirme |
 
@@ -302,7 +302,7 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu Azure AD'de Prefer
     | Açıklama | *Bir açıklama belirtin* ||
     | Bağlı sistem | *AAD bağlayıcı seçin* ||
     | Bağlı sistem nesne türü | Kullanıcı ||
-    | Meta veri deposu nesne türü | **Kişi** ||
+    | Meta veri deposu nesne türü | **Person** ||
     | Bağlantı türü | **Birleştir** ||
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
@@ -317,7 +317,7 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu Azure AD'de Prefer
 
 6. Git **dönüştürme** sekmesinde ve aşağıdaki dönüştürme kuralı uygulayın:
 
-    | Akış türü | Target özniteliği | Kaynak | Bir kez Uygula | Birleştirme türü |
+    | Akış türü | Hedef Öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     | Doğrudan | PreferredDataLocation | PreferredDataLocation | İşaretli | Güncelleştirme |
 
@@ -332,7 +332,7 @@ AD için yeni öznitelikler ekledik genel olarak, tam eşitleme döngüsü gerek
 
    1. Git **Operations** sekme Eşitleme Hizmeti Yöneticisi'nde.
 
-   2. Sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır...** .
+   2. Sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır... **.
 
    3. Açılan iletişim kutusunda seçin **tam içeri aktarma** tıklatıp **Tamam**.
 
@@ -355,7 +355,7 @@ Kaynak özniteliği Active Directory ve Azure AD'den PreferredDataLocation ilgil
 
 4. Çalıştırma **tam eşitleme** üzerinde Adım **şirket içi AD Bağlayıcısı**:
 
-   1. Sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır...** .
+   1. Sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır... **.
 
    2. Açılan iletişim kutusunda seçin **tam eşitleme** tıklatıp **Tamam**.
 
@@ -377,7 +377,7 @@ Kaynak özniteliği Active Directory ve Azure AD'den PreferredDataLocation ilgil
 
 6. Çalıştırma **verme** üzerinde Adım **Azure AD Bağlayıcısı**
 
-   1. Sağ **Azure AD Bağlayıcısı** seçip **Çalıştır...** .
+   1. Sağ **Azure AD Bağlayıcısı** seçip **Çalıştır... **.
 
    2. Bağlayıcı çalıştırmak açılan iletişim kutusunda, seçin **verme** tıklatıp **Tamam**.
 
@@ -468,7 +468,7 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
     | Açıklama | *Bir açıklama belirtin* |  |
     | Bağlı sistem | *Şirket içi çekme AD Bağlayıcısı* |  |
     | Bağlı sistem nesne türü | **Kullanıcı** |  |
-    | Meta veri deposu nesne türü | **Kişi** |  |
+    | Meta veri deposu nesne türü | **Person** |  |
     | Bağlantı türü | **Birleştir** |  |
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
@@ -482,13 +482,13 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
 
 6. Git **dönüştürme sekmesi** ve istenen dönüştürme kuralı uygular. Örneğin, bir kullanılmayan atadığınız şirket içi AD özniteliği (örn., extensionAttribute1) UserType kaynak özniteliği doğrudan öznitelik akışı uygulayabilirsiniz:
 
-    | Akış türü | Target özniteliği | Kaynak | Bir kez Uygula | Birleştirme türü |
+    | Akış türü | Hedef Öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     | Doğrudan | UserType | extensionAttribute1 | İşaretli | Güncelleştirme |
 
     Başka bir örnek – diğer özelliklerinden UserType özniteliği için değer türetilen istiyor. Örneğin, tüm kullanıcılar, konuk olarak eşitlemek için istediğiniz şirket içi AD UserPrincipalName özniteliğinin etki alanı bölümü ile biten "@partners.fabrikam123.org". Bir ifade uygulayabilirsiniz:
 
-    | Akış türü | Target özniteliği | Kaynak | Bir kez Uygula | Birleştirme türü |
+    | Akış türü | Hedef Öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     | Doğrudan | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Üye", "Konuk"), hata ("UserPrincipalName UserType belirlemek için mevcut değil")) | İşaretli | Güncelleştirme |
 
@@ -510,7 +510,7 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu Azure AD'de Prefer
     | Açıklama | *Bir açıklama belirtin* ||
     | Bağlı sistem | *AAD bağlayıcı seçin* ||
     | Bağlı sistem nesne türü | Kullanıcı ||
-    | Meta veri deposu nesne türü | **Kişi** ||
+    | Meta veri deposu nesne türü | **Person** ||
     | Bağlantı türü | **Birleştir** ||
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. YDo olmayan başka bir eşitleme kuralı tarafından kullanılan bir değer seçin. |
 
@@ -525,7 +525,7 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu Azure AD'de Prefer
 
 6. Git **dönüştürme** sekmesinde ve aşağıdaki dönüştürme kuralı uygulayın:
 
-    | Akış türü | Target özniteliği | Kaynak | Bir kez Uygula | Birleştirme türü |
+    | Akış türü | Hedef Öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     | Doğrudan | UserType | UserType | İşaretli | Güncelleştirme |
 
