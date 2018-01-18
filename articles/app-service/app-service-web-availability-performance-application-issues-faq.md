@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 926005eace0acde27e26619a2787368ba0954351
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web uygulamaları için uygulama performansı ile ilgili SSS
 
@@ -96,7 +96,7 @@ Varsayılan olarak ayarlanmış bir süre için boşta olmaları durumunda web u
 2. Seçin **uygulama ayarları**.
 3. İçin **her zaman açık**seçin **üzerinde**.
 
-## <a name="how-do-i-turned-on-failed-request-tracing"></a>Nasıl ı etkinleştirilmiş başarısız istek izlemeyi?
+## <a name="how-do-i-turn-on-failed-request-tracing"></a>Başarısız istek izlemeyi nasıl kapatırım?
 
 Başarısız istek izleme özelliğini açmak için:
 

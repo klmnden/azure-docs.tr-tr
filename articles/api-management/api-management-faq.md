@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını için Azure API Management alın.
@@ -33,7 +33,6 @@ Sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını için Azure 
 * [My API Management örneği program aracılığıyla yönetebilir miyim?](#can-i-manage-my-api-management-instance-programmatically)
 * [Yöneticiler grubuna nasıl kullanıcı eklensin mi?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Neden ilke düzenleyicisinde kullanılamaz eklemek istediğiniz ilke mi?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [API sürümü oluşturma API Management'te nasıl kullanabilirim?](#how-do-i-use-api-versioning-in-api-management)
 * [Tek bir API birden çok ortamında nasıl ayarlayabilirim?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [API Management ile SOAP kullanabilir miyim?](#can-i-use-soap-with-api-management)
 * [API Yönetimi ağ geçidi IP adresi sabit mi? Bu güvenlik duvarı kurallarında kullanabilir miyim?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ API Yönetimi ağ geçidi ve arka uç hizmetlerini arasındaki bağlantının g�
 
 * HTTP temel kimlik doğrulaması kullanın. Daha fazla bilgi için bkz: [alma ve ilk API'nizi yayımlama](import-and-publish.md).
 * Bölümünde açıklandığı gibi SSL karşılıklı kimlik doğrulaması kullanmak [arka uç hizmetlerini istemcisini kullanarak Azure API Management'te sertifika kimlik doğrulaması güvenliğini sağlamak nasıl](api-management-howto-mutual-certificates.md).
-* IP uygulamaları güvenilir listeye almayı arka uç hizmet kullanın. Standart veya Premium katman API Management örneği varsa, ağ geçidinin IP adresi sabit kalır. Bu IP adreslerine izin vermek için beyaz liste ayarlayabilirsiniz. Azure Portalı'ndaki Panoda API Management Örneğinize IP adresini elde edebilirsiniz.
+* IP uygulamaları güvenilir listeye almayı arka uç hizmet kullanın. API Management tüm katmanlara ağ geçidinin IP adresi ile birkaç sabit kalır [uyarılar](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Bu IP adreslerine izin vermek için beyaz liste ayarlayabilirsiniz. Azure Portalı'ndaki Panoda API Management Örneğinize IP adresini elde edebilirsiniz.
 * API Management örneği bir Azure sanal ağına bağlayın.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Yeni bir örneğine nasıl my API Management hizmet örneği kopyalayın?
@@ -97,13 +96,6 @@ Artık yeni eklenen katkıda bulunan Azure PowerShell kullanarak [cmdlet'leri](h
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Neden ilke düzenleyicisinde kullanılamaz eklemek istediğiniz ilke mi?
 Eklemek istediğiniz ilke soluk veya İlke Düzenleyicisi'nde gölgeli, ilke için doğru kapsamında olduğundan emin olun görünüyorsa. Her ilke bildirimi belirli kapsamlar ve ilke bölümlerde kullanmanız için tasarlanmıştır. İlke bölüm ve bir ilke kapsamları gözden geçirmek için ilkenin kullanım bölümüne bakın. [API Management ilkeleri](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>API sürümü oluşturma API Management'te nasıl kullanabilirim?
-API sürümü oluşturma API Management'te kullanmak için birkaç seçeneğiniz vardır:
-
-* API Yönetimi'nde, API'ları farklı sürümlerini temsil yapılandırabilirsiniz. Örneğin, iki farklı API'leri, MyAPIv1 ve MyAPIv2 olabilir. Bir geliştirici Geliştirici kullanmak isterse sürümü seçebilirsiniz.
-* API'nizi sürüm segment, örneğin, https://my.api içermeyen bir hizmet URL'si ile de yapılandırabilirsiniz. Ardından, her işlemin üzerinde bir sürümü kesimi yapılandırmak [URL yeniden yazma](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) şablonu. 
-* Seçili işlemlerini API'nin hizmeti URL'si "varsayılan" sürüm kesimi tutmak istiyorsanız kullanan bir ilke kümesi [ayarlamak arka uç hizmetini](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) arka uç istek yolu değiştirmek için ilke.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Tek bir API birden çok ortamında nasıl ayarlayabilirim?
 Birden çok ortamı, örneğin, bir test ortamı ve bir üretim ortamında, tek bir API ayarlamak için iki seçeneğiniz vardır. Şunları yapabilirsiniz:
 
@@ -114,7 +106,7 @@ Birden çok ortamı, örneğin, bir test ortamı ve bir üretim ortamında, tek 
 [SOAP doğrudan](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) desteği artık kullanılabilir durumdadır. Yöneticiler, SOAP hizmetini WSDL içe aktarabilir ve Azure API Management SOAP ön uç oluşturacak. Geliştirici portal belgeleri, test konsol, ilkeleri ve analizi SOAP Hizmetleri için kullanılabilir.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API Yönetimi ağ geçidi IP adresi sabit mi? Bu güvenlik duvarı kurallarında kullanabilir miyim?
-Standart ve Premium katmanlar, API Management Kiracı ortak IP adresi (VIP) Kiracı bazı özel durumlar ile ömrü statik içindir. Bu durumlarda IP adresi değişiklikleri:
+API Management tüm katmanlara API Yönetimi Kiracı ortak IP adresi (VIP) Kiracı ömrü boyunca ile bazı özel durumlar statiktir. Bu durumlarda IP adresi değişiklikleri:
 
 * Hizmet silinir ve yeniden oluşturulacak.
 * Hizmet aboneliği [askıya](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) veya [uyarı](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (örneğin, nonpayment) ve ardından reinstated.
@@ -139,7 +131,7 @@ Evet. Bkz: [Azure API Management hizmeti](http://aka.ms/apimtemplate) hızlı ba
 Evet. Bu, PowerShell üzerinden veya doğrudan API için gönderme tarafından yapılabilir. Bu sertifika zinciri doğrulamasını devre dışı bırakır ve otomatik olarak imzalanan veya özel olarak imzalanan sertifikaları arka uç hizmetlerini API Yönetimi'nden iletişim kurarken kullanması olanak sağlar.
 
 #### <a name="powershell-method"></a>PowerShell yöntemi ####
-Kullanım [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (için yeni arka uç) veya [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (için varolan arka uç) PowerShell cmdlet'lerini ve `-SkipCertificateChainValidation` parametresi `True`. 
+Kullanım [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (için yeni arka uç) veya [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (için varolan arka uç) PowerShell cmdlet'lerini ve `-SkipCertificateChainValidation` parametresi `True`. 
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

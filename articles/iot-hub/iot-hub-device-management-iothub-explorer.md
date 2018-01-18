@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Azure IOT Hub cihaz yönetimi için ıothub explorer'ı kullanın
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 [ıothub explorer](https://github.com/azure/iothub-explorer) bir ana bilgisayarda çalıştırmak bir CLI araçtır, IOT hub defterinde cihaz kimlikleri yönetmek için bilgisayar. Çeşitli görevleri gerçekleştirmek için kullanabileceğiniz yönetim seçenekleri ile gelir.
 
 | Yönetim seçeneği          | Görev                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Doğrudan yöntemler             | Başlatma veya ileti gönderme veya cihaz yeniden başlatıldığı durdurma gibi davranacak bir aygıtı olun.                                        |
 | İstenen twin özellikleri    | Bir aygıt için yeşil bir Işığı ayarlama veya telemetri gönderme aralığı 30 dakika gibi bazı durumların yerleştirin.         |
 | Özellikler Twin bildirdi   | Bir aygıt bildirilen durumunu alın. Örneğin, aygıt LED şimdi yanıp sönen bildirir.                                    |
@@ -54,9 +54,9 @@ Iothub explorer çeşitli yönetim seçenekleri ile çalıştırın.
 ## <a name="what-you-need"></a>Ne gerekiyor
 
 - Öğretici [Cihazınızı](iot-hub-raspberry-pi-kit-node-get-started.md) , aşağıdaki gereksinimleri ele alınmaktadır tamamlandı:
-  - Etkin bir Azure aboneliği.
-  - Azure IOT hub'ı aboneliğinizdeki.
-  - Azure IOT hub'ına iletileri gönderen bir istemci uygulaması.
+- Etkin bir Azure aboneliği.
+- Azure IOT hub'ı aboneliğinizdeki.
+- Azure IOT hub'ına iletileri gönderen bir istemci uygulaması.
 - Cihazınız Bu öğretici sırasında istemci uygulaması ile çalıştığından emin olun.
 - iothub-explorer [yükleme ıothub explorer](https://github.com/azure/iothub-explorer) geliştirme makinenizde.
 
@@ -114,7 +114,6 @@ Bir alan rolünü ekleyin aşağıdaki komutu çalıştırarak sıcaklık ve nem
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Bulut cihaza iletileriyle ıothub Gezgini'ni kullanın

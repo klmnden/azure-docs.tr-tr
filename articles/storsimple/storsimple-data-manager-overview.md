@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure StorSimple veri Yöneticisi'ne genel bakış | Microsoft Docs"
-description: "StorSimple veri Yöneticisi hizmetini (özel olarak incelenmektedir) genel bir bakış sağlar"
+description: "StorSimple veri Yöneticisi hizmetini genel bir bakış sağlar"
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -12,62 +12,74 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/22/2016
+ms.date: 01/16/2018
 ms.author: vidarmsft
-ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="storsimple-data-manager-overview-private-preview"></a>StorSimple Data Manager genel bakış (özel olarak incelenmektedir)
+# <a name="storsimple-data-manager-solution-overview"></a>StorSimple veri Yöneticisi çözümüne genel bakış
 
 ## <a name="overview"></a>Genel Bakış
 
-Microsoft Azure StorSimple yaygın olarak dosya paylaşımları ile ilgili yapılandırılmamış veriler karmaşıklığını adresleri bir karma bulut depolama çözümüdür. StorSimple bulut depolama bulut depolama ve şirket içi depolama şirket içi çözüm ve otomatik olarak katmanları verilerinin bir uzantısı olarak kullanır. Veri koruma, yerel ile tümleşik ve bulut anlık görüntüleri, sprawling bir depolama altyapısını ortadan kaldırır. Arşiv ve olağanüstü durum kurtarma ayrıca bir site dışı konumu olarak işlev gören bulut ile sorunsuz olarak gerçekleştirilir.
+Microsoft Azure StorSimple bulut depolama şirket içi depolama ve bulut arasında şirket içi çözüm ve otomatik olarak katmanları verilerinin bir uzantısı olarak kullanır. Veriler, yinelenenleri kaldırılmış ve sıkıştırılmış biçimde en yüksek verimlilik ve maliyetleri düşürmek için bulutta depolanır. Veri StorSimple biçiminde depolanmış gibi kullanmak istediğiniz diğer bulut uygulamaları tarafından kolayca tüketilebilir değil.
 
-Bu belgede, sunuyoruz veri dönüştürme hizmet sorunsuz bir şekilde bulutta StorSimple veri erişim sağlar. Bu hizmet, StorSimple verileri ayıklamak ve bunu diğer Azure hizmetlerine biçimlerde, sunmak için API'ları kolayca kullanılabilecek sağlar. Bu Önizleme'de desteklenen biçimler şunlardır: Azure BLOB'ları ve Azure Media Services varlıklar. Bu dönüşüm hizmetlerini Azure Media Services, Azure Hdınsight, Azure Machine Learning ve Azure Search verileri StorSimple 8000 serisi şirket içi cihazda çalışmaya gibi kolayca wire sağlar.
+StorSimple veri Yöneticisi'ni sorunsuz bir şekilde erişmek ve StorSimple biçim verileri bulutta kullanmanıza olanak sağlar. Bunu yerel bloblar ve Azure Media Services, Azure Hdınsights ve Azure Machine Learning gibi başka Hizmetleri ile birlikte kullanabileceğiniz dosyaları StorSimple biçimi dönüştürerek yapar.
 
-Bu gösteren üst düzey blok diyagramını aşağıda gösterilmiştir.
+Bu makalede, StorSimple Data Manager çözümü genel bir bakış sağlar. Ayrıca, bulutta nasıl StorSimple veri kullanan uygulamaları yazmak için bu hizmet ve diğer Azure hizmetleriyle kullanabileceğinizi açıklar.
 
-![Üst düzey diyagramı](./media//storsimple-data-manager-overview/high-level-diagram.png)
+## <a name="how-it-works"></a>Nasıl çalışır?
 
-Bu belgede, bu hizmet için bir özel Önizleme ne kaydolabilirsiniz açıklanmaktadır. Ayrıca, bulutta nasıl StorSimple veri kullanan uygulamaları yazmak için bu hizmet ve diğer Azure hizmetleriyle kullanabileceğinizi açıklar.
+StorSimple Data Manager hizmeti bir StorSimple 8000 serisi şirket içi cihaz buluttan StorSimple verileri tanımlar. StorSimple verileri bulutta yinelenenleri kaldırılan, StorSimple biçimi sıkıştırılmış. Veri Yöneticisi hizmeti StorSimple biçim verileri ayıklar ve Azure BLOB'ların gibi diğer biçimlere dönüştürme için API'ler ve Azure dosyaları sağlar. Bu dönüştürülmüş verileri sonra kullanıma tüketilen Azure Hdınsight ve Azure Media services tarafından. Veri dönüştürme, böylece StorSimple 8000 serisi şirket içi cihaz dönüştürülmüş StorSimple verilerden işlem yapılacak bu hizmetleri sağlar. Bu akış aşağıdaki çizimde gösterilmiştir.
 
-## <a name="sign-up-for-data-manager-preview"></a>Veri Yöneticisi Önizleme için kaydolma
-Veri Yöneticisi hizmeti için kaydolmadan önce aşağıdaki önkoşulları gözden geçirin.
+![Üst düzey diyagramı](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
-### <a name="prerequisites"></a>Ön koşullar
 
-Bu alıştırmada, sahibi olduğunuzu varsayar.
-* Etkin bir Azure aboneliği.
-* kayıtlı bir StorSimple 8000 serisi aygıt erişim
-* StorSimple 8000 serisi cihaz ile ilişkili tüm anahtarları.
+## <a name="data-manager-use-cases"></a>Veri Yöneticisi kullanım örnekleri
 
-### <a name="sign-up"></a>Kaydolma
+StorSimple geldiğinde verileriniz üzerinde çalışan iş akışlarının sağlamak için Azure işlevleri, Azure Otomasyonu ve Azure Data Factory ile veri Yöneticisi'ni kullanabilirsiniz. Azure Media Services ile StorSimple depolamak veya bu veriler üzerinde bir Machine Learning algoritmasını çalıştırmak veya üzerinde StorSimple depolamak verileri çözümlemek için Hadoop küme Getir içerik medyanızı işlemek isteyebilirsiniz. Değerlendirilmesine Hizmetleri Azure StorSimple verileriyle birlikte kullanılabilir, verilerinizi power kilidini açabilirsiniz.
 
-StorSimple veri Yöneticisi'ni özel önizlemede değil. Bu hizmetin özel Önizleme için kaydolmak için aşağıdaki adımları gerçekleştirin:
 
-1.  StorSimple veri Yöneticisi uzantısına Azure portalıyla günlüğüne: [https://aka.ms/HybridDataManager](https://aka.ms/HybridDataManager). Oturum açmak için Azure kimlik bilgilerinizi kullanın.
+## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-2.  Tıklatın  **+**  bir hizmet oluşturmak için simge. Tıklatın **depolama** ve ardından **bkz tüm** dikey penceresinde açılır.
+StorSimple veri Yöneticisi aşağıdaki 7 bölgelerde kullanılabilir:
 
-    ![Arama StorSimple veri Yöneticisi simgesi](./media/storsimple-data-manager-overview/search-data-manager-icon.png)
+ - Güneydoğu Asya
+ - Doğu ABD
+ - Batı ABD
+ - Batı ABD 2
+ - Batı Orta ABD
+ - Kuzey Avrupa
+ - Batı Avrupa
 
-3. StorSimple Data Manager simgesini görürsünüz.
+Ancak, StorSimple veri Yöneticisi aşağıdaki bölgelerde verileri dönüştürmek için kullanılabilir. 
 
-    ![StorSimple veri Yöneticisi simgesini seçin](./media/storsimple-data-manager-overview/select-data-manager-icon.png)
+![Verileri için kullanılabilir bölgeleri](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
 
-4. StorSimple veri Yöneticisi simgesine tıklayın ve ardından **oluşturma**. Özel önizleme için etkinleştirin ve ardından istediğiniz aboneliği seçin **bana kaydolun!**
+Yukarıdaki bölgeler hiçbirinde kaynak dağıtım dönüştürme işlemini getiren yeteneğine sahip olduğu için bu küme daha büyük olan bölgeler aşağıda. Bu nedenle, verilerinizi 26 bölgelerinin herhangi birinde bulunduğu sürece, bu hizmet kullanarak verilerinizi dönüştürebilirsiniz.
 
-    ![Bana kaydolun](./media/storsimple-data-manager-overview/sign-me-up.png)
 
-5. Bu yerleşik bir isteği gönderir. Biz yerleşik mümkün olan en kısa sürede çalışacaksınız. Aboneliğinizi etkinleştirildikten sonra StorSimple veri Yöneticisi hizmeti oluşturabilirsiniz.
+## <a name="choosing-a-region"></a>Bir bölge seçme
 
-6. Kolayca StorSimple veri Yöneticisi hizmetine erişim için Sık Kullanılanlara sabitlemek için yıldız simgesine tıklayın.
+Öneririz:
+ - Kaynak depolama hesabınız (StorSimple Cihazınızı ile ilişkili bir) ve (istediğiniz verileri yerel biçiminde) hedef depolama hesabı aynı Azure bölgesinde olmalıdır.
+ - Veri Yöneticisi ve iş tanımını oluşturan StorSimple depolama hesabının bulunduğu bölgede getirin. Bu mümkün değilse, Yukarı en yakın Azure bölgesi Data Manager getirin ve StorSimple depolama hesabınız ile aynı bölgede iş tanımı oluşturun. 
 
-    ![Erişim StorSimple veri yöneticileri](./media/storsimple-data-manager-overview/access-data-managers.png)
+    StorSimple depolama hesabınız iş tanımı oluşturma desteği 26 bölgelerde değilse, uzun gecikme süreleri ve potansiyel olarak yüksek çıkış ücretlerini gördüğünüz gibi StorSimple veri Yöneticisi çalışmıyor öneririz.
 
+## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
+
+StorSimple veri Yöneticisi'ni StorSimple biçiminden yerel biçimine dönüştürmek için hizmet verileri şifreleme anahtarı gerekir. İlk cihaz StorSimple hizmeti kaydettiğinde hizmet verileri şifreleme anahtarı oluşturulur. Bu anahtar hakkında daha fazla bilgi için Git [StorSimple güvenlik](storsimple-8000-security.md).
+
+Bir giriş olarak sağlanan hizmet verileri şifreleme anahtarı, Data Manager oluşturduğunuzda oluşturan bir anahtar kasasında depolanır. Aynı Azure bölgesinde olarak StorSimple Data Manager kasa bulunur. Veri Yöneticisi hizmetiniz sildiğinizde, bu anahtarı silinir.
+
+Bu anahtar tarafından sağlanan işlem kaynaklarıdır dönüştürme gerçekleştirmek için kullanılır. Bu kaynaklar, iş tanımı aynı Azure bölgesinde bulunan işlem. Bu bölge olabilir veya veri yöneticinize Getir burada bölge ile aynı olmayabilir.
+
+Veri Yöneticisi bölgenizi iş tanımı bölgesinden farklı ise, hangi veri/meta veri her Bu bölgeler bulunduğu anlamak önemlidir. Aşağıdaki diyagram veri Yöneticisi ve iş tanımı için farklı bölgelerde sahip etkisini gösterir.
+
+![Farklı bölgelerdeki hizmet ve iş tanımı](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

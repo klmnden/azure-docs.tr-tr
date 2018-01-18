@@ -3,7 +3,7 @@ title: "Azure AD ile eşitliyorsanız değil bir nesne sorunlarını giderme | M
 description: "Bir nesne için Azure AD eşitleme neden sorunlarını giderin."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD ile eşitliyorsanız değil bir nesne sorun giderme
 
@@ -82,11 +82,11 @@ Bu nesneleri başka bir eşitleme altyapısı veya farklı bir filtreleme yapıl
 
 ### <a name="cs-import"></a>CS alma
 Cs nesnesini açtığınızda, en üstünde birden çok sekme vardır. **Alma** sekmesi bir içeri aktarma işleminden sonra hazırlanan veriler gösterir.  
-![CS nesnesi](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
+![CS object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 **Eski değer** Bağlan'şu anda depolanan gösterir ve **yeni değer** ne kaynak sistemden alınan ve henüz uygulanmadı. Bir nesne üzerinde bir hata varsa, değişiklikler işlenmez.
 
 **Hata**  
-![CS nesnesi](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
+![CS object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 **Eşitleme hatası** sekmesini görülebilir yalnızca nesne ile ilgili bir sorun varsa. Daha fazla bilgi için bkz: [eşitleme hatalarını giderme](#troubleshoot-errors-in-operations-tab).
 
 ### <a name="cs-lineage"></a>CS çizgileri

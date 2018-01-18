@@ -3,8 +3,8 @@ title: "Azure AD Connect: Eşitleme sırasında sorun giderme | Microsoft Docs"
 description: "Azure AD Connect ile eşitleme sırasında karşılaşılan hataların nasıl giderileceği açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: karavar
-manager: samueld
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Eşitleme sırasında sorun giderme
 Kimlik verilerini Windows Server Active Directory'den (AD DS) Azure Active Directory (Azure AD) eşitlenen hataları oluşabilir. Bu makalede, farklı türdeki eşitleme hatalar, bu hataları ve hataları düzeltmek için olası yollar neden olası senaryolardan bazıları genel bakış sağlar. Bu makalede genel hata türlerini içerir ve tüm olası hatalar kapak değil.
@@ -49,9 +49,9 @@ Diğer bir deyişle, çalışmaya yumuşak eşleşme sırayla yazılımla eşle�
 Azure Active Directory Şeması, aşağıdaki özniteliklerin aynı değere sahip iki veya daha fazla nesnelere izin vermiyor. \(Bu kapsamlı bir liste değildir.\)
 
 * ProxyAddresses
-* userPrincipalName
+* UserPrincipalName
 * onPremisesSecurityIdentifier
-* objectID
+* ObjectId
 
 > [!NOTE]
 > [Azure AD özniteliği yinelenen öznitelik dayanıklılık](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) özelliği ayrıca alınıyor Azure Active Directory varsayılan davranış olarak.  Azure AD daha esnektir, yinelenen ProxyAddresses ve UserPrincipalName öznitelikleri mevcut şirket içi AD ortamda işleme şekilde yaparak bu Azure AD Connect (yanı sıra diğer eşitleme istemciler) görülen eşitleme hatalarının sayısını azaltır. Bu özellik, çoğaltma hataları düzeltin değil. Bu nedenle veri hala düzeltilmesi gerekiyor. Ancak, Azure AD içinde yinelenen değerler nedeniyle sağlanan Aksi takdirde engellenir yeni nesneler sağlanmasına olanak tanır. Ayrıca, eşitleme istemciye döndürülen eşitleme hatalarının sayısını da azaltır.
@@ -71,7 +71,7 @@ Azure Active Directory Şeması, aşağıdaki özniteliklerin aynı değere sahi
 #### <a name="example-case"></a>Örnek durum:
 1. **Bob Smith** eşitlenen kullanıcının Azure Active Directory'de üzerinde şirket içi Active Directory olduğu *contoso.com*
 2. Bob Smith'in **UserPrincipalName** olarak ayarlanmış olan  **bobs@contoso.com** .
-3. **"abcdefghijklmnopqrstuv =="** olan **SourceAnchor** Bob Smith'in kullanarak Azure AD Connect tarafından hesaplanan **objectGUID** gelen Active Directory, şirket içinde olduğu **İmmutableıd** Azure Active Directory'de Bob Smith için.
+3. **"abcdefghijklmnopqrstuv=="** is the **SourceAnchor** calculated by Azure AD Connect using Bob Smith's **objectGUID** from on premises Active Directory, which is the **immutableId** for Bob Smith in Azure Active Directory.
 4. Bob de sahip için değerleri aşağıdaki **proxyAddresses** özniteliği:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
@@ -103,7 +103,7 @@ Eşitleme hata raporu içinde Azure AD Connect Health eşitleme için 30 dakikad
 >
 >
 
-#### <a name="related-articles"></a>İlgili makaleler
+#### <a name="related-articles"></a>İlgili Makaleler
 * [Office 365'te dizin eşitleme yinelenen ya da geçersiz öznitelikler engelle](https://support.microsoft.com/en-us/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
@@ -132,7 +132,7 @@ ObjectTypeMismatch hata en yaygın nedeni, (kullanıcı, Grup, ilgili kişi vb.)
 Azure Active Directory Şeması, aşağıdaki özniteliklerin aynı değere sahip iki veya daha fazla nesnelere izin vermiyor. Azure AD'de her nesne belirli bir örneğe bu özniteliklerin benzersiz bir değere sahip zorunda olmasıdır.
 
 * ProxyAddresses
-* userPrincipalName
+* UserPrincipalName
 
 Yeni bir nesne eklemek veya var olan bir nesne zaten başka bir nesne Azure Active Directory'de atanır yukarıdaki öznitelikleri için bir değer ile güncelleştirmek Azure AD Connect çalışırsa, işlemi "AttributeValueMustBeUnique" eşitleme hatası oluşur.
 
@@ -148,7 +148,7 @@ Yeni bir nesne eklemek veya var olan bir nesne zaten başka bir nesne Azure Acti
    * **smtp:bob@contoso.com**
 4. Yeni bir kullanıcı **Bob Taylor**, şirket içi Active Directory eklenir.
 5. Bob Taylor'ın **UserPrincipalName** olarak ayarlanmış olan  **bobt@contoso.com** .
-6. **Bob Taylor** için aşağıdaki değerleri sahip **ProxyAddresses** özniteliği i. smtp:bobt@contoso.comII. smtp:bob.taylor@contoso.com
+6. **Bob Taylor** için aşağıdaki değerleri sahip **ProxyAddresses** özniteliği i. smtp:bobt@contoso.com ii. smtp:bob.taylor@contoso.com
 7. Bob Taylor'ın nesnesi başarıyla Azure AD ile eşitlenir.
 8. Yönetici karar Bob Taylor'ın güncelleştirmek **ProxyAddresses** aşağıdaki değerli özniteliği: ediyorum. **smtp:bob@contoso.com**
 9. İşlem olarak ProxyAddresses değeri zaten Bob Smith için oluşan "AttributeValueMustBeUnique" hata atandığını başarısız olur ancak bu azure AD yukarıdaki değerine sahip Azure AD'de Bob Taylor'ın nesneyi güncelleştirme dener.
@@ -161,7 +161,7 @@ En yaygın AttributeValueMustBeUnique hata iki farklı SourceAnchor nesneleriyle
 3. Yinelenen değer bu değere sahip olmaması gereken nesnesinden kaldırın. Nesne öğesinden burada kaynaklanan dizininde değişikliği yapmak zorunda unutmayın. Bazı durumlarda, çakışan nesnelerden birini silmeniz gerekebilir.
 4. Şirket içi AD değişikliği yaptıysanız, Azure AD Connect eşitleme ayarlarını değiştir sabit için hata için olanak sağlar.
 
-#### <a name="related-articles"></a>İlgili makaleler
+#### <a name="related-articles"></a>İlgili Makaleler
 -[Office 365'te dizin eşitleme yinelenen ya da geçersiz öznitelikler engelle](https://support.microsoft.com/en-us/kb/2647098)
 
 ## <a name="data-validation-failures"></a>Veri doğrulama hataları
@@ -176,7 +176,7 @@ b. UserPrincipalName özniteliği gerekli biçime izlemez.
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>IdentityDataValidationFailed hatayı düzeltmek nasıl
 a. UserPrincipalName özniteliğinin karakterler ve gerekli biçime desteklenen olduğundan emin olun.
 
-#### <a name="related-articles"></a>İlgili makaleler
+#### <a name="related-articles"></a>İlgili Makaleler
 * [Office 365 için dizin eşitleme aracılığıyla kullanıcılara sağlamak hazırlama](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
@@ -198,7 +198,7 @@ Bir kullanıcının UserPrincipalName soneki @ bob gelen güncelleştirildi,**co
 1. Kullanıcının UserPrincipalName Azure AD'den güncelleştirmek bob@contoso.com için bob@contoso.onmicrosoft.com. Azure AD PowerShell modülü ile aşağıdaki PowerShell komutunu kullanabilirsiniz:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Eşitleme girişiminde sonraki eşitleme döngüsü izin verir. Bu zaman eşitleme başarılı olur ve, UserPrincipalName Bob güncelleştirecektir bob@fabrikam.com beklendiği gibi.
 
-#### <a name="related-articles"></a>İlgili makaleler
+#### <a name="related-articles"></a>İlgili Makaleler
 * [Farklı bir Federasyon etki alanını kullanmak için bir kullanıcı hesabının UPN değiştirdikten sonra değişiklikleri Azure Active Directory eşitleme aracı tarafından eşitlenen değil](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/16/2018
 ms.author: banders
-ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 287a98c59a33b603f7186dd99505ecd0ef4f0941
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Günlük analizi çözümüne VMware izleme (Önizleme)
 
@@ -26,12 +26,12 @@ ms.lasthandoff: 10/11/2017
 
 Günlük analizi VMware izleme çözümde, Merkezi günlük kaydı ve büyük VMware günlükleri için izleme yaklaşımı oluşturmanıza yardımcı olan bir çözümdür. Bu makalede nasıl sorun giderme, yakalama ve çözümü kullanarak tek bir konumda ESXi konaklarının açıklanmaktadır. Çözümü ile tek bir konumda tüm ESXi konakları için ayrıntılı veriler görebilirsiniz. Üst olay sayısı, durumu ve eğilimleri ESXi ana günlükleri ile sağlanan VM ve ESXi konakları görebilirsiniz. Görüntüleme ve merkezi ESXi ana günlüklerini arama giderebilirsiniz. Ve günlük arama sorgularına dayalı uyarılar oluşturabilirsiniz.
 
-Çözüm ESXi ana hedef OMS Aracısı VM veri göndermek için yerel syslog işlevselliğini kullanır. Bununla birlikte, çözümü hedef VM içinde syslog içine dosyaları yazma değil. OMS Aracısı bağlantı noktası 1514 açar ve bu dinler. Verileri aldıktan sonra OMS aracısı veri OMS iter.
+Çözüm ESXi ana hedef OMS Aracısı VM veri göndermek için yerel syslog işlevselliğini kullanır. Bununla birlikte, çözümü hedef VM içinde syslog içine dosyaları yazma değil. OMS Aracısı bağlantı noktası 1514 açar ve bu dinler. Verileri aldıktan sonra OMS Aracısı günlük analizi veri iter.
 
-## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
+## <a name="install-and-configure-the-solution"></a>Yükleyin ve yapılandırın
 Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
-* VMware izleme çözümü açıklanan işlemi kullanarak OMS çalışma alanınıza ekleyin [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
+* Açıklanan işlemi kullanarak aboneliğinizi VMware izlemesi çözümü eklemek [bir yönetim çözümü eklemek](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Desteklenen VMware ESXi konakları
 vSphere ESXi ana 5.5 ve 6.0
@@ -66,11 +66,11 @@ Linux işletim sistemi ESXi ana bilgisayarlardan tüm syslog verileri almak içi
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-9. Bir günlük araması OMS portalında `Type=VMware_CL`. OMS syslog veri topladığında, syslog biçimine korunur. Portalda, bazı belirli alanları, gibi yakalanır *ana bilgisayar adı* ve *işlemadı*.  
+9. Azure portalında günlük aramasını gerçekleştirin `VMware_CL`. Günlük analizi syslog veri topladığında, syslog biçimine korunur. Portalda, bazı belirli alanları, gibi yakalanır *ana bilgisayar adı* ve *işlemadı*.  
 
     ![type](./media/log-analytics-vmware/type.png)  
 
-    Yukarıdaki resimde görünüm günlük arama sonuçlarınızı benzerse, OMS VMware izleme çözüm panosunu kullanmak için hazırsınız.  
+    Yukarıdaki resimde görünüm günlük arama sonuçlarınızı benzerse, VMware izleme çözüm panosunu kullanmak için hazırsınız.  
 
 ## <a name="vmware-data-collection-details"></a>VMware veri toplama ayrıntıları
 VMware izlemesi çözümü ESXi konakları etkinleştirdiğiniz Linux için OMS aracıları kullanarak çeşitli performans ölçümleri ve günlük verilerini toplar.
@@ -105,7 +105,7 @@ Aşağıdaki tabloda VMware izlemesi çözümü tarafından toplanan veri alanla
 | StorageLatency_s |Depolama gecikme süresi (ms) |
 
 ## <a name="vmware-monitoring-solution-overview"></a>VMware izleme çözümüne genel bakış
-VMware döşeme OMS portalında görünür. Hataları üst düzey bir görünümünü sağlar. Kutucuğa tıkladığınızda bir pano görünümü'ne gidin.
+VMware döşeme günlük analizi çalışma alanında görüntülenir. Hataları üst düzey bir görünümünü sağlar. Kutucuğa tıkladığınızda bir pano görünümü'ne gidin.
 
 ![Döşeme](./media/log-analytics-vmware/tile.png)
 
@@ -124,12 +124,12 @@ VMware döşeme OMS portalında görünür. Hataları üst düzey bir görünüm
 
 Ayrıntılı bilgi için dikey belirli gösterir günlük analizi arama bölmesini açmak için dikey pencereye'ı tıklatın.
 
-Buradan, belirli bir şey için değiştirmek için arama sorgusu düzenleyebilirsiniz. OMS arama temelleri üzerinde bir öğretici için kullanıma [OMS günlük arama öğretici.](log-analytics-log-searches.md)
+Buradan, belirli bir şey için değiştirmek için arama sorgusu düzenleyebilirsiniz. Günlük aramaları oluşturma hakkında daha fazla bilgi için bkz: [Bul günlük aramaları günlük analizi kullanarak verileri](log-analytics-log-searches.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi ana bilgisayar olaylarını Bul
 Tek bir ESXi ana kendi işlemleri temel alan birden çok günlükleri oluşturur. VMware izleme çözümü bunları merkezi hale getirir ve olay sayıları özetler. Merkezi bu görünüm, yüksek hacimli olayları hangi ESXi ana bilgisayarı vardır ve ortamınızda hangi olayların sık karşılaşılan anlamanıza yardımcı olur.
 
-![Olay](./media/log-analytics-vmware/events.png)
+![event](./media/log-analytics-vmware/events.png)
 
 Ayrıntıya inebilir başka bir ESXi ana bilgisayar veya bir olay türü'ı tıklatarak.
 
@@ -155,12 +155,12 @@ Ek ESXi ana VM oluşturma verileri görmek istiyorsanız, bir ESXi ana bilgisaya
 
 
 #### <a name="save-queries"></a>Sorguları Kaydet
-Arama sorguları kaydetme OMS standart bir özelliktir ve yararlı buldunuz herhangi bir sorgu tutmanıza yardımcı olabilir. Size kullanışlı bir sorgu oluşturduktan sonra tıklayarak Kaydet **Sık Kullanılanlar**. Kayıtlı bir sorguyu kolayca ondan daha sonra yeniden olanak sağlayan [My Pano](log-analytics-dashboards.md) kendi özel panolar oluşturabileceğiniz sayfası.
+Arama sorguları kaydetme günlük analizi standart bir özelliktir ve yararlı buldunuz herhangi bir sorgu tutmanıza yardımcı olabilir. Size kullanışlı bir sorgu oluşturduktan sonra tıklayarak Kaydet **Sık Kullanılanlar**. Kayıtlı bir sorguyu kolayca ondan daha sonra yeniden olanak sağlayan [My Pano](log-analytics-dashboards.md) kendi özel panolar oluşturabileceğiniz sayfası.
 
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Uyarı sorgularından oluşturma
-Sorgularınızın oluşturduktan sonra belirli olaylar oluştuğunda sizi uyarmak için sorguları kullanmak isteyebilirsiniz. Bkz: [günlük analizi uyarılarını](log-analytics-alerts.md) uyarı oluşturma hakkında bilgi için. Sorguları ve diğer sorgu örnekleri örnekler için bkz: [İzleyici OMS günlük analizi kullanarak VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog postası.
+Sorgularınızın oluşturduktan sonra belirli olaylar oluştuğunda sizi uyarmak için sorguları kullanmak isteyebilirsiniz. Bkz: [günlük analizi uyarılarını](log-analytics-alerts.md) uyarı oluşturma hakkında bilgi için. Sorguları ve diğer sorgu örnekleri örnekler için bkz: [İzleyicisi günlük analizi kullanarak VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog postası.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Üzerinde ESXi ayarı barındırmak için neler gerekir? Hangi, my geçerli ortamda etkileyecek?
@@ -169,16 +169,16 @@ Sorgularınızın oluşturduktan sonra belirli olaylar oluştuğunda sizi uyarma
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>My ESXi ana bilgisayarı yeniden başlatmanız gerekiyor mu?
 Hayır. Bu işlem, yeniden başlatma gerektirmez. Bazı durumlarda, vSphere syslog düzgün şekilde güncelleştirmez. Böyle bir durumda ESXi ana bilgisayara oturum açın ve syslog yeniden yükleyin. Bu işlem, ortamınıza kesintiye uğratan değil şekilde konak yeniden gerekmez.
 
-### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-oms"></a>I artırabilir veya günlük verileri için OMS gönderilen azaltmak?
+### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>I artırabilir veya günlük verileri için günlük analizi gönderilen azaltmak?
 Evet, engelleyebilirsiniz. VSphere içinde ESXi ana günlük düzeyi ayarlarını kullanabilirsiniz. Günlük toplama temel *bilgisi* düzeyi. VM oluşturma veya silme denetlemek istiyorsanız, bu nedenle, tutmak ihtiyacınız *bilgisi* Hostd düzeyi. Daha fazla bilgi için bkz: [VMware Bilgi Bankası](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
 
-### <a name="why-is-hostd-not-providing-data-to-oms-my-log-setting-is-set-to-info"></a>Neden Hostd için OMS verileri sağlayan değil mi? My günlüğü ayar bilgileri için ayarlanır.
+### <a name="why-is-hostd-not-providing-data-to-log-analytics-my-log-setting-is-set-to-info"></a>Neden Hostd için günlük analizi verileri sağlayan değil mi? My günlüğü ayar bilgileri için ayarlanır.
 Syslog zaman damgası için bir ESXi ana bilgisayar hata oluştu. Daha fazla bilgi için bkz: [VMware Bilgi Bankası](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). Geçici çözüm uygulandıktan sonra Hostd normal olarak çalışması.
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Birden çok ESXi konakları omsagent ile tek bir VM syslog veri ileten olabilir mi?
 Evet. Birden çok ESXi konakları omsagent ile tek bir VM iletme olabilir.
 
-### <a name="why-dont-i-see-data-flowing-into-oms"></a>Veri akışının OMS neden göremiyorum?
+### <a name="why-dont-i-see-data-flowing-into-log-analytics"></a>Günlük analizi akan veri neden göremiyorum?
 Birden çok nedeni olabilir:
 
 * ESXi ana doğru veri omsagent çalıştıran VM Ftp'den değil. Test etmek için aşağıdaki adımları gerçekleştirin:
@@ -189,15 +189,16 @@ Birden çok nedeni olabilir:
   2. Syslog bağlantı noktası bağlantı başarılı olur, ancak yine de hiçbir veri görmezsiniz, syslog ESXi ana bilgisayarda ssh aşağıdaki komutu kullanarak yeniden:` esxcli system syslog reload`
 * OMS Aracısı ile VM düzgün ayarlanmadı. Bunu test etmek için aşağıdaki adımları gerçekleştirin:
 
-  1. OMS 1514 bağlantı noktasını dinler ve veri OMS iter. Açık olduğunu doğrulamak için aşağıdaki komutu çalıştırın:`netstat -a | grep 1514`
+  1. Günlük analizi 1514 bağlantı noktasını dinler. Açık olduğunu doğrulamak için aşağıdaki komutu çalıştırın:`netstat -a | grep 1514`
   2. Bağlantı noktası görmelisiniz `1514/tcp` açın. Bunu yapmazsanız, omsagent düzgün yüklendiğini doğrulayın. Bağlantı noktası bilgileri görmüyorsanız, syslog bağlantı noktası VM açık değil.
 
-     1. OMS Aracısı'nı kullanarak çalışır durumda olduğunu doğrulama `ps -ef | grep oms`. Çalışmıyorsa, işlem komutu çalıştırarak Başlat` sudo /opt/microsoft/omsagent/bin/service_control start`
-     2. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` dosyasını açın.
+    a. OMS Aracısı'nı kullanarak çalışır durumda olduğunu doğrulama `ps -ef | grep oms`. Çalışmıyorsa, işlem komutu çalıştırarak Başlat` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-         Uygun kullanıcı ve grup ayarı geçerli ve benzer şekilde doğrulayın:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` dosyasını açın.
 
-         Dosya yok veya tarafından düzeltme eylemi gerçekleştirin kullanıcı ve grup ayarı yanlış olmadığını [Linux sunucusu hazırlama](#prepare-a-linux-server).
+    c. Uygun kullanıcı ve grup ayarı geçerli ve benzer şekilde doğrulayın:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+
+    d. Dosya yok veya tarafından düzeltme eylemi gerçekleştirin kullanıcı ve grup ayarı yanlış olmadığını [Linux sunucusu hazırlama](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kullanım [günlük aramaları](log-analytics-log-searches.md) Analytics ayrıntılı VMware görüntülemek için günlük verileri ana bilgisayar.

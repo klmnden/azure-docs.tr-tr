@@ -17,10 +17,10 @@ ms.date: 12/21/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Koşullu erişim ne aracı - Azure Active Directory Önizleme
 

@@ -3,7 +3,7 @@ title: "Azure AD Connect: bağlantı sorunlarını giderme | Microsoft Docs"
 description: "Azure AD Connect ile bağlantı sorunlarının nasıl giderileceği açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect ile ilgili bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasında bağlantı nasıl çalıştığını ve bağlantı sorunlarının nasıl giderileceği açıklanmaktadır. Bu sorunları bir proxy sunucusu olan bir ortamda görüntülenmesine olasılığı daha yüksektir.
@@ -43,10 +43,10 @@ Bu URL'leri, aşağıdaki tabloda Azure AD ile hiç bağlanabilmesi için mutlak
 | URL | Bağlantı noktası | Açıklama |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
-| \*. verisign.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
-| \*. entrust.com |HTTP/80 |MFA için CRL listelerini indirmek için kullanılır. |
+| \*.verisign.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
+| \*.entrust.com |HTTP/80 |MFA için CRL listelerini indirmek için kullanılır. |
 | \*.windows.net |HTTPS/443 |Azure AD ile oturum açmak için kullanılır. |
-| Secure.aadcdn.microsoftonline p.com |HTTPS/443 |MFA için kullanılır. |
+| secure.aadcdn.microsoftonline-p.com |HTTPS/443 |MFA için kullanılır. |
 | \*.microsoftonline.com |HTTPS/443 |Azure AD dizininizi yapılandırmak ve verileri içeri/dışarı aktarma için kullanılır. |
 
 ## <a name="errors-in-the-wizard"></a>Sihirbazdaki hataları
@@ -108,41 +108,41 @@ Bu önceki adımları izlediğinizde ve yine bağlanamıyorsanız, ağ günlükl
 ### <a name="reference-proxy-logs"></a>Başvuru proxy günlükleri
 İşte gerçek proxy günlük bir dökümü ve Yükleme Sihirbazı'nı sayfasından, burada alındığı (aynı uç yinelenen girişler kaldırılmıştır). Bu bölümde, kendi proxy ve ağ günlükleri için bir başvuru olarak kullanılabilir. Gerçek bitiş noktaları ortamınızda farklı olabilir (özellikle bu URL'leri *italik*).
 
-**Azure AD'ye bağlanma**
+**Azure AD'ye Bağlanma**
 
 | Zaman | URL |
 | --- | --- |
-| 1/11/2016 8:31 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |Bağlan: / /*bba800 bağlantı*. microsoftonline.com:443 |
-| 1/11/2016 8:32 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Bağlan: / /*bwsc02 geçiş*. microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Yapılandırma**
 
 | Zaman | URL |
 | --- | --- |
-| 1/11/2016 8:43 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |Bağlan: / /*bba800 bağlantı*. microsoftonline.com:443 |
-| 1/11/2016 8:43 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Bağlan: / /*bba900 bağlantı*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Bağlan: / /*bba800 bağlantı*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Bağlan: / /*bwsc02 geçiş*. microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **İlk eşitleme**
 
 | Zaman | URL |
 | --- | --- |
-| 1/11/2016 8:48 |Connect://Login.Windows.NET:443 |
-| 1/11/2016 8:49 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |Bağlan: / /*bba900 bağlantı*. microsoftonline.com:443 |
-| 1/11/2016 8:49 |Bağlan: / /*bba800 bağlantı*. microsoftonline.com:443 |
+| 1/11/2016 8:48 |connect://login.windows.net:443 |
+| 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Kimlik doğrulama hataları
 Bu bölüm, ADAL (Azure AD Connect tarafından kullanılan kimlik doğrulama kitaplığı) ve PowerShell döndürülen hatalar kapsar. Açıklanan hata, sonraki adımlarda anlamanıza yardımcı olması.
@@ -187,7 +187,7 @@ Yükleme Sihirbazı'nda beklenmeyen bir hata olarak gösterilir. Kullanmaya çal
 Sürümleriyle yapı numarası 1.1.105.0 (Şubat 2016 yayımlandı), oturum açma Yardımcısı'nı başlatmadan devre dışı bırakılan. Bu bölümde ve yapılandırmasını artık gerekli olması gerekir, ancak başvuru olarak tutulur.
 
 Çoklu oturum için çalışmasına yardımcı olarak, winhttp yapılandırılması gerekir. Bu yapılandırma ile yapılabilir [ **netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
-![Netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Oturum Açma Yardımcısı'nı doğru şekilde yapılandırılmadı
 Bu hata oturum açma Yardımcısı proxy ulaşamıyor ya da proxy izin vermiyor. istek olduğunda görüntülenir.

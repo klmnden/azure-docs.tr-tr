@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - karma kimlik benimseme stratejinizi tanımlama | Microsoft Docs"
+title: "Karma kimlik tasarımı - benimseme stratejinizi Azure | Microsoft Docs"
 description: "Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Bir karma kimlik benimseme stratejinizi tanımlayın
 Bu görevde, ele alınan iş gereksinimlerini karşılamak, karma kimlik çözümü için karma kimlik benimseme stratejisi tanımla:
@@ -64,8 +65,8 @@ Kullandığınız stratejisi oturum açma kullanıcı deneyimini benimsendiği b
 | Web tarayıcıları |Form tabanlı kimlik doğrulama |üzerinde bazen kuruluş kimliği sağlamak için gerekli çoklu oturum açma |
 | Outlook |Kimlik bilgisi istemi |Kimlik bilgisi istemi |
 | Skype Kurumsal (Lync) |Kimlik bilgisi istemi |Çoklu oturum açma için Lync, Exchange için kimlik bilgileri istenir |
-| SkyDrive Pro |Kimlik bilgisi istemi |Çoklu oturum açma |
-| Office aboneliği artı Pro |Kimlik bilgisi istemi |Çoklu oturum açma |
+| SkyDrive Pro |Kimlik bilgisi istemi |çoklu oturum açma |
+| Office aboneliği artı Pro |Kimlik bilgisi istemi |çoklu oturum açma |
 
 **Dış veya güvenilmeyen kaynaklardan**:
 

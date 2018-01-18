@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü özelleştirme
 
@@ -24,6 +24,10 @@ Bu makale, çözümü önceden yapılandırılmış nasıl kaynak koduna erişim
 
 * Kaynak kodu ve önceden yapılandırılmış çözümü oluşturan mikro kaynakları içeren GitHub depolarının.
 * Yeni bir cihaz ekleme gibi genel özelleştirme senaryolarını yazın.
+
+Aşağıdaki videoda önceden yapılandırılmış Uzaktan izleme çözümü özelleştirme seçeneklerine genel bakış sunar:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Proje genel bakış
 
@@ -42,9 +46,9 @@ Bu tablo her mikro hizmet her dil için geçerli kullanılabilirliğini özetlen
 
 <!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
 
-| Mikro hizmet      | Açıklama | Java | .NET |
+| Microservice      | Açıklama | Java | .NET |
 | ----------------- | ----------- | ---- | ---- |
-| Web kullanıcı Arabirimi            | Uzaktan izleme çözümü için Web uygulaması. UI React.js framework kullanarak uygular. | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
+| Web UI            | Uzaktan izleme çözümü için Web uygulaması. UI React.js framework kullanarak uygular. | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
 | IOT Hub Yöneticisi   | IOT Hub ile iletişim işler.        | [Kullanılabilir](https://github.com/Azure/iothub-manager-java) | [Kullanılabilir](https://github.com/Azure/iothub-manager-dotnet)   |
 | Kimlik Doğrulaması    |  Azure Active Directory Tümleştirme yönetir.  | Henüz kullanılamıyor | [Kullanılabilir](https://github.com/Azure/pcs-auth-dotnet)   |
 | Cihaz benzetimi | Sanal cihazlar havuzu yönetir. | Henüz kullanılamıyor | [Kullanılabilir](https://github.com/Azure/device-simulation-dotnet)   |

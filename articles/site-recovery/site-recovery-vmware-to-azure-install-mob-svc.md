@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Mobility hizmetinin (VMware veya fiziksel Azure) yükleyin
 Azure Site Recovery Mobility hizmeti, bir bilgisayardaki veri yazma yakalar ve bunları işlem sunucusuna gönderir. Azure'a çoğaltmak istediğiniz her bilgisayarda (VMware VM veya fiziksel sunucu) için Mobility hizmetini dağıtın. Mobility hizmeti aşağıdaki yöntemleri kullanarak korumak istediğiniz sunucuları dağıtabilirsiniz:
@@ -34,7 +29,7 @@ Azure Site Recovery Mobility hizmeti, bir bilgisayardaki veri yazma yakalar ve b
 >[!IMPORTANT]
 > Mobility hizmeti sürümü 9.7.0.0, Windows sanal makinelerde (VM'ler) başlayarak yükleyici de en son kullanılabilir yükler [Azure VM Aracısı](../virtual-machines/windows/extensions-features.md#azure-vm-agent). Bir bilgisayar üzerinden Azure'a başarısız olduğunda, bilgisayarın tüm VM uzantısı kullanılarak için önkoşul aracı yüklemesi karşılar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Sunucunuzda el ile Mobility hizmetini yüklemeden önce önkoşul adımları tamamlayın:
 1. Yapılandırma sunucusunda oturum açın ve ardından yönetici olarak bir komut istemi penceresi açın.
 2. Bin klasörüne dizini değiştirin ve ardından bir parola dosyası oluşturun:
@@ -50,16 +45,16 @@ Sunucunuzda el ile Mobility hizmetini yüklemeden önce önkoşul adımları tam
 
 | Yükleyici dosyası şablonu adı| İşletim sistemi |
 |---|--|
-|Microsoft ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bit) </br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) </br> Windows Server 2016 (64 bit) |
-|Microsoft ASR\_UA\*RHEL6 64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) </br> CentOS 6.4 6.5, 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) |
-|Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (yalnızca 64 bit) </br> CentOS 7.0, 7.1, 7.2, 7.3 (yalnızca 64 bit) |
-|Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (yalnızca 64 bit)|
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bit) </br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) </br> Windows Server 2016 (64 bit) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64-bit only) </br> CentOS 6.4 6.5, 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (64-bit only) </br> CentOS 7.0, 7.1, 7.2, 7.3 (yalnızca 64 bit) |
+|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
 |Microsoft ASR\_UA\*SLES11 SP4 64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (yalnızca 64 bit)|
-|Microsoft ASR\_UA\*OL6 64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (yalnızca 64 bit)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (yalnızca 64 bit)|
 |Microsoft ASR\_UA\*UBUNTU 14.04 64\*release.tar.gz | Ubuntu Linux 14.04 (yalnızca 64 bit)|
 |Microsoft ASR\_UA\*UBUNTU 16.04 64\*release.tar.gz | Ubuntu Linux 16.04 LTS sunucu (yalnızca 64 bit)|
-|Microsoft ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7 (yalnızca 64 bit)|
-|Microsoft ASR_UA\*DEBIAN8 64\*release.tar.gz | Debian 8 (yalnızca 64 bit)|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (yalnızca 64 bit)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (yalnızca 64 bit)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>GUI kullanarak Mobility hizmeti el ile yükleyin
@@ -92,7 +87,7 @@ Mobility hizmeti, Azure portalında yükledikten sonra seçin **+ Çoğalt** bu 
 ## <a name="update-mobility-service"></a>Mobility hizmeti güncelleştirmesi
 
 > [!WARNING]
-> Yapılandırma sunucusu, genişleme işlem sunucuları ve korumalı sunuculardaki Mobility hizmeti güncelleştirme başlamadan önce dağıtımınızın parçası güncelleştirilir ana hedef sunucuları emin olun. Daha fazla bilgi bulabilirsiniz [yapılandırma sunucunuzu güncelleştirme konusunda](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) ve [genişleme işlem sunucularınızın güncelleştirme](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Yapılandırma sunucusu, genişleme işlem sunucuları ve korumalı sunuculardaki Mobility hizmeti güncelleştirme başlamadan önce dağıtımınızın parçası güncelleştirilir ana hedef sunucuları emin olun.
 
 1. Azure portal Gözat <Your Vault> çoğaltılan öğeler görünümü ->.
 2. Varsa **yapılandırma sunucusu** okuyan bir bildirimi görmelisiniz sonra en son sürüme zaten güncelleştirildi *Yeni Site kurtarma çoğaltma aracısını güncelleştirme kullanılabilir. Yüklemek için tıklatın*

@@ -3,7 +3,7 @@ title: "Etki alanına katılmış Hdınsight kümelerini - Azure yönetme | Micr
 description: "Etki alanına katılmış Hdınsight kümeleri yönetmeyi öğrenin"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
-ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Etki alanına katılmış Hdınsight kümelerini yönetme
 Kullanıcılar ve roller etki alanına katılmış ve etki alanına katılmış Hdınsight kümelerini yönetme konusunda bilgi edinin.
@@ -81,9 +81,8 @@ Bir headnode tam etki alanı adını bulmak için yönetmek Ambari REST API belg
 Küme oluşturma sırasında oluşturulan iki kullanıcı hesapları olmayan etki alanına katılmış bir Hdınsight kümesi vardır:
 
 * **Ambari yönetici**: Bu hesap olarak da bilinen, *Hadoop kullanıcı* veya *HTTP kullanıcı*. Bu hesap için Ambari https:// sırasında oturum açmak için kullanılan&lt;clustername >. azurehdinsight.net. Ayrıca, Ambari görünümleri sorguları çalıştırmak için harici araçlar (örneğin, PowerShell, Templeton, Visual Studio) aracılığıyla işleri çalıştırıp BI Araçları (örneğin, Excel, Powerbı veya Tableau) ve Hive ODBC sürücüsü ile kimlik doğrulaması için de kullanılabilir.
-* **SSH kullanıcı**: Bu hesap ile SSH kullanılabilir ve sudo komutları yürütün. Linux VM'ler için kök ayrıcalıklarına sahiptir.
 
-Bir etki alanına katılmış Hdınsight kümesi üç Ambari yönetici yanı sıra yeni kullanıcılar ve SSH kullanıcı sahiptir.
+Bir etki alanına katılmış Hdınsight kümesi Ambari yönetici yanı sıra üç yeni kullanıcılar sahiptir
 
 * **Bırakabilmenizi yönetici**: Bu hesap yerel Apache bırakabilmenizi yönetici hesabıdır. Bir active directory etki alanı kullanıcısı değil. Bu hesap ilkeleri kurulumu ve diğer kullanıcıların yöneticileri veya temsilci olarak atanan Yöneticiler (kullanıcılarla ilkeleri yönetebilmeniz için) yapmak için kullanılabilir. Varsayılan olarak, kullanıcı adı olan *yönetici* ve parola Ambari yönetici parolası ile aynıdır. Parola bırakabilmenizi Ayarları sayfasından güncelleştirilebilir.
 * **Küme Yöneticisi etki alanı kullanıcısı**: Ambari ve bırakabilmenizi gibi Hadoop Küme Yöneticisi olarak atanmış bir active directory etki alanı kullanıcısı bu hesabıdır. Küme oluşturma sırasında bu kullanıcının kimlik bilgilerini sağlamanız gerekir. Bu kullanıcı aşağıdaki ayrıcalıklara sahiptir:
@@ -162,4 +161,3 @@ Etki alanına katılmış Hdınsight aşağıdaki rolleri vardır:
 ## <a name="next-steps"></a>Sonraki adımlar
 * Etki alanına katılmış HDInsight kümesini yapılandırmak için bkz. [Etki alanına katılmış HDInsight kümelerini yapılandırma](apache-domain-joined-configure.md).
 * Hive ilkelerini yapılandırmak ve Hive sorgularını çalıştırmak için bkz. [Etki alanına katılmış HDInsight kümeleri için Hive ilkelerini yapılandırma](apache-domain-joined-run-hive.md).
-* Etki alanına katılmış Hdınsight kümelerinde SSH kullanarak Hive sorguları çalıştırmak için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

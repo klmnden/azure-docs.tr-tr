@@ -3,7 +3,7 @@ title: "Azure AD Connect eşitleme: teknik kavramlar | Microsoft Docs"
 description: "Azure AD Connect eşitleme teknik kavramlarını açıklar."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi;andkjell
-ms.openlocfilehash: 5b757f6d75e5025049a381d3b64576f0b19a7ca8
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 2cb5143729fa92d12b21701e62416bced31c1fc7
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Eşitleme: Teknik Kavramlar
 Bu makalede konu özetidir [anlama mimarisi](active-directory-aadconnectsync-technical-concepts.md).

@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Cihaz kayıtlarını Azure cihaz sağlama hizmeti SDK'ları ile yönetme
 A *cihaz kaydı* tek bir cihazı veya grubun belirli bir noktada cihaz sağlama hizmeti ile kaydedebilir cihazların bir kayıt oluşturur. İlk istenen yapılandırma istenen IOT hub'ı dahil, kaydın parçası olarak aygıt kaydı içerir. Bu makalede Azure IOT sağlama hizmeti SDK'ları kullanarak programlı olarak sağlama hizmetiniz için cihaz kayıtlarını yönetme gösterilmektedir.  SDK'ları, Azure IOT SDK'ları ile aynı Havuzda github'da kullanılabilir.
@@ -25,6 +25,7 @@ A *cihaz kaydı* tek bir cihazı veya grubun belirli bir noktada cihaz sağlama 
 Bu makale Azure IOT sağlama hizmeti SDK'ları kullanarak programlı olarak sağlama hizmetiniz için cihaz kayıtları yönetmek için üst düzey kavramlarını gözden geçirir.  Tam API çağrıları dil farklılıkları nedeniyle farklı olabilir.  Lütfen ayrıntılar için Github'da sağladığımız örnekleri gözden geçirin:
 * [Java sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Node.js sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [.NET sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Bağlantı dizesinden bir cihaz sağlama hizmet örneği

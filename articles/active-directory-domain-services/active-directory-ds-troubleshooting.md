@@ -12,21 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-<<<<<<< HEAD
-ms.openlocfilehash: 5b094ab27d9d11828b0818a6024ff9b108d6cddb
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD etki alanı Hizmetleri - sorun giderme kılavuzu
 Bu makale, ayarlama veya Azure Active Directory (AD) etki alanı Hizmetleri yönetme karşılaşabileceğiniz sorunları için sorun giderme ipuçları sağlar.
@@ -130,6 +122,7 @@ Bir uygulama 00000002-0000-0000-c000-000000000000 tanımlayıcıyla devre dış�
 
 Bu hatayı gidermek için bu uygulamayı etkinleştir ve Azure AD kiracınız için etki alanı Hizmetleri'ni etkinleştirmeyi deneyin.
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Kullanıcılar Azure AD Domain Services yönetilen etki alanında oturum açamıyor
 Bir veya daha fazla kullanıcı Azure AD kiracınızda yeni oluşturulan yönetilen etki alanında oturum açmak erişemiyorsanız aşağıdaki sorun giderme adımları gerçekleştirin:
 
@@ -153,6 +146,10 @@ Bir veya daha fazla kullanıcı Azure AD kiracınızda yeni oluşturulan yöneti
     2. net start 'Microsoft Azure AD eşitleme'
 * **Yalnızca bulut hesapları**: etkilenen kullanıcı hesabının bir yalnızca bulut kullanıcı hesabı, Azure AD etki alanı Hizmetleri etkin sonra kullanıcı parolalarını değiştirdi emin olun. Bu adım, Azure AD Domain Services için gereken kimlik bilgisi karmalarının oluşturulmasına neden olur.
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Yönetilen etki alanınızda bir veya daha fazla uyarı vardır
+
+Uyarıları, yönetilen etki alanınızda ziyaret ederek gidermek nasıl görmek [sorun giderme uyarıları](active-directory-ds-troubleshoot-alerts.md) makalesi.
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Kullanıcı Azure AD kiracınıza kaldırıldı, yönetilen etki alanınızdan kaldırılmaz
 Azure AD kullanıcı nesnelerinin yanlışlıkla silinmesine karşı sizi korur. Azure AD kiracınızdan bir kullanıcı hesabı sildiğinizde, buna karşılık gelen kullanıcı nesnesi Geri Dönüşüm Kutusu’na taşınır. Bu silme işlemi, yönetilen etki alanınıza eşitlendiğinde, karşılık gelen kullanıcı hesabı devre dışı olarak işaretlenmiş neden olur. Bu özellik, kurtarabilir veya daha sonra kullanıcı hesabını silmeyi geri al yardımcı olur.
 
@@ -160,5 +157,6 @@ Bir kullanıcı hesabıyla aynı UPN Azure AD dizininizi yeniden oluşturursanı
 
 Kullanıcı, kullanıcı hesabına tam olarak yönetilen etki alanından kaldırmak için Azure AD kiracınıza kalıcı olarak sil. Kullanım `Remove-MsolUser` PowerShell cmdlet'iyle `-RemoveFromRecycleBin` seçeneği, bu konuda açıklandığı gibi [MSDN makalesine](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
-## <a name="contact-us"></a>Bizimle İletişim Kurun
+
+## <a name="contact-us"></a>Bizimle iletişim kurun
 Azure Active Directory etki alanı Hizmetleri ürün ekibine başvurun [paylaşmak geri bildirim veya destek](active-directory-ds-contact-us.md).

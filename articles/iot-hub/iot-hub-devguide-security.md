@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a27c3555f36560f8c945d997a15e98a42e1e5d4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -134,8 +134,8 @@ Beklenen değerler şunlardır:
 | --- | --- |
 | {İmza} |Bir HMAC SHA256 imza dize biçiminde: `{URL-encoded-resourceURI} + "\n" + expiry`. **Önemli**: anahtar base64 kodlaması kodunu çözdü ve HMAC SHA256 hesaplama gerçekleştirmek için anahtar olarak kullanılır. |
 | {resourceURI} |IOT hub'ı (Protokol) ana bilgisayar adı ile başlayarak, bu belirteci ile erişilen uç noktalar için URI öneki (tarafından kesim). Örneğin, `myHub.azure-devices.net/devices/device1` |
-| {süre sonu} |UTF8 dizeleri dönemi: 00:00:00 UTC üzerinde 1 Ocak 1970'ten beri geçen saniye sayısı. |
-| {URL-kodlanmış-resourceURI} |Düşük küçük kaynak URI'si için URL kodlaması durumda |
+| {expiry} |UTF8 dizeleri dönemi: 00:00:00 UTC üzerinde 1 Ocak 1970'ten beri geçen saniye sayısı. |
+| {URL-encoded-resourceURI} |Düşük küçük kaynak URI'si için URL kodlaması durumda |
 | {policyName} |Bu belirteç başvurduğu paylaşılan erişim ilkesinin adı. Yüklenmesinden belirteç aygıt kayıt defteri kimlik bilgilerini ifade eder. |
 
 **Not önek üzerinde**: URI öneki segmente göre ve karakter tarafından hesaplanır. Örneğin `/a/b` için bir önek `/a/b/c` ancak için `/a/bc`.
@@ -268,7 +268,7 @@ Device1 tüm işlevlere erişimi verir, sonuç şöyle olacaktır:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> .NET kullanarak bir SAS belirteci oluşturmak mümkündür [aygıt explorer] [ lnk-device-explorer] aracını veya platformlar arası, düğüm tabanlı [iothub-explorer] [ lnk-iothub-explorer]komut satırı yardımcı programı.
+> .NET kullanarak bir SAS belirteci oluşturmak mümkündür [aygıt explorer] [ lnk-device-explorer] aracını veya platformlar arası, Python tabanlı [IOT uzantısı için Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] komut satırı yardımcı programı.
 
 ### <a name="use-a-shared-access-policy"></a>Bir paylaşılan erişim ilkesi kullanın
 
@@ -487,7 +487,7 @@ Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıda
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

@@ -1,5 +1,5 @@
 ---
-title: "Bilgi çalışanları nasıl Azure Active Directory B2B işbirliği kullanıcılar eklenir? | Microsoft Belgeleri"
+title: "Bir bilgi çalışanı - Azure Active Directory B2B işbirliği kullanıcılar ekleyin | Microsoft Docs"
 description: "B2B işbirliği sağlayan bilgi çalışanları kendi kuruluştan Azure AD erişim için kullanıcıları eklemek | Microsoft Docs"
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 255ee5c11aa7e76fec23837d3bdccf2175c2f9fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Bilgi çalışanları nasıl Azure Active Directory B2B işbirliği kullanıcılar eklenir?
 

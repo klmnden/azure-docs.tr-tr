@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-partition"></a>sfctl bölüm
 Sorgulamak ve herhangi bir hizmet için bölüm yönetin.
@@ -29,9 +29,9 @@ Sorgulamak ve herhangi bir hizmet için bölüm yönetin.
 | --- | --- |
 |    veri kaybı      | Bu API belirtilen bölüm için veri kaybı uygulanmasını.|
 |    veri kaybı durumu  | StartDataLoss API kullanmaya bir bölüm veri kaybı işlemin ilerlemesini alır.|
-|    Sistem durumu         | Belirtilen Service Fabric bölüm durumunu alır.|
+|    sistem durumu         | Belirtilen Service Fabric bölüm durumunu alır.|
 |    bilgileri           | Service Fabric bölüm hakkında bilgi alır.|
-|    Liste           | Service Fabric hizmetinin bölümleri listesini alır.|
+|    liste           | Service Fabric hizmetinin bölümleri listesini alır.|
 |    yükleme           | Belirtilen Service Fabric bölüm yükünü alır.|
 |    Yük-sıfırlama     | Geçerli iş yükünü bir Service Fabric bölümü sıfırlar.|
 |    Çekirdek kayıp    | Çekirdek kayıp verilen durum bilgisi olan hizmet bölümü uygulanmasını.|
@@ -41,7 +41,7 @@ Sorgulamak ve herhangi bir hizmet için bölüm yönetin.
 |    Sistem Durumu raporu  | Service Fabric bölüm üzerinde bir sistem durumu raporu gönderir.|
 |    Yeniden başlatma        | Bu API, bazı veya tüm çoğaltmaları ya da belirtilen bölüm örneklerini yeniden başlatır.|
 |    yeniden başlatma durumu | StartPartitionRestart kullanmaya PartitionRestart işlemin ilerlemesini alır.|
-|    SVC adı       | Bir bölüm için Service Fabric hizmet adını alır.|
+|    svc-name       | Bir bölüm için Service Fabric hizmet adını alır.|
 
 
 ## <a name="sfctl-partition-health"></a>sfctl bölüm sistem durumu
@@ -55,20 +55,20 @@ ReplicasHealthStateFilter bölüme ReplicaHealthState nesne koleksiyonundaki fil
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 | --bölüm kimliği [gerekli]| Bölüm kimliği.|
-| --Sağlık Durumu Filtresi olayları  | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir.                Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir.                -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre.                Değer, 65535 ' dir.|
-|--Dışlama sağlık istatistikleri   | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. Sistem durumu Tamam, uyarı ve hata istatistiklerini varlıklar alt sayısını gösterir.|
-| --çoğaltmaları sağlık Durumu Filtresi| Bölüm ReplicaHealthState nesneleri koleksiyonu filtrelemeye izin verir. Değer üyeleri veya HealthStateFilter üyeleri üzerinde bit düzeyinde işlemler alınamıyor. Filtreyle eşleşen çoğaltmaları döndürülür. Tüm çoğaltmaları toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+| --events-health-state-filter  | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir.                Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir.                -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre.                Değer, 65535 ' dir.|
+|--exclude-health-statistics   | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. Sistem durumu Tamam, uyarı ve hata istatistiklerini varlıklar alt sayısını gösterir.|
+| --replicas-health-state-filter| Bölüm ReplicaHealthState nesneleri koleksiyonu filtrelemeye izin verir. Değer üyeleri veya HealthStateFilter üyeleri üzerinde bit düzeyinde işlemler alınamıyor. Filtreyle eşleşen çoğaltmaları döndürülür. Tüm çoğaltmaları toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
 | --zaman aşımı -t               | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama                    | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| ---h Yardım                  | Bu yardım iletisini ve çıkış gösterir.|
+| --debug                    | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| --help -h                  | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.                Varsayılan: json.|
 | --Sorgu                    | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın. |
-| --ayrıntılı                  | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --verbose                  | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-partition-info"></a>sfctl bölüm bilgileri
 Service Fabric bölüm hakkında bilgi alır.
@@ -86,11 +86,11 @@ Bölümler son nokta belirtilen bölüm hakkında bilgi döndürür. Yanıt, bö
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama               | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| ---h Yardım             | Bu yardım iletisini ve çıkış gösterir.|
+| --debug               | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| --help -h             | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı           | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
 | --Sorgu               | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --ayrıntılı             | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --verbose             | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-partition-list"></a>sfctl bölüm listesi
 Service Fabric hizmetinin bölümleri listesini alır.
@@ -109,11 +109,11 @@ Service Fabric hizmetinin bölümleri listesini alır. S bölüm kimliği, böl�
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama             | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| ---h Yardım           | Bu yardım iletisini ve çıkış gösterir.|
+| --debug             | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| --help -h           | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı         | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
 | --Sorgu             | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --ayrıntılı           | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --verbose           | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-partition-load"></a>sfctl bölüm yükü
 Belirtilen Service Fabric bölüm yükünü alır.
@@ -131,11 +131,11 @@ Belirtilen bölüm hakkında bilgi döndürür. Yanıt yük bilgilerin listesini
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama               | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| ---h Yardım             | Bu yardım iletisini ve çıkış gösterir.|
+| --debug               | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| --help -h             | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı           | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
 | --Sorgu               | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --ayrıntılı             | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --verbose             | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-partition-recover"></a>sfctl bölüm Kurtar
 Service Fabric kümesi şu anda çekirdek kaybında takıldı belirli bir bölüm kurtarmayı denemesi belirtir.
@@ -153,11 +153,11 @@ Service Fabric kümesi şu anda çekirdek kaybında takıldı belirli bir bölü
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama               | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| ---h Yardım             | Bu yardım iletisini ve çıkış gösterir.|
+| --debug               | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| --help -h             | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı           | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
 | --Sorgu               | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --ayrıntılı             | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --verbose             | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-partition-restart"></a>sfctl bölümü yeniden başlatma
 Bu API, bazı veya tüm çoğaltmaları ya da belirtilen bölüm örneklerini yeniden başlatır.
@@ -170,7 +170,7 @@ Bu API, yük devretme test etmek için kullanışlıdır. Durum bilgisiz hizmet 
 | --- | --- |
 | --işlem kimliği [gerekli]| Bu API çağrısının tanımlayan bir GUID.  Bu, karşılık gelen GetProgress API geçirilir.|
 | --bölüm kimliği [gerekli]| Bölüm kimliği.|
-| --yeniden bölüm-[gerekli] modu| -Geçersiz - ayrılmış.  API geçmeyin. -AllReplicasOrInstances - tüm çoğaltmalar veya bölüm durumlarda aynı anda yeniden başlatılır. -OnlyActiveSecondaries - yalnızca ikincil çoğaltmaları yeniden başlatılır. .|
+| --yeniden bölüm-[gerekli] modu| -Geçersiz - ayrılmış.  API geçmeyin. -                     AllReplicasOrInstances - All replicas or instances in the                     partition are restarted at once. -OnlyActiveSecondaries - yalnızca ikincil çoğaltmaları yeniden başlatılır. .|
 | --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı "fabric://myapp/app1/svc1" ise, hizmet kimliği olması "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki v ersions.|
 | --zaman aşımı -t                    | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
@@ -178,11 +178,11 @@ Bu API, yük devretme test etmek için kullanışlıdır. Durum bilgisiz hizmet 
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama                         | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| ---h Yardım                       | Bu yardım iletisini ve çıkış gösterir.|
+| --debug                         | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| --help -h                       | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                     | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.                     Varsayılan: json.|
 | --Sorgu                         | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --ayrıntılı                       | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --verbose                       | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Kurulum](service-fabric-cli.md) Service Fabric CLI.

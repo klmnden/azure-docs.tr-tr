@@ -3,7 +3,7 @@ title: "Azure AD Connect eşitleme ile parola eşitlemesini uygulama | Microsoft
 description: "Parola Eşitleme nasıl çalışır ve nasıl ayarlandığı hakkında bilgi sağlar."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: billmath
-ms.openlocfilehash: 50534fd1fd94eeb4eec7748857a0b7baf93cb9d2
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 2a28089c85150f1876cd0ade58eb128e2d28f778
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitleme ile parola eşitlemeyi uygulama
 Bu makale, şirket içi Active Directory örneğinden bir bulut tabanlı Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.

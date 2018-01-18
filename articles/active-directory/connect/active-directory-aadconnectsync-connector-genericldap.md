@@ -3,7 +3,7 @@ title: "Genel LDAP Bağlayıcısı | Microsoft Docs"
 description: "Bu makalede, Microsoft'un genel LDAP bağlayıcısının nasıl yapılandırılacağı açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fe8db8f2a2412a3dfdf31201678c51e4fa0cee30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e2b7d23162673f0c66b1fd6c654336da42b8f6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Genel LDAP Bağlayıcısı Teknik Başvurusu
 Bu makalede genel LDAP Bağlayıcısı'nı açıklar. Makale aşağıdaki ürünler için geçerlidir:
@@ -41,7 +41,7 @@ Belirli işlemleri ve şema öğeleri, delta alma işlemini gerçekleştirmek i�
 
 | Özellik | Destek |
 | --- | --- |
-| Bağlı veri kaynağı |Bağlayıcı tüm LDAP v3 sunucuları (RFC 4510 uyumlu) desteklenir. Bunu aşağıdaki ile test edilmiştir: <li>Microsoft Active Directory Basit Dizin Hizmetleri (AD LDS)</li><li>Microsoft Active Directory genel katalog (GC AD)</li><li>389 dizin sunucusu</li><li>Apache dizin sunucusu</li><li>IBM Tivoli DS</li><li>Isode dizini</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Açık DJ</li><li>Açık DS</li><li>Açık LDAP (openldap.org)</li><li>Oracle (önceden Sun) dizin Server Enterprise Edition</li><li>RadiantOne sanal dizin sunucusu (VDS)</li><li>Sun bir dizin sunucusu</li>**Önemli dizinler desteklenmiyor:** <li>Microsoft Active Directory etki alanı [yerleşik Active Directory Bağlayıcısı kullanın] Hizmetleri (AD DS)</li><li>Oracle Internet dizini (OID)</li> |
+| Bağlı veri kaynağı |Bağlayıcı tüm LDAP v3 sunucuları (RFC 4510 uyumlu) desteklenir. Bunu aşağıdaki ile test edilmiştir: <li>Microsoft Active Directory Basit Dizin Hizmetleri (AD LDS)</li><li>Microsoft Active Directory genel katalog (GC AD)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode dizini</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Açık DJ</li><li>Açık DS</li><li>Açık LDAP (openldap.org)</li><li>Oracle (önceden Sun) dizin Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun bir dizin sunucusu</li>**Önemli dizinler desteklenmiyor:** <li>Microsoft Active Directory etki alanı [yerleşik Active Directory Bağlayıcısı kullanın] Hizmetleri (AD DS)</li><li>Oracle Internet Directory (OID)</li> |
 | Senaryolar |<li>Nesne yaşam döngüsü yönetimi</li><li>Grup Yönetimi</li><li>Parola Yönetimi</li> |
 | İşlemler |Aşağıdaki işlemleri tüm LDAP dizinleri desteklenir: <li>Tam içeri aktarma</li><li>Dışarı Aktarma</li>Aşağıdaki işlemleri yalnızca belirtilen dizinleri desteklenir:<li>Delta içeri aktarma</li><li>Parola, parola değiştirme</li> |
 | Şema |<li>Şema LDAP şemadan (RFC3673 ve RFC4512/4.2) algılandı</li><li>Yapısal sınıflar, aux sınıfları ve extensibleObject nesne sınıfı (RFC4512/4.3) destekler</li> |
@@ -55,10 +55,10 @@ Delta içeri aktarma ve parola yönetimi için desteklenen dizinler:
 * Microsoft Active Directory genel katalog (GC AD)
   * Delta içeri aktarma için tüm işlemleri destekler
   * Parola ayarlama destekler
-* 389 dizin sunucusu
+* 389 Directory Server
   * Delta içeri aktarma için tüm işlemleri destekler
   * Parola ve parola değiştirme destekler ayarlayın
-* Apache dizin sunucusu
+* Apache Directory Server
   * Bu dizin kalıcı değişiklik günlüğü olmadığından delta içeri aktarma desteklemiyor
   * Parola ayarlama destekler
 * IBM Tivoli DS
@@ -84,7 +84,7 @@ Delta içeri aktarma ve parola yönetimi için desteklenen dizinler:
 * Oracle (önceden Sun) dizin Server Enterprise Edition
   * Delta içeri aktarma için tüm işlemleri destekler
   * Parola ve parola değiştirme destekler ayarlayın
-* RadiantOne sanal dizin sunucusu (VDS)
+* RadiantOne Virtual Directory Server (VDS)
   * Sürüm 7.1.1 kullanıyor olmanız gerekir veya üzeri
   * Delta içeri aktarma için tüm işlemleri destekler
   * Parola ve parola değiştirme destekler ayarlayın
@@ -92,7 +92,7 @@ Delta içeri aktarma ve parola yönetimi için desteklenen dizinler:
   * Delta içeri aktarma için tüm işlemleri destekler
   * Parola ve parola değiştirme destekler ayarlayın
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bağlayıcısı'nı kullanmadan önce aşağıdaki eşitleme sunucusunda sahip emin olun:
 
 * 4.5.2 Microsoft .NET Framework veya daha yenisi
@@ -123,12 +123,12 @@ Dizine ne dizinine bir çağrısında sığabilecek daha çok nesne varsa, disk 
 `1.2.840.113556.1.4.319`pagedResultsControl
 
 **Seçenek 2:**  
-`2.16.840.1.113730.3.4.9`VLVControl  
-`1.2.840.113556.1.4.473`SortControl
+`2.16.840.1.113730.3.4.9` VLVControl  
+`1.2.840.113556.1.4.473` SortControl
 
 Her iki seçenek bağlayıcı Yapılandırması etkinleştirilirse, pagedResultsControl kullanılır.
 
-`1.2.840.113556.1.4.417`ShowDeletedControl
+`1.2.840.113556.1.4.417` ShowDeletedControl
 
 ShowDeletedControl yalnızca silinen nesneleri görebilmek için USNChanged delta içe aktarma yöntemi ile kullanılır.
 
@@ -137,7 +137,7 @@ Bağlayıcı, sunucuda mevcut seçenekler algılamaya çalışır. Seçenekleri 
 ### <a name="delta-import"></a>Delta içeri aktarma
 Delta içeri aktarma yalnızca için destek directory algılandı. Aşağıdaki yöntemlerden şu anda kullanılır:
 
-* LDAP Accesslog. Bkz: [http://www.openldap.org/doc/admin24/overlays.html#Access günlüğe kaydetme](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+* LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
 * LDAP değişim günlüğü. Bkz: [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 * Zaman damgası. Novell/NetIQ eDirectory için bağlayıcı almak için son tarih kullanan oluşturuldu ve nesneleri güncelleştirildi. Novell/NetIQ eDirectory silinen nesneleri almak eşdeğer bir anlamına gelir sağlamaz. Başka bir delta içeri aktarma yöntemi LDAP sunucusunda etkinse, bu seçenek de kullanılabilir. Bu seçenek silinmiş alma nesnelere mümkün değildir.
 * USNChanged. Bkz: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
@@ -196,13 +196,13 @@ Varsayılan değişiklik günlüğü DNs listesi aşağıdadır:
 | Dizin | Delta değişiklik günlüğü |
 | --- | --- |
 | Microsoft AD LDS ve AD GC |Otomatik olarak algılanır. USNChanged. |
-| Apache dizin sunucusu |Mevcut değil. |
+| Apache Directory Server |Mevcut değil. |
 | Dizin 389 |Değişiklik günlüğü. Varsayılan değer kullanılacak: **cn = değişim günlüğü** |
 | IBM Tivoli DS |Değişiklik günlüğü. Varsayılan değer kullanılacak: **cn = değişim günlüğü** |
 | Isode dizini |Değişiklik günlüğü. Varsayılan değer kullanılacak: **cn = değişim günlüğü** |
 | Novell/NetIQ eDirectory |Mevcut değil. Zaman damgası. Bağlayıcı kullandığı almak için tarih/saat son güncelleştirme eklenir ve kayıtlar güncelleştirildi. |
 | Açık DJ/DS |Değişiklik günlüğü.  Varsayılan değer kullanılacak: **cn = değişim günlüğü** |
-| Açık LDAP |Erişim günlüğü. Varsayılan değer kullanılacak: **cn accesslog =** |
+| Open LDAP |Erişim günlüğü. Varsayılan değer kullanılacak: **cn accesslog =** |
 | Oracle DSEE |Değişiklik günlüğü. Varsayılan değer kullanılacak: **cn = değişim günlüğü** |
 | RadiantOne VDS |Sanal dizin. VDS için bağlı dizin bağlıdır. |
 | Sun bir dizin sunucusu |Değişiklik günlüğü. Varsayılan değer kullanılacak: **cn = değişim günlüğü** |
@@ -246,16 +246,16 @@ LDAP sunucuları ve kullanılan bağlantı listesi aşağıdadır:
 | Dizin | Bağlantı özniteliği |
 | --- | --- |
 | Microsoft AD LDS ve AD GC |objectGUID |
-| 389 dizin sunucusu |DN |
-| Apache dizini |DN |
-| IBM Tivoli DS |DN |
-| Isode dizini |DN |
+| 389 Directory Server |dn |
+| Apache Directory |dn |
+| IBM Tivoli DS |dn |
+| Isode dizini |dn |
 | Novell/NetIQ eDirectory |GUID |
-| Açık DJ/DS |DN |
-| Açık LDAP |DN |
-| Oracle ODSEE |DN |
-| RadiantOne VDS |DN |
-| Sun bir dizin sunucusu |DN |
+| Açık DJ/DS |dn |
+| Open LDAP |dn |
+| Oracle ODSEE |dn |
+| RadiantOne VDS |dn |
+| Sun bir dizin sunucusu |dn |
 
 ## <a name="other-notes"></a>Diğer Notlar
 Bu bölümde, bu bağlayıcı belirli veya diğer nedenlerle bilmek önemli yönlerinden bilgi sağlar.

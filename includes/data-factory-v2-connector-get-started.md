@@ -1,4 +1,13 @@
 <!--
     Separate the generic "Getting started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya bir Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](../articles/data-factory/quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+Aşağıdaki araçlar/Sdk'lardan birini kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz: kopyalama etkinliği ile işlem hattı oluşturmak için adım adım yönergeler içeren bir öğretici gitmek üzere bir bağlantıya tıklayın. 
+
+- [Kopya veri aracı](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
+- [Azure portalı](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
+- [Python SDK'sı](../articles/data-factory/quickstart-create-data-factory-python.md)
+- [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
+- [REST API](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager şablonu](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md). 
+

@@ -4,13 +4,13 @@ description: "Bu makalede, bileşenleri ve Azure Site Recovery hizmeti ile şirk
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/15/2018
 ms.author: raynew
-ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 7999f23d167c6e8a7bcaf3a817e0cd2e80a1d649
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware Azure çoğaltma mimarisi
 
@@ -24,11 +24,9 @@ Aşağıdaki tablo ve grafik VMware çoğaltma Azure için kullanılan bileşenl
 **Bileşen** | **Gereksinim** | **Ayrıntılar**
 --- | --- | ---
 **Azure** | Bir Azure aboneliği, Azure depolama hesabı ve Azure ağı. | Şirket içi Vm'lerden gelen çoğaltılan veriler depolama hesabında depolanır. Bir başarısız şirket içinden Azure'a çalıştırdığınızda azure VM'ler ile çoğaltılan veriler oluşturulur. Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
-**Yapılandırma sunucusu** | Tek bir VMware VM tüm şirket içi Site Recovery bileşenlerini çalıştırmak için dağıtılan şirket içi. VM yapılandırması sunucu, işlem sunucusu ve ana hedef sunucusunda çalışır. | Yapılandırma sunucusu yerinde bileşenler ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir.
- **İşlem sunucusu**:  | Yapılandırma sunucusu ile birlikte varsayılan olarak yüklüdür. | Çoğaltma ağ geçidi olarak davranır. Çoğaltma verilerini alıp bu verileri önbelleğe alma, sıkıştırma ve şifreleme işlemleriyle iyileştirir ve Azure depolama alanına gönderir.<br/><br/> İşlem sunucusu çoğaltmak istediğiniz sanal makinelerin de Mobility hizmeti yükler ve sanal makineleri otomatik olarak bulmayı şirket içi VMware sunucularda gerçekleştirir.<br/><br/> Dağıtımınız büyüdükçe, daha büyük birimleri çoğaltması trafiğini işlemek için ek, ayrı bir işlem sunucuları ekleyebilirsiniz.
- **Ana hedef sunucu** | Yapılandırma sunucusu ile birlikte varsayılan olarak yüklüdür. | Azure’dan yeniden çalışma sırasında çoğaltma verilerini işler.<br/><br/> Büyük dağıtımlar için yeniden çalışma için bir ek, ayrı ana hedef sunucusu ekleyebilirsiniz.
+**Yapılandırma sunucusu makine** | Tek bir makine şirket içi. Bir VMware gerçekleştirebileceğiniz indirilen OVF şablondan dağıtılan VM farklı çalıştır öneririz.<br/><br/> Makine yapılandırma sunucusuna işlem sunucusu ve ana hedef sunucusu da dahil olmak üzere tüm şirket içi Site Recovery bileşenlerini çalışır. | **Yapılandırma sunucusu**: şirket içi ve Azure arasındaki iletişimi düzenler ve veri çoğaltma yönetir.<br/><br/> **İşlem sunucusu**: yapılandırma sunucusundaki varsayılan olarak yüklüdür. Çoğaltma verilerini alıp, önbelleğe alma, sıkıştırma ve şifreleme iyileştirir ve Azure depolama alanına gönderir. İşlem sunucusu çoğaltmak istediğiniz sanal makinelerin de Mobility hizmeti yükler ve şirket içi makinelerin otomatik bulma işlemini gerçekleştirir. Dağıtımınız büyüdükçe, daha büyük birimleri çoğaltması trafiğini işlemek için ek, ayrı bir işlem sunucuları ekleyebilirsiniz.<br/><br/>  **Ana hedef sunucusu**: yapılandırma sunucusundaki varsayılan olarak yüklüdür. Azure'dan yeniden çalışma sırasında çoğaltma verilerini işler. Büyük dağıtımlar için yeniden çalışma için bir ek, ayrı ana hedef sunucusu ekleyebilirsiniz.
 **VMware sunucuları** | VMware sanal makineleri şirket içi vSphere ESXi sunucularda barındırılır. Ana bilgisayarları yönetmek için bir vCenter sunucusu öneririz. | Site Recovery dağıtımı sırasında VMware sunucularını kurtarma Hizmetleri Kasası'na ekleyin.
-**Çoğaltılan makineler** | Mobility hizmeti, çoğaltılan her VMware VM yüklenir. | İşlem sunucusundan otomatik yüklemesine izin ver öneririz. Alternatif olarak hizmeti el ile yüklemek veya bir System Center Configuration Manager gibi otomatik dağıtım yöntemini kullanın. 
+**Çoğaltılan makineler** | Mobility hizmeti, çoğaltılan her VMware VM yüklenir. | İşlem sunucusundan otomatik yüklemesine izin ver öneririz. Alternatif olarak hizmeti el ile yüklemek veya bir System Center Configuration Manager gibi otomatik dağıtım yöntemini kullanın.
 
 **VMware-Azure arası mimari**
 
@@ -36,15 +34,17 @@ Aşağıdaki tablo ve grafik VMware çoğaltma Azure için kullanılan bileşenl
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
-1. Şirket içi ve Azure bileşenleri de dahil olmak üzere dağıtım, ayarlayın. Kurtarma Hizmetleri kasasına çoğaltma kaynak ve hedef yapılandırma sunucusunu ayarlamayı, bir çoğaltma ilkesi oluşturun ve çoğaltmayı etkinleştirme belirtin.
-2. Makinelerin çoğaltılacağı Çoğaltma İlkesi ve bir başlangıç kopyasını VM verisi uygun olarak Azure depolama alanına çoğaltılır.
-3. İlk çoğaltma sonlandırıldıktan sonra Azure delta değişikliklerini başlar. Bir makine için izlenen değişiklikler bir .hrl dosyasında saklanır.
+1.  Azure kaynakları ve şirket içi bileşenleri hazırlayın.
+2.  Kurtarma Hizmetleri kasasına kaynak çoğaltma ayarlarını belirtin. Bu işlemin bir parçası olarak, şirket içi yapılandırma sunucusu ayarlayın. Bu sunucuyu bir VMware VM olarak dağıtmak için hazırlanmış bir OVF şablonunu indirebilir ve VMware VM oluşturmak için aktarın.
+3. Hedef çoğaltma ayarları belirtin, bir çoğaltma ilkesi oluşturun ve VMware Vm'leri için çoğaltmayı etkinleştirme.
+4.  Makinelerin çoğaltılacağı Çoğaltma İlkesi ve bir başlangıç kopyasını VM verisi uygun olarak Azure depolama alanına çoğaltılır.
+5.  İlk çoğaltma sonlandırıldıktan sonra Azure delta değişikliklerini başlar. Bir makine için izlenen değişiklikler bir .hrl dosyasında saklanır.
     - HTTPS 443 numaralı bağlantı noktasını yapılandırma sunucusunda ile gelen çoğaltma yönetimi için iletişim kurar.
     - Makineleri çoğaltma veri gönderme bağlantı noktası HTTPS 9443 işlem sunucusu için gelen (değiştirilmiş).
     - Yapılandırma sunucusu, HTTPS 443 giden bağlantı noktası üzerinden Azure ile çoğaltma yönetimini düzenler.
     - İşlem sunucusu kaynak makinelerden gelen verileri alır, iyileştirip şifreler ve 443 giden bağlantı noktası üzerinden Azure depolamaya gönderir.
     - Çoklu VM tutarlılığını etkinleştirmek, çoğaltma grubundaki birbiriyle 20004 bağlantı noktası üzerinden iletişim kurar. Çoklu VM, birden çok makineyi yük devrettikleri zaman kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarını paylaşan çoğaltma grupları halinde gruplandırdığınızda kullanılır. Bu özellik, makinelerin aynı iş yükünü çalıştırdığı ve tutarlı olmasının gerektiği durumlarda kullanışlıdır.
-4. Trafik İnternet üzerinden Azure depolama genel uç noktalarına çoğaltılır. Alternatif olarak, Azure ExpressRoute [genel eşliğini](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) kullanabilirsiniz. Trafiğin siteden siteye bir VPN aracılığıyla şirket içi bir siteden Azure’a çoğaltılması desteklenmez.
+6.  Trafik, internet üzerinden ortak uç noktaları, Azure depolama alanına çoğaltır. Alternatif olarak, zure ExpressRoute kullanabilirsiniz [ortak eşleme](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Trafiğin siteden siteye bir VPN aracılığıyla şirket içi bir siteden Azure’a çoğaltılması desteklenmez.
 
 
 **Azure çoğaltma işlemi VMware**

@@ -13,23 +13,23 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 613a9ced91d71cc9a65ea67e6ede1a78a03b4bd5
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>İzleyici bellek içi OLTP depolama
-Kullanırken [bellek içi OLTP](sql-database-in-memory.md), bellek için iyileştirilmiş tablolar ve Tablo değişkenlerinin verileri bellek içi OLTP depolamada yer alıyor. Her Premium Hizmet katmanını belgelenen en fazla bir bellek içi OLTP depolama boyutuna sahip [tek veritabanı kaynak sınırları](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) ve [esnek havuzu kaynak sınırlarını](sql-database-resource-limits.md#elastic-pool-change-storage-size). Bu sınır aşılırsa sonra ekleme ve güncelleştirme işlemleri (hatası 41823 ile) başarısız olan başlayabilir. Bu noktada, ya da belleği geri almasını verileri silmek veya veritabanınızın performans katmanı yükseltin.
+Kullanırken [bellek içi OLTP](sql-database-in-memory.md), bellek için iyileştirilmiş tablolar ve Tablo değişkenlerinin verileri bellek içi OLTP depolamada yer alıyor. Her Premium Hizmet katmanını belgelenen en fazla bir bellek içi OLTP depolama boyutuna sahip [tek veritabanı kaynak sınırları](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) ve [esnek havuzu kaynak sınırlarını](sql-database-resource-limits.md#elastic-pool-change-storage-size). Bu sınır aşılırsa sonra ekleme ve güncelleştirme işlemleri hata 41823 bağımsız veritabanları ve esnek havuzlar için 41840 hata ile başarısız başlayabilir. Bu noktada, ya da belleği geri almasını verileri silmek veya veritabanınızın performans katmanı yükseltin.
 
-## <a name="determine-whether-data-will-fit-within-the-in-memory-storage-cap"></a>Veri içinde bellek içi depolama ucun uygun olup olmadığını belirleme
+## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Veri içinde bellek içi OLTP depolama ucun uygun olup olmadığını belirleme
 Farklı Premium hizmet katmanları, depolama caps belirler. Bkz: [tek veritabanı kaynak sınırları](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) ve [esnek havuzu kaynak sınırlarını](sql-database-resource-limits.md#elastic-pool-change-storage-size).
 
-Bellek için iyileştirilmiş tablo works onu aynı şekilde SQL Server için Azure SQL veritabanı'nda mu bellek gereksinimlerini tahmin etme. Bu konuda üzerinde gözden geçirmek için birkaç dakika sürebilir [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+Bellek için iyileştirilmiş tablo works onu aynı şekilde SQL Server için Azure SQL veritabanı'nda mu bellek gereksinimlerini tahmin etme. Bu makale üzerinde gözden geçirmek için birkaç dakika sürebilir [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
-Tablosu ve tablo değişkeni satırları yanı dizinler, en fazla kullanıcı veri boyutu doğru saymak unutmayın. Buna ek olarak, ALTER TABLE tablonun tamamını ve dizinlerini yeni bir sürümünü oluşturmak için yeterli alan gerekir.
+Tablosu ve tablo değişkeni satırları yanı sıra, dizinler, en fazla kullanıcı veri boyutu doğru sayısı. Buna ek olarak, ALTER TABLE tablonun tamamını ve dizinlerini yeni bir sürümünü oluşturmak için yeterli alan gerekir.
 
 ## <a name="monitoring-and-alerting"></a>İzleme ve uyarı
 Bellek içi depolama kullanımı depolama ucun yüzdesi olarak, performans katmanı için izleyebileceğiniz [Azure portal](https://portal.azure.com/): 
@@ -43,15 +43,18 @@ Veya bellek içi depolama kullanımını göstermek için aşağıdaki sorguyu k
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
-## <a name="correct-out-of-memory-situations---error-41823"></a>Bellek durum - hata 41823 düzeltin
-Bellek sonuçlarını 41823 hata iletisiyle başarısız INSERT, UPDATE ve oluşturma işlemleri çalışıyor.
+## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Belleğin içinde dışarı OLTP depolama durumlarda - 41823 ve 41840 hatalarını düzeltin
+Bellek içi OLTP depolama ucun INSERT deyiminde veritabanı sonuçlarınızda basarsa, güncelleştirme, ALTER ve hata iletisinin 41823 (tek başına veritabanları) veya hata 41840 (esnek havuzlar için) başarısız olan işlemleri oluşturun. Her iki hata oluşmasına neden iptal etmek etkin işlem.
 
-Hata iletisi 41823 bellek için iyileştirilmiş tablolar ve Tablo değişkenlerinin boyutu üst sınırı aştınız gösterir.
+Hata iletileri 41823 ve 41840 bellek için iyileştirilmiş tablolar ve veritabanı veya havuzu Tablo değişkenlerinin bellek içi OLTP depolama boyut üst sınırına belirtin.
 
 Ya da bu hatayı gidermek için:
 
 * Potansiyel olarak Geleneksel, disk tabanlı tablolara veri boşaltma bellek için iyileştirilmiş tablolardaki verileri silmek; veya,
 * Bellek için iyileştirilmiş tablolarda tutmak için gereken verileri için yeterli bellek içi depolama sahip bir hizmet katmanına yükseltin.
+
+> [!NOTE] 
+> Nadir durumlarda 41823 ve 41840 hataları yeterli kullanılabilir bellek içi OLTP depolama yoktur ve işlemi yeniden denemeden başarılı anlamına geçici olabilir. Bu nedenle hem izlenecek genel kullanılabilir bellek içi OLTP depolama ve ilk hata 41823 veya 41840 karşılaşıldığında yeniden denemek için öneririz. Yeniden deneme mantığı hakkında daha fazla bilgi için bkz: [çakışma algılamasını ve yeniden deneme mantığı bellek içi OLTP ile](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kılavuzu izleme için bkz: [Azure SQL Dinamik Yönetim görünümlerini kullanarak veritabanı izleme](sql-database-monitoring-with-dmvs.md).

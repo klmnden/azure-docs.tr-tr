@@ -4,7 +4,7 @@ description: "Bu konuda belge şifreleme anahtarını ve parolalar değiştirild
 services: active-directory
 keywords: "Azure AD eşitleme hizmeti hesabını, parola"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirme
 Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirirseniz, şifreleme anahtarını terk ve Azure AD Connect eşitleme hizmeti hesabının parolasını yeniden kadar eşitleme hizmeti mümkün başlangıç doğru olmaz. 
@@ -43,7 +43,7 @@ Parola güncelleştirilirse, ikinci olarak, belirli koşullar altında eşitleme
 Hataları gibi görürsünüz:
 
 - Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarını alamıyor hatasıyla başarısız "** Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı. Daha fazla bilgi için sistem olay günlüğünü gözden geçirin. Microsoft dışı hizmeti varsa hizmet satıcısını ve hizmete özgü hata koduna başvurun **-21451857952 ***. "
-- Windows Olay Görüntüleyicisi'ni altında uygulama olay günlüğüne bir hata ile içeren **olay kimliği 6028** ve hata iletisi *"**sunucu şifreleme anahtarına erişilemiyor.* *"*
+- Windows Olay Görüntüleyicisi'ni altında uygulama olay günlüğüne bir hata ile içeren **olay kimliği 6028** ve hata iletisi *"**sunucu şifreleme anahtarına erişilemiyor.**"*
 
 Bu hatalar almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD Connect eşitleme şifreleme anahtarını bırakıp](#abandoning-the-azure-ad-connect-sync-encryption-key) parola değiştirme.
  

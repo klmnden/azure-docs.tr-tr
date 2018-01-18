@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
 
@@ -30,7 +30,7 @@ Bu konuda, bir web uygulamasını kullanarak yapılandırmak açıklanmaktadır 
 1. İçinde [Azure Portal], web uygulaması dikey penceresini açın.
 3. **Uygulama ayarları**’na tıklayın.
 
-![Uygulama ayarları][configure01]
+![Uygulama Ayarları][configure01]
 
 **Uygulama ayarları** dikey birkaç kategoriler altında gruplanmış ayarlara sahip.
 
@@ -62,7 +62,7 @@ Teknik nedenlerle .NET, PHP ve Python seçenekleri uygulamanız için Java'yı e
 **Uzaktan hata ayıklama**. Uzaktan hata ayıklamayı etkinleştirir. Etkinleştirildiğinde, web uygulamanızı doğrudan bağlanmak için Visual Studio uzaktan hata ayıklayıcı kullanabilirsiniz. Uzaktan hata ayıklama 48 saat boyunca etkin kalır. 
 
 ### <a name="app-settings"></a>Uygulama ayarları
-Bu bölümde, web ad/değer çiftleri içeren uygulama başlangıç yükler. 
+Bu bölüm, web uygulamanızın başlangıç yükleyecek ad/değer çiftleri içerir. 
 
 * .NET yapılandırmanızı eklenen .NET uygulamaları için bu ayarları `AppSettings` çalışma zamanında mevcut ayarları geçersiz kılar. 
 * PHP, Python, Java ve düğüm uygulamalar, bu ayarlar çalışma zamanında ortam değişkenleri olarak erişebilir. Her uygulama ayarı için iki ortam değişkenin oluşturulur; bir uygulama ayarı giriş ve APPSETTING_ önekine sahip başka bir tarafından belirtilen ada sahip. Her ikisi de aynı değeri içerir.
@@ -74,8 +74,8 @@ Bağlantılı kaynaklar için bağlantı dizelerini.
 
 PHP, Python, Java ve düğüm uygulamalar için bu ayarlar bağlantı türü ile önek zamanında ortam değişkenleri olarak kullanılabilir. Ortam değişkeni önekleri aşağıdaki gibidir: 
 
-* SQL sunucusu:`SQLCONNSTR_`
-* MySQL:`MYSQLCONNSTR_`
+* SQL Server: `SQLCONNSTR_`
+* MySQL: `MYSQLCONNSTR_`
 * SQL veritabanı:`SQLAZURECONNSTR_`
 * Özel:`CUSTOMCONNSTR_`
 

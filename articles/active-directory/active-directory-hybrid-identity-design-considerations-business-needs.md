@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - belirlemek kimlik gereksinimleri | Microsoft Docs"
+title: "Kimlik gereksinimleri için karma kimlik tasarımı Azure bulut | Microsoft Docs"
 description: "Karma kimlik tasarımı gereksinimlerini tanımlamak için yol şirketin işletme gereksinimlerini tanımlama."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünü kimlik gereklilikleri
 Karma kimlik çözümü tasarlamanın ilk adımı, bu çözüm yararlanarak iş kuruluş gereksinimlerini belirlemektir.  Karma kimlik (diğer tüm bulut çözümleri kimlik doğrulaması sağlayarak destekler) destekleyen bir rol olarak başlatılır ve kullanıcılar için yeni iş yüklerine kilidini yeni ve ilginç yetenekleri sağlamak için geçer.  Bu iş yükleri veya kullanıcılarınız için benimsemeyi istediğiniz hizmetleri karma kimlik tasarım gereksinimleri benimsendiği belirler.  Her iki şirket içi karma kimlik yararlanmak bu hizmetleri ve iş yükleri gerekir ve bulutta.  
@@ -66,7 +67,7 @@ Ardından kimlik Tümleştirme gereksinimlerini değerlendirmek gerekir. Bu değ
 * Federasyon bir gereksinimdir?  Aşağıdaki nedeniyle:
   * Kerberos tabanlı SSO
   * Şirketiniz SAML veya benzer Federasyon yeteneklerini kullanır (ya da şirket içi veya 3 taraf yerleşik) bir şirket içi uygulamalara sahiptir.
-  * Akıllı kartlar ile MFA. RSA Securıd, vb.
+  * Akıllı kartlar ile MFA. RSA SecurID, etc.
   * Aşağıdaki sorular adres istemci erişim kuralları:
     1. Office 365 istemci IP adresine göre tüm dış erişimi engelleyebilir miyim?
     2. Office 365, Exchange ActiveSync dışında tüm dış erişimi engelleyebilir miyim?

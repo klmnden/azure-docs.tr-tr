@@ -3,7 +3,7 @@ title: "PowerShell Bağlayıcısı | Microsoft Docs"
 description: "Bu makalede, Microsoft'un Windows PowerShell bağlayıcısının nasıl yapılandırılacağı açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Windows PowerShell Bağlayıcısı Teknik Başvurusu
 Bu makalede Windows PowerShell Bağlayıcısı açıklanmaktadır. Makale aşağıdaki ürünler için geçerlidir:
@@ -32,7 +32,7 @@ MIM2016 ve FIM2010R2 için bağlayıcı yükleme yoluyla kullanılabilir [Micros
 ## <a name="overview-of-the-powershell-connector"></a>PowerShell Bağlayıcısı genel bakış
 PowerShell Bağlayıcısı'nı, API'ları Windows PowerShell tabanlı teklif dış sistemlerle eşitleme hizmeti tümleştirmenize olanak sağlar. Bağlayıcısı, 2 (ECMA2) framework ve Windows PowerShell arama tabanlı Genişletilebilir bağlantı yönetim Aracısı özellikleri arasında bir köprü sağlar. ECMA framework hakkında daha fazla bilgi için bkz: [Genişletilebilir bağlantı 2.2 Yönetim Aracı başvurusu](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bağlayıcısı'nı kullanmadan önce aşağıdaki eşitleme sunucusunda sahip emin olun:
 
 * 4.5.2 Microsoft .NET Framework veya daha yenisi
@@ -67,7 +67,7 @@ Aşağıdaki bağlantı parametrelerini yapılandırabilirsiniz:
 | Parola |<Blank> |Bağlayıcısı'nı çalıştırdığınızda kullanmak üzere saklamak için kimlik bilgilerini parolası. |
 | Bağlayıcı hesabının kimliğine bürün |False |Doğru olduğunda, eşitleme hizmeti bağlamında sağlanan kimlik bilgileri, Windows PowerShell komut dosyalarını çalıştırır. Mümkün olduğunda, önerilir **$Credentials** parametresi geçirilir kadar her komut dosyası, kimliğe bürünme yerine kullanılır. Bu seçeneği kullanmak için gereken ek izinler hakkında daha fazla bilgi için bkz: [kimliğe bürünme için ek yapılandırma](#additional-configuration-for-impersonation). |
 | Belirlerken kullanıcı profilini yükle |False |Kimliğe bürünme sırasında bağlayıcı'nın kimlik bilgileri kullanıcı profilini yüklemek için Windows bildirir. Kimliğine bürünülen kullanıcı gezici profili varsa, bağlayıcı gezici profil yüklemez. Bu parametre kullanmak için gereken ek izinler hakkında daha fazla bilgi için bkz: [kimliğe bürünme için ek yapılandırma](#additional-configuration-for-impersonation). |
-| Belirlerken oturum açma türü |None |Kimliğe bürünme sırasında oturum açma türü. Daha fazla bilgi için bkz: [dwLogonType] [ dw] belgeleri. |
+| Belirlerken oturum açma türü |Hiçbiri |Kimliğe bürünme sırasında oturum açma türü. Daha fazla bilgi için bkz: [dwLogonType] [ dw] belgeleri. |
 | Yalnızca imzalı komut dosyaları |False |TRUE ise, Windows PowerShell Bağlayıcısı'nı her komut dosyası geçerli bir dijital imzaya sahip olduğunu doğrular. False ise eşitleme hizmeti sunucusunun Windows PowerShell yürütme İlkesi RemoteSigned veya Kısıtlanmamış olduğundan emin olun. |
 
 **Ortak Modülü**  
@@ -129,7 +129,7 @@ Yönetim Aracısı Tasarımcısı özellikleri sekmesinde bağlayıcı işlevsel
 | DN bağlantı kullanın |Ayırt edici adı stili LDAP olarak ayarlanırsa, bağlantı için bağlayıcı alanı da ayırt edici adı özniteliğidir. |
 | Eşzamanlı operasyonlar birkaç bağlayıcı |İşaretlendiğinde, birden çok Windows PowerShell bağlayıcı aynı anda çalışabilir. |
 | Bölümler |İşaretlendiğinde, birden fazla bölüm ve bölüm bulma bağlayıcıyı destekler. |
-| Hiyerarşisi |İşaretlendiğinde, bir LDAP stili hiyerarşik yapısı bir bağlayıcıyı destekler. |
+| Hiyerarşi |İşaretlendiğinde, bir LDAP stili hiyerarşik yapısı bir bağlayıcıyı destekler. |
 | İçeri aktarma etkinleştir |İşaretlendiğinde, Bağlayıcısı verileri içe aktarma komut dosyaları aracılığıyla alır. |
 | Delta içeri aktarma etkinleştir |İşaretlendiğinde, bağlayıcı içe aktarma komut dosyalarından farkları isteyebilir. |
 | Vermeyi etkinleştir |İşaretlendiğinde, bağlayıcı dışarı aktarma komut dosyaları aracılığıyla veri aktarır. |
@@ -273,7 +273,7 @@ Parola betik bağlayıcısından aşağıdaki parametreleri alır:
 | CSEntry |[CSEntry][cse] |Bağlayıcı alanı girdisi nesne için bir parola değiştirme veya sıfırlama aldı. |
 | OperationType |Dize |İşlemi sıfırlama olup olmadığını gösterir (**SetPassword**) veya bir değiştirme (**parola değiştirme**). |
 | PasswordOptions |[PasswordOptions][pwdopt] |Hedeflenen parolayı belirtin bayrakları davranışı sıfırlayın. Bu parametre yalnızca OperationType ise kullanılabilir **SetPassword**. |
-| EskiParola |Dize |Parola değişiklikleri için nesnenin eski parola ile doldurulur. Bu parametre yalnızca OperationType ise kullanılabilir **parola değiştirme**. |
+| OldPassword |Dize |Parola değişiklikleri için nesnenin eski parola ile doldurulur. Bu parametre yalnızca OperationType ise kullanılabilir **parola değiştirme**. |
 | #Newpassword |Dize |Komut dosyası ayarlaması gereken nesnenin yeni parola ile doldurulur. |
 
 Parola betik, herhangi bir sonuç Windows PowerShell ardışık düzene dönmek için beklenmiyor. Parola komut dosyasında bir hata meydana gelirse, komut dosyası eşitleme hizmeti sorun hakkında bilgilendirmek için aşağıdaki özel durumlardan birini oluşturması gerekir:
@@ -291,8 +291,8 @@ Kullanıcı Kimliğine bürünülen eşitleme hizmeti sunucusunda aşağıdaki i
 
 Aşağıdaki kayıt defteri anahtarları için okuma erişimi:
 
-* HKEY_USERS\\[SynchronizationServiceServiceAccountSID] \Software\Microsoft\PowerShell
-* HKEY_USERS\\[SynchronizationServiceServiceAccountSID] \Environment
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Software\Microsoft\PowerShell
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
 
 Eşitleme hizmeti hizmet hesabının güvenlik tanımlayıcısı (SID) belirlemek için aşağıdaki PowerShell komutlarını çalıştırın:
 

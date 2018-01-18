@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
 
@@ -68,9 +68,9 @@ Paketleri (örneğin, Windows için NuGet veya apt_get Debian ve Ubuntu) ortak p
 IOT hub'ınızı yönetmenize yardımcı olmak için birkaç açık kaynaklı araçları vardır.
 
 * Adlı bir Windows uygulaması [aygıt explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Platformlar arası node.js CLI aracı adlı [iothub-explorer](https://github.com/azure/iothub-explorer).
+* Platformlar arası Python CLI aracı adlı [IOT uzantısı için Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Bu öğretici grafik kullanır *aygıt explorer* aracı. Aynı zamanda *iothub-explorer* CLI aracını kullanmayı tercih ederseniz, aracı.
+Bu öğretici grafik kullanır *aygıt explorer* aracı. Aynı zamanda *IOT uzantısı için Azure CLI 2.0* CLI aracını kullanmayı tercih ederseniz, aracı.
 
 Cihaz ekleme de dahil olmak üzere IOT hub'da çeşitli işlevleri gerçekleştirmek için Azure IOT hizmeti kitaplıkları aygıtı explorer aracını kullanır. Bir cihaz eklemek için aygıtı explorer aracını kullanırsanız, cihazınız için bir bağlantı dizesi alın. Örnek uygulamaları çalıştırmak için bu bağlantı dizesi gerekir.
 
@@ -151,7 +151,7 @@ Bu işleve aygıt explorer aracından aldığınız cihaz bağlantı dizesi bir 
 
 Geçerli bir olduğunda **IOTHUB\_istemci\_İŞLEMEK**, IOT hub'ı gelen ve giden ileti gönderme ve alma için API'larını çağırma başlatabilirsiniz.
 
-### <a name="send-messages"></a>İleti gönder
+### <a name="send-messages"></a>İletileri gönder
 
 Örnek uygulama, IOT hub'ınıza ileti göndermek için bir döngü ayarlar. Aşağıdaki kod parçacığında:
 
@@ -214,7 +214,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 
 Çağrı Not **IoTHubMessage\_Destroy** iletiyle bittiğinde işlev. Bu işlev, ileti oluşturduğunuzda ayrılan kaynakları serbest bırakır.
 
-### <a name="receive-messages"></a>İleti al
+### <a name="receive-messages"></a>İleti alma
 
 Bir ileti alma zaman uyumsuz bir işlemdir. İlk olarak, aygıt bir ileti aldığında çağırmak için geri çağırma kaydedin:
 
@@ -402,7 +402,7 @@ Bu örnekte, yok adlı tek bir model **ContosoAnemometer**. Bu model Cihazınız
 
 Model içinde tanımlanan eylemleri ve veri IOT Hub'ına iletileri göndermek için kullandıkları ve cihaza gönderilen iletilere yanıt API yüzeyi tanımlayın. Bu model kullanımı örnek en iyi anlaşılmalıdır.
 
-### <a name="send-messages"></a>İleti gönder
+### <a name="send-messages"></a>İletileri gönder
 
 IOT Hub'ına gönderebilirsiniz veri modelini tanımlar. Bu örnekte, iki veri öğelerinin anlaşılır bir tanımlanan kullanarak **WITH_DATA** makrosu. Göndermek için gereken birkaç adım vardır **DeviceID** ve **WindSpeed** bir IOT hub'ına değerleri. Göndermek istediğiniz veri kümesi için ilk şöyledir:
 
@@ -472,7 +472,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 
 Tüm olan cihaz bulut iletilerini göndermek için yoktur. Karşılamak üzere sol yalnızca ileti alma şeydir.
 
-### <a name="receive-messages"></a>İleti al
+### <a name="receive-messages"></a>İleti alma
 
 Yol iletileri iş ileti works benzer şekilde alma **IoTHubClient** kitaplığı. İlk olarak, bir ileti geri çağırma işlevini kaydedin:
 
@@ -570,7 +570,7 @@ IOT Hub için geliştirme hakkında daha fazla bilgi için bkz: [Azure IOT SDK'l
 
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

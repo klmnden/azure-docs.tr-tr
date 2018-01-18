@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Operations Management Suite (OMS) yönetim çözümleri (Önizleme) görünümlerde
 > [!NOTE]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [bir yönetim çözümü oluşturma](operations-management-suite-solutions-creating.md) ve çözüm dosya yapısı.
 
 ## <a name="overview"></a>Genel Bakış
@@ -75,11 +75,10 @@ Aşağıdaki görünüm kaynağa eklemek **kaynakları** çözüm dosyanızın �
 
 Çözüm dosyası değişkenleri öğesine aşağıdaki değişkenleri eklemek ve bu çözümünüz için değerleri değiştirin.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Dışarı aktarılan görünüm dosyanızdan tüm görünüm kaynak kopyalamak, ancak bunu çözümünüzde çalıştırmak aşağıdaki değişiklikleri yapmanız gerekir unutmayın.  
 
@@ -89,6 +88,18 @@ Dışarı aktarılan görünüm dosyanızdan tüm görünüm kaynak kopyalamak, 
 * **DisplayName** özelliği görünümüne eklenmesi gerekiyor.  **Kimliği**, **adı**, ve **DisplayName** tüm eşleşmesi gerekir.
 * Parametre adları gerekli parametrelerinin eşleşecek şekilde değiştirilmesi gerekir.
 * Değişkenleri çözümde tanımlanan ve uygun özelliklerinde kullanılır.
+
+### <a name="log-analytics-api-version"></a>Günlük analizi API sürümü
+Resource Manager şablonunda tanımlanan tüm günlük analizi kaynaklarını özelliğine sahip **apiVersion** kaynak kullanması gereken API sürümü tanımlar.  Bu kullanan sorguları görünümlerle için farklı bir sürümdür [eski ve yükseltilmiş sorgu dili](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ Aşağıdaki tabloda, eski ve yükseltilmiş çalışma alanlarında görünümler için günlük analizi API sürümleri belirtir: 
+
+| Çalışma alanında sürümü | API sürümü | Sorgu |
+|:---|:---|:---|
+| V1 (eski)   | 2015-11-01-Önizleme | Eski biçimi.<br> Örnek: Yazın olay EventLevelName = hata =  |
+| v2 (yükseltme) | 2015-11-01-Önizleme | Eski biçimi.  Yükleme yükseltilmiş biçimine dönüştürülür.<br> Örnek: Yazın olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; Burada EventLevelName "Error" ==  |
+| v2 (yükseltme) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; Burada EventLevelName "Error" ==  |
+
 
 ## <a name="add-the-view-details"></a>Görünüm ayrıntılarını Ekle
 Dışarı aktarılan görünüm dosyası görünüm kaynak iki öğelerinde içerecek **özellikleri** adlı öğe **Pano** ve **OverviewTile** ayrıntılı içerir Görünüm yapılandırması.  Bu iki öğenin ve içerikleri içine kopyalamak **özellikleri** çözüm dosyanızdaki görünüm kaynak öğesidir.

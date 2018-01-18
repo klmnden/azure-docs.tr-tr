@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar - karma kimlik yaşam döngüsü benimseme stratejinizi belirleme | Microsoft Docs"
+title: "Karma kimlik tasarımı - yaşam döngüsü benimseme stratejinizi Azure | Microsoft Docs"
 description: "Karma kimlik yönetimi görevleri her yaşam döngüsü aşaması için kullanılabilir seçenekleri göre tanımlamasına yardımcı olur."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Karma kimlik yaşam döngüsü benimseme stratejinizi belirleme
 İçinde tanımlanan iş gereksinimlerini karşılamak, karma kimlik çözümü için Kimlik Yönetimi stratejisini tanımlayın bu görevde [karma kimlik yönetimi görevleri belirlemek](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

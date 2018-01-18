@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Zaten varsa Azure AD | Microsoft Docs'
 description: "Bu konu, mevcut Azure AD kiracısı olduğunda Bağlan kullanmayı açıklar."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b3efcdd8c3f7173711c005e0fe4d7080bd902663
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Mevcut bir kiracı olduğunda
 Azure AD Connect kullanmayla ilgili konular çoğunu varsayar ile yeni bir Azure başlattığınız AD Kiracı ve hiçbir kullanıcı ya da diğer nesneleri vardır. Ancak bir Azure AD kiracısı ile başlamış olması durumunda kullanıcılar ve diğer nesneleri ile doldurulur ve şimdi bağlan, kullanmak istediğiniz sonra bu konuda size göre.

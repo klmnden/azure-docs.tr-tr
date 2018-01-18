@@ -3,7 +3,7 @@ title: "Parola Eşitleme ile Azure AD Connect eşitleme sorunlarını giderme | 
 description: "Bu makalede parola eşitleme sorunlarını giderme hakkında bilgi sağlar."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0bf07e80e575309fe7fa44661776c23da5db6dce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Parola Eşitleme ile Azure AD Connect eşitleme sorunlarını giderme
 Bu konu, parola eşitleme ile ilgili sorunları gidermek adımlar sağlar. Parolalar beklendiği gibi eşitlemiyor, bir kullanıcı alt kümesini veya tüm kullanıcılar için olabilir.
@@ -307,7 +307,7 @@ Bir nesnenin durumunu gözden geçirerek kolayca parola eşitleme sorunlarını 
 
     ![Bir kullanıcı hakkındaki bilgileri çizgileri](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync.png)  
 
-    ı. Tıklatın **meta veri deposu nesne özellikleri** kullanıcı özniteliklerinin bir listesini görüntülemek için.  
+    i. Tıklatın **meta veri deposu nesne özellikleri** kullanıcı özniteliklerinin bir listesini görüntülemek için.  
 
     ![Meta veri bilgileri](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvpasswordsync.png)  
 

@@ -1,5 +1,5 @@
 ---
-title: "Etki alanları arası Identity Management otomatik olarak sağlamak için kullanıcıları ve grupları Azure Active Directory'den uygulamalara sistemiyle | Microsoft Docs"
+title: "Azure Active Directory'de SCIM'yi kullanarak uygulamaları sağlanmasını otomatikleştirmek | Microsoft Docs"
 description: "Azure Active Directory Kullanıcıları ve grupları SCIM'yi protokolü belirtimi içinde tanımlı arabirimi ile bir web hizmeti tarafından fronted uygulama ya da kimliği deposuna otomatik olarak sağlayabilirsiniz"
 services: active-directory
 documentationcenter: 
@@ -15,19 +15,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-<<<<<<< HEAD
-ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.custom: aaddev;it-pro
-ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.custom: aaddev;it-pro;seohack1
+ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için etki alanları arası kimlik yönetimi sistemi kullanarak
 
@@ -359,22 +352,22 @@ Kullanıcı kaynakları şema tanımlayıcısı, bu protokolü belirtimi içinde
 Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Azure Active Directory'deki öznitelikleri için http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group kaynak grupları özniteliklerinin varsayılan eşleme Tablo 2, aşağıda gösterilmektedir.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tablo 1: Varsayılan kullanıcı özniteliği eşlemesi
-| Azure Active Directory kullanıcısı | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure Active Directory user | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
 | IsSoftDeleted |etkin |
-| Görünen adı |Görünen adı |
+| displayName |displayName |
 | Faks TelephoneNumber |PhoneNumber [türü eq "faks"] .value |
 | givenName |name.givenName |
-| İş Unvanı |Başlık |
+| İş Unvanı |başlık |
 | Posta |e-postaları [türü eq "İş"] .value |
-| mailNickname |externalID |
+| mailNickname |externalId |
 | Yöneticisi |Yöneticisi |
 | Mobil |PhoneNumber [türü eq "mobile"] .value |
-| objectID |id |
+| objectId |id |
 | posta kodu |adresler [türü eq "İş"] .postalCode |
 | Proxy adresleri |e-postaları [eq "diğer" yazın]. Değer |
 | fiziksel teslim OfficeName |adresler [eq "diğer" yazın]. Biçimlendirilmiş |
-| StreetAddress |adresler [türü eq "İş"] .streetAddress |
+| streetAddress |adresler [türü eq "İş"] .streetAddress |
 | Soyadı |name.familyName |
 | telefon numarası |PhoneNumber [türü eq "İş"] .value |
 | Kullanıcı PrincipalName |Kullanıcı adı |
@@ -382,11 +375,11 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://sche
 ### <a name="table-2-default-group-attribute-mapping"></a>Tablo 2: Varsayılan grup özellik eşlemesi
 | Azure Active Directory grubu | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
-| Görünen adı |externalID |
+| displayName |externalId |
 | Posta |e-postaları [türü eq "İş"] .value |
-| mailNickname |Görünen adı |
+| mailNickname |displayName |
 | üyeler |üyeler |
-| objectID |id |
+| objectId |id |
 | proxyAddresses |e-postaları [eq "diğer" yazın]. Değer |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Kullanıcı hazırlama ve sağlamayı kaldırma özelliklerini
@@ -449,11 +442,11 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
     }
   ````
   Bir kullanıcı için bir sorgu externalID özniteliği için belirtilen bir değerle aşağıdaki örnekte sorgu yönteme geçirilen bağımsız değişkenlerin değerleri şunlardır: 
-  * parametreleri. AlternateFilters.Count: 1
-  * parametreleri. AlternateFilters.ElementAt(0). AttributePath: "externalID"
-  * parametreleri. AlternateFilters.ElementAt(0). Karşılaştırmaİşleci: ComparisonOperator.Equals
-  * parametreleri. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
-  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. RequestId"] 
+  * parameters.AlternateFilters.Count: 1
+  * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
+  * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
+  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Web hizmeti, bir kullanıcının mailNickname öznitelik değeri ile eşleşen bir externalID öznitelik değeri olan bir kullanıcı için bir sorguya yanıt herhangi bir kullanıcının döndürmezse, Azure Active Directory hizmeti bir Azure Active Directory'de karşılık gelen bir kullanıcı sağlamak ister.  Böyle bir istek bir örneği burada verilmiştir: 
   ````
@@ -533,8 +526,8 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
   ````
   Kullanıcının geçerli durumunu almak için bir istek örnekte parametreleri bağımsız değişkenin değeri sağlanan nesne özelliklerinin değerleri aşağıdaki gibidir: 
   
-  * Tanımlayıcı: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. Azure Active Directory kimlik deposu olarak başvuru özniteliği geçerli değeri hizmeti tarafından zaten fronted olup olmadığını belirlemek üzere hizmetini sorgular ardından güncelleştirilmesi için bir başvuru özniteliği ise Azure Active Directory'de bu özniteliğin değeri ile eşleşir. Kullanıcılar için bu şekilde sorgulanan geçerli değeri yalnızca öznitelik Yöneticisi özniteliğidir. Belirli bir kullanıcı nesnesinin Yöneticisi özniteliği şu anda belirli bir değere sahip olup olmadığını belirlemek için bir istek bir örneği burada verilmiştir: 
   ````
@@ -546,14 +539,14 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
   Hizmet SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıkları kullanılarak oluşturuldu, istek sorgu yöntemi hizmet sağlayıcı için bir çağrı çevrilir. Parametre bağımsız değişkenin değeri sağlanan nesne özelliklerini değeri aşağıdaki gibidir: 
   
   * parametreleri. AlternateFilters.Count: 2
-  * parametreleri. AlternateFilters.ElementAt(x). AttributePath: "id"
+  * parameters.AlternateFilters.ElementAt(x).AttributePath: "id"
   * parametreleri. AlternateFilters.ElementAt(x). Karşılaştırmaİşleci: ComparisonOperator.Equals
-  * parametreleri. AlternateFilter.ElementAt(x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * parametreleri. AlternateFilters.ElementAt(y). AttributePath: "Yönetici"
-  * parametreleri. AlternateFilters.ElementAt(y). Karşılaştırmaİşleci: ComparisonOperator.Equals
-  * parametreleri. AlternateFilter.ElementAt(y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * parametreleri. RequestedAttributePaths.ElementAt(0): "id"
-  * parametreleri. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+  * parameters.RequestedAttributePaths.ElementAt(0): "id"
+  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
   Burada, dizinin x değeri 0 olabilir ve dizin y değeri 1, olabilir ya da x değerini 1 olabilir ve y değeri filtre sorgu parametresi ifadelerin sırasını bağlı olarak 0 olabilir.   
 
@@ -661,7 +654,7 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
     Kullanıcıyı güncelleştirmek için bir istek örnekte, bu özellik değerlerini düzeltme eki bağımsız değişkenin değeri sağlanan nesne vardır: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
   * (PatchRequest PatchRequest2 olarak). Operations.Count: 1
   * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). OperationName: OperationName.Add
   * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Path.AttributePath: "Yönetici"
@@ -687,7 +680,7 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
   Bu özellik değerlerini resourceIdentifier bağımsız değişkenin değeri sağlanan nesne kullanıcı sağlanmasını isteği örnekte vardır: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Grup sağlama ve sağlamayı kaldırma özelliklerini
 Aşağıdaki çizimde gösterildiği Azure AcD bir grubu başka bir kimlik deposu içinde yaşam döngüsü yönetmek için SCIM'yi Hizmeti'ne gönderilen iletileri.  Bu iletiler, kullanıcılara üç yolla ilgili iletiler farklıdır: 

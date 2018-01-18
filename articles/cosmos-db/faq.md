@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -28,7 +28,7 @@ Azure Cosmos DB, şemasız verilerde zengin sorgulama sunan yapılandırılabili
 
 Azure Cosmos DB web, mobil, oyun için doğru çözümdür ve tahmin edilebilir iş çıkarma, yüksek kullanılabilirlik, düşük gecikme süresi ve şemasız veri modeli IOT uygulamaları anahtar gereksinimleridir. Şema esnekliği ve zengin dizin oluşturma sağlar ve tümleşik JavaScript ile çok belgeli işlem desteğini içerir. 
 
-Daha fazla veritabanı soruları yanıtlar ve dağıtma ve bu hizmeti kullanmak için yönergeleri [Azure Cosmos DB belge sayfasının] görmek için ((https://docs.microsoft.com/azure/cosmos-db/).
+Daha fazla veritabanı soruları yanıtlar ve dağıtma ve bu hizmeti kullanmaya ilişkin yönergeler için bkz: [Azure Cosmos DB belge sayfasının](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API'sine ne oldu?
 
@@ -74,7 +74,16 @@ Azure'da yeniyseniz için kaydolabilirsiniz bir [ücretsiz Azure hesabına](http
 Aynı zamanda [Azure Cosmos DB öykünücüsü](local-emulator.md) geliştirmek ve bir Azure aboneliği oluşturmadan uygulamanızı yerel olarak ücretsiz, test etmek için. Uygulamanızı Azure Cosmos DB öykünücüsünde nasıl çalıştığını ile memnun kaldığınızda, bulutta bir Azure Cosmos DB hesabı kullanmaya geçiş yapabilirsiniz.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Ek Yardım Azure Cosmos DB ile nasıl alabilirim?
-Yardıma ihtiyacınız olursa, bize üzerinde ulaşmak [yığın taşması](http://stackoverflow.com/questions/tagged/azure-cosmosdb) veya [MSDN Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), veya posta göndererek Azure Cosmos DB mühendislik ekibi ile bire bir sohbet zamanlama [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
+
+Teknik bir soru sormak için bu iki soru birine göndermek ve forumlar yanıtlayın:
+* [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Yığın Taşması](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soruları programlama için en iyisidir. Sorunuzun yanıtını olduğundan emin olun [konuyla ilgili](https://stackoverflow.com/help/on-topic) ve [NET ve yanıtlanamaz soru yapmadan mümkün olduğu kadar ayrıntılarını sağlayın](https://stackoverflow.com/help/how-to-ask). 
+
+Yeni özellikler istemek için yeni bir istek oluşturmak [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+
+Hesabınızla ilgili bir sorun gidermek için dosya bir [destek isteği](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Azure portalında.
+
+Diğer sorular ekibi gönderilebilir [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); ancak bu bir teknik destek diğer adı değildir. 
 
 <a id="try-cosmos-db"></a>
 ## <a name="try-azure-cosmos-db-subscriptions"></a>Azure Cosmos DB abonelikleri deneyin
@@ -206,10 +215,10 @@ Azure Cosmos DB tablo API ile tabloları oluşturmak istediğiniz Azure Table de
 REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen uç noktalar/sorgu seçeneklerini sayısı vardır:
 | REST yöntemleri | REST uç noktası/sorgu seçeneği | Belge URL'leri | Açıklama |
 | ------------| ------------- | ---------- | ----------- |
-| GET, PUT | /? restype =service@comp= özellikleri| [Tablo hizmeti özelliklerini ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç noktaya CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını belirlemek için kullanılır. CORS şu anda desteklenmiyor ve analizi ve günlüğe kaydetme Azure Cosmos veritabanı Azure depolama tabloları daha farklı bir şekilde ele |
-| SEÇENEKLER | / < Tablo-resource-adı > | [Ön uçuş CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB şu anda desteklemediği CORS parçasıdır. |
-| GET | /? restype =service@compİstatistiği = | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
-| GET, PUT | /myTable? comp acl = | [Tablo ACL alma](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [tablo ACL ayarlayın](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan depolanmış erişim ilkeleri ayarlar. SAS desteklenmesine karşın, bunların ayarlayın ve farklı şekilde yönetilir. |
+| GET, PUT | /?restype=service@comp=properties| [Tablo hizmeti özelliklerini ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç noktaya CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını belirlemek için kullanılır. CORS şu anda desteklenmiyor ve analizi ve günlüğe kaydetme Azure Cosmos veritabanı Azure depolama tabloları daha farklı bir şekilde ele |
+| SEÇENEKLER | /<table-resource-name> | [Ön uçuş CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB şu anda desteklemediği CORS parçasıdır. |
+| GET | /?restype=service@comp=stats | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
+| GET, PUT | /mytable?comp=acl | [Tablo ACL alma](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [tablo ACL ayarlayın](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan depolanmış erişim ilkeleri ayarlar. SAS desteklenmesine karşın, bunların ayarlayın ve farklı şekilde yönetilir. |
 
 Ayrıca Azure Cosmos DB tablo API, yalnızca değil ATOM JSON biçimini destekler.
 
@@ -219,7 +228,7 @@ Azure Cosmos DB desteklerken paylaşılan erişim imzaları (SAS) var. bunu dest
 
 | Sınıf | Desteklenmeyen yöntemi |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties * |
+| CloudTableClient | \*ServiceProperties* |
 |                  | \*ServiceStats * |
 | CloudTable | İzinleri Ayarla * |
 |            | GetPermissions * |
@@ -235,7 +244,7 @@ Geri bildiriminiz aşağıdaki yollardan biriyle paylaşabilirsiniz:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Yığın Taşması](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soruları programlama için en iyisidir. Sorunuzun yanıtını olduğundan emin olun [konuyla ilgili](https://stackoverflow.com/help/on-topic) ve [NET ve yanıtlanamaz soru yapmadan mümkün olduğu kadar ayrıntılarını sağlayın](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Tablo API'sine bağlanmak için kullanılacak ihtiyacım bağlantı dizesi nedir?
 Bağlantı dizesidir:
@@ -248,7 +257,7 @@ Bağlantı dizesi Azure Portalı'nda bağlantı dizesi sayfasından alabilirsini
 Yapılandırma ayarları hakkında daha fazla bilgi için bkz: [Azure Cosmos DB yetenekleri](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). Bazı ayarlar, istemci uygulaması appSettings bölümünde app.config aracılığıyla CreateCloudTableClient yöntemi ve diğer işlenir.
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Var olan Azure Table storage'ı SDK'ları kullanan müşteriler için herhangi bir değişiklik var mı?
-yok. Var olan Azure Table storage'ı SDK'ları kullanan mevcut veya yeni müşteriler için bir değişiklik bulunmamaktadır. 
+Yok. Var olan Azure Table storage'ı SDK'ları kullanan mevcut veya yeni müşteriler için bir değişiklik bulunmamaktadır. 
 
 ### <a name="how-do-i-view-table-data-that-is-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Tablo API ile kullanmak için Azure Cosmos DB içinde depolanan tablo verileri nasıl görüntüleyebilirim? 
 Veri göz atmak için Azure portalını kullanabilirsiniz. Tablo API kodunda veya sonraki yanıtında belirtilen araçları da kullanabilirsiniz. 
@@ -382,7 +391,7 @@ Evet, üretilen iş ölçeklendirmek için Azure Cosmos DB Portalı'nın ölçek
 Evet, app.config aracılığıyla TableThroughput geçersiz kılmaz ve önceden oluşturulmuş bir kapsayıcı Azure Cosmos DB'de kullanmayın, hizmet 400 işleme ile bir tablo oluşturur.
  
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Azure Table depolama hizmeti var olan müşteriler için fiyatlandırma herhangi bir değişiklik var mı?
-yok. Var olan Azure Table depolama müşterileri için fiyatı değişiklik yoktur. 
+Yok. Var olan Azure Table depolama müşterileri için fiyatı değişiklik yoktur. 
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Fiyat tablosu API için nasıl hesaplanır? 
 Fiyat üzerinde ayrılmış TableThroughput bağlıdır. 

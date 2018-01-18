@@ -2,23 +2,18 @@
 title: "Azure Site Recovery VMware Azure'a sorunlarını giderme | Microsoft Docs"
 description: "Azure sanal makineleri çoğaltırken hatalarında sorun giderme"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobilite hizmetinin göndermeli yükleme sorunlarını giderme
 
@@ -74,7 +69,7 @@ Bu hata, hizmeti için birden çok nedenden dolayı tarafından oluşturulan. Da
 
 **Hata kodu** | **Olası nedenler** | **Hata özel öneriler**
 --- | --- | ---
-95108 </br>**İleti:** kaynak makinedeki mobilite hizmetinin göndermeli yüklemesi hata koduyla başarısız oldu **EP0859**. <br>| Mobilite hizmetinin yüklenmesi için sağlanan kimlik bilgileri yanlış veya kullanıcı hesabı yetersiz ayrıcalıklara sahip <br>| Sağlanan kimlik bilgileri olduğundan emin olun **kök** hesabının kimlik bilgileri. İçin [kullanıcı kimlik bilgileri Ekle/Düzenle](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords), yapılandırma sunucusuna gidin ve "Cspsconfigtool" Masaüstünde kısayol simgesini tıklatın. Tıklayın "Yönet hesabında" için kimlik bilgileri Ekle/Düzenle.|
+95108 </br>**İleti:** kaynak makinedeki mobilite hizmetinin göndermeli yüklemesi hata koduyla başarısız oldu **EP0859**. <br>| Mobilite hizmetinin yüklenmesi için sağlanan kimlik bilgileri yanlış veya kullanıcı hesabı yetersiz ayrıcalıklara sahip <br>| Sağlanan kimlik bilgileri olduğundan emin olun **kök** hesabının kimlik bilgileri. Kullanıcı kimlik bilgileri Ekle/Düzenle için yapılandırma sunucusuna gidin ve "Cspsconfigtool" Masaüstünde kısayol simgesini tıklatın. Tıklayın "Yönet hesabında" için kimlik bilgileri Ekle/Düzenle.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Hata 95265 - koruma yüklenemedi (EP0902) etkin
 
@@ -92,13 +87,14 @@ Bu hata, hizmeti için birden çok nedenden dolayı tarafından oluşturulan. Da
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Göndermeli yükleme sorunlarını gidermek için kaynak
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Dosya ve yazıcı paylaşımı sorunlarını giderme
-*  [Etkinleştirmek veya Grup İlkesi ile dosya paylaşımı devre dışı bırakma](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [Dosya etkinleştirme ve Windows Güvenlik Duvarı üzerinden paylaşımı yazdırma](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Etkinleştirmek veya Grup İlkesi ile dosya paylaşımı devre dışı bırakma](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Dosya etkinleştirme ve Windows Güvenlik Duvarı üzerinden paylaşımı yazdırma](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>WMI sorunlarını giderme
 * [Temel WMI test etme](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [WMI sorun giderme](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [WMI komut dosyaları ve WMI hizmetleri ile ilgili sorunları giderme](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [WMI sorun giderme](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [WMI komut dosyaları ve WMI hizmetleri ile ilgili sorunları giderme](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [VMware sanal makineler için çoğaltmayı etkinleştirme](vmware-walkthrough-enable-replication.md)
+
+[Bilgi nasıl](tutorial-vmware-to-azure.md) VMware Vm'leri için olağanüstü durum kurtarma ayarlamak için.

@@ -3,7 +3,7 @@ title: "Azure AD Connect: Bildirim temelli hazırlama anlama | Microsoft Docs"
 description: "Azure AD CONNECT'te bildirim temelli hazırlama yapılandırma modeli açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect eşitleme: bildirim temelli hazırlama anlama
 Bu konuda, Azure AD Connect yapılandırma modelinde açıklanmaktadır. Bildirim temelli hazırlama modeli adı verilir ve bir yapılandırma değişikliği kolayca yapmanızı sağlar. Bu konuda açıklanan pek çok gelişmiş ve çoğu müşteri senaryoları için gerekli değildir.
@@ -52,7 +52,7 @@ Kapsam Modülü aşağıdaki işlemleri destekler.
 
 | İşlem | Açıklama |
 | --- | --- |
-| EŞİTTİR, EŞİT DEĞİLDİR |Değeri öznitelikte değerine eşitse veren bir dize karşılaştırın. Birden çok değerli öznitelikler için ISIN ve ISNOTIN bakın. |
+| EQUAL, NOTEQUAL |Değeri öznitelikte değerine eşitse veren bir dize karşılaştırın. Birden çok değerli öznitelikler için ISIN ve ISNOTIN bakın. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Değer veren bir dize karşılaştırma satıcısı öznitelik değerinin. |
 | İÇEREN NOTCONTAINS |Değer bir yerde içindeki değeri öznitelikte bulunabiliyorsa veren bir dize karşılaştırma. |
 | STARTSWITH, NOTSTARTSWITH |Değer başına öznitelik değeri, ise veren bir dize karşılaştırma. |
@@ -88,7 +88,7 @@ Meta veri deposu nesne kapsamlı bir eşitleme kuralı olduğu kadar uzun kalır
 
 Bir meta veri deposu nesnesi silindiğinde, bir giden eşitleme kuralı ile ilişkili tüm nesneler için işaretlenmiş **sağlama** silinmek üzere işaretlenmiş.
 
-## <a name="transformations"></a>Dönüşümler
+## <a name="transformations"></a>Dönüşümleri
 Dönüşümler nasıl öznitelikleri kaynaktan hedef akış tanımlamak için kullanılır. Akışlar şunlardan biri olabilir **akış türleri**: doğrudan, sabit değer veya ifade. Doğrudan bir akış akar öznitelik değeri olarak-ile hiçbir ek dönüştürmeler değil. Sabit bir değeri belirtilen değere ayarlar. Dönüştürme nasıl olmalıdır express için bildirim temelli hazırlama ifade dili bir ifade kullanır. İfade dili ayrıntılarını bulunabilir [bildirim temelli hazırlama ifade dili anlama](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) konu.
 
 ![Sağlama veya birleştirme](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/transformations1.png)  

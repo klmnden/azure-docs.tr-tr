@@ -12,24 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Günlük analizi günlük arama REST API'si
+
+> [!IMPORTANT]
+> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), için başvurmalıdır sonra [günlük arama API yeni sürümü için belge](https://dev.loganalytics.io/).  Bu eski API yine de yükseltilmiş bir çalışma alanı ile çalışabilir, ancak depracated yakında sunulacaktır.  Yeni API kullanmak için varolan çözümleri değiştirmeniz gerekir.
+
 Bu kılavuz, günlük analizi Search REST API'sini nasıl kullanabileceğinize dair örnekler dahil olmak üzere temel bir öğretici sağlar. Günlük analizi Operations Management Suite (OMS) bir parçasıdır.
 
-> [!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), için başvurmalıdır sonra [günlük arama API yeni sürümü için belge](https://dev.loganalytics.io/).
-
-> [!NOTE]
-> Günlük analizi daha önce kaynak sağlayıcısındaki kullanılan ad olmasının olan Operational Insights çağrıldı.
->
->
 
 ## <a name="overview-of-the-log-search-rest-api"></a>REST API günlük arama genel bakış
 Günlük analizi arama REST API RESTful ve Azure Resource Manager API üzerinden erişilebilir. Bu makalede, API aracılığıyla erişme örnekler [ARMClient](https://github.com/projectkudu/ARMClient), Azure Kaynak Yöneticisi API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. ARMClient kullanımını günlük analizi arama API erişmek için birçok seçenek biridir. Başka bir seçenek arama erişmek için cmdlet'leri içerir OperationalInsights için Azure PowerShell modülü kullanmaktır. Bu araçların, OMS çalışma alanları çağrı yapmak ve bunların içindeki arama komutları gerçekleştirmek için Azure Kaynak Yöneticisi API'si kullanabilir. API, arama sonuçlarını birçok farklı yolla programlı olarak kullanmanıza olanak sağlayan arama sonuçları JSON biçiminde çıkarır.
@@ -138,12 +135,12 @@ Aşağıdaki tabloda kullanılabilir olan özellikleri açıklanmaktadır.
 | **Özellik** | **Açıklama** |
 | --- | --- |
 | Sayfanın Üstü |Döndürülecek sonuç sayısı. |
-| Vurgula |Eşleşen alanları vurgulamak için genellikle kullanılan öncesi ve sonrası parametreleri içerir |
-| öncesi |Eşleşen alanlarınızı verilen dizeye ekler. |
+| vurgula |Eşleşen alanları vurgulamak için genellikle kullanılan öncesi ve sonrası parametreleri içerir |
+| pre |Eşleşen alanlarınızı verilen dizeye ekler. |
 | Yayınla |Verilen dize eşleşen alanlarınızı ekler. |
 | sorgu |Arama sorgusu toplamak ve sonuçları döndürmek için kullanılır. |
 | start |Gelen bulunacak sonuçlar istediğiniz zaman penceresi başlangıcı. |
-| Bitiş |Gelen bulunacak sonuçlar istediğiniz zaman penceresi sonu. |
+| end |Gelen bulunacak sonuçlar istediğiniz zaman penceresi sonu. |
 
 **Yanıtı:**
 
@@ -225,9 +222,9 @@ Aşağıdaki tabloda kullanılabilir olan özellikleri açıklanmaktadır.
 | --- | --- |
 | Kimlik |Benzersiz tanımlayıcı. |
 | ETag |**Düzeltme eki için gerekli**. Sunucu tarafından her yazma güncelleştirildi. Değer geçerli saklı değerine eşit olmalı veya ' *' güncelleştirilemedi. 409 eski/geçersiz değerler için döndürdü. |
-| Properties.Query |**Gerekli**. Arama sorgusu. |
+| properties.query |**Gerekli**. Arama sorgusu. |
 | properties.displayName |**Gerekli**. Sorgu kullanıcı tanımlı görünen adı. |
-| Properties.Category |**Gerekli**. Kullanıcı tanımlı kategori sorgunun. |
+| properties.category |**Gerekli**. Kullanıcı tanımlı kategori sorgunun. |
 
 > [!NOTE]
 > Günlük analizi arama API şu anda kayıtlı bir çalışma alanında Kaydedilmiş aramaları için sorgulanan zaman aramalar kullanıcı tarafından oluşturulan döndürür. API çözümler tarafından sağlanan Kaydedilmiş aramaları döndürmez.
@@ -305,7 +302,7 @@ Aşağıdaki tabloda kullanılabilir olan özellikleri açıklanmaktadır.
 | **Özellik** | **Açıklama** |
 | --- | --- |
 | ad |Alan adı. |
-| Görünen adı |Alan görünen adı. |
+| displayName |Alan görünen adı. |
 | type |Alan değeri türü. |
 | modellenebilir |'Dizine', geçerli birleşimi ' depolanan ' ve 'model' özellikleri. |
 | Görüntüleme |Geçerli 'display' özelliği. Alan aramada görünür ise true. |

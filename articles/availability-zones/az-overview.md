@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2404575d7f4224315b2c3272cb21e8b5ee6515e3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Kullanılabilirlik bölgeleri Azure (Önizleme) genel bakış
 
@@ -31,6 +31,7 @@ Veri merkezi düzeyi arızasına karşı korumak için kullanılabilirlik bölge
 ## <a name="regions-that-support-availability-zones"></a>Kullanılabilirlik bölgeleri destekler bölgeleri
 
 - Doğu ABD 2
+- ABD Orta
 - Batı Avrupa
 - Fransa Orta
 
@@ -40,14 +41,14 @@ Kullanılabilirlik bölgeleri destekler Azure hizmetler şunlardır:
 
 - Linux Sanal Makineleri
 - Windows Sanal Makineleri
-- Zonal sanal makine ölçekleme kümeleri
+- Sanal Makine Ölçek Kümeleri
 - Yönetilen Diskler
 - Load Balancer
 - Genel IP adresi
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Kullanılabilirlik bölgeleri Önizleme kullanmaya başlama
 
-Kullanılabilirlik bölgeleri Önizleme, Doğu ABD 2, Batı Avrupa ve belirli Azure hizmetlerinin Fransa merkezi bölgelerde kullanılabilir. 
+Kullanılabilirlik bölgeleri Önizleme, Doğu ABD 2, BİZE Merkezi, Batı Avrupa ve belirli Azure hizmetlerinin Fransa merkezi bölgelerde kullanılabilir. 
 
 1. [Kullanılabilirlik bölgeleri önizlemek için kaydolun](http://aka.ms/azenroll). 
 2. Azure aboneliğinizde oturum açın.
