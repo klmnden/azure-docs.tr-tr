@@ -49,7 +49,7 @@
       href: backup-azure-backup-import-export.md
     - name: Bant kitaplığınızı değiştirme
       href: backup-azure-backup-cloud-as-tape.md
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Azure Backup Sunucusu
       items:
@@ -83,7 +83,7 @@
       items:
         - name: VM’yi hazırlama
           items:
-            - name: Resource Manager ile dağıtılan sanal makineleri hazırlama
+            - name: Resource Manager tarafından dağıtılan VM'leri hazırlama
               href: backup-azure-arm-vms-prepare.md
             - name: Uygulama ile tutarlı Linux VM yedekleri
               href: backup-azure-linux-app-consistent.md
@@ -93,23 +93,23 @@
               href: backup-azure-vms-introduction.md
         - name: VM’leri yedekleme
           items:
-            - name: Azure sanal makinelerini bir Kurtarma Hizmetleri kasasına yedekleme
+            - name: Azure Sanal Makinelerini Kurtarma Hizmetleri kasasına yedekleme
               href: backup-azure-arm-vms.md
-            - name: Şifrelenmiş sanal makineleri yedekleme
+            - name: Şifrelenmiş VM'leri yedekleme
               href: backup-azure-vms-encryption.md
         - name: VM’leri yönetme ve izleme
           items:
             - name: Azure portalında Azure VM yedeklemelerini yönetme
               href: backup-azure-manage-vms.md
-            - name: Azure portalında Azure VM yedeklemeleri için uyarıları yönetme
+            - name: Azure VM yedeklemeleri için uyarıları izleme
               href: backup-azure-monitor-vms.md
         - name: Verileri VM'lerden geri yükleme
           items:
             - name: Azure VM yedeklerinden dosya kurtarma
               href: backup-azure-restore-files-from-vm.md
-            - name: Azure portalında Resource Manager tarafından dağıtılan VM'leri geri yükleme
+            - name: Azure portalındaki Azure VM'lerini geri yükleme
               href: backup-azure-arm-restore-vms.md
-            - name: Şifrelenmiş sanal makineleri geri yükleme
+            - name: Şifrelenmiş VM’leri geri yükleme
               href: backup-azure-vms-encryption.md
             - name: Şifrelenmiş VM’ler için Key Vault anahtarını ve gizli dizisini geri yükleme
               href: backup-azure-restore-key-secret.md
@@ -125,9 +125,9 @@
       items:
         - name: Azure portalında DPM iş yükleri hazırlama
           href: backup-azure-dpm-introduction.md
-        - name: Exchange sunucusunu yedeklemek için System Center DPM'yi kullanma
+        - name: Exchange sunucusunu yedeklemek için DPM'yi kullanma
           href: backup-azure-backup-exchange-server.md
-        - name: Verileri başka bir DPM sunucusuna kurtarma
+        - name: Verileri başka DPM sunucusuna kurtarma
           href: backup-azure-alternate-dpm-server.md
         - name: SQL Server iş yüklerini yedeklemek için DPM'yi kullanma
           href: backup-azure-backup-sql.md

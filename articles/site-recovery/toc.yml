@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Azure’dan Azure’a çoğaltma için destek matrisi
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Şirket içi-Azure arası destek matrisi
-      href: site-recovery-support-matrix-to-azure.md
+    - name: VMware’dan Azure’a destek matrisi
+      href: support-matrix-vmware-to-azure.md
     - name: Hyper-V’den Azure’a destek matrisi
       href: support-matrix-hyper-v-to-azure.md
+    - name: Şirket içi-Azure arası destek matrisi
+      href: site-recovery-support-matrix-to-azure.md
     - name: Şirket içi-ikincil site arası destek matrisi
       href: site-recovery-support-matrix-to-sec-site.md
     - name: İş yükleri için olağanüstü durum kurtarma
@@ -181,6 +183,8 @@
           items:
             - name: VMware-Azure arası için kaynak ortam
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: VMware ve fiziksel sunucular için yapılandırma sunucusunu dağıtma
+              href: how-to-deploy-configuration-server.md
             - name: Fiziksel ortam-Azure arası için kaynak ortam
               href: site-recovery-set-up-physical-to-azure.md
         - name: Hedef ortamı ayarlama

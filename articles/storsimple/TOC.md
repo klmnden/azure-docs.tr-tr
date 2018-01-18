@@ -202,7 +202,7 @@
 ### [StorSimple cmdlet’leri için Windows PowerShell](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple Veri Yöneticisi (Özel önizleme)
+# StorSimple Data Manager
 
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-data-manager-overview.md)

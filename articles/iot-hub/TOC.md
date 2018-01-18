@@ -35,6 +35,7 @@
 ### [Web Apps ile Veri Görselleştirme](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Azure Machine Learning kullanarak hava durumu tahmini](iot-hub-weather-forecast-machine-learning.md)
 ### [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
+### [Azure CLI 2.0 için IoT uzantısıyla cihaz yönetimi](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Logic Apps ile uzaktan izleme ve bildirimler](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Nasıl yapılır kılavuzları
