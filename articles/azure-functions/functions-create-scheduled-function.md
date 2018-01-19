@@ -13,18 +13,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 01/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure’da bir zamanlayıcı tarafından tetiklenen bir işlev oluşturma
 
-Azure İşlevleri’ni kullanarak nasıl tanımladığınız bir zamanlamaya göre çalışan bir işlev oluşturabileceğinizi öğrenin.
+Azure İşlevleri’ni kullanarak, tanımladığınız bir zamanlamaya göre çalışan bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) işlev oluşturma hakkında bilgi edinin.
 
 ![Azure portalında işlev uygulaması oluşturma](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
@@ -65,19 +65,19 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
     | **Ad** | Varsayılan | Zamanlayıcı ile tetiklenen işlevinizin adını tanımlar. |
     | **[Zamanlama](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | İşlevinizi her dakika çalışacak şekilde zamanlayan altı haneli bir [CRON ifadesi](http://en.wikipedia.org/wiki/Cron#CRON_expression). |
 
-2. **Oluştur**'a tıklayın. Seçtiğiniz dilde her dakika çalışan bir işlev oluşturulur.
+2. **Oluştur**’a tıklayın. Seçtiğiniz dilde her dakika çalışan bir işlev oluşturulur.
 
 3. Günlüklere yazılan izleme bilgilerini görüntüleyerek yürütmeyi doğrulayın.
 
     ![Azure portalında İşlevler günlük görüntüleyicisi.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Şimdi, işlevin zamanlamasını saatte bir gibi daha az sıklıkta çalışacak şekilde değiştirebilirsiniz. 
+Artık, işlevin zamanlamasını dakikada bir yerine saatte bir çalışacak şekilde değiştirebilirsiniz. 
 
 ## <a name="update-the-timer-schedule"></a>Zamanlayıcı zamanlamasını güncelleştirme
 
 1. İşlevinizi genişletin ve **Tümleştir**’e tıklayın. Burada, işlevinizin giriş ve çıkış bağlamalarını tanımlamanın yanı sıra zamanlamayı da ayarlarsınız. 
 
-2. `0 0 */1 * * *` şeklinde yeni bir **Zamanlama** değeri girin ve **Kaydet**’e tıklayın.  
+2. `0 0 */1 * * *` şeklinde yeni bir saatlik **Zamanlama** değeri girin ve **Kaydet**’e tıklayın.  
 
 ![İşlevler Azure portalındaki zamanlayıcı zamanlamasını güncelleştirir.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 

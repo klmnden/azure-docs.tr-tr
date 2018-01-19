@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure yığını için VPN ağ geçidi yapılandırma ayarları
 
@@ -160,7 +160,7 @@ Birden çok teklifleri hem Başlatıcı hem de bir Yanıtlayıcı olarak destekl
 |IKE Sürümü |IKEv2 |
 |Şifreleme ve karma algoritmalar (şifreleme)     | GCMAES256|
 |Şifreleme ve karma algoritmalar (kimlik doğrulaması) | GCMAES256|
-|SA Yaşam Süresi (Zaman)  | 3.600 saniye |
+|SA Yaşam Süresi (Zaman)  | 14,400 saniye |
 |SA Yaşam Süresi (Bayt) | 819,200       |
 |Kusursuz İletme Gizliliği (PFS) |PFS2048 |
 |Kullanılmayan Eş Algılama | Desteklenen|  

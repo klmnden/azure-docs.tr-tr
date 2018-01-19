@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: fa2a5f1599fb0d95c89d848860ba9b32139a3dd2
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 2729ad97b49e7284022adae06c5b5f006647849c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
 
@@ -51,7 +51,7 @@ Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    hosts|[***.graphs.azure.com]|Aşağıdaki ekran görüntüsüne bakın. Bu, Azure portalının Genel Bakış sayfasında bulunan, köşeli ayraç içindeki, sonundan :443/ bölümü çıkartılmış Gremlin URI değeridir.<br><br>Bu değer, Anahtarlar sekmesinde bulunan URI değeri kullanılıp https:// bölümü çıkarılarak ve belgeleri grafiklere dönüştürüp sondaki :443/ bölümü çıkarılarak alınabilir.
+    hosts|20 Aralık 2017’den önce oluşturulan hesaplar için [***.gremlin.cosmosdb.azure.com] veya [***.graphs.azure.com]|Aşağıdaki ekran görüntüsüne bakın. Bu, Azure portalının Genel Bakış sayfasında bulunan, köşeli ayraç içindeki, sonundan :443/ bölümü çıkartılmış Gremlin URI değeridir.<br><br>Bu değer, Anahtarlar sekmesinde bulunan URI değeri kullanılıp https:// bölümü çıkarılarak ve belgeleri pr gremlin.cosmosdb grafiklerin dönüştürüp sondaki :443/ bölümü çıkarılarak alınabilir.
     port|443|443 olarak ayarlayın.
     kullanıcı adı|*Kullanıcı adınız*|`/dbs/<db>/colls/<coll>` formunun kaynağı; burada `<db>` veritabanı adınız ve `<coll>` koleksiyon adınızdır.
     password|*Birincil anahtarınız*| Aşağıdaki ikinci ekran görüntüsüne bakın. Bu sizin birincil anahtarınızdır, bu anahtarı Azure portalının Anahtarlar sayfasındaki Birincil Anahtar kutusunda bulabilirsiniz. Değeri kopyalamak için kutunun solundaki kopyala düğmesini kullanın.
@@ -65,7 +65,7 @@ Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3
 Remote-secure.yaml dosyanız aşağıdaki gibi görünmelidir:
 
 ```
-hosts: [your_database_server.graphs.azure.com]
+hosts: [your_database_server.gremlin.cosmosdb.azure.com]
 port: 443
 username: /dbs/your_database_account/colls/your_collection
 password: your_primary_key

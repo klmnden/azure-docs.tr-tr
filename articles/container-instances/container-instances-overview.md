@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -43,7 +43,9 @@ Azure Container Instances ile durum alma ve durumu kalıcı hale getirme işleml
 
 ## <a name="linux-and-windows-containers"></a>Linux ve Windows kapsayıcıları
 
-Azure Container Instances sayesinde, aynı API ile hem Windows hem de Linux kapsayıcıları zamanlayabilirsiniz. Bunun için temel işletim sistemi türünü belirtmeniz yeterlidir, diğer her şey aynıdır.
+Azure Container Instances sayesinde, aynı API ile hem Windows hem de Linux kapsayıcıları zamanlayabilirsiniz. [Kapsayıcı gruplarınızı](container-instances-container-groups.md) oluştururken işletim sistemi türünü belirmeniz yeterlidir.
+
+Bazı özellikler şu anda Linux kapsayıcılarıyla kısıtlıdır. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
 
 ## <a name="co-scheduled-groups"></a>Birlikte zamanlanmış gruplar
 

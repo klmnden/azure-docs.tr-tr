@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 70167322f1576b4a9cbd5f499edfc934b8a9a799
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Azure'da .NET Service Fabric uygulaması oluşturma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -47,6 +47,10 @@ Bu hızlı başlangıcı tamamlamak için:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
+
+>[!NOTE]
+> Bu hızlı başlangıçtaki örnek uygulama, Windows 7'de mevcut olmayan özellikleri kullanır.
+>
 
 ## <a name="download-the-sample"></a>Örneği indirme
 Komut penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.

@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 82cf5ba260e2b6a8f21b85034060e88bd0d445d3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71f5e4d1288a361c4b52ff45fb4c6601fa39a757
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Hızlı Başlangıç: Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma
 
@@ -37,9 +37,9 @@ Genomiks hesabınızı bir önceki resimde gösterildiği gibi aşağıdaki bilg
 
  |**Ayar**          |  **Önerilen değer**  | **Alan açıklaması** |
  |:-------------       |:-------------         |:----------            |
- |Hesap adı         | MyGenomicsAccount     |Benzersiz bir hesap tanımlayıcı seçin. Geçerli adlar için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Hesap adı         | MyGenomicsAccount     |Benzersiz bir hesap tanımlayıcı seçin. Geçerli adlar için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Abonelik         | Aboneliğinizin adı|Bu, Azure hizmetleriniz için faturalandırma birimidir. Aboneliğiniz hakkında ayrıntılı bilgi için bkz. [Abonelikler](https://account.azure.com/Subscriptions) |      
- |Kaynak grubu       | MyResourceGroup       |  Kaynak grupları kolay yönetim için birden fazla Azure kaynağını (depolama hesabı, genomiks hesabı vs.) tek bir grupta toplamanızı sağlar. Daha fazla bilgi için bkz. [Kaynak Grupları] (https://docs.microsoft.com/tr-tr/azure/azure-resource-manager/resource-group-overview#resource-groups). Geçerli kaynak grubu adları için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Kaynak grubu       | MyResourceGroup       |  Kaynak grupları kolay yönetim için birden fazla Azure kaynağını (depolama hesabı, genomiks hesabı vs.) tek bir grupta toplamanızı sağlar. Daha fazla bilgi için bkz. [Kaynak Grupları] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Geçerli kaynak grubu adları için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Konum                   | Batı ABD 2                    |    Bu hizmet Batı ABD 2, Batı Avrupa ve Güneydoğu Asya konumlarında kullanılabilir |
 
 
@@ -105,7 +105,7 @@ msgen list -f “<full path where you saved the config file>”
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>Microsoft Azure Depolama Hesabı oluşturma 
 Microsoft Genomiks hizmeti girişlerinin Azure depolama hesabında blok blobları olarak depolanmasını bekler. Ayrıca çıkış dosyalarını Azure depolama hesabında kullanıcı tarafından belirtilen bir kapsayıcıya blok blobları olarak yazar. Girişler ve çıkışlar farklı depolama hesaplarında tutulabilir.
-Azure depolama hesabınızda veri varsa Genomiks hesabınızla aynı konumda olduğundan emin olmanız gerekir. Aksi halde Genomiks hizmeti çalıştırıldığında çıkış ücretleri alınabilir. Microsoft Azure Depolama hesabınız yoksa hesap oluşturup verilerinizi yüklemeniz gerekir. Depolama hesabı ve sunduğu hizmetler dahil olmak üzere Azure Depolama hesapları hakkında daha fazla bilgiye [buradan](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) ulaşabilirsiniz. Microsoft Azure Depolama hesabı oluşturmak için [Azure portalına](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ) gidin.  
+Azure depolama hesabınızda veri varsa Genomiks hesabınızla aynı konumda olduğundan emin olmanız gerekir. Aksi halde Genomiks hizmeti çalıştırıldığında çıkış ücretleri alınabilir. Microsoft Azure Depolama hesabınız yoksa hesap oluşturup verilerinizi yüklemeniz gerekir. Depolama hesabı ve sunduğu hizmetler dahil olmak üzere Azure Depolama hesapları hakkında daha fazla bilgiye [buradan](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) ulaşabilirsiniz. Microsoft Azure Depolama hesabı oluşturmak için [Azure portalına](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ) gidin.  
 
 ![Depolama oluşturma dikey penceresi](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Depolama oluşturma dikey penceresi")
 
@@ -114,7 +114,7 @@ Depolama hesabınızı bir önceki resimde gösterildiği gibi aşağıdaki bilg
 
  |**Ayar**          |  **Önerilen değer**  | **Alan açıklaması** |
  |:-------------------------       |:-------------         |:----------            |
- |Ad         | MyStorageAccount     |Benzersiz bir hesap tanımlayıcı seçin. Geçerli adlar için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Adı         | MyStorageAccount     |Benzersiz bir hesap tanımlayıcı seçin. Geçerli adlar için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Dağıtım Modeli         | Resource Manager| Önerilen dağıtım modeli Resource Manager'dır. Daha fazla bilgi için bkz. [Resource Manager dağıtımını anlama](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) |      
  |Hesap türü       | Blob depolama       |  Blob depolama indirme ve yükleme işlemlerinde genel amaçlı depolama alanından 2-5 kat daha yüksek hız sunabilir. |
  |Performans                  | Standart                   | Varsayılan olarak standart seçeneği kullanılır. Standart ve premium depolama hesapları hakkında daha fazla bilgi için bkz. [Microsoft Azure Depolama'ya giriş](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
@@ -122,7 +122,7 @@ Depolama hesabınızı bir önceki resimde gösterildiği gibi aşağıdaki bilg
  |Güvenli aktarım gerekir                  | Devre dışı                 | Varsayılan olarak devre dışı seçeneği kullanılır. Veri aktarımı güvenliği hakkında daha fazla bilgi için bkz. [Güvenli aktarım gerektir](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)    |
  |Erişim katmanı                  | Sık Erişimli                   | Sık erişimli seçeneği, depolama hesabındaki nesnelere erişimin daha sık olduğunu belirtir.    |
  |Abonelik         | Azure aboneliğiniz |Aboneliğiniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.azure.com/Subscriptions) |      
- |Kaynak grubu       | MyResourceGroup       |  Genomiks hesabınızla aynı kaynak grubunu seçebilirsiniz. Geçerli kaynak grubu adları için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Kaynak grubu       | MyResourceGroup       |  Genomiks hesabınızla aynı kaynak grubunu seçebilirsiniz. Geçerli kaynak grubu adları için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Konum                  | Batı ABD 2                  | Çıkış ücretlerini ve gecikme süresini azaltmak için genomiks hesabınızla aynı konumu kullanın. Genomiks hizmeti Batı ABD 2, Batı Avrupa ve Güneydoğu Asya konumlarında kullanılabilir    |
  |Sanal ağlar                | Devre dışı                   | Varsayılan olarak devre dışı seçeneği kullanılır. Daha fazla bilgi için bkz. [Azure Sanal Ağları](https://docs.microsoft.com/azure/storage/common/storage-network-security)    |
 

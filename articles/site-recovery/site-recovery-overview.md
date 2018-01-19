@@ -1,73 +1,65 @@
 ---
-title: Azure Site Recovery nedir? | Microsoft Belgeleri
+title: Azure Site Recovery nedir? | Microsoft Docs
 description: "Bu sayfada, Azure Site Recovery hizmetine genel bir bakış sağlanmış ve dağıtım senaryoları özetlenmiştir."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: e9b97b00-0c92-4970-ae92-5166a4d43b68
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: overview
+ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6ec4b6e468bf03b18c0f26d1c61a17309a83eb2
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-site-recovery"></a>Site Recovery Hakkında
 
-Azure Site Recovery hizmetine hoş geldiniz! Bu makalede hizmet, genel hatlarıyla kısaca ele alınmaktadır.
+Azure Site Recovery hizmetine hoş geldiniz! Bu makalede bir hizmet genel hatlarıyla kısaca ele alınmaktadır.
 
-## <a name="business-continuity-and-disaster-recovery-bcdr-with-azure-recovery-services"></a>Azure Kurtarma Hizmetleri ile iş sürekliliği ve olağanüstü durum kurtarma (BCDR)
-
-Bir kuruluş olarak, planlı veya plansız kesintiler sırasında verilerinizi güvenli, uygulamaları/iş yüklerini ise çalışır halde tutmak için bir yol bulmanız gerekir.
+Kuruluş olarak, planlı ve plansız kesintiler oluştuğunda verilerinizi güvende ve uygulamalarınız ile iş yüklerinizi çalışır durumda tutan bir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejisi benimsemeniz gerekir.
 
 Azure Kurtarma Hizmetleri, BCDR stratejinize katkıda bulunur:
 
-- **Site Recovery hizmeti**: Site Recovery, bir site kullanılamaz hale gelirse uygulamalarınızın kullanılabilen VM’lerde ve fiziksel sunucularda çalışmaya devam etmesini sağlayarak iş sürekliliğine yardımcı olur. Site Recovery, VM ve fiziksel sunucularda çalışan iş yüklerini çoğaltarak birincil sitenin kullanılamaz hale gelmesi durumunda bunların ikincil bir konumda kullanılabilir kalmasını sağlar. Birincil site yeniden çalışmaya başladığında birincil sitede iş yüklerini kurtarır.
-- **Backup hizmeti**: Buna ek olarak, [Azure Backup](https://docs.microsoft.com/azure/backup/) hizmeti verilerinizi Azure’a yedekleyerek verilerin güvenli ve kurtarılabilir halde kalmasını sağlar.
+- **Site Recovery hizmeti**: Site Recovery, kesintiler sırasında iş uygulamalarını ve iş yüklerini çalışır durumda tutarak iş sürekliliği sağlamaya yardımcı olur. Site Recovery, fiziksel ve sanal makineler (VM) üzerinde çalışan iş yüklerini birincil siteden ikincil bir konuma çoğaltır. Birincil sitenizde bir kesinti oluştuğunda ikinci konuma yük devredersiniz ve uygulamalara oradan erişirsiniz. Birincil konum tekrar çalışmaya başladıktan sonra o konuma geri dönebilirsiniz.  
+- **Backup hizmeti**: [Azure Backup](https://docs.microsoft.com/azure/backup/) hizmeti verilerinizi Azure’a yedekleyerek verilerin güvenli ve kurtarılabilir halde kalmasını sağlar.
 
 Site Recovery, şunlar için çoğaltmayı yönetebilir:
 
 - Azure bölgeleri arasında çoğaltılan Azure VM’leri.
-- Azure’a veya ikincil bir siteye çoğaltılan şirket içi sanal makineler ve fiziksel sunucular.
+- Azure’a veya ikincil bir siteye çoğaltılan şirket içi VM’ler ve fiziksel sunucular.
 
 
 ## <a name="what-does-site-recovery-provide"></a>Site Recovery ne sağlar?
 
+
 **Özellik** | **Ayrıntılar**
 --- | ---
-**Basit bir BCDR çözümü dağıtma** | Site Recovery hizmetini kullanarak Azure portalındaki tek bir konumdan çoğaltma, yük devretme ve yeniden çalışmayı yönetebilirsiniz.
-**Azure VM’lerini çoğaltma** | BCDR stratejinizi Azure VM’lerinin Azure bölgeleri arasında çoğaltılmasını sağlama şeklinde ayarlayabilirsiniz.
-**Şirket içi VM’leri şirket dışına çoğaltma** | Şirket içi VM’leri ve fiziksel sunucuları Azure’a veya ikincil bir şirket içi konuma çoğaltabilirsiniz. Azure’a çoğaltma seçeneği, ikincil bir veri merkezi kullanmanın maliyetini ve karmaşıklığını ortadan kaldırır.
-**Dilediğiniz iş yükünü çoğaltın** | Desteklenen Azure VM’lerinde, şirket içi Hyper-V VM'lerinde, VMware VM'lerinde ve Windows/Linux fiziksel sunucularında çalışan tüm iş yüklerini çoğaltın.
-**Verileri esnek ve güvenli tutun** | Site Recovery, uygulama verilerini kesintiye uğratmadan çoğaltma işlemlerini yönetir. Çoğaltılan veriler, dayanıklılık özelliği sunan Azure Depolama'da saklanır. Yük devretme işlemi gerçekleştiğinde, çoğaltılan veriler temel alınarak Azure VM'leri oluşturulur.
-**RTO ve RPO hedeflerinizi yakalayın** | Kurtarma süresi hedeflerini (RTO) ve kurtarma noktası hedeflerini (RPO) kuruluş sınırları içinde tutun. Site Recovery, Azure VM’leri ve VMware VM’leri için sürekli çoğaltma sağlar ve Hyper-V için çoğaltma sıklığı 30 saniyeye kadar düşer. [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) tümleştirmesi sayesinde kurtarma süresi hedeflerini (RTO) daha da düşürebilirsiniz.
-**Yük devretme boyunca uygulamalarınızın tutarlı kalmasını sağlayın** | Uygulama içinde tutarlı anlık görüntülerle kurtarma noktaları yapılandırabilirsiniz. Uygulama içinde tutarlı anlık görüntüler, disk verilerini, bellekteki tüm verileri ve devam eden tüm işlemleri yakalar.
-**Kesintisiz test edin** | Sürmekte olan çoğaltmayı etkilemeden kolayca yük devretme testleri çalıştırarak olağanüstü durum kurtarma tatbikatlarını destekleyebilirsiniz.
-**Esnek yük devretme işlemleri gerçekleştirin** | Beklenen kesintilere yönelik olarak sıfır veri kaybıyla planlı yük devretme işlemleri çalıştırabileceğiniz gibi, beklenmeyen olağanüstü durumlar için en düşük düzeyde veri kaybıyla sonuçlanan (çoğaltma sıklığına bağlı olarak) plansız yük devretme işlemleri de çalıştırabilirsiniz. Yeniden kullanılabilir olduğunda, birincil sitenize kolayca geri dönebilirsiniz.
-**Kurtarma planları oluşturma** | Kurtarma planlarını kullanarak birden çok VM’de çok katmanlı uygulamaların yük devretme ve kurtarma işlemlerini özelleştirebilir ve sıralayabilirsiniz. Makineleri planlar içinde gruplandırabilir, betikler ve el ile gerçekleştirilen eylemler ekleyebilirsiniz. Kurtarma planları, Azure Otomasyonu runbook'ları ile tümleştirilebilir.
-**Mevcut BCDR teknolojileriyle tümleştirin** | Site Recovery, diğer BCDR teknolojileriyle tümleşir. Örneğin, kullanılabilir grupların yük devretme işlemlerini yönetmek amacıyla SQL Server AlwaysOn yerel desteği dahil olmak üzere kurumsal iş yüklerinin SWL Server arka ucunu korumak için Site Recovery'yi kullanabilirsiniz.
-**Otomasyon kitaplığıyla tümleştirin** | Zengin Azure Otomasyonu kitaplığı, indirilebilen ve Site Recovery ile tümleştirilebilen üretime hazır ve uygulamaya özgü betikler sağlar.
-**Ağ ayarlarını yönetin** | Site Recovery, Azure ile tümleşerek IP adresleri ayırma, yük dengeleyicileri yapılandırma ve etkili ağ değişimleri için Azure Traffic Manager ile tümleştirme dahil olmak üzere uygulama ağ gereksinimlerini basitleştirir.
+**Basit BCDR çözümü** | Site Recovery hizmetini kullanarak Azure portalındaki tek bir konumdan çoğaltma, yük devretme ve yeniden çalışmayı yönetebilirsiniz.
+**Azure VM çoğaltma** | Azure VM’lerin olağanüstü durum kurtarma özelliğini birincil bir bölgeden ikincil bölgeye ayarlayabilirsiniz.
+**Şirket içi VM çoğaltma** | Şirket içi VM’leri ve fiziksel sunucuları Azure’a veya ikincil bir şirket içi veri merkezine çoğaltabilirsiniz. Azure’a çoğaltma seçeneği, ikincil bir veri merkezi kullanmanın maliyetini ve karmaşıklığını ortadan kaldırır.
+**İş yükü çoğaltma** | Desteklenen Azure VM’lerinde, şirket içi Hyper-V ve VMware VM'leri ile Windows/Linux fiziksel sunucularında çalışan tüm iş yüklerini çoğaltın.
+**Veri esnekliği** | Site Recovery, uygulama verilerini kesintiye uğratmadan çoğaltma işlemlerini yönetir. Azure’a çoğaltılan veriler, dayanıklılık özelliği sunan Azure Depolama'da saklanır. Yük devretme işlemi gerçekleştiğinde, çoğaltılan veriler temel alınarak Azure VM'leri oluşturulur.
+**RTO ve RPO hedefleri** | Kurtarma süresi hedeflerini (RTO) ve kurtarma noktası hedeflerini (RPO) kuruluş sınırları içinde tutun. Site Recovery, Azure VM’leri ve VMware VM’leri için sürekli çoğaltma sağlar ve Hyper-V için çoğaltma sıklığı 30 saniyeye kadar düşer. [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) sayesinde, RTO’yu daha da düşürebilirsiniz.
+**Yük devretme boyunca uygulamalarınızın tutarlı kalmasını sağlayın** | Uygulama içinde tutarlı anlık görüntülerle kurtarma noktalarını kullanarak çoğaltabilirsiniz. Bu anlık görüntüler, disk verilerini, bellekteki tüm verileri ve devam eden tüm işlemleri yakalar.
+**Kesintisiz test etme** | Sürmekte olan çoğaltmayı etkilemeden kolayca olağanüstü durum kurtarma tatbikatları gerçekleştirebilirsiniz.
+**Esnek yük devretme işlemleri** | Beklenen kesintilere yönelik olarak sıfır veri kaybıyla planlı yük devretme işlemleri çalıştırabileceğiniz gibi, beklenmeyen olağanüstü durumlar için en düşük düzeyde veri kaybıyla sonuçlanan (çoğaltma sıklığına bağlı olarak) plansız yük devretme işlemleri de çalıştırabilirsiniz. Yeniden kullanılabilir olduğunda, birincil sitenize kolayca geri dönebilirsiniz.
+**Özelleştirilebilir kurtarma planları** | Kurtarma planlarını kullanarak, birden çok VM’de çalışan çok katmanlı uygulamaların yük devretme ve kurtarma işlemlerini özelleştirebilir ve sıralayabilirsiniz. Bir kurtarma planında makineleri gruplayabilir ve isteğe bağlı olarak betikler ve el ile yapılan işlemler ekleyebilirsiniz. Kurtarma planları, Azure Otomasyonu runbook'ları ile tümleştirilebilir.
+**BCDR tümleştirme** | Site Recovery, diğer BCDR teknolojileriyle tümleşir. Örneğin, kullanılabilir grupların yük devretme işlemlerini yönetmek amacıyla SQL Server AlwaysOn yerel desteği ile birlikte kurumsal iş yüklerinin SWL Server arka ucunu korumak için Site Recovery'yi kullanabilirsiniz.
+**Azure otomasyonu tümleştirmesi** | Zengin Azure Otomasyonu kitaplığı, indirilebilen ve Site Recovery ile tümleştirilebilen üretime hazır ve uygulamaya özgü betikler sağlar.
+**Ağ tümleştirmesi** | Site Recovery, Azure ile tümleşerek IP adresleri ayırma, yük dengeleyicileri yapılandırma ve etkili ağ değişimleri için Azure Traffic Manager ile tümleştirme dahil olmak üzere uygulama ağ gereksinimlerini basitleştirir.
 
 
 ## <a name="what-can-i-replicate"></a>Neleri çoğaltabilirim?
 
 **Destekleniyor** | **Ayrıntılar**
 --- | ---
-**Neleri çoğaltabilirim?** | Azure bölgeleri arasında Azure VM’leri.<br/><br/>  Şirket içi VMware VM’lerinden, Hyper-V VM’lerinden, fiziksel sunuculardan (Windows ve Linux) Azure’a.<br/><br/> Şirket içi VMware VM’lerinden, Hyper-V VM’lerinden, fiziksel sunuculardan Virtual Machine Manager’a (VMM).
-**Hangi bölgeler Site Recovery için desteklenir?** | [Desteklenen bölgeler](https://azure.microsoft.com/regions/services/) |
-**Çoğaltılan makineler için hangi işletim sistemleri gerekir?** | [Azure VM gereksinimleri](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[VMware VM gereksinimleri](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Hyper-V VM’ler için Azure ve Hyper-V tarafından desteklenen tüm [konuk işletim sistemleri](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) desteklenir.<br/><br/> [Fiziksel sunucu gereksinimleri](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**Hangi VMware sunucularına/ana bilgisayarlarına ihtiyacımız var?** | VMware VM’leri [desteklenen vSphere konaklarında/vCenter sunucularında](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) bulunabilir.
-**Hangi iş yüklerini çoğaltabilirim?** | Desteklenen bir çoğaltma makinesinde çalışan tüm iş yüklerini çoğaltabilirsiniz. Ayrıca, Site Recovery ekibi [çeşitli uygulamalar](site-recovery-workload.md#workload-summary) için uygulamaya özgü testler gerçekleştirdi.
+**Çoğaltma senaryosu** | Azure VM’leri bir Azure bölgesinden diğerine çoğaltın.<br/><br/>  Şirket içi VMware VM’leri, Hyper-V VM’leri, fiziksel sunucuları (Windows ve Linux) Azure’a çoğaltın.<br/><br/> Şirket içi VMware VM’leri, System Center VMM tarafından yönetilen Hyper-V VM’leri ve fiziksel sunucuları ikincil siteye çoğaltın.
+**Bölgeler** | Site Recovery için [desteklenen bölgeleri](https://azure.microsoft.com/regions/services/) inceleyin. |
+**Çoğaltılan makineler** | [Azure VM’lere](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [şirket içi VM’lere](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) ve [fiziksel sunuculara](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) yönelik çoğaltma gereksinimlerini inceleyin.
+**VMware sunucuları/ana bilgisayarları** | Çoğaltmak istediğiniz VMware VM'leri [desteklenen vSphere ana bilgisayarları/vCenter sunucuları](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) üzerinde konumlandırılabilir.
+**İş yükleri** | Çoğaltma için desteklenen bir makinede çalışan tüm iş yüklerini çoğaltabilirsiniz. Ayrıca, Site Recovery ekibi [çeşitli uygulamalar](site-recovery-workload.md#workload-summary) için uygulamaya özgü testler gerçekleştirdi.
 
 
 

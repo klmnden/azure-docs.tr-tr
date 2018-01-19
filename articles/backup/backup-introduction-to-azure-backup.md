@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 9/29/2017
+ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 59beaac1d8619c3f4afa1c75074546a849dfce6b
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -224,12 +224,7 @@ Kurtarma Hizmetleri kasası Azure'da yedek kopyalar, kurtarma noktaları ve yede
 Azure Service Manager'a dayalı Backup kasaları kasanın ilk sürümüdür. Azure Resource Manager modeli özelliklerinin eklendiği Kurtarma Hizmetleri kasaları kasanın ikinci sürümüdür. Özellikler arasındaki farkların kapsamlı açıklamaları için [Kurtarma Hizmetleri kasasına genel bakış makalesine](backup-azure-recovery-services-vault-overview.md) göz atın. Artık Azure portalını kullanarak Backup kasaları oluşturamazsınız ancak Backup kasaları desteklenmeye devam eder. Backup kasalarınızı yönetmek için Azure portalını kullanmanız gerekir.
 
 > [!IMPORTANT]
-> Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> **30 Kasım 2017**'den sonra PowerShell kullanarak Backup kasaları oluşturamayacaksınız. <br/>
-30 Kasım 2017’ye kadar:
-- Yükseltilmemiş olan tüm Backup kasaları Kurtarma Hizmetleri kasalarına otomatik olarak yükseltilecektir.
-- Klasik portalda yedekleme verilerine erişemeyeceksiniz. Bunun yerine, Kurtarma Hizmetleri kasalarındaki yedekleme verilerinize erişmek için Azure portalını kullanabilirsiniz.
-
-
+> Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> 30 Kasım 2017’den sonra PowerShell kullanarak Yedekleme kasaları oluşturamayacaksınız ve kalan tüm Yedekleme kasaları otomatik olarak Kurtarma Hizmetleri kasalarına yükseltilecek.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Azure Backup'ın Azure Site Recovery'den farkı nedir?
 Azure Backup ve Azure Site Recovery, veri yedekleme ve geri yükleme özelliklerine sahip olmaları açısından aynıdır. Ancak, bu hizmetler işletmenizde iş sürekliliği sağlama ve olağanüstü durum kurtarma konularında farklı amaçlara hizmet eder. Verileri daha ayrıntılı bir düzeyde korumak ve geri yüklemek için Azure Backup’ı kullanın. Örneğin, bir dizüstü bilgisayardaki sunu bozulduysa, sunuyu geri yüklemek için Azure Backup kullanabilirsiniz. Bir VM üzerindeki yapılandırma ve verileri başka bir veri merkezine çoğaltmak istediyseniz, Azure Site Recovery’yi kullanın.

@@ -14,18 +14,18 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 08/02/2017
+ms.topic: quickstart
+ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: ae7ce2c138a9948654d96e018c167d12356ae93d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure portalı: SQL Sorgu Düzenleyicisi'ni kullanarak bağlanma ve veri sorgulama
 
-SQL Sorgu Düzenleyicisi, Azure portalından ayrılmadan Azure SQL Veritabanı veya Azure SQL Veri Ambarı’nda SQL sorguları yürütmenin verimli ve kolay bir yolunu sunan bir tarayıcı sorgulama aracıdır. Bu hızlı başlangıçta Sorgu Düzenleyicisi’ni kullanarak bir SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır. 
+SQL Sorgu Düzenleyicisi, Azure portalından ayrılmadan Azure SQL Veritabanı veya Azure SQL Veri Ambarı’nda SQL sorguları yürütmenin verimli ve kolay bir yolunu sunan bir tarayıcı sorgulama aracıdır. Bu hızlı başlangıçta Sorgu Düzenleyicisi’ni kullanarak bir SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -44,17 +44,15 @@ Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçla
 
 1. Soldaki menüden **SQL veritabanları**’na ve sorgulamak istediğiniz veritabanına tıklayın.
 
-2. Veritabanınız için SQL veritabanı sayfasında araç çubuğundaki **Araçlar**’a tıklayın. Araçlar sayfası açılır.
+2. Veritabanınızın SQL veritabanı sayfasında, soldaki menüden **Veri gezgini (önizleme)** öğesini bulup tıklayın.
 
-    ![araçlar menüsü](./media/sql-database-connect-query-portal/tools-menu.png)
+    ![sorgu düzenleyicisini bulma](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. **Sorgu düzenleyicisi (önizleme)**’ye tıklayın, **Önizleme koşulları** onay kutusuna tıklayın ve ardından **Tamam**’a tıklayın. Sorgu düzenleyicisi sayfası açılır.
+3. **Oturum aç**’a tıklayın ve **SQL Server kimlik doğrulaması**’nı seçtikten sonra veritabanını oluştururken sağladığınız sunucu yöneticisi oturum açma bilgilerini ve parolayı girin.
 
-4. **Oturum aç**’a tıklayın ve **SQL Server kimlik doğrulaması**’nı seçtikten sonra veritabanını oluştururken sağladığınız sunucu yöneticisi oturum açma bilgilerini ve parolayı girin.
+    ![oturum açma](./media/sql-database-connect-query-portal/login-menu.png)
 
-    ![oturum açma](./media/sql-database-connect-query-portal/login-menu.png) 
-
-5. Oturum açmak için **Tamam**’a tıklayın.
+4. Oturum açmak için **Tamam**’a tıklayın.
 
 
 ## <a name="connect-using-azure-ad"></a>Azure AD kullanarak bağlanma
@@ -70,11 +68,11 @@ Bir Active Directory yöneticisinin yapılandırılması, Azure portalında ve S
 
 3. Active Directory yöneticisi dikey penceresinde **Yönetici ayarla** komutuna tıklayın ve Active Directory yöneticisi olacak kullanıcıyı veya grubu seçin.
 
-    ![active directory seçme](./media/sql-database-connect-query-portal/select-active-directory.png) 
+    ![active directory seçme](./media/sql-database-connect-query-portal/select-active-directory.png)
 
 4. Active Directory yöneticinizi ayarlamak için Active Directory yöneticisi dikey penceresinin üstündeki **Kaydet** komutuna tıklayın.
 
-Sorgulamak istediğiniz SQL veritabanına gidin, araç çubuğundaki **Araçlar komutuna** tıklayın ve **Sorgu düzenleyicisi (önizleme)** seçeneğini belirleyin. Sorgu düzenleyicisi sayfası açılır ve sizi otomatik olarak veritabanına bağlar.
+Sorgulamak istediğiniz SQL veritabanına gidin ve soldaki menüden **Veri gezgini (önizleme)** öğesine tıklayın. Veri gezgini sayfası açılır ve sizi otomatik olarak veritabanına bağlar.
 
 
 ## <a name="run-query-using-query-editor"></a>Sorgu Düzenleyicisi'ni kullanarak sorgu çalıştırma
@@ -154,13 +152,13 @@ Sorgu Düzenleyicisi önizleme durumundayken onunla çalışma hakkında bilmeni
 
 1. Azure SQL Server güvenlik duvarı ayarlarınızda "Azure Hizmetlerine erişime izin ver" seçeneğini "Açık" olarak ayarladığınızdan emin olun. Bu seçenek, SQL Sorgu Düzenleyicisi'nin SQL veritabanlarınıza ve veri ambarlarınıza erişmesini sağlar.
 
-2. Azure Active Directory Yöneticisi oturum açma işlemi, 2 faktörlü kimlik doğrulama özelliğinin etkin olduğu hesaplarla çalışmaz. 
+2. Azure Active Directory Yöneticisi oturum açma işlemi, 2 faktörlü kimlik doğrulama özelliğinin etkin olduğu hesaplarla çalışmaz.
 
 3. E-posta hesapları (örneğin outlook.com, hotmail.com, live.com, gmail.com, yahoo.com), Active Directory yöneticileri olarak henüz desteklenmemektedir. Azure Active Directory’de yerel olarak oluşturulmuş veya Azure Active Directory ile birleştirilmiş bir kullanıcı seçtiğinizden emin olun
 
 4. Uzamsal veri türleri, Sorgu Düzenleyicisi'nde henüz desteklenmemektedir. Uzamsal sütunların sorgulanması bir 'System.IO.FileNotFoundException' hatasına neden olur.
 
-5. Veritabanı tabloları ve görünümleri için IntelliSense desteği yoktur. Ancak, düzenleyici zaten girilmiş adları otomatik olarak tamamlamayı destekler. 
+5. Veritabanı tabloları ve görünümleri için IntelliSense desteği yoktur. Ancak, düzenleyici zaten girilmiş adları otomatik olarak tamamlamayı destekler.
 
 6. F5 tuşuna basıldığında Sorgu düzenleyicisi sayfası yenilenir ve üzerinde çalışılan sorgu kaybedilir. Sorguları yürütmek için araç çubuğundaki Çalıştır düğmesini kullanın.
 

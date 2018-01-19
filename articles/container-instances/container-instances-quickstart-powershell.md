@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 3d8516c0f3f6cc8185b16f4cdabcc391e31cc605
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 18a342fed7e99e82082764d6f5a3429a3ce794b7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances’da ilk kapsayıcınızı oluşturma
 
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
-## <a name="create-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 [New-AzureRmResourceGroup][New-AzureRmResourceGroup] ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -39,7 +39,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-[New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet’ine bir ad, Docker görüntüsü ve bir Azure kaynak grubu sağlayarak kapsayıcı oluşturabilirsiniz. İsteğe bağlı olarak, kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunabilirsiniz. Bu durumda, Internet Information Services (IIS) çalıştıran bir Windows Nano Sunucu kullanacağız.
+[New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet’ine bir ad, Docker görüntüsü ve bir Azure kaynak grubu sağlayarak kapsayıcı oluşturabilirsiniz. İsteğe bağlı olarak, kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunabilirsiniz. Bu durumda, Internet Information Services (IIS) çalıştıran bir Nano Sunucu kullanacağız.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public

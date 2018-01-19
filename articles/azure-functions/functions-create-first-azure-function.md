@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
 
@@ -52,21 +52,25 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
    
     ![Azure portalındaki İşlevler hızlı başlangıcı.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işlev oluşturulur. Bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
+HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işlev oluşturulur. Bu konu, portaldaki bir C# betik işlevini gösterir, ancak herhangi bir [desteklenen dilde](supported-languages.md) işlev oluşturabilirsiniz. 
+
+Artık bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
 
 ## <a name="test-the-function"></a>İşlevi test etme
 
-1. Yeni işlevinizde **</> İşlev URL'sini al**'a tıklayın, **varsayılan (İşlev anahtarı)** seçeneğini belirleyin ve ardından **Kopyala**'ya tıklayın. 
+1. Yeni işlevinizde sağ üst kısımdaki **</> İşlev URL'sini al**'a tıklayın, **varsayılan (İşlev anahtarı)** seçeneğini belirleyin ve ardından **Kopyala**'ya tıklayın. 
 
     ![Azure portalından işlev URL’sini kopyalama](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. İşlev URL'sini tarayıcınızın adres çubuğuna yapıştırın. Bu URL’ye `&name=<yourname>` sorgu dizesini ekleyin ve isteği yürütmek için klavyenizdeki `Enter` tuşuna basın. Aşağıda, isteğin Edge tarayıcısında döndürülen bir yanıt örneğini gösterilmiştir:
+2. İşlev URL'sini tarayıcınızın adres çubuğuna yapıştırın. `&name=<yourname>` sorgu dizesi değerini bu URL’nin sonuna ekleyin ve isteği yürütmek için klavyenizdeki `Enter` tuşuna basın. İşlev tarafından döndürülen yanıtın tarayıcıda gösterildiğini görürsünüz.  
+
+    Edge tarayıcısındaki yanıtın bir örneği aşağıda verilmiştir (diğer tarayıcılar XML gösterebilir):
 
     ![Tarayıcıdaki işlev yanıtı.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     İstek URL’si, işlevinize HTTP üzerinden erişmek için varsayılan olarak gerekli olan bir anahtar içerir.   
 
-3. İşleviniz çalıştığında, izleme bilgileri günlüklere yazılır. Önceki yürütme işleminden alınan izleme çıktısını görmek için, portalda işlevinize geri dönün ve ekranın altındaki yukarı okuna tıklayarak **Günlükler**’i genişletin. 
+3. İşleviniz çalıştığında, izleme bilgileri günlüklere yazılır. Önceki yürütme işleminden alınan izleme çıktısını görmek için, portalda işlevinize geri dönün ve ekranın altındaki oka tıklayarak **Günlükler**’i genişletin. 
 
    ![Azure portalında İşlevler günlük görüntüleyicisi.](./media/functions-create-first-azure-function/function-view-logs.png)
 

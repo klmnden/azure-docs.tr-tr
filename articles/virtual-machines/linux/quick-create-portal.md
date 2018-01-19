@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Azure portal ile Linux sanal makinesi oluşturma
 
@@ -32,11 +32,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıcı tamamlamak için bir SSH anahtar çifti gerekir. Bir SSH anahtar çiftiniz varsa bu adımı atlayabilirsiniz.
 
-Bir Bash kabuğundan bu komutu çalıştırın ve ekrandaki yönergeleri izleyin. Komut çıktısı genel anahtar dosyasının dosya adını içerir. Ortak anahtar dosyasının içeriğini panoya kopyalayın.
+Bir Bash kabuğundan bu komutu çalıştırın ve ekrandaki yönergeleri izleyin. Komut çıktısı genel anahtar dosyasının dosya adını içerir. Ortak anahtar dosyasının içeriğini (`cat ~/.ssh/id_rsa.pub`) panoya kopyalayın. Linux için Windows Alt Sistemini kullanıyorsanız, çıkıştaki satır sonu karakterlerini kopyalamadığınızdan emin olun. Daha sonra kullanmak üzere özel anahtar dosyasının dosya adını not edin.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+Bu işlemle ilgili daha ayrıntılı bilgiyi [burada](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) bulabilirsiniz
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma 
 
@@ -102,8 +104,8 @@ Ağ güvenlik grubu (NSG), gelen ve giden trafiğin güvenliğini sağlar. Azure
 2. **Ağ güvenlik grubu**’nu seçin. NSG, **Tür** sütunu kullanılarak tanımlanabilir. 
 3. Sol menüdeki ayarlar altında **Gelen güvenlik kuralları**’na tıklayın.
 4. **Ekle**'ye tıklayın.
-5. **Ad** alanına **http** yazın. **Bağlantı noktası aralığı** değerinin 80, **Eylem** ayarının **İzin Ver** olarak belirlendiğinden emin olun. 
-6. **Tamam** düğmesine tıklayın.
+5. **Ad** alanına **http** yazın. **Kaynak Bağlantı Noktası aralığı**’nın `*`, **Hedef Bağlantı Noktası aralığı**’nın *80* ve **Eylem**’in *İzin Ver* olarak ayarlandığından emin olun. 
+6. **Tamam**’a tıklayın.
 
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX karşılama sayfasını görüntüleme
