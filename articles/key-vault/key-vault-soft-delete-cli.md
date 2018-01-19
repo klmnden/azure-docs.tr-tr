@@ -2,18 +2,18 @@
 ms.assetid: 
 title: "Azure anahtar kasası - geçici silme CLI ile kullanma"
 description: "Kullanım örneği soft-delete CLI kod parçalarını ile örnekleri"
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: bruceper
-ms.openlocfilehash: 3ee2c5dfb99d734cde25894174466b8e49823c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Anahtar kasası soft-delete CLI ile kullanma
 
@@ -22,7 +22,7 @@ Azure anahtar Kasası'nın geçici silme özelliği silinen kasalarını ve kasa
 - Bir anahtar kasası kurtarılabilir silinmesini desteği
 - Anahtar kasası nesnelerin kurtarılabilir silinmesi desteği; , gizli anahtarları ve sertifikaları
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure CLI, ortamınız için bu kurulumu yoksa 2.0 - bkz [yönetmek anahtar CLI 2.0 kullanan kasası](key-vault-manage-with-cli2.md).
 

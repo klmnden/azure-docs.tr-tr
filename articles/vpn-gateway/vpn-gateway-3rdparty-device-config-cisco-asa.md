@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Örnek Yapılandırması: Cisco ASA aygıt (Ikev2/Hayır BGP)
 Bu makale Azure VPN ağ geçitleri için bağlantı Cisco Uyarlamalı güvenlik Gereci (ASA) cihazlar için örnek yapılandırmalarını sağlar. Örnek, Ikev2 sınır ağ geçidi Protokolü (BGP) olmadan çalıştıran Cisco ASA cihazlar için geçerlidir. 
@@ -30,7 +30,7 @@ Bu makale Azure VPN ağ geçitleri için bağlantı Cisco Uyarlamalı güvenlik 
 | ---                    | ---                               |
 | Cihaz satıcısından          | Cisco                             |
 | Cihaz modeli           | ASA                               |
-| Hedef sürümü         | 8.4 ve üzeri                     |
+| Hedef sürüm         | 8.4 ve üzeri                     |
 | Sınanan modeli           | ASA 5505                          |
 | Test edilen sürüm         | 9.2                               |
 | IKE sürümü            | IKEv2                             |
@@ -98,10 +98,7 @@ Aşağıdaki tabloda IPSec/IKE algoritmalar ve örnekte kullanılan parametreler
 
 * DH grubu ve grubun 5 ötesinde PFS grubu için destek gerektiren ASA sürüm 9.x.
 
-* AES-GCM ile IPSec şifreleme ve SHA-256, SHA-384 ve SHA-512 ile IPSec bütünlük destek, ASA sürümünü gerektirir 9.x. Bu destek gereksinim yeni ASA cihazları için geçerlidir.
-
-    > [!NOTE]
-    > ASA aygıt modelleri 5505, 5510, 5520, 5540, 5550 ve 5580 desteklenmez. VPN cihaz modelleri ve bellenim sürümleri için desteklenen algoritmalar doğrulamak için VPN aygıt belirtimlerine bakın.
+* AES-GCM ile IPSec şifreleme ve SHA-256, SHA-384 ve SHA-512 ile IPSec bütünlük destek, ASA sürümünü gerektirir 9.x. Bu destek gereksinim yeni ASA cihazları için geçerlidir. Yayın zaman ASA modelleri 5505, 5510, 5520, 5540, 5550 ve 5580 Bu algoritmalar desteklemez. VPN cihaz modelleri ve bellenim sürümleri için desteklenen algoritmalar doğrulamak için VPN aygıt belirtimlerine bakın.
 
 
 ### <a name="sample-device-configuration"></a>Örnek aygıt yapılandırması

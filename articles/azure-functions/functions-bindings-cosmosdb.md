@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure işlevleri için Azure Cosmos DB bağlamaları
 
@@ -36,7 +36,7 @@ Azure Cosmos DB tetikleyicisi kullanan [Azure Cosmos DB Değiştir Akış](../co
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# betik (.csx)](#trigger---c-script-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
@@ -186,7 +186,7 @@ Azure Cosmos DB giriş bağlaması bir veya daha fazla Azure Cosmos DB belgeleri
 Tek bir belgenin okur dile özgü örneğe bakın:
 
 * [C#](#input---c-example)
-* [C# betik (.csx)](#input---c-script-example)
+* [C# script (.csx)](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
@@ -346,7 +346,7 @@ JavaScript kod aşağıdaki gibidir:
 Birden çok belge okur dile özgü örneğe bakın:
 
 * [C#](#input---c-example-2)
-* [C# betik (.csx)](#input---c-script-example-2)
+* [C# script (.csx)](#input---c-script-example-2)
 * [JavaScript](#input---javascript-example-2)
 
 ### <a name="input---c-example-2"></a>Giriş - C# Örnek 2
@@ -384,7 +384,7 @@ Veri bağlama işte *function.json* dosyası:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -423,7 +423,7 @@ Veri bağlama işte *function.json* dosyası:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -460,7 +460,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**adı**     || İşlevinde belgeyi temsil bağlama parametresinin adı.  |
 |**databaseName** |**DatabaseName** |Belge içeren veritabanı.        |
 |**collectionName** |**CollectionName** | Belge içeren koleksiyonu adı. |
-|**Kimliği**    | **Kimliği** | Alınacak belge kimliği. Bu özellik bağlamaları parametreleri destekler. Daha fazla bilgi için bkz: [bir bağlama ifadesinde özel giriş özellikleri bağlamak](functions-triggers-bindings.md#bind-to-custom-input-properties). Her ikisi de ayarlamazsanız **kimliği** ve **sqlQuery** özellikleri. Bunlardan herhangi birinin ayarlamazsanız, tüm koleksiyon alınır. |
+|**id**    | **Kimlik** | Alınacak belge kimliği. Bu özellik bağlamaları parametreleri destekler. Daha fazla bilgi için bkz: [bir bağlama ifadesinde özel giriş özellikleri bağlamak](functions-triggers-bindings.md#bind-to-custom-input-properties). Her ikisi de ayarlamazsanız **kimliği** ve **sqlQuery** özellikleri. Bunlardan herhangi birinin ayarlamazsanız, tüm koleksiyon alınır. |
 |**sqlQuery**  |**SqlQuery**  | Birden çok belge almak için kullanılan bir Azure Cosmos DB SQL sorgusu. Bu örnekte olduğu gibi çalışma zamanı bağlamaları özelliğini destekler: `SELECT * FROM c where c.departmentId = {departmentId}`. Her ikisi de ayarlamazsanız **kimliği** ve **sqlQuery** özellikleri. Bunlardan herhangi birinin ayarlamazsanız, tüm koleksiyon alınır.|
 |**bağlantı**     |**ConnectionStringSetting**|Azure Cosmos DB bağlantı dizesi içeren uygulama ayarı adı.        |
 |**partitionKey**|**PartitionKey**|Arama için bölüm anahtarı değerini belirtir. Bağlama parametreler içerebilir.|
@@ -485,7 +485,7 @@ Sağlar bağlama Azure Cosmos DB çıktı yeni bir belge bir Azure Cosmos DB ver
 Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
-* [C# betik (.csx)](#output---c-script-example)
+* [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 

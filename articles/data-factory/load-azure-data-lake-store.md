@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: a684f8bcdefc8e3338fae59e56863dfc37c23f1f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3f73cd65b0ceb3148ce8ceb83d7b4e1be1280077
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake Store içine veri yükleme
 
@@ -125,7 +125,11 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
 
     ![Monitör etkinliği çalıştırır](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-15. Verileri Azure Data Lake deponuza kopyalandığını doğrulayın. 
+15. Daha fazla tıklayarak her kopya etkinliğin yürütme ayrıntıları izleyebilirsiniz **ayrıntıları** altında bağlantı **Eylemler** izleme görünümü etkinliğinde. Kaynak havuzu, işleme, ile ilgili süre geçtiği ve yapılandırmaları kullanılan adımları kopyalanan veri hacmi gibi bilgileri gösterir.
+
+    ![Ayrıntılar Çalıştır etkinliğini izleme](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
+
+16. Verileri Azure Data Lake deponuza kopyalandığını doğrulayın. 
 
     ![Data Lake Store çıkış doğrulayın](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 

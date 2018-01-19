@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f26f36f241edba2e1fcd1156587b82b79d559e2d
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory kopyalama etkinliği
 
@@ -138,7 +138,7 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
 | typeProperties | Kopyalama etkinliği yapılandırmak için özellikler grubu. | Evet |
 | kaynak | Kopya kaynak türü ve karşılık gelen özelliklere verileri nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
 | Havuz | Kopya Havuz türü ve karşılık gelen özelliklere veri yazma nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
-| Translator | Kaynak havuzu için açıkça bir sütun eşlemelerini belirtin. Varsayılan kopyalama davranışını gereksiniminizi gerçekleştirilemiyor uygulanır.<br/><br/>Ayrıntıları öğrenmek [şema ve veri türü eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
+| translator | Kaynak havuzu için açıkça bir sütun eşlemelerini belirtin. Varsayılan kopyalama davranışını gereksiniminizi gerçekleştirilemiyor uygulanır.<br/><br/>Ayrıntıları öğrenmek [şema ve veri türü eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
 | cloudDataMovementUnits | Powerfulness belirtin [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri kopyalama güçlendirmeniz.<br/><br/>Ayrıntıları öğrenmek [bulut veri taşıma birimleri](copy-activity-performance.md). | Hayır |
 | parallelCopies | Havuz için veri kaynağı ve veri yazma ait okurken kullanılacak kopyalama etkinliği istediğiniz paralellik belirtin.<br/><br/>Ayrıntıları öğrenmek [paralel kopyalama](copy-activity-performance.md#parallel-copy). | Hayır |
 | enableStaging<br/>stagingSettings | Geçici verileri doğrudan kopyalama veri havuzu kaynağından yerine aa blob storage'da hazırlamak bu seçeneği seçin.<br/><br/>Yararlı senaryoları ve yapılandırma ayrıntılarını öğrenmek [kopyalama hazırlanan](copy-activity-performance.md#staged-copy). | Hayır |
@@ -146,38 +146,80 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
 
 ## <a name="monitoring"></a>İzleme
 
-Kopya etkinliği yürütme ayrıntıları ve performans özellikleri kopyalama etkinliği çalıştırma sonucu döndürülür çıkış bölümü ->. Bir tükendi listesi aşağıdadır. Çalıştırma etkinliğini izlemek öğrenin [hızlı başlangıç bölümünde izleme](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). Performans ve senaryonuz için kopyalama etkinliği'nin yapılandırılmasını karşılaştırabilirsiniz [Performans başvurusu](copy-activity-performance.md#performance-reference) şirket içi sınama gelen.
+Kopya etkinliği Azure Data Factory "Yazar & İzleyicisi" UI veya program aracılığıyla çalıştırma izleyebilirsiniz. Ardından performans ve senaryonuz için kopyalama etkinliği'nin yapılandırılmasını karşılaştırabilirsiniz [Performans başvurusu](copy-activity-performance.md#performance-reference) şirket içi sınama gelen.
+
+### <a name="monitor-visually"></a>Görsel olarak izleme
+
+Görsel olarak çalıştır Kopyala etkinliğini izlemek için veri fabrikası -> **Yazar & İzleyici** -> **İzleyici sekmesi**, ardışık düzen listesini çalışır bir"Görünümüetkinlikçalışır"bağlantısınabakın **Eylemler** sütun. 
+
+![İşlem hattını izleme çalıştırır](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+
+Bu ardışık düzen çalıştırmada etkinliklerin listesini görmek için tıklatın. İçinde **Eylemler** sütun bağlantılarını kopyalama etkinliği giriş, çıkış, (kopyalama etkinliği çalıştırmak başarısız olursa) hataları ve ayrıntılar bulunur.
+
+![Monitör etkinliği çalıştırır](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+
+Tıklayın "**ayrıntıları**" altında bağlantı **Eylemler** kopyalama etkinliği'nin yürütme ayrıntıları ve performans özelliklerini görmek için. Bu bilgileri gösterir dahil olmak üzere: veri hacmi kopyalanır kaynak havuzu, üretilen iş ile ilgili süre geçtiği ve yapılandırmaları kopyalama senaryonuz için kullanılan adımlar.
+
+**Örnek: Azure Data Lake Store için Amazon S3'ten kopyalama**
+![İzleyici etkinlik çalışma ayrıntıları](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+
+**Örnek: Azure SQL Data Warehouse kullanarak Azure SQL veritabanı kopyadan hazırlanan kopyalama**
+![İzleyici etkinlik çalışma ayrıntıları](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+
+### <a name="monitor-programmatically"></a>Program aracılığıyla izleme
+
+Kopya etkinliği yürütme ayrıntıları ve performans özellikleri de döndürülür çalıştırma sonucu kopyalama etkinliğinde çıkış bölümü ->. Kapsamlı bir liste aşağıda verilmiştir; Yalnızca kopya senaryonuza uygun ayarlara görünecektir. Çalıştırma etkinliğini izlemek öğrenin [hızlı başlangıç bölümünde izleme](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Özellik adı  | Açıklama | Birim |
 |:--- |:--- |:--- |
-| DataRead | Kaynaktan okunan veri boyutu | Bayt cinsinden bir Int64 değeri |
-| DataWritten | Havuz için yazılan veri boyutu | Bayt cinsinden bir Int64 değeri |
+| DataRead | Kaynaktan okunan veri boyutu | Int64 değeri **bayt** |
+| dataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
+| filesRead | Dosya depolama biriminden veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
+| filesWritten | Dosya depolama alanına veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
 | rowsCopied | (İkili kopyası için geçerli değil) kopyalanmasını satır sayısını belirtir. | Int64 değeri (birim) |
 | rowsSkipped | Geçiliyor uyumsuz satır sayısını belirtir. Set "enableSkipIncompatibleRow" true olarak özelliğini açın. | Int64 değeri (birim) |
-| Üretilen iş | Aktarılan ve verileri oranı | Kayan noktalı sayıyı KB/sn |
+| Üretilen iş | Aktarılan ve verileri oranı | Kayan noktalı sayıyı **KB/sn** |
 | copyDuration | Kopya süresi | Saniye cinsinden Int32 değeri |
 | sqlDwPolyBase | PolyBase SQL Data Warehouse'a veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
 | redshiftUnload | UNLOAD Redshift veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
 | hdfsDistcp | Distcp'yi HDFS veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
 | effectiveIntegrationRuntime | Etkinliğin çalışma, biçiminde güçlendirmeniz tümleştirme Runtime(s) kullanılan Göster `<IR name> (<region if it's Azure IR>)`. | Metin (dize) |
 | usedCloudDataMovementUnits | Kopyalama sırasında etkili bulut veri taşıma birimleri. | Int32 değeri |
+| usedParallelCopies | Kopyalama sırasında etkin parallelCopies. | Int32 değeri|
 | redirectRowPath | Blob depolama Atlanan uyumsuz satır günlük yolu "redirectIncompatibleRowSettings" altında yapılandırın. Örneğe bakın. | Metin (dize) |
-| billedDuration | Veri taşıma için fatura süresi. | Saniye cinsinden Int32 değeri |
+| executionDetails | Kopyalama etkinliği, geçer aşamaları ve ilgili adımlarda, süre, kullanılan yapılandırmaları, vb. hakkında daha ayrıntılı bilgi. Bu, değişiklik gösterebileceği için bu bölümde ayrıştırmak için önerilmez. | Dizi |
 
 ```json
 "output": {
-    "dataRead": 1024,
-    "dataWritten": 2048,
-    "rowsCopies": 100,
-    "rowsSkipped": 2,
-    "throughput": 1024.0,
-    "copyDuration": 3600,
-    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-    "redshiftUnload": true,
-    "sqlDwPolyBase": true,
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 8,
-    "billedDuration": 28800
+    "dataRead": 107280845500,
+    "dataWritten": 107280845500,
+    "filesRead": 10,
+    "filesWritten": 10,
+    "copyDuration": 224,
+    "throughput": 467707.344,
+    "errors": [],
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "usedCloudDataMovementUnits": 32,
+    "usedParallelCopies": 8,
+    "executionDetails": [
+        {
+            "source": {
+                "type": "AmazonS3"
+            },
+            "sink": {
+                "type": "AzureDataLakeStore"
+            },
+            "status": "Succeeded",
+            "start": "2018-01-17T15:13:00.3515165Z",
+            "duration": 221,
+            "usedCloudDataMovementUnits": 32,
+            "usedParallelCopies": 8,
+            "detailedDurations": {
+                "queuingDuration": 2,
+                "transferDuration": 219
+            }
+        }
+    ]
 }
 ```
 

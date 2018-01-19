@@ -13,29 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: a5ed3cbfac0b86cedde5718cef4231a7fcc36f2e
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 7636f502a7dc631b96c3f091a6622c7db301b035
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma
 Bu makalede Azure Data Factory bir Azure SSIS tümleştirmesi çalışma zamanı sağlamak için adımları sağlar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio’yu (SSMS) kullanarak Azure’da bu çalışma zamanına SQL Server Integration Services (SSIS) paketleri dağıtabilirsiniz.
 
+Öğretici: [Öğreticisi: SQL Server Integration Services (SSIS) Azure'a dağıtabilmeniz](tutorial-deploy-ssis-packages-azure.md) Azure SQL veritabanını depo olarak SSIS kataloğunu kullanarak Azure SSIS tümleştirmesi çalışma zamanı (IR) nasıl oluşturulacağını gösterir. Bu makalede öğreticiyi genişletir ve aşağıdakilerin nasıl yapılacağını gösterir: 
+
+- Azure SQL yönetilen örneği (özel olarak incelenmektedir) SSIS katalog (SSISDB veritabanı) barındırmak için kullanın.
+- Bir Azure sanal ağı (VNet) için Azure SSIS IR katılın. Bir sanal ağa bir Azure SSIS IR birleştirme ve Azure portalında VNet yapılandırma kavramsal bilgi için bkz: [katılma Azure SSIS IR vnet'e](join-azure-ssis-integration-runtime-virtual-network.md). 
+
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md) konusunu inceleyin.
 
-Öğretici: [Öğreticisi: SQL Server Integration Services (SSIS) Azure'a dağıtabilmeniz](tutorial-deploy-ssis-packages-azure.md) Azure SQL veritabanını depo olarak SSIS kataloğunu kullanarak Azure SSIS tümleştirmesi çalışma zamanı (IR) oluşturulacağını gösterir. Bu makalede öğreticiyi genişletir ve aşağıdakilerin nasıl yapılacağını gösterir: 
 
-- Azure SQL yönetilen örneği (özel olarak incelenmektedir) SSIS katalog (SSISDB veritabanı) barındırmak için kullanın.
-- Bir Azure sanal ağı (VNet) için Azure SSIS IR katılın. 
+## <a name="overview"></a>Genel Bakış
+Bu makalede Azure SSIS IR sağlama farklı yolu gösterilmektedir:
 
-Bir sanal ağa bir Azure SSIS IR birleştirme ve Azure portalında VNet yapılandırma kavramsal bilgi için bkz: [katılma Azure SSIS IR vnet'e](join-azure-ssis-integration-runtime-virtual-network.md). 
+- [Azure portalı](#azure-portal)
+- [Azure PowerShell](#azure-powershell)
+- [Azure Resource Manager şablonu](#azure-resource-manager-template)
+
+Bir Azure SSIS IR oluşturduğunuzda, veri fabrikası, Azure SQL SSIS Katalog veritabanı (SSISDB) hazırlamak için veritabanına bağlar. Betik ayrıca belirtilmişse sanal ağınıza ilişkin izin ve ayarları yapılandırır ve yeni Azure SSIS tümleştirme çalışma zamanı örneğini sanal ağa ekler.
+
+SSISDB barındırmak için SQL veritabanı örneği sağladığınızda, SSIS ve erişim Redistributable için Azure özellik paketi de yüklenir. Bu bileşenler, Excel ve erişim dosyaları ve yerleşik bileşenler tarafından desteklenen veri kaynakları yanı sıra çeşitli Azure veri kaynakları için bağlantı sağlar. (Attunity Oracle ve Teradata bileşenleri ve SAP BI bileşenleri gibi Microsoft, üçüncü taraf bileşenler dahil) şu anda, üçüncü taraf bileşenler için SSIS yükleyemezsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği**. Bir aboneliğiniz yoksa, bir [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/) hesabı oluşturabilirsiniz.
 - **Azure SQL Veritabanı sunucusu** veya **SQL Server Yönetilen Örneği (özel önizleme) (Genişletilmiş Özel Önizleme)**. Henüz bir veritabanı sunucunuz yoksa, başlamadan önce Azure portalında bir tane oluşturun. Bu sunucu, SSIS Katalog veritabanını (SSISDB) barındırır. Veritabanı sunucusunu tümleştirme çalışma zamanı ile aynı Azure bölgesinde oluşturmanız önerilir. Bu yapılandırma, tümleştirme çalışma zamanının Azure bölgelerinden geçmeden SSISDB’ye yürütme günlüklerini yazmasına olanak tanır. Azure SQL sunucusunun fiyatlandırma katmanı unutmayın. Azure SQL veritabanı için desteklenen fiyatlandırma katmanlarına listesi için bkz: [SQL veritabanı kaynak sınırları](../sql-database/sql-database-resource-limits.md).
+
+    Azure SQL veritabanı sunucusu veya SQL Server örneği (Genişletilmiş özel Önizleme) yönetilen bir SSIS katalog (SSIDB veritabanı) olmadığından emin olun. Sağlama Azure SSIS IR varolan bir SSIS Kataloğu kullanımını desteklemez.
 - **Klasik Sanal Ağ (VNet) (isteğe bağlı)**. Aşağıdaki koşulların en az biri geçerli ise bir Azure Sanal Ağınız (VNet) olmalıdır:
     - SSIS Katalog veritabanını bir sanal ağın parçası olan SQL Server Yönetilen Örneği (özel önizleme) üzerinde barındırıyorsanız.
     - Şirket içi veri depolarına bir Azure-SSIS tümleştirme çalışma zamanı üzerinde çalışan SSIS paketlerinden bağlanmak istiyorsanız.
@@ -45,6 +57,7 @@ Bir sanal ağa bir Azure SSIS IR birleştirme ve Azure portalında VNet yapılan
 > Azure Data Factory V2 ve Azure-SSIS Integration Runtime tarafından desteklenen tüm bölgelerin listesi için bkz. [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/). **Veri ve Analiz**’i genişleterek **Data Factory V2** ve **SSIS Integration Runtime** seçeneklerini görün.
 
 ## <a name="azure-portal"></a>Azure portalına
+Bu bölümde, bir Azure SSIS IR oluşturmak için Azure portal, veri fabrikası UI özellikle kullanın 
 
 ### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -143,6 +156,7 @@ Bir sanal ağa bir Azure SSIS IR birleştirme ve Azure portalında VNet yapılan
 4. Bkz: [Azure SSIS tümleştirmesi çalışma zamanı sağlamak](#provision-an-azure-ssis-integration-runtime) geri kalan bölümü adımları Azure SSIS IR ayarlamak için
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+Bu bölümde, bir Azure SSIS IR oluşturmak için Azure PowerShell kullanma
 
 ### <a name="create-variables"></a>Değişken oluşturma
 Bu öğreticideki betiklerde kullanılacak değişkenleri tanımlayın:
@@ -412,7 +426,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager şablonu
-Bir Azure SSIS tümleştirmesi çalışma zamanı oluşturmak için bir Azure Resource Manager şablonu kullanabilirsiniz. Bir örnek kılavuz şöyledir: 
+Bu bölümde, bir Azure SSIS tümleştirmesi çalışma zamanı oluşturmak için bir Azure Resource Manager şablonunu kullanın. Bir örnek kılavuz şöyledir: 
 
 1. Aşağıdaki Resource Manager şablonu ile bir JSON dosyası oluşturun. Açılı ayraç (yer tutucu) değerleri kendi değerlerinizle değiştirin. 
 

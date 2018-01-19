@@ -2,15 +2,15 @@
 ms.assetid: 
 title: "Azure anahtar kasası geçici silme | Microsoft Docs"
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 384b65bc89401780b174c143d84b3b8f552fba3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure anahtar kasası soft-delete genel bakış
 
@@ -33,7 +33,7 @@ Azure anahtar kasası, Azure Resource Manager tarafından yönetilen, izlenen ka
 
 2. Farklı bir senaryoda dolandırıcı bir kullanıcı bir anahtar kasası veya iş kesintiye neden bir kasa içinde bir anahtarı gibi bir anahtar kasası nesnesi silme girişiminde bulunabilir. Temel alınan veri gerçek silinmeye karşı anahtar kasası ya da anahtar kasası nesnesinin silinmesini ayıran bir güvenlik önlemi olarak, örneğin, farklı, veri silme izinlerini kısıtlayarak rolü güvenilir olarak kullanılabilir. Bu yaklaşım, aksi takdirde bir hemen veri kaybına neden bir işlem için etkili bir şekilde çekirdek gerektirir.
 
-### <a name="soft-delete-behavior"></a>Geçici silme davranışı
+### <a name="soft-delete-behavior"></a>Soft-delete behavior
 
 Bu özellik ile bir anahtar kasası veya anahtar kasası nesne silme işlemini bir yumuşak etkili bir şekilde nesne silinir görünüm vermiş sırasında ek olarak, belirli Bekletme dönemi için kaynakları bulunduran silme, ' dir. Daha fazla hizmet temelde silme işlemi geri alma Silinmiş nesne kurtarmak için bir mekanizma sağlar. 
 

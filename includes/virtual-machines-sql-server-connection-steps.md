@@ -42,7 +42,7 @@ SQL Server Veritabanı Altyapısı, etki alanı ortamı olmadan Windows Kimlik D
 1. Sanal makineye bağlı durumdayken, Başlangıç sayfasında **SQL Server Management Studio** yazın ve seçili simgeye tıklayın.
    
     İlk kez açtığınızda Management Studio’nun, kullanıcıların Management Studio ortamını oluşturması gerekir. Bu birkaç dakika sürebilir.
-2. Management Studio, **Sunucuya Bağlan** iletişim kutusunu gösterir. **Sunucu adı** kutusuna, Nesne Gezgini’yle Veritabanı Altyapısı’na bağlanacak sanal makinenin adını yazın. (Sanal makine adı yerine **Sunucu adı** olarak **(yerel)** veya tek nokta da kullanabilirsiniz). **Windows Kimlik Doğrulaması**’nı seçin ve **Kullanıcı adı** kutusundaki ***VM_adınız*\yerel_yöneticiniz** değerini olduğu gibi bırakın. **Bağlan**'a tıklayın.
+2. Management Studio, **Sunucuya Bağlan** iletişim kutusunu gösterir. **Sunucu adı** kutusuna, Nesne Gezgini’yle Veritabanı Altyapısı’na bağlanacak sanal makinenin adını yazın. (Sanal makine adı yerine **Sunucu adı** olarak **(yerel)** veya tek nokta da kullanabilirsiniz). Seçin **Windows kimlik doğrulaması**, bırakıp ***your_VM_name * \your_local_administrator** içinde **kullanıcı adı** kutusu. **Bağlan**'a tıklayın.
    
     ![Sunucuya bağlanma](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. SQL Server Management Studio Nesne Gezgini’nde, SQL Server örneğinin adına (sanal makine adı) sağ tıklayın ve ardından **Özellikler**’e tıklayın.

@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Öğretici: Kullanıcı sağlamak için çalışma alanına Facebook ile yapılandırma
 
 Bu öğreticinin amacı, Facebook ve Azure AD otomatik olarak sağlamak ve Azure AD kullanıcı hesaplarından çalışma Facebook tarafından sağlanmasını tarafından çalışma gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Facebook ile çalışma alanına ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -73,9 +73,9 @@ Azure AD çalışma alanına Facebook tarafından atanan kullanıcı hesabı ayr
 
 4. Ayarlama **sağlama modunda** için **otomatik**. 
 
-    ![Sağlama](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![sağlama](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Altında **yönetici kimlik bilgileri** bölümünde, gizli belirteci ve işyeriniz Facebook yönetici tarafından Kiracı URL'sini girin.
+5. Altında **yönetici kimlik bilgileri** bölümünde, gizli belirteci işyeriniz Facebook yönetici tarafından girin ve Kiracı URL değeri ayarlamak `https://www.facebook.com/scim/v1/` .
 
 6. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD çalışma alanına Facebook uygulaması tarafından bağlanabilirler. Bağlantı başarısız olursa işyeriniz Facebook hesabına göre takım yönetici izinleri olduğundan emin olun.
 
@@ -100,4 +100,3 @@ Otomatik sağlama yapılandırma hakkında daha fazla bilgi için bkz: [https://
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 * [Çoklu oturum açmayı yapılandırın](active-directory-saas-workplacebyfacebook-tutorial.md)
-

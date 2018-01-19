@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: özel ilkelerini kullanmaya başlama
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Bu makaledeki adımları tamamladıktan sonra özel ilkeniz "yerel hesabı" destekleyecek kaydolma veya oturum açma aracılığıyla bir e-posta adresi ve parola. Ayrıca, kimlik sağlayıcıları (örneğin, Facebook veya Azure Active Directory) eklemek için ortamınızın hazırlar. Azure Active Directory (Azure AD) B2C kimlik deneyimi Framework'ün diğer kullanımlar okumayı önce bu adımları tamamlamak için önerilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Devam etmeden önce tüm kullanıcıların, uygulamaları, ilkeleri ve daha fazla bilgi için bir kapsayıcıdır bir Azure AD B2C kiracısı olduğundan emin olun. Zaten yoksa, yapmanız [bir Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md). Azure AD B2C yerleşik ilke tamamlamak ve devam etmeden önce yerleşik ilkeler uygulamalarını yapılandırmak için tüm geliştiriciler kesinlikle öneririz. Özel ilke çağırmak için ilke adı küçük bir değişiklik yaptıktan sonra uygulamalarınızın her iki tür ilke ile çalışır.
 
@@ -55,7 +55,7 @@ Devam etmeden önce tüm kullanıcıların, uygulamaları, ilkeleri ve daha fazl
  e. İçin **tarihleri**, varsayılanları kullanın.<br>
  f. İçin **anahtar kullanımı**, kullanın **şifreleme**.<br>
  g. **Oluştur**’u seçin.<br>
-5. B2C_1A_FacebookSecret oluşturun. <br>
+5. Create B2C_1A_FacebookSecret. <br>
 Facebook uygulama gizli anahtarı zaten varsa, kiracınız için bir ilke anahtar olarak ekleyin. Aksi takdirde, böylece ilkelerinizi geçemediğinden bir yer tutucu değerle anahtarı oluşturmanız gerekir.<br>
  a. **Add (Ekle)** seçeneğini belirleyin.<br>
  b. İçin **seçenekleri**, kullanın **el ile**.<br>
@@ -147,7 +147,7 @@ Her bir başlangıç paketi içerir:
 
 5. Dosyayı kaydedin.
 6. TrustFrameworkExtensions.xml açın. Aynı iki değiştirerek değişiklik `yourtenant.onmicrosoft.com` , Azure AD B2C kiracısı ile. Aynı değiştirme olun `<TenantId>` üç değişiklikleri toplam öğesi. Dosyayı kaydedin.
-7. SignUpOrSignIn.xml açın. Aynı değiştirerek değişiklik `yourtenant.onmicrosoft.com` üç yerde, Azure AD B2C kiracısı ile. Dosyayı kaydedin.
+7. Open SignUpOrSignIn.xml. Aynı değiştirerek değişiklik `yourtenant.onmicrosoft.com` üç yerde, Azure AD B2C kiracısı ile. Dosyayı kaydedin.
 8. Parola sıfırlama açın ve profil dosyalarını düzenleyin. Aynı değiştirerek değişiklik `yourtenant.onmicrosoft.com` Azure AD B2C kiracınızda her dosya üç yerde ile. Dosyaları kaydedin.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Özel ilkeniz uygulama kimlikleri Ekle
@@ -157,7 +157,7 @@ Uygulama kimlikleri uzantıları dosyasına ekleyin (`TrustFrameworkExtensions.x
 2. Her iki örneği yerine `IdentityExperienceFrameworkAppId` daha önce oluşturduğunuz kimlik deneyimi Framework uygulamanın uygulama Kimliğine sahip. Örnek aşağıda verilmiştir:
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Her iki örneği yerine `ProxyIdentityExperienceFrameworkAppId` daha önce oluşturduğunuz Proxy kimlik deneyimi Framework uygulamanın uygulama Kimliğine sahip.
 4. Uzantıları dosyanızı kaydedin.

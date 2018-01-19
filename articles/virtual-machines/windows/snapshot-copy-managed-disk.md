@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: dba70db512d88dfc57107bade0df50d1834eb883
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-snapshot"></a>Bir anlık görüntü oluşturma
 
@@ -34,7 +34,7 @@ Yedekleme veya VM sorun giderme için VHD sorunları bir işletim sistemi veya v
 6. Azure veri merkezi konum seçin.  
 7. İçin **kaynak disk**, anlık görüntü için yönetilen diski seçin.
 8. Seçin **hesap türü** anlık görüntü deposu için kullanılacak. Öneririz **Standard_LRS** yüksek performanslı bir diskte depolanan gerekmedikçe.
-9. **Oluştur**'a tıklayın.
+9. **Oluştur**’a tıklayın.
 
 ## <a name="use-powershell-to-take-a-snapshot"></a>Bir anlık görüntüsünü için PowerShell kullanma
 Aşağıdaki adımlar VHD diskin kopyalanması, anlık görüntü yapılandırmaları oluşturma ve kullanarak bir disk anlık görüntüsünü alma gösterir [yeni AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet'i. 
@@ -42,7 +42,7 @@ Aşağıdaki adımlar VHD diskin kopyalanması, anlık görüntü yapılandırma
 Yüklü AzureRM.Compute PowerShell modülü en son sürümüne sahip olduğunuzdan emin olun. Yüklemek için aşağıdaki komutu çalıştırın.
 
 ```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 Daha fazla bilgi için bkz: [Azure PowerShell sürüm](/powershell/azure/overview).
 

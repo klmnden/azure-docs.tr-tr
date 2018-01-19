@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
 ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı ve/veya uzantısı ile ilgili sorunları
 
@@ -146,9 +146,9 @@ Aracı veya uzantı ilgili hataları Linux VM'ler için en güncel olmayan bir V
 3. [Otomatik yeniden başlatma Aracısı'nı yapılandırma](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Yeni bir test yedekleme çalıştırın. Lütfen hata devam ederse, Müşteri'nin VM'den aşağıdaki günlüklerini toplayın:
 
-   * /var/lib/waagent/*.XML
+   * /var/lib/waagent/*.xml
    * /var/log/waagent.log
-   * / var/oturum/azure / *
+   * /var/log/azure/*
 
 Ayrıntılı günlük kaydı için waagent gerekiyorsa, şu adımları izleyin:
 

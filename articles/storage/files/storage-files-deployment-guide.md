@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Dosyaları’nı dağıtma
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları, endüstri standardı SMB protokolü erişilebilir bulutta sunar. Bu makalede Azure dosyaları kuruluşunuz içinde hemen hemen dağıtmak nasıl yapacağınızı gösterir.
 
 Okuma tavsiye [bir Azure dosyaları dağıtımını planlama](storage-files-planning.md) bu makaledeki adımları izleyerek önce.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, aşağıdaki adımları önceden tamamlamış varsayılmaktadır:
 
 - İstenen dayanıklılık ve şifreleme seçeneklerinizi istediğiniz bölgede bir Azure depolama hesabı oluşturulur. Bkz: [depolama hesabı oluşturma](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) bir depolama hesabı oluşturma hakkında adım adım yönergeler için.
@@ -35,7 +35,7 @@ Bu makalede, aşağıdaki adımları önceden tamamlamış varsayılmaktadır:
 Bu saklı şirket içi gibi varolan dosya paylaşımları, yeni Azure dosya paylaşımına geçirmek isteyebilirsiniz. Bu bölümde Azure dosyasına veri paylaşımı gelen ayrıntılı çeşitli popüler yöntemler aracılığıyla taşıma gösterecektir [Planlama Kılavuzu](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme)
-Azure dosya eşitleme (Önizleme) esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun vermeden kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmenizi sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
+Azure dosya eşitleme (Önizleme), kuruluşunuzun dosya paylaşımları Azure dosyalarında esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun vermeden merkezileştirmek olanak sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
 
 Eşitleme mekanizması uzun vadeli kullanım için istenen değil olsa bile azure dosya eşitleme, verileri bir Azure dosya paylaşımı geçirmek için kullanılabilir. Azure dosya eşitleme Azure dosya paylaşım içine veri aktarmak için nasıl kullanılacağı hakkında daha fazla bilgi bulunabilir [bir Azure dosya eşitleme dağıtımını planlama](storage-sync-files-planning.md) ve [Azure dosya eşitleme dağıtma](storage-sync-files-deployment-guide.md).
 
@@ -145,9 +145,9 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 SSH ile birlikte bir basit bash komut dosyası, aşağıdaki örnekte aynı sonucu yol açabilir. `$computer` Değişkeni kullanıcı tarafından doldurulmalıdır sol benzer:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done

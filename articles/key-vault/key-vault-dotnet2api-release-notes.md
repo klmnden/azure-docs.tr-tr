@@ -2,9 +2,9 @@
 title: "Anahtar kasası .NET 2.x API Sürüm Notları | Microsoft Docs"
 description: ".NET geliştiricileri için Azure anahtar kasası bu API için kod kullanır"
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
-editor: bruceper
+editor: alleonar
 ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
 ms.devlang: CSharp
@@ -12,27 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
-ms.author: bruceper
-ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: alleonar
+ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure anahtar kasası .NET 2.0 - sürüm notları ve Geçiş Kılavuzu
-Azure anahtar kasası .NET ile birlikte çalışan geliştiricilere aşağıdaki notları ve rehberlik içindir / C# Kitaplığı. 1.0 sürümünden 2.0 sürümüne geçiş içinde güncelleştirme sayısı kodunuzu işlevsel iyileştirmeler yararlanabilir ve ekler gibi özellik için sırayla geçiş işlerinde gerektiren bu yapıldı **anahtar kasası sertifikaları**  destekler.
+Aşağıdaki bilgiler, C# ve .NET için Azure anahtar kasası kitaplığı 2.0 sürümüne geçirme yardımcı olur.  Önceki sürümleri için yazılmış uygulamalar en son sürümünü destekleyecek şekilde güncelleştirilmesi gerekir.  Bu değişiklikler tam olarak yeni ve geliştirilmiş özellikler gibi desteklemek için gereken **anahtar kasası sertifikaları**.
 
 ## <a name="key-vault-certificates"></a>Anahtar kasası sertifikaları
 
-Anahtar kasası sertifikaları destek sağlar, x509 yönetimi için sertifikaları ve aşağıdaki davranışları:  
+Anahtar kasası sertifikaları yönetme x509 sertifikaları ve aşağıdaki davranışları destekler:  
 
-* Bir anahtar kasası oluşturma işlemi veya varolan bir sertifikayı alma aracılığıyla bir sertifika oluşturmak bir sertifika sahibinin verir. Bu otomatik olarak imzalanan hem de içerir ve sertifika yetkilisi sertifikaları oluşturulur.
-* Güvenli Depolama ve X509 Yönetimi uygulamak bir anahtar kasası sertifika sahibinin verir sertifikaları özel anahtar malzemesi etkileşim olmadan.  
-* Bir sertifika yaşam döngüsünü yönetmek için anahtar kasası yönlendiren bir ilke oluşturmak bir sertifika sahibinin verir.  
-* Kişi hakkında bilgi için bildirim yaşam döngüsü olayları geçerlilik süresi ve sertifikanın yenilenmesini sağlamak sertifika sahipleri sağlar.  
-* Otomatik olarak yenilenmesi destekler seçili verenler - anahtar kasası iş ortağı X509 ile sertifika sağlayıcıları / sertifika yetkilileri.
-  
-  * Not - ortaklık olmayan sağlayıcıları/yetkilileri de izin verilir ancak, otomatik yenileme özelliği desteklemez.
+* Bir anahtar kasası oluşturma işlemi aracılığıyla sertifikaları oluşturun veya varolan bir sertifikayı alın. Bu otomatik olarak imzalanan hem de içerir ve sertifika yetkilisi (CA) sertifikaları oluşturulur.
+* Güvenli şekilde depolamak ve yönetmek x509 özel anahtar malzemesi kullanarak etkileşimi olmadan depolama sertifika.  
+* Sertifika yaşam döngüsü yönetmek için anahtar kasası doğrudan ilkeleri tanımlar.  
+* Süre sonu uyarılarını ve yenileme bildirimler gibi yaşam döngüsü olayları için kişi bilgilerini sağlayın.  
+* Seçili verenler (anahtar kasası iş ortağı X509 sertifika sağlayıcıları ve sertifika yetkililerini) ile sertifikaları otomatik olarak yenileyin. * alternatif (ortak olmayan) destek sertifikadan sağlar ve sertifika yetkilileri (Otomatik yenileme desteklemez).  
 
 ## <a name="net-support"></a>.NET desteği
 
@@ -44,7 +42,10 @@ Anahtar kasası sertifikaları destek sağlar, x509 yönetimi için sertifikalar
 
 * Ad alanı için **modelleri** değiştirilirse **Microsoft.Azure.KeyVault** için **Microsoft.Azure.KeyVault.Models**.
 * **Microsoft.Azure.KeyVault.Internal** ad alanı bırakıldı.
-* Azure SDK'sı bağımlılıkları ad alanı değiştirildi **Hyak.Common** ve **Hyak.Common.Internals** için **Microsoft.Rest** ve  **Microsoft.Rest.Serialization**
+* Aşağıdaki Azure SDK'sı bağımlılıkları ad sahip 
+
+    - **Hyak.Common** artık **Microsoft.Rest**.
+    - **Hyak.Common.Internals** artık **Microsoft.Rest.Serialization**.
 
 ## <a name="type-changes"></a>Türü değişiklikleri
 
@@ -55,13 +56,13 @@ Anahtar kasası sertifikaları destek sağlar, x509 yönetimi için sertifikalar
 
 ## <a name="return-types"></a>Dönüş türleri
 
-* **KeyList** ve **SecretList** döndürülecek *IPage<T>*  yerine *ListKeysResponseMessage*
-* Oluşturulan **BackupKeyAsync** döndürülecek *BackupKeyResult* içeren *değeri* (Yedekleme blob). Yöntem sarmalandı önce ve yalnızca değer döndürüyor.
+* **KeyList** ve **SecretList** şimdi döndürür *IPage<T>*  yerine *ListKeysResponseMessage*
+* Oluşturulan **BackupKeyAsync** şimdi döndürür *BackupKeyResult*, içeren *değeri* (Yedekleme blob). Daha önce yöntemi Sarmalanan ve yalnızca değer döndürdü.
 
 ## <a name="exceptions"></a>Özel durumlar
 
 * *KeyVaultClientException* değiştirilir *KeyVaultErrorException*
-* Hizmet hatası değiştirilirse *özel durum. Hata* için *özel durum. Body.Error.Message*.
+* Hizmet hatası değiştirildi *özel durum. Hata* için *özel durum. Body.Error.Message*.
 * Ek bilgi için hata iletisini kaldırıldı **[JsonExtensionData]**.
 
 ## <a name="constructors"></a>Oluşturucular
@@ -70,29 +71,29 @@ Anahtar kasası sertifikaları destek sağlar, x509 yönetimi için sertifikalar
 
 ## <a name="downloaded-packages"></a>İndirilen paketler
 
-Bir istemci bir anahtar kasası bağımlılığı işlerken aşağıdaki yüklenen
+Bir istemci bir anahtar kasası bağımlılık işlediğinde, aşağıdaki paketleri yüklenir:
 
 ### <a name="previous-package-list"></a>Önceki paket listesi
 
-* id="Hyak.Common paketini" Sürüm "1.0.2" = targetFramework "net45" =
-* id="Microsoft.Azure.Common paketini" Sürüm "2.0.4" = targetFramework "net45" =
-* id="Microsoft.Azure.common.Dependencies paketini" Sürüm "1.0.0" = targetFramework "net45" =
-* id="Microsoft.Azure.KeyVault paketini" Sürüm "1.0.0" = targetFramework "net45" =
-* id="Microsoft.BCL paketini" Sürüm "1.1.9" = targetFramework "net45" =
-* id="Microsoft.BCL.Async paketini" Sürüm "1.0.168" = targetFramework "net45" =
-* id="Microsoft.BCL.Build paketini" Sürüm "1.0.14" = targetFramework "net45" =
-* id="Microsoft.NET.http paketini" Sürüm "2.2.22" = targetFramework "net45" =
+* `package id="Hyak.Common" version="1.0.2" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"`
+* `package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"`
 
 ### <a name="current-package-list"></a>Geçerli paket listesi
 
-* id="Microsoft.Azure.KeyVault paketini" Sürüm "2.0.0-preview" targetFramework = "net45" =
-* id="Microsoft.REST.ClientRuntime paketini" Sürüm "2.2.0" = targetFramework "net45" =
-* id="Microsoft.REST.ClientRuntime.Azure paketini" Sürüm "3.2.0" = targetFramework "net45" =
+* `package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"`
 
 ## <a name="class-changes"></a>Sınıf değişiklikleri
 
-* **UnixEpoch** sınıfı kaldırıldı
-* **Base64UrlConverter** sınıfı yeniden adlandırılmış **Base64UrlJsonConverter**
+* **UnixEpoch** sınıfı kaldırıldı.
+* **Base64UrlConverter** sınıfı yeniden adlandırılmış **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Diğer değişiklikler
 
@@ -100,9 +101,9 @@ Bir istemci bir anahtar kasası bağımlılığı işlerken aşağıdaki yüklen
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Döndürülen işlemleri için bir *kasa*, dönüş türü bir kasa özelliği bulunan bir sınıf oluştu. Dönüş türü sunulmuştur *kasa*.
+* Döndürülen işlemleri için bir *kasa*, içerdiği bir sınıf dönüş türü olan bir **kasa** özelliği. Dönüş türü sunulmuştur *kasa*.
 * *PermissionsToKeys* ve *PermissionsToSecrets* artık *Permissions.Keys* ve *Permissions.Secrets*
-* Dönüş türleri değişikliklerden bazıları denetim-düzeyi için de geçerlidir.
+* Bazı dönüş türleri değişiklikler denetim-düzeyi için de geçerlidir.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 

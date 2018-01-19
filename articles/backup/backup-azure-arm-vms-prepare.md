@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;sogup;
 ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -253,7 +253,7 @@ Bu yordamı yerel sistem hesabı için proxy sunucusu yapılandırmasını ayarl
 
 3. Internet Explorer'da Git **Araçları** > **Internet Seçenekleri** > **bağlantıları** > **LAN Ayarları**.
 4. Sistem hesabı için proxy ayarlarını doğrulayın. Proxy IP ve bağlantı noktası ayarlayın.
-5. Internet Explorer'ı kapatın.
+5. Close Internet Explorer.
 
 Aşağıdaki komut dosyasını bir makine genelinde proxy yapılandırmasını ayarlar ve tüm giden HTTP veya HTTPS trafiği için kullanır. Geçerli bir kullanıcı hesabı (yerel sistem hesabı değil) proxy sunucusunda ayarladıysanız için SYSTEMACCOUNT uygulamak için bu komut dosyasını kullanın.
 

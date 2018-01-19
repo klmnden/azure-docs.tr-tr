@@ -12,14 +12,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 09/18/2017
+ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 571d1d599508f09aff4dde27dffcf0f8e3c6a7d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d49383b4f7b3b13beb9ea36ae725938e17ef1456
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Güvenli bir Service Fabric Linux kümesi oluşturma
 
@@ -46,7 +46,7 @@ Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri 
 
 | Komut | Notlar |
 |---|---|
-| [az BT kümesi oluşturma](https://docs.microsoft.com/en-us/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | Yeni bir Service Fabric kümesi oluşturur.  |
+| [az BT kümesi oluşturma](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | Yeni bir Service Fabric kümesi oluşturur.  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -3,8 +3,8 @@ title: "Azure Redis önbelleği yapılandırma | Microsoft Docs"
 description: "Azure Redis önbelleği için varsayılan Redis yapılandırma anlamak ve Azure Redis önbelleği örnekleri yapılandırmayı öğrenin"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis önbelleğini yapılandırma
 Bu konuda gözden geçirin ve Azure Redis önbelleği örnekleri için yapılandırma güncelleştirmesi açıklar ve Azure Redis önbelleği örnekleri için varsayılan Redis sunucu yapılandırması kapsar.
@@ -57,7 +57,7 @@ Görüntüleyebilir ve kullanarak aşağıdaki ayarları yapılandırın **kayna
     * [Kilitler](#locks)
     * [Otomasyon komut dosyası](#automation-script)
 * [Yönetim](#administration)
-    * [Veri alma](#importexport)
+    * [Veri içeri aktarma](#importexport)
     * [Verileri dışarı aktarma](#importexport)
     * [Yeniden başlatma](#reboot)
 * [İzleme](#monitoring)
@@ -123,7 +123,7 @@ Aşağıdaki ayarları yapılandırılır **Gelişmiş ayarları** dikey.
 * [Bellek ilkeleri](#memory-policies)
 * [Keyspace bildirimleri (Gelişmiş ayarları)](#keyspace-notifications-advanced-settings)
 
-#### <a name="access-ports"></a>Erişim bağlantı noktaları
+#### <a name="access-ports"></a>Erişim Bağlantı Noktaları
 SSL olmayan erişim yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL olmayan bağlantı noktasını etkinleştirmek için **Hayır** için **yalnızca SSL aracılığıyla erişime izin** üzerinde **Gelişmiş ayarları** dikey ve ardından **kaydetmek**.
 
 ![Redis önbelleği erişim bağlantı noktaları](./media/cache-configure/redis-cache-access-ports.png)
@@ -170,7 +170,7 @@ Daha fazla bilgi için bkz: [Redis Keyspace bildirimleri](http://redis.io/topics
 
 
 <a name="recommendations"></a>
-## <a name="redis-cache-advisor"></a>Redis önbelleği Danışmanı
+## <a name="redis-cache-advisor"></a>Redis Cache Danışmanı
 **Redis önbelleği Danışmanı** dikey önbelleğiniz için öneriler görüntüler. Normal işlemler sırasında öneri yok görüntülenir. 
 
 ![Öneriler](./media/cache-configure/redis-cache-no-recommendations.png)
@@ -222,7 +222,7 @@ Küme boyutunu değiştirmek için kaydırıcıyı kullanın veya 1 ile 10 aras�
 > 
 
 
-### <a name="redis-data-persistence"></a>Redis veri kalıcılığını
+### <a name="redis-data-persistence"></a>Redis veri kalıcılığı
 Tıklatın **Redis veri kalıcılığını** etkinleştirmek için devre dışı bırakmak veya premium önbelleğiniz veri kalıcılığını yapılandırma. Azure Redis önbelleği Redis kalıcılığı kullanarak sunar [RDB kalıcılığı](cache-how-to-premium-persistence.md#configure-rdb-persistence) veya [AOF kalıcılığı](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Daha fazla bilgi için bkz: [Premium Azure Redis önbelleği için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
@@ -290,7 +290,7 @@ Tıklatın **özellikleri** önbellek uç noktası ve bağlantı noktaları da d
 ### <a name="locks"></a>Kilitler
 **Kilitler** bölümü abonelik, kaynak grubu veya kaynak yanlışlıkla silinmesi ya da kritik kaynaklara değiştirme kuruluşunuzda bulunan diğer kullanıcıların önlemek için kilitlemenizi sağlar. Daha fazla bilgi için bkz. [Azure Resource Manager ile kaynakları kilitleme](../azure-resource-manager/resource-group-lock-resources.md).
 
-### <a name="automation-script"></a>Otomasyon komut dosyası
+### <a name="automation-script"></a>Otomasyon betiği
 
 Tıklatın **Otomasyon betiğini** oluşturmak ve dağıtılmış kaynaklarınızın gelecekteki dağıtımlar için bir şablonu dışarı aktarmak için. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [kaynakları Azure Resource Manager şablonları ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -299,7 +299,7 @@ Ayarlarında **Yönetim** bölüm önbelleğiniz için aşağıdaki yönetim gö
 
 ![Yönetim](./media/cache-configure/redis-cache-administration.png)
 
-* [Veri alma](#importexport)
+* [Veri içeri aktarma](#importexport)
 * [Verileri dışarı aktarma](#importexport)
 * [Yeniden başlatma](#reboot)
 
@@ -343,7 +343,7 @@ Bir veya daha fazla düğüm, önbelleğin yeniden, istediğiniz düğümleri se
 * [Uyarı kuralları](#alert-rules)
 * [Tanılama](#diagnostics)
 
-### <a name="redis-metrics"></a>Ölçümleri redis
+### <a name="redis-metrics"></a>Redis ölçümleri
 Tıklatın **Redis ölçümleri** için [görüntülemek ölçümleri](cache-how-to-monitor.md#view-cache-metrics) önbelleğiniz için.
 
 ### <a name="alert-rules"></a>Uyarı kuralları
@@ -362,7 +362,7 @@ Tıklatın **uyarı kuralları** Redis önbelleği ölçümleri temel uyarılar�
 ## <a name="support--troubleshooting-settings"></a>Destek ve sorun giderme ayarları
 Ayarlarında **destek + sorun giderme** bölüm sağlar, önbellek ile ilgili sorunları çözmek için Seçenekler.
 
-![Destek + sorunlarını giderme](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Destek ve sorun giderme](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Kaynak durumu](#resource-health)
 * [Yeni destek isteği](#new-support-request)

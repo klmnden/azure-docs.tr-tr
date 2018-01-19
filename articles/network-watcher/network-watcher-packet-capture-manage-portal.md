@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Paket yakalama Portalı'nı kullanarak Azure Ağ İzleyicisi ile yönetme
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
-> - [Azure REST API'si](network-watcher-packet-capture-manage-rest.md)
+> - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 Ağ İzleyicisi paket yakalama, bir sanal makine gelen ve giden trafiği izlemek için yakalama oturumları oluşturmanıza olanak sağlar. Filtreler yalnızca trafiği yakalama emin olmak yakalama oturumu için sağlanır. Paket yakalama Tepkisel hem de önceden ağ anormallikleri tanılamanıza yardımcı olur. Diğer kullanımlar ağ yetkisiz erişim, istemci-sunucu iletişimleri ve çok daha fazlasını hata ayıklamak için bilgi sağlamasını ağ istatistikleri toplama içerir. Erişebildiklerinden uzaktan paket yakalamaları tetiklemek için bir paket yakalama el ile ve değerli zaman kazandırır istenen makine üzerinde çalışan iş yükünü Bu yetenek kolaylaştırır.
 
@@ -83,7 +83,7 @@ Bir paket yakalama tanımlanabilir özellikleri şunlardır:
 - **Depolama hesabı** -paket yakalama bir depolama hesabında kaydedilip kaydedilmeyeceğini belirler.
 - **Dosya** -paket yakalama sanal makinede yerel olarak kaydedilirse belirler.
 - **Depolama hesapları** - seçili paket yakalama kaydetmek için depolama hesabı. Varsayılan konumdur https://{storage hesap name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription kimliği} /resourcegroups/ {kaynak grubu name}/providers/microsoft.compute/virtualmachines/{virtual makine adı} / {YY} / {MM} / {gg} / {ss} packetcapture__{MM}_{SS} _ {XXX} .cap. (Yalnızca etkin olup **depolama** seçili)
-- **Yerel dosya yolu** -paket yakalama kaydetmek için bir sanal makinede yerel yolu. (Yalnızca etkin olup **dosya** seçilir). Geçerli bir yol sağlanmalıdır
+- **Yerel dosya yolu** -paket yakalama kaydetmek için bir sanal makinede yerel yolu. (Yalnızca etkin olup **dosya** seçilir). Geçerli bir yol sağlanmalıdır. Bir Linux sanal makine için yol ile başlamalıdır *yakalar/var/*.
 - **Paket başına en fazla bayt** - sayı yakalanan bayt gelen her paket, tüm baytlar boş bırakılırsa yakalanır.
 - **Oturum başına en fazla bayt** - toplam değeri paket yakalama durakları ulaşıldıktan sonra yakalanan bayt sayısı.
 - **Süre (saniye)** -durdurmak paket yakalama için zaman sınırını ayarlar. Varsayılan değer 18000 saniyedir.

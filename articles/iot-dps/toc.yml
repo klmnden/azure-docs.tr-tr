@@ -77,6 +77,8 @@
       href: use-hsm-with-sdk.md
     - name: Sağlama Hizmeti’ne erişimi denetleme
       href: how-to-control-access.md
+    - name: Cihaz sağlama hizmetini yönetmek için Azure CLI kullanma
+      href: how-to-manage-dps-with-cli.md
 - name: Başvuru
   items:
     - name: REST

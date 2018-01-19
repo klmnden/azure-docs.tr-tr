@@ -3,7 +3,7 @@ title: "Paylaşım anlık görüntüler (Önizleme) ile çalışma | Microsoft D
 description: "Paylaşım anlık bir noktada paylaşımını yedekleme için bir yöntem olarak, zaman içinde alınmış bir Azure dosya paylaşımının salt okunur bir sürümüdür."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Paylaşım anlık görüntüler (Önizleme) ile çalışma
 Bir paylaşım anlık görüntü (Önizleme), bir noktada geçen süre içinde bir Azure dosya paylaşımının salt okunur bir sürümüdür. Paylaşım anlık görüntü oluşturulduktan sonra okumak, kopyalanan, veya silinmiş, ancak değişiklik. Paylaşım anlık bir anda göründüğü gibi paylaşım yedeklemek için bir yol sağlar. 
@@ -246,7 +246,46 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 }
 ```
 
+<<<<<<< BAŞ
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Azure PowerShell'de dosya paylaşımı anlık görüntü işlemleri
+Anlık görüntü içeriğini paylaşın, geri yükleme veya dosya paylaşımı anlık görüntüden yükleme veya paylaşım anlık görüntülerin silinmesi gözatma listesi paylaşımı anlık görüntüler, örneğin aynı işlemleri gerçekleştirmek için Azure PowerShell'i kullanabilirsiniz.
+
+#### <a name="list-share-snapshots"></a>Liste paylaşımı anlık görüntüler
+
+Belirli paylaşımı kullanarak bir paylaşım anlık görüntüleri listeleyebilir`Get-AzureStorageShare`
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>Paylaşım anlık görüntüleri Gözat
+İçerik kullanarak görüntülemek için anlık görüntü belirli bir paylaşım içine göz atabilirsiniz `Get-AzureStorageFile` değeriyle `-Share` belirli bir anlık görüntüye işaret eden
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>Paylaşım anlık görüntülerden geri yükleme
+
+Kopyalayarak veya kullanarak anlık görüntü paylaşımından dosya indirme bir dosyayı geri `Get-AzureStorageFileContent` komutu
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+
+## <a name="delete-azure-files-share-snapshot"></a>Azure dosya paylaşımı anlık görüntüyü Sil
+=======
 ## <a name="delete-a-share-snapshot"></a>Paylaşım anlık görüntüyü Sil
+>>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Azure portalı, PowerShell, CLI, REST API veya depolama SDK kullanarak paylaşım anlık görüntüleri silebilirsiniz. Aşağıdaki bölümlerde Azure portal, CLI ve PowerShell kullanarak paylaşım anlık görüntüleri silmek nasıl açıklanmaktadır.
 

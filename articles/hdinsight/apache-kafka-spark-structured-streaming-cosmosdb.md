@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/16/2017
+ms.date: 01/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 49a57431c778ee018ecd71e3921cd21c3be94885
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2709bab433bdc108b313c58e0844236dd4af38bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Yapılandırılmış Spark Kafka ve Azure Cosmos DB ile akış kullanın
 
@@ -145,11 +145,11 @@ Proje defterlerinden, Spark Hdınsight kümesinde için karşıya yüklemek içi
 
 4. Yüklemek için 1-3 arasındaki adımları yineleyin __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ dizüstü bilgisayar.
 
-## <a name="load-tweets-into-kafka"></a>Yük tweet'leri Kafka içine
+## <a name="load-taxi-data-into-kafka"></a>Kafka yük ücreti verileri
 
 Karşıya yüklenen dosyaların sonra seçeneğini __akış-ücreti-data-için-kafka.ipynb__ girişi not defterini açın. Veriler Kafka yüklemek için not defterindeki adımları izleyin.
 
-## <a name="process-tweets-using-spark-structured-streaming"></a>İşlem tweet'leri Spark yapılandırılmış akış kullanma
+## <a name="process-taxi-data-using-spark-structured-streaming"></a>Spark yapılandırılmış akış kullanarak işlem ücreti verileri
 
 Jupyter not defteri giriş sayfadan seçin __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ girişi. Not defteri için veri akışı Kafka ve Azure Cosmos yapılandırılmış Spark akış kullanarak DB içine adımları.
 

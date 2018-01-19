@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -53,7 +53,7 @@ Bu tablo hizmet güncelleştirmeleri vardır ve yeni desteklenen sürümler kull
 > [!NOTE] 
 > Önceki Önizleme sürümleri {son} API sürümü desteklenen zamanlanmış olaylar. Bu biçim artık desteklenmemektedir ve gelecekte kullanım dışı kalacaktır.
 
-Yeni sürümler eklediğimiz gibi komut dosyalarınızı belirli veri biçimleri üzerinde bağımlılıkları varsa, daha eski sürümlerini yine de uyumluluk için erişilebilir. Ancak, hizmetin genel olarak kullanılabilir olduğunda önceki Önizleme version(2017-03-01) kullanılamayabilir olduğunu unutmayın.
+Yeni sürümler eklendikçe komut dosyalarınızı belirli veri biçimleri üzerinde bağımlılıkları varsa, daha eski sürümlerini yine de uyumluluk için erişilebilir. Ancak, önceki Önizleme sürümü (2017-03-01) hizmeti genel olarak kullanılabilir olduğunda kullanılamayabilir.
 
 ### <a name="using-headers"></a>Üst bilgileri kullanma
 Örnek meta veri hizmeti sorguladığınızda başlık sağlamalısınız `Metadata: true` istek istemeden yönlendirilmeyen emin olmak için.
@@ -62,7 +62,7 @@ Yeni sürümler eklediğimiz gibi komut dosyalarınızı belirli veri biçimleri
 
 Örnek meta verileri oluşturulan yönetilen/kullanarak sanal makineleri çalıştırmak için kullanılabilir [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Aşağıdaki isteği kullanarak bir sanal makine örneği için tüm veri kategorilerini erişebilirsiniz:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -80,13 +80,13 @@ API | Varsayılan veri biçimi | Diğer biçimlere
 
 Varsayılan olmayan yanıt biçimi erişmek için bir istek sorgu dizesi parametresi olarak istenen biçim belirtin. Örneğin:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Güvenlik
 Örnek meta veri Hizmeti uç noktası yalnızca yönlendirilebilir olmayan bir IP adresi üzerinde çalışan sanal makine örneği içinde erişilebilir. Ayrıca, herhangi bir ile istek bir `X-Forwarded-For` üstbilgi hizmeti tarafından reddedildi.
-Biz de içerecek şekilde istekleri gerektiren bir `Metadata: true` üstbilgi gerçek isteği doğrudan istenen ve istenmeyen yeniden yönlendirme bir parçası olduğundan emin olun. 
+İstekleri de içermelidir bir `Metadata: true` üstbilgi gerçek isteği doğrudan istenen ve istenmeyen yeniden yönlendirme bir parçası olduğundan emin olun. 
 
 ### <a name="error"></a>Hata
 Bir veri öğesi bulunamadı veya hatalı biçimlendirilmiş bir istek varsa örneği meta veri hizmeti standart HTTP hatalarını döndürür. Örneğin:
@@ -109,7 +109,7 @@ HTTP durum kodu | Neden
 
 **İstek**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > Yanıtı bir JSON dizesidir. Aşağıdaki örnek yanıt okunabilirlik için pretty yazdırılmıştır.
 
-```
+```json
 {
   "interface": [
     {
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>Genel IP adresi alınıyor
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **İstek**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > Yanıtı bir JSON dizesidir. Aşağıdaki örnek yanıt okunabilirlik için pretty yazdırılmıştır.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 Örnek meta verileri alınabilir Windows PowerShell yardımcı programı `curl`: 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 Aracılığıyla veya `Invoke-RestMethod` cmdlet:
     
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -232,7 +232,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > Yanıtı bir JSON dizesidir. Aşağıdaki örnek yanıt okunabilirlik için pretty yazdırılmıştır.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -284,25 +284,25 @@ Veriler | Açıklama | Sunulan sürüm
 location | Azure bölgesi VM çalışır durumda | 2017-04-02 
 ad | VM adı | 2017-04-02
 teklif | VM görüntüsü için bilgi sunar. Bu değer yalnızca Azure resmi Galerisi'nden dağıtılan görüntüleri için mevcuttur. | 2017-04-02
-Yayımcı | VM görüntüsü yayımcısı | 2017-04-02
+publisher | VM görüntüsü yayımcısı | 2017-04-02
 SKU | VM görüntüsü için belirli SKU | 2017-04-02
 sürüm | VM görüntüsü | 2017-04-02
 osType | Linux veya Windows | 2017-04-02
 platformUpdateDomain |  [Güncelleştirme etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
 platformFaultDomain | [Hata etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
-Bunun nedeni | [Benzersiz tanımlayıcı](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) VM | 2017-04-02
+vmId | [Benzersiz tanımlayıcı](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) VM | 2017-04-02
 vmSize | [VM boyutu](sizes.md) | 2017-04-02
 subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
 etiketler | [Etiketler](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
 resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
 placementGroupId | [Yerleştirme grup](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
-IPv4/privateIpAddress | VM yerel IPv4 adresi | 2017-04-02
-IPv4/Publicıpaddress | VM genel IPv4 adresi | 2017-04-02
+ipv4/privateIpAddress | VM yerel IPv4 adresi | 2017-04-02
+ipv4/publicIpAddress | VM genel IPv4 adresi | 2017-04-02
 alt ağ/adresi | VM alt ağ adresi | 2017-04-02 
 alt ağ/öneki | Alt ağ öneki, örnek 24 | 2017-04-02 
-IPv6/IPADDRESS | VM yerel IPv6 adresi | 2017-04-02 
-MacAddress | VM mac adresi | 2017-04-02 
-scheduledevents | Genel önizlemesini görmek, şu anda [scheduledevents](scheduled-events.md) | 2017-03-01
+ipv6/ipAddress | VM yerel IPv6 adresi | 2017-04-02 
+macAddress | VM mac adresi | 2017-04-02 
+scheduledevents | Şu anda genel önizlemede. Bkz: [zamanlanmış olayları](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Kullanım için örnek senaryolar  
 
@@ -312,7 +312,7 @@ Bir hizmet sağlayıcısı olarak yazılımınızı çalışan VM sayısı izlem
 
 **İstek**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -329,7 +329,7 @@ Bu veri örneği meta veri hizmeti üzerinden doğrudan sorgulayabilir.
 
 **İstek**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
@@ -345,7 +345,7 @@ Bir hizmet sağlayıcısı olarak, burada VM hakkında daha fazla bilgiye istedi
 
 **İstek**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > Yanıtı bir JSON dizesidir. Aşağıdaki örnek yanıt okunabilirlik için pretty yazdırılmıştır.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
@@ -376,24 +376,24 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Dil | Örnek 
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.RB
-Başlayın  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
-Python   | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.PY
-C++      | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample-Windows.cpp
-C#       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.cs
-JavaScript | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.ps1
-Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
-Perl       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.pl
-Java       | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.Java
-Visual Basic | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.vb
+Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Başlayın  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
+C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>SSS
 1. Hata alıyorum `400 Bad Request, Required metadata header not specified`. Bu ne anlama geliyor?
    * Üst bilgisi örneği meta veri hizmeti gerektiriyor `Metadata: true` istekte geçirilecek. Bu üst REST çağrısı geçirme örneği meta veri hizmeti erişmesini sağlar. 
 2. Neden VM'im için işlem bilgi alıyorum değil mi?
-   * Şu anda örneği meta veri hizmeti, yalnızca Azure Kaynak Yöneticisi ile oluşturulan örnekleri destekler. Gelecekte, biz bulut hizmeti VM'ler için destek ekleyebilirsiniz.
+   * Şu anda örneği meta veri hizmeti, yalnızca Azure Kaynak Yöneticisi ile oluşturulan örnekleri destekler. Bulut hizmeti VM'ler eklenebilir gelecekte desteği.
 3. Sanal Makinem Azure Resource Manager aracılığıyla geri bir süre oluşturdum. Bkz: değil neden ben meta veri bilgileri işlem?
    * Eylül 2016 sonra oluşturulan tüm VM'ler için ekleme bir [etiketi](../../azure-resource-manager/resource-group-using-tags.md) görmeye başlayacaksınız için meta veri işlem. (Eylül 2016 öncesinde oluşturulan) eski VM'ler için ekleme/meta verilerini yenilemek için VM uzantıları veya veri diski Kaldır.
 4. 2017-08-01 yeni sürümü için doldurulmuş tüm verileri görüyorum değil

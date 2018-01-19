@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -121,11 +121,11 @@ Evet. Her expressroute bağlantı hattı yüksek kullanılabilirlik sağlamak i�
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Bağlantı, ExpressRoute Bağlantılarım biri başarısız olursa kaybedersiniz?
 
-Çapraz bağlantıları biri başarısız olursa, bağlantı kaybedersiniz değil. Yedekli bağlantı, ağ yükünü desteklemek kullanılabilir. Ayrıca, birden çok bağlantı hatları hatası esnekliği elde etmek için farklı bir eşleme konumda oluşturabilirsiniz.
+Çapraz bağlantıları biri başarısız olursa, bağlantı kaybedersiniz değil. Yedekli bağlantı, ağ yükünü desteklemek ve expressroute bağlantı hattı yüksek kullanılabilirliğini sağlamak kullanılabilir. Ayrıca, bir bağlantı hattı hattı düzeyi esnekliği elde etmek için farklı bir eşleme konumda oluşturabilirsiniz.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Yüksek kullanılabilirlik Expressroute'a bağlı bir sanal ağ üzerinde nasıl emin olursunuz?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Yüksek kullanılabilirlik Expressroute'a bağlı bir sanal ağ üzerinde nasıl emin olursunuz?
 
-Sanal ağınız için farklı eşleme konumlarda birden çok ExpressRoute bağlantı hatları bağlanarak yüksek kullanılabilirlik elde edebilirsiniz. Bir ExpressRoute site devre dışı kalırsa, örneğin, bağlantı üzerinden başka bir ExpressRoute siteye başarısız olur. Varsayılan olarak, sanal ağınızı trafiğe eşit maliyet çoklu yol yönlendirmesi (ECMP üzerinde) temel yönlendirilir. Tercih ettiğiniz başka bir bağlantı için bağlantı ağırlık kullanabilirsiniz. Bkz: [ExpressRoute yönlendirmeyi en iyi duruma getirme](expressroute-optimize-routing.md) bağlantı ağırlık hakkında daha fazla ayrıntı için.
+Sanal ağınız ExpressRoute bağlantı hatları farklı konumlarda eşleme (örneğin, Singapur, Singapore2) bağlanarak yüksek kullanılabilirlik gerçekleştirebilirsiniz. Bir expressroute bağlantı hattı kullanılamaz hale gelirse bağlantısı üzerinden başka bir expressroute bağlantı hattı başarısız olur. Varsayılan olarak, sanal ağınızı trafiğe eşit maliyet çoklu yol yönlendirmesi (ECMP üzerinde) temel yönlendirilir. Bağlantı kalınlığı, başka bir bağlantı hattı tercih için kullanabilirsiniz. Bkz: [ExpressRoute yönlendirmeyi en iyi duruma getirme](expressroute-optimize-routing.md) bağlantı ağırlık hakkında daha fazla ayrıntı için.
 
 ### <a name="onep2plink"></a>Bulut değişiminde birlikte bulunan değilim ve my hizmet sağlayıcısı, noktadan noktaya bir bağlantı sunar, my şirket içi ağınız ve Microsoft arasında iki fiziksel bağlantılar sipariş gerekiyor mu?
 
@@ -145,9 +145,12 @@ Evet. Aboneliğinizde birden fazla expressroute bağlantı hattı olabilir. Vars
 
 Evet. Çok sayıda hizmet sağlayıcıları ile ExpressRoute bağlantı hattına sahip olabilir. Her expressroute bağlantı hattı, yalnızca bir hizmet sağlayıcısı ile ilişkilidir. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Aynı konumda birden çok ExpressRoute bağlantı hatları olabilir mi?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>İki ExpressRoute eşleme konumlarına aynı metro, örneğin Singapur ve Singapore2 görüyorum ExpressRoute devremi oluşturmak hangi eşleme konumu seçmeniz gerekir?
+Hizmet sağlayıcınız ExpressRoute hem sitelerdeki sunuyorsa sağlayıcınız ile çalışma ve ExpressRoute ayarlamak için her iki site seçin. 
 
-Evet. Aynı konumda aynı veya farklı hizmet sağlayıcıları ile birden çok ExpressRoute bağlantı hattına sahip olabilir. Ancak, birden fazla expressroute bağlantı hattı aynı sanal ağa aynı konumdan bağlayamazsınız.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Birden çok ExpressRoute bağlantı hatları içinde aynı metro olabilir mi? I bunları aynı sanal ağa bağlayabilir miyim?
+
+Evet. Birden çok ExpressRoute bağlantı hatları ile aynı veya farklı hizmet sağlayıcıları olabilir. Birden çok ExpressRoute eşleme konumlarına metro varsa ve devreler çeşitli eşleme konumlarda oluşturulur, aynı sanal ağa bağlayabilirsiniz. Bağlantı hatları aynı eşleme konumunda oluşturduysanız aynı sanal ağa bağlanamıyor.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Bir expressroute bağlantı hattı nasıl my sanal ağlara bağlanabilir
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) ile kayıtlı sunucuları yönetme
 Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -42,6 +42,26 @@ Bir depolama eşitleme hizmeti ile bir sunucuyu kaydetmek için önce gerekli ö
 
     > [!Note]  
     > Bir sunucu kaydı/kaydını silmek için AzureRM PowerShell modülü en yeni sürümünü kullanmanızı öneririz. AzureRM paket bu sunucuda önceden yüklü olmadığını (ve bu sunucuda PowerShell sürümü 5.* veya daha büyük), kullanabileceğiniz `Update-Module` bu paketi güncellemek için cmdlet. 
+* Ortamınızda bir ağ proxy sunucusu kullanmak, sunucunuzdaki faydalanmak eşitleme aracısı için proxy ayarlarını yapılandırın.
+    1. Proxy IP adresi ve bağlantı noktası numarasını belirleyin
+    2. Bu iki dosyayı düzenleyin:
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. Yukarıdaki iki dosyalarında 127.0.0.1:8888 doğru IP adresine (Değiştir 127.0.0.1) ve doğru bağlantı noktası numarasını (Değiştir 8888) değiştirme /System.ServiceModel altında Şekil 1'e (altında bu bölümde) satırları ekleyin:
+    4. Komut satırı aracılığıyla WinHTTP proxy ayarları ayarlayın:
+        * Proxy göster: netsh winhttp proxy Göster
+        * Proxy ayarı: netsh winhttp proxy 127.0.0.1:8888 ayarlayın
+        * Proxy sıfırlama: netsh winhttp proxy Sıfırla
+        * Aracı yüklendikten sonra bu kurulumu ise, bizim eşitleme aracıyı yeniden başlatın: net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Bir sunucu depolama eşitleme hizmetine kaydetme
 Bir sunucu olarak kullanılabilmesi için önce bir *sunucusu uç noktası* bir Azure dosya eşitleme *eşitleme grubu*, ile kaydedilmelidir bir *depolama eşitleme hizmeti*. Bir sunucu aynı anda yalnızca bir depolama eşitleme hizmeti ile kaydedilebilir.

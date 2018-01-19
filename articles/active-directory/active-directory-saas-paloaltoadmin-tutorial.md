@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Öğretici: Azure Active Directory Tümleştirme Palo Alto ağlarla - Admin kullanıcı Arabirimi
 
@@ -32,12 +32,12 @@ Palo Alto ağları - yönetici UI Azure AD ile tümleştirme ile aşağıdaki av
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Palo Alto ağlarla - yönetici UI yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Palo Alto ağları - yönetici UI çoklu oturum açma abonelik etkin
+- Palo Alto ağları yeni nesil güvenlik duvarı veya Panorama (güvenlik duvarları için merkezi yönetim sistemi)
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -72,7 +72,7 @@ Palo Alto Networks - Azure AD'ye yönetici UI tümleştirmesini yapılandırma P
 
 4. Arama kutusuna **Palo Alto Networks - Admin kullanıcı Arabirimi**seçin **Palo Alto Networks - Admin kullanıcı Arabirimi** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Palo Alto Networks - sonuçlar listesinde yönetim kullanıcı Arabirimi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Palo Alto Networks - sonuçlar listesinde yönetim kullanıcı Arabirimi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![-Yönetici UI etki alanı ve oturum açma URL'leri tek bilgi Palo Alto ağları](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<Customer Firewall URL>/php/login.php`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<Customer Firewall FQDN>/php/login.php`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<Customer Firewall URL>/SAML20/SP`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Palo Alto Networks - yönetici UI istemci destek ekibi](https://support.paloaltonetworks.com/support) bu değerleri almak için. 
@@ -123,7 +123,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
         
     | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |    
-    | kullanıcı adı | User.userPrincipalName |
+    | kullanıcı adı | user.userprincipalname |
     | adminrole | customadmin |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
@@ -151,7 +151,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Palo Alto siteyi başka bir tarayıcı penceresinde yönetici olarak açın.
+8. Palo Alto ağları güvenlik duvarı yönetim kullanıcı Arabirimi, başka bir tarayıcı penceresinde bir yönetici olarak açın.
 
 9. Tıklayın **aygıt**.
 
@@ -205,7 +205,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-palo-alto-networks---admin-ui-test-user"></a>Palo Alto Networks - yönetici UI test kullanıcısı oluşturma
 

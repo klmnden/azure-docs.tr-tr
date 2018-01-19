@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Azure Data Factory varlıklarını oluşturmak için şablon kullanın
 > [!NOTE]

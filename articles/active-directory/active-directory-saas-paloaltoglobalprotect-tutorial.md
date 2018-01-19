@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: b7c85dd01802bd67724e405f786481ba128e559a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c851c056095ef8e7fb40d7d2ead76457495b2118
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Öğretici: Azure Active Directory Tümleştirme Palo Alto ağlarla - GlobalProtect
 
@@ -32,7 +32,7 @@ Palo Alto ağları - GlobalProtect Azure AD ile tümleştirme ile aşağıdaki a
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Palo Alto ağlarla - GlobalProtect, Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -123,7 +123,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |    
-    | kullanıcı adı | User.userPrincipalName |
+    | kullanıcı adı | user.userprincipalname |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -146,7 +146,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_general_400.png)
 
-8. Palo Alto siteyi başka bir tarayıcı penceresinde yönetici olarak açın.
+8. Palo Alto ağları güvenlik duvarı yönetim kullanıcı Arabirimi, başka bir tarayıcı penceresinde bir yönetici olarak açın.
 
 9. Tıklayın **aygıt**.
 
@@ -160,7 +160,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Palo Alto çoklu oturum açmayı yapılandırın](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    a. İçinde **profil adı** metin kutusuna, bir ad örneğin Azure AD genel koruma sağlar.
+    a. İçinde **profil adı** metin kutusuna, ad örneğin Azure AD GlobalProtect sağlayın.
     
     b. İçinde **kimlik sağlayıcısı meta verileri**, tıklatın **Gözat** ve Azure Portalı'ndan indirilen metadata.xml dosyası seçin
     
@@ -200,7 +200,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-palo-alto-networks---globalprotect-test-user"></a>Palo Alto Networks - GlobalProtect test kullanıcısı oluşturma
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -99,10 +99,10 @@ Bunu siz ve ekip üyelerinizin tarafından verilmesi ve başka konumlara kopyala
 Microsoft, yalnızca hizmet olanak sağlamak için verileri kullanır.
 
 ## <a name="where-is-the-data-held"></a>Verilerin nerede tutulur?
-* ABD veya Avrupa. Yeni bir Application Insights kaynağı oluşturduğunuzda konumu seçebilirsiniz. 
+* ABD, Avrupa veya Güneydoğu Asya. Yeni bir Application Insights kaynağı oluşturduğunuzda konumu seçebilirsiniz. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>ABD veya Avrupa barındırılmasını Uygulamam sahip anlamı?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Bu, ABD, Avrupa veya Güneydoğu Asya barındırılmasını Uygulamam sahip anlama geliyor?
 * Hayır. Uygulamanızı her yerden, kendi şirket içi konak veya Bulut çalıştırabilirsiniz.
 
 ## <a name="how-secure-is-my-data"></a>Verilerim nasıl güvenli mi?
@@ -158,10 +158,10 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Farklı senaryolarda gönderilen veri sınıfları
 | Eylem | (Sonraki tabloya bakın) toplanan veri sınıfları |
 | --- | --- |
-| [.NET web projeye Application Insights SDK ekleme][greenbrown] |Sunucu bağlamı<br/>Çıkarımı yapılan<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
-| [IIS üzerinde Durum İzleyicisi yükleme][redfield] |Bağımlılıklar<br/>Sunucu bağlamı<br/>Çıkarımı yapılan<br/>Performans sayaçları |
-| [Java web uygulaması için Application Insights SDK ekleme][java] |Sunucu bağlamı<br/>Çıkarımı yapılan<br/>İstek<br/>Oturum<br/>kullanıcılar |
-| [Web sayfasına JavaScript SDK'sı ekleme][client] |ClientContext <br/>Çıkarımı yapılan<br/>Sayfa<br/>ClientPerf<br/>AJAX |
+| [.NET web projeye Application Insights SDK ekleme][greenbrown] |ServerContext<br/>Çıkarımı yapılan<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
+| [IIS üzerinde Durum İzleyicisi yükleme][redfield] |Bağımlılıklar<br/>ServerContext<br/>Çıkarımı yapılan<br/>Performans sayaçları |
+| [Java web uygulaması için Application Insights SDK ekleme][java] |ServerContext<br/>Çıkarımı yapılan<br/>İstek<br/>Oturum<br/>kullanıcılar |
+| [Web sayfasına JavaScript SDK'sı ekleme][client] |ClientContext <br/>Çıkarımı yapılan<br/>Sayfa<br/>ClientPerf<br/>Ajax |
 | [Varsayılan özellikleri tanımlama][apiproperties] |**Özellikler** tüm standart ve özel olayları hakkında |
 | [Çağrı TrackMetric][api] |Sayısal değerler<br/>**Özellikleri** |
 | [Çağrı izleme *][api] |Olay adı<br/>**Özellikleri** |
@@ -177,17 +177,17 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 | DeviceContext |Kimliği, IP, yerel ayar, cihaz modeli, ağ, ağ türü, OEM adı, ekran çözünürlüğünü, rol örneği, rol adı, cihaz türü |
 | ClientContext |İşletim sistemi, yerel ayar, dil, ağ, pencere çözümleme |
 | Oturum |Oturum kimliği |
-| Sunucu bağlamı |Makine adı, yerel ayar, işletim sistemi, cihaz, kullanıcı oturumu, kullanıcı bağlamı, işlemi |
+| ServerContext |Makine adı, yerel ayar, işletim sistemi, cihaz, kullanıcı oturumu, kullanıcı bağlamı, işlemi |
 | Çıkarımı yapılan |IP adresi, zaman damgası, işletim sistemi, tarayıcı coğrafi konumdan |
 | Ölçümler |Ölçüm adı ve değeri |
 | Olaylar |Olay ad ve değer |
 | PageViews |URL ve sayfa adı veya ekran adı |
 | İstemci performans |URL/sayfa adı, tarayıcı yükleme süresi |
-| AJAX |Sunucu için web sayfasından HTTP çağrıları |
+| Ajax |Sunucu için web sayfasından HTTP çağrıları |
 | İstekler |URL, süresi, yanıt kodu |
 | Bağımlılıklar |Tür (SQL, HTTP,...), bağlantı dizesi veya URI, eşitleme/zaman uyumsuz, süresi, başarı, SQL deyimi (ile durumu İzleyicisi) |
 | **Özel durumlar** |Türü, **ileti**, çağrı yığınları, kaynak dosya ve satır numarası, iş parçacığı kimliği |
-| Çökme (Crash) |İşlem kimliği, ana işlem kimliği, kilitlenme iş parçacığı kimliği; uygulama düzeltme eki, kimliği, yapı;  özel durum türü, adres, neden; Karıştırılmış simgeleri ve kayıtları, ikili başlangıç ve bitiş adreslerini, ikili dosya adı ve yolu, cpu türü |
+| Çökmeler (Crash) |İşlem kimliği, ana işlem kimliği, kilitlenme iş parçacığı kimliği; uygulama düzeltme eki, kimliği, yapı;  özel durum türü, adres, neden; Karıştırılmış simgeleri ve kayıtları, ikili başlangıç ve bitiş adreslerini, ikili dosya adı ve yolu, cpu türü |
 | İzleme |**İleti** ve önem düzeyi |
 | Performans sayaçları |İşlemci zamanı, kullanılabilir bellek, isteği hızı, özel durum hızı, işlem özel bayt, g/ç hızı, istek süresi, istek sırası uzunluğu |
 | Kullanılabilirlik |Web testi yanıt kodu, her test adımı, test adını, zaman damgası, başarı, yanıt süresi, test konumunu süresi |

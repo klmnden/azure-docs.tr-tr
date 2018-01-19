@@ -3,8 +3,8 @@ title: "Azure Redis önbelleği Premium katmanına giriş | Microsoft Docs"
 description: "Oluşturma ve Redis kalıcılığı yönetmek, kümeleme Redis ve Premium katmanı Azure Redis önbelleği örnekleri için VNET destek öğrenin"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 38a43756678a3628040b1b995966eff6dd9fb363
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Azure Redis Önbelleği Premium katmanına giriş
 Azure Redis önbelleği verilerinizi Süper hızlı erişim sağlayarak yüksek oranda ölçeklenebilir ve esnek uygulamalar oluşturmanıza yardımcı olan dağıtılmış, yönetilen bir önbelleğidir. 
@@ -32,7 +32,7 @@ Yeni Premium katmanı tüm standart katman özellikleri ve daha iyi performans, 
 
 Boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla bilgi için bkz: [Azure Redis önbelleği SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
-## <a name="redis-data-persistence"></a>Redis veri kalıcılığını
+## <a name="redis-data-persistence"></a>Redis veri kalıcılığı
 Premium katmanı, bir Azure depolama hesabındaki önbellek verilerini sürdürülmesi olanak sağlar. Basic/standart önbellekteki tüm verileri yalnızca bellekte depolanır. Altyapının durumunda sorunlar var. olası veri kaybı olabilir. Redis veri kalıcılığını özelliği, veri kaybına karşı dayanıklılığı artırmak için Premium katmanındaki kullanmanızı öneririz. Azure Redis önbelleği seçeneklerinde RDB ve (yakında) AOF sunar [Redis kalıcılığı](http://redis.io/topics/persistence). 
 
 Kalıcılığın yapılandırılması hakkında yönergeler için bkz. [Premium Azure Redis Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
@@ -40,7 +40,7 @@ Kalıcılığın yapılandırılması hakkında yönergeler için bkz. [Premium 
 ## <a name="redis-cluster"></a>Redis kümesi
 Önbellekleri 53 GB'den büyük oluşturmak veya birden çok Redis düğümünde parça verileri istediğiniz istiyorsanız, Premium katmanında kullanılabilir olduğu kümeleme Redis kullanabilirsiniz. Her düğüm, yüksek kullanılabilirlik için Azure tarafından yönetilen bir birincil/çoğaltma önbelleği çifti oluşur. 
 
-**Redis kümeleme en fazla ölçek ve verimlilik sağlar.** Kümedeki parça (düğümlerin) sayısını artırmak üretilen işi doğrusal olarak artar. Ör. 10 parça P4 kümesi oluşturun, sonra kullanılabilir verimlilik 250 K'dır, * 10 saniye başına 2,5 milyon istek =. Lütfen bakın [Azure Redis önbelleği SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla ayrıntı için.
+**Redis kümeleme en fazla ölçek ve verimlilik sağlar.** Kümedeki parça (düğümlerin) sayısını artırmak üretilen işi doğrusal olarak artar. Eg. 10 parça P4 kümesi oluşturun, sonra kullanılabilir verimlilik 250 K'dır, * 10 saniye başına 2,5 milyon istek =. Lütfen bakın [Azure Redis önbelleği SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla ayrıntı için.
 
 Kümeleme ile çalışmaya başlamak için bkz: [Premium Azure Redis önbelleği için kümeleri yapılandırma](cache-how-to-premium-clustering.md).
 
