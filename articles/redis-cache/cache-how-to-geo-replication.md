@@ -3,8 +3,8 @@ title: "Azure Redis önbelleği için coğrafi çoğaltma yapılandırma | Micro
 description: "Coğrafi bölgeler arasında Azure Redis önbelleği örnekleri çoğaltmak öğrenin."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 332326ce4188385aa6e569c812e16c3daa68bd5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 883683f6af7943fa4da49095c9a15aefd5cfa719
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Azure Redis önbelleği için coğrafi çoğaltma yapılandırma
 
@@ -83,7 +83,7 @@ Coğrafi çoğaltma yapılandırıldıktan sonra bağlantılı önbellek çifti 
 
 1. İki önbellekleri arasındaki bağlantıyı kaldırın ve coğrafi çoğaltma durdurmak için tıklatın **bağlantısını önbellekleri** gelen **coğrafi çoğaltma** dikey.
     
-    ![Önbellekleri bağlantısını Kaldır](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
+    ![Önbellek bağlantılarını kaldır](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
     Bağlantı kaldırma işlemi tamamlandıktan sonra ikincil Önbellek Okuma ve yazma işlemleri için kullanılabilir.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 7ecb3ed41a8a05f3ced2488226fa0380107b1b43
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Veri dönüştürme başlatmak için .net SDK'sını kullanın
 
@@ -79,7 +79,7 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
 
         ![2 proje oluşturma](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Şimdi, mevcut tüm DLL'ler ekleyin [DLL'leri klasörü](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) olarak **başvuruları** oluşturduğunuz projesinde. Dll dosyaları indirmek için aşağıdakileri gerçekleştirin:
+4.  Şimdi, mevcut tüm DLL'ler ekleyin [DLL'leri klasörü](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) olarak **başvuruları** oluşturduğunuz projesinde. Dll dosyaları eklemek için aşağıdakileri gerçekleştirin:
 
     1. Visual Studio'da Git **Görünüm > Çözüm Gezgini**.
     2. Veri dönüştürme uygulama projesi solundaki oka tıklayın. Tıklatın **başvuruları** ve ardından sağ tıklatarak **Başvuru Ekle**.
@@ -117,19 +117,14 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
 
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
-
     ```
-   Kod yapıştırıldıktan sonra çözümü oluşturun. Veri dönüştürme işi örneği başlatmak için kod parçacığını bir ekran görüntüsü aşağıda verilmiştir.
-
-   ![Veri dönüştürme işlemini başlatmak için kod parçacığını](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
-
+   
 7. Hangi iş tanımı çalıştırılması gerektiğini parametrelerini belirtin
 
     ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
-
     ```
 
     (VEYA)
@@ -159,7 +154,6 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    
     ```
 
 8. Başlatma iş tanımı bir veri dönüştürme işi tetiklemek için aşağıdaki kodu ekleyin. Uygun takın **iş tanımı adını**.
@@ -169,12 +163,17 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
+    Console.WriteLine("jobid: ", jobId);
+    Console.ReadLine();
 
     ```
+    Kod yapıştırıldıktan sonra çözümü oluşturun. Veri dönüştürme işi örneği başlatmak için kod parçacığını bir ekran görüntüsü aşağıda verilmiştir.
 
-9. Bu iş StorSimple birim kök dizininin altındaki mevcut eşleşen dosyaları belirtilen kapsayıcı yükler. Bir dosyayı karşıya yüklendiğinde, bir ileti sırasına (aynı depolama hesabındaki kapsayıcı olarak) iş tanımı aynı ada sahip bırakılır. Bu ileti her dosyanın işlenmesi başlatmak için bir tetikleyici olarak kullanılabilir.
+   ![Veri dönüştürme işlemini başlatmak için kod parçacığını](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-10. İş tetiklendi sonra iş için tamamlanma izlemek için aşağıdaki kodu ekleyin.
+9. Bu proje kök dizini eşleşen verileri dönüştüren ve dosya StorSimple birim içinde filtreler ve belirtilen kapsayıcı/dosya paylaşım içine yerleştirir. Bir dosya dönüştürüldüğünde (aynı depolama hesabındaki kapsayıcı/dosya paylaşımı olarak) depolama kuyruğu iş tanımı aynı ada sahip bir ileti eklenir. Bu ileti her dosyanın işlenmesi başlatmak için bir tetikleyici olarak kullanılabilir.
+
+10. İş tetiklendi sonra iş için tamamlanma izlemek için aşağıdaki kodu kullanabilirsiniz. İşi çalıştırma için bu kodu eklemek için zorunlu değildir.
 
     ```
     Job jobDetails = null;

@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver için Azure sanal makineler dağıtımı
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -314,7 +314,7 @@ Azure sanal makinelerin olası en kısa süre içinde ve uzun tedarik döngüler
 
 Bu makalede, sorun giderme ve diğer dağıtım seçenekleri dahil olmak üzere Azure sanal makinelerle (VM'ler) SAP uygulamaları dağıtma adımları kapsar. Bu makalede bilgileri derlemeler [Azure sanal makineleri planlama ve uygulama SAP NetWeaver için][planning-guide]. Aynı zamanda, SAP yükleme belgelerini ve yükleme ve SAP yazılım dağıtma birincil kaynaklar SAP Notlar tamamlar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 SAP yazılım dağıtımı için Azure sanal makinesi ayarlanıyor birden çok adımlar ve kaynaklar içerir. Başlamadan önce Azure sanal makinelerde SAP yazılım yüklemeye yönelik önkoşulları karşıladığından emin olun.
 
 ### <a name="local-computer"></a>Yerel bilgisayar
@@ -890,7 +890,7 @@ Yüklemek ve Azure Gelişmiş izleme uzantısı SAP yapılandırmak için PowerS
 PowerShell kullanarak Azure Gelişmiş izleme uzantısı SAP yüklemek için:
 
 1. Azure PowerShell cmdlet'ini en son sürümünü yüklediğinizden emin olun. Daha fazla bilgi için bkz: [dağıtımı Azure PowerShell cmdlet'lerini][deployment-guide-4.1].  
-2. Aşağıdaki PowerShell cmdlet'ini çalıştırın.
+2. Aşağıdaki PowerShell cmdlet’ini çalıştırın.
     Kullanılabilir ortamlar listesi için çalıştırın `commandlet Get-AzureRmEnvironment`. Genel Azure kullanmak istiyorsanız, ortamınızı olan **AzureCloud**. Çin'de Azure için seçin **AzureChinaCloud**.
 
     ```powershell
@@ -990,7 +990,7 @@ Tüm Azure performans sayaçları için SAP doldurulmuş Azperflib.exe çıktıs
 
 Sonuçta elde edilen değerleri aşağıdaki gibi yorumlar:
 
-| Azperflib.exe sonuç değerleri | Azure sistem durumunu izleme |
+| Azperflib.exe result values | Azure sistem durumunu izleme |
 | --- | --- |
 | **API çağrıları - mevcut değil** | Kullanılabilir değil sayaçları ya da olabilir sanal makine yapılandırması için geçerli veya hatalardır. Bkz: **sistem durumu**. |
 | **Sayaçları toplam - boş** |Aşağıdaki iki Azure depolama sayaçları boş olabilir: <ul><li>Depolama alanından Op gecikme okuma sunucu milisaniye</li><li>Depolama alanından Op gecikme okuma E2E milisaniye</li></ul>Diğer tüm sayaçları değerlere sahip olmalıdır. |
@@ -1055,7 +1055,7 @@ Tüm bu denetimlerin başarısız olursa, ve uzantısı yeniden dağıtma hakkı
 Bazı izleme, veri açıklanan test tarafından belirtildiği şekilde doğru şekilde teslim edilmedi [Gelişmiş Azure izlemesi için SAP için hazırlık denetimi][deployment-guide-5.1], çalışma `Test-AzureRmVMAEMExtension` altyapı ve izleme izleme Azure SAP uzantısı olup olmadığını doğru bir şekilde yapılandırıldığını denetlemek için cmdlet.
 
 1.  Bölümünde açıklandığı gibi Azure PowerShell cmdlet'ini en son sürümünü yüklediğinizden emin olun [dağıtımı Azure PowerShell cmdlet'lerini][deployment-guide-4.1].
-2.  Aşağıdaki PowerShell cmdlet'ini çalıştırın. Kullanılabilir ortamlar listesi için cmdlet'i çalıştırmak `Get-AzureRmEnvironment`. Genel Azure kullanmayı seçin **AzureCloud** ortamı. Çin'de Azure için seçin **AzureChinaCloud**.
+2.  Aşağıdaki PowerShell cmdlet’ini çalıştırın. Kullanılabilir ortamlar listesi için cmdlet'i çalıştırmak `Get-AzureRmEnvironment`. Genel Azure kullanmayı seçin **AzureCloud** ortamı. Çin'de Azure için seçin **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Login-AzureRmAccount -Environment $env

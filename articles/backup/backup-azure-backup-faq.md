@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
 ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.

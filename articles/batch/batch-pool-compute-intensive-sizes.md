@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
 ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch havuzları, RDMA özellikli GPU etkinleştirilmiş veya örnekleri kullanın
 
@@ -75,7 +75,7 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2<br/>Windows Server 2012 veya<br/>Windows Server 2008 R2 (konuk işletim sistemi ailesi) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek,<br/> eşzamanlı görev yürütme devre dışı bırak |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012 veya<br/>Windows Server 2008 R2 (konuk işletim sistemi ailesi) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek,<br/> eşzamanlı görev yürütme devre dışı bırak |
 
 
 
@@ -131,7 +131,7 @@ Bir Linux NC düğümleri havuzunda CUDA uygulamalarını çalıştırmak için 
 | ---- | ---- |
 | **Görüntü türü** | Özel görüntü |
 | **Özel görüntü** | Görüntü adı |
-| **Düğüm Aracısı SKU** | Batch.node.ubuntu 16.04 |
+| **Düğüm Aracısı SKU** | batch.node.ubuntu 16.04 |
 | **Düğüm boyutu** | NC6 standart |
 
 

@@ -3,8 +3,8 @@ title: "Azure Redis önbelleği SSS | Microsoft Docs"
 description: "Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache SSS
 Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin.
@@ -137,7 +137,7 @@ Bu tablodan biz aşağıdaki sonuçları çizebilirsiniz:
 | **Standart önbellek boyutu** | | |**Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**(RPS) saniye başına istek sayısı** |
 | C0 |250 MB |Paylaşılan |5 / 0.625 |600 |
 | C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2.5 GB |2 |200 / 25 |24,000 |
+| C2 |2,5 GB |2 |200 / 25 |24,000 |
 | C3 |6 GB |4 |400 / 50 |49,000 |
 | C4 |13 GB |2 |500 / 62.5 |61,000 |
 | C5 |26 GB |4 |1,000 / 125 |115,000 |
@@ -165,10 +165,10 @@ Evet, Azure Redis önbelleği Azure Bulutu, Azure Çin Bulut ve Microsoft Azure 
 
 | Bulut   | Redis için DNS son eki            |
 |---------|---------------------------------|
-| Genel  | *. redis.cache.windows.net       |
-| ABD Devleti  | *. redis.cache.usgovcloudapi.net |
-| Almanya | *. redis.cache.cloudapi.de       |
-| Çin   | *. redis.cache.chinacloudapi.cn  |
+| Genel  | *.redis.cache.windows.net       |
+| ABD Devleti  | *.redis.cache.usgovcloudapi.net |
+| Almanya | *.redis.cache.cloudapi.de       |
+| Çin   | *.redis.cache.chinacloudapi.cn  |
 
 Azure Redis önbelleği ile diğer Bulutları kullanmayla ilgili konular hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın.
 

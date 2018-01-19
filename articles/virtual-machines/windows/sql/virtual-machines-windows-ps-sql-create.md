@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: db37fbbc0abdafcb56d56809eeb43096617b6da3
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell ile SQL Server sanal makineler oluşturma
 
@@ -27,17 +27,17 @@ Bu kılavuz, Azure PowerShell ile Windows SQL Server Vm'lerinin oluşturmak içi
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu Hızlı Başlangıç, Azure PowerShell modülü 3,6 veya sonraki bir sürümü gerektiriyor. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
+Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
 
 ## <a name="configure-your-subscription"></a>Aboneliğinizi yapılandırın
 
-1. PowerShell'i açın ve Azure hesabınıza erişimi çalıştırarak kurmak **Add-AzureRmAccount** komutu.
+1. PowerShell'i açıp **Add-AzureRmAccount** komutunu çalıştırarak Azure hesabınıza erişim sağlayın.
 
    ```PowerShell
    Add-AzureRmAccount
    ```
 
-1. Kimlik bilgilerinizi girmeniz için oturum açma ekranı görürsünüz. Aynı e-posta ve Azure portalında oturum açmak için kullandığınız parolayı kullanın.
+1. Kimlik bilgilerinizi girebileceğiniz bir oturum açma ekranı görmeniz gerekir. Azure portala giriş yapmak için aynı e-posta adresini ve parolayı kullanın.
 
 ## <a name="define-image-variables"></a>Görüntü değişkenleri tanımlayın
 Yeniden kullanma ve komut dosyası oluşturma işlemini basitleştirmek için bir dizi değişken tanımlayarak başlatın. Uygun gördüğünüz, ancak sağlanan değerler değiştirirken adı uzunlukları ve özel karakterler için ilgili kısıtlamaları adlandırma dikkat parametre değerlerini değiştirin.
@@ -295,7 +295,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
    -Skus $Sku -Version $Version
 ```
 
-## <a name="create-the-sql-vm"></a>SQL VM oluşturma
+## <a name="create-the-sql-vm"></a>SQL VM'sini oluşturma
 Yapılandırma adımlarını tamamladıktan, sanal makine oluşturmak hazır olursunuz. Kullanım [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) biz tanımladığınız değişkenleri kullanarak sanal makine oluşturmak için cmdlet'i.
 
 Sanal makine oluşturmak için aşağıdaki cmdlet'i çalıştırın.
@@ -307,10 +307,10 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 Sanal makine oluşturulur.
 
 > [!NOTE]
-> Bot Tanılama hakkında hatayı yoksayabilirsiniz. Premium depolama hesabı sanal makinenin disk için belirtilen depolama hesabı olduğu için önyükleme tanılaması için standart depolama hesabı oluşturulur.
+> Önyükleme tanılaması ilgili hatayı yoksayabilirsiniz. Premium depolama hesabı sanal makinenin disk için belirtilen depolama hesabı olduğu için önyükleme tanılaması için standart depolama hesabı oluşturulur.
 
-## <a name="install-the-sql-iaas-agent"></a>SQL Iaas aracısı yükleyin
-SQL Server sanal makineleri ile otomatik yönetim özelliklerini desteklemek [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md). Oluşturulduktan sonra yeni VM Aracısı'nı yüklemek için aşağıdaki komutu çalıştırın.
+## <a name="install-the-sql-iaas-agent"></a>SQL Iaas Aracısı'nı yükleme
+SQL Server sanal makineleri ile otomatik yönetim özelliklerini desteklemek [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md). Aracıyı yeni VM'ye yüklemek için oluşturulduktan sonra aşağıdaki komutu çalıştırın.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -318,13 +318,13 @@ SQL Server sanal makineleri ile otomatik yönetim özelliklerini desteklemek [SQ
 
 ## <a name="remove-a-test-vm"></a>Test VM Kaldır
 
-Sürekli olarak çalışan VM ihtiyacınız yoksa, kullanılmadığında durdurarak gereksiz ücretleri önleyebilirsiniz. Aşağıdaki komutu VM durdurur, ancak gelecekte kullanım için kullanılabilir durumda bırakır.
+VM'nin sürekli çalıştırılması gerekmiyorsa, kullanımda olmadığında durdurarak gereksiz ödeme yapmaktan kaçının. Aşağıdaki komut VM'yi durdurur ancak özelliği daha sonra kullanılmak üzere muhafaza eder.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Sanal makine ile ilişkili tüm kaynaklar da kalıcı olarak silebilir **Remove-AzureRmResourceGroup** komutu. Bu sanal makine de kalıcı olarak siler, bu nedenle bu komut dikkatli kullanın.
+Ayrıca **Remove-AzureRmResourceGroup** komutuyla sanal makineyle ilişkilendirilmiş olan tüm kaynakları kalıcı olarak silebilirsiniz. Bu işlem sanal makineyi de kalıcı olarak sildiğinden, bu komutu dikkatli kullanın.
 
 ## <a name="example-script"></a>Örnek komut dosyası
 Aşağıdaki komut dosyası, Bu öğretici için tam PowerShell komut dosyası içerir. İle kullanılacak Azure aboneliğini Kurulum zaten sahip olduğunuzu varsayar **Add-AzureRmAccount** ve **Select-AzureRmSubscription** komutları.

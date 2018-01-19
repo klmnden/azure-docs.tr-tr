@@ -3,8 +3,8 @@ title: "VM'ler ve rol örnekleri için çözünürlük"
 description: "Azure Iaas, farklı bulut Hizmetleri, Active Directory ve kendi DNS sunucusu kullanılarak arasındaki karma çözümleri için çözüm senaryoları adı "
 services: virtual-network
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: carmonm
+author: jimdial
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
-ms.author: telmos
-ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jdial
+ms.openlocfilehash: 5a298f535308cff90ddd249594b7bb5e36909867
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>VM’ler ve Rol Örnekleri için Ad Çözümleme
 Azure Iaas ve PaaS karma çözümleri barındırmak için nasıl kullanacağınız bağlı olarak, sanal makineleri ve birbirleri ile iletişim kurmak için oluşturduğunuz rol örneklerine izin gerekebilir. Bu iletişim, IP adreslerini kullanarak yapılabilir rağmen kolay anımsanacak ve değiştirmeyin adlar kullanmak çok daha kolaydır. 
@@ -32,9 +32,10 @@ Kullandığınız ad çözümlemesi türünün nasıl VM'ler ve rol örnekleri b
 
 **Aşağıdaki tabloda senaryoları ve karşılık gelen ad çözümlemesi çözümleri gösterilmektedir:**
 
-| **Senaryo** | **Çözüm** | **Son eki** |
+| **Senaryo** | **Çözüm** | **Suffix** |
 | --- | --- | --- |
 | Rol örnekleri veya aynı bulut hizmeti ya da sanal ağ içinde yer alan VM'ler arasında ad çözümleme |[Azure tarafından sağlanan ad çözümlemesi](#azure-provided-name-resolution) |ana bilgisayar adı veya FQDN |
+| Ad çözümlemesi (Web uygulaması, işlev, Bot, vb.) bir Azure uygulama hizmeti VNET tümleştirme rol örnekleri ya da sanal makineleri kullanarak aynı sanal ağda bulunan |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme.  Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server) |Yalnızca FQDN |
 | Rol örnekleri veya farklı sanal ağlarda yer alan VM'ler arasında ad çözümleme |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme.  Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server) |Yalnızca FQDN |
 | Şirket içi bilgisayar hizmeti adları ve rol örnekleri veya azure'da VM çözümleme |Müşteri tarafından yönetilen DNS sunucuları (örneğin şirket içi etki alanı denetleyicisi, yerel salt okunur etki alanı denetleyicisi veya bölge aktarımları kullanarak eşitlenen bir DNS ikincil).  Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server) |Yalnızca FQDN |
 | Şirket içi bilgisayarlardan Azure ana bilgisayar adı çözümlemesi |İletme sorguları bir müşteri tarafından yönetilen DNS proxy sunucusuna karşılık gelen sanal ağ proxy sunucusunu sorgular için Azure çözümlemesi için iletir. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server) |Yalnızca FQDN |
@@ -42,7 +43,7 @@ Kullandığınız ad çözümlemesi türünün nasıl VM'ler ve rol örnekleri b
 | Sanal makineler veya sanal ağ içinde olmayan farklı bulut Hizmetleri bulunan rol örnekleri arasında ad çözümleme |Geçerli değil. VM'ler ve rol örnekleri farklı bulut hizmetleri arasında bağlantı sanal ağ dışında desteklenmiyor. |yok |
 
 ## <a name="azure-provided-name-resolution"></a>Azure tarafından sağlanan ad çözümlemesi
-Genel DNS adlarını çözümlenmesi yanı sıra, Azure Vm'leri ve aynı sanal ağda veya Bulut hizmeti içinde bulunan rol örnekleri için dahili ad çözümlemesi sağlar.  (Ana bilgisayar adı tek başına yeterli olacak şekilde) VM'ler/örnekleri bir bulut hizmetinde aynı DNS sonekine paylaşır ancak FQDN farklı bulut hizmetleri arasında adları çözümlemek için gerektiği şekilde Klasik sanal ağlar farklı bulutta Hizmetleri farklı DNS sonekleri.  Resource Manager dağıtım modelinde sanal ağlardaki, DNS son eki (FQDN gerekli olmadığı için) sanal ağ arasında tutarlıdır ve DNS adlarını NIC ve VM'ler için atanabilir. Azure tarafından sağlanan ad çözümlemesi herhangi bir yapılandırma gerektirmez rağmen tüm dağıtım senaryoları için uygun seçeneği yukarıdaki tabloda görüldüğü gibi değil.
+Genel DNS adlarını çözümlenmesi yanı sıra, Azure Vm'leri ve aynı sanal ağda veya Bulut hizmeti içinde bulunan rol örnekleri için dahili ad çözümlemesi sağlar.  (Ana bilgisayar adı tek başına yeterli olacak şekilde) VM'ler/örnekleri bir bulut hizmetinde aynı DNS sonekine paylaşır ancak FQDN farklı bulut hizmetleri arasında adları çözümlemek için gerektiği şekilde Klasik sanal ağlar farklı bulutta Hizmetleri farklı DNS sonekleri.  Resource Manager dağıtım modelinde sanal ağlardaki, DNS son eki (FQDN gerekli olmadığı için) sanal ağ arasında tutarlıdır ve DNS adlarını NIC ve VM'ler için atanabilir. Azure tarafından sağlanan ad çözümlemesi herhangi bir yapılandırma gerektirmez rağmen tüm dağıtım senaryoları için uygun seçim önceki tabloda görüldüğü gibi değil.
 
 > [!NOTE]
 > Web ve çalışan rolleri söz konusu olduğunda, Azure Hizmet Yönetimi REST API kullanarak rol adı ile örnek numarasını temel alan rol örneklerinin iç IP adreslerini de erişebilirsiniz. Daha fazla bilgi için bkz: [Hizmet Yönetimi REST API Başvurusu](https://msdn.microsoft.com/library/azure/ee460799.aspx).
@@ -65,7 +66,7 @@ Genel DNS adlarını çözümlenmesi yanı sıra, Azure Vm'leri ve aynı sanal a
 * Kendi kayıtları el ile kaydettirilemedi.
 * WINS ve NetBIOS desteklenmez. (Windows Gezgini'nde, VM'lerin göremiyorum.)
 * Ana bilgisayar adları DNS uyumlu olması gerekir (yalnızca 0-9, a-z kullanmanız gerekir ve '-' ve başlayamaz veya bitemez bir '-'. RFC 3696 bölümüne 2 bakın.)
-* DNS sorgu trafiğinin her VM için kısıtlanır. Bu, çoğu uygulamayı etkileyen döndürmemelidir.  İstek azaltma gözlenir, istemci tarafı önbelleğe alma etkin olduğundan emin olun.  Daha fazla ayrıntı için bkz: [en sağlanan Azure name resolution alma](#Getting-the-most-from-Azure-provided-name-resolution).
+* DNS sorgu trafiğinin her VM için kısıtlanır. Bu, çoğu uygulamayı etkileyen döndürmemelidir.  İstek azaltma gözlenir, istemci tarafı önbelleğe alma etkin olduğundan emin olun.  Daha fazla bilgi için bkz: [en sağlanan Azure name resolution alma](#Getting-the-most-from-Azure-provided-name-resolution).
 * Yalnızca ilk 180 bulut hizmetlerinde VM'ler, her bir sanal ağı Klasik dağıtım modelinde kaydedilir. Bu sanal ağlarda Resource Manager dağıtım modelleri için geçerli değil.
 
 ### <a name="getting-the-most-from-azure-provided-name-resolution"></a>En sağlanan Azure name resolution alma
@@ -75,7 +76,7 @@ Her DNS sorgusu, ağ üzerinden gönderilmesi gerekiyor.  İstemci tarafı önbe
 
 Windows DNS İstemcisi varsayılan yerleşik bir DNS önbelleği sahiptir.  Varsayılan olarak önbelleğe alma distro'lar eklemeniz gerekmez, bazı Linux biri (olmadığından yerel bir önbellek zaten denetledikten sonra) her bir Linux VM eklenmesi önerilir.
 
-Bir dizi farklı DNS önbelleğe alma paketleri, örneğin dnsmasq vardır, en yaygın distro'lar üzerinde dnsmasq yüklemek için adımlar şunlardır:
+Kullanılabilir paketler önbelleğe alma farklı DNS mevcuttur. Örneğin, dnsmasq. Aşağıdaki adımları dnsmasq üzerinde en yaygın distro'lar yükleme listesi:
 
 * **Ubuntu (kullandığı resolvconf)**:
   * yalnızca dnsmasq paketini ("sudo get apt yükleme dnsmasq") yükleyin.
@@ -102,9 +103,9 @@ Bir dizi farklı DNS önbelleğe alma paketleri, örneğin dnsmasq vardır, en y
 DNS öncelikle bir UDP protokolüdür.  UDP protokolünü ileti teslimi garanti etmez gibi yeniden deneme mantığı DNS protokolün kendini ele alınır.  Her DNS istemcisi (işletim sistemi) oluşturucuları tercih bağlı olarak farklı yeniden deneme mantığı sergilemesine:
 
 * Windows işletim sistemlerinin 1 saniye ve daha sonra tekrar başka bir 2, 4 ve başka sonra 4 saniye yeniden deneyin. 
-* Varsayılan Linux kurulumu yeniden denemelerden sonra 5 saniye.  5 kez 1 ikinci aralıklarla yeniden denemek için bunu değiştirmek için önerilir.  
+* Varsayılan Linux kurulumu yeniden denemelerden sonra beş saniyede.  5 kez 1 ikinci aralıklarla yeniden denemek için bunu değiştirmek için önerilir.  
 
-Geçerli ayarları Linux VM'de 'kat /etc/resolv.conf' ve 'Seçenekler' satırında görünümünü örneğin denetlemek için:
+Geçerli bir Linux VM ayarlarını denetleyin ve sonra 'Seçenekler' satırında, örneğin aramak için 'kat /etc/resolv.conf' komutunu kullanın:
 
     options timeout:1 attempts:5
 
@@ -121,13 +122,13 @@ Resolv.conf dosyası genellikle otomatik olarak oluşturulan ve düzenlenmemelid
   * 'ağ yeniden hizmet' Çalıştır güncelleştirmek için
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Kendi DNS sunucu kullanılarak ad çözümleme
-Ad çözümleme gereksinimlerinizi Azure tarafından sağlanan örneğin ne zaman özelliklerini Active Directory etki alanları kullanarak Git veya sanal ağlar (vnet'ler) arasında DNS çözümlemesi gerektiğinde bir dizi durum vardır.  Bu senaryolarını kapsamak üzere Azure kendi DNS sunucularını kullanmak yeteneği sağlar.  
+Ad çözümleme gereksinimlerinizi Azure tarafından sağlanan örneğin ne zaman özelliklerini Active Directory etki alanları kullanarak Git veya sanal ağlar arasında DNS çözümlemesi gerektiğinde bir dizi durum vardır.  Bu senaryolarını kapsamak üzere Azure kendi DNS sunucularını kullanmak yeteneği sağlar.  
 
 Bir sanal ağ içinde DNS sunucuları, bu sanal ağ içinde ana bilgisayar adları çözümlemek için Azure'nın özyinelemeli Çözümleyicileri için DNS sorgularını iletebilirsiniz.  Örneğin, bir etki alanı denetleyicisi (DC) Azure'da çalışan kendi etki alanları için DNS sorgularını yanıtlamak ve diğer tüm sorgular için Azure iletebilir.  Bu, hem (DC) aracılığıyla şirket içi kaynakları hem de Azure tarafından sağlanan ana bilgisayar adları (aracılığıyla ileticisi) görmek sanal makineleri sağlar.  Azure'nın özyinelemeli çözümleyiciler erişimi 168.63.129.16 sanal IP sağlanır.
 
-DNS iletme de ağlar arası vnet DNS çözümlemesi sağlar ve Azure tarafından sağlanan ana bilgisayar adları çözümlemek şirket içi makinelerinizi sağlar.  Bir sanal makinenin ana bilgisayar adı çözümlemek için DNS sunucusu VM aynı sanal ağında bulunmalıdır ve Azure iletme hostname sorguları yapılandırılmış.  DNS son eki her bir vnet'teki farklı olduğundan, doğru vnet çözümlemesi için DNS sorguları göndermek için koşullu iletme kurallarını kullanabilirsiniz.  Aşağıdaki görüntü iki sanal ağlar ve bu yöntemi kullanarak ağlar arası vnet DNS çözümlemesi yaparken bir şirket içi ağ gösterir.  Bir örnek DNS ileticisi kullanılabilir [Azure hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) ve [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
+DNS iletme de arası sanal ağ DNS çözümlemesi sağlar ve Azure tarafından sağlanan ana bilgisayar adları çözümlemek şirket içi makinelerinizi sağlar.  Bir sanal makinenin ana bilgisayar adı çözümlemek için DNS sunucusu VM aynı sanal ağında bulunmalıdır ve Azure iletme hostname sorguları yapılandırılmış.  DNS son eki her bir vnet'teki farklı olduğundan, doğru vnet çözümlemesi için DNS sorguları göndermek için koşullu iletme kurallarını kullanabilirsiniz.  Aşağıdaki görüntü iki sanal ağlar ve sanal arası ağ bu yöntemi kullanarak DNS çözümlemesi yaparken bir şirket içi ağ gösterir.  Bir örnek DNS ileticisi kullanılabilir [Azure hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) ve [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
-![Ağlar arası vnet DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
+![Arası sanal ağ DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
 Azure tarafından sağlanan ad çözümlemesi, bir iç DNS soneki kullanırken (*. internal.cloudapp.net) DHCP kullanarak her bir VM için sağlanır.  Ana bilgisayar adı kayıt internal.cloudapp.net bölgede olduğundan bu ana bilgisayar adı çözümlemesi sağlar.  Diğer DNS mimarileri (örneğin, etki alanına katılmış senaryoları) ile uğratan çünkü kendi ad çözümlemesi çözüm kullanırken, IDN'ler soneki VM'ler için sağlanmaz.  Bunun yerine bir çalışmayan yer tutucu (reddog.microsoft.com) sağlar.  
 
@@ -170,8 +171,8 @@ Resource Manager dağıtım modeli:
 
 * [Bir sanal ağ oluştur veya güncelleştir](https://msdn.microsoft.com/library/azure/mt163661.aspx)
 * [Bir ağ arabirimi kartı güncelle](https://msdn.microsoft.com/library/azure/mt163668.aspx)
-* [Yeni-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
-* [AzureRmNetworkInterface yeni](https://msdn.microsoft.com/library/mt619370.aspx)
+* [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
+* [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
 
 Klasik dağıtım modeli:
 

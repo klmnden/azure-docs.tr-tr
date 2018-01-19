@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Öğretici: Azure Active Directory Tümleştirme Amazon Web Hizmetleri (AWS)
 
@@ -116,8 +116,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     | Öznitelik Adı  | Öznitelik Değeri | Ad Alanı |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | User.userPrincipalName | https://aws.Amazon.com/SAML/Attributes |
-    | Rol            | User.assignedroles |  https://aws.Amazon.com/SAML/Attributes |
+    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Rol            | User.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >AWS konsolundan tüm rolleri getirmek için Azure AD'de kullanıcı sağlamayı yapılandırmanız gerekir. Hazırlama adımları bakın.
@@ -131,6 +131,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
 
     c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+
+    d. İçinde **Namespace** metin kutusuna, ilgili satır için gösterilen ad alanı değeri yazın.
     
     d. **Tamam**’a tıklayın.
 
@@ -230,19 +232,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Yeni ilke oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Tüm rolleri AWS hesaplarından getirmek için kendi bir ilke oluşturun. İçinde **kendi ilke oluşturmak** bölümüne tıklatın **seçin** düğmesi.
-    
+25. Aşağıdaki adımları gerçekleştirerek tüm rolleri AWS hesaplarından getirmek için kendi ilke oluştur:
+
     ![Yeni ilke oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Yeni ilke, aşağıdaki adımları gerçekleştirerek tanımlayın:
+    a. İçinde **"ilkesi oluşturma"** bölümüne tıklatın **"JSON"** sekmesi.
 
-    ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. Sağlamak **ilke adı** olarak **AzureAD_SSOUserRole_Policy**.
-
-    b. Size sağlayabilir **açıklama** İlkesi **AWS hesaplarından rolleri getirmek için bu ilkeyi sağlayacak**.
-    
-    c. İlke belgede ekleme JSON aşağıda.
+    b. İlke belgede ekleme JSON aşağıda.
     
     ```
     
@@ -271,13 +267,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     }
     
     ```
+
+    c. Tıklayın **gözden geçirme İlkesi düğmesi** İlkesi doğrulanacak.
+
+    ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Tanımlamak **yeni ilke** aşağıdaki adımları gerçekleştirerek:
+
+    ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. Sağlamak **ilke adı** olarak **AzureAD_SSOUserRole_Policy**.
+
+    b. Size sağlayabilir **açıklama** İlkesi **AWS hesaplarından rolleri getirmek için bu ilkeyi sağlayacak**.
     
-    d. Üzerinde kontrol ettiğinizden emin olun **ilkesi düzenleme için biçimlendirme kullanmak**.
-    
-    e. Tıklayın **doğrulama İlkesi** altındaki düğmesini.
-    
-    f. Tıklatabilirsiniz sonra ilkeyi doğru doğrulanmış sonra **ilke Oluştur** düğmesi.
-    
+    c. Tıklayın **"İlke oluştur"** düğmesi.
+        
 27. Yeni bir kullanıcı hesabı, aşağıdaki adımları gerçekleştirerek AWS IAM hizmetinde oluşturun:
 
     a. Tıklayın **kullanıcılar** AWS IAM konsolundaki gezinti.

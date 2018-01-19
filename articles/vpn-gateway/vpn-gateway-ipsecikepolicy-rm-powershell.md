@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN veya VNet-VNet bağlantıları için IPSec/IKE ilkesi yapılandırma
 
@@ -54,7 +54,7 @@ Bu bölümde oluşturmak ve bir S2S VPN veya VNet-VNet bağlantısı IPSec/IKE �
 
 Bu makaledeki yönergeleri ayarlayın ve aşağıdaki çizimde gösterildiği gibi IPSec/IKE ilkelerini yapılandırmanıza yardımcı olur:
 
-![IPSec IKE İlkesi](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Desteklenen bölüm 2 - şifreleme algoritmaları ve anahtar gücü
 
@@ -64,7 +64,7 @@ Aşağıdaki tabloda, desteklenen şifreleme algoritmaları ve anahtar gücü ya
 | ---  | --- 
 | IKEv2 Şifrelemesi | AES256, AES192, AES128, DES3, DES  
 | IKEv2 Bütünlüğü  | SHA384, SHA256, SHA1, MD5  |
-| DH Grubu         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, yok |
+| DH Grubu         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
 | IPsec Şifrelemesi | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
 | IPsec Bütünlüğü  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS Grubu        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Hiçbiri 
@@ -194,21 +194,14 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 Aşağıdaki örnek komut dosyası için aşağıdaki algoritmaları ve parametrelerine sahip bir IPSec/IKE ilkesi oluşturur:
 
-* Ikev2: AES256, SHA384 DHGroup24
-* IPSec: AES256, SHA256, PFS hiçbiri, SA ömrü 7200 saniye ve 102400000KB
+* IKEv2: AES256, SHA384, DHGroup24
+* IPSec: AES256, SHA256, PFS hiçbiri, SA ömrü 14400 saniye ve 102400000KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-IPSec için GCMAES kullanıyorsanız, aynı GCMAES algoritması ve anahtar uzunluğu IPSec şifreleme ve bütünlük için örneğin kullanmanız gerekir:
-
-* Ikev2: AES256, SHA384 DHGroup24
-* IPSec: **GCMAES256, GCMAES256**, PFS None, SA ömrü 7200 saniye & 102400000 KB
-
-```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
-```
+IPSec için GCMAES kullanırsanız, IPSec şifreleme ve bütünlük için aynı GCMAES algoritması ve anahtar uzunluğu kullanmalısınız. Örneğin yukarıdaki ilgili parametreleri olacaktır "-IpsecEncryption GCMAES256 - IpsecIntegrity GCMAES256" GCMAES256 kullanırken.
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. IPSec/IKE ilkesiyle S2S VPN bağlantısı oluşturun
 
@@ -287,11 +280,11 @@ S2S VPN bağlantısı için benzer bir IPSec/IKE ilkesi oluşturun sonra yeni bi
 #### <a name="1-create-an-ipsecike-policy"></a>1. Bir IPSec/IKE ilkesi oluşturun
 
 Aşağıdaki örnek komut dosyası için aşağıdaki algoritmaları ve parametrelerine sahip başka bir IPSec/IKE ilke oluşturur:
-* Ikev2: AES128, SHA1, DHGroup14
-* IPSec: GCMAES128, GCMAES128, PFS14, SA ömrü 7200 saniye ve 4096KB
+* IKEv2: AES128, SHA1, DHGroup14
+* IPsec: GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
 
 ```powershell
-$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 4096
+$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. VNet-VNet bağlantıları ile IPSec/IKE ilkesi oluşturma
@@ -312,7 +305,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 Bu adımları tamamladıktan sonra birkaç dakika içerisinde bağlantı kurulur ve ' den itibaren gösterildiği gibi aşağıdaki ağ topolojisi gerekir:
 
-![IPSec IKE İlkesi](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>Bölüm 5 - bir bağlantı için güncelleştirme IPSec/IKE İlkesi
@@ -339,11 +332,11 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-Varsa son komut bağlantısında yapılandırılmış geçerli IPSec/IKE İlkesi listeler. Bağlantı için aşağıdaki örnek çıktı verilmiştir:
+Varsa son komut bağlantısında yapılandırılmış geçerli IPSec/IKE İlkesi listeler. Bağlantı için örnek bir çıktı verilmiştir:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
 IpsecEncryption     : AES256
 IpsecIntegrity      : SHA256
 IkeEncryption       : AES256
@@ -363,7 +356,7 @@ $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
-$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup None -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
+$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
@@ -384,13 +377,13 @@ $connection6.IpsecPolicies
 Aşağıdaki örnekte gösterildiği gibi son satırından çıktı görmeniz gerekir:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
-IpsecEncryption     : GCMAES128
-IpsecIntegrity      : GCMAES128
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
 IkeEncryption       : AES128
 IkeIntegrity        : SHA1
-DhGroup             : DHGroup14--
+DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 

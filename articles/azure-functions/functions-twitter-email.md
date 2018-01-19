@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps ile tümleşen bir işlev oluşturun
 
@@ -40,7 +40,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Mantıksal uygulama işlevine bağlayın.
 > * İşlev yanıttan dayalı bir e-posta gönderin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 + Etkin bir [Twitter](https://twitter.com/) hesabı. 
 + Bir [Outlook.com](https://outlook.com/) hesap (bildirim göndermek için).
@@ -90,7 +90,7 @@ Bilişsel hizmetler API'ları ayrı kaynaklar olarak Azure içinde kullanılabil
 
     ![HTTP tetikleyicisini seçin](./media/functions-twitter-email/select-http-trigger-portal.png)
 
-3. Tür a **adı** işlevinizi için seçin `Function` için  **[kimlik doğrulama düzeyi](functions-bindings-http-webhook.md#http-auth)**ve ardından **oluşturma**. 
+3. Tür a **adı** işlevinizi için seçin `Function` için ** [kimlik doğrulama düzeyi](functions-bindings-http-webhook.md#http-auth)**ve ardından **oluşturma**. 
 
     ![HTTP tetiklenen bir işlev oluşturun](./media/functions-twitter-email/select-http-trigger-portal-2.png)
 
@@ -234,7 +234,7 @@ Bir e-posta olarak düşünceleri puanlanır zaman tetiklemek için iş akışı
     | **Konu** | Negatif tweet düşünceleri algılandı  | E-posta bildirimi konu satırı.  |
     | **Gövde** | Tweet metin, konumu | Tıklatın **Tweet metin** ve **konumu** parametreleri. |
 
-5.  **Kaydet** düğmesine tıklayın.
+5.  **Kaydet**’e tıklayın.
 
 İş akışı tamamlandığına göre mantıksal uygulama etkinleştirin ve iş yerindeki işlevine bakın.
 

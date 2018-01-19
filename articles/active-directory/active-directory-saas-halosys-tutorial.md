@@ -1,24 +1,24 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Halosys | Microsoft Docs"
-description: "Çoklu oturum açma, otomatik sağlama ve daha fazla etkinleştirmek için Azure Active Directory ile Halosys kullanmayı öğrenin!"
+description: "Çoklu oturum açma Azure Active Directory ile Halosys arasında yapılandırmayı öğrenin."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f0ea14d5a7b954c08fb37f22d2c2fd8fe0618cde
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Öğretici: Azure Active Directory Tümleştirme Halosys ile
 
@@ -26,9 +26,9 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile Halosys tümleştirmek ö
 
 Halosys Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Halosys erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Halosys (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Halosys erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için Halosys (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
@@ -37,27 +37,21 @@ Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek
 Azure AD tümleştirme Halosys ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir Halosys çoklu oturum açma etkin abonelik
+- Bir Halosys çoklu oturum açma abonelik etkin
 
-
-> [!NOTE] 
+> [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
-
 
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
-- Bu gerekli olmadığı sürece, üretim ortamınızın kullanmamanız gerekir.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
-
+- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
-
-Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
 1. Galeriden Halosys ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-
 
 ## <a name="adding-halosys-from-the-gallery"></a>Galeriden Halosys ekleme
 Azure AD Halosys tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Halosys eklemeniz gerekir.
@@ -66,150 +60,150 @@ Azure AD Halosys tümleştirilmesi yapılandırmak için yönetilen SaaS uygulam
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi][3]
 
-6. Arama kutusuna **Halosys**.
+4. Arama kutusuna **Halosys**seçin **Halosys** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_01.png)
-    
-7. Sonuçlar bölmesinde seçin **Halosys**ve ardından **tam** uygulama eklemek için.
+    ![Sonuçlar listesinde Halosys](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_addfromgallery.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Halosys sınayın.
 
 Tekli çalışmaya oturum için Azure AD Halosys karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Halosys ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** Halosys içinde.
+Halosys içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
 Yapılandırma ve Azure AD çoklu oturum açma Halosys ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Halosys test kullanıcısı oluşturma](#creating-a-halosys-test-user)**  - Britta Simon, karşılık gelen her, Azure AD gösterimine bağlı Halosys sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Halosys test kullanıcısı oluşturma](#create-a-halosys-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Halosys sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma portalında etkinleştirin ve çoklu oturum açma Halosys uygulamanızda yapılandırın.
-
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Halosys uygulamanızda yapılandırın.
 
 **Azure AD çoklu oturum açma ile Halosys yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **SCC yaşam döngüsü** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Halosys** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_samlbase.png)
 
 3. Üzerinde **Halosys etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
-    1. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`
 
-    2. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
-    | |
-    |--|--|
-    | `https://bs1.hs.com/<entity>`|
-    | `https://lifecycle.hs.com/<entity>`|
-    
+    ![Halosys etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_url.png)
+
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company-name>.halosys.com`
+
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company-name>.halosys.com/<instance name>`
+
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [SCC yaşam döngüsü istemci destek ekibi](mailto:lifecycle.support@scc.com) bu değerleri almak için. 
-         
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, select **meta veri XML** altında **karşıdan**ve meta veri dosyası, bilgisayarınıza kaydedin.
-   
-5. Çoklu oturum açma, uygulamanız için yapılandırılmış özelliğini almak için Halosys Destek ekibine başvurun ve aşağıdaki verin:
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Halosys destek ekibi](http://halosys.com/halosys#contact) bu değerleri almak için.
+ 
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
-  * İndirilen **meta veri dosyası**
-  * **SAML SSO URL'si**
-    
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_certificate.png) 
 
-  >[!NOTE]
-  >Çoklu oturum açma Halosys destek ekibi tarafından etkinleştirilmesi gerekir.
+5. Tıklatın **kaydetmek** düğmesi.
 
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-halosys-tutorial/tutorial_general_400.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde, bir test kullanıcı Britta Simon adlı portalında oluşturun.
+6. Üzerinde **Halosys yapılandırma** 'yi tıklatın **yapılandırma Halosys** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
+    ![Halosys yapılandırma](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_configure.png) 
 
-![Azure AD Kullanıcı oluşturma][20]
+7. Çoklu oturum açma yapılandırmak için **Halosys** yan, indirilen göndermek için ihtiyacınız **meta veri XML** ve **SAML çoklu oturum açma hizmet URL'si** için [Halosys desteği Takım](http://halosys.com/halosys#contact). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+
+> [!TIP]
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-halosys-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-halosys-tutorial/create_aaduser_02.png)
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    ![Ekle düğmesi](./media/active-directory-saas-halosys-tutorial/create_aaduser_03.png)
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-halosys-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
+  
+### <a name="create-a-halosys-test-user"></a>Halosys test kullanıcısı oluşturma
 
+Bu bölümde, Halosys içinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Halosys destek ekibi](http://halosys.com/halosys#contact) Halosys platform kullanıcıları eklemek için. Kullanıcıların gerekir ve çoklu oturum açma kullanmadan önce etkinleştirildi
 
-### <a name="creating-a-halosys-test-user"></a>Halosys test kullanıcısı oluşturma
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Halosys içinde Britta Simon adlı bir kullanıcı oluşturun. Lütfen Halosys platform kullanıcıları eklemek için Halosys destek ekibi ile çalışın.
+Bu bölümde, Britta Halosys için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
-
-Bu bölümde, Britta Halosys için kendi erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
-
-![Kullanıcı atama][200] 
+![Kullanıcı rolü atayın][200] 
 
 **Halosys için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure Portalı'ndaki uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları.**
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
 2. Uygulamalar listesinde **Halosys**.
 
+    ![Uygulamalar listesinde Halosys bağlantı](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_app.png)  
+
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Ekleme atama bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+    
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Halosys parçasında tıklattığınızda, otomatik olarak Halosys uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
-
+Erişim paneli Halosys parçasında tıklattığınızda, otomatik olarak Halosys uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -217,22 +211,18 @@ Erişim paneli Halosys parçasında tıklattığınızda, otomatik olarak Halosy
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 
+
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
- 
+[200]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_203.png
+

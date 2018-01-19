@@ -1,6 +1,6 @@
 ---
-title: "Görünüm Tasarımcısı'nda OMS günlük analizi için başvuru döşeme | Microsoft Docs"
-description: "Görünüm Tasarımcısı'nda günlük analizi, OMS deposundaki verileri farklı görselleştirmesini içeren OMS konsolunda özel görünümler oluşturmanıza olanak sağlar. Bu makalede her özel görünümlerde kullanılabilir döşeme ayarlarını bir başvuru sağlar."
+title: "Görünüm Tasarımcısı'nda Azure günlük analizi için başvuru döşeme | Microsoft Docs"
+description: "Görünüm Tasarımcısı'nda günlük analizi veri günlük analizi çalışma alanınızdaki farklı görsel öğeleri içeren Azure portalında özel görünümler oluşturmanıza olanak sağlar. Bu makalede her özel görünümlerde kullanılabilir döşeme ayarlarını bir başvuru sağlar."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Günlük analizi Görünüm Tasarımcısı döşeme başvurusu
-Görünüm Tasarımcısı'nda günlük analizi, OMS deposundaki verileri farklı görselleştirmesini içeren OMS konsolunda özel görünümler oluşturmanıza olanak sağlar. Bu makalede her özel görünümlerde kullanılabilir döşeme ayarlarını bir başvuru sağlar.
+Görünüm Tasarımcısı'nda günlük analizi veri günlük analizi çalışma alanınızdaki farklı görsel öğeleri içeren Azure portalında özel görünümler oluşturmanıza olanak sağlar. Bu makalede her özel görünümlerde kullanılabilir döşeme ayarlarını bir başvuru sağlar.
 
 Görünüm Tasarımcısı için kullanılabilir diğer makaleler şunlardır:
 
@@ -33,7 +33,7 @@ Görünüm Tasarımcısı için kullanılabilir diğer makaleler şunlardır:
 
 Aşağıdaki tabloda döşeme görünümü Tasarımcısı'nda kullanılabilir farklı türlerini listeler.  Aşağıdaki bölümler her döşeme türü ayrıntı ve bunların özelliklerini açıklar.
 
-| Döşeme | Açıklama |
+| Kutucuk | Açıklama |
 |:--- |:--- |
 | [Sayı](#number-tile) |Bir sorgu ndeki kayıtları sayısını gösteren tek bir sayı. |
 | [İki sayı](#two-numbers-tile) |İki farklı sorgular kayıtları sayısını gösteren iki tek sayı. |
@@ -92,7 +92,7 @@ Aşağıdaki tabloda döşeme görünümü Tasarımcısı'nda kullanılabilir fa
 | Açıklama |Döşeme adla görüntülenecek metin. |
 | **Halka** | |
 | Sorgu |Halka için çalıştırılacak sorgu.  İlk özelliği, bir metin değeri ve ikinci özelliğini sayısal bir değer olmalıdır.  Bu genellikle kullanan bir sorgu olur **ölçü** sonuçları özetlemek için anahtar sözcüğü. |
-| **Halka** |**> Merkezi** |
+| **Halka** |**> Center** |
 | Metin |Halka içindeki değeri altında görüntülenecek metin. |
 | İşlem |Tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<br><br>-TOPLA: tüm kayıtları değerleri özellik değeriyle ekleyin.<br>-Yüzdesi: Yüzdesini kayıtlardan toplanan değerler tüm kayıtları toplanan değerleriyle karşılaştırılan özellik değerine sahip. |
 | Merkezi işleminde kullanılan sonuç değerleri |İsteğe bağlı olarak bir veya daha fazla değer eklemek için artı işaretine tıklayın.  Sorgu sonuçlarını belirttiğiniz özellik değerlerini kayıtlarıyla sınırlı olacaktır.  Hiçbir değer eklediyseniz, tüm kayıtları sorguda dahil edilir. |

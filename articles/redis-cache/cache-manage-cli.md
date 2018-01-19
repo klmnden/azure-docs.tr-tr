@@ -3,8 +3,8 @@ title: "Azure CLI kullanarak Azure Redis önbelleği yönetme | Microsoft Docs"
 description: "Herhangi bir platformda Azure CLI yükleme, nasıl Azure hesabınıza bağlamak için kullanılır ve oluşturmak ve Redis önbelleği Azure CLI üzerinden yönetmek nasıl öğrenin."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Oluşturma ve Azure komut satırı arabirimi (Azure CLI) kullanarak Azure Redis önbelleği yönetme
 > [!div class="op_single_selector"]
@@ -47,19 +47,19 @@ Aşağıdaki özellikleri oluşturma ve Redis önbelleği örnekleri güncelleş
 
 | Özellik | Anahtar | Açıklama |
 | --- | --- | --- |
-| ad |-n,--adı |Redis önbelleği adı. |
+| ad |-n, --name |Redis önbelleği adı. |
 | kaynak grubu |-g,--kaynak-grubu |Kaynak grubunun adı. |
-| location |-l,--konum |Önbellek oluşturmak için konum. |
-| boyut |-z,--boyutu |Redis önbelleği boyutu. Geçerli değerler: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| SKU |-x,--sku |SKU redis. Şunlardan biri olmalıdır: [temel, standart, Premium] |
+| location |-l, --location |Önbellek oluşturmak için konum. |
+| boyut |-z, --size |Redis önbelleği boyutu. Geçerli değerler: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| SKU |-x, --sku |Redis SKU. Şunlardan biri olmalıdır: [temel, standart, Premium] |
 | EnableNonSslPort |-e,--enable-olmayan-ssl-bağlantı noktası |Redis önbelleği EnableNonSslPort özelliği. Bu bayrak olmayan SSL bağlantı noktası önbelleğiniz için etkinleştirmek istiyorsanız ekleyin |
 | Yapılandırma redis |-c,--redis-yapılandırma |Yapılandırma redis. Yapılandırma anahtarları ve değerleri burada biçimlendirilmiş JSON dizesi girin. Biçim: "{" ":""," ":" "}" |
 | Yapılandırma redis |-f,--redis yapılandırma dosyası |Yapılandırma redis. Yapılandırma anahtarları ve değerleri burada içeren dosyanın yolunu girin. Biçim dosyası girişi: {"": "","": ""} |
 | Parça sayısı |-r,--parça sayısı |Kümeleme ile Premium küme önbelleği oluşturmak için parça sayısı. |
-| Sanal Ağ |-v,--sanal ağ |Önbelleğiniz bir VNET içindeki barındırdığında redis önbelleğinde dağıtmak için tam ARM kaynak Kimliğini sanal ağın belirtir. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Sanal Ağ |-v, --virtual-network |Önbelleğiniz bir VNET içindeki barındırdığında redis önbelleğinde dağıtmak için tam ARM kaynak Kimliğini sanal ağın belirtir. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Anahtar türü |-t,--anahtar türü |Yenilemek için anahtar türü. Geçerli değerler: [birincil, ikincil] |
-| StaticIP |-p,--statik IP < statik IP > |Önbelleğiniz bir VNET içindeki barındırma alt önbelleği için benzersiz bir IP adresi belirtir. Sağlanmazsa, bir sizin için alt ağ üzerinden seçilir. |
-| Alt ağ |t,--alt ağ<subnet> |Önbelleğinizi bir VNET içindeki barındırdığında, önbellek dağıtmak alt ağ adını belirtir. |
+| StaticIP |-p, --static-ip <static-ip> |Önbelleğiniz bir VNET içindeki barındırma alt önbelleği için benzersiz bir IP adresi belirtir. Sağlanmazsa, bir sizin için alt ağ üzerinden seçilir. |
+| Alt ağ |t, --subnet <subnet> |Önbelleğinizi bir VNET içindeki barındırdığında, önbellek dağıtmak alt ağ adını belirtir. |
 | VirtualNetwork |-v,--sanal ağ < sanal ağ > |Önbelleğiniz bir VNET içindeki barındırdığında redis önbelleğinde dağıtmak için tam ARM kaynak Kimliğini sanal ağın belirtir. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Abonelik |-s,--abonelik |Abonelik tanımlayıcısı. |
 

@@ -3,8 +3,8 @@ title: "Azure Redis önbelleği ölçeklendirme | Microsoft Docs"
 description: "Azure Redis önbelleği örneklerinizi ölçeklendirin öğrenin"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: sdanie
-ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis önbelleği ölçeklendirme
 Azure Redis önbelleği, önbellek boyutunu ve özelliklerini seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir önbellek oluşturulduktan sonra uygulamanızın gereksinimlerine değiştirirseniz boyutu ve önbellek fiyatlandırma katmanı ölçeklendirebilirsiniz. Bu makalede, Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak önbelleğinde ölçeklendirme gösterilmektedir.
@@ -28,10 +28,10 @@ Kullanabileceğiniz [izleme](cache-how-to-monitor.md) sistem durumunu ve önbell
 
 Ölçeklendirme gerekiyorsa belirlemenize yardımcı olması için aşağıdaki ölçümleri izleyebilirsiniz.
 
-* Redis sunucu iş yükü
-* Bellek kullanımı
-* Ağ bant genişliği
-* CPU kullanımı
+* Redis Sunucu Yükü
+* Bellek Kullanımı
+* Ağ Bant Genişliği
+* CPU Kullanımı
 
 Önbelleğinizi artık uygulamanızın gereksinimlerini karşılıyor mu karar verirseniz, fiyatlandırma katmanı, uygulamanız için uygun bir büyük veya küçük önbelleğine ölçeklendirebilirsiniz. Fiyatlandırma katmanı kullanmak için hangi önbellek belirleme hakkında daha fazla bilgi için bkz: [hangi Redis önbelleği teklifini ve boyutunu kullanmalıyım](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Yedeklemesi hizmetiyle ilgili sorular
 Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -72,3 +72,13 @@ Evet, geçirme disklerden yönetilmeyen-yönetilen önce alınan yedeklemeler ku
 ## <a name="manage-vm-backups"></a>VM yedeklemelerini yönetme
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Sanal makinelerde yedekleme ilkesini değiştirdiğimde ne olur?
 Sanal makine üzerinde yeni bir ilke uygulandığında, zamanlama ve bekletme yeni ilkenin izlendiği. Bekletme genişletilirse, var olan kurtarma noktalarının yeni İlkesi uyarınca tutmak için işaretlenir. Bekletme azaltıldığında bunlar ayıklama sonraki temizleme işi için işaretlenmiş ve daha sonra silinir. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Kaynak grupları arasında Azure yedekleme VM kayıtlı nasıl taşıyabilir miyim?
+İzleyin başarılı bir şekilde yedeklenen VM hedef kaynak grubuna taşımak için aşağıdaki adımları 
+1. Geçici olarak yedeklemeyi durdurma ve yedekleme verileri tut
+2. VM hedef kaynak grubuna taşıma
+3. Aynı/yeni kasaya yeniden koruma
+
+Kullanıcıların taşıma işlemi önce oluşturulan kullanılabilir geri yükleme noktaları geri yükleyebilirsiniz.
+
+

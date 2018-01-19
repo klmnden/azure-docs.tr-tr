@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 01/12/2018
 ms.author: mimig
 ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/18/2018

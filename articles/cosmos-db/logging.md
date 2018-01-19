@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
 ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Tanılama Günlüğü
 
@@ -413,9 +413,9 @@ Aşağıdaki tabloda her günlük girişinin içeriğini açıklar.
 | category | Kategori | Azure Cosmos DB günlüklerinde DataPlaneRequests yalnızca kullanılabilen değerdir. |
 | operationName | OperationName | İşlemin adı. Bu değer aşağıdaki işlemlerden birini olabilir: oluşturma, güncelleştirme, okuma, ReadFeed, Sil, Değiştir, yürütme, SqlQuery, sorgu, JSQuery, Head, HeadFeed veya Upsert.   |
 | properties | yok | Bu alanın içeriğini aşağıdaki satırları açıklanmaktadır. |
-| Etkinlik Kimliği | activityId_g | Oturum işlemi için benzersiz bir GUID. |
+| activityId | activityId_g | Oturum işlemi için benzersiz bir GUID. |
 | UserAgent | userAgent_s | İsteği gerçekleştiren istemcinin kullanıcı aracısı belirten bir dize. Biçimi {kullanıcı aracısı adıdır} / {version}.|
-| Kaynak türü | ResourceType | Erişilen kaynak türü. Bu değer aşağıdaki kaynak türlerinden herhangi birinde olabilir: veritabanı, koleksiyon, belge, ek, kullanıcı, izin, StoredProcedure, tetikleyici, UserDefinedFunction veya teklif. |
+| resourceType | ResourceType | Erişilen kaynak türü. Bu değer aşağıdaki kaynak türlerinden herhangi birinde olabilir: veritabanı, koleksiyon, belge, ek, kullanıcı, izin, StoredProcedure, tetikleyici, UserDefinedFunction veya teklif. |
 | statusCode |statusCode_s | İşlem yanıt durumu. |
 | requestResourceId | ResourceId | İsteğine ilişkin ResourceId databaseRid, collectionRid veya documentRid yapılan işleme bağlı olarak noktası.|
 | clientIpAddress | clientIpAddress_s | İstemcinin IP adresi. |

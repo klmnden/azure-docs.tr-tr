@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36a009b2a185b9ccdc0690014509e5596b4f8b8c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9e8faf365c0f47582b4abc3554e0bb6e1c3e7902
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Windows Azure Active Directory eşitleme ve Azure Active Directory Eşitleme'yi Yükselt
 Azure AD Connect, size Azure AD ve Office 365 ile şirket içi dizininize bağlanmak için en iyi yolu sunmaktadır. Bu araçlar artık kullanım dışı bırakılmış ve 13 Nisan 2017'den itibaren artık desteklenmeyen gibi Windows Azure Active Directory eşitleme (DirSync) veya Azure AD eşitleme için Azure AD Connect yükseltmek için harika bir zamandır.
@@ -41,11 +41,6 @@ Azure AD Connect DirSync ve Azure AD eşitleme devamıdır. Bu, desteklenen bu i
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Azure AD Connect geçiş yapma
 DirSync çalıştırıyorsanız, Yükseltme yapabileceğiniz iki yolu vardır: yerinde yükseltme ve paralel dağıtım. Yerinde yükseltme çoğu müşteri için önerilen ve en son varsa işletim sistemi ve 50. 000'den az nesneniz. Diğer durumlarda, DirSync yapılandırmanızı Azure AD Connect çalıştıran yeni bir sunucuya burada taşınır paralel dağıtım yapmak için önerilir.
 
->[!NOTE]
->Yerinde yükseltme form Azure AD Connect DirSync 31 Aralık 2017 sonra artık desteklenmez ve yükseltme paralel dağıtım yapmak gerekebilir.
-
-Azure AD eşitleme kullanırsanız, bir yerinde yükseltme önerilir. İstiyorsanız, paralel olarak yeni bir Azure AD Connect sunucusu yüklemek ve Azure AD Connect, Azure AD eşitleme sunucudan bir esnek geçiş yapmak mümkündür.
-
 | Çözüm | Senaryo |
 | --- | --- |
 | [DirSync’ten yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Zaten çalışmakta olan bir DirSync sunucunuz varsa.</li> |
@@ -65,7 +60,7 @@ Bildirim yapı numarası 1.0 ile Azure AD Connect kullanan müşteriler için de
 DirSync/Azure AD eşitleme 13 Nisan 2017 üzerinde çalışmaya devam eder.  Ancak, Azure AD DirSync/Azure AD eşitleme iletişimlerinden 31 Aralık 2017 sonra kabul artık.
 
 **S: gelen hangi DirSync sürümleri yükseltebilir miyim?**  
-Şu anda kullanılan tüm DirSync sürümünden yükseltme desteklenmiyor. Bu yerinde Not 31 Aralık 2017 sonra Azure AD Connect, dirsync'ten yükseltme desteklenmiyor. Bu tarihten sonra DirSync kullanıyorsanız ve Azure AD Connect'e taşımak istediğiniz müşteriler, Azure AD Connect yeni bir yüklemesidir yerine yapmanız gerekebilir.
+Şu anda kullanılan tüm DirSync sürümünden yükseltme desteklenmiyor. 
 
 **S: ne hakkında FIM/MIM için Azure AD Bağlayıcısı?**  
 FIM/MIM için Azure AD Bağlayıcısı **değil** edilmiş kullanım dışı duyurdu. Bu **özelliği dondurma**; hiçbir yeni işlevsellik eklenir ve hiçbir hata düzeltmeleri alır. Microsoft Azure AD Connect'e buradan taşımak plana kullanan müşteriler önerir. Bunu kullanarak tüm yeni dağıtımlar başlatılmaz için önerilir. Bu bağlayıcı, gelecekte kullanım dışı duyurulacaktır.

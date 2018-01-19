@@ -4,20 +4,21 @@ description: "Çoklu oturum açma Azure Active Directory ile Nexonia arasında y
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: a93b771a-9bc3-444a-bdc0-457f8bb7e780
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2017
+ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a4d3ee4790d3ae57f1a5ce2efc5371fa840e5fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Öğretici: Azure Active Directory Tümleştirme Nexonia ile
 
@@ -25,18 +26,18 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile Nexonia tümleştirmek ö
 
 Nexonia Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Nexonia erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Nexonia (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Nexonia erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için Nexonia (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [Uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Nexonia ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir Nexonia çoklu oturum açma etkin abonelik
+- Bir Nexonia çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -44,7 +45,7 @@ Azure AD tümleştirme Nexonia ile yapılandırmak için aşağıdaki öğeleri 
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -59,26 +60,23 @@ Azure AD Nexonia tümleştirilmesi yapılandırmak için yönetilen SaaS uygulam
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Nexonia**.
+4. Arama kutusuna **Nexonia**seçin **Nexonia** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_search.png)
+    ![Sonuçlar listesinde Nexonia](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_addfromgallery.png)
 
-5. Sonuçlar panelinde seçin **Nexonia**ve ardından **Ekle** uygulama eklemek için düğmesi.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Nexonia ile test etme
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Nexonia sınayın.
 
 Tekli çalışmaya oturum için Azure AD Nexonia karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Nexonia ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
@@ -86,107 +84,98 @@ Nexonia içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'd
 
 Yapılandırma ve Azure AD çoklu oturum açma Nexonia ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Nexonia test kullanıcısı oluşturma](#creating-a-nexonia-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Nexonia sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Nexonia test kullanıcısı oluşturma](#create-a-nexonia-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Nexonia sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Nexonia uygulamanızda yapılandırın.
 
->[!Note]
->Tümleştirme sırasında sorunlarla sonra bu [bağlantı](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) sorun giderme kılavuzu için. Çözüm hala bulunamadı, Azure portalından destek isteği yükseltin.
+  > [!Note]
+   > Tümleştirme sırasında sorunlarla sonra bu [bağlantı](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) sorun giderme kılavuzu için. Çözüm hala bulunamadı, Azure portalından destek isteği yükseltin.
 
 **Azure AD çoklu oturum açma ile Nexonia yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında üzerinde **Nexonia** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_samlbase.png)
 
 3. Üzerinde **Nexonia etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
+    ![Nexonia etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    a. İçinde **tanımlayıcısı** metin kutusuna, bir değer yazın:`Nexonia`
+
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer ile gerçek yanıt URL'si güncelleştirin. Kişi [Nexonia destek ekibi](https://nexonia.zendesk.com/hc/requests/new) bu değeri alınamıyor. 
-
-
+    > Yanıt URL'si değeri gerçek değil. Değerin gerçek yanıt URL'si ile güncelleştirin. Kişi [Nexonia destek ekibi](https://nexonia.zendesk.com/hc/requests/new) değeri alınamıyor.
+ 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
 
 5. Tıklatın **kaydetmek** düğmesi.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-nexonia-tutorial/tutorial_general_400.png)
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-nexonia-tutorial/tutorial_general_400.png)
 
 6. Üzerinde **Nexonia yapılandırma** 'yi tıklatın **yapılandırma Nexonia** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
+    ![Nexonia yapılandırma](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. Uygulamanız için yapılandırılmış SSO almak için başvurun [Nexonia destek ekibi](https://nexonia.zendesk.com/hc/requests/new) ve ile aşağıdakileri sağlar:
-
-    • İndirilen **sertifika**
-
-    • **SAML varlık kimliği**
-
-    • **SAML çoklu oturum açma hizmeti URL'si**
-
-    • **Oturum kapatma URL'si**
+7. Çoklu oturum açma yapılandırmak için **Nexonia** yan, indirilen göndermek için ihtiyacınız **sertifika (Base64), Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** ve **SAML varlık kimliği**  için [Nexonia destek ekibi](https://nexonia.zendesk.com/hc/requests/new). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-nexonia-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-nexonia-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-nexonia-tutorial/create_aaduser_02.png) 
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-nexonia-tutorial/create_aaduser_03.png) 
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-nexonia-tutorial/create_aaduser_02.png)
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-nexonia-tutorial/create_aaduser_04.png) 
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    ![Ekle düğmesi](./media/active-directory-saas-nexonia-tutorial/create_aaduser_03.png)
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-nexonia-tutorial/create_aaduser_04.png)
 
-    d. **Oluştur**'a tıklayın.
- 
-### <a name="creating-a-nexonia-test-user"></a>Nexonia test kullanıcısı oluşturma
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+
+    d. **Oluştur**’a tıklayın.
+  
+### <a name="create-a-nexonia-test-user"></a>Nexonia test kullanıcısı oluşturma
 
 Bu bölümde, Nexonia içinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Nexonia destek ekibi](https://nexonia.zendesk.com/hc/requests/new) Nexonia platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Britta Nexonia için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı rolü atayın][200] 
 
 **Nexonia için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -196,15 +185,15 @@ Bu bölümde, Britta Nexonia için erişim vererek, Azure çoklu oturum açma ku
 
 2. Uygulamalar listesinde **Nexonia**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_app.png) 
+    ![Uygulamalar listesinde Nexonia bağlantı](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Ekleme atama bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
@@ -212,12 +201,12 @@ Bu bölümde, Britta Nexonia için erişim vererek, Azure çoklu oturum açma ku
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Nexonia parçasında tıklattığınızda, otomatik olarak Nexonia uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

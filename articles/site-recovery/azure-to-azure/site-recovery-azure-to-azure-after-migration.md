@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Azure Vm'lerini başka bir bölgeye Azure geçişten sonra Azure Site Recovery kullanarak çoğaltma
 
@@ -38,7 +38,7 @@ Hazırlamak için başka bir Azure bölgesine çoğaltma ayarlama makineler geç
 1. Geçişi tamamlayın.
 2. Gerekirse Azure aracısını yükleyin.
 3. Mobility hizmeti kaldırın.  
-4. VM'yi yeniden başlatın.
+4. VM’yi yeniden başlatın.
 
 Bu adımları aşağıdaki bölümlerde daha ayrıntılı olarak açıklanmıştır.
 

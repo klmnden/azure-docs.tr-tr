@@ -8,7 +8,7 @@
 
     ![TCP’yi Etkinleştirme](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. Konsol bölmesinde **SQL Server Hizmetleri**’ne tıklayın. Ayrıntılar bölmesinde **SQL Server’a (*örnek adı*)** (varsayılan örnek adı: **SQL Server (MSSQLSERVER)**) sağ tıklayın ve sonra da SQL Server örneğini durdurmak ve yeniden başlatmak için **Yeniden Başlat**’a tıklayın.
+1. Konsol bölmesinde **SQL Server Hizmetleri**’ne tıklayın. Ayrıntılar bölmesinde, **SQL Server (*örnek adı*)** (varsayılan örnek **SQL Server (MSSQLSERVER)**) ve ardından **yenidenbaşlatın**, durdurmak ve SQL Server örneğini yeniden başlatın.
 
     ![Veritabanı Altyapısını Yeniden Başlatma](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

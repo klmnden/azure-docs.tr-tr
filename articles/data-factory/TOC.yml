@@ -9,29 +9,27 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Veri fabrikası oluşturma
-      items:
-        - name: Kullanıcı Arabirimi (UI)
-          href: quickstart-create-data-factory-portal.md
-        - name: Veri Kopyalama aracı
-          href: quickstart-create-data-factory-copy-data-tool.md
-        - name: PowerShell
-          href: quickstart-create-data-factory-powershell.md
-        - name: .NET
-          href: quickstart-create-data-factory-dot-net.md
-        - name: Python
-          href: quickstart-create-data-factory-python.md
-        - name: REST
-          href: quickstart-create-data-factory-rest-api.md
-        - name: Resource Manager şablonu
-          href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Veri fabrikası oluşturma - Kullanıcı Arabirimi (UI)
+      href: quickstart-create-data-factory-portal.md
+    - name: Veri fabrikası oluşturma - Veri Kopyalama aracı
+      href: quickstart-create-data-factory-copy-data-tool.md
+    - name: Veri fabrikası oluşturma - Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Veri fabrikası oluşturma - .NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Veri fabrikası oluşturma - Python
+      href: quickstart-create-data-factory-python.md
+    - name: Veri fabrikası oluşturma - REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Veri fabrikası oluşturma - Resource Manager şablonu
+      href: quickstart-create-data-factory-resource-manager-template.md
 - name: Öğreticiler
   items:
     - name: 1 - SSIS paketlerini Azure'a dağıtma
       items:
         - name: Kullanıcı Arabirimi (UI)
           href: tutorial-create-azure-ssis-runtime-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 - Buluttaki verileri kopyalama
       items:
@@ -39,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Kullanıcı Arabirimi (UI)
           href: tutorial-copy-data-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-copy-data-dot-net.md
     - name: 3 - Şirket içi verileri buluta kopyalama
       items:
@@ -47,13 +45,13 @@
           href: tutorial-hybrid-copy-data-tool.md
         - name: Kullanıcı Arabirimi (UI)
           href: tutorial-hybrid-copy-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-hybrid-copy-powershell.md
     - name: 4 - Verileri toplu halde kopyalama
       items:
         - name: Kullanıcı Arabirimi (UI)
           href: tutorial-bulk-copy-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-bulk-copy.md
     - name: 5 - Veri artımlı olarak kopyalama
       href: tutorial-incremental-copy-overview.md
@@ -62,41 +60,41 @@
           items:
             - name: Kullanıcı Arabirimi (UI)
               href: tutorial-incremental-copy-portal.md
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Birden çok tablodan kopyalama
           items:
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Değişiklik izleme özelliğini kullanma
           items:
             - name: Kullanıcı Arabirimi (UI)
               href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Buluttaki verileri dönüştürme
       items:
         - name: Kullanıcı Arabirimi (UI)
           href: tutorial-transform-data-spark-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Sanal ağdaki verileri dönüştürme
       items:
         - name: Kullanıcı Arabirimi (UI)
           href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 - Denetim akışı
       items:
         - name: Kullanıcı Arabirimi (UI)
           href: tutorial-control-flow-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-control-flow.md
 - name: Örnekler
   items:
     - name: Kod örnekleri
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
-    - name: PowerShell
+    - name: Azure PowerShell
       href: samples-powershell.md
 - name: Kavramlar
   items:

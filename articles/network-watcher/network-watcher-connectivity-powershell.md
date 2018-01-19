@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>PowerShell kullanarak Azure Ağ İzleyicisi ile bağlantısını denetleyin
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/21/2017
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
-> - [Azure REST API'si](network-watcher-connectivity-rest.md)
+> - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Bir doğrudan belirli bir uç noktası TCP bağlantısı bir sanal makineden oluşturulan olmadığını doğrulamak için bağlantı kullanmayı öğrenin.
 
@@ -37,33 +37,8 @@ Bu makalede, aşağıdaki kaynaklara sahip olduğunuz varsayılmaktadır:
 
 * Sanal makineler ile bağlantılarını denetlemek için.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > Bağlantı onay gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Önizleme özelliği Kaydet
-
-Bağlantı şu anda kayıtlı olması gerekir bu özelliği kullanmak için genel önizlemede değil. Bunu yapmak için aşağıdaki PowerShell örneğini çalıştırın:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Kaydın başarılı olduğunu doğrulamak için aşağıdaki Powershell örneğini çalıştırın:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-Özellik düzgün şekilde kaydedilmemişse, çıktı aşağıdaki eşleşmesi gerekir:
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
-```
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Bir sanal makineye bağlantısını kontrol edin.
 

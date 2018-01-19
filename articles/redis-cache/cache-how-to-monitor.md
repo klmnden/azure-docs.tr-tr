@@ -3,8 +3,8 @@ title: "Azure Redis önbelleği izleme | Microsoft Docs"
 description: "Nasıl sistem durumunu ve performansını Azure Redis önbelleği örneklerinizi izleyeceğinizi öğrenin"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 8996f5ce03e39557d9cc9c3de1ec214f5cd664b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 3a68435866e6fb5bf0210144e53918c35b416449
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Azure Redis Önbelleğini izleme
 Azure Redis önbelleği kullanan [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) önbellek örneklerinizi izleme için çeşitli seçenekler sağlamak için. Ölçümleri görüntülemek, ölçümler grafiklerde panosuna Sabitle PIN, izleme grafikleri, tarih ve saat aralığı özelleştirme, eklemek ve ölçümleri grafikten kaldırabileceğiniz ve belirli koşullar karşılandığında Uyarıları ayarlayın. Bu araçlar, Azure Redis önbelleği örnekleri durumunu izlemenize ve önbelleğe alma uygulamaları yönetmenize yardımcı olmak etkinleştirin.
@@ -29,7 +29,7 @@ Azure Redis önbelleği örnekleri için ölçümleri, Redis kullanılarak topla
 
 Önbellek ölçümleri görüntülemek üzere [Gözat](cache-configure.md#configure-redis-cache-settings) önbelleği Örneğiniz için [Azure portal](https://portal.azure.com).  Azure Redis önbelleği hakkında bazı yerleşik grafiklerde sağlar **genel bakış** dikey ve **Redis ölçümleri** dikey. Her bir grafik ekleme veya kaldırma ölçümleri ve raporlama aralığı değiştirme özelleştirilebilir.
 
-![Ölçümleri redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![Redis ölçümleri](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## <a name="view-pre-configured-metrics-charts"></a>Önceden yapılandırılmış ölçümleri grafikleri görüntüleme
 
@@ -53,7 +53,7 @@ Azure Redis önbelleği örnekleri için ölçümleri, Redis kullanılarak topla
 ## <a name="view-metrics-with-azure-monitor"></a>Azure İzleyicisi ile metrikleri görüntüleyin
 Azure İzleyicisi'ni kullanarak özel grafikler oluşturma ve Redis ölçümleri görüntülemek için tıklatın **ölçümleri** gelen **kaynak menü**ve aralığı, grafik türü ve daha fazlasını raporlama istenen ölçümleri kullanarak grafiğinizi özelleştirmek.
 
-![Ölçümleri redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
+![Redis ölçümleri](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
 Azure İzleyicisi'ni kullanarak ölçümleri ile çalışma hakkında daha fazla bilgi için bkz: [Microsoft Azure ölçümlerini genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
@@ -69,7 +69,7 @@ Azure İzleyicisi'ni kullanarak ölçümleri ile çalışma hakkında daha fazla
 3. Denetleme **bir depolama hesabı arşive**.
 4. Önbellek ölçümleri depolanacağı depolama hesabı seçin.
 5. Denetleme **1 dakika** onay kutusunu ve belirtin bir **bekletme (gün)** ilkesi. Herhangi bir bekletme ilkesi uygulamak ve verileri sonsuza kadar tutmak, ayarlayın, istemiyorsanız, **bekletme (gün)** için **0**.
-6. **Kaydet** düğmesine tıklayın.
+6. **Kaydet**’e tıklayın.
 
 ![Tanılama redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
@@ -97,27 +97,27 @@ Her ölçüm iki sürümlerini içerir. Bir ölçüm ölçer kullanmak önbellek
 
 | Ölçüm | Açıklama |
 | --- | --- |
-| İsabetli Önbellek okuma sayısı |Belirtilen raporlama aralığı sırasında anahtar başarılı arama sayısı. Bu eşlendiği `keyspace_hits` Redis gelen [bilgisi](http://redis.io/commands/info) komutu. |
-| İsabetsiz önbellek okuma sayısı |Belirtilen raporlama aralığı sırasında anahtar başarısız arama sayısı. Bu eşlendiği `keyspace_misses` Redis bilgisi komutu. Önbellek isabetsizliği önbellek ile ilgili bir sorun var. mutlaka anlamına gelmez. Örneğin, edilgen önbellek programlama düzeni kullanırken, bir uygulama bir öğe için önbelleğe ilk arar. Öğe (önbellek isabetsizliği) yoksa, öğe veritabanından alınan ve bir sonraki seferde önbelleğe eklenir. Önbellek isabetsizliği programlama edilgen önbellek düzeni için normal davranışın ' dir. Önbellek İsabetsizlik Sayısı beklenenden daha yüksek ise ve önbellekten okur doldurur uygulama mantığı inceleyin. Öğeleri çıkarılacak bellek baskısı nedeniyle önbelleğinden sonra bazı önbellek isabetsizlik olabilir, ancak bellek baskısı izlemek için daha iyi bir ölçüm olacaktır `Used Memory` veya `Evicted Keys`. |
-| Bağlanan istemciler |Belirtilen raporlama aralığı sırasında önbelleğe istemci bağlantılarının sayısı. Bu eşlendiği `connected_clients` Redis bilgisi komutu. Bir kez [bağlantı sınırı](cache-configure.md#default-redis-server-configuration) önbellek ulaştı sonraki bağlantı girişimleri başarısız olduğundan. Hiçbir etkin istemci uygulaması olsa bile hala olabilir bağlı istemciler dahili işlemleri ve bağlantılar nedeniyle birkaç örneklerini unutmayın. |
-| Çıkarılan anahtarları |Belirtilen raporlama aralığı nedeniyle sırasında önbellekten çıkarılmasına öğe sayısı `maxmemory` sınırı. Bu eşlendiği `evicted_keys` Redis bilgisi komutu. |
-| Süresi dolan anahtarları |Öğe sayısı belirtilen zaman aralığı boyunca önbellekten süresi. Bu değer eşlendiği `expired_keys` Redis bilgisi komutu. |
-| Toplam anahtarları  | Önbellek son raporlama süre boyunca anahtarlarında maksimum sayısı. Bu eşlendiği `keyspace` Redis bilgisi komutu. Etkin, kümeleme ile önbellekler için temel ölçümleri sisteminin bir sınırlama nedeniyle toplam anahtarlarını raporlama aralığı sayısı anahtarları vardı parça anahtarları en fazla sayısını döndürür.  |
-| Alır |Belirtilen raporlama aralığı sırasında önbellekten alma işlemlerinin sayısı. Aşağıdaki toplamı değerleri Redis bilgisi tüm komutu bu değerdir: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, ve `cmdstat_getrange`ve Raporlama zaman aralığı boyunca Önbelleği İsabetli ve isabetsiz toplamına eşittir. |
-| Redis sunucu iş yükü |Redis sunucu işleme ve iletiler için boşta beklenmiyor meşgul olduğundan döngüleri yüzdesi. Bu sayaç Redis sunucu performans tavan erişti ve CPU işleyemiyor gelir 100 ulaşırsa herhangi daha hızlı çalışır. Ardından yüksek Redis sunucusu yükü görüyorsanız istemci zaman aşımı özel görürsünüz. Bu durumda ölçeklendirmeyi veya birden çok önbelleklerine verilerinizi bölümleme düşünmelisiniz. |
-| Ayarlar |Belirtilen raporlama aralığı sırasında önbelleğe ayarlama işlemleri sayısı. Aşağıdaki toplamı değerleri Redis bilgisi tüm komutu bu değerdir: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, ve `cmdstat_setnx`. |
-| Toplam işlemler |Komutları belirtilen zaman aralığı boyunca önbellek sunucusu tarafından işlenen toplam sayısı. Bu değer eşlendiği `total_commands_processed` Redis bilgisi komutu. Azure Redis önbelleği tamamen pub/alt için kullanıldığında olacağı için hiçbir ölçümleri Not `Cache Hits`, `Cache Misses`, `Gets`, veya `Sets`, olacaktır, ancak `Total Operations` pub/alt işlemleri için önbellek kullanımı yansıtacak ölçümleri. |
-| Kullanılan bellek |Önbellek anahtar/değer çiftlerini MB önbellek için belirtilen zaman aralığı boyunca kullanılan bellek miktarıdır. Bu değer eşlendiği `used_memory` Redis bilgisi komutu. Bu, meta veriler veya parçalanma içermez. |
+| İsabetli Önbellek Okuma Sayısı |Belirtilen raporlama aralığı sırasında anahtar başarılı arama sayısı. Bu eşlendiği `keyspace_hits` Redis gelen [bilgisi](http://redis.io/commands/info) komutu. |
+| İsabetsiz Önbellek Okuma Sayısı |Belirtilen raporlama aralığı sırasında anahtar başarısız arama sayısı. Bu eşlendiği `keyspace_misses` Redis bilgisi komutu. Önbellek isabetsizliği önbellek ile ilgili bir sorun var. mutlaka anlamına gelmez. Örneğin, edilgen önbellek programlama düzeni kullanırken, bir uygulama bir öğe için önbelleğe ilk arar. Öğe (önbellek isabetsizliği) yoksa, öğe veritabanından alınan ve bir sonraki seferde önbelleğe eklenir. Önbellek isabetsizliği programlama edilgen önbellek düzeni için normal davranışın ' dir. Önbellek İsabetsizlik Sayısı beklenenden daha yüksek ise ve önbellekten okur doldurur uygulama mantığı inceleyin. Öğeleri çıkarılacak bellek baskısı nedeniyle önbelleğinden sonra bazı önbellek isabetsizlik olabilir, ancak bellek baskısı izlemek için daha iyi bir ölçüm olacaktır `Used Memory` veya `Evicted Keys`. |
+| Bağlı İstemciler |Belirtilen raporlama aralığı sırasında önbelleğe istemci bağlantılarının sayısı. Bu eşlendiği `connected_clients` Redis bilgisi komutu. Bir kez [bağlantı sınırı](cache-configure.md#default-redis-server-configuration) önbellek ulaştı sonraki bağlantı girişimleri başarısız olduğundan. Hiçbir etkin istemci uygulaması olsa bile hala olabilir bağlı istemciler dahili işlemleri ve bağlantılar nedeniyle birkaç örneklerini unutmayın. |
+| Çıkarılan Anahtarlar |Belirtilen raporlama aralığı nedeniyle sırasında önbellekten çıkarılmasına öğe sayısı `maxmemory` sınırı. Bu eşlendiği `evicted_keys` Redis bilgisi komutu. |
+| Süresi Dolan Anahtarlar |Öğe sayısı belirtilen zaman aralığı boyunca önbellekten süresi. Bu değer eşlendiği `expired_keys` Redis bilgisi komutu. |
+| Toplam Anahtar Sayısı  | Önbellek son raporlama süre boyunca anahtarlarında maksimum sayısı. Bu eşlendiği `keyspace` Redis bilgisi komutu. Etkin, kümeleme ile önbellekler için temel ölçümleri sisteminin bir sınırlama nedeniyle toplam anahtarlarını raporlama aralığı sayısı anahtarları vardı parça anahtarları en fazla sayısını döndürür.  |
+| Alınanlar |Belirtilen raporlama aralığı sırasında önbellekten alma işlemlerinin sayısı. Aşağıdaki toplamı değerleri Redis bilgisi tüm komutu bu değerdir: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, ve `cmdstat_getrange`ve Raporlama zaman aralığı boyunca Önbelleği İsabetli ve isabetsiz toplamına eşittir. |
+| Redis Sunucu Yükü |Redis sunucu işleme ve iletiler için boşta beklenmiyor meşgul olduğundan döngüleri yüzdesi. Bu sayaç Redis sunucu performans tavan erişti ve CPU işleyemiyor gelir 100 ulaşırsa herhangi daha hızlı çalışır. Ardından yüksek Redis sunucusu yükü görüyorsanız istemci zaman aşımı özel görürsünüz. Bu durumda ölçeklendirmeyi veya birden çok önbelleklerine verilerinizi bölümleme düşünmelisiniz. |
+| Kümeler |Belirtilen raporlama aralığı sırasında önbelleğe ayarlama işlemleri sayısı. Aşağıdaki toplamı değerleri Redis bilgisi tüm komutu bu değerdir: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, ve `cmdstat_setnx`. |
+| İşlemler Toplamı |Komutları belirtilen zaman aralığı boyunca önbellek sunucusu tarafından işlenen toplam sayısı. Bu değer eşlendiği `total_commands_processed` Redis bilgisi komutu. Azure Redis önbelleği tamamen pub/alt için kullanıldığında olacağı için hiçbir ölçümleri Not `Cache Hits`, `Cache Misses`, `Gets`, veya `Sets`, olacaktır, ancak `Total Operations` pub/alt işlemleri için önbellek kullanımı yansıtacak ölçümleri. |
+| Kullanılan Bellek |Önbellek anahtar/değer çiftlerini MB önbellek için belirtilen zaman aralığı boyunca kullanılan bellek miktarıdır. Bu değer eşlendiği `used_memory` Redis bilgisi komutu. Bu, meta veriler veya parçalanma içermez. |
 | Kullanılan bellek RSS |Önbellek parçalanma ve meta verileri de dahil olmak üzere belirtilen Raporlama zaman aralığı boyunca, MB olarak kullanılan bellek miktarıdır. Bu değer eşlendiği `used_memory_rss` Redis bilgisi komutu. |
 | CPU |CPU kullanımı Azure Redis önbelleği sunucusunun bir yüzdesi olarak belirtilen raporlama aralığı içinde. Bu değer işletim sistemine eşlemeleri `\Processor(_Total)\% Processor Time` performans sayacı. |
-| Önbellek Okuma |Belirtilen raporlama aralığı sırasında (MB/sn) saniye başına megabayt önbellekten veri miktarını okuyun. Bu değer, önbellek barındıran ve Redis belirli değil sanal makineyi destekleyen ağ arabirim kartları türetilir. **Bu değer bu önbelleği tarafından kullanılan ağ bant genişliği karşılık gelir. Sunucu tarafı ağ bant genişliği sınırları için uyarıları ayarlama istiyorsanız, bunu kullanarak oluşturmanız `Cache Read` sayacı. Bkz: [Bu tablo](cache-faq.md#cache-performance) çeşitli önbellek fiyatlandırma katmanlarına ve boyutları gözlemlenen bant genişliği sınırları.** |
-| Önbellek yazma |Megabayt cinsinden önbellek (MB/sn) belirtilen saniye başına yazılan veri miktarını aralığı raporlama. Bu değer, önbellek barındıran ve Redis belirli değil sanal makineyi destekleyen ağ arabirim kartları türetilir. Bu değer, ağ bant genişliği, önbelleği istemci tarafından gönderilen verilerin karşılık gelir. |
+| Önbellek Okuması |Belirtilen raporlama aralığı sırasında (MB/sn) saniye başına megabayt önbellekten veri miktarını okuyun. Bu değer, önbellek barındıran ve Redis belirli değil sanal makineyi destekleyen ağ arabirim kartları türetilir. **Bu değer bu önbelleği tarafından kullanılan ağ bant genişliği karşılık gelir. Sunucu tarafı ağ bant genişliği sınırları için uyarıları ayarlama istiyorsanız, bunu kullanarak oluşturmanız `Cache Read` sayacı. Bkz: [Bu tablo](cache-faq.md#cache-performance) çeşitli önbellek fiyatlandırma katmanlarına ve boyutları gözlemlenen bant genişliği sınırları.** |
+| Önbellek Yazması |Megabayt cinsinden önbellek (MB/sn) belirtilen saniye başına yazılan veri miktarını aralığı raporlama. Bu değer, önbellek barındıran ve Redis belirli değil sanal makineyi destekleyen ağ arabirim kartları türetilir. Bu değer, ağ bant genişliği, önbelleği istemci tarafından gönderilen verilerin karşılık gelir. |
 
 <a name="operations-and-alerts"></a>
 ## <a name="alerts"></a>Uyarılar
 Ölçümleri ve etkinlik açtığında göre uyarıları almak üzere yapılandırabilirsiniz. Azure İzleyici tetikler, aşağıdakileri yapmak için bir uyarı yapılandırmanıza olanak sağlar:
 
-* Bir e-posta bildirimi gönder
+* E-posta bildirimi gönder
 * bir Web kancası çağırın
 * Bir Azure mantıksal uygulamayı çağırmak
 

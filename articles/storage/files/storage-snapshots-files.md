@@ -3,7 +3,7 @@ title: "Azure dosyaları (Önizleme) paylaşımı anlık görüntüleri genel ba
 description: "Paylaşım anlık bir noktada paylaşımını yedekleme için bir yöntem olarak, zaman içinde alınmış bir Azure dosya paylaşımının salt okunur bir sürümüdür."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 2504e180799164845a89a7f89ca6a6c61352304f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Azure dosyaları (Önizleme) paylaşımı anlık görüntüleri genel bakış
 Azure dosyaları dosya paylaşımları paylaşımı anlık görüntüsünü olanağı sunar. Anlık görüntüler (Önizleme) yakalama paylaşım durumu zamandaki o noktada paylaşır. Bu makalede, paylaşım anlık görüntüleri sağlamak hangi özelliklere ve nasıl, bunları özel kullanım durumda yararlanabilir açıklanmaktadır.

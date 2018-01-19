@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 010f4b05b35fa1f31c14f34a5fae9298fcd831e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16256203cc11ebaf7df402a3502328a63d4c2718
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure’da CentOS tabanlı bir sanal makine hazırlama
 * [Azure için CentOS 6.x sanal makineyi hazırlama](#centos-6x)
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, bir CentOS zaten yüklemiş olduğunuz varsayılmaktadır (veya benzer türevi) Linux işletim sistemi sanal sabit diske. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için bkz: [Hyper-V rolünü yükleyin ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
 
 **CentOS yükleme notları**
@@ -195,7 +195,7 @@ Bu makalede, bir CentOS zaten yüklemiş olduğunuz varsayılmaktadır (veya ben
 
 
 - - -
-## <a name="centos-70"></a>CentOS 7.0 +
+## <a name="centos-70"></a>CentOS 7.0+
 **CentOS 7 (ve benzer türevleri) değişiklikleri**
 
 CentOS 7 sanal makine için Azure hazırlanıyor çok benzeyen CentOS 6, ancak eşitlenmeyeceği birkaç önemli farklılıklar vardır:
@@ -331,5 +331,5 @@ CentOS 7 sanal makine için Azure hazırlanıyor çok benzeyen CentOS 6, ancak e
 14. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi yeni sanal makineler oluşturmak için CentOS Linux sanal sabit diski kullanmak hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Şimdi yeni sanal makineler oluşturmak için CentOS Linux sanal sabit diski kullanmak hazırsınız. Azure için .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](upload-vhd.md#option-1-upload-a-vhd).
 

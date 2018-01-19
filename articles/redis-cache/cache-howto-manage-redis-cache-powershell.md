@@ -3,8 +3,8 @@ title: "Azure PowerShell ile Azure Redis önbelleğini yönetme | Microsoft Docs
 description: "Azure Redis önbelleği Azure PowerShell kullanarak için yönetim görevlerini gerçekleştirmek öğrenin."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell ile Azure Redis önbelleği Yönet
 > [!div class="op_single_selector"]
@@ -126,7 +126,7 @@ Aşağıdaki tabloda, özellikleri ve açıklamaları oluştururken ve Azure Pow
 | --- | --- | --- |
 | Ad |Önbellek adı | |
 | Konum |Önbellek konumu | |
-| resourceGroupName |Kaynak grubu adı, önbellek oluşturmak için | |
+| ResourceGroupName |Kaynak grubu adı, önbellek oluşturmak için | |
 | Boyut |Önbellek boyutu. Geçerli değerler: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5 GB, 6 GB, 13 GB, 26 GB, 53 GB'a |1 GB |
 | ShardCount |Premium önbelleği kümeleme özelliği etkinleştirilmiş oluştururken oluşturmak için parça sayısı. Geçerli değerler: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Önbellek SKU'su belirtir. Geçerli değerler: temel, standart ve Premium |Standart |
@@ -141,17 +141,17 @@ Aşağıdaki tabloda, özellikleri ve açıklamaları oluştururken ve Azure Pow
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration özellikleri
 | Özellik | Açıklama | Fiyatlandırma katmanları |
 | --- | --- | --- |
-| RDB yedekleme etkin |Olup olmadığını [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) etkin |Yalnızca Premium |
-| RDB depolama bağlantı dizesi |Depolama hesabı bağlantı dizesi [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) |Yalnızca Premium |
-| RDB yedekleme sıklığı |Yedekleme sıklığı için [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) |Yalnızca Premium |
+| RDB yedekleme etkin |Olup olmadığını [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) etkin |Premium only |
+| rdb-storage-connection-string |Depolama hesabı bağlantı dizesi [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) |Premium only |
+| RDB yedekleme sıklığı |Yedekleme sıklığı için [Redis veri kalıcılığını](cache-how-to-premium-persistence.md) |Premium only |
 | maxmemory-ayrılmış |Yapılandırır [ayrılan bellek](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbellek olmayan işlemler için |Standart ve Premium |
 | maxmemory İlkesi |Yapılandırır [çıkarma İlkesi](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbelleği |Tüm fiyatlandırma katmanlarına |
 | bildirim-keyspace-olayları |Yapılandırır [keyspace bildirimleri](cache-configure.md#keyspace-notifications-advanced-settings) |Standart ve Premium |
-| max ziplist girişlerini karma |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| karma-max-ziplist-değer |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| max intset girişlerini ayarlama |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| max ziplist girişlerini zset |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| max ziplist değeri zset |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| hash-max-ziplist-entries |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| hash-max-ziplist-value |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| set-max-intset-entries |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| zset-max-ziplist-entries |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| zset-max-ziplist-value |Yapılandırır [belleği en iyi duruma getirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
 | veritabanları |Veritabanı sayısı yapılandırır. Bu özellik yalnızca önbellek oluşturma sırasında yapılandırılabilir. |Standart ve Premium |
 
 ## <a name="to-create-a-redis-cache"></a>Redis önbelleği oluşturma

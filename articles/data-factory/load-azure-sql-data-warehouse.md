@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: cf960ac827db94b9a43361288b1d0863dac86555
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 36e24da50386d1abc441e2beb09f570a9612a346
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veri ambarına veri yükleme
 
@@ -128,6 +128,10 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
 15. Etkinlik çalışması çalıştırmak ardışık düzen ile ilişkili görüntülemek için **etkinlik görünümü çalışır** bağlamak **Eylemler** sütun. Ardışık düzeninde 10 kopyalama etkinlikleri vardır, her bir tablo veri kopyalar. Ardışık Düzen dönmeyi görünüm çalışır, tıklatın **ardışık düzen** üst bağlantı. Tıklatın **yenileme** listesini yenilemek için. 
 
     ![Monitör etkinliği çalıştırır](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+
+16. Daha fazla tıklayarak her kopya etkinliğin yürütme ayrıntıları izleyebilirsiniz **ayrıntıları** altında bağlantı **Eylemler** izleme görünümü etkinliğinde. Kaynak havuzu, işleme, ile ilgili süre geçtiği ve yapılandırmaları kullanılan adımları kopyalanan veri hacmi gibi bilgileri gösterir.
+
+    ![Ayrıntılar Çalıştır etkinliğini izleme](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

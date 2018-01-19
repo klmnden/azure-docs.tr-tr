@@ -13,7 +13,7 @@
     Abonelik|*Aboneliğiniz*|Bu Azure Cosmos DB hesap için kullanmak istediğiniz Azure aboneliğini seçin. 
     Kaynak grubu|*Yukarıdaki Kimliğinde sağlanan gibi aynı benzersiz bir ad girin*|Hesabınız için yeni bir kaynak grubu adı girin. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz. 
     Konum|*Kullanıcılarınız için en yakın bölgeyi seçin*|Azure Cosmos DB hesabınızın barındırılacağı coğrafi konumu seçin. Hızlı erişim için veri vermediğiniz kullanıcılarınıza en yakın konumu kullanın.
-    Coğrafi yedeklilik etkinleştir| Boş bırakın | Bu, ikinci (eşleştirilmiş) bölgede veritabanınızı çoğaltılmış bir sürümünü oluşturur. Bu alanı boş bırakın.  
+    Coğrafi yedekliliği etkinleştir| Boş bırakın | Bu, ikinci (eşleştirilmiş) bölgede veritabanınızı çoğaltılmış bir sürümünü oluşturur. Bu alanı boş bırakın.  
     Panoya sabitle | Şunu seçin: | Bu kutuyu seçin, böylece portalı panonuza kolay erişim için yeni veritabanı hesabınızı eklenir.
 
     Sonra **Oluştur**’a tıklayın.

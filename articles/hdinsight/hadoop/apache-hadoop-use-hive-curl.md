@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 07386c2fbb5fe4ce4fe1ca6844f6308cf59cbfb4
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST kullanarak hdınsight'ta Hadoop ile Hive sorguları çalıştırma
 
@@ -50,7 +50,9 @@ Azure Hdınsight kümesinde Hadoop ile Hive sorguları çalıştırmak için Web
 
     Aşağıdakine benzer bir yanıt alırsınız:
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
@@ -65,7 +67,9 @@ Azure Hdınsight kümesinde Hadoop ile Hive sorguları çalıştırmak için Web
 
     Bu istek aşağıdaki metni benzer bir yanıt döndürür:
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Adlı bir tablo oluşturmak için aşağıdakileri kullanın **log4jLogs**:
 
@@ -105,7 +109,9 @@ Azure Hdınsight kümesinde Hadoop ile Hive sorguları çalıştırmak için Web
 
    Bu komut, iş durumunu denetlemek için kullanılan bir iş kimliği döndürür.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. İş durumunu denetlemek için aşağıdaki komutu kullanın:
 
@@ -122,7 +128,7 @@ Azure Hdınsight kümesinde Hadoop ile Hive sorguları çalıştırmak için Web
 
 4. İş durumu olarak değiştirildi sonra **başarılı**, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre içeren çıkış dosyasının; bu durumda, konumu **/örnek/curl**. Bu adres çıktıda depolar **örnek/curl** kümeleri varsayılan depolama birimindeki dizin.
 
-    Liste ve kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Azure Storage ile Azure CLI kullanma ile ilgili daha fazla bilgi için bkz: [Azure Storage ile Azure CLI 2.0 Kullan](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) belge.
+    Liste ve kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure Storage ile Azure CLI kullanma ile ilgili daha fazla bilgi için bkz: [Azure Storage ile Azure CLI 2.0 Kullan](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) belge.
 
 5. Adlı yeni bir 'iç' tablo oluşturmak için aşağıdaki deyimleri kullanın **günlüklerini**:
 

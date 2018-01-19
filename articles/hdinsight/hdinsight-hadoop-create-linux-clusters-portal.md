@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 309f997174211e1a1a2d0eeea2b9b445c8b37e4d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure portalını kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

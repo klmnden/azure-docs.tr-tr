@@ -2,18 +2,18 @@
 title: "Azure anahtar kasası Geliştirici Kılavuzu"
 description: "Geliştiriciler, Azure anahtar kasası, Microsoft Azure ortamı içindeki şifreleme anahtarlarını yönetmek için kullanabilirsiniz."
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: bruceper
-ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.author: alleonar
+ms.openlocfilehash: 68a08f1f6e8036b9ca966e8d9596c09f2b2ccf81
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure anahtar kasası Geliştirici Kılavuzu
 
@@ -74,7 +74,7 @@ Anahtar kasası yönetim sistemi programcıları için birkaç arabirimleri olu�
 
 #### <a name="rest"></a>REST
 
-Tüm anahtar kasası kaynaklarınızın REST arabirimi aracılığıyla erişilebilir; Kasa, anahtarları, gizli, vb.. 
+Tüm anahtar kasası kaynaklarınızın REST arabirimi aracılığıyla erişilebilir; Kasa, anahtarları, gizli, vb. 
 
 [Anahtar kasası REST API Başvurusu](https://docs.microsoft.com/rest/api/keyvault/). 
 
@@ -104,7 +104,7 @@ Node.js içinde anahtar kasası yönetim API'si ve API anahtar kasası nesne ayr
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Anahtar kasası için Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+[Anahtar kasası için Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 
 ### <a name="quick-start-guides"></a>Hızlı Başlangıç kılavuzları
 

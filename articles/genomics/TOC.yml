@@ -21,6 +21,8 @@
   items:
     - name: Sık sorulan sorular
       href: frequently-asked-questions-genomics.md
+    - name: Sürüm yayınlama geçmişi
+      href: version-release-history-genomics.md
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Fiyatlandırma

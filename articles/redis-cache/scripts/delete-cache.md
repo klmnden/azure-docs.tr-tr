@@ -3,8 +3,8 @@ title: "Azure CLI komut dosyası örneği - Delete bir Azure Redis önbelleği |
 description: "Azure CLI komut dosyası örneği - Delete bir Azure Redis önbelleği"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: 7beded7a-d2c9-43a6-b3b4-b8079c11de4a
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 11d228cc633fee8c6a2984e2eb23690a43d4c0fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 59736b2f932efc13ece5c5e3b5db8708af0abe14
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="delete-an-azure-redis-cache"></a>Bir Azure Redis önbelleği Sil
 

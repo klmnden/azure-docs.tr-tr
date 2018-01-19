@@ -17,10 +17,10 @@ ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim konumu koşullar 
 
@@ -93,8 +93,8 @@ Her iki adım başarısız olursa, bir kullanıcı artık güvenilir bir IP olar
 Konum koşul yapılandırdığınızda ayırt etmek için seçeneğiniz vardır:
 
 - Herhangi bir konum 
-- Tüm güvenilen konumları
-- Seçilen konumları
+- Tüm güvenilen konumlar
+- Seçili konumlar
 
 ![Konumlar](./media/active-directory-conditional-access-locations/01.png)
 
@@ -102,7 +102,7 @@ Konum koşul yapılandırdığınızda ayırt etmek için seçeneğiniz vardır:
 
 Varsayılan olarak, seçme **herhangi bir yere** Internet üzerindeki herhangi bir adresi Bunun anlamı tüm IP adresleri için uygulanacak bir ilke neden olur. Bu ayar yok adlı konumu olarak yapılandırılmış IP adresleri için sınırlı değildir. Seçtiğinizde, **herhangi bir yere**, belirli konumlara hala bir ilkesinden hariç tutabilirsiniz. Örneğin, tüm konumlara bir ilke uygulayabilirsiniz şirket ağı dışındaki tüm konumlara kapsamını belirlemek için güvenilir konumlar excepts.
 
-### <a name="all-trusted-locations"></a>Tüm güvenilen konumları
+### <a name="all-trusted-locations"></a>Tüm güvenilen konumlar
 
 Bu seçenek için geçerlidir:
 
@@ -110,7 +110,7 @@ Bu seçenek için geçerlidir:
 - **MFA güvenilen IP'ler** (yapılandırıldıysa)
 
 
-### <a name="selected-locations"></a>Seçilen konumları
+### <a name="selected-locations"></a>Seçili konumlar
 
 Bu seçenek ile bir veya daha fazla adlandırılmış konumlar seçebilirsiniz. Uygulamak için bu ayarı ile bir ilke için bir kullanıcı seçili konumlardan herhangi birinden bağlanması gerekir. Tıklattığınız Microsoft **seçin** adlandırılmış ağlar listesini gösterir adlandırılmış ağ seçim denetim açar. Ağ konumu işaretlenmiş liste ayrıca gösterir olarak güvenilir. Belirtilen konum adlı **MFA güvenilen IP'ler** çok faktörlü kimlik doğrulama hizmeti ayar sayfasında yapılandırılmış IP ayarları eklemek için kullanılır.
 

@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2017
+ms.date: 01/17/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 497582138504250b3c4a77dab440d29ad928a7d8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f4b3c766ee46233cd4ec2d195e39d0b68516952f
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Bir ASP.NET çekirdek Web API ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti ile bir uygulama oluşturun ve dağıtın
-Bu öğretici bir dizi birini bir parçasıdır.  Azure Service Fabric uygulaması bir ASP.NET çekirdek Web API ön uç ve verilerinizi depolamak için durum bilgisi olan bir arka uç hizmeti ile nasıl oluşturulacağını öğreneceksiniz. İşlemi tamamladığınızda, oylama bir durum bilgisi olan bir arka uç hizmetinde kümedeki Oylama sonuçlarını kaydettiği ön uç bir ASP.NET Core web uygulamasıyla sahip. El ile oylama uygulaması oluşturmak istemiyorsanız, şunları yapabilirsiniz [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) tamamlanan uygulama için ve için İleri atlayabilirsiniz [üzerinden oylama örnek uygulama yol](#walkthrough_anchor).
+Bu öğretici bir dizi birini bir parçasıdır.  Azure Service Fabric uygulaması bir ASP.NET çekirdek Web API ön uç ve verilerinizi depolamak için durum bilgisi olan bir arka uç hizmeti ile nasıl oluşturulacağını öğreneceksiniz. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir ASP.NET Core web ön ucuna sahip oylama uygulaması sağlanır. El ile oylama uygulaması oluşturmak istemiyorsanız, şunları yapabilirsiniz [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) tamamlanan uygulama için ve için İleri atlayabilirsiniz [üzerinden oylama örnek uygulama yol](#walkthrough_anchor).
 
-![Uygulama diyagramı](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![Uygulama Diyagramı](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Bölümünde bir dizi öğrenin nasıl yapılır:
 
@@ -43,14 +43,11 @@ Bu öğretici serisinde öğrenin nasıl yapılır:
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce:
 - Bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Visual Studio 2017 yükleme](https://www.visualstudio.com/) yükleyip **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
+- [Visual Studio 2017 yükleme](https://www.visualstudio.com/) sürüm 15.3 veya üstü **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
 - [Service Fabric SDK yükleme](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Bir ASP.NET Web API hizmeti güvenilir bir hizmet olarak oluşturma
 İlk olarak, web ön uç ASP.NET Core kullanarak oylama uygulamasının oluşturun. ASP.NET Core API web ve modern web kullanıcı Arabirimi oluşturmak için kullanabileceğiniz bir basit, platformlar arası web geliştirme altyapısıdır. ASP.NET Core Service Fabric ile nasıl tümleşik çalıştığını tam anlamak için okuma tavsiye [Service Fabric Reliable Services ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) makalesi. Şimdilik, hızlı bir şekilde başlamak için bu öğreticiyi izleyebilirsiniz. ASP.NET Çekirdeği hakkında daha fazla bilgi için bkz: [ASP.NET Core belgeleri](https://docs.microsoft.com/aspnet/core/).
-
-> [!NOTE]
-> Bu öğretici dayanır [ASP.NET Core araçları için Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). Visual Studio 2015 için .NET Core araçları artık güncelleştiriliyor.
 
 1. Visual Studio'yu **yönetici** olarak başlatın.
 
@@ -66,7 +63,7 @@ Bu öğreticiye başlamadan önce:
    
    ![ASP.NET web hizmeti yeni hizmet iletişim kutusunda seçme](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. Sonraki sayfanın bir dizi ASP.NET Core proje şablonları sağlar. Bu öğretici için seçin **Web uygulaması (MVC)**. 
+6. Sonraki sayfanın bir dizi ASP.NET Core proje şablonları sağlar. Bu öğretici için seçin **Web uygulaması (Model-View-Controller)**. 
    
    ![ASP.NET proje türü seçin](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -75,7 +72,9 @@ Bu öğreticiye başlamadan önce:
    ![ASP.NET core Web API hizmeti içeren uygulama oluşturulduktan sonra Çözüm Gezgini]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>AngularJS VotingWeb hizmete ekleyin
-Ekleme [AngularJS](http://angularjs.org/) yerleşik kullanarak hizmetinize [Bower Destek](/aspnet/core/client-side/bower). Açık *bower.json* ve Açısal ve önyükleme Açısal girişlerini ekleyin, sonra yaptığınız değişiklikleri kaydedin.
+Ekleme [AngularJS](http://angularjs.org/) hizmeti kullanmaya [Bower Destek](/aspnet/core/client-side/bower). İlk olarak, bir Bower yapılandırma dosyası projeye ekleyin.  Çözüm Gezgini'nde sağ **VotingWeb** seçip **Ekle -> Yeni öğe**. Seçin **Web** ve ardından **Bower yapılandırma dosyası**.  *Bower.json* dosyası oluşturulur.
+
+Açık *bower.json* ve Açısal ve önyükleme Açısal girişlerini ekleyin, sonra yaptığınız değişiklikleri kaydedin.
 
 ```json
 {
@@ -83,10 +82,10 @@ Ekleme [AngularJS](http://angularjs.org/) yerleşik kullanarak hizmetinize [Bowe
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.7",
-    "jquery": "2.2.0",
-    "jquery-validation": "1.14.0",
+    "jquery": "3.2.1",
+    "jquery-validation": "1.16.0",
     "jquery-validation-unobtrusive": "3.2.6",
-    "angular": "v1.6.5",
+    "angular": "v1.6.8",
     "angular-bootstrap": "v1.1.0"
   }
 }
@@ -153,7 +152,7 @@ Açık *Views/Home/Index.cshtml* dosya, giriş denetleyiciye belirli görünüm.
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="col-xs-12 center-block">
                     <div class="col-xs-6 form-group">
-                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item"/>
                     </div>
                     <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -163,7 +162,7 @@ Açık *Views/Home/Index.cshtml* dosya, giriş denetleyiciye belirli görünüm.
             </div>
         </div>
 
-        <hr />
+        <hr/>
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
@@ -203,26 +202,26 @@ Açık *Views/Shared/_Layout.cshtml* dosya, ASP.NET uygulaması için varsayıla
 <!DOCTYPE html>
 <html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"]</title>
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/css/site.css" rel="stylesheet"/>
 
 </head>
 <body>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+<div class="container body-content">
+    @RenderBody()
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/angular/angular.js"></script>
-    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="~/js/site.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/angular/angular.js"></script>
+<script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="~/js/site.js"></script>
 
-    @RenderSection("Scripts", required: false)
+@RenderSection("Scripts", required: false)
 </body>
 </html>
 ```
@@ -239,44 +238,61 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 {
     return new ServiceInstanceListener[]
     {
-        new ServiceInstanceListener(serviceContext =>
-            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
-            {
-                ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting WebListener on {url}");
+        new ServiceInstanceListener(
+            serviceContext =>
+                new KestrelCommunicationListener(
+                    serviceContext,
+                    "ServiceEndpoint",
+                    (url, listener) =>
+                    {
+                        ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
 
-                return new WebHostBuilder().UseWebListener()
+                        return new WebHostBuilder()
+                            .UseKestrel()
                             .ConfigureServices(
                                 services => services
-                                    .AddSingleton<StatelessServiceContext>(serviceContext)
-                                    .AddSingleton<HttpClient>())
+                                    .AddSingleton<HttpClient>(new HttpClient())
+                                    .AddSingleton<FabricClient>(new FabricClient())
+                                    .AddSingleton<StatelessServiceContext>(serviceContext))
                             .UseContentRoot(Directory.GetCurrentDirectory())
                             .UseStartup<Startup>()
-                            .UseApplicationInsights()
                             .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                             .UseUrls(url)
                             .Build();
-            }))
+                    }))
     };
 }
 ```
 
-### <a name="add-the-votescontrollercs-file"></a>VotesController.cs dosyası ekleme
-Oylama Eylemler tanımlayan bir denetleyici ekleyin. Sağ tıklayın **denetleyicileri** klasörünü seçip **Ekle -> Yeni öğe sınıfı ->**.  "VotesController.cs" dosya adı ve'ı tıklatın **Ekle**.  
-
-Dosya içeriğini yaptığınız değişiklikleri kaydedin sonra aşağıdaki değiştirin.  Daha sonra [VotesController.cs dosyasını güncelleştirme](#updatevotecontroller_anchor), bu dosyayı okumak ve arka uç hizmetinden oylama veri yazmak için değiştirilecek.  Şimdilik, denetleyici görünümüne statik dize verilerini döndürür.
+Ayrıca ekleyin `GetVotingDataServiceName` sorgulanan hizmet adı döndürür yöntemi:
 
 ```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Text;
-using System.Net.Http;
-using System.Net.Http.Headers;
+internal static Uri GetVotingDataServiceName(ServiceContext context)
+{
+    return new Uri($"{context.CodePackageActivationContext.ApplicationName}/VotingData");
+}
+```
 
+### <a name="add-the-votescontrollercs-file"></a>VotesController.cs dosyası ekleme
+Oylama eylemleri tanımlar bir denetleyici ekleyin. Sağ tıklayın **denetleyicileri** klasörünü seçip **Ekle -> Yeni öğe sınıfı ->**.  "VotesController.cs" dosya adı ve'ı tıklatın **Ekle**.  
+
+Dosya içeriğini yaptığınız değişiklikleri kaydedin sonra aşağıdaki değiştirin.  Daha sonra [VotesController.cs dosyasını güncelleştirme](#updatevotecontroller_anchor), bu dosyayı okuma ve arka uç hizmetinden oylama veri yazma şekilde değiştirilir.  Şimdilik, denetleyici görünümüne statik dize verilerini döndürür.
+
+```csharp
 namespace VotingWeb.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Fabric;
+    using System.Fabric.Query;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+
     [Produces("application/json")]
     [Route("api/Votes")]
     public class VotesController : Controller
@@ -303,7 +319,7 @@ namespace VotingWeb.Controllers
 ```
 
 ### <a name="configure-the-listening-port"></a>Dinleme bağlantı noktasını yapılandırın
-VotingWeb ön uç hizmeti oluşturulduğunda, Visual Studio bir bağlantı noktası üzerinde dinleme hizmeti için rastgele seçer.  VotingWeb hizmeti bu uygulama için ön uç gibi davranır ve dış trafiği kabul eder, sağlandığından hizmet sabit bir bağlayabilir ve bağlantı noktası iyi biliyor. Çözüm Gezgini'nde açık *VotingWeb/PackageRoot/ServiceManifest.xml*.  Bul **Endpoint** kaynak **kaynakları** bölümünde ve değiştirme **bağlantı noktası** 80 veya başka bir bağlantı noktası değeri. Dağıtma ve uygulama yerel olarak çalıştırmak için uygulama dinleme bağlantı noktası açık ve bilgisayarınızdaki kullanılabilir olması gerekir.
+VotingWeb ön uç hizmeti oluşturulduğunda, Visual Studio bir bağlantı noktası üzerinde dinleme hizmeti için rastgele seçer.  VotingWeb hizmeti bu uygulama için ön uç gibi davranır ve dış trafiği kabul eder, sağlandığından hizmet sabit bir bağlayabilir ve bağlantı noktası iyi biliyor.  [Hizmet bildirimi](service-fabric-application-and-service-manifests.md) hizmet uç noktalarına bildirir. Çözüm Gezgini'nde açık *VotingWeb/PackageRoot/ServiceManifest.xml*.  Bul **Endpoint** kaynak **kaynakları** bölümünde ve değiştirme **bağlantı noktası** 80 veya başka bir bağlantı noktası değeri. Dağıtma ve uygulama yerel olarak çalıştırmak için uygulama dinleme bağlantı noktası açık ve bilgisayarınızdaki kullanılabilir olması gerekir.
 
 ```xml
 <Resources>
@@ -333,16 +349,14 @@ Bu noktada, web uygulamanızı aşağıdaki gibi görünmelidir:
 Uygulamanın hata ayıklamasını durdurmak için Visual Studio ve tuşuna dön **Shift + F5**.
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>Durum bilgisi olan bir arka uç hizmeti uygulamanıza ekleyin
-Biz uygulamamız içinde çalışan bir ASP.NET Web API hizmeti sahip olduğunuza göre devam edelim ve uygulamamızı içinde bazı verileri depolamak için bir durum bilgisi olan güvenilir hizmet ekleyin.
+Uygulamada bir ASP.NET Web API hizmetinin çalıştığından, bir tane uygulamada bazı verileri depolamak için bir durum bilgisi olan güvenilir hizmetini ekleyin.
 
 Service Fabric, güvenilir koleksiyonları kullanarak hizmetinizin içinde veri hak tutarlı ve güvenilir bir şekilde depolamanızı sağlar. C# koleksiyonları kullanan herkes için tanıdık yüksek oranda kullanılabilir ve güvenilir koleksiyon sınıfları kümesi güvenilir koleksiyonlarıdır.
 
 Bu öğreticide, güvenilir bir koleksiyonda bir sayaç değeri depolayan bir hizmet oluşturun.
 
 1. Çözüm Gezgini'nde sağ **Hizmetleri** uygulama içinde proje ve seçin **Ekle > Yeni yapı hizmeti**.
-   
-    ![Varolan bir uygulamaya yeni bir hizmet ekleme](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
-
+    
 2. İçinde **yeni yapı hizmeti** iletişim kutusunda, seçin **durum bilgisi olan ASP.NET Core**ve ad hizmeti **VotingData** ve basın **Tamam**.
 
     ![Visual Studio'da yeni hizmet iletişim kutusu](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
@@ -362,17 +376,20 @@ Bu öğreticide, güvenilir bir koleksiyonda bir sayaç değeri depolayan bir hi
 İçinde **VotingData** projesine sağ tıklayın **denetleyicileri** klasörünü seçip **Ekle -> Yeni öğe sınıfı ->**. "VoteDataController.cs" dosya adı ve'ı tıklatın **Ekle**. Dosya içeriğini yaptığınız değişiklikleri kaydedin sonra aşağıdaki değiştirin.
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.ServiceFabric.Data;
-using System.Threading;
-using Microsoft.ServiceFabric.Data.Collections;
+// ------------------------------------------------------------
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
+// ------------------------------------------------------------
 
 namespace VotingData.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.ServiceFabric.Data;
+    using Microsoft.ServiceFabric.Data.Collections;
+
     [Route("api/[controller]")]
     public class VoteDataController : Controller
     {
@@ -387,24 +404,24 @@ namespace VotingData.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var ct = new CancellationToken();
+            CancellationToken ct = new CancellationToken();
 
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                var list = await votesDictionary.CreateEnumerableAsync(tx);
+                IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                var enumerator = list.GetAsyncEnumerator();
+                IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
-                var result = new List<KeyValuePair<string, int>>();
+                List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 
                 while (await enumerator.MoveNextAsync(ct))
                 {
                     result.Add(enumerator.Current);
                 }
 
-                return Json(result);
+                return this.Json(result);
             }
         }
 
@@ -412,7 +429,7 @@ namespace VotingData.Controllers
         [HttpPut("{name}")]
         public async Task<IActionResult> Put(string name)
         {
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
@@ -427,7 +444,7 @@ namespace VotingData.Controllers
         [HttpDelete("{name}")]
         public async Task<IActionResult> Delete(string name)
         {
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
@@ -449,11 +466,11 @@ namespace VotingData.Controllers
 
 
 ## <a name="connect-the-services"></a>Hizmetlere bağlanma
-Bu sonraki adımda size iki hizmet bağlanmak ve uygulama alma ve arka uç hizmetinden bilgi oylama ayarlama ön uç Web olun.
+Bu sonraki adımda, iki hizmet bağlanın ve ön uç Web uygulama alma ve arka uç hizmetinden bilgi oylama ayarlama olun.
 
 Service Fabric reliable services ile nasıl iletişim kuracağını tam esneklik sağlar. Tek bir uygulama içinde TCP üzerinden erişilebilir Hizmetleri olabilir. Bir HTTP REST API erişilebilir diğer hizmetler ve hala diğer hizmetleri web yuvalarını erişilebilir. Kullanılabilir seçenekler ve söz konusu bileşim arka plan için bkz: [hizmetleriyle iletişim kurmasını](service-fabric-connect-and-communicate-with-services.md).
 
-Bu öğreticide, kullanıyoruz [ASP.NET çekirdek Web API](service-fabric-reliable-services-communication-aspnetcore.md).
+Bu öğreticide kullanmak [ASP.NET çekirdek Web API](service-fabric-reliable-services-communication-aspnetcore.md).
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -461,116 +478,160 @@ Bu öğreticide, kullanıyoruz [ASP.NET çekirdek Web API](service-fabric-reliab
 İçinde **VotingWeb** proje, açık *Controllers/VotesController.cs* dosya.  Değiştir `VotesController` sınıf tanımı içeriğini aşağıdakiyle sonra yaptığınız değişiklikleri kaydedin.
 
 ```csharp
-    public class VotesController : Controller
+public class VotesController : Controller
+{
+    private readonly HttpClient httpClient;
+    private readonly FabricClient fabricClient;
+    private readonly StatelessServiceContext serviceContext;
+
+    public VotesController(HttpClient httpClient, StatelessServiceContext context, FabricClient fabricClient)
     {
-        private readonly HttpClient httpClient;
-        string serviceProxyUrl = "http://localhost:19081/Voting/VotingData/api/VoteData";
-        string partitionKind = "Int64Range";
-        string partitionKey = "0";
+        this.fabricClient = fabricClient;
+        this.httpClient = httpClient;
+        this.serviceContext = context;
+    }
 
-        public VotesController(HttpClient httpClient)
+    // GET: api/Votes
+    [HttpGet("")]
+    public async Task<IActionResult> Get()
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+
+        ServicePartitionList partitions = await this.fabricClient.QueryManager.GetPartitionListAsync(serviceName);
+
+        List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
+
+        foreach (Partition partition in partitions)
         {
-            this.httpClient = httpClient;
-        }
+            string proxyUrl =
+                $"{proxyAddress}/api/VoteData?PartitionKey={((Int64RangePartitionInformation) partition.PartitionInformation).LowKey}&PartitionKind=Int64Range";
 
-        // GET: api/Votes
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            IEnumerable<KeyValuePair<string, int>> votes;
-
-            HttpResponseMessage response = await this.httpClient.GetAsync($"{serviceProxyUrl}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
-
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            using (HttpResponseMessage response = await this.httpClient.GetAsync(proxyUrl))
             {
-                return this.StatusCode((int)response.StatusCode);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    continue;
+                }
+
+                result.AddRange(JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync()));
             }
-
-            votes = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync());
-
-            return Json(votes);
         }
 
-        // PUT: api/Votes/name
-        [HttpPut("{name}")]
-        public async Task<IActionResult> Put(string name)
+        return this.Json(result);
+    }
+
+    // PUT: api/Votes/name
+    [HttpPut("{name}")]
+    public async Task<IActionResult> Put(string name)
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+        long partitionKey = this.GetPartitionKey(name);
+        string proxyUrl = $"{proxyAddress}/api/VoteData/{name}?PartitionKey={partitionKey}&PartitionKind=Int64Range";
+
+        StringContent putContent = new StringContent($"{{ 'name' : '{name}' }}", Encoding.UTF8, "application/json");
+        putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+        using (HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent))
         {
-            string payload = $"{{ 'name' : '{name}' }}";
-            StringContent putContent = new StringContent(payload, Encoding.UTF8, "application/json");
-            putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            string proxyUrl = $"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}";
-
-            HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent);
-
             return new ContentResult()
             {
-                StatusCode = (int)response.StatusCode,
+                StatusCode = (int) response.StatusCode,
                 Content = await response.Content.ReadAsStringAsync()
             };
         }
+    }
 
-        // DELETE: api/Votes/name
-        [HttpDelete("{name}")]
-        public async Task<IActionResult> Delete(string name)
+    // DELETE: api/Votes/name
+    [HttpDelete("{name}")]
+    public async Task<IActionResult> Delete(string name)
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+        long partitionKey = this.GetPartitionKey(name);
+        string proxyUrl = $"{proxyAddress}/api/VoteData/{name}?PartitionKey={partitionKey}&PartitionKind=Int64Range";
+
+        using (HttpResponseMessage response = await this.httpClient.DeleteAsync(proxyUrl))
         {
-            HttpResponseMessage response = await this.httpClient.DeleteAsync($"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
-
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                return this.StatusCode((int)response.StatusCode);
+                return this.StatusCode((int) response.StatusCode);
             }
-
-            return new OkResult();
-
         }
+
+        return new OkResult();
     }
+
+
+    /// <summary>
+    /// Constructs a reverse proxy URL for a given service.
+    /// Example: http://localhost:19081/VotingApplication/VotingData/
+    /// </summary>
+    /// <param name="serviceName"></param>
+    /// <returns></returns>
+    private Uri GetProxyAddress(Uri serviceName)
+    {
+        return new Uri($"http://localhost:19081{serviceName.AbsolutePath}");
+    }
+
+    /// <summary>
+    /// Creates a partition key from the given name.
+    /// Uses the zero-based numeric position in the alphabet of the first letter of the name (0-25).
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    private long GetPartitionKey(string name)
+    {
+        return Char.ToUpper(name.First()) - 'A';
+    }
+}
 ```
 <a id="walkthrough" name="walkthrough_anchor"></a>
 
-## <a name="walk-through-the-voting-sample-application"></a>Yol üzerinden oylama örnek uygulama
-Oylama uygulaması iki hizmetinden oluşur:
-- Web ön uç hizmeti (VotingWeb) - bir ASP.NET Core web web sayfası hizmet ön uç hizmeti ve düzenlemenizi sağlayan web arka uç hizmeti ile iletişim için API'ler.
-- Arka uç hizmetine (VotingData)-oy sonuçları güvenilir sözlükte depolamak için bir API sunar bir ASP.NET Core web hizmeti kalıcı disk üzerinde.
+## <a name="walk-through-the-voting-sample-application"></a>Oylama örnek uygulamasında izlenecek yol
+Oylama uygulaması iki hizmetten oluşur:
+- Web ön uç hizmeti (VotingWeb)- Web sayfasına hizmet veren ve arka uç hizmetiyle iletişim için web API'lerini kullanıma sunan bir ASP.NET Core web ön uç hizmeti.
+- Arka uç hizmeti (VotingData)- Oy sonuçlarını diskte kalıcı olan güvenilir bir sözlükte depolamak için API'yi kullanıma sunan bir ASP.NET Core web hizmeti.
 
-![Uygulama diyagramı](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![Uygulama Diyagramı](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Aşağıdaki olaylar, uygulamada oy oluşur:
-1. JavaScript oy isteği için web ön uç hizmeti web API'si bir HTTP PUT İsteği gönderir.
+Uygulamada oy kullandığınızda aşağıdaki olaylar gerçekleşir:
+1. Oy isteğini bir JavaScript HTTP PUT isteği olarak web ön uç hizmetindeki web API'sine gönderir.
 
-2. Web ön uç hizmeti bulun ve bir HTTP PUT İsteği arka uç hizmetine iletmek için bir proxy kullanır.
+2. Web ön uç hizmeti bir ara sunucu kullanarak HTTP PUT isteğini bulur ve arka uç hizmetine iletir.
 
-3. Arka uç hizmetine gelen isteği alır ve güncelleştirilmiş sonuç kümesi içinde birden çok düğüm çoğaltılan alır ve diskte kalıcı bir güvenilir bir sözlük depolar. Hiçbir veritabanı gerektiği şekilde uygulamanın tüm veri kümesinde depolanır.
+3. Arka uç hizmeti gelen isteği alır ve güncelleştirilmiş sonucu güvenilir bir sözlükte depolar. Bu sözlük küme içinde birden çok düğüme çoğaltılır ve diskte kalıcı olur. Uygulamanın tüm verileri kümede depolandığından, veritabanına gerek yoktur.
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio'da hata ayıklama
-Visual Studio uygulamasında hata ayıklama sırasında yerel bir Service Fabric geliştirme küme kullanıyor. Hata ayıklama deneyiminizi senaryonuz için ayarlamak için seçeneğiniz vardır. Bu uygulamada, veri arka uç hizmetimizi güvenilir sözlüğünü kullanarak depolarız. Hata ayıklayıcıyı durdurduğunuzda visual Studio uygulama varsayılan başına kaldırır. Uygulama kaldırma verileri de kaldırılacak arka uç hizmetinde neden olur. Hata ayıklama oturumları arasında veri kalıcı hale getirmek için değiştirebileceğiniz **uygulama hata ayıklama modu** bir özellik olarak **oylama** Visual Studio projesi.
+Visual Studio'da uygulamada hata ayıklaması yaparken yerel bir Service Fabric geliştirme kümesi kullanırsınız. Hata ayıklama deneyiminizi senaryonuza göre ayarlama seçeneğiniz vardır. Bu uygulamada güvenilir sözlüğünü kullanarak arka uç hizmetinde verileri depolar. Hata ayıklayıcıyı durdurduğunuzda Visual Studio varsayılan olarak uygulamayı kaldırır. Uygulamanın kaldırılması arka uç hizmetindeki verilerin de kaldırılmasına neden olur. Hata ayıklama oturumları arasında verilerin kalıcı olmasını sağlamak için, Visual Studio'da **Oylama** projesindeki bir özellik olarak **Uygulama Hata Ayıklama Modu**'nu değiştirebilirsiniz.
 
-Kod içinde neler aramak için aşağıdaki adımları tamamlayın:
-1. Açık **VotesController.cs** dosya ve web API'ın bir kesme noktası belirleyerek **Put** yöntemi (satır 47) - Visual Studio'daki Çözüm Gezgini'nde dosyayı arayabilirsiniz.
+Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
+1. Açık **VotesController.cs** dosya ve web API'ın bir kesme noktası belirleyerek **Put** yöntemi (satır 63) - Visual Studio'daki Çözüm Gezgini'nde dosyayı arayabilirsiniz.
 
-2. Açık **VoteDataController.cs** dosya ve bu web API'nin bir kesme noktası belirleyerek **Put** yöntemi (satır 50).
+2. Açık **VoteDataController.cs** dosya ve bu web API'nin bir kesme noktası belirleyerek **Put** yöntemi (satır 53).
 
-3. Tarayıcıya geri dönün ve oylama seçeneği tıklatın veya yeni bir oylama seçeneği ekleyin. Web ön uç 's API denetleyicisi içinde ilk kesme noktası isabet.
+3. Tarayıcıya dönün ve bir oylama seçeneğine tıklayın veya yeni oylama seçeneği ekleyin. Web ön ucunun api denetleyicisinde ilk kesme noktasına ulaşırsınız.
     
-    1. Burada tarayıcısında JavaScript bir isteği ön uç hizmeti olan web API denetleyicisi gönderir budur.
+    1. Burası, tarayıcıda JavaScript'in ön uç hizmetindeki API denetleyicisine istek gönderdiği yerdir.
     
-    ![Oy ön uç Hizmet Ekle](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+    ![Oy Ön Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. İlk biz ReverseProxy URL'si için arka uç hizmetimizi oluşturmak **(1)**.
-    3. Biz PUT HTTP isteği için ReverseProxy Gönder sonra **(2)**.
-    4. Son olarak yanıt arka uç hizmetinden istemciye döndürürüz **(3)**.
+    2. İlk arka uç hizmeti ReverseProxy URL'si oluşturmak **(1)**.
+    3. PUT HTTP isteği göndermek için ReverseProxy **(2)**.
+    4. Son olarak return arka uç hizmetinden gelen yanıt istemciye **(3)**.
 
-4. Tuşuna **F5** devam etmek için
-    1. Artık arka uç hizmetinde kesme noktasında bulunur.
+4. Devam etmek için **F5** tuşuna basın
+    1. Şimdi arka uç hizmetindeki kesme noktasındasınız.
     
-    ![Oy arka uç hizmeti ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+    ![Oy Arka Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. Yönteminin ilk satırında **(1)** kullanıyoruz `StateManager` almak veya adlı güvenilir sözlüğü eklemek için `counts`.
-    3. Kullanarak bu işlem, güvenilir bir sözlükteki değerlerle tüm etkileşimleri gerektiren deyimi **(2)** bu işlem oluşturur.
-    4. İşlemde biz sonra oylama seçeneği için ilgili anahtar değerini güncelleştirin ve işlemi tamamlar **(3)**. Yürütme yöntemi döndürür, veri sözlüğünde güncelleştirilmiş ve kümedeki diğer düğümlere çoğaltılan sonra. Veri şimdi güvenle kümede depolanır ve arka uç hizmeti üzerinden kullanılabilir veri yaşamaya diğer düğümlere başarısız olabilir.
-5. Tuşuna **F5** devam etmek için
+    2. Yönteminin ilk satırında **(1)** kullanmak `StateManager` almak veya adlı güvenilir sözlüğü eklemek için `counts`.
+    3. Güvenilir bir sözcükteki değerlerle tüm etkileşimler bir işlem gerektirir; bu using deyimi **(2)** o işlemi oluşturur.
+    4. İşlemde oylama seçeneği için ilgili anahtarının değerini güncelleştirin ve işlemi tamamlar **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
+5. Devam etmek için **F5** tuşuna basın
 
-Hata ayıklama oturumu durdurmak için basın **Shift + F5**.
+Hata ayıklama oturumunu durdurmak için **Shift+F5** tuşlarına basın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

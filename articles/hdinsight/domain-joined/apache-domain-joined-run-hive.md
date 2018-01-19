@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Etki alanına katılmış Hdınsight'ta Hive ilkelerini yapılandırma
 Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makalede hivesampletable erişimini kısıtlamak için iki Ranger ilkesi oluşturacaksınız. hivesampletable, HDInsight kümelerine sahiptir. İlkeleri yapılandırdıktan sonra Excel ve ODBC sürücüsünü kullanarak HDInsight’taki Hive tablolarına bağlanabilirsiniz.

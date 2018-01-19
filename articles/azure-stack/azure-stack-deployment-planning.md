@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 6ba6bed8321e1ffde8bc8959443682725da36827
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: cd14f0e5259e5c0b6cbf11790bbdf08164267ffa
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Planlama konuları Azure yığınının sistemleri tümleşik
 Bir Azure tümleşik yığını sistemde düşünüyorsanız, bazı önemli planlama konuları dağıtım ve sistem merkeziniz nasıl uyduğunu etrafında anlamanız gerekir. Bu makalede, Azure yığını çok düğümlü sisteminiz için önemli altyapı kararları almanıza yardımcı olmak için bu noktalar üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması veri merkeziniz için Azure yığın dağıtırken OEM donanım satıcınızla çalışırken yardımcı olur.  
@@ -31,12 +31,12 @@ Azure bir dizi düzgün Azure yığın ortamınız ile tümleştirmek yapmanız 
 
 Bilgi aralıkları ağı, güvenlik ve birçok farklı alanlara ve karar alıcılar bilgi gerektirebilir birçok önemli kararları ile kimlik bilgileri gereklidir. Bu nedenle, dağıtım başlamadan önce gerekli tüm bilgileri hazır olmasını sağlamak için birden çok ekibin kuruluşunuzdaki kişilerin çekme gerekebilir. Bu bilgi toplarken, donanım satıcınıza öneriler kararları için yararlı olabilir gibi konuşun yardımcı olabilir.
 
-Araştırma ve gerekli bilgileri toplama sırasında ağ ortamınıza bazı dağıtım öncesi yapılandırma değişiklikleri yapmanız gerekebilir. Bu IP adresi alanlarını, yönlendiriciler, anahtarlar ve yeni Azure yığın çözüm anahtarları bağlantıyı hazırlamak için güvenlik duvarlarını yapılandırma Azure yığın çözüm ayırma içerebilir. Planlama ile Yardım kadar çizgili konu alanında Uzman bulunduğundan emin olun.
+Araştırma ve gerekli bilgileri toplama sırasında ağ ortamınıza bazı dağıtım öncesi yapılandırma değişiklikleri yapmanız gerekebilir. Bu IP adresi alanlarını Azure yığın çözüm ayırma ve yönlendiriciler, anahtarlar ve yeni Azure yığın çözüm anahtarları bağlantıyı hazırlamak için güvenlik duvarlarını yapılandırma içerebilir. Planlama ile yardımcı olmak için tabandaki ve dağıtım proje boyunca söz konusu konu alanında Uzman bulunduğundan emin olun.
 
 ## <a name="management-considerations"></a>Yönetim değerlendirmeleri
 Azure yığın burada altyapısı hem de bir izin kilitlenmiştir korumalı bir sistem olduğundan ve ağ açısından. Ağ erişim denetimi listeleri (ACL'ler) yetkisiz tüm gelen trafiği ve altyapı bileşenler arasındaki tüm gereksiz iletişim engellemek için uygulanır. Bu sisteme erişmek yetkisiz kullanıcıların zorlaştırır.
 
-Günlük yönetimi ve işlemleri için altyapısına Kısıtlanmamış yönetici erişimi yoktur. Azure yığın operatörleri sistem Yönetici portalı üzerinden veya Azure Resource Manager (aracılığıyla, PowerShell veya REST API) aracılığıyla yönetmeniz gerekir. Hyper-V Yöneticisi'ni veya yük devretme kümesi Yöneticisi gibi diğer yönetim araçları tarafından sisteme erişimi yoktur. Sistem korunmasına yardımcı olmak için üçüncü taraf yazılım (örneğin, aracıları) Azure yığın altyapısının bileşenleri içinde yüklenemez. Dış yönetim ve güvenlik yazılım ile birlikte çalışabilirlik PowerShell veya REST API oluşur.
+Günlük yönetimi ve işlemleri için altyapısına Kısıtlanmamış yönetici erişimi yoktur. Azure yığın operatörleri sistem Yönetici portalı üzerinden veya Azure Resource Manager (aracılığıyla, Azure CLI, PowerShell veya REST API) aracılığıyla yönetmeniz gerekir. Hyper-V Yöneticisi'ni veya yük devretme kümesi Yöneticisi gibi diğer yönetim araçları tarafından sisteme erişimi yoktur. Sistem korunmasına yardımcı olmak için üçüncü taraf yazılım (örneğin, aracıları) Azure yığın altyapısının bileşenleri içinde yüklenemez. Dış yönetim ve güvenlik yazılımı ile birlikte çalışabilirlik Azure CLI, PowerShell veya REST API oluşur.
 
 Uyarı aracı adımlara çözülmüş olmayan sorunlarını gidermek için erişimi daha yüksek düzeyde gerekli olduğunda, destek ile çalışması gerekir. Destek daha gelişmiş işlemleri gerçekleştirmek için sistem geçici tam yönetici erişimi sağlamak için bir yöntem yoktur. 
 
@@ -93,9 +93,9 @@ Hangi PKI hakkında daha fazla bilgi için sertifikaları Azure yığını ve bu
 
 
 ## <a name="time-synchronization"></a>Zaman eşitleme
-Sunucuyla Azure yığın eşitlemek için kullanılan belirli bir zaman seçmelisiniz.  İç Hizmetleri birbirleri ile kimlik doğrulama için kullanılan Kerberos anahtarları oluşturmak için kullanılan zaman symbolization Azure yığını ve altyapı rollerinden önemlidir.
+Sunucuyla Azure yığın eşitlemek için kullanılan belirli bir zaman seçmelisiniz.  İç Hizmetleri birbirleri ile kimlik doğrulama için kullanılan Kerberos anahtarları oluşturmak için kullanılan zaman eşitleme Azure yığını ve altyapı rollerinden önemlidir.
 
-Altyapı bileşenlerinde çoğunu bir URL çözebilirsiniz saat eşitleme sunucusu için bir IP bazı yalnızca IP adresleri destekleyebilir ancak belirtmeniz gerekir. Kullanıcısıysanız olan bağlantısı kesilmiş dağıtım seçeneğini kullanarak, Şirket ağınızdaki olduğunuz zaman sunucusu emin ulaşılabilir Azure yığınında altyapı ağdan belirtmelisiniz.
+Altyapı bileşenlerinde çoğunu bir URL çözebilirsiniz rağmen bazı IP adresleri yalnızca destekleyebilir olarak saat eşitleme sunucusu için bir IP belirtmelisiniz. Kullanıcısıysanız olan bağlantısı kesilmiş dağıtım seçeneğini kullanarak, Şirket ağınızdaki olduğunuz zaman sunucusu emin ulaşılabilir Azure yığınında altyapı ağdan belirtmelisiniz. Bu dağıtım projesi ağ tümleştirme kısmı planlama sırasında sağlayabildiği gerektirebilir.
 
 
 ## <a name="network-connectivity"></a>Ağ bağlantısı
@@ -120,31 +120,31 @@ Azure yığını için ağ altyapısı anahtarlar yapılandırılmış birden fa
 ![Mantıksal ağ bağlantılarının diyagramını ve anahtarı oluştur](media/azure-stack-deployment-planning/NetworkDiagram.png)
 
 #### <a name="bmc-network"></a>BMC ağ
-Bu ağ yönetim ağı için tüm temel kart yönetim denetleyicileri (olarak da bilinen Hizmet işlemciler, örneğin, iDRAC, Ilo, iBMC, vb.) bağlanma ayrılır. Varsa, (HLH) donanım yaşam döngüsü ana bu ağ üzerinde bulunan ve donanım Bakım ve/veya izleme için OEM belirli yazılım sağlayabilir. 
+Bu ağ yönetim ağı için tüm temel kart yönetim denetleyicileri (olarak da bilinen Hizmet işlemciler, örneğin, iDRAC, Ilo, iBMC, vb.) bağlanma ayrılır. Varsa, donanım yaşam döngüsü ana bilgisayar (HLH) bu ağ üzerinde bulunan ve donanım Bakım ve/veya izleme için OEM belirli yazılım sağlayabilir. 
 
 #### <a name="private-network"></a>Özel ağ
-Bu /24 (254 ana bilgisayar IP'ın) ağ (Azure yığın bölgesinin kenarlık anahtar aygıtları genişletmez) Azure yığın bölgeye özeldir ve iki alt ağa ayrılmıştır:
+Bu /24 (254 ana bilgisayar IP) ağ (genişletme Azure yığın bölgesinin kenarlık anahtar aygıtlar) Azure yığın bölgeye özeldir ve iki alt ağa ayrılmıştır:
 
-- **Depolama ağı**. Dinamik geçiş (126 ana bilgisayar IP'ın) ağ alanları doğrudan ve sunucu ileti bloğu (SMB) depolama trafiği ve sanal makine kullanımını desteklemek için kullanılan bir /25. 
-- **İç sanal IP ağ**. A/25-yalnızca iç atanmış VIP'ler yazılım yük dengeleyici için ağ.
+- **Depolama ağı**. /25 (126 konak IP'leri) depolama alanları doğrudan (S2D) ve sunucu ileti bloğu (SMB) depolama trafiği ve sanal makine dinamik geçişi desteklemek için kullanılan ağ. 
+- **İç sanal IP ağ**. A/25-yalnızca iç atanmış VIP'ler yazılım yük dengeleyici (SLB) için ağ.
 
 #### <a name="azure-stack-infrastructure-network"></a>Azure yığın altyapı ağı
-Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure yığın bileşenleri için ayrılmış. Bu alt ağ olarak yönlendirilebilir IP adreslerinin gerektiriyor, ancak erişim denetim listeleri (ACL'ler) kullanarak çözüme özel tutulur, bir/27 boyutu eşdeğer çok küçük bir aralık dışında kenarlık anahtarları ötesinde yönlendirilecek beklenen değil bunlardan bazıları tarafından kullanılan ağ Dış Kaynaklar ve/veya internet erişimi gerektirdiğinde Hizmetleri. 
+Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure yığın bileşenleri için ayrılmış. Bu alt ağ olarak yönlendirilebilir IP adreslerinin gerektiriyor, ancak erişim denetim listeleri (ACL'ler) kullanarak çözüme özel tutulur.  Kenarlık anahtarlar için/27 boyutu eşdeğer çok küçük bir aralık dışında ötesinde yönlendirilecek beklenen değil dış kaynaklara ve/veya internet erişimi gerektirdiğinde bu hizmetlerden bazılarını tarafından kullanılan ağ. 
 
 #### <a name="public-infrastructure-network"></a>Ortak altyapı ağı
-Bu/27 ağdır daha önce bahsedilen Azure yığın altyapı alt ağdan çok küçük bir aralık, genel IP adresleri gerektirmez, ancak bir NAT veya saydam Proxy üzerinden Internet erişimi gerektirir. Bu ağ Acil Durum Kurtarma Konsolu sistem (ERCS) için ayrılacak, ERCS VM Azure kayıt sırasında Internet erişimi gerektirir ve sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
+Bu/27 ağdır daha önce bahsedilen Azure yığın altyapı alt ağdan çok küçük bir aralık, genel IP adresleri gerektirmez, ancak bir NAT veya saydam Proxy üzerinden Internet erişimi gerektirir. Bu ağ Acil Durum Kurtarma Konsolu sistem (ERCS) için ayrılır. ERCS VM Azure kayıt sırasında Internet erişimi gerektirir ve sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olması gerekir.
 
 #### <a name="public-vip-network"></a>Ortak VIP ağ
 Ortak VIP ağ Azure yığınında Ağ denetleyicisi atanır. Bir mantıksal ağ anahtarı üzerindeki değil. SLB adres havuzu kullanır ve atar/32 Kiracı İş yükleri için ağları. Geçiş yönlendirme tablosu üzerinde bu 32 IP'leri BGP aracılığıyla kullanılabilir bir yolu olarak bildirildiğini. Bu ağ, dış erişilebilir veya genel IP adresleri içerir. Kalan Kiracı VM'ler tarafından kullanılırken Azure yığın altyapısı bu ortak VIP ağdan en az 8 adres kullanır. Bu alt ağ boyutu en fazla /22 (1022 konakları) için en az /26 (64 konakları) aralığı, bir/24 için planlama öneririz ağ.
 
 #### <a name="switch-infrastructure-network"></a>Anahtar altyapı ağı
-Bu/26 ağdır (2 ana bilgisayar IP's) yönlendirilebilir noktadan noktaya IP/30 alt ve ayrılmış geri döngüler içeren alt ağ/32 alt ağlar için bant dışı yönetim ve BGP yönlendirici kimliği geçiş Bu IP adresi aralığı dışarıdan merkeziniz için Azure yığın çözümün yönlendirilebilir olmalıdır, özel veya genel IP'ler olabilir.
+Bu/26 ağdır (2 ana bilgisayar IP's) yönlendirilebilir noktadan noktaya IP/30 alt ve ayrılmış geri döngüler içeren alt ağ/32 alt ağlar için bant dışı yönetim ve BGP yönlendirici kimliği geçiş Bu IP adresi aralığı dışarıdan merkeziniz için Azure yığın çözümün yönlendirilebilir olmalıdır ve özel veya genel IP'ler olması olabilir. Örneğin, özel IP genel IP'ler, çalışırken sıkı denetlenen bir kurumsal dağıtım içinde gerekli olabilecek bir çoklu kiralanan hizmet sağlayıcısı senaryo içinde tercih edilebilir.
 
 #### <a name="switch-management-network"></a>Anahtar Yönetim ağı
 Bu /29 (6 ana bilgisayar IP) ayrılmış ağ anahtarlarını yönetim bağlantı noktalarını bağlanma. Dağıtım, yönetim ve sorun giderme için bant dışı erişim sağlar. Yukarıda belirtilen anahtar altyapı ağ üzerinden hesaplanır.
 
 ### <a name="transparent-proxy"></a>SAYDAM PROXY
-Azure yığın çözüm normal web proxy'leri desteklemez. Veri merkezi bir proxy sunucu kullanmak için tüm trafiği gerektiriyorsa, ağınızdaki bölgeler arasındaki trafiğin ayrılması ilkesine göre işlemek için raf gelen tüm trafiği işlemeye saydam bir proxy yapılandırmanız gerekir. Saydam bir proxy (olarak da bilinen bir kesintiye uğratan, satır içi veya Zorlanmış proxy), herhangi bir özel istemci yapılandırma gerektirmeden ağ katmanında normal iletişimi kesintiye uğratır. İstemcileri proxy varlığını değil bilmeniz gerekir.
+Azure yığın çözüm normal web proxy'leri desteklemez. Veri merkezi bir proxy sunucu kullanmak için tüm trafiği gerektiriyorsa, ağınızdaki bölgeler arasındaki trafiğin ayrılması ilkesine göre işlemek için raf gelen tüm trafiği işlemeye saydam bir proxy yapılandırmanız gerekir. Saydam bir proxy (olarak da bilinen bir kesintiye uğratan, satır içi veya Zorlanmış proxy), herhangi bir özel istemci yapılandırma gerektirmeden ağ katmanında normal iletişimi kesintiye uğratır. İstemciler, proxy varlığını farkında olmanız gerekir.
 
 ### <a name="publish-azure-stack-services"></a>Azure yığın Hizmetleri'ne yayımlama
 
@@ -203,7 +203,7 @@ Aşağıdaki diyagramda bir çok kiracılı senaryo için ExpressRoute gösterir
 ## <a name="external-monitoring"></a>Dış izleme
 Azure yığın dağıtımına ve cihazlardan tüm uyarıları, tek bir görünümünü almak için ve raporlama için var olan BT Hizmet Yönetimi iş akışlarını içine uyarıları tümleştirmek için Azure yığın çözümlerini izleme dış veri merkezi ile tümleştirebilirsiniz.
 
-Azure yığın çözümüne eklenmiş, donanım yaşam döngüsü konak donanım için OEM satıcı tarafından sağlanan Yönetim Araçları'nı çalıştıran Azure yığın dışında bilgisayardır. Bu araçlar ya da var olan bir izleme çözümü, veri merkezinizdeki doğrudan tümleştirileceğini diğer çözümleri kullanabilirsiniz.
+Azure yığın çözümüne eklenmiş, donanım yaşam döngüsü ana bilgisayarı (HLH) OEM donanım satıcısı tarafından sağlanan Yönetim Araçları'nı çalıştıran Azure yığın dışında bilgisayardır. Bu araçlar ya da var olan bir izleme çözümü, veri merkezinizdeki doğrudan tümleştirileceğini diğer çözümleri kullanabilirsiniz.
 
 Aşağıdaki tablo şu anda kullanılabilir seçeneklerinin listesini özetler.
 
