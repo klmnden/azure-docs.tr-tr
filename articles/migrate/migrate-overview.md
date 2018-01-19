@@ -4,13 +4,13 @@ description: "Azure Geçişi hizmetine genel bir bakış sağlar."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -66,7 +66,7 @@ Değerlendirme, şirket içi VM’lerin Azure uygunluğunu tanımlamanıza yard�
 3.  vCenter Server'da konsol bağlantısı kullanarak VM’ye bağlanın, bağlanırken VM için yeni bir parola belirtin ve sonra keşfi başlatmak için VM’deki toplayıcı uygulamasını çalıştırın.
 4.  Toplayıcı, VMware PowerCLI cmdlet’lerini kullanarak VM meta verilerini toplar. Bulma işlemi aracısızdır ve VMware konaklarına ya da VM’lere herhangi bir yükleme yapmaz. Toplanan meta veriler VM bilgilerini (çekirdekler, bellek, diskler, disk boyutları ve ağ bağdaştırıcıları) içerir. Ayrıca, CPU ve bellek kullanımı, disk IOPS, disk aktarım hızı (MB/sn) ve ağ çıktısı (MB/sn) gibi VM’lere ait performans verilerini toplar.
 5.  Meta veriler Azure Geçişi projesine gönderilir. Verileri Azure portalında görüntüleyebilirsiniz.
-6.  Değerlendirme amacıyla keşfedilen VM’leri gruplar halinde toplayın. Örneğin, aynı uygulamayı çalıştıran VM’leri gruplandırabilirsiniz. Azure Geçişi portalındaki VM’leri gruplandırabilir veya vCenter Server’daki etiketlemeyi kullanabilirsiniz. Ayrıca, bir gruptaki belirli bir makine ya da tüm makinelerin bağımlılıklarını görüntülemek ve grubu geliştirmek için bağımlılık görselleştirmeyi kullanabilirsiniz.
+6.  Değerlendirme amacıyla keşfedilen VM’leri gruplar halinde toplayın. Örneğin, aynı uygulamayı çalıştıran VM’leri gruplandırabilirsiniz. Daha kesin gruplandırma için, bir gruptaki belirli bir makine ya da tüm makinelerin bağımlılıklarını görüntülemek ve grubu geliştirmek için bağımlılık görselleştirmeyi kullanabilirsiniz.
 7.  Grubunuz oluşturulduğunda, grup için bir değerlendirme oluşturursunuz. 
 8.  Değerlendirme tamamlandıktan sonra portalda görüntüleyebilir veya Excel biçiminde indirebilirsiniz.
 

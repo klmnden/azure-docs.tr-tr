@@ -2,24 +2,24 @@
 title: "Linux üzerinde Azure Service Fabric kapsayıcı uygulaması oluşturma | Microsoft Docs"
 description: "Azure Service Fabric üzerinde ilk Linux kapsayıcı uygulamanızı oluşturun.  Uygulamanızla bir Docker görüntüsü oluşturun, görüntüyü bir kapsayıcı kayıt defterine iletin, bir Service Fabric kapsayıcı uygulaması oluşturup dağıtın."
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure'da bir Azure Service Fabric Linux kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -66,23 +66,34 @@ Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Servi
 > Web ön uç hizmeti 80 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırılmıştır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Grup kümesi kullanıyorsanız bu bağlantı noktası açık durumdadır.
 >
 
-### <a name="deploy-the-application-manifests"></a>Uygulama bildirimlerini dağıtma 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Service Fabric Komut Satırı Arabirimi’ni yükleme ve kümenize bağlanma
 [Service Fabric CLI (sfctl)](service-fabric-cli.md) öğesini CLI ortamınıza yükleyin
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Azure CLI kullanarak Azure'daki Service Fabric kümesine bağlanın. Uç noktası, kümenizin yönetim uç noktasıdır. Örneğin: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Service Fabric uygulamasını dağıtma 
+Service Fabric kapsayıcı uygulamaları, açıklanan Service Fabric uygulama paketi veya Docker Compose kullanılarak dağıtılabilir. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Service Fabric uygulama paketi kullanarak dağıtma
 Verilen yükleme betiğini kullanarak oy verme uygulaması tanımını kümeye kopyalayın, uygulama türünü kaydedin ve uygulamanın bir örneğini oluşturun.
 
 ```azurecli-interactive
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>Docker compose kullanarak uygulamayı dağıtma
+Aşağıdaki komutla Docker Compose kullanarak Service Fabric kümesinde uygulamayı dağıtın ve yükleyin.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 Bir tarayıcı penceresi açın ve http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - örneğin, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer` adresini izleyerek Service Fabric Explorer'a gidin. Uygulamalar düğümünü genişlettiğinizde oluşturduğunuz Oy verme uygulama türü ve örneği için bir giriş oluşturulduğunu göreceksiniz.

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Python ve Azure portalını kullanarak bir grafik veritabanı oluşturma
 
@@ -135,28 +135,30 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
         password="<YOUR_PASSWORD>")
     ```
 
-3. `client` nesnesinin ikinci parametresini `<YOUR_DATABASE>` ve `<YOUR_COLLECTION_OR_GRAPH>` dizelerinin yerine geçecek şekilde değiştirin. Önerilen değerleri kullandıysanız, parametre şu kod gibi görünmelidir:
+3. İstemci adındaki `graphs.azure.com` ifadesini `gremlin.cosmosdb.azure.com` olarak değiştirin. (Grafik veritabanı hesabınız 20 Aralık 2017’den önce oluşturulduysa, herhangi bir değişiklik yapmayıp sonraki adıma geçin.)
+
+4. `client` nesnesinin ikinci parametresini `<YOUR_DATABASE>` ve `<YOUR_COLLECTION_OR_GRAPH>` dizelerinin yerine geçecek şekilde değiştirin. Önerilen değerleri kullandıysanız, parametre şu kod gibi görünmelidir:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
     Tüm `client` nesnesi artık şu kod gibi görünmelidir:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
 
-4. Azure portalında, kopyala düğmesini kullanarak PRIMARY KEY’i kopyalayın ve `password=<YOUR_PASSWORD>` parametresindeki `<YOUR_PASSWORD>` öğesine yapıştırın.
+5. Azure portalında, kopyala düğmesini kullanarak PRIMARY KEY’i kopyalayın ve `password=<YOUR_PASSWORD>` parametresindeki `<YOUR_PASSWORD>` öğesine yapıştırın.
 
     Tüm `client` nesne tanımı artık şu kod gibi görünmelidir:
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. `connect.py` dosyasını kaydedin.
+6. `connect.py` dosyasını kaydedin.
 
 ## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
 

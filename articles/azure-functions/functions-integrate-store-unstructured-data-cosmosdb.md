@@ -17,15 +17,18 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9bb71adf85490fe68bf6b73133017c5e9c377e1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure İşlevleri ve Azure Cosmos DB’yi kullanarak yapılandırılmamış verileri depolama
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), yapılandırılmamış verileri ve JSON verilerini depolamanın harika bir yoludur. Cosmos DB, Azure İşlevleri ile birlikte kullanıldığında verilerin ilişkisel bir veritabanında depolanmasına göre çok daha az kodla verileri hızlı ve kolay bir şekilde depolar.
+
+> [!NOTE]
+> Şu anda Azure Cosmos DB tetikleyicisi, giriş bağlamaları ve çıkış bağlamaları yalnızca SQL API ve Graph API hesaplarıyla çalışır.
 
 Azure İşlevleri’nde giriş ve çıkış bağlamaları, işlevinizden dış hizmet verilerine bağlanmanın bildirim temelli bir yöntemini sağlar. Bu konuda, yapılandırılmamış verileri bir Cosmos DB belgesinde depolayan bir çıktı bağlaması eklemek için var olan bir C# işlevini güncelleştirme hakkında bilgi edinin. 
 
@@ -65,12 +68,12 @@ Bu öğreticiyi tamamlamak için:
     | Ayar      | Önerilen değer  | Açıklama                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Veritabanının adı | Azure Cosmos DB veritabanı için benzersiz kimlik  |
-    | **API** | SQL (DocumentDB) | Belge veritabanı API’sini seçin.  |
+    | **API** | SQL | SQL API’yi seçin. Şu anda Azure Cosmos DB tetikleyicisi, giriş bağlamaları ve çıkış bağlamaları yalnızca SQL API ve Graph API hesaplarıyla çalışır. |
     | **Abonelik** | Azure Aboneliği | Azure Aboneliği  |
     | **Kaynak Grubu** | myResourceGroup |  İşlevi uygulamanızı içeren mevcut kaynak grubunu kullanın. |
     | **Konum**  | WestEurope | İşlev uygulamanıza veya depolanmış belgeleri kullanan diğer uygulamalara yakın olan bir konum seçin.  |
 
-6. Veritabanını oluşturmak için **Tamam**’a tıklayın. Veritabanının oluşturulması birkaç dakika sürebilir. Veritabanı oluşturulduktan sonra, veritabanı bağlantı dizesi bir işlev uygulaması ayarı olarak depolanır. Bu uygulama ayarı **Azure Cosmos DB hesap bağlantısına** eklenir. 
+6. Veritabanını oluşturmak için **Tamam**’a tıklayın. Veritabanının oluşturulması birkaç dakika sürebilir. Veritabanı oluşturulduktan sonra, veritabanı bağlantı dizesi bir işlev uygulaması ayarı olarak depolanır. Bu uygulama ayarının adı **Azure Cosmos DB hesap bağlantısına** eklenir. 
  
 8. Bağlantı dizesi ayarlandıktan sonra, bağlamayı oluşturmak için **Kaydet**’i seçin.
 
@@ -142,4 +145,4 @@ Yapılandırılmamış verileri bir Azure Cosmos DB’de depolayan HTTP tetikley
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
-Cosmos DB veritabanına bağlama hakkında daha fazla bilgi için bkz. [Azure İşlevleri Cosmos DB bağlamaları](functions-bindings-documentdb.md).
+Cosmos DB veritabanına bağlama hakkında daha fazla bilgi için bkz. [Azure İşlevleri Cosmos DB bağlamaları](functions-bindings-cosmosdb.md).

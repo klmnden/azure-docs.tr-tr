@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir grafik veritabanı oluşturma
 
@@ -129,13 +129,19 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Azure portalında, kopyala düğmesini kullanarak PRIMARY KEY’i kopyalayın ve `password: $masterKey$` içindeki `$masterKey$` öğesine yapıştırın.
+3. `endpoint` değerindeki `graphs` ifadesini `gremlin.cosmosdb` ile değiştirin. (Grafik veritabanı hesabınızı 20 Aralık 2017’den önce oluşturduysanız, uç nokta değerinde bir değişiklik yapmayın ve sonraki adıma geçin.)
+
+    Uç nokta değeri şimdi şöyle görünmelidir:
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. Azure portalında, kopyala düğmesini kullanarak PRIMARY KEY’i kopyalayın ve `password: $masterKey$` içindeki `$masterKey$` öğesine yapıştırın.
 
     remote.yaml dosyasının 4. satırı şuna benzer şekilde görünmelidir: 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. remote.yaml dosyasının 3. satırının şu değerini değiştirin:
+5. remote.yaml dosyasının 3. satırının şu değerini değiştirin:
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -143,7 +149,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. remote.yaml dosyasını kaydedin.
+6. remote.yaml dosyasını kaydedin.
 
 ## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
 

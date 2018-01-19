@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: faec967c1f5405cd9a5b49c16fed575f6675478c
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 95c0ac43e468d3655cfddc7ae0de6cefb649131d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Graph API'sini kullanarak bir Node.js uygulaması oluşturma
 
@@ -129,9 +129,9 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `app.js` dosya
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-graph-nodejs/gremlin-uri.png)
 
-   **Gremlin URI** değeri boşsa, değeri portalda **Anahtarlar** sayfasından oluşturabilirsiniz. **URI** değerini kullanın, https:// bölümünü kaldırın ve belgeleri grafik olarak değiştirin.
+   **Gremlin URI** değeri boşsa, değeri portalda **Anahtarlar** sayfasından oluşturabilirsiniz. **URI** değerini kullanın, https:// bölümünü kaldırın ve belgeleri gremlin.cosmosdb olarak değiştirin. Grafik hesabınız 20 Aralık 2017’den önce oluşturulduysa, belgeleri grafiklerle değiştirin. 
 
-   Gremlin uç noktası, `mygraphdb.graphs.azure.com` (`https://mygraphdb.graphs.azure.com` veya `mygraphdb.graphs.azure.com:433` değil) gibi protokol/bağlantı noktası numarası olmayan tek ana bilgisayar adı olmalıdır.
+   Gremlin uç noktası, `mygraphdb.gremlin.cosmosdb.azure.com` (`https://mygraphdb.gremlin.cosmosdb.azure.com` veya `mygraphdb.gremlin.cosmosdb.azure.com:433` değil) gibi protokol/bağlantı noktası numarası olmayan tek ana bilgisayar adı olmalıdır.
 
 3. Config.js dosyasında, config.primaryKey değerini Azure portalının **Anahtarlar** sayfasında bulunan **Birincil Anahtar** değeriyle doldurun. 
 
@@ -147,7 +147,7 @@ Aşağıda, tamamlanan config.js dosyanızın nasıl görüneceğine ilişkin bi
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "testgraphacct.graphs.azure.com";
+config.endpoint = "testgraphacct.gremlin.cosmosdb.azure.com";
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"

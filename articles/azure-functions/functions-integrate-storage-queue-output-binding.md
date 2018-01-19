@@ -1,6 +1,6 @@
 ---
 title: "İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme | Microsoft Docs"
-description: "Bir Azure Depolama kuyruğuna gönderilmiş iletiler tarafından çağrılan sunucusuz işlev oluşturmak için Azure İşlevlerini kullanın."
+description: "Bir HTTP isteği tarafından çağrılan ve bir Azure Depolama kuyruğunda iletiler oluşturan sunucusuz işlev oluşturmak için Azure İşlevlerini kullanın."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -16,74 +16,86 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 07b864c72696fbcfc0119b978e2ab9a51307291a
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme
 
-Azure İşlevleri’nde giriş ve çıkış bağlamaları, işlevinizden dış hizmet verilerine bağlanmanın bildirim temelli bir yöntemini sağlar. Bu konu başlığında, Azure Kuyruk Depolama’ya iletiler gönderen bir çıkış bağlaması ekleyerek mevcut bir işlevi güncelleştirmeyi öğrenebilirsiniz.  
+Azure İşlevleri’nde giriş ve çıkış bağlamaları, kodunuzda kullanılabilen dış hizmetlerden veri oluşturmanın bildirim temelli bir yöntemini sağlar. Bu hızlı başlangıçta, bir HTTP isteği tarafından işlev tetiklendiğinde kuyrukta bir ileti oluşturmak üzere çıkış bağlaması kullanırsınız. İşlevinizin oluşturduğu kuyruk iletilerini görüntülemek için Azure Depolama Gezgini’ni kullanın:
 
-![Günlüklerde iletiyi görüntüleyin.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
+![Depolama Gezgini'nde gösterilen kuyruk iletisi](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
 ## <a name="prerequisites"></a>Ön koşullar 
 
-[!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
+Bu hızlı başlangıcı tamamlamak için:
 
-* [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni yükleyin.
+* [Azure portalından ilk işlevinizi oluşturma](functions-create-first-azure-function.md) bölümündeki yönergeleri izleyin ve **Kaynakları temizleme** adımını uygulamayın. Bu hızlı başlangıç, burada kullandığınız işlev uygulamasını ve işlevi oluşturur.
+
+* [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni yükleyin. Bu, çıkış bağlamanızın oluşturduğu kuyruk iletilerini incelemek için kullanacağınız bir araçtır.
 
 ## <a name="add-binding"></a>Çıkış bağlaması ekleme
- 
-1. İşlev uygulamanızı ve işlevinizi genişletin.
 
-2. **Tümleştir** ve **+ Yeni çıkış** seçeneklerini belirleyin ve ardından **Azure Kuyruk depolama**'ya ve **Seç**'e tıklayın.
+Bu bölümde, daha önce oluşturduğunuz işleve bir kuyruk depolama çıkış bağlaması eklemek üzere portal kullanıcı arabirimini kullanın. Bu bağlama, kuyrukta bir ileti oluşturmak üzere küçük bir kod yazmayı mümkün hale getirir. Depolama bağlantısı açma, kuyruk oluşturma veya bir kuyruk başvurusu alma gibi görevler için kod yazmanız gerekmez. Azure İşlevleri çalışma zamanı ve kuyruk çıkış bağlaması bu görevleri sizin için gerçekleştirir.
+
+1. Azure portalında, [Azure portalından ilk işlevinizi oluşturma](functions-create-first-azure-function.md) bölümünde oluşturduğunuz işlev uygulamasına ait işlev uygulaması sayfasını açın. Bunu yapmak için **Diğer hizmetler > İşlev Uygulamaları**’nı ve ardından işlevi uygulamanızı seçin.
+
+2. Bu hızlı başlangıcın önceki kısımlarında oluşturduğunuz işlevi seçin.
+
+1. **Tümleştir > Yeni çıkış > Azure Kuyruk depolama**’yı seçin.
+
+1. **Seç**'e tıklayın.
     
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Tabloda belirtilen ayarları kullanın: 
+3. **Azure Kuyruk Depolama çıkışı** altında, bu ekran görüntüsünden sonraki tabloda belirtilen ayarları kullanın: 
 
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
     | Ayar      |  Önerilen değer   | Açıklama                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Kuyruk adı**   | myqueue-items    | Depolama hesabınızdaki bağlantı kurulacak kuyruğun adı. |
-    | **Depolama hesabı bağlantısı** | AzureWebJobStorage | İşlev uygulamanız tarafından kullanılmakta olan depolama hesabı bağlantısını kullanabilir veya yeni bir bağlantı oluşturabilirsiniz.  |
     | **İleti parametre adı** | outputQueueItem | Çıkış bağlama parametresinin adı. | 
+    | **Depolama hesabı bağlantısı** | AzureWebJobsStorage | İşlev uygulamanız tarafından kullanılmakta olan depolama hesabı bağlantısını kullanabilir veya yeni bir bağlantı oluşturabilirsiniz.  |
+    | **Kuyruk adı**   | outqueue    | Depolama hesabınızdaki bağlantı kurulacak kuyruğun adı. |
 
 4. Bağlamayı kaydetmek için **Kaydet**’e tıklayın.
  
 Bir çıkış bağlaması tanımladığınıza göre, bir kuyruğa ileti eklemek üzere bağlamayı kullanmak için kodu güncelleştirmeniz gerekir.  
 
-## <a name="update-the-function-code"></a>İşlev kodunu güncelleştirme
+## <a name="add-code-that-uses-the-output-binding"></a>Çıkış bağlaması kullanan kod ekleme
+
+Bu bölümde, çıkış kuyruğuna bir ileti yazan kodu ekleyeceksiniz. İleti, sorgu dizesinde HTTP tetikleyicisine geçirilen değeri içerir. Örneğin, sorgu dizesi `name=Azure` değerini içeriyorsa, kuyruk iletisi *İşleve geçirilen ad: Azure* şeklinde olur.
 
 1. İşlev kodunu düzenleyicide görüntülemek için işlevinizi seçin. 
 
-2. Bir C# işlevi için, **outputQueueItem** depolama bağlama parametresini eklemek üzere işlev tanımınızı aşağıdaki gibi güncelleştirin. JavaScript işlevi için bu adımı atlayın.
+2. Bir C# işlevinde, bağlama için bir yöntem parametresi ekleyin ve kullanmak için kod yazın:
 
-    ```cs   
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outputQueueItem, TraceWriter log)
-    {
-        ....
-    }
-    ```
+   Yöntem imzasına aşağıdaki örnekte gösterildiği gibi bir **outputQueueItem** parametresi ekleyin. Parametre adı, bağlamayı oluşturduğunuzda **İleti parametre adı** için girdiğiniz adla aynıdır.
 
-3. Yöntemden dönülmeden hemen önce aşağıdaki kodu işleve ekleyin. İşlevinizin diline uygun parçacığı kullanın.
+   ```cs   
+   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
+       ICollector<string> outputQueueItem, TraceWriter log)
+   {
+       ...
+   }
+   ```
 
-    ```javascript
-    context.bindings.outputQueueItem = "Name passed to the function: " + 
-                (req.query.name || req.body.name);
-    ```
+   C# işlevinin gövdesine `return` deyiminden hemen önce, kuyruk iletisi oluşturmak için parametreyi kullanan kodu ekleyin.
 
-    ```cs
-    outputQueueItem.Add("Name passed to the function: " + name);     
-    ```
+   ```cs
+   outputQueueItem.Add("Name passed to the function: " + name);     
+   ```
+
+3. Bir JavaScript işlevi için, kuyruk iletisi oluşturmak üzere `context.bindings` nesnesinde çıkış bağlaması kullanan kodu ekleyin. Bu kodu `context.done` deyiminden önce ekleyin.
+
+   ```javascript
+   context.bindings.outputQueueItem = "Name passed to the function: " + 
+               (req.query.name || req.body.name);
+   ```
 
 4. Değişiklikleri kaydetmek için **Kaydet**'i seçin.
-
-HTTP tetikleyicisine geçirilen değer, kuyruğa alınmış bir iletiye eklenir.
  
 ## <a name="test-the-function"></a>İşlevi test etme 
 
@@ -91,42 +103,58 @@ HTTP tetikleyicisine geçirilen değer, kuyruğa alınmış bir iletiye eklenir.
 
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-2. İşlevin başarılı olduğundan emin olmak için günlükleri denetleyin. Çıkış bağlaması ilk kez kullanıldığında, Depolama hesabınızda İşlevler çalışma zamanı tarafından **outqueue** adlı yeni bir kuyruk oluşturulur.
+   **İstek gövdesinin** `name` değeri *Azure*’u içerdiğine dikkat edin. Bu değer, işlev çağrıldığında oluşturulan kuyruk iletisinde görüntülenir.
 
-Bundan sonra, yeni kuyruğunuzu ve ona eklediğiniz iletiyi doğrulamak için depolama hesabınıza bağlanabilirsiniz. 
+   Burada **Çalıştır**’ı seçmeye alternatif olarak, bir tarayıcıya URL girerek ve sorgu dizesinde `name` değerini belirterek işlevi çağırabilirsiniz. Tarayıcı yöntemi [önceki hızlı başlangıç](functions-create-first-azure-function.md#test-the-function) içinde gösterilmiştir.
 
-## <a name="connect-to-the-queue"></a>Kuyruğa bağlanma
+2. İşlevin başarılı olduğundan emin olmak için günlükleri denetleyin. 
 
-Depolama Gezgini’ni daha önce yükleyip depolama hesabınıza bağladıysanız, ilk üç adımı atlayın.    
+Çıkış bağlaması ilk kez kullanıldığında, Depolama hesabınızda İşlevler çalışma zamanı tarafından **outqueue** adlı yeni bir kuyruk oluşturulur. Kuyruğun ve içindeki iletinin oluşturulduğunu doğrulamak için Depolama Gezgini’ni kullanacaksınız.
 
-1. İşlevinizde **Tümleştir**’i ve yeni **Azure Kuyruk depolama** çıkış bağlamasını seçin, ardından **Belgeler**’i genişletin. Hem **Hesap adı** hem de **Hesap anahtarı** değerlerini kopyalayın. Depolama hesabına bağlanmak için bu kimlik bilgilerini kullanacaksınız.
- 
-    ![Depolama hesabı bağlantısı için kimlik bilgilerini alın.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
+### <a name="connect-storage-explorer-to-your-account"></a>Depolama Gezgini’ni hesabınıza bağlama
+
+Depolama Gezgini’ni zaten yüklediyseniz ve bu hızlı başlangıçla birlikte kullandığınız depolama hesabına bağladıysanız bu bölümü atlayın.
 
 2. [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/) aracını çalıştırın, sol taraftaki bağlanma simgesini seçin, **Depolama hesabı adı ve anahtarı kullan**'ı seçip **İleri**'ye tıklayın.
 
     ![Depolama Hesabı Gezgini aracını çalıştırın.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
-    
-3. 1 adımdaki **Hesap adını** ve **Hesap anahtarını** uygun alanlara yapıştırıp **İleri** ve **Bağlan** seçeneklerini belirleyin. 
-  
-    ![Depolama kimlik bilgilerini yapıştırın ve bağlanın.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Bağlı depolama hesabını genişletin, **Kuyruklar**’ı genişletin ve **myqueue-items** adlı bir kuyruğun var olduğunu doğrulayın. Ayrıca zaten kuyrukta olan bir ileti görmeniz gerekir.  
+1. Azure portalındaki işlevi uygulaması sayfasında işlevinizi seçin ve ardından **Tümleştir**’i seçin.
+
+1. Önceki bir adımda eklediğiniz **Azure Kuyruk depolama** çıkış bağlamasını seçin.
+
+1. Sayfanın altındaki **Belgeler** bölümünü genişletin. 
+
+   Portal, depolama hesabına bağlanmak üzere Depolama Gezgini’nde kullanabileceğiniz kimlik bilgilerini gösterir.
+
+   ![Depolama hesabı bağlantısı için kimlik bilgilerini alın.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
+
+1. Portaldan **Hesap Adı** değerini kopyalayın ve Depolama Gezgini’ndeki **Hesap adı** kutusuna yapıştırın.
  
-    ![Depolama kuyruğu oluşturun.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
- 
+1. Değeri göstermek için **Hesap Anahtarı**’nın yanındaki göster/gizle simgesine tıklayın ve sonra **Hesap Anahtarı** değerini kopyalayarak Depolama Gezgini’ndeki **Hesap anahtarı** kutusuna yapıştırın.
+  
+3. **İleri > Bağlan**’ı seçin.
+
+   ![Depolama kimlik bilgilerini yapıştırın ve bağlanın.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+
+### <a name="examine-the-output-queue"></a>Çıkış kuyruğunu inceleme
+
+4. Depolama Gezgini'nde bu hızlı başlangıç için kullandığınız depolama hesabını seçin.
+
+1. **Kuyruklar** düğümünü genişletin ve sonra **outqueue** adlı kuyruğu seçin. 
+
+   Kuyruk, HTTP ile tetiklenen işlevi çalıştırdığınızda kuyruk çıkış bağlamasının oluşturduğu iletiyi içerir. İşlevi varsayılan `name` *Azure* değeri ile çağırdıysanız, kuyruk iletisi *İşleve geçirilen ad: Azure* şeklinde olur.
+
+    ![Depolama Gezgini'nde gösterilen kuyruk iletisi](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
+
+2. İşlevi yeniden çalıştırdığınızda kuyrukta yeni bir iletinin göründüğünü göreceksiniz.  
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Var olan bir işleve çıkış bağlaması eklediniz. 
+Bu hızlı başlangıçta, bar olan bir işleve çıkış bağlaması eklediniz. Kuyruk depolamaya bağlama hakkında daha fazla bilgi için bkz. [Azure İşlevleri Depolama kuyruğu bağlamaları](functions-bindings-storage-queue.md). 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Kuyruk depolamaya bağlama hakkında daha fazla bilgi için bkz. [Azure İşlevleri Depolama kuyruğu bağlamaları](functions-bindings-storage-queue.md). 
-
-
-

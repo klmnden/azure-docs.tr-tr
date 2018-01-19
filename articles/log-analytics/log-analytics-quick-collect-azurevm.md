@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Sanal Makineleri hakkında veri toplama
 [Azure Log Analytics](log-analytics-overview.md), doğrudan Azure sanal makinelerinizden ve ortamınızdaki diğer kaynaklardan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Azure Linux veya Windows VM’lerinizi nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  
@@ -29,8 +29,8 @@ Bu hızlı başlangıçta mevcut bir Azure sanal makinenizin olduğu varsayılma
 ## <a name="log-in-to-azure-portal"></a>Azure portalında oturum açın
 [https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın. 
 
-## <a name="create-a-workspace"></a>Çalışma Alanı oluşturma
-1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
+1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br> ![Azure portalı](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. **Oluştur**’a tıklayın, ardından şu öğeler için seçim yapın:
 
   * Yeni **OMS Çalışma Alanı** için *DefaultLAWorkspace* gibi bir ad sağlayın. 
@@ -50,7 +50,7 @@ Zaten Azure’da dağıtılan Windows ve Linux sanal makineler için, Log Analyt
 >[!NOTE]
 >Linux için OMS aracısı birden fazla Log Analytics çalışma alanına raporlamak için yapılandırılamaz. 
 
-Portalda Log Analytics kaynak sayfanızın yukarısında yükseltme yapmanızı isteyen başlığı görmüş olabilirsiniz.  Yükseltme bu hızlı başlangıç için gerekli değildir.<br>
+Azure Kamu bulutunda bir çalışma alanı oluşturduysanız, portalda Log Analytics kaynak sayfanızın yukarısında yükseltme yapmanızı isteyen başlığı görmüş olabilirsiniz.  Yükseltme bu hızlı başlangıç için gerekli değildir.<br>
 
 ![Azure portalında Log Analytics yükseltme bildirimi](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
@@ -87,7 +87,13 @@ Log Analytics uzun süreli analiz ve raporlama için belirttiğiniz Windows olay
 Veri toplamayı etkinleştirdiyseniz, şimdi hedef VM’lerden verileri görmek için basit bir günlük araması örneği çalıştıralım.  
 
 1. Azure portalında, Log Analytics’e gidip önceden oluşturduğunuz çalışma alanını seçin.
-2. **Günlük Araması** kutucuğuna tıklayın ve Günlük Araması bölmesinde, sorgu alanında `Type=Perf` yazıp Enter tuşuna basın veya sorgu alanının sağındaki arama düğmesine tıklayın.<br> ![Log Analytics günlük araması sorgu örneği](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> Örneğin, aşağıdaki resimdeki sorgu 78.000 Performans kaydı döndürdü.  Sonuçlarınız önemli ölçüde daha az olacaktır.<br> ![Log Analytics günlük araması sonucu](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+2. **Günlük Araması** kutucuğuna tıklayın ve Günlük Araması bölmesinde, sorgu alanında `Perf` yazıp Enter tuşuna basın veya sorgu alanının sağındaki arama düğmesine tıklayın.<br> ![Log Analytics günlük araması sorgu örneği](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+
+   >[!NOTE]
+   >Çalışma alanınız Azure Kamu bulutunda oluşturulduysa, `Type=Perf` sorgusunu kullanırsınız.  
+   >
+
+Örneğin, aşağıdaki resimdeki sorgu 78.000 Performans kaydı döndürdü.  Sonuçlarınız önemli ölçüde daha az olacaktır.<br> ![Log Analytics günlük araması sonucu](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Artık gerekli olmadığında, Log Analytics çalışma alanını silin. Bunu yapmak için, önceden oluşturduğunuz Log Analytics çalışma alanını seçin ve kaynak sayfasında **Sil**’e tıklayın.<br> ![Log Analytics kaynağını silme](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
