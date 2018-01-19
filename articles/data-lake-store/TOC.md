@@ -12,7 +12,7 @@
 
 # Nasıl yapılır
 ## Verileri yükleme ve taşıma
-### [Azure Data Factory'yi kullanma](../data-factory/connector-azure-data-lake-store.md)
+### [Azure Data Factory'yi kullanma](../data-factory/load-azure-data-lake-store.md)
 ### [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop’u kullanma](data-lake-store-data-transfer-sql-sqoop.md)
@@ -66,7 +66,7 @@
 ### [Azure Sanal Ağı’ndaki VM’lerden erişim](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Azure Event Hubs ile kullanma](data-lake-store-archive-eventhub-capture.md)
-### [Data Factory ile kullanma](../data-factory/connector-azure-data-lake-store.md)
+### [Data Factory ile kullanma](../data-factory/load-azure-data-lake-store.md)
 ### [Akış Analizi ile kullanma](data-lake-store-stream-analytics.md)
 ### [Power BI ile kullanma](data-lake-store-power-bi.md)
 ### [Veri Kataloğu ile kullanma](data-lake-store-with-data-catalog.md)

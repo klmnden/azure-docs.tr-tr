@@ -8,7 +8,7 @@
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## Data Lake Analytics'i yönetme
 ### [Azure portal](data-lake-analytics-manage-use-portal.md)
@@ -55,9 +55,10 @@
 # Kaynaklar
 ## [Azure Data Lake Blogu](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [UserVoice hakkında geri bildirim gönderin](https://feedback.azure.com/forums/327234-data-lake)
+## [UserVoice üzerinden geri bildirim gönderin](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)

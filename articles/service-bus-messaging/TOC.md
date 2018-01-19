@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Çok katmanlı Service Bus uygulaması derleme](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Nasıl yapılır
 ## Planlama ve tasarım
@@ -29,6 +28,7 @@
 ### [Rol Tabanlı Erişim Denetimi (önizleme)](service-bus-role-based-access-control.md)
 ### [Premium mesajlaşma](service-bus-premium-messaging.md)
 ### [Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırması](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Çok katmanlı Service Bus uygulaması derleme](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Performansı iyileştirme](service-bus-performance-improvements.md)
 ### [Coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma](service-bus-geo-dr.md)
 ### [Zaman uyumsuz mesajlaşma ve yüksek kullanılabilirlik](service-bus-async-messaging.md)
