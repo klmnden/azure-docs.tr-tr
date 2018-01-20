@@ -20,7 +20,7 @@
       href: storage-how-to-use-files-mac.md
     - name: Portal ile yönetme
       href: storage-how-to-use-files-portal.md
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Planlama ve tasarım
       items:
@@ -66,9 +66,7 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Bağlantı dizelerini yapılandırma
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure Depolama REST API’sini kullanma
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Azure Dosyaları için PowerShell
           href: storage-how-to-use-files-powershell.md
