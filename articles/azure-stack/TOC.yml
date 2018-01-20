@@ -128,6 +128,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Windows Azure Paketi VM’lerini yönetme
           href: azure-stack-manage-windows-azure-pack.md
+        - name: Azure yığın durdurup başlatın
+          href: azure-stack-start-and-stop.md
         - name: Donanım değiştirme
           items:
             - name: Düğüm Eylemler

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Bir özel sanal makine görüntüsü Azure yığın kullanılabilmesini
 
@@ -43,7 +43,7 @@ Aşağıdaki Önkoşullar, araçtan çalıştırmak [Geliştirme Seti](azure-sta
    Azure yığını sabit disk VHD biçimini destekler. Bu disk uzaklığı X X blob uzaklığı depolanan için sabit bir biçime doğrusal olarak dosyanın içinde mantıksal disk yapıları. Blob sonunda küçük altbilgi VHD özelliklerini açıklar. Diskinizin giderilip doğrulamak için kullanın [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell komutu.  
 
    > [!IMPORTANT]
-   >  Azure yığın dinamik disk VHD desteklemez. Bir VM'ye ekli dinamik bir disk yeniden boyutlandırma VM başarısız durumda bırakır. Bu sorunu azaltmak için VM'in disk, VHD blob depolama hesabındaki silmeden VM silin. Dönüştürme, bir dinamik disk VHD'den bir sabit diske ve sanal makine'yeniden oluşturun.
+   >  Azure yığın dinamik disk VHD desteklemez. Bir VM'ye ekli dinamik bir disk yeniden boyutlandırma VM başarısız durumda bırakır. Bu sorunu azaltmak için VM'in disk, VHD blob depolama hesabındaki silmeden VM silin. Ardından VHD'yi dinamik bir disk, sabit bir diske Dönüştür ve sanal makine yeniden oluşturun.
 
 Azure yığın Market görüntüsü eklemek için aşağıdaki adımları tamamlayın:
 
@@ -185,7 +185,7 @@ Görüntüleri bir Blob Depolama URI'si tarafından başvurulan kurabilmesi gere
 
    * Karşıya yüklediğiniz zaman [Windows VM görüntüsü](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), değiştirdiğinizden emin olun **Azure'da oturum aç** ile adım [Azure yığın işlecin PowerShell ortamını yapılandırma](azure-stack-powershell-configure-admin.md) adım.  
 
-   * Blob Depolama burada görüntüyü karşıya yükleme URI'si not edin. Blob Depolama URI'si aşağıdaki biçime sahiptir: * &lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt; *.vhd.
+   * Blob Depolama burada görüntüyü karşıya yükleme URI'si not edin. Blob Depolama URI'si aşağıdaki biçime sahiptir:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd.
 
    * Blob anonim olarak erişilebilir olması için burada VM görüntüsü VHD yüklenen depolama hesabı blob kapsayıcısına gidin. Seçin **Blob**ve ardından **erişim ilkesi**. İsteğe bağlı olarak, bunun yerine kapsayıcı için bir paylaşılan erişim imzası oluşturmak de blob URI'si parçası olarak dahil edebilirsiniz.
 
