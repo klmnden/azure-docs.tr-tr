@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 29d19364b9a98e351c95f13e68a2e63b9f6439f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7408f240a1b05e0d53716764a9f8d1e19229ebe
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>X12 kodlamak Azure Logic Apps Enterprise tümleştirme paketi ile iletileri
 
@@ -36,7 +36,7 @@ Gereksinim duyduğunuz öğeleri şöyledir:
 
 ## <a name="encode-x12-messages"></a>X12 kodlamak iletileri
 
-1. [Mantıksal uygulama oluşturma](logic-apps-create-a-logic-app.md).
+1. [Mantıksal uygulama oluşturma](quickstart-create-first-logic-app-workflow.md).
 
 2. Bir istek tetikleyici gibi mantıksal uygulamanızı başlatmak için bir tetikleyici eklemelisiniz kodla X12 ileti bağlayıcı tetikleyiciler, sahip değil. Mantıksal Uygulama Tasarımcısı'nda bir tetikleyici ekleyin ve ardından bir eylem mantıksal uygulamanızı ekleyin.
 

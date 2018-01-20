@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Power BI Embedded kapasite ölçekleme
 
@@ -26,7 +26,8 @@ Bu makalede, Microsoft Azure'da bir Power BI Embedded kapasite ölçeklendirme s
 
 Bu Power BI Embedded kapasite oluşturduğunuz varsayar. Yüklemediyseniz, bkz: [Azure portalında Power BI Embedded oluşturmak kapasite](create-capacity.md) başlamak için.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+> [!NOTE]
+> Bir ölçeklendirme işlemi yaklaşık bir dakika sürebilir. Bu süre boyunca kapasite kullanılabilir olmaz. Katıştırılmış içerik yüklemek başarısız olabilir.
 
 ## <a name="scale-a-capacity"></a>Ölçek kapasitesi
 

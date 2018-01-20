@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8602decfa35a21e88885fda1a4c70264bb38444b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure’daki bir SQL Server Sanal Makinesi’ne Bağlanma (Klasik Dağıtım)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Bir sanal makinede çalışan SQL Server bir istemcinin bağlandığı yöntemi 
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>SQL Server'a aynı bulut hizmetinde bağlanın
-Birden fazla sanal makineyi aynı bulut hizmetinde oluşturulabilir. Bu sanal makineleri senaryo anlamak için bkz: [bir sanal ağ veya Bulut hizmetiyle sanal makinelere bağlanmak nasıl](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Bu senaryoda, bir istemci bir sanal makineye aynı bulut hizmetinde başka bir sanal makinede çalışan SQL Server bağlanmayı dener.
+Birden fazla sanal makineyi aynı bulut hizmetinde oluşturulabilir. Bu sanal makineleri senaryo anlamak için bkz: [bir sanal ağ veya Bulut hizmetiyle sanal makinelere bağlanmak nasıl](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Bu senaryoda, bir istemci bir sanal makineye aynı bulut hizmetinde başka bir sanal makinede çalışan SQL Server bağlanmayı dener.
 
 Bu senaryoda, VM kullanarak bağlanabilir **adı** (Ayrıca gösterilen **bilgisayar adı** veya **ana bilgisayar adı** Portalı'nda). Bu VM için oluşturma sırasında sağlanan adıdır. Örneğin, SQL VM'nizi adlı **mysqlvm**, aynı bulut hizmetindeki bir istemci VM bağlanmak için bağlantı dizesi olarak şunu kullanabilirsiniz:
 

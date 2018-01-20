@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/19/2017
 ms.author: spelluru
-ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 699f5eba75bc105a708f82be353a7849646309ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
 Okuma veya bir kayıt, tablo adı veya değer herhangi bir dış kaynaktan aramak için arama etkinliği kullanın. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
@@ -36,6 +36,8 @@ Aşağıdaki veri kaynakları şu anda arama için desteklenir:
 - Azure SQL veri ambarı (sorgudan dönüştürülen JSON verilerini)
 - SQL Server (sorgudan dönüştürülen JSON verilerini)
 - Azure Table storage (sorgudan dönüştürülen JSON verilerini)
+
+Arama etkinlik tarafından döndürülen satır sayısının üst sınırını olan **5000**ve kadar **10MB** boyutu.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -267,7 +269,7 @@ Bu Azure SQL veritabanı örneğinde Blob depolama alanına kopyalanacak veriler
 }
 ```
 
-### <a name="sourcetablejson"></a>SourceTable.JSON
+### <a name="sourcetablejson"></a>sourcetable.json
 
 #### <a name="set-of-objects"></a>Nesne kümesini
 

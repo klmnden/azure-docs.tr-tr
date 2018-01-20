@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Sorgu eylemi ile çalışmaya başlama
 Sorgu eylemini kullanarak, toplu işleri ve iş akışları için gerçekleştirmek için diziler ile çalışabilirsiniz:
@@ -27,7 +27,7 @@ Sorgu eylemini kullanarak, toplu işleri ve iş akışları için gerçekleştir
 * Tüm yüksek öncelikli kayıtları için bir görev veritabanından oluşturun.
 * Bir Azure blob e-postalara tüm PDF ekleri kaydedin.
 
-Sorgu eylemi bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Sorgu eylemi bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Sorgu eylemi kullanın
 Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](connectors-overview.md).  
@@ -56,29 +56,29 @@ Aşağıda, bu bağlayıcıyı destekler eylemi için Ayrıntılar verilmiştir.
 
 | Eylem | Açıklama |
 | --- | --- |
-| Filtre dizisi |Dizideki her öğe için bir koşulu değerlendirir ve sonuçları döndürür |
+| Diziyi filtrele |Dizideki her öğe için bir koşulu değerlendirir ve sonuçları döndürür |
 
 ## <a name="action-details"></a>Eylem ayrıntıları
 Sorgu eylemi bir olası eylemiyle birlikte gelir. Aşağıdaki tablolar, eylem ve eylem kullanımıyla ilişkili karşılık gelen çıkış ayrıntıları için gerekli ve isteğe bağlı giriş alanlarının açıklamaktadır.
 
-### <a name="filter-array"></a>Filtre dizisi
+### <a name="filter-array"></a>Diziyi filtrele
 HTTP giden isteğinde eylemi için girdi alanlarının verilmiştir.
 A * gerekli bir alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Gelen * |Kaynak |Dizinin filtre uygulamak için |
+| Gelen * |başlangıç |Dizinin filtre uygulamak için |
 | Koşul * |Burada |Her öğe için değerlendirmek için koşulun |
 
 <br>
 
-### <a name="output-details"></a>Çıkış Ayrıntıları
+### <a name="output-details"></a>Çıkış ayrıntıları
 HTTP yanıtı için çıkış ayrıntıları verilmiştir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Filtrelenmiş dizisi |Dizi |Her filtre uygulanmış bir sonucu için bir nesne içeren bir dizi |
+| Filtrelenmiş dizisi |array |Her filtre uygulanmış bir sonucu için bir nesne içeren bir dizi |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
+Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
 

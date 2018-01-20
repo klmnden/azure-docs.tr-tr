@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 0bab180fe726eeece9d03883889253825b5e9560
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96ac8ce81087717f05ae6480a8f875079139b7b6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Bir mantıksal uygulama bir API'yi içeri aktarma
 
@@ -30,10 +30,10 @@ Bu makalede, bilgi nasıl yapılır:
 > * Azure portalında API testi
 > * Geliştirici Portalı'nda API testi
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 + Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md)
-+ Aboneliğinizde bir mantıksal uygulama olduğundan emin olun. Daha fazla bilgi için [ilk mantıksal uygulamanızı oluşturma](../logic-apps/logic-apps-create-a-logic-app.md)
++ Aboneliğinizde bir mantıksal uygulama olduğundan emin olun. Daha fazla bilgi için [ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -65,7 +65,7 @@ Bu makalede, bilgi nasıl yapılır:
 3. Başka bir işlem seçin.
 
     Sorgu parametrelerinin ve üst bilgileri için alanları sayfasını görüntüler. Üst bilgilerinden biri "Ocp-Apim-Subscription-Key" Bu API ile ilişkili ürün abonelik anahtarı içindir. APIM örneği oluşturduysanız, anahtarı otomatik olarak doldurulur için zaten yönetici olduğunuz. 
-1. Tuşuna **Gönder**.
+1. **Gönder**’e basın.
 
     Arka uç yanıt ile **200 Tamam** ve bazı veriler.
 
@@ -80,7 +80,7 @@ Bu makalede, bilgi nasıl yapılır:
 3. Seçin **API** oluşturduğunuz.
 4. Test etmek istediğiniz işlemi seçin.
 5. Tuşuna **deneyin**.
-6. Tuşuna **Gönder**.
+6. **Gönder**’e basın.
     
     Bir işlem çağrıldıktan sonra, geliştirici portalı **Yanıt durumu**, **Yanıt üst ilgileri** ve tüm **Yanıt içeriğini** gösterir.
 

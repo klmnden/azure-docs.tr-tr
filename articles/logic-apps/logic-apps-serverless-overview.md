@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Azure işlevleri ve Logic Apps ile sunucusuz genel bakış
 
@@ -41,7 +41,7 @@ Azure İşlevlerini kullanmaya hemen başlamak isterseniz [İlk Azure İşlevini
 
 Azure mantıksal uygulamaları için ölçeklenebilir tümleştirmeler ve iş akışları basitleştirmek ve bulutta bir yol sağlar. Model ve işleminizi iş akışı adlı adımları bir dizi olarak otomatikleştirmek için bir görsel tasarımcı sağlar.  Vardır [birçok Bağlayıcılar](../connectors/apis-list.md) sunucusuz bir uygulama için diğer API'leri hızlı bir şekilde bağlanmak için bulut ve şirket içi hizmetler arasında.  Mantıksal uygulama bir tetikleyici ile başlar ('Dynamics CRM’e bir hesabın eklenmesi' gibi) ve başlatma sonrasında çok sayıda birleştirme eylemi, dönüştürme ve koşul mantığı başlayabilir.  Özellikle bir dış sistem veya API ile etkileşim işlemi gerektirdiğinde, bir işlemde - farklı Azure işlevleri yönetme olduğunda, Logic Apps harika bir seçim kullanır.
 
-Logic Apps ile çalışmaya başlamak için başlayın [ilk mantıksal uygulamanızı oluşturma](logic-apps-create-a-logic-app.md).  Logic Apps hakkında daha fazla teknik bilgi arıyorsanız bkz [Geliştirici Başvurusu](logic-apps-workflow-actions-triggers.md).
+Logic Apps ile çalışmaya başlamak için başlayın [ilk mantıksal uygulamanızı oluşturma](quickstart-create-first-logic-app-workflow.md).  Logic Apps hakkında daha fazla teknik bilgi arıyorsanız bkz [Geliştirici Başvurusu](logic-apps-workflow-actions-triggers.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Nasıl derleme ve Azure sunucusuz uygulamalar dağıtmak?
 

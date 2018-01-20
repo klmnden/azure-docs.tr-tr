@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory'de yönetici rolleri atama | Microsoft Docs"
-description: "Yönetici rolü oluşturmak veya kullanıcıları Düzenle, başkalarına yönetici rolleri atamak, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme veya etki alanlarını yönetme. Yönetici rolü atanan bir kullanıcı, kuruluşunuzun abone olduğu tüm bulut hizmetleri arasında aynı izinleri vardır."
+description: "Yönetici rolü kullanıcı ekleme, yönetici rolleri atamak, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme veya etki alanlarını yönetme. Yönetici rolü atanan bir kullanıcı, kuruluşunuzun abone olduğu tüm bulut hizmetleri arasında aynı izinleri vardır."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,21 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-<<<<<<< HEAD
-ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -71,7 +65,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **İş ortağı Katman 2 Destek**: kullanmayın. Bu rol, kullanım dışı bırakıldı ve gelecekte Azure AD'den kaldırılacak. Bu rol, az sayıda Microsoft satışı iş ortakları tarafından kullanılmaya yöneliktir ve genel kullanıma yönelik değildir.
 
-* **Parola Yöneticisi / Yardım Masası Yöneticisi**: Bu rolüne sahip kullanıcılar parolalarını sıfırlama, hizmet istekleri yönetebilir ve hizmetin sistem durumunu izleme. Parola yöneticileri yalnızca kullanıcılar ve diğer parola yöneticileri için sıfırlayabilir.
+* **Parola Yöneticisi / Yardım Masası Yöneticisi**: Bu rolüne sahip kullanıcılar parolalarını değiştirme, hizmet istekleri yönetebilir ve hizmetin sistem durumunu izleme. Yardım Masası yöneticileri yalnızca kullanıcılar ve diğer Yardım Masası yöneticileri için parolaları değiştirebilirsiniz. 
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell, bu rolün "Yardım Masası Yönetici" olarak tanımlanır. "Parola yönetici" olarak [Azure portal](https://portal.azure.com/).
@@ -97,7 +91,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
   >
   >
 
-* **Kullanıcı hesabı yönetici**: Bu rolüne sahip kullanıcılar oluşturabilir ve kullanıcıların ve grupların tüm yönlerini yönetebilirsiniz. Ayrıca, bu rolü, destek biletlerini yönetme becerisini içerir ve izleyicileri Sağlık Hizmeti. Bazı kısıtlamalar uygulanır. Örneğin, bu rol bir genel yönetici silinmesine izin vermiyor ve yönetici olmayanlar için parola değiştirme izin verirken, genel yöneticileri için parolaları veya diğer ayrıcalıklı yöneticileri değiştirilmesine izin vermez.
+* **Kullanıcı hesabı yönetici**: Bu rolüne sahip kullanıcılar oluşturabilir ve kullanıcıların ve grupların tüm yönlerini yönetebilirsiniz. Ayrıca, bu rolü, destek biletlerini yönetme becerisini içerir ve izleyicileri Sağlık Hizmeti. Bazı kısıtlamalar uygulanır. Örneğin, bu rol bir genel yönetici silinmesine izin vermiyor değil. Kullanıcı hesap yöneticileri, kullanıcıların, Yardım Masası yöneticileri ve yalnızca diğer kullanıcı hesabı yöneticileri için parolaları değiştirebilirsiniz.
 
 ## <a name="administrator-permissions"></a>Yönetici izinleri
 
@@ -118,22 +112,22 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | --- | --- |
 |<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Kullanıcı parolalarını sıfırlama</p><p>Diğer yönetici parolalarını sıfırlama</p> <p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |Yok |
 
-### <a name="password-administrator"></a>Parola yöneticisi
+### <a name="password-administrator--helpdesk-administrator"></a>Parola Yöneticisi / Yardım Masası Yöneticisi
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
-| <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcı parolalarını sıfırlama</p> <p>Diğer yönetici parolalarını sıfırlama</p>|<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Raporları görüntüleme</p>|
+| <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar ve diğer Yardım Masası yöneticileri için parolaları değiştirme</p>|<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Raporları görüntüleme</p>|
 
 ### <a name="service-administrator"></a>Hizmet yöneticisi
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p> |
 
-### <a name="user-administrator"></a>Kullanıcı Yöneticisi
+### <a name="user-account-administrator"></a>Kullanıcı Hesap Yöneticisi
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
-| <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kısıtlamalarla kullanıcı parolalarını sıfırlayın.</p><p>Diğer yönetici parolalarını sıfırlama</p><p>Diğer kullanıcıların parolalarını sıfırlayın</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kısıtlamalarla kullanıcı lisanslarını yönetme. İsterse bir genel yöneticiyi silemez veya başka Yöneticiler oluşturamaz.</p> |<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |
+| <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar, Yardım Masası Yöneticiler ve yalnızca diğer kullanıcı hesabı yöneticileri için parolaları değiştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kısıtlamalarla kullanıcı lisanslarını yönetme. İsterse bir genel yöneticiyi silemez veya başka Yöneticiler oluşturamaz.</p> |<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |
 
-### <a name="security-reader"></a>Güvenlik okuyucusu
+### <a name="security-reader"></a>Güvenlik Okuyucu
 | İçinde | Yapabilirsiniz |
 | --- | --- |
 | Kimlik Koruma Merkezi |Tüm güvenlik raporları ve güvenlik özellikleri için ayarlar bilgilerini okuyun<ul><li>İstenmeyen postadan koruma<li>Şifreleme<li>Veri kaybını önleme<li>Kötü amaçlı yazılım<li>Gelişmiş tehdit koruması<li>Avından<li>Mailflow kuralları |
@@ -174,7 +168,7 @@ Aşağıdaki roller kullanılmamalıdır. Bunlar edilmiş kullanım ve gelecekte
 * AdHoc Lisans Yöneticisi
 * E-posta Adresi Doğrulanan Kullanıcı Oluşturucu
 * Cihaz birleştirme
-* Cihaz yöneticileri
+* Cihaz Yöneticileri
 * Aygıt kullanıcıları
 * Cihazla Çalışma Alanına Katılma
 

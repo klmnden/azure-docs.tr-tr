@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 6a1697061d20d26b4263c02487180fee81e87947
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: adbe54dec363b454d64340bf3a862cdead2e5435
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure'da dağıtma Windows sanal makine sorunlarını giderme
 
@@ -127,7 +127,7 @@ Kullanılabilirlik kümesinin kümede desteklenen bir boyutu seçin. Bir kullan�
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Mevcut bir Klasik VM'yi bir kullanılabilirlik kümesi ekleyebilir miyim?
 
-Evet. Mevcut bir Klasik VM'yi bir yeni veya var olan kullanılabilirlik kümesine ekleyebilirsiniz. Daha fazla bilgi için bkz: [var olan bir sanal makine bir kullanılabilirlik kümesine ekleme](classic/configure-availability.md#addmachine).
+Evet. Mevcut bir Klasik VM'yi bir yeni veya var olan kullanılabilirlik kümesine ekleyebilirsiniz. Daha fazla bilgi için bkz: [var olan bir sanal makine bir kullanılabilirlik kümesine ekleme](classic/configure-availability-classic.md#addmachine).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

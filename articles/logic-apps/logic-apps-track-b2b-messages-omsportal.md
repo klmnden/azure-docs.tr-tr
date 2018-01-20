@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>İzleme B2B iletişimi Microsoft Operations Management Suite (OMS)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="requirements"></a>Gereksinimler
 
-* Tanılama Günlüğü ile ayarlanmış bir mantıksal uygulama. Bilgi [bir mantıksal uygulama oluşturma](logic-apps-create-a-logic-app.md) ve [bu mantıksal uygulama için günlük kaydını ayarlamak nasıl](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Tanılama Günlüğü ile ayarlanmış bir mantıksal uygulama. Bilgi [bir mantıksal uygulama oluşturma](quickstart-create-first-logic-app-workflow.md) ve [bu mantıksal uygulama için günlük kaydını ayarlamak nasıl](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * İzleme ve günlük ile ayarlanan bir tümleştirme hesabı. Bilgi [tümleştirme hesap oluşturmak nasıl](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve [izlemeyi ve o hesap için günlüğe kaydetmeyi nasıl ayarlanacağını](../logic-apps/logic-apps-monitor-b2b-message.md).
 
@@ -156,8 +156,8 @@ Burada, her AS2 ileti için özellik açıklamaları bulunmaktadır.
 | ACK | MDN ileti durumu <br>Kabul alınan = ya da pozitif MDN gönderilir. <br>Bekleyen alma ya da bir MDN göndermek için bekleyen =. <br>Reddedilen alınan = ya da negatif MDN gönderilir. <br>Gerekli değil = MDN ayarlı değil anlaşmasında. |
 | Yön | AS2 ileti yönü |
 | Bağıntı Kimliği | Tüm tetikleyiciler ve Eylemler bir mantıksal uygulama içinde karşılık gelen kimliği |
-| İleti kimliği | AS2 ileti üstbilgilerini AS2 ileti kimliği |
-| zaman damgası | Ne zaman AS2 eylem ileti işleme süresi |
+| İleti Kimliği | AS2 ileti üstbilgilerini AS2 ileti kimliği |
+| Zaman damgası | Ne zaman AS2 eylem ileti işleme süresi |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -190,7 +190,7 @@ Her X12 yönelik özellik açıklamalarını İşte ileti.
 | Msg türü | EDI X 12 ileti türü |
 | ICN | X12 Değişim Denetimi numaralı ileti |
 | TSCN | İşlem kümesi denetim numarası X12 iletisi |
-| zaman damgası | Zaman zaman X12 eylem işlenen ileti |
+| Zaman damgası | Zaman zaman X12 eylem işlenen ileti |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -223,7 +223,7 @@ Burada, her EDIFACT ileti için özellik açıklamaları bulunmaktadır.
 | Msg türü | EDIFACT ileti türü |
 | ICN | EDIFACT ileti Değişim Denetimi numarası |
 | TSCN | EDIFACT iletisi için işlem kümesi denetim numarası |
-| zaman damgası | Ne zaman EDIFACT eylem ileti işleme süresi |
+| Zaman damgası | Ne zaman EDIFACT eylem ileti işleme süresi |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 8293da8c77725d051f295826d9a78bf81055dcb3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop ile Ambari Hive görünümünü kullanın
 
@@ -31,7 +31,7 @@ Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı öğren
 > [!NOTE]
 > Ambari, bu belgede ele alınan değil birçok özellikleri vardır. Daha fazla bilgi için bkz: [Hdınsight kümelerini yönetme Ambari Web kullanıcı arabirimini kullanarak](../hdinsight-hadoop-manage-ambari.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Linux tabanlı Hdınsight kümesi. Kümeleri oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight'ta Hadoop kullanmaya başlamanıza](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -125,7 +125,7 @@ Görsel sorgu planı olarak görüntülenecek seçin **Visual açıklayan** sekm
 
 **Visual açıklayan** sorgu görünümünü karmaşık sorgular akışını anlamak yararlı olabilir. Bu görünüm metinsel denk kullanarak gördüğünüz **açıklama** düğmesi sorgu Düzenleyicisi'nde.
 
-### <a name="tez-ui"></a>Tez kullanıcı Arabirimi
+### <a name="tez-ui"></a>Tez UI
 
 Sorgu için Tez UI görüntülemek için seçin **Tez** sekmenin çalışma altında.
 
@@ -146,7 +146,7 @@ Kullanabileceğiniz __tabloları__ tabloları Hive veritabanı içinde çalışm
 
 ![Tablolar sekmesini görüntüsü](./media/apache-hadoop-use-hive-ambari-view/tables.png)
 
-## <a name="saved-queries"></a>Kaydedilmiş sorguları
+## <a name="saved-queries"></a>Kaydedilmiş sorgular
 
 Gelen **sorgu** sekmesinde sorguları isteğe bağlı olarak kaydedebilir. Bir sorgu kaydettikten sonra ondan yeniden kullanabilir __kaydedilen sorguları__ sekmesi.
 

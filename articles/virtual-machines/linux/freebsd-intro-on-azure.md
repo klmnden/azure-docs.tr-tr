@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure üzerinde FreeBSD giriş
 Bu konuda FreeBSD sanal makine Azure'da çalışan bir genel bakış sağlar.
@@ -29,7 +29,7 @@ Microsoft Azure FreeBSD gelişmiş bilgisayar işletim sisteminin güç modern s
 
 Microsoft Corporation'ın yapmadan FreeBSD görüntülerini kullanılabilir ile azure'da [Azure VM Konuk aracısının](https://github.com/Azure/WALinuxAgent/) önceden yapılandırılmış. Şu anda aşağıdaki FreeBSD sürümleri görüntü olarak Microsoft tarafından sunulan:
 
-- FreeBSD 10.3-sürüm
+- FreeBSD 10.3-RELEASE
 - FreeBSD 11.0-sürüm
 - FreeBSD 11.1-sürüm
 
@@ -134,4 +134,3 @@ Bir kök Kabuğu'nu kullanarak isteğe bağlı olarak elde edebilirsiniz `sudo -
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Git [Azure Marketi](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) FreeBSD VM oluşturmak için.
-* Azure için kendi FreeBSD duruma getirmek istediğiniz oluştuysa, [Azure FreeBSD VHD oluşturun ve yükleyin](classic/freebsd-create-upload-vhd.md).

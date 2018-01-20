@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ba25bb71857ee91cc078fd87de074f0ea954b558
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 0107c0e02e7158ad73671ae8e4599e1e998f20fc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Azure Data Factory kullanarak Spark'tan veri kopyalama 
 
@@ -35,7 +35,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Spark bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -48,7 +48,7 @@ Aşağıdaki özellikleri, bağlantılı Spark hizmeti için desteklenir:
 | type | Type özelliği ayarlanmalıdır: **Spark** | Evet |
 | konak | Spark sunucusunun IP adresi veya ana bilgisayar adı  | Evet |
 | port | İstemci bağlantılarını dinlemek için Spark sunucusunun kullandığı TCP bağlantı noktası.  | Evet |
-| Sunucu türü | Spark sunucu türü. <br/>İzin verilen değerler: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Hayır |
+| serverType | Spark sunucu türü. <br/>İzin verilen değerler: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Hayır |
 | thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, ** HTTP ** | Hayır |
 | authenticationType | Spark sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler: **anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | kullanıcı adı | Spark sunucusuna erişmek için kullandığınız kullanıcı adı.  | Hayır |

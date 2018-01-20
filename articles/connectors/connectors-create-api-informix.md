@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix Bağlayıcısı ile çalışmaya başlama
 Informix için Microsoft Bağlayıcısı Logic Apps bir IBM Informix veritabanında depolanan kaynakları bağlanır. Informix bağlayıcı uzak Informix sunucu bilgisayarlarına bir TCP/IP ağı üzerinden iletişim kurmak için Microsoft client içerir. Bu Windows Azure sanallaştırma çalıştıran için IBM Informix gibi bulut veritabanlarını içerir ve şirket içi veri ağ geçidi kullanarak veritabanlarını. Bkz: [liste desteklenen](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix platformları ve sürümleri (Bu konudaki).
@@ -35,7 +35,7 @@ Bağlayıcı aşağıdaki veritabanı işlemleri destekler:
 
 Bu konuda işlem veritabanı işlemleri için bir mantıksal uygulama içinde Bağlayıcısı'nı kullanmayı gösterir.
 
-Logic Apps hakkında daha fazla bilgi için bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Logic Apps hakkında daha fazla bilgi için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Kullanılabilir eylemler
 Bu bağlayıcı aşağıdaki mantıksal uygulama eylemleri destekler:
@@ -86,8 +86,8 @@ Bu bağlayıcı için veritabanı şirket içi ve aşağıdaki bağlantı özell
 | Özellik | Açıklama |
 | --- | --- |
 | sunucu |Gereklidir. TCP/IP adresi veya IPv4 veya IPv6 biçiminde, ardından (iki nokta üst üste TCP/IP bağlantı noktası numarası ile ayrılmış) diğer temsil eden bir dize değeri kabul eder. |
-| Veritabanı |Gereklidir. Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeri kabul eder. Informix 128 bayt dizesi kabul eder (veritabanı bir IBM Informix veritabanı adı (dbname) olarak bilinir). |
-| Kimlik doğrulaması |İsteğe bağlı. Bir liste öğesi değeri, temel veya Windows (kerberos) kabul eder. |
+| veritabanı |Gereklidir. Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeri kabul eder. Informix 128 bayt dizesi kabul eder (veritabanı bir IBM Informix veritabanı adı (dbname) olarak bilinir). |
+| kimlik doğrulaması |İsteğe bağlı. Bir liste öğesi değeri, temel veya Windows (kerberos) kabul eder. |
 | kullanıcı adı |Gereklidir. Bir dize değeri kabul eder. |
 | password |Gereklidir. Bir dize değeri kabul eder. |
 | Ağ geçidi |Gereklidir. Logic Apps için depolama grubu içinde tanımlanan şirket içi veri ağ geçidi temsil eden bir liste öğesi değeri kabul eder. |
@@ -268,7 +268,7 @@ Bir Informix tablosunda bir satırı kaldırmak için bir mantıksal uygulama ey
 ## <a name="supported-informix-platforms-and-versions"></a>Desteklenen Informix platformları ve sürümleri
 Bu bağlayıcı, dağıtılmış ilişkisel veritabanı mimarisi (DRDA) istemci bağlantılarını desteklemek için yapılandırıldığında aşağıdaki IBM Informix sürümlerini destekler.
 
-* IBM Informix 12,1
+* IBM Informix 12.1
 * IBM Informix 11.7
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
@@ -276,5 +276,5 @@ Bu bağlayıcı, dağıtılmış ilişkisel veritabanı mimarisi (DRDA) istemci 
 Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/informix/). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Logic Apps diğer kullanılabilir bağlayıcılar keşfedin bizim [API'leri listesi](apis-list.md).
+[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic Apps diğer kullanılabilir bağlayıcılar keşfedin bizim [API'leri listesi](apis-list.md).
 

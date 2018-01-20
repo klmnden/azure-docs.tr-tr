@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory Authentication Library (ADAL) istemciler için en iyi yöntemler işleme hatası
 
@@ -49,7 +49,7 @@ Uygulamaya özgü işleme hatası gerektirebilir işletim sistemi tarafından ol
 
 Temelde, AcquireTokenSilent hataları iki durum vardır:
 
-| Durumu | Açıklama |
+| Durum | Açıklama |
 |------|-------------|
 | **Durum 1**: hata bir etkileşimli oturum açma ile çözülebilir. | Geçerli belirteçlerini eksikliği nedeniyle sebep olunan hataları için etkileşimli bir isteği gereklidir. Özellikle, önbellek araması ve geçersiz/süresi dolmuş yenileme belirtecini çözümlemek için bir AcquireToken çağrı gerektirir.<br><br>Bu durumda, son kullanıcı, oturum açmak için sizden gerekiyor. Uygulama, etkileşimli bir isteği hemen sonra son kullanıcı etkileşiminin (örneğin, bir oturum açma düğmesine basarsa) veya daha sonra yapmak seçebilirsiniz. Seçim uygulama istenen davranışı üzerinde bağlıdır.<br><br>Bu belirli durumda ve bu tanılamak hataları için aşağıdaki bölümdeki koduna bakın.|
 | **Durum 2**: hata bir etkileşimli oturum açma ile çözülebilir değildir | Ağ ve geçici/geçici hataları veya diğer hataları için etkileşimli bir AcquireToken isteği gerçekleştirme sorunu çözmezse. Gereksiz etkileşimli oturum açma komut istemlerini Ayrıca son kullanıcıları rahatsız edebilir. ADAL AcquireTokenSilent hatalarda hataların çoğu için tek bir yeniden deneme otomatik olarak çalışır.<br><br>İstemci uygulamasının daha sonraki bir noktada bir yeniden deneme de deneyebilirsiniz, ancak ne zaman ve nasıl yapılacağını istenen son kullanıcı deneyimi ve uygulama davranışı üzerinde bağımlı. Örneğin, uygulama bir AcquireTokenSilent yeniden deneme birkaç dakika sonra veya bazı son kullanıcı eylemine yanıt olarak yapabilirsiniz. Hemen bir yeniden deneme karşılaşıldığı uygulamada neden olur ve değil denenmesi gerekir.<br><br>Aynı hatası ile başarısız olan bir sonraki yeniden deneme hata çözümlenmiyor gibi istemci AcquireToken, kullanarak etkileşimli bir isteği yapmalısınız anlamına gelmez.<br><br>Bu belirli durumda ve bu tanılamak hataları için aşağıdaki bölümdeki koduna bakın. |
@@ -58,8 +58,8 @@ Temelde, AcquireTokenSilent hataları iki durum vardır:
 
 Aşağıdaki kılavuzlar, hata ADAL yöntemleriyle birlikte işleme için örnekler verilmektedir: 
 
-- acquireTokenSilentAsync(...)
-- acquireTokenSilentSync(...) 
+- acquireTokenSilentAsync(…)
+- acquireTokenSilentSync(…) 
 - [kullanım dışı] acquireTokenSilent(...)
 - [kullanım dışı] acquireTokenByRefreshToken(...) 
 
@@ -102,7 +102,7 @@ catch (AdalException e) {
 
 Aşağıdaki kılavuzlar, hata ADAL yöntemleriyle birlikte işleme için örnekler verilmektedir: 
 
-- acquireTokenSilentSync(...)
+- acquireTokenSilentSync(…)
 - acquireTokenSilentAsync(...)
 - [kullanım dışı] acquireTokenSilent(...)
 
@@ -138,7 +138,7 @@ public void onError(Exception e) {
 
 Aşağıdaki kılavuzlar, hata ADAL yöntemleriyle birlikte işleme için örnekler verilmektedir: 
 
-- acquireTokenSilentWithResource(...)
+- acquireTokenSilentWithResource(…)
 
 Kodunuzun şu şekilde uygulanması:
 
@@ -211,7 +211,7 @@ Aşağıdaki kılavuzlar, hata tüm sessiz olmayan AcquireToken(...) birlikte i�
 - AcquireTokenAsync (..., IClientAssertionCertification,...)
 - AcquireTokenAsync (..., ClientCredential,...)
 - AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync(...,UserAssertion,...)   
+- AcquireTokenAsync(…,UserAssertion,…)   
 
 Kodunuzun şu şekilde uygulanması:
 
@@ -344,7 +344,7 @@ Oluşturmakta olduğunuz çağıran .NET web uygulaması için bir kaynağı bir
 
 Aşağıdaki kılavuzlar, hata ADAL yöntemleriyle birlikte işleme için örnekler verilmektedir: 
 
-- AcquireTokenByAuthorizationCodeAsync(...)
+- AcquireTokenByAuthorizationCodeAsync(…)
 
 Kodunuzun şu şekilde uygulanması:
 
@@ -576,6 +576,7 @@ window.Logging = {
 
 Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
 
+[![Düğmesini oturum][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak i�
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[! [Düğmesini oturum] [AAD-oturum açma]] [AAD-oturum açma] [AAD-oturum açma]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

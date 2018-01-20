@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 63970d162c12984d6476bf0b9fc4ab70160eccdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b48bf913145e212e65a3b0a4372185d4f711f58
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure için Debian VHD hazırlama
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu bölümde, zaten Debian Linux işletim sistemi yüklenen bir .iso dosyasından yüklediğinizi varsayar [Debian Web sitesi](https://www.debian.org/distrib/) bir sanal sabit disk için. Birden çok araç, .vhd dosyaları oluşturmak için mevcut; Hyper-V yalnızca bir örnektir. Hyper-V kullanma yönergeleri için bkz: [Hyper-V rolünü yükleyin ve sanal makine yapılandırma](https://technet.microsoft.com/library/hh846766.aspx).
 
 ## <a name="installation-notes"></a>Yükleme notları
@@ -84,7 +84,7 @@ Araçlar Azure, Debian VHD'ler gibi oluşturmak için kullanılabilir [azure-yö
         Pin: release n=wheezy-backports
         Pin-Priority: 500
    
-    Yeni çekirdek yüklemek için çalıştırın "sudo, get apt yükleme, linux-görüntü-amd64".
+    Then run "sudo apt-get install linux-image-amd64" to install the new kernel.
 3. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlayın ve çalıştırın:
    
         # sudo waagent –force -deprovision
@@ -93,5 +93,5 @@ Araçlar Azure, Debian VHD'ler gibi oluşturmak için kullanılabilir [azure-yö
 4. Tıklatın **eylem** Hyper-V Yöneticisi'nde kapatma aşağı ->. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi yeni sanal makineler oluşturmak için Debian, sanal sabit diski kullanmak hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Şimdi yeni sanal makineler oluşturmak için Debian, sanal sabit diski kullanmak hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

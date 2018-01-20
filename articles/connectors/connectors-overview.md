@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8f99bfa09847c01831a06efa8b94c1c0a89a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Bir mantıksal uygulama bağlayıcıları kullanma
 Bağlayıcılar, hizmetleri, protokolleri ve platformlar olayları, verilere ve eylemlere hızlı erişim sağlar.  Logic Apps destekleyen bağlayıcıların tam listesi için [bulunabilir burada](apis-list.md).  Bağlayıcılar, tetikleyici veya bir mantıksal uygulama içinde eylem olarak kullanılabilir ve yapılandırılan bir gerektirebilir *bağlantı* kullanmak için (örneğin: erişmek veya sizin adınıza göndermek için bir Twitter hesabı yetkilendirme).
@@ -56,7 +56,7 @@ Bir olayı alındığında çalıştırmak mantıksal uygulama ateşlenir ve iş
 Bağlantıları görüntülenebilir ve tıklayarak Azure'da yönetilen **Gözat** ve seçerek **API bağlantıları**.  API bağlantıları kaynaktan görüntüleme, düzenleme, güncelleştirme veya oluşturmuş olduğunuz tüm bağlantıları yeniden yetkilendirin.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [İlk mantıksal uygulamanızı oluşturma](../logic-apps/logic-apps-create-a-logic-app.md)
+* [İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Ortak kullanımlar ve logic apps örnekleri öğrenin](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Enterprise Integration tetikleyiciler ve Eylemler kullanmaya başlama](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

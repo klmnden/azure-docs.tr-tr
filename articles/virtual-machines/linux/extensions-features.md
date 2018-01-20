@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 59f718e0e547ed9374152985e706acad4421b35b
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2797085d1e675f0e6608b6192736f939952ed98b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Sanal makine uzantıları ve Linux için özellikleri
 
@@ -39,7 +39,7 @@ Birkaç farklı Azure VM uzantıları kullanılabilir, her biri belirli bir kull
 İşleme özgü uzantılar ek olarak, bir özel betik uzantısı, Windows ve Linux sanal makineleri için kullanılabilir. Linux için özel betik uzantısı, bir sanal makine üzerinde çalıştırılacak Bash komut dosyaları sağlar. Özel komut dosyaları, yerel hangi Azure araçlar sağlayabilir ötesinde yapılandırma gerektiren Azure dağıtımları tasarlamak için faydalıdır. Daha fazla bilgi için bkz: [Linux VM özel betik uzantısı](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Her sanal makine uzantısı önkoşulları kendi kümesi olabilir. Örneğin, Docker VM uzantısı desteklenen Linux dağıtım önkoşul vardır. Tek tek uzantıların gereksinimlerini uzantıya özgü belgelerinde açıklanmıştır.
 
@@ -47,7 +47,7 @@ Her sanal makine uzantısı önkoşulları kendi kümesi olabilir. Örneğin, Do
 
 Azure VM Aracısı bir Azure sanal makinesi ve Azure yapı denetleyicisi arasındaki etkileşimler yönetir. VM Aracısı dağıtma ve yönetme Azure sanal makineler, çalışan VM uzantıları dahil olmak üzere birçok işlevsel görünüşlere için sorumludur. Azure VM Aracısı Azure Marketi görüntülerinde önceden yüklenmiş ve desteklenen işletim sistemlerinde el ile yüklenebilir.
 
-Desteklenen işletim sistemleri ve yükleme yönergeleri hakkında daha fazla bilgi için bkz: [Azure sanal makine Aracısı](../windows/classic/agents-and-extensions.md).
+Desteklenen işletim sistemleri ve yükleme yönergeleri hakkında daha fazla bilgi için bkz: [Azure sanal makine Aracısı](../windows/classic/agents-and-extensions-classic.md).
 
 ## <a name="discover-vm-extensions"></a>VM uzantıları Bul
 

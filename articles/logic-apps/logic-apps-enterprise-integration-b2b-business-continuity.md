@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Logic Apps B2B çapraz bölge olağanüstü durum kurtarma
 
@@ -92,7 +92,7 @@ Gelen iletiler için olağanüstü durum kurtarmayı etkinleştirmek üzere X12 
 
 ![Yinelenen onay ayarlarını Seç](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Oluşturma bir [mantıksal uygulama](../logic-apps/logic-apps-create-a-logic-app.md) ikincil bir bölgede.    
+1. Oluşturma bir [mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md) ikincil bir bölgede.    
 
 2. Arama **X12**seçip **bir denetim numarasını değiştirildiğinde X12-**.   
 
@@ -115,7 +115,7 @@ Gelen iletiler için olağanüstü durum kurtarmayı etkinleştirmek üzere X12 
 
 6. Arama **X12**seçip **X12-ekleme veya güncelleştirme denetim numaraları**.   
 
-   ![Ekleyin veya denetim numaraları güncelleştirin](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Denetim numaralarını ekleyin veya güncelleştirin](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Bir eylem bir ikincil bölge tümleştirme hesabına bağlanmak üzere seçin **değiştirmek bağlantı** > **yeni bağlantı ekleme** kullanılabilir tümleştirme hesapları listesi. Bir bağlantı adı girin, seçin, *ikincil bölge tümleştirme hesabını* listeden seçin **Oluştur**. 
 
@@ -147,7 +147,7 @@ Gelen iletiler için olağanüstü durum kurtarmayı etkinleştirmek üzere EDIF
 
 ![Yinelenen onay ayarlarını Seç](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Oluşturma bir [mantıksal uygulama](../logic-apps/logic-apps-create-a-logic-app.md) ikincil bir bölgede.    
+1. Oluşturma bir [mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md) ikincil bir bölgede.    
 
 2. Arama **EDIFACT**seçip **bir denetim numarasını değiştirildiğinde EDIFACT -**.
 
@@ -170,7 +170,7 @@ Gelen iletiler için olağanüstü durum kurtarmayı etkinleştirmek üzere EDIF
 
 7. Arama **EDIFACT**seçip **EDIFACT - ekleme veya güncelleştirme denetim numaraları**.   
 
-   ![Ekleyin veya denetim numaraları güncelleştirin](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Denetim numaralarını ekleyin veya güncelleştirin](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Bir eylem bir ikincil bölge tümleştirme hesabına bağlanmak üzere seçin **değiştirmek bağlantı** > **yeni bağlantı ekleme** kullanılabilir tümleştirme hesapları listesi. Bir bağlantı adı girin, seçin, *ikincil bölge tümleştirme hesabını* listeden seçin **Oluştur**.
 
@@ -199,7 +199,7 @@ Zaman aralığına dayalı, artımlı çalışma zamanı durumu bir ikincil böl
 > [!TIP]
 > Aynı zamanda [AS2 Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/pull/3302) logic apps oluşturmak için. Oluşturma birincil ve ikincil tümleştirme şablonu kullanmak için önkoşulları hesaplarıdır. Şablonu bir tetikleyici ve eylem sahip bir mantıksal uygulama oluşturma yardımcı olur. Mantıksal uygulama birincil tümleştirme hesabı ve bir ikincil tümleştirme hesabı için bir eylem için tetikleyiciden bir bağlantı oluşturur.
 
-1. Oluşturma bir [mantıksal uygulama](../logic-apps/logic-apps-create-a-logic-app.md) ikincil bölge içinde.  
+1. Oluşturma bir [mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md) ikincil bölge içinde.  
 
 2. Arama **AS2**seçip **AS2 - olduğunda bir MIC değer oluşturulur**.   
 

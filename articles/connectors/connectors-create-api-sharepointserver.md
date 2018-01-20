@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0f3274816e279a1aa57febaa2f8294914900799a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>SharePoint Bağlayıcısı ile çalışmaya başlama
 SharePoint Bağlayıcısı, SharePoint listesindeki çalışmak için bir yol sağlar.
 
-Bir mantıksal uygulama oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Bir mantıksal uygulama oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sharepoint"></a>SharePoint bağlantı oluşturun.
 SharePoint Bağlayıcısı'nı kullanmak için önce oluşturduğunuz bir **bağlantı** ardından ayrıntılar için bu özellikleri sağlar: 
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
-| Belirteç |Evet |SharePoint kimlik bilgilerini sağlayın |
+| Belirteç |Evet |SharePoint Kimlik Bilgilerini belirtin |
 
 Bağlanmak için **SharePoint**, SharePoint için (kullanıcı adı ve parola, akıllı kart kimlik bilgileri, vb.) kimlik bilgilerinizi girin. Kimlik doğruladınız sonra mantıksal uygulamanızı SharePoint Bağlayıcısı'nı kullanmaya devam edebilirsiniz. 
 

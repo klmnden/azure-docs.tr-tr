@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 65098dbad2cfb2de1f2e5156fbcc3d6477311867
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72c814aece7626b19cefccb18e1b90f8c44d7f57
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Uzak Masaüstü kullanarak bir Microsoft Azure Linux VM’ye bağlanma
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Bu kılavuz size yanıt verir! Yüklemenizi ve, Microsoft Azure Linux için Uzak
 Xrdp aracı bir Windows makineden Uzak Masaüstü'nü Linux sunucunuza bağlanmasına izin veren bir açık kaynak RDP sunucusudur. RDP VNC (sanal ağ bilgisayar) daha iyi performans sahiptir. VNC JPEG kaliteli grafikler kullanarak işler ve RDP hızlı ve Billur iken yavaş olabilir.
 
 > [!NOTE]
-> Zaten bir Microsoft Azure Linux çalıştıran VM olması gerekir. Bir Linux VM oluşturup için bkz: [Azure Linux VM'de Öğreticisi](createportal.md).
+> Zaten bir Microsoft Azure Linux çalıştıran VM olması gerekir. Bir Linux VM oluşturup için bkz: [Azure Linux VM'de Öğreticisi](createportal-classic.md).
 > 
 > 
 

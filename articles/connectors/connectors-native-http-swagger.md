@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>HTTP + Swagger ile başlama eylemi
 
 Tüm REST uç noktası aracılığıyla birinci sınıf bir bağlayıcı oluşturabilirsiniz bir [Swagger belgesinin](https://swagger.io) kullandığınızda, HTTP + Swagger mantığı uygulama akışınızın eylem. Birinci sınıf bir mantıksal Uygulama Tasarımcısı deneyim herhangi bir REST uç nokta çağırmak için mantıksal uygulamalar da genişletebilirsiniz.
 
-Logic apps ile bağlayıcılar oluşturmayı öğrenmek için bkz: [yeni bir mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Logic apps ile bağlayıcılar oluşturmayı öğrenmek için bkz: [yeni bir mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>HTTP kullan + tetikleyicinin veya bir eylem olarak Swagger
 
@@ -97,29 +97,29 @@ Bir yıldız işareti (*) gerekli bir alan anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Yöntemi * |Yöntemi |HTTP fiili'kullanılacak. |
-| URI * |URI |HTTP isteği için URI. |
-| Üstbilgileri |Üstbilgileri |Eklenecek HTTP üstbilgilerini JSON nesnesinin. |
-| Gövde |Gövde |HTTP istek gövdesi. |
-| Kimlik Doğrulaması |Kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
+| Yöntemi * |yöntem |HTTP fiili'kullanılacak. |
+| URI* |uri |HTTP isteği için URI. |
+| Üst bilgiler |headers |Eklenecek HTTP üstbilgilerini JSON nesnesinin. |
+| Gövde |body |HTTP istek gövdesi. |
+| Kimlik Doğrulaması |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
 
 **Çıkış Ayrıntıları**
 
 HTTP yanıtı
 
-| Özellik adı | Veri türü | Açıklama |
+| Özellik Adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Üstbilgileri |Nesne |Yanıt Üstbilgileri |
-| Gövde |Nesne |Yanıt nesnesi |
-| Durum kodu |Int |HTTP durum kodu |
+| Üst bilgiler |nesne |Yanıt üst bilgileri |
+| Gövde |nesne |Yanıt nesnesi |
+| Durum Kodu |Int |HTTP durum kodu |
 
 ### <a name="http-responses"></a>HTTP yanıtları
 Çeşitli eylemler için çağrıları yapılırken belirli yanıtları alabilirsiniz. Karşılık gelen yanıtları ve açıklamaları özetleyen tablosu aşağıdadır.
 
 | Ad | Açıklama |
 | --- | --- |
-| 200 |TAMAM |
-| 202 |Kabul edildi |
+| 200 |Tamam |
+| 202 |Kabul Edildi |
 | 400 |Hatalı istek |
 | 401 |Yetkilendirilmemiş |
 | 403 |Yasak |
@@ -129,5 +129,5 @@ HTTP yanıtı
 - - -
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Mantıksal uygulama oluşturun.](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Diğer bağlayıcıları Bul](apis-list.md)

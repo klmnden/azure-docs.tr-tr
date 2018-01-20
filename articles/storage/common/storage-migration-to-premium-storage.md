@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.openlocfilehash: cb46c3f2809fa86fea7a8370d4c417f04040b74c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9c2ac737c9f4e13b4e5e4f5dba18c7a697f6e6c3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage (yönetilmeyen diskleri) geçirme
 
@@ -45,7 +45,7 @@ Bütün geçiş işlemini tamamlama öncesinde ve sonrasında bu kılavuzda sağ
 ## <a name="plan-the-migration-to-premium-storage"></a>Premium depolama geçişi planlama
 Bu bölümde, bu makaledeki geçiş adımları uygulamaya hazır olduğunu ve VM ve Disk türlerinde en iyi kararı vermenize yardımcı olur sağlar.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Bir Azure aboneliği gerekir. Yoksa, bir aylık oluşturabilirsiniz [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) abonelik veya ziyaret [Azure fiyatlandırma](https://azure.microsoft.com/pricing/) daha fazla seçenek için.
 * PowerShell cmdlet'lerini çalıştırmak için Microsoft Azure PowerShell modülü gerekir. Yükleme noktası ve yükleme yönergeleri için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
 * Azure Premium depolama üzerinde çalışan Vm'leri kullanmak planlama yaparken, Premium depolama yeteneğine sahip sanal makineleri kullanmanız gerekir. Premium depolama yeteneğine sahip sanal makineleri ile standart ve Premium depolama diskleri kullanabilirsiniz. Premium depolama diskleri gelecekte daha fazla VM türleriyle kullanılabilir. Tüm kullanılabilir Azure VM disk türleri ve boyutları hakkında daha fazla bilgi için bkz: [sanal makineler için Boyutlar](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve [Cloud Services boyutları](../../cloud-services/cloud-services-sizes-specs.md).
@@ -94,7 +94,7 @@ Aşağıdaki bölümde, sanal makineden VHD'ler hazırlama ve VHD Azure depolama
 * [Senaryo 1: "ı mevcut Azure VM'ler Azure Premium depolama alanına geçirme."](#scenario1)
 * [Senaryo 2: "ı VM'ler diğer platformlarından Azure Premium depolama alanına geçirme."](#scenario2)
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 VHD'leri geçişe hazırlamak için ihtiyacınız vardır:
 
 * Bir Azure aboneliği, bir depolama hesabı ve bir kapsayıcıda bu depolama hesabı, VHD kopyalayabilirsiniz. Hedef depolama hesabının bir standart veya Premium depolama hesabı ihtiyacınıza olabileceğini unutmayın.
@@ -760,13 +760,13 @@ Sanal makineleri geçirmek için belirli senaryolar için aşağıdaki kaynaklar
 
 * [Azure sanal makineleri depolama hesapları arasında geçiş](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Oluşturun ve Windows Server VHD Azure'a yükleyin.](../../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Oluşturma ve Linux işletim sistemini içeren bir Sanal Sabit Disk karşıya yükleme](../../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Oluşturma ve Linux işletim sistemini içeren bir Sanal Sabit Disk karşıya yükleme](../../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Geçirme sanal makinelerden Amazon AWS Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Ayrıca, Azure Storage ve Azure sanal makineler hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure Depolama](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure sanal makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Sanal Makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

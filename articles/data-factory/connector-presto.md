@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 9d272072ce77aca159edb36a6b7a78c94aee476d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 440a644e0b43fd42a446ec3e1a6a8d32a0b247cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Presto verilerini
 
@@ -37,7 +37,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Presto bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -48,8 +48,8 @@ Aşağıdaki özellikler Presto bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Presto** | Evet |
-| konak | Presto sunucusunun IP adresi veya ana bilgisayar adı. (yani 192.168.222.160)  | Evet |
-| serverVersion | Presto sunucu sürümü. (yani 0.148-t)  | Evet |
+| konak | Presto sunucusunun IP adresi veya ana bilgisayar adı. (i.e. 192.168.222.160)  | Evet |
+| serverVersion | Presto sunucu sürümü. (i.e. 0.148-t)  | Evet |
 | katalog | Sunucusuna yönelik tüm istekleri için katalog bağlamı.  | Evet |
 | port | İstemci bağlantılarını dinlemek için Presto sunucusunun kullandığı TCP bağlantı noktası. Varsayılan değer 8080'dir.  | Hayır |
 | authenticationType | Presto sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler: **anonim**, **LDAP** | Evet |
@@ -60,7 +60,7 @@ Aşağıdaki özellikler Presto bağlantılı hizmeti için desteklenir:
 | useSystemTrustStore | Bir CA sertifikası sistem güven deposundan veya belirtilen PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer false.  | Hayır |
 | allowHostNameCNMismatch | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için CA tarafından verilen SSL sertifika adı istenip istenmeyeceğini belirtir. Varsayılan değer false.  | Hayır |
 | allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer false.  | Hayır |
-| saat dilimi tanımlayıcısı | Bağlantı tarafından kullanılan yerel saat dilimi. Bu seçenek için geçerli değerler IANA saat dilimi veritabanında belirtilir. Sistem saat dilimi varsayılan değerdir.  | Hayır |
+| timeZoneID | Bağlantı tarafından kullanılan yerel saat dilimi. Bu seçenek için geçerli değerler IANA saat dilimi veritabanında belirtilir. Sistem saat dilimi varsayılan değerdir.  | Hayır |
 
 **Örnek:**
 

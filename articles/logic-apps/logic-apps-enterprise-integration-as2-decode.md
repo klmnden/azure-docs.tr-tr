@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a7920b2509fe368c6f7d55e17fe0bf0020c4562c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acae9f1837069c494985ff1456979490485f609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2 iletileri Kurumsal tümleştirme paketi ile Azure mantıksal uygulamaları için kod çözme 
 
@@ -35,7 +35,7 @@ Gereksinim duyduğunuz öğeleri şöyledir:
 
 ## <a name="decode-as2-messages"></a>AS2 iletileri kod çözme
 
-1. [Mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+1. [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. Bir istek tetikleyici gibi mantıksal uygulamanızı başlatmak için bir tetikleyici eklemelisiniz kod çözme AS2 ileti bağlayıcı tetikleyiciler, sahip değil. Mantıksal Uygulama Tasarımcısı'nda bir tetikleyici ekleyin ve ardından bir eylem mantıksal uygulamanızı ekleyin.
 

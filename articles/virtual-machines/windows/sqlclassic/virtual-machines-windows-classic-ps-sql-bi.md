@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Sanal Makinelerde SQL Server İş Zekası
 > [!IMPORTANT] 
@@ -98,7 +98,7 @@ Aşağıdaki tabloda, SQL Server için genel Microsoft Azure sanal makine Galeri
   * İlke varsayılan sürücüsü için önbelleğe alma sürücü **C**: verilerle çalışmak için uygun değil.
   * **D**: öncelikle sayfa dosyası için kullanılan geçici bir sürücü sürücüdür. **D**: sürücü kalıcı ve blob depolama alanına kaydedilmez. Sanal makine için bir değişiklik gibi yönetim görevleri boyut sıfırlama **D**: sürücü. İçin önerilen **değil** kullanmak **D**: tempdb dahil olmak üzere, veritabanı dosyalarının sürücü.
     
-    Oluşturma ve diskleri ekleme hakkında daha fazla bilgi için bkz: [nasıl bir sanal makineye bir veri diski Ekle](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Oluşturma ve diskleri ekleme hakkında daha fazla bilgi için bkz: [nasıl bir sanal makineye bir veri diski Ekle](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Durdurun veya kullanmayı planlıyor musunuz services'ı kaldırın. Örnek Raporlama Hizmetleri için sanal makine yalnızca kullandıysanız, durdurmak veya Analysis Services ve SQL Server Integration Services kaldırmak için. Aşağıdaki resimde, varsayılan olarak başlatılan hizmetler örneğidir.
   
     ![SQL Server Hizmetleri](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -152,7 +152,7 @@ Bir Azure sanal makineye bağlanmak için iki ortak iş akışı vardır:
   1. Tür **bulut hizmeti adı** bilgisayar adı olarak.
   2. İki nokta üst üste (:) ve TCP Uzak Masaüstü uç noktası için yapılandırılmış ortak bağlantı noktası numarasını yazın.
      
-      MyService.cloudapp.NET:63133
+      Myservice.cloudapp.net:63133
      
       Daha fazla bilgi için bkz: [bir bulut hizmeti nedir?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
@@ -257,7 +257,7 @@ Analysis Services tabular modunda gibi ek SQL Server hizmetlerini yüklemek içi
 2. Tıklatın **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** veya **Microsoft SQL Server 2012** ve ardından **yapılandırma araçları** .
 3. Tıklatın **SQL Server Yükleme Merkezi'ni**.
 
-Veya C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe veya C:\SQLServer_11.0_full\setup.exe çalıştırın
+Or run C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe or C:\SQLServer_11.0_full\setup.exe
 
 > [!NOTE]
 > SQL Server Kurulumu çalıştırdığınız ilk kez daha fazla Kurulum dosyaları indirilebilir ve sanal makinenin yeniden başlatılması ve SQL Server Kurulumu'nu yeniden başlatılmasını gerektirir.
@@ -319,7 +319,7 @@ Bu bölüm oluşturmak için Microsoft Azure sanal makine uç ve sanal makine g�
   | Bağlantı noktası | Tür | Açıklama |
   | --- | --- | --- |
   | **80** |TCP |Rapor sunucusu uzaktan erişim (*). |
-  | **1433** |TCP |SQL Server Management Studio'yu (*). |
+  | **1433** |TCP |SQL Server Management Studio (*). |
   | **1434** |UDP |SQL Server Browser. VM bir etki alanına katıldığında bu gereklidir. |
   | **2382** |TCP |SQL Server Browser. |
   | **2383** |TCP |SQL Server Analysis Services varsayılan örneği ve kümelenmiş adlandırılmış örnekleri. |
@@ -339,7 +339,7 @@ Aşağıdaki diyagram, VM özelliklerini ve bileşenlerini uzaktan erişime izin
 * [SQL Server üzerinde Azure sanal makinelere genel bakış](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Sanal Makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Azure üzerinde bir SQL Server sanal makine sağlama](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Nasıl bir sanal makineye bir veri diski Ekle](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Nasıl bir sanal makineye bir veri diski Ekle](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [SQL Server Azure VM'de bir veritabanını geçirme](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Sunucu modunda bir Analysis Services örneğinin belirleme](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Çok boyutlu modelleme (Adventure Works öğretici)](https://technet.microsoft.com/library/ms170208.aspx)

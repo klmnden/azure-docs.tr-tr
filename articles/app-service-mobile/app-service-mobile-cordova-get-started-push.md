@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova uygulamanıza anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Aşağıdaki komutu yürütün:
 
 2. Yükleme kaynağını yanındaki oka tıklayın.
 3. İçinde **SENDER_ID**, Google Developer konsol projesi için bir sayısal proje kimliği zaten varsa, bunu burada ekleyebilirsiniz. Aksi takdirde, 777777 gibi bir yer tutucu değerini girin.  Android hedefliyorsanız, bu değeri daha sonra config.xml güncelleştirebilirsiniz.
+     SENDER_ID kaldırıldığı sürüm 2.0.0 itibariyle zaman ve google services.json yükleme unutmayın, projenin kök klasöründe yüklü olması gerekir.  Daha fazla ayrıntı [burada.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 4. **Ekle**'ye tıklayın.
 
 Anında iletme eklentisi artık yüklüdür.
@@ -332,7 +333,7 @@ Uygulamasındaki yeni todoıtem için bir ad yazın ve ardından artı (+) eklem
 
 SDK'ları kullanmayı öğrenin.
 
-* [Apache Cordova SDK'sı][15]
+* [Apache Cordova SDK][15]
 * [ASP.NET sunucusu SDK][1]
 * [Node.js sunucusu SDK][16]
 

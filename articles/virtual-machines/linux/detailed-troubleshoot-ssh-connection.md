@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eeef5b522996146eed6be393692b3c0a4a8747f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Ayrıntılı SSH azure'da bir Linux VM için bağlantı sorunları için sorun giderme adımları
 SSH istemcisi VM SSH hizmette ulaşabilmesi olmayabilir birçok olası nedeni vardır. Daha fazla bilgi izlediyseniz [sorun giderme adımları genel SSH](troubleshoot-ssh-connection.md), daha fazla bağlantı sorunu gidermek gerekir. Bu makalede, SSH bağlantısını nerede başarısız olduğunu ve nasıl çözümleyeceğiniz belirlemek için ayrıntılı sorun giderme adımlarını size yol gösterir.
@@ -120,7 +120,7 @@ Son olası sorunlar Azure sanal makinesini kendisini kaynağıdır.
 
 ![Linux tabanlı Azure sanal makine vurgular diyagramı](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Henüz yapmadıysanız, yönergeleri izleyin [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlamak için](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Henüz yapmadıysanız, yönergeleri izleyin [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlamak için](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Bilgisayarınızı yeniden bağlanmayı deneyin. Yine başarısız olursa, olası sorunlardan bazıları şunlardır:
 

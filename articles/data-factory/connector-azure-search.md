@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 026ec3195f9851164a85613f2060b1c282f8bb7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Search dizini için veri kopyalama
 
@@ -36,7 +36,7 @@ Tüm desteklenen kaynak veri deposundan verileri Azure Search dizinine kopyalaya
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Aşağıdaki bölümler, Azure Search bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -116,7 +116,7 @@ Azure Search verileri kopyalamak için kopyalama etkinliği için kaynak türün
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **AzureSearchIndexSink** | Evet |
-| WriteBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).<br/><br/>İzin verilen değerler: **birleştirme** (varsayılan), ve **karşıya**. | Hayır |
+| writeBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).<br/><br/>İzin verilen değerler: **birleştirme** (varsayılan), ve **karşıya**. | Hayır |
 | writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. Bkz: [WriteBatchSize özelliği](#writebatchsize-property) Ayrıntılar için.<br/><br/>İzin verilen değerler: tamsayı 1 için 1.000; Varsayılan 1000'dir. | Hayır |
 
 ### <a name="writebehavior-property"></a>WriteBehavior özelliği
@@ -130,7 +130,7 @@ AzureSearchSink (AzureSearch SDK kullanılarak) aşağıdaki iki upsert davranı
 
 Varsayılan davranış **birleştirme**.
 
-### <a name="writebatchsize-property"></a>WriteBatchSize özelliği
+### <a name="writebatchsize-property"></a>WriteBatchSize Property
 
 Azure Search Hizmeti yazma belgeleri toplu iş olarak destekler. Bir toplu iş için 1 1.000 eylemler içerebilir. Bir eylem karşıya yükleme/birleştirme işlemi gerçekleştirmek için bir belge işler.
 

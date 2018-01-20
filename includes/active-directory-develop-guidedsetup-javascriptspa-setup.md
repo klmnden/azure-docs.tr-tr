@@ -9,7 +9,7 @@
 >
 > Ve ardından geçin [yapılandırma adımı](#create-an-application-express) kod örneği çalıştırmadan önce yapılandırmak için.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bir yerel web sunucusu gibi [Python http.server](https://www.python.org/downloads/), [http sunucu](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), ya da IIS Express ile tümleştirme [Visual Studio 2017](https://www.visualstudio.com/downloads/) Bu Destekli kurulumu çalıştırmak için gereklidir. 
 
 Bu kılavuzdaki yönergeleri Python ve Visual Studio 2017 bağlıdır, ancak herhangi bir geliştirme ortamı veya Web sunucusu kullanmak üzere çekinmeyin.
@@ -18,7 +18,7 @@ Bu kılavuzdaki yönergeleri Python ve Visual Studio 2017 bağlıdır, ancak her
 
 > ### <a name="option-1-visual-studio"></a>Seçenek 1: Visual Studio 
 > Visual Studio kullanarak ve yeni proje oluşturma, yeni bir Visual Studio çözüm oluşturmak için aşağıdaki adımları izleyin:
-> 1.    Visual Studio'da:`File` > `New` > `Project`
+> 1.    In Visual Studio:  `File` > `New` > `Project`
 > 2.    Altında `Visual C#\Web`seçin`ASP.NET Web Application (.NET Framework)`
 > 3.    Uygulamanızı adlandırın ve tıklayın *Tamam*
 > 4.    Altında `New ASP.NET Web Application`seçin`Empty`

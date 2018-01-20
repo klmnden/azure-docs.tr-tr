@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Bir veri ambarında büyük veri akışı
 
@@ -64,7 +64,7 @@ Olay kılavuz olay verilerini abonelere dağıtır. Aşağıdaki örnek, bir yak
 ]
 ```
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için şunlara sahip olmalısınız:
 
@@ -144,7 +144,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 8. URL işlevi için alın. Bu URL, olay abonelik oluştururken gerekir.
 
-   ![İşlev URL'sini alma](media/event-grid-event-hubs-integration/get-function-url.png)
+   ![İşlev URL'sini al](media/event-grid-event-hubs-integration/get-function-url.png)
 
 9. Değerini kopyalayın.
 
@@ -170,10 +170,14 @@ Olaya abone olmak için Azure CLI veya Portalı'nı kullanabilirsiniz. Bu makale
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Olaya abone olmak için aşağıdaki komutu çalıştırın:
+Olaya abone olmak için aşağıdaki komutları çalıştırın (sürüm 2.0.24 gerektiren veya Azure CLI sonraki):
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## <a name="run-the-app-to-generate-data"></a>Verileri oluşturmak için uygulama çalıştırma

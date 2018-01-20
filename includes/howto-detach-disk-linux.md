@@ -29,7 +29,7 @@ Bir diski VM’den ayırmadan önce LUN numarasını bulmanız gerekir. Bu numar
 3. Ayırmak istediğiniz diskin LUN veya **mantıksal birim numarasına** dikkat edin.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Diske işletim sistemi başvurularını kaldırın
-Diski Linux konuğundan ayırmadan önce diskteki hiçbir bölümün kullanımda olmadığından emin olmanız gerekir. İşletim sisteminin yeniden başlatma sonrası yeniden takılmayı denemeyeceğinden emin olun. Bu adımlar diski [eklerken](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) muhtemelen oluşturduğunuz yapılandırmayı geri alır.
+Diski Linux konuğundan ayırmadan önce diskteki hiçbir bölümün kullanımda olmadığından emin olmanız gerekir. İşletim sisteminin yeniden başlatma sonrası yeniden takılmayı denemeyeceğinden emin olun. Bu adımlar diski [eklerken](../articles/virtual-machines/linux/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) muhtemelen oluşturduğunuz yapılandırmayı geri alır.
 
 1. Disk tanımlayıcısını bulmak için `lsscsi` komutunu kullanın. `lsscsi`, `yum install lsscsi` (Red Hat üzerinde dağıtımlarda) veya `apt-get install lsscsi` (Debian üzerinde dağıtımlarda) aracılığıyla yüklenebilir. LUN numarasını kullanarak aradığınız disk tanımlayıcısını bulabilirsiniz. Her satırdaki tanımlama grubunda bulunan son sayı LUN’dur. Aşağıdaki `lsscsi` örneğinde, LUN 0 */dev/sdc* ile eşlenir.
 

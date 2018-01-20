@@ -3,18 +3,18 @@ title: "Azure Market uygulamalarda yönetilen | Microsoft Docs"
 description: "Azure açıklar yönetilen Market üzerinden kullanılabilir uygulamalar."
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Market'te Azure yönetilen uygulamalar
 
@@ -36,26 +36,18 @@ Ayrıca, çeşitli iş önkoşulları vardır. Bunlar:
 * Azure Market katılım ilkeleri ve yayımcı Sözleşmesi koşullarını kabul ediyorsunuz.
 * Kullanım koşulları, Microsoft gizlilik bildirimi ve Microsoft Azure sertifikalı Program sözleşmesi uymak kabul etmiş olursunuz.
 
-## <a name="set-up-your-account-for-publishing-portal"></a>Hesabınız yayımlama portalı için ayarlama
+## <a name="become-a-publisher"></a>Bir yayımcı olur
 
-Yayımlama Portalı yayımlama ve, tekliflerini yönetmek için kullanılır. Market uygulamayı yayımlamak için Azure Market onaylanmış bir Microsoft Developer olması gerekir. Onaylanan bir hesap için kaydolmadıysanız bkz [Microsoft Developer hesabı oluşturma](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Azure Market Publisher'da olmasını yapmanız gerekir:
 
-Onaylanan bir varsa **Microsoft Developer Center'da** hesap, ancak daha önce kullanılmayan [Azure yayımlama portalında](https://cloudpartner.azure.com/), yayımlama portal kaydetmeniz gerekir.
-
-1. Yeni bir Chrome Incognito veya Internet Explorer gözatma oturumu InPrivate, kişisel hesabına açmadınız emin olmak için açın.
-2. Git [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
-3. Yeni bir kullanıcı ve yayımlama için oturum açma ise ilk kez portal, ardından kimliğiyle aynı e-posta olarak Geliştirici Merkezi hesabınızda oturum gerekir. Şimdi, Geliştirici Merkezi hesabına ve yayımlama portal hesabına bağlanır.
-
-Daha sonra şirket olarak diğer üyeleriyle ekleyebilirsiniz bir [ortak yönetici](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) yayımlama portalında. Yayımlama portalında ortak yönetici olarak eklediyseniz, ortak Yönetici hesabınızla oturum imzalayabilirsiniz.
-
-> [!TIP]
-> Katılım ilkeleri üzerinde açıklanan [Azure Web sitesi](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
->
->
+1. A Microsoft ID oluşturma - şirketinizin etki alanı, ancak tek ait bir e-posta adresi kullanarak, bir Microsoft hesabı oluşturun. Bu e-posta adresi Microsoft Developer Center'da ve bulut iş ortağı portalı için kullanılır. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
+1. Gönderme [Azure Market Adaylığı Form](https://aka.ms/ampnomination) - **yayımlamayı düşündüğünüz çözüm?**seçin **yönetilen uygulamayı**. Form gönderildikten sonra Market hazırlanma ekibi uygulama gözden geçirir ve isteği doğrular. Onay işlemi, bir ile üç gün sürebilir. Adaylığı onaylandığında, Geliştirici Merkezi kayıt ücret feragat etmiş bir promosyon kodu alırsınız. Bunu yaparsanız **değil** Market Adaylığı formu doldurun 99 kayıt ücret ödemeniz istenir.
+1. Kaydetmek [Geliştirici Merkezi](https://developer.microsoft.com) -Microsoft, kuruluşunuzun, kayıtlı ülke için geçerli bir vergi numarası geçerli yasal bir varlıkla olduğunu doğrular. Onay işlemi 5-10 gün sürebilir. Kayıt ücret önlemek için e-posta Adaylığı işleminden alınan promosyon kodu kullanın. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
+1. Oturum [bulut iş ortağı portalını](https://cloudpartner.azure.com) - yayımcı profilinde Geliştirici Merkezi hesabınızda Market yayımcı profille ilişkilendirin. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Yeni bir Azure uygulama teklifi oluşturma
 
-Önkoşulları karşılaması sonra yönetilen uygulamayı teklifiniz oluşturmaya hazırsınız.
+İş ortağı portalı hesabınızı oluşturduktan sonra yönetilen uygulama teklifiniz oluşturmaya hazırsınız.
 
 ### <a name="set-up-an-offer"></a>Bir teklif ayarlayın
 
@@ -65,11 +57,7 @@ Teklif yönetilen bir uygulama için bir sınıf bir yayımcıdan sunumu ürün�
 
 1. Sol gezinti bölmesinde seçin **+ yeni teklif** > **Azure uygulamaları**.
 
-   ![Yeni teklif](./media/publish-marketplace-app/newOffer.png)
-
 1. İçinde **Düzenleyicisi** görünümü, gerekli formlarına bakın. Her form bu makalenin sonraki bölümlerinde açıklanmıştır.
-
-   ![Teklif ayarları](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>Teklif ayarları formu
 
@@ -95,13 +83,9 @@ Bir SKU Market'te üst teklif altında görüntülenir. Azure portalında purcha
 
 1. Seçin **SKU'ları** > **yeni SKU**.
 
-   ![Yeni SKU seçin](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. Girin bir **SKU kimliği**. Bir teklif içinde SKU için benzersiz bir tanımlayıcı SKU kimliğidir. Bu kimliği ürün URL'ler, Resource Manager şablonları görünür ve faturalama raporlar. Yalnızca küçük harf alfasayısal karakterler veya tire (-) birleştirilebilir. Kimliği, tire ve buna ait en çok 50 karakter sınırlı bitemez. Bu alan, bir teklif Canlı göründükten sonra kilitlendi. Bir teklif içinde birden çok SKU olabilir. Bir SKU yayımlamayı düşündüğünüz her görüntü için gerekir.
 
 1. Doldurmak **SKU ayrıntıları** aşağıdaki formda bölümü:
-
-   ![Yeni SKU sağlayın](./media/publish-marketplace-app/sku-settings.png)
 
    Aşağıdaki alanları doldurun:
 
@@ -110,14 +94,9 @@ Bir SKU Market'te üst teklif altında görüntülenir. Azure portalında purcha
    * **Açıklama**: SKU hakkında ayrıntılı bir açıklama girin.
    * **SKU tür**: izin verilen değerler: *yönetilen uygulamayı* ve *çözüm şablonları*. Bu durumda, seçin *yönetilen uygulamayı*.
    * **Ülke/bölge kullanılabilirliği**: yönetilen uygulamayı kullanılabilir olduğu ülkelerin seçin.
-
-      ![Ülke seçin](./media/publish-marketplace-app/select-country.png)
-
    * **Fiyatlandırma**: uygulama yönetimi için bir fiyat sağlayın. Fiyat ayarlamadan önce kullanılabilir ülke seçin.
 
 1. Yeni bir paket ekleyin. Doldurmak **Paket ayrıntılarını** aşağıdaki formda bölümü:
-
-   ![Paket](./media/publish-marketplace-app/new-package.png)
 
    Aşağıdaki alanları doldurun:
 

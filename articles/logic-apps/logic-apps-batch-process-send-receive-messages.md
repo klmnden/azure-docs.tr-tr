@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Gönderme, alma ve logic apps işlem iletileri toplu
 
@@ -39,7 +39,7 @@ Bu örnek takip etmek için bu öğeler gerekir:
 
 * Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz bir Azure hesabı ile başlayabilirsiniz](https://azure.microsoft.com/free/). Ya da [Kullandıkça Öde aboneliğine kaydolabilirsiniz](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Hakkındaki temel bilgileri [mantıksal uygulamalar oluşturma](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Hakkındaki temel bilgileri [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Herhangi bir e-posta hesabı [Azure mantıksal uygulamaları tarafından desteklenen e-posta sağlayıcısı](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Gönderen logic apps alıcı logic apps Gönderenler ilgili herhangi bir şey bi
       Örneğin, bir iş veya Okul hesabınız varsa, Office 365 Outlook Bağlayıcısı'nı seçin. 
       Gmail hesabınız varsa, Gmail Bağlayıcısı'nı seçin.
 
-   3. Bu eylem, bağlayıcı için seçin: * *{*e-posta sağlayıcısı*}-bir e-posta ** Gönder
+   3. Bu eylem, bağlayıcı için seçin: **{*e-posta sağlayıcısı*}-bir e-posta Gönder**
 
       Örneğin:
 
       ![E-posta sağlayıcınız için "bir e-posta Gönder" eylemini seçin](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. E-posta sağlayıcınız için daha önce bir bağlantı oluşturmadıysanız, istendiğinde kimlik doğrulaması için e-posta kimlik bilgilerinizi sağlayın. Daha fazla bilgi edinmek [e-posta kimlik bilgilerinizi kimlik doğrulaması](../logic-apps/logic-apps-create-a-logic-app.md).
+5. E-posta sağlayıcınız için daha önce bir bağlantı oluşturmadıysanız, istendiğinde kimlik doğrulaması için e-posta kimlik bilgilerinizi sağlayın. Daha fazla bilgi edinmek [e-posta kimlik bilgilerinizi kimlik doğrulaması](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Yeni eklediğiniz eylem özelliklerini ayarlayın.
 
@@ -170,7 +170,7 @@ Gönderen logic apps alıcı logic apps Gönderenler ilgili herhangi bir şey bi
      1. Zaman **dinamik içerik** listesi görüntülenir, seçin **ifade**. 
      2. İfade girin **utcnow()**ve seçin **Tamam**. 
 
-        !["İletisi içeriği", "İfadesi" seçin. "Utcnow()" girin.](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
+        !["İletisi içeriği", "İfadesi" seçin. Enter "utcnow()".](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
 
 4. Toplu işlem için bir bölüm şimdi ayarlayın. "BatchReceiver" eylemini seçin **Gelişmiş Seçenekleri Göster**.
 

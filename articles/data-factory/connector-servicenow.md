@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 6918081600074b05cf357c848778ab4e66e07fff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d1e4d3a2d8edf061c5f16da62287359bd6039c69
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak ServiceNow verilerini
 
@@ -37,7 +37,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını ServiceNow bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -48,11 +48,11 @@ Aşağıdaki özellikler ServiceNow bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **ServiceNow** | Evet |
-| endpoint | ServiceNow sunucusu uç noktası. (diğer bir deyişle, http://ServiceNowData.com)  | Evet |
+| endpoint | ServiceNow sunucusu uç noktası. (that is, http://ServiceNowData.com)  | Evet |
 | authenticationType | Kullanılacak kimlik doğrulama türü. <br/>İzin verilen değerler: **temel**, **OAuth2** | Evet |
 | kullanıcı adı | ServiceNow temel ve OAuth2 kimlik doğrulama için sunucusuna bağlanmak için kullanılan kullanıcı adı.  | Hayır |
 | password | Temel ve OAuth2 kimlik doğrulama için kullanıcı adı için karşılık gelen parola. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
-| istemci kimliği | OAuth2 kimlik doğrulaması için istemci kimliği.  | Hayır |
+| clientId | OAuth2 kimlik doğrulaması için istemci kimliği.  | Hayır |
 | clientSecret | OAuth2 kimlik doğrulaması için istemci gizli anahtarı. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için sunucunun sertifikası ana bilgisayar adlarında istenip istenmeyeceğini belirtir. Varsayılan değer true olur.  | Hayır |

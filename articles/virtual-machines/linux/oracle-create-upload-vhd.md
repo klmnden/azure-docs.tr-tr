@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: szark
-ms.openlocfilehash: c631ddf3acf6df7364c03eb4691b78be0493e0d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90df1546ddc70667f6c977afba8078b6dfb0e148
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure için Oracle Linux sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, bir sanal sabit disk için bir Oracle Linux işletim sistemi zaten yüklediğinizi varsayar. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için bkz: [Hyper-V rolünü yükleyin ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux yükleme notları
@@ -38,7 +38,7 @@ Bu makalede, bir sanal sabit disk için bir Oracle Linux işletim sistemi zaten 
 * Tüm VHD'leri boyutları 1 MB'ün katları olmalıdır.
 * Olduğundan emin olun `Addons` depo etkindir. Dosyayı düzenlemek `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) veya `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), satır değiştirip `enabled=0` için `enabled=1` altında **[ol6_addons]** veya **[ol7_addons]** bu dosyadaki.
 
-## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +
+## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
 Azure'da çalışması sanal makine için işletim sistemini belirli yapılandırma adımları tamamlamanız gerekir.
 
 1. Hyper-V Yöneticisi'nin Orta bölmede sanal makineyi seçin.
@@ -107,7 +107,7 @@ Azure'da çalışması sanal makine için işletim sistemini belirli yapılandı
 14. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
 
 - - -
-## <a name="oracle-linux-70"></a>Oracle Linux 7.0 +
+## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
 **Oracle Linux 7 değişiklikleri**
 
 Bir Oracle Linux 7 sanal makine için Azure hazırlanıyor çok ancak eşitlenmeyeceği birkaç önemli farklılıklar vardır, Oracle Linux 6 benzer:
@@ -183,5 +183,5 @@ Bir Oracle Linux 7 sanal makine için Azure hazırlanıyor çok ancak eşitlenme
 15. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi yeni sanal makineler oluşturmak için Oracle Linux .vhd kullanmaya hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Şimdi yeni sanal makineler oluşturmak için Oracle Linux .vhd kullanmaya hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 59c7a65ff4eb35b3ea462962163b7b6ee94f521f
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="run-custom-mapreduce-programs"></a>Özel MapReduce programları çalıştırın
+# <a name="run-custom-mapreduce-programs"></a>Özel MapReduce programlarını çalıştırma
 
 Hdınsight gibi Hadoop tabanlı büyük veri sistemlerini veri işleme çok çeşitli araçlar ve teknolojiler kullanarak etkinleştirin. Aşağıdaki tabloda ana avantajları ve her biri için konuları açıklanmaktadır.
 
@@ -77,7 +77,7 @@ En yaygın MapReduce programları Java'da yazılmış ve jar dosyasına derlenir
 
     Bu komut MapReduce işi YARN gönderir. Giriş dosyası `/example/data/sample.log`, ve çıktı dizinine `/example/data/logoutput`. Giriş dosyası ve tüm çıkış dosyaları için kümenin varsayılan depolama alanına depolanır.
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [C# MapReduce hdınsight'ta Hadoop akış ile kullanma](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

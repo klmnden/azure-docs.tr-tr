@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Veri kaynaklarına açıklama ekleme
 ## <a name="introduction"></a>Giriş
@@ -40,14 +40,14 @@ Her bu Perspektifleri değerlidir ve veri Kataloğu yakalanan ve kayıtlı veri 
 ## <a name="different-types-of-annotations"></a>Farklı türde ek açıklamaların
 Veri Kataloğu ek açıklamaları aşağıdaki türlerini destekler:
 
-| Ek açıklama | Notlar |
+| Ek Açıklama | Notlar |
 | --- | --- |
 | Kolay ad |Kolay adlar daha kolay anlaşılan veri varlıklarını yapmak için veri varlık düzeyinde sağlanabilir. Temel alınan nesnenin adı şifreli, kısaltılmış veya aksi halde anlamlı kullanıcılara olduğunda kolay adlar en yararlı olur. |
 | Açıklama |Açıklamaları sağlanan veri varlığına ve öznitelik / sütun düzeyi. Açıklamaları olan kullanıcının açıklamak serbest biçimli kısa metin ek açıklamaları perspektif veri varlığına veya kendi kullanın. |
 | Etiketler (kullanıcı etiketleri) |Etiketler sağlanan veri varlığına ve öznitelik / sütun düzeyi. Kullanıcı, veri varlıklarını veya öznitelikleri sınıflandırmak için kullanılan kullanıcı tanımlı etiketleri etiketleridir. |
 | Etiketler (sözlüğü etiketleri) |Etiketler sağlanan veri varlığına ve öznitelik / sütun düzeyi. Veri varlıklarını veya ortak bir iş sınıflandırması kullanarak özniteliklerini sınıflandırmak için kullanılabilecek merkezi olarak tanımlanması terimler sözlüğü etiketleridir. Daha fazla bilgi için bkz. [İş Sözlüğünü Yönetilen Etiketleme için ayarlama](data-catalog-how-to-business-glossary.md) |
 | Uzmanlar |Uzmanlar veri varlık düzeyinde sağlanabilir. Uzmanlar veri Uzman perspektiflerine sahip kullanıcıları veya grupları tanımlamak ve kullanıcılar, kayıtlı veri kaynaklarını bulmak için iletişim noktaları olarak hizmet ve var olan ek açıklamaları tarafından bulamadığınız sorularınız varsa. |
-| Erişim isteği |İstek erişim bilgileri veri varlık düzeyinde sağlanabilir. Bu bilgiler henüz erişim izni olmayan bir veri kaynağını Bul kullanıcılar için olur. Kullanıcılar kullanıcı veya grubun erişimi, işlem ya da kullanıcıların erişim, gerek aracı URL'sini verir e-posta adresi girin veya işlem metin olarak girebilirsiniz. |
+| Erişim izni iste |İstek erişim bilgileri veri varlık düzeyinde sağlanabilir. Bu bilgiler henüz erişim izni olmayan bir veri kaynağını Bul kullanıcılar için olur. Kullanıcılar kullanıcı veya grubun erişimi, işlem ya da kullanıcıların erişim, gerek aracı URL'sini verir e-posta adresi girin veya işlem metin olarak girebilirsiniz. |
 | Belgeler |Belge veri varlık düzeyinde sağlanabilir. Varlık belgeleri, bağlantılar ve resimler içerebilir ve etiketleri ve açıklamaları ile ilettiği olmayan herhangi bir bilgi sağlayan zengin metin bilgilerdir. |
 
 ## <a name="annotating-multiple-assets"></a>Birden çok varlıklarına açıklama

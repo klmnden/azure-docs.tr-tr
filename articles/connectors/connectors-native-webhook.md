@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Web kancası Bağlayıcısı ile çalışmaya başlama
 
@@ -81,75 +81,75 @@ Daha fazla ayrıntı aşağıdadır tetikleyiciler ve eylemler hakkında Web kan
 
 | Eylem | Açıklama |
 | --- | --- |
-| HTTP Web kancası |Bir geri çağırma URL'si gerektiği gibi mantıksal uygulama tetiklenecek URL çağırabilirsiniz bir hizmete abone olun. |
+| HTTP Web Kancası |Bir geri çağırma URL'si gerektiği gibi mantıksal uygulama tetiklenecek URL çağırabilirsiniz bir hizmete abone olun. |
 
 ### <a name="trigger-details"></a>Tetikleyici ayrıntıları
 
-#### <a name="http-webhook"></a>HTTP Web kancası
+#### <a name="http-webhook"></a>HTTP Web Kancası
 
 Bir geri çağırma URL'si gerektiği gibi mantıksal uygulama tetiklenecek URL çağırabilirsiniz bir hizmete abone olun.
 Bir * gerekli alan anlamına gelir.
 
-| Görünen ad | Özellik adı | Açıklama |
+| Görünen Ad | Özellik Adı | Açıklama |
 | --- | --- | --- |
-| Abone yöntemi * |Yöntemi |Abone ol istek için kullanılacak HTTP yöntemi |
-| Abone URI * |URI |Abone ol istek için kullanılacak HTTP URI |
-| Aboneliği yöntemi * |Yöntemi |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
-| Aboneliği URI * |URI |HTTP abonelikten istek için kullanılacak URI |
-| Gövde abone olma |Gövde |Abonelik için HTTP istek gövdesi |
-| Üstbilgiler abone olma |Üstbilgileri |Abonelik için HTTP isteği üstbilgileri |
-| Kimlik doğrulama abone olma |Kimlik doğrulaması |Abonelik için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) Ayrıntılar için |
-| Gövde aboneliği |Gövde |HTTP isteği gövdesinin abonelikten için |
-| Üstbilgiler aboneliği |Üstbilgileri |HTTP istek üstbilgilerinin abonelikten için |
-| Kimlik doğrulama aboneliği |Kimlik doğrulaması |Aboneliği kaldırma için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) Ayrıntılar için |
+| Abone yöntemi * |yöntem |Abone ol istek için kullanılacak HTTP yöntemi |
+| Abone URI * |uri |Abone ol istek için kullanılacak HTTP URI |
+| Aboneliği yöntemi * |yöntem |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
+| Aboneliği URI * |uri |HTTP abonelikten istek için kullanılacak URI |
+| Gövde abone olma |body |Abonelik için HTTP istek gövdesi |
+| Üstbilgiler abone olma |headers |Abonelik için HTTP isteği üstbilgileri |
+| Kimlik doğrulama abone olma |kimlik doğrulaması |Abonelik için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) Ayrıntılar için |
+| Gövde aboneliği |body |HTTP isteği gövdesinin abonelikten için |
+| Üstbilgiler aboneliği |headers |HTTP istek üstbilgilerinin abonelikten için |
+| Kimlik doğrulama aboneliği |kimlik doğrulaması |Aboneliği kaldırma için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) Ayrıntılar için |
 
 **Çıkış Ayrıntıları**
 
 Web kancası isteği
 
-| Özellik adı | Veri türü | Açıklama |
+| Özellik Adı | Veri Türü | Açıklama |
 | --- | --- | --- |
-| Üstbilgileri |Nesne |Web kancası istek üstbilgileri |
-| Gövde |Nesne |Web kancası istek nesnesi |
-| Durum kodu |Int |Web kancası isteği durum kodu |
+| Üst bilgiler |nesne |Web kancası istek üstbilgileri |
+| Gövde |nesne |Web kancası istek nesnesi |
+| Durum Kodu |Int |Web kancası isteği durum kodu |
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
 
 | Eylem | Açıklama |
 | --- | --- |
-| HTTP Web kancası |Bir geri çağırma URL'si gerektiği gibi bir iş akışı adımı sürdürmek için URL çağırabilirsiniz bir hizmete abone olun. |
+| HTTP Web Kancası |Bir geri çağırma URL'si gerektiği gibi bir iş akışı adımı sürdürmek için URL çağırabilirsiniz bir hizmete abone olun. |
 
 ### <a name="action-details"></a>Eylem ayrıntıları
 
-#### <a name="http-webhook"></a>HTTP Web kancası
+#### <a name="http-webhook"></a>HTTP Web Kancası
 
 Bir geri çağırma URL'si gerektiği gibi bir iş akışı adımı sürdürmek için URL çağırabilirsiniz bir hizmete abone olun.
 Bir * gerekli alan anlamına gelir.
 
-| Görünen ad | Özellik adı | Açıklama |
+| Görünen Ad | Özellik Adı | Açıklama |
 | --- | --- | --- |
-| Abone yöntemi * |Yöntemi |Abone ol istek için kullanılacak HTTP yöntemi |
-| Abone URI * |URI |Abone ol istek için kullanılacak HTTP URI |
-| Aboneliği yöntemi * |Yöntemi |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
-| Aboneliği URI * |URI |HTTP abonelikten istek için kullanılacak URI |
-| Gövde abone olma |Gövde |Abonelik için HTTP istek gövdesi |
-| Üstbilgiler abone olma |Üstbilgileri |Abonelik için HTTP isteği üstbilgileri |
-| Kimlik doğrulama abone olma |Kimlik doğrulaması |Abonelik için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) Ayrıntılar için |
-| Gövde aboneliği |Gövde |HTTP isteği gövdesinin abonelikten için |
-| Üstbilgiler aboneliği |Üstbilgileri |HTTP istek üstbilgilerinin abonelikten için |
-| Kimlik doğrulama aboneliği |Kimlik doğrulaması |Aboneliği kaldırma için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) Ayrıntılar için |
+| Abone yöntemi * |yöntem |Abone ol istek için kullanılacak HTTP yöntemi |
+| Abone URI * |uri |Abone ol istek için kullanılacak HTTP URI |
+| Aboneliği yöntemi * |yöntem |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
+| Aboneliği URI * |uri |HTTP abonelikten istek için kullanılacak URI |
+| Gövde abone olma |body |Abonelik için HTTP istek gövdesi |
+| Üstbilgiler abone olma |headers |Abonelik için HTTP isteği üstbilgileri |
+| Kimlik doğrulama abone olma |kimlik doğrulaması |Abonelik için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) Ayrıntılar için |
+| Gövde aboneliği |body |HTTP isteği gövdesinin abonelikten için |
+| Üstbilgiler aboneliği |headers |HTTP istek üstbilgilerinin abonelikten için |
+| Kimlik doğrulama aboneliği |kimlik doğrulaması |Aboneliği kaldırma için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) Ayrıntılar için |
 
 **Çıkış Ayrıntıları**
 
 Web kancası isteği
 
-| Özellik adı | Veri türü | Açıklama |
+| Özellik Adı | Veri Türü | Açıklama |
 | --- | --- | --- |
-| Üstbilgileri |Nesne |Web kancası istek üstbilgileri |
-| Gövde |Nesne |Web kancası istek nesnesi |
-| Durum kodu |Int |Web kancası isteği durum kodu |
+| Üst bilgiler |nesne |Web kancası istek üstbilgileri |
+| Gövde |nesne |Web kancası istek nesnesi |
+| Durum Kodu |Int |Web kancası isteği durum kodu |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Mantıksal uygulama oluşturun.](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Diğer bağlayıcıları Bul](apis-list.md)

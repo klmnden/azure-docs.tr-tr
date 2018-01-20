@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure işlevleri işlev uygulamanız için kaynak dağıtımı otomatik hale getir
 
@@ -197,7 +197,7 @@ Uygulama hizmeti planında işlevi uygulamanızı temel, standart ve Premium SKU
 Bir işlev uygulaması, uygulama ayarları ve kaynak denetimi seçenekleri de dahil olmak üzere, dağıtımınızdaki kullanabileceğiniz birçok alt kaynaklara sahip. Ayrıca kaldırmak isteyebilirsiniz **sourcecontrols** alt kaynak ve farklı bir kullanım [dağıtım seçeneği](functions-continuous-deployment.md) yerine.
 
 > [!IMPORTANT]
-> Azure Kaynak Yöneticisi'ni kullanarak uygulamanızı başarıyla dağıtmak için kaynakları Azure içinde nasıl dağıtıldığını anlamak önemlidir. Aşağıdaki örnekte, üst düzey yapılandırmaları kullanılarak uygulanır **siteConfig**. İşlevler çalışma zamanı ve dağıtım altyapısı için bilgi iletmek için bir en üst düzeyde bu yapılandırmaları ayarlamak önemlidir. Üst düzey bilgileri önce alt gerekli **sourcecontrols/web** kaynak uygulanır. Bu ayarları alt düzey yapılandırmanız mümkün olsa **config/appSettings** işlevi uygulamanızı dağıtılmalıdır bazı durumlarda kaynak *önce* **config/appSettings** uygulanır. Örneğin, kullanırken işlevleriyle [Logic Apps](../logic-apps/index.md), başka bir kaynak bağımlılığı, işlevlerdir.
+> Azure Kaynak Yöneticisi'ni kullanarak uygulamanızı başarıyla dağıtmak için kaynakları Azure içinde nasıl dağıtıldığını anlamak önemlidir. Aşağıdaki örnekte, üst düzey yapılandırmaları kullanılarak uygulanır **siteConfig**. İşlevler çalışma zamanı ve dağıtım altyapısı için bilgi iletmek için bir en üst düzeyde bu yapılandırmaları ayarlamak önemlidir. Üst düzey bilgileri önce alt gerekli **sourcecontrols/web** kaynak uygulanır. Bu ayarları alt düzey yapılandırmanız mümkün olsa **config/appSettings** işlevi uygulamanızı dağıtılmalıdır bazı durumlarda kaynak *önce* **config/appSettings** uygulanır. Örneğin, kullanırken işlevleriyle [Logic Apps](../logic-apps/index.yml), başka bir kaynak bağımlılığı, işlevlerdir.
 
 ```json
 {
@@ -260,7 +260,7 @@ Bir işlev uygulaması, uygulama ayarları ve kaynak denetimi seçenekleri de da
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure portalı](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Azure düğmesine dağıtma

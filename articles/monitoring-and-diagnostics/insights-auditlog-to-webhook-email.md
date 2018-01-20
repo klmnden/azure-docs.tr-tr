@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08467aed4e1601b32598fc42515d9c38b601a9d4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Bir Web kancası Azure etkinlik günlüğü uyarılar çağırın
 Web kancası işlem sonrası ya da özel eylemler için diğer sistemlere Azure bir uyarı bildirimine yol olanak sağlar. SMS gönder, hatalar oturum, sohbet ve mesajlaşma Servisleri üzerinden bir takım bildirmek veya başka eylemler herhangi bir sayıda yapmak hizmetlere yönlendirmek için bir uyarı durumunda bir Web kancası kullanın. Bu makalede, Azure etkinlik günlüğü uyarı ateşlenir olduğunda çağrılacak bir Web kancası ayarlanacağını açıklar. Ayrıca, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir. Kurulum ve bir Azure ölçüm uyarı şeması hakkında bilgi için [bunun yerine bu sayfaya bakın](insights-webhooks-alerts.md). Etkinleştirildiğinde bir e-posta göndermek için bir etkinlik günlüğü alarm de ayarlayabilirsiniz.
@@ -39,51 +39,66 @@ Web kancası bu yöntemlerden birini kullanarak doğrulayabilir:
 ## <a name="payload-schema"></a>Yükü şeması
 GÖNDERME işlemini aşağıdaki JSON yükü ve tüm etkinlik günlüğü tabanlı uyarılar için şema içerir. Bu şemayı ölçüm tabanlı uyarılar tarafından kullanılan benzer.
 
-```
+```json
 {
-        "status": "Activated",
-        "context": {
-                "resourceProviderName": "Microsoft.Web",
-                "event": {
-                        "$type": "Microsoft.WindowsAzure.Management.Monitoring.Automation.Notifications.GenericNotifications.Datacontracts.InstanceEventContext, Microsoft.WindowsAzure.Management.Mon.Automation",
-                        "authorization": {
-                                "action": "Microsoft.Web/sites/start/action",
-                                "scope": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest"
-                        },
-                        "eventDataId": "327caaca-08d7-41b1-86d8-27d0a7adb92d",
-                        "category": "Administrative",
-                        "caller": "myname@mycompany.com",
-                        "httpRequest": {
-                                "clientRequestId": "f58cead8-c9ed-43af-8710-55e64def208d",
-                                "clientIpAddress": "104.43.166.155",
-                                "method": "POST"
-                        },
-                        "status": "Succeeded",
-                        "subStatus": "OK",
-                        "level": "Informational",
-                        "correlationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "eventDescription": "",
-                        "operationName": "Microsoft.Web/sites/start/action",
-                        "operationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "properties": {
-                                "$type": "Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage",
-                                "statusCode": "OK",
-                                "serviceRequestId": "f7716681-496a-4f5c-8d14-d564bcf54714"
-                        }
-                },
-                "timestamp": "Friday, March 11, 2016 9:13:23 PM",
-                "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/alertonevent2",
-                "name": "alertonevent2",
-                "description": "test alert on event start",
-                "conditionType": "Event",
-                "subscriptionId": "s1",
-                "resourceId": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest",
-                "resourceGroupName": "rg1"
-        },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
+    "WebhookName": "Alert1515526229589",
+    "RequestBody": {
+        "schemaId": "Microsoft.Insights/activityLogs",
+        "data": {
+            "status": "Activated",
+            "context": {
+                "activityLog": {
+                    "authorization": {
+                        "action": "Microsoft.Compute/virtualMachines/deallocate/action",
+                        "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1"
+                    },
+                    "channels": "Operation",
+                    "claims": {
+                        "aud": "https://management.core.windows.net/",
+                        "iss": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "iat": "1234567890",
+                        "nbf": "1234567890",
+                        "exp": "1234567890",
+                        "aio": "Y2NgYBD8ZLlhu27JU6WZsXemMIvVAAA=",
+                        "appid": "00000000-0000-0000-0000-000000000000",
+                        "appidacr": "2",
+                        "e_exp": "262800",
+                        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "http://schemas.microsoft.com/identity/claims/objectidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
+                        "uti": "XnCk46TrDkOQXwo49Y8fAA",
+                        "ver": "1.0"
+                    },
+                    "caller": "00000000-0000-0000-0000-000000000000",
+                    "correlationId": "00000000-0000-0000-0000-000000000000",
+                    "description": "",
+                    "eventSource": "Administrative",
+                    "eventTimestamp": "2018-01-09T20:11:25.8410967+00:00",
+                    "eventDataId": "00000000-0000-0000-0000-000000000000",
+                    "level": "Informational",
+                    "operationName": "Microsoft.Compute/virtualMachines/deallocate/action",
+                    "operationId": "00000000-0000-0000-0000-000000000000",
+                    "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+                    "resourceGroupName": "ContosoVM",
+                    "resourceProviderName": "Microsoft.Compute",
+                    "status": "Succeeded",
+                    "subStatus": "",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "submissionTimestamp": "2018-01-09T20:11:40.2986126+00:00",
+                    "resourceType": "Microsoft.Compute/virtualMachines"
+                }
+            },
+            "properties": {}
         }
+    },
+    "RequestHeader": {
+        "Expect": "100-continue",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "IcMBroadcaster/1.0",
+        "X-CorrelationContext": "RkkKACgAAAACAAAAEADlBbM7x86VTrHdQ2JlmlxoAQAQALwazYvJ/INPskb8S5QzgDk=",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
 }
 ```
 
@@ -91,31 +106,30 @@ GÖNDERME işlemini aşağıdaki JSON yükü ve tüm etkinlik günlüğü tabanl
 | --- | --- |
 | durum |Ölçüm uyarılar için kullanılır. Her zaman "etkin" için etkinlik günlüğü Uyarıları ayarlayın. |
 | bağlam |Olayın bağlamı. |
-| resourceProviderName |Etkilenen kaynağının kaynak sağlayıcısı. |
-| Koşul türü |Her zaman "olayını." |
-| ad |Uyarı kuralı adı. |
-| id |Uyarının kaynak kimliği. |
+| activityLog | Olay günlüğü özellikleri.|
+| Yetkilendirme |Olay RBAC özellikleri. Bunlar genellikle "eylem", "rol" ve "scope." içerir |
+| action | Uyarı tarafından yakalanan eylem. |
+| Kapsam | Uyarı (yani kapsamı Kaynak).|
+| kanallar | İşlem |
+| Talepleri | Bir bilgi koleksiyonudur adresindeki ilişkili talep. |
+| çağıran |GUID veya işlemi, UPN Talebi veya kullanılabilirliğine göre SPN talep gerçekleştiren kullanıcının kullanıcı adı. Belirli sistem çağrıları için null olabilir. |
+| correlationId |Genellikle bir GUID dize biçiminde. Correlationıd değeri olaylarla aynı büyük eyleme ait ve genellikle bir correlationıd değeri paylaşın. |
 | açıklama |Uyarı oluşturulması sırasında uyarı açıklaması olarak ayarla. |
-| subscriptionId |Azure abonelik kimliği |
-| timestamp |Olay istek işlenmeden Azure hizmeti tarafından oluşturulduğu saat. |
+| eventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
+| eventTimestamp |Olayın gerçekleştiği süre. |
+| eventDataId |Olay için benzersiz tanımlayıcı. |
+| düzey |Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı." |
+| operationName |İşlemin adı. |
+| operationId |Tek bir işlem için karşılık gelen olayları arasında paylaşılan genellikle bir GUID. |
 | resourceId |Etkilenen kaynağının kaynak kimliği. |
 | resourceGroupName |Etkilenen kaynak için kaynak grubunun adı |
-| properties |Kümesi `<Key, Value>` çiftleri (yani `Dictionary<String, String>`) olay ayrıntılarını içerir. |
-| Olay |Olayla ilgili meta verileri içeren öğe. |
-| Yetkilendirme |Olay RBAC özellikleri. Bunlar genellikle "eylem", "rol" ve "scope." içerir |
-| category |Olay kategorisi. Desteklenen değerler: yönetici, uyarı, güvenlik, ServiceHealth, öneri. |
-| Arayan |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep gerçekleştiren kullanıcı e-posta adresi. Belirli sistem çağrıları için null olabilir. |
-| correlationId |Genellikle bir GUID dize biçiminde. Correlationıd değeri olaylarla aynı büyük eyleme ait ve genellikle bir correlationıd değeri paylaşın. |
-| eventDescription |Olay açıklaması statik metin. |
-| eventDataId |Olay için benzersiz tanımlayıcı. |
-| EventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
-| httpRequest |Genellikle "clientRequestId", "clientIpAddress" ve "yöntemi" içerir (örneğin PUT HTTP yöntemi). |
-| düzeyi |Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı." |
-| Operationıd |Tek bir işlem için karşılık gelen olayları arasında paylaşılan genellikle bir GUID. |
-| operationName |İşlemin adı. |
-| properties |Olay Özellikleri. |
+| resourceProviderName |Etkilenen kaynağının kaynak sağlayıcısı. |
 | durum |Dize. İşlem durumu. Genel değerler şunlardır: "Başlatıldı", "Sürüyor", "Başarılı", "Başarısız", "Active", "Çözülmüş". |
 | alt durum |Genellikle, karşılık gelen REST çağrısı HTTP durum kodunu içerir. Ayrıca, bir alt durum açıklayan diğer dizeleri de içerebilir. Ortak alt durum değerleri şunları içerir: Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503), ağ geçidi zaman aşımı (HTTP durum kodu: 504) |
+| subscriptionId |Azure abonelik kimliği |
+| submissionTimestamp |Olay istek işlenmeden Azure hizmeti tarafından oluşturulduğu saat. |
+| resourceType | Olayı oluşturan kaynak türü.|
+| properties |Kümesi `<Key, Value>` çiftleri (yani `Dictionary<String, String>`) olay ayrıntılarını içerir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Etkinlik günlüğü hakkında daha fazla bilgi edinin](monitoring-overview-activity-logs.md)

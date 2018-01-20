@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2016
 ms.author: cjiang
-ms.openlocfilehash: 4f97f28118e0fc6e92373f04c45450537723fce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 581fbaa477bd603fea5fdc0ef77c6ef7498b7897
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure'da yeni bir Linux sanal makine oluşturma ile klasik dağıtım sorunlarını giderme
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -50,7 +50,7 @@ Azure portalında tıklatın **Gözat** > **sanal makineleri** > *Windows sanal 
 
 **Çözüm:**
 
-Her iki bu hataları gidermek için özgün VHD, mevcut şirket içi, işletim sistemi (genelleştirilmiş/özel) olarak aynı ayarı ile karşıya yükleyin. Genelleştirilmiş olarak karşıya yükleme, çalıştırmak - unutmayın ilk sağlamayı sonlandırın. Bkz: [oluşturun ve Linux işletim sistemini içeren bir Sanal Sabit Disk yüklemek](create-upload-vhd.md) daha fazla bilgi için.
+Her iki bu hataları gidermek için özgün VHD, mevcut şirket içi, işletim sistemi (genelleştirilmiş/özel) olarak aynı ayarı ile karşıya yükleyin. Genelleştirilmiş olarak karşıya yükleme, çalıştırmak - unutmayın ilk sağlamayı sonlandırın. Bkz: [oluşturun ve Linux işletim sistemini içeren bir Sanal Sabit Disk yüklemek](create-upload-vhd-classic.md) daha fazla bilgi için.
 
 **Hata yakalama:**
 
@@ -60,7 +60,7 @@ Her iki bu hataları gidermek için özgün VHD, mevcut şirket içi, işletim s
 
 **Çözüm:**
 
-Her iki bu hataları gidermek için geçerli görüntü Portalı'ndan silmek ve [geçerli VHD'leri yeniden yakalar](capture-image.md) ayarıyla aynı olarak işletim sistemi (genelleştirilmiş/özel) için.
+Her iki bu hataları gidermek için geçerli görüntü Portalı'ndan silmek ve [geçerli VHD'leri yeniden yakalar](capture-image-classic.md) ayarıyla aynı olarak işletim sistemi (genelleştirilmiş/özel) için.
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Sorun: Özel / Galeri / Market görüntüsü; ayırma hatası
 Bu hata, isteği gerçekleştirmek için kullanılabilir boş alan yok veya istenen VM boyutu destekleyemez bir kümeye yeni VM istek gönderildiğinde durumlarda ortaya çıkar. Farklı dizi sanal makineleri aynı bulut hizmetindeki karışık mümkün değildir. Bulut hizmetinizi desteği ne değerinden farklı bir boyutta yeni bir VM oluşturmak istiyorsanız, bu nedenle işlem isteği başarısız olur.

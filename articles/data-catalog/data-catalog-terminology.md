@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8cb24357bb24c48dceda714a040427fcc0c0ba4d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b88abd01c2dbc302bfc0e783d1715710c6f8397c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-terminology"></a>Azure veri Kataloğu terminolojisi
 ## <a name="catalog"></a>Katalog
@@ -40,7 +40,7 @@ Yapısal meta verilerin bir veri varlığına yapısını açıklayan bir veri k
 ## <a name="descriptive-metadata"></a>Açıklayıcı meta verileri
 Açıklayıcı meta verileri amacını veya bir veri varlığına amacını açıklayan meta veriler oluşturur. Açıklayıcı meta verileri Azure veri Kataloğu Portalı'nı kullanarak katalog kullanıcıları tarafından genellikle eklendiği, ancak bu ayrıca veri kaynağından kayıt sırasında ayıklanabilir. Örneğin, Azure veri Kataloğu kayıt aracı açıklamaları SQL Server Analysis Services ve SQL Server Reporting Services ve gelen açıklama özelliğinden ayıklar [genişletilmiş özellik ms_description](https://technet.microsoft.com/library/ms190243.aspx) SQL Server veritabanlarında, bu özellikleri değerlerle doldurulduğunu varsa.
 
-## <a name="request-access"></a>Erişim isteği
+## <a name="request-access"></a>Erişim izni iste
 Bir veri varlığın açıklayıcı meta verileri veri varlığına veya veri kaynağına erişim isteme konusunda bilgiler içerebilir. Bu bilgiler, veri varlık konumu ile sunulan ve bir veya daha fazla aşağıdaki seçeneklerden birini içerebilir:
 
 * Kullanıcı veya veri kaynağına erişim vermek için sorumlu takım e-posta adresi.
@@ -52,7 +52,7 @@ Bir veri varlığın açıklayıcı meta verileri veri varlığına veya veri ka
 Azure veri Kataloğu önizlemede kayıt sırasında veri kaynağından ayıklanan ve veri varlık meta verilerle kataloğunda depolanan en fazla 20 kayıt anlık görüntüsüdür. Önizleme yardımcı olabilecek bir veri varlığına Bul kullanıcıları daha iyi anlamak işlevi ve amacı. Diğer bir deyişle, örnek verileri görmesini yalnızca sütun adları ve veri türleri görmesini değerinden daha yararlı olabilir.
 Önizleme yalnızca tablo ve görünümler için desteklenir ve kayıt sırasında kullanıcı tarafından açıkça seçilmelidir.
 
-## <a name="data-profile"></a>Veri profili
+## <a name="data-profile"></a>Veri Profili
 Azure veri Kataloğu veri profilinde kayıt sırasında veri kaynağından ayıklanan ve veri varlık meta verilerle kataloğunda depolanan bir kayıtlı veri varlığını ilgili tablo ve sütun düzeyi meta verilerin bir anlık görüntüdür. Veri profili yardımcı olabilecek bir veri varlığına Bul kullanıcıları daha iyi anlamak işlevi ve amacı. Benzer şekilde önizlemeler, veri profilleri açıkça kullanıcı tarafından kayıt sırasında seçilmelidir.
 
 > [!NOTE]

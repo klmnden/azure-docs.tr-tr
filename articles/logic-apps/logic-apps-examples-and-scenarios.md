@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Ortak senaryolar, örnekler, öğreticiler ve Azure Logic Apps için izlenecek yollar
 
-[Azure mantıksal uygulamaları](../logic-apps/logic-apps-what-are-logic-apps.md) , düzenlemek ve farklı Hizmetleri sağlayarak tümleştirmenize yardımcı [100 + kullanıma hazır Bağlayıcılar](../connectors/apis-list.md), Microsoft Bilişsel hizmetler için şirket içi SQL Server veya SAP aralığı. Logic Apps hizmeti "sunucusuz" olduğundan ölçek veya örnekleri hakkında endişelenmeniz gerekmez. Yapmanız gereken tek şey iş akışı tetikleyici ve iş akışı gerçekleştirdiği eylemleri tanımlayın. Temel alınan platform ölçek, kullanılabilirlik ve performans işler. Logic Apps kullanım örnekleri ve burada birden çok sistem üzerinde birden çok eylem koordine olmanız senaryoları için kullanışlıdır.
+[Azure mantıksal uygulamaları](../logic-apps/logic-apps-overview.md) , düzenlemek ve farklı Hizmetleri sağlayarak tümleştirmenize yardımcı [100 + kullanıma hazır Bağlayıcılar](../connectors/apis-list.md), Microsoft Bilişsel hizmetler için şirket içi SQL Server veya SAP aralığı. Logic Apps hizmeti "sunucusuz" olduğundan ölçek veya örnekleri hakkında endişelenmeniz gerekmez. Yapmanız gereken tek şey iş akışı tetikleyici ve iş akışı gerçekleştirdiği eylemleri tanımlayın. Temel alınan platform ölçek, kullanılabilirlik ve performans işler. Logic Apps kullanım örnekleri ve burada birden çok sistem üzerinde birden çok eylem koordine olmanız senaryoları için kullanışlıdır.
 
-Birçok desenleri ve yetenekler hakkında daha fazla bilgi edinmenize yardımcı olmak için [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) destekler, yayın örnekleri ve senaryoları şunlardır.
+Birçok desenleri ve yetenekler hakkında daha fazla bilgi edinmenize yardımcı olmak için [Azure Logic Apps](../logic-apps/logic-apps-overview.md) destekler, yayın örnekleri ve senaryoları şunlardır.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Başlangıç noktaları mantığı uygulama iş akışları için popüler
 
-Her mantıksal uygulama ile başlayan bir [ *tetikleyici*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)ve logic app akışınızı başlatır ve herhangi bir veri tetikleyicisi bir parçası olarak geçirir yalnızca bir tetikleyici. Bazı bağlayıcılar bu türlerinde gelen Tetikleyiciler sağlar:
+Her mantıksal uygulama ile başlayan bir [ *tetikleyici*](../logic-apps/logic-apps-overview.md#logic-app-concepts)ve logic app akışınızı başlatır ve herhangi bir veri tetikleyicisi bir parçası olarak geçirir yalnızca bir tetikleyici. Bazı bağlayıcılar bu türlerinde gelen Tetikleyiciler sağlar:
 
 * *Yoklama Tetikleyicileri*: hizmet uç noktası yeni veriler için düzenli olarak denetler. Yeni verileri mevcut olduğunda, tetikleyici oluşturur ve yeni bir iş akışı örneği girdi olarak verilerle çalışır.
 

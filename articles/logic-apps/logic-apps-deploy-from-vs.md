@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Tasarım, derleme ve Visual Studio'daki Azure mantıksal uygulamaları dağıtma
 
 Ancak [Azure portal](https://portal.azure.com/) tasarlamayı, derlemeyi ve mantıksal uygulamalarınızı dağıtma için Visual Studio'yu kullanabilirsiniz, oluşturmak ve Azure mantıksal uygulamaları yönetmek harika bir yolunu sunar. Visual Studio, logic apps oluşturmak, dağıtım ve Otomasyon şablonları yapılandırın ve herhangi bir ortama dağıtmak mantığı Uygulama Tasarımcısı gibi zengin araçlar sağlar. 
 
-Azure Logic Apps'i kullanmaya başlamak için bilgi [Azure portalında ilk mantıksal uygulamanızı oluşturmak nasıl](logic-apps-create-a-logic-app.md).
+Azure Logic Apps'i kullanmaya başlamak için bilgi [Azure portalında ilk mantıksal uygulamanızı oluşturmak nasıl](quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="installation-steps"></a>Yükleme adımları
 
 Yükleyin ve Visual Studio Araçları Azure mantıksal uygulamaları için yapılandırmak için aşağıdaki adımları izleyin.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) veya Visual Studio 2015
 * [En son Azure SDK'sı](https://azure.microsoft.com/downloads/) (2.9.1 veya üzeri)
@@ -228,7 +228,7 @@ Varolan bir kaynak grubu projesi varsa, bu projede JSON ana hattı penceresinin 
     
 4. İçinde **kaynak ekleme** iletişim kutusu bulun ve seçin, **mantıksal uygulama**. Mantıksal uygulamanızı adlandırın ve seçin **Ekle**.
 
-    ![Kaynak Ekle](./media/logic-apps-deploy-from-vs/addresource.png)
+    ![Kaynak ekle](./media/logic-apps-deploy-from-vs/addresource.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

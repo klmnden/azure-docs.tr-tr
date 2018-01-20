@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: szark
-ms.openlocfilehash: 18b7a5ec2a04962523a70886e1aa2344eb818458
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: de1465afe3ac301adcd1f1867e6290bd50dfab50
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
 Bu makalede, Azure kullanmak için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele alınan RHEL sürümleri 6.7 + ve 7.1 +. Bu makalede ele alınan hiper hazırlık için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hat'ın bulut erişimi programına katılmasını için uygunluk gereksinimleri hakkında daha fazla bilgi için bkz: [Red Hat'ın bulut Access Web sitesinin](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Red Hat tabanlı sanal makineyi Hyper-V Yöneticisi'nden hazırlama
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHEL görüntü sanal sabit diske (VHD) yüklü olduğunu varsayar. Bir işletim sistemi görüntüsünü yüklemek için Hyper-V Yöneticisi'ni kullanma hakkında daha fazla ayrıntı için bkz: [Hyper-V rolünü yükleyin ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
 
 **RHEL yükleme notları**
@@ -344,7 +344,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 19. Qcow2 görüntü VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -493,7 +493,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 19. Qcow2 görüntü VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -520,7 +520,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>VMware Red Hat tabanlı sanal makineyi hazırlama
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware içinde bir işletim sistemi yükleme hakkında daha fazla bilgi için bkz [VMware konuk işletim sistemi Yükleme Kılavuzu](http://partnerweb.vmware.com/GOSIG/home.html).
 
 * Linux işletim sistemi yüklediğinizde, birçok yüklemeleri için varsayılan olduğu çoğunlukla LVM, yerine standart bölümleri kullanmanızı öneririz. Özellikle bir işletim sistemi diski hiç sorun giderme için başka bir sanal makineye bağlı gerekiyorsa, bu kopyalanan sanal makinenin LVM adıyla çakışıyor önler. LVM veya RAID veri disklerde tercih edilen varsa kullanılabilir.
@@ -620,7 +620,7 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 15. Sanal makineyi kapatın ve VMDK dosyasını bir .vhd dosyasına dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -734,7 +734,7 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 14. Sanal makineyi kapatın ve VMDK dosyasını VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -922,6 +922,6 @@ Düzen `/etc/dracut.conf`, aşağıdaki içeriği ekleyin:
 Daha fazla ayrıntı için bilgi [initramfs yeniden](https://access.redhat.com/solutions/1958).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi yeni sanal makineler oluşturmak için Red Hat Enterprise Linux sanal sabit diski kullanmak hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Şimdi yeni sanal makineler oluşturmak için Red Hat Enterprise Linux sanal sabit diski kullanmak hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Red Hat Enterprise Linux çalıştırmak için sertifikalı hiper hakkında daha fazla ayrıntı için bkz: [Red Hat Web sitesi](https://access.redhat.com/certified-hypervisors).
