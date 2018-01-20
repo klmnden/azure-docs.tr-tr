@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle Veritabanı Bağlayıcısı ile çalışmaya başlama
 
@@ -30,7 +30,7 @@ Oracle Veritabanı Bağlayıcısı'nı kullanarak, varolan bir veritabanında ve
 
 Bu konuda bir mantıksal uygulama Oracle Veritabanı Bağlayıcısı'nı kullanmayı gösterir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Desteklenen Oracle sürümleri: 
     * Oracle 9 ve sonraki sürümler
@@ -134,4 +134,4 @@ Logic Apps ve bağlayıcıları oylama ve fikirlerinizi adresindeki gönderme ta
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md)ve Logic Apps içinde kullanılabilir bağlayıcılar keşfetme bizim [API'leri listesi](apis-list.md).
+[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)ve Logic Apps içinde kullanılabilir bağlayıcılar keşfetme bizim [API'leri listesi](apis-list.md).

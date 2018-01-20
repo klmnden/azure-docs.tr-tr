@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>FTP Bağlayıcısı ile çalışmaya başlama
 İzleme, yönetme ve FTP sunucusunda bulunan dosyaları oluşturmak için FTP Bağlayıcısı'nı kullanın. 
 
-Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-ftp"></a>FTP Bağlan
 Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk önce oluşturmanız gerekir bir *bağlantı* hizmet. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar.  
@@ -35,7 +35,7 @@ Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk ön
 > 
 
 ## <a name="use-a-ftp-trigger"></a>FTP tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > Internet'ten erişilebilen ve Pasif modu ile çalışmak için yapılandırılmış bir FTP sunucusu FTP Bağlayıcısı gerektirir. Ayrıca, FTP Bağlayıcıdır **örtük FTPS (FTP SSL üzerinden) ile uyumlu değil**. FTP Bağlayıcısı, yalnızca açık FTPS (FTP SSL üzerinden) destekler.  
@@ -61,7 +61,7 @@ Bu noktada, mantıksal uygulamanızı bir dosya değiştiren veya belirli FTP kl
 > 
 
 ## <a name="use-a-ftp-action"></a>Bir FTP eylemi kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Eklediğiniz bir tetikleyici, tetikleyici tarafından bulunan yeni veya değiştirilmiş dosya içeriğini alacak bir eylem eklemek için aşağıdaki adımları izleyin.    
 
@@ -73,7 +73,7 @@ Eklediğiniz bir tetikleyici, tetikleyici tarafından bulunan yeni veya değişt
    ![FTP eylem görüntü 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    **Alma dosya içeriği** kontrol açar. **Not**: mantıksal uygulamanızı, bunu daha önceden yapmadıysanız, FTP sunucusu hesabınıza erişmeniz için yetkilendirmek istenir.  
    ![FTP eylem görüntüsü 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Seçin **dosya** denetimi (boşluk bulunan aşağıda **dosya***). Burada FTP sunucusunda bulunan yeni veya değiştirilmiş dosyasından çeşitli özelliklerinden herhangi birini kullanabilirsiniz.  
+5. Seçin **dosya** denetimi (boşluk bulunan aşağıda ** dosya ***). Burada FTP sunucusunda bulunan yeni veya değiştirilmiş dosyasından çeşitli özelliklerinden herhangi birini kullanabilirsiniz.  
 6. Seçin **dosya içeriği** seçeneği.  
    ![FTP eylem görüntüsü 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. Gösteren denetimi güncelleştirilir **FTP - Al dosya içeriğini** eylem alırsınız *dosya içeriği* FTP sunucusunda yeni veya değiştirilmiş dosyasının.      
@@ -91,5 +91,5 @@ Başka bir eylem gibi şimdi eklemek [SQL Server - Satır Ekle](connectors-creat
 Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-[Mantıksal uygulama oluşturun.](../logic-apps/logic-apps-create-a-logic-app.md)
+[Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

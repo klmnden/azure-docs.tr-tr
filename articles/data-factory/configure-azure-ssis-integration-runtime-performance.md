@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7320b632c7bd623f5a0e67ecd105cf5b263969b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Yüksek performans için Azure SSIS tümleştirmesi çalışma zamanı yapılandırma
 
@@ -26,7 +26,7 @@ Bu makalede, yüksek performanslı bir Azure SSIS tümleştirmesi çalışma zam
 
 Bir yapılandırma betiğini aşağıdaki bölümü Azure SSIS tümleştirmesi çalışma zamanı oluşturduğunuzda, sizin yapılandırabileceğiniz özellikleri gösterir. Tam PowerShell komut dosyası ve bir açıklama için bkz: [Azure SQL Server Integration Services dağıtma paketlere](tutorial-deploy-ssis-packages-azure.md).
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -42,7 +42,7 @@ $AzureSSISLocation = "EastUS"
 $AzureSSISNodeSize = "Standard_A4_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -59,12 +59,12 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Azure SSIS IR dahil olmak üzere Azure Data Factory v2 genel önizlemesi, aşağıdaki seçenekleri destekler:
--   Standart\_A4\_v2
--   Standart\_A8\_v2
--   Standart\_D1\_v2
--   Standart\_D2\_v2
--   Standart\_D3\_v2
--   Standart\_D4\_v2.
+-   Standard\_A4\_v2
+-   Standard\_A8\_v2
+-   Standard\_D1\_v2
+-   Standard\_D2\_v2
+-   Standard\_D3\_v2
+-   Standard\_D4\_v2.
 
 Resmi olmayan şirket içi SSIS mühendislik ekibi tarafından testinde, D serisinin A series SSIS paketi yürütme için daha uygun gibi görünüyor.
 
@@ -90,16 +90,17 @@ Paketleri çalıştırmak için çok sayıda varsa ve sizin için en genel üret
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Paketleri çalıştırmak için güçlü çalışan düğüme zaten kullanırken artırma **AzureSSISMaxParallelExecutionsPerNode** Integration zamanının genel üretilen işi artırabilir. Paketinizi ve çalışan düğümleri için aşağıdaki yapılandırmaları maliyetini göre uygun değeri tahmin edebilirsiniz. Daha fazla bilgi için bkz: [genel amaçlı sanal makine boyutlarını](../virtual-machines/windows/sizes-general.md).
+Paketleri çalıştırmak için güçlü çalışan düğüme zaten kullanırken artırma **AzureSSISMaxParallelExecutionsPerNode** Integration zamanının genel üretilen işi artırabilir. Düğüm başına 1-4 paralel yürütmeleri Standard_D1_v2 düğümleri için desteklenir. Tüm diğer türleri düğümleri için düğüm başına 1-8 paralel yürütmeleri desteklenir.
+Paketinizi ve çalışan düğümleri için aşağıdaki yapılandırmaları maliyetini göre uygun değeri tahmin edebilirsiniz. Daha fazla bilgi için bkz: [genel amaçlı sanal makine boyutlarını](../virtual-machines/windows/sizes-general.md).
 
 | Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / Beklenen ağ performansı (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
-| Standart\_D1\_v2 | 1    | 3,5         | 50                     | 3000/46/23                                             | 2/2x500                         | 2 / 750                                        |
-| Standart\_D2\_v2 | 2    | 7           | 100                    | 6000/93/46                                             | 4/4x500                         | 2 / 1500                                       |
-| Standart\_D3\_v2 | 4    | 14          | 200                    | 12000/187/93                                           | 8/8x500                         | 4 / 3000                                       |
-| Standart\_D4\_v2 | 8    | 28          | 400                    | 24000/375/187                                          | 16/16x500                       | 8 / 6000                                       |
-| Standart\_A4\_v2 | 4    | 8           | 40                     | 4000/80/40                                             | 8/8x500                         | 4 / 1000                                       |
-| Standart\_A8\_v2 | 8    | 16          | 80                     | 8000/160/80                                            | 16/16x500                       | 8 / 2000                                       |
+| Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000/46/23                                             | 2/2x500                         | 2 / 750                                        |
+| Standard\_D2\_v2 | 2    | 7           | 100                    | 6000/93/46                                             | 4/4x500                         | 2 / 1500                                       |
+| Standard\_D3\_v2 | 4    | 14          | 200                    | 12000/187/93                                           | 8/8x500                         | 4 / 3000                                       |
+| Standard\_D4\_v2 | 8    | 28          | 400                    | 24000/375/187                                          | 16/16x500                       | 8 / 6000                                       |
+| Standard\_A4\_v2 | 4    | 8           | 40                     | 4000/80/40                                             | 8/8x500                         | 4 / 1000                                       |
+| Standard\_A8\_v2 | 8    | 16          | 80                     | 8000/160/80                                            | 16/16x500                       | 8 / 2000                                       |
 
 Doğru değeri ayarlamak için yönergeleri işte **AzureSSISMaxParallelExecutionsPerNode** özelliği: 
 

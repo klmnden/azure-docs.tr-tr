@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 8273647aa1cf8f7d35a9c645d44c64455e554cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b57b30688d6ca3b9c1a0fc8e87db80fc051c4f90
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Data Factory'de sorun giderme
 > [!NOTE]
-> Bu makale, genel olarak kullanılabilir (GA) olduğu Azure Data Factory, 1 sürümü için geçerlidir. 
+> Bu makale, Azure Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. 
 
 Bu makalede Azure Data Factory kullanırken sorunlarıyla ilgili sorun giderme ipuçları sağlar. Bu makalede tüm olası sorunları hizmetini kullanırken listelenmez, ancak bazı sorunlar ve genel sorun giderme ipuçları kapsar.   
 
@@ -117,7 +117,7 @@ Bkz: [özel etkinliği ile işlem hattı Debug](data-factory-use-custom-activiti
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Sorun giderme için Azure portalını kullanma
 ### <a name="using-portal-blades"></a>Portal dikey penceresi kullanılarak
-Bkz: [işlem hattını izleme](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) adımlar için.
+Bkz: [işlem hattını izleme](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) adımlar için.
 
 ### <a name="using-monitor-and-manage-app"></a>İzleme ve Yönetme Uygulamasını kullanma
 Bkz: [İzleyici ve data factory işlem hatlarını izleme ve yönetme uygulaması kullanarak yönetmek](data-factory-monitor-manage-app.md) Ayrıntılar için.

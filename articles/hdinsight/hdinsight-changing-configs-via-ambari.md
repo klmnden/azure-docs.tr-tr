@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Hdınsight küme yapılandırmaları en iyi duruma getirmek için Ambari kullanın
 
@@ -184,7 +184,7 @@ Kullanılabilir sıkıştırma türleri şunlardır:
 | Biçim | Aracı | Algoritması | Dosya uzantısı | Bölümlenebilir? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | SÖNDÜR | .gz | Hayır |
-| Bzıp2 | Bzıp2 | Bzıp2 |.bz2 | Evet |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | Evet |
 | LZO | Lzop | LZO | .lzo | Dizine, Evet |
 | snappy | Yok | snappy | snappy | Hayır |
 
@@ -234,7 +234,7 @@ Kurgusal yürütme belirli bir sayıda algılamak ve tek tek görev sonuçları 
 
 Kurgusal yürütme giriş büyük miktarlarda ile uzun süre çalışan MapReduce görevleri için açılmaması gereken.
 
-1. Kurgusal yürütülmesine izin verecek biçimde kovana gidin **yapılandırmalar** sekmesini tıklatın ve ardından `hive.mapred.reduce.tasks.speculative.execution` parametresi true. Varsayılan değer false.
+* Kurgusal yürütülmesine izin verecek biçimde kovana gidin **yapılandırmalar** sekmesini tıklatın ve ardından `hive.mapred.reduce.tasks.speculative.execution` parametresi true. Varsayılan değer false.
 
     ![Hive mapred azaltmak görevleri kurgusal yürütme](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -453,10 +453,10 @@ Memstore boyutu tarafından tanımlanan `hbase.regionserver.global.memstore.Uppe
 
 Memstore yerel ayırma Arabellek kullanımı özelliği tarafından belirlenir `hbase.hregion.memstore.mslab.enabled`. Etkin olduğunda (true), bu yığın parçalanma ağır yazma işlemi sırasında önler. Varsayılan değer true olur.
  
-![hbase.hregion.memstore.mslab.Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Hdınsight kümeleri Ambari web kullanıcı Arabirimi ile yönetme](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

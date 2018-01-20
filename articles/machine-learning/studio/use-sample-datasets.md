@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
@@ -106,15 +106,6 @@ Yeh, t-Cheng, Yang, Jang Kol-gönderdi ve toplantı, Tao-msiexec, "bilgi bulma B
 </tr>
 
 <tr>
-  <td>Amazon gelen Kitap incelemeleri</td>
-  <td>
-Amazon, amazon.com Web sitesinden University Pennsylvania Araştırmacıları tarafından gerçekleştirilen defterleri incelemeler (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">düşünceleri</a>). Araştırma incelemesine bakın "Biyografileri, Bollywood, müzik kutuları ve Blenders: etki alanı uyarlama düşünceleri sınıflandırma" John Blitzer, işareti Dredze ve Fernando Pereira; Hesaplama Linguistics (ACL), ilişkisi 2007.
-<p></p>
-Özgün bir veri kümesine 975 K İnceleme derecelendirmeleri 1, 2, 3, 4 veya 5 ile sahiptir. Gözden geçirmeler İngilizce dilinde yazılmıştır ve zaman aralığını 1997-2007 değildir. Bu veri kümesi için 10 K incelemeler aşağı örneklenen olmuştur.
-  </td>
-</tr>
-
-<tr>
   <td>Breast kanseri verileri</td>
   <td>
 Machine learning belgeleri sık görüntülenen Oncology Enstitüsü'nün tarafından sağlanan üç kanseri ilişkili veri kümeleri biri. Laboratuar analiz özelliklerinden tanılama bilgilerini yaklaşık 300 dokulu örnekleri birleştirir.
@@ -131,7 +122,7 @@ Veri kümesi her 117 özellikleri tarafından açıklanan röntgen görüntüler
 </tr>
 
 <tr>
-  <td>Breast Kanseri bilgisi</td>
+  <td>Breast Cancer Info</td>
   <td>
 Veri kümesi röntgen görüntüsünün şüpheli her bölge için ek bilgiler içerir. Her örneğin bilgileri sağlar (örneğin, etiket, hasta kimliği, düzeltme eki görüntünün tamamını göre koordinatları) Breast Kanseri özellikleri kümesindeki karşılık gelen satır numarasını hakkında. Her hasta örnek sayısına sahip. Bir kanseri sahip hastalar için bazı örnekler pozitif ve negatif bazılarıdır. Bir kanseri yok hastalar tüm örnekler negatiftir. Veri kümesi 102 K örnekler vardır. Veri kümesi %0,6 noktalarının pozitif ağırlıklı, rest negatif. Veri kümesi Siemens sağlık tarafından kullanılabilir hale getirildi.
   </td>
@@ -212,7 +203,7 @@ Sıcaklık ve nem dizinlerini ve Rüzgar hızı gibi hava durumu verilerini içe
 <p></p>
 <b>İlgili araştırma:</b> Cortez, P. & Morais, A. (2008). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi
 <p></p>
-[Cortez ve Morais, 2007] P. Cortez ve A. Morais. Bir veri madenciliği yaklaşım tahmin orman Meteorological verileri kullanarak etkinleşir. J. Neves, M. f Santos ve J. Machado Eds., yapay zeka, 13 EPIA 2007 - yapay zeka, aralık, Guimarães, Portekiz pp. 512-523, 2007 Portekizce konferans bildirileri yeni eğilimler. APPIA, ISBN-13 978-989-95618-0-9'İ TIKLATIN. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez and Morais, 2007] P. Cortez and A. Morais. Bir veri madenciliği yaklaşım tahmin orman Meteorological verileri kullanarak etkinleşir. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -401,7 +392,7 @@ Veri kümesi indirilir ve Azure Blob depolama alanına depolanır (<a href="http
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
 Haber makalelerini RCV1 V2 Reuters haber kümesindeki atamaları konu. Bir haber makalesi çeşitli konulara atanabilir. Her satır biçimi "&lt;konu adı&gt; &lt;belge kimliği&gt; 1". Veri kümesi 2.6 M konu atamaları içeriyor. Veri kümesi David tarafından kullanılabilir hale getirildi. D. Gamze.
   </td>

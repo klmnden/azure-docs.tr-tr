@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>BizTalk Services Logic Apps taşıma
 
@@ -126,6 +126,6 @@ Logic Apps daha zengin izleme ve yetenekleri izleme sağlar [Azure portal](../lo
 Yüksek kullanılabilirlik (HA) BizTalk Services'da elde etmek için birden fazla örneği belirli bir bölgede işlem yükü paylaşmak için kullanın. Logic apps ile bölge içinde HA yerleşiktir ve hiçbir ek maliyetlerine neden olur. BizTalk Services B2B işlemek için bölge olağanüstü durum kurtarma için bir yedekleme ve geri yükleme işlemi gereklidir. Logic Apps, çapraz bölge Etkin/pasif olarak [DR yetenek](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) sağlanır; iş sürekliliği için farklı bölgelerdeki tümleştirme hesapları arasında B2B verilerinin eşitlemesine ilişkin veren.
 
 ## <a name="next"></a>Sonraki
-* [Logic Apps nedir?](logic-apps-what-are-logic-apps.md)
-* [İlk mantıksal uygulamanızı oluşturun](logic-apps-create-a-logic-app.md) veya [önceden oluşturulmuş bir şablon](logic-apps-create-logic-apps-from-templates.md) kullanarak hızlı şekilde çalışmaya başlayın  
+* [Logic Apps nedir?](logic-apps-overview.md)
+* [İlk mantıksal uygulamanızı oluşturun](quickstart-create-first-logic-app-workflow.md) veya [önceden oluşturulmuş bir şablon](logic-apps-create-logic-apps-from-templates.md) kullanarak hızlı şekilde çalışmaya başlayın  
 * Mantıksal uygulamalarda [kullanabileceğiniz tüm bağlayıcıları görüntüleyin](../connectors/apis-list.md)

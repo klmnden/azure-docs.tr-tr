@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/18/2018
 ms.author: tamram
-ms.openlocfilehash: 2c1534dcbb0e26ecdff7c057efb5094c60b5c5b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a21d87cee714dbc3aab6d4106544e45d91a3193
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="how-to-use-blob-storage-from-ruby"></a>Ruby’den Blob Storage kullanma
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -35,28 +35,31 @@ Bu kılavuz yaygın senaryolar Blob storage kullanarak gerçekleştirmek nasıl 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Ruby uygulaması oluşturma
-Bir Ruby uygulaması oluşturun. Yönergeler için bkz: [Azure VM'de rayları Web uygulaması üzerinde Söyleniş](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
+Bir Ruby uygulaması oluşturun. Yönergeler için bkz: [Azure VM'de rayları Web uygulaması üzerinde Söyleniş](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)
+
 
 ## <a name="configure-your-application-to-access-storage"></a>Depolama alanına erişmek için uygulamanızı yapılandırın
 Azure Storage kullanmak için indirme ve storage REST Hizmetleri ile iletişim kuran bir dizi kolaylık içerir Söyleniş azure paketini kullanmak gerekir.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Paket elde etmek için RubyGems kullanın
 1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows), **Terminal** (Mac) veya **Bash** (UNIX).
-2. Gem ve bağımlılıklarını yüklemek için komut penceresinde "gem yükleme azure" yazın.
+2. "Gem yükle azure storage blobuna" gem ve bağımlılıklarını yüklemek için komut penceresinde yazın.
 
 ### <a name="import-the-package"></a>Paket alma
 Sık kullandığınız metin Düzenleyicisi'ni kullanarak aşağıdaki depolama kullanmak istediğiniz yere Söyleniş dosyasının üstüne ekleyin:
 
 ```ruby
-require "azure"
+require "azure/storage/blob"
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>Bir Azure depolama bağlantı kurma
-Azure modülü ortam değişkenleri okur **AZURE\_depolama\_hesap** ve **AZURE\_depolama\_ACCESS_KEY** Azure depolama hesabınıza bağlanmak için gerekli bilgileri için. Bu ortam değişkenleri ayarlanmamışsa, hesap bilgilerini kullanmadan önce belirtmelisiniz **Azure::Blob::BlobService** aşağıdaki kod ile:
+Azure modülü ortam değişkenleri okur **AZURE\_depolama\_hesap** ve **AZURE\_depolama\_ACCESS_KEY** Azure depolama hesabınıza bağlanmak için gerekli bilgileri için. Bu ortam değişkenleri ayarlanmamışsa, hesap bilgileri kullanarak belirtmelisiniz **Azure::Blob::BlobService:: oluşturmak** aşağıdaki kod ile:
 
 ```ruby
-Azure.config.storage_account_name = "<your azure storage account>"
-Azure.config.storage_access_key = "<your azure storage access key>"
+blob_client = Azure::Storage::Blob::BlobService.create(
+    storage_account_name: account_name,
+    storage_access_key: account_key
+    )
 ```
 
 Klasik veya Resource Manager depolama hesabı Azure portalında bu değerleri almak için:
@@ -70,12 +73,12 @@ Klasik veya Resource Manager depolama hesabı Azure portalında bu değerleri al
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-**Azure::Blob::BlobService** nesne kapsayıcıları ve blob'larla çalışmanıza olanak sağlar. Bir kapsayıcı oluşturmak için kullanmak **oluşturma\_container()** yöntemi.
+**Azure::Storage::Blob::BlobService** nesne kapsayıcıları ve blob'larla çalışmanıza olanak sağlar. Bir kapsayıcı oluşturmak için kullanmak **oluşturma\_container()** yöntemi.
 
 Aşağıdaki kod örneği, bir kapsayıcı oluşturur veya hata varsa yazdırır.
 
 ```ruby
-azure_blob_service = Azure::Blob::BlobService.new
+azure_blob_service = Azure::Storage::Blob::BlobService.create_from_env
 begin
     container = azure_blob_service.create_container("test-container")
 rescue
@@ -119,17 +122,19 @@ puts blob.name
 
 ## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 Kapsayıcılar listelemek için kullanın **list_containers()** yöntemi.
-Bir kapsayıcıdaki blobları listelemek için kullanın **listesi\_blobs()** yöntemi.
+Bir kapsayıcıdaki blobları listelemek için kullanın **listesi\_blobs()** yöntemi. Bir kapsayıcıdaki tüm blobları listelemek için hizmet tarafından döndürülen bir devamlılık belirteci izleyin ve bu belirteciyle list_blobs çalıştırmaya devam edin. Bkz: [listesi BLOB'lar REST API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) Ayrıntılar için.
 
-Bu hesap için tüm kapsayıcılarında tüm BLOB'lar URL'lerini çıkarır.
+Aşağıdaki kod tüm BLOB'ları bir kapsayıcıda çıkarır.
 
 ```ruby
-containers = azure_blob_service.list_containers()
-containers.each do |container|
-    blobs = azure_blob_service.list_blobs(container.name)
+nextMarker = nil
+loop do
+    blobs = azure_blob_service.list_blobs(container_name, { marker: nextMarker })
     blobs.each do |blob|
-    puts blob.name
+        puts "\tBlob name #{blob.name}"
     end
+    nextMarker = blobs.continuation_token
+    break unless nextMarker && !nextMarker.empty?
 end
 ```
 
@@ -154,6 +159,6 @@ azure_blob_service.delete_blob(container.name, "image-blob")
 Daha karmaşık depolama görevleri hakkında bilgi edinmek için aşağıdaki bağlantıları izleyin:
 
 * [Azure Depolama Ekibi Blog’u](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Ruby için Azure SDK](https://github.com/WindowsAzure/azure-sdk-for-ruby) github'daki
+* [Ruby için Azure depolama SDK](https://github.com/azure/azure-storage-ruby) github'daki
 * [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

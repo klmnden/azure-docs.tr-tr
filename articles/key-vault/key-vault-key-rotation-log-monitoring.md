@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Anahtar Kasası’nı uçtan uca döndürme ve denetleme ile ayarlama
 ## <a name="introduction"></a>Giriş
@@ -416,7 +416,7 @@ Bu noktada, işlevi hazırdır. Dönmeyi emin olun **geliştirme** sekmesinde ve
 ### <a name="azure-logic-app"></a>Azure mantıksal uygulama
 Sonraki işlev Service Bus kuyruğuna Ftp'den, içeriği ayrıştırır ve eşleşen bir koşula göre bir e-posta gönderir olayları seçer bir Azure mantıksal uygulama oluşturmanız gerekir.
 
-[Mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md) giderek **yeni > mantıksal uygulama**.
+[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) giderek **yeni > mantıksal uygulama**.
 
 Mantıksal uygulama oluşturulduktan sonra dosyayı bulun ve seçin **Düzenle**. Mantıksal uygulama düzenleyicisinde seçin **hizmet veri yolu kuyruğu** ve Service Bus kuyruğuna bağlanmak için kimlik bilgilerinizi girin.
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8795687c002282b68ebd1a4fa3fe18a9b102af4a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Düz dosyalar ile Kurumsal tümleştirme genel bakış
 
-İşletmeden işletmeye (B2B) senaryosunda bir iş ortağına göndermeden önce XML içerik kodlama isteyebilirsiniz. Bir mantıksal uygulama bağlayıcısı kodlama düz dosya, bunu yapmak için kullanabilirsiniz. Oluşturduğunuz mantıksal uygulama kendi XML kaynakları, bir HTTP isteği tetikleyicisi, başka bir uygulama veya çok birinden bile dahil olmak üzere çeşitli içerik alabilir [Bağlayıcılar](../connectors/apis-list.md). Logic apps hakkında daha fazla bilgi için bkz: [logic apps belge](logic-apps-what-are-logic-apps.md "Logic apps hakkında daha fazla bilgi").  
+İşletmeden işletmeye (B2B) senaryosunda bir iş ortağına göndermeden önce XML içerik kodlama isteyebilirsiniz. Bir mantıksal uygulama bağlayıcısı kodlama düz dosya, bunu yapmak için kullanabilirsiniz. Oluşturduğunuz mantıksal uygulama kendi XML kaynakları, bir HTTP isteği tetikleyicisi, başka bir uygulama veya çok birinden bile dahil olmak üzere çeşitli içerik alabilir [Bağlayıcılar](../connectors/apis-list.md). Logic apps hakkında daha fazla bilgi için bkz: [logic apps belge](logic-apps-overview.md "Logic apps hakkında daha fazla bilgi").  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>Bağlayıcı kodlama düz dosya oluşturma
 Mantıksal uygulamanızı bağlayıcıya kodlama düz bir dosya eklemek için aşağıdaki adımları izleyin.

@@ -1,2 +1,2 @@
 >[!Note]
-> Azure Storage öykünücüsü kullanımını, yerel olarak geliştirirken Azure işlevleri araçları tarafından desteklenmiyor.
+> İşlev uygulamanız için Azure Storage öykünücüsünü kullanabilirsiniz **AzureWebJobsStorage** ve **AzureWebJobsDashboard** proje için gerekli olan bağlantı ayarları. Öykünücü kullanmak için bu anahtarları değerlerini ayarlayın `UseDevelopmentStorage=true`. 

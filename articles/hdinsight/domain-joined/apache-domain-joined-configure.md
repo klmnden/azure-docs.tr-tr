@@ -4,7 +4,7 @@ description: "Ayarlama ve etki alanına katılmış Hdınsight kümeleri yapıla
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Etki alanına katılmış Hdınsight sandbox ortamını yapılandırma
 
@@ -49,7 +49,7 @@ Tek başına bir Active Directory kullanarak Azure Iaas üzerinde çalışan bu 
 ## <a name="option-1-one-step-approach"></a>Seçenek 1: tek adımlı yaklaşımı
 Bu bölümde, Azure portalından bir Azure kaynak yönetimi şablonunu açın. Şablon tek başına bir Active Directory oluşturmak için kullanılır ve Hdınsight kümesi. Şu anda etki alanına katılmış Hadoop kümesi, Spark kümesi ve etkileşimli sorgu kümesi oluşturabilirsiniz.
 
-1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon bulunan [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/).
+1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon, [Azure Hızlı Başlangıç şablonları](https://azure.microsoft.com/resources/templates/) içinde bulunur.
    
     Spark kümesi oluşturmak için:
 

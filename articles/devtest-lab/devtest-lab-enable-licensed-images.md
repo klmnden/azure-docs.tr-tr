@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarınızda lisanslı bir görüntüde etkinleştir
 
@@ -29,7 +29,7 @@ Kullanıcıların lisanslı bir görüntüden sanal makineleri oluşturmasını 
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 
 1. İstenen Laboratuvar labs listesinden seçin.  
 
@@ -76,7 +76,15 @@ Aşağıdaki adımları izleyerek lisanslı bir görüntü için programlı dağ
    >
 
 
-1. **Kaydet**’i seçin. Market görüntülerini listesinde şimdi gösterir görüntüye **koşullarını kabul** ve sanal makineler oluşturmak kullanıcılar için kullanılabilir.
+1. **Kaydet**’i seçin. 
+
+    Market görüntülerini listesinde şimdi gösterir görüntüye **koşullarını kabul** ve sanal makineler oluşturmak kullanıcılar için kullanılabilir.
+
+> [!NOTE]
+> Kullanıcılar, lisanslı bir görüntüden özel bir görüntü oluşturabilirsiniz. Bkz: [bir VHD dosyasındaki özel bir görüntü oluşturun](devtest-lab-create-template.md) daha fazla bilgi için.
+>
+>
+
 
 ## <a name="related-blog-posts"></a>İlgili blog gönderileri
 
@@ -85,4 +93,6 @@ Aşağıdaki adımları izleyerek lisanslı bir görüntü için programlı dağ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- [Bir sanal makineden özel bir görüntü oluşturun](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Bir VHD dosyasındaki özel bir görüntü oluşturun](devtest-lab-create-template.md)
 - [Laboratuvarınızı için bir VM ekleme](devtest-lab-add-vm.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Logic apps ile switch deyimi içinde farklı eylemler gerçekleştirme
 
@@ -31,10 +31,10 @@ Bu senaryolar uygulamak için bir anahtar ifadesi kullanabilirsiniz. Mantıksal 
 > Tüm programlama dilleri gibi switch deyimleri yalnızca eşitlik işleçleri destekler. Diğer ilişkisel işleçleri gerekirse "büyüktür gibi", bir koşul deyimi kullanın.
 > Belirleyici yürütme davranışı sağlamak için durumlarda dinamik belirteçleri veya ifade yerine benzersiz ve statik bir değer içermesi gerekir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Etkin bir Azure aboneliği. Etkin bir Azure aboneliğiniz yoksa [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/), veya deneyin [Logic Apps için ücretsiz](https://tryappservice.azure.com/).
-- [Mantıksal uygulamalar hakkındaki temel bilgileri](logic-apps-what-are-logic-apps.md)
+- [Mantıksal uygulamalar hakkındaki temel bilgileri](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Switch deyimi akışınıza ekleme
 
@@ -53,7 +53,7 @@ Switch deyimi nasıl çalıştığını göstermek için bu örnek için Dropbox
    - Gerekli alanları doldurun. Örneğin, altında **için**, onaylayan e-posta göndermek için e-posta adresi belirtin.
    - Altında **kullanıcı seçenekleri**, girin `Approve, Reject`.
 
-   ![Bağlantıyı yapılandırın](./media/logic-apps-switch-case/send-approval-email-action.jpg)
+   ![Bağlantıyı yapılandır](./media/logic-apps-switch-case/send-approval-email-action.jpg)
 
 3. Switch deyimi ekleyin.
 

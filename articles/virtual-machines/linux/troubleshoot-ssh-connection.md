@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Bir Azure Linux VM, hatalar, başarısız olur veya reddedilir SSH bağlantı sorunlarını giderme
 Güvenli Kabuk (SSH), SSH bağlantı hataları hatalarla veya bir Linux sanal makine (VM) bağlanmaya çalıştığınızda SSH reddetti çeşitli nedenleri vardır. Bu makalede bulmanıza ve sorunları düzeltin yardımcı olur. Azure portalı, Azure CLI ya da Linux VM erişim uzantısını ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -40,7 +40,7 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin.
 4. Denetleme [VM kaynak durumu](../../resource-health/resource-health-overview.md). 
    * VM'yi sağlıklı olacak şekilde bildirdiğinden emin olmak.
    * Önyükleme tanılaması etkin varsa, VM önyükleme hataları günlüklerine bildirmeyen doğrulayın.
-5. VM'yi yeniden başlatın.
+5. VM’yi yeniden başlatın.
 6. VM yeniden dağıtın.
 
 Daha ayrıntılı sorun giderme adımları ve açıklamalar için okuma devam edin.
@@ -229,12 +229,12 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 Klasik dağıtım modeli kullanılarak oluşturulmuş olan VM'ler için en sık karşılaşılan SSH bağlantı hataları gidermek için aşağıdaki adımları deneyin. Her adımdan sonra VM yeniden bağlanmayı deneyin.
 
 * Uzaktan Erişim'sıfırlama [Azure portal](https://portal.azure.com). Azure Portal'daki VM seçin ve tıklatın **uzaktan Sıfırla...**  düğmesi.
-* VM'yi yeniden başlatın. Üzerinde [Azure portal](https://portal.azure.com), VM'yi seçin ve tıklatın **yeniden** düğmesi.
+* VM’yi yeniden başlatın. Üzerinde [Azure portal](https://portal.azure.com), VM'yi seçin ve tıklatın **yeniden** düğmesi.
     
 * Yeni bir Azure düğümlü VM yeniden dağıtın. Bir VM yeniden dağıtma hakkında daha fazla bilgi için bkz: [dağıtmanız sanal makineyi yeni Azure düğümüne](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Bu işlem tamamlandıktan sonra kısa ömürlü disk veriler kaybolur ve sanal makineyle ilişkili olan dinamik IP adreslerini güncelleştirilir.
-* ' Ndaki yönergeleri izleyin [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlamaya](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) için:
+* ' Ndaki yönergeleri izleyin [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlamaya](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) için:
   
   * Parola veya SSH anahtarını sıfırlayın.
   * Oluşturma bir *sudo* kullanıcı hesabı.
@@ -245,5 +245,5 @@ Klasik dağıtım modeli kullanılarak oluşturulmuş olan VM'ler için en sık 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * VM'nize sonra adımları izledikten sonra SSH için hala erişemiyorsanız bkz [sorun giderme adımlarını ayrıntılı](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sorunu gidermek için ek adımlar gözden geçirmek için.
 * Uygulama erişimi sorunlarını giderme hakkında daha fazla bilgi için bkz: [bir Azure sanal makine üzerinde çalışan bir uygulamaya erişim sorunlarını giderme](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Klasik dağıtım modeli kullanılarak oluşturulan sanal makineler sorunlarını giderme hakkında daha fazla bilgi için bkz: [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlamaya](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Klasik dağıtım modeli kullanılarak oluşturulan sanal makineler sorunlarını giderme hakkında daha fazla bilgi için bkz: [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlamaya](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

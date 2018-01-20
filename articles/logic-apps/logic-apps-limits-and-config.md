@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps sınırları ve yapılandırma
 
@@ -30,11 +30,11 @@ Bu konuda, Azure mantıksal uygulamaları için geçerli sınırlarını ve yap�
 
 Bu sınırlar, tek bir HTTP istek veya bir bağlayıcı çağrı için geçerlidir.
 
-#### <a name="timeout"></a>Zaman aşımı
+#### <a name="timeout"></a>Zaman Aşımı
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
-| İstek zaman aşımı | 120 saniye | Bir [zaman uyumsuz desen](../logic-apps/logic-apps-create-api-app.md) veya [döngü kadar](logic-apps-loops-and-scopes.md) gerektiğinde dengeleyebilirsiniz |
+| İstek zaman aşımına uğradı | 120 saniye | Bir [zaman uyumsuz desen](../logic-apps/logic-apps-create-api-app.md) veya [döngü kadar](logic-apps-loops-and-scopes.md) gerektiğinde dengeleyebilirsiniz |
 |||| 
 
 #### <a name="message-size"></a>İleti boyutu
@@ -123,8 +123,8 @@ Bu sınırları web API'leri oluşturabileceğiniz özel bağlayıcılar için g
 
 | Ad | Sınır | 
 | ---- | ----- | 
-| Oluşturabileceğiniz özel bağlayıcılar sayısı | Azure abonelik başına 1000 | 
-| Özel bir bağlayıcı tarafından oluşturulan her bağlantı için dakika başına istek sayısı | bağlayıcı tarafından oluşturulan her bağlantı için 500 istekleri |
+| Oluşturabileceğiniz özel bağlayıcı sayısı | Azure aboneliği başına 1000 | 
+| Özel bir bağlayıcı tarafından oluşturulan her bağlantı için dakika başına istek sayısı | Bağlayıcı tarafından oluşturulan her bağlantı için 500 istek |
 ||| 
 
 ### <a name="integration-account-limits"></a>Tümleştirme hesabı sınırları
@@ -147,7 +147,7 @@ Bu sınırlar bir tümleştirme hesabına ekleyebilirsiniz yapıların sayısın
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
-| Anlaşmaları | 10 | | 
+| Sözleşmeler | 10 | | 
 | Diğer yapı türleri | 25 |İş ortakları, şemalar, sertifikalar ve haritalar yapı türleri içerir. Her tür yapıları maksimum sayıya olabilir. | 
 |||| 
 
@@ -237,7 +237,7 @@ Bir mantıksal uygulama doğrudan diğer bir deyişle, yaptığı çağrıları 
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-* [İlk mantıksal uygulamanızı oluşturma](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Yayın örnekleri ve senaryoları](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Video: Logic Apps ile iş süreçlerini otomatikleştirmek](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Video: sistemlerinizi Logic Apps ile tümleştirme](http://channel9.msdn.com/Events/Build/2016/P462)

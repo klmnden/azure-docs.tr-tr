@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Twitter Bağlayıcısı ile çalışmaya başlama
 Twitter Bağlayıcısı ile şunları yapabilirsiniz:
@@ -28,7 +28,7 @@ Twitter Bağlayıcısı ile şunları yapabilirsiniz:
 * Erişim zaman çizelgeleri, arkadaşlarınıza ve followers
 * Diğer Eylemler ve aşağıda açıklanan Tetikleyicileri gerçekleştirin  
 
-Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).  
+Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
 
 ## <a name="connect-to-twitter"></a>Twitter hesabına bağlanma
 Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk önce oluşturmanız gerekir bir *bağlantı* hizmet. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar.  
@@ -39,7 +39,7 @@ Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk ön
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Bir Twitter tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Bu örnekte, ı size nasıl kullanılacağını gösterir **yeni tweet zaman nakledilir** #Seattle için arama ve #Seattle bulunursa, Dropbox dosyasında tweet metinden güncelleştirmek için tetikleyici. Bir kurumsal örnekte, şirketinizin adı aramak ve tweet metinden ile bir SQL veritabanı güncelleştirmesi.
 
@@ -80,7 +80,7 @@ Biz yalnızca 50'den fazla kullanıcısı olan kullanıcılardan tweet'leri ilgi
    ![Twitter koşul görüntü 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Bir Twitter eylemi kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Eklediğiniz bir tetikleyici, tetikleyici tarafından bulunan tweet'leri içeriğini yeni bir tweet gönderecek bir eylem eklemek için aşağıdaki adımları izleyin. Bu kılavuz amaçları için yalnızca 50'den fazla followers sahip kullanıcılardan tweet'leri nakledilir.  
 
@@ -104,5 +104,5 @@ Sonraki adımda, 50'den fazla followers sahip bir kullanıcı tarafından gönde
 Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/twitterconnector/). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturun.](../logic-apps/logic-apps-create-a-logic-app.md)
+[Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

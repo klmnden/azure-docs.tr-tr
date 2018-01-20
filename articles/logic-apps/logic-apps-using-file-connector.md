@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Logic apps dosya sistemi bağlayıcı ile şirket içi dosya sistemleri bağlayın
 
 Verileri yönetmek ve güvenli bir şekilde şirket içi kaynaklara erişmek için mantıksal uygulamalarınızı şirket içi veri ağ geçidi kullanabilirsiniz. Bu makalede bu temel örnek senaryosu aracılığıyla şirket içi dosya sisteminde nasıl bağlanabileceği gösterilmektedir: Dropbox'a dosya paylaşımına yüklendikten sonra bir e-posta Gönder dosyasını kopyalayın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * En son karşıdan [şirket içi veri ağ geçidi](https://www.microsoft.com/download/details.aspx?id=53127).
 
 * Yükleyin ve en son şirket içi veri ağ geçidi, sürüm 1.15.6150.1 yukarı veya yukarıdaki ayarlayın. Adımları için bkz: [şirket içi veri kaynaklarına bağlanma](http://aka.ms/logicapps-gateway). Bu adımlara devam etmeden önce bir şirket içi makinede ağ geçidi yüklemeniz gerekir.
 
-* Hakkındaki temel bilgileri [mantıksal uygulamalar oluşturma](../logic-apps/logic-apps-create-a-logic-app.md)
+* Hakkındaki temel bilgileri [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Tetikleyici ve dosya sistemine bağlanmak için Eylemler ekleme
 
@@ -46,7 +46,7 @@ Verileri yönetmek ve güvenli bir şekilde şirket içi kaynaklara erişmek iç
 
 5. Seçin **Connect şirket içi veri ağ geçidi üzerinden**. Bağlantı özellikleri görüntülendiğinde, tabloda belirtildiği gibi bir bağlantı ayarlayın.
 
-   ![Bağlantıyı yapılandırın](media/logic-apps-using-file-connector/create-file.png)
+   ![Bağlantıyı yapılandır](media/logic-apps-using-file-connector/create-file.png)
 
    | Ayar | Açıklama |
    | ------- | ----------- |
@@ -79,16 +79,16 @@ Tebrikler, artık, şirket içi dosya sistemine bağlanmak bir çalışma mantı
 
 Bağlayıcı sunar, örneğin diğer işlevleri keşfetme deneyin:
 
-- Dosya Oluştur
+- Dosya oluştur
 - Klasördeki dosyaları listele
-- Dosya ekleme
-- Dosya Sil
-- Dosya içeriğini alma
+- Dosya ekle
+- Dosyayı sil
+- Dosya içeriğini al
 - Dosya yolunu kullanarak dosya içeriğini al
-- Dosya meta verileri alma
+- Dosya meta verilerini al
 - Dosya yolunu kullanarak dosya meta verilerini al
 - Kök klasördeki dosyaları listele
-- Güncelleştirme dosyası
+- Dosyayı güncelleştir
 
 ## <a name="view-the-swagger"></a>Swagger görüntüleyin
 

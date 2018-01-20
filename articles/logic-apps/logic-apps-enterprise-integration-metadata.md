@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eebae624ea024f2ff8c1fa4764027c05220a15f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Tümleştirme hesapları logic apps için yapı meta verilerini yönetme
 
@@ -37,7 +37,7 @@ Bu meta veri çalışma zamanı sırasında mantıksal uygulamanızı almak ve t
 
 ## <a name="retrieve-metadata-from-artifacts-for-logic-apps"></a>Logic apps için yapılardan meta veri alma
 
-1. Oluşturma bir [mantıksal uygulama](logic-apps-create-a-logic-app.md).
+1. Oluşturma bir [mantıksal uygulama](quickstart-create-first-logic-app-workflow.md).
 
 2. Oluşturma bir [mantıksal uygulamanızı bir bağlantıdan tümleştirme hesabınıza](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
 

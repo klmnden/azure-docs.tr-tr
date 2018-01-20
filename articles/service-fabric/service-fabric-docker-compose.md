@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
-ms.openlocfilehash: 92d1951de8c8c80f7b47033dc751cd65a63c43f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6275cee87455bf8a226a51a6b2093b67c3159d0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker Compose dağıtım desteği Azure Service Fabric (Önizleme)
 
@@ -91,13 +91,13 @@ sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 
 Bir oluşturma dağıtımı yükseltme işlemini başlatmak için aşağıdaki komutu kullanın:
 
-```powershell
+```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 Yükseltme kabul edildikten sonra yükseltme işlemi ilerleme durumu aşağıdaki komutu kullanarak izlenebilir:
 
-```powershell
+```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
@@ -122,7 +122,7 @@ Bu önizleme bir alt kümesini aşağıdaki temelleri dahil olmak üzere Oluştu
 
 Bölümünde açıklandığı gibi kaynak sınırları, zorlama küme ayarlamak [Service Fabric kaynak İdaresi](service-fabric-resource-governance.md). Tüm diğer Docker Compose yönergeleri Bu önizleme için desteklenmez.
 
-## <a name="servicednsname-computation"></a>ServiceDnsName hesaplama
+## <a name="servicednsname-computation"></a>ServiceDnsName computation
 
 Bir oluşturma dosyasında belirttiğiniz hizmet adını bir tam etki alanı adı ise (diğer bir deyişle, bir nokta [.] içerdiği), Service Fabric tarafından kayıtlı DNS adı `<ServiceName>` (nokta dahil). Aksi durumda, her yol kesimi uygulama ad hizmeti DNS adı, üst düzey etki alanı etiketi olma ilk yol kesimi ile etki alanı etiketi olur.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 949052900f341f2a933196fbd798d8b89facbd57
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 736d286bb7b97e842e73afd362ba70a42d1a9d9d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Amazon Market Web hizmetinden veri Kopyala
 
@@ -37,7 +37,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Aşağıdaki bölümler, Amazon Market Web hizmet Bağlayıcısı için Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -49,7 +49,7 @@ Aşağıdaki özellikler, Amazon Market Web bağlantılı hizmeti için destekle
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AmazonMWS** | Evet |
 | endpoint | Amazon MWS sunucunun (diğer bir deyişle, mws.amazonservices.com) uç noktası  | Evet |
-| marketplaceID | Verileri almak istediğiniz Amazon Market kimliği. Birden çok Market kimlikleri verileri almak için virgül ile ayırın (`,`). (diğer bir deyişle, A2EUQ1WTGCTBG2)  | Evet |
+| marketplaceID | Verileri almak istediğiniz Amazon Market kimliği. Birden çok Market kimlikleri verileri almak için virgül ile ayırın (`,`). (that is, A2EUQ1WTGCTBG2)  | Evet |
 | sellerID | Amazon satıcı kimliği  | Evet |
 | mwsAuthToken | Amazon MWS kimlik doğrulama belirteci. Bu alan Data Factory hizmeti tarafından güvenli bir şekilde saklayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama acitivity izin [anahtar kasasına kimlik bilgilerini depolama ](store-credentials-in-key-vault.md). | Evet |
 | accessKeyId | Access anahtar verilere erişmek için kullanılan kimliği.  | Evet |

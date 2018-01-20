@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Arşiv Azure izleme verileri
 
@@ -66,11 +66,11 @@ Artık bir depolama hesabı izleme verileri yönlendirmek için Azure ortamını
 
 Biz kaynak düzeyi verileri (kaynak ölçümleri ve tanılama günlükleri) için depolama hesabı ayarlama tarafından yönlendirilmesini yapılandırmak artık **kaynak tanılama ayarlarını**.
 
-1. Tıklatın **İzleyici** düğmesi bulunamadı sol taraftaki gezinti listesinde sonra **tanılama ayarlarını**. Burada, aboneliğinizde Azure İzleyicisi İzleme verilerine üretmek tüm kaynakların bir listesini görürsünüz. Bu listedeki tüm kaynakları yoksa, şunları yapabilirsiniz [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md) tanılama ayarını yapılandırabilirsiniz bir kaynağa sahip bir devam etmeden önce.
+1. Tıklatın **İzleyici** düğmesi bulunamadı sol taraftaki gezinti listesinde sonra **tanılama ayarlarını**. Burada, aboneliğinizde Azure İzleyicisi İzleme verilerine üretmek tüm kaynakların bir listesini görürsünüz. Bu listedeki tüm kaynakları yoksa, şunları yapabilirsiniz [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) tanılama ayarını yapılandırabilirsiniz bir kaynağa sahip bir devam etmeden önce.
 
 2. Listedeki bir kaynakta tıklayın ve ardından **tanılamayı açın**.
    
-   ![Tanılamayı açın](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
+   ![Tanılamayı aç](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    Yapılandırılmış bir ayarı ise, bunun yerine var olan ayarları ve bir düğmeye gördüğünüz **tanılama ayar Ekle**. Bu düğmeye tıklayın.
 
@@ -80,7 +80,7 @@ Biz kaynak düzeyi verileri (kaynak ölçümleri ve tanılama günlükleri) içi
 
    ![Tanılama ayarları bölümü](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-home.png)
 
-4. Tıklayın **yapılandırma** altında düğmesini **bir depolama hesabı arşive** ve önceki bölümde oluşturduğunuz depolama hesabını seçin. **Tamam** düğmesine tıklayın.
+4. Tıklayın **yapılandırma** altında düğmesini **bir depolama hesabı arşive** ve önceki bölümde oluşturduğunuz depolama hesabını seçin. **Tamam**’a tıklayın.
 
    ![Tanılama ayarları depolama hesabı](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-storage.png)
 
@@ -90,7 +90,7 @@ Biz kaynak düzeyi verileri (kaynak ölçümleri ve tanılama günlükleri) içi
    
 6. Ayarlama **bekletme (gün)** kaydırıcı 30. Bu kaydırıcı izleme verilerini depolama hesabındaki tutulacak gün sayısını ayarlar. Azure İzleyicisi otomatik olarak gün sayısından daha eski verileri siler belirtilen. Sıfır gün bekletme verileri süresiz olarak depolar.
 
-7. **Kaydet** düğmesine tıklayın.
+7. **Kaydet**’e tıklayın.
 
 İzleme verileri, kaynaktan storage hesabınıza şimdi akar.
 
@@ -124,7 +124,7 @@ Biz kaynak düzeyi verileri (kaynak ölçümleri ve tanılama günlükleri) içi
 
 9. Görüntülenen bölümünde oluşturulan önceki depolama hesabı seç **depolama hesabı oluşturma** adım.
 
-10. **Kaydet** düğmesine tıklayın.
+10. **Kaydet**’e tıklayın.
 
 Sanal makinelerinizi verilerden izleme storage hesabınıza şimdi akar.
 
@@ -140,7 +140,7 @@ Yukarıdaki adımları izlediyseniz, veri depolama hesabınıza akan başladı.
 
 4. Tıklayın **BLOB'lar**, sonra etiketli kapsayıcısı üzerinde **Öngörüler işletimsel-günlükleri** ve son olarak kapsayıcısında etiketli **adı = varsayılan**. Etkinlik günlüğü içerdiği kapsayıcıdır. İzleme verilerini kapsayıcılarına kaynak kimliği (yalnızca abonelik kimliği için etkinlik günlüğü), sonra tarih ve saat tarafından ayrılır. Bu BLOB'ları için tam biçimi şöyledir:
 
-   Öngörüler-işletimsel-günlükleri/name = varsayılan/ResourceId/ABONELİKLERİ = / {abonelik kimliği} / y = {dört basamaklı sayısal year} / m = {iki basamaklı sayısal ay} / d = {iki basamaklı sayısal günü} / h {iki basamaklı 24 saatlik hour}/m=00/PT1H.json =
+   insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 
 5. Kaynak Kimliği, tarih ve saat için kapsayıcılarına tıklayarak PT1H.json dosyasına gidin. PT1H.json dosyayı ve'ı tıklatın **karşıdan**. Her bir PT1H.json blob JSON blobu blob URL'SİNDE belirtilen saat içinde gerçekleşen olayların içerir (örneğin, h = 12). Bunlar ortaya çıktığında mevcut saatte olayları PT1H.json dosyasına eklenir. Dakika değeri (m 00 =) her zaman günlük olaylarının saat başına tek tek bloblar ayrılmış bu yana 00.
 

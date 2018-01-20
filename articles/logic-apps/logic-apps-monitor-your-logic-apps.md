@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Durum İzleme, tanılama günlük ayarlama ve Azure Logic Apps için uyarılarını Aç
 
-Çalıştırdıktan sonra [oluşturma ve bir mantıksal uygulama çalıştırma](../logic-apps/logic-apps-create-a-logic-app.md), çalışır geçmişi, tetikleyici geçmişi, durumunu ve performansını kontrol edebilirsiniz. Gerçek zamanlı Olay izleme ve daha zengin hata ayıklama için ayarlanmış [tanılama günlükleri](#azure-diagnostics) mantığı uygulamanız için. Bu şekilde yapabilecekleriniz [bulma ve görüntüleme olayları](#find-events)tetikleyici olayları, çalışma olayları ve eylem olayları gibi. Bu da kullanabilirsiniz [tanılama verilerini diğer hizmetlerle](#extend-diagnostic-data)Azure Storage ve Azure Event Hubs gibi. 
+Çalıştırdıktan sonra [oluşturma ve bir mantıksal uygulama çalıştırma](../logic-apps/quickstart-create-first-logic-app-workflow.md), çalışır geçmişi, tetikleyici geçmişi, durumunu ve performansını kontrol edebilirsiniz. Gerçek zamanlı Olay izleme ve daha zengin hata ayıklama için ayarlanmış [tanılama günlükleri](#azure-diagnostics) mantığı uygulamanız için. Bu şekilde yapabilecekleriniz [bulma ve görüntüleme olayları](#find-events)tetikleyici olayları, çalışma olayları ve eylem olayları gibi. Bu da kullanabilirsiniz [tanılama verilerini diğer hizmetlerle](#extend-diagnostic-data)Azure Storage ve Azure Event Hubs gibi. 
 
 Hataları veya diğer olası sorunları hakkında bildirim almak için ayarladığınız [uyarıları](#add-azure-alerts). Örneğin, "beşten fazla çalıştığında bir saat içinde başarısız olduğunda." algıladığında bir uyarı oluşturabilir. Ayrıca izleme, izleme ve program aracılığıyla kullanarak oturum ayarlayabilirsiniz [Azure tanılama olay ayarlarını ve özelliklerini](#diagnostic-event-properties).
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Veri kopyalama/Dynamics 365 / Dynamics CRM Azure Data Factory kullanma
 
@@ -50,7 +50,7 @@ Dynamics 365 özellikle, aşağıdaki uygulama türleri desteklenir:
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Dynamics tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -111,7 +111,7 @@ Aşağıdaki özellikler Dynamics bağlantılı hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Dynamics**. | Evet |
 | deploymentType | Dynamics örnek dağıtım türü. Olmalıdır **"OnPremisesWithIfd"** Dynamics ile şirket içi IFD için.| Evet |
-| **ana bilgisayar adı** | Şirket içi Dynamics sunucusunun ana bilgisayar adı. | Evet |
+| **hostName** | Şirket içi Dynamics sunucusunun ana bilgisayar adı. | Evet |
 | **bağlantı noktası** | Şirket içi Dynamics sunucusu bağlantı noktası. | Hayır, varsayılan ise 443'tür |
 | Kuruluş adı | Dynamics örneğinin kuruluş adı. | Evet |
 | authenticationType | Dynamics sunucusuna bağlanmak için kimlik doğrulama türü. Belirtin **"Ifd"** Dynamics ile şirket içi IFD için. | Evet |
@@ -277,7 +277,7 @@ Dynamics verileri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopya etkinliği havuz tür özelliği ayarlamak: **DynamicsSink**  | Evet |
-| WriteBehavior | İşlemi yazma davranışını.<br/>Değer izin verilen: **"Upsert"**. | Evet |
+| writeBehavior | İşlemi yazma davranışını.<br/>Değer izin verilen: **"Upsert"**. | Evet |
 | writeBatchSize | Dynamics her toplu işlemde yazılan veriler satır sayısı. | Hayır (varsayılan değer 10) |
 | ignoreNullValues | Yazma işlemi sırasında (dışında anahtar alanları) giriş verisi null değerleri yoksay gösterir.<br/>İzin verilen değerler: **true**, ve **false**.<br>-true: ekleme işlemi yaparken hedef veriler değişmeden upsert/güncelleştirme işlemini yaparken nesne ve Ekle bırakın tanımlanan varsayılan değeri.<br/>-false: upsert/güncelleştirme işlemini yaparken hedef nesnenin verileri NULL olarak güncelleştirir ve NULL değer ekleme işlemi yaparken ekleyin.  | Hayır (varsayılan değer false) |
 

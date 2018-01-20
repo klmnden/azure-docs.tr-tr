@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Bir sanal ağ ile birden fazla alt ağ (Klasik) oluşturun
 
@@ -57,7 +57,7 @@ Bir sanal ağ (Klasik) kullanarak oluşturabileceğiniz [Azure portal](#portal),
 4. Bir sanal ağ oluşturduğunuzda, portalda, yalnızca bir alt ağ oluşturabilirsiniz. Sanal ağ oluşturduktan sonra Bu öğreticide, ikinci bir alt ağ oluşturun. Daha sonra Internet'ten erişilebilen kaynaklara oluşturabilirsiniz **ortak** alt ağ. Internet'ten erişilemez kaynakları de oluşturabilir **özel** alt ağ. İkinci alt ağ oluşturmak için girin **myVnet** içinde **arama kaynakları** sayfanın üst kısmındaki kutusu. Tıklatın **myVnet** arama sonuçlarında görüntülendiğinde.
 5. Tıklatın **alt ağlar** (içinde **ayarları** bölüm) üzerinde **sanal ağ oluştur (Klasik)** görünür dikey.
 6. Tıklatın **+ Ekle** üzerinde **myVnet - alt ağlar** görünür dikey.
-7. Girin **özel** için **adı** üzerinde **alt ağ Ekle** dikey. Girin **10.0.1.0/24** için **adres aralığı**.  **Tamam** düğmesine tıklayın.
+7. Girin **özel** için **adı** üzerinde **alt ağ Ekle** dikey. Girin **10.0.1.0/24** için **adres aralığı**.  **Tamam**’a tıklayın.
 8. Üzerinde **myVnet - alt ağlar** dikey penceresinde görebilirsiniz **ortak** ve **özel** oluşturduğunuz alt ağlar.
 9. **İsteğe bağlı**: Bu öğreticiyi tamamladığınızda, böylece kullanım ücretlerine tabi yok, oluşturduğunuz kaynakları silmek isteyebilirsiniz:
     - Tıklatın **genel bakış** üzerinde **myVnet** dikey.
@@ -163,6 +163,6 @@ Bir sanal ağ (Klasik) kullanarak oluşturabileceğiniz [Azure portal](#portal),
 
 - Tüm sanal ağ ve alt ağ ayarları hakkında bilgi edinmek için bkz: [sanal ağlarını yönetmeleri](virtual-network-manage-network.md) ve [sanal ağ alt ağlarını yönetin](virtual-network-manage-subnet.md). Sanal ağlar ve alt ağları farklı gereksinimlerini karşılamak için bir üretim ortamında kullanmadan yönelik çeşitli seçenekleriniz vardır.
 - Alt ağa gelen ve giden trafiği filtrelemek, oluşturmak ve uygulamak için [ağ güvenlik grubu](virtual-networks-nsg.md) alt ağlara.
-- Oluşturma bir [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine ve mevcut bir sanal ağa bağlayın.
+- Oluşturma bir [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine ve mevcut bir sanal ağa bağlayın.
 - İki sanal ağ ile aynı konumda Azure bağlanmak için oluşturmanız bir [sanal ağ eşlemesi](create-peering-different-deployment-models.md) sanal ağlar arasında. Sanal ağ (Klasik) için bir sanal ağ (Resource Manager) eşi, ancak eşlemesi iki sanal ağ arasında (Klasik) oluşturulamıyor.
 - Sanal ağ kullanarak bir şirket ağına bağlanan bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hattı.

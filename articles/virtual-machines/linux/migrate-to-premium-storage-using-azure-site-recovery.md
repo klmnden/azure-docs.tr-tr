@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3b5c3a80262adc71374fe30092006fa6cb6865c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Premium depolama için Azure Site Recovery kullanarak geçirme
 
@@ -68,7 +68,7 @@ Bu geçiş senaryosu için Azure gereksinimleri şunlardır:
 * Yük devretme sırasında oluşturulduğunda VM'ler bağlanacağı bir Azure sanal ağı. Azure sanal ağı, Site Recovery çalıştığı biri ile aynı bölgede olması gerekir.
 * Çoğaltma günlüklerini depolamak için Azure standard storage hesabı. Bu Geçirilmekte olan VM diskleri için aynı depolama hesabı olabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Önceki bölümde ilgili geçiş senaryosu bileşenleri anlayın.
 * Hakkında bilgi edinerek, kesinti planlama [Site Recovery yük](../../site-recovery/site-recovery-failover.md).
@@ -199,7 +199,7 @@ Site Recovery, aynı veya benzer bir Premium depolama özellikli VM türü olan 
 ## <a name="post-migration-steps"></a>Geçiş sonrası adımlar
 
 1. **Çoğaltılmış VM'ler varsa kullanılabilirlik için yapılandırma**. Site Recovery kullanılabilirlik kümesi ile birlikte geçirme sanal makineleri desteklemez. Çoğaltılmış VM'yi dağıtım bağlı olarak aşağıdakilerden birini yapın:
-   * Bir VM Klasik dağıtım modeli aracılığıyla oluşturulan için: VM kullanılabilirlik Azure portalında kümesini ekleyin. Ayrıntılı adımlar için Git [var olan bir sanal makine bir kullanılabilirlik kümesine ekleme](../linux/classic/configure-availability.md#addmachine).
+   * Bir VM Klasik dağıtım modeli aracılığıyla oluşturulan için: VM kullanılabilirlik Azure portalında kümesini ekleyin. Ayrıntılı adımlar için Git [var olan bir sanal makine bir kullanılabilirlik kümesine ekleme](../linux/classic/configure-availability-classic.md).
    * Bir VM Resource Manager dağıtım modeli aracılığıyla oluşturulan için: VM yapılandırmanızı kaydetmek ve ardından silin ve kullanılabilirlik kümesindeki sanal makineleri yeniden oluşturun. Bunu yapmak için komut kullanın [Azure Kaynak Yöneticisi'ni VM kullanılabilirlik Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Bu komut dosyasını çalıştırmadan önce kısıtlamalarını denetleyin ve, kapalı kalma süresi planlayın.
 
 2. **Eski VM'ler ve diskleri silme**. Yeni VM'ler VM'ler kaynak ile aynı işlevi gerçekleştirir ve Premium disklerin kaynak diskler ile tutarlı olduğundan emin olun. VM ve Azure portalındaki kaynak depolama hesaplarınızdan diskleri silin. Bir sorun varsa disk olmayan silinmiş VM silinmiş olsa bile, bkz: [VHD'ler sildiğinizde hatalarında sorun giderme](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
@@ -217,14 +217,14 @@ Sanal makineleri geçirmek için belirli senaryolar için aşağıdaki kaynaklar
 
 * [Azure sanal makineleri depolama hesapları arasında geçiş](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Oluşturma ve Windows Server VHD Azure'a yükleyin](../windows/classic/createupload-vhd.md)
-* [Oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya yükleme](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya yükleme](../linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Geçirme sanal makinelerden Amazon AWS Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Ayrıca, Azure Storage ve Azure sanal makineler hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure Depolama](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure sanal makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](premium-storage.md)
+* [Azure Sanal Makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

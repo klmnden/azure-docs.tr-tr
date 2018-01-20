@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market bir sanal makine görüntüsü oluşturmak için kılavuz
 Bu makalede **2. adım**, sanal sabit Azure Marketi dağıtacağınız diskleri (VHD) hazırlama size yol gösterir. Vhd'lerinizi, sku'sunun temelidir. İşlem, bir Windows tabanlı veya Linux tabanlı SKU olup sağlanmaktadır bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu ele alınmaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -58,7 +58,7 @@ Bir teklif ekledikten sonra SKU'ları tanımlayabilir ve gerekir. Birden çok te
 3. Windows tabanlı SKU'lar kullanıyorsanız Windows Server'ın onaylanmış sürümlerini edinmek için önerilen bağlantıları izleyin.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. (Linux tabanlı) bir Azure uyumlu VHD oluşturma
-Bu bölümde Azure Market Linux tabanlı VM görüntüsü oluşturmak için en iyi uygulamalar odaklanır. Adım adım kılavuz için aşağıdaki belgelere bakın: [oluşturma ve Linux işletim sistemini içeren bir Sanal Sabit Disk karşıya yükleme](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Bu bölümde Azure Market Linux tabanlı VM görüntüsü oluşturmak için en iyi uygulamalar odaklanır. Adım adım kılavuz için aşağıdaki belgelere bakın: [oluşturma ve Linux işletim sistemini içeren bir Sanal Sabit Disk karşıya yükleme](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. (Windows tabanlı) bir Azure uyumlu VHD oluşturma
 Bu bölüm, Windows Server için Azure Marketi tabanlı bir SKU oluşturmak için aşağıdaki adımları odaklanır.
@@ -69,8 +69,8 @@ Bu bölüm, Windows Server için Azure Marketi tabanlı bir SKU oluşturmak içi
 Başlamak için aşağıdaki görüntüleri birinden bir VM oluşturma bulunan [Microsoft Azure portal][link-azure-portal]:
 
 * Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
-* SQL Server 2014 ([Kurumsal][link-sql-2014-ent], [standart][link-sql-2014-std], [Web] [ link-sql-2014-web])
-* SQL Server 2012 SP2'yi ([Kurumsal][link-sql-2012-ent], [standart][link-sql-2012-std], [Web] [ link-sql-2012-web])
+* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
+* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
 
 Bu bağlantılar SKU sayfasındaki Yayımlama Portalı'nda da bulunabilir.
 
@@ -112,7 +112,7 @@ Microsoft Azure Portalı'ndan yalnızca birkaç basit adımda onaylanmış bir t
     b.    Görüntüyü Azure'da geliştirmeyi planlıyorsanız, başlangıçta ABD tabanlı Microsoft Azure bölgelerinden birini kullanın. Bu sertifika için görüntünüzü gönderdiğinizde, Microsoft sizin adınıza gerçekleştiren VHD kopyalama işlemini hızlandırır.
 
     ![Çizim][img-portal-vm-location]
-7. **Oluştur**'a tıklayın. VM dağıtmak başlatır. Dağıtımınız birkaç dakika içinde başarıyla tamamlanır ve SKU'nuz için görüntü oluşturmaya başlayabilirsiniz.
+7. **Oluştur**’a tıklayın. VM dağıtmak başlatır. Dağıtımınız birkaç dakika içinde başarıyla tamamlanır ve SKU'nuz için görüntü oluşturmaya başlayabilirsiniz.
 
 ### <a name="33-develop-your-vhd-in-the-cloud"></a>3.3, VHD bulutta geliştirin
 Uzak Masaüstü Protokolü (RDP) kullanarak, VHD bulutta geliştirmek öneririz. Kullanıcı adı ve parolayla sağlama işlemi sırasında belirtilen için RDP bağlayın.
@@ -510,14 +510,14 @@ Teklif ve SKU oluşturduktan sonra SKU ile ilişkili görüntü ayrıntıları g
 
 ## <a name="common-sas-url-issues--fixes"></a>Ortak SAS URL sorunları ve düzeltmeleri
 
-|Sorun|Hata iletisi|Düzeltme|Belge bağlantı|
+|Sorun|Hata iletisi|Düzelt|Belge bağlantı|
 |---|---|---|---|
-|Kopyalama hatası görüntüleri - "?" SAS URL'si bulunamadı|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Önerilen SAS URL'yi kullanarak güncelleştirme araçları|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri kopyalama hatası - SAS URL'si değil, "st" ve "se" parametreleri|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Başlangıç ve bitiş tarihleri üzerindeki ile SAS Url güncelleştir|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri - "sp rl SAS url değil =" kopyalama hatası|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek için|SAS Url "listeyi ve"Okuma"ayarlanmış olan izinleri ile güncelleştirme|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri - SAS url kopyalama hatası vhd adlarında boşluk sahip|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Güncelleştirme boşluk olmadan SAS URL'si|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri – SAS Url yetkilendirmesi hata kopyalama hatası|Hata: Görüntüleri kopyalama. Yetkilendirme hatası nedeniyle blob indirmek için|SAS Url yeniden oluştur|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri – SAS Url "st" ve "se" parametreleri kopyalama hatası tam tarih-saat belirtimi sahip değil|Hata: Görüntüleri kopyalama. Yanlış SAS Url nedeniyle blob indirmek için |SAS Url başlangıç ve bitiş tarihi parametreleri ("st", "se") 11 gibi tam tarih-saat belirtimi için gerekli-02-2017T00:00:00Z ve yalnızca tarih veya saat için kısaltılmış sürümleri. Azure CLI 2.0 (az komutu) kullanarak bu senaryoyu karşılaştığınız mümkündür. Tam tarih-saat belirtimi sağlamak ve SAS Url yeniden emin olun.|[https://Azure.microsoft.com/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Kopyalama hatası görüntüleri - "?" SAS URL'si bulunamadı|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Önerilen SAS URL'yi kullanarak güncelleştirme araçları|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri kopyalama hatası - SAS URL'si değil, "st" ve "se" parametreleri|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Başlangıç ve bitiş tarihleri üzerindeki ile SAS Url güncelleştir|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri - "sp rl SAS url değil =" kopyalama hatası|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek için|SAS Url "listeyi ve"Okuma"ayarlanmış olan izinleri ile güncelleştirme|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri - SAS url kopyalama hatası vhd adlarında boşluk sahip|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Güncelleştirme boşluk olmadan SAS URL'si|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri – SAS Url yetkilendirmesi hata kopyalama hatası|Hata: Görüntüleri kopyalama. Yetkilendirme hatası nedeniyle blob indirmek için|SAS Url yeniden oluştur|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri – SAS Url "st" ve "se" parametreleri kopyalama hatası tam tarih-saat belirtimi sahip değil|Hata: Görüntüleri kopyalama. Yanlış SAS Url nedeniyle blob indirmek için |SAS Url başlangıç ve bitiş tarihi parametreleri ("st", "se") 11 gibi tam tarih-saat belirtimi için gerekli-02-2017T00:00:00Z ve yalnızca tarih veya saat için kısaltılmış sürümleri. Azure CLI 2.0 (az komutu) kullanarak bu senaryoyu karşılaştığınız mümkündür. Tam tarih-saat belirtimi sağlamak ve SAS Url yeniden emin olun.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Sonraki adım
 SKU ayrıntılarla tamamladıktan sonra İleri taşıyabilirsiniz [Azure Marketi pazarlama içerik Kılavuzu][link-pushstaging]. Yayımlama işleminin bu adımında pazarlama içeriği, fiyatlandırma ve öncesinde gerekli diğer bilgileri sağladığınız **adım 3: VM sınama teklif hazırlamada**, burada dağıtmadan önce çeşitli kullanım örneği senaryolarını test Genel görünürlük ve satın alma için Azure Marketi sunar.  

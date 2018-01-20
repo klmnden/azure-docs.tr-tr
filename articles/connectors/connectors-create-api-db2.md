@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>DB2 Bağlayıcısı ile çalışmaya başlama
 DB2 için Microsoft Bağlayıcısı Logic Apps bir IBM DB2 veritabanında depolanan kaynakları bağlanır. Bu bağlayıcı bir TCP/IP ağı üzerinden uzak DB2 sunucu bilgisayarlarla iletişim kurmak için Microsoft client içerir. Bu bulut veritabanları, IBM Bluemix dashDB veya Azure sanallaştırma çalışan Windows için IBM DB2 gibi içerir ve şirket içi veri ağ geçidi kullanarak veritabanlarını. Bkz: [liste desteklenen](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2 platformları ve sürümleri (Bu konudaki).
@@ -35,7 +35,7 @@ DB2 Bağlayıcısı'nı aşağıdaki veritabanı işlemleri destekler:
 
 Bu konuda işlem veritabanı işlemleri için bir mantıksal uygulama içinde Bağlayıcısı'nı kullanmayı gösterir.
 
-Logic Apps hakkında daha fazla bilgi için bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Logic Apps hakkında daha fazla bilgi için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Kullanılabilir eylemler
 DB2 Bağlayıcısı'nı aşağıdaki mantıksal uygulama eylemleri destekler:
@@ -86,8 +86,8 @@ Bu bağlayıcı barındırılan veritabanları şirket içi ve aşağıdaki bağ
 | Özellik | Açıklama |
 | --- | --- |
 | sunucu |Gereklidir. TCP/IP adresi veya izlenen IPv4 veya IPv6 biçiminde (virgülle ayrılmış) diğer bir TCP/IP bağlantı noktası numarası ile temsil eden bir dize değeri kabul eder. |
-| Veritabanı |Gereklidir. Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeri kabul eder. DB2 z/OS için 16 bayt dizesini kabul eder (bir IBM DB2 z/OS konumu olarak veritabanı bilinir). DB2 i5/OS için kabul 18-bayt dizisi (veritabanı için bir IBM DB2 olarak bilinir i ilişkisel veritabanı). DB2 LUW için 8-bayt dizisi kabul eder. |
-| Kimlik doğrulaması |İsteğe bağlı. Bir liste öğesi değeri, temel veya Windows (kerberos) kabul eder. |
+| veritabanı |Gereklidir. Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeri kabul eder. DB2 z/OS için 16 bayt dizesini kabul eder (bir IBM DB2 z/OS konumu olarak veritabanı bilinir). DB2 i5/OS için kabul 18-bayt dizisi (veritabanı için bir IBM DB2 olarak bilinir i ilişkisel veritabanı). DB2 LUW için 8-bayt dizisi kabul eder. |
+| kimlik doğrulaması |İsteğe bağlı. Bir liste öğesi değeri, temel veya Windows (kerberos) kabul eder. |
 | kullanıcı adı |Gereklidir. Bir dize değeri kabul eder. DB2 z/OS için 8-bayt dizisi kabul eder. DB2 için i 10 bayt dizesini kabul eder. DB2 Linux veya UNIX için 8-bayt dizisi kabul eder. DB2 için Windows 30-bayt dizesini kabul eder. |
 | password |Gereklidir. Bir dize değeri kabul eder. |
 | Ağ geçidi |Gereklidir. Logic Apps için depolama grubu içinde tanımlanan şirket içi veri ağ geçidi temsil eden bir liste öğesi değeri kabul eder. |
@@ -281,5 +281,5 @@ Bu bağlayıcı aşağıdaki IBM DB2 platformları ve sürümleri, yanı sıra d
 Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Logic Apps diğer kullanılabilir bağlayıcılar keşfedin bizim [API'leri listesi](apis-list.md).
+[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic Apps diğer kullanılabilir bağlayıcılar keşfedin bizim [API'leri listesi](apis-list.md).
 

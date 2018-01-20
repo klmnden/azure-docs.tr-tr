@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Gecikme ve gecikme kullanmaya başlama-Eylemler kadar
 Gecikme kullanarak ve "gecikme-kadar" Eylemler, iş akışı senaryoları tamamlayabilirsiniz.
@@ -29,7 +29,7 @@ Gecikme kullanarak ve "gecikme-kadar" Eylemler, iş akışı senaryoları tamaml
 * Bir durum güncelleştirmesi e-posta göndermek için bir hafta kadar bekleyin.
 * Bir HTTP çağrısıyla sonucu alma ve sürdürme önce tamamlanması zaman olana kadar iş akışı gecikme.
 
-Bir mantıksal uygulama gecikme eylem kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Bir mantıksal uygulama gecikme eylem kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Gecikme eylemlerini kullanın
 Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](connectors-overview.md).
@@ -54,7 +54,7 @@ A * gerekli bir alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Sayısı * |Sayısı |Gecikme süresi birim sayısı |
+| Sayısı * |sayı |Gecikme süresi birim sayısı |
 | Birim * |Birim |Zaman birimi: `Second`, `Minute`, `Hour`, veya`Day` |
 
 <br>
@@ -72,5 +72,5 @@ A * gerekli bir alan olduğu anlamına gelir.
 <br>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
+Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>MQ Bağlayıcısı'nı kullanarak mantığı uygulamalardan bir IBM MQ sunucuya bağlanın 
 
@@ -33,7 +33,7 @@ MQ bağlayıcı aşağıdaki eylemleri içerir. Hiçbir Tetikleyicileri vardır.
 -   Toplu iletiler almak ve iletileri IBM MQ sunucusundan silin
 -   IBM MQ sunucunun tek bir ileti gönderme 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir şirket içi MQ server kullanıyorsanız [şirket içi veri ağ geçidini yükleyin](../logic-apps/logic-apps-gateway-install.md) ağınızdaki bir sunucuda. MQ Server genel olarak kullanılabilir veya Azure içinde kullanılabilir değilse, ardından veri ağ geçidi kullanılan gerekli veya değil.
 
@@ -52,7 +52,7 @@ MQ bağlayıcı aşağıdaki eylemleri içerir. Hiçbir Tetikleyicileri vardır.
 2. Girin **adı**, MQTestApp gibi **abonelik**, **kaynak grubu**, ve **konumu** (şirket içi veri ağ geçidi bağlantı yapılandırdığınız yerde konum kullanın). Seçin **panoya Sabitle**seçip **oluşturma**.  
 ![Mantıksal uygulama oluşturma](media/connectors-create-api-mq/Create_Logic_App.png)
 
-## <a name="add-a-trigger"></a>Bir tetikleyici Ekle
+## <a name="add-a-trigger"></a>Tetikleyici ekleyin
 
 > [!NOTE]
 > MQ Bağlayıcısı'nı hiçbir tetikleyici yok. Bu nedenle, mantıksal uygulamanızı gibi başlatmak için başka bir tetikleyici kullanmanız **yineleme** tetikleyici. 
@@ -71,7 +71,7 @@ MQ bağlayıcı aşağıdaki eylemleri içerir. Hiçbir Tetikleyicileri vardır.
     1. Seçin **Connect şirket içi veri ağ geçidi üzerinden**ve MQ sunucunuz özelliklerini girin.  
     İçin **Server**, MQ sunucu adı girin veya bir iki nokta üst üste ve bağlantı noktası numarasını ardından IP adresini girin. 
     2. **Ağ geçidi** açılır yapılandırılmış var olan tüm ağ geçidi bağlantıları listeler. Ağ geçidi seçin.
-    3. Seçin **oluşturma** bitirdikten sonra. Bağlantınızı aşağıdakine benzer:   
+    3. Bittiğinde **Oluştur**’u seçin. Bağlantınızı aşağıdakine benzer:   
     ![Bağlantı özellikleri](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. Eylem özellikleri şunları yapabilirsiniz:  
@@ -123,4 +123,4 @@ Varsa hiçbir ileti sırada bir Gözat veya alma işlemi yaparken, adım ile aş
 Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/mq/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Logic Apps diğer kullanılabilir bağlayıcılar keşfedin bizim [API'leri listesi](apis-list.md).
+[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic Apps diğer kullanılabilir bağlayıcılar keşfedin bizim [API'leri listesi](apis-list.md).

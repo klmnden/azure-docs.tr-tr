@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Sanal Makineler’de SQL Server ile Azure Premium Depolama kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -270,7 +270,7 @@ Bu senaryo, bir standart depolama hesabında bulunan var olan özelleştirilmiş
 
 
 #### <a name="step-3-use-existing-image"></a>3. adım: Mevcut görüntü kullanın
-Varolan bir görüntü kullanabilirsiniz. Veya, [var olan bir makine görüntüsünü ele](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Görüntü, DS * makinenin olması gerekmez. makine unutmayın. Görüntü olduktan sonra aşağıdaki adımlar, Premium Storage hesabıyla kopyalamak nasıl gösterir. **başlangıç AzureStorageBlobCopy** PowerShell komutunu.
+Varolan bir görüntü kullanabilirsiniz. Veya, [var olan bir makine görüntüsünü ele](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Görüntü, DS * makinenin olması gerekmez. makine unutmayın. Görüntü olduktan sonra aşağıdaki adımlar, Premium Storage hesabıyla kopyalamak nasıl gösterir. **başlangıç AzureStorageBlobCopy** PowerShell komutunu.
 
     #Get storage account keys:
     #Standard Storage account
@@ -549,7 +549,7 @@ Bu senaryo, yüklemenizi belgelenmiş ve en yüksek disk önbellek ayarlarını 
 Bu konunun geri kalanında, her zaman açık bir çok siteli küme Premium depolama alanına dönüştürme ayrıntılı bir örnek sağlar. Bu ayrıca dinleyicisi bir dış yük dengeleyici (ELB) kullanarak bir iç yük dengeleyici (ILB) dönüştürür.
 
 ### <a name="environment"></a>Ortam
-* Windows 2k 12 / SQL 2k 12
+* Windows 2k12 / SQL 2k12
 * SP 1 DB dosyaları
 * Düğüm başına depolama havuzları x 2
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Mantıksal uygulama akışlarından çağırabilirsiniz özel API oluşturma
 
@@ -31,7 +31,7 @@ Azure mantıksal uygulamaları sunmasına karşın [100 + yerleşik Bağlayıcı
 
 Temel olarak, web takılabilir arabirimleri için REST kullan API'leri bağlayıcılar olan [Swagger meta veri biçimi](http://swagger.io/specification/) belgelerine ve JSON olarak kendi veri değişimi biçimi. Bağlayıcılar HTTP uç noktaları iletişim kuran REST API'leri olduğundan, .NET, Java veya Node.js gibi herhangi bir dil bağlayıcılar oluşturmak için kullanabilirsiniz. Üzerinde Apı'lerinizi barındırabilir [Azure App Service](../app-service/app-service-web-overview.md), bir platform olarak-sağlayan en iyi, kolay ve en ölçeklenebilir yollarından biri, API barındırmak için sunan hizmet (PaaS). 
 
-Logic apps ile çalışmak özel API'leri için API'nizi sağlayabilir [ *Eylemler* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) mantığı uygulama akışlarında belirli görevleri gerçekleştirebilir. API'nizi de olarak davranıp bir [ *tetikleyici* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) , başlayan bir mantıksal uygulama iş akışı yeni veri ya da bir olay bir belirtilen koşulu karşılıyorsa. Bu konu, Eylemler ve Tetikleyicileri sağlamak için API istediğiniz davranışı temelinde API'nizi oluşturmak için takip edebilirsiniz ortak desenleri açıklar.
+Logic apps ile çalışmak özel API'leri için API'nizi sağlayabilir [ *Eylemler* ](./logic-apps-overview.md#logic-app-concepts) mantığı uygulama akışlarında belirli görevleri gerçekleştirebilir. API'nizi de olarak davranıp bir [ *tetikleyici* ](./logic-apps-overview.md#logic-app-concepts) , başlayan bir mantıksal uygulama iş akışı yeni veri ya da bir olay bir belirtilen koşulu karşılıyorsa. Bu konu, Eylemler ve Tetikleyicileri sağlamak için API istediğiniz davranışı temelinde API'nizi oluşturmak için takip edebilirsiniz ortak desenleri açıklar.
 
 Üzerinde Apı'lerinizi barındırabilir [Azure App Service](../app-service/app-service-web-overview.md), bir platform olarak-sağlayan yüksek düzeyde ölçeklenebilir, kullanımı kolay API barındırma sunan hizmet (PaaS).
 
@@ -73,7 +73,7 @@ Birçok kitaplıkları, ister [Swashbuckle](https://github.com/domaindrivendev/S
 
 ## <a name="action-patterns"></a>Eylem desenleri
 
-Logic apps görevleri gerçekleştirmek özel API'nizi sağlamalıdır [ *Eylemler*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). API'nizi her işlem için bir eylem eşler. HTTP istekleri ve HTTP yanıtlarını döndürür kabul eden bir denetleyici buna temel bir eylemdir. Bu nedenle örneğin bir mantıksal uygulama web uygulaması veya API uygulaması için bir HTTP isteği gönderir. Uygulamanız, sonra mantıksal uygulama işleyebilir içeriği ile birlikte bir HTTP yanıtı döndürür.
+Logic apps görevleri gerçekleştirmek özel API'nizi sağlamalıdır [ *Eylemler*](./logic-apps-overview.md#logic-app-concepts). API'nizi her işlem için bir eylem eşler. HTTP istekleri ve HTTP yanıtlarını döndürür kabul eden bir denetleyici buna temel bir eylemdir. Bu nedenle örneğin bir mantıksal uygulama web uygulaması veya API uygulaması için bir HTTP isteği gönderir. Uygulamanız, sonra mantıksal uygulama işleyebilir içeriği ile birlikte bir HTTP yanıtı döndürür.
 
 Standart bir eylemi için bir HTTP istek yöntemi API'nizi yazma ve bu yöntem bir Swagger dosyasında açıklayın. Ardından, API ile doğrudan çağıran bir [HTTP eylemi](../connectors/connectors-native-http.md) veya bir [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) eylem. Varsayılan olarak, içinde yanıt verilmesi gereken [istek zaman aşımı sınırı](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Bu model için iki uç nokta denetleyicinizde ayarlayın: `subscribe` ve`unsubsc
 
 ## <a name="trigger-patterns"></a>Tetikleyici desenleri
 
-Özel API'nizi olarak davranıp bir [ *tetikleyici* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) , başlayan bir mantıksal uygulama yeni veri ya da bir olay bir belirtilen koşulu karşılıyorsa. Bu tetikleyici ya da düzenli olarak denetleyin veya bekleyip, yeni veri ya da hizmet uç noktada olayları dinler. Yeni veri ya da bir olay belirtilen koşulu karşılıyorsa, tetikleyici başlatılır ve bu tetikleyiciye dinleme mantıksal uygulama başlatır. Logic apps bu şekilde başlatmak için API izleyebilirsiniz [ *yoklama tetikleyici* ](#polling-triggers) veya [ *Web kancası tetikleyici* ](#webhook-triggers) düzeni. Bu düzenleri dekiler için benzer [Eylemler yoklama](#async-pattern) ve [Web kancası eylemleri](#webhook-actions). Ayrıca, daha fazla bilgi edinmek [için Tetikleyicileri kullanım ölçümü](logic-apps-pricing.md).
+Özel API'nizi olarak davranıp bir [ *tetikleyici* ](./logic-apps-overview.md#logic-app-concepts) , başlayan bir mantıksal uygulama yeni veri ya da bir olay bir belirtilen koşulu karşılıyorsa. Bu tetikleyici ya da düzenli olarak denetleyin veya bekleyip, yeni veri ya da hizmet uç noktada olayları dinler. Yeni veri ya da bir olay belirtilen koşulu karşılıyorsa, tetikleyici başlatılır ve bu tetikleyiciye dinleme mantıksal uygulama başlatır. Logic apps bu şekilde başlatmak için API izleyebilirsiniz [ *yoklama tetikleyici* ](#polling-triggers) veya [ *Web kancası tetikleyici* ](#webhook-triggers) düzeni. Bu düzenleri dekiler için benzer [Eylemler yoklama](#async-pattern) ve [Web kancası eylemleri](#webhook-actions). Ayrıca, daha fazla bilgi edinmek [için Tetikleyicileri kullanım ölçümü](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -170,7 +170,7 @@ API açısından açıklandığı bir yoklama tetikleyici için belirli adımlar
 
 | Yeni verileri veya olay bulunur?  | API yanıtını | 
 | ------------------------- | ------------ |
-| Bulunamadı | Bir HTTP dönmek `200 OK` yanıt Yükü (giriş sonraki adımınız) durumuyla. <br/>Bu yanıt, bir mantıksal uygulama örneği oluşturur ve iş akışı başlatır. | 
+| Bulundu | Bir HTTP dönmek `200 OK` yanıt Yükü (giriş sonraki adımınız) durumuyla. <br/>Bu yanıt, bir mantıksal uygulama örneği oluşturur ve iş akışı başlatır. | 
 | Bulunamadı | Bir HTTP dönmek `202 ACCEPTED` durumundaki bir `location` başlığı ve bir `retry-after` üstbilgi. <br/>Tetikleyici, `location` üstbilgi de içermelidir bir `triggerState` , genellikle bir "zaman damgası." sorgu parametresi API'nizi bu tanımlayıcı, mantıksal uygulama tetiklendi son zamanı izlemek için kullanabilirsiniz. | 
 ||| 
 
@@ -223,7 +223,7 @@ Kimlik doğrulaması ayarladıktan sonra dağıtım Apı'leriniz için ayarlayı
 
 ## <a name="publish-custom-apis-to-azure"></a>Özel API'leri için Azure yayımlama
 
-Özel Apı'lerinizi diğer Azure mantıksal uygulamaları kullanıcılar için kullanılabilir hale getirmek güvenlik ekleyin ve mantıksal uygulama bağlayıcıları kaydedin. Daha fazla bilgi için bkz: [özel bağlayıcılar genel bakış](../logic-apps/custom-connector-overview.md). 
+Özel Apı'lerinizi diğer Azure mantıksal uygulamaları kullanıcılar için kullanılabilir hale getirmek güvenlik ekleyin ve mantıksal uygulama bağlayıcıları kaydedin. Daha fazla bilgi için bkz. [Özel bağlayıcılara genel bakış](../logic-apps/custom-connector-overview.md). 
 
 Özel Apı'lerinizi Logic Apps, Microsoft Flow ve Microsoft PowerApps tüm kullanıcıların kullanımına sunmak için güvenlik ekleme, Apı'lerinizi mantıksal uygulama bağlayıcıları kaydetmek ve gerekir, bağlayıcıları belirler [Azure Microsoft Sertifikalı program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
@@ -233,7 +233,7 @@ Kimlik doğrulaması ayarladıktan sonra dağıtım Apı'leriniz için ayarlayı
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
 
-* Logic Apps geliştirmeye yardımcı olmak için oy veya fikir gönderme [Logic Apps kullanıcı geri bildirim sitesi](http://aka.ms/logicapps-wish). 
+* Logic Apps’in geliştirilmesine yardımcı olmak için, [Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish) oy kullanın veya fikirlerinizi paylaşın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

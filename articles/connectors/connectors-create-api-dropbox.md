@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3fecdc33a08c82d9ad13226e75d0d704a5557f98
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Dropbox Bağlayıcısı ile çalışmaya başlama
 Dosyalarınızı yönetmek için Dropbox'a bağlanın. Karşıya yükleme gibi çeşitli eylemleri, güncelleştirme, almak ve Dropbox dosyaları silin.
 
-Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-dropbox"></a>Dropbox'a bağlanın
 Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk önce oluşturmanız gerekir bir *bağlantı* hizmet. Bağlantı bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar. Örneğin, Dropbox'a bağlanmak için önce bir Dropbox gerekir *bağlantı*. Bir bağlantı oluşturmak için normalde bağlanmak istediğiniz hizmete erişmek için kullandığınız kimlik bilgilerini sağlamanız gerekir. Bu nedenle, Dropbox örnekte, kimlik bilgileri Dropbox hesabınıza Dropbox bağlantı oluşturmak için gerekir. [Bağlantılar hakkında daha fazla bilgi edinin]()
@@ -35,7 +35,7 @@ Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk ön
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Bir Dropbox tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Bu örnekte, kullanacağız **bir dosya oluşturulduğunda** tetikleyici. Bu tetikleyici ortaya çıktığında, biz çağıracak **alma yolunu kullanarak dosya içeriğini** Dropbox eylem. 
 
@@ -45,7 +45,7 @@ Bu örnekte, kullanacağız **bir dosya oluşturulduğunda** tetikleyici. Bu tet
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Bir Dropbox eylemi kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Tetikleyici eklenen, yeni dosyanın içeriğini alacak bir eylem eklemek için aşağıdaki adımları izleyin.
 

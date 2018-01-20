@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Bir VHD dosyasındaki özel bir görüntü oluşturun
 
@@ -57,7 +57,16 @@ Aşağıdaki adımlar, Azure portalını kullanarak bir VHD'yi dosyasından öze
 
 1. Seçin bir **VHD** açılır menüsünden. Yeni özel görüntü oluşturmak için kullanılan VHD budur. Gerekirse, seçin **PowerShell kullanarak bir VHD'yi karşıya**.
 
-1. Özel görüntü oluşturmak için kullanılan görüntü, Microsoft tarafından yayımlanmayan varsa planı adı, planı teklif ve planı yayımcı da girebilirsiniz.
+1. Özel görüntü oluşturmak için kullanılan görüntü (Microsoft tarafından yayımlanan) lisanslı bir görüntü değilse plan adı, planı teklif ve planı yayımcı da girebilirsiniz.
+
+   - **Plan adı:** bu özel görüntü oluşturulurken gelen Market görüntüsü (SKU) adını girin 
+   - **Teklif planlama:** bu özel görüntü oluşturulduğu Market görüntüsü ürününü (teklif) girin 
+   - **Yayımcı planlama:** bu özel görüntü oluşturulduğu Market görüntüsü yayımcısı girin
+
+   > [!NOTE]
+   > Özel bir görüntü oluşturmak için kullandığınız görüntü olup olmadığını **değil** lisanslı bir görüntü, ardından bu alanları boş ve seçerseniz doldurulabilir. Varsa görüntü **olan** lisanslı bir görüntü sonra alanları planı bilgilerle doldurulmuş otomatik ayarlanır. Bu durumda değiştirmeye çalışırsanız, bir uyarı iletisi görüntülenir.
+   >
+   >
 
 1. Seçin **Tamam** özel görüntüsü oluşturulamadı.
 

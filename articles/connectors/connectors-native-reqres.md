@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>İstek ve yanıt bileşenleriyle çalışmaya başlayın
 Bir mantıksal uygulama içinde istek ve yanıt bileşenleriyle gerçek zamanlı olarak olaylara yanıt verebilir.
@@ -30,7 +30,7 @@ Bir mantıksal uygulama içinde istek ve yanıt bileşenleriyle gerçek zamanlı
 * Bir mantıksal uygulama bir dış Web kancası olaydan tetikler.
 * İstek ve yanıt eylemi başka bir mantıksal uygulama içinde ile bir mantıksal uygulama çağırın.
 
-İstek ve yanıt eylemleri bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+İstek ve yanıt eylemleri bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>HTTP isteği tetikleyici kullanın
 Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
@@ -96,8 +96,8 @@ Bir gelen HTTP istek tetikleyici için giriş alanını verilmiştir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Üstbilgileri |Nesne |İstek üstbilgileri |
-| Gövde |Nesne |İstek nesnesi |
+| Üst bilgiler |nesne |İstek üst bilgileri |
+| Gövde |nesne |İstek nesnesi |
 
 #### <a name="response-action"></a>Yanıt eylemi
 HTTP yanıtının eylem için girdi alanlarının verilmiştir. A * gerekli bir alan olduğu anlamına gelir.
@@ -105,9 +105,9 @@ HTTP yanıtının eylem için girdi alanlarının verilmiştir. A * gerekli bir 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
 | Durum kodu * |statusCode |HTTP durum kodu |
-| Üstbilgileri |Üstbilgileri |Tüm yanıt üstbilgilerini eklemek için bir JSON nesnesi |
-| Gövde |Gövde |Yanıt gövdesi |
+| Üst bilgiler |headers |Tüm yanıt üstbilgilerini eklemek için bir JSON nesnesi |
+| Gövde |body |Yanıt gövdesi |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
+Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
 

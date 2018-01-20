@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: szark
-ms.openlocfilehash: c829f5d9a90b4260c6f41b2d9e511a0c6cb48f18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e90e928bed41abc00ad4c5b8dcdfad35cb3cbbdc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure için SLES veya openSUSE sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, zaten bir SUSE veya openSUSE Linux işletim sistemi sanal sabit diske yüklediğinizi varsayar. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için bkz: [Hyper-V rolünü yükleyin ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="sles--opensuse-installation-notes"></a>SLES / openSUSE yükleme notları
@@ -39,7 +39,7 @@ Bu makalede, zaten bir SUSE veya openSUSE Linux işletim sistemi sanal sabit dis
 
 Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı kendi abonelik) görüntüleri SLES için yayımlar [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>SUSE Linux Enterprise Server 11 SP4 hazırlama
+## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Prepare SUSE Linux Enterprise Server 11 SP4
 1. Hyper-V Yöneticisi'nin Orta bölmede sanal makineyi seçin.
 2. Tıklatın **Bağlan** sanal makine için penceresini açın.
 3. Güncelleştirmeleri Yükle ve paketleri izin vermek, SUSE Linux Enterprise sisteminizi kaydedin.
@@ -62,7 +62,7 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
     Bu tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen sağlayacak sorunları ayıklama desteği.
 9. /Boot/Grub/Menu.lst ve /etc/fstab (kimliğine göre) disk kimliği yerine kendi UUID'si (UUID tarafından) kullanılarak disk başvuru onaylayın. 
    
-    Disk UUID'si Al
+    Get disk UUID
    
         # ls /dev/disk/by-uuid/
    
@@ -81,7 +81,7 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 11. Dosyayı düzenlemek için önerilen "/ etc/sysconfig/ağ/dhcp" ve değiştirme `DHCLIENT_SET_HOSTNAME` aşağıdaki parametre:
     
-     DHCLIENT_SET_HOSTNAME = "Hayır"
+     DHCLIENT_SET_HOSTNAME="no"
 12. "/ Etc/sudoers", çıkışı yorum yapmak veya varsa aşağıdaki satırları Kaldır:
     
      Varsayılan olarak targetpw # isteyin yani tüm ALL=(ALL) tüm kök hedef kullanıcının parolasını # uyarı! Yalnızca bu 'Varsayılanları targetpw' ile birlikte kullanın!
@@ -95,7 +95,7 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
     
     # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - deprovision
     # <a name="export-histsize0"></a>HISTSIZE ver = 0
-    # <a name="logout"></a>oturum kapatma
+    # <a name="logout"></a>oturumu kapat
 16. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
 
 - - -
@@ -131,14 +131,14 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
    # <a name="sudo-zypper-install-walinuxagent"></a>sudo zypper yükleme WALinuxAgent
 6. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bunu yapmak için Aç "/ boot/grub/menu.lst" bir metin düzenleyicisinde ve varsayılan çekirdek aşağıdaki parametreleri içerdiğinden emin olun:
    
-     Konsol ttyS0 earlyprintk = ttyS0 rootdelay = 300 =
+     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
    Bu tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen sağlayacak sorunları ayıklama desteği. Ayrıca, varsa aşağıdaki parametreleri çekirdek önyükleme satırından kaldırın:
    
      libata.atapi_enabled=0 ayırma 0x1f0, = 0x8
 7. Dosyayı düzenlemek için önerilen "/ etc/sysconfig/ağ/dhcp" ve değiştirme `DHCLIENT_SET_HOSTNAME` aşağıdaki parametre:
    
-     DHCLIENT_SET_HOSTNAME = "Hayır"
+     DHCLIENT_SET_HOSTNAME="no"
 8. **Önemli:** "/ etc/sudoers", çıkışı açıklama veya varsa aşağıdaki satırları Kaldır:
    
      Varsayılan olarak targetpw # isteyin yani tüm ALL=(ALL) tüm kök hedef kullanıcının parolasını # uyarı! Yalnızca bu 'Varsayılanları targetpw' ile birlikte kullanın!
@@ -152,12 +152,12 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
     
     # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - deprovision
     # <a name="export-histsize0"></a>HISTSIZE ver = 0
-    # <a name="logout"></a>oturum kapatma
+    # <a name="logout"></a>oturumu kapat
 12. Başlangıçta Azure Linux Aracısı'nı çalıştıran emin olun:
     
         # sudo systemctl enable waagent.service
 13. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi yeni sanal makineler oluşturmak için SUSE Linux sanal sabit diski kullanmak hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Şimdi yeni sanal makineler oluşturmak için SUSE Linux sanal sabit diski kullanmak hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

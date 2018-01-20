@@ -11,15 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure olay kılavuz ve Logic Apps ile sanal makine değişikliklerini izleme
 
-Bir Otomatik Başlat [mantığı uygulama iş akışı](../logic-apps/logic-apps-what-are-logic-apps.md) belirli olaylar olduğunda gerçekleşir Azure kaynakları veya üçüncü taraf kaynakları. Bu kaynaklar, bu olaylarla yayımlayabilirsiniz bir [Azure olay kılavuz](../event-grid/overview.md). Sırayla bu olayları olay kılavuz sıralar, Web kancalarını, abonelere iter veya [olay hub'ları](../event-hubs/event-hubs-what-is-event-hubs.md) uç noktalar olarak. Bir abone olarak mantıksal uygulamanızı bu olayları olay grid -, herhangi bir kod yazmadan görevler için otomatik iş akışları çalıştırmadan önce bekleyebilirsiniz.
+Bir Otomatik Başlat [mantığı uygulama iş akışı](../logic-apps/logic-apps-overview.md) belirli olaylar olduğunda gerçekleşir Azure kaynakları veya üçüncü taraf kaynakları. Bu kaynaklar, bu olaylarla yayımlayabilirsiniz bir [Azure olay kılavuz](../event-grid/overview.md). Sırayla bu olayları olay kılavuz sıralar, Web kancalarını, abonelere iter veya [olay hub'ları](../event-hubs/event-hubs-what-is-event-hubs.md) uç noktalar olarak. Bir abone olarak mantıksal uygulamanızı bu olayları olay grid -, herhangi bir kod yazmadan görevler için otomatik iş akışları çalıştırmadan önce bekleyebilirsiniz.
 
 Örneğin, yayımcılar Azure olay kılavuz hizmeti aracılığıyla abonelere gönderebilirsiniz bazı olaylar şunlardır:
 
@@ -39,7 +39,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Özellikle sanal makine değişiklikleri denetleyen bir koşul ekleyin.
 > * Sanal makineniz değiştiğinde e-posta gönderin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir e-posta hesabından [Azure mantıksal uygulamaları tarafından desteklenen herhangi bir e-posta sağlayıcısına](../connectors/apis-list.md)Office 365 Outlook, Outlook.com veya bildirim göndermek için Gmail gibi. Bu öğreticide Office 365 Outlook kullanılmaktadır.
 
@@ -62,9 +62,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    | Ayar | Önerilen değer | Açıklama | 
    | ------- | --------------- | ----------- | 
    | **Ad** | *{mantığı-uygulamanızın-adı}* | Mantıksal uygulama için benzersiz bir ad girin. | 
-   | **Abonelik** | *{your-Azure-} aboneliği* | Bu öğreticide tüm hizmetler için aynı Azure aboneliğini seçin. | 
+   | **Abonelik** | *{your-Azure-subscription}* | Bu öğreticide tüm hizmetler için aynı Azure aboneliğini seçin. | 
    | **Kaynak grubu** | *{your-Azure-resource-group}* | Bu öğreticide tüm hizmetler için aynı Azure kaynak grubu seçin. | 
-   | **Konum** | *{your-Azure-bölgesindeki zaman}* | Tüm hizmetler için aynı bölgede Bu öğreticide seçin. | 
+   | **Konum** | *{your-Azure-region}* | Tüm hizmetler için aynı bölgede Bu öğreticide seçin. | 
    | | | 
 
 4. Hazır olduğunuzda, seçin **panoya Sabitle**ve seçin **oluşturma**.
@@ -79,7 +79,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
    ![Mantıksal uygulama şablonunu seçin](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   Logic Apps Tasarımcısı'nı şimdi, gösterir [ *Bağlayıcılar* ](../connectors/apis-list.md) ve [ *Tetikleyicileri* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) , mantıksal uygulama ve ayrıca eylemleri başlatmak için kullanabilirsiniz, görevleri gerçekleştirmek için bir tetikleyici sonra ekleyebilirsiniz. Bir tetikleyici bir mantıksal uygulama örneği oluşturur ve logic app akışınızı başlatan bir olaydır. 
+   Logic Apps Tasarımcısı'nı şimdi, gösterir [ *Bağlayıcılar* ](../connectors/apis-list.md) ve [ *Tetikleyicileri* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) , mantıksal uygulama ve ayrıca eylemleri başlatmak için kullanabilirsiniz, görevleri gerçekleştirmek için bir tetikleyici sonra ekleyebilirsiniz. Bir tetikleyici bir mantıksal uygulama örneği oluşturur ve logic app akışınızı başlatan bir olaydır. 
    Mantıksal uygulamanızı bir tetikleyici ilk öğe gerekir.
 
 6. Arama kutusuna "olay kılavuz", filtre olarak girin. Bu tetikleyici seçin: **Azure olay Kılavuzu - kaynak olayı**
@@ -99,9 +99,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
    | Ayar | Önerilen değer | Açıklama | 
    | ------- | --------------- | ----------- | 
-   | **Abonelik** | *{sanal makine-Azure-abonelik}* | Olay publisher'ın Azure aboneliğini seçin. Bu öğretici için sanal makine için Azure aboneliğini seçin. | 
+   | **Abonelik** | *{virtual-machine-Azure-subscription}* | Olay publisher'ın Azure aboneliğini seçin. Bu öğretici için sanal makine için Azure aboneliğini seçin. | 
    | **Kaynak Türü** | Microsoft.Resources.resourceGroups | Olay publisher'ın kaynak türü seçin. Yalnızca kaynak grupları mantıksal uygulamanızı izler şekilde Bu öğretici için belirtilen değer seçin. | 
-   | **Kaynak adı** | *{sanal-makine-resource-grup-adı}* | Publisher'ın kaynak adı seçin. Bu öğretici için sanal makine için kaynak grubu adını seçin. | 
+   | **Kaynak adı** | *{virtual-machine-resource-group-name}* | Publisher'ın kaynak adı seçin. Bu öğretici için sanal makine için kaynak grubu adını seçin. | 
    | İsteğe bağlı ayarlarını seçin **Gelişmiş Seçenekleri Göster**. | *{açıklamalarına bakın}* | * **Filtre önek**: Bu öğretici için bu ayarı boş bırakın. Varsayılan davranış tüm değerleri eşleşir. Bununla birlikte, örneğin, bir yol ve belirli bir kaynak için bir parametre bir filtre olarak önek dizesi belirtebilirsiniz. <p>* **Sonek filtre**: Bu öğretici için bu ayarı boş bırakın. Varsayılan davranış tüm değerleri eşleşir. Ancak, yalnızca belirli dosya türlerini istediğinizde bir filtre, örneğin, bir dosya adı uzantısı, sonek dizesi belirtebilirsiniz.<p>* **Abonelik adı**: olay aboneliğiniz için benzersiz bir ad sağlayın. |
    | | | 
 
@@ -154,7 +154,7 @@ Bu ifade girin:
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>Sanal makineniz değiştiğinde e-posta Gönder
 
-Şimdi ekleyin bir [ *eylem* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) böylece belirtilen koşulun doğru olması durumunda, bir e-posta alırsınız.
+Şimdi ekleyin bir [ *eylem* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) böylece belirtilen koşulun doğru olması durumunda, bir e-posta alırsınız.
 
 1. Koşulunun içinde **true ise** kutusunda, seçin **Eylem Ekle**.
 
@@ -182,7 +182,7 @@ Bu ifade girin:
 
    | Ayar | Önerilen değer | Açıklama | 
    | ------- | --------------- | ----------- | 
-   | **Alıcı** | *{Alıcı e-posta adresi}* |Alıcının e-posta adresi girin. Test için kendi e-posta adresinizi kullanabilirsiniz. | 
+   | **Alıcı** | *{recipient-email-address}* |Alıcının e-posta adresi girin. Test için kendi e-posta adresinizi kullanabilirsiniz. | 
    | **Konu** | Güncelleştirilmiş kaynak: **konu**| E-posta konusunun içeriğini girin. Bu öğretici için önerilen metin girin ve olayın **konu** alan. Burada, e-posta konusu güncelleştirilmiş bir kaynak (sanal makine) adını içerir. | 
    | **Gövde** | Kaynak grubu: **konu** <p>Olay türü: **olay türü**<p>Olay Kimliği: **kimliği**<p>Süre: **olay süresi** | E-posta gövdesinin içeriğini girin. Bu öğretici için önerilen metin girin ve olayın **konu**, **olay türü**, **kimliği**, ve **olay süresi** alanları için e-posta, kaynak grubu adı, olay türü, olay zaman damgası ve güncelleştirmesi olay Kimliğini içerir. <p>Boş satırlar, içeriği eklemek için SHIFT + Enter tuşuna basın. | 
    | | | 

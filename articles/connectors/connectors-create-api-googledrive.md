@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05d6efa3f48c9b0b8c21badd96a0e13a63542b30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Google sürücü Bağlayıcısı ile çalışmaya başlama
 Dosyaları, get satırları ve daha fazlasını oluşturmak için Google sürücüye bağlanın. Google sürücüyle şunları yapabilirsiniz: 
@@ -28,7 +28,7 @@ Dosyaları, get satırları ve daha fazlasını oluşturmak için Google sürüc
 * İş akışınız aramanıza alma verileri temel alan oluşturun. 
 * Eylemler görüntüleri arama, Haberler ve daha fazla bilgi aramak için kullanın. Bu eylemler bir yanıt ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, bir video arayın ve akış bir Twitter video göndermek için Twitter kullanın.
 
-Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-the-connection-to-google-drive"></a>Google sürücü bağlantısı oluşturma
 Bu bağlayıcı mantıksal uygulamalarınızı eklediğinizde, Google sürücüsüne bağlanacak şekilde mantıksal uygulamalar yetkilendirmeniz gerekir.

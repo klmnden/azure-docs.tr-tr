@@ -9,7 +9,7 @@ Bu bölümde yüklemek ve Openıd Connect kullanarak bir ASP.NET projede OWIN ar
 > ### <a name="create-your-aspnet-project"></a>ASP.NET projesi oluşturma
 
 > 1. Visual Studio'da:`File` > `New` > `Project`<br/>
-> 2. Altında *Visual C# \Web*seçin `ASP.NET Web Application (.NET Framework)`.
+> 2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
 > 3. Uygulamanızı adlandırın ve tıklayın *Tamam*
 > 4. Seçin `Empty` eklemek için onay kutusunu seçip `MVC` başvuruları
 <!--end-collapse-->
