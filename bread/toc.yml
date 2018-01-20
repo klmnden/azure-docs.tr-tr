@@ -239,6 +239,9 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: IoT Hub’ı
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -248,7 +251,7 @@
     - name: Anahtar Kasası
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Yük Dengeleyici
+    - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics
