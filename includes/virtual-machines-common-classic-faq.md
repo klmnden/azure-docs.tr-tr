@@ -33,8 +33,7 @@ Her veri diskinin kapasitesi 1 TB'a kadar olabilir. Kullanabileceğiniz veri dis
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Hangi sanal sabit disk türlerini kullanabilirim?
 Azure yalnızca değişmeyen, VHD biçimli sanal sabit diskleri destekler. Azure’da kullanmak istediğiniz bir VHDX varsa, önce Hyper-V Manager’ı ya da [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet’ini kullanarak bunu dönüştürmeniz gerekir. Bu işlemi yaptıktan sonra, VHD’yi sanal makinelerle kullanabilmek için [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet’ini (Hizmet Yönetimi modunda) kullanarak Azure’daki bir depolama hesabına yükleyin.
 
-* Linux yönergeleri için bkz. [Linux İşletim Sistemi İçeren Bir Sanal Sabit Disk Oluşturma ve Karşıya Yükleme](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* Windows yönergeleri için bkz. [Windows Server VHD’si oluşturup Azure’a yükleme](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Linux yönergeleri için bkz. [Linux İşletim Sistemi İçeren Bir Sanal Sabit Disk Oluşturma ve Karşıya Yükleme](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Bu sanal makineler Hyper-V sanal makineleri ile aynı mıdır?
 Birçok yönden “1. Nesil” Hyper-V VM’lerine benzer, ancak tam olarak aynı değildir. Her iki tür de sanallaştırılmış donanım sağlar ve VHD biçimli sanal sabit diskler uyumludur. Bu, Hyper-V ile Azure arasında geçiş yapabileceğiniz anlamına gelir. Bazen Hyper-V kullanıcılarını şaşırtan üç temel fark şunlardır:

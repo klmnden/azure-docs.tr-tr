@@ -1,5 +1,5 @@
 ## <a name="create-a-ruby-application"></a>Ruby uygulaması oluşturma
-Yönergeler için bkz: [Azure üzerinde bir Ruby uygulaması oluşturmak](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Yönergeler için bkz: [Azure üzerinde bir Ruby uygulaması oluşturmak](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Uygulamanızı kullanım hizmet veri yolu için yapılandırma
 Service Bus hizmetini kullanmak için karşıdan yükle ve storage REST Hizmetleri ile iletişim kuran bir dizi kolaylık içeren Azure Ruby paketini kullanın.
