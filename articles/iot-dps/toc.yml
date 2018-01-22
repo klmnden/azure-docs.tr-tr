@@ -52,9 +52,15 @@
     - name: 2 - Cihaz ayarlama
       href: tutorial-set-up-device.md
     - name: 3 - Bir IoT hub’ına cihaz sağlama
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4 - Birden çok hub’a cihaz sağlama
       href: tutorial-provision-multiple-hubs.md
+    - name: 5 - Grup kayıtları sağlama
+      href: tutorial-group-enrollments.md
 - name: Kavramlar
   items:
     - name: Cihaz kavramları
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Cihaz erişimini iptal etme
       href: how-to-revoke-device-access-portal.md
+    - name: Cihaz sağlamasını kaldırma
+      href: how-to-unprovision-devices.md
     - name: SDK ile HSM kullanma
       href: use-hsm-with-sdk.md
     - name: Sağlama Hizmeti’ne erişimi denetleme

@@ -25,7 +25,7 @@
       href: automation-tutorial-installed-software.md
     - name: VM üzerindeki değişikliklerle ilgili sorunları giderme
       href: automation-tutorial-troubleshoot-changes.md
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Kimlik doğrulama ve güvenlik
       items:
@@ -131,10 +131,10 @@
       items:
         - name: Runbook galerisi
           href: automation-runbook-gallery.md
+        - name: Azure uyarılarından runbook başlatma
+          href: automation-create-alert-triggered-runbook.md
         - name: Amazon Web Hizmetleri Sanal Makinesi oluşturma
           href: automation-scenario-aws-deployment.md
-        - name: Azure VM uyarısını düzeltme
-          href: automation-azure-vm-alert-integration.md
         - name: JSON etiketleriyle VM başlatma/durdurma
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Kaynak grubunu kaldırma

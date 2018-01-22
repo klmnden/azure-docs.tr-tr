@@ -43,6 +43,11 @@
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Phoenix Sorgu Sunucusu REST SDK'sını kullanma
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: Büyük verileri çözümleme
+      items:
+        - name: HBase verilerini okuyup yazmak için Spark kullanma
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: Kümeleri genişletme
       items:
         - name: Bootstrap ile kümeleri özelleştirme

@@ -44,6 +44,8 @@
         - name: VSCode için Araçlar
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Visual Studio için R Araçları’ndan iş gönderme
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Kümeleri genişletme
       items:
         - name: Bootstrap ile kümeleri özelleştirme
