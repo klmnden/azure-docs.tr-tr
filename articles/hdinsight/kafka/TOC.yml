@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Geliştirme
       items:
+        - name: Kafka Üretici ve Tüketici API’sini kullanma
+          href: apache-kafka-producer-consumer-api.md
+        - name: Kafka Streams API’sini kullanma
+          href: apache-kafka-streams-api.md
         - name: Boş kenar düğümlerini kullanma
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

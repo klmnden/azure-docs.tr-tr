@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/13/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure veri Kataloğu'ndaki Yenilikler
 Güncelleştirmeleri **Azure veri Kataloğu** düzenli olarak kullanıma sunulur. Bazı sürümler arka uç hizmeti özellikleri üzerine odaklanan gibi her sürüm yeni kullanıcı yönelik özellikler içerir. Bu sayfa Azure veri Kataloğu hizmetine eklenen yeni kullanıcı dönük özelliklerini vurgular.
@@ -169,9 +169,9 @@ Ocak 2016 itibariyle, aşağıdaki özellikleri, Azure veri Kataloğu'na eklenmi
   * OData - işlevi, varlık kümesi veya varlık kapsayıcısı
   * HTTP - dosya, uç nokta, rapor ve Site
   * Dosya sistemi - dosya
-  * SharePoint - liste
+  * SharePoint - List
   * FTP - dosya ve dizin
-  * Salesforce.com - nesnesi
+  * Salesforce.com - Object
   * DB2 - tablo, Görünüm ve veritabanı
   * PostgreSQL - tablo, Görünüm ve veritabanı
 * SQL Server'ın (Azure SQL DB ve Azure SQL Data Warehouse dahil) veri kaynakları için "Aç içinde SQL Server veri Araçları" için destek.  
@@ -208,7 +208,7 @@ Kasım 2015'ten itibaren Azure veri kataloğu için aşağıdaki özellikleri ek
 * Tanımlama ve el ile kayıtlı veri varlıklarını sütun düzeyi şemalarda düzenlemek için destek. El ile Azure veri Kataloğu Portalı'nı kullanarak bir veri varlığına oluşturduktan sonra kullanıcılar veri varlık özelliklerinde sütun tanımları ekleyebilirsiniz.
 * Belirli meta verilerine sahip kayıtlı veri varlıklarını bulunmasını etkinleştirmek için Azure veri kataloğu arama yaparken "sahip" sorgular için destek. Azure veri Kataloğu sorgu sözdizimi artık içerir:
 
-| Sorgu sözdizimi | Amaç |
+| Sorgu söz dizimi | Amaç |
 | --- | --- |
 | `has:previews` |Önizleme ekleme veri varlıklarını bulur |
 | `has:documentation` |Veri varlıklarını belgelerine sağlanan bulur |

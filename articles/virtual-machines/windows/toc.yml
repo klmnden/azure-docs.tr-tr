@@ -286,6 +286,8 @@
           href: convert-disk-storage.md
         - name: Azure Site Recovery ile Premium depolamaya geçiş
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Kullanıma açılmamış diskleri bulma
+          href: find-unattached-disks.md
         - name: Dosya depolamayı kullanma
           href: mount-azure-file-storage.md
         - name: Şablon ile diskleri dağıtma

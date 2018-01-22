@@ -115,6 +115,9 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
     - name: Büyük verileri çözümleme
       items:
+        - name: HBase verilerini okuyup yazmak için Spark kullanma
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Application Insights telemetri günlüklerini çözümleme
           href: apache-spark-analyze-application-insight-logs.md
     - name: Kümeleri genişletme
@@ -178,6 +181,8 @@
           maintainContext: true
     - name: Yönetme
       items:
+        - name: Spark işlerini en iyi duruma getirme
+          href: apache-spark-perf.md
         - name: Küme kapasitesi planlama
           href: ../hdinsight-capacity-planning.md
           maintainContext: true
