@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB giriş: API MongoDB için
 
@@ -33,13 +33,13 @@ Azure Cosmos DB veritabanları için yazılmış uygulamalar için veri deposu o
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>MongoDB uygulamaları için Azure Cosmos DB kullanmanın avantajı nedir?
 
-**Esnek bir şekilde ölçeklenebilir işleme ve Depolama:** uygulamalarınızı gerekiyor kolayca ölçeklendirme tarafından yukarı veya aşağı MongoDB veritabanınızın karşılayan. Verileriniz düşük tahmin edilebilir gecikme süreleri için katı hal diskleri (SSD) depolanır. Azure Cosmos DB neredeyse sınırsız depolama boyutlarına ve sağlanan işlemeye ölçeklenebilir MongoDB koleksiyonları destekler. Uygulamanız büyüdükçe, Azure Cosmos DB'yi tahmin edilebilir performansla sorunsuz ve esnek bir şekilde ölçeklendirebilirsiniz. 
+**Esnek bir şekilde ölçeklenebilir işleme ve Depolama:** uygulamalarınızı gerekiyor kolayca ölçeklendirme tarafından yukarı veya aşağı MongoDB veritabanınızın karşılayan. Verileriniz düşük tahmin edilebilirliğe sahip gecikme süreleri sağlamak için katı hal disklerinde (SSD) depolanır. Azure Cosmos DB neredeyse sınırsız depolama boyutlarına ve sağlanan işlemeye ölçeklenebilir MongoDB koleksiyonları destekler. Uygulamanız büyüdükçe, Azure Cosmos DB'yi tahmin edilebilir performansla sorunsuz ve esnek bir şekilde ölçeklendirebilirsiniz. 
 
 **Bölgeli çoğaltma:** Azure Cosmos DB saydam çoğaltır, verilerinizi tüm bölgelere ilgili MongoDB hesabınızla arasında bileşim sağlarken verilere genel erişim gerektiren uygulamalar geliştirmek etkinleştirme tutarlılık, kullanılabilirlik ve performans, tüm ilgili garanti ile. Azure Cosmos DB çok girişli API’ler ile şeffaf bölgesel yük devretme olanağının yanı sıra aktarım hızını ve depolamayı dünya çapında elastik bir şekilde ölçeklendirme imkanı sağlar. Daha fazla bilgi edinin [verilerini genel dağıtmak](distribute-data-globally.md).
 
 **Hiçbir Sunucu Yönetimi**: yönetmek ve MongoDB veritabanlarınızı ölçeklendirme gerekmez. Azure Cosmos DB herhangi bir altyapı ya da sanal makineleri kendiniz yönetmek zorunda değilsiniz demektir tam olarak yönetilen bir hizmettir. Azure Cosmos DB kullanılabilir 30 + [Azure bölgeleri](https://azure.microsoft.com/regions/services/).
 
-**İnce ayarlanabilir tutarlılık düzeyleri:** tutarlılık ve performans arasında en iyi dengeyi elde etmek için beş iyi tanımlanmış tutarlılık düzeylerini seçin. Azure Cosmos DB sorgular ve okuma işlemleri için beş farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri tutarlılık, kullanılabilirlik ve gecikme süresi arasında sağlam bir denge kurmanıza olanak sağlar. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).
+**İnce ayarlanabilir tutarlılık düzeyleri:** Tutarlılık ve performans arasında en iyi dengeyi elde etmek için iyi tanımlanmış beş tutarlılık düzeyi arasından seçim yapın. Azure Cosmos DB sorgular ve okuma işlemleri için beş farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri tutarlılık, kullanılabilirlik ve gecikme süresi arasında sağlam bir denge kurmanıza olanak sağlar. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).
 
 **Otomatik dizin oluşturma**: varsayılan olarak, Azure Cosmos DB otomatik olarak tüm özellikleri, MongoDB belgelerde içinde veritabanı ve beklediğiniz veya herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını gerektirir dizinler. Ayrıca, bir Benzersizlik kısıtlamasını zaten Azure Cosmos DB'de otomatik dizinli tüm belge alanlarını üzerinde benzersiz dizin yeteneği sağlar.
 
@@ -63,7 +63,7 @@ Bir Azure Cosmos DB hesabı oluşturmanız ve varolan MongoDB uygulamanızı Azu
 Azure Cosmos veritabanı MongoDB API'si hakkında bilgi Azure Cosmos DB belgeler genel tümleştirilmiştir, ancak başlamanıza yardımcı olmak için birkaç işaretçi şunlardır:
 
 * İzleyin [MongoDB hesabına Bağlan](connect-mongodb-account.md) hesabı bağlantı dizesi bilgilerinizi alma hakkında bilgi için öğretici.
-* İzleyin [Azure Cosmos DB ile kullanım MongoChef](mongodb-mongochef.md) öğretici Azure Cosmos DB veritabanı MongoDB uygulama arasında bir bağlantı MongoChef oluşturmayı öğrenin.
+* İzleyin [Studio'yu kullanın 3T (MongoChef) Azure Cosmos DB ile](mongodb-mongochef.md) öğretici 3 T. Studio'da Azure Cosmos DB veritabanı MongoDB uygulama arasında bir bağlantı oluşturma hakkında bilgi edinin
 * İzleyin [protokolü ile Azure Cosmos DB'de geçirme verilerini destekleyen MongoDB için](mongodb-migrate.md) verilerinizi bir API MongoDB veritabanı için içeri aktarmak için öğretici.
 * Bir API MongoDB hesabı kullanarak bağlanmak [Robomongo](mongodb-robomongo.md).
 * Kaç tane RUs işletim ile kullandığınız öğrenin [GetLastRequestStatistics komut ve Azure portal ölçümleri](request-units.md#GetLastRequestStatistics).

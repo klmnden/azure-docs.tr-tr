@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Yedeklemesi hizmetiyle ilgili sorular
 Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -68,6 +68,13 @@ Aşağıdakileri yapmak için diskleri geri yükleme seçeneğini kullanın:
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Disklerim yönetilen disklere yükselttiğinizde geri yüklemek için yönetilmeyen disk VM yedeklerini kullanabilir miyim?
 Evet, geçirme disklerden yönetilmeyen-yönetilen önce alınan yedeklemeler kullanabilirsiniz. Varsayılan olarak, yönetilmeyen disklerle VM geri yükleme VM işi oluşturun. Geri yükleme diskleri işlevselliğini diskleri geri yüklemek ve bunları yönetilen disklerde bir VM oluşturmak için kullanabilirsiniz. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Bir VM yönetilmeyenden yönetilen diskleri dönüştürme için bir VM bitti önce gerçekleştirilen bir geri yükleme noktası geri yüklemek için yordam nedir?
+Bu senaryoda, varsayılan olarak, geri yükleme VM işi VM yönetilmeyen disklerle oluşturur. Yönetilen disklerle bir VM oluşturmak için:
+1. [Yönetilmeyen disklere geri yükleme](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Geri yüklenen diskleri yönetilen Diske Dönüştür](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Yönetilen disklerle bir VM oluşturma](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Başvurmak için PowerShell cmdlet'leri, [burada](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## <a name="manage-vm-backups"></a>VM yedeklemelerini yönetme
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Sanal makinelerde yedekleme ilkesini değiştirdiğimde ne olur?

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure yük dengeleyici standart genel bakış (Önizleme)
 
@@ -217,7 +217,7 @@ Giden bağlantılar kullanıldığında bir bölge olarak yedekli ile ön uç, b
 
 Yük Dengeleyici standart yeni algoritması SNAT her VM NIC bağlantı noktalarına preallocates. Bir NIC havuza eklendiğinde, SNAT bağlantı noktaları havuz boyutuna göre önceden ayrılmış. Aşağıdaki tabloda, arka uç havuzu boyutlarda altı katmanları için bağlantı noktası preallocations gösterilmektedir:
 
-| Havuz boyutu (VM örnekleri) | Ön tahsis SNAT bağlantı noktası |
+| Havuz boyutu (VM örnekleri) | Ön tahsis SNAT bağlantı noktalarının sayısı |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
@@ -335,7 +335,7 @@ Yük Dengeleyici standart bu bölgelerde şu anda kullanılabilir değil:
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU hizmet sınırları ve yetenekleri
 
-Azure [ağ iletişimi için hizmet sınırları](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) her Abonelikteki bölge başına uygulayın. 
+Azure [ağ iletişimi için hizmet sınırları](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) her Abonelikteki bölge başına uygulayın. 
 
 Aşağıdaki tabloda sınırları ve yük dengeleyici temel ve standart SKU'ları yeteneklerini karşılaştırılır:
 
@@ -351,7 +351,7 @@ Aşağıdaki tabloda sınırları ve yük dengeleyici temel ve standart SKU'lar�
 |Kullanılabilirlik bölgeleri senaryoları | Yalnızca Zonal | Zonal, bölge olarak yedekli, çapraz bölge Yük Dengeleme |
 | Giden SNAT algoritması | İsteğe bağlı | Önceden ayrılmış |
 | Giden SNAT ön uç seçimi | Yapılandırılamaz, birden çok adayları | Aday azaltmak için isteğe bağlı yapılandırma |
-| Ağ güvenlik grubu | NIC/alt ağdaki isteğe bağlı | Gerekli |
+| Ağ Güvenlik Grubu | NIC/alt ağdaki isteğe bağlı | Gerekli |
 
 Aşağıdaki tabloda sınırları ve ortak IP temel ve standart SKU'ları yeteneklerini karşılaştırılır:
 
@@ -361,7 +361,7 @@ Aşağıdaki tabloda sınırları ve ortak IP temel ve standart SKU'ları yetene
 | Hızlı IP hareketlilik | Desteklenmiyor | Kullanılabilir |
 | VIP kullanılabilirliği | Desteklenmiyor | Kullanılabilir |
 | Sayaçları | Desteklenmiyor | Kullanılabilir |
-| Ağ güvenlik grubu | NIC üzerinde isteğe bağlı | Gerekli |
+| Ağ Güvenlik Grubu | NIC üzerinde isteğe bağlı | Gerekli |
 
 
 ## <a name="preview-sign-up"></a>Önizleme kaydolma

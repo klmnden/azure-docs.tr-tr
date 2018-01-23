@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: szark
-ms.openlocfilehash: de1465afe3ac301adcd1f1867e6290bd50dfab50
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9769b3968f841334aebdc4a371ecd59e64d5ebc2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
 Bu makalede, Azure kullanmak için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele alınan RHEL sürümleri 6.7 + ve 7.1 +. Bu makalede ele alınan hiper hazırlık için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hat'ın bulut erişimi programına katılmasını için uygunluk gereksinimleri hakkında daha fazla bilgi için bkz: [Red Hat'ın bulut Access Web sitesinin](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -922,6 +922,6 @@ Düzen `/etc/dracut.conf`, aşağıdaki içeriği ekleyin:
 Daha fazla ayrıntı için bilgi [initramfs yeniden](https://access.redhat.com/solutions/1958).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi yeni sanal makineler oluşturmak için Red Hat Enterprise Linux sanal sabit diski kullanmak hazırsınız. Adım 2 ve 3'te Azure'a .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Şimdi yeni sanal makineler oluşturmak için Red Hat Enterprise Linux sanal sabit diski kullanmak hazırsınız. Azure için .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [özel bir diskten bir Linux VM oluşturma](upload-vhd.md#option-1-upload-a-vhd).
 
 Red Hat Enterprise Linux çalıştırmak için sertifikalı hiper hakkında daha fazla ayrıntı için bkz: [Red Hat Web sitesi](https://access.redhat.com/certified-hypervisors).

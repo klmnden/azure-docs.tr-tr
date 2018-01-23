@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7320b632c7bd623f5a0e67ecd105cf5b263969b3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: daa0595fa8c1666cce5c762e0d41559411cae1b6
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Yüksek performans için Azure SSIS tümleştirmesi çalışma zamanı yapılandırma
 
@@ -39,7 +39,7 @@ $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 # In public preview, only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.

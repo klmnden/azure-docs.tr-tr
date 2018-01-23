@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Service Fabric uygulamaları ve mikro hizmetler Azure portal ile değerlendirin
 
@@ -37,7 +37,7 @@ Service Fabric çözüm Azure WAD tablolardan bu veriler toplayarak Service Fabr
 Çözüm ile çalışmaya başlamak için bir günlük analizi çalışma alanı, Service Fabric kümesi bağlanmanız gerekir. Dikkate alınması gereken üç senaryolar verilmiştir:
 
 1. Service Fabric kümesi dağıtmadıysanız içindeki adımları kullanın ***Service Fabric kümesi günlük analizi çalışma alanına bağlı dağıtma*** yeni bir küme dağıtmak ve günlük analizi raporu yapılandırılması için.
-2. Güvenlik gibi diğer OMS çözümleri, Service Fabric kümesi kullanmak için ana performans sayaçları toplamak gerekiyorsa, adımları ***VM uzantısı ile günlük analizi çalışma alanı bağlı bir Service Fabric kümesi dağıtma yüklü.***
+2. Güvenlik gibi diğer yönetim çözümleri, Service Fabric kümesi kullanmak için ana performans sayaçları toplamak gerekiyorsa, adımları ***VM uzantısı ile günlük analizi çalışma alanı bağlı bir Service Fabric kümesi dağıtma yüklü.***
 3. Service Fabric kümesi ve günlük Analizi'ne bağlamak istiyorsanız zaten dağıttıysanız, adımları ***var olan bir depolama hesabı için günlük analizi ekleniyor.***
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Günlük analizi çalışma alanına bağlı bir Service Fabric kümesi dağıtın.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d5cb69d7832b974ec5e5b8b4e9f83b66fc9b98a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Öğretici: Azure Active Directory Tümleştirme Grovo ile
 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcısı, yanıt URL'si, oturum açma URL'si ve geçiş durumu ile güncelleştirin. Kişi [Grovo destek ekibi](https://www.grovo.com/contact-us) bu değerleri almak için.
  
-5. Grovo uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+5. Grovo uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Lütfen eşleyin **kullanıcı tanımlayıcısı** ile **user.mail** ve ekran görüntüsü gösterildiği gibi diğer öznitelikleri yapılandırabilirsiniz.
     
     ![Çoklu oturum açma attb yapılandırın](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     

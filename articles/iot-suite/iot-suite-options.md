@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a23835f341bf02f8e662782984d95bfe194030b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 1a979bde37d247da5c630547924cadbd79c4a6a4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT seçeneklerini karşılaştırma
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 11/29/2017
 
 Bu mimariyi uygulamak için Azure IoT her biri farklı müşteri gereksinimlerine uygun olan birkaç seçenek sunar:
 
-* [Azure IoT Paketi](index.md), özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan Azure Hizmet Olarak Platform ile tümleşik, [önceden yapılandırılmış çözümlerden](iot-suite-what-are-preconfigured-solutions.md) oluşan bir kurumsal düzeyde koleksiyondur.
+* [Azure IoT Paketi](index.md), özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan Azure Hizmet Olarak Platform (PaaS) ile tümleşik, [önceden yapılandırılmış çözümlerden](iot-suite-what-are-preconfigured-solutions.md) oluşan, kurumsal düzeyde bir koleksiyondur.
 
-* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), bulut çözümü geliştirme uzmanlığı gerektiren kurumsal düzeyde IoT çözümleri oluşturmanıza olanak tanıyan model tabanlı bir yaklaşım kullanan SaaS çözümüdür.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), bulut çözümü geliştirme uzmanlığı gerektiren kurumsal düzeyde IoT çözümleri oluşturmanıza olanak tanıyan model tabanlı bir yaklaşım kullanan bir Hizmet Olarak Yazılım (SaaS) çözümüdür.
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub'ı
 
-Azure IoT Hub, hem Microsoft IoT Central hem de Azure IoT Paketi'nin yararlandığı temel Azure Hizmet Olarak Platformudur. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
+Azure IoT Hub, hem Microsoft IoT Central hem de Azure IoT Paketi'nin yararlandığı temel Azure PaaS çözümüdür. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
 
 * Yüksek hacimli cihaz bağlantısı ve yönetimi.
 * Yüksek hacimli telemetri alımı.

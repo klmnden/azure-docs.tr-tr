@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 7231c5d58dfd2d6eddd40e9003b63206f4c7f859
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f1175c76b3648e7bf9f1746c05b5d1d4898e7443
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure Azure VM çoğaltma sorunlarını giderme
 
@@ -109,13 +109,13 @@ VM'ye bağlı yeni bir disk başlatılması gerekir.
 
 **Hata kodu** | **Olası nedenler** | **Öneriler**
 --- | --- | ---
-150039<br></br>**İleti**: mantıksal birim numarası (LUN) (LUNValue) ile Azure veri diski (DiskName) (DiskURI) karşılık gelen bir diske aynı LUN değerine sahip VM içinden rapor edilen eşlenmiş. | -Yeni veri diski VM'ye bağlı, ancak başlatılmış değildi.</br></br>-VM içindeki veri diski diski VM'ye iliştirildiği LUN değeri doğru raporlama değil.| Veri diskleri başlatılır ve işlemi yeniden deneyin emin olun.</br></br>Windows: [Attach ve başlatma yeni bir disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Linux: [Linux yeni bir veri diski başlatma](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
+150039<br></br>**İleti**: mantıksal birim numarası (LUN) (LUNValue) ile Azure veri diski (DiskName) (DiskURI) karşılık gelen bir diske aynı LUN değerine sahip VM içinden rapor edilen eşlenmiş. | -Yeni veri diski VM'ye bağlı, ancak başlatılmış değildi.</br></br>-VM içindeki veri diski diski VM'ye iliştirildiği LUN değeri doğru raporlama değil.| Veri diskleri başlatılır ve işlemi yeniden deneyin emin olun.</br></br>Windows: [Attach ve başlatma yeni bir disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Linux: [Linux yeni bir veri diski başlatma](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Sorunu gidermek
 Veri diskleri başlatılmış olması ve işlemi yeniden deneyin emin olun:
 
-- Windows: [Attach ve başlatma yeni bir disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Linux: [Linux yeni bir veri diski başlatma](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
+- Windows: [Attach ve başlatma yeni bir disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Linux: [Linux içinde yeni bir veri diski Ekle](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Sorun devam ederse, desteğe başvurun.
 

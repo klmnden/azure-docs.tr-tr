@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market bir sanal makine görüntüsü oluşturmak için kılavuz
 Bu makalede **2. adım**, sanal sabit Azure Marketi dağıtacağınız diskleri (VHD) hazırlama size yol gösterir. Vhd'lerinizi, sku'sunun temelidir. İşlem, bir Windows tabanlı veya Linux tabanlı SKU olup sağlanmaktadır bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu ele alınmaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -58,7 +58,7 @@ Bir teklif ekledikten sonra SKU'ları tanımlayabilir ve gerekir. Birden çok te
 3. Windows tabanlı SKU'lar kullanıyorsanız Windows Server'ın onaylanmış sürümlerini edinmek için önerilen bağlantıları izleyin.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. (Linux tabanlı) bir Azure uyumlu VHD oluşturma
-Bu bölümde Azure Market Linux tabanlı VM görüntüsü oluşturmak için en iyi uygulamalar odaklanır. Adım adım kılavuz için aşağıdaki belgelere bakın: [oluşturma ve Linux işletim sistemini içeren bir Sanal Sabit Disk karşıya yükleme](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Bu bölümde Azure Market Linux tabanlı VM görüntüsü oluşturmak için en iyi uygulamalar odaklanır. Adım adım kılavuz için aşağıdaki belgelere bakın: [özel bir Linux VM görüntüsü oluşturma](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. (Windows tabanlı) bir Azure uyumlu VHD oluşturma
 Bu bölüm, Windows Server için Azure Marketi tabanlı bir SKU oluşturmak için aşağıdaki adımları odaklanır.

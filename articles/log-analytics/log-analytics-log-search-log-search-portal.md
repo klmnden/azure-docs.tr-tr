@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Günlük arama Portalı'nı kullanarak Azure günlük analizi günlük aramalar oluşturun
 
@@ -30,18 +30,18 @@ Bu makalede günlük aramalar oluşturun ve günlük arama Portalı'nı kullanar
 
 Günlük arama portalı yerine Advanced Analytics portalında aramaları oluşturmak için bkz [Analytics portalı ile çalışmaya başlama](https://go.microsoft.com/fwlink/?linkid=856587).  Her iki portalları aynı sorgu dili günlük analizi çalışma alanındaki aynı verilere erişmek için kullanın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici, bir günlük analizi çalışma alanı çözümlemek için sorgular için veri üretir en az bir bağlı kaynağıyla zaten sahip olduğunuzu varsayar.  
 
 - Bir çalışma alanı yoksa, en yordamı kullanarak boş bir tane oluşturabilirsiniz [günlük analizi çalışma alanı ile çalışmaya başlama](log-analytics-get-started.md).
 - En az bir bağlanma [Windows Aracısı](log-analytics-windows-agent.md) veya bir [Linux Aracısı](log-analytics-linux-agents.md) çalışma alanı.  
 
 ## <a name="open-the-log-search-portal"></a>Günlük arama portalını açın
-Günlük arama Portalı'nı açarak başlayın.  Azure portal veya OMS portalı erişebilir.
+Günlük arama Portalı'nı açarak başlayın. 
 
-1. Azure Portalı'nı açın.
+1. Azure portalı açın.
 2. Günlük analizi gidin ve çalışma alanınızı seçin.
-3. Her iki select **günlük arama** Azure portalında kalın veya seçerek OMS Portalı'nı başlatmak için **OMS portalı** ve günlük arama düğmesini tıklatarak.
+3. Seçin **oturum arama**.
 
 ![Günlük Ara düğmesi](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 

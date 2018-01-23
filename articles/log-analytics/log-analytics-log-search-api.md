@@ -1,6 +1,6 @@
 ---
-title: "Günlük analizi oturum arama REST API | Microsoft Docs"
-description: "Bu kılavuz, nasıl komutlarının nasıl kullanılacağını gösteren örnekler sağlar ve Operations Management Suite (OMS) günlük analizi arama REST API'sini kullanabilirsiniz tanımlayan temel bir öğretici sağlar."
+title: "Azure günlük analizi oturum arama REST API | Microsoft Docs"
+description: "Bu kılavuz, Azure günlük analizi arama REST API komutlarının nasıl kullanılacağını gösteren örnek ile nasıl kullanabileceğiniz tanımlayan temel bir öğretici sağlar."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Günlük analizi günlük arama REST API'si
 
 > [!IMPORTANT]
 > Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), için başvurmalıdır sonra [günlük arama API yeni sürümü için belge](https://dev.loganalytics.io/).  Bu eski API yine de yükseltilmiş bir çalışma alanı ile çalışabilir, ancak depracated yakında sunulacaktır.  Yeni API kullanmak için varolan çözümleri değiştirmeniz gerekir.
 
-Bu kılavuz, günlük analizi Search REST API'sini nasıl kullanabileceğinize dair örnekler dahil olmak üzere temel bir öğretici sağlar. Günlük analizi Operations Management Suite (OMS) bir parçasıdır.
+Bu kılavuz, günlük analizi Search REST API'sini nasıl kullanabileceğinize dair örnekler dahil olmak üzere temel bir öğretici sağlar. 
 
 
 ## <a name="overview-of-the-log-search-rest-api"></a>REST API günlük arama genel bakış
-Günlük analizi arama REST API RESTful ve Azure Resource Manager API üzerinden erişilebilir. Bu makalede, API aracılığıyla erişme örnekler [ARMClient](https://github.com/projectkudu/ARMClient), Azure Kaynak Yöneticisi API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. ARMClient kullanımını günlük analizi arama API erişmek için birçok seçenek biridir. Başka bir seçenek arama erişmek için cmdlet'leri içerir OperationalInsights için Azure PowerShell modülü kullanmaktır. Bu araçların, OMS çalışma alanları çağrı yapmak ve bunların içindeki arama komutları gerçekleştirmek için Azure Kaynak Yöneticisi API'si kullanabilir. API, arama sonuçlarını birçok farklı yolla programlı olarak kullanmanıza olanak sağlayan arama sonuçları JSON biçiminde çıkarır.
+Günlük analizi arama REST API RESTful ve Azure Resource Manager API üzerinden erişilebilir. Bu makalede, API aracılığıyla erişme örnekler [ARMClient](https://github.com/projectkudu/ARMClient), Azure Kaynak Yöneticisi API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. ARMClient kullanımını günlük analizi arama API erişmek için birçok seçenek biridir. Başka bir seçenek arama erişmek için cmdlet'leri içerir OperationalInsights için Azure PowerShell modülü kullanmaktır. Bu araçları ile günlük analizi çalışma alanları çağrı yapmak ve bunların içindeki arama komutları gerçekleştirmek için Azure Kaynak Yöneticisi API'si kullanabilir. API, arama sonuçlarını birçok farklı yolla programlı olarak kullanmanıza olanak sağlayan arama sonuçları JSON biçiminde çıkarır.
 
 Azure Resource Manager aracılığıyla kullanılabilir bir [.NET kitaplığı](https://msdn.microsoft.com/library/azure/dn910477.aspx) ve [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). Daha fazla bilgi için bağlantılı web sayfalarını gözden geçirin.
 

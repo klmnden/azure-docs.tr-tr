@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Bekleyen Azure Cosmos DB veritabanı şifreleme
 
@@ -26,7 +26,7 @@ Bekleyen şifreleme katı hal sürücüleri (SSD) gibi yaygın olarak kalıcı d
 
 Bir PaaS Cosmos DB kullanımı çok kolay hizmettir gibi. Cosmos DB içinde depolanan tüm kullanıcı verileri hem beklerken hem de Aktarım şifreli olduğundan, herhangi bir eylemde bulunmanız gerekmez. Bu koymak için bir başka yolu olan bekleyen şifreleme olan varsayılan olarak "açık". Kapatma veya açma için denetim yoktur. Karşılamaya devam ederken bu özellik sağladığımız bizim [kullanılabilirliğini ve performansını SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implement-encryption-at-rest"></a>Bekleyen şifreleme uygulama
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Azure Cosmos DB için bekleyen şifreleme uygulaması
 
 Bekleyen şifreleme, güvenli anahtar depolama sistemleri, şifrelenmiş ağlar ve şifreleme API'leri dahil güvenlik teknolojileri çeşitli kullanılarak uygulanır. Anahtarları Yönet sistemleriyle iletişim kurmak, verileri işlemek ve şifresini çözmek sistemleri sahiptir. Diyagram nasıl şifrelenmiş verilerin depolanması ve anahtar yönetimi ayrılmış gösterir. 
 

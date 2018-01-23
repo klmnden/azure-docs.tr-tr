@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Sık erişimli, seyrek erişimli ve arşiv depolama katmanları
 
@@ -189,7 +189,7 @@ Diğer sınırlarla birlikte veri depolama da depolama katmanına göre değil h
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>GPv2 Blob Depolama hesaplarında sık, seyrek ve arşiv seçeneklerini değerlendirme
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>GPv2 Blob Depolama hesaplarında sık erişimli, seyrek erişimli ve arşiv seçeneklerini değerlendirme
 
 [Bölgeye göre sık, seyrek ve arşiv kullanılabilirliğini denetleme](https://azure.microsoft.com/regions/#services)
 

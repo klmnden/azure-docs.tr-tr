@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme
 
@@ -29,7 +29,7 @@ Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini analiz et
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux Azure Hdınsight sürüm 3.4 veya üstü kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Hdınsight kümesi**. Bkz: [Hdınsight'ta Hadoop kullanmaya başlamanıza](hadoop/apache-hadoop-linux-tutorial-get-started.md) yeni bir Linux tabanlı Hdınsight kümesi oluşturma adımları için.
 
@@ -47,7 +47,7 @@ Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini analiz et
    | --- | --- |
    | Filtre yıl |2013 |
    | Dönem filtre |Ocak |
-   | Alanları |Yıl, FlightDate, UniqueCarrier, taşıyıcı, FlightNum, OriginAirportID, kaynak, OriginCityName, OriginState, DestAirportID, hedef, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Alanlar |Yıl, FlightDate, UniqueCarrier, taşıyıcı, FlightNum, OriginAirportID, kaynak, OriginCityName, OriginState, DestAirportID, hedef, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Diğer tüm alanlar temizleyin. 
 
 3. Seçin **karşıdan**.
@@ -200,9 +200,7 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 > SQL veritabanına bağlanmak ve bir tablo oluşturmak için birçok yolu vardır. Aşağıdaki adımları kullanın [ücretsiz](http://www.freetds.org/) Hdınsight kümesine ait.
 
 
-1. SSH oturumunda aşağıdaki adımları ve Linux tabanlı Hdınsight kümesine bağlanmak için SSH kullanın.
-
-2. Ücretsiz yüklemek için aşağıdaki komutu kullanın:
+1. Ücretsiz yüklemek için bir SSH bağlantısı küme aşağıdaki komutu kullanın:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Bir SQL veritabanı zaten sahip değilseniz, bilgileri kullanmak [Azure portalı
 3. Yükleme tamamlandıktan sonra SQL veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın. Değiştir **serverName** SQL veritabanı sunucu adı. Değiştir **adminLogin** ve **Admınpassword** SQL veritabanı için oturum açma ile. Değiştir **databaseName** veritabanı adında.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    İstendiğinde, SQL veritabanı yönetici oturum açma için parola girin.
 
     Aşağıdakine benzer bir çıktı alırsınız:
 

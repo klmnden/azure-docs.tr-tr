@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d0f53751bf529d52c156a8b9319b10560eb8997
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları parametreleri bölümü
 Şablon parametreleri bölümünde kaynakları dağıtırken giriş hangi değerlerini belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uyarlanabilir değerleri sağlayarak dağıtım özelleştirmenize olanak sağlar. Şablonunuzdaki parametreleri sağlamak zorunda değildir, ancak parametre olmadan şablonunuzu her zaman aynı kaynakları adları, konumları ve özellikleri ile dağıtmak için kullanacağınız.
@@ -131,6 +131,7 @@ Bunları bir nesne olarak geçirerek ilgili değerleri düzenlemek daha kolay ol
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -160,7 +161,7 @@ Ardından, alt parametresinin nokta işlecini kullanarak başvuru.
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -237,7 +238,7 @@ Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
 
-* Mümkün olduğunda, bir parametre konumunu belirtmek için kullanmayın. Bunun yerine, kullanın **konumu** kaynak grubunun özelliği. Kullanarak **resourceGroup () .location** ifade tüm kaynaklarınızı şablondaki kaynaklarda için kaynak grubu ile aynı konumda dağıtılır:
+* Bir parametre konumu belirtmek için kullanın ve aynı konumda büyük olasılıkla kaynaklarla mümkün olduğunca Bu parametre değeri paylaşın. Bu yaklaşım kullanıcılar Konum bilgileri vermeniz istenir sayısını en aza indirir. Bir kaynak türü konumları, yalnızca sınırlı sayıda destekleniyorsa, doğrudan şablonu geçerli bir konum belirtin ya da başka bir konum parametresi eklemek isteyebilirsiniz. İzin verilen bölgelerde, kullanıcılar için kuruluş sınırları **resourceGroup () .location** ifadesi, bir kullanıcı şablonu dağıtmak becerisinden engelleyebilir. Örneğin, bir kullanıcı bir bölgede bir kaynak grubu oluşturur. İkinci bir kullanıcı bu kaynak grubuna dağıtmanız gerekir ancak bölgesine erişimi yok. 
    
    ```json
    "resources": [
@@ -245,13 +246,12 @@ Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   Bir kaynak türü konumları, yalnızca sınırlı sayıda destekleniyorsa, doğrudan şablonunda geçerli bir konum belirtmek isteyebilirsiniz. Kullanmanız gerekiyorsa bir **konumu** parametresi mümkün olduğunca Bu parametre değeri aynı konumda büyük olasılıkla kaynakları paylaşabilirsiniz. Bu yaklaşım kullanıcılar Konum bilgileri vermeniz istenir sayısını en aza indirir.
+    
 * Bir kaynak türü için API sürümü için bir parametre veya değişken kullanmaktan kaçının. Kaynak özellikleri ve değerlerini sürüm numarasına göre farklılık gösterebilir. IntelliSense kod düzenleyicisinde API sürümü bir parametre veya değişken ayarlandığında, doğru şemayı belirleyemiyor. Bunun yerine, şablonda kod sabit API sürümü.
 * Şablonunuzdaki dağıtım komutu parametresinde eşleşen bir parametre adı belirtmekten kaçının. Resource Manager sonek ekleyerek bu çakışması çözümler **FromTemplate** şablon parametresi için. Örneğin, adlı bir parametre dahil ederseniz **ResourceGroupName** ile çakıştığı şablonunuzda, **ResourceGroupName** parametresinde [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet'i. Dağıtım sırasında için bir değer sağlamanız istenir **ResourceGroupNameFromTemplate**.
 
@@ -262,7 +262,7 @@ Bu örnek şablonları parametrelerini kullanmak için bazı senaryolar gösteri
 |Şablon  |Açıklama  |
 |---------|---------|
 |[varsayılan değerleri için işlevlerle parametreleri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Şablon işlevleri parametrelerinin varsayılan değerleri tanımlarken kullanımı gösterilmiştir. Şablonu herhangi bir kaynağa dağıtmaz. Parametre değerleri oluşturur ve bu değerleri döndürür. |
-|[Parametre nesnesi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Bir nesne için bir parametre kullanmayı gösterir. Şablonu herhangi bir kaynağa dağıtmaz. Parametre değerleri oluşturur ve bu değerleri döndürür. |
+|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Bir nesne için bir parametre kullanmayı gösterir. Şablonu herhangi bir kaynağa dağıtmaz. Parametre değerleri oluşturur ve bu değerleri döndürür. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

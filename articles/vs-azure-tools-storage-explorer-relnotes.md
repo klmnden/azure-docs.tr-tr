@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage Gezgini (Önizleme) sürüm notları
 
-Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler için sürüm notları yanı sıra sürüm notları sürüm içerir.
+Bu makalede Azure Storage Gezgini 0.9.4 için (Önizleme), önceki sürümler için sürüm notları yanı sıra sürüm notları sürüm içerir.
 
 [Microsoft Azure Storage Gezgini (Önizleme)](./vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
 
-## <a name="version-093"></a>Sürüm 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>Sürüm 0.9.4 / 0.9.3
+01/21/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.3 indirin
-- [Windows için Azure Storage Gezgini 0.9.3 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac için Azure Storage Gezgini 0.9.3 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux için Azure Storage Gezgini 0.9.3 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.4 indirin
+- [Windows için Azure Storage Gezgini 0.9.4 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac için Azure Storage Gezgini 0.9.4 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux için Azure Storage Gezgini 0.9.4 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Yeni
 * Var olan Depolama Gezgini penceresi ne zaman yeniden kullanılan olacaktır:
@@ -44,10 +44,11 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
     * Mac için uygulama menüsü altındaki 'Yeni pencere' seçeneği yoktur.
 
 ### <a name="fixes"></a>Düzeltmeler
+* Bir güvenlik sorunu sabit. Lütfen, erken kolaylık adresindeki 0.9.4 yükseltin.
 * Eski etkinlikleri uygun şekilde temizlendi değil. Bu, uzun çalışan işleri performansını etkilenen. Bunlar artık doğru temizlenmesini.
 * Çok sayıda dosya ve dizinleri dahil eylemleri bazen dondurmak Depolama Gezgini neden olur. Azure dosya paylaşımları için isteklere sistem kaynak tüketimini sınırlamak için trottled sunulmuştur.
 
-### <a name="known-issues"></a>Bilinen sorunlar
+### <a name="known-issues"></a>Bilinen Sorunlar
 * Depolama Gezgini ADFS hesaplarını desteklemez.
 * Kısayol tuşları "Görünümü Gezgini" ve "Görünümü hesap yönetimi" Ctrl olmalıdır / Cmd + SHIFT + E ve Ctrl / Cmd + Shift + A sırasıyla.
 * Azure yığın hedeflerken ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
@@ -85,7 +86,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 
 
 
-### <a name="hotfixes"></a>Düzeltmeleri
+### <a name="hotfixes"></a>Hotfixes
 * Beklenmeyen veri değişikliklerini Edm.DateTime değerlerini yerel saat dilimine bağlı olarak tablo varlıklar için düzenlerken mümkün. Düzenleyici bir düz metin kutusu Edm.DateTime değerleri üzerinde kesin, tutarlı denetim vermiş olarak kullanır.
 * Bir grup adı ve anahtarı eklendiğinde BLOB karşıya yükleme/indirme başlatılmayacaktır. Bu düzeltilmiştir.
 * Daha önce Depolama Gezgini yalnızca eski hesabı varsa kimlik doğrulamaya ister veya daha fazla hesabın abonelikleri seçilmedi. Hesabı tamamen filtrelenmelidir olsa bile artık Depolama Gezgini ister.
@@ -94,7 +95,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 
 ### <a name="new"></a>Yeni
 * Azure Cosmos DB desteği önizleme:
-    * [Çevrimiçi belgeleri](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Çevrimiçi belgeleri](./cosmos-db/storage-explorer.md)
     * Veritabanları ve Koleksiyonlar oluşturun
     * Verileri denetleme
     * Sorgu, oluşturmak, belgeleri veya silme
@@ -116,7 +117,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Bağlantı dizeleri ve SAS URI'ler çeşitli biçimlerde desteği gerileyen. Biz tüm bilinen sorunlar ele, ancak daha fazla sorunlarla karşılaşırsanız lütfen geri bildirim gönderin.
 * Güncelleştirme bildirimi 0.9.0'dan bazı kullanıcılar için kesildi. Bu sorun düzeltilmiştir ve bunlar için hatadan etkilenen, el ile Depolama Gezgini en son sürümünü indirebilirsiniz [burada](https://azure.microsoft.com/en-us/features/storage-explorer/).
 
-### <a name="known-issues"></a>Bilinen sorunlar
+### <a name="known-issues"></a>Bilinen Sorunlar
 * Depolama Gezgini ADFS hesaplarını desteklemez.
 * Kısayol tuşları "Görünümü Gezgini" ve "Görünümü hesap yönetimi" Ctrl olmalıdır / Cmd + SHIFT + E ve Ctrl / Cmd + Shift + A sırasıyla.
 * Azure yığın hedeflerken ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
@@ -174,7 +175,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 10/20/2017
 ### <a name="new"></a>Yeni
 * Azure Cosmos DB desteği önizleme:
-    * [Çevrimiçi belgeleri](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Çevrimiçi belgeleri](./cosmos-db/storage-explorer.md)
     * Veritabanları ve Koleksiyonlar oluşturun
     * Verileri denetleme
     * Sorgu, oluşturmak, belgeleri veya silme
@@ -196,7 +197,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Bağlantı dizeleri ve SAS URI'ler çeşitli biçimlerde desteği gerileyen. Biz tüm bilinen sorunlar ele, ancak daha fazla sorunlarla karşılaşırsanız lütfen geri bildirim gönderin.
 * Güncelleştirme bildirimi 0.9.0'dan bazı kullanıcılar için kesildi. Bu sorun düzeltilmiştir ve bunlar için hatadan etkilenen, el ile Depolama Gezgini en son sürümünü indirebilirsiniz [burada](https://azure.microsoft.com/en-us/features/storage-explorer/)
 
-### <a name="known-issues"></a>Bilinen sorunlar
+### <a name="known-issues"></a>Bilinen Sorunlar
 * Depolama Gezgini ADFS hesaplarını desteklemez.
 * Kısayol tuşları "Görünümü Gezgini" ve "Görünümü hesap yönetimi" Ctrl olmalıdır / Cmd + SHIFT + E ve Ctrl / Cmd + Shift + A sırasıyla.
 * Azure yığın hedeflerken ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
@@ -240,7 +241,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Depolama Gezgini hatalı zaman damgaları paylaşılan erişim imzaları ve tablo sorguları oluşturma.
 
 
-### <a name="known-issues"></a>Bilinen sorunlar
+### <a name="known-issues"></a>Bilinen Sorunlar
 * Bir ad ve anahtar bağlantı dizesi kullanarak şu an çalışmıyor. Sonraki sürümde düzeltilecektir. O zamana kadar kullandığınız adı ve anahtar ekleyebilirsiniz.
 * Geçersiz bir Windows dosya adıyla bir dosyayı açmaya çalışırsanız, yükleme bir dosya bulunamadı hatası neden olur.
 * "İptal" görevde tıkladıktan sonra onu iptal etmek bu görev için biraz zaman alabilir. Bu, Azure Depolama düğümü kitaplığı kısıtlamasıdır.
@@ -274,7 +275,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Depolama Gezgini sorun giderme [Kılavuzu][2]
 * [Yönergeler] [ 3] bir Azure yığın aboneliğine bağlanma
 
-### <a name="known-issues"></a>Bilinen sorunlar
+### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Düğmeleri silme klasörü onay iletişim kutusunda Linux'ta fare tıklamaları kaydetme yok. Enter tuşunu kullanmak için geçici bir çözüm değildir
 * Yanlış PIN/akıllı kart sertifika seçerseniz, ardından Depolama Gezgini kararı unuttunuz olması için yeniden başlatmanız gerekir
@@ -308,7 +309,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Sabit: Tümünü Seç anlık görüntüleri yönetirken devre dışı bırakıldı
 * Sabit: Temel blob meta verilerini, anlık görüntü özelliklerini görüntüledikten sonra üzerine
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Yanlış PIN/akıllı kart sertifika seçerseniz, ardından Depolama Gezgini kararı unuttunuz olması için yeniden başlatmanız gerekir
 * Yakınlaştırma düzeyini veya uzaklaştırılacağını olsa da, kısa bir süre içinde varsayılan düzeyini sıfırlayabilir
@@ -351,7 +352,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Sabit: çakışma çözümü gerektiren BLOB karşıya yükleme - 0.8.11 içinde sabit başarısız olabilir
 * Sabit: geri bildirim gönderme 0.8.12 içinde sabit 0.8.11 içinde-hatalı olan
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * 0.8.10 için yükseltirken, tüm kimlik bilgilerinizi yenilemek gerekir.
 * Giriş veya çıkış uzaklaştırılacağını olsa da, yakınlaştırma düzeyini kısa bir süre içinde varsayılan düzeyini sıfırlayabilir.
@@ -395,7 +396,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Sabit: hedef dizin zaten mevcut değilse sonsuza kadar başlar bir dosya paylaşımına karşıya yükle
 * Sabit: kararlılığı uzun ve indirmelere için
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Giriş veya çıkış uzaklaştırılacağını olsa da, yakınlaştırma düzeyini kısa bir süre içinde varsayılan düzeyini sıfırlayabilir.
 * Hızlı erişim yalnızca abonelik temel öğeleri ile çalışır. Yerel kaynaklar veya anahtar veya SAS belirteci üzerinden bağlı kaynakları bu sürümde desteklenmez.
@@ -423,7 +424,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Sabit: Son kapalı oturumundan pencere boyutu şimdi korunur
 * Sabit: Bağlam menüsünü kullanarak aynı kaynak için birden çok sekme açabilirsiniz
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Hızlı erişim yalnızca abonelik temel öğeleri ile çalışır. Yerel kaynaklar veya anahtar veya SAS belirteci üzerinden bağlı kaynakları bu sürümde desteklenmez.
 * Hızlı erişim, bir hedef kaynak, sahip olduğunuz kaç kaynak bağlı olarak gitmek için birkaç saniye sürebilir
@@ -460,7 +461,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Sabit: Artan kaynak sayısı 50'den 100'e "Daha yük" tıklatıldığında yüklendi
 * Sabit: bir hesap olarak imzalı değilse ilk çalıştırılmasında biz şimdi bu hesap için tüm abonelikleri varsayılan olarak seçin
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Depolama Gezgini bu sürümü Ubuntu 14.04 üzerinde çalışmaz
 * Aynı kaynak için birden fazla sekme açmak için sürekli olarak aynı kaynak tıklatın değil. Üzerinde başka bir kaynak'ı tıklatın ve sonra geri dönün ve yeniden başka bir sekmede açmak için orijinal kaynak tıklayın
@@ -485,7 +486,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
     * Bölüm anahtarı ve satır anahtarını bazen tersine
     * "Null" bölüm anahtarlarını okunamıyor
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Bundan sonra kabaca 50.000 düğümlere - arama arama tanıtıcıları performans etkilenmiş olabilir.
 * Dosyaları genişletin çalışılırken bir hata gösterir şekilde azure yığın dosyaları, şu anda desteklemiyor
@@ -507,7 +508,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 
 * Sabit: boolean veya ikili özellikleri içermiyorsa tablo varlıkları düzenlenemez.
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Bundan sonra kabaca 50.000 düğümlere - arama arama tanıtıcıları performans etkilenmiş olabilir.
 
@@ -528,7 +529,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 
 * Sabit: Microsoft Accounts yeniden kimlik doğrulaması 8-12 saatte gerektirir
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Bazen UI dondurulmuş görünebilir - penceresinin ekranı kaplamasını bu sorunu çözmenize yardımcı olur
 * macOS yükleme yükseltilmiş izinler gerektirebilir
@@ -556,7 +557,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Sabit: $metrics tablolar için Blob Storage hesapları gösterilmez
 * Sabit: tablolar düğümünü yerel (Geliştirme) depolama için çalışmıyor
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * macOS yükleme yükseltilmiş izinler gerektirebilir
 
@@ -584,7 +585,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Sabit: düzenleme, ekleme ya da bir sayısal dize değeri ("1") sahip bir varlık alma, çift dönüştürür
 * Sabit: Yerel geliştirme ortamında Tablo düğümü genişletilemiyor
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * $metrics tabloları Blob Depolama hesapları için görünür değildir
 * Base64 kodlaması kullanarak iletileri kodlanmış olmadığını program aracılığıyla eklenen iletileri kuyruğa düzgün görüntülenmeyebilir
@@ -600,7 +601,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 
 * Oturum açma kimlik bilgileri gerekli olduğunda burada bilgi çubuğu iletileri bazen görünmüyor sabit hata
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Tablolar: Ekleme, düzenleme veya "1" veya "1.0" gibi bir muğlak sayısal değer ve kullanıcı özelliğiyle sahip bir varlık çalışır olarak göndermek için aktarma bir `Edm.String`, değer istemcisi bir Edm.Double olarak API aracılığıyla geri gelir
 
@@ -663,7 +664,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Yerel depolama kullanıcı kimlik bilgilerinin süresi dolmuş olsa bile kullanılabilir olmaya devam eder
 * Blob explorer sağ tarafında açılan blob kapsayıcısı silindiğinde, kapalı
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Linux yükleme güncelleştirilmiş gcc sürüm gerekir veya yükseltilmiş – yükseltme adımları aşağıda verilmiştir:
     * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
@@ -691,7 +692,7 @@ Bu makalede Azure Storage Gezgini 0.9.3 için (Önizleme), önceki sürümler i�
 * Ön eke göre BLOB Ara
 * Sürükleme 'n dosyaları karşıya yükleme veya indirme bırak
 
-#### <a name="known-issues"></a>Bilinen sorunlar
+#### <a name="known-issues"></a>Bilinen Sorunlar
 
 * Kapsayıcı odaklanmak yeniden ayarlayana kadar blob kapsayıcısı genel erişim düzeyi ayarlarken, yeni değer güncelleştirilmez
 * Genel erişim düzeyini ayarlamak için iletişim kutusunu açtığınızda, bu her zaman "Public erişim yok" varsayılan ve değil gerçek geçerli değer gösterir

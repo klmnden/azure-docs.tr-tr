@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>IOT hub'ı işlemlerini izleme
 
 IOT hub'ı işlemlerini izleme işlemleri gerçek zamanlı IOT hub'ınızı durumunu izlemenize olanak sağlar. IOT hub'ı operations birkaç kategoriler arasında olayları izler. İşleme için IOT hub'ınızın bir uç nokta için bir veya daha fazla kategorilerden olayları göndermeyi seçebilirsiniz. Hatalar için verileri izlemek veya veri düzenlerini esas alarak daha karmaşık işleme ayarlayın.
 
 >[!NOTE]
->IOT hub'ı operations izleme kullanım dışıdır ve IOT Hub'ından gelecekte kaldırılacaktır. IOT Hub durumunu ve işlemlerini izlemek için bkz: [Azure IOT Hub durumunu izlemenize ve sorunları hızla tanılamak][lnk-monitor]. Kullanımdan kaldırma zaman çizelgesi hakkında daha fazla bilgi için bkz: [Azure İzleyici ve Azure kaynak durumu ile Azure IOT çözümlerinizi izlemek][lnk-blog-announcement].
+>IOT hub'ı operations izleme kullanım dışıdır ve IOT Hub'ından 10 Ekim 2018 kaldırılacak. IOT Hub durumunu ve işlemlerini izlemek için bkz: [Azure IOT Hub durumunu izlemenize ve sorunları hızla tanılamak][lnk-monitor]. Kullanımdan kaldırma zaman çizelgesi hakkında daha fazla bilgi için bkz: [Azure İzleyici ve Azure kaynak durumu ile Azure IOT çözümlerinizi izlemek][lnk-blog-announcement].
 
 IOT hub'ı olayların altı kategoriye izler:
 
@@ -291,7 +291,7 @@ class Program
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png

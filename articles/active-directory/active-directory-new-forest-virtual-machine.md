@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: acfdb94323853161e835b88ef441eaed681bde25
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Bir Azure sanal ağ üzerinde yeni bir Active Directory ormanı yüklemek
 Bu makalede, bir sanal makine (VM) üzerinde yeni bir Windows Server Active Directory ortamı oluşturmak gösterilmiştir bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu durumda, Azure sanal ağı bir şirket ağına bağlı değil.
@@ -57,7 +57,7 @@ Bu senaryoda, dış kullanıcılar etki alanına katılmış sunucularda çalı�
 ## <a name="create-vms-to-run-the-domain-controller-and-dns-server-roles"></a>Etki alanı denetleyicisi ve DNS sunucu rollerini çalıştıran VM'ler oluşturma
 Gerektiğinde DC rolü barındırmak için sanal makineleri oluşturmak için aşağıdaki adımları yineleyin. Hataya dayanıklılık ve artıklık sağlamak için en az iki sanal DC'leri dağıtmanız gerekir. Azure sanal ağı benzer şekilde yapılandırılmış en az iki DC'leri içeriyorsa (diğer bir deyişle, çalışma DNS sunucusu, her iki GC'ler oldukları ve ikisi herhangi bir FSMO rolüne vb. tutan) olanlar DC'leri kullanılabilirlik kümesi geliştirilmiş hataya dayanıklılık için çalışan sanal makineleri yerleştirin.
 
-Kullanıcı Arabirimi yerine Windows PowerShell kullanarak sanal makineleri oluşturmak için bkz: [oluşturmak ve Windows tabanlı sanal makineleri önceden için kullanım Azure PowerShell](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Kullanıcı Arabirimi yerine Windows PowerShell kullanarak sanal makineleri oluşturmak için bkz: [PowerShell ile bir sanal makine oluşturma](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md) örnek.
 
 1. Azure portalında seçin **yeni** > **işlem**ve ardından sanal makineyi seçin. Sihirbazı tamamlamak için aşağıdaki değerleri kullanın. Başka bir değer önerilen ya da gerekli olmadıkça bir ayar için varsayılan değeri kabul edin.
 
@@ -67,7 +67,7 @@ Kullanıcı Arabirimi yerine Windows PowerShell kullanarak sanal makineleri olu�
    |  **Sanal Makine Yapılandırması** |<p>Sanal makine adı: (örneğin, AzureDC1) tek etiketli bir ad yazın.</p><p>Yeni bir kullanıcı adı: bir kullanıcının adını yazın. Bu kullanıcı VM yerel Yöneticiler grubunun bir üyesi olacaktır. Bu ad VM ilk kez oturum açmak için gerekir. Yönetici adlı yerleşik hesap çalışmaz.</p><p>Yeni Parola/Onayla: bir parola yazın</p> |
    |  **Sanal Makine Yapılandırması** |<p>Bulut hizmeti: Seçin <b>yeni bir bulut hizmeti oluşturma</b> seçin ve ilk VM için daha fazla sanal makineleri oluşturduğunuzda, bulut hizmet adı aynı DC rolünü barındıracak.</p><p>Bulut hizmeti DNS adı: genel olarak benzersiz bir ad belirtin</p><p>Bölge/benzeşim grubu/sanal ağ: sanal ağ adı (örneğin, WestUSVNet) belirtin.</p><p>Depolama hesabı: Seçin <b>otomatik olarak oluşturulan depolama hesabı kullan</b> seçin ve ilk VM için daha fazla sanal makineleri oluştururken aynı depolama hesabı adı DC rolünü barındıracak.</p><p>Kullanılabilirlik kümesi: Seçin <b>bir kullanılabilirlik kümesi oluştur</b>.</p><p>Kullanılabilirlik kümesi adı: ilk VM oluşturup ardından daha fazla sanal makineleri oluşturduğunuzda aynı ad kullanılabilirlik kümesi için bir ad yazın.</p> |
    |  **Sanal Makine Yapılandırması** |<p>Seçin <b>VM Aracısı yükleme</b> ve gereksinim duyduğunuz diğer uzantılar.</p> |
-2. DC sunucusu rolünü çalıştıracak her VM'ye bir disk ekleyin. Ek disk AD veritabanı, günlükler ve SYSVOL depolamak için gereklidir. (Örneğin, 10 GB) disk için bir boyut belirtin ve bırakın **konak önbelleği tercihi** kümesine **hiçbiri**. Adımları için bkz: [bir Windows sanal makineye bir veri diski Ekle nasıl](../virtual-machines/windows/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. DC sunucusu rolünü çalıştıracak her VM'ye bir disk ekleyin. Ek disk AD veritabanı, günlükler ve SYSVOL depolamak için gereklidir. (Örneğin, 10 GB) disk için bir boyut belirtin ve bırakın **konak önbelleği tercihi** kümesine **hiçbiri**. Adımları için bkz: [bir Windows sanal makineye bir veri diski Ekle nasıl](../virtual-machines/windows/attach-managed-disk-portal.md).
 3. VM ilk kez oturum açtığınızda sonra açmak **Sunucu Yöneticisi'ni** > **dosya ve depolama hizmetleri** birim NTFS kullanılarak bu diskte oluşturmak için.
 4. Statik bir IP adresi DC rolü çalıştıracak VM'ler için ayırın. Bir statik IP adresini ayırmak için Microsoft Web Platformu yükleyicisi indirin ve [Azure PowerShell'i yükleme](/powershell/azure/overview) ve Set-AzureStaticVNetIP cmdlet'ini çalıştırın. Örneğin:
 

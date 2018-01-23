@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Azure SQL Database'de veritabanı performansını izleme
 Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı performans düzeyiyle ilgili kaynak kullanımını izleyerek başlarsınız. İzleme, veritabanınızın gerekenden fazla kapasiteye sahip olup olmadığını veya veritabanınızda kaynak kullanımının üst sınıra ulaşması nedeniyle bir sorun olup olmadığını belirlemenize yardımcı olur. Böylece veritabanınızın performans düzeyinin ve [hizmet katmanının](sql-database-service-tiers.md) ayarlanma zamanının gelip gelmediğine karar verirsiniz. Veritabanınızı [Azure portalında](https://portal.azure.com) bulunan grafik araçlarını veya SQL [dinamik yönetim görünümlerini](https://msdn.microsoft.com/library/ms188754.aspx) kullanarak izleyebilirsiniz.
@@ -83,7 +83,7 @@ Bu görünüm kaynak kullanımını daha ayrıntılı bir bakış sağladığın
 Diğer sorgular için örneklere bakın [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 #### <a name="sysresourcestats"></a>sys.resource_stats
-[Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) görünümünde **ana** veritabanının bulunduğu SQL veritabanınızın belirli hizmet katmanını ve performans düzeyinde performansını izlemenize yardımcı olacak ek bilgiler. Veriler her 5 dakikada bir toplanan ve yaklaşık 35 gün boyunca tutulur. Bu görünüm, SQL veritabanınız kaynakları nasıl kullandığını, daha uzun vadeli bir geçmiş analize kullanışlıdır.
+[Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) görünümünde **ana** veritabanının bulunduğu SQL veritabanınızın belirli hizmet katmanını ve performans düzeyinde performansını izlemenize yardımcı olacak ek bilgiler. Veriler her 5 dakikada bir toplanan ve yaklaşık 14 gün boyunca tutulur. Bu görünüm, SQL veritabanınız kaynakları nasıl kullandığını, daha uzun vadeli bir geçmiş analize kullanışlıdır.
 
 Aşağıdaki grafikte CPU kaynak kullanımı bir Premium veritabanı için P2 performans düzeyine sahip her saat için bir hafta içinde gösterilmiştir. Bu grafik Pazartesi günü başlar, 5 iş günlerini gösterir ve hafta sonu gösterir, uygulamaya göre çok daha az olur.
 

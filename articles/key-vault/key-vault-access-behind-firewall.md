@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Güvenlik duvarının ardındayken Azure Anahtar Kasası’na erişme
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>S: Anahtar kasası istemci uygulamamın güvenlik duvarının ardında olması gerekiyor. Anahtar kasasına erişebilmek için hangi bağlantı noktaları, konaklar veya IP adreslerini açmam gerekiyor?
@@ -38,8 +38,8 @@ Anahtar kasası istemci uygulamasının, kimlik doğrulaması için Azure Active
 
 | Sorumlu türü | Uç nokta:bağlantı noktası |
 | --- | --- |
-| Microsoft hesabı kullanan kullanıcı<br> (örneğin, user@hotmail.com) |**Genel:**<br> login.microsoftonline.com:443<br><br> **Azure Çin:**<br> login.chinacloudapi.cn:443<br><br>**Azure ABD:**<br> login-us.microsoftonline.com:443<br><br>**Azure Almanya:**<br> login.microsoftonline.de:443<br><br> ve <br>login.live.com:443 |
-| Azure AD ile iş veya okul hesabı kullanan kullanıcı veya hizmet sorumlusu (örneğin, user@contoso.com) |**Genel:**<br> login.microsoftonline.com:443<br><br> **Azure Çin:**<br> login.chinacloudapi.cn:443<br><br>**Azure ABD:**<br> login-us.microsoftonline.com:443<br><br>**Azure Almanya:**<br> login.microsoftonline.de:443 |
+| Microsoft hesabı kullanan kullanıcı<br> (örneğin, user@hotmail.com) |**Genel:**<br> login.microsoftonline.com:443<br><br> **Azure Çin:**<br> login.chinacloudapi.cn:443<br><br>**Azure ABD:**<br> login.microsoftonline.us:443<br><br>**Azure Almanya:**<br> login.microsoftonline.de:443<br><br> ve <br>login.live.com:443 |
+| Azure AD ile iş veya okul hesabı kullanan kullanıcı veya hizmet sorumlusu (örneğin, user@contoso.com) |**Genel:**<br> login.microsoftonline.com:443<br><br> **Azure Çin:**<br> login.chinacloudapi.cn:443<br><br>**Azure ABD:**<br> login.microsoftonline.us:443<br><br>**Azure Almanya:**<br> login.microsoftonline.de:443 |
 | İş veya okul hesabı ve Active Directory Federasyon Hizmetleri (AD FS) veya başka bir federasyon uç noktası kullanan kullanıcı veya hizmet sorumlusu (örneğin, user@contoso.com) |İş veya okul hesabı için tüm uç noktalar ve AD FS veya diğer federasyon uç noktaları |
 
 Farklı olası karmaşık senaryolar da mevcuttur. Daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulaması Akışı](/documentation/articles/active-directory-authentication-scenarios/), [Uygulamaları Azure Active Directory ile Tümleştirme](/documentation/articles/active-directory-integrating-applications/) ve [Active Directory Kimlik Doğrulaması Protokolleri](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
@@ -50,7 +50,7 @@ Anahtar Kasası yönetimi için (CRUD ve erişim ilkesi ayarı), anahtar kasası
 | İşlem türü | Uç nokta:bağlantı noktası |
 | --- | --- |
 | Anahtar Kasası denetim düzlemi işlemleri<br> Azure Resource Manager yoluyla |**Genel:**<br> management.azure.com:443<br><br> **Azure Çin:**<br> management.chinacloudapi.cn:443<br><br> **Azure ABD:**<br> management.usgovcloudapi.net:443<br><br> **Azure Almanya:**<br> management.microsoftazure.de:443 |
-| Azure Active Directory Grafik API'si |**Genel:**<br> graph.windows.net:443<br><br> **Azure Çin:**<br> graph.chinacloudapi.cn:443<br><br> **Azure ABD:**<br> graph.windows.net:443<br><br> **Azure Almanya:**<br> graph.cloudapi.de:443 |
+| Azure Active Directory Graph API'si |**Genel:**<br> graph.windows.net:443<br><br> **Azure Çin:**<br> graph.chinacloudapi.cn:443<br><br> **Azure ABD:**<br> graph.windows.net:443<br><br> **Azure Almanya:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Anahtar Kasası işlemleri
 Tüm anahtar kasası nesne (anahtarlar ve gizli anahtarlar) yönetimi ve şifreleme işlemleri için, anahtar kasası istemcisinin anahtar kasası uç noktasına erişmesi gerekir. Uç nokta DNS soneki, anahtar kasanızın konumuna bağlı olarak farklılık gösterir. Anahtar kasası uç noktası, aşağıdaki tabloda gösterildiği gibi *vault-name*.*region-specific-dns-suffix* biçimindedir.  

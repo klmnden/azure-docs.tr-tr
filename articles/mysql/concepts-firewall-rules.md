@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/20/2017
-ms.openlocfilehash: aea561b526d6f3f818fd75771dd8c65c9f25051a
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.date: 1/20/2018
+ms.openlocfilehash: 3cc879fb568965af98997889437c6348e0d341e1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure veritabanı için MySQL server güvenlik duvarı kuralları
 Hangi bilgisayarların izniniz belirtene kadar güvenlik duvarları, veritabanı sunucunuza tüm erişimi engelliyor. Güvenlik Duvarı'nı her isteğin kaynak IP adresine göre sunucuya erişimi verir.
@@ -35,6 +35,15 @@ MySQL sunucusu için Azure veritabanı tüm veritabanları için sunucu düzeyin
 İsteğin IP adresi sunucu düzeyinde güvenlik duvarı kurallarında belirtilen aralıklardan biri içinde ise, bağlantı verilir.
 
 İsteğin IP adresi herhangi bir veritabanı düzeyi veya sunucu düzeyinde güvenlik duvarı kuralları içinde belirtilen aralıklarda dışında ise, bağlantı isteği başarısız olur.
+
+## <a name="connecting-from-azure"></a>Azure'dan bağlanma
+MySQL sunucusu için Azure veritabanınıza bağlanmak üzere Azure uygulamalardan izin vermek için Azure bağlantıları etkinleştirilmesi gerekir. Örneğin, bir Azure Web Apps uygulama veya bir Azure VM içinde çalışan bir uygulamayı barındırmak için veya bir Azure Data Factory veri yönetimi ağ geçidi'nden bağlanma. Kaynaklar aynı sanal ağ (VNET) veya kaynak grubu güvenlik duvarı kuralı için bu bağlantıları etkinleştirmek için olması gerekmez. Azure’dan bir uygulama, veritabanı sunucunuza bağlanmayı denediğinizde güvenlik duvarı Azure bağlantılarına izin verildiğini doğrular. Birkaç bu tür bağlantıları etkinleştirmek için yöntem vardır. Başlangıç ve bitiş adresi 0.0.0.0’a eşit olan bir güvenlik duvarı ayarı, bu bağlantılara izin verildiğini gösterir. Alternatif olarak, ayarlayabileceğiniz **Azure hizmetlerine erişime izin ver** için seçenek **ON** Portalı'nda **bağlantı güvenliği** bölmesinde ve isabet **Kaydet**. Bağlantı denemesi izin verilmiyorsa, Azure veritabanı MySQL sunucusu için istek ulaşmaz.
+
+> [!IMPORTANT]
+> Bu seçenek, diğer müşterilerin aboneliklerinden gelen bağlantılar dahil Azure’dan tüm bağlantılara izin verecek şekilde güvenlik duvarınızı yapılandırır. Bu seçeneği belirlerken, oturum açma ve kullanıcı izinlerinizin erişimi yalnızca yetkili kullanıcılarla sınırladığından emin olun.
+> 
+
+![Azure hizmetlerine erişime izin ver portalında yapılandırın](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Güvenlik duvarı kurallarını programlı bir şekilde yönetme
 Azure portalına ek Azure CLI kullanarak güvenlik duvarı kuralları programlı olarak yönetilebilir. Ayrıca bkz. [oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları Azure CLI kullanarak yönetme](./howto-manage-firewall-using-cli.md)

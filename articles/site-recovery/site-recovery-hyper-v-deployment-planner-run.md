@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 34f0b641abcf4231655d74da46f1bdcadc5642f6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısını çalıştırma
 
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Sanallaştırma|Sanallaştırma türünü (VMware veya Hyper-V) belirtin.|
 |-Directory|(İsteğe bağlı) Profil oluşturma sırasında oluşturulan profil oluşturma verilerini depolamak için evrensel adlandırma kuralı (UNC) veya yerel dizin yolu. Belirtilmemişse, geçerli yolun altındaki “ProfiledData” adlı dizin varsayılan dizin olarak kullanılır.|
 |-Password|(İsteğe bağlı) Hyper-V konağına bağlanmak için parola. Şu anda belirtilmezse, daha sonra komut yürütülürken sorulacaktır.|
-|-StorageAccountName|(İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler.|
+|-StorageAccountName|(İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler. Depolama hesabı genel amaçlı v1 veya depolama V2 olmalıdır (genel amaçlı v2) olmalıdır|
 |-StorageAccountKey|(İsteğe bağlı) Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > Depolama hesapları > <Storage account name> > Ayarlar > Erişim Anahtarları > Anahtar1 (veya klasik depolama hesabı için birincil erişim anahtarı) adımlarını izleyin.|
 |-Ortam|(İsteğe bağlı) Bu, hedef Azure Depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure China bulutları olduğunda ilgili parametreyi kullanın.|
 
@@ -274,7 +274,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughtput |
 |-Sanallaştırma|Sanallaştırma türünü (VMware veya Hyper-V) belirtin.|
 |-Directory|(İsteğe bağlı) Profili oluşturulan verilerin (profil oluşturma sırasında oluşturulan dosyalar) depolandığı evrensel adlandırma kuralı (UNC) veya yerel dizin yolu. Bu veriler, rapor oluşturmak için gereklidir. Bir ad belirtilmemişse, geçerli yolun altındaki “ProfiledData” adlı dizin varsayılan dizin olarak kullanılır.|
-| -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. |
+| -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. Depolama hesabı genel amaçlı v1 veya depolama V2 olmalıdır (genel amaçlı v2) olmalıdır |
 | -StorageAccountKey | Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > Depolama hesapları > <*Depolama hesabı adı*> > Ayarlar > Erişim Anahtarları > Anahtar1 adımlarını izleyin.|
 | -VMListFile | Kullanılan bant genişliğini hesaplamak için profili oluşturulacak sanal makinelerin listesini içeren dosya. Dosya yolu mutlak veya göreli olabilir. Hyper-V için, GetVMList işleminin çıkış dosyası bu dosyadır. El ile hazırlıyorsanız, dosyada bir sunucu adı ya da IP adresi ve ardından her satırı \ ile ayrılan VM adı bulunmalıdır. Dosyada belirtilen VM adı, Hyper-V konağındaki VM adıyla aynı olmalıdır.<ul>Örnek: "VMList.txt" dosyası aşağıdaki sanal makineleri içerir:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Ortam|(İsteğe bağlı) Bu, hedef Azure Depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud, AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure China bulutları olduğunda ilgili parametreyi kullanın|

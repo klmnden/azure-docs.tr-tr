@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 2ad6308903d1c3615392eadedfd7da3cfad4096d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 41c0b360b54f9a9dcd2458ce5bdc05911c4f73a5
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB MongoDB uygulamaya bağlama
 MongoDB bağlantı dizesi kullanarak bir Azure Cosmos DB hesabına MongoDB uygulamanızı bağlayacağınızı öğrenin. Daha sonra verileri olarak Azure Cosmos DB veritabanı kullanabilirsiniz MongoDB uygulamanız için deposu. 
@@ -75,5 +75,5 @@ Bu dize değerlerini mevcuttur **bağlantı dizesi** daha önce gösterilen dike
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi nasıl [MongoChef kullanmak](mongodb-mongochef.md) Azure Cosmos DB API MongoDB hesabı ile.
+* Bilgi edinmek için nasıl [Studio 3T kullanın (MongoChef)](mongodb-mongochef.md) Azure Cosmos DB API MongoDB hesabı ile.
 * Azure Cosmos DB API MongoDB için görüntüleyerek keşfedin [örnekleri](mongodb-samples.md).

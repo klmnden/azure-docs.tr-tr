@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 181954e4657166db8aa94021ad093437d8c7abfd
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Azure Cosmos DB ve Hdınsight kullanarak bir Apache Hive, Pig veya Hadoop işini çalıştır
 Bu öğretici nasıl çalıştırılacağını gösterir [Apache Hive][apache-hive], [Apache Pig][apache-pig], ve [Apache Hadoop] [ apache-hadoop] Cosmos veritabanı Hadoop Bağlayıcısı ile MapReduce işleri Azure hdınsight'ta. Cosmos veritabanı Hadoop Bağlayıcısı Cosmos hem kaynak hem de Hive, Pig ve MapReduce işleri için havuz olarak davranacak şekilde DB sağlar. Bu öğretici Cosmos DB Hadoop işleri veri kaynağı ve hedef kullanır.
+
+> [!IMPORTANT] 
+> Azure Cosmos DB bağlayıcı için Spark, Azure Hdınsight Azure Cosmos Veritabanına bağlanmak için önerilen bir seçenektir. Daha fazla bilgi için bkz: [Spark ile gerçek zamanlı büyük veri analizi Azure Cosmos DB bağlayıcıya hızlandırmak](spark-connector.md).
 
 Bu öğreticiyi tamamladıktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:
 
@@ -49,7 +52,7 @@ Yoksa öğreticiyi tamamlamak için saat ve Hive, Pig ve MapReduce için tam ör
     <tr><th>Hadoop Bağlayıcısı sürüm</th>
         <td>1.2.0</td></tr>
     <tr><th>Betik URI'si</th>
-        <td>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
+        <td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
     <tr><th>Değiştirilme tarihi</th>
         <td>04/26/2016</td></tr>
     <tr><th>Desteklenen Hdınsight sürümleri</th>
@@ -122,7 +125,7 @@ Alan 3 ile 63 karakter arasında bir dize olmalıdır.</td></tr>
              <td>Betik eylemi için bir ad belirtin.</td></tr>
          <tr><td>Betik URI'si</td>
              <td>Küme özelleştirmek için çağrılan betik URI'si belirtin.</br></br>
-Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
+Lütfen girin: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
          <tr><td>Baş</td>
              <td>Baş düğüm PowerShell betiğini çalıştırmak için onay kutusuna tıklayın.</br></br>
              <strong>Bu onay kutusunu işaretleyin</strong>.</td></tr>
@@ -390,7 +393,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
 
       ![MapReduce sorgu sonuçları][image-mapreduce-query-results]
 
-## <a name="NextSteps"></a>Sonraki Adımlar
+## <a name="NextSteps"></a>Sonraki adımlar
 Tebrikler! Yalnızca Azure Cosmos DB ve Hdınsight kullanarak, ilk Hive, Pig ve MapReduce işleri çalıştırdığınız.
 
 Bizim açık kaynaklıdır bizim Hadoop bağlayıcı. İlginizi çekiyorsa üzerinde katkıda bulunabilirsiniz [GitHub][github].

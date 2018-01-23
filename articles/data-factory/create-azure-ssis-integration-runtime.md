@@ -1,6 +1,6 @@
 ---
-title: "Kendini barındıran tümleştirmesi çalışma zamanı Azure Data Factory oluşturma | Microsoft Docs"
-description: "SQL Server saklı yordam etkinliği bir saklı yordam bir Azure SQL Database veya Azure SQL veri ambarı Data Factory işlem hattı çağırmak için nasıl kullanabileceğinizi öğrenin."
+title: "Azure Data Factory'de Azure SSIS tümleştirmesi çalışma zamanı oluşturma | Microsoft Docs"
+description: "SSIS paketi Azure bulutunda çalıştırabilmeniz için bir Azure SSIS tümleştirmesi çalışma zamanı oluşturmayı öğrenin."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f7697e79f8e7f5fc4722ac34e4199e0de278ad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 35883890b330588415290295815ad55cf5021afb
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma
 Bu makalede Azure Data Factory bir Azure SSIS tümleştirmesi çalışma zamanı sağlamak için adımları sağlar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio’yu (SSMS) kullanarak Azure’da bu çalışma zamanına SQL Server Integration Services (SSIS) paketleri dağıtabilirsiniz.
@@ -48,7 +48,7 @@ SSISDB barındırmak için SQL veritabanı örneği sağladığınızda, SSIS ve
 - **Azure SQL Veritabanı sunucusu** veya **SQL Server Yönetilen Örneği (özel önizleme) (Genişletilmiş Özel Önizleme)**. Henüz bir veritabanı sunucunuz yoksa, başlamadan önce Azure portalında bir tane oluşturun. Bu sunucu, SSIS Katalog veritabanını (SSISDB) barındırır. Veritabanı sunucusunu tümleştirme çalışma zamanı ile aynı Azure bölgesinde oluşturmanız önerilir. Bu yapılandırma, tümleştirme çalışma zamanının Azure bölgelerinden geçmeden SSISDB’ye yürütme günlüklerini yazmasına olanak tanır. Azure SQL sunucusunun fiyatlandırma katmanı unutmayın. Azure SQL veritabanı için desteklenen fiyatlandırma katmanlarına listesi için bkz: [SQL veritabanı kaynak sınırları](../sql-database/sql-database-resource-limits.md).
 
     Azure SQL veritabanı sunucusu veya SQL Server örneği (Genişletilmiş özel Önizleme) yönetilen bir SSIS katalog (SSIDB veritabanı) olmadığından emin olun. Sağlama Azure SSIS IR varolan bir SSIS Kataloğu kullanımını desteklemez.
-- **Klasik Sanal Ağ (VNet) (isteğe bağlı)**. Aşağıdaki koşulların en az biri geçerli ise bir Azure Sanal Ağınız (VNet) olmalıdır:
+- **Klasik veya Azure Resource Manager sanal Network(VNet) (isteğe bağlı)**. Aşağıdaki koşulların en az biri geçerli ise bir Azure Sanal Ağınız (VNet) olmalıdır:
     - SSIS Katalog veritabanını bir sanal ağın parçası olan SQL Server Yönetilen Örneği (özel önizleme) üzerinde barındırıyorsanız.
     - Şirket içi veri depolarına bir Azure-SSIS tümleştirme çalışma zamanı üzerinde çalışan SSIS paketlerinden bağlanmak istiyorsanız.
 - **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin. Bulutta SSIS paketleri çalıştıran bir Azure-SSIS tümleştirme çalışma zamanı sağlamak üzere betik çalıştırmak için PowerShell kullanıyorsanız. 
@@ -174,7 +174,7 @@ $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeSize = "Standard_A4_v2" 
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
@@ -191,10 +191,7 @@ $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0
 
 # Remove these the following two OPTIONAL variables if you are using Azure SQL Database. 
 # These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
-# It should be in the format: $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
-
-# OPTIONAL: In public preview, only classic virtual network (VNet) is supported.
+# OPTIONAL: specify your VNet ID and the subnet name. 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
 
@@ -242,8 +239,11 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
     Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 ```
 
@@ -341,7 +341,7 @@ $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeSize = "Standard_A4_v2" 
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
@@ -358,7 +358,7 @@ $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0
 
 ## Remove these two OPTIONAL variables if you are using Azure SQL Database. 
 ## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-# In public preview, only classic virtual network (VNet) is supported.
+# Specify information about your classic or Azure Resource Manager virtual network (VNet).
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
 
@@ -391,8 +391,11 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
         Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 
 Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `

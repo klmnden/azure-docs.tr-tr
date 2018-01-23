@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -54,7 +54,7 @@ Ortamınızı hazırlama önce sınırlamalara anladığınızdan emin olun:
 * Sanal makineler verilerle disk boyutları 1,023 GB'den büyük yedekleme desteklenmiyor.
 
   > [!NOTE]
-  > Yedeklemeleri VM'ler için 1 TB'lik (veya daha büyük) yönetilmeyen disklerle desteklemek için özel Önizleme sunuyoruz. Ayrıntılar için başvurmak [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Yedeklemeleri VM'ler için > 1 TB disklerle desteklemek için özel Önizleme sunuyoruz. Ayrıntılar için başvurmak [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Ayrılmış bir IP adresi ve tanımlanmış hiçbir uç nokta ile sanal makineleri yedekleme desteklenmiyor.
@@ -181,7 +181,7 @@ Yedekleme başarıyla etkinleştirdikten sonra yedekleme ilkenizi zamanlamaya g�
 Sanal makine kaydetme sorunları varsa, aşağıdaki bilgileri VM Aracısı'nı yükleme ve ağ bağlantısına bakın. Azure üzerinde oluşturulan sanal makineleri koruyorsanız aşağıdaki bilgileri muhtemelen gerekmez. Ancak, sanal makineleriniz için Azure geçirdiyseniz, VM Aracısı düzgün yüklenmiş ve sanal makinenizi sanal ağ ile iletişim kurabildiğinden emin olun.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı sanal makineye yükleme
-Çalışmak Azure Backup uzantısı [VM Aracısı](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) Azure sanal makineye yüklenmesi gerekir. VM Azure Marketi'nden oluşturulmuşsa VM Aracısı sanal makineye zaten. 
+Çalışmak Azure Backup uzantısı [VM Aracısı](../virtual-machines/windows/agent-user-guide.md) Azure sanal makineye yüklenmesi gerekir. VM Azure Marketi'nden oluşturulmuşsa VM Aracısı sanal makineye zaten. 
 
 Aşağıdaki bilgiler olduğunuz durumlarda sağlanan *değil* VM kullanılarak oluşturulan Azure Marketi'nde. Örneğin, bir VM bir şirket içi veri merkezinden geçişi. Böyle bir durumda, VM aracısının sanal makineyi korumak için yüklü olması gerekir.
 
@@ -219,7 +219,7 @@ Kullanarak belirli bir bölge depolama bağlantılara izin vermek [hizmet etiket
 ![Bir bölge için depolama etiketlerle NSG](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Depolama etiketleri yalnızca belirli bölgelerde kullanılabilir ve önizlemede. Bölgelerin bir listesi için bkz: [etiketler için depolama hizmet](../virtual-network/security-overview.md#service-tags).
+> Depolama hizmet etiketleri yalnızca belirli bölgelerde kullanılabilir ve önizlemede. Bölgelerin bir listesi için bkz: [etiketler için depolama hizmet](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>VM yedeklemeler için bir HTTP Proxy'si kullanın
 Bir VM'yi yedekleme yapıyorsanız, yedekleme uzantısını VM üzerinde bir HTTPS API kullanarak Azure Storage anlık görüntü yönetimi komutları gönderir. Genel internet erişimi için yapılandırılmış tek bileşen olduğundan HTTP proxy üzerinden backup uzantısı trafiği yönlendirmek.

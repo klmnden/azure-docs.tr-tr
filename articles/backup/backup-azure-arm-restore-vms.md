@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d420e0a39edf2af4bb050dd735dd7b4d1e604d6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineler geri yüklemek için Azure portalını kullanın
 Verilerinizin anlık görüntüleri tanımlanan aralıklarla gerçekleştirerek verilerinizi koruyun. Bu anlık görüntüleri kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarının depolandıkları. Onarmak veya bir sanal makine (VM) yeniden oluşturmak gerekliyse, kaydedilmiş kurtarma noktaları hiçbirini VM geri yükleyebilirsiniz. Bir kurtarma noktası geri yüklediğinizde, şunları yapabilirsiniz:
@@ -196,7 +196,7 @@ Geri yükleme diskler seçeneği bir parçası olarak oluşturulan şablon almak
    ![Şablon dağıtımı gönderme](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Geri yükleme sonrası adımlar
-* Güvenlik nedenleriyle bir bulut init tabanlı Linux dağıtım, Ubuntu gibi kullanırsanız, parola engellendi geri yükleme sonrası. Geri yüklenen VM üzerinde VMAccess uzantısını kullanmak [parola sıfırlama](../virtual-machines/linux/classic/reset-access-classic.md). Parola post geri sıfırlama önlemek için bu dağıtım üzerinde SSH anahtarları kullanmanızı öneririz.
+* Güvenlik nedenleriyle bir bulut init tabanlı Linux dağıtım, Ubuntu gibi kullanırsanız, parola engellendi geri yükleme sonrası. Geri yüklenen VM üzerinde VMAccess uzantısını kullanmak [parola sıfırlama](../virtual-machines/linux/reset-password.md). Parola post geri sıfırlama önlemek için bu dağıtım üzerinde SSH anahtarları kullanmanızı öneririz.
 * Yedekleme yapılandırması sırasında mevcut uzantıları yüklendi, ancak bunlar etkin olmaz. Bir sorun görürseniz, uzantılarını yeniden yükleyin. 
 * Yedeklenen VM statik IP post geri yükleme varsa, geri yüklenen VM geri yüklenen VM oluşturduğunuzda çakışmayı önlemek için dinamik IP vardır. Ne yapabileceğiniz hakkında daha fazla bilgi [geri yüklenen VM için bir statik IP eklemek](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Geri yüklenen VM bir kullanılabilirlik değeri ayarlanmış sahip değil. Geri yükleme diskleri seçeneğini kullanmanızı öneririz [bir kullanılabilirlik kümesi ekleme](../virtual-machines/windows/tutorial-availability-sets.md) VM PowerShell veya şablonları kullanarak oluşturduğunuzda geri diskler. 

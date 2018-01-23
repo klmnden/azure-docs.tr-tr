@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı ve/veya uzantısı ile ilgili sorunları
 
@@ -78,7 +78,7 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Belirtilen Disk yapılandırması desteklenmiyor
 
 > [!NOTE]
-> 1 TB’den düşük ve yönetilmeyen disklere sahip sanal makineler için yedeklemeyi destekleyen özel bir önizlememiz var. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Özel önizleme olan VM'ler için yedeklemeler desteklemek için sahip olduğumuz > 1TB diskler. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Doğru çalışması için yedekleme uzantısını Azure genel IP adreslerine ba
 
 ####  <a name="solution"></a>Çözüm
 Sorunu çözmek için burada listelenen yöntemlerden birini deneyin.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Azure veri merkezi IP aralıkları erişmesine izin vermek
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Azure depolama bölgesine karşılık gelen erişmesine izin vermek
 
-1. Elde [Azure veri merkezi IP listesi](https://www.microsoft.com/download/details.aspx?id=41653) erişmesine izin vermek için.
-2. Çalıştırarak IP'leri engellemesini **yeni NetRoute** cmdlet'i yükseltilmiş bir PowerShell penceresinde Azure VM'deki. Cmdlet'i yönetici olarak çalıştırın.
-3. IP'leri erişmesine izin vermek için kurallar varsa ağ güvenlik grubuna ekleyin.
+Kullanarak belirli bir bölge depolama bağlantılara izin vermek [hizmet etiketleri](../virtual-network/security-overview.md#service-tags). Depolama hesabına erişim izni veren Kuralı Internet erişimi engelleyen kural daha yüksek önceliğe sahip olduğundan emin olun. 
+
+![Bir bölge için depolama etiketlerle NSG](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Depolama hizmet etiketleri yalnızca belirli bölgelerde kullanılabilir ve önizlemede. Bölgelerin bir listesi için bkz: [etiketler için depolama hizmet](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Akış HTTP trafiği için bir yol oluşturma
 
@@ -166,8 +169,6 @@ Aşağıdaki koşullar anlık görüntü görev başarısız olmasına neden ola
 | --- | --- |
 | VM yapılandırılmış SQL Server Yedekleme sahiptir. | Varsayılan olarak, bir VM yedeğinin bir VSS tam yedekleme Windows sanal makinelerin çalışır. Hangi SQL Server ve SQL Server tabanlı sunucular çalıştırmakta olan VM'ler üzerinde anlık görüntü yürütme gecikmeler oluşabilir yedekleme yapılandırılır.<br><br>Bir yedekleme hata nedeniyle bir anlık görüntü sorun yaşıyorsanız, aşağıdaki kayıt defteri anahtarını ayarlayın:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | RDP VM'yi kapatın olduğundan VM durumu yanlış bildirilir. | Uzak Masaüstü Protokolü (RDP), VM'yi kapatın, VM durumu doğru olup olmadığını belirlemek için portal denetleyin. Doğru değilse, Portalı'nda VM kullanarak kapatmak **kapatma** VM Panoda seçeneği. |
-| Çok sayıda sanal makineleri aynı bulut hizmetinden aynı anda yedeklemek için yapılandırılır. | Yedekleme zamanlamaları VM'ler için aynı bulut hizmetinden yaymak için en iyi bir uygulamadır. |
-| VM yüksek CPU veya bellek kullanımı çalışıyor. | VM yüksek CPU kullanımı (yüzde 90) veya yüksek bellek kullanımı çalışıyorsa, anlık görüntü görev sıraya alındı ve Gecikmeli ve zaman aşımına uğrar. Bu durumda, bir talep üzerine yedekleme deneyin. |
 | VM konak/doku adresi DHCP'den alamaz. | DHCP çalışmaya Iaas VM yedekleme için konuk içinde etkinleştirilmesi gerekir.  VM konak/doku adresi 245 DHCP yanıttan alınamıyor, dosya indirme veya tüm uzantılar çalıştırın. Statik bir özel IP gerekiyorsa platformu ile yapılandırmanız gerekir. VM içindeki DHCP seçeneği sol etkinleştirilmiş olmalıdır. Daha fazla bilgi için bkz: [statik iç özel IP ayarı](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Backup uzantısı güncelleştirmek veya yüklemek başarısız olur
@@ -192,24 +193,6 @@ Uzantıyı kaldırmak için aşağıdakileri yapın:
 6. Tıklatın **kaldırma**.
 
 Bu yordam sonraki yedekleme sırasında yüklenmesi uzantısı neden olur.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure Klasik Vm'leri kayıt işlemini tamamlamak için ek bir adım gerektirebilir
-Yedekleme hizmeti bağlantı kurmak ve yedekleme başlatmak için Azure Klasik Vm'leri aracıyı kaydedilmelidir
-
-#### <a name="solution"></a>Çözüm
-
-VM Konuk aracısının yükledikten sonra Azure PowerShell'i başlatın <br>
-1. Azure hesabı kullanarak oturum açma <br>
-       `Login-AzureAsAccount`<br>
-2. Sanal makinenin ProvisionGuestAgent özelliği True olarak aşağıdaki komutlar tarafından ayarlanmış olup olmadığını doğrulayın <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Özelliği FALSE olarak ayarlanmışsa, TRUE olarak ayarlamak için komutları aşağıdaki izleyin<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. VM güncelleştirmek için aşağıdaki komutu çalıştırın <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Yedekleme başlatmayı deneyin. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Yedekleme hizmeti kaynak grubu kilit nedeniyle eski geri yükleme noktaları silme iznine sahip değil
 Bu sorun olduğu kaynak grubu kullanıcı kilitler ve yedekleme hizmeti eski geri yükleme noktaları silemedi olmadığı yönetilen sanal makineleri için özeldir. Bunun nedeni, yeni yedeklemeler arka ucundan uygulanan en fazla 18 geri yükleme noktaları sınırı olarak başarısız olmaya başlar.

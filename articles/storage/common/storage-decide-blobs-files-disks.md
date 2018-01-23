@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 648d8f04952a4dbe474b44f385075c0ac1c9fd57
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e68f02484c0b8de8319a2d9a6d7e3a01ee06c69a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure BLOB'ları, Azure dosyaları ya da Azure diskleri kullanmaya karar verme
 
@@ -78,4 +78,4 @@ Nasıl depolandığını ve erişilen hakkında kararları verirken ayrıca mali
   
 SMB özelliklerinden bazıları bulut için geçerli değildir. Daha fazla bilgi için bkz: [Azure dosya hizmeti tarafından desteklenmeyen özellikleri](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Diskler hakkında daha fazla bilgi için bkz: [diskleri ve görüntüleri yönetme](../../virtual-machines/windows/about-disks-and-vhds.md) ve [bir Windows sanal makineye bir veri diski Ekle nasıl](../../virtual-machines/windows/classic/attach-disk-classic.md).
+Diskler hakkında daha fazla bilgi için bkz: [diskleri ve görüntüleri yönetme](../../virtual-machines/windows/about-disks-and-vhds.md) ve [bir Windows sanal makineye bir veri diski Ekle nasıl](../../virtual-machines/windows/attach-managed-disk-portal.md).

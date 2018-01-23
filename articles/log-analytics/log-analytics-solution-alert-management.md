@@ -1,6 +1,6 @@
 ---
-title: "Yönetim çözümü Operations Management Suite (OMS) uyarı | Microsoft Docs"
-description: "Günlük analizi uyarı Yönetimi çözümünde tüm uyarılar, ortamınızdaki analiz etmenize yardımcı olur.  OMS içinde oluşturulan uyarıların birleştirilmesi ek olarak, bu uyarılar bağlı System Center Operations Manager yönetim gruplarından günlük analizi alır."
+title: "Azure Log Analytics Yönetimi çözümünde uyarı | Microsoft Docs"
+description: "Günlük analizi uyarı Yönetimi çözümünde tüm uyarılar, ortamınızdaki analiz etmenize yardımcı olur.  Günlük analizi içinde oluşturulan sağlamlaştırmak uyarılar ek olarak, uyarıları bağlı System Center Operations Manager yönetim gruplarından günlük analizi alır."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Uyarı yönetimi çözümü Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Uyarı Yönetimi çözümüne Azure günlük analizi
 
 ![Uyarı Yönetimi simgesi](media/log-analytics-solution-alert-management/icon.png)
 
 Uyarı yönetimi çözümü tüm uyarılar günlük analizi deponuzun analiz etmenize yardımcı olur.  Bu uyarıların bir çeşitli kaynaklardan bu kaynakları da dahil olmak üzere ortaya çıkabilir [günlük analizi tarafından oluşturulan](log-analytics-alerts.md) veya [Nagios veya Zabbix içeri](log-analytics-linux-agents.md).  Çözüm ayrıca uyarıları birinden alır [bağlı System Center Operations Manager Yönetim grupları](log-analytics-om-agents.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Günlük analizi deposundaki türüne sahip herhangi bir kayıt ile çözüm çalışır **uyarı**, ne olursa olsun bu kayıtları toplamak için gerekli yapılandırmadır gerçekleştirmeniz gerekir.
 
 - Günlük analizi uyarılar için [uyarı kuralları oluşturmak](log-analytics-alerts.md) doğrudan deposunda uyarı kayıtları oluşturmak için.
@@ -34,10 +34,10 @@ Günlük analizi deposundaki türüne sahip herhangi bir kayıt ile çözüm ça
 - System Center Operations Manager uyarılar için [Operations Manager yönetim grubunuzu günlük analizi çalışma alanına bağlayın](log-analytics-om-agents.md).  System Center Operations Manager'da oluşturulan herhangi bir uyarı günlük analizi alınır.  
 
 ## <a name="configuration"></a>Yapılandırma
-Uyarı yönetimi çözümü açıklanan işlemi kullanarak OMS çalışma alanınıza ekleyin [çözümleri Ekle](log-analytics-add-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
+Uyarı yönetimi çözümü açıklanan işlemi kullanarak günlük analizi çalışma alanınıza ekleyin [çözümleri Ekle](log-analytics-add-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
 
 ## <a name="management-packs"></a>Yönetim paketleri
-Ardından System Center Operations Manager yönetim grubunuzu, OMS çalışma alanınızla bağlıysa, bu çözüm eklediğinizde, aşağıdaki yönetim paketlerini System Center Operations Manager'da yüklenir.  Yapılandırma veya gerekli yönetim paketlerinin bakım yoktur.  
+Ardından, System Center Operations Manager yönetim grubu için günlük analizi çalışma alanınız bağlıysa, bu çözüm eklediğinizde, aşağıdaki yönetim paketlerini System Center Operations Manager'da yüklenir.  Yapılandırma veya gerekli yönetim paketlerinin bakım yoktur.  
 
 * Microsoft System Center Advisor uyarı Yönetimi (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -59,7 +59,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 - Uyarı verileri Operations Manager yönetim grubundan üç dakikada günlük analizi için gönderilir.  
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
-Uyarı yönetimi çözümü, OMS çalışma alanına eklediğinizde **uyarı Yönetimi** döşeme OMS panonuz eklenir.  Bu kutucuğu sayısı ve grafik gösterimi son 24 saat içinde oluşturulan etkin uyarıların sayısını görüntüler.  Bu zaman aralığı değiştiremezsiniz.
+Uyarı yönetimi çözümü, günlük analizi çalışma alanına eklediğinizde **uyarı Yönetimi** döşeme panonuza eklenir.  Bu kutucuğu sayısı ve grafik gösterimi son 24 saat içinde oluşturulan etkin uyarıların sayısını görüntüler.  Bu zaman aralığı değiştiremezsiniz.
 
 ![Uyarı Yönetimi döşeme](media/log-analytics-solution-alert-management/tile.png)
 
@@ -88,7 +88,7 @@ Uyarı yönetimi çözümü türüne sahip herhangi bir kaydının çözümler *
 | SourceSystem |*OpsManager* |
 | AlertContext |XML biçiminde oluşturulacak uyarıya neden veri öğesi ayrıntıları. |
 | AlertDescription |Uyarı ayrıntılı bir açıklaması. |
-| Alertıd |Uyarı GUID. |
+| AlertId |Uyarı GUID. |
 | AlertName |Uyarı adı. |
 | AlertPriority |Uyarı öncelik düzeyi. |
 | AlertSeverity |Uyarı önem derecesi. |
@@ -99,7 +99,7 @@ Uyarı yönetimi çözümü türüne sahip herhangi bir kaydının çözümler *
 | Çözüm bulan |Uyarı çözümleyen kullanıcı adı. Uyarı henüz çözümlenmediyse, boş. |
 | SourceDisplayName |Uyarı izleme nesnesinin görünen adı. |
 | SourceFullName |Uyarı izleme nesnesi tam adı. |
-| Ticketıd |System Center Operations Manager ortamı uyarıları biletlerini atamak için bir işlem ile tümleşik uyarı için bilet kimliği.  Bir anahtarı yok, boş bir kimlik atanır. |
+| TicketId |System Center Operations Manager ortamı uyarıları biletlerini atamak için bir işlem ile tümleşik uyarı için bilet kimliği.  Bir anahtarı yok, boş bir kimlik atanır. |
 | TimeGenerated |Tarih ve uyarının oluşturulduğu saat. |
 | TimeLastModified |Tarihi ve uyarının son değiştirilme zamanı. |
 | TimeRaised |Tarih ve uyarının oluşturulduğu saat. |
@@ -114,9 +114,9 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan uyarı kayıtları için �
 | Tür uyarı AlertSeverity = uyarı TimeRaised = > şimdi - 24 saat |Son 24 saatte oluşturulan uyarı bildirimleri |
 | Tür uyarı SourceSystem = OpsManager AlertState =! kapalı TimeRaised = > şimdi 24 saatlik &#124; Ölçü count() SourceDisplayName bazında sayı olarak |Son 24 saatte oluşturulan etkin uyarılara sahip kaynaklar |
 | Tür uyarı SourceSystem = OpsManager AlertSeverity = hata TimeRaised = > şimdi 24 saatlik AlertState! kapalı = |Son 24 hala etkin olan saatte oluşturulan kritik uyarılar |
-| Tür uyarı SourceSystem = OpsManager TimeRaised = > şimdi 24 saatlik AlertState = kapalı |Son 24 şimdi kapatılan saatte oluşturulan uyarılar |
-| Tür uyarı SourceSystem = OpsManager TimeRaised = > şimdi - 1 gün &#124; Ölçü count() AlertSeverity bazında sayı olarak |Önem derecesine göre gruplandırılmış son 1 gün sırasında oluşturulan uyarılar |
-| Tür uyarı SourceSystem = OpsManager TimeRaised = > şimdi - 1 gün &#124; RepeatCount desc sıralama |Yineleme sayısına göre sıralanmış son 1 gün sırasında oluşturulan uyarılar |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Son 24 şimdi kapatılan saatte oluşturulan uyarılar |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Önem derecesine göre gruplandırılmış son 1 gün sırasında oluşturulan uyarılar |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Yineleme sayısına göre sıralanmış son 1 gün sırasında oluşturulan uyarılar |
 
 
 >[!NOTE]

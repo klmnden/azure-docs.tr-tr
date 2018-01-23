@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: jirwin
-ms.openlocfilehash: 7f07734433694999d38429ca264c58c5f3c619e1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure Depolama hesabı seçenekleri
 
@@ -31,7 +31,7 @@ Azure Depolama, farklı fiyatlar ve desteklenen özelliklerle üç ayrı hesap s
 * **Genel Amaçlı v1 (GPv1)** hesapları, tüm Azure Depolama Hizmetlerinin kullanılmasını sağlar, ancak en son özellikleri veya en düşük GB fiyatını içermeyebilir. Örneğin, seyrek ve arşiv depolama GPv1’de desteklenmez.  İşlemlerin ücreti daha düşük olduğundan yüksek karmaşıklık veya yüksek okuma oranlı iş yükleri bu hesap türünden yararlanabilir.
 
 ### <a name="changing-account-kind"></a>Hesap türünü değiştirme
-Kullanıcılar GPv1 veya Blob Depolama hesaplarından GPv2 hesabına istedikleri zaman portal, CLI veya PowerShell aracılığıyla yükseltme yapabilirler. Bu değişiklik geri alınamaz ve başka değişikliklere izin verilmez.
+Kullanıcılar, istedikleri zaman portal, CLI veya PowerShell aracılığıyla bir GPv1 hesabını GPv2 hesabına yükseltebilir. Bu değişiklik geri alınamaz ve başka değişikliklere izin verilmez. Blob Depolama Hesaplarını GPv2’ye yükseltme olanağı yakında sunulacaktır.
 
 ## <a name="general-purpose-v2"></a>Genel Amaçlı v2
 **Genel Amaçlı v2 (GPv2)** hesapları Bloblar, Dosyalar, Kuyruklar ve Tablolar dahil olmak üzere depolama hizmetlerinin tamamına yönelik tüm özellikleri destekleyen depolama hesaplarıdır. Blok Blobları için hesap düzeyinde sık ve seyrek erişimli depolama katmanlarından birini, blob düzeyinde ise erişim düzenleri temelinde sık erişimli, seyrek erişimli ve arşiv katmanlarından birini seçebilirsiniz. Maliyetleri iyileştirmek için sık, seyrek ve nadiren erişilen verileri sırasıyla sık, seyrek ve arşiv depolama katmanlarında depolayın. Hepsinden önemlisi, her GPv1 hesabı portal, CLI veya PowerShell aracılığıyla GPv2 hesabına yükseltilebilir. GPv2 hesapları tüm API'leri ve Blob Depolama ile GPv1 hesaplarında desteklenen özellikleri destekler, bu hesap türlerinde bulunan tüm o harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır.
@@ -130,7 +130,7 @@ Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde eri�
 
 11. Depolama hesabını oluşturmak için **Oluştur**’a tıklayın.
 
-### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Azure Portalı'nı kullanarak GPv1 veya Blob Depolama hesabını GPv2 depolama hesabına dönüştürme
+### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Azure portalını kullanarak bir GPv1 hesabını GPv2 depolama hesabına dönüştürme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -247,7 +247,7 @@ Blob Depolama hesaplarında coğrafi çoğaltma veri aktarımı maliyeti de GRS 
 
 ## <a name="migrating-existing-data"></a>Mevcut verileri geçirme
 
-GPv1 veya Blob Depolama hesabı, kesinti veya API değişiklikleri olmadan ve verileri bir yere taşımak gerekmeden kolayca GPv2’ye yükseltilebilir. Bu, GPv2’nin Blob Depolama hesaplarına göre başlıca avantajlarından biridir.
+Bir GPv1 hesabı, kesinti veya API değişiklikleri olmadan ve verilerin bir yere taşınması gerekmeden kolayca GPv2’ye yükseltilebilir. Bu, GPv2’nin Blob Depolama hesaplarına göre başlıca avantajlarından biridir.
 
 Ancak, Blob Depolama hesabına geçmeniz gerekiyorsa aşağıdaki yönergeleri kullanabilirsiniz.
 
@@ -280,21 +280,25 @@ Daha fazla bilgi için bkz. [Azure Blob Depolama’yı kullanmaya başlayın](..
 
 **Mevcut depolama hesapları hâlâ kullanılabilir mi?**
 
-Evet, var olan depolama hesapları hala kullanılabilir ve fiyatlandırma veya işlev açısından bir farklılık göstermez.  Bunlar depolama katmanı seçme olanağına sahip değildir ve gelecekte katmanlama özelliğine sahip olmayacaktır.
+Evet, mevcut depolama hesaplarınız (GPv1) hala kullanılabilir ve fiyatlandırma veya işlev açısından bir farklılık göstermez.  GPv1 hesapları depolama katmanı seçme olanağına sahip değildir ve gelecekte katmanlama özelliğine sahip olmayacaktır.
 
 **Neden ve ne zaman GPv2 depolama hesapları kullanmaya başlamalıyım?**
 
 GPv2 depolama hesapları, sektörde rekabetçi işlem ve veri erişim maliyetleri sunarken en düşük GB depolama maliyetleri sağlamada uzmanlaşmıştır. Dahası, bu hesap türüne dayalı değişiklik bildirimleri gibi özellikler gelecekte sunulacağından GPv2 depolama hesapları blobları depolamak için önerilen yoldur. Ancak, iş gereksinimlerinize bağlı olarak ne zaman yükselteceğiniz size kalmıştır.  Örneğin, yükseltmeden önce işlem modellerinizi iyileştirmeyi seçebilirsiniz.
 
+GPv2’den indirgeme desteklenmediğinden, hesaplarınızı GPv2’ye yükseltmeden önce tüm fiyatlandırma etkilerini göz önünde bulundurun.
+
 **Mevcut depolama hesabımı GPv2 depolama hesabına yükseltebilir miyim?**
 
-Evet. GPv1 veya Blob Depolama hesapları, portalda kolayca GPv2’ye yükseltilebilir.
+Evet. GPv1 hesapları, portalda veya PowerShell ya da CLI kullanılarak kolayca GPv2’ye yükseltilebilir. Blob Depolama hesapları PowerShell veya CLI kullanılarak GPv2’ye yükseltilebilir. Blob Depolama hesaplarını portalda GPv2’ye yükseltme olanağı yakında sunulacaktır.
+
+GPv2’den indirgeme desteklenmediğinden, hesaplarınızı GPv2’ye yükseltmeden önce tüm fiyatlandırma etkilerini göz önünde bulundurun.
 
 **Nesneleri aynı hesaptaki iki depolama katmanında depolayabilir miyim?**
 
 Evet. Hesap düzeyinde ayarlanan **Erişim Katmanı** özniteliği, bu hesapta bulunan ve katmanı açıkça belirlenmemiş olan tüm nesneler için geçerli varsayılan katmandır. Ancak blob düzeyinde katman ayarlama, hesabın erişim katmanı ayarından bağımsız olarak nesne düzeyinde erişim katmanını açık olarak ayarlamanıza olanak tanır. Aynı hesapta, üç depolama katmanının (sık erişilen, seyrek erişilen veya arşiv) tümüne ait bloblar bulunabilir.
 
-**GPv2 depolama hesabımdaki depolama katmanını değiştirebilir miyim?**
+**GPv2 depolama hesabımın depolama katmanını değiştirebilir miyim?**
 
 Evet, depolama hesabındaki **Erişim Katmanı** özniteliğini ayarlayarak hesap depolama katmanını değiştirebilirsiniz. Hesap depolama katmanının değiştirilmesi, hesapta depolanmış ve açıkça katmanı belirtilmemiş tüm nesneler için geçerlidir. Sık erişilen olan depolama katmanının seyrek erişilen olarak değiştirilmesi, yazma işlemi (10.000 başına) maliyetleri doğurur (yalnızca GPv2 depolama hesaplarında). Seyrek erişilen olan depolama katmanının sık erişilen olarak değiştirilmesi ise hesaptaki tüm verilerin okunması için hem okuma işlemi (10.000 başına) hem de veri alma (GB başına) maliyetleri doğurur.
 
@@ -315,6 +319,8 @@ Hayır. Blob Depolama hesapları, yalnızca blok ve ekleme bloblarını destekle
 **GPv2 depolama hesaplarını kullanmak için mevcut uygulamalarımı değiştirmem gerekiyor mu?**
 
 GPv2 depolama hesapları GPv1 ve Blob Depolama hesapları ile %100 API uyumludur. Uygulamanız blok veya ilave bloblarını kullandığı ve [Depolama Hizmetleri REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx)’nin 2014-02-14 sürümünü veya üstünü kullandığınız sürece, uygulamanız çalışmaya devam edecektir. Protokolün daha eski bir sürümünü kullanıyorsanız, her iki tür depolama hesabıyla sorunsuz çalışarak yeni sürümü kullanmak için uygulamanızı güncelleştirmeniz gerekir. Genel olarak, hangi depolama hesabını kullandığınızdan bağımsız olarak her zaman en son sürümü kullanmanızı öneriyoruz.
+
+İşlemler ve bant genişliği için GPv2 fiyatlandırması genellikle GPv1’den yüksektir. Bu nedenle, toplam faturanızın artmaması için yükseltmeden önce işlem modellerinizi iyileştirmeniz gerekebilir.
 
 **Kullanıcı deneyiminde bir değişiklik olur mu?**
 

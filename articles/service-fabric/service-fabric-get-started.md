@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6cfc9891af9de88dddca717711148cbb53276e84
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
  Windows geliştirme makinenizde [Azure Service Fabric uygulamaları][1] derlemek ve çalıştırmak için çalışma zamanını, SDK'yı ve araçları yükleyin. Ayrıca, SDK'da bulunan Windows PowerShell betiklerinin çalıştırılmasını da etkinleştirmeniz gerekir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 ### <a name="supported-operating-system-versions"></a>Desteklenen işletim sistemi sürümleri
 Geliştirme için şu işletim sistemi sürümleri desteklenir:
 
@@ -41,9 +41,10 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 * Windows 10
 
 > [!NOTE]
-> Windows 7 varsayılan olarak yalnızca Windows PowerShell 2.0 içerir. Service Fabric PowerShell cmdlet’leri PowerShell 3.0 veya üzerini gerektirir. Microsoft Yükleme Merkezi'nden [Windows PowerShell 5.0'ı indirebilirsiniz][powershell5-download].
-> 
-> 
+> Windows 7 desteği:
+> - Windows 7 varsayılan olarak yalnızca Windows PowerShell 2.0 içerir. Service Fabric PowerShell cmdlet’leri PowerShell 3.0 veya üzerini gerektirir. Microsoft Yükleme Merkezi'nden [Windows PowerShell 5.0'ı indirebilirsiniz][powershell5-download].
+> - Windows 7'de Service Fabric Ters Proxy kullanılamaz.
+>
 
 ## <a name="install-the-sdk-and-tools"></a>SDK'yı ve araçları yükleme
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017’yi kullanmak için

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: cccab530e86373fee8a78b42c8cba532b05c1bab
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile çalışmaya başlama
 ## <a name="overview"></a>Genel Bakış
@@ -26,7 +26,7 @@ Azure Depolama Gezgini (Önizleme) Windows, macOS ve Linux’ta Azure Depolama i
 
 ![Microsoft Azure Depolama Gezgini (Önizleme)][15]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * [Depolama Gezgini (Önizleme) indirip yükleme](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Bir depolama hesabı veya hizmetine bağlanmak
@@ -243,7 +243,7 @@ Arama kutusuna yazarken sol bölmede o noktaya kadar girdiğiniz arama değeriyl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Depolama Gezgini (Önizleme) ile Azure Blob Depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
-* [Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+* [Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme](./cosmos-db/storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png

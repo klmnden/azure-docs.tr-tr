@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
-ms.openlocfilehash: fe7966d1817dc7f7896435f9202d2bcea981b5f3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d31eae21a246be97f0b50b9b773fcc63dfcbd084
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Azure Vm'lerini başka bir bölgeye Azure geçişten sonra Azure Site Recovery kullanarak çoğaltma
 
@@ -51,7 +51,7 @@ Geçişten sonra yürütün veya bir yük devretme silme gerekmez. Bunun yerine,
 2. **Tam geçiş** eylem geçiş işlemi tamamlandığında, makine için çoğaltmayı kaldırır ve makine için Site Recovery Faturalaması durdurulur.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>2. adım: Azure VM Aracısı sanal makineye yükleme
-Azure [VM Aracısı](../../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) çözmek ve VM korunmasına yardımcı olmak için Site Recovery uzantı sanal makineye yüklenmesi gerekir.
+Azure [VM Aracısı](../../virtual-machines/windows/agent-user-guide.md) çözmek ve VM korunmasına yardımcı olmak için Site Recovery uzantı sanal makineye yüklenmesi gerekir.
 
 >[!IMPORTANT]
 >Sürüm 9.7.0.0, Windows sanal makinelerde itibaren Mobility hizmeti yükleyicisinin en son kullanılabilir Azure VM Aracısı de yükler. Geçiş, sanal makine Site Recovery uzantısına dahil, herhangi bir VM uzantısı kullanılarak için önkoşul aracı yüklemesi karşılar. Azure VM Aracısı yalnızca geçirilen makinede Mobility hizmeti 9.6 veya önceki bir sürümü ise el ile yüklenmesi gerekir.

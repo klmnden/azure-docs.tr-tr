@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Yerel Azure sertifika doğrulaması kullanarak Noktadan Siteye sanal ağ bağlantısını yapılandırma: PowerShell
 
 Bu makalede PowerShell kullanılarak Resource Manager dağıtım modelinde Noktadan Siteye bağlantı ile sanal ağ oluşturma işlemi gösterilmektedir. Bu yapılandırma, kimlik doğrulaması için sertifikaları kullanır. Bu yapılandırmada sertifika doğrulaması, bir RADIUS sunucusu yerine Azure VPN ağ geçidi tarafından gerçekleştirilir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure portalı](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure portal (klasik)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -165,7 +165,7 @@ Sanal ağınız için sanal ağ geçidini yapılandırın ve oluşturun.
 
 * -GatewayType değeri **Vpn** ve -VpnType değeri **RouteBased** olmalıdır.
 * -VpnClientProtocol, etkinleştirmek istediğiniz tünel türlerini belirtmek için kullanılır. **SSTP** ve **IKEv2** olmak üzere iki tünel seçeneği bulunur. Birini veya ikisini birden etkinleştirmeyi seçebilirsiniz. İkisini birden etkinleştirmek istiyorsanız, her iki adı da virgülle ayrılmış olarak belirtin. Android ve Linux üzerindeki Strongswan istemcisi ile iOS ve OSX üzerindeki yerel IKEv2 VPN istemcisi, bağlanmak için yalnızca IKEv2 kullanır. Windows istemcileri önce IKEv2’yi dener ve bağlanamazsa SSTP’ye döner.
-* Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz [ağ geçidi sku'suna](vpn-gateway-about-vpn-gateway-settings.md) bağlı olarak 45 dakikaya kadar sürebilir. Bu örnekte şu anda Önizleme sürümünde olan IKEv2 uygulaması kullanılıyor.
+* Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz [ağ geçidi sku'suna](vpn-gateway-about-vpn-gateway-settings.md) bağlı olarak 45 dakikaya kadar sürebilir. Bu örnekte IKEv2 kullanılmıştır.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
