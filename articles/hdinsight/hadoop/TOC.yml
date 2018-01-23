@@ -4,6 +4,9 @@
   items:
     - name: Genel Bakış
       href: apache-hadoop-introduction.md
+    - name: HDInsight’ta Hadoop mimarisi
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
     - name: HDInsight üzerindeki Hadoop bileşenleri
       href: ../hdinsight-component-versioning.md
       maintainContext: true
@@ -153,6 +156,12 @@
           maintainContext: true
         - name: HDInsight için gelişmiş analiz
           href: apache-hadoop-deep-dive-advanced-analytics.md
+        - name: HDInsight’ta makine öğrenimi
+          href: ../hdinsight-machine-learning-overview.md
+          maintainContext: true
+        - name: HDInsight’ta ölçeğe göre akış
+          href: ../hdinsight-streaming-at-scale-overview.md
+          maintainContext: true
     - name: Kümeleri genişletme
       items:
         - name: Bootstrap ile kümeleri özelleştirme

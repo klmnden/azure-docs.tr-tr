@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>IDN'ler için Azure yığınına Tanıtımı
 
@@ -30,7 +30,7 @@ Ayrıca, iç sanal ağ adları kaydetmenize olanak sağlar. Bunu yaparak, sanal 
 Her zaman Azure'da var olmuştur bir şey olduğunu, ancak çok Windows Server 2016 ve Azure yığın de kullanılabilir.
 
 ## <a name="what-does-idns-do"></a>IDN'ler ne yapar?
-Azure yığınında IDN'ler ile özel DNS sunucusu girdileri belirtmek zorunda kalmadan aşağıdaki özellikleri alır.
+Azure yığınında IDN'ler ile özel DNS sunucusu girdileri belirtmek zorunda kalmadan aşağıdaki özellikleri alın:
 
 * Kiracı İş yükleri için DNS ad çözümleme hizmetleri paylaşılan.
 * Ad çözümlemesi ve Kiracı sanal ağ içinde DNS kaydı için yetkili DNS hizmeti.
@@ -47,7 +47,7 @@ Azure'da, bir ortak IP adresi ile ilişkilendirilebilir bir DNS ad etiketi belir
 
 Yukarıdaki resimde bir "A" kaydı DNS bölge altında belirtilen DNS ad etiketi için Azure oluşturacak **westus.cloudapp.azure.com**. Önek ve sonek birlikte bir tam etki alanı adı (genel Internet'te herhangi bir yere çözümlenebilen FQDN) oluşturun.
 
-Aşağıdakileri yapamazsınız şekilde azure yığını IDN'ler dahili ad kaydı için yalnızca destekler.
+Aşağıdakileri yapamazsınız şekilde azure yığın IDN'ler dahili ad kaydı için yalnızca destekler:
 
 * Varolan barındırılan bir DNS bölgesi (örneğin, local.azurestack.external) altında bir DNS kaydı oluşturun.
 * Bir DNS bölgesi (Contoso.com gibi) oluşturur.

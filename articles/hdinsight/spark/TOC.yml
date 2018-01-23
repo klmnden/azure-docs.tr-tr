@@ -113,6 +113,8 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Microsoft Bilişsel Araç Seti ile kullanma
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Spark makine öğrenimi işlem hattı oluşturma
+          href: apache-spark-creating-ml-pipelines.md
     - name: Büyük verileri çözümleme
       items:
         - name: HBase verilerini okuyup yazmak için Spark kullanma
