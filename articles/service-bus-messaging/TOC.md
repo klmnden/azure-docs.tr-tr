@@ -28,13 +28,13 @@
 ### [Rol Tabanlı Erişim Denetimi (önizleme)](service-bus-role-based-access-control.md)
 ### [Premium mesajlaşma](service-bus-premium-messaging.md)
 ### [Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırması](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Çok katmanlı Service Bus uygulaması derleme](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Performansı iyileştirme](service-bus-performance-improvements.md)
 ### [Coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma](service-bus-geo-dr.md)
 ### [Zaman uyumsuz mesajlaşma ve yüksek kullanılabilirlik](service-bus-async-messaging.md)
 ### [Kesintileri ve olağanüstü durumları yönetme](service-bus-outages-disasters.md)
 
 ## Geliştirme
+### [Çok katmanlı Service Bus uygulaması derleme](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### İleti işleme
 #### [Kuyruklar, konu başlıkları ve abonelikler](service-bus-queues-topics-subscriptions.md)
 #### [İletiler, yükler ve serileştirme](service-bus-messages-payloads.md)
