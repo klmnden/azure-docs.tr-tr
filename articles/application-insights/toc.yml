@@ -170,6 +170,8 @@
               href: app-insights-live-stream.md
             - name: Uygulama Eşlemesi
               href: app-insights-app-map.md
+            - name: İşlem tanılamaları
+              href: app-insights-transaction-diagnostics.md
             - name: HockeyApp verileri
               href: app-insights-hockeyapp-bridge-app.md
         - name: Visual Studio

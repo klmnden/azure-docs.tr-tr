@@ -311,6 +311,7 @@
 ### Performans izleme
 #### [WAD ile performans izleme](service-fabric-diagnostics-perf-wad.md)
 
+
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java API’si](/java/api/overview/azure/servicefabric)
+### [Java REST istemci API’si](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Hizmet modeli XML şeması](service-fabric-service-model-schema.md)

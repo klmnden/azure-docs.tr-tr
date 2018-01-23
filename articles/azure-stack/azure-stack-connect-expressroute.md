@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>ExpressRoute kullanarak Azure Azure yığın Bağlan
 
@@ -90,7 +90,7 @@ Gerekli ağ kaynaklarına Azure yığındaki her bir kiracı oluşturmak için a
    |---------|---------|
    |Ad     |Tenant1VNet1         |
    |Adres alanı     |10.1.0.0/16|
-   |Alt ağ adı     |Tenant1 Abon1|
+   |Alt ağ adı     |Tenant1-Sub1|
    |Alt ağ adres aralığı     |10.1.1.0/24|
 
 6. Daha önce oluşturduğunuz Aboneliği, **Abonelik** alanında görmeniz gerekir.
@@ -101,7 +101,7 @@ Gerekli ağ kaynaklarına Azure yığındaki her bir kiracı oluşturmak için a
 
     c. Tıklatın **panoya Sabitle**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
 
 
 
@@ -128,7 +128,7 @@ Gerekli ağ kaynaklarına Azure yığındaki her bir kiracı oluşturmak için a
 7. **Ad** alanına **GW1-PiP** yazıp **Tamam**’a tıklayın.
 8. **VPN türü** için varsayılan olarak **yol tabanlı** seçili olmalıdır.
     Bu ayarı tutun.
-9. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. İstiyorsanız, kaynak panoya sabitleyebilirsiniz. **Oluştur**'a tıklayın.
+9. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. İstiyorsanız, kaynak panoya sabitleyebilirsiniz. **Oluştur**’a tıklayın.
 
 #### <a name="create-the-local-network-gateway"></a>Yerel ağ geçidini oluşturma
 
@@ -172,7 +172,7 @@ VPN bağlantısı üzerinden yolculuk verileri doğrulamak için Azure yığın 
 5. Geçerli bir kullanıcı adı ve parola yazın. Bu hesabı oluşturduktan sonra VM’de oturum açmak için kullanacaksınız.
 6. Sağlayan bir **abonelik**, **kaynak grubu**, ve **konumu** ve ardından **Tamam**.
 7. Üzerinde **boyutu** bölümünde, bir sanal makine boyutu bu örneğe tıklayın ve ardından **seçin**.
-8. Üzerinde **ayarları** bölümünde, Varsayılanları kabul edebilir. Ancak seçilen sanal ağ olduğundan emin olun **Tenant1VNet1** ve alt ağ ayarı **10.1.1.0/24**. **Tamam** düğmesine tıklayın.
+8. Üzerinde **ayarları** bölümünde, Varsayılanları kabul edebilir. Ancak seçilen sanal ağ olduğundan emin olun **Tenant1VNet1** ve alt ağ ayarı **10.1.1.0/24**. **Tamam**’a tıklayın.
 9. Ayarları gözden **Özet** 'ye tıklayın **Tamam**.
 
 Her bir kiracı bağlanmak istediğiniz sanal ağ'ı için önceki adımları yineleyin **VM alt ağı ve sanal ağ oluşturma** aracılığıyla **bir sanal makine oluşturmak** bölümler.
@@ -205,19 +205,22 @@ Bir Windows Server sanal makine yönlendiricidir (**AzS BGPNAT01**) yönlendirme
    Örnek diyagramlarındaki *dış BGPNAT adresi* 10.10.0.62 olduğu ve *iç IP adresi* 192.168.102.1 değil.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ Bir Windows Server sanal makine yönlendiricidir (**AzS BGPNAT01**) yönlendirme
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ Bir Windows Server sanal makine yönlendiricidir (**AzS BGPNAT01**) yönlendirme
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```

@@ -234,6 +234,8 @@
           href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Linux üzerinde AzCopy
           href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Linux’ta Blog depolama alanını dosya sistemi olarak ekleme
+          href: storage-how-to-mount-container-linux.md
         - name: İçeri/Dışarı Aktarma hizmetini kullanma
           href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: İçeri/Dışarı Aktarma Aracı’nı kullanma

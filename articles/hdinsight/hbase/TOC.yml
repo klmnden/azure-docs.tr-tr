@@ -39,6 +39,9 @@
         - name: Etkileşimli olmayan kimlik doğrulaması ile çalıştırılan .NET HDInsight uygulamaları oluşturma
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
+        - name: HDInsight üzerinde Apache Phoenix
+          href: ../hdinsight-phoenix-in-hdinsight.md
+          maintainContext: true
         - name: Phoenix ve SQLLine kullanma
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Phoenix Sorgu Sunucusu REST SDK'sını kullanma
