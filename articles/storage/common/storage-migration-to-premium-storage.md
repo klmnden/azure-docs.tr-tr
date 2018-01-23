@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.openlocfilehash: 9c2ac737c9f4e13b4e5e4f5dba18c7a697f6e6c3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage (yönetilmeyen diskleri) geçirme
 
@@ -759,8 +759,8 @@ Veritabanları ve diğer karmaşık uygulamalar geçiş için uygulama sağlayı
 Sanal makineleri geçirmek için belirli senaryolar için aşağıdaki kaynaklara bakın:
 
 * [Azure sanal makineleri depolama hesapları arasında geçiş](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Oluşturun ve Windows Server VHD Azure'a yükleyin.](../../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Oluşturma ve Linux işletim sistemini içeren bir Sanal Sabit Disk karşıya yükleme](../../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Oluşturun ve Windows Server VHD Azure'a yükleyin.](../../virtual-machines/windows/upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Oluşturma ve Linux VHD Azure'a karşıya yükleme](../../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Geçirme sanal makinelerden Amazon AWS Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Ayrıca, Azure Storage ve Azure sanal makineler hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:

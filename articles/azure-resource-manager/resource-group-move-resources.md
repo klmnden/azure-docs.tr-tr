@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -118,9 +118,9 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * DNS
 * Event Hubs
 * Bkz: Hdınsight kümeleri - [Hdınsight sınırlamaları](#hdinsight-limitations)
-* IOT hub'ları
+* IoT Hub
 * Anahtar Kasası
-* Yük Dengeleyici
+* Yük Dengeleyiciler
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -150,7 +150,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 
 Şu anda bir kaynak taşıma etkinleştirmeyin hizmetler şunlardır:
 
-* AD etki alanı Hizmetleri
+* AD Domain Services
 * AD karma sistem durumu hizmeti
 * Application Gateway
 * BizTalk Services
@@ -162,7 +162,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Yönetilen diskleri - bkz [sanal makineleri sınırlamaları](#virtual-machines-limitations)
 * Kurtarma Hizmetleri kasası - ayrıca yapın kurtarma Hizmetleri kasası ile ilişkili işlem, ağ ve depolama kaynaklarını taşıyamazsınız bkz [kurtarma Hizmetleri sınırlamaları](#recovery-services-limitations).
 * Güvenlik
-* StorSimple cihaz Yöneticisi
+* StorSimple Cihaz Yöneticisi
 * Bkz: Sanal ağları (Klasik) - [Klasik dağıtım sınırlamaları](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Sanal makineler sınırlamaları
@@ -314,6 +314,12 @@ Klasik kaynaklar için yeni bir aboneliği taşımak için Klasik kaynakları i�
 Ağ, depolama için etkin değil taşıyın veya işlem kaynaklarını Azure Site Recovery ile olağanüstü durum kurtarma ayarlamak için kullanılır.
 
 Örneğin, şirket içi makinelerinizi bir depolama hesabına (Storage1) çoğaltmasını ayarladıktan ve bir sanal ağa (Network1) bağlı sanal makine (VM1) olarak Azure için yük devretme sonrasında gündeme için korumalı makine istediğinizi varsayalım. Bu Azure kaynakları - Storage1, VM1 ve Network1 - hiçbirini aynı abonelik içindeki kaynak grupları arasında veya abonelikler arasında taşınamıyor.
+
+Kayıtlı bir VM taşımak için **Azure yedekleme** kaynak grupları arasında:
+ 1. Geçici olarak yedeklemeyi durdurma ve yedekleme verileri tut
+ 2. VM hedef kaynak grubuna taşıma
+ 3. Kullanıcıların taşıma işlemi önce oluşturulan kullanılabilir geri yükleme noktaları geri yükleyebilirsiniz aynı/yeni kasa altında yeniden koruyun.
+Kullanıcı abonelikleri yedeklenen VM geçerse, adım 1 ve 2. adım aynı kalır. 3. adımda, mevcut / hedef abonelik içinde oluşturulan yeni bir kasa altında VM korumak kullanıcı gerekir. Kurtarma Hizmetleri kasası bilgilerine desteği çapraz abonelik yedekler.
 
 ## <a name="hdinsight-limitations"></a>Hdınsight sınırlamaları
 

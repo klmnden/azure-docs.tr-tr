@@ -3,30 +3,30 @@ title: "Azure DNS'yi Azure kaynaklarınızı ile tümleştirme | Microsoft Docs"
 description: "Azure kaynaklarınız için DNS sağlamak üzere Azure DNS boyunca kullanmayı öğrenin."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 1/19/2018
+ms.author: kumud
+ms.openlocfilehash: cbc769cd7356b3057fd2aae295071b04d2e40d91
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Bir Azure hizmetini özel etki alanı ayarları sağlamak için Azure DNS kullanabilir
 
 Azure DNS destek özel etki alanları veya, bir tam etki alanı adı (FQDN) sahip herhangi bir Azure kaynaklarınızı için özel bir etki alanı için DNS sağlar. Azure web uygulaması varsa ve kullanıcılarınızın ya da erişmek istediğiniz örneğidir contoso.com ya da www.contoso.com bir FQDN kullanarak. Bu makalede özel etki alanlarını kullanmak için Azure hizmeti Azure DNS ile yapılandıracağınız anlatılmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure DNS için özel etki alanınızı kullanmak için etki alanınızı Azure DNS'ye temsilci. Ziyaret [bir etki alanını Azure DNS'ye devretme](./dns-delegate-domain-azure-dns.md) temsilci seçmek için ad sunucularının nasıl yapılandırılacağı hakkında yönergeler için. Etki alanınızı Azure DNS bölgenizi temsilci sonra gereken DNS kayıtlarını yapılandırabilirsiniz.
 
-Bir gösterim veya özel etki alanı için yapılandırabileceğiniz [Azure işlev uygulamalarının](#azure-function-app), [Azure IOT](#azure-iot), [ortak IP adresleri](#public-ip-address), [uygulama hizmeti (Web uygulamaları)](#app-service-web-apps), [Blob storage](#blob-storage), ve [Azure CDN](#azure-cdn).
+Bir gösterim veya özel etki alanı için yapılandırabileceğiniz [Azure işlev uygulamalarının](#azure-function-app), [ortak IP adresleri](#public-ip-address), [uygulama hizmeti (Web uygulamaları)](#app-service-web-apps), [Blob storage](#blob-storage), ve [Azure CDN](#azure-cdn).
 
 ## <a name="azure-function-app"></a>Azure işlev uygulaması
 
@@ -48,34 +48,13 @@ DNS bölgenizi gidin ve tıklayın **+ kayıt kümesine**. Üzerinde aşağıdak
 |Tür     | CNAME        | Kullanım bir CNAME kaydı bir diğer ad kullanıyor.        |
 |TTL     | 1        | 1 1 saat boyunca kullanılır        |
 |TTL birim     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | adatumfunction.azurewebsites.NET        | DNS adı Bu örnekte, işlev uygulaması için varsayılan olarak sağlanan adatumfunction.azurewebsites.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
+|Diğer ad     | adatumfunction.azurewebsites.net        | DNS adı Bu örnekte, işlev uygulaması için varsayılan olarak sağlanan adatumfunction.azurewebsites.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
 
 İşlevi uygulamanıza geri gidin, tıklatın **Platform özellikleri**ve altında **ağ** tıklatın **özel etki alanları**, altında **ana bilgisayar adları**tıklatın **+ ana bilgisayar adını eklemek**.
 
 Üzerinde **ana bilgisayar adını eklemek** dikey penceresinde, CNAME kaydı girin **ana bilgisayar adı** metin alanı ve tıklatın **doğrulama**. Kayıt bulunabilmesi, mümkün olduğunda **ana bilgisayar adını eklemek** düğmesi görünür. Tıklatın **ana bilgisayar adını eklemek** diğer ad eklemek için.
 
 ![ana bilgisayar adı dikey işlevi uygulamalar ekleme](./media/dns-custom-domain/functionaddhostname.png)
-
-## <a name="azure-iot"></a>Azure IoT
-
-Azure IOT hizmeti üzerinde gerekli özelleştirmeler yok. IOT hub'ı yalnızca kaynaklarına işaret bir CNAME kaydı ile özel bir etki alanı kullanmak için gereklidir.
-
-Gidin **nesnelerin interneti** > **IOT hub'ı** ve IOT hub'ı seçin. Üzerinde **genel bakış** dikey penceresinde IOT hub'ı FQDN'sini unutmayın.
-
-![IOT hub'ı dikey penceresi](./media/dns-custom-domain/iot.png)
-
-Ardından, DNS bölgenizi gidin ve tıklayın **+ kayıt kümesine**. Üzerinde aşağıdaki bilgileri doldurun **kayıt kümesi Ekle** tıklayın ve dikey **Tamam** oluşturabilirsiniz.
-
-
-|Özellik  |Değer  |Açıklama  |
-|---------|---------|---------|
-|Ad     | myiothub        | Bu etki alanı adı etiketi ile birlikte IOT hub'ı için FQDN'yi değerdir.        |
-|Tür     | CNAME        | Kullanım bir CNAME kaydı bir diğer ad kullanıyor.
-|TTL     | 1        | 1 1 saat boyunca kullanılır        |
-|TTL birim     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | adatumIOT.azure devices.net        | DNS adı IOT hub tarafından sağlanan adatumIOT.azure devices.net ana bilgisayar adı olduğundan bu örnekte, diğer oluşturuyorsunuz.
-
-Kayıt oluşturulduktan sonra CNAME kaydı kullanarak ad çözümlemesini test`nslookup`
 
 ## <a name="public-ip-address"></a>Genel IP adresi
 
@@ -121,7 +100,7 @@ DNS bölgenizi gidin ve tıklayın **+ kayıt kümesine**. Üzerinde aşağıdak
 |Tür     | CNAME        | Kullanım bir CNAME kaydı bir diğer ad kullanıyor. Kaynak IP adresi kullanıldığında, bir A kaydı olarak kullanılır.        |
 |TTL     | 1        | 1 1 saat boyunca kullanılır        |
 |TTL birim     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | webserver.azurewebsites.NET        | DNS adı Bu örnekte, web uygulaması için varsayılan olarak sağlanan webserver.azurewebsites.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
+|Diğer ad     | webserver.azurewebsites.net        | DNS adı Bu örnekte, web uygulaması için varsayılan olarak sağlanan webserver.azurewebsites.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
 
 
 ![Bir CNAME kaydı oluşturun](./media/dns-custom-domain/createcnamerecord.png)
@@ -155,7 +134,7 @@ DNS bölgenizi gidin ve tıklayın **+ kayıt kümesine**. Üzerinde aşağıdak
 |Tür     | CNAME        | Kullanım bir CNAME kaydı bir diğer ad kullanıyor.        |
 |TTL     | 1        | 1 1 saat boyunca kullanılır        |
 |TTL birim     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | asverify.adatumfunctiona9ed.BLOB.Core.Windows.NET        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan asverify.adatumfunctiona9ed.blob.core.windows.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
+|Diğer ad     | asverify.adatumfunctiona9ed.blob.core.windows.net        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan asverify.adatumfunctiona9ed.blob.core.windows.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
 
 Tıklayarak, depolama hesabınıza gidin **depolama** > **depolama hesapları**, depolama hesabınızı seçin ve tıklatın **özel etki alanı**. Oluşturulan metin kutusundaki onay asverify öneki olmadan diğer ad türü ** dolaylı CNAME doğrulaması kullan öğesini tıklatıp **kaydetmek**. Bu adım tamamlandıktan sonra DNS bölgenizi dönüp asverify öneki olmadan bir CNAME kaydı oluşturun.  Ondan sonra cdnverify önekiyle CNAME kaydını silmek güvenlidir.
 
@@ -183,7 +162,7 @@ DNS bölgenizi gidin ve tıklayın **+ kayıt kümesine**. Üzerinde aşağıdak
 |Tür     | CNAME        | Kullanım bir CNAME kaydı bir diğer ad kullanıyor.        |
 |TTL     | 1        | 1 1 saat boyunca kullanılır        |
 |TTL birim     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | cdnverify.adatumcdnendpoint.azureedge.NET        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan cdnverify.adatumcdnendpoint.azureedge.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
+|Diğer ad     | cdnverify.adatumcdnendpoint.azureedge.net        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan cdnverify.adatumcdnendpoint.azureedge.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
 
 Tıklayarak geri CDN uç noktası için gidin **ağ** > **CDN profili**, CDN profilinizi seçin. Tıklatın **+ özel etki alanı** cdnverify öneki olmadan CNAME kaydı diğer adınızı girin ve tıklatın **Ekle**.
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f26c35512bb92323b5a9c1688f96a958e0749c6
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 1f2ee45d5d3a4dbb53faf43f67989ea92488b92a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Giraph Hdınsight Hadoop kümelerine yükleme ve büyük ölçekli grafikleri işlemek için Giraph kullanma
 
@@ -140,7 +140,7 @@ Küme oluşturulduktan sonra Giraph ile dahil SimpleShortestPathsComputation ör
 
     Bu komutla birlikte kullanılan parametreler aşağıdaki tabloda açıklanmıştır:
 
-   | Parametre | Neler yapar? |
+   | Parametre | Ne yapar? |
    | --- | --- |
    | `jar` |Örnekler içeren jar dosyasını. |
    | `org.apache.giraph.GiraphRunner` |Örnekler başlatmak için kullanılan bir sınıftır. |

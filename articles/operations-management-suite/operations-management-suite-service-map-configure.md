@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9d310df29156f16f6b5290ff0575ff43d083a26c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite içinde hizmet Haritası yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Azure VM uzantısı
-Bağımlılık Aracısı'nı kullanarak Azure sanal makinelerini kolayca dağıtabilirsiniz bir [Azure VM uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions-classic).  Azure VM uzantısıyla bağımlılık Aracısı'nı Vm'leriniz VM'in Azure Resource Manager şablonunda doğrudan veya bir PowerShell komut dosyası aracılığıyla dağıtabilirsiniz.  Uzantı hem Windows (DependencyAgentWindows) hem de Linux (DependencyAgentLinux) için kullanılabilir.  Azure VM uzantısı dağıtırsanız, en son sürümlerine aracılarınızı otomatik olarak güncelleştirilebilir.
+Bağımlılık Aracısı'nı kullanarak Azure sanal makinelerini kolayca dağıtabilirsiniz bir [Azure VM uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Azure VM uzantısıyla bağımlılık Aracısı'nı Vm'leriniz VM'in Azure Resource Manager şablonunda doğrudan veya bir PowerShell komut dosyası aracılığıyla dağıtabilirsiniz.  Uzantı hem Windows (DependencyAgentWindows) hem de Linux (DependencyAgentLinux) için kullanılabilir.  Azure VM uzantısı dağıtırsanız, en son sürümlerine aracılarınızı otomatik olarak güncelleştirilebilir.
 
 PowerShell aracılığıyla Azure VM uzantısı dağıtmak için aşağıdaki örnekte kullanabilirsiniz:
 ```PowerShell

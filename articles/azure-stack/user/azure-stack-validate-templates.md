@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Azure şablonu Doğrulayıcı yığınla şablonlarınızı denetle
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
  - AzureRM.CloudCapabilities.psm1 sürümleri Azure yığın gibi bir bulutta ve Hizmetleri temsil eden bir bulut özellikleri JSON dosyası oluşturur.
  - AzureRM.TemplateValidator.psm1 şablonlarını dağıtımı için Azure yığınında test etmek için bir bulut özellikleri JSON dosyasını kullanır.
- - AzureStackCloudCapabilities_with_AddOns_20170627.json bir varsayılan bulut özellikleri dosyasıdır.  Kendinizinkini oluşturun veya başlamak için bu dosyayı kullanın. 
+ - AzureStackCloudCapabilities_with_AddOns_20170627.json is a default cloud capabilities file.  Kendinizinkini oluşturun veya başlamak için bu dosyayı kullanın. 
 
 Bu konuda, şablonlarınızı karşı doğrulama çalıştırın ve isteğe bağlı olarak bir bulut özellikleri dosyası oluşturun.
 
@@ -93,7 +93,7 @@ Karşıdan yüklenen dosyalar varsayılan dahil *AzureStackCloudCapabilities_wit
 3.  Hizmet sürümleri almak ve bir bulut özellikleri JSON dosyası oluşturmak için Get-CloudCapabilities cmdlet'ini kullanın:
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 

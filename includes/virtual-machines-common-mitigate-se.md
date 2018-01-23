@@ -1,11 +1,14 @@
 
 
 
-**Son Güncelleştirme'ı belge**: 12 Ocak, 15:00 PST.
+**Son Güncelleştirme'ı belge**: 22 Ocak, 15:00 PST.
 
 Son açıklanması bir [CPU güvenlik açıklarının yeni sınıf](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kurgusal yürütme yan kanal saldırıları olarak bilinen daha fazla netlik aramayı müşterilerden soruları sonuçlandı.  
 
 Azure çalışan ve müşteri iş yüklerinin birbirinden ayırır altyapı korunur.  Başka bir deyişle, Azure üzerinde çalışan diğer müşteriler güvenlik açıklarından kullanarak uygulamanızı saldırı olamaz.
+
+> [!NOTE] 
+> 3 Ocak 2018 üzerinde önceden duyurulmuş azure Azaltıcı etkilenmez güncel [yönergeleri güncelleştirildi](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) Intel gelen. Bu yeni bilgilere Intel sonucunda müşteri sanal makineleri üzerinde ek bakım etkinliği yok olacaktır.
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>İşletim sistemlerinin güncel tutma
 

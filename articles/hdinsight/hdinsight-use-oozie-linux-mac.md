@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie Hadoop ile tanımlamak ve Azure Hdınsight'ta Linux tabanlı bir iş akışını çalıştırmak için kullanın.
 
@@ -41,7 +41,7 @@ Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlam
 > [!IMPORTANT]
 > Oozie etki alanına katılmış Hdınsight üzerinde etkin değil.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Hdınsight kümesi**: bkz [Linux'ta Hdınsight ile çalışmaya başlama](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
@@ -499,7 +499,7 @@ Aşağıdaki adımlar Oozie komutunu göndermek ve küme Oozie iş akışlarınd
 
 Oozie komutu hakkında daha fazla bilgi için bkz: [Oozie komut satırı aracı](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
-## <a name="oozie-rest-api"></a>Oozie REST API'si
+## <a name="oozie-rest-api"></a>Oozie REST API
 
 Oozie REST API'si ile Oozie ile iş kendi araçları oluşturabilirsiniz. Oozie REST API kullanımı hakkında Hdınsight özgü bilgiler aşağıdadır:
 
@@ -513,7 +513,7 @@ Oozie REST API'si ile Oozie ile iş kendi araçları oluşturabilirsiniz. Oozie 
 
 Oozie REST API kullanma hakkında daha fazla bilgi için bkz: [Oozie Web Hizmetleri API'si](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-## <a name="oozie-web-ui"></a>Oozie web kullanıcı Arabirimi
+## <a name="oozie-web-ui"></a>Oozie web UI
 
 Oozie web kullanıcı Arabirimi kümede Oozie işlerin durumunu web tabanlı bir görünüme sağlar. Web kullanıcı Arabirimi ile aşağıdaki bilgileri görüntüleyebilirsiniz:
 
@@ -547,11 +547,11 @@ Oozie web kullanıcı Arabirimi erişmek için aşağıdaki adımları tamamlay�
 
    * **İş günlüğü**: seçin **Get Logs** iş için tüm günlükleri almak için düğmesini veya kullanmak **girin arama filtresi** günlükleri filtrelemek için alan.
 
-       ![İş günlüğü](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![İş Günlüğü](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
    * **İş DAG**: DAG olan akışı gerçekleştirilecek veri yolları grafik bir genel bakış.
 
-       ![İş DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![Job DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
 7. Eylemlerden birini seçerseniz **iş bilgileri** sekmesi, beraberinde getirir eylemi için bilgileri. Örneğin, seçin **RunSqoopExport** eylem.
 

@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: d0fd1063194ecbccb0af1abc0c441aa65b18883b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Hizmet Yönetimi python'dan kullanma
 Bu kılavuz program aracılığıyla Python ortak hizmet yönetim görevlerini gerçekleştirmek nasıl gösterir. **ServiceManagementService** sınıfını [Python için Azure SDK](https://github.com/Azure/azure-sdk-for-python) programlı erişim kullanılabilir servis yönetimiyle ilgili işlevlerinin çoğunu destekler [Azure Portal] [ management-portal] (gibi **oluşturma, güncelleştirme ve bulut Hizmetleri, dağıtımları, Veri Yönetimi Hizmetleri ve sanal makineleri silme**). Bu işlev hizmet yönetimi için programlı erişim ihtiyaç duyan uygulamalar oluşturmada faydalı olabilir.
@@ -394,9 +394,9 @@ Son olarak yakalanan görüntüyü kullanarak sanal makine oluşturmak için kul
         role_size='Small',
         vm_image_name = image_name)
 
-Linux sanal makine yakalama hakkında daha fazla bilgi için bkz: [Linux sanal makine yakalama.](../virtual-machines/linux/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Klasik dağıtım modelindeki Linux sanal makine yakalama hakkında daha fazla bilgi için bkz: [Linux sanal makine yakalama.](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Windows sanal makinesi yakalama hakkında daha fazla bilgi için bkz: [Windows sanal makinesi yakalama.](../virtual-machines/windows/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Klasik dağıtım modelinde Windows sanal makinesi yakalama hakkında daha fazla bilgi için bkz: [Windows sanal makinesi yakalama.](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Sonraki adımlar
 Hizmet Yönetimi öğrendiğinize göre erişebilirsiniz [tam API başvuru belgeleri Azure Python SDK'sı](http://azure-sdk-for-python.readthedocs.org/) ve python uygulamanızı kolayca yönetmek için karmaşık görevleri gerçekleştirin.

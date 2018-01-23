@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,4 +127,13 @@ Data Factory yalnızca Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde kull
 Data Factory hizmetinin 1 ve 2 numaralı sürümleri arasındaki farkların listesi için bkz. [Sürüm 1 ile karşılaştırma](compare-versions.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri fabrikası oluşturma hakkında bilgi edinmek için şu Hızlı Başlangıçlarda verilen adım adım yönergeleri izleyin: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md) ve Azure portalı. 
+Aşağıdaki araçlardan/SDK’lardan birini kullanarak Data Factory işlem hattı oluşturmaya başlayın: 
+
+- [Azure portalındaki Data Factory kullanıcı arabirimi](quickstart-create-data-factory-portal.md)
+- [Azure portalındaki Veri Kopyalama aracı](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager şablonu](quickstart-create-data-factory-resource-manager-template.md)
+ 

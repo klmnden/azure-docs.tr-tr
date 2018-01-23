@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Azure uygulama hizmeti üzerinde yüksek yoğunluklu barındırma
 Uygulama hizmeti kullanırken, uygulamanız tarafından iki kavramları ayrılmış kapasiteden ayrılmış:
@@ -38,12 +38,12 @@ Ancak, birden fazla uygulama bir uygulama hizmeti planı paylaştığınızda, b
 Uygulama ölçeklendirme bir uygulamadan bağımsız olarak onu barındıran uygulama hizmeti planı ölçeklendirir. Bu şekilde, bir uygulama hizmeti planı 10 örneklerine genişletilebilir, ancak uygulama yalnızca beş kullanacak şekilde ayarlanabilir.
 
    >[!NOTE]
-   >Uygulama ölçeklendirme yalnızca kullanılabilir **Premium** SKU uygulama hizmeti planları
+   >Her uygulama-ölçeklendirme, yalnızca kullanılabilir **standart**, **Premium**, **Premium V2** ve **Isolated** SKU uygulama hizmeti planları
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Ölçeklendirmeyi PowerShell kullanarak uygulama
 
-Olarak yapılandırılmış bir plan oluşturabilirsiniz bir *uygulama ölçeklendirme başına* planı geçirerek ```-perSiteScaling $true``` özniteliğini ```New-AzureRmAppServicePlan``` komutunu
+Olarak yapılandırılmış bir plan oluşturmak bir *uygulama ölçeklendirme başına* planı geçirerek ```-perSiteScaling $true``` özniteliğini ```New-AzureRmAppServicePlan``` komutunu
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-Uygulama düzeyinde biz uygulama uygulama hizmeti planında kullanabilirsiniz örneklerinin sayısını yapılandırmanız gerekir.
+Uygulama düzeyinde uygulama uygulama hizmeti planında kullanabilirsiniz örneklerinin sayısını yapılandırın.
 
 Aşağıdaki örnekte, uygulama için kullanıma temel alınan uygulama hizmeti planı ölçeklendirir kaç tane bağımsız olarak iki tane sınırlıdır.
 

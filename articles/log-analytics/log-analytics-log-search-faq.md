@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Yeni günlük analizi oturum arama SSS ve bilinen sorunlar
 
@@ -86,9 +86,9 @@ Eski [günlük arama API](log-analytics-log-search-api.md) çalışma alanınız
 
 Tarayıcınızı yükseltmeden sonra günlük analizi sorguları çalıştırmak için aşağıdaki adresi erişim gerektirir.  Tarayıcınız bir güvenlik duvarı üzerinden Azure portalına erişim varsa, bu adresleri erişimi etkinleştirmeniz gerekir.
 
-| URI | IP | Bağlantı Noktaları |
+| Uri | IP | Bağlantı Noktaları |
 |:---|:---|:---|
-| Portal.loganalytics.io | Dinamik | 80,443 |
+| portal.loganalytics.io | Dinamik | 80,443 |
 | api.loganalytics.io    | Dinamik | 80,443 |
 | docs.loganalytics.io   | Dinamik | 80,443 |
 
@@ -104,7 +104,7 @@ Yükseltme sonrasında Azure günlük analizi aynı platformu Application Insigh
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet'leri
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Soru: t yükselttikten sonra günlük arama PowerShell cmdlet güncelleştirilmiş olur mu?
-[Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) tüm çalışma alanları yükseltme tamamlandıktan sonra kullanım dışı kalacaktır.  Kullanım [Invoke-LogAnalyticsQuery cmdlet'i](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) yükseltilmiş çalışma alanlarında günlük aramalar gerçekleştirmek için.
+The [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) will be deprecated when the upgrade of all workspaces is complete.  Kullanım [Invoke-LogAnalyticsQuery cmdlet'i](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) yükseltilmiş çalışma alanlarında günlük aramalar gerçekleştirmek için.
 
 
 
@@ -160,11 +160,10 @@ Eski günlük arama önümüzdeki aylarda kullanım dışı kalacaktır. O zaman
 Genel kullanıma açılmadan önce yükselttikten sonra çalışma alanınızda geri döndürülemedi.  Yeni dil genel kullanılabilirlik ulaştı, biz eski platform devre dışı bırakmak başlangıç olarak bu özelliği kaldırılmıştır.
 
 
-
 ## <a name="views"></a>Görünümler
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Soru: Nasıl yeni bir görünüm Görünüm Tasarımcısı ile oluşturulur?
-Yükseltmeden önce ana Panoda bir kutucuğu öğesinden Görünüm Tasarımcısı ile yeni bir görünüm oluşturabilirsiniz.  Çalışma alanınızı yükseltildiğinde bu kutucuğu kaldırılır.  Yeşil + düğmesini soldaki menüde üzerinde tıklatarak yararlı OMS portalında Görünüm Tasarımcısı ile yeni bir görünüm oluşturabilirsiniz.
+Yükseltmeden önce OMS portalı ana Panoda bir kutucuğu öğesinden Görünüm Tasarımcısı ile yeni bir görünüm oluşturabilirsiniz.  Çalışma alanınızı yükseltildiğinde bu kutucuğu kaldırılır.  Yeşil + düğmesini soldaki menüde üzerinde tıklatarak yararlı OMS portalında Görünüm Tasarımcısı ile yeni bir görünüm oluşturabilirsiniz.  Görünüm Tasarımcısı kutucuğa tıklayarak Azure portalıyla yeni bir görünüm oluşturmaya devam edin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

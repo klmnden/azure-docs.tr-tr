@@ -1,6 +1,6 @@
 ---
 title: "Oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları Azure CLI kullanarak yönetme | Microsoft Docs"
-description: "Bu makalede, oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları Azure CLI komut satırını kullanarak yönetme açıklar."
+description: "Bu makalede, oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları komut satırı Azure CLI kullanarak yönetme açıklar."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 01/18/2018
-ms.openlocfilehash: ece359ed7c4d6d627b4bacf5efed88d34d754e02
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 1738fdd85391135357d34fefa878538866f21b91
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak Azure veritabanı için MySQL güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları yöneticilerin belirli bir IP adresi veya bir IP adresi aralığı bir Azure veritabanına erişim için MySQL Server yönetmesine izin verin. Uygun Azure CLI komutları kullanarak, oluşturabilir, güncelleştirme, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kuralları gösterir. Genel Bakış Azure veritabanı için MySQL güvenlik duvarları için bkz: [Azure veritabanı için MySQL server güvenlik duvarı kuralları](./concepts-firewall-rules.md)
@@ -38,7 +38,7 @@ Komutlar:
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Azure'da oturum açma ve Azure veritabanı için MySQL sunucuları listesi
 Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmak **az oturum açma** komutu.
 
-1. Komut satırından aşağıdaki komutu çalıştırın:
+1. Komut satırından şu komutu çalıştırın:
 ```azurecli
 az login
 ```
@@ -79,11 +79,23 @@ Azure MySQL sunucu adını ve kaynak grubu adı kullanarak, sunucu üzerinde yen
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
+
 Tek bir IP adresi için erişime izin vermek için bu örnekte olduğu gibi aynı IP adresi IP başlangıç ve bitiş IP olarak sağlayın.
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
-Başarılı, komut çıktısı JSON biçiminde (varsayılan) oluşturduğunuz güvenlik duvarı kuralı ayrıntılarını listeler. Çıkış hatası varsa, hata iletisi metni yerine gösterir.
+
+MySQL sunucusu için Azure veritabanına bağlanmak Azure IP adresleri uygulamalarından izin vermek için bu örnekte olduğu gibi IP adresi 0.0.0.0 IP başlangıç ve bitiş IP olarak sağlayın.
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myResourceGroup  
+--server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
+> [!IMPORTANT]
+> Bu seçenek, diğer müşterilerin aboneliklerinden gelen bağlantılar dahil Azure’dan tüm bağlantılara izin verecek şekilde güvenlik duvarınızı yapılandırır. Bu seçeneği belirlerken, oturum açma ve kullanıcı izinlerinizin erişimi yalnızca yetkili kullanıcılarla sınırladığından emin olun.
+> 
+
+Başarı her oluşturmak komut çıkış JSON biçiminde (varsayılan) oluşturduğunuz güvenlik duvarı kuralı ayrıntılarını listeler. Çıkış hatası varsa, hata iletisi metni yerine gösterir.
 
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>MySQL sunucusu için Azure veritabanı üzerinde bir güvenlik duvarı kuralı güncelleştirme 
 Azure MySQL sunucu adı ve kaynak grubu adı kullanarak, sunucuda mevcut bir güvenlik duvarı kuralı güncelleştirin. Kullanım [az mysql server Güvenlik Duvarı'nı güncelleştirme](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update) komutu. Var olan güvenlik duvarı kuralı adı güncelleştirmek için IP ve bitiş IP öznitelikler giriş yanı sıra başlangıç sağlar.

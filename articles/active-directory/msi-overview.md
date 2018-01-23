@@ -3,7 +3,7 @@ title: "Azure Active Directory için hizmet kimliği (MSI) yönetilen"
 description: "Yönetilen hizmet kimliği genel bakış Azure kaynakları için."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -12,23 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-<<<<<<< HEAD
-ms.date: 10/31/2017
-ms.author: skwan
-ms.openlocfilehash: 428b0b2397887299e691c82751f6c45673575f26
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: skwan
+ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 01/23/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Yönetilen hizmet kimliği (MSI) için Azure kaynakları
 
@@ -73,6 +63,7 @@ Farklı Azure kaynaklarına erişmek için uçtan uca senaryoları öğrenmek i�
 |                    | [Bir Linux VM yönetilen hizmet kimliği ve Azure anahtar kasası ile Azure olmayan AD kaynağa erişim](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Azure uygulama hizmeti veya Azure işlevleri ile yönetilen hizmet kimliğini kullan](/azure/app-service/app-service-managed-service-identity) |
 | Azure işlevi     | [Azure uygulama hizmeti veya Azure işlevleri ile yönetilen hizmet kimliğini kullan](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Kullanıcı yönetilen Azure Service Bus ile hizmet kimliği](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Hangi Azure Hizmetleri yönetilen hizmet kimliği destekliyor?
 
@@ -84,17 +75,10 @@ Aşağıdaki Azure hizmetlerini yönetilen hizmet kimliği destekler.
 
 | Hizmet | Durum | Tarih | Yapılandırma | Belirteç alın |
 | ------- | ------ | ---- | --------- | ----------- |
-<<<<<<< HEAD
-| Azure Sanal Makineler | Önizleme | Eylül 2017 | [Azure portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager şablonları](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Git](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
-| Azure App Service | Önizleme | Eylül 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure İşlevleri | Önizleme | Eylül 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | Önizleme | Kasım 2017 | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-=======
 | Azure Sanal Makineler | Önizleme | Eylül 2017 | [Azure portalı](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager şablonları](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Git](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | Önizleme | Eylül 2017 | [Azure portalı](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Functions (Azure İşlevleri) | Önizleme | Eylül 2017 | [Azure portalı](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure İşlevleri | Önizleme | Eylül 2017 | [Azure portalı](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Önizleme | Kasım 2017 | [Azure portalı](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Bu destek Azure AD kimlik doğrulaması Azure Hizmetleri
 
@@ -102,12 +86,12 @@ Aşağıdaki hizmetler Azure AD kimlik doğrulamayı desteklemek ve yönetilen h
 
 | Hizmet | Kaynak kimliği | Durum | Tarih | Erişimi atayın |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://Management.Azure.com/ | Kullanılabilir | Eylül 2017 | [Azure portalı](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.Azure.NET/ | Kullanılabilir | Eylül 2017 | |
-| Azure Data Lake | https://datalake.Azure.NET/ | Kullanılabilir | Eylül 2017 | |
-| Azure SQL | https://Database.Windows.NET/ | Kullanılabilir | Ekim 2017 | |
-| Azure Event Hubs | https://eventhubs.Azure.NET/ | Kullanılabilir | Aralık 2017 | |
-| Azure Service Bus | https://servicebus.Azure.NET/ | Kullanılabilir | Aralık 2017 | |
+| Azure Resource Manager | https://management.azure.com/ | Kullanılabilir | Eylül 2017 | [Azure portalı](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Kullanılabilir | Eylül 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Kullanılabilir | Eylül 2017 | |
+| Azure SQL | https://database.windows.net/ | Kullanılabilir | Ekim 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net/ | Kullanılabilir | Aralık 2017 | |
+| Azure Service Bus | https://servicebus.azure.net/ | Kullanılabilir | Aralık 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Nasıl yönetilen hizmet kimliği maliyeti nedir?
 

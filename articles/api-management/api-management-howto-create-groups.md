@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 08e6e33d65684cbf5a70da28e67c376aaf06d7af
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f377e1aadc126934fb47f6371f12435d2742efa6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Oluşturma ve Azure API Management'ta Geliştirici hesaplarını yönetmek için grupları kullanma
 API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünler ilk gruplar tarafından görünür yapılır ve sonra bu gruplara geliştiriciler görüntülemek ve gruplarıyla ilişkili ürünlere abone. 
@@ -105,4 +105,4 @@ Geliştirici ve grubu ilişki eklendikten sonra içinde görüntüleyebilirsiniz
 
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md

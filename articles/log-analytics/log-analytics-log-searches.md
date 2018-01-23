@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Günlük analizi günlük aramaları kullanarak veri bulma
 
@@ -30,7 +30,7 @@ Günlük analizi özünde birleştirmek ve ortamınızda birden fazla kaynaktan 
 
 Arama sayfasında, bir sorgu oluşturabilirsiniz ve arama yaptığınızda sonra sonuçları modeli denetimlerini kullanarak filtre uygulayabilirsiniz. Dönüştürme, filtre ve raporlamak için Gelişmiş sorgular sonuçlarınıza de oluşturabilirsiniz.
 
-Ortak günlük arama sorguları çoğu çözüm sayfalarında görüntülenir. OMS konsol döşeme tıklatın ya da günlük arama kullanarak öğenin ayrıntılarını görüntülemek için diğer öğeleri ayrıntıya gidin.
+Ortak günlük arama sorguları çoğu çözüm sayfalarında görüntülenir. OMS portalı döşeme tıklatın ya da günlük arama kullanarak öğenin ayrıntılarını görüntülemek için diğer öğeleri ayrıntıya gidin.
 
 Bu öğreticide, biz günlük arama kullandığınızda tüm temel kavramları kapsar örneklerle gösterilecektir.
 
@@ -39,7 +39,7 @@ Biz basit, pratik örnekler başlatın ve böylece pratik kullanım örnekleri s
 Arama teknikleri alışık olduğunuz sonra inceleyebilirsiniz [günlük analizi oturum Arama başvurusu](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Temel filtreleri kullanın
-Bir arama ilk bölümü, önce sorgu bilmeniz ilk şey. "|" dikey çizgi karakteri olan her zaman bir *filtre*. Bunu bir WHERE yan tümcesinde TSQL--olarak bunu belirler düşünün *ne* OMS veri deposunu dışında çıkarmak için veri alt kümesini. Veri deposunda arama büyük ölçüde sorguda WHERE yan tümcesi ile başladığını doğal şekilde ayıklamak istediğiniz verilerin özelliklerini belirtme hakkında olur.
+Bir arama ilk bölümü, önce sorgu bilmeniz ilk şey. "|" dikey çizgi karakteri olan her zaman bir *filtre*. Bunu bir WHERE yan tümcesinde TSQL--olarak bunu belirler düşünün *ne* analizi çalışma alanı dışında og çıkarmak için veri alt kümesini. Veri deposunda arama büyük ölçüde sorguda WHERE yan tümcesi ile başladığını doğal şekilde ayıklamak istediğiniz verilerin özelliklerini belirtme hakkında olur.
 
 Kullanabileceğiniz en temel filtreler *anahtar sözcükleri*'error' veya 'zaman aşımı' veya bir bilgisayar adı gibi. Bu basit sorgu türleri genellikle aynı sonuç kümesi içindeki verilerin farklı şekiller döndür. Bu günlük analizi farklı sahip olmasından *türleri* verilerin System.
 
@@ -336,7 +336,7 @@ Tüm güvenlik için en yüksek değer görüntülemek istiyorsanız, ortak bir 
 Type=ConfigurationAlert | Measure Max(Level) by Computer
 ```
 
-![Ölçü max bilgisayar arama](./media/log-analytics-log-searches/oms-search-measure-max02.png)
+![search measure max computer](./media/log-analytics-log-searches/oms-search-measure-max02.png)
 
 Sahip bilgisayarlar için görüntüleyeceği **düzeyi** kayıtları, bunların çoğu sahip en az düzey 8, birçok 16 düzeyini vardı.
 
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Ölçü komutu ile ortalama işlevini kullanın
 Ölçü ile kullanılan Avg() istatistiksel işlevi bazı alanı ve aynı ya da diğer alana göre grup sonuçları için ortalama değer hesaplamak sağlar. Bu durumda, performans verileri gibi çeşitli yararlı olur.
 
-Performans verileri ile başlayacağız. OMS şu anda hem Windows hem de Linux makineler performans sayaçlarını toplar unutmayın.
+Performans verileri ile başlayacağız. Günlük analizi şu anda hem Windows hem de Linux makineler performans sayaçlarını toplar unutmayın.
 
 Aranacak *tüm* performans verileri, en temel sorgudur:
 
@@ -551,7 +551,7 @@ Countdistinct işlevi her grup içindeki farklı değerleri sayar. Örneğin, he
 * | measure countdistinct(Computer) by Type
 ```
 
-![OMS countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
+![OMS-countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
 
 ## <a name="use-the-measure-interval-command"></a>Ölçü aralığı komutunu kullanın
 İle gerçek zamanlı performans verileri toplama toplayabilir ve herhangi bir performans sayacı günlük analizi, görselleştirme. Yalnızca sorgu girme **türü: Perf** sayaçları ve günlük analizi ortamınızdaki sunucuların sayısına dayalı ölçüm grafikleri binlerce döndürür. İsteğe bağlı ölçüm toplama, bir üst düzey ve gerektiği gibi daha ayrıntılı veri derin Dalış ortamınızdaki genel ölçümlere da bakabilirsiniz.

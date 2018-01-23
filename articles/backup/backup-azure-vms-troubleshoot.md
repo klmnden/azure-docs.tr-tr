@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında oluşan hatalar giderebilirsiniz.
@@ -28,7 +28,7 @@ Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında o
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Hata: Belirtilen Disk yapılandırması desteklenmiyor
 
 > [!NOTE]
-> 1 TB’den düşük ve yönetilmeyen disklere sahip sanal makineler için yedeklemeyi destekleyen özel bir önizlememiz var. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Özel önizleme olan VM'ler için yedeklemeler desteklemek için sahip olduğumuz > 1TB diskler. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -83,13 +83,13 @@ Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](h
 | Geri yükleme bulut iç hata vererek başarısız oldu |<ol><li>Bulut hizmeti geri yüklemeye çalıştığınız DNS ayarlarıyla yapılandırılır. Kontrol edebilirsiniz <br>$deployment get-AzureDeployment - ServiceName "ServiceName" =-yuvası "Üretim" Get-AzureDns - DnsSettings $deployment. DnsSettings<br>Yapılandırılmış adresi varsa, bu DNS ayarlarının yapılandırıldığını anlamına gelir.<br> <li>Bulut hizmeti olduğu için geri yüklemeye çalıştığınız ReservedIP ile yapılandırıldığından ve bulut hizmetindeki VM'ler durdurulmuş durumda.<br>Bir bulut hizmeti powershell cmdlet'lerini kullanarak IP ayrılmış denetleyebilirsiniz:<br>$deployment get-AzureDeployment - ServiceName "servicename" =-yuvası "Üretim" $DEP Reservedıpname <br><li>Aşağıdaki özel ağ yapılandırmaları bir sanal makineyle aynı bulut hizmetine geri yüklemeye çalıştığınız. <br>-Sanal makineler yük dengeleyici yapılandırması (dahili ve harici)<br>-Sanal makinelerle birden çok ayrılmış IP<br>-Birden çok NIC içeren sanal makinelere<br>Lütfen yeni bir bulut hizmeti kullanıcı Arabiriminde seçin veya lütfen [konuları geri](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) özel ağ yapılandırmaları olan VM'ler için.</ol> |
 | Seçili DNS adı zaten alınmış - Lütfen farklı bir DNS adı belirtin ve yeniden deneyin. |Bulut hizmeti adı için DNS adını buraya başvuruyor (genellikle ile biten. cloudapp.net). Bu, benzersiz olması gerekir. Bu hatayla karşılaşırsanız, geri yükleme sırasında farklı bir VM adı seçmeniz gerekir. <br><br> Bu hata yalnızca Azure portalında kullanıcılara gösterilir. Yalnızca diskleri geri yükler ve VM oluşturma değil çünkü PowerShell aracılığıyla geri yükleme işlemi başarılı olur. Disk geri yükledikten sonra işlemi VM açıkça sizin tarafınızdan oluşturulduğunda hata karşılaştığı. |
 | Belirtilen sanal ağ yapılandırması doğru değil - Lütfen farklı bir sanal ağ yapılandırması belirtin ve yeniden deneyin. |Hiçbiri |
-| Belirtilen bulut hizmeti değil geri yüklenen sanal makine yapılandırmasıyla eşleşen - Lütfen ayrılmış IP kullanarak değil, farklı bir bulut hizmeti belirtin veya geri yüklemek için başka bir kurtarma noktası seçin bir ayrılmış IP kullanıyor. |None |
-| Bulut hizmeti giriş uç noktası sayısı sınırına - mevcut bir uç noktası kullanarak veya farklı bir bulut hizmeti belirterek işlemi yeniden deneyin. |Hiçbiri |
-| Yedekleme kasası ve hedef depolama hesabı olan iki farklı bölgelerde - geri yükleme işleminde belirtilen depolama hesabı aynı Azure bölgesinde yedekleme kasası olarak olduğundan emin olun. |Hiçbiri |
-| Bir geri yükleme işlem için belirtilen depolama hesabına desteklenen - yalnızca temel/standart depolama hesapları ile yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarları desteklenir. Lütfen desteklenen depolama hesabı seçin |None |
+| Belirtilen bulut hizmeti değil geri yüklenen sanal makine yapılandırmasıyla eşleşen - Lütfen ayrılmış IP kullanarak değil, farklı bir bulut hizmeti belirtin veya geri yüklemek için başka bir kurtarma noktası seçin bir ayrılmış IP kullanıyor. |Hiçbiri |
+| Bulut hizmeti giriş uç noktası sayısı sınırına - mevcut bir uç noktası kullanarak veya farklı bir bulut hizmeti belirterek işlemi yeniden deneyin. |None |
+| Yedekleme kasası ve hedef depolama hesabı olan iki farklı bölgelerde - geri yükleme işleminde belirtilen depolama hesabı aynı Azure bölgesinde yedekleme kasası olarak olduğundan emin olun. |None |
+| Bir geri yükleme işlem için belirtilen depolama hesabına desteklenen - yalnızca temel/standart depolama hesapları ile yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarları desteklenir. Lütfen desteklenen depolama hesabı seçin |Hiçbiri |
 | Geri yükleme işlemi için belirtilen depolama hesabı türü çevrimiçi değil - geri yükleme işleminde belirtilen depolama hesabı çevrimiçi olduğundan emin olun |Azure Storage veya kesinti nedeniyle geçici bir hata nedeniyle gerçekleşebilir. Lütfen başka bir depolama hesabı seçin. |
 | Kaynak grubu kotasına ulaşıldı - Lütfen Azure Portalı'ndan bazı kaynak gruplarını silin veya sınırları artırmak için Azure desteğine başvurun. |Hiçbiri |
-| Seçilen alt ağ yok - Lütfen var olan bir alt ağ seçin |None |
+| Seçilen alt ağ yok - Lütfen var olan bir alt ağ seçin |Hiçbiri |
 | Yedekleme Hizmeti'nin aboneliğinizdeki kaynaklara erişme yetkisi yok. |Bu, ilk geri yükleme bölümünde belirtilen adımları kullanarak diskleri sorunu çözmek için **yedeklenmiş diskleri geri yükleme** içinde [VM seçerek geri yükleme yapılandırmasını](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Bundan sonra belirtilen PowerShell adımları kullanın [geri yüklenen disklerden bir VM oluşturmak](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) geri yüklenen disklerden tam VM oluşturmak için. |
 
 ## <a name="backup-or-restore-taking-time"></a>Yedekleme veya geri yükleme sürüyor

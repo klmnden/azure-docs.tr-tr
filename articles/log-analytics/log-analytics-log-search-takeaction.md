@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Günlük analizi günlük arama sonucu Otomasyon Runbook'tan eylemiyle alın
 
@@ -30,7 +30,7 @@ Azure günlük analizi'da bir günlük Arama sonuçlarından şimdi seçebilece�
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Günlük arama runbook'tan başlatmak için
 
-Bir olayda eylemi gerçekleştirin ve günlük arama sonuçlarınızı runbook'tan başlatmak için bir günlük arama oluşturarak başlatın ve sonuçları, bir runbook isteğe bağlı çağırabilirsiniz.  Bu Azure günlük arama özelliğini elde veya [OMS portalı](../log-analytics/log-analytics-log-searches.md).  Bu örnekte, bu özellik temel Tanıtımı ile Azure portalından bir günlük arama yapın.
+Bir olayda eylemi gerçekleştirin ve günlük arama sonuçlarınızı runbook'tan başlatmak için bir günlük arama oluşturarak başlatın ve sonuçları, bir runbook isteğe bağlı çağırabilirsiniz.  Bu günlük arama özelliğini sağlanabilir [Azure portal](../log-analytics/log-analytics-log-search-new.md).  Bu örnekte, bu özellik temel Tanıtımı ile Azure portalından bir günlük arama yapın.
 
 1. Azure portalında Hub menüsünde **daha fazla hizmet** seçip **günlük analizi**.  
 2. Günlük analizi dikey penceresinde, günlük analizi çalışma alanınız seçip çalışma dikey penceresinde **günlük arama**.  
@@ -49,4 +49,4 @@ Olacak şekilde yapılandırılan bir runbook seçeneğini belirlerseniz [adlı 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Gözden geçirme [günlük analizi oturum Arama başvurusu](log-analytics-search-reference.md) tüm arama alanlarını ve günlük analizi kullanılabilir modelleri görüntülemek için.
-* Otomatik olarak bir Otomasyon runbook'u Çağır öğrenmek için gözden [bir OMS günlük analizi uyarıdan bir Azure Otomasyonu runbook çağırma](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Otomatik olarak bir Otomasyon runbook'u Çağır öğrenmek için gözden [günlük analizi uyarıdan bir Azure Otomasyonu runbook çağırma](../automation/automation-invoke-runbook-from-omsla-alert.md).  

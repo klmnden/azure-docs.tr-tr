@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory - Azure API Management kullanarak Geliştirici hesaplarını yetkilendirmede | Microsoft Docs"
-description: "API Management'te Azure Active Directory'yi kullanarak kullanıcıların nasıl yetkilendirileceğini öğrenin."
+title: "Azure API Management'te grupları kullanılarak Geliştirici hesaplarını yönetme | Microsoft Docs"
+description: "Geliştirici hesaplarının Azure API Management'te grupları kullanarak yönetmeyi öğrenin"
 services: api-management
-documentationcenter: API Management
+documentationcenter: 
 author: juliako
 manager: cfowler
 editor: 
@@ -11,171 +11,98 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 01ea39983c4c1ad41692fce31ef6fd9c81461c8e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5fa4825db7216f4b6e2d833c64d5835d6cef93a6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Azure API Management'te Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl
+# <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Oluşturma ve Azure API Management'ta Geliştirici hesaplarını yönetmek için grupları kullanma
+API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünler ilk gruplar tarafından görünür yapılır ve sonra bu gruplara geliştiriciler görüntülemek ve gruplarıyla ilişkili ürünlere abone. 
 
-Bu kılavuz Geliştirici portalına kullanıcılar için Azure Active Directory'den erişmesini gösterilmiştir. Bu kılavuz ayrıca bir Azure Active Directory Kullanıcıları içeren dış grupları ekleyerek Azure Active Directory kullanıcı gruplarını yönetme gösterir.
+API Management şu sabit sistem gruplarına sahiptir:
 
-> [!WARNING]
-> Azure Active Directory Tümleştirme sağlanmıştır [geliştirici, standart ve Premium](https://azure.microsoft.com/pricing/details/api-management/) yalnızca katmanlarını.
+* **Yöneticiler**: Azure aboneliği yöneticileri bu grubun üyesidir. Yöneticiler, geliştiriciler tarafından kullanılan API’leri, işlemleri ve ürünleri oluşturarak API Management hizmet örneklerini yönetir.
+* **Geliştiriciler**: Kimliği doğrulanmış geliştirici portalı kullanıcıları bu gruba girer. Geliştiriciler, API'lerinizi kullanarak uygulama oluşturan müşterilerdir. Geliştiriciler, geliştirici portalına erişim iznine sahiptir ve bir API’nin işlemlerini çağıran uygulamalar oluşturur.
+* **Konuklar**: Kimliği doğrulanmamış geliştirici portalı kullanıcıları (bir API Management örneğinin geliştirici portalını ziyaret eden olası müşteriler gibi) bu gruba girer. Bunlara API’leri görüntüleyebilme ancak çağıramama gibi bazı salt okunur erişimler verilebilir.
+
+Bu sistem gruplarına ek olarak, yöneticiler özel gruplar oluşturabilir veya [ilişkili Azure Active Directory kiracılarındaki dış grupları yararlanan][leverage external groups in associated Azure Active Directory tenants]. Özel ve dış gruplar, geliştiricilere görünürlük ve API ürünlerine erişim sağlayan sistem gruplarıyla birlikte kullanılabilir. Örneğin, belirli bir iş ortağı kuruluşla ilişkili geliştiriciler için özel bir grup oluşturabilir ve bunlara yalnızca ilgili API'leri içeren bir üründen API'lere erişim izni verebilirsiniz. Bir kullanıcı birden fazla grubun üyesi olabilir.
+
+Bu kılavuz, nasıl bir API Management örneğinin yöneticileri yeni gruplar eklemek ve ürünleri ve geliştiricilerin ilişkilendirmek gösterir.
+
+Grup oluşturma ve yayımcı portalında yönetme ek olarak, oluşturmak ve gruplarınızı API Management REST API kullanarak yönetmek [grup](https://msdn.microsoft.com/library/azure/dn776329.aspx) varlık.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-- İçeri aktarma ve API Management örneği yayımlayın. Daha fazla bilgi için bkz: [alma ve yayımlama](import-and-publish.md).
+Bu makalede görevleri tamamlayın: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 
-## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-1. [Azure Portal](https://portal.azure.com) oturum açın. 
-2. Şunu seçin: ![oku seçin](./media/api-management-howto-aad/arrow.png).
-3. Arama kutusuna "API" yazın.
-4. Tıklatın **API Management services**.
-5. APIM hizmet örneği seçin.
-6. Altında **güvenlik**seçin **kimlikleri**.
+## <a name="create-group"></a>Bir grup oluşturun
 
-    ![Dış kimlikler](./media/api-management-howto-aad/api-management-with-aad001.png)
-7. Tıklatın **+ Ekle** üstten.
+Bu bölümde, API Management hesabınıza yeni bir grup eklemek gösterilmiştir.
 
-    **Ekle kimlik sağlayıcısı** penceresi sağ tarafta görüntülenir.
-8. Altında **sağlayıcı türü**seçin **Azure Active Directory**.
+1. Seçin **grupları** ekranın sol sekmesine.
+2. Tıklatın **+ Ekle**.
+3. Grup ve isteğe bağlı bir açıklama için benzersiz bir ad girin.
+4. **Oluştur**’a basın.
 
-    Gerekli diğer bilgileri girmeye olanak denetimleri penceresinde görünür. Denetimleri içerir: **istemci kimliği**, **gizli** (daha sonra öğreticide bilgi al).
-9. Not **tekrar yönlendirme URL'sini**.  
-10. Tarayıcınızda, farklı bir sekme açın. 
-11. [Azure portalını](https://portal.azure.com) açın.
-12. Şunu seçin: ![oku seçin](./media/api-management-howto-aad/arrow.png).
-13. Türü "active" **Azure Active Directory** görüntülenir.
-14. Seçin **Azure Active Directory**.
-15. Altında **Yönet**seçin **uygulama kaydı**.
+    ![Yeni Grup Ekle](./media/api-management-howto-create-groups/groups001.png)
 
-    ![Uygulama kaydı](./media/api-management-howto-aad/api-management-with-aad002.png)
-16. **Yeni uygulama kaydı**’na tıklayın.
+Grup oluşturulduğunda, eklendiğinden **grupları** listesi. <br/>Düzenlenecek **adı** veya **açıklama** grubunu, grubun adını tıklatın ve **ayarları**.<br/>Grubunu silmek için tuşuna basın ve grup adını tıklatın **silmek**.
 
-    **Oluşturma** penceresi sağ tarafta görüntülenir. AAD uygulama relavent bilgileri girdiğiniz olmasıdır.
-17. Eneter uygulama için bir ad.
-18. Uygulama türü için **Web app/API**.
-19. Oturum açma URL'si için Geliştirici Portalı oturum açma URL'sini girin. Bu örnekte, oturum açma URL'si şöyledir: https://apimwithaad.portal.azure-api.net/signin.
-20. Tıklatın **oluşturma** uygulaması oluşturmak için.
-21. Uygulamanızı bulmak için seçin **uygulama kayıtlar** ve adına göre arama.
+Grubu oluşturulan, ürünleri ve geliştiriciler ile ilişkili olabilir.
 
-    ![Uygulama kaydı](./media/api-management-howto-aad/find-your-app.png)
-22. Uygulama kaydedildikten sonra Git **yanıt URL'si** ve "Yeniden yönlendirme URL'si" adım 9 ' aldığınız değere ayarlandığından emin olun. 
-23. Uygulamanızı yapılandırmak istiyorsanız (örneğin, değiştirme **uygulama kimliği URL'si**) seçin **özellikleri**.
+## <a name="associate-group-product"></a>Bir grup ürünü ile ilişkilendirme
 
-    ![Uygulama kaydı](./media/api-management-howto-aad/api-management-with-aad004.png)
+1. Seçin **ürünleri** sol sekmesi.
+2. İstenen ürün adına tıklayın.
+3. Tuşuna **erişim denetimi**.
+4. Tıklatın **+ Grup Ekle**.
 
-    Birden çok Azure Active dizinleri, bu uygulama için kullanılacak kullanacaksanız, tıklatın **Evet** için **uygulamasıdır çok kiracılı**. Varsayılan değer **Hayır**.
-24. Uygulama izinleri ayarla seçerek **gerekli izinleri**.
-25. Seçin, uygulama ve onay **dizin verilerini okuma** ve **oturum açın ve kullanıcı profilini okuma**.
+    ![Yeni Grup Ekle](./media/api-management-howto-create-groups/groups002.png)
+5. Eklemek istediğiniz grubu seçin.
 
-    ![Uygulama kaydı](./media/api-management-howto-aad/api-management-with-aad005.png)
+    ![Yeni Grup Ekle](./media/api-management-howto-create-groups/groups003.png)
 
-    Uygulama ve temsilci izinleri hakkında daha fazla bilgi için bkz: [grafik API'sine erişim][Accessing the Graph API].
-26. Sol penceresinde kopyalama **uygulama kimliği** değeri.
+    Ürün grubu kaldırmak için tıklatın **silmek**.
 
-    ![Uygulama kaydı](./media/api-management-howto-aad/application-id.png)
-27. API Management uygulamanıza geri çevirin. **Ekle kimlik sağlayıcısı** penceresinde görüntülenmesi. <br/>Yapıştır **uygulama kimliği** değeri **istemci kimliği** kutusu.
-28. Geçiş Azure Active Directory yapılandırmasına ve tıklayın **anahtarları**.
-29. Yeni bir anahtar tarafından speicifying bir ad ve süre oluşturun. 
-30. **Kaydet**’e tıklayın. Anahtar oluşturulan.
+    ![Grup silme](./media/api-management-howto-create-groups/groups004.png)
 
-    Anahtarı panoya kopyalayın.
+Bir ürün grubu ile ilişkili olduğunda, o gruptaki geliştiriciler görüntüleyebilir ve ürüne abone.
 
-    ![Uygulama kaydı](./media/api-management-howto-aad/api-management-with-aad006.png)
+> [!NOTE]
+> Azure Active Directory grupları eklemek için bkz: [Azure API Management'te Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl](api-management-howto-aad.md).
 
-    > [!NOTE]
-    > Bu anahtarı not edin. Azure Active Directory yapılandırması penceresini kapattığınızda, anahtarı yeniden görüntülenemiyor.
-    > 
-    > 
-31. API Management uygulamanıza geri çevirin. <br/>İçinde **Ekle kimlik sağlayıcısı** penceresinin içine anahtarını yapıştırın **gizli** metin kutusu.
-32. **Ekle kimlik sağlayıcısı** penceresinde içeren **izin kiracılar** metin kutusunda, hangi dizinleri API Management hizmet örneği API erişimi belirtin. <br/>Azure Active Directory örnekleri için erişim vermek istediğiniz etki alanlarını belirtin. Birden çok etki alanı, satır başı, boşluk veya virgülle ayırabilirsiniz.
+## <a name="associate-group-developer"></a>Grupları geliştiricilerle ilişkilendirme
 
-    Birden çok etki alanı içinde belirtilen **izin kiracılar** bölümü. Herhangi bir kullanıcı uygulama kaydedildiği özgün etki alanı farklı bir etki alanından oturum önce farklı etki alanının genel yönetici uygulama dizini verilere erişmek için izni vermesi gerekir. İzin vermek için genel yönetici için tamamlamalıdır `https://<URL of your developer portal>/aadadminconsent` (örneğin, https://contoso.portal.azure-api.net/aadadminconsent) erişimi verin ve Gönder'i istedikleri Active Directory Kiracı etki alanı adı yazın. Aşağıdaki örnekte, bir genel yönetici `miaoaad.onmicrosoft.com` bu belirli Geliştirici Portalı izni vermek çalışıyor. 
+Bu bölüm grupları üyeleriyle ilişkilendirme gösterir.
 
-33. İstenen yapılandırma belirlendikten sonra tıklatın **Ekle**.
+1. Seçin **grupları** ekranın sol sekmesine.
+2. Seçin **üyeleri**.
 
-    ![Uygulama kaydı](./media/api-management-howto-aad/api-management-with-aad007.png)
+    ![Üye ekleme](./media/api-management-howto-create-groups/groups005.png)
+3. Tuşuna **+ Ekle** ve bir üye seçin.
 
-Değişiklikler kaydedildikten sonra kullanıcılar belirtilen Azure Active Directory Geliştirici Portalı'ndaki adımları izleyerek oturum [bir Azure Active Directory hesabı kullanarak Geliştirici Portalı oturum açma](#log_in_to_dev_portal).
+    ![Üye ekleme](./media/api-management-howto-create-groups/groups006.png)
+4. Tuşuna **seçin**.
 
-![İzinler](./media/api-management-howto-aad/api-management-aad-consent.png)
 
-Sonraki ekranda, genel yönetici izni vermiş onaylamanız istenir. 
+Geliştirici ve grubu ilişki eklendikten sonra içinde görüntüleyebilirsiniz **kullanıcılar** sekmesi.
 
-![İzinler](./media/api-management-howto-aad/api-management-permissions-form.png)
+## <a name="next-steps"> </a>Sonraki adımlar
+* Bir geliştirici bir gruba eklendikten sonra görüntüleyin ve bu grupla ilişkili ürünlere abone. Daha fazla bilgi için bkz: [oluşturma ve Azure API Management'te bir ürün yayımlama][How create and publish a product in Azure API Management],
+* Grup oluşturma ve yayımcı portalında yönetme ek olarak, oluşturmak ve gruplarınızı API Management REST API kullanarak yönetmek [grup](https://msdn.microsoft.com/library/azure/dn776329.aspx) varlık.
 
-Genel olmayan bir yönetici bir genel yönetici tarafından izin verilmeden önce oturum açmak çalışırsa, oturum açma denemesi başarısız olur ve hata ekranı görüntülenir.
-
-## <a name="how-to-add-an-external-azure-active-directory-group"></a>Bir dış Azure Active Directory grubu ekleme
-
-Kullanıcılar Azure Active Directory erişimi etkinleştirdikten sonra API yönetime daha kolay grubundaki geliştiriciler ilişkilendirme istenen ürünleri ile yönetmek için Azure Active Directory grupları ekleyebilirsiniz.
-
-Dış bir Azure Active Directory grubunu yapılandırmak için Azure Active Directory ilk kimlikleri sekmesinde önceki bölümdeki yordamı izleyerek yapılandırılması gerekir. 
-
-Dış Azure Active Directory grupları eklendi **grupları** sekmesi, API Management örneğinin.
-
-![Gruplar](./media/api-management-howto-aad/api-management-with-aad008.png)
-
-1. **Groups (Gruplar)** sekmesini seçin.
-2. Tıklatın **ekleme AAD grup** düğmesi.
-3. Eklemek istediğiniz grubu seçin.
-4. Tuşuna **seçin** düğmesi.
-
-Bir Azure Active Directory grubu oluşturulduktan sonra gözden geçirin ve bunlar eklendikten sonra dış Gruplar'ı tıklatın grubundan adını özelliklerini yapılandıramadı **grupları** sekmesi.
-
-Buradan düzenleyebilirsiniz **adı** ve **açıklama** grubunun.
- 
-Yapılandırılmış Azure Active Directory'den kullanıcıları görebilir ve Geliştirici Portalı oturum açın ve görünürlük aşağıdaki bölümünde yer alan yönergeleri izleyerek sahip oldukları herhangi bir grup için abone olabilirsiniz.
-
-## <a name="a-idlogintodevportalhow-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a><a id="log_in_to_dev_portal"/>Bir Azure Active Directory hesabı kullanarak Geliştirici portalında oturum açmak nasıl
-
-Geliştirici portalında önceki bölümlerde yapılandırılmış bir Azure Active Directory hesabı kullanarak oturum açın, kullanarak yeni bir tarayıcı penceresi açık **oturum açma URL'si** Active Directory Uygulama Yapılandırması ve tıklatın **Azure Active Directory**.
-
-![Geliştirici Portalı][api-management-dev-portal-signin]
-
-Azure Active Directory'de bir kullanıcı kimlik bilgilerini girin ve tıklayın **oturum**.
-
-![Oturum aç][api-management-aad-signin]
-
-Ek bilgileri gerekiyorsa, Kayıt formuyla istenebilir. Kayıt formunu tamamladıktan ve tıklatın **kaydolun**.
-
-![Kayıt][api-management-complete-registration]
-
-Kullanıcı artık, API Management hizmet örneğinizin Geliştirici Portalı içine kaydedilir.
-
-![Kayıt Tamamlandı][api-management-registration-complete]
-
-[api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
-[api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
-[api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
-[api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: get-started-create-service-instance.md
-
-[http://oauth.net/2/]: http://oauth.net/2/
-[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
-
-[Prerequisites]: #prerequisites
-[Configure an OAuth 2.0 authorization server in API Management]: #step1
-[Configure an API to use OAuth 2.0 user authorization]: #step2
-[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Create a group]: #create-group
+[Associate a group with a product]: #associate-group-product
+[Associate groups with developers]: #associate-group-developer
 [Next steps]: #next-steps
 
-[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+[How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group

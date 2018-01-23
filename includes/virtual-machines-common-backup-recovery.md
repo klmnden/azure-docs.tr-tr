@@ -3,7 +3,7 @@
 
 Azure üretim iş yükleri çalıştıran VM'lerin yedeklenmesi için Azure Yedekleme'yi kullanın. Azure yedekleme, hem Windows hem de Linux VM'ler için uygulamayla tutarlı yedeklemeler destekler. Azure yedekleme coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yüklediğinizde tüm VM ya da yalnızca belirli dosyaları geri yükleyebilirsiniz. 
 
-"Windows sanal makineleri öğretici yedekleme" için basit, uygulamalı giriş Azure yedekleme Azure VM'ler için bkz [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) veya [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+Bir basit, uygulamalı giriş için Azure yedekleme Azure VM'ler için "Azure sanal makineleri yedekleyin" öğretici için bkz [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) veya [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
 Azure yedekleme nasıl çalıştığı hakkında daha fazla bilgi için bkz: [azure'da VM yedekleme altyapınızı planlama](../articles/backup/backup-azure-vms-introduction.md)
 

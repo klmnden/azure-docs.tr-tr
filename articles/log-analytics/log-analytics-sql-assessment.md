@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>SQL ortamınızı günlük analizi SQL Server sistem durumu denetimi çözümde ile en iyi duruma getirme
 
@@ -39,7 +39,7 @@ Kuruluşunuz için en önemli ve ücretsiz ve sağlam bir risk ortam çalıştı
 
 ![Pano SQL durumu Denetim görüntüsü](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * SQL sistem durumu denetimi çözüm Microsoft İzleme Aracısı (yüklenmiş MMA) olan her bilgisayarda yüklü .NET Framework 4'ün desteklenen bir sürüm gerektirir.  MMA Aracısı System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ile günlük analizi hizmeti tarafından kullanılır.  
 * SQL Server 2012, 2014 ve 2016 sürüm çözümünü destekler.
@@ -63,7 +63,7 @@ SQL Server Operations Manager tarafından izlenen, bir Operations Manager farkl�
 ## <a name="sql-health-check-data-collection-details"></a>Veri toplama ayrıntıları SQL sistem durumunu denetleyin
 SQL sistem durumu denetimi etkinleştirdiğiniz aracısını kullanarak aşağıdaki kaynaklardan toplar: 
 
-* Windows Yönetim Araçları (WMI) 
+* Windows Management Instrumentation (WMI) 
 * Kayıt Defteri 
 * Performans sayaçları
 * SQL Server dinamik yönetim görünümünü sonuçları 
@@ -93,7 +93,7 @@ SQL sistem durumu denetlemek için Operations Manager farklı çalıştır hesab
    > Farklı Çalıştır hesap türü Windows olması gerekir. Farklı Çalıştır hesabı, aynı zamanda SQL Server örneklerini barındıran tüm Windows sunucularında yerel Administrators grubunun bir parçası olması gerekir.
    >
    >
-5. **Kaydet** düğmesine tıklayın.
+5. **Kaydet**’e tıklayın.
 6. Değiştirin ve sonra aşağıdaki T-SQL örneği Çalıştır sistem durumu denetimi gerçekleştirmek hesabı için gerekli minimum izinleri vermek için her SQL Server örneğinde yürütün. Ancak, bir farklı çalıştır hesabı SQL Server örneği üzerinde sysadmin sunucu rolünün bir parçası ise bu yapmanız gerekmez.
 
 ```
@@ -165,14 +165,14 @@ Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk de
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
 1. [https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın. 
 2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-3. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **OMS portalı** döşeme.  
+3. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **genel bakış** döşeme.  
 4. Üzerinde **genel bakış** sayfasında, **SQL sistem durumu denetimi** döşeme. 
 5. Üzerinde **sistem durumu denetimi** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.
 6. Odak alanı sayfaları hiçbirinde ortamınız için öncelikli önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneleri** öneri neden yapılan hakkında ayrıntıları görüntülemek için.<br><br> ![SQL sistem durumu denetimi önerileri görüntüsü](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele, önerilen eylemler gerçekleştirilen ve uyumluluk puan artıracaktır sonraki değerlendirmeleri kaydeder. Düzeltilmiş öğeler görünür olarak **geçirilen nesneleri**.
 
 ## <a name="ignore-recommendations"></a>Öneriler yoksay
-Yoksay istediğiniz önerileri varsa, OMS önerileri değerlendirme sonuçlarında görünmesini engellemek için kullanacağı bir metin dosyası oluşturabilirsiniz.
+Yoksay istediğiniz önerileri varsa, günlük analizi önerileri değerlendirme sonuçlarında görünmesini engellemek için kullanacağı bir metin dosyası oluşturabilirsiniz.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 264f68b879653f4168637e19cc886524c4af8557
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0eea38cdb9827ab6e322025ff344ebbab0e83da3
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Bir bulut hizmeti Portalı'nda ölçeklendirme otomatik yapılandırma
 
 Koşullar bir ölçekte veya işlemi uzaklaştırma tetikleyen bir bulut hizmeti çalışan rolü için ayarlayabilirsiniz. Rolü için koşulları CPU, disk veya ağ yükü rolünün temel alabilir. Ayrıca, bir ileti sırası veya aboneliğinizle ilişkilendirilmiş diğer bazı Azure kaynak ölçümü temel alarak bir koşul ayarlayabilirsiniz.
 
 > [!NOTE]
-> Bu makalede bulut hizmeti web ve çalışan rolleri odaklanır. Bir sanal makine (Klasik) doğrudan oluşturduğunuzda, bir bulut hizmetinde barındırılır. Standart bir sanal makine ile ilişkilendirerek ölçeklenebilen bir [kullanılabilirlik kümesi](../virtual-machines/windows/classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) ve bunları el ile açın veya kapatın.
+> Bu makalede bulut hizmeti web ve çalışan rolleri odaklanır. Bir sanal makine (Klasik) doğrudan oluşturduğunuzda, bir bulut hizmetinde barındırılır. Standart bir sanal makine ile ilişkilendirerek ölçeklenebilen bir [kullanılabilirlik kümesi](../virtual-machines/windows/classic/configure-availability-classic.md) ve bunları el ile açın veya kapatın.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 Uygulamanız için ölçeklendirme yapılandırmadan önce aşağıdaki bilgileri dikkate alın:

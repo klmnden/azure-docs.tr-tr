@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Sorun giderme: Bir Azure siteden siteye VPN bağlantısı bağlanamıyor ve çalışmayı durduruyor
 
@@ -52,7 +52,7 @@ Paylaşılan anahtar Azure sanal ağ anahtarların eşleştiğinden emin olmak i
 
 Azure VPN bağlantısı için paylaşılan anahtar görüntülemek için aşağıdaki yöntemlerden birini kullanın:
 
-**Azure portal**
+**Azure portalı**
 
 1. Oluşturduğunuz VPN ağ geçidi siteden siteye bağlantısı gidin.
 
@@ -92,7 +92,7 @@ Denetleyin ve kullanıcı tanımlı yönlendirme (UDR) veya ağ güvenlik grupla
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>7. Adım. Azure ağ geçidi durumu araştırması doğrulayın
 
-1. Git [durumu araştırması](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Sistem durumu araştırma gidin.
 
 2. Sertifika uyarısı aracılığıyla'ı tıklatın.
 3. Bir yanıtı alırsanız, VPN ağ geçidi sağlıklı olarak kabul edilir. Bir yanıt almazsanız, ağ geçidi sağlıklı olmayabilir veya ağ geçidi alt ağı üzerinde bir NSG sorunu neden oluyor. Aşağıdaki örnek yanıt metindir:
