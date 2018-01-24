@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET Masaüstü (Başlarken WPF)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -74,7 +74,7 @@ Temel ADAL arkasında uygulamanızı bir erişim belirteci her gerektiğinde, on
 
 * İçinde `DirectorySearcher` proje, açık `MainWindow.xaml.cs` ve bulun `MainWindow()` yöntemi.  İlk adım, uygulamanızın başlatmaktır `AuthenticationContext` -birincil sınıfı ADAL.  ADAL burada geçirdiğiniz budur gereken Azure AD ile iletişim kurmasını ve onu nasıl belirteçleri önbelleğe söyleyin koordinatları.
 
-```C#
+```csharp
 public MainWindow()
 {
     InitializeComponent();
@@ -87,7 +87,7 @@ public MainWindow()
 
 * Şimdi bulun `Search(...)` kullanıcının uygulamanın kullanıcı arabiriminde "Ara" düğmesini tıklattığında çağrılacak yöntem.  Bu yöntem, UPN verilen arama terimiyle kullanıcıları için Azure AD Graph API sorgu için bir GET isteği yapar.  Ancak bir access_token ile dahil etmeniz grafik API'si sorgulamak için `Authorization` üstbilgi ve istek - ADAL nereden geldiğini olan budur.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     // Validate the Input String
@@ -121,7 +121,7 @@ private async void Search(object sender, RoutedEventArgs e)
 * Dikkat `AuthenticationResult` nesnesini içeren bir `UserInfo` uygulamanız gerekebilir bilgi toplamak için kullanılan nesne.  DirectorySearcher içinde `UserInfo` kullanıcının kimliği uygulamanın kullanıcı arabirimini özelleştirmek için kullanılır.
 * Kullanıcı "Oturumu Kapat" düğmesini tıklattığında sonraki çağrısı emin olmak istiyoruz `AcquireTokenAsync(...)` oturum açmak için kullanıcıdan ister.  ADAL ile bu belirteç önbelleği temizleme olarak kadar kolaydır:
 
-```C#
+```csharp
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
     // Clear the token cache
@@ -133,7 +133,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 
 * Ancak, kullanıcı "Oturumu Kapat" düğmesini tıklatın değil, gelecek sefer DirectorySearcher çalıştırdığınızda için kullanıcının oturumu korumak isteyeceksiniz.  Uygulama başlattığında, varolan bir belirteci için ADAL'ın belirteç önbelleği denetleyin ve kullanıcı Arabirimi gerektiği gibi güncelleştirin.  İçinde `CheckForCachedToken()` yöntemi, başka bir çağırmaya `AcquireTokenAsync(...)`, bu süre içinde geçirme `PromptBehavior.Never` parametresi.  `PromptBehavior.Never`ADAL, kullanıcı oturum açma için sorulması değil ve bir belirteç döndüremedi ise ADAL bunun yerine bir özel durum söyler.
 
-```C#
+```csharp
 public async void CheckForCachedToken() 
 {
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.

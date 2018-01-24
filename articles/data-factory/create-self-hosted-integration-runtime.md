@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve Self-hosted tümleştirmesi çalışma zamanı yapılandırma
 Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -139,9 +139,9 @@ Konumundaki **Kurumsal Güvenlik Duvarı** düzeyi, aşağıdaki etki alanları 
 
 Etki alanı adları | Bağlantı Noktaları | Açıklama
 ------------ | ----- | ------------
-*. servicebus.windows.net | 443, 80 | Veri Taşıma hizmeti arka uç ile iletişim için kullanılan
-*. core.windows.net | 443 | Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopyalama için kullanılan
-*. frontend.clouddatahub.net | 443 | Veri Taşıma hizmeti arka uç ile iletişim için kullanılan
+*.servicebus.windows.net | 443, 80 | Veri Taşıma hizmeti arka uç ile iletişim için kullanılan
+*.core.windows.net | 443 | Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopyalama için kullanılan
+*.frontend.clouddatahub.net | 443 | Veri Taşıma hizmeti arka uç ile iletişim için kullanılan
 
 Konumundaki **Windows Güvenlik Duvarı** düzeyi (makine düzey), bu giden bağlantı noktaları normal şekilde etkinleştirilir. Etki alanları ve buna göre üzerinde kendi kendini barındıran bağlantı noktalarını yapılandırabilirsiniz, varsa tümleştirmesi çalışma zamanı makine.
 

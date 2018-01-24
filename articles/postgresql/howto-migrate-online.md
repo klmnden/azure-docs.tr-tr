@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 429828515411986dc7b3586360cb9923a5bb20de
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Azure veritabanı en düşük kapalı kalma geçiş PostgreSQL için
 Varolan PostgreSQL veritabanınızı Attunity çoğaltmak için Microsoft Migrations kullanarak PostgreSQL için Azure veritabanına geçirebilirsiniz. Attunity Replicate Attunity ve Microsoft tarafından birleşik bir tekliftir. Azure veritabanı geçiş hizmeti ile birlikte Microsoft müşterileri için hiçbir ek ücret ödemeden dahil edilir. 
@@ -34,5 +34,5 @@ En düşük kapalı kalma geçiş gerçekleştirmeye işlemine genel bakış iç
 Microsoft teklifi Migrations Attunity çoğaltmak hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
  - Git [Attunity çoğaltmak için Microsoft Migrations](https://aka.ms/attunity-replicate) Web sayfası.
  - Karşıdan [Attunity Replicate Microsoft geçişler için](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Git [Attunity çoğaltmak topluluk](https://microsoft.attunity.com/) bir Hızlı Başlangıç Kılavuzu, eğitim ve destek için.
+ - Git [Attunity çoğaltmak topluluk](https://aka.ms/attunity-community/) bir Hızlı Başlangıç Kılavuzu, eğitim ve destek için.
  - PostgreSQL PostgreSQL için Azure veritabanına geçirmek için Attunity Replicate kullanma hakkında adım adım yönergeler için bkz: [veritabanı Geçiş Kılavuzu](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).

@@ -1,6 +1,6 @@
 ---
-title: "Azure sanal ağ geçidi ve bağlantıları - PowerShell sorunlarını giderme | Microsoft Docs"
-description: "Bu sayfa, Azure Ağ İzleyicisi'ni kullanma açıklanmaktadır PowerShell cmdlet'ini sorun giderme"
+title: "Azure sanal ağ geçidi ve bağlantıları - Portal sorunlarını giderme | Microsoft Docs"
+description: "Bu sayfa, Azure Ağ İzleyicisi'ni kullanma açıklanmaktadır Portal sorunlarını giderme"
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Sanal ağ geçidi ve Azure Ağ İzleyicisi PowerShell kullanarak bağlantı sorunlarını giderme
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Sanal ağ geçidi ve Azure Portalı'ndan Ağ İzleyicisi'ni kullanarak bağlantı sorunlarını giderme
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-troubleshoot-manage-portal.md)

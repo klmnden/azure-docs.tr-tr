@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
@@ -134,7 +134,7 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan biri olabilir:
 <td>Hazır</td><td>-</td><td>Dilim kullanıma hazır.</td>
 </tr>
 <tr>
-<td>Atlandı</td><td>Hiçbiri</td><td>Dilimin işlenmekte olan değil.</td>
+<td>Atlandı</td><td>None</td><td>Dilimin işlenmekte olan değil.</td>
 </tr>
 <tr>
 <td>Hiçbiri</td><td>-</td><td>Bir dilim farklı bir durum ile var olmuş ancak sıfırlandı.</td>
@@ -369,7 +369,7 @@ Aşağıdaki tabloda kullanılabilir işlemleri ve durumları (ve alt durumlar) 
 | İşlem adı | Durum | Alt durum |
 | --- | --- | --- |
 | RunStarted |Başlatıldı |Başlangıç |
-| RunFinished |Başarısız / başarılı oldu |FailedResourceAllocation<br/><br/>Başarılı oldu<br/><br/>FailedExecution<br/><br/>Süresi sona erdi<br/><br/>< iptal edildi<br/><br/>FailedValidation<br/><br/>terk |
+| RunFinished |Başarısız / başarılı oldu |FailedResourceAllocation<br/><br/>Başarılı oldu<br/><br/>FailedExecution<br/><br/>Süresi sona erdi<br/><br/>< iptal edildi<br/><br/>FailedValidation<br/><br/>Abandoned |
 | OnDemandClusterCreateStarted |Başlatıldı | |
 | OnDemandClusterCreateSuccessful |Başarılı oldu | |
 | OnDemandClusterDeleted |Başarılı oldu | |
@@ -548,7 +548,7 @@ Tıklatın **Data Factory ölçümleri** döşeme:
 
 * Uyarı için bir ad girin (örnek: "uyarı başarısız oldu").
 * Uyarı için bir açıklama girin (örnek: "bir hata oluştuğunda bir e-posta Gönder").
-* Bir ("Çalıştığında başarısız oldu" vs. ölçümünü seçin "Başarılı çalışır").
+* Bir ("Çalıştığında başarısız oldu" vs. ölçümünü seçin "Successful Runs").
 * Bir koşul ve bir eşik değeri belirtin.   
 * Süreyi belirtin.
 * Bir e-posta sahipleri, Katkıda Bulunanlar ve okuyucular gönderilmesi gerekip gerekmediğini belirtin.

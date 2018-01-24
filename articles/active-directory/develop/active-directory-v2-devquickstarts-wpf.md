@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88679e7dd71011f767cbe4de295c284516375d20
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Bir Windows masaüstü uygulamasına oturum açma ekleme
 İle v2.0 uç hızla Masaüstü uygulamalarınızı hem kişisel Microsoft hesapları için destek ile kimlik doğrulaması ve iş veya Okul hesapları ekleyebilirsiniz.  Ayrıca, güvenli bir şekilde bir arka uç ile iletişim kurmak uygulamanızı sağlar web API'si, yanı [Microsoft Graph](https://graph.microsoft.io) ve bazılarını [Office 365 birleşik API'leri](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -69,7 +69,7 @@ Temel MSAL arkasındaki bir erişim belirteci, uygulamanızı gereksinim duyduğ
 
 * İçinde `TodoListClient` proje, açık `MainWindow.xaml.cs` ve bulun `OnInitialized(...)` yöntemi.  İlk adım, uygulamanızın başlatmaktır `PublicClientApplication` -yerel uygulamalar temsil eden MSAL'ın birincil sınıfı.  Burada, Azure AD ile iletişim kurmasını ve onu nasıl belirteçleri önbelleğe söyleyin gereken koordinatları MSAL geçirmek budur.
 
-```C#
+```csharp
 protected override async void OnInitialized(EventArgs e)
 {
         base.OnInitialized(e);
@@ -82,7 +82,7 @@ protected override async void OnInitialized(EventArgs e)
 
 * Uygulama başlatıldığında denetleyin ve kullanıcı uygulamaya zaten imzalı değilse görmek istiyoruz.  Ancak, bir oturum açma kullanıcı Arabirimi henüz çağrılacak istemediğiniz - "işareti Bunu yapmak için" tıklatın kullanıcı hale getireceğiz.  Ayrıca, `OnInitialized(...)` yöntemi:
 
-```C#
+```csharp
 // As the app starts, we want to check to see if the user is already signed in.
 // You can do so by trying to get a token from MSAL, using the method
 // AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
@@ -119,7 +119,7 @@ catch (MsalException ex)
 
 * Kullanıcı oturum açmadı ve "Oturum Aç" düğmesini tıklatın, oturum açma kullanıcı Arabirimi çağırmak ve kimlik bilgilerini girin kullanıcının istiyoruz.  Oturum açma düğmesi işleyicisi uygulayın:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // TODO: Sign the user out if they clicked the "Clear Cache" button
@@ -167,7 +167,7 @@ catch (MsalException ex)
 
 * Kullanıcı başarıyla oturum açtığında, MSAL almak ve sizin için bir belirteç önbelleğe ve çağrı geçebilirsiniz `GetTodoList()` güvenle yöntemi.  Bir kullanıcının görevleri almak için sol şey uygulamak için `GetTodoList()` yöntemi.
 
-```C#
+```csharp
 private async void GetTodoList()
 {
 
@@ -219,7 +219,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // If the user clicked the 'clear cache' button,

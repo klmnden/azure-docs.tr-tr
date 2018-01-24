@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0687baf12a48788d86467b1f1a822b5d9050e5d5
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric güvenilir koleksiyon nesnesi serileştirmede
 Güvenilir koleksiyonları çoğaltmak ve makine hataları ve güç kesintileri arasında dayanıklı olduklarından emin olmak için kendi öğeleri kalır.
@@ -33,16 +33,16 @@ Varsayılan olarak verimli bir şekilde serileştirilebilir böylece güvenilir 
 Yerleşik serileştiricileri türlerini değiştiremezsiniz ve türü adı gibi türü hakkındaki bilgileri içerecek şekilde gerekmez bildikleri olduğundan daha verimlidir.
 
 Güvenilir durum Yöneticisi aşağıdaki türleri için yerleşik seri hale getirici sahiptir: 
-- GUID
+- Guid
 - bool
-- Bayt
+- bayt
 - sbyte
 - Byte]
 - char
-- Dize
+- dize
 - Ondalık
-- Çift
-- Kayan nokta
+- double
+- float
 - Int
 - uint
 - uzun
@@ -54,9 +54,9 @@ Güvenilir durum Yöneticisi aşağıdaki türleri için yerleşik seri hale get
 
 Özel serileştiricileri, performansı artırmak için veya kablo üzerinden ve diskteki verileri şifrelemek için yaygın olarak kullanılır. Türü hakkında bilgi serileştirmek gerekmeyen beri diğer nedenlerin yanı sıra özel serileştiricileri genel seri hale getirici yaygın olarak daha verimlidir. 
 
-[IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) T. belirtilen tür için özel bir seri hale getirici kaydetmek için kullanılır Bu kayıt kurtarma başlamadan önce tüm güvenilir koleksiyonları kalıcı verilerini okumak için ilgili seri hale getirici erişiminiz olduğundan emin olmak için StatefulServiceBase yapımı gerçekleşmelidir.
+[IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) is used to register a custom serializer for the given type T. This registration should happen in the construction of the StatefulServiceBase to ensure that before recovery starts, all Reliable Collections have access to the relevant serializer to read their persisted data.
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -79,7 +79,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 Aşağıdaki dört özellikler içeren OrderKey adlı bir örnek özel türüdür
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -98,7 +98,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 Aşağıdadır IStateSerializer örnek uygulaması<OrderKey>.
 Okuma ve yazma içinde baseValue alın, ileten uyumluluk için kendi ilgili aşırı yüklemesini çağırın aşırı unutmayın.
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)

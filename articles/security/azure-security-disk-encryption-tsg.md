@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk şifrelemesi sorun giderme kılavuzu
 
@@ -30,13 +30,13 @@ Linux işletim sistemi (OS) disk şifrelemesi, işletim sistemi sürücüsü tam
 
 Bu işletim sistemi disk şifrelemesi, değiştirilen veya kendi desteklenen stok galeri görüntüden değiştirilen hedef VM ortam denendi ortaya olasılıkla hatasıdır. İşletim sistemi sürücüsü çıkarmak için uzantının yeteneği etkileyebilir desteklenen resim sapmaları örnekleri şunlardır:
 - Artık eşleşen bir desteklenen dosya sistemi veya bölümleme düzeni özelleştirilmiş görüntüler.
-- SAP, MongoDB ya da Apache Cassandra gibi büyük uygulamalar yüklü ve şifreleme önce işletim sisteminde çalışır. Uzantısı düzgün şekilde bu uygulamaları kapatın olamaz. İşletim sistemi sürücüsü için açık dosya işlemesi uygulamalarını, sürücü, hataya neden olan, kaldırılan olamaz.
+- Yüklü ve çalışan işletim sisteminde şifreleme önce olduklarında SAP, MongoDB, Apache Cassandra ve Docker gibi büyük uygulamaları desteklenmez.  Azure Disk şifrelemesi disk şifrelemesi işletim sistemi sürücüsünün hazırlığı için gereken şekilde bu işlemleri güvenle kapatmak üzere alamıyor.  İşletim sistemi sürücüsü dosya işleyici açık tutarak hala etkin işlemler varsa, işletim sistemi sürücüsü, işletim sistemi sürücüsünü şifrelemek için karşılanamamasına, kaldırılan olamaz. 
 - Özel Kapat zaman yakınlık etkinleştiriliyor şifreleme çalışan komut dosyaları veya diğer durumunda değişiklikler VM şifreleme işlemi sırasında gerçekleştirilen. Bu çakışma bir Azure Resource Manager şablonunu aynı anda çalıştırmak için birden çok uzantı tanımladığında veya bir özel betik uzantısı veya diğer eylem aynı anda disk şifrelemesi çalışırken ortaya çıkabilir. Seri hale getirme ve yalıtma gibi adımlar sorunu çözebilir.
 - Gelişmiş Güvenlik Linux (SELinux) çıkarma adım başarısız olduğu için şifreleme, etkinleştirmeden önce devre dışı değil. Şifreleme işlemi tamamlandıktan sonra SELinux yeniden iler hale.
 - İşletim sistemi diski, bir mantıksal birim Yöneticisi (LVM) düzenini kullanır. Sınırlı LVM veri disk desteği kullanılabilir olsa da, LVM işletim sistemi diski değil.
 - En düşük bellek gereksinimleri karşılanmadı (işletim sistemi disk şifrelemesi için 7 GB önerilen).
 - Veri sürücüleri /mnt/ dizin veya birbiriyle (örneğin, /mnt/data1, /mnt/data2, /data3 + /data3/data4) altında takılı yinelemeli olarak sağlar.
-- Diğer Azure Disk şifrelemesi [Önkoşullar](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) Linux için karşılanmadı.
+- Diğer Azure Disk şifrelemesi [Önkoşullar](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) Linux için karşılanmadı.
 
 ## <a name="unable-to-encrypt"></a>Şifrelenmesi başarısız oldu
 
@@ -116,6 +116,10 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
+## <a name="troubleshooting-encryption-status"></a>Şifreleme durumu sorunlarını giderme
+
+Beklenen şifreleme durumu portalda bildirilmekte olduğu eşleşmiyor, lütfen aşağıdaki Destek makalesine bakın: [şifreleme durumu yanlış Azure Yönetim Portalı'ndaki görüntülenir](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu belgede, Azure Disk şifrelemesi ve bu sorunları gidermeye yönelik bazı yaygın sorunlar hakkında daha fazla öğrendiniz. Bu hizmet ve özelliklerini hakkında daha fazla bilgi için aşağıdaki makalelere bakın:

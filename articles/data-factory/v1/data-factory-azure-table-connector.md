@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1379cbb0ea9b01a20d1974ed08e93b4872ffd92b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 765ca21c7c38fa116e0ca95b3c8dc6a6152834ce
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Table gelen ve veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ Azure Table gibi şemasız veri depoları için Data Factory hizmetinin şema a�
 
 Bu nedenle, şemasız veri kaynakları için en iyi uygulama verileri kullanarak yapısı belirtmektir **yapısı** özelliği.
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış veri kümeleri ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 Etkinliğin typeProperties bölümündeki özellikler diğer yandan her etkinlik türü ile değişir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
@@ -478,9 +478,9 @@ Taşınırken veri & Azure tablosundan aşağıdaki [Azure tablo hizmeti tarafı
 | --- | --- | --- |
 | Edm.Binary |Byte] |Bir bayt dizisi en çok 64 KB. |
 | Edm.Boolean |bool |Bir Boole değeri. |
-| Edm.DateTime |Tarih saat |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı 1 Ocak 1601 gece 12:00 gece ' başlar (C.E.) UTC. Aralık 9999 31 Aralık sona erer. |
-| Edm.Double |Çift |Bir 64-bit kayan noktalı değeri. |
-| Edm.Guid |GUID |128-bit bir genel benzersiz tanımlayıcısı. |
+| Edm.DateTime |Tarih Saat |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı 1 Ocak 1601 gece 12:00 gece ' başlar (C.E.), UTC. Aralık 9999 31 Aralık sona erer. |
+| Edm.Double |double |Bir 64-bit kayan noktalı değeri. |
+| Edm.Guid |Guid |128-bit bir genel benzersiz tanımlayıcısı. |
 | Edm.Int32 |Int32 |Bir 32 bit tamsayı. |
 | Edm.Int64 |Int64 |64 bitlik bir tamsayı. |
 | Edm.String |Dize |UTF-16 kodlu değer. Dize değerlerini en çok 64 KB olabilir. |

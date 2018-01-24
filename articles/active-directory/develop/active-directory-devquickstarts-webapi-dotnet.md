@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Başlarken Azure AD .NET Web API'si
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -73,7 +73,7 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
 
 3. Sınıf bildirimi değiştirme `public partial class Startup`. Zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık. İçinde `Configuration(…)` yöntemi çağrısına duruma `ConfgureAuth(…)` web uygulamanız için kimlik doğrulaması ayarlamak için.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
 
 4. Dosyayı açmak `App_Start\Startup.Auth.cs` ve uygulamanıza `ConfigureAuth(…)` yöntemi. Sağladığınız parametreler `WindowsAzureActiveDirectoryBearerAuthenticationOptions` uygulamanız için Azure AD ile iletişim kurmak için koordinatları olarak hizmet verecektir.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
 
 5. Kullanabileceğiniz artık `[Authorize]` denetleyicileri ve eylemleri JSON Web Token (JWT) taşıyıcı kimlik doğrulaması ile korumaya yardımcı olmak için öznitelikler. İşaretleme `Controllers\TodoListController.cs` bir authorize etiketiyle sınıfı. Bu sayfayı erişmeden önce oturum açmak için kullanıcının zorlar.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
 
 6. Web API’lerine yönelik genel bir gereksinim, belirteçteki mevcut "kapsamların" doğrulanmasıdır. Bu kullanıcı yapmak listesi hizmete erişmek için gerekli izinleri seçtiği sağlar.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

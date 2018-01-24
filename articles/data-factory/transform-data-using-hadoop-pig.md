@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 7745f273283ff998b41fe59a10e705e7564a7bd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e939c57c256e5e6e3932ab0859aae6cf4122dd6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Hadoop Pig etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,7 +77,7 @@ Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalel
 
 * [U-SQL etkinliği](transform-data-using-data-lake-analytics.md)
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
-* [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)

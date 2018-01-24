@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cf51d9442ff31433cedbcf19052e31247421f4d1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlardan çağırma
 
@@ -117,7 +117,7 @@ Bu adımda, Hdınsight Spark kümenizin data factory'ye bağlamak için bir Hdı
 
 1. Data Factory düzenleyici seçin **daha fazla** > **yeni işlem** > **Hdınsight kümesi**.
 
-    ![Hdınsight bağlı hizmeti oluşturma](media/data-factory-spark/new-hdinsight-linked-service.png)
+    ![HDInsight bağlı hizmeti oluşturma](media/data-factory-spark/new-hdinsight-linked-service.png)
 
 2. Aşağıdaki kod parçacığını kopyalayıp Taslak-1 penceresine yapıştırın. JSON Düzenleyicisi'nde, aşağıdaki adımları uygulayın:
 

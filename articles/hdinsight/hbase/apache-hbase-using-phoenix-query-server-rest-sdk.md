@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: f3b29db2dd74e6b3c0c066045d05cb853d1541f8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f57260b2ee280aa0f49f42cd145477205926cb0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="phoenix-query-server-rest-sdk"></a>Phoenix sorgu sunucusu REST SDK'sı
+# <a name="phoenix-query-server-rest-sdk"></a>Phoenix Query Server REST SDK
 
 [Apache Phoenix](http://phoenix.apache.org/) bir, açık kaynaklı, yüksek düzeyde paralel ilişkisel veritabanı katmanı üstünde [HBase](apache-hbase-overview.md). Phoenix SSH araçları üzerinden HBase ile SQL benzeri sorguları gibi kullanmanıza olanak verir [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix, istemci iletişimi için iki aktarım mekanizmayı destekler ince bir istemcinin Phoenix sorgu sunucu (PQS) adlı bir HTTP sunucusu da sağlar: JSON ve protokolü arabellek. Protokol arabellek varsayılan mekanizmasıdır ve JSON'den daha verimli iletişimi sunar.
 
@@ -39,7 +39,7 @@ Apache Phoenix sorgu Server için Microsoft .NET sürücüsü Visual Studio'dan 
 
 Kitaplık'ı kullanmaya başlamak için yeni bir örneğini `PhoenixClient` tümleştirilmesidir nesne `ClusterCredentials` içeren `Uri` kümesi ve kümenin Hadoop kullanıcı adı ve parola.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
@@ -50,7 +50,7 @@ CLUSTERNAME Hdınsight HBase küme adı ve kullanıcı adı ve parola ile küme 
 
 Bir veya daha fazla istekleri için PQS göndermek için istekleri bağlantı ile ilişkilendirmek için benzersiz bağlantı kimliği eklemeniz gerekir.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -60,7 +60,7 @@ Her örneğin ilk çağrıda bulunur `OpenConnectionRequestAsync` yöntemini ben
 
 Çağrılacak `ConnectionSyncRequestAsync`, geçirin bir `ConnectionProperties` nesnesi.
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -80,7 +80,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 | Özellik | Açıklama |
 | -- | -- |
 | Otomatik kayıt işlemleri | Boole belirten olup olmadığını `autoCommit` Phoenix işlemleri için etkinleştirilir. |
-| salt okunur | Bağlantı salt okunur olup olmadığını belirten bir Boole değeri. |
+| ReadOnly | Bağlantı salt okunur olup olmadığını belirten bir Boole değeri. |
 | TransactionIsolation | Düzeyi belirten Tamsayı JDBC belirtimi - başına işlem yalıtım aşağıdaki tabloya bakın.|
 | Katalog | Bağlantı özellikleri getirilirken kullanmak için katalog adı. |
 | Şema | Bağlantı özellikleri getirilirken kullanılacak şema adı. |
@@ -102,7 +102,7 @@ Diğer RDBMS gibi HBase tablolarındaki verileri depolar. Phoenix, birincil anah
 
 Bu örnek ve tüm sonraki örnekler, örneklenen kullanmak `PhoenixClient` nesne sınıfında tanımlandığı gibi [yeni PhoenixClient nesne örneği](#instantiate-new-phoenixclient-object).
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -172,13 +172,13 @@ finally
 
 Bu örnek, bir tek veri gösterir Ekle, başvuran bir `List<string>` Amerikan durumu ve bölge kısaltmalar koleksiyonu:
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 Tablonun `StateProvince` sütun değeri bir sonraki select işleminde kullanılacak.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -289,7 +289,7 @@ INSERT deyimi yürütmek yapısı, yeni bir tablo oluşturmak için benzer. Sonu
 
 Aşağıdaki kod, veri tek tek ekleme kodunu neredeyse aynıdır. Bu örnekte `UpdateBatch` yapılan bir çağrı nesnesinde `ExecuteBatchRequestAsync`, art arda çağırmak yerine `ExecuteRequestAsync` hazırlanmış deyim ile.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -407,7 +407,7 @@ Bu örnek, birden çok sorgularını yürütmek için bir bağlantı yeniden gö
 2. Tek bir skaler sonuç almak için toplam satır sayısı select deyimi kullanın.
 3. Müşteriler eyalet veya bölge başına toplam sayısı döndüren bir select deyimi yürütün.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 

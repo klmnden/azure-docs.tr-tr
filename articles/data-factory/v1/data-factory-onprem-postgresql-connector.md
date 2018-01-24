@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi PostgreSQL v
 
 Bir şirket içi PostgreSQL veri deposundan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Veri Fabrikası şu anda veri taşımayı PostgreSQL veritabanından diğer veri depolarına, ancak verileri diğer veri depolarına bir PostgreSQL veritabanına taşıma değil destekler. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Data Factory hizmetinin şirket içi PostgreSQL kaynaklarına veri yönetimi ağ geçidi kullanarak bağlanmayı destekler. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale veri yönetimi ağ geçidi ve ağ geçidi kurun ayarlama hakkında adım adım yönergeleri hakkında bilgi edinin.
 
@@ -77,7 +77,7 @@ Aşağıdaki tabloda, JSON öğeleri PostgreSQL bağlantılı hizmete özgü aç
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesPostgreSql** |Evet |
 | sunucu |PostgreSQL sunucunun adıdır. |Evet |
-| Veritabanı |PostgreSQL veritabanının adı. |Evet |
+| veritabanı |PostgreSQL veritabanının adı. |Evet |
 | Şema |Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
 | authenticationType |PostgreSQL veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
@@ -93,7 +93,7 @@ TypeProperties bölümü dataset her tür için farklıdır ve verilerin veri de
 | --- | --- | --- |
 | tableName |Bağlantılı hizmet başvurduğu PostgreSQL veritabanı örneğinde tablonun adı. TableName büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilke gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü ile farklılık gösterir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
@@ -312,40 +312,40 @@ Veri PostgreSQL için taşırken, aşağıdaki eşlemelerini PostgreSQL türünd
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte [], dize | &nbsp;
 | değişen [(n)] bit |varbit |Byte [], dize |
-| Boole değeri |bool |Boole değeri |
+| boole |bool |Boole |
 | Kutusu | |Byte [], dize |&nbsp;
 | bytea | |Byte [], dize |&nbsp;
 | karakter [(n)] |char [(n)] |Dize |
 | [(n)] değişen karakter |varchar [(n)] |Dize |
 | CID | |Dize |&nbsp;
-| CIDR | |Dize |&nbsp;
+| cidr | |Dize |&nbsp;
 | Daire | |Byte [], dize |&nbsp;
-| Tarih | |Tarih saat |&nbsp;
+| tarih | |Tarih saat |&nbsp;
 | daterange | |Dize |&nbsp;
 | çift duyarlıklı |FLOAT8 |Çift |
 | INet | |Byte [], dize |&nbsp;
 | intarry | |Dize |&nbsp;
 | int4range | |Dize |&nbsp;
 | int8range | |Dize |&nbsp;
-| tamsayı |int, int4 |Int32 |
+| integer |int, int4 |Int32 |
 | aralığı [alanlar] [(p)] | |Timespan |&nbsp;
-| JSON | |Dize |&nbsp;
+| json | |Dize |&nbsp;
 | jsonb | |Byte] |&nbsp;
-| Satır | |Byte [], dize |&nbsp;
+| satır | |Byte [], dize |&nbsp;
 | lseg | |Byte [], dize |&nbsp;
 | macaddr | |Byte [], dize |&nbsp;
 | para | |Ondalık |&nbsp;
-| sayısal [(p, s)] |ondalık [(p, s)] |Ondalık |
+| numeric [(p, s)] |decimal [(p, s)] |Ondalık |
 | numrange | |Dize |&nbsp;
 | OID | |Int32 |&nbsp;
-| Yol | |Byte [], dize |&nbsp;
+| yol | |Byte [], dize |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | noktası | |Byte [], dize |&nbsp;
 | Çokgen | |Byte [], dize |&nbsp;
-| Gerçek |float4 |Tek |
+| Gerçek |float4 |Bekar |
 | tamsayı |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| Seri |serial4 |Int32 |
+| seri |serial4 |Int32 |
 | Metin | |Dize |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme

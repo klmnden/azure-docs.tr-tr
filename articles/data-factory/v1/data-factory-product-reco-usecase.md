@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e72dd426f7af3d1539aad6a3499d2ce5f792c152
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04504d1e32243f752e488a24e04ec5ba73fbadc1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---product-recommendations"></a>Kullanım Örneği - Ürün Önerileri
 Azure Data Factory Çözüm Hızlandırıcıları Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Bkz: [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) bu paketi hakkında ayrıntılar için sayfa. Bu belgede, Azure kullanıcıların zaten Çözüldü ve Azure Data Factory ve diğer Cortana Intelligence Bileşen Hizmetleri kullanılarak uygulanan ortak bir kullanım örneği açıklanmaktadır.
@@ -40,7 +40,7 @@ Birçok zorluklar mevcuttur, çevrimiçi Perakendeciler yüz bu tür bir kullan�
 
 Son olarak, perakende genel yukarı satış izleyerek kendi yaklaşım etkisini ölçmek ve çapraz satış tıklatın dönüştürme satış başarı ve bunların gelecekteki önerileri ayarlamak gerekir.
 
-## <a name="solution-overview"></a>Çözüme genel bakış
+## <a name="solution-overview"></a>Çözüme Genel Bakış
 Bu örnek kullanım örneği Çözüldü ve Azure Data Factory ve de dahil olmak üzere diğer Cortana Intelligence component services kullanarak gerçek Azure kullanıcılar tarafından uygulanan [Hdınsight](https://azure.microsoft.com/services/hdinsight/) ve [Power BI](https://powerbi.microsoft.com/).
 
 Çevrimiçi satıcısı kendi veri depolama seçenekleri iş akışı boyunca olarak Azure Blob Depolama, bir şirket içi SQL server, Azure SQL DB ve bir ilişkisel veri reyonu kullanır.  Blob deposu, müşteri bilgileri, müşteri davranışı verileri ve ürün bilgi verilerini içerir. Bir ürün kataloğu depolanmış şirket içi SQL veri ambarı ve ürün bilgileri verileri ürün marka bilgileri içerir. 

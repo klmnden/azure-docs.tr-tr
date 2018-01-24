@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 980b297db87c2829f3c393ae867780f263f8d87c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
 Application Insights .NET SDK'sı bir NuGet paketlerini oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights telemetri göndermek için API sağlar. [Ek paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcıları* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bazıları için parametreleri ayarlayın.
@@ -40,13 +40,13 @@ Yapılandırma dosyasındaki her modül için bir düğüm yok. Bir modül devre
 Kod kullanarak izleme kendi bağımlılık de yazabilirsiniz [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet paketi.
+* [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package.
 
 ### <a name="performance-collector"></a>Performans Toplayıcı
 [Sistem performans sayaçlarını toplar](app-insights-performance-counters.md) gibi CPU, bellek ve ağ IIS yüklemelerinden yükleyin. Performans sayaçları, kendiniz ayarladığınız dahil olmak üzere toplamak için hangi sayaçları belirtebilirsiniz.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
-* [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet paketi.
+* [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights tanılama Telemetrisi
 `DiagnosticsTelemetryModule` Application Insights araçları kod kendisini hataları bildirir. Örneğin, kod performans sayaçları erişemiyorsanız veya bir `ITelemetryInitializer` bir özel durum oluşturur. Bu modülü tarafından izlenen izleme telemetri görünür [tanılama arama][diagnostic]. Tanılama verileri için dc.services.vsallin.net gönderir.
@@ -237,7 +237,7 @@ Farklı kaynaklara - uygulamanızdan sonuçları göndermek istiyorsanız, dinam
 
 Anahtar TelemetryClient tüm örnekler için ayarlamak için standart telemetri modüller de dahil olmak üzere ayarlayın anahtar TelemetryConfiguration.Active içinde. Bu, bir ASP.NET hizmetinde global.aspx.cs gibi başlatma yöntemini yapın:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -250,7 +250,7 @@ Anahtar TelemetryClient tüm örnekler için ayarlamak için standart telemetri 
 
 Yalnızca olayları belirli bir dizi farklı bir kaynağa göndermek istiyorsanız, bu anahtar için belirli bir TelemetryClient ayarlayabilirsiniz:
 
-```C#
+```csharp
 
     var tc = new TelemetryClient();
     tc.Context.InstrumentationKey = "----- my key ----";

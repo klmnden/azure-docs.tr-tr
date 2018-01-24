@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 7f494cff1e8dc57a41467cd722fdf224e10c9dec
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP Business Warehouse verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Aşağıdaki özellikler SAP Business Warehouse (BW) bağlantılı hizmeti için
 | type | Type özelliği ayarlanmalıdır: **SapBw** | Evet |
 | sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | Evet |
 | systemNumber | SAP BW sisteminin sistem numarası.<br/>İzin verilen değer: dize olarak temsil iki basamaklı bir ondalık sayı. | Evet |
-| istemci kimliği | SAP W sistem istemcisinde istemci kimliği.<br/>İzin verilen değer: dize olarak temsil üç basamaklı bir ondalık sayı. | Evet |
+| clientId | SAP W sistem istemcisinde istemci kimliği.<br/>İzin verilen değer: dize olarak temsil üç basamaklı bir ondalık sayı. | Evet |
 | Kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
 | password | Kullanıcının parolası. Bu alan bir SecureString işaretleyin. | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Bölümünde belirtildiği gibi bir Self-hosted tümleştirmesi çalışma zamanı gereklidir [Önkoşullar](#prerequisites). |Evet |
@@ -116,7 +116,7 @@ SAP BW verileri kopyalamak için kümesine tür özelliği ayarlamak **Relationa
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, SAP BW kaynak tarafından desteklenen özellikler listesini sağlar.
 
@@ -170,9 +170,9 @@ SAP BW veri kopyalama işlemi sırasında aşağıdaki eşlemelerini SAP BW veri
 | ACCP | Int |
 | CHAR | Dize |
 | CLNT | Dize |
-| PB | Ondalık |
+| CURR | Ondalık |
 | CUKY | Dize |
-| ARA | Ondalık |
+| DEC | Ondalık |
 | FLTP | Çift |
 | INT1 | Bayt |
 | INT2 | Int16 |
@@ -182,7 +182,7 @@ SAP BW veri kopyalama işlemi sırasında aşağıdaki eşlemelerini SAP BW veri
 | LRAW | Byte] |
 | PREC | Int16 |
 | QUAN | Ondalık |
-| HAM | Byte] |
+| RAW | Byte] |
 | RAWSTRING | Byte] |
 | DİZE | Dize |
 | BİRİM | Dize |

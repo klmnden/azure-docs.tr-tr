@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1114fd272bd16d17fbeb382b0f374a69dc74916a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Veri ya da Azure Cosmos Azure Data Factory kullanarak DB'den kopyalayın
 
@@ -114,7 +114,7 @@ Azure Cosmos DB gibi şemasız veri depoları için kopyalama etkinliği şema a
 1. Verilerin yapısını kullanarak belirtirseniz **yapısı** özelliği veri kümesi tanımında Data Factory hizmetinin bu yapısı şema olarak geliştirir. Bir satır bir sütun için bir değer içermiyorsa, bu durumda, boş bir değer için sağlanır.
 2. Verilerin yapısını kullanarak belirtmezseniz **yapısı** özelliği veri kümesi tanımında Data Factory hizmetinin oluşturur şema verileri ilk satırını kullanarak. Bu durumda, ilk satırın tam şema içermiyorsa, bazı sütunları kopyalama işlemi sonucunda eksik olacaktır.
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Azure Cosmos DB kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
 

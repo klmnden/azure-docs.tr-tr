@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995983a8e32bc01ddc1ab8bbc64345da96875941
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 566773e9bc787bff4e92d86ec57fb0de3121b079
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Hive etkinliği Azure Data Factory kullanarak veri dönüştürme 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce etkinliği](data-factory-map-reduce.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
@@ -78,11 +78,11 @@ Veri Fabrikası Hdınsight Hive etkinliğiyle [ardışık düzen](data-factory-c
 | --- | --- | --- |
 | ad |Etkinlik adı |Evet |
 | açıklama |Etkinlik hangi amaçla kullanıldığına açıklayan metin |Hayır |
-| type |Hdınsighthive |Evet |
+| type |HDinsightHive |Evet |
 | Girişleri |Hive etkinlik tarafından kullanılan girişleri |Hayır |
-| Çıkışları |Hive etkinliği tarafından üretilen çıkış |Evet |
+| çıkışlar |Hive etkinliği tarafından üretilen çıkış |Evet |
 | linkedServiceName |Veri fabrikasında bağlı hizmet olarak kayıtlı bir Hdınsight kümesine başvuru |Evet |
-| Komut dosyası |Hive betiği satır içi belirtin |Hayır |
+| betik |Hive betiği satır içi belirtin |Hayır |
 | komut dosyası yolu |Hive betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
 | tanımlar |'Hiveconf' kullanarak Hive betiğini içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
 
@@ -245,7 +245,7 @@ Parametreli Hive betiğini kullanmak için aşağıdakileri yapın
     ```
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Pig etkinliği](data-factory-pig-activity.md)
-* [MapReduce etkinliği](data-factory-map-reduce.md)
+* [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 * [Spark programlarını çağırma](data-factory-spark.md)
 * [R betiklerini çağırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)

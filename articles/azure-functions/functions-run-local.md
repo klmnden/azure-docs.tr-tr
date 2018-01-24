@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3fd392a3f5b48d6b8d19af530c949d91cd461099
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -74,7 +74,7 @@ sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
 ## <a name="run-azure-functions-core-tools"></a>Azure işlevleri çekirdek araçlarını çalıştırma
  
 Azure işlevleri çekirdek araçları aşağıdaki komut diğer adları ekler:
-* **FUNC**
+* **func**
 * **azfun**
 * **azurefunctions**
 
@@ -130,7 +130,7 @@ Dosya local.settings.json uygulama ayarları, bağlantı dizeleri ve Azure işle
 | ------------ | -------------------------------------- |
 | **Isencrypted** | Ayarlandığında **doğru**, tüm değerleri yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer **false**. |
 | **Değerleri** | Uygulama ayarlarını yerel olarak çalıştırırken kullanılan koleksiyonu. **AzureWebJobsStorage** ve **AzureWebJobsDashboard** örnekler; tam bir listesi için bkz: [uygulama ayarları başvurusu](functions-app-settings.md).  |
-| **Ana bilgisayar** | Bu bölümdeki ayarlarını işlevleri ana bilgisayar işlemi yerel olarak çalıştırırken özelleştirin. | 
+| **Ana Bilgisayar** | Bu bölümdeki ayarlarını işlevleri ana bilgisayar işlemi yerel olarak çalıştırırken özelleştirin. | 
 | **LocalHttpPort** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
 | **CORS** | İzin verilen çıkış noktası tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Çıkış boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
 | **ConnectionStrings** | İşlevlerinizi için veritabanı bağlantı dizelerini içerir. Bu nesne bağlantı dizeleri, sağlayıcı türü ortamıyla eklenir **System.Data.SqlClient**.  | 
@@ -216,7 +216,7 @@ func host start
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
-ob host started
+Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 

@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure konum tabanlı Hizmetleri (Önizleme) arama hizmeti kullanarak adresi bulma
 Arama hizmeti adresleri, yerler, ilgi, iş listelerini ve diğer coğrafi bilgi noktaları için aranacak geliştiricileri için tasarlanmış API'leri RESTful kümesidir. Arama hizmeti, belirli bir adresi, çapraz Sokak, coğrafi özelliği veya ilgi çekici (s) için enlem/boylam atar. Enlem ve boylam değerleri arama hizmeti API tarafından döndürülen Azure konum tabanlı Hizmetleri rota ve trafik akışını API'leri gibi diğer parametre olarak kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Yükleme [Postman uygulama](https://www.getpostman.com/apps).
+* Yükleme [Postman uygulama](https://www.getpostman.com/apps).
 
-Bir Azure konum tabanlı Hizmetleri hesabınızı ve aboneliğinizi anahtarı. Bir hesap oluşturma ve abonelik anahtarı alma hakkında daha fazla bilgi için bkz: [Azure konum tabanlı hizmetleri hesabı ve anahtarlarını yönetme](how-to-manage-account-keys.md). 
+* Bir Azure konum tabanlı hizmetleri hesabı ve anahtarı vardır. Bir hesap oluşturma ve bir anahtar alma hakkında daha fazla bilgi için bkz: [Azure konum tabanlı hizmetleri hesabı ve anahtarlarını yönetme](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Benzer arama kullanma
 
@@ -41,7 +41,7 @@ Varsayılan olarak çoğu arama sorguları ' maxFuzzyLevel performans elde etmek
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
     | HTTP yöntemi | GET |
-    | İstek URL'si | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
+    | İstek URL'si | https://atlas.microsoft.com/search/fuzzy/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
 
     **Json** URL yolunu özniteliğinde yanıt biçimi belirler. Bu makale boyunca json kullanım kolaylığı ve Okunabilirlik için kullanıyorsunuz. Kullanılabilir yanıt biçimlerde bulabilirsiniz **arama belirsiz almak** [konum tabanlı Hizmetleri işlevsel API başvuru] tanımını (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
@@ -53,7 +53,7 @@ Varsayılan olarak çoğu arama sorguları ' maxFuzzyLevel performans elde etmek
     | Anahtar | Değer |
     |------------------|-------------------------|
     | API sürümü | 1.0 |
-    | Abonelik anahtarı | *Abonelik anahtarı* |
+    | Abonelik anahtarı | \<Azure konum tabanlı Hizmetleri anahtarınızı\> |
     | sorgu | pizza |
 
 4. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 
@@ -93,7 +93,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
     | HTTP yöntemi | GET |
-    | İstek URL'si | https://Atlas.microsoft.com/search/Address/JSON? |
+    | İstek URL'si | https://atlas.microsoft.com/search/address/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
 
 2. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
@@ -103,7 +103,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     | Anahtar | Değer |
     |------------------|-------------------------|
     | API sürümü | 1.0 |
-    | Abonelik anahtarı | *Abonelik anahtarı* |
+    | Abonelik anahtarı | \<Azure konum tabanlı Hizmetleri anahtarınızı\> |
     | sorgu | 400 geniş St, Seattle, WA 98109 |
     
 3. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 
@@ -133,7 +133,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
     | HTTP yöntemi | GET |
-    | İstek URL'si | https://Atlas.microsoft.com/search/Address/reverse/JSON? |
+    | İstek URL'si | https://atlas.microsoft.com/search/address/reverse/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
     
 2. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
@@ -143,7 +143,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     | Anahtar | Değer |
     |------------------|-------------------------|
     | API sürümü | 1.0 |
-    | Abonelik anahtarı | *Abonelik anahtarı* |
+    | Abonelik anahtarı | \<Azure konum tabanlı Hizmetleri anahtarınızı\> |
     | sorgu | 47.59093,-122.33263 |
     
 3. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 
@@ -201,7 +201,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
     | HTTP yöntemi | GET |
-    | İstek URL'si | https://Atlas.microsoft.com/search/Address/reverse/crossstreet/JSON? |
+    | İstek URL'si | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
     
 3. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
@@ -209,7 +209,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     | Anahtar | Değer |
     |------------------|-------------------------|
     | API sürümü | 1.0 |
-    | Abonelik anahtarı | *Abonelik anahtarı* |
+    | Abonelik anahtarı | \<Azure konum tabanlı Hizmetleri anahtarınızı\> |
     | sorgu | 47.59093,-122.33263 |
     
 4. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 

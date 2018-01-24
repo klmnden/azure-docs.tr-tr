@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Örnek veri bilimi sanal makinelerde (DSVM)
 
@@ -34,7 +34,7 @@ Jupyter not defterlerini ve Jupyter üzerinde dayalı olmayan bazı biçiminde d
 | **Python** dili  | İçinde örnekleri **Python** Azure bulut veri depoları ile bağlanma ve bunlarla çalışma gibi senaryoları açıklayan **Azure Machine Learning**.  <br/> [Ekran görüntüsü](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Jale** dili  | İçinde örnek **Jale** derin Jale öğrenme, C ve Python Jale vb. çağırma Jale Plotting ayrıntı. <br/> [Ekran görüntüsü](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft Bilişsel Araç Seti)  | Bilişsel Araç Seti ekibi Microsoft tarafından yayımlanan örnekleri öğrenme derin.  <br/> [Ekran görüntüsü](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** dizüstü bilgisayarlar  | Derin kullanılarak örnekleri öğrenme **MXnet** sinir ağları tabanlı. Gelişmiş senaryolar için başlangıç değişen not defterlerini çeşitli vardır.  <br/> [Ekran görüntüsü](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** dizüstü bilgisayarlar  | Derin kullanılarak örnekleri öğrenme **MXNet** sinir ağları tabanlı. Gelişmiş senaryolar için başlangıç değişen not defterlerini çeşitli vardır.  <br/> [Ekran görüntüsü](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Etkileşimde **Azure Machine Learning** Studio ve bulut tabanlı Puanlama iş akışları için yerel olarak eğitilmiş modeller web hizmeti uç noktaları oluşturuluyor. <br/> [Ekran görüntüsü](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Derin kullanılarak örnekleri öğrenme **caffe2** sinir ağları tabanlı. Veri kümesi oluşturma, regresyon, önceden işlenmesi ve kullanarak görüntü eğitilmiş modeller önceden gibi örnekler dahil olmak üzere birkaç dizüstü kullanıcıları caffe2 ve etkili bir şekilde kullanma hakkında bilgi edinmek için tasarlanmış vardır. <br/> [Ekran görüntüsü](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Python tabanlı örnekleri kullanan **H2O** pek çok gerçek dünya senaryoları sorunları. <br/> [Ekran görüntüsü](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -83,11 +83,11 @@ Aynı parola, oturum açma olarak DSVM için oturum açın.
 <br/>![CNTK örnekleri](./media/cntk-samples2.png)<br/>
 <br/>![CNTK örnekleri](./media/cntk-samples.png)<br/>
 
-## <a name="mxnet"></a>MXnet
+## <a name="mxnet"></a>MXNet
 <br/>![MXnet örnekleri](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 
-<br/>![AzurekML örnekleri](./media/azureml-samples.png)<br/>
+<br/>![AzurekML Samples](./media/azureml-samples.png)<br/>
 
 ## <a name="caffe2"></a>Caffe2 
 <br/>![caffe2 örnekleri](./media/caffe2-samples.png)<br/>

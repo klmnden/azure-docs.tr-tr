@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Windows Server 2016 VM görüntüsü Azure yığın Marketinde ekleme
 
@@ -135,19 +135,23 @@ Aşağıdaki Önkoşullar, araçtan çalıştırmak [Geliştirme Seti](azure-sta
 
 Windows Server 2016 VM görüntüsü en son toplu güncelleştirmeyi olduğundan emin olmak için dahil `IncludeLatestCU` çalıştırdığınızda parametre `New-AzsServer2016VMImage` cmdlet'i. İzin verilen parametreleri hakkında bilgi için `New-AzsServer2016VMImage` cmdlet'ini bkz [parametreleri](#parameters). Görüntüyü Azure yığın Marketinde yayımlama için yaklaşık bir saat sürer. 
 
-## <a name="parameters"></a>Parametreler
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Yeni AzsServer2016VMImage için parametreler
 
-|AzsServer2016VMImage yeni parametreleri|Gerekli|Açıklama|
-|-----|-----|------|
-|ISOPath|Evet|Karşıdan yüklenen Windows Server 2016 ISO tam yolu.|
-|Net35|Hayır|Windows Server 2016 görüntüde .NET 3.5 çalışma zamanı yükler. Varsayılan olarak, bu değeri ayarlamak **doğru**.|
-|Sürüm|Hayır|Belirtir **çekirdek**, **tam**, veya **her ikisi de** Windows Server 2016 görüntüler. Varsayılan olarak, bu değeri ayarlamak **tam**.|
-|VHDSizeInMB|Hayır|Azure yığın ortamınıza eklenecek VHD görüntüsü boyutu (MB) cinsinden ayarlar. Varsayılan olarak, bu değer 40.960 MB olarak ayarlanır.|
-|CreateGalleryItem|Hayır|Market öğesi için Windows Server 2016 görüntü oluşturulması gerekip gerekmediğini belirtir. Varsayılan olarak, bu değeri ayarlamak **doğru**.|
-|location |Hayır |Windows Server 2016 görüntü yayımlanması gerekir konumunu belirtir.|
-|IncludeLatestCU|Hayır|En son Windows Server 2016 toplu güncelleştirme yeni VHD'ye uygular (en son güncelleştirme ya da sonraki iki seçenekten birini kullanın işaret ettiğinden emin olmak için komut dosyası lütfen denetleyin). |
-|CUUri |Hayır |Belirli bir URİ'den çalıştırmak için toplu güncelleştirme Windows Server 2016 ayarlar. |
-|CUPath |Hayır |Yerel bir yoldan çalıştırmaya için toplu güncelleştirme Windows Server 2016 ayarlar. Bu seçenek, bağlantısı kesilmiş bir ortam Azure yığın örneğinde dağıttıysanız yararlıdır.|
+### <a name="new-azsserver2016vmimage"></a>AzsServer2016VMImage yeni 
+
+Oluşturur ve yeni bir sunucu 2016 çekirdeği yükler ve veya tam yansımasını ve Market öğesi oluşturur.
+
+| Parametreler | Gerekli | Örnek | Açıklama |
+|-----|-----|------|---- |
+|ISOPath|Evet| N:\ISO\en_windows_16_x64_dvd | Karşıdan yüklenen Windows Server 2016 ISO tam yolu.|
+|Net35|Hayır| True | Windows Server 2016 görüntüde .NET 3.5 çalışma zamanı yükler. Varsayılan olarak, bu değeri ayarlamak **doğru**.|
+|Sürüm|Hayır| Tam |  Belirtir **çekirdek**, **tam**, veya **her ikisi de** Windows Server 2016 görüntüler. Varsayılan olarak, bu değeri ayarlamak **tam**.|
+|VHDSizeInMB|Hayır| 40,960 | Azure yığın ortamınıza eklenecek VHD görüntüsü boyutu (MB) cinsinden ayarlar. Varsayılan olarak, bu değer 40.960 MB olarak ayarlanır.|
+|CreateGalleryItem|Hayır| True | Market öğesi için Windows Server 2016 görüntü oluşturulması gerekip gerekmediğini belirtir. Varsayılan olarak, bu değeri ayarlamak **doğru**.|
+|location |Hayır | D:\ | Windows Server 2016 görüntü yayımlanması gerekir konumunu belirtir.|
+|IncludeLatestCU|Hayır| False | En son Windows Server 2016 toplu güncelleştirme yeni VHD'ye uygular. En son güncelleştirme ya da sonraki iki seçenekten birini kullanın işaret ettiğinden emin olmak için komut dosyasını denetleyin. |
+|CUUri |Hayır | https://yourupdateserver/winservupdate2016 | Belirli bir URİ'den çalıştırmak için toplu güncelleştirme Windows Server 2016 ayarlar. |
+|CUPath |Hayır | C:\winservupdate2016 | Yerel bir yoldan çalıştırmaya için toplu güncelleştirme Windows Server 2016 ayarlar. Bu seçenek, bağlantısı kesilmiş bir ortam Azure yığın örneğinde dağıttıysanız yararlıdır.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

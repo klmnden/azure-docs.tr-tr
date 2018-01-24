@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 905a2bf1b42819a531bc4b16dd1e6f5539e80068
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory kullanarak Teradata verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -115,7 +115,7 @@ Teradata verileri kopyalamak için kümesine tür özelliği ayarlamak **Relatio
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Teradata kaynak tarafından desteklenen özellikler listesini sağlar.
 
@@ -171,7 +171,7 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Teradata 
 | Bayt |Byte] |
 | ByteInt |Int16 |
 | char |Dize |
-| CLOB |Dize |
+| Clob |Dize |
 | Tarih |Tarih Saat |
 | Ondalık |Ondalık |
 | Çift |Çift |
@@ -204,7 +204,7 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Teradata 
 | VarByte |Byte] |
 | VarChar |Dize |
 | VarGraphic |Dize |
-| XML |Dize |
+| Xml |Dize |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

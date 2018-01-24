@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b5661dea3a63f6e7e5b67261bc9704061ae9c5b6
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory Web etkinlik
 Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz. 
 
 > [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory sürüm 1 belgelerine](v1/data-factory-introduction.md).
+> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md) konusunu inceleyin.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -68,11 +68,11 @@ Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını
 -------- | ----------- | -------------- | --------
 ad | Web etkinlik adı | Dize | Evet
 type | Ayarlanmalıdır **WebActivity**. | Dize | Evet
-Yöntemi | Hedef uç nokta için REST API yöntemi. | Dize. <br/><br/>Desteklenen türleri: "GET", "POST", "PUT" | Evet
-URL | Hedef uç noktası ve yol | Dize (veya dize Resulttype'a sahip ifade) | Evet
-Üstbilgileri | İsteği gönderilir üstbilgileri. Örneğin, bir isteği dil ve türünü ayarlamak için: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Dize (veya dize Resulttype'a sahip ifade) | Evet, Content-type üstbilgisi gereklidir. `"headers":{ "Content-Type":"application/json"}`
-Gövde | Uç noktasına gönderilen yükünü temsil eder. POST/PUT yöntemleri için gereklidir.  | Dize (veya dize Resulttype'a sahip ifadesi). <br/><br/>İstek yükünde şeması bkz [istek yükü şeması](#request-payload-schema) bölümü. | Hayır
-Kimlik doğrulaması | Uç nokta çağırmak için kullanılan kimlik doğrulama yöntemi. Desteklenen türler şunlardır: "Basic ya ClientCertificate." Daha fazla bilgi için bkz: [kimlik doğrulaması](#authentication) bölümü. Kimlik doğrulama gerekli değilse, bu özellik dışlayın. | Dize (veya dize Resulttype'a sahip ifade) | Hayır
+yöntem | Hedef uç nokta için REST API yöntemi. | Dize. <br/><br/>Desteklenen türleri: "GET", "POST", "PUT" | Evet
+url | Hedef uç noktası ve yol | Dize (veya dize Resulttype'a sahip ifade) | Evet
+headers | İsteği gönderilir üstbilgileri. Örneğin, bir isteği dil ve türünü ayarlamak için: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Dize (veya dize Resulttype'a sahip ifade) | Evet, Content-type üstbilgisi gereklidir. `"headers":{ "Content-Type":"application/json"}`
+body | Uç noktasına gönderilen yükünü temsil eder. POST/PUT yöntemleri için gereklidir.  | Dize (veya dize Resulttype'a sahip ifadesi). <br/><br/>İstek yükünde şeması bkz [istek yükü şeması](#request-payload-schema) bölümü. | Hayır
+kimlik doğrulaması | Uç nokta çağırmak için kullanılan kimlik doğrulama yöntemi. Desteklenen türler şunlardır: "Basic ya ClientCertificate." Daha fazla bilgi için bkz: [kimlik doğrulaması](#authentication) bölümü. Kimlik doğrulama gerekli değilse, bu özellik dışlayın. | Dize (veya dize Resulttype'a sahip ifade) | Hayır
 Veri kümeleri | Veri kümeleri listesini uç noktasına geçirildi. | Veri kümesi başvuruları dizisi. Boş bir dizi olabilir. | Evet
 linkedServices | Bağlı hizmetler listesi uç noktasına geçirildi. | Bağlantılı hizmeti başvuruları dizisi. Boş bir dizi olabilir. | Evet
 
@@ -81,7 +81,7 @@ linkedServices | Bağlı hizmetler listesi uç noktasına geçirildi. | Bağlant
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-### <a name="none"></a>None
+### <a name="none"></a>Hiçbiri
 Kimlik doğrulama gerekli değilse, "kimlik doğrulaması" özelliğini içermez.
 
 ### <a name="basic"></a>Temel

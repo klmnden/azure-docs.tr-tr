@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: da945257a7a2548fe68498e5c908bd5487dad782
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Birleşik arası bileşeni işlem tanılama
 
-*Bu deneyim, şu anda önizlemede değil ve varolan sunucu tarafı tanılama Kanatlar değiştirir.*
+*Bu deneyim, şu anda önizlemede değil ve varolan tanılama Kanatlar sunucu tarafı istekleri, bağımlılıklar ve özel durumlar için değiştirir.*
 
 Önizleme otomatik olarak sunucu tarafı telemetri tüm Application Insights izlenen bileşenler genelinde tek bir görünümde karşılık gelen yeni bir birleşik tanılama deneyimi sunar. Ayrı izleme anahtarı ile birden çok kaynaklarınız varsa önemli değildir; Application Insights temel ilişki algılar ve uygulama bileşeni, bağımlılık veya bir işlem yavaşlama veya hata nedeniyle özel durum kolayca tanılamanızı sağlar.
 
@@ -49,7 +49,7 @@ Bu görünüm anahtar üç bölümden oluşur: arası bileşeni işlem grafiği,
 
 ![Anahtar bölümleri](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="cross-component-transaction-chart"></a>Çapraz bileşeni işlem grafik
+### <a name="1-cross-component-transaction-chart"></a>[1] arası bileşeni işlem grafik
 
 Bu grafik yatay çubukları olan bir zaman çizelgesi istekleri ve bağımlılıkları süresince bileşenlerinde sağlar. Toplanan tüm özel durumlar da zaman çizelgesinde işaretlenir.
 
@@ -57,18 +57,18 @@ Bu grafik yatay çubukları olan bir zaman çizelgesi istekleri ve bağımlılı
 * Dış bağımlılıkları yapılan her çağrı bağımlılık türünü temsil eden simgelerle basit daraltılabilir olmayan satırları edilir.
 * Diğer bileşenleri çağrıları daraltılabilir satırları aynıdır. Her satır, bileşenin çağrılan belirli bir işlemi karşılık gelir.
 * Varsayılan olarak, istek, bağımlılık veya ilk başta seçtiğiniz özel durum grafikte görüntülenir.
-* Sağ tarafta ayrıntılarını görmek için herhangi bir satır seçin. Profil Oluşturucu simgesi isteği satır üzerindeki veya bir özel durum satır bir hata ayıklama anlık görüntü simgesine tıklayarak ilgili ayrıntıları bölmesi açılır.
+* Sağ tarafta ayrıntılarını görmek için herhangi bir satır seçin. "Açık profil oluşturucu izlemeleri" veya "açık hata ayıklama için anlık görüntü" kod düzeyi tanılama karşılık gelen ayrıntı bölmelerinde tıklatın.
 
 > [!NOTE]
-Diğer bileşenleri çağrıları sahip iki satır: bir satır çağıran bileşen giden çağrısından (bağımlılık) temsil eder ve diğer satır çağrılan bileşen gelen isteğiyle karşılık gelir. İkinci aralarında birbirinden ayırmaya yardımcı olması için localhost olarak adlandırılır. Bize bildirin nasıl hakkında güncelleştirilmiş sunu düşündüğünüz sağ üst köşesinde geri bildirim kanalı kullanın.
+Diğer bileşenleri çağrıları sahip iki satır: bir satır çağıran bileşen giden çağrısından (bağımlılık) temsil eder ve diğer satır çağrılan bileşen gelen isteğiyle karşılık gelir. Önde gelen simgesi ve süre çubukları ayrı stilini birbirinden ayırmak yardımcı olur.
 
-### <a name="time-sequenced-telemetry-of-the-selected-component-operation"></a>Seçilen bileşenin işleminin zaman sıralı telemetri
+### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] Seçilen bileşenin işlem zaman-sıralı telemetri
 
 Çapraz bileşeni işlem grafikte seçili herhangi bir satır, belirli bir bileşenin çağrılan bir işlemin ilgilidir. Bu seçilen bileşenin işlem alt bölüm başlığında yansıtılır. Belirli bir işlemle ilişkili tüm telemetri düz zaman dizisini görmek için bu bölümü açın. Sağ tarafta ilgili ayrıntıları görmek için bu listedeki herhangi bir telemetri öğesini seçin.
 
 ![Tüm telemetri zaman serisi](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="details-pane"></a>Ayrıntılar bölmesi
+### <a name="3-details-pane"></a>[3] Ayrıntılar bölmesi
 
 Bu bölmesi sol tarafta iki bölümlerden birine seçili öğelerden ayrıntılarını gösterir. "Tümünü Göster" tüm toplanan standart özniteliklerini listeler. Tüm özel öznitelikleri ayrı olarak standart kümesi altında listelenir.
 
@@ -88,7 +88,7 @@ Olası nedenler:
 
 * Diğer bileşenleri, Application Insights ile işaretlendiğine?
 * Bunlar, en son kararlı Application Insights SDK'sı kullanıyor musunuz?
-* Bu bileşenleri ayrı Application Insights kaynakları varsa, bunları gerekli erişim hakkınız?
+* Bu bileşenleri ayrı Application Insights kaynakları varsa, bunların telemetri için gerekli erişim gerekiyor?
 
 Erişiminiz ve bileşenlerinin en son uygulama Insights SDK'ları ile işaretlendiğine, üst sağ geri bildirim kanalı bize bildirin.
 
@@ -100,7 +100,7 @@ Evet. Yeni deneyimi, tek bir görünümde tüm ilgili sunucu tarafı telemetri b
 
 *Bağımlılıklar için yinelenen satırları görüyorum Bu beklenen bir durumdur?*
 
-Şu anda biz yerine gelen istek ayrı giden bağımlılık çağrısı gösteriliyor. Genellikle, iki çağrıları yalnızca gidiş dönüş ağ nedeniyle farklı olduğu süre değeri ile aynı görünür. Bunları ayırt etmenize yardımcı olmak için bir sunucu simgesiyle birlikte "localhost" isteği alındığında bileşen aradığınız. Bu satır hemen bağımlılık satır izler. Bu verilerin sunumunu karmaşıktır? Bize geri bildirim verin!
+Şu anda biz yerine gelen istek ayrı giden bağımlılık çağrısı gösteriliyor. Genellikle, iki çağrıları yalnızca gidiş dönüş ağ nedeniyle farklı olduğu süre değeri ile aynı görünür. Önde gelen simgesi ve süre çubukları ayrı stilini birbirinden ayırmak yardımcı olur. Bu verilerin sunumunu karmaşıktır? Bize geri bildirim verin!
 
 *Ne hakkında saati farklı bileşeni örneklerinde Eğer?*
 

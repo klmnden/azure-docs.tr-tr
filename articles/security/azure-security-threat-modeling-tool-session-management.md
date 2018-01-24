@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 56471d8ef68eacacb3ecebad5056d7e7a9f3ca40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-session-management--articles"></a>Güvenlik çerçevesi: Oturum yönetimi | Makaleler 
 | Ürün/hizmet | Makale |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | IOT cihaz | <ul><li>[Sonlu yaşam süreleri için oluşturulan SaS belirteci kullanın](#finite-tokens)</li></ul> |
 | **Azure belge DB** | <ul><li>[Minimum belirteci yaşam süreleri için oluşturulan kaynak belirteçleri kullanın](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[ADFS kullanırken WsFederation yöntemleri kullanarak uygulama uygun oturum kapatma](#wsfederation-logout)</li></ul> |
-| **Kimlik sunucusu** | <ul><li>[Kimlik sunucusu kullanılırken uygulama uygun oturum kapatma](#proper-logout)</li></ul> |
+| **Identity Server** | <ul><li>[Kimlik sunucusu kullanılırken uygulama uygun oturum kapatma](#proper-logout)</li></ul> |
 | **Web uygulaması** | <ul><li>[HTTPS üzerinden kullanılabilir uygulamaları güvenli tanımlama bilgileri kullanmalıdır](#https-secure-cookies)</li><li>[Tüm http tabanlı uygulama http tanımlama bilgisi tanımı için yalnızca belirtmeniz gerekir](#cookie-definition)</li><li>[ASP.NET web sayfaları siteler arası istek sahteciliği (CSRF) saldırılarını karşı azaltmak](#csrf-asp)</li><li>[Oturum etkin olmama ömrü için ayarlama](#inactivity-lifetime)</li><li>[Uygulama uygulamadan uygun oturum kapatma](#proper-app-logout)</li></ul> |
 | **Web API** | <ul><li>[ASP.NET Web API siteler arası istek sahteciliği (CSRF) saldırılarını karşı azaltmak](#csrf-api)</li></ul> |
 
@@ -43,13 +43,13 @@ ms.lasthandoff: 10/11/2017
 | **Adımları** | Uygulama Azure AD tarafından verilen erişim belirtecini kullanır, oturum kapatma olay işleyicisi çağırmalıdır |
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType)
 ```
 
 ### <a name="example"></a>Örnek
 Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu destroy. Yöntemini aşağıdaki kullanıcı oturum kapatma güvenli uygulamasını gösterir:
-```C#
+```csharp
     [HttpPost]
         [ValidateAntiForgeryToken]
         public void LogOff()
@@ -100,7 +100,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu destroy. Y�
 | **Adımları** | Uygulama tarafından ADFS STS belirteç dayalıysa, oturum kapatma olay işleyicisi için kullanıcının oturum açması için WSFederationAuthenticationModule.FederatedSignOut() yöntemini çağırmalıdır. Geçerli oturumu de yok edilmesi ve oturum belirteç değeri sıfırlamak ve nullified.|
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
         [HttpPost, ValidateAntiForgeryToken]
         [Authorization]
         public ActionResult SignOut(string redirectUrl)
@@ -160,7 +160,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu destroy. Y�
 | **Adımları** | Tanımlama bilgileri normal olarak yalnızca, bunlar kapsamlı etki alanı için erişilebilir. Ne yazık ki, HTTPS üzerinden oluşturulan tanımlama bilgilerini HTTP üzerinden erişilebilir olması için "etki alanı" tanımını Protokolü içermez. "Güvenli" özniteliği, tarayıcıda tanımlama bilgisinin yalnızca HTTPS üzerinden kullanılabilir olması gerektiğini belirtir. Tüm tanımlama bilgilerini üzerinden HTTPS kullanımı ayarlandığından emin olun **güvenli** özniteliği. Gereksinim requireSSL özniteliği true olarak ayarlayarak web.config dosyasında uygulanabilir. Zorunlu kılacak tercih edilen yaklaşım demektir **güvenli** özniteliği için ek kod değişiklikleri yapmak zorunda kalmadan tüm geçerli ve gelecekteki olan tanımlama bilgileri.|
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 <configuration>
   <system.web>
     <httpCookies requireSSL="true"/>
@@ -179,7 +179,7 @@ HTTP uygulamaya erişmek için kullanılsa bile ayarı zorunlu kılınır. Uygul
 | **Adımları** | Bağlı olan taraf web uygulamasıdır ve IDP ADFS sunucusu olduğunda FedAuth belirtecin güvenli özniteliği requireSSL True olarak ayarlanarak yapılandırılabilir `system.identityModel.services` web.config bölümünü:|
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->
@@ -273,7 +273,7 @@ Aşağıdaki yapılandırma doğru yapılandırması gösterilmektedir:
 | **Adımları** | Anti-CSRF ve ASP.NET MVC formları - kullanma `AntiForgeryToken` yardımcı yöntemi görünümleri; put bir `Html.AntiForgeryToken()` forma, örneğin,|
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -281,7 +281,7 @@ Aşağıdaki yapılandırma doğru yapılandırması gösterilmektedir:
 ```
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -304,7 +304,7 @@ Denetleyen yetkilendirme Filtresi:
 
 ### <a name="example"></a>Örnek
 Anti-CSRF ve AJAX: JSON verilerini, HTML form verilerini bir AJAX İsteği Gönder çünkü form simgesi AJAX istekleri için bir sorun olabilir. Bir çözüm, özel bir HTTP üstbilgisi belirteçleri göndermektir. Aşağıdaki kod belirteçleri oluşturmak için Razor sözdizimini kullanır ve ardından bir AJAX isteği belirteçleri ekler. 
-```C#
+```csharp
 <script>
     @functions{
         public string TokenHeaderValue()
@@ -329,7 +329,7 @@ Anti-CSRF ve AJAX: JSON verilerini, HTML form verilerini bir AJAX İsteği Gönd
 
 ### <a name="example"></a>Örnek
 İsteği işlerken, istek üstbilgisi belirteçleri ayıklayın. Ardından belirteçleri doğrulamak için AntiForgery.Validate yöntemini çağırın. Belirteçleri geçerli değilse doğrulama yöntemi bir özel durum oluşturur.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -360,7 +360,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### <a name="example"></a>Örnek
 Sayfalarınızın tümünü gerek kod aşağıdaki gibidir:
-```C#
+```csharp
 void Page_Init (object sender, EventArgs e) {
    ViewStateUserKey = Session.SessionID;
    :
@@ -428,7 +428,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ### <a name="example"></a>Örnek
 Ayrıca belirtecin yaşam süresi 15 dakika, ADFS sunucusunda aşağıdaki powershell komutunu yürüterek ayarlamanız gerekir SAML verilen ADFS talep:
-```C#
+```csharp
 Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
@@ -488,7 +488,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ### <a name="example"></a>Örnek
 İsteği işlerken, istek üstbilgisi belirteçleri ayıklayın. Ardından belirteçleri doğrulamak için AntiForgery.Validate yöntemini çağırın. Belirteçleri geçerli değilse doğrulama yöntemi bir özel durum oluşturur.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -510,7 +510,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### <a name="example"></a>Örnek
 Anti-CSRF ve ASP.NET MVC formları - AntiForgeryToken yardımcı yöntemi görünümleri kullanma; Örneğin, bir Html.AntiForgeryToken() forma, put,
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -520,7 +520,7 @@ Anti-CSRF ve ASP.NET MVC formları - AntiForgeryToken yardımcı yöntemi görü
 
 ### <a name="example"></a>Örnek
 Yukarıdaki örnekte, aşağıdakine benzer çıktı:
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->

@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: e872062eddd4ae74f6148673a8f0b27751e37ca4
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe4481cf851fc021b3073a6d9d6254f546218785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Kullanıcı bağlamı Azure Application Insights kullanımı deneyimleri etkinleştirmek için kimlikleri Gönder
 
@@ -52,7 +52,7 @@ Ayrıntılı olarak açıklandığı gibi bir telemetri Başlatıcı oluşturun 
 
 Bu örnek, sonra oturum süresinin sona bir tanımlayıcı için kullanıcı Kimliğini ayarlar. Mümkünse, oturumlar arasında devam eden bir kullanıcı kimliği kullanın.
 
-```C#
+```csharp
 
     using System;
     using System.Web;

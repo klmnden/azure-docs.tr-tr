@@ -14,17 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-<<<<<<< HEAD
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
-=======
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişi doğrulama Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine tümleştirme
 Kimlik deneyimi çerçevesiyle hangi altını çizen Azure Active Directory B2C (Azure AD B2C) tümleştirebileceğiniz kullanıcı gezisine bir RESTful API'si ile. Bu kılavuzda, Azure AD B2C .NET Framework RESTful Hizmetleri (web API) ile nasıl etkileşim girer öğreneceksiniz.
@@ -59,7 +53,7 @@ Genel Bakış:
 * Geri bağlılık numarasını gönderin. 
 * Bağlılık numarası bir JSON Web Token (JWT için) ekleyin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bölümündeki adımları tamamlamanız [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>1. adım: bir ASP.NET web API oluşturma
@@ -94,7 +88,7 @@ Aşağıdakileri yaparak giriş talepleri temsil eden bir model oluşturun:
 
 3. Sınıf adını `InputClaimsModel`ve ardından aşağıdaki özellikleri ekleyin `InputClaimsModel` sınıfı:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -108,7 +102,7 @@ Aşağıdakileri yaparak giriş talepleri temsil eden bir model oluşturun:
 
 4. Yeni bir model oluşturmak `OutputClaimsModel`ve ardından aşağıdaki özellikleri ekleyin `OutputClaimsModel` sınıfı:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -120,7 +114,7 @@ Aşağıdakileri yaparak giriş talepleri temsil eden bir model oluşturun:
 
 5. Daha fazla bir model oluşturma `B2CResponseContent`, giriş doğrulama hatası iletileri atmak için kullanın. Aşağıdaki özellikleri ekleyin `B2CResponseContent` sınıfı, eksik başvuruları sağlayın ve ardından dosyayı kaydedin:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -158,7 +152,7 @@ Web API'de, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
 
 4. Varsa *IdentityController.cs* dosyası değil açık zaten, çift tıklayın ve ardından dosyasındaki kodu aşağıdaki kodla değiştirin:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;
@@ -260,7 +254,7 @@ Aşağıdaki XML parçacığını bir talep sağlayıcı düğümü iki teknik p
 
    Bu örnekte, talep içeriğini `givenName` REST hizmeti olarak gönderir `firstName`, talep içeriğini `surname` REST hizmeti olarak gönderir `lastName`, ve `email` olarak gönderir. `OutputClaims` Öğesi RESTful hizmetinden Azure AD B2C geri alınır talepleri tanımlar.
 
-* **TechnicalProfile kimliği = "LocalAccountSignUpWithLogonEmail"**: varolan bir teknik profilini (temel ilkede tanımlanan) bir doğrulama teknik profili ekler. Kaydolma seyahat sırasında doğrulama teknik profili önceki teknik profili çağırır. RESTful hizmeti 409 (çakışma hatası) HTTP hata verirse, kullanıcıya hata iletisi görüntülenir. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). Kaydolma seyahat sırasında doğrulama teknik profili önceki teknik profili çağırır. RESTful hizmeti 409 (çakışma hatası) HTTP hata verirse, kullanıcıya hata iletisi görüntülenir. 
 
 Bulun `<ClaimsProviders>` düğümü altında aşağıdaki XML parçacığını ekleyin `<ClaimsProviders>` düğümü:
 

@@ -14,17 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-<<<<<<< HEAD
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>İstemci sertifikaları kullanılarak güvenli, RESTful hizmeti
 İlgili bir makalede, [RESTful hizmetini oluşturmak](active-directory-b2c-custom-rest-api-netfw.md) Azure Active Directory B2C ile etkileşime girer (Azure AD B2C).
@@ -39,7 +33,7 @@ Bu makale ayrıntıları nasıl yapılır:
 * Azure AD B2C ilke anahtarları sertifikasını yükleyin.
 * Özel ilkeniz istemci sertifikası kullanacak şekilde yapılandırın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Bölümündeki adımları tamamlamanız [tümleştirmek REST API talep alışverişleri](active-directory-b2c-custom-rest-api-netfw.md) makalesi.
 * Geçerli bir sertifika (.pfx dosyası özel anahtarı olan) alın.
 
@@ -187,7 +181,7 @@ Sertifikanın Değiştir **konu adı**, **verenin adı**, ve **sertifika parmak 
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 add IsValidClientCertificate işlevi
 Açık *Controllers\IdentityController.cs* dosya ve ardından eklemek `Identity` denetleyici sınıfını aşağıdaki işlevi: 
 
-```C#
+```csharp
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -289,7 +283,7 @@ Yukarıdaki örnek kodda sertifikası yalnızca aşağıdaki tüm koşullar kar�
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 IsValidClientCertificate işlevini çağırın
 Açık *Controllers\IdentityController.cs* dosyası ve daha sonra başında `SignUp()` işlev, aşağıdaki kod parçacığını ekleyin: 
 
-```C#
+```csharp
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

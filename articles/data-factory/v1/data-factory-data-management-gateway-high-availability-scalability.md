@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Veri Yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik (Önizleme)
 > [!NOTE]
@@ -205,9 +205,9 @@ Durum  | Yorumlar/senaryoları
 :------- | :------------------
 Çevrimiçi | Düğümü, veri fabrikası hizmetine bağlı.
 Çevrimdışı | Çevrimdışı düğümdür.
-Yükseltme | Düğüm, otomatik olarak güncelleştirilir.
+Yükseltiliyor | Düğüm, otomatik olarak güncelleştirilir.
 Sınırlı | Bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, hizmet veri yolu bağlantı sorunu veya kimlik bilgisi eşitleme sorunu nedeniyle olabilir. 
-Etkin olmayan | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
+Devre dışı | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
 
 
 Aşağıdaki tabloda, olası durumlar sağlayan bir **mantıksal ağ geçidi**. Ağ geçidi durumu üzerinde ağ geçidi düğümleri durumlar değişir. 

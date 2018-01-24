@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 92623b504341572e1b6fae18ba612bcab20162f1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 55a08d22c622c89b918d1bfadd0ce34b77c3d408
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API değişiklik günlüğü
 > [!NOTE]
@@ -80,7 +80,7 @@ Bu makale, belirli bir sürümü için Azure Data Factory SDK değişiklikler ha
   * SQL Data Warehouse'a veri kopyalamak için PolyBase kullanımını etkinleştirir.
 
 ## <a name="version-461"></a>Sürüm 4.6.1
-### <a name="bug-fixes"></a>Hata düzeltmeleri
+### <a name="bug-fixes"></a>Hata Düzeltmeleri
 * Etkinlik pencerelerine listeleme için HTTP isteği giderir.
   * Kaynak grubu adı ve veri fabrikası adı istek yükü kaldırır.
 

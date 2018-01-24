@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Web hizmeti ön uç için ASP.NET Core kullanarak uygulamanızı oluşturun
 Varsayılan olarak, Azure Service Fabric Hizmetleri Web ortak bir arabirim sağlamaz. HTTP istemcilere, uygulamanın işlevselliğini kullanıma sunmak için bir giriş noktası olarak davranmasına ve tek tek hizmetlerinizi buradan iletişim kurmak için bir web projesi oluşturmanız gerekir.
@@ -91,7 +91,7 @@ Durum bilgisi olan hizmeti ve diğer hizmetler arasında sözleşme olarak davra
 
 4. Sınıf Kitaplığı'nda tek bir yönteme bir arabirim oluşturmak `GetCountAsync`, ve arabirimden genişletmek `Microsoft.ServiceFabric.Services.Remoting.IService`. Uzaktan iletişim arabirimi hizmet Remoting arabirimi olduğunu belirtmek için bu arabirimden türetilmesi gerekir.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Arabirimi tanımlamış olduğunuz, durum bilgisi olan hizmette uygulamanız ger
     ![Durum bilgisi olan hizmeti sınıf kitaplığı projesine bir başvuru ekleme][vs-add-class-library-reference]
 2. Devraldığı sınıfı bulun `StatefulService`, gibi `MyStatefulService`, bunu uygulamak için genişletebilirsiniz `ICounter` arabirimi.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Arabirimi tanımlamış olduğunuz, durum bilgisi olan hizmette uygulamanız ger
     ```
 3. Şimdi tanımlanan tek bir yöntem uygulamak `ICounter` arabirimi, `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ Bu durumda, mevcut Değiştir `CreateServiceReplicaListeners` yöntemi ve örne�
 
 `CreateServiceRemotingListener` Genişletme yöntemi `IService` arabirimi kolayca oluşturmanıza olanak sağlayan bir `ServiceRemotingListener` tüm varsayılan ayarlarla. Bu uzantı yöntemi kullanmak için olduğundan emin olun `Microsoft.ServiceFabric.Services.Remoting.Runtime` içeri aktarılan ad alanı. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ Durum bilgisi olan hizmetimizi artık trafiği üzerinden RPC hizmetlerinden alm
 
 4. İçinde **denetleyicileri** klasörü, açık `ValuesController` sınıfı. Unutmayın `Get` yöntemi şu anda yalnızca "değer1" ve "önceki tarayıcıda ne gördüğümüz eşleşen değer2"--sabit kodlanmış bir dize dizisi döndürür. Bu uygulama aşağıdaki kodla değiştirin:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;

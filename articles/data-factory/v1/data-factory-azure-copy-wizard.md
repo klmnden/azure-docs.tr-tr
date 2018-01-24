@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 3f0b296b0bfb762607fdb4b42151b77a9e388a18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d9f3fea0db5a08fc91d9e4dc525b48575c512634
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory Kopyalama Sihirbazı
 > [!NOTE]
@@ -32,7 +32,7 @@ Azure Data Factory Kopyalama Sihirbazı'nı, genellikle bir uçtan uca veri tüm
 ## <a name="designed-for-big-data"></a>Büyük veriler için tasarlanmış
 Bu sihirbaz kolayca veriler çeşitli kaynaklardan hedeflere dakika cinsinden taşımanızı sağlar. Sihirbazı kullanarak olduktan sonra kopyalama etkinliği ile işlem hattı otomatik olarak sizin için bağımlı Data Factory varlıklarını birlikte (bağlı hizmetler ve veri kümeleri) oluşturulur. Ardışık düzen oluşturmak için hiçbir ek adımlar gereklidir.   
 
-![Veri kaynağını seçin](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Veri kaynağı seç](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Bir Azure SQL veritabanı tablosuna blob Azure verileri kopyalamak için örnek bir işlem hattı oluşturmak adım adım yönergeler için bkz: [Kopyalama Sihirbazı'nı Öğreticisi](data-factory-copy-data-wizard-tutorial.md).

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 78f21576bb7d839e5b5c4d8c2b721e381d663406
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>İfadeler ve Azure Data Factory işlevleri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -175,18 +175,18 @@ Aşağıdaki örnekte, ardışık düzen alır **InputPath** ve **outputPath** p
 |uzunluğu|Bir dizi veya dize öğe sayısını döndürür. Örneğin, aşağıdaki deyim döndürür `3`:`length('abc')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: koleksiyonu<br /><br /> **Açıklama**: gerekli. Uzunluğu alma koleksiyonu.|  
 |boş|Nesne, dizi veya dize boşsa, true döndürür. Örneğin, aşağıdaki deyim döndürür `true`:<br /><br /> `empty('')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: koleksiyonu<br /><br /> **Açıklama**: gerekli. Boş olup olmadığını denetlemek için koleksiyonu.|  
 |kesişim|Kendisine geçirilen nesneler ve diziler arasında bir tek bir dizi veya ortak öğeler nesneyi döndürür. Örneğin, bu işlevi döndürür `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> İşlev parametrelerini ya da nesne veya dizi (olmayan bir karışımını bunların) kümesi olabilir. Aynı ada sahip iki nesne, bu adı taşıyan son nesne son nesnesinde görüntülenir.<br /><br /> **Numaralı parametre**: 1...*n*<br /><br /> **Ad**: koleksiyonu*n*<br /><br /> **Açıklama**: gerekli. Değerlendirilecek koleksiyonları. Bir nesne sonuçta görünmesini geçirilen tüm koleksiyonlar olması gerekir.|  
-|birleşim|Bir tek bir dizi veya dizi veya nesne kendisine geçirilen tüm öğeleri nesneyi döndürür. Örneğin, bu işlevi döndürür`[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> İşlev parametrelerini ya da nesne veya dizi (olmayan bir karışımını bunların) kümesi olabilir. Son çıktıda aynı ada sahip iki nesne, bu adı taşıyan son nesne son nesnesinde görüntülenir.<br /><br /> **Numaralı parametre**: 1...*n*<br /><br /> **Ad**: koleksiyonu*n*<br /><br /> **Açıklama**: gerekli. Değerlendirilecek koleksiyonları. Koleksiyonları hiçbirinde görünen bir nesnenin sonucunda görünür.|  
+|birleşim|Bir tek bir dizi veya dizi veya nesne kendisine geçirilen tüm öğeleri nesneyi döndürür. Örneğin, bu işlevi döndürür`[1, 2, 3, 10, 101]:`<br /><br /> :`union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> İşlev parametrelerini ya da nesne veya dizi (olmayan bir karışımını bunların) kümesi olabilir. Son çıktıda aynı ada sahip iki nesne, bu adı taşıyan son nesne son nesnesinde görüntülenir.<br /><br /> **Numaralı parametre**: 1...*n*<br /><br /> **Ad**: koleksiyonu*n*<br /><br /> **Açıklama**: gerekli. Değerlendirilecek koleksiyonları. Koleksiyonları hiçbirinde görünen bir nesnenin sonucunda görünür.|  
 |ilk|Dizi ya da geçirilen dize ilk öğeyi döndürür. Örneğin, bu işlevi döndürür `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: koleksiyonu<br /><br /> **Açıklama**: gerekli. İlk nesneyi yapılacak koleksiyonu.|  
 |Son|Dizi ya da geçirilen dize son öğeyi döndürür. Örneğin, bu işlevi döndürür `3`:<br /><br /> `last('0123')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: koleksiyonu<br /><br /> **Açıklama**: gerekli. Son nesnesinden yapılacak koleksiyonu.|  
 |Al|İlk döndürür **sayısı** dizisi veya dize öğelerinden geçirilen, örneğin bu işlevi döndürür `[1, 2]`:`take([1, 2, 3, 4], 2)`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: koleksiyonu<br /><br /> **Açıklama**: gerekli. İlk yapılacak koleksiyonu **sayısı** nesnelerin.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: sayısı<br /><br /> **Açıklama**: gerekli. Gelen yapılacak nesne sayısı **koleksiyonu**. Pozitif bir tamsayı olmalıdır.|  
 |Atla|Öğeleri dizinden başlayarak bir diziye döndürür **sayısı**, örneğin bu işlevi döndürür `[3, 4]`:<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: koleksiyonu<br /><br /> **Açıklama**: gerekli. İlk atlamak için koleksiyon **sayısı** nesnelerin.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: sayısı<br /><br /> **Açıklama**: gerekli. Önüne kaldırmak için nesne sayısı **koleksiyonu**. Pozitif bir tamsayı olmalıdır.|  
   
-## <a name="logical-functions"></a>Mantıksal işlevleri  
+## <a name="logical-functions"></a>Mantıksal işlevler  
  Bu işlevler içinde koşullar faydalıdır, herhangi bir türde mantığı değerlendirmek için kullanılabilir.  
   
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
-|eşittir|İki değer eşitse true değerini döndürür. Örneğin, parametre1 foo ise, aşağıdaki deyim dönüş `true`:`equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: 1 nesne<br /><br /> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 2**.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 1**.|  
+|şuna eşittir:|İki değer eşitse true değerini döndürür. Örneğin, parametre1 foo ise, aşağıdaki deyim dönüş `true`:`equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: 1 nesne<br /><br /> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 2**.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 1**.|  
 |daha az|İlk bağımsız değişken daha az ise true değeri döndürür ikinciden. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, aşağıdaki deyim döndürür `true`:`less(10,100)`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: 1 nesne<br /><br /> **Açıklama**: gerekli. Olup olmadığını denetlemek için nesne değerinden **nesne 2**.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: gerekli. Büyük olup olmadığını denetlemek için nesne **nesne 1**.|  
 |lessOrEquals|İlk bağımsız değişken ikinci eşit veya daha az ise true, aksi durumda değeri döndürür. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, aşağıdaki deyim döndürür `true`:`lessOrEquals(10,10)`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: 1 nesne<br /><br /> **Açıklama**: gerekli. Bu daha az olup olmadığını denetleyin veya eşit nesnesine **nesne 2**.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: gerekli. Büyük veya eşit olup olmadığını denetlemek için nesne **nesne 1**.|  
 |büyük|İlk bağımsız değişken saniyeden büyükse, true döndürür. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, aşağıdaki deyim döndürür `false`:`greater(10,10)`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: 1 nesne<br /><br /> **Açıklama**: gerekli. Büyük olup olmadığını denetlemek için nesne **nesne 2**.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: gerekli. Olup olmadığını denetlemek için nesne değerinden **nesne 1**.|  
@@ -194,18 +194,18 @@ Aşağıdaki örnekte, ardışık düzen alır **InputPath** ve **outputPath** p
 |ve|Parametrelerinin her ikisi de doğruysa true döndürür. Her iki değişken Boole değerlerini olması gerekir. Aşağıdaki döndürür `false`:`and(greater(1,10),equals(0,0))`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: Boolean 1<br /><br /> **Açıklama**: gerekli. Gereken ilk bağımsız değişken `true`.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: Boolean 2<br /><br /> **Açıklama**: gerekli. İkinci bağımsız değişkeni olmalıdır `true`.|  
 |or|Parametrelerden biri doğru olduğunda true döndürür. Her iki değişken Boole değerlerini olması gerekir. Aşağıdaki döndürür `true`:`or(greater(1,10),equals(0,0))`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: Boolean 1<br /><br /> **Açıklama**: gerekli. Olabilir ilk bağımsız değişken `true`.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: Boolean 2<br /><br /> **Açıklama**: gerekli. İkinci bağımsız değişkeni olabilir `true`.|  
 |değil|Parametre ise true değeri döndürür `false`. Her iki değişken Boole değerlerini olması gerekir. Aşağıdaki döndürür `true`:`not(contains('200 Success','Fail'))`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: Boolean<br /><br /> **Açıklama**: parametre ise true değerini döndürür `false`. Her iki değişken Boole değerlerini olması gerekir. Aşağıdaki döndürür `true`:`not(contains('200 Success','Fail'))`|  
-|Eğer|Belirtilen bir değeri temel açıksa sağlanan ifade sonuçları döndürür `true` veya `false`.  Örneğin, aşağıdaki döndürür `"yes"`:`if(equals(1, 1), 'yes', 'no')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: ifade<br /><br /> **Açıklama**: gerekli. Hangi değer ifadesi tarafından döndürülen belirleyen bir boolean değeri.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: True<br /><br /> **Açıklama**: gerekli. İfade ise döndürülecek değer `true`.<br /><br /> **Numaralı parametre**: 3<br /><br /> **Ad**: yanlış<br /><br /> **Açıklama**: gerekli. İfade ise döndürülecek değer `false`.|  
+|if|Belirtilen bir değeri temel açıksa sağlanan ifade sonuçları döndürür `true` veya `false`.  Örneğin, aşağıdaki döndürür `"yes"`:`if(equals(1, 1), 'yes', 'no')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: ifade<br /><br /> **Açıklama**: gerekli. Hangi değer ifadesi tarafından döndürülen belirleyen bir boolean değeri.<br /><br /> **Numaralı parametre**: 2<br /><br /> **Ad**: True<br /><br /> **Açıklama**: gerekli. İfade ise döndürülecek değer `true`.<br /><br /> **Numaralı parametre**: 3<br /><br /> **Ad**: yanlış<br /><br /> **Açıklama**: gerekli. İfade ise döndürülecek değer `false`.|  
   
 ## <a name="conversion-functions"></a>Dönüşüm işlevleri  
  Bu işlevlerin her dil içindeki yerel türler arasında dönüştürme için kullanılır:  
   
--   string  
+-   dize  
   
--   tamsayı  
+-   integer  
   
--   Kayan nokta  
+-   float  
   
--   Boole değeri  
+-   boole  
   
 -   Diziler  
   
@@ -214,9 +214,9 @@ Aşağıdaki örnekte, ardışık düzen alır **InputPath** ve **outputPath** p
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
 |Int|Parametresi, bir tamsayıya dönüştürür. Örneğin, aşağıdaki ifade bir dize yerine bir sayı olarak 100 döndürür:`int('100')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: değer<br /><br /> **Açıklama**: gerekli. Bir tamsayıya dönüştürülüp değeri.|  
-|string|Parametresi bir dizeye dönüştürün. Örneğin, aşağıdaki deyim döndürür `'10'`: `string(10)` , ayrıca bir nesne örneği için bir dizeye dönüştürebilirsiniz **foo** parametredir bir özelliği olan bir nesne `bar : baz`, sonra da aşağıdaki gerekir dönüş `{"bar" : "baz"}``string(pipeline().parameters.foo)`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: değer<br /><br /> **Açıklama**: gerekli. Bir dizeye dönüştürülen değer.|  
-|JSON|Parametresi bir JSON türü değerine dönüştürür. String() tersidir. Örneğin, aşağıdaki deyim döndürür `[1,2,3]` bir dize yerine bir dizi olarak:<br /><br /> `parse('[1,2,3]')`<br /><br /> Benzer şekilde, bir nesneye bir dize dönüştürebilirsiniz. Örneğin, `json('{"bar" : "baz"}')` döndürür:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: dize<br /><br /> **Açıklama**: gerekli. Yerel tür değerine dönüştürülüp dize.<br /><br /> Json işlevi xml girişi destekler. Örneğin, parametre değeri:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> Aşağıdaki json dönüştürülür:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|Kayan nokta|Parametre bağımsız değişkeni bir kayan nokta sayıya dönüştürün. Örneğin, aşağıdaki deyim döndürür `10.333`:`float('10.333')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: değer<br /><br /> **Açıklama**: gerekli. Kayan nokta sayıya dönüştürülmüş değeri.|  
+|dize|Parametresi bir dizeye dönüştürün. Örneğin, aşağıdaki deyim döndürür `'10'`: `string(10)` , ayrıca bir nesne örneği için bir dizeye dönüştürebilirsiniz **foo** parametredir bir özelliği olan bir nesne `bar : baz`, sonra da aşağıdaki gerekir dönüş `{"bar" : "baz"}``string(pipeline().parameters.foo)`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: değer<br /><br /> **Açıklama**: gerekli. Bir dizeye dönüştürülen değer.|  
+|json|Parametresi bir JSON türü değerine dönüştürür. String() tersidir. Örneğin, aşağıdaki deyim döndürür `[1,2,3]` bir dize yerine bir dizi olarak:<br /><br /> `parse('[1,2,3]')`<br /><br /> Benzer şekilde, bir nesneye bir dize dönüştürebilirsiniz. Örneğin, `json('{"bar" : "baz"}')` döndürür:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: dize<br /><br /> **Açıklama**: gerekli. Yerel tür değerine dönüştürülüp dize.<br /><br /> Json işlevi xml girişi destekler. Örneğin, parametre değeri:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> Aşağıdaki json dönüştürülür:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|float|Parametre bağımsız değişkeni bir kayan nokta sayıya dönüştürün. Örneğin, aşağıdaki deyim döndürür `10.333`:`float('10.333')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: değer<br /><br /> **Açıklama**: gerekli. Kayan nokta sayıya dönüştürülmüş değeri.|  
 |bool|Parametre bir Boole değeri dönüştürün. Örneğin, aşağıdaki deyim döndürür `false`:`bool(0)`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: değer<br /><br /> **Açıklama**: gerekli. Bir Boole değeri dönüştürülen değer.|  
 |birleşim|Geçirilen bağımsız değişkenleri ilk null olmayan nesne döndürür. Not: boş bir dize null değil. Örneğin, 1 ve 2 parametreleri tanımlı değil, bu verir `fallback`:`coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Numaralı parametre**: 1...*n*<br /><br /> **Ad**: nesnesi*n*<br /><br /> **Açıklama**: gerekli. Denetlenecek nesneleri `null`.|  
 |Base64|Giriş dizesi base64 gösterimini döndürür. Örneğin, aşağıdaki deyim döndürür `c29tZSBzdHJpbmc=`:`base64('some string')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: Dize 1<br /><br /> **Açıklama**: gerekli. Base64 gösterimine kodlanacak dize.|  
@@ -238,7 +238,7 @@ Aşağıdaki örnekte, ardışık düzen alır **InputPath** ve **outputPath** p
 |array|Parametresi bir diziye dönüştürür.  Örneğin, aşağıdaki deyim döndürür `["abc"]`:`array('abc')`<br /><br /> **Numaralı parametre**: 1<br /><br /> **Ad**: değer<br /><br /> **Açıklama**: gerekli. Bir dizi dönüştürülen değer.|
 |createArray|Bir dizi parametrelerinden oluşturur.  Örneğin, aşağıdaki deyim döndürür `["a", "c"]`:`createArray('a', 'c')`<br /><br /> **Numaralı parametre**: 1... n<br /><br /> **Ad**: tüm n<br /><br /> **Açıklama**: gerekli. Bir diziye birleştirmek için kullanılan değerler.|
 
-## <a name="math-functions"></a>Matematik işlevleri  
+## <a name="math-functions"></a>Matematiksel işlevler  
  Bu işlevlerin her iki tür numarası için kullanılabilir: **tamsayılar** ve **gezinen**.  
   
 |İşlev adı|Açıklama|  

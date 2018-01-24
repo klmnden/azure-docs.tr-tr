@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 085328a9bbe304004f25f46ba5c366e911ac3836
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 17661f139c162f1ed22f9e186ae12bcf963e57f9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - adlandırma kuralları
 Aşağıdaki tabloda için Data Factory yapıtlarının adlandırma kuralları sağlar.

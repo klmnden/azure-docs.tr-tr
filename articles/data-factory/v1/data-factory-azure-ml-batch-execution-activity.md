@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3169584bc884107ccd34b01264683d8c73c0fecb
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 05ae7cdc78e909c9aaa2b690d03eff8da09b6242
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı ardışık düzen oluşturun
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce etkinliği](data-factory-map-reduce.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performans ve ayarlama Kılavuzu kopyalayın
 > [!NOTE]
@@ -68,7 +68,7 @@ Bir başvuru olarak aşağıdaki tabloyu şirket içi testlere göre verilen kay
     </tr>
     <tr>
         <td>Ağ</td>
-        <td>Internet arabirimi: 10 GB/sn; intranet arabiriminde: 40 GB/sn</td>
+        <td>Internet interface: 10 Gbps; intranet interface: 40 Gbps</td>
     </tr>
     </table>
 
@@ -207,7 +207,7 @@ Yapılandırma **enableStaging** bir hedef veri deposuna yükleme önce Blob dep
 | **enableStaging** |Veri deposu hazırlama bir geçiş aracılığıyla kopyalamak isteyip istemediğinizi belirtin. |False |Hayır |
 | **linkedServiceName** |Adını belirtin bir [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) veya [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) bağlı bir geçici hazırlama deposu olarak kullanmak depolama örneğinin başvurduğu hizmeti. <br/><br/> PolyBase aracılığıyla SQL veri ambarında verileri yüklemek için depolama ile paylaşılan erişim imzası kullanamazsınız. Diğer tüm senaryolarda kullanabilirsiniz. |Yok |Evet, ne zaman **enableStaging** TRUE olarak ayarlayın |
 | **yol** |Hazırlanmış verinin içermesini istediğiniz Blob Depolama yolunu belirtin. Bir yol belirtmezseniz, hizmet geçici verileri depolamak için bir kapsayıcı oluşturur. <br/><br/> Yalnızca depolama ile paylaşılan erişim imzası kullanın veya geçici verilerin belirli bir konumda olmasını gerektiren bir yol belirtin. |Yok |Hayır |
-| **Aracılığıyla** |Hedefe kopyalamadan önce verilerin sıkıştırılmasının gerekli olup olmadığını belirtir. Bu ayar aktarılan veri hacmini azaltır. |False |Hayır |
+| **enableCompression** |Hedefe kopyalamadan önce verilerin sıkıştırılmasının gerekli olup olmadığını belirtir. Bu ayar aktarılan veri hacmini azaltır. |False |Hayır |
 
 Kopyalama etkinliği yukarıdaki tabloda açıklanan özelliklere sahip bir örnek tanımı aşağıda verilmiştir:
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 89b860bb4174a06c17da1db2bce2eaa11832b0b2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB gelen ve veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,7 +113,7 @@ Azure Cosmos DB gibi şemasız veri depoları için Data Factory hizmetinin şem
 
 Bu nedenle, şemasız veri kaynakları için en iyi uygulama verileri kullanarak yapısı belirtmektir **yapısı** özelliği.
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam bir listesi için lütfen [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilke gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 > [!NOTE]
@@ -132,7 +132,7 @@ Kaynak türü olduğunda kopyalama etkinliği durumunda **DocumentDbCollectionSo
 
 | **Özellik** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| nestingSeparator |Bir özel karakter iç içe geçmiş belge belirtmek için kaynak sütun adı gereklidir. <br/><br/>Örneğin yukarıdaki: `Name.First` çıktıda tablo Cosmos DB belgede aşağıdaki JSON yapısını oluşturur:<br/><br/>"Name": {<br/>    "İlk": "John"<br/>}, |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir.<br/><br/>Varsayılan değer `.` (nokta). |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. <br/><br/>Varsayılan değer `.` (nokta). |
+| nestingSeparator |Bir özel karakter iç içe geçmiş belge belirtmek için kaynak sütun adı gereklidir. <br/><br/>Örneğin yukarıdaki: `Name.First` çıktıda tablo Cosmos DB belgede aşağıdaki JSON yapısını oluşturur:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir.<br/><br/>Varsayılan değer `.` (nokta). |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. <br/><br/>Varsayılan değer `.` (nokta). |
 | writeBatchSize |Azure Cosmos DB hizmeti belgeleri oluşturmak için paralel isteklerin sayısı.<br/><br/>Bu özelliği kullanarak verileri için/Cosmos DB kopyalama işlemi sırasında performans ince ayar yapabilirsiniz. Daha fazla paralel isteklerine Cosmos DB gönderildiğinden writeBatchSize artırdığınızda daha iyi bir performans düşüklüğü görebilir. Ancak, azaltma önlemek gerekir, hata iletisi atabilirsiniz: "oranıdır büyük istek".<br/><br/>Azaltmayı bir dizi etkene, belgeler, belgeleri koşullarını sayısı boyutunu dahil olmak üzere, hedef koleksiyon, vb. İlkesi dizin tarafından belirlenir. Kopyalama işlemleri için en çok kullanılabilir verimlilik sağlamak için daha iyi bir koleksiyonunu (örneğin S3) kullanabilirsiniz (2.500 istek birimleri/saniye). |Tamsayı |Hayır (varsayılan: 5) |
 | writeBatchTimeout |İşlemin zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Salesforce taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Azure Data Factory şu anda yalnızca taşıma için Salesforce verilerden deste
 ## <a name="supported-versions"></a>Desteklenen sürümler
 Bu bağlayıcı Salesforce aşağıdaki sürümlerini destekler: Geliştirici sürümü, Professional Edition, Enterprise Edition veya sınırsız sürümü. Ve Salesforce üretim, korumalı alan ve özel etki alanı kopyalama destekler.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * API izni etkinleştirilmesi gerekir. Bkz: [nasıl Salesforce API erişim izni kümesi tarafından etkinleştirebilirim?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Şirket içi veri depolarına Salesforce verileri kopyalamak için en az olmalıdır veri yönetimi ağ geçidi şirket içi ortamınızda yüklü 2.0.
 
@@ -91,7 +91,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilir olan özellikl
 
 ![Veri Fabrikası - Salesforce bağlantı - API adı](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilir olan özellikleri tam listesi için bkz: [ardışık düzen oluşturma](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları özellikler gibi ve çeşitli ilkeleri etkinlikleri tüm türleri için kullanılabilir.
 
 Etkinlik typeProperties bölümünde özellikler, diğer yandan, her etkinlik türü ile farklılık gösterir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
@@ -288,10 +288,10 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | Salesforce türü | . NET tabanlı türü |
 | --- | --- |
 | Otomatik numara |Dize |
-| Onay kutusu |Boole değeri |
+| Onay kutusu |Boole |
 | Para birimi |Çift |
-| Tarih |Tarih saat |
-| Tarih/saat |Tarih saat |
+| Tarih |Tarih Saat |
+| Tarih/Saat |Tarih Saat |
 | E-posta |Dize |
 | Kimlik |Dize |
 | Arama ilişkisi |Dize |

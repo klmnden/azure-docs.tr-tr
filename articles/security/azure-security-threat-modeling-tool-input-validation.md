@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c416ae23565870223abc3f2db1ac460e8bea77f6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Güvenlik çerçevesi: Giriş doğrulama | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>Örnek 
 
-```C#
+```csharp
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
@@ -50,14 +50,14 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ### <a name="example"></a>Örnek
 XSLT komut dosyası, MSXML 6.0 kullanarak kullanıyorsanız, varsayılan olarak devre dışıdır; Ancak, bunu açıkça AllowXsltScript XML DOM nesnesi özelliği üzerinden etkinleştirilmemiş olduğundan emin olmalısınız. 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Örnek
 MSXML 5 kullanıyorsanız veya aşağıda XSLT komut dosyası varsayılan olarak etkindir ve açıkça gerekir devre dışı bırakın. XML DOM nesnesi özelliğini AllowXsltScript false olarak ayarlayın. 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
@@ -144,7 +144,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 ### <a name="example"></a>Örnek
 .NET Framework kodunu aşağıdaki yaklaşımlardan kullanabilirsiniz:
 
-```C#
+```csharp
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
 
@@ -162,7 +162,7 @@ Unutmayın varsayılan değerini `ProhibitDtd` içinde `XmlReaderSettings` ancak
 ### <a name="example"></a>Örnek
 Varlık çözümleme XML belgelerine uymasıdır için devre dışı bırakmak için `XmlDocument.Load(XmlReader)` aşırı yükleme yöntemi ve uygun özellikleri XmlReader bağımsız değişkeni çözümleme, devre dışı bırakmak için aşağıdaki kodda gösterildiği şekilde ayarlayın: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
 XmlReader reader = XmlReader.Create(stream, settings);
@@ -173,7 +173,7 @@ doc.Load(reader);
 ### <a name="example"></a>Örnek
 Varlık çözümlemeyi devre dışı bırakma, uygulamanız için mümkün değilse, uygulamanızın gereksinimlerine göre uygun bir değere XmlReaderSettings.MaxCharactersFromEntities özelliğini ayarlayın. Bu olası üstel genişletme DoS saldırıları etkisini sınırlar. Aşağıdaki kod, bu yaklaşımın bir örnek sağlar: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -183,7 +183,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ### <a name="example"></a>Örnek
 Satır içi varlıkları çözmek ancak bunu gerekiyorsa dış varlıklar, çözümlemeye gerekmez XmlReaderSettings.XmlResolver özelliği null olarak ayarlayın. Örneğin: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -217,7 +217,7 @@ Msxml6 içinde ProhibitDTD true (devre dışı bırakma DTD işleme) varsayılan
 ### <a name="example"></a>Örnek
 Dosya biçimi imza doğrulaması ilgili son noktası için Ayrıntılar sınıfına bakın: 
 
-```C#
+```csharp
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
                     {
                     { ".DOC", new List<byte[]> { new byte[] { 0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1 } } },
@@ -333,7 +333,7 @@ Dosya biçimi imza doğrulaması ilgili son noktası için Ayrıntılar sınıf�
 ### <a name="example"></a>Örnek 
 Aşağıdaki kod tür güvenli parametreleri ile SqlParameterCollection bir saklı yordamı çağrılırken kullanmayı gösterir. 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 
@@ -373,7 +373,7 @@ myCommand.Fill(userDataset);
 
 ### <a name="example"></a>Örnek
 
-```C#
+```csharp
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
 * Encoder.JavaScriptEncode 
@@ -459,13 +459,13 @@ Kullanmayan `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, ye
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, Web Forms, MVC5, MVC6  |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [DefaultRegexMatchTimeout özelliği](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
+| **Başvuruları**              | [DefaultRegexMatchTimeout Property ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
 | **Adımları** | Hizmet reddi saldırılarına karşı hatalı emin olmak için çok sayıda geri dönüş neden, oluşturulan normal ifadeler, genel varsayılan zaman aşımı ayarlayın. İşleme tanımlanmış üst sınırından daha uzun sürüyorsa, zaman aşımı özel durumu throw. Hiçbir şey yapılandırılmışsa, zaman aşımını sonsuz olacaktır.| 
 
 ### <a name="example"></a>Örnek
 Örneğin, aşağıdaki yapılandırma işleme 5 saniyeden daha uzun sürerse bir RegexMatchTimeoutException atar: 
 
-```C#
+```csharp
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
 
@@ -483,7 +483,7 @@ Kullanmayan `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, ye
 ### <a name="example"></a>Örnek
 Güvenli olmayan bir örnek aşağıda verilmiştir: 
 
-```C#
+```csharp
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
         </div>
@@ -508,7 +508,7 @@ Kullanmayın `Html.Raw()` biçimlendirme görüntülemek gerekli olmadıkça. Bu
 ### <a name="example"></a>Örnek
 Güvenli olmayan dinamik saklı yordam örneği aşağıdadır: 
 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
   @productName nvarchar(200) = NULL,
@@ -535,7 +535,7 @@ AS
 
 ### <a name="example"></a>Örnek
 Güvenli bir şekilde uygulanan aynı saklı yordam aşağıda verilmiştir: 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
 (
              @productName nvarchar(200) = NULL,
@@ -568,7 +568,7 @@ AS
 ### <a name="example"></a>Örnek
 Aşağıdaki kod, aynı gösterir: 
 
-```C#
+```csharp
 using System.ComponentModel.DataAnnotations;
 
 namespace MyApi.Models
@@ -589,7 +589,7 @@ namespace MyApi.Models
 ### <a name="example"></a>Örnek
 API denetleyicilerinin eylem yöntemi modeli geçerliliğini aşağıda gösterildiği gibi açıkça denetlenmesini sahiptir: 
 
-```C#
+```csharp
 namespace MyApi.Controllers
 {
     public class ProductsController : ApiController
@@ -636,7 +636,7 @@ namespace MyApi.Controllers
 ### <a name="example"></a>Örnek
 Aşağıdaki kod tür güvenli parametreleri ile SqlParameterCollection bir saklı yordamı çağrılırken kullanmayı gösterir. 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 

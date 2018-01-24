@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 114666d0c173786373e3bdd025027eb217922749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Güvenlik çerçevesi: Yapılandırma yönetimi | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>Örnek
 Örnek İlkesi: 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 Bu ilke yalnızca web uygulamasının server ve google analytics Server'dan yüklemek komut dosyaları sağlar. Başka bir siteden yüklenen komut dosyalarını reddedilir. CSP bir Web sitesinde etkin olduğunda, aşağıdaki özellikleri otomatik olarak XSS saldırıları azaltmak için devre dışı bırakılır. 
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>Örnek
 X-FRAME-OPTIONS üstbilgisi IIS web.config ayarlanabilir. Web.config kod parçacığını hiçbir zaman Çerçeveli siteler için: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -123,7 +123,7 @@ X-FRAME-OPTIONS üstbilgisi IIS web.config ayarlanabilir. Web.config kod parçac
 
 ### <a name="example"></a>Örnek
 Web.config kod sayfaları aynı etki alanında yalnızca Çerçeveli siteler için: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -158,7 +158,7 @@ Web.config erişimi varsa, CORS aşağıdaki kodu eklenebilir:
 
 ### <a name="example"></a>Örnek
 Web.config erişimi yoksa, CORS aşağıdaki CSharp kodu ekleyerek yapılandırılabilir: 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -199,7 +199,7 @@ veya uygulama düzeyinde
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>JQuery kullanmalısınız gibi standart JavaScript kitaplıklarını kullanarak geliştiriciler bilinen güvenlik açıkları içermeyen ortak JavaScript kitaplıklarını sürümleri onaylanmış. Eski sürümlerine bilinen güvenlik açıkları için güvenlik düzeltmelerini içeren bu yana kitaplıkları en son sürümünü kullanmak iyi bir uygulamadır.</p><p>En son sürüm uyumluluğu nedenlerden ötürü kullandıysanız en düşük sürümlerle kullanılmalıdır.</p><p>Kabul edilebilir en düşük sürümler:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery 1.9 doğrula</li><li>JQuery Mobile 1.0.1</li><li>JQuery döngüsü 2.99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**AJAX Denetim Araç Seti**<ul><li>AJAX Denetim Araç Seti 40412</li></ul></li><li>**ASP.NET Web formları ve Ajax**<ul><li>ASP.NET Web formları ve Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Hiçbir zaman genel CDN'ler gibi dış sitelerden herhangi bir JavaScript kitaplığı yüklenemiyor</p>|
+| **Adımları** | <p>JQuery kullanmalısınız gibi standart JavaScript kitaplıklarını kullanarak geliştiriciler bilinen güvenlik açıkları içermeyen ortak JavaScript kitaplıklarını sürümleri onaylanmış. Eski sürümlerine bilinen güvenlik açıkları için güvenlik düzeltmelerini içeren bu yana kitaplıkları en son sürümünü kullanmak iyi bir uygulamadır.</p><p>En son sürüm uyumluluğu nedenlerden ötürü kullandıysanız en düşük sürümlerle kullanılmalıdır.</p><p>Kabul edilebilir en düşük sürümler:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery 1.9 doğrula</li><li>JQuery Mobile 1.0.1</li><li>JQuery döngüsü 2.99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**Ajax Control Toolkit**<ul><li>Ajax Control Toolkit 40412</li></ul></li><li>**ASP.NET Web formları ve Ajax**<ul><li>ASP.NET Web formları ve Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Hiçbir zaman genel CDN'ler gibi dış sitelerden herhangi bir JavaScript kitaplığı yüklenemiyor</p>|
 
 ## <a id="mime-sniff"></a>Otomatik MIME algılaması devre dışı bırak
 
@@ -226,7 +226,7 @@ Uygulama Internet Information Services (IIS tarafından) 7 veya sonraki sürüml
 
 ### <a name="example"></a>Örnek
 Genel Uygulama aracılığıyla üstbilgisi eklemek\_BeginRequest 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -235,7 +235,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Örnek
 Uygulama özel HTTP modülü 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -262,7 +262,7 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 ### <a name="example"></a>Örnek
 Yalnızca belirli sayfaları için gerekli üstbilgisi tek tek yanıtlarını ekleyerek etkinleştirebilirsiniz: 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
@@ -301,7 +301,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Örnek
 App_Start/WebApiConfig.cs içinde WebApiConfig.Register yöntemine aşağıdaki kodu ekleyin 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -325,7 +325,7 @@ namespace WebService
 ### <a name="example"></a>Örnek
 EnableCors özniteliği bir denetleyici eylem yöntemlerinde aşağıdaki gibi uygulanabilir: 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -365,7 +365,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>Örnek
 CORS bir sınıftaki belirli bir yöntemi devre dışı bırakmanız için DisableCors özniteliği aşağıda gösterildiği gibi kullanılabilir: 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -399,7 +399,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>Örnek
 İlk UseCors ile bir lambda çağırmaktır. Lambda CorsPolicyBuilder nesnesini alır: 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -411,7 +411,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Örnek
 Bir veya daha fazla adlandırılmış CORS ilkelerini tanımlamak ve ardından ilkeyi çalışma zamanında adına göre seçmek için saniyedir. 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -434,7 +434,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Örnek
 Eylem başına: belirli bir eylemi için ilke bir CORS belirtmek için eyleme [EnableCors] özniteliğini ekleyin. İlke adı belirtin. 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -446,7 +446,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Örnek
 Denetleyici: 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Örnek
 Genel olarak: 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -468,7 +468,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="example"></a>Örnek
 Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] özniteliğini kullanın. 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {

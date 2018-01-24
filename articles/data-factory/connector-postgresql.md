@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d78b0dbd3fd124e660b2b2a2cf0cb20f92153508
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -115,7 +115,7 @@ PostgreSQL verileri kopyalamak için kümesine tür özelliği ayarlamak **Relat
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde PostgreSQL kaynak tarafından desteklenen özellikler listesini sağlar.
 
@@ -173,7 +173,7 @@ PostgreSQL veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Postgre
 | `bigint` | `int8` | `Int64` |
 | `bigserial` | `serial8` | `Int64` |
 | `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | ' varbit |Byte [], dize ' |
+| `bit varying [ (n) ]` | ' varbit |Byte[], String` |
 | `boolean` | `bool` | `Boolean` |
 | `box` | | `Byte[], String` | &nbsp;
 | `bytea` | | `Byte[], String` |&nbsp;
@@ -189,7 +189,7 @@ PostgreSQL veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Postgre
 | `intarry` | |`String` |&nbsp;
 | `int4range` | |`String` |&nbsp;
 | `int8range` | |`String` |&nbsp;
-| `integer` | ' int, int4 |Int32' |
+| `integer` | ' int, int4 |Int32` |
 | `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
 | `json` | | `String` |&nbsp;
 | `jsonb` | | `Byte[]` |&nbsp;

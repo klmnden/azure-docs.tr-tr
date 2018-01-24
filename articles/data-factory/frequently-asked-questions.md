@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory hakkında SSS
 Bu makalede Azure Data Factory hizmetinin 2 sürümü için geçerlidir. Data Factory hakkında sık sorulan soruların yanıtlarını sağlar.  
@@ -31,7 +31,7 @@ Veri Fabrikası taşınmasını ve dönüştürülmesini veri otomatikleştiren 
 
 Azure Data Factory kullanarak, şirket içi ve bulut arasında veri taşımak için veri tabanlı iş akışları oluşturabilirsiniz verileri depolar. İşleyebilmesi için ve Azure Hdınsight, Azure Data Lake Analytics ve SQL Server Integration Services (SSIS) Tümleştirmesi çalışma zamanı gibi hizmetleri kullanarak dönüştürme veri işlem. 
 
-Data Factory ile veri işleme Azure tabanlı bulut hizmeti veya SSIS, SQL Server ve Oracle gibi kendi kendini barındıran işlem ortamınızda yürütebilir. Gereksinim duyduğunuz bir eylem gerçekleştiren bir ardışık düzen oluşturduktan sonra düzenli aralıklarla (örneğin, saatlik, günlük veya haftalık) çalıştırabilir veya bir olayın gerçekleşmesi ardışık düzen tetiklemek üzere zamanlayabilirsiniz. Daha fazla bilgi için bkz: [Azure Data Factory'ye giriş](introduction.md).
+Data Factory ile veri işleme Azure tabanlı bulut hizmeti veya SSIS, SQL Server ve Oracle gibi kendi kendini barındıran işlem ortamınızda yürütebilir. Gereksinim duyduğunuz bir eylem gerçekleştiren bir ardışık düzen oluşturduktan sonra düzenli aralıklarla (örneğin, saatlik, günlük veya haftalık) çalıştırabilir veya bir olayın gerçekleşmesi ardışık düzen tetiklemek üzere zamanlayabilirsiniz. Daha fazla bilgi için bkz. [Azure Data Factory'ye giriş](introduction.md).
 
 ## <a name="whats-different-in-version-2"></a>Sürüm 2’nin farkları nelerdir?
 Azure Data Factory sürüm 2, özgün Azure Data Factory veri taşıma ve dönüştürme hizmetinin üzerine kurulmuştur ve daha fazla bulut öncelikli veri tümleştirme senaryosunu kapsar. Azure Data Factory sürüm 2 aşağıdaki özellikleri sunar:
@@ -71,7 +71,7 @@ Daha fazla bilgi için bkz: [Öğreticisi: denetim akışı](tutorial-control-fl
 SSIS iş yüklerinizi taşımak istiyorsanız, bir Data Factory sürüm 2 oluşturun ve bir Azure SSIS tümleştirmesi çalışma zamanı sağlayın. Azure SSIS tümleştirmesi çalışma zamanı Azure SSIS paketleri bulutta çalıştırmak için adanmış VM'nin (düğümler) tam olarak yönetilen bir kümedir. Adım adım yönergeler için bkz: [azure'a dağıtma SSIS paketleri](tutorial-deploy-ssis-packages-azure.md) Öğreticisi. 
  
 
-### <a name="sdks"></a>SDK
+### <a name="sdks"></a>SDK’lar
 İleri düzey bir kullanıcı varsa ve bu programa dayalı bir arabirim için baktığınızda, sürüm 2 zengin bir SDK'ları sağlayan yazar, yönetme veya sık kullanılan IDE kullanılarak işlem hatlarını izlemek için kullanabilirsiniz.
 
 - **.NET SDK**: .NET SDK, sürüm 2 için güncelleştirilmiştir. 
@@ -93,7 +93,7 @@ Tümleştirme çalışma zamanı tarafından Azure Data Factory çeşitli ağ or
 
 Bir veya daha çok örnekleri Integration zamanının verileri taşımak ve dönüştürmek için gerektiği şekilde dağıtabilirsiniz. Tümleştirme çalışma zamanı, Azure ortak ağ veya özel bir ağda (şirket içi, Azure sanal ağ veya Amazon Web Hizmetleri sanal özel bulut [VPC]) çalıştırabilirsiniz. 
 
-Daha fazla bilgi için bkz: [Azure Data Factory tümleştirmesi çalışma zamanı](concepts-integration-runtime.md).
+Daha fazla bilgi için bkz. [Azure Data Factory'de tümleştirme çalışma zamanı](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Tümleştirme çalışma zamanları sayısı sınırı nedir?
 Veri fabrikasında olabilir tümleştirmesi çalışma zamanı örnekleri sayısının sabit sınırı yoktur. Ancak, tümleştirme çalışma abonelik başına SSIS paketi yürütme için kullanabileceği VM çekirdek sayısına bir sınır yoktur. Daha fazla bilgi için bkz: [Data Factory sınırlar](../azure-subscription-service-limits.md#data-factory-limits).
@@ -176,7 +176,7 @@ Evet. Veri kümeleri gerek kalmadan sürüm 2 aktivitelerde zincir. Etkinlikleri
 Evet, tüm sürüm 1 etkinlikleri sürüm 2 desteklenir.
 
 ### <a name="how-can-i-schedule-a-version-2-pipeline"></a>Sürüm 2 ardışık düzen nasıl zamanlayabilir miyim? 
-Zamanlayıcı tetikleyicisi sürüm 2 ardışık düzen zamanlamak için kullanabilirsiniz. Tetikleyici duvar saati takvim zamanlama kullanır ve düzenli aralıklarla veya (örneğin, haftalık 6 PM adresindeki Pazartesi ve Salı günleri 9 PM adresindeki üzerinde) takvim tabanlı yinelenen desenler kullanılarak işlem hatlarını zamanlamak için kullanabilirsiniz. Daha fazla bilgi için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
+Zamanlayıcı tetikleyicisi sürüm 2 ardışık düzen zamanlamak için kullanabilirsiniz. Tetikleyici duvar saati takvim zamanlama kullanır ve düzenli aralıklarla veya (örneğin, haftalık 6 PM adresindeki Pazartesi ve Salı günleri 9 PM adresindeki üzerinde) takvim tabanlı yinelenen desenler kullanılarak işlem hatlarını zamanlamak için kullanabilirsiniz. Daha fazla bilgi için bkz. [İşlem hattı yürütme ve tetikleyiciler](concepts-pipeline-execution-triggers.md).
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run-in-version-2"></a>Parametreleri sürüm 2 çalıştıran bir ardışık düzene geçirebilirsiniz?
 Evet, 2 sürümündeki birinci sınıf, üst düzey bir kavram parametreleridir. Ardışık düzen düzeyinde parametrelerini tanımlayın ve bağımsız değişkenler isteğe bağlı veya bir tetikleyici kullanarak çalıştırmak ardışık düzen yürütmek olarak geçirin.  

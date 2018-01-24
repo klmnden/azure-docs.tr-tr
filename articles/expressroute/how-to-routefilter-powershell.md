@@ -15,22 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft eşliği için rota filtrelerini yapılandırın: PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal](how-to-routefilter-portal.md)
+> * [Azure portalındaki](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 
 
 Yol filtreleri Microsoft eşleme yoluyla desteklenen hizmetleri kümesini kullanmak için bir yoldur. Bu makaledeki adımları yapılandırmak ve ExpressRoute bağlantı hatları için yol filtreleri yönetmenize yardımcı olması.
 
-Dynamics 365 Hizmetleri ve iş için Exchange Online, SharePoint Online ve Skype gibi Office 365 Hizmetleri ve depolama ve SQL DB gibi Azure Hizmetleri Microsoft eşleme aracılığıyla erişilebilir. Microsoft eşlemesi bir expressroute bağlantı hattı yapılandırıldığında, bu hizmetleri ile ilgili tüm ön eklerin oluşturulmuş BGP oturumları bildirilir. BGP topluluk değeri öneki sunulan Hizmeti'ni tanımlamak için her ön eki eklenir. BGP topluluk değerlerini ve eşlemek için Hizmetler listesi için bkz: [BGP toplulukları](expressroute-routing.md#bgp).
+Dynamics 365 Hizmetleri ve Exchange Online, SharePoint Online ve Skype gibi Office 365 Hizmetleri iş ve depolama ve SQL DB gibi Azure kamu hizmetleri için Microsoft eşleme aracılığıyla erişilebilir. Azure ortak Hizmetleri bir bölge başına temelinde seçilebilir ve her ortak hizmeti tanımlanamaz. 
+
+Bir rota filtre bağlı ve Microsoft eşlemesi bir expressroute bağlantı hattı üzerinde yapılandırılmış olduğunda, bu hizmetler için seçilen tüm ön eklerin oluşturulmuş BGP oturumları bildirilir. BGP topluluk değeri öneki sunulan Hizmeti'ni tanımlamak için her ön eki eklenir. BGP topluluk değerlerini ve eşlemek için Hizmetler listesi için bkz: [BGP toplulukları](expressroute-routing.md#bgp).
 
 Tüm hizmetleri için bağlantı gerektiriyorsa, çok sayıda önekleri BGP bildirilir. Bu, ağınızdaki yönlendiricileri tarafından tutulan yol tablolarını boyutunu önemli ölçüde artırır. Yalnızca bir alt kümesini Microsoft eşliği ile sunulan hizmetlere kullanmayı planlıyorsanız, yol tablolarınız iki yolla boyutunu azaltabilirsiniz. Şunları yapabilirsiniz:
 
@@ -152,6 +154,7 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Yalnızca Microsoft eşlemesi sahip olduğu varsayılarak expressroute bağlantı hattı için rota filtre eklemek için aşağıdaki komutu çalıştırın:
 
 ```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

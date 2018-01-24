@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>İçin ve Azure Data Factory kullanarak Azure SQL veri ambarından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -87,7 +87,7 @@ TypeProperties bölümü dataset her tür için farklıdır ve verilerin veri de
 | --- | --- | --- |
 | tableName |Tablo veya Görünüm başvuran bağlı hizmetin Azure SQL veri ambarı veritabanındaki adı. |Evet |
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilke gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 > [!NOTE]
@@ -147,11 +147,11 @@ GO
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. Ayrıntılar için bkz [Yinelenebilirlik bölüm](#repeatability-during-copy). |Sorgu bildirimi. |Hayır |
-| Bulunan'allowpolybase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz [kullanım Azure SQL Data Warehouse'a veri yüklemek için PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü. |True <br/>False (varsayılan) |Hayır |
+| allowPolyBase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz [kullanım Azure SQL Data Warehouse'a veri yüklemek için PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü. |True <br/>False (varsayılan) |Hayır |
 | polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği ayarlanmış **doğru**. |&nbsp; |Hayır |
 | rejectValue |Sayı veya yüzde değeri sorgu başarısız önce reddedilemiyor satır belirtir. <br/><br/>PolyBase'nın reddetme seçenekleri hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
 | rejectType |RejectValue seçeneği bir hazır değer veya bir yüzde belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
-| Havuzu'na ilişkin |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olan **yüzdesi** |
+| rejectSampleValue |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olan **yüzdesi** |
 | useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (varsayılan) |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
@@ -306,11 +306,11 @@ Veri Fabrikası aynı tablo adı kaynak veri deposundaki ile hedef deposunda bir
 | Int | Int |
 | BigInt | BigInt |
 | Tamsayı | Tamsayı |
-| Mini tamsayı | Mini tamsayı |
+| TinyInt | TinyInt |
 | bit | bit |
 | Ondalık | Ondalık |
 | sayısal | Ondalık |
-| Kayan nokta | Kayan nokta |
+| Kayan | Kayan |
 | para | para |
 | Real | Real |
 | Küçük para | Küçük para |
@@ -325,12 +325,12 @@ Veri Fabrikası aynı tablo adı kaynak veri deposundaki ile hedef deposunda bir
 | Metin | VARCHAR (en fazla 8000) |
 | NText | NVarChar (en fazla 4000) |
 | Görüntü | VarBinary (en fazla 8000) |
-| Benzersiz tanımlayıcı | Benzersiz tanımlayıcı |
+| UniqueIdentifier | UniqueIdentifier |
 | char | char |
 | NChar | NChar |
 | VarChar | VarChar (en fazla 8000) |
 | NVarChar | NVarChar (en fazla 4000) |
-| XML | VARCHAR (en fazla 8000) |
+| Xml | VARCHAR (en fazla 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -356,7 +356,7 @@ Eşleme aynı [ADO.NET için SQL Server veri türü eşlemesi](https://msdn.micr
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
-| Kayan nokta |Çift |
+| Kayan |Çift |
 | görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
@@ -374,10 +374,10 @@ Eşleme aynı [ADO.NET için SQL Server veri türü eşlemesi](https://msdn.micr
 | time |TimeSpan |
 | timestamp |Byte] |
 | Mini tamsayı |Bayt |
-| benzersiz tanımlayıcı |GUID |
+| benzersiz tanımlayıcı |Guid |
 | varbinary |Byte] |
 | varchar |Dize, Char] |
-| xml |XML |
+| xml |Xml |
 
 Ayrıca havuz dataset kopyalama etkinliği tanımında sütunları kaynak kümesinden sütunları eşleyebilirsiniz. Ayrıntılar için bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
 

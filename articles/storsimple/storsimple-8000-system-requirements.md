@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 serisi yazılım, yüksek kullanılabilirlik ve ağ gereksinimleri
 
@@ -38,7 +38,7 @@ StorSimple Cihazınızı erişim depolama istemciler için aşağıdaki yazılı
 
 | Desteklenen işletim sistemleri | Gerekli sürümü | Ek gereksinimler/Notlar |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2'DE, 2016 |StorSimple iSCSI birimleri, yalnızca aşağıdaki Windows disk türleri üzerinde kullanım için desteklenir:<ul><li>Temel diskteki basit birim</li><li>Dinamik diskteki basit ve yansıtılmış birim</li></ul>Yalnızca yazılım iSCSI başlatıcıları işletim sisteminde yerel olarak mevcut desteklenir. Donanım iSCSI başlatıcıları desteklenmez.<br></br>Bir StorSimple iSCSI birim kullanıyorsanız, Windows Server 2012 ve 2016 ölçülü kaynak sağlama ve ODX özellikler desteklenir.<br><br>Ölçülü kaynak kullanan ve tamamen sağlanan StorSimple oluşturabilir birimler. Kısmen sağlanan birimler oluşturamazsınız.<br><br>Ölçülü kaynak kullanan bir birim yeniden biçimlendirme uzun sürebilir. Toplu silme ve yeniden biçimlendirme yerine yeni bir tane oluşturma öneririz. Yine ancak, bir birim yeniden biçimlendirmek tercih eder:<ul><li>Alan geri kazanma gecikmelerden kaçınmak için yeniden biçimlendirme önce aşağıdaki komutu çalıştırın: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Biçimlendirme tamamlandıktan sonra alan geri kazanma yeniden etkinleştirmek için aşağıdaki komutu kullanın:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Bölümünde açıklandığı gibi Windows Server 2012 düzeltmeyi [KB 2878635](https://support.microsoft.com/kb/2870270) , Windows Server bilgisayarınıza.</li></ul></li></ul></ul> SharePoint için StorSimple Snapshot Manager veya StorSimple bağdaştırıcısı yapılandırıyorsanız, Git [isteğe bağlı bileşenler için yazılım gereksinimleri](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI birimleri, yalnızca aşağıdaki Windows disk türleri üzerinde kullanım için desteklenir:<ul><li>Temel diskteki basit birim</li><li>Dinamik diskteki basit ve yansıtılmış birim</li></ul>Yalnızca yazılım iSCSI başlatıcıları işletim sisteminde yerel olarak mevcut desteklenir. Donanım iSCSI başlatıcıları desteklenmez.<br></br>Bir StorSimple iSCSI birim kullanıyorsanız, Windows Server 2012 ve 2016 ölçülü kaynak sağlama ve ODX özellikler desteklenir.<br><br>Ölçülü kaynak kullanan ve tamamen sağlanan StorSimple oluşturabilir birimler. Kısmen sağlanan birimler oluşturamazsınız.<br><br>Ölçülü kaynak kullanan bir birim yeniden biçimlendirme uzun sürebilir. Toplu silme ve yeniden biçimlendirme yerine yeni bir tane oluşturma öneririz. Yine ancak, bir birim yeniden biçimlendirmek tercih eder:<ul><li>Alan geri kazanma gecikmelerden kaçınmak için yeniden biçimlendirme önce aşağıdaki komutu çalıştırın: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Biçimlendirme tamamlandıktan sonra alan geri kazanma yeniden etkinleştirmek için aşağıdaki komutu kullanın:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Bölümünde açıklandığı gibi Windows Server 2012 düzeltmeyi [KB 2878635](https://support.microsoft.com/kb/2870270) , Windows Server bilgisayarınıza.</li></ul></li></ul></ul> SharePoint için StorSimple Snapshot Manager veya StorSimple bağdaştırıcısı yapılandırıyorsanız, Git [isteğe bağlı bileşenler için yazılım gereksinimleri](#software-requirements-for-optional-components). |
 | VMware ESX |5.5 ve 6.0 |VMware vSphere ile iSCSI istemcisi olarak desteklenir. VAAI engelleme özelliği, VMware vsphere StorSimple cihazlarda desteklenir. |
 | Linux RHEL/CentOS |5, 6 ve 7 |Açık iSCSI başlatıcısı sürümlerini 5, 6 ve 7 Linux iSCSI istemciler için destek. |
 | Linux |SUSE Linux 11 | |
@@ -107,7 +107,7 @@ Ağ yöneticileri genellikle gelen filtrelemek için URL desenlerini ve giden tr
 
 | URL deseni | Bileşen/işlevi | Cihaz IP'leri |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |StorSimple Cihaz Yöneticisi hizmeti<br>Access Control Service<br>Azure Service Bus<br>Kimlik doğrulama hizmeti |Bulut etkin ağ arabirimleri |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Cihaz Yöneticisi hizmeti<br>Access Control Service<br>Azure Service Bus<br>Kimlik doğrulama hizmeti |Bulut etkin ağ arabirimleri |
 | `https://*.backup.windowsazure.us` |Cihaz kaydı |Yalnızca veri 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Sertifika iptali |Bulut etkin ağ arabirimleri |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure depolama hesapları ve izleme |Bulut etkin ağ arabirimleri |

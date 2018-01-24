@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: bffca3b1daa3e909a0b17baf33c7f85d57836d32
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopyalama veya Azure Data Factory Kopyalama Sihirbazı ile kolayca veri taşıma
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [kopyalama etkinliği öğretici sürüm 2 belgelerinde](../quickstart-create-data-factory-dot-net.md). 
+> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Data Factory hizmetinin önizleme aşamasında olan 2. sürümünü kullanıyorsanız [sürüm 2’de kopyalama etkinliği öğreticisi belgeleri](../quickstart-create-data-factory-dot-net.md) konusunu inceleyin. 
 
 
 Azure Data Factory Kopyalama Sihirbazı'nı, genellikle bir uçtan uca veri tümleştirme senaryosunun ilk adımda veri alma sürecini kolaylaştırmak için ' dir. Azure veri fabrikası Kopyalama Sihirbazı'nı geçerken bağlı hizmetler, veri kümeleri ve işlem hatları için herhangi bir JSON tanımları anlayın gerekmez. Ancak, Sihirbazı'ndaki tüm adımları tamamladıktan sonra sihirbaz otomatik olarak seçilen hedef seçilen veri kaynağından verileri kopyalamak için bir işlem hattı oluşturur. Ayrıca, kopyalama Sihirbazı'nı zamanınızın çoğunu kaydeder, yazma, aynı anda alınan veri doğrulama yardımcı olacak özellikle zaman, alma veri ilk kez veri kaynağından. Kopyalama Sihirbazı'nı başlatmak için tıklatın **veri kopyalama** döşeme veri fabrikanızın giriş sayfasında.
@@ -33,7 +33,7 @@ Azure Data Factory Kopyalama Sihirbazı'nı, genellikle bir uçtan uca veri tüm
 ## <a name="an-intuitive-wizard-for-copying-data"></a>Veri kopyalama için sezgisel bir Sihirbazı
 Bu sihirbaz kolayca veriler çeşitli kaynaklardan hedeflere dakika cinsinden taşımanızı sağlar. Sihirbazı kullanarak geçtikten sonra kopyalama etkinliği ile işlem hattı otomatik olarak bağımlı Data Factory varlıklarını birlikte (bağlı hizmetler ve veri kümeleri) oluşturulur. Ardışık düzen oluşturmak için hiçbir ek adımlar gereklidir.   
 
-![Veri kaynağını seçin](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Veri kaynağı seç](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Bkz: [Kopyalama Sihirbazı'nı öğretici](data-factory-copy-data-wizard-tutorial.md) kopyalamak için örnek bir işlem hattı oluşturmak adım adım yönergeler için makalenin verileri Azure blob için bir Azure SQL veritabanı tablosu. 

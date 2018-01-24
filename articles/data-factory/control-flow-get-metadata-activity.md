@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Meta veri etkinliği Azure Data Factory'de Al
 GetMetadata etkinliği, Azure Data Factory içindeki herhangi bir verinin meta verilerini almak için kullanılabilir. Bu etkinlik yalnızca sürüm 2, veri oluşturucuları için desteklenir. Aşağıdaki senaryolarda kullanılabilir:
@@ -96,7 +96,7 @@ Aşağıdaki örnekte, GetMetadata etkinlik MyDataset tarafından temsil edilen 
 
 Özellik | Açıklama | İzin Verilen Değerler | Gerekli
 -------- | ----------- | -------------- | --------
-alan listesi | Gerekli meta veri bilgileri türlerini listeler.  | <ul><li>Boyutu</li><li>yapısı</li><li>LastModified</li></ul> |    Hayır<br/>Boşsa, etkinlik tüm 3 desteklenen meta veri bilgileri döndürür. 
+alan listesi | Gerekli meta veri bilgileri türlerini listeler.  | <ul><li>boyut</li><li>yapısı</li><li>lastModified</li></ul> |    Hayır<br/>Boşsa, etkinlik tüm 3 desteklenen meta veri bilgileri döndürür. 
 Veri kümesi | Başvuru dataset, meta veri GetMetadata etkinlik tarafından alınmasına izin etkinliktir. <br/><br/>Şu anda desteklenen veri kümesi, Azure Blob türüdür. İki alt özellikleri şunlardır: <ul><li><b>başvuruadı</b>: var olan bir Azure Blob Dataset başvurusu</li><li><b>tür</b>: dataset başvuru yapıldığı türü "DatasetReference" değil</li></ul> |    <ul><li>Dize</li><li>DatasetReference</li></ul> | Evet
 
 ## <a name="next-steps"></a>Sonraki adımlar

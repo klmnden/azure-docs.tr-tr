@@ -14,22 +14,16 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-<<<<<<< HEAD
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: kullanıcı Arabirimi ile dinamik içerik özel ilkeler kullanarak yapılandırma
 Azure Active Directory B2C kullanarak (Azure AD B2C) özel ilkeler, bir parametre bir sorgu dizesi olarak gönderebilirsiniz. HTML uç noktanızı parametresini geçirerek, sayfa içeriği dinamik olarak değiştirebilirsiniz. Örneğin, web ya da mobil uygulama geçirdiğiniz parametre temel Azure AD B2C kaydolma veya oturum açma sayfasında, arka plan resmi değiştirebilirsiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede Azure AD B2C kullanıcı arabirimiyle özelleştirmeyi odaklanır *dinamik içerik* özel ilkeler kullanarak. Başlamak için bkz: [özel bir ilke kullanıcı Arabirimi özelleştirmesinde](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]
@@ -47,16 +41,16 @@ Bu makalede Azure AD B2C kullanıcı arabirimiyle özelleştirmeyi odaklanır *d
 
 | İçerik tanımı kimliği | Varsayılan HTML5 şablonu| Açıklama | 
 |-----------------------|--------|-------------|
-| *api.Error* | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Hata sayfası**. Bir özel durum ya da hatayla karşılaşıldığında bu sayfada görüntülenir. |
+| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Hata sayfası**. Bir özel durum ya da hatayla karşılaşıldığında bu sayfada görüntülenir. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Kimlik sağlayıcısı seçimi sayfası**. Bu sayfa, oturum açma sırasında kullanıcıların seçebileceği kimlik sağlayıcıları listeler. Genellikle Kurumsal kimlik sağlayıcıları, Facebook ve Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcıları seçeneklerdir. |
-| *api.idpselections.Signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Kimlik sağlayıcısı seçimi için kaydolma**. Bu sayfa, kullanıcıların kayıt sırasında seçebileceği kimlik sağlayıcıları listeler. , Kurumsal kimlik sağlayıcıları, Facebook ve Google + gibi sosyal kimlik sağlayıcıları ya da yerel hesaplar seçeneklerdir. |
-| *api.localaccountpasswordreset* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Parolanızı mı unuttunuz sayfasını**. Bu sayfa, kullanıcıların bir parola sıfırlama başlatmak için tamamlamanız gereken bir form içerir.  |
-| *api.localaccountsignin* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Yerel hesap oturum açma sayfası**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap ile oturum imzalama için bir form içerir. Form, metin giriş kutusu ve parola giriş kutusu içerebilir. |
-| *api.localaccountsignup* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Yerel hesap kayıt sayfasını**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap için kaydolduğunuz için bir form içerir. Formu gibi çeşitli giriş denetimlerini içerebilir: bir metin kutusu, bir parola giriş kutusu, bir radyo düğmesi, tek seçimlik açılan kutuları giriş ve çoklu seçim onay kutularını. |
-| *api.phonefactor* | [çok faktörlü 1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Çok faktörlü kimlik doğrulaması sayfası**. Bu sayfada, kullanıcıların telefon numaralarına (metin veya sesli kullanarak) kaydolma veya oturum açma sırasında doğrulayabilirsiniz. |
-| *api.selfasserted* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sosyal hesap kayıt sayfası**. Bu sayfa, bunlar bir sosyal kimlik sağlayıcısından var olan bir hesabı kullanarak kaydolduğunuzda, kullanıcılar tamamlamalısınız form içerir. Bu sayfa, önceki sosyal hesap kayıt sayfası, parola girdi alanlarının dışında benzerdir. |
-| *api.selfasserted.profileupdate* | [updateprofile.HTML](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profil güncelleştirme sayfası**. Bu sayfa, kullanıcıların kendi profilini güncelleştirmek için erişebileceği bir form içerir. Bu sayfa, sosyal hesap kaydolma sayfası, parola girdi alanlarının dışında benzerdir. |
-| *api.signuporsignin* | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Birleşik kayıt veya oturum açma sayfası**. Bu sayfa kullanıcı kaydolma ve oturum açma işlemini gerçekleştirir. Kullanıcıların Kurumsal kimlik sağlayıcıları, Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcıları kullanabilirsiniz.  |
+| *api.idpselections.signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Kimlik sağlayıcısı seçimi için kaydolma**. Bu sayfa, kullanıcıların kayıt sırasında seçebileceği kimlik sağlayıcıları listeler. , Kurumsal kimlik sağlayıcıları, Facebook ve Google + gibi sosyal kimlik sağlayıcıları ya da yerel hesaplar seçeneklerdir. |
+| *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Parolanızı mı unuttunuz sayfasını**. Bu sayfa, kullanıcıların bir parola sıfırlama başlatmak için tamamlamanız gereken bir form içerir.  |
+| *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Yerel hesap oturum açma sayfası**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap ile oturum imzalama için bir form içerir. Form, metin giriş kutusu ve parola giriş kutusu içerebilir. |
+| *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Yerel hesap kayıt sayfasını**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap için kaydolduğunuz için bir form içerir. Formu gibi çeşitli giriş denetimlerini içerebilir: bir metin kutusu, bir parola giriş kutusu, bir radyo düğmesi, tek seçimlik açılan kutuları giriş ve çoklu seçim onay kutularını. |
+| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Çok faktörlü kimlik doğrulaması sayfası**. Bu sayfada, kullanıcıların telefon numaralarına (metin veya sesli kullanarak) kaydolma veya oturum açma sırasında doğrulayabilirsiniz. |
+| *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sosyal hesap kayıt sayfası**. Bu sayfa, bunlar bir sosyal kimlik sağlayıcısından var olan bir hesabı kullanarak kaydolduğunuzda, kullanıcılar tamamlamalısınız form içerir. Bu sayfa, önceki sosyal hesap kayıt sayfası, parola girdi alanlarının dışında benzerdir. |
+| *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profil güncelleştirme sayfası**. Bu sayfa, kullanıcıların kendi profilini güncelleştirmek için erişebileceği bir form içerir. Bu sayfa, sosyal hesap kaydolma sayfası, parola girdi alanlarının dışında benzerdir. |
+| *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Birleşik kayıt veya oturum açma sayfası**. Bu sayfa kullanıcı kaydolma ve oturum açma işlemini gerçekleştirir. Kullanıcıların Kurumsal kimlik sağlayıcıları, Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcıları kullanabilirsiniz.  |
 
 ## <a name="serving-dynamic-content"></a>Dinamik içerik hizmet veren
 İçinde [özel bir ilke yapılandırma kullanıcı Arabirimi özelleştirmesinde](active-directory-b2c-ui-customization-custom.md) makale, Azure Blob depolama alanına HTML5 dosyaları karşıya yükleme. HTML5 dosyaları statik ve aynı HTML her istek için içerik oluşturmak. 
@@ -111,7 +105,7 @@ Bu kılavuzda:
 
 7. Bu kılavuz için Düzen sayfası başvurusunu kaldırın. Aşağıdaki kod parçacığını ekleyin _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -270,7 +264,7 @@ HomeController değiştirme `unified` campaignId parametresini kabul yöntemi. Y
 
 1. Açık *Controllers\HomeController.cs* dosyasını bulun ve sonra değiştirmek `unified` aşağıdaki kod parçacığını ekleyerek yöntemi:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

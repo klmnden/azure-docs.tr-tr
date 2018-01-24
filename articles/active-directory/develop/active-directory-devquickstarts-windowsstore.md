@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows Evrensel Başlarken Platformu (UWP/XAML)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -89,7 +89,7 @@ Temel ADAL arkasında uygulamanın bir erişim belirteci ihtiyacı olduğunda, o
 
 1. Uygulamanın başlatma `AuthenticationContext`, ADAL birincil sınıfının olduğu. Bu eylem ADAL geçirir gereken Azure AD ile iletişim kurmasını ve onu nasıl belirteçleri önbelleğe söyleyin koordinatları.
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ Temel ADAL arkasında uygulamanın bir erişim belirteci ihtiyacı olduğunda, o
 
 2. Bulun `Search(...)` kullanıcılar'ı tıklattığınızda, çağrılan yöntem **arama** uygulamanın UI düğmesinde. Bu yöntem, UPN verilen arama terimiyle kullanıcıları için Azure AD Graph API sorgu için bir get isteği yapar. Grafik API'si sorgulamak için bir erişim belirteci isteğin içinde dahil **yetkilendirme** üstbilgi. ADAL nereden geldiğini budur.
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ Temel ADAL arkasında uygulamanın bir erişim belirteci ihtiyacı olduğunda, o
     Uygulama isteğinde bulunduğunda bir belirteç çağırarak `AcquireTokenAsync(...)`, ADAL kullanıcı kimlik bilgilerinin sorulmasına olmadan bir simge döndürür dener. ADAL kullanıcı bir belirteç almak üzere oturum açmak gerektiğini belirlerse, bir oturum açma iletişim kutusu görüntüler, kullanıcının kimlik bilgilerini toplar ve kimlik doğrulaması başarılı olduktan sonra bir belirteç döndürür. ADAL herhangi bir nedenle bir belirteç döndüremedi ise *yazılımdan AuthenticationResult* bir hata durumudur.
 3. Artık yalnızca aldığınız erişim belirtecini kullanmak için zaman yapılır. Ayrıca, `Search(...)` yöntemi, grafik API'si get isteğine belirteç ekleme **yetkilendirme** üstbilgisi:
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. Kullanabileceğiniz `AuthenticationResult` nesnesi kullanıcının kimliği gibi uygulama kullanıcı hakkındaki bilgileri görüntülemek için:
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. ADAL, kullanıcılar uygulama dışında imzalamak için de kullanabilirsiniz. Kullanıcı tıkladığında **oturum kapatma** düğmesini tıklatın, sonraki çağrısı emin `AcquireTokenAsync(...)` bir oturum açma görünümü gösterir. ADAL ile bu eylem belirteç önbelleği temizleme olarak kadar kolaydır:
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

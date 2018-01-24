@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 20df17ba01cfc18ce751491d154d7401001e706e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory kullanarak MongoDB gelen veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi MongoDB veri
 
 Bir şirket içi MongoDB veri deposundan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca veri taşımayı MongoDB veri deposundan diğer veri depolarına, ancak verileri diğer veri depolarına bir MongoDB veri deposu taşıma değil destekler. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Azure Data Factory hizmetinin şirket içi MongoDB veritabanınıza bağlanmak aşağıdaki bileşenleri yüklemeniz gerekir:
 
 - Desteklenmeyen MongoDB sürümler: 2.4, 2.6, 3.0 ve 3.2.
@@ -87,7 +87,7 @@ Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam l
 | --- | --- | --- |
 | collectionName |MongoDB veritabanı koleksiyonunda adı. |Evet |
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilke gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 Kullanılabilir özellikler **typeProperties** etkinlik bölümünü diğer yandan her etkinlik türü ile değişir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
@@ -297,14 +297,14 @@ Veri MongoDB için taşırken aşağıdaki eşlemelerini MongoDB türlerinden .N
 | MongoDB türü | .NET framework türü |
 | --- | --- |
 | İkili |Byte] |
-| Boole değeri |Boole değeri |
-| Tarih |Tarih saat |
+| Boole |Boole |
+| Tarih |Tarih Saat |
 | NumberDouble |Çift |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Dize |
 | Dize |Dize |
-| UUID |GUID |
+| UUID |Guid |
 | Nesne |Renormalized içine iç içe geçmiş ayırıcı olarak "_" sütunlarla düzleştirme |
 
 > [!NOTE]
@@ -325,14 +325,14 @@ Kullanabileceğiniz [Kopyalama Sihirbazı'nı](data-factory-data-movement-activi
 ### <a name="example"></a>Örnek
 Örneğin, aşağıda "ExampleTable" her hücresinde – faturaları ve bir dizi skaler türler – derecelendirmeleri bir sütunla nesnelerinin bir dizisi ile bir sütunu bulunan bir MongoDB tablodur.
 
-| _ıd | Müşteri adı | Faturalar | Hizmet düzeyi | Derecelendirme |
+| _ıd | Müşteri adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123" öğesi: "toaster", fiyat: "456", indirim: "0.2"}, {invoice_id: "124" öğesi: "fırın", fiyat: "1235" indirim: "0.2"}] |Gümüş |[5,6] |
+| 1111 |ABC |[{invoice_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice_id:”124”, item:”oven”, price: ”1235”, discount: ”0.2”}] |Gümüş |[5,6] |
 | 2222 |XYZ |[{invoice_id: "135" öğesi: "fridge", fiyat: "12543", indirim: "0,0"}] |Altın |[1,2] |
 
 Sürücü bu tek tablo göstermek için birden çok sanal tablo oluşturur. İlk sanal "aşağıda gösterilen ExampleTable" adlı temel tablo tablodur. Temel tablo özgün tablonun tüm verileri içerir, ancak diziler verilerden çıkarıldı ve sanal tablolarda genişletilir.
 
-| _ıd | Müşteri adı | Hizmet düzeyi |
+| _ıd | Müşteri adı | Hizmet Düzeyi |
 | --- | --- | --- |
 | 1111 |ABC |Gümüş |
 | 2222 |XYZ |Altın |

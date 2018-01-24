@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 413f12d301a0e2c47048d23b2d4fb7de6423256d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa493a6d7b4cf775f64b87c1d5cc21ff4a138609
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı ardışık düzen oluşturun
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -233,7 +233,7 @@ Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalel
 * [U-SQL etkinliği](transform-data-using-data-lake-analytics.md)
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
 * [Pig etkinliği](transform-data-using-hadoop-pig.md)
-* [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)

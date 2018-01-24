@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: a4555b1cc758e2d4bdd11a16776dc3bb209adee8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Azure Site kurtarma için yük devretme sınaması
 
@@ -50,7 +50,7 @@ Bu yordam, bir yük devretme sınaması için bir kurtarma planı Çalıştır a
     - Aynı IP adresi alt ağında kullanılabilir değilse, VM alt ağ içindeki başka bir kullanılabilir IP adresi alır. [Daha fazla bilgi edinin](#creating-a-network-for-test-failover).
 4. Azure'a devretmek ve veri şifrelemesi etkin olduğunda, buna **şifreleme anahtarı**, şifreleme sağlayıcısı yükleme sırasında etkin olduğunda verilmiş sertifikayı seçin. Bu adımı yoksayabilirsiniz şifreleme etkin değil.
 5. Yük devretme işleminin ilerleyişini izlemek **işleri** sekmesi. Azure portalında test yineleme makine görebilmeniz gerekir.
-6. Azure VM için RDP bağlantısı başlatmak için yapmanız [bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) devredilen VM'ye ağ arabiriminde. 
+6. Azure VM için RDP bağlantısı başlatmak için yapmanız [bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md) devredilen VM'ye ağ arabiriminde. 
 7. Her şeyin beklendiği gibi çalıştığını, tıklatın **temizleme yük devretme testi**. Yük devretme testi sırasında oluşturulan sanal makineleri siler.
 8. İçinde **notları**, kaydetme ve yük devretme testiyle ilişkili gözlemlerinizi kaydetmek. 
 
@@ -70,13 +70,13 @@ Aşağıdaki senaryolarda, yük devretme genellikle tamamlamak için yaklaşık 
 
 * VMware Mobility hizmetinin 9.8 eski bir sürümünü çalıştıran VM'ler
 * Fiziksel sunucuları
-* VMware Linux VM'ler
+* VMware Linux VMs
 * Hyper-V korumalı fiziksel sunucuları VM
 * VMware VM burada aşağıdaki sürücüleri önyükleme sürücüleri değil:
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
-    * Intelide
+    * intelide
     * ATAPI
 * VMware DHCP etkin, sahip olmayan VM DHCP veya statik IP adresleri kullanarak rrespective.
 
@@ -113,9 +113,9 @@ Yük devretmeden sonra RDP kullanarak Azure vm'lerine bağlanmak isterseniz, tab
 **Yük devretme** | **Konum** | **Eylemler**
 --- | --- | ---
 **Windows çalıştıran azure VM** | Yük devretme işleminden önce şirket içi makine | Azure VM Internet üzerinden erişmek için RDP etkinleştirip için TCP ve UDP kurallarının eklendiğinden emin olun **ortak**, ve RDP tüm profilleri için izin verilen **Windows Güvenlik Duvarı**  >  **Uygulamalara izin**.<br/><br/> Azure VM'de bir siteden siteye bağlantı üzerinden erişmek için makinede RDP'yi etkinleştirir ve RDP izin verildiğinden emin olun **Windows Güvenlik Duvarı** -> **verilen uygulamalar ve Özellikler**, için**Etki alanı ve özel** ağlar.<br/><br/>  İşletim sisteminin SAN ilkesinin emin olun kümesine **OnlineAll**. [Daha fazla bilgi edinin](https://support.microsoft.com/kb/3031135).<br/><br/> Bekleyen hiçbir Windows güncelleştirmeleri VM üzerinde bir yük devretme tetiklemek zaman olmadığından emin olun. Windows update üzerinden başarısız ve VM güncelleştirme tamamlanana kadar oturum açamazsınız başlayabilir. 
-**Windows çalıştıran azure VM** | Yük devretme sonrasında Azure VM |  [Bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) VM için.<br/><br/> RDP bağlantı noktasına gelen bağlantılara izin vermek ağ güvenlik grubu kurallarının devredilen VM'deki (ve bağlı olduğu Azure alt ağ) gerekir.<br/><br/> Denetleme **önyükleme tanılama** ekran VM görüntüsünü doğrulamak için.<br/><br/> Bağlanamıyorsanız, VM çalıştıran ve bunlar gözden olduğunu denetleyin [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Windows çalıştıran azure VM** | Yük devretme sonrasında Azure VM |  [Bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md) VM için.<br/><br/> RDP bağlantı noktasına gelen bağlantılara izin vermek ağ güvenlik grubu kurallarının devredilen VM'deki (ve bağlı olduğu Azure alt ağ) gerekir.<br/><br/> Denetleme **önyükleme tanılama** ekran VM görüntüsünü doğrulamak için.<br/><br/> Bağlanamıyorsanız, VM çalıştıran ve bunlar gözden olduğunu denetleyin [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Linux çalıştıran azure VM** | Yük devretme işleminden önce şirket içi makine | VM'de Secure Shell hizmetinin sistem önyüklemesinde otomatik olarak başlatılacak şekilde ayarlandığından emin olun.<br/><br/> Güvenlik duvarı kurallarının gerçekleştirilecek SSH bağlantısına izin verdiğinden emin olun.
-**Linux çalıştıran azure VM** | Yük devretme sonrasında Azure VM | SSH bağlantı noktasına gelen bağlantılara izin vermek ağ güvenlik grubu kurallarının devredilen VM'deki (ve bağlı olduğu Azure alt ağ) gerekir.<br/><br/> [Bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) VM için.<br/><br/> Denetleme **önyükleme tanılama** bir ekran görüntüsünü VM için.<br/><br/>
+**Linux çalıştıran azure VM** | Yük devretme sonrasında Azure VM | SSH bağlantı noktasına gelen bağlantılara izin vermek ağ güvenlik grubu kurallarının devredilen VM'deki (ve bağlı olduğu Azure alt ağ) gerekir.<br/><br/> [Bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md) VM için.<br/><br/> Denetleme **önyükleme tanılama** bir ekran görüntüsünü VM için.<br/><br/>
 
 
 

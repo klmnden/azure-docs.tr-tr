@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:
 | type |Veri kümesi türü. Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türü](#Type). |Evet |NA |
 | yapısı |Veri kümesi şemasını.<br/><br/>Ayrıntılar için bkz [veri kümesi yapısı](#Structure). |Hayır |NA |
 | typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#Type). |Evet |NA |
-| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. Bir etkinliğin girdi veri kümesi geçerli ardışık düzen tarafından üretilen değil, bu bayrağı true olarak ayarlanır. Bu bayrak düzenindeki ilk etkinliğin girdi veri kümesi için true olarak ayarlayın.  |Hayır |False |
+| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. Bir etkinliğin girdi veri kümesi geçerli ardışık düzen tarafından üretilen değil, bu bayrağı true olarak ayarlanır. Bu bayrak düzenindeki ilk etkinliğin girdi veri kümesi için true olarak ayarlayın.  |Hayır |yanlış |
 | availability | İşleme penceresi (örneğin, saatlik veya günlük) veya veri kümesi üretim dilimleme modelini tanımlar. Her veri birimi, tüketilen ve etkinlik çalışması tarafından üretilen veri dilimi adı verilir. Bir çıkış veri kümesi kullanılabilirliğini (sıklığı - Day, aralığı - 1) günlük olarak ayarlanırsa, bir dilim günlük oluşturulur. <br/><br/>Ayrıntılar için bkz [Dataset kullanılabilirliği](#Availability). <br/><br/>Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
 | ilke |Ölçüt ya da veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [Dataset İlkesi](#Policy) bölümü. |Hayır |NA |
 
@@ -286,7 +286,7 @@ Aşağıdaki veri kümesi aylık ve 8: 00'da her ayın 3 üretilir (`3.08:00:00`
 | İlke adı | Açıklama | Uygulanan | Gerekli | Varsayılan |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Doğrular verilerde **Azure Blob Depolama** (megabayt cinsinden) en düşük boyut gereksinimlerini karşılıyor. |Azure Blob depolama |Hayır |NA |
-| minimumRows |Doğrular verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az satır sayısını içerir. |<ul><li>Azure SQL veritabanı</li><li>Azure tablo</li></ul> |Hayır |NA |
+| minimumRows |Doğrular verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az satır sayısını içerir. |<ul><li>Azure SQL veritabanı</li><li>Azure tablosu</li></ul> |Hayır |NA |
 
 #### <a name="examples"></a>Örnekler
 **minimumSizeMB:**
@@ -322,7 +322,7 @@ Bir veri kümesi Data Factory tarafından üretilen sürece bunu olarak işaretl
 | Ad | Açıklama | Gerekli | Varsayılan değer |
 | --- | --- | --- | --- |
 | dataDelay |Verilen dilim için dış veri kullanılabilirliğini onay gecikme süresi. Örneğin, bu ayarı kullanarak bir saatlik onay geciktirebilir.<br/><br/>Ayar, yalnızca mevcut süre için geçerlidir.  Örneğin, 1:00 PM şimdi ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar geçmişte dilimler etkilemez unutmayın. İle dilimler **dilim bitiş saati** + **dataDelay** < **şimdi** herhangi bir gecikme işlenir.<br/><br/>23:59 büyük saatleri saat kullanarak belirtilmelidir `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın. Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat için 1:04:00:00 belirtin. |Hayır |0 |
-| Retryınterval |Bir hata ve sonraki denemesi arasındaki bekleme süresi. Bu ayar için mevcut zaman geçerlidir. Önceki başarısız çalışırsanız, sonraki deneyin sonradır **Retryınterval** süresi. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
+| retryInterval |Bir hata ve sonraki denemesi arasındaki bekleme süresi. Bu ayar için mevcut zaman geçerlidir. Önceki başarısız çalışırsanız, sonraki deneyin sonradır **Retryınterval** süresi. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 minute) |
 | retryTimeout |Yeniden deneme girişimleri için zaman aşımı.<br/><br/>Bu özellik 10 dakika olarak ayarlanırsa, doğrulama 10 dakika içinde tamamlanmalıdır. Yeniden deneme doğrulamayı gerçekleştirmek için 10 dakikadan uzun sürüyorsa, zaman aşımına uğradı.<br/><br/>Tüm denemeleri doğrulama zaman aşımı için dilim olarak işaretlenmişse, **süresi sona erdi**. |Hayır |00:10:00 (10 dakika) |
 | maximumRetry |Kaç kez dış veri kullanılabilirliğini denetleyin. Değer izin verilen en fazla 10'dur. |Hayır |3 |
 

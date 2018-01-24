@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Service Fabric kümesi programlı olarak ölçeklendirin 
 
@@ -57,7 +57,7 @@ Bir hizmet sorumlusu aşağıdaki adımlarla oluşturulabilir:
 
 Fluent işlem kitaplığı gibi bu kimlik bilgilerini kullanarak oturum açabilir (çekirdek fluent Azure türleri ister Not `IAzure` bulunan [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) paket):
 
-```C#
+```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
                 ClientId = AzureClientId,
                 ClientSecret = 
@@ -79,7 +79,7 @@ Aracılığıyla oturum açtıktan sonra ölçek kümesi örnek sayısı sorgula
 ## <a name="scaling-out"></a>Ölçeği genişletme
 İşlem SDK fluent Azure kullanarak, yalnızca birkaç aramaları ayarlamak sanal makine ölçek örnekleri eklenebilir-
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -95,7 +95,7 @@ Bir düğüm el ile eklerken, örnek bir ölçek kümesi ekleme olması gerekti�
 
 Düğümü için kapatma hazırlanıyor (en son eklenen düğüm) düğümü kaldırılan bulunmasını ve devre dışı bırakmadan içerir. Çekirdek olmayan düğümleri için yeni düğümler karşılaştırarak bulunabilir `NodeInstanceId`. 
 
-```C#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -109,7 +109,7 @@ using (var client = new FabricClient())
 
 Kaldırılacak düğüm bulunduktan sonra devre dışı bırakılabilir ve aynı kullanarak kaldırılan `FabricClient` örneği ve `IAzure` örneğinden daha önce.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 Komut dosyası bir yaklaşım tercih ise olarak, sanal makine ölçek değiştirmek için PowerShell cmdlet'leri ölçeğini genişletme ile kümesi kapasitesi de kullanılabilir. Sanal makine örneğini kaldırıldığında Service Fabric düğüm durumu kaldırılabilir.
 
-```C#
+```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 

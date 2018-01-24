@@ -12,19 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-<<<<<<< HEAD
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
-=======
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Otomasyonu DSC yapılandırmalarında derleme
 
@@ -306,7 +299,7 @@ Düğüm yapılandırmaları https://msdn.microsoft.com/en-us/powershell/wmf/5.1
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Azure portalında bir düğüm yapılandırması içe aktarma
 
-1. Otomasyon hesabınızdan tıklatın **DSC düğüm yapılandırmaları**.
+1. Otomasyon hesabınızdan tıklatın **DSC düğüm yapılandırmaları** altında **yapılandırma yönetimi**.
 
     ![DSC düğüm yapılandırmaları](./media/automation-dsc-compile/node-config.png)
 2. İçinde **DSC düğüm yapılandırmaları** dikey penceresinde tıklatın **bir NodeConfiguration eklemek**.
@@ -314,7 +307,7 @@ Düğüm yapılandırmaları https://msdn.microsoft.com/en-us/powershell/wmf/5.1
 
     ![Yerel dosya gözatın.](./media/automation-dsc-compile/import-browse.png)
 4. Bir ad girin **yapılandırma adı** metin kutusu. Bu ad, düğüm yapılandırması derlenen yapılandırmasının adı eşleşmelidir.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**’a tıklayın.
 
 ### <a name="importing-a-node-configuration-with-powershell"></a>Düğüm yapılandırması PowerShell ile içeri aktarma
 

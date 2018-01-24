@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Veri Fabrikası MapReduce programlardan çağırma
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce etkinliği](data-factory-map-reduce.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
@@ -119,7 +119,7 @@ Hdınsight MapReduce etkinliğinden kullanmak için bir örnek indirebilirsiniz:
 ## <a name="running-the-word-count-program"></a>Sözcük sayısını programı çalıştırma
 Ardışık Düzen Bu örnekte, Azure Hdınsight kümesinde sözcük sayımı harita/azaltın programı çalıştırır.   
 
-### <a name="linked-services"></a>Bağlı hizmetler
+### <a name="linked-services"></a>Bağlı Hizmetler
 İlk olarak, Azure data factory Azure Hdınsight küme tarafından kullanılan Azure Storage bağlamak için bağlı hizmet oluşturun. Kopyala/yapıştır aşağıdaki kod, değiştirmek unutmadığınızdan **hesap adı** ve **hesap anahtarı** adı ile Azure depolama alanınızı anahtarı. 
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti

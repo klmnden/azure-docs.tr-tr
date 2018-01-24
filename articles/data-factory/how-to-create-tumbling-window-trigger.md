@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: a3b056ae4bb4eda26fec58ca3b6bed7f0744e36e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1f026683ebc9b3d2bc935cd78aa9d16684e7db40
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir işlem hattı atlayan pencere üzerinde çalışan bir Tetikleyici oluşturma
-Bu makalede oluşturma, başlatma ve dönen pencere tetikleyici izlemek için adımları sağlar. Tetikleyiciler ve destekliyoruz türleri hakkında genel bilgi için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir işlem hattı atlayan pencere üzerinde çalışan bir Tetikleyici oluşturma
+Bu makalede oluşturma, başlatma ve dönen pencere tetikleyici izlemek için adımları sağlar. Tetikleyiciler ve desteklenen türlerden hakkında genel bilgi için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
+> Bu makale, Azure Data Factory şu anda önizlemede olan sürüm 2 için geçerlidir. Azure Data Factory genel olarak kullanılabilir (GA) olan sürüm 1, kullanıyorsanız, bkz: [sürüm 1 Azure Data Factory ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Dönen pencere Tetikleyicileri durumu korurken ek olarak, belirtilen başlangıç saati düzenli zaman aralığından sırasında ateşlenir tetikleyici türüdür. Dönen windows sabit boyutlu çakışmayan ve bitişik zaman aralıkları bir dizi var. Dönen pencere tetikleyici bir ardışık düzen ile 1:1 ilişkisi vardır ve yalnızca tekil bir ardışık düzen başvuruda bulunabilir.
+Atlayan pencere tetikleyicileri, durumu korurken belirtilen bir başlangıç zamanından itibaren periyodik bir zaman aralığında başlatılan bir tetikleyici türüdür. Dönen windows sabit boyutlu çakışmayan ve bitişik zaman aralıkları bir dizi var. Dönen pencere tetikleyici bir ardışık düzen ile bire bir ilişkisi vardır ve yalnızca tekil bir ardışık düzen başvuruda bulunabilir.
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Dönen pencere tetikleyici türü özellikleri
+Atlayan pencere tetikleyici türü özellikleri şunlardır:
+
 ```  
 {
     "name": "MyTriggerName",
@@ -68,24 +70,25 @@ Dönen pencere Tetikleyicileri durumu korurken ek olarak, belirtilen başlangı�
 }
 ```  
 
-Aşağıdaki tabloda temel öğe dönen pencere tetikleyici zamanlama ve yineleme için ilgili üst düzey bir genel bakış sağlar.
+Aşağıdaki tabloda, yineleme ile ilgili ve zamanlama dönen pencere tetikleyici temel JSON öğe üst düzey bir genel bakış sağlar:
 
-| **JSON adı** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
-|:--- |:--- |:--- |:--- |
-| **türü** | Tetikleyici türü. Bu "TumblingWindowTrigger" sabit | Dize | Evet |
-| **runtimeState** | <readOnly>Olası değerler: Başlatıldı, durduruldu, devre dışı | Dize | Evet, salt okunur |
-| **Sıklık** |*Sıklığı* tetikleyici yineleneceği sıklığı birim temsil eden dize. "Dakika" ve "saat" desteklenen değerler: Başlangıç saati sıklığından daha ayrıntılı tarih kısımlarını varsa, bunlar dikkate penceresi sınırları hesaplamak için alınır. İçin örn: sıklığı saatlik başlangıç saati 2016 ise-04-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z.)  | Dize. Desteklenen türler "dakika", "saat" | Evet |
-| **aralığı** |*Aralığı* pozitif bir tamsayı olan ve aralığını gösterir *sıklığı* , tetikleyici ne sıklıkla çalışacağını belirler. Örneğin, varsa *aralığı* 3 ve *sıklığı* "saat", tetikleyici 3 saatte yinelenen. | Tamsayı | Evet |
-| **startTime**|*startTime* bir tarih-saat değil. *startTime* ilk geçtiği ve geçmiş olabilir. İlk tetikleyici aralığı (startTime, startTime + aralığı) olacaktır. | Tarih Saat | Evet |
-| **endTime**|*endTime* bir tarih-saat değil. *endTime* son a geçişi ve geçmiş olabilir. | Tarih Saat | Evet |
-| **gecikme** | Veri işleme penceresini başlatır gecikme belirtin. Ardışık Düzen çalıştırmak, beklenen yürütme süresi + gecikme sonra başlatılır. Gecikme tanımlar nasıl tetikleyici vadesi geçmiş bekleyeceğini yeni çalıştırmak tetiklemeden önce zaman. Penceresi başlangıç zamanı değiştirmez. | TimeSpan (örnek: 00:10:00, 10 dakika gecikme anlamına gelir) |  Hayır. Varsayılan değer "00: 00:00" |
-| **max eşzamanlılık** | Hazır olan windows harekete eşzamanlı tetikleyici çalıştırmalarının sayısı. Örnek: biz doldurma için saatlik dün için çalışıyorsanız, 24 windows olacaktır. Varsa eşzamanlılık = 10, olaylar yalnızca ilk 10 windows için tetikleyici (00:00-01:00 - 09:00-10:00). İlk 10 tetiklenen ardışık düzen çalıştırır tamamlandıktan sonra tetikleyici çalıştırır sonraki 10 (10:00-11:00-19:00-20:00) tetiklenir. Eşzamanlılık örneği ile devam etmeden = 10, 10 windows 10 ardışık düzen çalışması olacaktır hazır olduğunda. Varsa yalnızca 1 penceresi hazır, yalnızca olacaktır 1 ardışık düzen Çalıştır. | Tamsayı | Evet. Olası değerler 1-50 |
-| **retryPolicy: sayısı** | "Başarısız" işaretlenmiş ardışık düzen Çalıştır önce yeniden deneme sayısı  | Tamsayı |  Hayır. Varsayılan değer 0 yeniden deneme |
-| **retryPolicy: Intervalınseconds** | Yeniden deneme girişimleri arasında saniye cinsinden gecikme | Tamsayı |  Hayır. Varsayılan değer 30 saniyedir |
+| JSON element | Açıklama | Tür | İzin verilen değerler | Gerekli |
+|:--- |:--- |:--- |:--- |:--- |
+| **türü** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | Dize | "TumblingWindowTrigger" | Evet |
+| **runtimeState** | Çalışma zamanı tetikleyici geçerli durumu.<br/>**Not**: Bu öğe \<readOnly >. | Dize | "Başlatıldı" "Stopped" "Disabled" | Evet |
+| **Sıklık** | Tetikleyici yineleneceği sıklığı (dakika veya birimi saatleri) temsil eden bir dize. Varsa **startTime** tarih değerlerini daha ayrıntılı **sıklığı** değeri **startTime** tarih, zaman penceresi sınırları hesaplanan değerlendirilir. Örneğin, varsa **sıklığı** değerdir saatlik ve **startTime** değerdir 2016-04-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Dize | "dakika", "saat"  | Evet |
+| **interval** | İçin bir aralığı gösterir pozitif bir tamsayı **sıklığı** tetikleyici ne sıklıkta çalıştırılacağını belirler değeri. Örneğin, varsa **aralığı** 3 ve **sıklığı** "," saattir 3 saatte bir tetikleyici yinelenen. | Tamsayı | Pozitif bir tamsayı. | Evet |
+| **startTime**| Geçmişte olabilen ilk örneğin. İlk tetikleyici aralığı (**startTime**, **startTime** + **aralığı**). | Tarih Saat | Bir tarih saat değeri. | Evet |
+| **endTime**| Geçmişte olabilen son a geçişi. | Tarih Saat | Bir tarih saat değeri. | Evet |
+| **gecikme** | Veri işleme penceresi başlangıcı geciktirmek için süre miktarı. Çalıştırma ardışık düzen beklenen yürütme süresi ve miktarını sonra başlatıldığında **gecikme**. **Gecikme** tetikleyici yeni çalıştırma tetiklemeden önce son süresini geçen bekleyeceği süreyi tanımlar. **Gecikme** penceresi değiştirmez **startTime**. Örneğin, bir **gecikme** 00:10:00 değerini 10 dakikalık bir gecikme anlamına gelir. | Timespan  | Varsayılan değer 00:00:00 olduğu bir saat değeri. | Hayır |
+| **maxConcurrency** | Hazır olan windows harekete eşzamanlı tetikleyici çalıştırmalarının sayısı. Örneğin, dolgu yedeklemek için 24 Windows dün sonuçlar için saatlik çalışır. Varsa **maxConcurrency** = 10, olaylar yalnızca ilk 10 windows için tetikleyici (00:00-01:00 - 09:00-10:00). İlk 10 tetiklenen ardışık düzen çalıştırır tamamlandıktan sonra tetikleyici çalıştırır sonraki 10 windows (10:00-11:00-19:00-20:00) tetiklenir. Bu örnekle devam edersek **maxConcurrency** = 10, 10 windows 10 toplam ardışık düzen çalıştırır vardır, hazır olduğunda. Varsa yalnızca 1 penceresi hazır, da yalnızca 1 ardışık düzen Çalıştır yoktur. | Tamsayı | 1 ve 50 arasında bir tamsayı. | Evet |
+| **retryPolicy: sayısı** | "Başarısız" işaretlenmiş ardışık düzen Çalıştır önce yeniden deneme sayısı  | Tamsayı | Varsayılan değer 0 (yeniden deneme) bulunduğu bir tamsayı. | Hayır |
+| **retryPolicy: Intervalınseconds** | Saniye cinsinden belirtilen yeniden deneme girişimleri arasında gecikme. | Tamsayı | Varsayılan değer 30 olduğu saniye sayısı. | Hayır |
 
-### <a name="using-system-variables-windowstart-and-windowend"></a>Sistem değişkenleri kullanma: WindowStart ve WindowEnd
+### <a name="windowstart-and-windowend-system-variables"></a>WindowStart ve WindowEnd sistem değişkenleri
 
-WindowStart ve dönen pencere tetikleyicinin WindowEnd kullanmak isterseniz, **ardışık düzen** tanımı (yani parçası olarak bir sorgu için), değişkenleri olarak parametreler, ardışık düzene geçirdiğiniz gerekir **tetikleyici**tanımı sözlüğüdür:
+Kullanabileceğiniz **WindowStart** ve **WindowEnd** dönen pencere tetikleyicinin sistem değişkenleri, **ardışık düzen** tanımı (diğer bir deyişle, bir sorgu parçası için). Sistem değişkenleri ardışık düzeninde için parametreler olarak geçirin **tetikleyici** tanımı. Aşağıdaki örnekte bu değişkenleri parametreler gösterilmektedir:
+
 ```  
 {
     "name": "MyTriggerName",
@@ -113,22 +116,24 @@ WindowStart ve dönen pencere tetikleyicinin WindowEnd kullanmak isterseniz, **a
 }
 ```  
 
-Ardından ardışık düzen tanımında WindowStart ve WindowEnd değerleri kullanmak için parametrelerinizi uygun şekilde kullanın "MyWindowStart" ve "MyWindowEnd"
+Kullanılacak **WindowStart** ve **WindowEnd** sistem değişken değerleri ardışık düzen tanımı'ndaki "MyWindowStart" ve "MyWindowEnd" parametreleri uygun şekilde kullanın.
 
-### <a name="notes-on-backfill"></a>Doldurma ile ilgili notlar
-Yürütme (esp. doldurma senaryoda) için birden çok windows olduğunda, Windows'un yürütme sırasını kararlıdır ve en yeni için eski aralıklarını olacaktır. Şimdi itibariyle bu davranışı değiştirmek için bir yolu yoktur.
+### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Windows doldurma senaryosunda uygulanma sırası
+Yürütme (doldurma senaryoda özellikle) için birden çok windows olduğunda, windows için yürütme sırasını yeni için eski aralıklarını belirleyici,. Şu anda bu davranışı değiştirilemez.
 
-### <a name="updating-an-existing-triggerresource"></a>Varolan bir TriggerResource güncelleştiriliyor
-* Tetikleyici sıklığı (veya pencere boyutu) değiştirdiyseniz zaten işlenen windows durum *değil* sıfırlayın. Tetikleyici yeni pencere boyutunu kullanılarak yürütülen sonuncu Windows'dan tetikleme devam eder.
-* Bitiş zamanı (eklendi veya güncelleştirildi) tetikleyici değişiklikleri, zaten windows durumunu işlediğinde *değil* sıfırlayın. Tetikleyici yalnızca yeni bitiş saati dokunmaz. Bitiş saati zaten yürütülen windows önce ise, tetikleyici durdurur. Aksi takdirde, yeni bitiş saati karşılaşıldığında durur.
+### <a name="existing-triggerresource-elements"></a>Varolan TriggerResource öğeleri
+Varolan aşağıdaki noktaları geçerli **TriggerResource** öğeleri:
 
-## <a name="sample-using-azure-powershell"></a>Azure PowerShell kullanarak örnek
+* Varsa değeri **sıklığı** öğenin (veya pencere boyutu) tetikleyici değişiklikleri, önceden işlenmiş Windows'un durumda *değil* sıfırlayın. Tetikleyici yeni pencere boyutunu kullanılarak gerçekleştirilen son penceresinden windows için yangın devam eder.
+* Varsa değeri **endTime** önceden işlenmiş (eklendi veya güncelleştirildi) tetikleyici değişiklikler, Windows'un durumunu öğesidir *değil* sıfırlayın. Tetikleyici yeni geliştirir **endTime** değeri. Varsa yeni **endTime** değerdir zaten çalıştırılan windows önce tetikleyici durdurur. Aksi takdirde, tetikleyici ne zaman durdurur yeni **endTime** değeriyle karşılaştı.
+
+## <a name="sample-for-azure-powershell"></a>Azure PowerShell örnek
 Bu bölümde Azure PowerShell oluşturma, başlatma ve tetikleyici izlemek için nasıl kullanılacağını gösterir.
 
-1. C:\ADFv2QuickStartPSH\ klasöründe aşağıdaki içeriğe sahip MyTrigger.json adlı bir JSON dosyası oluşturun:
+1. Adlı bir JSON dosyası oluşturun **MyTrigger.json** C:\ADFv2QuickStartPSH\ klasöründe aşağıdaki içeriğe sahip:
 
    > [!IMPORTANT]
-   > Ayarlama **startTime** geçerli UTC saati için ve **endTime** geçerli UTC geçmiş bir saat için JSON dosyayı kaydetmeden önce zaman.
+   > JSON dosyasının kaydetmeden önce değerini ayarlamak **startTime** öğesi geçerli UTC saati için. Değerini **endTime** öğesi geçerli UTC saati geçmiş bir saat.
 
     ```json   
     {
@@ -160,32 +165,38 @@ Bu bölümde Azure PowerShell oluşturma, başlatma ve tetikleyici izlemek için
       }
     }
     ```  
-2. Kullanarak bir Tetikleyici oluşturma **kümesi AzureRmDataFactoryV2Trigger** cmdlet'i.
+
+2. Kullanarak bir Tetikleyici oluşturma **kümesi AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    ```
     
-3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet.
+3. Tetikleyici durumunu onaylayın **durduruldu** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
+
 4. Tetikleyici başlamayı **başlangıç AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-5. Tetikleyici durumunu onaylayın **başlatıldı** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet'i.
+
+5. Tetikleyici durumunu onaylayın **başlatıldı** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-6.  PowerShell kullanarak tetikleyici çalıştırır alma **Get-AzureRmDataFactoryV2TriggerRun** cmdlet'i. Tetikleyici çalışmaları hakkında bilgi almak için aşağıdaki komutu düzenli aralıklarla çalıştırın: güncelleştirme **TriggerRunStartedAfter** ve **TriggerRunStartedBefore** tetikleyici tanımında değerleriyle eşleşecek şekilde değerleri .
+
+6. Tetikleyici kullanarak Azure PowerShell'de çalışan get **Get-AzureRmDataFactoryV2TriggerRun** cmdlet'i. Tetikleyici çalışmaları hakkında bilgi almak için düzenli aralıklarla aşağıdaki komutu yürütün. Güncelleştirme **TriggerRunStartedAfter** ve **TriggerRunStartedBefore** tetikleyici tanımınızı değerler eşleşecek şekilde değerler:
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-Tetikleyici çalıştırır/ardışık çalıştığında Azure portalında izlemek için bkz: [işlem hattını izleme çalıştırır](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+    
+Tetikleyici çalıştırır ve işlem hattını izlemek için Azure portalında çalıştırır, bkz: [işlem hattını izleme çalıştıran](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tetikleyiciler hakkında ayrıntılı bilgi için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md#triggers).

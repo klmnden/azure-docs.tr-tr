@@ -14,17 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-<<<<<<< HEAD
-ms.openlocfilehash: 1fad082a576bc994897c6b396e5edcfa02313487
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 0c0a229e973999cb60ca5da2df652a6182c192a8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e94d920c7d55ad643ed81deda43e8ce96c304346
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Kullanıcı kaydı ve ürün aboneliği nasıl
 Temsilci seçme, geliştirici oturum-açma/kaydolma ve abonelik Geliştirici Portalı'nda yerleşik işlevini kullanarak aksine ürünlere işlemek için varolan Web sitenizi kullanmanıza olanak sağlar. Bu kullanıcı verileri kendi ve özel bir biçimde adımları doğrulama gerçekleştirmek Web sitenizi sağlar.
@@ -50,7 +44,7 @@ Oluşturmanıza gerek artık **temsilci endpoint**. Çeşitli eylemleri gerçekl
 
 1. Bir isteği şu biçimde alırsınız:
    
-   > *http://www.yourwebsite.com/apimdelegation?Operation=SignIn&returnUrl= {kaynak sayfasının URL'sini} & salt = {dize} & SIG = {dize}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
    > 
    > 
    
@@ -64,7 +58,7 @@ Oluşturmanıza gerek artık **temsilci endpoint**. Çeşitli eylemleri gerçekl
    
    * Temel bir dize HMAC SHA512 karmasını işlem **returnUrl** ve **salt** sorgu parametreleri ([aşağıda sağlanan örnek kod]):
      
-     > HMAC (**salt** + '\n' + **returnUrl**)
+     > HMAC(**salt** + '\n' + **returnUrl**)
      > 
      > 
    * Yukarıdaki hesaplanan karma değerini karşılaştırmak **SIG** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçin, aksi takdirde isteği reddeder.
@@ -76,14 +70,14 @@ Oluşturmanıza gerek artık **temsilci endpoint**. Çeşitli eylemleri gerçekl
    * [bir çoklu oturum açma (SSO) belirteci isteği] API Management REST API aracılığıyla
    * API çağrısından alınan SSO URL'ye returnUrl sorgu parametresi ekleyin:
      
-     > Örneğin https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * kullanıcı için yukarıdaki üretilen URL'sini yeniden yönlendirme
 
 Ek olarak **Signın** işlemi de gerçekleştirebilirsiniz hesap yönetimi önceki adımları izleyerek ve aşağıdaki işlemlerden birini kullanarak.
 
-* **Parola değiştirme**
+* **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
 
@@ -107,7 +101,7 @@ Ardından temsilci uç noktası aşağıdaki eylemleri gerçekleştirir emin olu
 
 1. Bir isteği şu biçimde alırsınız:
    
-   > *{işlemi} http://www.yourwebsite.com/apimdelegation?Operation= & ProductID {abone olmak için ürün} = & UserID = {isteği yapan kullanıcı} & salt = {dize} & SIG = {dize}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
    > 
    > 
    
@@ -125,7 +119,7 @@ Ardından temsilci uç noktası aşağıdaki eylemleri gerçekleştirir emin olu
    
    * HMAC SHA512 dayalı bir dizenin işlem **ProductID**, **UserID** ve **salt** sorgu parametreleri:
      
-     > HMAC (**salt** + '\n' + **ProductID** + '\n' + **UserID**)
+     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * Yukarıdaki hesaplanan karma değerini karşılaştırmak **SIG** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçin, aksi takdirde isteği reddeder.
@@ -137,7 +131,7 @@ Bu kod örnekleri nasıl alınacağını Göster *temsilci doğrulama anahtarı*
 
 **ReturnUrl karmasını oluşturmak için C# kodu**
 
-```c#
+```csharp
 using System.Security.Cryptography;
 
 string key = "delegation validation key";

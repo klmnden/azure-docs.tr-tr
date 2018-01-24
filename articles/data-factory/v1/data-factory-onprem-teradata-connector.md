@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory kullanarak Teradata taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi Teradata ver
 
 Bir şirket içi Teradata veri deposundan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca veri taşımayı Teradata veri deposundan diğer veri depolarına, ancak verileri diğer veri depolarına bir Teradata veri deposuna taşıma değil destekler. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Veri Fabrikası şirket içi Teradata kaynaklarına veri yönetimi ağ geçidi aracılığıyla bağlanmayı destekler. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale veri yönetimi ağ geçidi ve ağ geçidi kurun ayarlama hakkında adım adım yönergeleri hakkında bilgi edinin.
 
 Bir Azure Iaas sanal Teradata barındırılan olsa bile ağ geçidi gereklidir. Ağ geçidi veritabanına bağlanıp sürece veri deposu olarak aynı Iaas VM veya farklı bir VM ağ geçidi yükleyebilirsiniz.
@@ -77,7 +77,7 @@ Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam l
 
 **TypeProperties** bölüm veri kümesi her tür için farklıdır ve verilerin veri deposunda konumu hakkında bilgi sağlar. Şu anda Teradata veri kümesi için desteklenen tür özellik yok.
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü ile farklılık gösterir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
@@ -287,7 +287,7 @@ Teradata için veri taşıma olduğunda, aşağıdaki eşlemelerini Teradata tü
 | Teradata veritabanına türü | .NET framework türü |
 | --- | --- |
 | char |Dize |
-| CLOB |Dize |
+| Clob |Dize |
 | Grafiği |Dize |
 | VarChar |Dize |
 | VarGraphic |Dize |
@@ -301,10 +301,10 @@ Teradata için veri taşıma olduğunda, aşağıdaki eşlemelerini Teradata tü
 | Tamsayı |Int32 |
 | Sayı |Çift |
 | Tamsayı |Int16 |
-| Tarih |Tarih saat |
+| Tarih |Tarih Saat |
 | Zaman |TimeSpan |
 | Saat dilimi süresiyle |Dize |
-| zaman damgası |Tarih saat |
+| Zaman damgası |Tarih Saat |
 | Saat dilimi zaman damgası |DateTimeOffset |
 | Aralık gün |TimeSpan |
 | Saat gün aralığı |TimeSpan |
@@ -324,7 +324,7 @@ Teradata için veri taşıma olduğunda, aşağıdaki eşlemelerini Teradata tü
 | Süresi (saat dilimi ile) |Dize |
 | Period(timestamp) |Dize |
 | Süre (saat dilimi damgasıyla) |Dize |
-| XML |Dize |
+| Xml |Dize |
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme
 Havuz dataset sütunlara kaynak kümesindeki eşleme sütunları hakkında bilgi edinmek için [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).

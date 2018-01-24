@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Görsel olarak Azure data factory'leri izleme
 Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz.
@@ -41,25 +41,25 @@ Liste görünümü her ardışık düzen birtakım sergileyen veri fabrikası v2
 
 | **Sütun adı** | **Açıklama** |
 | --- | --- |
-| Ardışık Düzen adı | İşlem hattının adı. |
+| İşlem Hattı Adı | İşlem hattının adı. |
 | Eylemler | Tek eylem etkinliğini görüntülemek kullanılabilir çalıştırır. |
 | Başlangıç çalıştırın | Tarih saat çalıştırma başlangıç kanal (GG/AA/YYYY, ss: dd: SS AM/PM) |
 | Süre | Çalışma süresi (ss) |
-| Tarafından tetiklendi | El ile tetikleyici, zamanlama tetikleyici |
+| Tetikleyen | El ile tetikleyici, zamanlama tetikleyici |
 | Durum | Başarısız oldu, başarılı, sürüyor |
 | Parametreler | Ardışık Düzen parametreleri (ad, değer çiftleri) çalıştırın |
 | Hata | Ardışık Düzen hatası (Eğer/any) çalıştırma |
-| Kimliği çalıştırın | Çalıştırma ardışık kimliği |
+| Çalışma Kimliği | Çalıştırma ardışık kimliği |
 
-![İşlem hattını izleme çalıştırır](media/monitor-visually/pipeline-runs.png)
+![İşlem hattı çalıştırmalarını izleme](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>İzleme etkinliği çalıştırır
 Çalıştıran her ardışık düzen karşılık gelen etkinlik çalışması birtakım sergileyen liste görünümü. Tıklatın **'Etkinlik çalışır'** simgesi altında **'Eylemleri'** etkinliğini görüntülemek için sütun çalıştırmak için her potansiyel çalıştırır. Eklenen sütunlar:
 
 | **Sütun adı** | **Açıklama** |
 | --- | --- |
-| Etkinlik adı | Etkinliği içinde ardışık düzen adı. |
-| Etkinlik türü | Etkinlik türü yani kopyalama, HDInsightSpark, Hdınsighthive vs. |
+| Etkinlik Adı | Etkinliği içinde ardışık düzen adı. |
+| Etkinlik Türü | Etkinlik türü yani kopyalama, HDInsightSpark, Hdınsighthive vs. |
 | Başlangıç çalıştırın | Etkinlik Başlangıç tarih saat (GG/AA/YYYY, ss: dd: SS AM/PM) |
 | Süre | Çalışma süresi (ss) |
 | Durum | Başarısız oldu, başarılı, sürüyor |
@@ -67,13 +67,13 @@ Liste görünümü her ardışık düzen birtakım sergileyen veri fabrikası v2
 | Çıktı | Etkinlik çıkışları tanımlayan JSON dizisi |
 | Hata | Hata (Eğer/any) Çalıştır etkinliği |
 
-![Monitör etkinliği çalıştırır](media/monitor-visually/activity-runs.png)
+![Etkinlik çalıştırmalarını izleme](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
 > ' Yi tıklamanız gerekir **'Yenile'** ardışık düzen ve etkinlik çalıştırmalarını listesini yenilemek için üstteki simgesi. Otomatik yenileme şu anda desteklenmiyor.
 >
 
-![Yenileme](media/monitor-visually/refresh.png)
+![Yenile](media/monitor-visually/refresh.png)
 
 ## <a name="features"></a>Özellikler
 
@@ -83,7 +83,7 @@ Liste görünümü her ardışık düzen birtakım sergileyen veri fabrikası v2
 
 | **Sütun adı** | **Açıklama** |
 | --- | --- |
-| Ardışık Düzen adı | İşlem hattının adı. Seçenekler Hızlı filtreler 'Son 24 saat' için 'Son week', 'son 30 gün' içerir veya özel bir tarih seçin. |
+| İşlem Hattı Adı | İşlem hattının adı. Seçenekler Hızlı filtreler 'Son 24 saat' için 'Son week', 'son 30 gün' içerir veya özel bir tarih seçin. |
 | Başlangıç çalıştırın | Ardışık Düzen çalıştırma başlangıç tarih saat |
 | Çalışma durumu | Filtre durumuna göre yani çalıştıran başarılı, başarısız, devam eden |
 
@@ -92,15 +92,15 @@ Liste görünümü her ardışık düzen birtakım sergileyen veri fabrikası v2
 #### <a name="addremove-columns-to-list-view"></a>Liste görünümü için Sütun Ekle/Kaldır
 Liste Görünümü üstbilgisi sağ tıklayın ve liste görünümünde görünmesini istediğiniz sütunları seçin
 
-![sütunları](media/monitor-visually/columns.png)
+![Sütunlar](media/monitor-visually/columns.png)
 
 #### <a name="reorder-column-widths-in-list-view"></a>Liste görünümünde sütun genişliklerini yeniden Sırala
 Artırma ve azaltma listesindeki sütun genişliklerini, sütun başlığını gelerek görüntüleyin
 
-#### <a name="select-data-factory"></a>Veri Fabrikası seçin
+#### <a name="select-data-factory"></a>Veri fabrikası seçme
 Sol üst 'Veri fabrikası' simgesinde üzerine gelin. İzleyeceğiniz azure abonelikleri ve veri fabrikaları listesini görmek için 'OK' simgesine tıklayın.
 
-![Veri Fabrikası seçin](media/monitor-visually/select-datafactory.png)
+![Veri fabrikası seçme](media/monitor-visually/select-datafactory.png)
 
 #### <a name="guided-tours"></a>Kılavuzlu Tur
 'Bilgi simgeyi' sol alt ve ardışık düzen ve etkinlik çalışmalarınız izleme hakkında adım adım yönergeler alın ' tur destekli' tıklayın.
@@ -114,4 +114,4 @@ Bize çeşitli özellikleri veya karşılıklı herhangi bir sorunla görüşler
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [İzleyici ve ardışık düzen programlı olarak yönetmek](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) makalede izleme ve ardışık düzen yönetme hakkında bilgi edinin
+Bkz: [İzleyici ve ardışık düzen programlı olarak yönetmek](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) makalede izleme ve ardışık düzen yönetme hakkında bilgi edinin

@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimleri
-2.11 sürümünden başlayarak, Media Services, varlıklarınızı filtrelerini tanımlamanızı sağlar. Bu filtreler müşterilerinizin gibi şeyler seçmesine izin veren sunucu tarafı kurallardır: kayıttan yürütme (yerine tüm video oynatma), bir video yalnızca bir bölümünü veya yalnızca bir alt kümesini, müşterinizin aygıt (yerine varlıkla ilişkilendirilen tüm yorumlama) işleyebilir ses ve video yorumlama belirtin. Bu varlıklarınızı filtreleme aracılığıyla arşivlenmiş **dinamik bildirim**video akışını sağlamak için Müşteri'nin istek üzerine oluşturulan s tabanlı üzerinde belirtilen filtreler.
+2.17 sürümünden başlayarak, Media Services, varlıklarınızı filtrelerini tanımlamanızı sağlar. Bu filtreler müşterilerinizin gibi şeyler seçmesine izin veren sunucu tarafı kurallardır: kayıttan yürütme (yerine tüm video oynatma), bir video yalnızca bir bölümünü veya yalnızca bir alt kümesini, müşterinizin aygıt (yerine varlıkla ilişkilendirilen tüm yorumlama) işleyebilir ses ve video yorumlama belirtin. Bu varlıklarınızı filtreleme aracılığıyla arşivlenmiş **dinamik bildirim**video akışını sağlamak için Müşteri'nin istek üzerine oluşturulan s tabanlı üzerinde belirtilen filtreler.
 
-Bu konular açıklanır ortak senaryolarda filtreleri kullanarak müşteriler ve filtreleri program aracılığıyla oluşturma göstermek konulara bağlantılar için çok faydalı olacaktır (şu anda, filtreleri REST API'leri ile oluşturabilmeniz için).
+Bu konular açıklanır ortak senaryolarda filtreleri kullanarak müşteriler ve filtreleri program aracılığıyla oluşturma göstermek konulara bağlantılar için çok yararlı olacaktır.
 
 ## <a name="overview"></a>Genel Bakış
 İçeriğinizi (Canlı olayları veya isteğe bağlı video akış) müşterilere teslim ederken hedefiniz farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video teslim etmek için ' dir. Bu hedef aşağıdakileri yapın elde etmek için:
@@ -124,12 +124,12 @@ Varlıklarınızı İngilizce, İspanyolca, Fransızca, vb. gibi birden çok ses
 ![Dil parçaları filtreleme][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Bir varlık Kırpma Başlangıcı
-Çoğu canlı akış olayda işleçleri gerçek olayın önce bazı testleri çalıştırın. Örneğin, şöyle bir Kurşun olay başlamadan önce içerebilir: "Programın kısa bir süre içinde başlayacak". Program arşivleme, test ve slate veri da arşivlenmiş ve sunuya dahil edilir. Ancak, bu bilgileri istemcilere gösterilmeyecek. Dinamik bildirim başlangıç zaman filtresi oluşturmak ve istenmeyen verileri bildirimden kaldırın.
+Çoğu canlı akış olayda işleçleri gerçek olayın önce bazı testleri çalıştırın. Örneğin, şöyle bir Kurşun olay başlamadan önce içerebilir: "Programın kısa bir süre içinde başlayacak". Program arşivleme, test ve slate veri da arşivlenmiş ve sunuya dahil. Ancak, bu bilgileri istemcilere gösterilmeyecek. Dinamik bildirim başlangıç zaman filtresi oluşturmak ve istenmeyen verileri bildirimden kaldırın.
 
 ![Kırpma Başlat][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>Canlı arşivinden alt klipleri (görünümler) oluşturma
-Birçok Canlı olayları uzun süredir çalışıp ve canlı arşiv birden çok olay içerebilir. Canlı olayından sonra sona erer yayıncıları mantıksal program başlangıç Canlı arşivine bölmeniz ve dizileri durdurmak isteyebilirsiniz. Sonra sanal bu programların, Canlı arşiv işleme ve (Alacak avantajı, mevcut önbelleğe alınmış parçacıkları CDN'ler değil) ayrı varlıklar oluşturmadığından post olmadan ayrı olarak yayınlayın. Bir futbol veya Basketbol oyun, innings Beyzbol içinde üç aylık dönem ya da bir öğleden sonra Olimpiyatlar programının olayları tek tek sanal programlara (alt klipleri) örnekleridir.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Canlı arşivinden subclips (görünümler) oluşturma
+Birçok Canlı olayları uzun süredir çalışıp ve canlı arşiv birden çok olay içerebilir. Canlı olay sona erdikten sonra yayıncıları mantıksal program başlangıç Canlı arşivine bölmeniz ve dizileri durdurmak isteyebilirsiniz. Ardından, sanal bu programların ayrı olarak (Bu, varolan önbelleğe alınan parçaları CDN'ler elde değil) Canlı arşiv işleme ve ayrı varlıklar oluşturmadığından post olmadan yayımlayın. Bir futbol veya Basketbol oyun, Beyzbol innings üç aylık dönem ya da herhangi bir spor programı olayları tek tek sanal programlara örnekleridir.
 
 Dinamik bildirim başlangıç/bitiş zamanına kullanarak filtreler oluşturun ve canlı Arşiviniz üst sanal görünümleri oluşturun. 
 
@@ -140,24 +140,24 @@ Filtrelenmiş varlık:
 ![Kayak][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Sunu penceresini (DVR) ayarlama
-Şu anda Azure Media Services süresi yapılandırılabileceği 5 dakika arasında - 25 saat döngüsel arşiv sunar. Bildirim filtreleme medya silmeden arşiv üst üzerinde çalışırken DVR penceresini oluşturmak için kullanılabilir. Yayıncıları hangi taşır Canlı edge ile ve aynı anda daha büyük bir arşivleme penceresi tutmak sınırlı bir DVR penceresi sağlamak istediğiniz yere birçok senaryo vardır. Yayıncı klipleri vurgulamak için DVR penceresi dışında veri kullanmak isteyebilir veya he\she farklı aygıtlar için farklı DVR windows sağlamak isteyebilirsiniz. Örneğin, mobil aygıtların birçoğu (Masaüstü istemcileri için 2 dakika DVR penceresi mobil cihazlar için ve 1 saat olabilir) büyük DVR windows tanıtıcı yok.
+Şu anda Azure Media Services süresi yapılandırılabileceği 5 dakika arasında - 25 saat döngüsel arşiv sunar. Bildirim filtreleme medya silmeden arşiv üst üzerinde çalışırken DVR penceresini oluşturmak için kullanılabilir. Yayıncıları ile canlı kenar taşımak ve aynı anda daha büyük bir arşivleme penceresi korumak için sınırlı bir DVR pencere sağlamak istediğiniz yere birçok senaryo vardır. Yayıncı klipleri vurgulamak için DVR penceresi dışında veri kullanmak isteyebilir veya he\she farklı aygıtlar için farklı DVR windows sağlamak isteyebilirsiniz. Örneğin, mobil aygıtların birçoğu (Masaüstü istemcileri için mobil cihazlar için ve bir saat 2 dakikalık DVR penceresi olabilir) büyük DVR windows tanıtıcı yok.
 
 ![DVR penceresi][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>LiveBackoff (dinamik konum) ayarlama
-Bildirim filtreleme birkaç saniye Canlı program Canlı kenarından kaldırmak için kullanılabilir. Bu önizleme yayın noktasında sunuyu izleyin ve görüntüleyiciler (genellikle yedeklenen-30 saniye kapalı) akış almadan önce tanıtım ekleme noktaları oluşturmak yayıncıları sağlar. Yayıncıları bu reklam kendi istemci çerçeveleri bunların zamanında alınan anında ve reklam fırsat önce bilgi işlem.
+Bildirim filtreleme birkaç saniye Canlı program Canlı kenarından kaldırmak için kullanılabilir. Filtreleme Önizleme yayın noktasında sunuyu izleyin ve görüntüleyiciler (yedeklenen-30 saniye kapalı) akış almadan önce tanıtım ekleme noktaları oluşturmak yayıncıları sağlar. Yayıncıları bu reklam kendi istemci çerçeveleri bunların zamanında alınan anında ve reklam fırsat önce bilgi işlem.
 
-Tanıtım destek yanı sıra LiveBackoff istemcileri kayma ve canlı kenar isabet bunlar hala parçaları 404 veya 412 HTTP hataları alma yerine sunucudan böylece alabilir istemci Canlı indirme konumu ayarlamak için kullanılabilir.
+Tanıtım desteği ek olarak, istemciler kayma ve canlı kenar isabet bunlar hala parçaları bir HTTP 404 veya 412 hata alma yerine sunucudan böylece alabilir görüntüleyiciler konumu ayarlama konusunda LiveBackoff ayarı kullanılabilir.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Tek bir filtre içinde birden çok kural birleştirme
-Tek bir filtre birden çok filtre kurallarında birleştirebilirsiniz. Örneğin, Canlı arşivinden Kurşun kaldırın ve ayrıca kullanılabilir bit filtrelemek için bir aralığı kural tanımlayabilirsiniz. Birden çok filtreleme kurallarını sonuç (yalnızca kesişim) bu kuralların bileşimdir.
+Tek bir filtre birden çok filtre kurallarında birleştirebilirsiniz. "Aralığı kuralı" tanımlayabilirsiniz örnek olarak dinamik bir arşivinden maskeleme görüntülerini kaldırmak ve ayrıca kullanılabilir bit filtrelemek için. Birden çok filtre kuralları uygularken son tüm kuralları kesişimi sonucudur.
 
 ![birden çok kural][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Filtreler program aracılığıyla oluşturma
-Aşağıdaki konu filtrelerle ilgili Media Services varlıklar açıklanır. Konu aynı zamanda program aracılığıyla filtreleri oluşturma gösterilmektedir.  
+Aşağıdaki filtreler için ilgili Media Services varlıklar anlatılmaktadır. Makale ayrıca program aracılığıyla filtreleri oluşturma gösterilmektedir.  
 
 [REST API'leri ile filtreleri oluşturma](media-services-rest-dynamic-manifest.md).
 
@@ -166,15 +166,15 @@ Ayrıca, tek bir URL içinde birden çok filtre birleştirebilirsiniz.
 
 Aşağıdaki senaryoyu neden filtrelerini birleştirmeye isteyebilirsiniz gösterir:
 
-1. (Video nitelikleri sınırlamak için), video nitelikleri Android veya iPAD gibi mobil cihazlar için filtre gerekir. İstenmeyen nitelikleri kaldırmak için aygıt profilleri için uygun olan genel bir filtre oluşturursunuz. Yukarıda belirtildiği gibi genel filtreler tüm varlıklarınızı başka ilişkilendirme olmadan aynı media services hesabı altında için kullanılabilir. 
+1. (Video nitelikleri sınırlamak için), video nitelikleri Android veya iPAD gibi mobil cihazlar için filtre gerekir. İstenmeyen nitelikleri kaldırmak için genel filtre cihaz profillerine uygun olarak oluşturursunuz. Bu makalede daha önce belirtildiği gibi genel filtreler tüm varlıklarınızı başka ilişkilendirme olmadan aynı media services hesabı altında için kullanılabilir. 
 2. Bir varlık başlangıç ve bitiş saati kırpma istiyor. Bunun için yerel bir filtre oluşturun ve başlangıç/bitiş saati ayarlamak. 
-3. Bu filtreler (olmadan birlikte kalite filtreleme filtre kullanım zor hale getirir ve kırpma filtre eklemek için gerekir) her ikisi de birleştirmek istediğiniz.
+3. Bu filtreler her ikisi de birleştirmek istediğiniz (birleşim olmadan, kalite filtre kullanım zorlaştırır kırpma filtre filtreleme eklemeniz gerekir).
 
 Filtreler birleştirmek için filtre adları bildirimi/çalma ayarlamanız gerekir noktalı virgülle ayrılmış URL. Adlı bir filtre sahip varsayalım *MyMobileDevice* nitelikleri filtreler ve başka adlı sahip *MyStartTime* belirli bir başlangıç saati ayarlamak için. Bunları şöyle birleştirebilirsiniz:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-En fazla 3 filtreleri birleştirebilirsiniz. 
+En çok üç filtreleri birleştirebilirsiniz. 
 
 Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogu.
 

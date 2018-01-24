@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 80ff1c10f2d66f77242bcec0e17ccbaa701e6aa6
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9022b03af8c87651a552e7fd3f505156daa3924e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Hadoop akış etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce etkinliği](data-factory-map-reduce.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
@@ -227,7 +227,7 @@ Hdınsight kümesi örnek programlar (wc.exe ve cat.exe) ve veri (davinci.txt) i
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Hive etkinliği](data-factory-hive-activity.md)
 * [Pig etkinliği](data-factory-pig-activity.md)
-* [MapReduce etkinliği](data-factory-map-reduce.md)
+* [MapReduce Activity](data-factory-map-reduce.md)
 * [Spark programlarını çağırma](data-factory-spark.md)
 * [R betiklerini çağırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 

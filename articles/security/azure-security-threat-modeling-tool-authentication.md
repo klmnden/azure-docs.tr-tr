@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authentication--mitigations"></a>Güvenlik çerçevesi: Kimlik doğrulaması | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Web uygulaması**    | <ul><li>[Web uygulaması için kimlik doğrulaması için bir standart kimlik doğrulama mekanizması kullanmayı düşünün](#standard-authn-web-app)</li><li>[Uygulamalar başarısız kimlik doğrulama senaryoları güvenli bir şekilde işlemesi gerekir](#handle-failed-authn)</li><li>[Etkinleştirme adım veya uyarlamalı kimlik doğrulaması](#step-up-adaptive-authn)</li><li>[Yönetim arabirimleri uygun şekilde kilitlendiğini emin olun](#admin-interface-lockdown)</li><li>[Uygulama parolası işlevler güvenli bir şekilde unuttum](#forgot-pword-fxn)</li><li>[Parola ve hesap ilkesi uygulanır emin olun](#pword-account-policy)</li><li>[Kullanıcı adı numaralandırması önlemek için denetimleri uygulayın](#controls-username-enum)</li></ul> |
 | **Veritabanı** | <ul><li>[Mümkün olduğunda, SQL Server'a bağlanmak için Windows kimlik doğrulaması kullanın](#win-authn-sql)</li><li>[Mümkün olduğunda SQL veritabanına bağlanma için Azure Active Directory kimlik doğrulaması kullanın](#aad-authn-sql)</li><li>[SQL kimlik doğrulama modu kullanıldığında, hesap ve parola ilke SQL Server'da zorunlu emin olun](#authn-account-pword)</li><li>[SQL kimlik doğrulaması kapsanan veritabanlarında kullanmayın](#autn-contained-db)</li></ul> |
-| **Azure Event hub'ı** | <ul><li>[SaS belirteci kullanarak cihaz kimlik doğrulaması kimlik bilgilerini kullanın](#authn-sas-tokens)</li></ul> |
+| **Azure Event Hub** | <ul><li>[SaS belirteci kullanarak cihaz kimlik doğrulaması kimlik bilgilerini kullanın](#authn-sas-tokens)</li></ul> |
 | **Azure güven sınırı** | <ul><li>[Azure yöneticileri Azure çok faktörlü kimlik doğrulamasını etkinleştir](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric güven sınırı** | <ul><li>[Service Fabric kümesi için anonim erişimi kısıtlama](#anon-access-cluster)</li><li>[Service Fabric istemcisi düğümü sertifikanın düğümü düğümü sertifikadan farklı olduğundan emin olun](#fabric-cn-nn)</li><li>[Service fabric kümeleri istemcilerin kimliğini doğrulamak için AAD kullanın](#aad-client-fabric)</li><li>[Service fabric sertifikaları bir onaylanmış sertifika yetkilisinden (CA) aldığınız emin olun](#fabric-cert-ca)</li></ul> |
-| **Kimlik sunucusu** | <ul><li>[Kimlik sunucusu tarafından desteklenen standart kimlik doğrulama senaryoları kullanın](#standard-authn-id)</li><li>[Varsayılan kimlik sunucusunu belirteç önbelleği ile ölçeklenebilir bir alternatif geçersiz kıl](#override-token)</li></ul> |
+| **Identity Server** | <ul><li>[Kimlik sunucusu tarafından desteklenen standart kimlik doğrulama senaryoları kullanın](#standard-authn-id)</li><li>[Varsayılan kimlik sunucusunu belirteç önbelleği ile ölçeklenebilir bir alternatif geçersiz kıl](#override-token)</li></ul> |
 | **Makine güven sınırı** | <ul><li>[Dağıtılan uygulamanın ikili dosyaları dijital olarak imzalandığından emin olun](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[WCF MSMQ sıraları bağlanırken kimlik doğrulamasını etkinleştirin](#msmq-queues)</li><li>[WCF ileti clientCredentialType none olarak ayarlı değil](#message-none)</li><li>[WCF aktarım clientCredentialType none olarak ayarlı değil](#transport-none)</li></ul> |
 | **Web API** | <ul><li>[Bu standart kimlik doğrulama teknikleri Web API güvenliğini sağlamak için kullanılan emin olun](#authn-secure-api)</li></ul> |
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/11/2017
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | SQL Azure |
-| **Öznitelikleri**              | SQL sürümü - V12 |
+| **Öznitelikleri**              | SQL Version - V12 |
 | **Başvuruları**              | [Azure Active Directory kimlik doğrulamasını kullanarak SQL veritabanına bağlanma](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
 | **Adımları** | **En düşük sürüm:** Azure SQL Database V12 gereken Microsoft Directory AAD kimlik doğrulamasını kullanmak Azure SQL veritabanı izin vermek için |
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 10/11/2017
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event hub'ı | 
+| **Bileşen**               | Azure Event Hub | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -374,7 +374,7 @@ MSMQ gelen veya Giden iletileriniz için her zaman Windows etki alanı veya sert
 | **Adımları** | <p>Hiçbir belirteci birden çok kez kullanılabilir doğrulama amacıyla belirteçleri kaydetmek için kullanılan bir mağaza bir belirteç yeniden yürütme önbellek tanımlamak geliştiricilerin TokenReplayCache özelliği sağlar.</p><p>Bu bir ölçüdür aptly çağrılan belirteç yeniden yürütme saldırı ortak bir saldırılara karşı: oturum açma sırasında gönderilen belirteç kesintiye uğratan bir saldırganın uygulamaya yeniden göndermeyi deneyin ("yeni bir oturum oluşturmak için anlayamazsanız"). Örneğin, kullanıcı başarıyla kimlik doğrulamasından sonra içinde OIDC kodu verme akışı, bir istek "/ signin-oidc" "id_token" ile "code" ve "Durum" parametreleri bağlı olan taraf uç nokta yapılan.</p><p>Bağlı olan taraf bu isteği doğrular ve yeni bir oturum oluşturur. Bir saldırganın bu isteği yakalar ve bunu başlayarak yeniden oynatılır, klasöründe başarılı bir oturum oluşturun ve kullanıcının aldatma. Openıd Connect içinde nonce varlığını sınırlamak ancak tam olarak hangi saldırı başarıyla kamulaştırılmış koşullar ortadan kaldırmak. Uygulamalarını korumak için geliştiriciler bir ITokenReplayCache belirtin ve bir örnek için TokenReplayCache atayın.</p>|
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
 {
@@ -385,7 +385,7 @@ bool TryFind(string securityToken);
 
 ### <a name="example"></a>Örnek
 Burada, örnek uygulama ITokenReplayCache arabiriminin verilmiştir. (Lütfen özelleştirmek ve projeye özgü önbelleğe alma framework'ünüzün uygulama)
-```C#
+```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
     private readonly ICacheProvider cache; // Your project-specific cache provider
@@ -409,7 +409,7 @@ public class TokenReplayCache : ITokenReplayCache
 }
 ```
 "Tokenvalidationparameters değerini" özelliği aracılığıyla OIDC seçeneklerinde gibi başvurulacak uygulanan bir önbelleğe sahiptir.
-```C#
+```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
     AutomaticAuthenticate = true,
@@ -457,7 +457,7 @@ Lütfen bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı verim
 | **Adımları** | <ul><li>**Genel:** aygıtı Aktarım Katmanı Güvenliği (TLS) veya IPSec kullanarak kimlik doğrulaması. Altyapı önceden paylaşılan anahtar (PSK) kullanarak tam asimetrik şifreleme işleyemiyor bu cihazlarda desteklemelidir. Azure AD, Oauth yararlanın.</li><li>**C# ' ta:** DeviceClient örneği oluşturulurken varsayılan olarak, Create yöntemi IOT Hub ile iletişim kurmak için AMQP protokolünü kullanan bir DeviceClient örneği oluşturur. HTTPS protokolünü kullanmak için Oluştur yönteminin Protokolü belirtmenize olanak tanıyan geçersiz kılma kullanın. HTTPS protokolünü kullanıyorsanız, aynı zamanda eklemelisiniz `Microsoft.AspNet.WebApi.Client` NuGet paketini projenize eklemek için `System.Net.Http.Formatting` ad alanı.</li></ul>|
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 static DeviceClient deviceClient;
 
 static string deviceKey = "{device key}";
@@ -488,7 +488,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### <a name="sas-token"></a>SAS belirteci
+#### <a name="sas-token"></a>SAS Belirteci
 * Kullanırken, simetrik anahtar ancak dahili olarak oluşturulan oluşturabilir ve açıkça de kullanın
 * Bir protokol tanımlayın:`var Http = require('azure-iot-device-http').Http;`
 * Bir sas belirteci oluşturun:

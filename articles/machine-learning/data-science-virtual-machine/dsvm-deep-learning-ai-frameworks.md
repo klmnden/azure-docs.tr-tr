@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makine](http://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](http://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz yapay Intelligence (AI) uygulamalarla oluşturmanıza yardımcı olmak üzere derin öğrenme çerçeveleri destekler ve bilişsel özellikleri görüntü ve dil anlama gibi. 
@@ -55,8 +55,8 @@ ms.lasthandoff: 10/11/2017
 | Nedir?   | Derin öğrenme çerçevesi      |
 | Desteklenen DSVM sürümleri      | Windows, Linux     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Python 2.7 Keras yüklü (_kök_), Python 3.5 yanı sıra (_py35_) ortamı.   |
-| Örnekleri bağlantılar      | https://github.com/fchollet/keras/Tree/master/examples      |
-| DSVM ilgili araçları      | Microsoft Bilişsel araç seti, TensorLlow, Theano      |
+| Örnekleri bağlantılar      | https://github.com/fchollet/keras/tree/master/examples      |
+| DSVM ilgili araçları      | Microsoft Bilişsel araç seti, TensorFlow, Theano      |
 | Kullanın / çalıştırmak için nasıl?    | Github konumdan örnekleri indirin, ~/notebooks altındaki bir dizine kopyalayın ve Jupyter'de açın   |
 
 
@@ -117,7 +117,7 @@ Bir terminal istediğiniz Python sürümünü etkinleştir (_kök_ veya _py35_),
 | Desteklenen DSVM sürümleri      | Linux     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Derin su yüklü `/dsvm/tools/deep_water`.   |
 | Örnekleri bağlantılar      | Örnekleri derin su sunucu üzerinden kullanılabilir.      |
-| DSVM ilgili araçları      | H2o, Sparkling su      |
+| DSVM ilgili araçları      | H2O, Sparkling su      |
 
 ### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?  
 
@@ -157,7 +157,7 @@ Hizmeti başlatmak için yaklaşık bir dakika sürer. Bir web tarayıcı başla
 
 
 
-## <a name="nvdia-smi"></a>nvdia SMI
+## <a name="nvdia-smi"></a>nvdia-smi
 
 |    |           |
 | ------------- | ------------- |

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme
 
@@ -81,10 +81,10 @@ NoRegisteredProviderFound hatası veya MissingSubscriptionRegistration hatası a
 4. Genel bakış sayfasında görmek için listeden bir kümeden tıklatın:
 
     ![Azure portal Hdınsight küme essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **genel bakış menüsü:**
-    * **Pano**: Ambari Web Linux tabanlı kümeler için olan küme panosu açılır.
+    * **Pano**: küme için Ambari web kullanıcı arabirimini açar.
     * **Güvenli Kabuk**: Güvenli Kabuk (SSH) bağlantısı kullanarak kümeye bağlanmak için yönergeleri gösterir.
     * **Küme ölçeklendirme**: Bu küme için alt düğüm sayısını değiştirmenize izin verir.
-    * **Taşıma**: küme antoher kaynak grubuna veya aboneliğe taşıyın.
+    * **Taşıma**: başka bir kaynak grubu veya başka bir abonelik için küme taşır.
     * **Silme**: kümeyi siler.
 
     **Sol menü:**
@@ -98,7 +98,7 @@ NoRegisteredProviderFound hatası veya MissingSubscriptionRegistration hatası a
     * **Hdınsight Araçları**: Hdınsight için Yardım bilgileri ilgili araçlar.
     * **Abonelik çekirdek kullanım**: aboneliğiniz için kullanılan ve kullanılabilir çekirdekler görüntüler.
     * **Küme ölçeklendirme**: artırma ve azaltma küme çalışan düğüm sayısı. Bkz:[ölçek kümeleri](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **SSH + küme oturum açma**: Güvenli Kabuk (SSH) bağlantısı kullanarak kümeye bağlanmak için yönergeleri gösterir. Daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)ve küme oturum açma kimlik bilgilerini sıfırlayın.
+    * **SSH + küme oturum açma**: Güvenli Kabuk (SSH) bağlantısı kullanarak kümeye bağlanmak için yönergeleri gösterir. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
     * **Hdınsight iş ortağı**: geçerli Hdınsight iş ortağı Ekle/Kaldır.
     * **Dış meta deponuz**: Hive ve Oozie meta deponuz görüntüleyin. Meta depolar, yalnızca küme oluşturma işlemi sırasında yapılandırılabilir. Bkz: [Hive/Oozie meta depo kullanmak](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Betik eylemleri**: çalıştırmak Bash betikleri küme üzerinde. Bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
@@ -176,7 +176,7 @@ Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısın�
 
     İki yolla yeniden dengelenmesi gerçekleştirilebilir:
 
-  * Storm web kullanıcı Arabirimi
+  * Storm web UI
   * Komut satırı arabirimi (CLI) aracı
 
     Başvurmak [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
@@ -226,6 +226,21 @@ Başka bir Azure kaynak grubu veya başka bir abonelik için bir Hdınsight küm
 
 Bkz: [daha yeni bir sürüme yükseltme Hdınsight kümesi](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Ambari web kullanıcı arabirimini açın
+
+Ambari bir sezgisel, kullanımı kolay Hadoop Yönetim web RESTful API'lerini tarafından yedeklenen kullanıcı Arabirimi sağlar. Ambari sistem yöneticilerinin yönetme ve Hadoop kümelerini izleme sağlar.
+
+1. Hdınsight kümesi Azure portalından açın.  Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
+2. Tıklatın **küme Panosu**.
+
+    ![Hdınsight Hadoop kümesi menüsü](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Küme adı ve parola girin.  Varsayılan Küme kullanıcı adı _yönetici_. Ambari web kullanıcı Arabirimi şuna benzer:
+
+    ![Hdınsight Hadoop Ambari Web kullanıcı Arabirimi](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Daha fazla bilgi için bkz: [Hdınsight kümelerini yönetme Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Parolaları değiştirme
 Hdınsight kümesi, iki kullanıcı hesapları olabilir. Hdınsight küme kullanıcı hesabı (paketini HTTP kullanıcı hesabı) ve SSH kullanıcı hesabı oluşturma işlemi sırasında oluşturulur. Küme kullanıcı hesabı kullanıcı adı ve parola ve SSH kullanıcı hesabını değiştirmek için betik eylemleri değiştirmek için Ambari web kullanıcı Arabirimi kullanabilirsiniz
 
@@ -267,7 +282,7 @@ Ambari sonra kümedeki tüm düğümlerde parolasını değiştirir.
    | Alan | Değer |
    | --- | --- |
    | Ad |SSH parolasını değiştirme |
-   | Bash betik URI |Changepassword.sh dosyasına URI |
+   | Bash betiği URI'si |Changepassword.sh dosyasına URI |
    | Düğümler (Head, çalışan, Nimbus, yönetici, Zookeeper, vb.) |✓ listelenen tüm düğüm türleri |
    | Parametreler |SSH kullanıcı adı ve yeni parolayı girin. Kullanıcı adı ve parola arasında bir boşluk olması gerekir. |
    | Bu betik eylemini Sürdür... |Bu alan işaretli bırakın. |

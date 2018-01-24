@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 696e3f77a283cc31d3c8f6007a839480ae8eb984
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Karma bağlantılar düğümü API genel bakış geçiş
 
@@ -104,7 +104,7 @@ var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 Bu yöntem işlevsel olarak eşdeğerdir `createRelayToken` daha önce belirtildiği yöntemi ancak doğru giriş URI'si eklenen belirteci döndürür.
 
-### <a name="class-wsrelayedserver"></a>Sınıf ws. RelayedServer
+### <a name="class-wsrelayedserver"></a>Class ws.RelayedServer
 
 `hycows.RelayedServer` Sınıftır alternatif `ws.Server` yerel ağ, ancak Azure geçiş hizmeti dinleme temsilciler dinlemez sınıfı.
 
@@ -134,7 +134,7 @@ Oluşturucu bağımsız değişkenleri:
 
 `RelayedServer`örnekleri gelen istekleri işleyen, bağlantıları kurmak ve hata koşullarını algılamak sağlayan üç olayları yayma. İçin abone olmalısınız `connect` iletileri işlemek için olay. 
 
-##### <a name="headers"></a>Üstbilgileri
+##### <a name="headers"></a>headers
 
 ```JavaScript 
 function(headers)

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Verileri Azure Data Factory kullanarak gelen bir OData kaynağı taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Aşağıdaki tabloda, JSON öğeleri OData bağlantılı hizmete özgü açıkla
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OData** |Evet |
-| URL |OData hizmeti URL'si. |Evet |
+| url |OData hizmeti URL'si. |Evet |
 | authenticationType |OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü. <br/><br/> OData bulut için olası değerler şunlardır anonim, temel ve OAuth (Not OAuth Azure Active Directory tabanlı şu anda yalnızca Azure Data Factory destek). <br/><br/> Anonim, temel ve Windows, şirket içi OData için olası değerler şunlardır. |Evet |
 | kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
@@ -149,9 +149,9 @@ Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam l
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Yol |OData kaynak yolu |Hayır |
+| yol |OData kaynak yolu |Hayır |
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilke gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 Etkinliğin typeProperties bölümündeki özellikler diğer yandan her etkinlik türü ile değişir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
@@ -173,13 +173,13 @@ OData veri taşırken, aşağıdaki eşlemelerini OData türlerinden .NET türü
 | OData veri türü | .NET türü |
 | --- | --- |
 | Edm.Binary |Byte] |
-| Edm.Boolean |bool |
+| Edm.Boolean |Bool |
 | Edm.Byte |Byte] |
-| Edm.DateTime |Tarih saat |
+| Edm.DateTime |Tarih Saat |
 | Edm.Decimal |Ondalık |
 | Edm.Double |Çift |
-| Edm.Single |Tek |
-| Edm.Guid |GUID |
+| Edm.Single |Bekar |
+| Edm.Guid |Guid |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |

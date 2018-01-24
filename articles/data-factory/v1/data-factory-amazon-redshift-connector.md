@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Veri öğesinden Amazon, Redshift Azure Data Factory kullanarak Taşı
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Veri Fabrikası şu anda yalnızca taşıma verileri Amazon Redshift destekleyen
 > [!TIP]
 > Büyük miktarlarda verinin Amazon Redshift kopyalarken en iyi performansı elde etmek için yerleşik Redshift kullanmayı **UNLOAD** Amazon Basit Depolama Birimi Hizmeti (Amazon S3) aracılığıyla komutu. Ayrıntılar için bkz [Amazon Redshift verileri kopyalamak için kullanım UNLOAD](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Bir şirket içi veri deposuna veri taşıyorsanız, yükleme [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) , şirket içi makinede. Şirket içi makineyi IP adresini kullanarak Amazon Redshift küme için bir ağ geçidi için erişim verin. Yönergeler için bkz: [küme erişim yetkisi](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Bir Azure veri deposuna veri taşımak için bkz: [işlem IP adresi ve Microsoft Azure veri merkezleri tarafından kullanılan SQL aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -64,7 +64,7 @@ Aşağıdaki tabloda bir Amazon bağlı Redshift hizmete özgü JSON öğeleri i
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | **türü** |Bu özelliği ayarlamak **AmazonRedshift**. |Evet |
-| **Sunucu** |Amazon Redshift sunucusunun IP adresi veya ana bilgisayar adı. |Evet |
+| **server** |Amazon Redshift sunucusunun IP adresi veya ana bilgisayar adı. |Evet |
 | **bağlantı noktası** |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır (varsayılan olarak 5439) |
 | **Veritabanı** |Amazon Redshift veritabanının adı. |Evet |
 | **Kullanıcı adı** |Veritabanına erişimi olan kullanıcı adı. |Evet |
@@ -207,7 +207,7 @@ Bu örnek, verileri Azure Blob depolama alanına bir Amazon Redshift veritabanı
 }
 ```
 
-**Azure Blob dataset çıktı**
+**Azure Blob çıktı veri kümesi**
 
 Veri yazıldığı için yeni bir blob saatte ayarlayarak **sıklığı** "Saat" özelliğine ve **aralığı** özelliği 1. **FolderPath** özelliği blob için dinamik olarak değerlendirilir. Özellik değeri işleniyor dilim başlangıç saatine bağlıdır. Klasör yolu yıl, ay, gün ve saatleri bölümlerini başlangıç saatini kullanır.
 
@@ -331,17 +331,17 @@ Kopya etkinliği bir Amazon Redshift türünden bir .NET türü veri dönüştü
 
 | Amazon Redshift türü | .NET türü |
 | --- | --- |
-| TAMSAYI |Int16 |
+| SMALLINT |Int16 |
 | TAMSAYI |Int32 |
 | BIGINT |Int64 |
-| ONDALIK |Ondalık |
-| GERÇEK |Tek |
+| DECIMAL |Ondalık |
+| GERÇEK |Bekar |
 | ÇİFT DUYARLIKLI |Çift |
 | BOOLE DEĞERİ |Dize |
 | CHAR |Dize |
 | VARCHAR |Dize |
-| TARİH |Tarih saat |
-| ZAMAN DAMGASI |Tarih saat |
+| DATE |Tarih Saat |
+| TIMESTAMP |Tarih Saat |
 | METİN |Dize |
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>IOT hub'ı (.NET) ile ileti yönlendirme
 
@@ -101,7 +101,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Bu yöntem rastgele özelliği ekler `"level": "critical"` ve `"level": "storage"` aygıt tarafından gönderilen iletiler için hangi benzetimini yapar, uygulama arka uç ya da kalıcı olarak depolanması gereken bir Acil eylem gerektiren bir ileti. Bu IOT hub'ın uygun mesajı hedefe ileti yönlendirmek için uygulama bu bilgileri ileti özelliklerinde yerine ileti gövdesinde geçirir.
+Bu yöntem rastgele özelliği ekler `"level": "critical"` ve `"level": "storage"` aygıt tarafından gönderilen iletiler için hangi benzetimini yapar, uygulama arka uç ya da kalıcı olarak depolanması gereken bir Acil eylem gerektiren bir ileti. Uygulama ileti gövdesinde temelinde yönlendirme iletileri destekler.
 
 > [!NOTE]
 > Burada gösterilen hot yolu örnek yanı sıra soğuk yolu işleme dahil olmak üzere çeşitli senaryoları için ileti özellikleri iletileri yönlendirmek için kullanabilirsiniz.

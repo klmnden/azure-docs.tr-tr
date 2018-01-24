@@ -2,15 +2,15 @@
 title: "Yüksek performans için Azure SSIS tümleştirmesi çalışma zamanı yapılandırma | Microsoft Docs"
 description: "Yüksek performans için Azure SSIS Integration zamanının özellikleri yapılandırmayı öğrenin"
 services: data-factory
-ms.date: 11/29/2017
+ms.date: 01/10/2018
 ms.topic: article
 ms.service: data-factory
 ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: daa0595fa8c1666cce5c762e0d41559411cae1b6
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2018

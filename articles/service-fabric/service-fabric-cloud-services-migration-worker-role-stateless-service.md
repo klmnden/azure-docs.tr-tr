@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için dönüştürme Kılavuzu
 Bu makalede, bulut Hizmetleri Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için nasıl geçirileceği açıklanmaktadır. Bu en basit geçiş bulut hizmetlerinden Service Fabric, genel mimarisi kabaca aynı kalmasını gittiği uygulamalar için yoludur.
@@ -50,13 +50,13 @@ Benzer şekilde çalışan rolü, Web rolü ayrıca durum bilgisiz iş yükünü
 
 | **Giriş noktası** | **Çalışan rolü** | **Service Fabric hizmeti** |
 | --- | --- | --- |
-| İşleme |`Run()` |`RunAsync()` |
+| İşleniyor |`Run()` |`RunAsync()` |
 | VM Başlat |`OnStart()` |Yok |
 | VM'yi Durdur |`OnStop()` |Yok |
 | İstemci istekleri için açık dinleyicisi |Yok |<ul><li> `CreateServiceInstanceListener()`için durum bilgisiz</li><li>`CreateServiceReplicaListener()`durum bilgisi için</li></ul> |
 
-### <a name="worker-role"></a>Çalışan rolü
-```C#
+### <a name="worker-role"></a>Çalışan Rolü
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Doku durum bilgisiz hizmeti
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -138,7 +138,7 @@ Bu paketleri her bağımsız olarak sürümlü hem de yükseltilmiş olabilir. B
 #### <a name="cloud-services"></a>Cloud Services
 Yapılandırma ayarları ServiceConfiguration.*.cscfg üzerinden erişilebilir `RoleEnvironment`. Bu ayarlar, tüm rol örneklerinin aynı bulut hizmeti dağıtım genel olarak kullanılabilir.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Her hizmetin kendi tek tek bir yapılandırma paketi vardır. Hiçbir yerleşik 
 
 Yapılandırma ayarları her hizmet örneği hizmetin aracılığıyla içinde erişimleri olan `CodePackageActivationContext`.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Cloud Services
 `RoleEnvironment.Changed` Olay ortamında, bir yapılandırma değişikliği gibi bir değişiklik meydana geldiğinde tüm rol örneklerini bildirmek için kullanılır. Bu, yapılandırma güncelleştirmelerini rol örnekleri geri dönüştürme veya bir çalışan işleminin yeniden kullanmak için kullanılır.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Bir hizmette - kod, yapılandırma ve verileri - üç paket türlerinin her biri
 
 Bu olaylar, hizmet örneği başlatmadan hizmet paketleri değişiklikleri kullanmak kullanılabilir.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -210,7 +210,7 @@ Başlatma, bir uygulama başlatılmadan önce gerçekleştirilen eylemler görev
 | Cloud Services | Service Fabric |
 | --- | --- | --- |
 | Yapılandırma konumu |ServiceDefinition.csdef |
-| Ayrıcalıkları |"sınırlı" veya "yükseltilmiş" |
+| Ayrıcalıklar |"sınırlı" veya "yükseltilmiş" |
 | Sıralama |"Basit", "arka plan", "ön" |
 
 ### <a name="cloud-services"></a>Cloud Services

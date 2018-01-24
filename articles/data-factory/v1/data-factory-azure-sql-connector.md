@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7e57003582dc6190b79e1b4eea38ec4adc1c521c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e5718cfdca4e12edcb98e79807ffe86d7be16b07
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Veri ve Azure SQL Azure Data Factory kullanarak veritabanından kopyalamak
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -83,7 +83,7 @@ TypeProperties bölümü dataset her tür için farklıdır ve verilerin veri de
 | --- | --- | --- |
 | tableName |Tablo veya Görünüm bağlantılı hizmetinin Azure SQL veritabanı örneğinde başvurduğu adı. |Evet |
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilke gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 > [!NOTE]
@@ -151,12 +151,12 @@ GO
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
 | sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. Daha fazla bilgi için bkz: [yinelenebilir kopyalama](#repeatable-copy). |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak kopyalama etkinliği için bir sütun adı belirtin. Daha fazla bilgi için bkz: [yinelenebilir kopyalama](#repeatable-copy). |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
-| sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Saklı yordam adı. |Hayır |
+| sliceIdentifierColumnName |Ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak kopyalama etkinliği için bir sütun adı belirtin. Daha fazla bilgi için bkz: [yinelenebilir kopyalama](#repeatable-copy). |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sqlWriterStoredProcedureName |Kaynak verileri hedef tabloya örneğin upserts veya kendi iş mantığı kullanarak dönüşüm uygulamak nasıl tanımlar saklı yordamın adı. <br/><br/>Bu saklı yordam olacaktır Not **yığın başına çağrılan**. Yalnızca bir kez çalışır ve kaynak verilerle örneğin silme/kesmek yapmak için kullanmak için hiçbir şey olan işlemi yapmak istiyorsanız `sqlWriterCleanupScript` özelliği. |Saklı yordam adı. |Hayır |
 | storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
 | sqlWriterTableType |Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
 
-#### <a name="sqlsink-example"></a>SqlSink örneği
+#### <a name="sqlsink-example"></a>SqlSink example
 
 ```JSON
 "sink": {
@@ -640,25 +640,25 @@ Veri taşımak ve Azure SQL veritabanından olduğunda, aşağıdaki eşlemeleri
 | --- | --- |
 | bigint |Int64 |
 | İkili |Byte] |
-| bit |Boole değeri |
+| bit |Boole |
 | char |Dize, Char] |
-| Tarih |Tarih saat |
-| Tarih saat |Tarih saat |
-| datetime2 |Tarih saat |
+| tarih |Tarih Saat |
+| Tarih saat |Tarih Saat |
+| datetime2 |Tarih Saat |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
-| Kayan nokta |Çift |
-| Görüntü |Byte] |
+| Kayan |Çift |
+| görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
 | nchar |Dize, Char] |
 | ntext |Dize, Char] |
 | sayısal |Ondalık |
 | nvarchar |Dize, Char] |
-| Gerçek |Tek |
+| Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih saat |
+| smalldatetime |Tarih Saat |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |
@@ -666,10 +666,10 @@ Veri taşımak ve Azure SQL veritabanından olduğunda, aşağıdaki eşlemeleri
 | time |TimeSpan |
 | timestamp |Byte] |
 | Mini tamsayı |Bayt |
-| benzersiz tanımlayıcı |GUID |
+| benzersiz tanımlayıcı |Guid |
 | varbinary |Byte] |
 | varchar |Dize, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme
 Havuz dataset sütunlara kaynak kümesindeki eşleme sütunları hakkında bilgi edinmek için [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).

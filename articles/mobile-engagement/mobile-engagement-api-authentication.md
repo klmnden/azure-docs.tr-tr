@@ -14,25 +14,25 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 66bcd738b86f846eae3499b289a6629323009a44
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 574e699a1cfca2caef0cf20872570bbb8650117b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Mobil katılım REST API'leri ile kimlik doğrulaması
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu belge, geçerli bir Azure AD Oauth Mobile Engagement REST API'leri ile kimlik doğrulaması belirteci alma açıklar.
+Bu belge, geçerli bir Azure Active Directory (Azure AD) OAuth Mobile Engagement REST API'leri ile kimlik doğrulaması belirteci alma açıklar.
 
-Geçerli bir Azure aboneliğinizin olması ve aşağıdakilerden birini kullanarak bir Mobile Engagement uygulaması oluşturdunuz varsayılır [Geliştirici öğreticileri](mobile-engagement-windows-store-dotnet-get-started.md).
+Geçerli bir Azure aboneliğiniz ve Mobile Engagement uygulaması birini kullanarak oluşturduysanız Bu yordam varsayar [Geliştirici öğreticileri](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-Bir Microsoft Azure Active Directory token kimlik doğrulaması için kullanılan OAuth tabanlı. 
+Microsoft Azure Active Directory tabanlı OAuth belirteci kimlik doğrulaması için kullanılır. 
 
-Kimlik doğrulaması bir API isteğinin sırada bir authorization üstbilgisi aşağıdaki biçimi olan her istek için eklenmesi gerekir:
+Bir API isteği kimliğini doğrulamak için her istek için bir authorization üstbilgisi eklenmesi gerekir. Yetkilendirme üst bilgi aşağıdaki biçimdedir:
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
 
@@ -41,14 +41,17 @@ Kimlik doğrulaması bir API isteğinin sırada bir authorization üstbilgisi a�
 > 
 > 
 
-Bir belirteç almak üzere birkaç yolu vardır. API'ler bir bulut hizmetinden denir olduğundan, bir API anahtarı kullanmak istediğiniz. API anahtarını Azure terminolojisi içinde bir hizmet asıl parola adı verilir. El ile ayarlama bir yolu aşağıdaki yordamda açıklanmıştır.
+Bir belirteç almak üzere birkaç yolu vardır. API'ler bir bulut hizmetinden denir çünkü bir API anahtarı kullanmak istediğiniz. API anahtarını Azure terminolojisi içinde bir hizmet sorumlusu parola olarak adlandırılır. Aşağıdaki yordam el ile ayarlamak için yollarından biri açıklanır.
 
-### <a name="one-time-setup-using-script"></a>Tek seferlik kurulumu (kod kullanılarak)
+### <a name="one-time-setup-using-a-script"></a>Tek seferlik kurulumu (bir komut dosyası kullanarak)
 
-Kurulum için en az zaman alır, ancak en izin verilen Varsayılanları kullanan bir PowerShell Betiği kullanılarak Kurulumu gerçekleştirmek için aşağıdaki yönergeleri kümesi izleyin. İsteğe bağlı olarak, aynı zamanda yönergelerini izleyebilirsiniz [el ile kuruluma](mobile-engagement-api-authentication-manual.md) doğrudan Azure portal ve yüksekse yapılandırma bunu.
+Bir PowerShell komut dosyası kullanarak kurulumu gerçekleştirmek için aşağıdaki yönergelerde yer adımları uygulayın. Bir PowerShell komut dosyası kurulum için en az miktarda zaman gerektiriyor, ancak izin verilen en Varsayılanları kullanır. 
 
-1. Azure PowerShell en son sürümünü alın [burada](http://aka.ms/webpi-azps). Yükleme yönergeleri ile ilgili daha fazla bilgi için bu gördüğünüz [bağlantı](/powershell/azure/overview).
-2. Azure PowerShell yüklendikten sonra sahip olduğunuzdan emin olmak için aşağıdaki komutları kullanın **Azure Modülü** yüklü:
+İsteğe bağlı olarak, aynı zamanda yönergelerini izleyebilirsiniz [el ile kuruluma](mobile-engagement-api-authentication-manual.md) doğrudan bunu Azure portalından. Azure portalından ayarlarken, daha ayrıntılı bir yapılandırma yapabilirsiniz.
+
+1. Azure PowerShell ile en son sürümünü alın [karşıdan](http://aka.ms/webpi-azps). Yükleme yönergeleri hakkında daha fazla bilgi için bkz: [bu genel bakışta](/powershell/azure/overview).
+
+2. PowerShell yüklendikten sonra olmasını sağlamak için aşağıdaki komutları kullanın **Azure Modülü** yüklü:
 
     a. Azure PowerShell modülü mevcut modülleri, listesinde kullanılabilir olduğundan emin olun.
 
@@ -56,43 +59,53 @@ Kurulum için en az zaman alır, ancak en izin verilen Varsayılanları kullanan
 
     ![Mevcut Azure modülleri][1]
 
-    b. Azure PowerShell modülü yukarıdaki listede bulamazsanız çalıştırmanız gerekir:
+    b. Azure PowerShell modülü önceki listede bulamazsanız, çalıştırmanız gerekir:
 
         Import-Module Azure
-3. Azure Resource Manager'da Powershell'den aşağıdaki komutu çalıştırarak ve Azure hesabınız için kullanıcı adı ve parola sağlayarak oturum açın: 
+3. Azure Resource Manager için aşağıdaki komutu çalıştırarak Powershell'den oturum açın. Azure hesabınız için kullanıcı adını ve parolasını sağlayın: 
 
         Login-AzureRmAccount
-4. Ardından birden fazla aboneliğiniz varsa, çalıştırmanız gerekir:
+4. Birden çok aboneliğiniz varsa, aşağıdaki adımları uygulayın:
 
-    a. Tüm aboneliklerinizi listesini almak ve kullanmak istediğiniz aboneliği Subscriptionıd kopyalayın. Bu abonelik API'leri kullanılarak ile etkileşim kurmak için kalacaklarını Mobile Engagement uygulaması olduğu adla aynı olduğundan emin olun. 
+    a. Tüm Aboneliklerin listesini alın. Ardından kopyalama **Subscriptionıd** kullanmak istediğiniz abonelik. Bu abonelik Mobile Engagement uygulaması olduğundan emin olun. API'leri ile etkileşim kurmak için bu uygulamayı kullanmak için adımıdır. 
 
         Get-AzureRmSubscription
 
-    b. Kullanılacak aboneliği yapılandırmak için Subscriptionıd sağlayarak aşağıdaki komutu çalıştırın.
+    b. Aşağıdaki komutu çalıştırın. Sağlamak **Subscriptionıd** kullanacağınız abonelik yapılandırmak için:
 
         Select-AzureRmSubscription –SubscriptionId <subscriptionId>
-5. Metni kopyalayın [yeni AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) yerel makinenize betik ve PowerShell cmdlet'ini olarak kaydedin (örneğin `APIAuth.ps1`) ve bu yürütme `.\APIAuth.ps1`.
-6. Komut dosyası için bir giriş sağlama ister **principalName**. Active Directory uygulamanız (örneğin APIAuth) oluşturmak için kullanmak istediğiniz uygun bir ad sağlayın. 
-7. Komut dosyası tamamlandıktan sonra aşağıdaki görüntüleyecektir program aracılığıyla AD ile kimlik doğrulaması için gereken dört değerden böylece bunları kopyalamak emin olun. 
+5. Metni kopyalayın [yeni AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) yerel makinenize komut dosyası. PowerShell cmdlet'ini olarak kaydedin (örneğin, `APIAuth.ps1`), ve çalıştırın.
 
-    **Tenantıd**, **Subscriptionıd**, **ApplicationId**, ve **gizli**.
+         `.\APIAuth.ps1`.
 
-    Tenantıd olarak kullanacağınız `{TENANT_ID}`, ApplicationId olarak `{CLIENT_ID}` ve gizli olarak `{CLIENT_SECRET}`.
+6. Komut dosyası için bir giriş sağlama ister **principalName**. Active Directory uygulamanız için (örneğin, APIAuth) kullanmak istediğiniz uygun bir ad sağlayın. 
+
+7. Betiğin çalışması bittikten sonra aşağıdaki dört değerden görüntüler. Program aracılığıyla Active Directory ile kimlik doğrulaması gerektiği için bunları kopyaladığınızdan emin olun: 
+
+   - **TenantId**
+   - **SubscriptionId**
+   - **ApplicationId**
+   - **Gizli dizi**
+
+   Tenantıd olarak kullandığınız `{TENANT_ID}`, ApplicationId olarak `{CLIENT_ID}` ve gizli olarak `{CLIENT_SECRET}`.
 
    > [!NOTE]
-   > Varsayılan güvenlik ilkenizin bir PowerShell komut dosyalarının çalışmasını engelleyebilir. Bu durumda, geçici olarak komut dosyası yürütme aşağıdaki komutu kullanarak izin vermek için yürütme ilkesi yapılandırın:
+   > Varsayılan güvenlik ilkeniz PowerShell betikleri çalışmasını engelleyebilir. Bu durumda, geçici olarak komut dosyası yürütme izin vermek için yürütme İlkesi yapılandırmak için aşağıdaki komutu kullanın:
    > 
    > Set-ExecutionPolicy RemoteSigned
-8. İşte nasıl PS cmdlet'leri kümesini aşağıdaki gibidir.
-    ![][3]
-9. Azure portalında Active Directory'ye gidin, tıklayın **uygulama kayıtlar** ve arama emin olmak, uygulamanız için var.![][4]
+8. PowerShell cmdlet'leri kümesini nasıl göründüğünü aşağıda verilmiştir.
+    ![PowerShell cmdlet'leri][3]
+9. Azure portalında Active Directory'ye seçin Git **uygulama kayıtlar**, ve arama emin olmak, uygulamanız için bulunmaktadır.
+    ![Uygulamanız için arama][4]
 
 ### <a name="steps-to-get-a-valid-token"></a>Geçerli bir belirteci almak için adımlar
 
-1. API aşağıdaki parametrelerle çağırın ve KİRACI değiştirdiğinizden emin olun\_kimliği, istemci\_kimliği ve istemci\_gizli anahtarı:
+1. API aşağıdaki parametrelerle çağırın. Değiştirdiğinizden emin olun **KİRACI\_kimliği**, **istemci\_kimliği**, ve **istemci\_gizli**:
    
    * **İstek URL'si** olarak`https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
+
    * **HTTP Content-Type üstbilgisi** olarak`application/x-www-form-urlencoded`
+   
    * **HTTP istek gövdesi** olarak`grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
      
     Bir örnek isteği verilmiştir:
@@ -103,7 +116,7 @@ Kurulum için en az zaman alır, ancak en izin verilen Varsayılanları kullanan
     grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
     urce=https%3A%2F%2Fmanagement.core.windows.net%2F
     ```
-    Bir örnek yanıt şöyledir:
+    Bir örnek yanıt aşağıdadır:
     ```
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8
@@ -112,28 +125,29 @@ Kurulum için en az zaman alır, ancak en izin verilen Varsayılanları kullanan
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
     5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
     ```
-     Bu örnek POST parametreleri, URL kodlaması dahil `resource` değerdir gerçekten `https://management.core.windows.net/`. Ayrıca URL dikkatli olun kodlamak `{CLIENT_SECRET}` gibi özel karakterleri içerebilir.
+     Bu örnek, POST parametreleri URL kodlaması içeren `resource` değerdir gerçekten `https://management.core.windows.net/`. Ayrıca URL-kodlamak için dikkatli olun `{CLIENT_SECRET}`, özel karakterler içerebilir.
 
      > [!NOTE]
-     > Test etmek için bir HTTP istemci aracı gibi kullanabilirsiniz [Fiddler](http://www.telerik.com/fiddler) veya [Chrome Postman uzantısı](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) 
+     > Test etmek için bir HTTP istemci aracı gibi kullanabileceğiniz [Fiddler](http://www.telerik.com/fiddler) veya [Chrome Postman uzantısı](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop). 
      > 
      > 
 2. Artık her API çağrısı yetkilendirme istek üstbilgisi içerir:
    
         Authorization: Bearer {ACCESS_TOKEN}
    
-    Döndürülen bir 401 durum kodu alırsanız, yanıt gövdesini denetleyin, belirtecin süresi doldu size. Bu durumda, yeni belirteç alın.
+    İsteğiniz bir 401 durum kodu döndürürse, yanıt gövdesini denetleyin. Bu belirtecin süresi söyleyebilir. Bu durumda, yeni belirteç alın.
 
-## <a name="using-the-apis"></a>API'ler kullanma
+## <a name="use-the-apis"></a>API'leri kullanın
 Geçerli bir belirteci sahip olduğunuza göre API çağrılarını yapmaya hazır olursunuz.
 
-1. Her API isteği önceki bölümde aldığınız bir geçerli, süresi dolmamış belirteci geçmesi gerekir.
-2. Bazı parametreler, uygulamanızın tanımlayan URI isteği içine takın gerekecektir. İstek URI'si aşağıdaki gibi görünür
+1. Her API isteği geçerli, süresi dolmamış belirteç göndermesi gerekir. Önceki bölümde süresi dolmamış belirteci alınır.
+
+2. Bazı parametreler, uygulamanızın tanımlayan URI isteğine takın. İstek URI'si aşağıdaki kod gibi görünür:
    
         https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
         providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
    
-    Parametreleri Al, uygulama adına tıklayın ve Pano ve tüm 3 parametrelerle aşağıdaki gibi bir sayfa görürsünüz.
+    Parametreleri almak için uygulamanızın adı seçin. Ardından **Pano**. Aşağıdaki gibi tüm üç parametre içeren bir sayfa görürsünüz:
    
    * **1** `{subscription-id}`
    * **2** `{app-collection}`
@@ -141,10 +155,9 @@ Geçerli bir belirteci sahip olduğunuza göre API çağrılarını yapmaya haz�
    * **4** bilgisayarınızı kaynak grubu adı olması geçmeye **MobileEngagement** yeni bir tane oluşturduğunuz sürece. 
 
 > [!NOTE]
-> <br/>
+> Önceki API'ler olduğundan API kök adresi yoksay.
 > 
-> 1. Önceki yönelik API'ler, bu gibi API kök adresi yoksay.<br/>
-> 2. Azure portalını kullanarak uygulama oluşturduysanız, uygulama adı kendisini farklı uygulama kaynağı adı kullanmanız gerekir. Azure portalında uygulama oluşturduysanız, uygulama adı kendisini (Uygulama kaynağı adı ve yeni portalında oluşturulan uygulamalar için uygulama adı arasında hiçbir ayrım yoktur) kullanmanız gerekir.  
+> Azure portalını kullanarak uygulama oluşturduysanız, uygulama adı kendisini farklı uygulama kaynak adını kullanın gerekir. Azure portalında uygulama oluşturduysanız, uygulama adı kullanmanız gerekir. (Uygulama kaynağı adı ve yeni Portalı'nda oluşturulan uygulamaları için uygulama adı arasında hiçbir ayrım yoktur.)
 > 
 > 
 

@@ -9,17 +9,17 @@ ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Azure konum tabanlı Hizmetleri harita denetiminin kullanma
 Harita denetiminin istemci tarafı Javascript kitaplığı eşlemeleri ve katıştırılmış Azure konum Hizmetleri temel işlevselliği, web veya mobil uygulamanızı işlemek sağlar. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bir Azure konum tabanlı Hizmetleri hesabınızı ve aboneliğinizi anahtarı. Bir hesap oluşturma ve abonelik anahtarı alma hakkında daha fazla bilgi için bkz: [Azure konum tabanlı hizmetleri hesabı ve anahtarlarını yönetme](how-to-manage-account-keys.md). 
+Bir Azure konum tabanlı hizmetleri hesabı ve anahtarı. Bir hesap oluşturma ve bir anahtar alma hakkında daha fazla bilgi için bkz: [Azure konum tabanlı hizmetleri hesabı ve anahtarlarını yönetme](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Harita denetimi API kullanarak bir web sayfasında yeni bir eşleme oluşturma
 Harita denetiminin istemci tarafı Javascript kitaplığını kullanarak bir web sayfasında bir harita eklenebilir.
@@ -42,19 +42,19 @@ Harita denetiminin istemci tarafı Javascript kitaplığını kullanarak bir web
             }
     ``` 
     
-4. Harita denetiminin başlatmak için bir komut dosyası oluşturabilir ve yeni bir bölüm html gövdesinde tanımlayın. Kendi abonelik anahtarınızı Azure konum tabanlı Hizmetleri hesabınızdan kullanın. 
+4. Harita denetiminin başlatmak için bir komut dosyası oluşturabilir ve yeni bir bölüm html gövdesinde tanımlayın. Kendi Azure konum tabanlı Hizmetleri hesap anahtarını komut dosyasını kullanın. 
 
     ```html
     <div id="map">
         <script>
-            var subscriptionKey = "<_subscriptionKey_>";
+            var LBSAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey,
+                "subscription-key": LBSAccountKey,
                 center: [47.59093,-122.33263],
                 zoom: 12
             });
-        <script>
-    <div>
+        </script>
+    </div>
     ```
     
 5. Web tarayıcınızda dosyasını açın ve işlenmiş harita görüntüleyin.

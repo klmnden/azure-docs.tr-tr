@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d4f7df5ceadf8c6219901af6e516453a88aeece7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Güncelleştirme kaynağı etkinliğini kullanarak Azure Machine Learning modellerini güncelleştir
 Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı işlem hatlarını oluşturmak](transform-data-using-machine-learning.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
@@ -278,7 +278,7 @@ Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalel
 * [U-SQL etkinliği](transform-data-using-data-lake-analytics.md)
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
 * [Pig etkinliği](transform-data-using-hadoop-pig.md)
-* [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)

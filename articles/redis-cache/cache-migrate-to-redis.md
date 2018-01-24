@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 87a31ac992592cbbbc54a487867a65346ad06a0b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0d52454ae1c2159814d4601d07259aba319e8598
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Yönetilen önbellek hizmetinden Azure Redis önbelleğine geçiş
 Azure Redis önbelleği için Azure yönetilen önbellek hizmeti kullanan, uygulamaları geçirme önbelleğe alma, uygulamanız tarafından kullanılan yönetilen önbellek hizmeti özelliklere bağlı olarak, uygulamanızın küçük değişiklikler ile gerçekleştirilebilir. API'ler tam olarak aynı durumdayken benzer ve küçük değişiklikler ile yönetilen önbellek hizmeti önbelleği erişmek için kullandığı mevcut kodunuzu çoğunu yeniden kullanılabilir. Bu konu gerekli yapılandırma ve Azure Redis önbelleği kullanma, yönetilen önbellek hizmeti uygulamalarınızı geçirme için uygulama değişiklikleri yapma gösterir ve nasıl Azure Redis önbelleği özelliklerden bazıları yönetilen işlevselliğini uygulamak için kullanılabileceğini gösterir Önbellek hizmeti önbelleği.
@@ -125,7 +125,7 @@ Yönetilen önbellek hizmeti önbelleği bağlantılar tarafından işlenen `Dat
 
 Aşağıdaki using deyimi, dosyanın önbellek erişmek istediğiniz dön.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -138,7 +138,7 @@ Bu ad alanı sorunu çözmezse, açıklandığı gibi StackExchange.Redis NuGet 
 
 Azure Redis önbelleği örneğine bağlanmak için statik çağrı `ConnectionMultiplexer.Connect` yöntemi ve uç noktasını ve anahtarı geçirin. Uygulamanızda bir `ConnectionMultiplexer` örneği paylaşmaya ilişkin bir yaklaşım, aşağıdaki örneğe benzer bir bağlı örnek döndüren statik özelliğe sahip olmaktır. Bu, yalnızca tek bir bağlı `ConnectionMultiplexer` örneği başlatmak için iş parçacığı güvenli bir yol sağlar. Bu örnekte `abortConnect` önbelleğine bağlantı kurulmasa bile çağrının başarılı olacağıdır anlamına gelir false olarak ayarlanmış. `ConnectionMultiplexer` temel özelliklerinden biri ağ sorunu ya da diğer nedenler çözümlendiğinde önbellek bağlantısını otomatik olarak geri yüklemesidir.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -157,7 +157,7 @@ public static ConnectionMultiplexer Connection
 
 Bağlantı kurulduktan sonra çağırarak Redis önbelleği veritabanına bir başvuru döndürmek `ConnectionMultiplexer.GetDatabase` yöntemi. `GetDatabase` yönteminden döndürülen nesne küçük, geçişli bir nesnedir ve depolanması gerekmez.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -178,7 +178,7 @@ StackExchange.Redis istemcisi kullanır `RedisKey` ve `RedisValue` erişme ve ö
 
 Bir öğenin önbellekte sona erme tarihini belirtmek için, `StringSet` dizesine ait `TimeSpan` parametresini kullanın.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 

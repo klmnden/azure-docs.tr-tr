@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/23/2018
 ms.author: magoedte
-ms.openlocfilehash: e917b64c32c2f99c9a8b0397e70a32b2dbb2e3cf
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Yönetme ve Windows ve Linux için günlük analizi aracı Bakımı
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Bir proxy sunucusu veya günlük analizi için OMS ağ geçidi üzerinden iletişim kurmak Linux bilgisayarlarınızı ihtiyacınız varsa aşağıdaki adımları gerçekleştirin.  Proxy yapılandırması değeri `[protocol://][user:password@]proxyhost[:port]` sözdizimine sahiptir.
+Bir proxy sunucusu veya günlük analizi için OMS ağ geçidi üzerinden iletişim kurmak Linux bilgisayarlarınızı ihtiyacınız varsa aşağıdaki adımları gerçekleştirin.  Proxy yapılandırması değeri `[protocol://][user:password@]proxyhost[:port]` sözdizimine sahiptir.  *Proxyhost* özelliği bir tam etki alanı adı veya proxy sunucusunun IP adresini kabul eder.
 
 1. Aşağıdaki komutları çalıştırıp değerleri kendi ayarlarınıza göre değiştirerek `/etc/opt/microsoft/omsagent/proxy.conf` dosyasını düzenleyin.
 

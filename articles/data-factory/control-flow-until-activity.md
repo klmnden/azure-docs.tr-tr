@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory kadar etkinliğinde
-Until etkinliği aynı işlevselliği sağlayan bir-yapısı döngü programlama dillerinde sağlayana kadar. Etkinliği ile ilişkili koşulunu true olarak değerlendirilir kadar etkinlikleri kümesi bir döngü yürütür. Bir zaman aşımı değeri için belirttiğiniz veri fabrikası etkinliğinde kadar. 
+Until etkinliği aynı işlevselliği sağlayan bir-yapısı döngü programlama dillerinde sağlayana kadar. Etkinlikle ilişkilendirilmiş olan koşul doğru sonucunu verene kadar bir dizi etkinliği döngüsel olarak yürütür. Data Factory'de bitiş etkinliği için bir zaman aşımı değeri belirtebilirsiniz. 
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 belgelerine](v1/data-factory-introduction.md).
@@ -292,7 +292,7 @@ while ($True) {
 ## <a name="next-steps"></a>Sonraki adımlar
 Data Factory ile desteklenen diğer denetim akışı etkinlikleri bakın: 
 
-- [Varsa koşul etkinliği](control-flow-if-condition-activity.md)
+- [If Koşulu Etkinliği](control-flow-if-condition-activity.md)
 - [İşlem Hattı Yürütme Etkinliği](control-flow-execute-pipeline-activity.md)
 - [Her etkinlik için](control-flow-for-each-activity.md)
 - [Meta Veri Alma Etkinliği](control-flow-get-metadata-activity.md)
