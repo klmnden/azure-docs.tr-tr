@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0452610e56294a19bab302d6df73dff2a70a2eeb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir FTP sunucusundan veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,15 +67,15 @@ Aşağıdaki tabloda bir FTP bağlantılı hizmete özgü JSON öğelerini açı
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
 | type |Bu Ftp_sunucusu için ayarlayın. |Evet |&nbsp; |
-| ana bilgisayar |Adını veya FTP sunucusunun IP adresini belirtin. |Evet |&nbsp; |
+| konak |Adını veya FTP sunucusunun IP adresini belirtin. |Evet |&nbsp; |
 | authenticationType |Kimlik doğrulama türünü belirtin. |Evet |Temel, anonim |
 | kullanıcı adı |FTP sunucusuna erişimi olan kullanıcı belirtin. |Hayır |&nbsp; |
 | password |(Kullanıcı adı) kullanıcının parolasını belirtin. |Hayır |&nbsp; |
 | encryptedCredential |FTP sunucusuna erişmek için şifreli kimlik bilgilerini belirtin. |Hayır |&nbsp; |
 | gatewayName |Veri Yönetimi ağ geçidi şirket içi FTP sunucusuna bağlanmak için ağ geçidi adını belirtin. |Hayır |&nbsp; |
 | port |FTP sunucusunun dinlediği bağlantı noktasını belirtin. |Hayır |21 |
-| enableSsl |FTP SSL/TLS kanalı üzerinden kullanılıp kullanılmayacağını belirtin. |Hayır |TRUE |
-| enableServerCertificateValidation |FTP SSL/TLS kanalı üzerinden kullanırken sunucu SSL sertifika doğrulamasını etkinleştirmek bu seçeneği belirtin. |Hayır |TRUE |
+| enableSsl |FTP SSL/TLS kanalı üzerinden kullanılıp kullanılmayacağını belirtin. |Hayır |doğru |
+| enableServerCertificateValidation |FTP SSL/TLS kanalı üzerinden kullanırken sunucu SSL sertifika doğrulamasını etkinleştirmek bu seçeneği belirtin. |Hayır |doğru |
 
 ### <a name="use-anonymous-authentication"></a>Anonim kimlik doğrulamasını kullan
 
@@ -195,7 +195,7 @@ Bu örnekte, {dilim} değişkeninin değeri veri fabrikası sistem SliceStart, b
 ```
 Bu örnekte, tarafından kullanılan ayrı değişkenleri içine ayıklanır yıl, ay, gün ve saati SliceStart, **folderPath** ve **fileName** özellikleri.
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen oluşturma](data-factory-create-pipelines.md). Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 Kullanılabilir özellikler **typeProperties** etkinlik bölümünü Öte yandan, her etkinlik türü ile değişir. Kopya etkinliği için tür özellikleri türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.

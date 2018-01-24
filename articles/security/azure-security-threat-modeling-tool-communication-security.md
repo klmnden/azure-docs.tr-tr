@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Güvenlik çerçevesi: İletişim güvenliği | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
-| **Azure Event hub'ı** | <ul><li>[Olay hub'ına SSL/TLS kullanan güvenli iletişim](#comm-ssltls)</li></ul> |
+| **Azure Event Hub** | <ul><li>[Olay hub'ına SSL/TLS kullanan güvenli iletişim](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Hizmet hesabının ayrıcalıkları denetleyin ve özel Services veya ASP.NET sayfaları CRM'ın güvenlik saygı denetleyin](#priv-aspnet)</li></ul> |
 | **Azure Data Factory** | <ul><li>[Veri Yönetimi ağ geçidi şirket içi SQL Server için Azure Data Factory bağlanırken kullanın](#sqlserver-factory)</li></ul> |
-| **Kimlik sunucusu** | <ul><li>[Kimlik sunucusu tüm trafik HTTPS bağlantısı üzerinden olduğundan emin olun](#identity-https)</li></ul> |
+| **Identity Server** | <ul><li>[Kimlik sunucusu tüm trafik HTTPS bağlantısı üzerinden olduğundan emin olun](#identity-https)</li></ul> |
 | **Web uygulaması** | <ul><li>[X.509 doğrulayın SSL, TLS ve DTLS bağlantılarının kimliğini doğrulamak için kullanılan sertifikaları](#x509-ssltls)</li><li>[Azure App Service'te özel etki alanı için SSL sertifikası yapılandırma](#ssl-appservice)</li><li>[Tüm trafiği HTTPS bağlantısı üzerinden Azure App Service'e zorla](#appservice-https)</li><li>[HTTP katı taşıma güvenliği (HSTS) etkinleştir](#http-hsts)</li></ul> |
 | **Veritabanı** | <ul><li>[SQL server bağlantı şifreleme ve sertifika doğrulaması emin olun](#sqlserver-validation)</li><li>[SQL Server şifreli iletişim zorla](#encrypted-sqlserver)</li></ul> |
 | **Azure Depolama** | <ul><li>[Azure Storage iletişim HTTPS üzerinden olduğundan emin olun](#comm-storage)</li><li>[HTTPS etkinleştirilirse blob indirdikten sonra MD5 karma değeri doğrulanamıyor](#md5-https)</li><li>[Azure dosya paylaşımları için aktarım sırasında veri şifreleme sağlamak için SMB 3.0 uyumlu İstemcisi'ni kullanın](#smb-shares)</li></ul> |
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event hub'ı | 
+| **Bileşen**               | Azure Event Hub | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -154,7 +154,7 @@ Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek ç
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | SQL Azure  |
-| **Öznitelikleri**              | SQL sürümü - V12 |
+| **Öznitelikleri**              | SQL Version - V12 |
 | **Başvuruları**              | [SQL veritabanı için bağlantı dizelerini yazma üzerinde en iyi yöntemler güvenli](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **Adımları** | <p>SQL veritabanı ile bir istemci uygulama arasındaki tüm iletişimler, her zaman Güvenli Yuva Katmanı (SSL) kullanılarak şifrelenir. SQL veritabanı şifrelenmemiş bağlantıları desteklemiyor. Uygulama kodu veya araçları ile sertifikaları doğrulamak için açıkça şifreli bir bağlantı isteği ve sunucu sertifikaları güvenmeyin. Uygulama kodu veya Araçlar şifreli bir bağlantı isteme, şifreli bağlantıları hala alacağı</p><p>Ancak, sunucu sertifikalarını doğrulamamasına ve bu nedenle "ortadaki adam" saldırılarına olacaktır. ADO.NET uygulama kodu sertifikalarla doğrulamak için `Encrypt=True` ve `TrustServerCertificate=False` veritabanı bağlantı dizesi içinde. SQL Server Management Studio aracılığıyla sertifikaları doğrulamak için Bağlan Server iletişim kutusunu açın. Bağlantı Özellikleri sekmesinde şifrele bağlantısına tıklayın</p>|
 
@@ -214,7 +214,7 @@ Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek ç
 | **Adımları** | <p>Sertifika sabitleme Man-In--Middle (MITM) saldırılarına karşı defends. Sabitleme olan bir konak kendi beklenen X509 ile ilişkilendirme işlemi sertifikası veya ortak anahtar. Bir sertifika veya ortak anahtar bilinen veya bir konak için görülen sonra sertifika ya da ortak anahtar ilişkili veya 'konağa sabitlenmiş'. </p><p>Bu nedenle, istek atılacak SSL MITM saldırı yapmak bir saldırganın çalışır ve sırasında SSL el sıkışması saldırganın sunucu anahtarından sabitlenmiş sertifika anahtarından farklı olacaktır, böylece MITM sertifika önleme sabitleme ServicePointManager'ın uygulayarak elde edilebilir `ServerCertificateValidationCallback` temsilci.</p>|
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 using System;
 using System.Net;
 using System.Net.Security;
@@ -343,7 +343,7 @@ string GetData(int value);
 
 ### <a name="example"></a>Örnek 
 Aşağıdaki kod, SSL için denetler bir Web API kimlik doğrulama filtre gösterir: 
-```C#
+```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
     public override void OnAuthorization(HttpActionContext actionContext)
@@ -363,7 +363,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
 }
 ```
 Bu filtre SSL gereken tüm Web API eylemler ekleyin: 
-```C#
+```csharp
 public class ValuesController : ApiController
 {
     [RequireHttps]

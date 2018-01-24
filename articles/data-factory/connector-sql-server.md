@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6e5b27493a786daa604124d4572f51bae4bcb20
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SQL Server gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -139,7 +139,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri t
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, SQL Server kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
 
@@ -256,10 +256,10 @@ SQL Server veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın. *
 | type | Kopya etkinliği havuz tür özelliği ayarlamak: **SqlSink** | Evet |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler.<br/>İzin verilen değerler: tamsayı (satır sayısı). |Hayır (varsayılan: 10000) |
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin.<br/>İzin verilen değerler: timespan. Örnek: "00: 30:00" (30 dakika). |Hayır |
-| sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Hayır |
+| preCopyScript |SQL Server'a veri yazmadan önce yürütmek kopyalama etkinliği için bir SQL sorgusunu belirtin. Bu yalnızca bir kez çalıştır kopya başına çağrılır. Önceden yüklenmiş veriyi temizlemek için bu özelliği kullanın. |Hayır |
+| sqlWriterStoredProcedureName |Kaynak verileri hedef tabloya örneğin upserts veya kendi iş mantığı kullanarak dönüşüm uygulamak nasıl tanımlar saklı yordamın adı. <br/><br/>Bu saklı yordam olacaktır Not **yığın başına çağrılan**. Yalnızca bir kez çalışır ve kaynak verilerle örneğin silme/kesmek yapmak için kullanmak için hiçbir şey olan işlemi yapmak istiyorsanız `preCopyScript` özelliği. |Hayır |
 | storedProcedureParameters |Saklı yordam parametreleri.<br/>İzin verilen değerler: ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
 | sqlWriterTableType |Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Hayır |
-| preCopyScript |Veri SQL Server'a her çalışmasında yazmadan önce yürütmek kopyalama etkinliği için bir SQL sorgusunu belirtin. Önceden yüklenmiş veriyi temizlemek için bu özelliği kullanın. |Hayır |
 
 > [!TIP]
 > SQL Server veri kopyalama, kopyalama etkinliği varsayılan olarak havuz tabloya veri ekler. UPSERT veya ek iş mantığı gerçekleştirmek için SqlSink içinde saklı yordamı kullanın. Daha fazla ayrıntıyı öğrenin [SQL havuz için saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
@@ -491,7 +491,7 @@ SQL Server başlangıç/bitiş veri kopyalama işlemi sırasında aşağıdaki e
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
-| Kayan nokta |Çift |
+| Kayan |Çift |
 | görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
@@ -512,7 +512,7 @@ SQL Server başlangıç/bitiş veri kopyalama işlemi sırasında aşağıdaki e
 | benzersiz tanımlayıcı |Guid |
 | varbinary |Byte] |
 | varchar |Dize, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="troubleshooting-connection-issues"></a>Bağlantı sorunlarını giderme
 

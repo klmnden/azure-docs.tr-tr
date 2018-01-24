@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Bu örnek, veri fabrikası nesneleri ve özellikleri kullanıcı tanımlı özel
 
 Etkinlik çalıştırıldığında referenceObjects ve extendedProperties SampleApp.exe aynı yürütme klasöre dağıtılan aşağıdaki dosyaları depolanır: 
 
-- Activity.JSON
+- activity.json
 
   ExtendedProperties ve özel etkinlik özelliklerini depolar. 
 
@@ -202,7 +202,7 @@ Etkinlik çalıştırıldığında referenceObjects ve extendedProperties Sample
 
 Örnek kod SampleApp.exe JSON dosyalarından gerekli bilgileri nasıl erişebileceğiniz gösterilmektedir: 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -318,7 +318,7 @@ Aşağı Akış etkinlikleri stdout.txt içeriği kullanmak istiyorsanız, ifade
 |Betikleri yürütülüyor      |Betikleri Yürütülüyor doğrudan (örneğin "cmd /c echo hello world" Windows VM üzerinde) desteği      |DLL .net uygulamasında gerektirir      |
 |Veri kümesi gerekiyor      |İsteğe bağlı      |Etkinlikler zincir ve bilgi aktarmak için gerekli      |
 |Özel mantık etkinliğinden geçiş bilgileri      |ReferenceObjects (LinkedServices ve veri kümeleri) ve ExtendedProperties (Özel Özellikler) aracılığıyla ve      |ExtendedProperties (özel özellikleri), giriş ve çıkış veri kümeleri      |
-|Özel mantık bilgilerini alma      |Activity.JSON, linkedServices.json ve yürütülebilir aynı klasörde depolanan datasets.json ayrıştırılamıyor      |.NET SDK'sı (.Net çerçevesi 4.5.2)      |
+|Özel mantık bilgilerini alma      |Parse activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |.NET SDK'sı (.Net çerçevesi 4.5.2)      |
 |Günlüğe kaydetme      |STDOUT doğrudan Yazar      |. NET'te DLL Implemeting Günlükçü      |
 
 
@@ -359,7 +359,7 @@ Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalel
 * [U-SQL etkinliği](transform-data-using-data-lake-analytics.md)
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
 * [Pig etkinliği](transform-data-using-hadoop-pig.md)
-* [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [Machine Learning toplu iş yürütme etkinliği](transform-data-using-machine-learning.md)

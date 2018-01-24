@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b933adc884c8c353d50f94b40de2b977f852671
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f3faaf964c33ca336d91c1cf207e077046f617e9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen dosya ve sıkıştırma biçimleri
 *Bu konu, aşağıdaki bağlayıcılar için geçerlidir: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [dosya sistemi](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), ve [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
-> Bu makale, genel olarak kullanılabilir (GA) olduğu Azure Data Factory, 1 sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [desteklenen dosya biçimleri ve sıkıştırma codec Data Factory sürüm 2](../supported-file-formats-and-compression-codecs.md).
+> Bu makale, Azure Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [desteklenen dosya biçimleri ve sıkıştırma codec Data Factory sürüm 2](../supported-file-formats-and-compression-codecs.md).
 
 Azure Data Factory aşağıdaki dosya biçimi türlerini destekler:
 
@@ -228,7 +228,7 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
 **JsonFormat** türüne sahip giriş veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha ayrıntılı belirtmek gerekirse:
 
 - `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Bkz: [kaynak veri kümesi sütunları hedef veri kümesi sütun eşleme](data-factory-map-columns.md) daha fazla ayrıntı için bölüm.
-- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Verileri diziden kopyalamak için **array[x].property** öğesini kullanarak söz konusu özelliğin değerini xth nesnesinden ayıklayabilir veya **array[*].property** öğesini kullanarak bu özelliği içeren herhangi bir nesneden değeri bulabilirsiniz.
+- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Diziden verileri kopyalamak için kullanabileceğiniz **array [x] .property** un x. nesne veya size sağlanan özellik değeri ayıklamak için kullanabilirsiniz **array [*] .property** gibi içeren herhangi bir nesneden değeri bulmak için özellik.
 
 ```json
 "properties": {

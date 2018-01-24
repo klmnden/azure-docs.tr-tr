@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 05318f85997111fd3301d819084115fef6d00f6a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API Management, olay hub'ları ve Runscope Apı'lerinizi izleme
 [API Management hizmeti](api-management-key-concepts.md) HTTP API'nizi gönderilen HTTP isteklerinin işlenmesini geliştirmek için çok sayıda özellik sağlar. Ancak, isteklerin ve yanıtların varlığını geçicidir. İstek yapıldığında ve arka uç API'niz için API Management hizmeti aracılığıyla akar. API'nizi isteği işler ve bir yanıt API tüketiciye geriye doğru akar. API Management hizmeti bazı önemli istatistik görüntü API'leri hakkında Publisher portal panosunda, ancak ötesine ayrıntıları kayboldu, tutar.
@@ -163,10 +163,10 @@ Azure Event Hub olaylarından kullanarak alınan [AMQP protokolünü](http://www
 ### <a name="eventprocessorhost"></a>EventProcessorHost
 Bu örnekte, kullandığımız `EventProcessorHost` kolaylık sağlamak için ancak bunu olabilir en iyi seçenek belirli bu senaryo için değil. `EventProcessorHost`iş parçacığı oluşturma sorunları belirli olay işlemcisi sınıfı içinde hakkında endişelenmeniz gerekmez emin olmak zor bir iş yapar. Ancak, Senaryomuzda biz yalnızca ileti başka bir biçime dönüştürme ve onu boyunca bir zaman uyumsuz yöntem kullanarak başka bir hizmete geçirmeden. Paylaşılan durum ve iş parçacığı oluşturma sorunları, bu nedenle hiçbir risk güncelleştirmek için gerek yoktur. Çoğu senaryo için `EventProcessorHost` büyük olasılıkla en iyi seçenek, kesinlikle daha kolay seçeneği ise.     
 
-### <a name="ieventprocessor"></a>Ieventprocessor
+### <a name="ieventprocessor"></a>IEventProcessor
 Kullanırken merkezi kavram `EventProcessorHost` uygulaması oluşturmaktır `IEventProcessor` yöntemi içeren arabirimi `ProcessEventAsync`. Bu yöntem özünü burada gösterilir:
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -193,7 +193,7 @@ EventData nesnelerin bir listesini, yönteme geçirilir ve biz bu liste yineleme
 ### <a name="httpmessage"></a>HttpMessage
 `HttpMessage` Örnek veri üç parçalarını içerir:
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -216,7 +216,7 @@ Bu örnek için onu olacaktır için üzerinden HTTP isteği göndermek ilginç 
 
 `IHttpMessageProcessor` Uygulaması şu şekilde görünür
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;

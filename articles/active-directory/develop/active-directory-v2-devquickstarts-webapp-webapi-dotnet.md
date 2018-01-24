@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Bir .NET web uygulamasından web API'si çağırma
 Hızlı bir şekilde v2.0 uç noktası ile kimlik doğrulaması web uygulamalarınıza eklemek ve hem kişisel Microsoft hesapları için destek ve iş veya Okul hesaplarıyla API web.  Burada, biz Openıd Connect, Microsoft'un OWIN ara yazılımı için biraz Yardım ile kullanarak kullanıcılar oturum açtığında bir MVC web uygulaması oluşturma.  Web uygulaması web API'si OAuth 2.0 tarafından sağlayan güvenli oluşturma için OAuth 2.0 erişim belirteçleri almak, okuma ve belirli kullanıcının "Yapılacaklar listesi üzerinde" silin.
@@ -68,7 +68,7 @@ Kullanılacak OWIN Ara yazılımının şimdi yapılandırmak [Openıd Connect k
 * Dosyayı açmak `App_Start\Startup.Auth.cs` ve ekleme `using` deyimleri üstten kitaplıkları için.
 * Aynı dosyada uygulamak `ConfigureAuth(...)` yöntemi.  Sağladığınız içinde parametreleri `OpenIDConnectAuthenticationOptions` uygulamanız için Azure AD ile iletişim kurmak için koordinatları olarak hizmet verecektir.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ public void ConfigureAuth(IAppBuilder app)
 * Ve başka bir tane eklemek `using` ifadesine `App_Start\Startup.Auth.cs` MSAL dosyası.
 * Şimdi yeni bir yöntem ekleyin `OnAuthorizationCodeReceived` olay işleyicisi.  Bu işleyici MSAL Yapılacaklar listesi API için bir erişim belirteci almak için kullanır ve belirteç MSAL'ın belirteci önbelleğinde daha sonrası için depolar:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
     `using Microsoft.Identity.Client;`
 * İçinde `Index` eylemin, kullanım MSAL `AcquireTokenSilentAsync` Yapılacaklar listesi hizmetinden veri okumak için kullanılan bir access_token almak için yöntemi:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * Örnek HTTP GET isteği elde edilen belirteç sonra ekler `Authorization` Yapılacaklar listesi hizmetinin istek kimliğini doğrulamak için kullandığı üstbilgi.
 * Yapılacaklar listesi hizmet döndürürse bir `401 Unauthorized` yanıtı access_tokens MSAL içinde geçersiz hale herhangi bir nedenden dolayı.  Bu durumda, MSAL önbellekten herhangi access_tokens bırakın ve kullanıcı yeniden hangi belirteç edinme akışı yeniden içinde oturum gerekebilir görüntülenmesi gerekir.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * Benzer şekilde, MSAL herhangi bir nedenle bir access_token döndüremedi ise, kullanıcı yeniden oturum açmak için istemeniz gerekir.  Bu herhangi bir yakalama olarak kadar basittir `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

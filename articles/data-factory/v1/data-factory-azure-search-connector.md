@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Search dizini veri göndermek
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Aşağıdaki tabloda Azure Search bağlantılı hizmete özgü JSON öğeleri i�
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
 | type | Type özelliği ayarlanmalıdır: **AzureSearch**. | Evet |
-| URL | Azure Search hizmeti için URL. | Evet |
+| url | Azure Search hizmeti için URL. | Evet |
 | anahtar | Azure Search hizmeti için yönetici anahtarı. | Evet |
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
@@ -73,7 +73,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilir olan özellikl
 | indexName | Azure Search dizini adı. Veri Fabrikası dizinini oluşturmaz. Azure Search'te dizin mevcut olması gerekir. | Evet |
 
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilir olan özellikleri tam listesi için bkz: [ardışık düzen oluşturma](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve çeşitli ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir. Oysa typeProperties bölümündeki özellikler her etkinlik türü ile farklılık gösterir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
 
 Kopyalama Havuz türü olduğunda etkinliği için **AzureSearchIndexSink**, typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
@@ -81,7 +81,7 @@ Kopyalama Havuz türü olduğunda etkinliği için **AzureSearchIndexSink**, typ
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).| Merge (varsayılan)<br/>Karşıya Yükle| Hayır |
-| writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. Bkz: [WriteBatchSize özelliği](#writebatchsize-property) Ayrıntılar için. | 1 için 1.000. Varsayılan değer 1000'dir. | Hayır |
+| WriteBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. Bkz: [WriteBatchSize özelliği](#writebatchsize-property) Ayrıntılar için. | 1 için 1.000. Varsayılan değer 1000'dir. | Hayır |
 
 ### <a name="writebehavior-property"></a>WriteBehavior özelliği
 Verileri yazarken AzureSearchSink upserts. Diğer bir deyişle, belge anahtarı Azure arama dizini zaten varsa bir belge yazarken, Azure Search çakışma özel durum atma yerine varolan bir belgeyi güncelleştirir.
@@ -93,7 +93,7 @@ AzureSearchSink (AzureSearch SDK kullanılarak) aşağıdaki iki upsert davranı
 
 Varsayılan davranış **birleştirme**.
 
-### <a name="writebatchsize-property"></a>WriteBatchSize özelliği
+### <a name="writebatchsize-property"></a>WriteBatchSize Property
 Azure Search Hizmeti yazma belgeleri toplu iş olarak destekler. Bir toplu iş için 1 1.000 eylemler içerebilir. Bir eylem karşıya yükleme/birleştirme işlemi gerçekleştirmek için bir belge işler.
 
 ### <a name="data-type-support"></a>Veri türü desteği
@@ -105,7 +105,7 @@ Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmed
 | Int32 | E |
 | Int64 | E |
 | Çift | E |
-| Boole değeri | E |
+| Boole | E |
 | DataTimeOffset | E |
 | Dize dizisi | N |
 | GeographyPoint | N |

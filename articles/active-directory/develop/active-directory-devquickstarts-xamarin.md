@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -98,7 +98,7 @@ Neredeyse tüm uygulamanın kimlik doğrulaması mantığı arasındadır `Direc
 
 1. DirectorySearcher.cs açın ve ardından yeni bir parametre eklemek `SearchByAlias(...)` yöntemi. `IPlatformParameters`ADAL kimlik doğrulaması gerçekleştirmesine gerek platforma özgü nesneleri yalıtan bağlamsal parametresidir.
 
-    ```C#
+    ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
     ```
@@ -107,7 +107,7 @@ Neredeyse tüm uygulamanın kimlik doğrulaması mantığı arasındadır `Direc
 Bu eylem ADAL geçirir gereken Azure AD ile iletişim kurmak için koordinatları.
 3. Çağrı `AcquireTokenAsync(...)`, hangi kabul `IPlatformParameters` nesne ve uygulama için bir belirteç döndürmek gerekli olan kimlik doğrulama akışı çağırır.
 
-    ```C#
+    ```csharp
     ...
         AuthenticationResult authResult = null;
         try
@@ -126,7 +126,7 @@ Bu eylem ADAL geçirir gereken Azure AD ile iletişim kurmak için koordinatlar�
     `AcquireTokenAsync(...)`ilk (Bu durumda grafik API'si) istenen kaynak için bir belirteç (önbelleğe alma veya eski belirteçleri yenileme aracılığıyla) kimlik bilgilerini girmesini sormadan döndürmeyi dener. Gerekirse, bu kullanıcılar Azure AD oturum açma sayfası istenen belirtecini alma önce gösterir.
 4. Grafik API'si istekte erişim belirteci ekleme **yetkilendirme** üstbilgisi:
 
-    ```C#
+    ```csharp
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
     ...
@@ -137,12 +137,12 @@ Tüm olan için `DirectorySearcher` PCL ve uygulama kimlikle ilgili kod. Kalan t
 ### <a name="android"></a>Android
 1. MainActivity.cs içinde bir çağrı ekleyin `SearchByAlias(...)` işleyici düğmesini tıklatın:
 
-    ```C#
+    ```csharp
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 2. Geçersiz kılma `OnActivityResult` yaşam döngüsü yöntemi herhangi bir kimlik doğrulaması iletmek için uygun yöntemine yönlendirir. ADAL yardımcı yöntem bu Android sağlar:
 
-    ```C#
+    ```csharp
     ...
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
@@ -155,7 +155,7 @@ Tüm olan için `DirectorySearcher` PCL ve uygulama kimlikle ilgili kod. Kalan t
 ### <a name="windows-desktop"></a>Windows Masaüstü
 MainWindow.xaml.cs içinde çağırmaya `SearchByAlias(...)` geçirerek bir `WindowInteropHelper` masaüstünün içinde `PlatformParameters` nesnesi:
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -164,7 +164,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 #### <a name="ios"></a>iOS
 DirSearchClient_iOSViewController.cs, iOS içinde `PlatformParameters` nesne görünüm denetleyicisini başvuru alır:
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -173,7 +173,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ### <a name="windows-universal"></a>Windows Evrensel
 Windows Evrensel MainPage.xaml.cs açın ve ardından uygulama `Search` yöntemi. Bu yöntem, kullanıcı Arabirimi gerektiği şekilde güncelleştirmek için paylaşılan bir proje yardımcı bir yöntem kullanır.
 
-```C#
+```csharp
 ...
 List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
 ...

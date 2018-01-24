@@ -3,9 +3,9 @@ title: "Azure Disk şifrelemesi ile ilgili SSS | Microsoft Docs"
 description: "Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında sık sorulan soruların yanıtlarını sağlar."
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk şifrelemesi ile ilgili SSS
 
@@ -47,7 +47,7 @@ Bu makale için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında s
 
 | Linux dağıtım | Sürüm | Şifreleme için desteklenen birim türü|
 | --- | --- |--- |
-| Ubuntu | 16.04 GÜNLÜK LTS | İşletim sistemi ve veri diski |
+| Ubuntu | 16.04-DAILY-LTS | İşletim sistemi ve veri diski |
 | Ubuntu | 14.04.5-DAILY-LTS | İşletim sistemi ve veri diski |
 | RHEL | 7.3 | İşletim sistemi ve veri diski |
 | RHEL | 7.2 | İşletim sistemi ve veri diski |
@@ -63,9 +63,9 @@ Bu makale için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında s
 | CentOS | 6.5 | Veri diski |
 | openSUSE | 13.2 | Veri diski |
 | SLES | 12 SP1 | Veri diski |
-| SLES | Öncelik: 12-SP1 | Veri diski |
+| SLES | Priority:12-SP1 | Veri diski |
 | SLES | HPC 12 | Veri diski |
-| SLES | Öncelik: 11-SP4 | Veri diski |
+| SLES | Priority:11-SP4 | Veri diski |
 | SLES | 11 SP4 | Veri diski |
 
 **S:** nasıl ı başlayabileceğini Azure Disk Şifrelemesi'ni kullanarak?
@@ -119,7 +119,7 @@ Bu makale için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında s
 * Şifreleme (birden çok saat veya hatta günlerce vm özelliklerini ve eklenen veri disklerini boyutuna bağlı olarak alabilir)
 * Özelleştirme ve gerektiğinde görüntüye yazılım ekleyin.
 
-Bu iş akışının mümkün değilse, güvenmek [depolama hizmeti şifrelemesi](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) adresinde platform depolama hesabı katman alternatif dm-crypt kullanan tam disk şifrelemesi olabilir.
+Bu iş akışının mümkün değilse, güvenmek [depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) adresinde platform depolama hesabı katman alternatif dm-crypt kullanan tam disk şifrelemesi olabilir.
 
 **S:** disk "Bek birimi" veya "/ mnt/azure_bek_disk" nedir?
 

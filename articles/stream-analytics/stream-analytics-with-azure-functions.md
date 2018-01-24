@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Azure işlevleri ile Azure akış analizi işleri çalıştırma 
  
@@ -62,7 +62,7 @@ Aşağıdaki adımlar, bu görevi gerçekleştirmek için gereklidir:
 
 2. Gözat **run.csx** işlevi. Aşağıdaki kod ile güncelleştirin. (Değiştirdiğinizden emin olun "\<redis önbelleği bağlantı dizenizi Buraya\>" önceki bölümde alınan Azure Redis önbelleği birincil bağlantı dizesiyle.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +113,7 @@ Aşağıdaki adımlar, bu görevi gerçekleştirmek için gereklidir:
 
    Stream Analytics işlevinden "HTTP istek varlığı çok büyük" özel durum aldığında, işlevlere gönderir toplu boyutunu azaltır. İşlevinizi, Stream Analytics büyük boyutlu toplu göndermez denetlemek için aşağıdaki kodu kullanın. İşlevde kullanılan en büyük toplu iş sayısı ve boyutu değerlerini Stream Analytics portalda girdiğiniz değerleri ile tutarlı olduğundan emin olun.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
@@ -154,8 +154,8 @@ Aşağıdaki adımlar, bu görevi gerçekleştirmek için gereklidir:
 
    |**Özellik adı**|**Açıklama**|
    |---|---|
-   |Çıkış diğer adları| İşin sorgu başvuru çıktı için kullandığınız bir kolay ad. |
-   |İçe aktarma seçeneği| Geçerli aboneliğe ilişkin işlevi kullanın veya başka bir abonelikte işlevi bulunuyorsa ayarları el ile belirtin. |
+   |Çıkış diğer adı| İşin sorgu başvuru çıktı için kullandığınız bir kolay ad. |
+   |İçeri aktarma seçeneği| Geçerli aboneliğe ilişkin işlevi kullanın veya başka bir abonelikte işlevi bulunuyorsa ayarları el ile belirtin. |
    |İşlev Uygulaması| İşlevler uygulamanızın adı. |
    |İşlev| İşlevler uygulamanızda (run.csx işlevinizin adı) işlevinin adı.|
    |En büyük toplu iş boyutu|İşleve gönderilen her çıktı toplu boyut üst sınırını ayarlar. Varsayılan olarak, bu değer 256 KB olarak ayarlanır.|
@@ -179,7 +179,7 @@ Aşağıdaki adımlar, bu görevi gerçekleştirmek için gereklidir:
 
 5. Komut satırında aşağıdaki komutu çalıştırarak telcodatagen.exe uygulamayı başlatın (biçimini kullanın `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
-   **telcodatagen.exe 1000.2 2**
+   **telcodatagen.exe 1000 .2 2**
     
 6.  Stream Analytics işi başlatın.
 
@@ -189,7 +189,7 @@ Aşağıdaki adımlar, bu görevi gerçekleştirmek için gereklidir:
 
 2. Kullanım [Redis önbelleği komutları](https://redis.io/commands) verilerinizi Redis Önbelleği'nde olduğu doğrulanamadı. (Komutu biçimini alır Get {anahtar}.) Örneğin:
 
-   **Al "19/12/2017 21:32:24-123414732"**
+   **Get "12/19/2017 21:32:24 - 123414732"**
 
    Bu komut, belirtilen anahtar için değer Yazdır:
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: a5b4056f3198e998fa7fb127fd2c4bcda90e4bbb
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Self Servis parola sıfırlama için Azure AD işlevselliği özelleştirme
 
@@ -74,31 +74,7 @@ Aşağıdaki durumlarda, seçtiğiniz grafik gösterilmektedir:
     * Geçirerek *ws* parametresi parolayı Sıfırla "https://login.microsoftonline.com/?whr=contoso.com" gibi sayfa
     * Geçirerek *kullanıcıadı* parola parametresi sıfırla sayfası, olduğu gibi "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-### <a name="graphics-details"></a>Grafik ayrıntıları
-
-Oturum açma sayfasının görsel özelliklerini değiştirmek için aşağıdaki ayarları kullanın. Git **Azure Active Directory** > **şirket markası** > **düzenleme şirket markası**:
-
-* Oturum açma sayfası görüntüsü bir .png veya .jpg dosyası 1420 x 1200 piksel ve 500 KB'den büyük olmalıdır. En iyi sonuçlar için yaklaşık 200 KB tutmanızı öneririz.
-* Oturum açma sayfası arka plan rengi üzerinde yüksek Gecikmeli bağlantılar kullanılır ve RGB onaltılık biçimde olmalıdır.
-* Başlık resmi bir .png veya .jpg dosyası 60 x 280 piksel olması ve 10 KB'den büyük olmaması gerekir.
-* (Normal açık ve koyu renkli tema) kare logo bir .png veya .jpg dosyası 240 x 240 (yeniden boyutlandırılabilir) piksel ve 10 KB'den büyük olmalıdır.
-
-### <a name="sign-in-text-options"></a>Metin oturum açma seçenekleri
-
-Kuruluşunuz için uygun olan oturum açma sayfası metni eklemek için aşağıdaki ayarları kullanın. Git **Azure Active Directory** > **şirket markası** > **düzenleme şirket markası**:
-
-* **Kullanıcı adı İpucu**: örnek metnini değiştirir  *someone@example.com*  kullanıcılarınız için daha uygun bir şeyle. İç ve dış kullanıcılar desteklediğinde, varsayılan ipucu bırakmanız önerilir.
-* **Oturum açma sayfası metni**: en fazla 256 karakter uzunluğunda olabilir. Bu metin herhangi bir yerde çevrimiçi ve Windows 10 Azure AD çalışma alanına katılma deneyimi kullanıcılarınız oturum görüntülenir. Bu metin koşullarını kullanın, yönergeler ve kullanıcılarınız için ipuçları için kullanın. 
-
-   >[!IMPORTANT]
-   >Herkes herhangi bir önemli bilgi burada sağlamıyorsa için oturum açma sayfanız, görebilirsiniz.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>"Bana imzalı Koru devre dışı" ayarı
-
-İle **Oturumumu devre dışı açık tutmak** seçeneği, kullanıcıların kalır oturum açmış durumda kapatın ve bunların tarayıcı penceresini yeniden açın. Bu seçenek oturum yaşam etkilemez. Git **Azure Active Directory** > **şirket markası** > **düzenleme şirket markası**.
-
-SharePoint Online ve Office 2010 özelliklerinden bazıları bu onay kutusunu seçmek için kullanıcıların yeteneğini bir bağımlılık vardır. Bu seçenek Gizle kullanıcılar ek ve beklenmeyen oturum açma komut istemlerini edinebilirsiniz.
+Şirket markası makalesinde yapılandırma ayrıntılarını bulun [şirket Azure AD'de, oturum açma sayfasına markası ekleme](customize-branding.md).
 
 ### <a name="directory-name"></a>Dizin adı
 

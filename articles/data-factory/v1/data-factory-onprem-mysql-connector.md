@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Veri öğesinden MySQL Azure Data Factory kullanarak Taşı
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi MySQL verita
 
 Bir şirket içi MySQL veri deposundan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca veri taşımayı MySQL veri deposundan diğer veri depolarına, ancak verileri diğer veri depolarına bir MySQL veri deposuna taşıma değil destekler. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Data Factory hizmetinin şirket içi MySQL kaynaklarına veri yönetimi ağ geçidi kullanarak bağlanmayı destekler. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale veri yönetimi ağ geçidi ve ağ geçidi kurun ayarlama hakkında adım adım yönergeleri hakkında bilgi edinin.
 
 Bir Azure Iaas sanal makine (VM) MySQL veritabanını barındıran olsa bile ağ geçidi gereklidir. Ağ geçidi veritabanına bağlanıp sürece veri deposu olarak aynı VM veya farklı bir VM ağ geçidi yükleyebilirsiniz.
@@ -71,7 +71,7 @@ Aşağıdaki tabloda, JSON öğeleri MySQL bağlantılı hizmete özgü açıkla
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesMySql** |Evet |
 | sunucu |MySQL sunucu adı. |Evet |
-| Veritabanı |MySQL veritabanının adı. |Evet |
+| veritabanı |MySQL veritabanının adı. |Evet |
 | Şema |Veritabanı şemasında adı. |Hayır |
 | authenticationType |MySQL veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: `Basic`. |Evet |
 | kullanıcı adı |MySQL veritabanına bağlanmak için kullanıcı adını belirtin. |Evet |
@@ -87,7 +87,7 @@ Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam l
 | --- | --- | --- |
 | tableName |MySQL veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları gibi özellikleri olan ilkeleri etkinlikleri tüm türleri için kullanılabilir.
 
 Bulunan özellikler **typeProperties** etkinlik bölümünü her etkinlik türü ile değişir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
@@ -305,20 +305,20 @@ MySQL için veri taşırken, aşağıdaki eşlemelerini MySQL türlerinden .NET 
 | bigint imzalanmamış |Ondalık |
 | bigint |Int64 |
 | bit |Ondalık |
-| BLOB |Byte] |
-| bool |Boole değeri |
+| blob |Byte] |
+| bool |Boole |
 | char |Dize |
-| Tarih |Tarih saat |
-| Tarih saat |Tarih saat |
+| tarih |Tarih saat |
+| datetime |Tarih saat |
 | Ondalık |Ondalık |
 | çift duyarlıklı |Çift |
-| Çift |Çift |
+| double |Çift |
 | Enum |Dize |
-| Kayan nokta |Tek |
+| float |Bekar |
 | İmzasız int |Int64 |
 | Int |Int32 |
 | işaretsiz tamsayı |Int64 |
-| tamsayı |Int32 |
+| integer |Int32 |
 | uzun varbinary |Byte] |
 | uzun varchar |Dize |
 | longblob |Byte] |
@@ -340,7 +340,7 @@ MySQL için veri taşırken, aşağıdaki eşlemelerini MySQL türlerinden .NET 
 | Mini tamsayı |Int16 |
 | tinytext |Dize |
 | varchar |Dize |
-| Yıl |Int |
+| yıl |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme
 Havuz dataset sütunlara kaynak kümesindeki eşleme sütunları hakkında bilgi edinmek için [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).

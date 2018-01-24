@@ -3,7 +3,7 @@ title: "MySQL veritabanları PaaS Azure yığında kullanın | Microsoft Docs"
 description: "MySQL kaynak sağlayıcı dağıtmak ve Azure yığında bir hizmet olarak MySQL veritabanları sağlar nasıl bilgi edinin"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
@@ -90,7 +90,7 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
 
 6. [Azure PowerShell sürüm 1.2.11 yükleme](azure-stack-powershell-install.md).
 
-7. DeploySqlProvider.ps1 komut dosyasını çalıştırın.
+7. `DeployMySqlProvider.ps1` betiğini çalıştırın.
 
 Komut dosyası, aşağıdaki adımları gerçekleştirir:
 
@@ -155,12 +155,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametreleri
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli olanları sağlamanız istenir.
 
 | Parametre Adı | Açıklama | Açıklama veya varsayılan değeri |
 | --- | --- | --- |
-| **CloudAdminCredential** | Privleged Endpoint erişmek için gerekli bulut yönetici kimlik bilgileri. | _Gerekli_ |
+| **CloudAdminCredential** | Bulut Yöneticisi, ayrıcalıklı Endpoint erişmek için gerekli kimlik bilgileri. | _Gerekli_ |
 | **AzCredential** | Azure yığın Hizmet yöneticisi hesabı için kimlik bilgilerini sağlayın. Azure yığın dağıtmak için kullanılan aynı kimlik bilgilerini kullanın). | _Gerekli_ |
 | **VMLocalCredential** | MySQL kaynak sağlayıcısı VM yerel yönetici hesabının kimlik bilgilerini tanımlar. | _Gerekli_ |
 | **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı sağlayın. |  _Gerekli_ |
@@ -323,7 +323,7 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbi
 | **CloudAdminCredential** | Bulut Yöneticisi, ayrıcalıklı Endpoint erişmek için gerekli kimlik bilgileri. | _Gerekli_ |
 | **AzCredential** | Azure yığın Hizmet yöneticisi hesabı için kimlik bilgilerini sağlayın. Azure yığın dağıtmak için kullanılan aynı kimlik bilgilerini kullanın). | _Gerekli_ |
 | **VMLocalCredential** | SQL kaynak sağlayıcısının VM yerel yönetici hesabının kimlik bilgilerini tanımlar. | _Gerekli_ |
-| **PrivilegedEndpoint** | IP adresi veya Privleged uç noktanın DNS adı sağlayın. |  _Gerekli_ |
+| **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı sağlayın. |  _Gerekli_ |
 | **DependencyFilesLocalPath** | Sertifika PFX dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
 | **DefaultSSLCertificatePassword** | .Pfx sertifika için parola | _Gerekli_ |
 | **MaxRetryCount** | Bir hata varsa her işlemini yeniden denemek istiyor kaç kez tanımlayın.| 2 |

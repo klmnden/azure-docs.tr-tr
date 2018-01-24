@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: seohack1
-ms.openlocfilehash: 9c0fb2c1d90f4c4ef50e658e9baca91795581eae
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: bir Windows masaüstü uygulaması oluşturma
 Azure Active Directory (Azure AD) B2C kullanarak masaüstü uygulamanızı birkaç adımda güçlü Self Servis kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makalede kullanıcı kaydı, oturum açma ve profil yönetimini kapsayan .NET Windows Presentation Foundation (WPF) "Yapılacaklar listesi" uygulamasının nasıl oluşturulacağını gösterir. Uygulama bir kullanıcı adı veya e-posta kullanarak kaydolma ve oturum açma için destek içerir. Facebook ve Google gibi sosyal hesaplarını kullanarak, kaydolma ve oturum açma için destek yer alacaktır.
@@ -72,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>B2C bilgilerinizi girme
 Dosyayı açmak `Globals.cs` ve her özellik değerleri kendinizinkilerle değiştirin. Bu sınıf genelinde kullanılan `TaskClient` yaygın olarak kullanılan başvuru değerleri.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -93,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>PublicClientApplication oluşturma
 MSAL birincil sınıfı `PublicClientApplication`. Bu sınıf, uygulamanızın Azure AD B2C sistemde temsil eder. Uygulama initalizes bir örneğini oluştururken `PublicClientApplication` içinde `MainWindow.xaml.cs`. Bu pencere kullanılabilir.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -111,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Kaydolma akışı başlatma
 Bir kullanıcı yukarı işaretlerine seçtiğinde, oluşturduğunuz kaydolma ilkeyi kullanan bir kaydolma akışı başlatmak istediğinizi. MSAL kullanarak, yalnızca çağırmanız `pca.AcquireTokenAsync(...)`. Geçirdiğiniz için parametreleri `AcquireTokenAsync(...)` hangi belirteci aldığınız, kimlik doğrulama isteği ve daha fazlasını kullanılan ilkeyi belirleyin.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -162,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Oturum açma akışını başlatmak
 Kaydolma akış başlatmak aynı şekilde oturum açma akışını başlatabilirsiniz. Bir kullanıcı oturum açtığında, oturum açma ilkesini kullanarak bu kez MSAL, aynı çağrısı yapın:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -177,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Bir profili Düzenle akışı başlatma
 Yeniden düzenleme profili İlkesi aynı şekilde çalıştırabilirsiniz:
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -193,7 +193,7 @@ Bu durumların tümünde, MSAL bir belirteç içine ya da döndürür `Authentic
 ### <a name="check-for-tokens-on-app-start"></a>Uygulama başlangıç belirteçleri denetleyin
 MSAL, kullanıcının oturum açma durumunu izlemek için de kullanabilirsiniz.  Bu uygulamada bile bunların uygulamayı kapatın ve yeniden açın sonra oturum açmış durumda kalmak için kullanıcı istiyoruz.  Geri içinde `OnInitialized` geçersiz kılma, MSAL'ın kullanmak `AcquireTokenSilent` yöntemi olup olmadığını denetlemek için önbelleğe alınmış belirteçleri:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -232,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>Görev API çağrısı
 Şimdi MSAL ilkeleri yürütün ve belirteçleri almak için kullandığınız.  Bir görev API'sini çağırmak için bu belirteçleri kullanmak istediğinizde, MSAL'ın yeniden kullanabilirsiniz `AcquireTokenSilent` yöntemi olup olmadığını denetlemek için önbelleğe alınmış belirteçleri:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -277,7 +277,7 @@ private async void GetTodoList()
 
 Zaman çağrısı `AcquireTokenSilentAsync(...)` başarılı olur ve bir belirteç önbelleğinde bulunan, belirtece eklediğiniz `Authorization` HTTP isteği üstbilgisi. Görev web API, kullanıcının yapılacaklar listesini okuma isteği kimlik doğrulaması için bu üstbilgiyi kullanır:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -290,7 +290,7 @@ Zaman çağrısı `AcquireTokenSilentAsync(...)` başarılı olur ve bir belirte
 ## <a name="sign-the-user-out"></a>Kullanıcı Oturumu Kapat
 Son olarak, kullanıcı seçtiğinde uygulama ile bir kullanıcının oturumunu sona erdirmek için MSAL kullanabilirsiniz **oturumu**.  MSAL kullanırken, bu belirteç önbelleği belirteçlerinden tümünün temizleyerek gerçekleştirilir:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

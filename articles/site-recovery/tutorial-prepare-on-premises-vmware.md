@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33ec5775a371a04074f07d589d35d1c05bd64d30
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af09c5602c53be4377ba19e68ff3486bcfefe0ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Olağanüstü durum kurtarma Azure için şirket içi VMware sunucuları hazırlama
 
@@ -71,8 +71,8 @@ VMware sunucular aşağıdaki gereksinimleri karşıladığından emin olun.
 
 **Bileşen** | **Gereksinim**
 --- | ---
-**vCenter sunucusu** | vCenter 6.5, 6.0 veya 5.5
-**vSphere ana bilgisayar** | vSphere 6.5, 6.0, 5.5
+**vCenter server** | vCenter 6.5, 6.0 veya 5.5
+**vSphere host** | vSphere 6.5, 6.0, 5.5
 
 ## <a name="check-vmware-vm-requirements"></a>VMware VM gereksinimlerini denetleyin
 
@@ -88,7 +88,7 @@ VM aşağıdaki tabloda özetlenen Azure gereksinimlere uygun olduğundan emin o
 **Paylaşılan VHD** | Desteklenmiyor
 **FC disk** | Desteklenmiyor
 **Sabit disk biçimi** | VHD veya VHDX.<br/><br/> VHDX şu anda Azure'da desteklenmiyor olsa da, Site Recovery, Azure'a yük otomatik olarak VHDX VHD'ye dönüştürür. Şirket içi sanal makineleri başarısız olduğunda VHDX biçimi kullanmaya devam edin.
-**BitLocker'ı** | Desteklenmiyor. Bir sanal makine için çoğaltmayı etkinleştirmeden önce devre dışı bırakın.
+**Bitlocker** | Desteklenmiyor. Bir sanal makine için çoğaltmayı etkinleştirmeden önce devre dışı bırakın.
 **VM adı** | 1 ile 63 karakter.<br/><br/> Harf, rakam ve kısa çizgi için kısıtlanmış. VM adı başlamalı ve bir harf veya sayı ile bitmelidir.
 **VM türü** | Nesil 1 - Linux veya Windows<br/><br/>Nesil 2 - yalnızca Windows
 
@@ -110,7 +110,7 @@ Yük devretme sonrasında SSH kullanarak Linux VM'ler bağlanmak için aşağıd
 1. Yük devretmeden önce şirket içi makinede Secure Shell hizmetinin sistem önyüklemesinde otomatik olarak başlamaya ayarlanmıştır denetleyin. Güvenlik duvarı kuralları bir SSH bağlantısı izin verdiğinden emin olun.
 
 2. Yük devretme sonrasında Azure VM'de, SSH bağlantı noktası için ağ güvenlik grubu kurallarının devredilen VM'ye ve bağlı olduğu Azure alt ağ için gelen bağlantılara izin verin.
-   [Bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) VM için. Kontrol edebilirsiniz **önyükleme tanılama** ekran VM görüntüsünü görüntülemek için.
+   [Bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md) VM için. Kontrol edebilirsiniz **önyükleme tanılama** ekran VM görüntüsünü görüntülemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

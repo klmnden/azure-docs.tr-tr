@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>İzleme ve Azure Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetme
 > [!div class="op_single_selector"]
@@ -326,7 +326,7 @@ Aşağıdaki tabloda kullanılabilir olayları ve durumları (ve alt durumlar) l
 | --- | --- | --- |
 | Başlatılan Çalıştır etkinliği |Başlatıldı |Başlangıç |
 | Tamamlanan etkinlik |Başarılı oldu |Başarılı oldu |
-| Tamamlanan etkinlik |Başarısız |Başarısız olan kaynak ayırma<br/><br/>Başarısız yürütme<br/><br/>Zaman Aşımı<br/><br/>Başarısız doğrulamayı<br/><br/>terk |
+| Tamamlanan etkinlik |Başarısız |Başarısız olan kaynak ayırma<br/><br/>Başarısız yürütme<br/><br/>Zaman Aşımı<br/><br/>Başarısız doğrulamayı<br/><br/>Abandoned |
 | İsteğe bağlı HDI kümesi oluşturma başlatıldı |Başlatıldı |-|
 | İsteğe bağlı HDI kümesi başarıyla oluşturuldu |Başarılı oldu |-|
 | İsteğe bağlı HDI kümesi silindi |Başarılı oldu |-|

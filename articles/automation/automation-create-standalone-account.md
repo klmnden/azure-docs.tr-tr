@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 7303c17cfa35043229bb1bdd61ef33647ef60ffa
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 Bu makalede Azure portalında bir Azure Otomasyonu hesabı oluşturulacağını gösterir. Portal Otomasyon hesabı değerlendirmek ve Azure günlük analizi Operations Management Suite (OMS) ile tümleştirme veya ek yönetim çözümleri kullanmadan Otomasyon hakkında bilgi almak için kullanabilirsiniz. Bu yönetim çözümleri ekleyebilir veya Gelişmiş runbook işlerinin herhangi bir noktada gelecekte izleme için günlük analizi ile tümleştirin. 
@@ -55,9 +55,9 @@ Kullanıcı rolleri doğrulamak için:
 Azure portalında bir Azure Otomasyonu hesabı oluşturmak için aşağıdaki adımları tamamlayın:    
 
 1. Azure portalında abonelik Yöneticileri rolünün üyesi ve bir Abonelikteki olan bir hesapla oturum açın.
-2. Seçin **yeni**.<br><br> ![Azure portalında yeni seçin](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Arama **Otomasyon**. Arama sonuçlarında seçin **otomasyon ve Denetim**.<br><br> ![Arama ve otomasyon ve denetim Azure Marketi'nde seçin](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-4. Altında **Automation hesapları**seçin **Ekle**.
+2. Seçin **+ kaynak oluşturma**.
+3. Arama **Otomasyon**. Arama sonuçlarında seçin **Otomasyon**.<br><br> ![Arama ve otomasyon ve denetim Azure Marketi'nde seçin](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+4. Sonraki ekranda seçin **oluşturma**.
   ![Automation hesabı ekleme](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
   
   > [!NOTE]

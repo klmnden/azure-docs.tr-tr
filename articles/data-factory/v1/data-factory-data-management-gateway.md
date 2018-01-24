@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -139,10 +139,10 @@ Kurumsal güvenlik duvarı düzeyinde şu etki alanlarına ve giden bağlantı n
 
 | Etki alanı adları | Bağlantı Noktaları | Açıklama |
 | --- | --- | --- |
-| *. servicebus.windows.net |443, 80 |Veri Taşıma hizmeti arka uç ile iletişim için kullanılan |
-| *. core.windows.net |443 |Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopyalama için kullanılan|
-| *. frontend.clouddatahub.net |443 |Veri Taşıma hizmeti arka uç ile iletişim için kullanılan |
-| *. servicebus.windows.net |9350-9354, 5671 |İsteğe bağlı hizmet veri yolu geçişi Kopyalama Sihirbazı tarafından kullanılan TCP üzerinden |
+| *.servicebus.windows.net |443, 80 |Veri Taşıma hizmeti arka uç ile iletişim için kullanılan |
+| *.core.windows.net |443 |Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopyalama için kullanılan|
+| *.frontend.clouddatahub.net |443 |Veri Taşıma hizmeti arka uç ile iletişim için kullanılan |
+| *.servicebus.windows.net |9350-9354, 5671 |İsteğe bağlı hizmet veri yolu geçişi Kopyalama Sihirbazı tarafından kullanılan TCP üzerinden |
 
 
 Windows Güvenlik Duvarı düzeyde, bu giden bağlantı noktaları normal şekilde etkinleştirilir. Bağlantı noktaları ve etki alanlarını uygun şekilde yapılandırabilirsiniz, varsa ağ geçidi makinesi üzerinde.
@@ -315,7 +315,7 @@ Giriş sayfası aşağıdaki işlemleri yapmanıza olanak sağlar:
 * **Zamanlama güncelleştirmeleri** günün belirli bir zamanda.
 * Ağ geçidi tarihi zaman görüntülemek **son güncelleştirme**.
 
-### <a name="settings-page"></a>Ayarları sayfası
+### <a name="settings-page"></a>Ayarlar sayfası
 Ayarlar sayfasını aşağıdaki işlemleri yapmanıza olanak sağlar:
 
 * Görüntüleyin, değiştirin ve dışarı aktarma **sertifika** ağ geçidi tarafından kullanılır. Bu sertifika, veri kaynağı kimlik bilgilerini şifrelemek için kullanılır.

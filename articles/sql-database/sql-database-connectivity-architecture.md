@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 01/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 8cf926bab45705802cfaca95973ec1071d8d175a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d7a5bc80a0fd598a11703b76e7fc2962a0c38ccf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantısı mimarisi 
 
@@ -93,7 +93,7 @@ Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri içi
 | Batı ABD 2 | 13.66.226.202  | |
 ||||
 
-\***Not:** *Doğu ABD 2* üçüncül bir IP adresini de sahip `2.167.104.0`.
+\***Not:** *Doğu ABD 2* üçüncül bir IP adresini de sahip `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL veritabanı bağlantı ilkesini değiştirme
 

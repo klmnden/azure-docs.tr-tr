@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights'ı ayarlayın: bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşendir. Bu genellikle HTTP veya bir veritabanı veya bir dosya sistemi kullanılarak adlı bir hizmettir. [Application Insights](app-insights-overview.md) uygulamanız için bağımlılıkları ne kadar bekleyeceğini ve ne sıklıkta bir bağımlılık araması başarısız ölçer. Belirli çağrıları araştırmak ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -43,9 +43,9 @@ Kısmi bağımlılık bilgi tarafından otomatik olarak toplanan [Application In
 
 | Platform | Yükleme |
 | --- | --- |
-| IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) veya [uygulamanız .NET Framework 4.6 veya sonrası yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
+| IIS Server |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) veya [uygulamanız .NET Framework 4.6 veya sonrası yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
 | Azure Web Uygulaması |Web uygulama Denetim Masası'ndaki [, web uygulama Denetim Masası'nda Application Insights dikey penceresini açmak](app-insights-azure-web-apps.md) ve yükleme istenirse seçin. |
-| Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure Bulut Hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Bağımlılık verileri nerede bulacağını
 * [Uygulama eşlemesi](#application-map) uygulama ve neighbouring bileşenleri arasındaki bağımlılıkları visualizes.
@@ -178,7 +178,7 @@ Aynı kullanarak bağımlılık bilgi gönderir kod yazabilirsiniz [TrackDepende
 
 Örneğin, kendiniz yazmak kaydetmedi ile bir derlemeyi kodunuzu yapılandırdıysanız, yanıt sürelerini kolaylaştırır hangi katkı öğrenmek için tüm çağrıları, zaman. Application Insights bağımlılık grafikte görüntülenen bu verileri olmasını kullanarak göndermek `TrackDependency`.
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();

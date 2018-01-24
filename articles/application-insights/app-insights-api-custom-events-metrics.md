@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olayları ve ölçümleri için Application Insights API'si
 
@@ -43,19 +43,19 @@ Application Insights SDK'sı üzerinde bir başvuru henüz yoksa:
 
 * Application Insights SDK'sı projenize ekleyin:
 
-  * [ASP.NET projesi](app-insights-asp-net.md)
-  * [Java projesi](app-insights-java-get-started.md)
+  * [ASP.NET project](app-insights-asp-net.md)
+  * [Java project](app-insights-java-get-started.md)
   * [Node.js projesi](app-insights-nodejs.md)
   * [Her Web sayfasındaki JavaScript](app-insights-javascript.md) 
 * Cihaz veya web sunucusu kodunuzda şunları içerir:
 
-    *C# ' TA:*`using Microsoft.ApplicationInsights;`
+    *C#:* `using Microsoft.ApplicationInsights;`
 
     *Visual Basic:*`Imports Microsoft.ApplicationInsights`
 
-    *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
     
-    *Node.js:*`var applicationInsights = require("applicationinsights");`
+    *Node.js:* `var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Bir TelemetryClient örneği Al
 Bir örneğini almak `TelemetryClient` (Web sayfalarındaki JavaScript'te hariç):
@@ -158,7 +158,7 @@ Tek bir ölçü değeri göndermek için:
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -178,7 +178,7 @@ Kod bir araya getirildiği bir örneği burada verilmiştir:
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -334,7 +334,7 @@ Telemetriyi kullanılabilir `customMetrics` tablosundaki [uygulama Öngörüler 
 * `valueSum`-Bu ölçümler toplamıdır. Ortalama değer almak için bölün `valueCount`.
 * `valueCount`-Bu toplanan ölçümleri sayısını `trackMetric(..)` çağırın.
 
-## <a name="page-views"></a>Sayfa görünümleri
+## <a name="page-views"></a>Sayfa görüntülemeleri
 Her ekranı veya sayfa yüklendiğinde, bir aygıt veya Web sayfası uygulamasında varsayılan olarak sayfa görünümü telemetrisi gönderilir. Ancak, sayfa görünümleri ek veya farklı zamanlarda izlemek için değiştirebilirsiniz. Örneğin, sekmeler veya dikey pencereler görüntüleyen bir uygulama, kullanıcının yeni bir dikey pencere açıldığında bir sayfayı izlemek isteyebilirsiniz.
 
 ![Genel Bakış dikey penceresinde kullanım Mercek](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
@@ -422,7 +422,7 @@ Telemetri el ile izlerken bu yöntemi kullanarak telemetri bağıntı emin olmak
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
@@ -576,7 +576,7 @@ Varsa [örnekleme](app-insights-sampling.md) içinde ItemCount özelliği 1'den 
 ## <a name="trackdependency"></a>TrackDependency
 TrackDependency çağrısı bir dış kod parçası, yapılan çağrıların başarı oranları ve yanıt sürelerini izlemek için kullanın. Sonuçlar portalında bağımlılık grafiklerinde görüntülenir.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -913,7 +913,7 @@ SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz.
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 
@@ -1045,7 +1045,7 @@ Verileri Tutuluyor ne kadar süreyle belirlemek için bkz: [veri saklama ve gizl
 ## <a name="questions"></a>Sorular
 * *Hangi özel durumları Track_() çağrıları throw?*
 
-    yok. Try-catch yan tümcelerinde kaydırma gerek yoktur. SDK sorunla karşılaşırsa, hata ayıklama konsol çıktısı iletileri kaydedecek ve--tanılama Arama'da iletileri üzerinden--alırsanız.
+    Yok. Try-catch yan tümcelerinde kaydırma gerek yoktur. SDK sorunla karşılaşırsa, hata ayıklama konsol çıktısı iletileri kaydedecek ve--tanılama Arama'da iletileri üzerinden--alırsanız.
 * *Portaldan veri almak için bir REST API var mı?*
 
     Evet, [veri erişim API](https://dev.applicationinsights.io/). Veri ayıklamak için diğer yolları dahil [Analytics'ten Power BI verme](app-insights-export-power-bi.md) ve [sürekli verme](app-insights-export-telemetry.md).

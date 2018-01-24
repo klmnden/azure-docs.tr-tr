@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authorization--mitigations"></a>Güvenlik çerçevesi: Yetkilendirme | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -27,12 +27,12 @@ ms.lasthandoff: 12/11/2017
 | **Web uygulaması** | <ul><li>[İş mantığı akışları işlerken sıralı adım sipariş zorla](#sequential-logic)</li><li>[Numaralandırma önlemek için bir mekanizma hız sınırı uygulama](#rate-enumeration)</li><li>[Uygun yetkilendirme yerinde olduğundan ve en düşük ayrıcalık ilkesini ardından emin olun](#principle-least-privilege)</li><li>[İş mantığı ve kaynak erişim yetkilendirme kararları gelen isteği parametrelere dayanmalıdır değil](#logic-request-parameters)</li><li>[Bu içerik sağlamak ve kaynakları numaralandırılabilir veya zorlama gözatma yoluyla erişilebilir değil](#enumerable-browsing)</li></ul> |
 | **Veritabanı** | <ul><li>[En az ayrıcalıklı hesapları veritabanı sunucusuna bağlanmak için kullanıldığından emin olun](#privileged-server)</li><li>[Kiracıların diğer kişilerin veri erişimini engellemek için satır düzeyi güvenlik RLS uygulama](#rls-tenants)</li><li>[Sysadmin rolünün yalnızca geçerli gerekli kullanıcıların olmalıdır](#sysadmin-users)</li></ul> |
 | **IOT bulut ağ geçidi** | <ul><li>[Bulut en az ayrıcalıklı belirteçleri kullanarak ağ geçidine bağlanmak](#cloud-least-privileged)</li></ul> |
-| **Azure Event hub'ı** | <ul><li>[Cihaz belirteçleri oluşturmak için bir yalnızca gönderme izinleri SAS anahtarı kullan](#sendonly-sas)</li><li>[Olay Hub'ına doğrudan erişim sağlayan erişim belirteçleri kullanmayın](#access-tokens-hub)</li><li>[Olay gerekli en az izinlere sahip SAS anahtarları kullanarak Hub'ına bağlanın](#sas-minimum-permissions)</li></ul> |
+| **Azure Event Hub** | <ul><li>[Cihaz belirteçleri oluşturmak için bir yalnızca gönderme izinleri SAS anahtarı kullan](#sendonly-sas)</li><li>[Olay Hub'ına doğrudan erişim sağlayan erişim belirteçleri kullanmayın](#access-tokens-hub)</li><li>[Olay gerekli en az izinlere sahip SAS anahtarları kullanarak Hub'ına bağlanın](#sas-minimum-permissions)</li></ul> |
 | **Azure belge DB** | <ul><li>[Azure Cosmos DB mümkün olduğunca bağlanmak için kaynak belirteçleri kullanın](#resource-docdb)</li></ul> |
 | **Azure güven sınırı** | <ul><li>[Azure RBAC kullanarak abonelik için ayrıntılı erişim yönetimini etkinleştirme](#grained-rbac)</li></ul> |
 | **Service Fabric güven sınırı** | <ul><li>[RBAC kullanarak küme işlemleri için istemci erişimi kısıtlama](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Güvenlik modelleme gerçekleştirmek ve alan düzeyinde güvenliğin kullanmanız gerektiğinde](#modeling-field)</li></ul> |
-| **Dynamics CRM portalı** | <ul><li>[Portal için güvenlik modeli CRM geri kalanından farklı olduğunu unutmayın tutma portal hesaplarının güvenlik modelleme gerçekleştirin](#portal-security)</li></ul> |
+| **Dynamics CRM Portal** | <ul><li>[Portal için güvenlik modeli CRM geri kalanından farklı olduğunu unutmayın tutma portal hesaplarının güvenlik modelleme gerçekleştirin](#portal-security)</li></ul> |
 | **Azure Depolama** | <ul><li>[Azure Table Storage varlıklarda bir dizi hassas izin ver](#permission-entities)</li><li>[Rol tabanlı erişim denetimi (RBAC) Azure Resource Manager kullanarak Azure depolama hesabı etkinleştir](#rbac-azure-manager)</li></ul> |
 | **Mobil istemci** | <ul><li>[Örtük kaçış veya algılama kök dizini değiştirme uygulanması](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[WCF'de zayıf sınıf başvurusu](#weak-class-wcf)</li><li>[WCF uygulayan yetkilendirme denetimi](#wcf-authz)</li></ul> |
@@ -153,7 +153,7 @@ Olası bir saldırganın değiştirmesine ve değiştirebileceğini değil artı
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | SQL Azure, OnPrem |
+| **İlgili teknolojiler** | Sql Azure, OnPrem |
 | **Öznitelikleri**              | SQL sürüm - V12, SQL sürümü - MsSQL2016 |
 | **Başvuruları**              | [SQL Server satır düzeyi güvenlik (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Adımları** | <p>Satır Düzeyi Güvenlik, müşterilerin bir veritabanı tablosundaki satırlara erişimi, sorguyu yürüten kullanıcının özelliklerine göre (grup üyeliği veya yürütme bağlamı) denetlemesini sağlar.</p><p>Satır düzeyi güvenlik (RLS) tasarımı ve uygulamanızda güvenlik kodlama basitleştirir. RLS, veri satırı erişiminde kısıtlama uygulamanızı sağlar. Örneğin çalışanlar yalnızca kendi bölümleriyle ilgili veri satırlarına erişmesi veya müşterilerin yalnızca kendi şirketleriyle ilgili verilere ulaşması sağlanabilir.</p><p>Veritabanı katmanı bulunur yerine başka bir uygulama katmanındaki veriler koymadan erişim kısıtlama mantığı. Veri erişimini herhangi bir katmanı denenir her zaman veritabanı sistem erişim kısıtlamalarını uygular. Bu bir güvenlik sistemi daha güvenli ve sağlam bir güvenlik sistemi'nın yüzey alanını azaltarak hale getirir.</p><p>|
@@ -186,7 +186,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event hub'ı | 
+| **Bileşen**               | Azure Event Hub | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -197,7 +197,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event hub'ı | 
+| **Bileşen**               | Azure Event Hub | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -208,7 +208,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event hub'ı | 
+| **Bileşen**               | Azure Event Hub | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -263,7 +263,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Dynamics CRM portalı | 
+| **Bileşen**               | Dynamics CRM Portal | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -301,7 +301,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Uygulama kendi yapılandırması ve kullanıcı verilerini telefon kökü varsa durum ya da işletim sistemi engellemeleri korunması. Kök dizini değiştirme/çiğnemekten kısıtlamaları yetkisiz erişim, normal hangi kullanıcıların kendi telefonlarda olmaz anlamına gelir. Bu nedenle uygulama örtük algılama mantığı uygulama başlangıcında telefon kökü algılamak için sahip olmalıdır.</p><p>Algılama mantığı yalnızca normal olarak, yalnızca kök kullanıcı, örneğin erişebilir dosyalara erişme:</p><ul><li>/System/App/Superuser.apk</li><li>/ sbin/su</li><li>/System/bin/su</li><li>/System/xbin/su</li><li>/Data/Local/xbin/su</li><li>/Data/local/bin/su</li><li>/System/SD/xbin/su</li><li>/System/bin/failsafe/su</li><li>/Data/Local/su</li></ul><p>Uygulama bu dosyalar erişebiliyorsanız, uygulama kök kullanıcı olarak çalıştığını gösterir.</p>|
+| **Adımları** | <p>Uygulama kendi yapılandırması ve kullanıcı verilerini telefon kökü varsa durum ya da işletim sistemi engellemeleri korunması. Kök dizini değiştirme/çiğnemekten kısıtlamaları yetkisiz erişim, normal hangi kullanıcıların kendi telefonlarda olmaz anlamına gelir. Bu nedenle uygulama örtük algılama mantığı uygulama başlangıcında telefon kökü algılamak için sahip olmalıdır.</p><p>Algılama mantığı yalnızca normal olarak, yalnızca kök kullanıcı, örneğin erişebilir dosyalara erişme:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/System/bin/su</li><li>/System/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/System/bin/failsafe/su</li><li>/Data/Local/su</li></ul><p>Uygulama bu dosyalar erişebiliyorsanız, uygulama kök kullanıcı olarak çalıştığını gösterir.</p>|
 
 ## <a id="weak-class-wcf"></a>WCF'de zayıf sınıf başvurusu
 
@@ -400,7 +400,7 @@ return result;
 | **Adımları** | <p>Uygulama kimlik sağlayıcısı olarak üzerlerinde kullanır veya uygulama olabilir, ADFS talepleri, sağlanan veya uygulama kullanıcıları için rol bilgileri Azure AD'den elde edilebilir. Bu durumların herhangi birinde içinde özel yetkilendirme uygulama kullanıcı rolü bilgilerini doğrulamalıdır.</p><p>Uygulama kimlik sağlayıcısı olarak üzerlerinde kullanır veya uygulama olabilir, ADFS talepleri, sağlanan veya uygulama kullanıcıları için rol bilgileri Azure AD'den elde edilebilir. Bu durumların herhangi birinde içinde özel yetkilendirme uygulama kullanıcı rolü bilgilerini doğrulamalıdır.</p>
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -431,7 +431,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 Tüm korumalı gereken eylem yöntemlerini ve denetleyicileri ile öznitelik donatılmış.
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90402e047caff2446591dca9cc9392c9d0344b5f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı etkinliği yürütmek
 Ardışık Düzen yürütme etkinliği başka bir işlem hattı çağırmak Data Factory işlem hattı sağlar.
@@ -66,9 +66,9 @@ Ardışık Düzen yürütme etkinliği başka bir işlem hattı çağırmak Data
 -------- | ----------- | -------------- | --------
 ad | Yürütme ardışık düzen etkinlik adı. | Dize | Evet
 type | Ayarlanmalıdır: **ExecutePipeline**. | Dize | Evet
-Ardışık Düzen | Bu ardışık düzen çağırır bağımlı ardışık ardışık düzen başvuru. Ardışık Düzen başvuru nesnesi iki özelliklere sahiptir: **başvuruadı** ve **türü**. Başvuruadı özelliği başvuru ardışık düzen adını belirtir. Type özelliği PipelineReference için ayarlamanız gerekir. | PipelineReference | Evet
+ardışık düzen | Bu ardışık düzen çağırır bağımlı ardışık ardışık düzen başvuru. Ardışık Düzen başvuru nesnesi iki özelliklere sahiptir: **başvuruadı** ve **türü**. Başvuruadı özelliği başvuru ardışık düzen adını belirtir. Type özelliği PipelineReference için ayarlamanız gerekir. | PipelineReference | Evet
 parametreler | Çağrılan ardışık düzene geçirilecek Parametreler | Parametre adları bağımsız değişken değerine eşleyen bir JSON nesnesi | Hayır
-waitOnCompletion | Etkinlik yürütme bağımlı ardışık düzen yürütmesi tamamlanmasını bekleyip beklemediğini tanımlar. | Varsayılan false olur. | Boole değeri | Hayır
+waitOnCompletion | Etkinlik yürütme bağımlı ardışık düzen yürütmesi tamamlanmasını bekleyip beklemediğini tanımlar. | Varsayılan false olur. | Boole | Hayır
 
 ## <a name="sample"></a>Örnek
 Bu senaryo iki ardışık düzenler şunlardır:

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a437c369ac48fd4ac71dee2a85547d787d9dd210
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9457e90f378cf7b30810ca9cadfcad139e91e2d4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON betik oluşturma başvurusu
 > [!NOTE]
@@ -51,7 +51,7 @@ Aşağıdaki tabloda özellikleri JSON tanımını ardışık düzen içinde aç
 | açıklama |Hangi etkinlik veya ardışık düzen açıklayan metin için kullanılır | Hayır |
 | etkinlikler | Etkinliklerin listesini içerir. | Evet |
 | start |Ardışık düzeni için başlangıç tarihi / saati. Olmalıdır [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41. <br/><br/>Yerel saat örneğin tahmini süre belirlemek mümkündür. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri birlikte ardışık düzen etkin süresini belirtin. Çıktı dilimler yalnızca ile etkin bu dönemde üretilir. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş zamanlarını hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırmak ardışık düzeni için etkin bir süre ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanlarını belirtmezseniz, bir işlem hattı oluştururken, bunları daha sonra Set-AzureRmDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
-| Bitiş |Ardışık düzeni için bitiş tarihi / saati. Belirtilen ISO biçiminde olmalıdır. Örneğin: 2014-10-14T17:32:41 <br/><br/>Yerel saat örneğin tahmini süre belirlemek mümkündür. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalışacak şekilde 9999-09-09 end özelliği için değer olarak belirtin. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, son özelliği için değer belirtmeniz gerekir.<br/><br/>İçin notlarına bakın **Başlat** özelliği. |
+| end |Ardışık düzeni için bitiş tarihi / saati. Belirtilen ISO biçiminde olmalıdır. Örneğin: 2014-10-14T17:32:41 <br/><br/>Yerel saat örneğin tahmini süre belirlemek mümkündür. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalışacak şekilde 9999-09-09 end özelliği için değer olarak belirtin. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, son özelliği için değer belirtmeniz gerekir.<br/><br/>İçin notlarına bakın **Başlat** özelliği. |
 | isPaused |Ardışık Düzen true olarak ayarlandığında çalışmazsa. Varsayılan değer = false. Bu özelliği etkinleştirmek veya devre dışı bırakmak için kullanabilirsiniz. |Hayır |
 | pipelineMode |Zamanlama için yöntem ardışık düzeni için çalışır. İzin verilen değerler: (varsayılan), zamanlanmış kez.<br/><br/>'Zamanlanmış' ardışık düzen belirtilen süre aralığında etkin süresinin (başlangıç ve bitiş saati) göre çalıştırıldığını gösterir. 'Kez' ardışık düzen yalnızca bir kez çalıştırıldığını gösterir. Oluşturulduktan sonra kez ardışık düzen şu anda değiştiren/güncelleştirilemiyor. Bkz: [Onetime ardışık düzen](data-factory-create-pipelines.md#onetime-pipeline) kez ayar hakkındaki ayrıntılar için. |Hayır |
 | expirationTime |Kendisi için ardışık düzeni geçerli olduğunu ve sağlanan kalacağı oluşturulduktan sonra süre. Tüm etkin başarısız oldu, yok veya sona erme zamanı ulaştığında çalıştığında, ardışık düzen otomatik olarak silinmesi durumunda. |Hayır |
@@ -89,7 +89,7 @@ Tablo Özellikleri JSON tanımını etkinlik içinde açıklanmıştır:
 | açıklama |Etkinlik hangi amaçla kullanıldığına açıklayan metin. |Hayır |
 | type |Etkinlik türünü belirtir. Bkz: [veri DEPOLARINA](#data-stores) ve [veri dönüştürme etkinlikleri](#data-transformation-activities) bölümleri etkinlikler farklı türde. |Evet |
 | Girişleri |Etkinlik tarafından kullanılan giriş tabloları<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |HDInsightStreaming ve SqlServerStoredProcedure etkinlikleri için Hayır'ı <br/> <br/> Diğer tüm kullanıcılar için Evet |
-| Çıkışları |Etkinlik tarafından kullanılan çıkış tabloları.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Evet |
+| çıkışlar |Etkinlik tarafından kullanılan çıkış tabloları.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Evet |
 | linkedServiceName |Etkinlik tarafından kullanılan bağlı hizmetin adı. <br/><br/>Bir etkinlik için gerekli işlem ortamına bağlanan bağlı hizmeti belirtmeniz gerekebilir. |Hdınsight etkinlikleri, Azure Machine Learning etkinlikleri ve saklı yordam etkinliği için Evet. <br/><br/>Diğer tümü için hayır |
 | typeProperties |Özellikler typeProperties bölümünde etkinlik türüne bağlıdır. |Hayır |
 | ilke |Etkinliğin çalışma zamanı davranışını etkileyen ilkeler. Belirtilmezse, varsayılan ilkeler kullanılır. |Hayır |
@@ -98,7 +98,7 @@ Tablo Özellikleri JSON tanımını etkinlik içinde açıklanmıştır:
 ### <a name="policies"></a>İlkeler
 İlkeler, özellikle bir tablonun dilim işlendiğinde bir etkinlik çalışma zamanı davranışını etkiler. Aşağıdaki tabloda ayrıntılar sağlar.
 
-| Özellik | İzin verilen değerler | Varsayılan değer | Açıklama |
+| Özellik | İzin verilen değerler | Varsayılan Değer | Açıklama |
 | --- | --- | --- | --- |
 | Eşzamanlılık |Tamsayı <br/><br/>En yüksek değeri: 10 |1 |Etkinliğin eşzamanlı yürütmeleri sayısı.<br/><br/>Üzerinde farklı dilimler oluşabilir paralel etkinlik yürütmeleri sayısını belirler. Örneğin, bir etkinlik geçtikleri gerekiyorsa bir büyük daha büyük bir eşzamanlılık değer sahip kullanılabilir veri kümesi, veri işleme hızı artar. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |İşlenen veri dilimleri sıralama belirler.<br/><br/>Örneğin, varsa (bir oluşmasını 4 pm adresindeki ve 17: 00 saatleri sırasında başka bir) 2 böler ve hem de yürütme olması. ExecutionPriorityOrder NewestFirst olacak şekilde ayarlarsanız, 17: 00 saatleri sırasında dilim önce işlenir. ExecutionPriorityORder OldestFIrst olacak şekilde ayarlarsanız, benzer şekilde ardından 4 PM adresindeki dilim işlenir. |
@@ -288,7 +288,7 @@ Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:
 | type | Veri kümesi türü. Azure Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). Bkz: [veri DEPOLARINA](#data-stores) tüm veri depoları ve veri fabrikası tarafından desteklenen veri türleri için bölüm. | 
 | yapısı | Veri kümesi şemasını. Bu sütun, türleri, vb. içerir. | Hayır |NA |
 | typeProperties | Seçili türüne karşılık gelen özellikler. Bkz: [veri DEPOLARINA](#data-stores) desteklenen türlerini ve bunların özelliklerini bölümü. |Evet |NA |
-| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. |Hayır |False |
+| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. |Hayır |yanlış |
 | availability | İşleme penceresi veya veri kümesi üretim dilimleme modelini tanımlar. Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
 | ilke |Ölçüt ya da veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [Dataset İlkesi](#Policy) bölümü. |Hayır |NA |
 
@@ -334,10 +334,10 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatli
 
 **İlkesi** veri kümesi tanımı bölümünde ölçütleri veya veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar.
 
-| İlke adı | Açıklama | Uygulanan | Gerekli | Varsayılan |
+| İlke Adı | Açıklama | Uygulanan | Gerekli | Varsayılan |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Doğrular verilerde bir **Azure blob** (megabayt cinsinden) en düşük boyut gereksinimlerini karşılıyor. |Azure Blob |Hayır |NA |
-| minimumRows |Doğrular verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az satır sayısını içerir. |<ul><li>Azure SQL Database</li><li>Azure tablo</li></ul> |Hayır |NA |
+| minimumRows |Doğrular verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az satır sayısını içerir. |<ul><li>Azure SQL Database</li><li>Azure Tablosu</li></ul> |Hayır |NA |
 
 **Örnek:**
 
@@ -354,7 +354,7 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatli
 
 Azure Data Factory tarafından üretilen bir veri kümesi sürece bunu olarak işaretlenmelidir **dış**. Etkinlik veya ardışık düzen zincirleme kullanılmadığı sürece bu ayar genellikle bir ardışık düzendeki ilk etkinlik girişleri için geçerlidir.
 
-| Ad | Açıklama | Gerekli | Varsayılan değer |
+| Ad | Açıklama | Gerekli | Varsayılan Değer |
 | --- | --- | --- | --- |
 | dataDelay |Verilen dilim için dış veri kullanılabilirliğini onay gecikme süresi. Verilerin saatlik varsa, örneğin, dış veri kullanılabilir ve karşılık gelen dilimi hazır denetleyin dataDelay kullanılarak ertelenebilir.<br/><br/>Yalnızca mevcut süre için geçerlidir.  Örneğin, 1:00 PM şimdi ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar, geçmişte dilimler etkilemez (dilimler dilim bitiş saati + dataDelay < şimdi) herhangi bir gecikme işlenir.<br/><br/>Saat 23:59 saatleri gereken kullanarak belirtilen büyük `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın; Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat için 1:04:00:00 belirtin. |Hayır |0 |
 | Retryınterval |Bir hata ile sonraki arasındaki bekleme süresini girişimi yeniden deneyin. Bir deneme başarısız olursa, sonraki deneyin sonra Retryınterval olur. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
@@ -596,7 +596,7 @@ Bağlantılı hizmeti bir Azure Data Lake Store tanımlamak için bağlantılı 
 | resourceGroupName | Data Lake Store ait olduğu azure kaynak grubu adı. | Havuz için gerekli |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
 | servicePrincipalKey | Uygulamanın anahtarını belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
-| Kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
+| kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
 | Yetkilendirme | Tıklatın **Authorize** düğmesini **Data Factory düzenleyici** ve bu özelliği otomatik olarak oluşturulan yetkilendirme URL'si atar kimlik bilgilerinizi girin. | Evet (kullanıcı kimlik bilgileri doğrulaması için)|
 | SessionID | OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Data Factory Düzenleyici kullandığınızda bu ayarı otomatik olarak oluşturulur. | Evet (kullanıcı kimlik bilgileri doğrulaması için) |
 
@@ -1228,7 +1228,7 @@ Azure SQL Data Warehouse'a veri kopyalıyorsanız ayarlamak **Havuz türü** kop
 | polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği ayarlanmış **doğru**. |&nbsp; |Hayır |
 | rejectValue |Sayı veya yüzde değeri sorgu başarısız önce reddedilemiyor satır belirtir. <br/><br/>PolyBase'nın reddetme seçenekleri hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
 | rejectType |RejectValue seçeneği bir hazır değer veya bir yüzde belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
-| Havuzu'na ilişkin |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olan **yüzdesi** |
+| Havuzu'na ilişkin |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler. |1, 2... |Evet, varsa **rejectType** olan **yüzdesi** |
 | useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (varsayılan) |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
@@ -1286,7 +1286,7 @@ Bağlantılı hizmeti bir Azure Search tanımlamak için Ayarla **türü** bağl
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| URL | Azure Search hizmeti için URL. | Evet |
+| url | Azure Search hizmeti için URL. | Evet |
 | anahtar | Azure Search hizmeti için yönetici anahtarı. | Evet |
 
 #### <a name="example"></a>Örnek
@@ -1594,7 +1594,7 @@ Bağlantılı hizmetinin bir Amazon Redshift tanımlamak için Ayarla **türü**
 | --- | --- | --- |
 | sunucu |IP adresi veya ana bilgisayar Amazon Redshift sunucunun adıdır. |Evet |
 | port |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır, varsayılan değer: 5439 |
-| Veritabanı |Amazon Redshift veritabanının adı. |Evet |
+| veritabanı |Amazon Redshift veritabanının adı. |Evet |
 | kullanıcı adı |Veritabanına erişimi olan kullanıcı adı. |Evet |
 | password |Kullanıcı hesabının parolası. |Evet |
 
@@ -1705,7 +1705,7 @@ Bağlantılı hizmetinin bir IBM DB2 tanımlamak için Ayarla **türü** bağlan
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | sunucu |DB2 sunucunun adıdır. |Evet |
-| Veritabanı |DB2 veritabanının adı. |Evet |
+| veritabanı |DB2 veritabanının adı. |Evet |
 | Şema |Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
 | authenticationType |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
@@ -1821,7 +1821,7 @@ Bağlantılı hizmetinin bir MySQL tanımlamak için Ayarla **türü** bağlant�
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | sunucu |MySQL sunucu adı. |Evet |
-| Veritabanı |MySQL veritabanının adı. |Evet |
+| veritabanı |MySQL veritabanının adı. |Evet |
 | Şema |Veritabanı şemasında adı. |Hayır |
 | authenticationType |MySQL veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: `Basic`. |Evet |
 | kullanıcı adı |MySQL veritabanına bağlanmak için kullanıcı adını belirtin. |Evet |
@@ -2112,7 +2112,7 @@ Bağlantılı hizmetinin bir PostgreSQL tanımlamak için Ayarla **türü** bağ
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | sunucu |PostgreSQL sunucunun adıdır. |Evet |
-| Veritabanı |PostgreSQL veritabanının adı. |Evet |
+| veritabanı |PostgreSQL veritabanının adı. |Evet |
 | Şema |Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
 | authenticationType |PostgreSQL veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
@@ -2230,13 +2230,13 @@ Bağlantılı hizmetinin SAP Business Warehouse (BW) tanımlamak için Ayarla **
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | Dize | Evet
+sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | dize | Evet
 systemNumber | SAP BW sisteminin sistem numarası. | Bir dize olarak gösterilen iki basamaklı ondalık sayı. | Evet
 istemci kimliği | SAP W sistem istemcisinde istemci kimliği. | Bir dize olarak gösterilen üç basamaklı ondalık sayı. | Evet
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | Dize | Evet
-password | Kullanıcının parolası. | Dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | Dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | Dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
+password | Kullanıcının parolası. | dize | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2340,12 +2340,12 @@ Bağlantılı hizmetinin SAP HANA tanımlamak için Ayarla **türü** bağlantı
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | Dize | Evet
+sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | dize | Evet
 authenticationType | Kimlik doğrulama türü. | Dize. "Temel" veya "Windows" | Evet 
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | Dize | Evet
-password | Kullanıcının parolası. | Dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | Dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | Dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
+password | Kullanıcının parolası. | dize | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2670,7 +2670,7 @@ Bir Sybase tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı hi
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | sunucu |Sybase sunucunun adıdır. |Evet |
-| Veritabanı |Sybase veritabanının adı. |Evet |
+| veritabanı |Sybase veritabanının adı. |Evet |
 | Şema |Veritabanı şemasında adı. |Hayır |
 | authenticationType |Sybase veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
@@ -2903,7 +2903,7 @@ Bir bağlı Cassandra hizmet tanımlamak için **türü** bağlantılı hizmetin
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| ana bilgisayar |Bir veya daha fazla IP adresleri veya ana bilgisayar adlarını Cassandra sunucuları.<br/><br/>IP adreslerini veya aynı anda tüm sunucularına bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
+| konak |Bir veya daha fazla IP adresleri veya ana bilgisayar adlarını Cassandra sunucuları.<br/><br/>IP adreslerini veya aynı anda tüm sunucularına bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
 | port |İstemci bağlantılarını dinlemek için Cassandra sunucusunun kullandığı TCP bağlantı noktası. |Hayır, varsayılan değer: 9042 |
 | authenticationType |Basic veya Anonymous |Evet |
 | kullanıcı adı |Kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
@@ -3151,7 +3151,7 @@ Bağlantılı hizmetinin bir Amazon S3 tanımlamak için Ayarla **türü** bağl
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| accessKeyID |Gizli erişim anahtarı kimliği. |Dize |Evet |
+| accessKeyID |Gizli erişim anahtarı kimliği. |dize |Evet |
 | secretAccessKey |Gizli erişim anahtar kendisi. |Şifrelenmiş gizli dize |Evet |
 
 #### <a name="example"></a>Örnek
@@ -3178,7 +3178,7 @@ Bir Amazon S3 dataset tanımlamak için **türü** için veri kümesinin **Amazo
 | bucketName |S3 demetini adı. |Dize |Evet |
 | anahtar |S3 nesne anahtarı. |Dize |Hayır |
 | önek |S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca anahtar boş olduğunda geçerlidir. |Dize |Hayır |
-| Sürüm |S3 sürüm etkinleştirilirse S3 nesne sürümü. |Dize |Hayır |
+| sürüm |S3 sürüm etkinleştirilirse S3 nesne sürümü. |Dize |Hayır |
 | Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır | |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır | |
 
@@ -3316,7 +3316,7 @@ Bir Azure data factory ile bir şirket içi dosya sistemi bağlayabilirsiniz **�
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlandığından emin olun **OnPremisesFileServer**. |Evet |
-| ana bilgisayar |Kopyalamak istediğiniz klasörün kök yolunu belirtir. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için. |Evet |
+| konak |Kopyalamak istediğiniz klasörün kök yolunu belirtir. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için. |Evet |
 | Kullanıcı Kimliği |Sunucusuna erişimi olan kullanıcı Kimliğini belirtin. |Hayır (encryptedCredential seçerseniz) |
 | password |(UserID) kullanıcının parolasını belirtin. |Hayır (encryptedCredential seçerseniz |
 | encryptedCredential |Yeni AzureRmDataFactoryEncryptValue cmdlet'ini çalıştırarak alabilirsiniz şifreli kimlik bilgilerini belirtin. |Hayır (kullanıcı kimliği ve parola düz metin olarak belirtmek isterseniz) |
@@ -3548,15 +3548,15 @@ Bağlantılı hizmetinin FTP tanımlamak için Ayarla **türü** bağlantılı h
 
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
-| ana bilgisayar |FTP sunucusunun adı veya IP adresi |Evet |&nbsp; |
-| authenticationType |Kimlik doğrulama türünü belirtin |Evet |Temel, anonim |
+| konak |FTP sunucusunun adı veya IP adresi |Evet |&nbsp; |
+| authenticationType |Kimlik doğrulaması türünü belirtme |Evet |Temel, anonim |
 | kullanıcı adı |FTP sunucusuna erişimi olan kullanıcı |Hayır |&nbsp; |
 | password |(Kullanıcı adı) kullanıcı parolası |Hayır |&nbsp; |
 | encryptedCredential |FTP sunucusuna erişmek için şifrelenmiş kimlik bilgileri |Hayır |&nbsp; |
 | gatewayName |Şirket içi FTP sunucusuna bağlanmak için veri yönetimi ağ geçidi ağ geçidinin adı |Hayır |&nbsp; |
 | port |FTP sunucusunun dinlediği bağlantı noktası |Hayır |21 |
-| enableSsl |FTP SSL/TLS kanalı üzerinden kullanıp kullanmayacağınızı belirtin |Hayır |TRUE |
-| enableServerCertificateValidation |Sunucu SSL sertifika doğrulamasını FTP SSL/TLS kanalı üzerinden kullanırken etkinleştirilip etkinleştirilmeyeceğini belirtin |Hayır |TRUE |
+| enableSsl |FTP SSL/TLS kanalı üzerinden kullanıp kullanmayacağınızı belirtin |Hayır |doğru |
+| enableServerCertificateValidation |Sunucu SSL sertifika doğrulamasını FTP SSL/TLS kanalı üzerinden kullanırken etkinleştirilip etkinleştirilmeyeceğini belirtin |Hayır |doğru |
 
 #### <a name="example-using-anonymous-authentication"></a>Örnek: Anonim kimlik doğrulamasını kullanma
 
@@ -3732,7 +3732,7 @@ Bağlantılı hizmetinin bir HDFS tanımlamak için Ayarla **türü** bağlantı
 | Kullanıcı adı |Kullanıcı adı için Windows kimlik doğrulaması. |Evet (Windows kimlik doğrulaması için) |
 | password |Windows kimlik doğrulaması için parola. |Evet (Windows kimlik doğrulaması için) |
 | gatewayName |Data Factory hizmetinin HDFS bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
-| encryptedCredential |[AzureRMDataFactoryEncryptValue yeni](https://msdn.microsoft.com/library/mt603802.aspx) erişim kimlik bilgisi çıktısı. |Hayır |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. |Hayır |
 
 #### <a name="example-using-anonymous-authentication"></a>Örnek: Anonim kimlik doğrulamasını kullanma
 
@@ -3862,7 +3862,7 @@ Bağlantılı hizmetinin bir SFTP tanımlamak için Ayarla **türü** bağlantı
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- | --- |
-| ana bilgisayar | SFTP sunucunun adı veya IP adresi. |Evet |
+| konak | SFTP sunucunun adı veya IP adresi. |Evet |
 | port |SFTP sunucunun dinlediği bağlantı noktası. Varsayılan değer: 21 |Hayır |
 | authenticationType |Kimlik doğrulama türü belirtin. İzin verilen değerler: **temel**, **SshPublicKey**. <br><br> Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtar kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellikleri ve JSON örnekleri sırasıyla bölümler. |Evet |
 | skipHostKeyValidation | Ana anahtar doğrulama atlamak bu seçeneği belirtin. | Hayır. Varsayılan değeri: false |
@@ -4069,7 +4069,7 @@ Bağlantılı hizmeti bir HTTP tanımlama, Ayarla **türü** bağlantılı hizme
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| URL | Web sunucusu için temel URL | Evet |
+| url | Web sunucusu için temel URL | Evet |
 | authenticationType | Kimlik doğrulama türünü belirtir. İzin verilen değerler: **anonim**, **temel**, **Özet**, **Windows**, **ClientCertificate**. <br><br> Daha fazla özellikleri ve bu kimlik doğrulama türleri için JSON örnekleri bu tabloda aşağıdaki bölümlerde sırasıyla bakın. | Evet |
 | enableServerCertificateValidation | Sunucu SSL sertifika doğrulamasını kaynak HTTPS Web sunucusu ise etkinleştirilip etkinleştirilmeyeceğini belirtin | Hayır, varsayılan değer true şeklindedir |
 | gatewayName | Bir şirket içi HTTP kaynağına bağlanmak için veri yönetimi ağ geçidi adı. | Bir şirket içi HTTP kaynaktan veri kopyalama, Evet. |
@@ -4105,7 +4105,7 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | embeddedCertData | İkili veriler kişisel bilgi değişimi (PFX) dosyası Base64 ile kodlanmış içeriği. | Belirtin `embeddedCertData` veya `certThumbprint`. |
-| Certthumbprınt | Ağ geçidi makinenizin sertifika deposunda yüklü sertifika parmak izi. Yalnızca bir şirket içi HTTP kaynaktan veri kopyalama işlemi sırasında uygulanır. | Belirtin `embeddedCertData` veya `certThumbprint`. |
+| certThumbprint | Ağ geçidi makinenizin sertifika deposunda yüklü sertifika parmak izi. Yalnızca bir şirket içi HTTP kaynaktan veri kopyalama işlemi sırasında uygulanır. | Belirtin `embeddedCertData` veya `certThumbprint`. |
 | password | Sertifikayla ilişkili parola. | Hayır |
 
 Kullanırsanız `certThumbprint` kimlik doğrulaması ve sertifika yüklü için yerel bilgisayarın kişisel deposunda, ağ geçidi hizmeti okuma izni vermesi gerekir:
@@ -4160,7 +4160,7 @@ Bir HTTP veri kümesini tanımlamak için **türü** için veri kümesinin **Htt
 | relativeUrl | Verileri içeren kaynak için göreli bir URL. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. <br><br> Dinamik URL oluşturmak için kullanabileceğiniz [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md), örneğin: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Hayır |
 | requestMethod | HTTP yöntemi. İzin verilen değerler **almak** veya **POST**. | Hayır. Varsayılan değer `GET`. |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
-| RequestBody | HTTP istek gövdesi. | Hayır |
+| requestBody | HTTP istek gövdesi. | Hayır |
 | Biçimi | Yalnızca istiyorsanız, **HTTP uç noktası olarak veri almak-olduğu** ayrıştırma olmadan, bu biçim ayarlarını atla. <br><br> HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
@@ -4267,7 +4267,7 @@ Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlant�
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| URL |OData hizmeti URL'si. |Evet |
+| url |OData hizmeti URL'si. |Evet |
 | authenticationType |OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü. <br/><br/> OData bulut için olası değerler şunlardır anonim, temel ve OAuth (Not OAuth Azure Active Directory tabanlı şu anda yalnızca Azure Data Factory destek). <br/><br/> Anonim, temel ve Windows, şirket içi OData için olası değerler şunlardır. |Evet |
 | kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
@@ -4347,7 +4347,7 @@ Bir OData veri kümesini tanımlamak için **türü** için veri kümesinin **OD
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Yol |OData kaynak yolu |Hayır |
+| yol |OData kaynak yolu |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -4742,8 +4742,8 @@ Bir Web veri kümesini tanımlamak için **türü** için veri kümesinin **WebT
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type |Veri kümesi türü. ayarlanmalıdır **WebTable** |Evet |
-| Yol |Tabloyu içeren kaynak için göreli bir URL. |Hayır. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. |
-| Dizin |Tablo kaynak dizini. Bkz: [bir HTML sayfasında tablosunun Get dizini](#get-index-of-a-table-in-an-html-page) bir HTML sayfasında bir tablo dizininin alma adımları için bölüm. |Evet |
+| yol |Tabloyu içeren kaynak için göreli bir URL. |Hayır. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. |
+| dizin |Tablo kaynak dizini. Bkz: [bir HTML sayfasında tablosunun Get dizini](#get-index-of-a-table-in-an-html-page) bir HTML sayfasında bir tablo dizininin alma adımları için bölüm. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -4821,7 +4821,7 @@ Aşağıdaki tablo, veri fabrikası ve bunlar üzerinde çalışan dönüştürm
 | İşlem ortamı | Etkinlikler |
 | --- | --- |
 | [İsteğe bağlı Hdınsight kümesi](#on-demand-azure-hdinsight-cluster) veya [kendi Hdınsight kümenizi](#existing-azure-hdinsight-cluster) |[.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce etkinliği](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [Spark etkinliği](#hdinsight-spark-activity) |
-| [Azure toplu işlem](#azure-batch) |[.NET özel etkinliği](#net-custom-activity) |
+| [Azure Batch](#azure-batch) |[.NET özel etkinliği](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Toplu iş yürütme etkinliği makine](#machine-learning-batch-execution-activity), [kaynak güncelleştirme etkinliği makine](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL veritabanı](#azure-sql-database-1), [Azure SQL veri ambarı](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Saklı Yordam](#stored-procedure-activity) |
@@ -4835,9 +4835,9 @@ Aşağıdaki tabloda bir isteğe bağlı Hdınsight bağlı hizmeti Azure JSON t
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalı **HDInsightOnDemand**. |Evet |
-| ClusterSize |Kümedeki çalışan/veri düğüm sayısı. Hdınsight kümesi için bu özelliği belirtmeniz çalışan düğüm sayısı ile birlikte 2 baş düğümler ile oluşturulur. Düğüm boyutu 4 çalışan düğümlü bir küme 24 çekirdek alır, böylece 4 çekirdeğe sahip Standard_D3 olduğundan (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*4 = 8 çekirdek baş düğümler için). Bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) Standard_D3 katmanı hakkında ayrıntılı bilgi için. |Evet |
-| TimeToLive |İsteğe bağlı Hdınsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı Hdınsight kümesi kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir.<br/><br/>Örneğin, bir etkinlik Çalıştır 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme 6 etkinlik işleme dakika çalıştırdıktan sonra 5 dakika boyunca etkin kalır. Başka bir etkinlik 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma bir pahalı işlemi (işlem zaman alabilir), bunu kullanımı isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası performansını artırmak için bu ayarı olarak gerekli olur.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız, etkinliği çalıştırmak hemen işlenen küme silinir. Diğer taraftan, yüksek bir değer ayarlarsanız, kümenin yüksek maliyetlerini gereksiz yere kaynaklanan boşta kalır. Bu nedenle, gereksinimlerinize göre uygun değere ayarlamak önemlidir.<br/><br/>Timetolive özellik değerini uygun şekilde ayarlanmışsa, birden çok ardışık düzen isteğe bağlı Hdınsight kümesi aynı kopyasını paylaştığında |Evet |
-| Sürüm |Hdınsight küme sürümü. Ayrıntılar için bkz [desteklenen Azure Data Factory'de Hdınsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Hayır |
+| clusterSize |Kümedeki çalışan/veri düğüm sayısı. Hdınsight kümesi için bu özelliği belirtmeniz çalışan düğüm sayısı ile birlikte 2 baş düğümler ile oluşturulur. Düğüm boyutu 4 çalışan düğümlü bir küme 24 çekirdek alır, böylece 4 çekirdeğe sahip Standard_D3 olduğundan (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*4 = 8 çekirdek baş düğümler için). Bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) Standard_D3 katmanı hakkında ayrıntılı bilgi için. |Evet |
+| timetolive |İsteğe bağlı Hdınsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı Hdınsight kümesi kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir.<br/><br/>Örneğin, bir etkinlik Çalıştır 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme 6 etkinlik işleme dakika çalıştırdıktan sonra 5 dakika boyunca etkin kalır. Başka bir etkinlik 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma bir pahalı işlemi (işlem zaman alabilir), bunu kullanımı isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası performansını artırmak için bu ayarı olarak gerekli olur.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız, etkinliği çalıştırmak hemen işlenen küme silinir. Diğer taraftan, yüksek bir değer ayarlarsanız, kümenin yüksek maliyetlerini gereksiz yere kaynaklanan boşta kalır. Bu nedenle, gereksinimlerinize göre uygun değere ayarlamak önemlidir.<br/><br/>Timetolive özellik değerini uygun şekilde ayarlanmışsa, birden çok ardışık düzen isteğe bağlı Hdınsight kümesi aynı kopyasını paylaştığında |Evet |
+| sürüm |Hdınsight küme sürümü. Ayrıntılar için bkz [desteklenen Azure Data Factory'de Hdınsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Hayır |
 | linkedServiceName |Depolamak ve veri işleme için isteğe bağlı küme tarafından kullanılacak azure depolama bağlı hizmeti. <p>Şu anda bir Azure Data Lake Store depolama alanı olarak kullanan bir isteğe bağlı Hdınsight kümesi oluşturulamıyor. Bir Azure Data Lake Store'da işleme Hdınsight sonuç verileri depolamak istiyorsanız, Azure Blob depolama alanından Azure Data Lake Store'a veri kopyalamak için kopyalama etkinliği kullanın.</p>  | Evet |
 | additionalLinkedServiceNames |Data Factory hizmetinin bunları sizin adınıza kaydedebilirsiniz böylece Hdınsight için ek depolama hesapları hizmeti bağlı belirtir. |Hayır |
 | osType |İşletim sistemi türü. İzin verilen değerler: (varsayılan) Windows ve Linux |Hayır |
@@ -4939,7 +4939,7 @@ Aşağıdaki tabloda bir Azure Machine Learning bağlı hizmeti Azure JSON tanı
 | --- | --- | --- |
 | Tür |Type özelliği ayarlanmalıdır: **AzureML**. |Evet |
 | mlEndpoint |Toplu Puanlama URL. |Evet |
-| apikey ile yapılan |Yayımlanan çalışma alanı modelinin API. |Evet |
+| apiKey |Yayımlanan çalışma alanı modelinin API. |Evet |
 
 #### <a name="json-example"></a>JSON örneği
 
@@ -5125,7 +5125,7 @@ Bir Hive etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Komut dosyası |Hive betiği satır içi belirtin |Hayır |
+| betik |Hive betiği satır içi belirtin |Hayır |
 | komut dosyası yolu |Hive betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
 | tanımlar |'Hiveconf' kullanarak Hive betiğini içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
 
@@ -5171,7 +5171,7 @@ Pig etkinlik JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkin
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Komut dosyası |Pig betiği satır içi belirtin |Hayır |
+| betik |Pig betiği satır içi belirtin |Hayır |
 | komut dosyası yolu |Pig betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
 | tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
 
@@ -5284,7 +5284,7 @@ Bir Hadoop akış etkinliği JSON tanımında aşağıdaki özellikleri belirteb
 | Eşleyici | Yürütülebilir Eşleyici adı. Örnekte, cat.exe yürütülebilir Eşleyici ' dir.| 
 | reducer | Yürütülebilir reducer adı. Örnekte, wc.exe yürütülebilir reducer ' dir. | 
 | Giriş | Eşleyici için girdi dosyası (konum dahil). Örnekte: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample blob kapsayıcısı, veri/örnek/Gutenberg klasördür ve davinci.txt blob. |
-| Çıktı | Çıktı dosyası (konum dahil) reducer için. Hadoop akış işi çıkışı, bu özellik için belirtilen konuma yazılır. |
+| çıkış | Çıktı dosyası (konum dahil) reducer için. Hadoop akış işi çıkışı, bu özellik için belirtilen konuma yazılır. |
 | filePaths | Eşleyici ve reducer yürütülebilir dosyalar için yollar. Örnekte: "adfsample/example/apps/wc.exe" adfsample blob kapsayıcısı, örnek/uygulamaları klasördür ve wc.exe çalıştırılabilir. | 
 | fileLinkedService | FilePaths bölümünde belirtilen dosyaları içeren Azure depolama temsil eden azure depolama bağlı hizmeti. | 
 | Bağımsız değişkenler | Bağımsız değişkenleri MapReduce program virgülle ayrılmış listesi. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle ayırt etmek için seçeneği ve değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. olan göre bunların değerleri hemen ardından seçenekleri) | 
@@ -5400,7 +5400,7 @@ Azure ML toplu iş yürütme etkinliği JSON tanımında aşağıdaki özellikle
 
 Özellik | Açıklama | Gerekli 
 -------- | ----------- | --------
-WebServiceInput etkinliğine | Azure ML web hizmeti için bir giriş olarak geçirilecek veri kümesi. Bu veri kümesi de etkinliğinin girdi bulunması gerekir. |WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
+webServiceInput | Azure ML web hizmeti için bir giriş olarak geçirilecek veri kümesi. Bu veri kümesi de etkinliğinin girdi bulunması gerekir. |WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
 webServiceInputs | Azure ML web hizmeti girişleri olarak geçirilecek veri kümeleri belirtin. Web hizmeti birden fazla girdi aldığı durumlarda WebServiceInput etkinliğine özelliğini kullanmak yerine webServiceInputs özelliğini kullanın. Tarafından başvurulan veri kümeleri **webServiceInputs** de dahil etkinliğin **girişleri**. | WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
 webServiceOutputs | Çıktı Azure ML web hizmeti olarak atanan veri kümesi. Web hizmeti, bu veri kümesini çıktı verilerini döndürür. | Evet | 
 globalParameters | Bu bölümde web hizmeti parametreleri için değerleri belirtin. | Hayır | 
@@ -5525,9 +5525,9 @@ U-SQL etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. E
 |:--- |:--- |:--- |
 | scriptPath |U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harf duyarlıdır. |Hayır (komut dosyası kullanırsanız) |
 | scriptLinkedService |Veri Fabrikası için komut dosyasını içeren depolamayı bağlı hizmet |Hayır (komut dosyası kullanırsanız) |
-| Komut dosyası |ScriptPath ve scriptLinkedService belirtme yerine satır içi betiği belirtin. Örneğin: "komut dosyası": "Veritabanı oluştur test". |Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
+| betik |ScriptPath ve scriptLinkedService belirtme yerine satır içi betiği belirtin. Örneğin: "komut dosyası": "Veritabanı oluştur test". |Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
 | degreeOfParallelism |Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. |Hayır |
-| Öncelik |İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. |Hayır |
+| öncelik |İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. |Hayır |
 | parametreler |U-SQL betiği için parametreler |Hayır |
 
 ### <a name="json-example"></a>JSON örneği

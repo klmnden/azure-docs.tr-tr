@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: cb70b6fee5257a07dda673d6d0f6feb07ad66958
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP HANA veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -114,7 +114,7 @@ SAP HANA verileri kopyalamak için kümesine tür özelliği ayarlamak **Relatio
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, SAP HANA kaynak tarafından desteklenen özellikler listesini sağlar.
 
@@ -171,15 +171,15 @@ SAP HANA veri kopyalama işlemi sırasında aşağıdaki eşlemelerini SAP HANA 
 | BOOLE DEĞERİ | Bayt |
 | CLOB | Byte] |
 | DATE | Tarih Saat |
-| ONDALIK | Ondalık |
+| DECIMAL | Ondalık |
 | ÇİFT | Bekar |
 | INT | Int32 |
 | NVARCHAR | Dize |
 | GERÇEK | Bekar |
 | SECONDDATE | Tarih Saat |
-| TAMSAYI | Int16 |
-| SAAT | TimeSpan |
-| ZAMAN DAMGASI | Tarih Saat |
+| SMALLINT | Int16 |
+| ZAMAN | TimeSpan |
+| TIMESTAMP | Tarih Saat |
 | MİNİ TAMSAYI | Bayt |
 | VARCHAR | Dize |
 

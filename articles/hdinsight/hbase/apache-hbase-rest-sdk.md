@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 2175a009f084b07c10ca3a32d43c2df216cd3c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="use-the-hbase-net-sdk"></a>HBase .NET SDK'yı kullanma
+# <a name="use-the-hbase-net-sdk"></a>HBase .NET SDK'sını kullanma
 
 [HBase](apache-hbase-overview.md) , verilerle çalışmak için iki birincil seçenek sağlar: [Hive sorguları ve HBase'nın RESTful API'si çağrılarını](apache-hbase-tutorial-get-started-linux.md). REST API kullanarak doğrudan ile çalışabilirsiniz `curl` komut veya benzer bir yardımcı programı.
 
@@ -38,7 +38,7 @@ HBase .NET SDK'sı Visual Studio'dan yüklenebilir bir NuGet paketi olarak sağl
 
 SDK'yı kullanmak için yeni bir örneğini `HBaseClient` tümleştirilmesidir nesne `ClusterCredentials` oluşan `Uri` , küme ve Hadoop kullanıcı adı ve parola.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -53,7 +53,7 @@ Verileri fiziksel olarak depolanan *HFiles*. Tek bir Hfıle bir tablo, tek bir b
 
 Yeni bir tablo oluşturmak için bu seçeneği belirtin bir `TableSchema` ve sütun. Aşağıdaki kod 'RestSDKTable' zaten - tablo değilse, tablonun oluşturulduğu olup olmadığını denetler.
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -71,7 +71,7 @@ Bu yeni bir tablo iki sütun ailesi, t1 ve t2 sahiptir. Sütun ailesi içinde fa
 
 Bir tabloyu silmek için:
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -79,7 +79,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 Veri eklemek için bir benzersiz bir satır anahtarı satır tanımlayıcısı olarak belirtin. İçinde depolanan tüm verileri bir `byte[]` dizi. Aşağıdaki kod tanımlar ve ekler `title`, `director`, ve `release_date` t1 sütun ailesi sütunları bu sütunlar en sık erişilen olur. `description` Ve `tagline` sütunları t2 sütun ailesine eklenir. Verilerinizi gerektiği şekilde sütun ailesi bölüm.
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -127,7 +127,7 @@ Veri biçimi aşağıdakine benzer şekilde BigTable, HBase uygular:
 
 Bir HBase tablosunda verileri okumak için tablo adı ve satır anahtarı geçirmek `GetCellsAsync` döndürülecek yöntemi `CellSet`.
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -141,7 +141,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 Bu durumda, yalnızca olmamalıdır gibi benzersiz bir anahtar için bir satır kod yalnızca ilk eşleşen satır, döndürür. Döndürülen değer içine değiştirilir `string` gelen biçimlendirmek `byte[]` dizi. Tamsayı film yayın tarihi gibi diğer türleri için değer de dönüştürebilirsiniz:
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -158,7 +158,7 @@ Console.WriteLine(releaseDate);
 
 HBase kullanır `scan` bir veya daha fazla satır alınamadı. Bu örnek, birden çok satır 10 toplu istekleri ve 35 25 arasında anahtar değerleri olan verileri alır. Tüm satırları aldıktan sonra kaynakları temizlemek için tarayıcı silin.
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

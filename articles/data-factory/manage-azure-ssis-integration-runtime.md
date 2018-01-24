@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b4b777a858febb4b601c038508e4fc313c189ac2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı yönetme
 [Azure SSIS tümleştirmesi çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md) makalede Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) oluşturma gösterilmektedir. Bu makalede, var olan bir Azure SSIS tümleştirmesi çalışma zamanı yeniden yapılandırma hakkında bilgi sağlar.  
@@ -25,9 +25,28 @@ ms.lasthandoff: 01/13/2018
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md).
 
+
+## <a name="data-factory-ui"></a>Data Factory Kullanıcı Arabirimi (UI) 
+Veri Fabrikası UI durdurmak, düzenleme/yeniden yapılandırın veya bir Azure SSIS IR silmek için kullanabileceğiniz 
+
+1. İçinde **veri fabrikası UI**, geçiş **Düzenle** sekmesi. Veri Fabrikası UI başlatmak için tıklatın **Yazar & İzleyici** veri fabrikanızın giriş sayfasında.
+2. Sol bölmede **bağlantıları**.
+3. Sağ bölmede geçmek **tümleştirme çalışma zamanları**. 
+4. Eylemler sütununda düğmeleri kullanabilirsiniz **durdurmak**, **Düzenle**, veya **silmek** tümleştirmesi çalışma zamanı. **Kod** düğmesini **Eylemler** sütun tümleştirmesi çalışma zamanı ile ilişkili JSON tanımını görüntüleme olanak sağlar.  
+    
+    ![Azure SSIS IR eylemleri](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>Bir Azure SSIS IR yeniden yapılandırmak için
+1. Tümleştirme çalışma zamanı tıklayarak durdurun **durdurmak** içinde **Eylemler** sütun. Liste görünümü yenilemek için tıklatın **yenileme** araç çubuğunda. IR durdurulduktan sonra ilk eylem IR başlatmanıza olanak tanır bakın 
+
+    ![Azure SSIS durduruldu sonra IR - eylemleri](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. Düzenle/tıklayarak RECONFIGURE IR **Düzenle** düğmesini **Eylemler** sütun. İçinde **tümleştirmesi çalışma zamanı Kurulum** penceresinde, (örneğin, düğüm veya düğüm başına en fazla paralel yürütmeleri sayısı, düğüm boyutu) ayarlarını değiştirin. 
+3. IR yeniden başlatmak için tıklatın **Başlat** düğmesini **Eylemler** sütun.     
+
+## <a name="azure-powershell"></a>Azure PowerShell
 Sağlamak ve bir örneğini Azure SSIS Integration zamanının başlatmak sonra onu bir dizi çalıştırarak yeniden yapılandırabilirsiniz `Stop`  -  `Set`  -  `Start` PowerShell cmdlet öğelerini ardışık. Örneğin, aşağıdaki PowerShell betiğini beş Azure SSIS tümleştirmesi çalışma zamanı örneği için ayrılan düğüm sayısını değiştirir.
 
-## <a name="reconfigure-an-azure-ssis-ir"></a>Bir Azure SSIS IR yeniden yapılandırın
+### <a name="reconfigure-an-azure-ssis-ir"></a>Bir Azure SSIS IR yeniden yapılandırın
 
 1. İlk olarak, Azure SSIS tümleştirmesi çalışma zamanı kullanarak durdurmak [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet'i. Bu komut tüm düğümlerinin serbest bırakır ve faturalama durdurur.
 
@@ -45,7 +64,7 @@ Sağlamak ve bir örneğini Azure SSIS Integration zamanının başlatmak sonra 
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-## <a name="delete-an-azure-ssis-ir"></a>Bir Azure SSIS IR Sil
+### <a name="delete-an-azure-ssis-ir"></a>Bir Azure SSIS IR Sil
 1. İlk olarak, tüm mevcut Azure SSIS IRS data factory'nizi altında listeleyin.
 
     ```powershell

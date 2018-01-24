@@ -4,7 +4,7 @@ description: "Azure arama güvenlik SOC 2 uyumluluk, şifreleme, kimlik doğrula
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,23 +12,19 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/14/2017
+ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 23616c70a5fd336b743f5acfad2601a6c3e23fc4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="data-security-and-controlled-access-to-azure-search-operations"></a>Veri güvenliği ve Azure Search işlemlerine denetimli erişim
+# <a name="security-and-controlled-access-in-azure-search"></a>Güvenlik ve Azure Search'te denetimli erişim
 
 Azure arama [SOC 2 uyumlu](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports)kapsamlı güvenlik mimarisi yayılan fiziksel güvenlik, şifrelenmiş iletimler, şifrelenmiş depolama ve platform genelinde yazılım koruması. İşletimsel olarak, Azure Search yalnızca kimliği doğrulanmış istekler kabul eder. İsteğe bağlı olarak, içerik üzerinde kullanıcı başına erişim denetimleri ekleyebilirsiniz. Bu makalede her katmanda güvenlik dokunur, ancak öncelikle nasıl Azure Search'te verilerin ve işlemlerin güvenlidir odaklanmıştır.
 
 ![Güvenlik katmanları Blok Diyagramı](media/search-security-overview/azsearch-security-diagram.png)
-
-Azure Search korumalar ve Azure platformu korumaları devralır olsa da, hizmet tarafından kullanılan birincil anahtar tabanlı kimlik doğrulaması, burada anahtar türü erişim düzeyini belirler mekanizmadır. Bir, bir yönetici anahtarı veya salt okunur erişim için bir sorgu anahtarı anahtardır.
-
-Hizmetinize erişim anahtarını (tam veya salt okunur) artı işlemleri kapsamını tanımlayan bir bağlam ilettiği izinleri kesitini temel alır. Her istek zorunlu bir anahtar, bir işlem ve bir nesne oluşur. Birbirine zincirlenmiş, iki izin düzeyleri artı bağlam hizmet işlemleri üzerinde tam spektrumun güvenlik sağlamak için yeterlidir. 
 
 ## <a name="physical-security"></a>Fiziksel güvenlik
 
@@ -38,11 +34,17 @@ Microsoft veri merkezleri endüstri lideri fiziksel güvenlik sağlar ve kapsaml
 
 ## <a name="encrypted-transmission-and-storage"></a>Şifrelenmiş iletim ve depolama
 
-Azure arama HTTPS bağlantı noktası 443 üzerinde dinler. Platform arasında Azure hizmetlerine bağlantıları şifrelenir. 
+Şifreleme tüm dizini oluşturma ardışık düzeni genişletir: bağlantılardan, iletim aracılığıyla ve Azure Search'te depolanan dizinlenmiş veri aşağı kaydırın.
 
-Arka uç depolama dizinler ve diğer yapıları için kullanılan, Azure Search bu platformlar, şifreleme özelliklerinden yararlanır. Tam [AICPA SOC 2 Uyumluluk](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) tüm hizmetleri (yeni ve mevcut), Azure Search sunan tüm veri merkezlerinde arama için kullanılabilir. Tam raporu gözden geçirmek için Git [Azure - ve Azure kamu SOC 2 türü II rapor](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports).
+| Güvenlik katmanı | Açıklama |
+|----------------|-------------|
+| Aktarımdaki şifreleme | Azure arama HTTPS bağlantı noktası 443 üzerinde dinler. Platform arasında Azure hizmetlerine bağlantıları şifrelenir. |
+| Bekleme sırasında şifreleme | Şifreleme dizin oluşturma işleminde, dizin oluşturma süresi tamamlama veya dizin boyutu ölçülebilir bir etki olmadan tam olarak internalized. Otomatik olarak tüm dizin üzerinde (Ocak 2018 önce oluşturulan) tam olarak şifrelenmemiş bir dizine artımlı güncelleştirmeler dahil olmak üzere oluşur.<br><br>Dahili olarak, şifreleme dayanır [Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), 256 bit kullanarak [AES şifreleme](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
+| [SOC 2 uyumluluk](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Tüm arama hizmetleri tam olarak AICPA SOC 2 uyumlu, Azure Search sağlayan tüm veri merkezlerinde oluşturulur. Tam raporu gözden geçirmek için Git [Azure - ve Azure kamu SOC 2 türü II rapor](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
-Şifreleme ile dahili olarak yönetilir ve evrensel geçerli şifreleme anahtarları, saydamdır. Belirli arama hizmetleri veya dizin, kapatmak veya anahtarları doğrudan yönetmek veya kendi tedarik olamaz. 
+Şifreleme sertifikaları ve dahili olarak Microsoft tarafından yönetilen ve evrensel uygulanması şifreleme anahtarları ile Azure arama için dahili kullanım içindir. Olamaz şifreleme Aç veya Kapat, yönetme veya kendi anahtarları yerine veya portal veya program aracılığıyla şifreleme ayarları görüntüleyin. 
+
+Bekleyen şifreleme 24 Ocak 2018 içinde duyurulan ve tüm bölgelerde paylaşılan (ücretsiz) Hizmetleri dahil olmak üzere tüm hizmet katmanları için geçerlidir. Tam şifreleme için bu tarihten önce oluşturulan dizinleri bırakılan ve şifrelemenin gerçekleşmesi için sırayla yeniden. Aksi takdirde, 24 Ocak sonra eklenen yalnızca yeni veriler şifrelenir.
 
 ## <a name="azure-wide-logical-security"></a>Azure genelinde mantıksal güvenliği
 
@@ -53,15 +55,15 @@ Birkaç güvenlik mekanizmaları Azure yığın üzerinden kullanılabilen ve bu
 
 Tüm Azure hizmetlerine erişim düzeyleri tutarlı bir şekilde tüm hizmetler arasında ayarlamak için rol tabanlı erişim denetimi (RBAC) destekler. Hizmet durumunu görüntüleyerek herhangi bir rol, üyelerine kullanılabilir iken Örneğin, yönetici anahtarı gibi hassas verileri görüntüleme sahibi ve katkıda bulunan rollere sınırlıdır. RBAC sahibi, katkıda bulunan ve okuyucu rolü sağlar. Varsayılan olarak, tüm hizmet yöneticileri sahip rolünün bir üyesi.
 
-## <a name="service-authentication"></a>Hizmet kimlik doğrulama
+## <a name="service-access-and-authentication"></a>Hizmet erişim ve doğrulama
 
-Azure arama kendi kimlik doğrulama yöntemleri sağlar. Kimlik doğrulama işlemleri kapsamını belirleyen bir erişim anahtarı temel alır ve her istekte oluşur. Geçerli erişim tuşu güvenilir bir varlıktan kanıt İsteğin kaynaklandığı olarak kabul edilir. 
+Azure Search Azure platformu güvenlik önlemleri devralır olsa da, ayrıca kendi anahtar tabanlı kimlik doğrulaması sağlar. (Yönetici veya sorgu) anahtar türü erişim düzeyini belirler. Geçerli bir anahtar teslimini güvenilir bir varlıktan kanıt İsteğin kaynaklandığı olarak kabul edilir. 
 
-Hizmeti başına kimlik doğrulama, iki düzeyde var: tam hakları, yalnızca sorgu. Anahtar türü, hangi düzeyde bir erişim etkindir belirler.
+Her istekte her istek zorunlu bir anahtar, bir işlem ve bir nesne burada oluşur, kimlik doğrulaması gereklidir. Birbirine zincirlenmiş, iki izin düzeyleri (tam veya salt okunur) ve bağlam hizmet işlemleri üzerinde tam spektrumun güvenlik sağlamak için yeterlidir. 
 
 |Anahtar|Açıklama|Sınırlar|  
 |---------|-----------------|------------|  
-|Yönetici|Hizmet yönetme özelliği de dahil tüm işlemleri için tüm haklara oluşturma ve silme verir **dizinler**, **dizin oluşturucular**, ve **veri kaynakları**.<br /><br /> İki Yönetim **api anahtarlarından**olarak başvurulan *birincil* ve *ikincil* anahtarları portalında, hizmet oluşturulduğunda ve tek tek isteğe bağlı olarak yeniden oluşturulur . İki anahtarına sahip bir anahtar sürekli Erişim hizmeti için ikinci anahtar kullanırken alma izin verir.<br /><br /> Yönetici anahtarları yalnızca HTTP istek üst bilgilerinde belirtilir. Bir yönetici yerleştirilemiyor **api anahtarını** bir URL.|En çok hizmeti başına 2|  
+|Yönetim Bölgesi|Hizmet yönetme özelliği de dahil tüm işlemleri tam hakkı verir oluşturun ve dizinler, dizin oluşturucular ve veri kaynaklarını silin.<br /><br /> İki Yönetim **api anahtarlarından**olarak başvurulan *birincil* ve *ikincil* anahtarları portalında, hizmet oluşturulduğunda ve tek tek isteğe bağlı olarak yeniden oluşturulur . İki anahtarına sahip bir anahtar sürekli Erişim hizmeti için ikinci anahtar kullanırken alma izin verir.<br /><br /> Yönetici anahtarları yalnızca HTTP istek üst bilgilerinde belirtilir. Bir URL yönetici api anahtarı yerleştirilemiyor.|En çok hizmeti başına 2|  
 |Sorgu|Dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.<br /><br /> Sorgu anahtarları isteğe bağlı olarak oluşturulur. Bunları el ile Portalı'nda veya programlama aracılığıyla oluşturabilirsiniz [Yönetimi REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Sorgu anahtarları, arama, öneri veya arama işlemi için bir HTTP istek üstbilgisi olarak belirtilebilir. Alternatif olarak, bir sorgu anahtarı üzerinde bir URL parametre olarak geçirebilirsiniz. İstemci uygulamanızı istek nasıl formulates bağlı olarak, anahtar sorgu parametresi olarak geçirmek daha kolay olabilir:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|hizmeti başına 50|  
 
  Görsel olarak, bir yönetici anahtarını veya sorgu anahtarını arasında fark yoktur. Her iki anahtarı 32 rastgele oluşan dizeleri alfa sayısal karakter oluşturulur. Hangi türde bir anahtar uygulamanızda belirtildi, izleme kaybederseniz, şunları yapabilirsiniz [anahtar portal denetleyin](https://portal.azure.com) veya [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) anahtar türü ve değeri döndürmek için.  

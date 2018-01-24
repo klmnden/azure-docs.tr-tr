@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 3686cfffd2c29461213b2866665e59336f037fa0
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL Programlama Kılavuzu
 
@@ -903,7 +903,7 @@ Kullanıcı tanımlı toplamlarda, toplama ile ilgili olan tüm işlevler out-of
 
 Kullanıcı tanımlı toplama temel sınıf tanımı aşağıdaki gibidir:
 
-```c#
+```csharp
     [SqlUserDefinedAggregate]
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
     {
@@ -1061,7 +1061,7 @@ UDO genellikle açıkça U-SQL komut dosyasında aşağıdaki U-SQL deyimlerini 
 * EXTRACT
 * ÇIKTI
 * İŞLEM
-* BİRLEŞTİRME
+* COMBINE
 * AZALTMA
 
 > [!NOTE]  
@@ -1480,7 +1480,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 Nesnesinin bir örneği temel komut dosyasında oluşturmamak için size bir işlev sarmalayıcı bizim önceki örnekte gösterildiği gibi oluşturabilirsiniz:
 
-```c#
+```csharp
         // Define the factory classes
         public static class Factory
         {
@@ -1796,7 +1796,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 
 Veya bir sarmalayıcı fabrika yöntemi çağrıldı:
 
-```c#
+```csharp
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
@@ -1854,7 +1854,7 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 
 **SqlUserDefinedCombiner** Birleştirici modu özelliği tanımlamak için kullanılır. Bir kullanıcı tarafından tanımlanan birleştirici tanımı için isteğe bağlı bir özniteliktir.
 
-CombinerMode modu
+CombinerMode     Mode
 
 CombinerMode enum, şu değerleri alabilir:
 
@@ -1871,7 +1871,7 @@ CombinerMode enum, şu değerleri alabilir:
 
 Ana programlamasına nesneler şunlardır:
 
-```c#
+```csharp
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```

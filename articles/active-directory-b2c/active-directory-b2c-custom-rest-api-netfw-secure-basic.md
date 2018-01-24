@@ -14,17 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-<<<<<<< HEAD
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
-=======
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP temel kimlik doğrulaması kullanarak RESTful hizmetlerinizi güvenli hale getirme
 İçinde bir [ilişkili Azure AD B2C makale](active-directory-b2c-custom-rest-api-netfw.md), Azure Active Directory (Azure AD B2C) kullanıcı Yolculuklar kimlik doğrulaması olmadan B2C ile tümleşen bir RESTful hizmeti (web API) oluşturun. 
@@ -33,7 +27,7 @@ Kullanıcıların doğrulandı yalnızca B2C dahil olmak üzere erişebilir, API
 
 Daha fazla bilgi için bkz: [ASP.NET Web API'de temel kimlik doğrulaması](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bölümündeki adımları tamamlamanız [tümleştirmek REST API talep Azure AD B2C kullanıcı Yolculuğunuzun alışverişlerine](active-directory-b2c-custom-rest-api-netfw.md) makalesi.
 
 ## <a name="step-1-add-authentication-support"></a>1. adım: kimlik doğrulama desteği ekleme
@@ -82,7 +76,7 @@ Ekleme `ClientAuthMiddleware.cs` altında sınıf *App_Start* klasör. Bunu yapm
 
 3. Açık *App_Start\ClientAuthMiddleware.cs* dosyasını bulun ve aşağıdaki kod ile içerik dosyasını değiştirin:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -200,7 +194,7 @@ Adlı bir OWIN başlangıç sınıfı ekleme `Startup.cs` API. Bunu yapmak için
 
 2. Açık *haline* dosyasını bulun ve aşağıdaki kod ile içerik dosyasını değiştirin:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     

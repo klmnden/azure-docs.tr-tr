@@ -1,8 +1,9 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IOT Hub cihaz çifti ona bağlanan her aygıt için devam ettirir.
 
@@ -14,7 +15,7 @@ Cihaz çiftlerini kullanın:
 * Cihaz meta verilerini, yapılandırma veya durumu sorgu.
 
 > [!NOTE]
-> Cihaz çiftlerini cihaz yapılandırmalarını ve koşullar sorgulamak için ve eşitleme için tasarlanmıştır. Zaman cihaz çiftlerini kullanılacağı hakkında daha fazla bilgiler bulunabilir [cihaz çiftlerini anlamak][lnk-twins].
+> Cihaz çiftlerini cihaz yapılandırmalarını ve koşullar sorgulamak için ve eşitleme için tasarlanmıştır. Ne zaman cihaz çiftlerini kullanılacağı hakkında daha fazla bilgi bulunabilir [cihaz çiftlerini anlamak][lnk-twins].
 
 Cihaz çiftlerini bir IOT hub ' depolanır ve içerir:
 

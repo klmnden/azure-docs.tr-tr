@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory kopyalama etkinliği kullanarak DB2 taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de veri bir şirket içi DB2 ver
 
 Veri Fabrikası şu anda bir DB2 veritabanından yalnızca veri taşımayı destekleyen bir [desteklenen havuz veri deposu](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Verileri diğer veriler taşıma veritabanı desteklenmiyor bir DB2 depolar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Veri Fabrikası destekleyen kullanarak bir şirket içi DB2 veritabanına bağlanma [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md). Verilerinizi taşımak için ağ geçidi veri ardışık ayarlamak adım adım yönergeler için bkz: [buluta şirket içinden veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
 
 DB2 Azure Iaas sanal üzerinde barındırılıyorsa bile bir ağ geçidi gereklidir. Veri deposu olarak aynı Iaas VM ağ geçidi yükleyebilirsiniz. Ağ geçidi veritabanına bağlanıyorsanız, farklı bir sanal ağ geçidi yükleyebilirsiniz.
@@ -83,9 +83,9 @@ Aşağıdaki tabloda bir DB2 bağlantılı hizmete özel JSON özellikleri liste
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | **türü** |Bu özelliği ayarlamak **OnPremisesDb2**. |Evet |
-| **Sunucu** |DB2 sunucunun adıdır. |Evet |
+| **server** |DB2 sunucunun adıdır. |Evet |
 | **Veritabanı** |DB2 veritabanının adı. |Evet |
-| **Şema** |DB2 veritabanında şema adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır |
+| **schema** |DB2 veritabanında şema adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır |
 | **authenticationType** |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | **Kullanıcı adı** |Basic veya Windows kimlik doğrulaması kullanıyorsanız, kullanıcı hesabının adı. |Hayır |
 | **Parola** |Kullanıcı hesabının parolası. |Hayır |
@@ -191,7 +191,7 @@ Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz ör
 }
 ```
 
-**Azure Blob dataset çıktı**
+**Azure Blob çıktı veri kümesi**
 
 Veri yazıldığı için yeni bir blob saatte ayarlayarak **sıklığı** "Saat" özelliğine ve **aralığı** özelliği 1. **FolderPath** özelliği blob dinamik olarak değerlendirilmesi için işleniyor dilim başlangıç zamanı temel alarak. Klasör yolu yıl, ay, gün ve saati başlangıç saatinden bölümlerini kullanır.
 
@@ -312,16 +312,16 @@ Kopya etkinliği bir DB2 türünden bir .NET türü veri dönüştürdüğünde 
 | Tamsayı |Int16 |
 | Tamsayı |Int32 |
 | BigInt |Int64 |
-| Real |Tek |
+| Real |Bekar |
 | Çift |Çift |
-| Kayan nokta |Çift |
+| Kayan |Çift |
 | Ondalık |Ondalık |
 | DecimalFloat |Ondalık |
 | sayısal |Ondalık |
-| Tarih |Tarih saat |
+| Tarih |Tarih Saat |
 | Zaman |TimeSpan |
-| zaman damgası |Tarih saat |
-| XML |Byte] |
+| Zaman damgası |Tarih Saat |
+| Xml |Byte] |
 | char |Dize |
 | VarChar |Dize |
 | LongVarChar |Dize |
@@ -332,22 +332,22 @@ Kopya etkinliği bir DB2 türünden bir .NET türü veri dönüştürdüğünde 
 | Grafiği |Dize |
 | VarGraphic |Dize |
 | LongVarGraphic |Dize |
-| CLOB |Dize |
+| Clob |Dize |
 | Blob |Byte] |
 | DbClob |Dize |
 | Tamsayı |Int16 |
 | Tamsayı |Int32 |
 | BigInt |Int64 |
-| Real |Tek |
+| Real |Bekar |
 | Çift |Çift |
-| Kayan nokta |Çift |
+| Kayan |Çift |
 | Ondalık |Ondalık |
 | DecimalFloat |Ondalık |
 | sayısal |Ondalık |
-| Tarih |Tarih saat |
+| Tarih |Tarih Saat |
 | Zaman |TimeSpan |
-| zaman damgası |Tarih saat |
-| XML |Byte] |
+| Zaman damgası |Tarih Saat |
+| Xml |Byte] |
 | char |Dize |
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme

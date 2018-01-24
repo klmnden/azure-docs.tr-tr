@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 3652e80c20c425570ba90a1f3ce7a3035762a34d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure geçiş ölçümlerini Azure İzleyicisi'ni (Önizleme)
 
@@ -55,7 +55,7 @@ Tüm ölçüm değerleri dakikada Azure İzleyicisi için gönderilir. Ölçüm 
 
 ## <a name="connection-metrics"></a>Bağlantı ölçümleri
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | ListenerConnections başarı (Önizleme) | Belirtilen bir süre boyunca Azure geçişi yapılan başarılı dinleyici bağlantı sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |ListenerConnections ClientError (Önizleme)|Belirtilen bir sürede dinleyicisi bağlantılarında istemci hataların sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
@@ -72,7 +72,7 @@ Tüm ölçüm değerleri dakikada Azure İzleyicisi için gönderilir. Ölçüm 
 
 ## <a name="memory-usage-metrics"></a>Bellek kullanım ölçümleri
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |BytesTransferred (Önizleme)|Belirtilen bir süredeki aktarılan toplam bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 

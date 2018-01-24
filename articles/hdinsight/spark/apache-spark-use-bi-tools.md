@@ -17,19 +17,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark Azure Hdınsight ile verileri görselleştirme araçlarını kullanarak BI
 
 Nasıl kullanacağınızı öğrenin [Microsoft Power BI](http://powerbi.microsoft.com) ve [Tableau](http://www.tableau.com) Azure hdınsight'ta Apache Spark kümesinde verileri görselleştirmek için.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-* **Tam [hdınsight'ta Spark kümeleri üzerinde etkileşimli sorgular gerçekleştirme](./apache-spark-load-data-run-query.md)**.
+* **Makaleyi tamamlamak [hdınsight'ta Spark kümeleri üzerinde etkileşimli sorgular gerçekleştirme](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) ve [Power BI deneme aboneliği](https://app.powerbi.com/signupredirect?pbi_source=web) (isteğe bağlı).
 * **Tableau**: [Tableau Masaüstü](http://www.tableau.com/products/desktop) ve [Microsoft Spark ODBC sürücüsü](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -63,7 +63,7 @@ Oluşturduğunuz Jupyter not defteri [önceki öğretici](apache-spark-load-data
 
     ![Spark hvac tablodaki Göster](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. Gelen **dosya** dizüstü menüsünde **Kapat ve Durdur**. Kaynakları serbest bırakmak için Not Defteri kapatın. 
+3. Not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Kaynakları serbest bırakmak için Not Defteri kapatın. 
 
 
 
@@ -109,7 +109,7 @@ Power BI Desktop'ta kümeye bağlanmak, kümeden veri yüklemek ve verilere daya
 
     ![Spark küme kullanıcı adı ve parola](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark küme kullanıcı adı ve parola")
 
-    Power BI Desktop sahip Spark küme ve yük verileri bağlanmak için gereken bilgileri `hvac` tablo. Tablo ve sütunlarını görüntülenen **alanları** bölmesi.  Aşağıdaki ekran görüntüsüne bakın.
+    Power BI Desktop sahip Spark küme ve yük verileri bağlanmak için gereken bilgileri `hvac` tablo. Tablo ve sütunlarını görüntülenen **alanları** bölmesi.  Aşağıdaki ekran görüntüsüne bakın:
 
 6. Hedef sıcaklık ve her derleme için gerçek sıcaklık arasındaki fark görselleştirin: 
 
@@ -138,7 +138,7 @@ Power BI Desktop'ta kümeye bağlanmak, kümeden veri yüklemek ve verilere daya
 
 Power BI hizmetinde raporlar ve panolar, kuruluşunuzda paylaşmanıza olanak tanır. Bu bölümde, ilk veri kümesini ve raporu yayımlayın. Ardından, bir Pano rapora sabitleyin. Panolar, genellikle bir rapordaki verilerin bir alt kümesini odaklanmak için kullanılır; Raporunuzda yalnızca bir görselleştirme sahip ancak adımları gitmek hala faydalıdır.
 
-1. Power BI Desktop açın.
+1. Open Power BI Desktop.
 2. Gelen **giriş** sekmesini tıklatın, **Yayımla**.
 
     ![Power BI masaüstünden yayımlama](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Power BI masaüstünden yayımlama")
@@ -212,11 +212,11 @@ Visual panosuna sabitlediğiniz - diğer görsellerin rapora ekleyin ve bunları
 6. Tıklatın **Sheet1** sekmesi altındaki sol. Tüm binalar için gerçek etme ve ortalama hedef her tarihini gösteren bir görsel öğe olun. Sürükleme **tarih** ve **kimliği oluşturma** için **sütunları** ve **gerçek Temp**/**hedef Temp** için **satırları**. Altında **işaretleri**seçin **alanı** bir alan eşlemesini Spark veri görselleştirme için kullanabilirsiniz.
 
      ![Spark veri görselleştirme için alanlar ekleyin](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Spark veri görselleştirme için alanlar ekleyin")
-7. Varsayılan olarak, gösterilen sıcaklık alanlar toplama olarak. Bunun yerine ortalama etme göstermek istiyorsanız, açılan listeden, aşağıdaki ekran görüntüsünde gösterildiği gibi bunu yapabilirsiniz.
+7. Varsayılan olarak, gösterilen sıcaklık alanlar toplama olarak. Bunun yerine ortalama etme göstermek istiyorsanız, açılan listeden, aşağıdaki ekran görüntüsünde gösterildiği gibi bunu yapabilirsiniz:
 
     ![Sıcaklık Spark veri görselleştirme için ortalama ele](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "sıcaklık Spark veri görselleştirme için ortalama alın")
 
-8. Ayrıca Süper-bir ısı Haritası hedef gerçek etme arasındaki farkı daha iyi bir fikir almak için diğer üzerinden uygulayabilir. Kırmızı bir daire vurgulanmış tanıtıcı şekli gördüğünüz kadar fareyi alt alan eşleme köşesine getirin. Harita diğer eşlemeye üstte sürükleyin ve kırmızı dikdörtgende vurgulanan şekli gördüğünüzde fare düğmesini bırakın.
+8. Ayrıca Süper-bir ısı Haritası hedef gerçek etme arasındaki farkı daha iyi bir fikir almak için diğer üzerinden uygulayabilir. Kırmızı bir daire vurgulanmış tanıtıcı şekli görene kadar fareyi alt alan eşleme köşesine getirin. Harita diğer eşlemeye üstte sürükleyin ve kırmızı dikdörtgende vurgulanan şekli gördüğünüzde fare düğmesini bırakın.
 
     ![MAPS Spark veri görselleştirme için birleştirme](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "birleştirme eşler için Spark veri Görselleştirme")
 

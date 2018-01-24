@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Azure Data Factory kullanarak HTTP uç noktasından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,7 +99,7 @@ ClientCertificate kimlik doğrulamasını kullanmak için "authenticationType" �
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 ile kodlanmış sertifika verileri. | Belirtin `embeddedCertData` veya `certThumbprint`. |
-| Certthumbprınt | Sertifikanın parmak izi Self-hosted tümleştirmesi çalışma zamanı makinenizin sertifika deposunda yüklü. Yalnızca kendi kendini barındıran türü Integration zamanının içinde connectVia belirtildiğinde geçerlidir. | Belirtin `embeddedCertData` veya `certThumbprint`. |
+| certThumbprint | Sertifikanın parmak izi Self-hosted tümleştirmesi çalışma zamanı makinenizin sertifika deposunda yüklü. Yalnızca kendi kendini barındıran türü Integration zamanının içinde connectVia belirtildiğinde geçerlidir. | Belirtin `embeddedCertData` veya `certThumbprint`. |
 | password | Sertifikayla ilişkili parola. Bu alan SecureString işaretleyin. | Hayır |
 
 "Certthumbprınt" için kimlik doğrulaması kullanıyorsanız ve sertifika yerel bilgisayarın kişisel depoda yüklü Self-hosted tümleştirmesi çalışma zamanı için okuma izni vermeniz gerekir:
@@ -165,7 +165,7 @@ HTTP veri kopyalamak için veri kümesi için tür özelliği ayarlamak **HttpFi
 | relativeUrl | Verileri içeren kaynak için göreli bir URL. Bu özellik belirtilmemişse, bağlantılı hizmet tanımında belirtilen URL kullanılır. | Hayır |
 | requestMethod | HTTP yöntemi.<br/>İzin verilen değerler **almak** (varsayılan) veya **Post**. | Hayır |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
-| RequestBody | HTTP istek gövdesi. | Hayır |
+| requestBody | HTTP istek gövdesi. | Hayır |
 | Biçimi | İsterseniz **HTTP uç noktası olarak veri almak-olan** ve bir dosya tabanlı depolama alanına kopyalama ayrıştırma olmadan, her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
 
@@ -208,7 +208,7 @@ HTTP veri kopyalamak için veri kümesi için tür özelliği ayarlamak **HttpFi
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde HTTP kaynağı tarafından desteklenen özellikler listesini sağlar.
 

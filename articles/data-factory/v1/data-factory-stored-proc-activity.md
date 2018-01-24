@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f490aeef07b142b6a28319581b01c6cfc00054ba
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server saklı yordam etkinliği
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce etkinliği](data-factory-map-reduce.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/03/2017
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Bu makale, genel olarak kullanılabilir (GA) olduğu Azure Data Factory, 1 sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [dönüştürme saklı yordam etkinliği Data Factory sürüm 2 kullanarak verileri](../transform-data-using-stored-procedure.md).
+> Bu makale, Azure Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [dönüştürme saklı yordam etkinliği Data Factory sürüm 2 kullanarak verileri](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Genel Bakış
 Veri fabrikasında veri dönüştürme etkinlikleri kullanma [ardışık düzen](data-factory-create-pipelines.md) dönüştürmek ve Öngörüler ve öngörü ham verileri işlemek için. Saklı yordam etkinliği Data Factory destekleyen dönüştürme etkinlikleri biridir. Bu makalede derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve veri fabrikası'nda desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
@@ -93,10 +93,10 @@ Aşağıdaki örneklerde saklı yordam etkinliği bir Azure SQL veritabanındaki
 1. [Azure portalı](https://portal.azure.com/)’nda oturum açın.
 2. Tıklatın **yeni** sol menüsünde **Intelligence + analiz**, tıklatıp **Data Factory**.
 
-    ![Yeni veri fabrikası](media/data-factory-stored-proc-activity/new-data-factory.png)    
+    ![Yeni data factory](media/data-factory-stored-proc-activity/new-data-factory.png)    
 3. İçinde **yeni data factory** dikey penceresinde girin **SProcDF** adı. Azure Data Factory adları **genel benzersiz**. Veri Fabrikası adı Fabrika başarılı oluşturulmasını sağlamak üzere sizin adınızla öneki gerekir.
 
-   ![Yeni veri fabrikası](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
+   ![Yeni data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
 4. Seçin, **Azure aboneliği**.
 5. İçin **kaynak grubu**, aşağıdaki adımlardan birini yapın:
    1. Tıklatın **Yeni Oluştur** ve kaynak grubu için bir ad girin.
@@ -315,7 +315,7 @@ Aşağıdaki tabloda bu JSON özellikleri açıklanmaktadır:
 | açıklama |Etkinlik hangi amaçla kullanıldığına açıklayan metin |Hayır |
 | type | Ayarlanmalıdır: **SqlServerStoredProcedure** | Evet |
 | Girişleri | İsteğe bağlı. Bir giriş veri kümesi belirtirseniz, ('Hazır' durumunda) kullanılabilir olmalıdır çalıştırmak saklı yordam etkinliği. Girdi veri kümesi saklı yordam, bir parametre olarak kullanılamaz. Yalnızca saklı yordam etkinliği başlatmadan önce bağımlılık denetlemek için kullanılır. |Hayır |
-| Çıkışları | Bir çıkış veri kümesi için bir saklı yordam etkinliği belirtmeniz gerekir. Çıktı veri kümesi belirtir **zamanlama** saklı yordam etkinliği (saatlik, haftalık, aylık, vb.). <br/><br/>Çıktı veri kümesi kullanmalısınız bir **bağlantılı hizmeti** bir Azure SQL Database veya bir Azure SQL Data Warehouse veya çalıştırmak için saklı yordam istediğiniz SQL Server veritabanı başvuruyor. <br/><br/>Çıktı veri kümesi için saklı yordam sonucunu başka bir etkinlik tarafından işleme sonraki geçirmek için bir yol olarak hizmet verebilir ([etkinlikleri zincirleme](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) ardışık düzeninde. Ancak, veri fabrikası otomatik olarak bir saklı yordam çıktısını bu veri kümesine yazmaz. Çıktı veri kümesi işaret eden bir SQL tablosuna Yazar saklı yordam değil. <br/><br/>Bazı durumlarda, çıktı veri kümesi olabilir bir **kukla dataset**, yalnızca saklı yordam etkinliği çalıştırmak için zamanlama belirtmek için kullanılır. |Evet |
+| çıkışlar | Bir çıkış veri kümesi için bir saklı yordam etkinliği belirtmeniz gerekir. Çıktı veri kümesi belirtir **zamanlama** saklı yordam etkinliği (saatlik, haftalık, aylık, vb.). <br/><br/>Çıktı veri kümesi kullanmalısınız bir **bağlantılı hizmeti** bir Azure SQL Database veya bir Azure SQL Data Warehouse veya çalıştırmak için saklı yordam istediğiniz SQL Server veritabanı başvuruyor. <br/><br/>Çıktı veri kümesi için saklı yordam sonucunu başka bir etkinlik tarafından işleme sonraki geçirmek için bir yol olarak hizmet verebilir ([etkinlikleri zincirleme](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) ardışık düzeninde. Ancak, veri fabrikası otomatik olarak bir saklı yordam çıktısını bu veri kümesine yazmaz. Çıktı veri kümesi işaret eden bir SQL tablosuna Yazar saklı yordam değil. <br/><br/>Bazı durumlarda, çıktı veri kümesi olabilir bir **kukla dataset**, yalnızca saklı yordam etkinliği çalıştırmak için zamanlama belirtmek için kullanılır. |Evet |
 | storedProcedureName |Azure SQL veya çıktı tablosu kullanır bağlantılı hizmet tarafından temsil edilen Azure SQL Data Warehouse veya SQL Server veritabanı içinde saklı yordamın adını belirtin. |Evet |
 | storedProcedureParameters |Saklı yordam parametreleri için değerleri belirtin. Bir parametre için null geçmesi gerekiyorsa, söz dizimini kullanın: "param1": null (tüm küçük harf). Bu özellik kullanma hakkında bilgi edinmek için aşağıdaki örnek bakın. |Hayır |
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
 ms.openlocfilehash: a6627ab6febc763ae3f1cd464f26ad641f7c717d
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Özellikler ve Azure bulut Kabuk Bash'te için araçları
 
@@ -54,12 +54,12 @@ Dışında dosyaları `$Home` ve makine durumunu oturumlar arasında sürdürül
 |---|---|
 |Linux araçları            |Bash<br> Paylaş<br> tmux<br> dıg<br>               |
 |Azure Araçları            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) ve [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
-|Metin düzenleyiciler           |VIM<br> nano<br> emacs       |
-|Kaynak denetimi         |Git                    |
+|Metin düzenleyiciler           |vim<br> nano<br> emacs       |
+|Kaynak denetimi         |git                    |
 |Derleme araçları            |Yapma<br> maven<br> npm<br> PIP         |
-|Kapsayıcılar             |[Docker CLI](https://github.com/docker/cli)/[Docker makine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Veritabanları              |MySQL istemci<br> PostgreSql istemci<br> [SQLCMD yardımcı programı](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL komut dosyası yazarları](https://github.com/Microsoft/sql-xplat-cli) |
-|Diğer                  |iPython istemci<br> [Foundry CLI bulut](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/) |
+|Kapsayıcılar             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|Veritabanları              |MySQL istemci<br> PostgreSql istemci<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Diğer                  |iPython istemci<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/) |
 
 ## <a name="language-support"></a>Dil desteği
 

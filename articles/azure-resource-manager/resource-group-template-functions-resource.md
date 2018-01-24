@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
@@ -26,9 +26,9 @@ Resource Manager kaynak değerlerini almak için aşağıdaki işlevleri sunar:
 
 * [listKeys ve liste {Value}](#listkeys)
 * [sağlayıcıları](#providers)
-* [başvuru](#reference)
-* [kaynak grubu](#resourcegroup)
-* [ResourceId](#resourceid)
+* [reference](#reference)
+* [resourceGroup](#resourcegroup)
+* [resourceId](#resourceid)
 * [aboneliği](#subscription)
 
 Parametreler, değişkenleri veya geçerli dağıtım değerlerini almak için bkz: [dağıtım değer işlevleri](resource-group-template-functions-deployment.md).
@@ -47,8 +47,8 @@ Liste işlemi destekleyen herhangi bir kaynak türü için değerleri döndürü
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| resourceName veya resourceIdentifier |Evet |Dize |Kaynak için benzersiz tanımlayıcı. |
-| apiVersion |Evet |Dize |Kaynak çalışma zamanı durumunu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
+| resourceName veya resourceIdentifier |Evet |dize |Kaynak için benzersiz tanımlayıcı. |
+| apiVersion |Evet |dize |Kaynak çalışma zamanı durumunu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -153,8 +153,8 @@ Bir kaynak sağlayıcısı ve desteklenen kaynak türleri hakkında bilgi dönd�
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Evet |Dize |Namespace sağlayıcısı |
-| Kaynak türü |Hayır |Dize |Belirtilen ad alanı içindeki kaynak türü. |
+| providerNamespace |Evet |dize |Namespace sağlayıcısı |
+| resourceType |Hayır |dize |Belirtilen ad alanı içindeki kaynak türü. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -232,7 +232,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="reference" />
 
-## <a name="reference"></a>Başvuru
+## <a name="reference"></a>başvuru
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Bir kaynağın çalışma zamanı durumunu temsil eden bir nesne döndürür.
@@ -241,9 +241,9 @@ Bir kaynağın çalışma zamanı durumunu temsil eden bir nesne döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| resourceName veya resourceIdentifier |Evet |Dize |Adı veya bir kaynak benzersiz tanıtıcısı. |
-| apiVersion |Hayır |Dize |Belirtilen kaynak API sürümü. Kaynak aynı şablonu içinde değil sağlandığında bu parametreyi dahil edin. Genellikle, biçiminde **yyyy-aa-gg**. |
-| 'Tam' |Hayır |Dize |Tam kaynak nesnesi döndürülmeyeceğini belirten değer. Belirtmezseniz, `'Full'`, yalnızca kaynak özellikleri nesnesinin döndürülür. Tam nesne konumu ve kaynak kimliği gibi değerler içerir. |
+| resourceName veya resourceIdentifier |Evet |dize |Adı veya bir kaynak benzersiz tanıtıcısı. |
+| apiVersion |Hayır |dize |Belirtilen kaynak API sürümü. Kaynak aynı şablonu içinde değil sağlandığında bu parametreyi dahil edin. Genellikle, biçiminde **yyyy-aa-gg**. |
+| 'Tam' |Hayır |dize |Tam kaynak nesnesi döndürülmeyeceğini belirten değer. Belirtmezseniz, `'Full'`, yalnızca kaynak özellikleri nesnesinin döndürülür. Tam nesne konumu ve kaynak kimliği gibi değerler içerir. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -251,7 +251,7 @@ Her kaynak türü başvurusu işlevi için farklı özellikleri döndürür. İ�
 
 ### <a name="remarks"></a>Açıklamalar
 
-Başvuru işlevi bir çalışma zamanı durumu değerinden türeten ve bu nedenle değişkenler bölümünde kullanılamaz. Şablon çıktıları bölümünde kullanılabilir. 
+Başvuru işlevi bir çalışma zamanı durumu değerinden türeten ve bu nedenle değişkenler bölümünde kullanılamaz. Şablon çıktıları bölümünde kullanılabilir veya [bağlantılı şablon](resource-group-linked-templates.md#link-or-nest-a-template). Çıkış bölümünde kullanılamaz bir [iç içe geçmiş şablon](resource-group-linked-templates.md#link-or-nest-a-template). Bir iç içe geçmiş şablonunda dağıtılmış bir kaynak için değer döndürmek için iç içe geçmiş şablonunuzu bağlantılı şablona dönüştürebilirsiniz. 
 
 Başvuru işlevi kullanarak, dolaylı olarak başvurulan kaynak aynı şablonu içinde sağlandığında, bir kaynak üzerinde başka bir kaynak bağlıdır bildirin. Ayrıca dependsOn özelliğinin kullanılması gerekmez. Başvurulan kaynak dağıtımı tamamlanana kadar işlevi değerlendirilmez.
 
@@ -441,7 +441,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourcegroup" />
 
-## <a name="resourcegroup"></a>kaynak grubu
+## <a name="resourcegroup"></a>resourceGroup
 `resourceGroup()`
 
 Geçerli kaynak grubunda temsil eden bir nesne döndürür. 
@@ -534,10 +534,10 @@ Bir kaynak benzersiz tanımlayıcısını döndürür. Kaynak adı belirsiz ya d
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Hayır |dize (içinde GUID biçimi) |Geçerli aboneliğe varsayılan değerdir. Bir kaynağı başka bir abonelik almak gerektiğinde bu değeri belirtin. |
-| resourceGroupName |Hayır |Dize |Geçerli kaynak grubunda varsayılan değerdir. Bir kaynağı başka bir kaynak grubunda almanız gerektiğinde, bu değeri belirtin. |
-| Kaynak türü |Evet |Dize |Kaynak sağlayıcısı ad alanı dahil olmak üzere kaynak türü. |
-| resourceName1 |Evet |Dize |Kaynağın adı. |
-| resourceName2 |Hayır |Dize |Kaynak iç içe yerleştirilmiş ise sonraki kaynak adı kesimi. |
+| resourceGroupName |Hayır |dize |Geçerli kaynak grubunda varsayılan değerdir. Bir kaynağı başka bir kaynak grubunda almanız gerektiğinde, bu değeri belirtin. |
+| resourceType |Evet |dize |Kaynak sağlayıcısı ad alanı dahil olmak üzere kaynak türü. |
+| resourceName1 |Evet |dize |Kaynağın adı. |
+| resourceName2 |Hayır |dize |Kaynak iç içe yerleştirilmiş ise sonraki kaynak adı kesimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -654,10 +654,10 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| sameRGOutput | Dize | /Subscriptions/{Current-Sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Dize | /Subscriptions/{Current-Sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | Dize | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Dize | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | Dize | /Subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Dize | /Subscriptions/{Current-Sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
+| nestedResourceOutput | Dize | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Güvenlik çerçevesi: Özel durum yönetimi | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -75,7 +75,7 @@ Hizmetinde hata ayıklama bilgilerini devre dışı bırakın. Bu kaldırarak ge
 
 ### <a name="example"></a>Örnek
 API tarafından döndürülen durum kodu denetlemek için `HttpResponseException` aşağıda gösterildiği gibi kullanılabilir: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -89,7 +89,7 @@ public Product GetProduct(int id)
 
 ### <a name="example"></a>Örnek
 Özel durum yanıtı hakkında daha fazla denetim için `HttpResponseMessage` aşağıda gösterildiği gibi sınıfı kullanılabilir: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -109,7 +109,7 @@ Türü olmayan işlenmeyen özel durumları yakalamak için `HttpResponseExcepti
 
 ### <a name="example"></a>Örnek
 Dönüştüren bir filtre işte `NotImplementedException` özel durumlar HTTP durum kodu içine `501, Not Implemented`: 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -137,7 +137,7 @@ Bir Web API özel durum filtresi kaydetmek için birkaç yolu vardır:
 
 ### <a name="example"></a>Örnek
 Belirli bir eylem filtresi uygulamak için filtre eylemi için bir özniteliği olarak ekleyin: 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 ### <a name="example"></a>Örnek
 Filtre tüm eylemleri uygulamak için bir `controller`, bir öznitelik olarak filtre eklemek `controller` sınıfı: 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -160,14 +160,14 @@ public class ProductsController : ApiController
 
 ### <a name="example"></a>Örnek
 Tüm Web API denetleyicilerinin genel filtre uygulamak için filtre örneğini ekleme `GlobalConfiguration.Configuration.Filters` koleksiyonu. Özel durum filtreleri bu koleksiyondaki tüm Web API denetleyici eylemi uygular. 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Örnek
 Model doğrulama için bir model durumu aşağıda gösterildiği gibi CreateErrorResponse yöntemine geçirilebilir: 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -189,7 +189,7 @@ Onay olağanüstü işleme hakkında ek bilgi için başvurular bölümündeki b
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Genel hata iletileri, önemli uygulama verileri dahil olmak üzere olmadan doğrudan kullanıcıya sağlanır. Gizli verilerin örnekleri şunlardır:</p><ul><li>Sunucu adları</li><li>Bağlantı dizeleri</li><li>Kullanıcı adları</li><li>Parolaları</li><li>SQL yordamları</li><li>Dinamik SQL hatalarının ayrıntıları</li><li>Yığın izleme ve kod satırları</li><li>Bellekte depolanan değişkenleri</li><li>Sürücü ve klasör konumları</li><li>Uygulama yükleme noktaları</li><li>Ana bilgisayar yapılandırma ayarları</li><li>Diğer iç uygulama ayrıntıları</li></ul><p>Bir uygulamadaki tüm hataları yakalama ve genel hata iletileri sağlayarak, yanı sıra IIS içinde özel hatalar etkinleştirme bilgilerin açığa çıkmasına engellemeye yardımcı olur. SQL Server veritabanı ve .NET özel durum işleme, diğer hata mimarileri işleme arasında özellikle ayrıntılı ve uygulamanızı profil kötü niyetli bir kullanıcı için son derece kullanışlıdır. Doğrudan .NET özel durum sınıfından türetilmiş bir sınıf içeriğini görüntülemek ve böylece beklenmeyen bir özel durum yanlışlıkla doğrudan kullanıcıya yükseltilmiş değil uygun özel durum işleme sahip olduğundan emin olun.</p><ul><li>Genel hata iletileri doğrudan doğrudan özel durum/hata iletisinde bulunan koyma belirli Ayrıntılar soyut kullanıcıya sağlayın</li><li>.NET özel durum sınıfı içeriğini doğrudan kullanıcıya gösterme</li><li>Tüm hata iletilerini yakalayabilir ve uygun durumlarda uygulama istemciye gönderilen genel bir hata iletisi aracılığıyla kullanıcı bildirin.</li><li>Özel durum sınıfı içeriğini doğrudan kullanıcıya, özellikle dönüş değerini gösterme `.ToString()`, ya da ileti veya StackTrace özelliklerinin değerlerini. Güvenli bir şekilde bu bilgileri günlüğe kaydetmek ve kullanıcıya daha zararsız bir ileti görüntüler</li></ul>|
+| **Adımları** | <p>Genel hata iletileri, önemli uygulama verileri dahil olmak üzere olmadan doğrudan kullanıcıya sağlanır. Gizli verilerin örnekleri şunlardır:</p><ul><li>Sunucu adları</li><li>Bağlantı dizeleri</li><li>Kullanıcı adları</li><li>Parolalar</li><li>SQL yordamları</li><li>Dinamik SQL hatalarının ayrıntıları</li><li>Yığın izleme ve kod satırları</li><li>Bellekte depolanan değişkenleri</li><li>Sürücü ve klasör konumları</li><li>Uygulama yükleme noktaları</li><li>Ana bilgisayar yapılandırma ayarları</li><li>Diğer iç uygulama ayrıntıları</li></ul><p>Bir uygulamadaki tüm hataları yakalama ve genel hata iletileri sağlayarak, yanı sıra IIS içinde özel hatalar etkinleştirme bilgilerin açığa çıkmasına engellemeye yardımcı olur. SQL Server veritabanı ve .NET özel durum işleme, diğer hata mimarileri işleme arasında özellikle ayrıntılı ve uygulamanızı profil kötü niyetli bir kullanıcı için son derece kullanışlıdır. Doğrudan .NET özel durum sınıfından türetilmiş bir sınıf içeriğini görüntülemek ve böylece beklenmeyen bir özel durum yanlışlıkla doğrudan kullanıcıya yükseltilmiş değil uygun özel durum işleme sahip olduğundan emin olun.</p><ul><li>Genel hata iletileri doğrudan doğrudan özel durum/hata iletisinde bulunan koyma belirli Ayrıntılar soyut kullanıcıya sağlayın</li><li>.NET özel durum sınıfı içeriğini doğrudan kullanıcıya gösterme</li><li>Tüm hata iletilerini yakalayabilir ve uygun durumlarda uygulama istemciye gönderilen genel bir hata iletisi aracılığıyla kullanıcı bildirin.</li><li>Özel durum sınıfı içeriğini doğrudan kullanıcıya, özellikle dönüş değerini gösterme `.ToString()`, ya da ileti veya StackTrace özelliklerinin değerlerini. Güvenli bir şekilde bu bilgileri günlüğe kaydetmek ve kullanıcıya daha zararsız bir ileti görüntüler</li></ul>|
 
 ## <a id="default"></a>Varsayılan hata sayfası işleme uygulama
 
@@ -225,7 +225,7 @@ Onay olağanüstü işleme hakkında ek bilgi için başvurular bölümündeki b
 | **Adımları** | Uygulama güvenli bir şekilde başarısız olması. Hangi belirli karar yapılan, temel bir Boole değeri döndürür herhangi bir yöntemini dikkatle oluşturulan özel durum bloğu olmalıdır. Çok sayıda mantıksal hataları nedeniyle,'de, ne zaman özel durum bloğu carelessly yazılmış Katlama güvenlik konuları vardır.|
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

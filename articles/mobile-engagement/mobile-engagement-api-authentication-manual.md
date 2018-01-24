@@ -1,5 +1,5 @@
 ---
-title: "Mobile Engagement REST API'leri ile - el ile kuruluma kimlik doğrulaması"
+title: "Mobile Engagement REST API'leri ile kimlik doğrulaması: el ile Kurulum"
 description: "El ile kimlik doğrulaması için Mobile Engagement REST API'leri Kurulum açıklar"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,89 +14,92 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3b678acbae225c28223a2ee76e5be2462a529362
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Mobile Engagement REST API'leri ile - el ile kuruluma kimlik doğrulaması
-Bu belge için bir ek belgesidir [Mobile Engagement REST API'leri ile kimlik doğrulama](mobile-engagement-api-authentication.md). İlk içerik Al okuma emin olun.
-Azure portalını kullanarak mobil katılım REST API'leri için kimlik doğrulamasını ayarlamak için tek seferlik kurulumu yapmak için alternatif bir yolu açıklar.
+# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Mobile Engagement REST API'leri ile kimlik doğrulaması: el ile Kurulum
+Bir ek bu belgesidir [Mobile Engagement REST API'leri ile kimlik doğrulama](mobile-engagement-api-authentication.md). İlk bağlamı anlamak için bu makaleyi okuyun emin olun. Ayrıca, Azure portalını kullanarak Mobile Engagement REST API'leri için tek seferlik kimlik doğrulaması kurulumu yapmak için alternatif bir yolu anlatır.
 
 > [!NOTE]
-> Aşağıdaki yönergeler bunu temel alarak [Active Directory Kılavuzu](../azure-resource-manager/resource-group-create-service-principal-portal.md) ve Mobile Engagement API'leri için kimlik doğrulaması için gerekli olan için özelleştirilebilir. Ayrıntılı adımları anlamak istiyorsanız, bu nedenle başvurduğu.
+> Aşağıdaki yönergelere dayalı [Bu Active Directory Kılavuzu](../azure-resource-manager/resource-group-create-service-principal-portal.md). Mobile Engagement API'leri için kimlik doğrulama gereksinimleri için özelleştirilir. Aşağıdaki adımları ayrıntılı anlamak istiyorsanız, bunları bakın.
 
-1. Oturum açtığınızda Azure hesabınız üzerinden [Azure portal](https://portal.azure.com/).
+1. Oturum Azure hesabınıza [Azure portal](https://portal.azure.com/).
 2. Seçin **Active Directory** sol bölmeden.
 
-     ![Active Directory'yi seçin][1]
+   ![Active Directory'yi seçin][1]
 
-3. Dizininizde uygulamaları görüntülemek için tıklatın **uygulama kayıtlar**.
+3. Dizininizde uygulamaları görüntülemek için seçin **uygulama kayıtlar**.
 
-     ![uygulamaları görüntüle][3]
+   ![uygulamaları görüntüle][3]
 
-4. Tıklayın **yeni uygulama kaydı**.
+4. Seçin **yeni uygulama kaydı**.
 
-     ![Uygulama ekleme][4]
+   ![Uygulama ekleme][4]
 
-5. Uygulamanın adını girin ve tür bir uygulama bırakın **Web app/API** ve İleri düğmesine tıklayın. Herhangi bir kukla URL için sağladığınız **oturum açma URL**: Bu senaryo için kullanılmaz ve URL'leri kendilerini doğrulanmamış.
-6. Bunu yaptıktan sonra sağladığınız ada sahip bir Azure AD uygulaması sahip. Bu, **AD\_uygulama\_adı**, lütfen bunu not edin.
+5. Uygulama adına doldurun. Tür bir uygulama bırakın **Web app/API**ve ardından **sonraki** düğmesi. Herhangi bir kukla URL için sağladığınız **oturum açma URL**. Bu senaryo için kullanılmaz ve URL'leri kendilerini doğrulanmamış.
 
-     ![uygulama adı][8]
+   Bitirdikten sonra belirttiğiniz ada sahip bir Azure Active Directory (Azure AD) uygulama vardır. Bu, **AD\_uygulama\_adı**, bu nedenle, Not emin olun.
 
-7. Uygulama adına tıklayın.
-8. Bul **uygulama kimliği**, Not, olarak kullanılacak istemci kimliği olan **istemci\_kimliği** API'nize çağırır.
+   ![Uygulama adı][8]
 
-     ![uygulamayı yapılandırma][10]
+7. Uygulama adı seçin.
+
+8. Bul **uygulama kimliği** ve onu not edin. Olarak kullanılacak istemci kimliği: **istemci\_kimliği** API'nize çağırır.
+
+   ![Uygulama Kimliği bulunamıyor][10]
 
 9. Bul **anahtarları** sağdaki bölüm.
 
-     ![uygulamayı yapılandırma][11]
+   ![Anahtarları bölümüne][11]
 
-10. Yeni bir anahtar oluşturun, hemen kopyalayın ve kullanmak üzere kaydetmek. Bu asla yeniden gösterilir.
+10. Yeni bir anahtar oluşturun ve ardından hemen kopyalayın. Yeniden gösterilen değil.
 
-     ![uygulamayı yapılandırma][12]
+    ![Anahtar ayrıntılarını anahtarları bölmesi][12]
 
     > [!IMPORTANT]
-    > Bu anahtar zamanı Aksi takdirde, API kimlik geldiğinde yenilemek emin olun artık çalışmayacak şekilde, belirttiğiniz süre sonunda süresi dolar. Ayrıca silin ve tehlikeye düşünüyorsanız, bu anahtarı oluşturun.
+    > Bu anahtar, belirttiğiniz süre sonunda süresi dolar. Zamanı geldiğinde yenilemek emin olun, aksi takdirde artık API kimlik doğrulaması çalışmaz. Bu anahtar tehlikede olduğunu düşünüyorsanız, silin ve yeniden oluşturun.
     >
-    >
-11. Tıklayın **uç noktaları** üst sayfasının ve Kopyala düğmesini **OAUTH 2.0 BELİRTEÇ uç noktası**.
+    
+11. Seçin **uç noktaları** sayfanın üstündeki düğmesi. Ardından kopyalama **OAUTH 2.0 BELİRTEÇ uç noktası**.
 
-    ![][14]
+    ![Uç noktasını kopyalayın][14]
 
-16. Bu uç noktaya URL'de GUID olduğu şu biçimde olacaktır, **TENANT_ID** bu nedenle, not edin:`https://login.microsoftonline.com/<GUID>/oauth2/token`
-17. Şimdi Biz bu uygulamasını izinlerini yapılandırmak için devam edin. Bunun için açmanız gerekecek [Azure portal](https://portal.azure.com). 
-18. Tıklayın **kaynak grupları** ve Bul **Mobile Engagement** kaynak grubu.
+16. Bu uç noktaya URL'de GUID olduğu aşağıdaki biçiminde olduğundan, **TENANT_ID**:`https://login.microsoftonline.com/<GUID>/oauth2/token`
 
-    ![][15]
+17. Ardından, bu uygulama üzerinde izinlerini yapılandırın. İşlemi başlatmak için şu adrese gidin [Azure portal](https://portal.azure.com).
 
-19. Tıklatın **Mobile Engagement** kaynak grubu ve gidin **ayarları** burada bölüm.
+18. Seçin **kaynak grupları**ve ardından bulmak **MobileEngagement** kaynak grubu.
 
-    ![][16]
+    ![MobileEngagement Bul][15]
 
-20. Tıklayın **kullanıcılar** Ayarlar bölümünde ve tıklayın **Ekle** bir kullanıcı eklemek için.
+19. Seçin **MobileEngagement** kaynak grubunu ve ardından **tüm ayarları**.
 
-    ![][17]
+    ![Ayarları MobileEngagement için Gözat][16]
 
-21. Tıklayın **bir rol seçin**.
+20. Seçin **kullanıcılar** içinde **ayarları** bölümü. Ardından, bir kullanıcı eklemek için seçin **Ekle**.
 
-    ![][18]
+    ![Kullanıcı ekleme][17]
 
-22. Tıklayın **sahibi**.
+21. Tıklatın **bir rol seçin**.
 
-    ![][19]
+    ![Rol seçin][18]
 
-23. Uygulamanızın adını arayın **AD\_uygulama\_adı** arama kutusuna. Bunu burada varsayılan olarak görmez. Bulduğunuzda, onu seçin ve tıklayın **seçin** bölümünün altındaki.
+22. Seçin **sahibi**.
 
-    ![][20]
+    ![Sahip rolünü seçin][19]
 
-24. Üzerinde **eklemek erişim** bölümünde gösterilir olarak **1 kullanıcının, 0 gruplarını**. Tıklatın **Tamam** Değişikliği onaylamak için bu bölümü üzerinde.
+23. Arama, uygulamanızın adı için **AD\_uygulama\_adı**, arama kutusuna. Bu ad, burada varsayılan olarak değil. Bunu bulduktan sonra onu seçin. Ardından **seçin** bölümünün altındaki.
 
-    ![][21]
+    ![Adı seçin][20]
 
-Artık gerekli tamamladınız ve Azure AD yapılandırma olduğunuzda API'leri çağırmak için tüm kümesi.
+24. İçinde **erişim Ekle** bölümünde görünür olarak **1 kullanıcının, 0 gruplarını**. Değişikliği onaylamak için seçin **Tamam**.
+
+    ![Eklenen kullanıcı onaylayın][21]
+
+Artık gerekli tamamladınız Azure AD yapılandırma ve olan tüm API'leri çağırmak için ayarlayın.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png

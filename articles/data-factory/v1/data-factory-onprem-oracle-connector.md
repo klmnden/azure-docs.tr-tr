@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Öğesine/öğesinden Azure Data Factory kullanarak şirket içi Oracle veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Aşağıdaki veri depolarına verileri kopyalayabilirsiniz **bir Oracle veritaba
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Data Factory veri yönetimi ağ geçidi kullanarak şirket içi Oracle kaynaklarına bağlanma destekler. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) veri yönetimi ağ geçidi hakkında bilgi edinmek için makale ve [buluta şirket içinden veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) ağ geçidi kurun veri ardışık ayarlamak adım adım yönergeler için makalenin verileri taşıyın.
 
 Bir Azure Iaas sanal Oracle barındırılan olsa bile ağ geçidi gereklidir. Ağ geçidi veritabanına bağlanıp sürece veri deposu olarak aynı Iaas VM veya farklı bir VM ağ geçidi yükleyebilirsiniz.
@@ -53,9 +53,9 @@ Bir Azure Iaas sanal Oracle barındırılan olsa bile ağ geçidi gereklidir. A�
 Bu Oracle bağlayıcı sürücülerin iki sürümlerini destekler:
 
 - **(Önerilen) Oracle için Microsoft sürücüsü**: veri yönetimi ağ geçidi sürümü 2.7, sürücü Oracle otomatik olarak ağ geçidi ile birlikte yüklenir, ayrıca gerek kalmaması için işlemek için sürücü Microsoft başlayarak Oracle bağlantı kurar ve bu sürücü kullanarak daha iyi kopyalama performansını da karşılaşabilirsiniz. Oracle sürümleri veritabanları desteklenir:
-    - Oracle 12c R1 (12,1)
+    - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10,1, 10.2)
+    - Oracle 10g R1, R2 (10.1, 10.2)
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
 
@@ -141,7 +141,7 @@ TypeProperties bölümü dataset her tür için farklıdır ve verilerin veri de
 | --- | --- | --- |
 | tableName |Oracle veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **oracleReaderQuery** , **OracleSource** belirtilir) |
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilke gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 > [!NOTE]
@@ -164,7 +164,7 @@ Kopyalama etkinliğinde kaynak türü olduğunda **OracleSource** aşağıdaki �
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: 00:30:00 (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
 | sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
 
 ## <a name="json-examples-for-copying-data-to-and-from-oracle-database"></a>JSON örnekleri ve Oracle veritabanından veri kopyalama
 Aşağıdaki örneği kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar, Oracle veritabanından için/Azure Blob Depolama / için verileri kopyalamak nasıl gösterir. Ancak, veri herhangi belirtildiği havuzlarını kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopya etkinliği Azure Data Factory kullanarak.   
@@ -572,24 +572,24 @@ Verileri Oracle'dan taşırken, aşağıdaki eşlemelerini Oracle veri türünde
 
 | Oracle veri türü | .NET framework veri türü |
 | --- | --- |
-| BDOSYA |Byte] |
+| BFILE |Byte] |
 | BLOB |Byte]<br/>(yalnızca Oracle 10 g ve daha yüksek olduğunda desteklenen Microsoft sürücüsü kullanarak) |
 | CHAR |Dize |
 | CLOB |Dize |
-| TARİH |Tarih Saat |
+| DATE |Tarih Saat |
 | KAYAN NOKTA |Ondalık, dize (varsa precision > 28) |
 | TAMSAYI |Ondalık, dize (varsa precision > 28) |
 | ARALIĞI YIL AY İÇİN |Int32 |
 | İKİNCİ GÜN ARALIĞI |TimeSpan |
 | UZUN |Dize |
-| UZUN HAM |Byte] |
+| LONG RAW |Byte] |
 | NCHAR |Dize |
 | NCLOB |Dize |
 | SAYI |Ondalık, dize (varsa precision > 28) |
 | NVARCHAR2 |Dize |
-| HAM |Byte] |
+| RAW |Byte] |
 | SATIR KİMLİĞİ |Dize |
-| ZAMAN DAMGASI |Tarih Saat |
+| TIMESTAMP |Tarih Saat |
 | YEREL SAAT DİLİMİ ZAMAN DAMGASI |Tarih Saat |
 | SAAT DİLİMİ ZAMAN DAMGASI |Tarih Saat |
 | İŞARETSİZ TAMSAYI |Sayı |

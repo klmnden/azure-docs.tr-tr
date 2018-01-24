@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 485a3eb5c5d04d1540482245d088c48645704465
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonları bölümünde çıkışları
 Çıkış bölümünde dağıtımından döndürülen değerlerini belirtin. Örneğin, dağıtılan bir kaynağa erişmek için URI döndürebilirsiniz.
@@ -56,6 +56,8 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
     "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
+
+Kullanamazsınız `reference` işlevi çıkışları bölümünde bir [iç içe geçmiş şablon](resource-group-linked-templates.md#link-or-nest-a-template). Bir iç içe geçmiş şablonunda dağıtılmış bir kaynak için değer döndürmek için iç içe geçmiş şablonunuzu bağlantılı şablona dönüştürebilirsiniz.
 
 ## <a name="available-properties"></a>Kullanılabilir özellikler
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure depolama güvenlik duvarları ve sanal ağlar (Önizleme) yapılandırma
 Azure depolama, izin verilen ağlar belirli bir dizi depolama hesaplarınıza güvenli imkan tanıyan katmanlı bir güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağlar uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağrılırken uygulamalar (geçerli erişim tuşu veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -300,7 +300,6 @@ Bu tür hizmet beklendiği gibi çalışmaya izin vermek için ağ kurallarını
 |Azure DevTest Labs|Microsoft.DevTestLab|Özel görüntü oluşturma ve yapı yükleme.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|BLOB Storage olay yayımlamayı etkinleştirin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Olay hub'ları yakalama ile arşiv verileri.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|Azure Hdınsight|Microsoft.HDInsight|Küme hazırlama ve yükleme.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure Ağı|Microsoft.Networking|Depolama ve ağ trafiği günlüklerini analiz edin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
 ||||
 

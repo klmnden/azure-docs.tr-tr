@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services özelliğini kullanmaya başlayın
 > [!div class="op_single_selector"]
@@ -188,7 +188,7 @@ Güvenilir koleksiyonları birkaç uyarılar, özel türleri dahil olmak üzere,
 Güvenilir durum Yöneticisi güvenilir koleksiyonları tarafından yönetilir. Yalnızca güvenilir durum Yöneticisi için güvenilir bir koleksiyon adıyla herhangi bir zamanda ve herhangi bir yerde hizmetinizi sorabilirsiniz. Bir başvuru ulaşırsınız güvenilir durum Yöneticisi'ni sağlar. Verme öneririz, güvenilir koleksiyonu örneklerine başvuruları sınıf üyesi değişkenleri veya özellikleri kaydetmeniz. Başvuru hizmet yaşam döngüsü içinde her zaman bir örneğine ayarlandığından emin olmak için özel dikkatli olunması gerekir. Güvenilir durum Yöneticisi bu iş, işler ve yineleme ziyaretleriniz için optimize edilmiştir.
 
 ### <a name="transactional-and-asynchronous-operations"></a>İşlem ve zaman uyumsuz işlemler
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");

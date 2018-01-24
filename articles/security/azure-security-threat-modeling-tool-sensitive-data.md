@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Güvenlik çerçeve: Hassas verileri | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>Örnek
 Bu filtre uygulanabilir. Aşağıdaki örnek kullanılabilir: 
-```C#
+```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
@@ -144,7 +144,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Adımları** | Otomatik Tamamlama özniteliği bir form otomatik tamamlama açmak veya kapatmak olup olmayacağını belirtir. Otomatik Tamamlama açık olduğunda, tarayıcı otomatik olarak tamamlamak önce kullanıcının girdiği değerlerine göre değerler. Örneğin, yeni bir ad ve parola bir formda girilir ve form gönderildiğinde, tarayıcı parolayı kaydetmiş sorar. Bundan sonra form görüntülendiğinde, adı ve parola otomatik olarak doldurulur veya adı girildiğinde tamamlandı. Yerel erişimi olan bir saldırgan, tarayıcı önbelleğinden düz metin parolası elde edilemedi. Otomatik Tamamlama varsayılan olarak etkindir ve onu açıkça devre dışı bırakılması gerekir. |
 
 ### <a name="example"></a>Örnek
-```C#
+```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
       <input type="submit" value="Submit" />    
@@ -168,7 +168,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | SQL Azure, OnPrem |
+| **İlgili teknolojiler** | Sql Azure, OnPrem |
 | **Öznitelikleri**              | SQL sürüm - V12, SQL sürümü - MsSQL2016 |
 | **Başvuruları**              | [Dinamik veri maskeleme](https://msdn.microsoft.com/library/mt130841) |
 | **Adımları** | Verileri görüntüleme gelen erişimi olmaması kullanıcılar önleme gizli verilerin açığa sınırlamak için dinamik veri maskeleme amacı budur. Dinamik veri maskeleme veritabanı kullanıcıların veritabanına doğrudan bağlanarak ve parça gizli verilerin açığa kapsamlı sorgular önlemek için hedeflenir değil. Dinamik veri maskeleme (Denetim, şifreleme, satır düzeyi güvenlik...) diğer SQL Server güvenlik özellikleri için tamamlayıcı ve bu özelliği bunları birlikte ayrıca daha iyi hassas verileri korumak için kullanmak için önerilir Veritabanı. Bu özellik yalnızca SQL Server 2016 ile başlayan ve Azure SQL veritabanı tarafından desteklenip desteklenmediğini unutmayın. |
@@ -353,7 +353,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ### <a name="example"></a>Örnek
 Intune, hassas verilerinizi korumak için aşağıdaki güvenlik ilkeleri ile yapılandırılabilir: 
-```C#
+```csharp
 Require encryption on mobile device    
 Require encryption on storage cards
 Allow screen capture
@@ -361,7 +361,7 @@ Allow screen capture
 
 ### <a name="example"></a>Örnek
 Uygulama Kurumsal uygulama değilse, sağlanan platformu anahtar deposu kullanın, hangi şifreleme işlemi kullanarak şifreleme anahtarlarını saklamak için anahtarlıklar dosya sistemi üzerinde gerçekleştirilebilir. Aşağıdaki kod parçacığını xamarin kullanarak Anahtarlık erişim tuşu gösterilmektedir: 
-```C#
+```csharp
         protected static string EncryptionKey
         {
             get
@@ -446,7 +446,7 @@ Aşağıdaki yapılandırma güvenlik modu None olarak ayarlar.
 
 ### <a name="example"></a>Örnek
 Tüm hizmet bağlamaları arasında güvenlik modu beş olası güvenlik modu bulunmaktadır: 
-* yok. Güvenlik kapatır. 
+* Yok. Güvenlik kapatır. 
 * Taşıma. Aktarım güvenliği karşılıklı kimlik doğrulaması ve ileti koruması için kullanır. 
 * İleti. İleti güvenliği için karşılıklı kimlik doğrulama ve ileti koruması kullanır. 
 * Her ikisi de. Taşıma ve ileti düzeyi güvenlik (yalnızca MSMQ bu destekler) ayarlarını sağlamanıza olanak tanır. 

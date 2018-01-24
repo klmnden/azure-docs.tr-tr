@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - örnekleri
 > [!NOTE]
@@ -78,7 +78,7 @@ Kullanabileceğiniz **örnek ardışık düzen** döşeme örnek ardışık düz
     ![Data Factory dikey penceresi](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Visual Studio Örnekleri
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bilgisayarınızda şunların yüklü olması gerekir:
 
 * Visual Studio 2013 veya Visual Studio 2015
@@ -93,7 +93,7 @@ Bilgisayarınızda şunların yüklü olması gerekir:
    2. Seçin **veri fabrikası şablonları** sağ bölmede.
    3. Girin bir **adı** projesi için.
    4. Seçin bir **konumu** projesi için.
-   5. **Tamam** düğmesine tıklayın.
+   5. **Tamam**’a tıklayın.
 
       ![Yeni proje iletişim kutusu](./media/data-factory-samples/vs-new-project-adf-templates.png)
 3. İçinde **veri fabrikası şablonları** iletişim kutusunda, örnek şablonu seçin **kullanım örneği şablonları** bölümünde ve tıklatın **sonraki**. Aşağıdaki adımlar kullanılarak yol **müşteri profil** şablonu. Diğer örnekler için adımları benzerdir.

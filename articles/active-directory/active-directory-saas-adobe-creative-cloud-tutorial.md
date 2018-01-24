@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Öğretici: Adobe Creative bulut Azure Active Directory Tümleştirme
 
@@ -32,7 +32,7 @@ Adobe Creative bulut Azure AD ile tümleştirme ile aşağıdaki avantajları sa
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Adobe Creative Bulutla yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -133,9 +133,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     | Öznitelik Adı | Öznitelik Değeri |
     | ---------------| ----------------|
-    | FirstName |User.givenName |
-    | Soyadı |User.surname |
-    | E-posta |User.Mail |
+    | FirstName |user.givenname |
+    | Soyadı |user.surname |
+    | E-posta |user.mail |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
     
@@ -157,11 +157,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Adobe Creative bulut yapılandırması](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. Farklı web tarayıcısı penceresinde Adobe Creative bulut kiracınız yönetici olarak oturum.
+10. Farklı web tarayıcısı penceresinde oturum için açma [Adobe Yönetici Konsolu](https://adminconsole.adobe.com) yönetici olarak.
 
-11. Git **kimlik** sol gezinti bölmesindeki ve etki alanınızı tıklatın. Üzerinde aşağıdaki adımları gerçekleştirin **tek oturum yapılandırması gerekli** bölümü.
+11. Git **ayarları** üst gezinti çubuğu ve ardından **kimlik**. Etki alanlarının listesi açılır. Tıklatın **yapılandırma** etki alanınızın karşı bağlantı. Üzerinde aşağıdaki adımları gerçekleştirin **tek oturum yapılandırması gerekli** bölümü. Daha fazla bilgi için bkz: [bir etki alanı Kurulumu](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-    ![Ayarları](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "ayarları")
+    ![Ayarları](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "ayarları")
     
     a. Tıklatın **Gözat** için Azure AD'den indirilen sertifikayı karşıya yüklemek için **IDP sertifika**.
     
@@ -176,8 +176,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     f. Tıklatın **kaydetmek** düğmesi.
 
 12. Pano artık XML sunacaktır **"Meta veriler indirme"** dosya. Adobe EntityDescriptor URL ve AssertionConsumerService URL'sini içerir. Lütfen dosyayı açın ve Azure AD uygulaması yapılandırın.
-
-    ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -218,7 +216,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-an-adobe-creative-cloud-test-user"></a>Adobe Creative bulut test kullanıcısı oluşturma
 
@@ -226,11 +224,9 @@ Azure AD kullanıcıların Adobe Creative bulutunu oturum etkinleştirmek için 
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Kullanıcı hesaplarını sağlamak için aşağıdaki adımları gerçekleştirin:
 
-1. Adobe Creative bulut şirket sitenize yönetici olarak oturum açın.
+1. Oturum [Adobe Yönetici Konsolu](https://adminconsole.adobe.com) yönetici olarak site.
 
-2. Federasyon kimliği olarak Adobe Konsolu içinden kullanıcı ekleyin ve yetkilendirme için bir grubu atayın
-
-    ![Uygulamalar listesinde Adobe Creative bulut bağlantı](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Federasyon kimliği olarak Adobe Konsolu içinden kullanıcı ekleyin ve bunları bir ürün profili atayın. Kullanıcı ekleme hakkında ayrıntılı bilgi için bkz: [Adobe Yönetici konsolunda kullanıcı ekleme](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. Bu noktada, Adobe signın forma SEKME tuşuna basın, e-posta adresi/upn yazın ve Azure AD ile Federasyon:
     * Web erişimi: www.adobe.com > oturum açma
@@ -278,6 +274,8 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+* [(Adobe.com) etki alanını ayarlama](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Adobe SSO (adobe.com) ile kullanmak için Azure yapılandırma](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

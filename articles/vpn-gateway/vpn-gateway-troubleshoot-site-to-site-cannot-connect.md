@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Sorun giderme: Bir Azure siteden siteye VPN bağlantısı bağlanamıyor ve çalışmayı durduruyor
 
@@ -87,7 +87,7 @@ Denetleyin ve kullanıcı tanımlı yönlendirme (UDR) veya ağ güvenlik grupla
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>6. Adım. Alt ağlar tam olarak eşleştiğinden emin olun (Azure ilke tabanlı ağ geçitleri)
 
--   Alt ağlar Azure sanal ağı ve Azure sanal ağı için şirket içi tanımları arasında tam olarak eşleştiğini doğrulayın.
+-   Sanal ağ adres alanları Azure sanal ağı ve şirket içi tanımları arasında tam olarak eşleştiğinden emin olun.
 -   Alt ağlar arasında tam olarak eşleştiğinden emin olun **yerel ağ geçidi** ve şirket içi ağınız için tanımları.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>7. Adım. Azure ağ geçidi durumu araştırması doğrulayın

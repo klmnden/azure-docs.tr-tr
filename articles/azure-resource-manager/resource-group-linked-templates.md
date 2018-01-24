@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: d641971811f20b2a6e9c14f134cf0d80f95944eb
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlantılı ve şablonları Azure kaynaklarını dağıtırken iç içe geçmiş kullanma
 
@@ -84,6 +84,8 @@ Ana Şablon şablonda yerleştirmek için kullanmak **şablonu** özelliği ve �
 
 > [!NOTE]
 > İç içe geçmiş şablonları için parametreleri veya iç içe geçmiş şablonda tanımlanan değişkenler kullanamazsınız. Parametreler ve değişkenler ana şablondan kullanabilirsiniz. Önceki örnekte `[variables('storageName')]` iç içe geçmiş şablonunu değil ana şablonundan bir değer alır. Dış şablonlar bu kısıtlama geçerli değildir.
+>
+> Kullanamazsınız `reference` iç içe geçmiş şablonunun çıktıları bölümdeki işlevi. Bir iç içe geçmiş şablonunda dağıtılmış bir kaynak için değer döndürmek için iç içe geçmiş şablonunuzu bağlantılı şablona dönüştürebilirsiniz.
 
 ### <a name="external-template-and-external-parameters"></a>Dış şablon ve dış parametreleri
 

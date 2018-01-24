@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betiklerini çalıştırarak veri dönüştürme 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açı
 | **türü**                 | Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. | Evet                                      |
 | **accountName**          | Azure Data Lake Analytics hesap adı.  | Evet                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Hayır                                       |
-| **Subscriptionıd**       | Azure abonelik kimliği                    | Hayır (belirtilmezse, data Factory abonelik kullanılır). |
+| **subscriptionId**       | Azure abonelik kimliği                    | Hayır (belirtilmezse, data Factory abonelik kullanılır). |
 | **resourceGroupName**    | Azure kaynak grubu adı                | Hayır (belirtilmezse, kaynak grubu data Factory kullanılır). |
 
 ### <a name="service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması
@@ -126,7 +126,7 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü özellikle
 | scriptPath          | U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harf duyarlıdır. | Evet      |
 | scriptLinkedService | Veri Fabrikası için komut dosyasını içeren depolamayı bağlı hizmet | Evet      |
 | degreeOfParallelism | Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. | Hayır       |
-| Öncelik            | İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. | Hayır       |
+| öncelik            | İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. | Hayır       |
 | parametreler          | U-SQL betiği için parametreler          | Hayır       |
 | runtimeVersion      | Çalışma zamanı sürümü kullanmak için U-SQL | Hayır       |
 | compilationMode     | <p>U-SQL derleme modu. Şu değerlerden biri olmalıdır: **Semantic:** yalnızca anlamsal denetler ve gerekli sağlamlık denetimleri gerçekleştirmek **tam:** sözdizimi denetimi, en iyi duruma getirme, kod oluşturma, vb. dahil olmak üzere tam derleme gerçekleştirin., **SingleBox:** SingleBox için TargetType ayarıyla tam derleme gerçekleştirin. Bu özellik için bir değer belirtmezseniz, sunucu en iyi bir derleme moduna belirler. | Hayır |
@@ -192,7 +192,7 @@ Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalel
 
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
 * [Pig etkinliği](transform-data-using-hadoop-pig.md)
-* [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)

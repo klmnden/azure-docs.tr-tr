@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1e1c8e03bbfc2a07f4d4faee4c3b171c44fa312d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Amazon Azure Data Factory kullanarak Redshift veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -118,7 +118,7 @@ Amazon Redshift verileri kopyalamak için kümesine tür özelliği ayarlamak **
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Amazon Redshift kaynak tarafından desteklenen özellikler listesini sağlar.
 
@@ -216,13 +216,13 @@ Amazon Redshift veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Am
 | BOOLE DEĞERİ |Dize |
 | CHAR |Dize |
 | DATE |Tarih Saat |
-| ONDALIK |Ondalık |
+| DECIMAL |Ondalık |
 | ÇİFT DUYARLIKLI |Çift |
 | TAMSAYI |Int32 |
 | GERÇEK |Bekar |
-| TAMSAYI |Int16 |
+| SMALLINT |Int16 |
 | METİN |Dize |
-| ZAMAN DAMGASI |Tarih Saat |
+| TIMESTAMP |Tarih Saat |
 | VARCHAR |Dize |
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
 Aşağıdaki videoda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  Bu makale, genel bir bakış ve video yer alan adımlar için ek bilgiler sağlar. Bu 24 dakikalık videoyu şunların nasıl yapıldığını gösterir için:
@@ -81,13 +81,13 @@ Bu örnekte Web API'sini bir model ve bir denetleyici kullanarak bir temel hesap
 
 Aşağıdakileri ekleyin `using` deyimi üstüne `CalcInput.cs` dosya.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Oluşturulan sınıf aşağıdaki kodla değiştirin.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Sağ **denetleyicileri** içinde **Çözüm Gezgini** ve **Ekle**->**denetleyici
 
 Aşağıdakileri ekleyin `using` deyimi üstüne `CalcController.cs` dosya.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Oluşturulan denetleyici sınıfını aşağıdaki kodla değiştirin. Bu kod uygulayan `Add`, `Subtract`, `Multiply`, ve `Divide` temel hesaplayıcı API'si işlemleri.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {

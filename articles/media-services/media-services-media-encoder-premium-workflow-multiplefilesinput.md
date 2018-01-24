@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Premium Kodlayıcı ile birden fazla giriş dosyaları ve bileşen özellikleri kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -47,7 +47,7 @@ Kodlama görevde ayarlamak için yapılandırma dizesi şuna benzer bir XML belg
 
 Bir dosyadan XML yapılandırması okuyan, sağa video dosya adıyla güncelleştirin ve bir iş görevi geçirir C# kod aşağıda verilmiştir:
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -269,7 +269,7 @@ Ek çerçeve doğru kırpma ile:
 
 ## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Örnek 1: bir görüntü video en üstünde yer paylaşımı
 
-### <a name="presentation"></a>Sunu
+### <a name="presentation"></a>Sunum
 Video kodlanmış sırada logo görüntüsü video girişleri kaplama istediğiniz bir örneği göz önünde bulundurun. Bu örnekte, giriş video "Microsoft_HoloLens_Possibilities_816p24.mp4" olarak adlandırılır ve logo "logo.png" olarak adlandırılır. Aşağıdaki adımları gerçekleştirmeniz gerekir:
 
 * Bir iş akışı varlık ile iş akışı dosyası oluşturun (aşağıdaki örneğe bakın).
@@ -415,7 +415,7 @@ Aşağıdaki XML verileri yapıştırabilirsiniz. Ortam dosyası girişi ve prim
 
 Oluşturma ve görevi çalıştırmak için .NET SDK'sı kullanıyorsanız yapılandırma dizesi olarak geçirilecek bu XML verileri içeriyor.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 

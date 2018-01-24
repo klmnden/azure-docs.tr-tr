@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Veri gelen SAP, HANA Azure Data Factory kullanarak Taşı
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +60,12 @@ Aşağıdaki tabloda, JSON öğeleri SAP HANA bağlantılı hizmete özgü açı
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | Dize | Evet
+sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | dize | Evet
 authenticationType | Kimlik doğrulama türü. | Dize. "Temel" veya "Windows" | Evet 
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | Dize | Evet
-password | Kullanıcının parolası. | Dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | Dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | Dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
+password | Kullanıcının parolası. | dize | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
@@ -73,7 +73,7 @@ Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam l
 **TypeProperties** bölüm veri kümesi her tür için farklıdır ve verilerin veri deposunda konumu hakkında bilgi sağlar. SAP HANA veri kümesi türü için desteklenen türüne özgü özellikler yok **RelationalTable**. 
 
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları gibi özellikleri olan ilkeleri etkinlikleri tüm türleri için kullanılabilir.
 
 Bulunan özellikler **typeProperties** etkinlik bölümünü her etkinlik türü ile değişir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
@@ -285,22 +285,22 @@ SAP HANA verilerin taşınması, aşağıdaki eşlemelerini SAP HANA türlerinde
 SAP HANA türü | .NET türü temelinde
 ------------- | ---------------
 MİNİ TAMSAYI | Bayt
-TAMSAYI | Int16
+SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-GERÇEK | Tek
-ÇİFT | Tek
-ONDALIK | Ondalık
+GERÇEK | Bekar
+ÇİFT | Bekar
+DECIMAL | Ondalık
 BOOLE DEĞERİ | Bayt
 VARCHAR | Dize
 NVARCHAR | Dize
 CLOB | Byte]
 ALPHANUM | Dize
 BLOB | Byte]
-TARİH | Tarih saat
-SAAT | TimeSpan
-ZAMAN DAMGASI | Tarih saat
-SECONDDATE | Tarih saat
+DATE | Tarih Saat
+ZAMAN | TimeSpan
+TIMESTAMP | Tarih Saat
+SECONDDATE | Tarih Saat
 
 ## <a name="known-limitations"></a>Bilinen sınırlamaları
 SAP HANA veri kopyalama işlemi sırasında birkaç bilinen sınırlamalar vardır:

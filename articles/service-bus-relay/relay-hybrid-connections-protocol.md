@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure geçişi karma bağlantılar Protokolü
 Azure geçişi Azure Service Bus platformunun anahtar özelliği ayaklar biridir. Yeni *karma bağlantılar* yetenektir geçişinin HTTP ve WebSockets dayalı bir güvenli, açık Protokolü evrimi. Eşit oranda adlı eski yerini *BizTalk Services* özel Protokolü foundation üzerinde oluşturulmuş özellik. Azure App Services karma bağlantılar tümleştirilmesi olarak çalışmaya devam edecek-değil.
@@ -38,11 +38,11 @@ Hizmet istemcilere olduğundan bağlantısının her iki tarafında programlar "
 ### <a name="listener-interactions"></a>Dinleyici etkileşimleri
 Dinleyici hizmeti ile dört etkileşimleri; yine de sahip istiyor musunuz? Tüm kablo ayrıntıları başvuru bölümünde bu makalenin sonraki bölümlerinde açıklanmıştır.
 
-#### <a name="listen"></a>Dinleme
+#### <a name="listen"></a>Dinle
 Bir dinleyicisi hizmetine hazırlık belirtmek için bağlantıları kabul etmeye hazır bir giden WebSocket bağlantısı oluşturur. Bağlantı el sıkışması geçiş ad alanı ve bu ad "Dinleme" hakkı confers bir güvenlik belirteci yapılandırılmış karma bağlantı adını taşır.
 WebSocket hizmeti tarafından kabul edildiğinde kayıt tamamlandıktan ve yerleşik web WebSocket "etkinleştirilmesine yönelik tüm sonraki etkileşimler denetim kanalı olarak" Canlı tutulur. Hizmetin en fazla 25 eşzamanlı dinleyicileri karma bir bağlantı sağlar. İki veya daha fazla etkin dinleyiciler varsa, gelen bağlantıları bunları rastgele sırayla dengeli; Orta dağıtım garanti edilmez.
 
-#### <a name="accept"></a>Kabul et
+#### <a name="accept"></a>Kabul
 Bir gönderici service üzerinde yeni bir bağlantı oturum açtığında, hizmet seçer ve karma bağlantı etkin dinleyicileri birini bildirir. Bu bildirim için dinleyici dinleyici bağlantı kabul etmek için bağlanmalısınız WebSocket uç noktasının URL'sini içeren bir JSON ileti olarak açık denetim kanalı üzerinden gönderilir.
 
 URL olabilir ve doğrudan ek iş olmadan dinleyicisi tarafından kullanılan gerekir.
@@ -99,7 +99,7 @@ WebSocket bağlantı kaydedilmemiş, karma bağlantı yolu veya eksik veya geçe
 | 404 |Bulunamadı |Karma bağlantı yolu geçersiz veya temel URL biçimi yanlış. |
 | 401 |Yetkilendirilmemiş |Güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz olur. |
 | 403 |Yasak |Güvenlik belirteci, bu eylem için bu yol için geçerli değil. |
-| 500 |İç hata |Bir hizmette sorun oluştu. |
+| 500 |İç Hata |Bir hizmette sorun oluştu. |
 
 Başlangıçta yukarı, izleme kimliği de içeren açıklayıcı bir hata iletisi ile birlikte uygun WebSocket protokolü hata kodu kullanarak iletişim böylece nedeni ayarlandı sonra WebSocket bağlantısı kasıtlı olarak hizmet tarafından kapatılırsa Hizmet denetim kanalı bir hata koşulu karşılaşılmadan kapanır değil. Temiz bir kapatma denetlenen istemcidir.
 
@@ -162,7 +162,7 @@ Varsa bir hata, hizmet gibi yanıtlayabilir:
 | Kod | Hata | Açıklama |
 | --- | --- | --- |
 | 403 |Yasak |URL geçerli değil. |
-| 500 |İç hata |Bir hizmette sorun oluştu |
+| 500 |İç Hata |Bir hizmette sorun oluştu |
 
 Bağlantı kurulduktan sonra sunucu WebSocket göndereni aşağı ya da aşağıdaki durumundaki kapattığında WebSocket kapatır:
 
@@ -192,7 +192,7 @@ Hiçbir WebSocket kurulduktan sonra doğru tamamlarken, bu el sıkışma bilerek
 | Kod | Hata | Açıklama |
 | --- | --- | --- |
 | 403 |Yasak |URL geçerli değil. |
-| 500 |İç hata |Bir hizmette sorun oluştu. |
+| 500 |İç Hata |Bir hizmette sorun oluştu. |
 
 ### <a name="listener-token-renewal"></a>Dinleyici belirteci yenileme
 Dinleyici belirteci dolmak üzere olduğunda, bu yerleşik denetim kanalı aracılığıyla hizmetine çerçeve mesaj göndererek değiştirebilirsiniz. İleti adlı bir JSON nesnesi içerir `renewToken`, şu anda aşağıdaki özelliği tanımlar:
@@ -251,7 +251,7 @@ WebSocket bağlantı kayıtlı karma bağlantı yolu, eksik veya geçersiz bir b
 | 404 |Bulunamadı |Karma bağlantı yolu geçersiz veya temel URL biçimi yanlış. |
 | 401 |Yetkilendirilmemiş |Güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz olur. |
 | 403 |Yasak |Güvenlik belirteci bu yol için ve bu eylem için geçerli değil. |
-| 500 |İç hata |Bir hizmette sorun oluştu. |
+| 500 |İç Hata |Bir hizmette sorun oluştu. |
 
 Yukarı, izleme kimliği de içeren açıklayıcı bir hata iletisi ile birlikte uygun WebSocket protokolü hata kodu kullanarak iletişim böylece nedeni başlangıçta ayarlandıktan sonra WebSocket bağlantısı kasıtlı olarak hizmet tarafından kapatılırsa
 

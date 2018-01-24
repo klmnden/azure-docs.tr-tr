@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c0145a5b5c54f5b9e3b5731d52df99c0a80fc271
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f42ba7ed9c07a9d0bc73929db2a095248ad7d56f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - işlevler ve sistem değişkenleri
 > [!NOTE]
@@ -30,10 +30,10 @@ Bu makalede, işlevleri ve değişkenler Azure Data Factory ile desteklenen hakk
 ## <a name="data-factory-system-variables"></a>Veri Fabrikası sistem değişkenleri
 | Değişken adı | Açıklama | Nesne kapsamı | JSON kapsamı ve kullanım örnekleri |
 | --- | --- | --- | --- |
-| WindowStart |Geçerli etkinlik penceresini çalıştırmak için zaman aralığı başlangıcı |Etkinlik |<ol><li>Veri seçimi sorguları belirtin. Başvurulan bağlayıcı makalelerine bakın [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi.</li> |
-| WindowEnd |Geçerli etkinlik penceresini çalıştırmak için zaman aralığı sonu |Etkinlik |WindowStart ile aynıdır. |
-| SliceStart |Zaman aralığı için üretilen veri dilimi başlangıcı |Etkinlik<br/>Veri kümesi |<ol><li>Dinamik klasör yolu belirtin ve dosya adları ile çalışırken [Azure Blob](data-factory-azure-blob-connector.md) ve [dosya sistemi veri kümeleri](data-factory-onprem-file-system-connector.md).</li><li>Veri Fabrikası işlevleriyle etkinlik girişleri koleksiyonu giriş bağımlılıkları belirtin.</li></ol> |
-| SliceEnd |Geçerli veri dilimi için zaman aralığı sonu. |Etkinlik<br/>Veri kümesi |SliceStart ile aynıdır. |
+| WindowStart |Geçerli etkinlik penceresini çalıştırmak için zaman aralığı başlangıcı |etkinlik |<ol><li>Veri seçimi sorguları belirtin. Başvurulan bağlayıcı makalelerine bakın [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi.</li> |
+| WindowEnd |Geçerli etkinlik penceresini çalıştırmak için zaman aralığı sonu |etkinlik |WindowStart ile aynıdır. |
+| SliceStart |Zaman aralığı için üretilen veri dilimi başlangıcı |etkinlik<br/>Veri kümesi |<ol><li>Dinamik klasör yolu belirtin ve dosya adları ile çalışırken [Azure Blob](data-factory-azure-blob-connector.md) ve [dosya sistemi veri kümeleri](data-factory-onprem-file-system-connector.md).</li><li>Veri Fabrikası işlevleriyle etkinlik girişleri koleksiyonu giriş bağımlılıkları belirtin.</li></ol> |
+| SliceEnd |Geçerli veri dilimi için zaman aralığı sonu. |etkinlik<br/>Veri kümesi |SliceStart ile aynıdır. |
 
 > [!NOTE]
 > Şu anda veri fabrikası etkinliğin tam olarak belirtilen zamanlaması çıktı veri kümesi kullanılabilirliğini içinde belirtilen zamanlaması eşleştiğini gerektirir. Bu nedenle, WindowStart, WindowEnd ve SliceStart ve SliceEnd her zaman aynı zaman dilimi ve tek bir çıktı dilim eşlenir.
@@ -78,7 +78,7 @@ Bkz: [özel tarih ve saat biçim dizeleri](https://msdn.microsoft.com/library/8k
 ### <a name="functions"></a>İşlevler
 Aşağıdaki tablolarda, Azure Data Factory uygulamasında tüm işlevleri listelenmektedir:
 
-| Kategori | İşlevi | Parametreler | Açıklama |
+| Kategori | İşlev | Parametreler | Açıklama |
 | --- | --- | --- | --- |
 | Zaman |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Y saatleri verilen süre X ekler. <br/><br/>Örnek:`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Zaman |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Y dakika X ekler.<br/><br/>Örnek:`9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
@@ -95,8 +95,8 @@ Aşağıdaki tablolarda, Azure Data Factory uygulamasında tüm işlevleri liste
 | Tarih |EndOfDay(X) |X: DateTime |Tarih-saat x (gün bileşenini) gün sonunu temsil eden alır.<br/><br/>Örnek: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Tarih |EndOfMonth(X) |X: DateTime |X parametresi ay bileşen tarafından temsil edilen ayın sonunu alır. <br/><br/>Örnek: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (güncel Eylül ayın sonunu temsil eden saat) |
 | Tarih |StartOfDay(X) |X: DateTime |X parametresi gün bileşeni tarafından temsil edilen günün başlangıcını alır.<br/><br/>Örnek: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Tarih saat |FROM(X) |X: dize |Tarih saat X dizeye ayrıştırılamıyor. |
-| Tarih saat |Ticks(X) |X: DateTime |Ticks X parametresi özelliğini alır. Bir değer 100 nanosaniye eşittir. Bu özelliğin değeri, 12:00:00 gece'den itibaren 1 Ocak 0001 geçen çizgilerine sayısını temsil eder. |
+| Tarih Saat |FROM(X) |X: String |Tarih saat X dizeye ayrıştırılamıyor. |
+| Tarih Saat |Ticks(X) |X: DateTime |Ticks X parametresi özelliğini alır. Bir değer 100 nanosaniye eşittir. Bu özelliğin değeri, 12:00:00 gece'den itibaren 1 Ocak 0001 geçen çizgilerine sayısını temsil eder. |
 | Metin |Format(X) |X: Dize değişkeni |Metin biçimleri (kullanmak `\\'` kaçınmak için birleşimi `'` karakter).|
 
 > [!IMPORTANT]

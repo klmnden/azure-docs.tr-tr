@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 2709bab433bdc108b313c58e0844236dd4af38bf
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 55d0fb91c8a8b995a5b9369d762f5bd87cb086c9
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Yapılandırılmış Spark Kafka ve Azure Cosmos DB ile akış kullanın
 

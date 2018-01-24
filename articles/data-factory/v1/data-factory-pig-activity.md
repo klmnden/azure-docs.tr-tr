@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Pig etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce etkinliği](data-factory-map-reduce.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
@@ -88,9 +88,9 @@ Veri Fabrikası Hdınsight Pig etkinliğinde [ardışık düzen](data-factory-cr
 | açıklama |Etkinlik hangi amaçla kullanıldığına açıklayan metin |Hayır |
 | type |HDinsightPig |Evet |
 | Girişleri |Pig etkinlik tarafından kullanılan bir veya daha fazla giriş |Hayır |
-| Çıkışları |Pig etkinlik tarafından oluşturulan bir veya daha fazla çıkışları |Evet |
+| çıkışlar |Pig etkinlik tarafından oluşturulan bir veya daha fazla çıkışları |Evet |
 | linkedServiceName |Veri fabrikasında bağlı hizmet olarak kayıtlı bir Hdınsight kümesine başvuru |Evet |
-| Komut dosyası |Pig betiği satır içi belirtin |Hayır |
+| betik |Pig betiği satır içi belirtin |Hayır |
 | komut dosyası yolu |Pig betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
 | tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
 
@@ -220,7 +220,7 @@ Parametreli Pig betiği kullanmak için aşağıdakileri yapın:
     ```
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Hive etkinliği](data-factory-hive-activity.md)
-* [MapReduce etkinliği](data-factory-map-reduce.md)
+* [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 * [Spark programlarını çağırma](data-factory-spark.md)
 * [R betiklerini çağırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)

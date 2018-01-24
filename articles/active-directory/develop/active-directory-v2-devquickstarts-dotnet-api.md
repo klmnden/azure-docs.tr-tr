@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Bir MVC web API güvenliğini sağlama
 Azure Active Directory ile v2.0 uç noktası, bir Web API kullanarak koruyabilirsiniz [OAuth 2.0](active-directory-v2-protocols.md) erişim belirteçleri, kullanıcıların hem kişisel Microsoft hesabı ile etkinleştirme ve iş veya Okul güvenli erişim sağlamak, Web API hesaplar.
@@ -31,7 +31,7 @@ Azure Active Directory ile v2.0 uç noktası, bir Web API kullanarak koruyabilir
 
 ASP.NET web API'da, bunu .NET Framework 4. 5 ' dahil Microsoft'un OWIN ara yazılımı kullanarak gerçekleştirebilirsiniz.  OWIN oluşturmak ve bir kullanıcının yapılacaklar listesinden görevleri okumak istemcilerin bir "Yapılacaklar listesi" MVC Web API oluşturmak için buraya kullanacağız.  Web API gelen istekleri geçerli erişim belirteci içeren ve doğrulama korumalı bir rotaya geçmeyin istekleri reddedecek doğrular.  Bu örnek, Visual Studio 2015 kullanılarak oluşturuldu.
 
-## <a name="download"></a>İndir
+## <a name="download"></a>İndirme
 Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet) korunur.  İzlemek için [uygulamanın çatısını bir .zip karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) veya çatıyı kopyalayın:
 
 ```
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * Adlı TodoListService projesine OWIN başlangıç sınıfı ekleyin `Startup.cs`.  Projeye sağ tıklatma--> **Ekle** --> **yeni öğe** "OWIN" arayın.  OWIN ara yazılımı, uygulamanız başlatıldığında `Configuration(…)` yöntemini çağırır.
 * Sınıf bildirimi değiştirme `public partial class Startup` -zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık.  İçinde `Configuration(…)` yöntemi, bir web uygulamanız için kimlik doğrulaması ayarlamak için ConfgureAuth(...) çağrısı yapın.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -81,7 +81,7 @@ public partial class Startup
 
 * Dosyayı açmak `App_Start\Startup.Auth.cs` ve uygulamanıza `ConfigureAuth(…)` Web API v2.0 uç noktasından belirteçleri kabul ayarlar yöntemi.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -118,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * Kullanabileceğiniz artık `[Authorize]` denetleyicileri ve eylemleri OAuth 2.0 taşıyıcı kimlik doğrulaması ile korumak için öznitelikler.  İşaretleme `Controllers\TodoListController.cs` bir authorize etiketiyle sınıfı.  Bu sayfayı erişmeden önce oturum açmak için kullanıcının zorlar.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -126,7 +126,7 @@ public class TodoListController : ApiController
 
 * Ne zaman bir yetkili çağıran başarıyla çağırır birini `TodoListController` API'leri, eylem çağıran hakkında bilgilere erişimi gerekebilir.  OWIN taşıyıcı belirteci içinde talep erişim sağlar `ClaimsPrincipal` nesnesi.  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the

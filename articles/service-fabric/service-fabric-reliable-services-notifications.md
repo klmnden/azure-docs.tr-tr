@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Güvenilir hizmetler bildirimleri
 Bildirimleri ilginizi bir nesneye yapılan değişiklikleri izlemek istemcilerinin izin verir. İki nesne türünün destek bildirimleri: *güvenilir durum Yöneticisi* ve *güvenilir sözlük*.
@@ -36,7 +36,7 @@ Güvenilir durum Yöneticisi aşağıdaki olaylar için bildirimler sağlar:
 * İşlem
   * İşleme
 * Durum Yöneticisi
-  * Yeniden oluşturma
+  * Yeniden derle
   * Güvenilir bir duruma eklenmesi
   * Güvenilir durumunun kaldırma
 
@@ -51,7 +51,7 @@ Güvenilir durum Yöneticisi koleksiyonu üç durumda yeniden oluşturulur:
 
 İşlem bildirimleri ve/veya durum Yöneticisi bildirimleri kaydetmek için ile kaydetmeniz gerekir **TransactionChanged** veya **StateManagerChanged** güvenilir durumu Yöneticisi olayları. Durum bilgisi olan hizmet Oluşturucusu bu olay işleyicileri ile kaydetmek için ortak bir yerdir. Oluşturucu kaydolduğunuzda, kullanım ömrü süresince bir değişiklik nedeniyle herhangi bir bildirim kaçırılması olmaz **IReliableStateManager**.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ public MyService(StatefulServiceContext context)
 
 Aşağıda bir örnek verilmiştir **TransactionChanged** olay işleyicisi.
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -91,7 +91,7 @@ Eylem özelliğinde kullanmak **NotifyStateManagerChangedEventArgs** yayınlanam
 
 Aşağıda bir örnek verilmiştir **StateManagerChanged** bildirim işleyici.
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ Güvenilir sözlük aşağıdaki olaylar için bildirimler sağlar:
 Güvenilir sözlük bildirimleri almak için ile kaydetmeniz gerekir **DictionaryChanged** olay işleyicisini **IReliableDictionary**. Bu olay işleyicileri ile kaydetmek için bir ortak yerdir **ReliableStateManager.StateManagerChanged** bildirim ekleyin.
 Ne zaman kaydetme **IReliableDictionary** eklenen **IReliableStateManager** herhangi bir bildirim kaçırılması olmaz sağlar.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -136,13 +136,13 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 ```
 
 > [!NOTE]
-> **ProcessStateManagerSingleEntityNotification** örnek yöntemidir, önceki **OnStateManagerChangedHandler** örnek çağrıları.
+> **ProcessStateManagerSingleEntityNotification** is the sample method that the preceding **OnStateManagerChangedHandler** example calls.
 > 
 > 
 
 Önceki kod kümeleri **IReliableNotificationAsyncCallback** , bunların ile arabirim **DictionaryChanged**. Çünkü **NotifyDictionaryRebuildEventArgs** içeren bir **IAsyncEnumerable** arabirimi--, zaman uyumsuz olarak--sıralanması gerekiyor yeniden bildirimleri aracılığıyla harekete **RebuildNotificationAsyncCallback** yerine **OnDictionaryChangedHandler**.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)

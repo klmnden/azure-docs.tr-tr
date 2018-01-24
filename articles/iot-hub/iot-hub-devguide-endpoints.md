@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Başvuru - IOT Hub uç noktaları
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Şirket portalı'nda uç noktalarınızı barındıran IOT hub'ı adı bulabilirsiniz **genel bakış** dikey. IOT hub'ı DNS adını varsayılan olarak, aşağıdaki gibi görünür: `{your iot hub name}.azure-devices.net`.
 
-Azure DNS, IOT hub'ınız için özel bir DNS adı oluşturmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [bir Azure hizmetini özel etki alanı ayarları sağlamak için Azure DNS'yi](../dns/dns-custom-domain.md#azure-iot).
+Azure DNS, IOT hub'ınız için özel bir DNS adı oluşturmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [bir Azure hizmetini özel etki alanı ayarları sağlamak için Azure DNS'yi](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Yerleşik IOT Hub uç noktaları listesi
 
@@ -62,7 +62,7 @@ Aşağıdaki listede uç noktalar açıklanmaktadır:
 
 Tüm IOT Hub uç noktaları kullanma [TLS] [ lnk-tls] protokolü ve uç nokta yok şifrelenmemiş ve güvenli kanallar üzerinde gösterilen herhangi bir zamanda.
 
-## <a name="custom-endpoints"></a>Özel uç noktaları
+## <a name="custom-endpoints"></a>Özel uç noktalar
 
 İleti yönlendirme için uç noktalar olarak hareket edecek, IOT hub'ına aboneliğinizde var olan Azure Hizmetleri bağlayabilirsiniz. Bu uç noktalar hizmet uç noktalar olarak hareket ve iç havuzlar ileti yollar için kullanılır. Cihazları doğrudan ek uç noktaları için yazamıyor. İleti yollar hakkında daha fazla bilgi için üzerinde Geliştirici Kılavuzu girişine bakın [IOT hub ile ileti gönderme ve alma][lnk-devguide-messaging].
 

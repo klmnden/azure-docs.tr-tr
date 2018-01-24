@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -93,7 +93,7 @@ Temel ADAL arkasında uygulamanızı bir erişim belirteci her gerektiğinde, on
 
 * İlk adım, uygulamanızın başlatmaktır `AuthenticationContext` -birincil sınıfı ADAL.  ADAL burada geçirdiğiniz budur gereken Azure AD ile iletişim kurmasını ve onu nasıl belirteçleri önbelleğe söyleyin koordinatları.
 
-```C#
+```csharp
 public MainPage()
 {
     ...
@@ -105,7 +105,7 @@ public MainPage()
 
 * Şimdi bulun `Search(...)` uygulamanın kullanıcı Arabiriminde kullanıcı cliks "Ara" düğmesini olduğunda çağrılacak yöntem.  Bu yöntem, UPN verilen arama terimiyle kullanıcıları için Azure AD Graph API sorgu için bir GET isteği yapar.  Ancak bir access_token ile dahil etmeniz grafik API'si sorgulamak için `Authorization` üstbilgi ve istek - ADAL nereden geldiğini olan budur.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
@@ -128,7 +128,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 * Etkileşimli kimlik doğrulaması gerekli olduğunda, ADAL Windows Phone ' ın Web kimlik doğrulama Aracısı (WAB) kullanır ve [devamlılık modeli](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) Azure AD oturum açma sayfasında görüntülenecek.  Kullanıcı oturum açtığında ADAL geçirmek uygulamanız gereken WAB etkileşim sonuçları.  Bu uygulama olarak kadar basittir `ContinueWebAuthentication` arabirimi:
 
-```C#
+```csharp
 // This method is automatically invoked when the application
 // is reactivated after an authentication interaction through WebAuthenticationBroker.
 public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
@@ -141,7 +141,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 
 * Kullanın şimdi `AuthenticationResult` , uygulamanız için ADAL döndürdü.  İçinde `QueryGraph(...)` geri arama, yetkilendirme üst GET isteğini aldığınız access_token ekleme:
 
-```C#
+```csharp
 private async void QueryGraph(AuthenticationResult result)
 {
     if (result.Status != AuthenticationStatus.Success)
@@ -158,13 +158,13 @@ private async void QueryGraph(AuthenticationResult result)
 ```
 * Aynı zamanda `AuthenticationResult` uygulamanızda kullanıcı hakkındaki bilgileri görüntülemek için nesne. İçinde `QueryGraph(...)` yöntemi, kullanıcının Kimliğini sayfada göstermek için sonuç kullanın:
 
-```C#
+```csharp
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 * Son olarak, kullanıcı uygulama da dışında imzalamak için ADAL kullanabilirsiniz.  Kullanıcı "Oturumu Kapat" düğmesini tıklattığında sonraki çağrısı emin olmak istiyoruz `AcquireTokenSilentAsync(...)` başarısız olur.  ADAL ile bu belirteç önbelleği temizleme olarak kadar kolaydır:
 
-```C#
+```csharp
 private void SignOut()
 {
     // Clear session state from the token cache.

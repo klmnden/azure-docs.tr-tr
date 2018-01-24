@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/17/2017
-ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.date: 01/24/2018
+ms.openlocfilehash: 06d7023f225698400509449e59bdcb827becc644
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>SQL Server Azure SQL veritabanına geçirme
 Azure veritabanı geçiş hizmeti veritabanlarını Azure SQL veritabanı için bir şirket içi SQL Server örneğinden geçirmek için kullanabilirsiniz. Bu öğreticide, geçiş **Adventureworks2012** veritabanı Azure veritabanı geçiş hizmetini kullanarak şirket içi örneğini SQL Server 2016 (veya üstü) bir Azure SQL veritabanına geri yüklendi.
@@ -29,18 +29,20 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Geçiş çalıştırın.
 > * Geçiş izleyin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aktarmanız gerekir:
 
 - İndirme ve yükleme [SQL Server 2016 veya sonraki](https://www.microsoft.com/sql-server/sql-server-downloads) (herhangi bir sürümünü).
 - Varsayılan olarak SQL Server Express yüklemesi sırasında göre makalesindeki yönergeleri izleyerek devre dışıdır TCP/IP protokolünü etkinleştirin [etkinleştirmek veya devre dışı bir sunucu ağ protokolü](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Yapılandırma, [veritabanı altyapısı erişimi için Windows Güvenlik Duvarı](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Makalede ayrıntı izleyerek bunu Azure SQL veritabanı örneğinde bir örneğini oluşturmak [Azure portalında bir Azure SQL veritabanı oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - İndirme ve yükleme [veri geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 veya sonraki bir sürümü.
 - Kullanarak, şirket içi kaynak sunucular için siteden siteye bağlantı sağlar Azure Resource Manager dağıtım modelini kullanarak Azure veritabanı geçiş hizmeti için bir VNET oluşturma [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Azure sanal ağ (VNET) ağ güvenlik grubu kuralları blok aşağıdaki iletişim bağlantı noktaları 443, 53, 9354, 445, 12000. Azure VNET NSG trafik filtreleme daha ayrıntılı bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Yapılandırma, [veritabanı altyapısı erişimi için Windows Güvenlik Duvarı](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- SQL Server kaynağına erişmek Azure veritabanı geçiş hizmeti, Windows Güvenlik Duvarı'nı açın.
+- Sunucu düzeyinde oluşturma [güvenlik duvarı kuralı](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) Azure SQL veritabanı sunucusunun hedef veritabanlarına Azure veritabanı geçiş hizmeti erişmesine izin vermek. Azure veritabanı geçiş hizmeti için kullanılan sanal ağ alt aralığını belirtin.
 - Kaynak SQL Server örneğine bağlanmak için kullanılan kimlik bilgilerini sağlamak [denetim SUNUCUSUNA](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) izinleri.
 - Hedef Azure SQL veritabanı örneğine bağlanmak için kullanılan kimlik bilgilerini hedef Azure SQL veritabanlarına CONTROL DATABASE izninizin olduğundan emin olun.
-- SQL Server kaynağına erişmek Azure veritabanı geçiş hizmeti, Windows Güvenlik Duvarı'nı açın.
 
 ## <a name="assess-your-on-premises-database"></a>Şirket içi veritabanınızı değerlendirin
 Azure SQL veritabanı için bir şirket içi SQL Server örneğinden verileri geçirmeden önce SQL Server veritabanı için geçişe engel olabilecek herhangi bir engelleyici soruna değerlendirmeniz gerekir. Veri geçiş Yardımcısı v3.3 veya sonraki sürümlerde, makalesinde açıklanan adımları izleyin [bir SQL Server Geçiş değerlendirmesi gerçekleştirmek](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) tamamlamak için şirket içi değerlendirme veritabanı. Gerekli adımları özetini aşağıdaki gibidir:

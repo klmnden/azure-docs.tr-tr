@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
 Bu makalede Azure Tanılama'yı kullanarak için ilgili sorun giderme bilgileri açıklar. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](azure-diagnostics.md).
@@ -26,7 +26,7 @@ Bu makalede Azure Tanılama'yı kullanarak için ilgili sorun giderme bilgileri 
 ## <a name="logical-components"></a>Mantıksal bileşenleri
 **Tanılama eklentisi Başlatıcısı (DiagnosticsPluginLauncher.exe)**: Azure tanılama uzantısını başlatır. Giriş gören işlem gelin.
 
-**Tanılama Eklentisi (DiagnosticsPlugin.exe)**: yapılandırır, başlatır ve İzleme Aracısı'nın ömrü yönetir. Bu başlatıcı tarafından başlatılan ana işlemidir.
+**Diagnostics Plugin (DiagnosticsPlugin.exe)**: Configures, launches, and manages the lifetime of the monitoring agent. Bu başlatıcı tarafından başlatılan ana işlemidir.
 
 **İzleme aracısını (MonAgent\*.exe işlemler)**: izleyiciler, toplar ve tanılama veri aktarır.  
 
@@ -34,27 +34,27 @@ Bu makalede Azure Tanılama'yı kullanarak için ilgili sorun giderme bilgileri 
 Bazı önemli günlükleri ve yapıları yollara aşağıda verilmiştir. Biz, belgenin geri kalanında bu bilgilere bakın.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| Yapı | Yol |
+| Artifact | Yol |
 | --- | --- |
-| **Azure tanılama yapılandırma dosyası** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<sürüm > \Config.txt |
-| **Günlük dosyaları** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<sürüm > \ |
-| **Tanılama verileri için yerel depolama** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Tables |
-| **İzleme Aracısı Yapılandırma dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Azure tanılama uzantısını paketi** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<sürüm > |
+| **Azure tanılama yapılandırma dosyası** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Günlük dosyaları** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Tanılama verileri için yerel depolama** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **İzleme Aracısı Yapılandırma dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Azure tanılama uzantısını paketi** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Günlük toplama yardımcı programı yolu** | %SystemDrive%\Packages\GuestAgent\ |
-| **MonAgentHost günlük dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **MonAgentHost günlük dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Sanal makineler
-| Yapı | Yol |
+| Artifact | Yol |
 | --- | --- |
-| **Azure tanılama yapılandırma dosyası** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<sürüm > \RuntimeSettings |
-| **Günlük dosyaları** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<sürüm > \Logs\ |
-| **Tanılama verileri için yerel depolama** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
-| **İzleme Aracısı Yapılandırma dosyası** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Durum dosyası** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<sürüm > \Status |
-| **Azure tanılama uzantısını paketi** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
+| **Azure tanılama yapılandırma dosyası** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Günlük dosyaları** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **Tanılama verileri için yerel depolama** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **İzleme Aracısı Yapılandırma dosyası** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Durum dosyası** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Azure tanılama uzantısını paketi** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Günlük toplama yardımcı programı yolu** | C:\WindowsAzure\Packages |
-| **MonAgentHost günlük dosyası** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **MonAgentHost günlük dosyası** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Ölçüm verileri Azure Portalı'nda görünmüyor
 Azure tanılama Azure portalında görüntülenen ölçüm verileri sağlar. Verileri portalında görmesini sorunlarınız varsa, WADMetrics denetleyin\* tablosunda karşılık gelen ölçüm kayıt olup olmadığını görmek için Azure tanılama depolama hesabı. 
@@ -68,7 +68,7 @@ Belirli ölçüm için hiçbir veri ise denetleyin **tanılama Yapılandırması
 - \Memory\Available Bytes
 - \ASP.NET uygulamaları (__toplam__) \Requests/Sec
 - \ASP.NET uygulamaları (__toplam__) \Errors toplam/sn
-- \ASP.NET\Requests sıraya alındı
+- \ASP.NET\Requests Queued
 - \ASP.NET\Requests reddetti
 - \Processor(W3wp)\% işlemci zamanı
 - \Process (w3wp) \Private bayt
@@ -154,7 +154,7 @@ Destek uzmanıyla hakkında düşünüyorum, makinenizden günlükleri toplamak 
 ## <a name="diagnostics-data-tables-not-found"></a>Tanılama veri tabloları bulunamadı
 ETW olayları tutmak Azure depolama tablolarda, aşağıdaki kodu kullanarak adlandırılır:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);

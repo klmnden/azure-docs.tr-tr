@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB SQL sorguları
 
@@ -298,7 +298,7 @@ Aşağıdaki ikili işleçler şu anda desteklenen ve aşağıdaki örneklerde g
 </tr>
 <tr>
 <td>Mantıksal</td>
-<td>VE VEYA DEĞİL</td>
+<td>AND, OR, NOT</td>
 </tr>
 <tr>
 <td>Karşılaştırma</td>    
@@ -365,7 +365,7 @@ Aşağıdaki tabloda, her iki JSON türleri arasındaki SQL API'sindeki eşitlik
             <strong>Dize</strong>
          </td>
          <td valign="top">
-            <strong>Nesne</strong>
+            <strong>Object</strong>
          </td>
          <td valign="top">
             <strong>Dizi</strong>
@@ -376,136 +376,136 @@ Aşağıdaki tabloda, her iki JSON türleri arasındaki SQL API'sindeki eşitlik
             <strong>Tanımlanmamış<strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Null<strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Boole değeri<strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Sayı<strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Dize<strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Nesne<strong>
+            <strong>Object<strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Dizi<strong>
          </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
-Tanımlanmadı </td>
+Tanımsız </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
@@ -541,23 +541,23 @@ BETWEEN ANSI SQL ve SQL API'yi kullanarak arasındaki temel fark karma türlerin
 ### <a name="logical-and-or-and-not-operators"></a>Mantıksal (AND, OR ve NOT) işleçleri
 Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçlere için mantıksal gerçekte tabloları aşağıdaki tablolarda gösterilmiştir.
 
-| OR | True | False | Tanımlanmadı |
+| OR | True | False | Tanımsız |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Tanımlanmadı |
-| Tanımlanmadı |True |Tanımlanmadı |Tanımlanmadı |
+| False |True |False |Tanımsız |
+| Tanımsız |True |Tanımsız |Tanımsız |
 
-| VE | True | False | Tanımlanmadı |
+| VE | True | False | Tanımsız |
 | --- | --- | --- | --- |
-| True |True |False |Tanımlanmadı |
+| True |True |False |Tanımsız |
 | False |False |False |False |
-| Tanımlanmadı |Tanımlanmadı |False |Tanımlanmadı |
+| Tanımsız |Tanımsız |False |Tanımsız |
 
-| DEĞİL |  |
+| NOT |  |
 | --- | --- |
 | True |False |
 | False |True |
-| Tanımlanmadı |Tanımlanmadı |
+| Tanımsız |Tanımsız |
 
 ### <a name="in-keyword"></a>Anahtar SÖZCÜĞÜ
 IN anahtar sözcüğü, belirtilen bir değeri bir listedeki herhangi bir değer eşleşip eşleşmediğini kontrol etmek için kullanılabilir. Örneğin, bu sorgu kimliği "WakefieldFamily" veya "AndersenFamily" biri olduğu tüm ailesi belgeleri döndürür. 
@@ -929,7 +929,7 @@ Aşağıdaki tabloda SQL API desteklenen toplama işlevleri listesini gösterir.
 | Kullanım | Açıklama |
 |-------|-------------|
 | SAYISI | İfade öğe sayısını döndürür. |
-| TOPLA   | İfadedeki tüm değerlerin toplamını döndürür. |
+| SUM   | İfadedeki tüm değerlerin toplamını döndürür. |
 | EN DÜŞÜK   | İfade en küçük değeri döndürür. |
 | EN YÜKSEK   | İfade en büyük değeri döndürür. |
 | ORT   | İfade değerlerin ortalamasını döndürür. |
@@ -1086,7 +1086,7 @@ Toplama dizi yineleme sonuç de gerçekleştirebilirsiniz. Örneğin, aşağıda
 ### <a id="Joins"></a>Birleşimler
 İlişkisel bir veritabanında tablolar katılmak için gereken önemlidir. Normalleştirilmiş şemaları tasarlama için mantıksal corollary olur. Bu aykırı SQL API belgeleri şemasız Normalleştirilmemiş veri modeli ile ilgilidir. Bu mantıksal eşdeğerdir "Self Katıl" a.
 
-Dilin desteklediği sözdizimi < from_source1 > JOIN < from_source2 > birleştirme ediyor... < From_sourceN > katılın. Genel olarak, bu bir dizi döndürür **N**- diziler (ile tanımlama grubu **N** değerleri). Her tanımlama grubu tüm koleksiyon diğer adları kendi ilgili ayarlar yineleme tarafından üretilen değerler içeriyor. Diğer bir deyişle, bu bir tam çapraz birleştirme katılan kümeleri ürünüdür.
+Dilin desteklediği sözdizimi < from_source1 > JOIN < from_source2 > birleştirme ediyor... JOIN <from_sourceN>. Genel olarak, bu bir dizi döndürür **N**- diziler (ile tanımlama grubu **N** değerleri). Her tanımlama grubu tüm koleksiyon diğer adları kendi ilgili ayarlar yineleme tarafından üretilen değerler içeriyor. Diğer bir deyişle, bu bir tam çapraz birleştirme katılan kümeleri ürünüdür.
 
 Aşağıdaki örnekler, JOIN yan tümcesi nasıl çalıştığını gösterir. Aşağıdaki örnekte, her bir belgenin kaynağından vektörel çarpımını itibaren sonucu boştur ve boş boştur.
 
@@ -1396,7 +1396,7 @@ Cosmos DB yerleşik işlevleri gibi kullanıcı tanımlı işlevler (UDF'ler) so
 | Denetimi işlevleri yazın | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED ve IS_PRIMITIVE                                                           |
 | Dize işlevleri        | CONCAT, içerir, ENDSWITH, INDEX_OF, sol, uzunluk, alt, LTRIM, Değiştir, çoğaltılması, geriye doğru sağ, RTRIM, STARTSWITH, SUBSTRING ve üst       |
 | Dizi işlevleri         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH ve ARRAY_SLICE                                                                                         |
-| Uzamsal işlevleri       | St_dıstance, ST_WITHIN, ST_INTERSECTS, ST_ISVALID ve ST_ISVALIDDETAILED                                                                           | 
+| Uzamsal işlevleri       | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, and ST_ISVALIDDETAILED                                                                           | 
 
 Şu anda yerleşik işlevi olduğu şimdi kullanılabilir bir kullanıcı tanımlı işlev (UDF) kullanıyorsanız, bunu çalıştırmak daha hızlı olacak şekilde karşılık gelen yerleşik işlevi kullanmalıdır ve daha verimli bir şekilde. 
 
@@ -1407,25 +1407,25 @@ Matematik işlevleri her bağımsız değişken olarak sağlanır ve sayısal bi
 | Kullanım | Açıklama |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [[ABS (num_expr)](#bk_abs) | Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür. |
-| [Üst SINIRA (num_expr)](#bk_ceiling) | Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değeri döndürür. |
+| [CEILING (num_expr)](#bk_ceiling) | Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değeri döndürür. |
 | [FLOOR (num_expr)](#bk_floor) | Belirtilen sayısal ifade küçük veya eşit en büyük tamsayıyı döndürür. |
 | [EXP (num_expr)](#bk_exp) | Belirtilen sayısal ifade üs döndürür. |
 | [Günlük (num_expr [, temel])](#bk_log) | Belirtilen sayısal ifade ya da belirtilen taban kullanarak logaritmasını doğal logaritmasını döndürür |
-| [Log10 (num_expr)](#bk_log10) | Belirtilen sayısal ifade 10 tabanında Logaritmik değerini döndürür. |
+| [LOG10 (num_expr)](#bk_log10) | Belirtilen sayısal ifade 10 tabanında Logaritmik değerini döndürür. |
 | [ROUND (num_expr)](#bk_round) | En yakın tamsayı değerine yuvarlanan sayısal bir değer döndürür. |
 | [TRUNC (num_expr)](#bk_trunc) | En yakın tamsayı değerine kesilmiş sayısal bir değer döndürür. |
 | [SQRT (num_expr)](#bk_sqrt) | Belirtilen sayısal ifade kare kökünü döndürür. |
-| [KARE (num_expr)](#bk_square) | Belirtilen sayısal ifade kare döndürür. |
-| [GÜÇ (num_expr, num_expr)](#bk_power) | Belirtilen sayısal ifade gücünü belirtilen değeri döndürür. |
-| [OTURUM (num_expr)](#bk_sign) | İşareti (-1, 0, 1) belirtilen sayısal ifadenin değerini döndürür. |
+| [SQUARE (num_expr)](#bk_square) | Belirtilen sayısal ifade kare döndürür. |
+| [POWER (num_expr, num_expr)](#bk_power) | Belirtilen sayısal ifade gücünü belirtilen değeri döndürür. |
+| [SIGN (num_expr)](#bk_sign) | İşareti (-1, 0, 1) belirtilen sayısal ifadenin değerini döndürür. |
 | [ACOS (num_expr)](#bk_acos) | Açının kosinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür; arccosine olarak da bilinir. |
 | [ASIN (num_expr)](#bk_asin) | Açının sinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu arksinüsünü olarak da adlandırılır. |
 | [ATAN (num_expr)](#bk_atan) | Açının tanjantı belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu arktanjantını olarak da adlandırılır. |
 | [ATN2 (num_expr)](#bk_atn2) | Burada açıyı pozitif x ekseni ve noktasına (y, x), kaynaktan ray arasında radyan cinsinden döndürür x ve y iki belirtilen float ifadeleri değerlerdir. |
 | [COS (num_expr)](#bk_cos) | Radyan cinsinden belirtilen ifade trigonometrik belirtilen açının kosinüsünü döndürür. |
 | [COT (num_expr)](#bk_cot) | Belirtilen açının trigonometrik kotanjantını radyan cinsinden belirtilen sayısal ifade döndürür. |
-| [DERECE (num_expr)](#bk_degrees) | Radyan cinsinden Açı derece cinsinden karşılık gelen açıyı döndürür. |
-| [PI)](#bk_pi) | PI sayısının sabit değeri döndürür. |
+| [DEGREES (num_expr)](#bk_degrees) | Radyan cinsinden Açı derece cinsinden karşılık gelen açıyı döndürür. |
+| [PI ()](#bk_pi) | PI sayısının sabit değeri döndürür. |
 | [Radyan CİNSİNDEN (num_expr)](#bk_radians) | Derece sayısal bir ifadenin girildiğinde radyan cinsinden döndürür. |
 | [SIN (num_expr)](#bk_sin) | Radyan cinsinden belirtilen ifade trigonometrik belirtilen açının sinüsünü döndürür. |
 | [TAN (num_expr)](#bk_tan) | Belirtilen ifade giriş ifadesi tanjantını döndürür. |
@@ -1455,11 +1455,11 @@ Tür denetleme işlevleri SQL sorguları içinde bir ifade türünü kontrol ola
   <td>Değerin türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (ifade)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
   <td>Türde bir değer bir Boole değeri olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (ifade)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
   <td>Değerin türü null olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
@@ -1467,7 +1467,7 @@ Tür denetleme işlevleri SQL sorguları içinde bir ifade türünü kontrol ola
   <td>Türde bir değer bir sayı olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (ifade)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
   <td>Değerin türü bir JSON nesnesi olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
@@ -1475,11 +1475,11 @@ Tür denetleme işlevleri SQL sorguları içinde bir ifade türünü kontrol ola
   <td>Değerin türü bir dize olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined">IS_DEFINED (ifade)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined">IS_DEFINED (expr)</a></td>
   <td>Özellik değeri atanmış olan gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (ifade)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
   <td>Değerin türü bir dize, sayı, Boole veya null olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 
@@ -1500,10 +1500,10 @@ Aşağıdaki skaler işlevler dize giriş değeri üzerinde bir işlemi gerçekl
 
 | Kullanım | Açıklama |
 | --- | --- |
-| [UZUNLUĞU (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Belirtilen dize ifadesinin karakterlerin sayısını döndürür |
+| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Belirtilen dize ifadesinin karakterlerin sayısını döndürür |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |İki veya daha fazla dize değerlerini birleştirme sonucu olan bir dize döndürür. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Bir dize ifadesi bölümünü döndürür. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Döndürür Boolean belirten bir ilk ifade dize olup olmadığını ve ikinci sona erer |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Döndüren bir Boolean belirten ilk ifade dize olup olmadığını ve ikinci başlatır |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Döndürür Boolean belirten bir ilk ifade dize olup olmadığını ve ikinci sona erer |
 | [İÇERİR (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Döndüren bir Boolean belirten ikinci ilk ifade dize olup olmadığını içerir. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |İkinci ilk örneğinin başlangıç konumunu döndürür dizesi ifade ilk belirtilen dize ifadesi veya -1 içinde dizesi bulunamadı. |
@@ -1511,11 +1511,11 @@ Aşağıdaki skaler işlevler dize giriş değeri üzerinde bir işlemi gerçekl
 | [SAĞ (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Belirtilen sayıda karakteri içeren bir dize sağ bölümünü döndürür. |
 | [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Öndeki boşlukları kaldırır sonra bir dize ifadesi döndürür. |
 | [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Tüm sondaki boşlukları kesilmesi sonrasında bir dize ifadesi döndürür. |
-| [Alt (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Büyük harf karakter verileri küçük harfe dönüştürmek sonra bir dize ifadesi döndürür. |
-| [ÜST (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Küçük harf karakter verileri büyük harfe dönüştürme sonra bir dize ifadesi döndürür. |
+| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Büyük harf karakter verileri küçük harfe dönüştürmek sonra bir dize ifadesi döndürür. |
+| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Küçük harf karakter verileri büyük harfe dönüştürme sonra bir dize ifadesi döndürür. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Belirtilen dize değeri tüm oluşumlarını başka bir dize değeri ile değiştirir. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Bir dize değeri, belirtilen sayıda yineler. |
-| [Ters (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Ters sırada bir dize değerini döndürür. |
+| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Ters sırada bir dize değerini döndürür. |
 
 Bu işlevleri kullanarak, şimdi aşağıdaki gibi sorguları çalıştırabilirsiniz. Örneğin, aile adı büyük şu şekilde döndürebilirsiniz:
 
@@ -1800,7 +1800,7 @@ Aşağıda, bazı standart LINQ Sorgu işleçleri Cosmos DB sorguları aşağıy
 #### <a name="select-operator"></a>İşleç Seç
 Sözdizimi `input.Select(x => f(x))`, burada `f` skaler bir ifade değil.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.Select(family => family.parents[0].familyName);
 
@@ -1811,7 +1811,7 @@ Sözdizimi `input.Select(x => f(x))`, burada `f` skaler bir ifade değil.
 
 
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.Select(family => family.children[0].grade + c); // c is an int variable
 
@@ -1823,7 +1823,7 @@ Sözdizimi `input.Select(x => f(x))`, burada `f` skaler bir ifade değil.
 
 
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.Select(family => new
     {
@@ -1843,7 +1843,7 @@ Sözdizimi `input.Select(x => f(x))`, burada `f` skaler bir ifade değil.
 #### <a name="selectmany-operator"></a>SelectMany işleci
 Sözdizimi `input.SelectMany(x => f(x))`, burada `f` koleksiyon türü döndüren bir skaler ifade.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.SelectMany(family => family.children);
 
@@ -1857,7 +1857,7 @@ Sözdizimi `input.SelectMany(x => f(x))`, burada `f` koleksiyon türü döndüre
 #### <a name="where-operator"></a>Burada işleci
 Sözdizimi `input.Where(x => f(x))`, burada `f` bir Boole değeri döndürür skaler bir ifade değil.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.Where(family=> family.parents[0].familyName == "Smith");
 
@@ -1869,7 +1869,7 @@ Sözdizimi `input.Where(x => f(x))`, burada `f` bir Boole değeri döndürür sk
 
 
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.Where(
         family => family.parents[0].familyName == "Smith" && 
@@ -1889,7 +1889,7 @@ Daha güçlü sorgular oluşturmak için yukarıdaki işleçleri oluşturulabili
 #### <a name="concatenation"></a>Birleştirme
 Sözdizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir sorgu ile isteğe bağlı başlatabilirsiniz `SelectMany` sorgu birden fazla ardından `Select` veya `Where` işleçler.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.Select(family=>family.parents[0])
         .Where(familyName == "Smith");
@@ -1902,7 +1902,7 @@ Sözdizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir s
 
 
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.Where(family => family.children[0].grade > 3)
         .Select(family => family.parents[0].familyName);
@@ -1915,7 +1915,7 @@ Sözdizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir s
 
 
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.Select(family => new { grade=family.children[0].grade}).
         Where(anon=> anon.grade < 3);
@@ -1928,7 +1928,7 @@ Sözdizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir s
 
 
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.SelectMany(family => family.parents)
         .Where(parent => parents.familyName == "Smith");
@@ -1946,7 +1946,7 @@ Sözdizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, ve
 
 İç içe bir sorgu iç sorgu dış toplama her öğesine uygulanır. İç sorgu gibi dış koleksiyondaki öğelerin alanlara başvurabilir önemli özelliklerinden biri otomatik olarak birleştirir.
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.SelectMany(family=> 
         family.parents.Select(p => p.familyName));
@@ -1958,7 +1958,7 @@ Sözdizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, ve
     JOIN p IN f.parents
 
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.SelectMany(family => 
         family.children.Where(child => child.familyName == "Jeff"));
@@ -1972,7 +1972,7 @@ Sözdizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, ve
 
 
 
-**LINQ lambda ifadesi**
+**LINQ lambda expression**
 
     input.SelectMany(family => family.children.Where(
         child => child.familyName == family.parents[0].familyName));
@@ -1990,7 +1990,7 @@ Cosmos DB herhangi bir dil tarafından HTTP/HTTPS istekleri çağrılabilir bir 
 
 Aşağıdaki örnekler, bir sorgu oluşturun ve Cosmos DB veritabanı hesabı karşı göndermek üzere gösterilmektedir.
 
-### <a id="RestAPI"></a>REST API'Sİ
+### <a id="RestAPI"></a>REST API
 Cosmos DB HTTP üzerinden açık bir RESTful programlama modeli sunar. Bir Azure aboneliği kullanarak veritabanı hesaplarını sağlanabilir. Cosmos DB kaynak modeli kaynaklar her biri mantıksal ve kararlı bir URI kullanılarak adreslenebilir bir veritabanı hesabı altında bir dizi oluşur. Bir kaynak kümesi için bu belgede bir akış olarak adlandırılır. Veritabanı hesabı her birden çok koleksiyonu kapsayan bir veritabanları kümesi oluşur belgeleri, UDF'ler ve diğer kaynak türlerini her hangi içinde dönüş içerebilir.
 
 Temel etkileşim bu kaynaklarla HTTP fiilleri GET, PUT, POST ve silme ile standart kullanıcıların yorumu modelidir. POST fiil yeni bir kaynak oluşturulmasını, bir saklı yordamı yürütmek veya Cosmos DB sorgu verme için kullanılır. Sorguları her zaman salt okunur hiçbir yan etkileri olan işlemleridir.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a27c3555f36560f8c945d997a15e98a42e1e5d4c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -193,7 +193,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 Bir güvenlik belirteci üretmek için C# işlevdir:
 
-```C#
+```csharp
 using System;
 using System.Globalization;
 using System.Net;

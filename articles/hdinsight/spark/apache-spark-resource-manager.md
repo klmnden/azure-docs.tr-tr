@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure hdınsight'ta Apache Spark küme kaynaklarını yönetme 
 
@@ -30,36 +30,47 @@ Ambari UI, YARN kullanıcı Arabiriminde ve Spark geçmişi Spark kümenizle ili
 
 * Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
 
-## <a name="open-the-ambari-web-ui"></a>Ambari Web kullanıcı arabirimini açın
-1. [Azure portalındaki](https://portal.azure.com/) başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.
-2. Spark kümenizin tıklatın **Pano**. İstendiğinde, Spark küme için yönetici kimlik bilgilerini girin.
+## <a name="open-the-ambari-web-ui"></a>Open the Ambari Web UI
 
-    ![Ambari başlatma](./media/apache-spark-resource-manager/hdinsight-launch-cluster-dashboard.png "Kaynak Yöneticisi'ni Başlat")
-3. Ambari Web kullanıcı ARABİRİMİ'nde, bu ekran görüntüsünde gösterildiği gibi başlatın.
-
-    ![Ambari Web kullanıcı Arabirimi](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari Web kullanıcı Arabirimi")   
+Apache Ambari, kümeyi izlemek ve yapılandırma değişiklikleri yapmak için kullanılır. Daha fazla bilgi için bkz: [yönetmek Hdınsight'ta Hadoop kümeleri Azure portalını kullanarak](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)
 
 ## <a name="open-the-spark-history-server"></a>Spark geçmişi sunucu açın
-1. [Azure portalındaki](https://portal.azure.com/) başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz).
-2. Küme dikey penceresinden altında **hızlı bağlantılar**, tıklatın **küme Panosu**. İçinde **küme Panosu** dikey penceresinde tıklatın **Spark geçmişi sunucu**.
+
+Spark geçmişi tamamlanmış ve çalışan Spark uygulamaları için kullanıcı Arabirimi web sunucusudur. Sparkl'ın Web kullanıcı Arabirimi, bir uzantısıdır.
+
+**Spark geçmişi sunucu Web kullanıcı arabirimini açmak için**
+
+1. Gelen [Azure portal](https://portal.azure.com/), Spark kümesi'ni açın. Daha fazla bilgi için bkz: [listesi ve Göster kümeleri](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+2. Gelen **hızlı bağlantılar**, tıklatın **küme Panosu**ve ardından **Spark geçmişi sunucu**
 
     ![Spark geçmişi sunucu](./media/apache-spark-resource-manager/launch-history-server.png "Spark geçmişi sunucu")
 
-    İstendiğinde, Spark küme için yönetici kimlik bilgilerini girin.
+    İstendiğinde, Spark küme için yönetici kimlik bilgilerini girin. Aşağıdaki URL'ye göz atarak Spark geçmişi sunucunun da açabilirsiniz:
+
+    ```
+    https://<ClusterName>.azurehdinsight.net/sparkhistory
+    ```
+
+    Değiştir <ClusterName> ile Spark kümenizin adıdır.
+
+Spark geçmişi sunucu web kullanıcı Arabirimi şuna benzer:
+
+![Hdınsight Spark geçmişi sunucu](./media/apache-spark-resource-manager/hdinsight-spark-history-server.png)
 
 ## <a name="open-the-yarn-ui"></a>Yarn kullanıcı arabirimini açın
 YARN kullanıcı arabirimini kullanarak Spark kümesi üzerinde çalışmakta olan uygulamaları izlemek için kullanabilirsiniz.
 
-1. Küme dikey penceresinden tıklayın **küme Panosu**ve ardından **YARN**.
+1. Gelen [Azure portal](https://portal.azure.com/), Spark kümesi'ni açın. Daha fazla bilgi için bkz: [listesi ve Göster kümeleri](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+2. Gelen **hızlı bağlantılar**, tıklatın **küme Panosu**ve ardından **YARN**.
 
     ![YARN kullanıcı arabirimini Başlat](./media/apache-spark-resource-manager/launch-yarn-ui.png)
 
    > [!TIP]
-   > Alternatif olarak, Ambari UI YARN Arabiriminden başlatabilirsiniz. Küme dikey penceresinden Ambari kullanıcı arabirimini başlatmak için tıklatın **küme Panosu**ve ardından **Hdınsight küme Panosu**. Ambari Arabiriminden tıklatın **YARN**, tıklatın **hızlı bağlantılar**, etkin Kaynak Yöneticisi'ni tıklatın ve ardından **kaynak yöneticisi kullanıcı Arabirimi**.
+   > Alternatif olarak, Ambari UI YARN Arabiriminden başlatabilirsiniz. Ambari kullanıcı arabirimini başlatmak için tıklatın **küme Panosu**ve ardından **Hdınsight küme Panosu**. Ambari Arabiriminden tıklatın **YARN**, tıklatın **hızlı bağlantılar**, etkin Kaynak Yöneticisi'ni tıklatın ve ardından **kaynak yöneticisi kullanıcı Arabirimi**.
    >
    >
 
-## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>Spark uygulamaları çalıştırmak için en uygun küme yapılandırması
+## <a name="optimize-clusters-for-spark-applications"></a>Kümeler Spark uygulamalar için en iyi duruma getirme
 Uygulama gereksinimleri bağlı olarak Spark yapılandırması için kullanılabilir üç anahtar parametreleri `spark.executor.instances`, `spark.executor.cores`, ve `spark.executor.memory`. Bir yürütücü Spark uygulama için başlatılan bir işlemdir. Çalışan düğümünde çalışır ve uygulama için görevleri gerçekleştiremeyen sorumludur. Yürütücüler ve her küme için Yürütücü boyutları varsayılan sayısı çalışan düğümleri ve alt düğüm boyutu sayısına göre hesaplanır. Bu bilgiler depolanır `spark-defaults.conf` küme baş düğümler.
 
 Üç yapılandırma parametrelerini (için küme üzerinde çalışan tüm uygulamaları) küme düzeyinde yapılandırılabilir veya her tek tek uygulama için belirtilebilir.
@@ -68,7 +79,7 @@ Uygulama gereksinimleri bağlı olarak Spark yapılandırması için kullanılab
 1. Ambari UI'ı tıklatın **Spark**, tıklatın **Contigs**, genişletin ve ardından **özel spark-varsayılanları**.
 
     ![Ambari kullanarak parametrelerini](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
-2. Varsayılan olarak 4 Spark uygulamaları kümede aynı anda çalıştırmak iyi değerlerdir. Aşağıda gösterildiği gibi kullanıcı arabiriminden bu değerleri değiştirebilirsiniz.
+2. Aynı anda kümede çalışan dört Spark uygulamalarında iyi varsayılan değerlerdir. Aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcı arabiriminden bu değerleri değiştirebilirsiniz:
 
     ![Ambari kullanarak parametrelerini](./media/apache-spark-resource-manager/set-executor-parameters.png)
 3. Tıklatın **kaydetmek** yapılandırma değişikliklerini kaydetmek için. Sayfanın üst kısmında, etkilenen tüm hizmetleri yeniden başlatmanız istenir. Tıklatın **yeniden**.
@@ -76,7 +87,7 @@ Uygulama gereksinimleri bağlı olarak Spark yapılandırması için kullanılab
     ![Hizmetlerini yeniden başlatın](./media/apache-spark-resource-manager/restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter not defteri çalışan bir uygulama için parametrelerini değiştir
-Jupyter not defteri çalışan uygulamalar için kullandığınız `%%configure` magic yapılandırma değişikliklerini yapın. İdeal olarak, birinci kod hücresini çalıştırmadan önce uygulama başlangıcında gibi değişiklikler yapmanız gerekir. Bunun yapılması sağlar yapılandırmasını oluşturulduğu Livy oturumuna uygulanır. Uygulamasında daha sonraki bir aşamada yapılandırmasını değiştirmek istiyorsanız, kullanmalısınız `-f` parametresi. Ancak, uygulamadaki tüm ilerleme kaybolacak göre yapılıyor.
+Jupyter not defteri çalışan uygulamalar için kullandığınız `%%configure` magic yapılandırma değişikliklerini yapın. İdeal olarak, birinci kod hücresini çalıştırmadan önce uygulama başlangıcında gibi değişiklikler yapmanız gerekir. Bunun yapılması sağlar yapılandırmasını oluşturulduğu Livy oturumuna uygulanır. Uygulamasında daha sonraki bir aşamada yapılandırmasını değiştirmek istiyorsanız, kullanmalısınız `-f` parametresi. Ancak, bu sayede tüm uygulama kayıp sürüyor.
 
 Aşağıdaki kod parçacığında Jupyter'de çalışan bir uygulama yapılandırmasını değiştirmek nasıl gösterir.
 
@@ -91,14 +102,14 @@ Aşağıdaki komut kullanılarak gönderilen bir batch uygulaması için yapıla
     spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>CURL kullanılarak gönderilen bir uygulama için parametrelerini değiştir
-Komutu aşağıdaki cURL kullanarak gönderilen bir batch uygulaması için yapılandırma parametreleri değiştirmek nasıl bir örnektir.
+Aşağıdaki komutu cURL kullanılarak gönderilen bir batch uygulaması için yapılandırma parametreleri değiştirmek nasıl bir örnektir.
 
     curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
-### <a name="how-do-i-change-these-parameters-on-a-spark-thrift-server"></a>Spark Thrift sunucusunun bu parametrelere nasıl değişiyor?
+### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Spark Thrift sunucusunun bu parametrelere değiştirme
 Spark Thrift sunucusunun bir Spark kümesi JDBC/ODBC erişim sağlar ve hizmet Spark SQL sorguları için kullanılır. Araçlar Power BI, Tableau vb. gibi çalışır. bir Spark uygulaması olarak Spark SQL sorguları yürütmek için Spark Thrift sunucusuyla iletişim kurmak için ODBC protokolünü kullanır. Spark kümesi oluşturduğunuzda, Spark Thrift sunucusunun iki örneği başlatılır, her baş düğüm üzerinde bir tane. Her Spark Thrift sunucusunun Spark uygulama YARN kullanıcı Arabirimi olarak görünür olur.
 
-Spark Thrift sunucusunun kullandığı Spark dinamik Yürütücü ayırma ve bu nedenle `spark.executor.instances` kullanılmaz. Bunun yerine, Spark Thrift sunucusunun kullandığı `spark.dynamicAllocation.minExecutors` ve `spark.dynamicAllocation.maxExecutors` Yürütücü sayısını belirtmek için. Yapılandırma parametrelerini `spark.executor.cores` ve `spark.executor.memory` Yürütücü boyutunu değiştirmek için kullanılır. Aşağıdaki adımlarda gösterildiği gibi bu parametreleri değiştirebilirsiniz.
+Spark Thrift sunucusunun kullandığı Spark dinamik Yürütücü ayırma ve bu nedenle `spark.executor.instances` kullanılmaz. Bunun yerine, Spark Thrift sunucusunun kullandığı `spark.dynamicAllocation.minExecutors` ve `spark.dynamicAllocation.maxExecutors` Yürütücü sayısını belirtmek için. Yapılandırma parametrelerini `spark.executor.cores` ve `spark.executor.memory` Yürütücü boyutunu değiştirmek için kullanılır. Aşağıdaki adımlarda gösterildiği gibi bu parametrelerini değiştirebilirsiniz:
 
 * Genişletme **spark thrift sparkconf Gelişmiş** parametreleri güncelleştirmek için kategori `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors`, ve `spark.executor.memory`.
 
@@ -107,15 +118,15 @@ Spark Thrift sunucusunun kullandığı Spark dinamik Yürütücü ayırma ve bu 
 
     ![Spark thrift sunucusunu yapılandırın](./media/apache-spark-resource-manager/spark-thrift-server-2.png)
 
-### <a name="how-do-i-change-the-driver-memory-of-the-spark-thrift-server"></a>Spark Thrift sunucusunun sürücü bellek nasıl değişiyor?
-Spark Thrift sunucusunun sürücü bellek baş düğüm RAM boyutunu % 25 oranında yapılandırılmış, 14 GB'den büyük baş düğüm Toplam RAM boyutu sağlanır. Aşağıda gösterildiği gibi sürücü bellek yapılandırmasını değiştirmek için Ambari kullanıcı Arabirimi kullanabilirsiniz.
+### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Spark Thrift sunucusunun sürücü bellek değiştirme
+Spark Thrift sunucusunun sürücü bellek baş düğüm RAM boyutunu % 25 oranında yapılandırılmış, 14 GB'den büyük baş düğüm Toplam RAM boyutu sağlanır. Aşağıdaki ekran görüntüsünde gösterildiği gibi sürücü bellek yapılandırmasını değiştirmek için Ambari UI kullanabilirsiniz:
 
 * Ambari UI'ı tıklatın **Spark**, tıklatın **yapılandırmalar**, genişletin **spark env Gelişmiş**ve ardından değeri sağlayın **spark_thrift_cmd_opts**.
 
     ![Spark thrift sunucusunun RAM yapılandırın](./media/apache-spark-resource-manager/spark-thrift-server-ram.png)
 
-## <a name="i-do-not-use-bi-with-spark-cluster-how-do-i-take-the-resources-back"></a>I BI ile Spark kümesi kullanmayın. Nasıl kaynakları geri yararlanabilir mi?
-Spark dinamik ayırma kullandığımız bu yana thrift sunucu tarafından tüketilen yalnızca iki uygulama yöneticileri için kaynakları kaynaklardır. Bu kaynakları geri kazanmak için küme üzerinde çalışan Thrift Server hizmetlerini durdurmanız gerekir.
+## <a name="reclaim-spark-cluster-resources"></a>Spark küme kaynaklarını geri kazan
+Spark dinamik ayırma nedeniyle thrift sunucu tarafından tüketilen yalnızca iki uygulama yöneticileri için kaynakları kaynaklardır. Bu kaynakları geri kazanmak için küme üzerinde çalışan Thrift Server hizmetlerini durdurmanız gerekir.
 
 1. Sol bölmeden Ambari UI'ı tıklatın **Spark**.
 2. Sonraki sayfaya tıklatın **Spark Thrift sunucuları**.
@@ -129,17 +140,17 @@ Spark dinamik ayırma kullandığımız bu yana thrift sunucu tarafından tüket
     ![Thrift sunucuyu yeniden başlatın](./media/apache-spark-resource-manager/restart-thrift-server-3.png)
 5. Diğer headnode de bu adımları yineleyin.
 
-## <a name="my-jupyter-notebooks-are-not-running-as-expected-how-can-i-restart-the-service"></a>My Jupyter not defterleri beklendiği gibi çalışmıyor. Hizmet nasıl yeniden başlatabilirsiniz?
-Ambari Web kullanıcı arabirimini yukarıda gösterildiği gibi başlatın. Sol gezinti bölmesinden tıklatın **Jupyter**, tıklatın **hizmet eylemleri**ve ardından **yeniden tüm**. Bu Jupyter hizmet tüm headnodes başlatır.
+## <a name="restart-the-jupyter-service"></a>Jupyter hizmetini yeniden başlatın
+Ambari Web kullanıcı arabirimini makale başına de gösterildiği gibi başlatın. Sol gezinti bölmesinden tıklatın **Jupyter**, tıklatın **hizmet eylemleri**ve ardından **yeniden tüm**. Bu, üzerinde tüm headnodes Jupyter hizmetini başlatır.
 
-    ![Restart Jupyter](./media/apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
+![Jupyter yeniden](./media/apache-spark-resource-manager/restart-jupyter.png "yeniden Jupyter")
 
-## <a name="how-do-i-know-if-i-am-running-out-of-resources"></a>Kaynaklar yetersiz çalıştırdığım olmadığını nasıl anlayabilirim?
-Yarn kullanıcı Arabiriminde, yukarıda gösterildiği gibi başlatın. Ekranın en üstünde küme ölçümlerini tabloda değerlerini kontrol **kullanılan bellek** ve **bellek toplam** sütun. 2 değerleri çok yakın varsa, sonraki uygulamayı başlatmak için yeterli kaynağı olmayabilir. Aynı durum geçerlidir **VCores kullanılan** ve **VCores toplam** sütun. Varsa aynı zamanda, ana görünümünde, bir uygulama içinde stayed **kabul edilen** durumu ve içine geçiş değil **çalıştıran** ya da **başarısız** durumunda, bu da olabilir göstergesidir, başlatmak için yeterli kaynakları alamıyorsanız.
+## <a name="monitor-resources"></a>Kaynakları izleme
+Yarn kullanıcı Arabiriminde makale başına de gösterildiği gibi başlatın. Ekranın en üstünde küme ölçümlerini tabloda değerlerini kontrol **kullanılan bellek** ve **bellek toplam** sütun. İki değer Kapat varsa, sonraki uygulamayı başlatmak için yeterli kaynağı olmayabilir. Aynı durum geçerlidir **VCores kullanılan** ve **VCores toplam** sütun. Varsa aynı zamanda, ana görünümünde, bir uygulama içinde stayed **kabul edilen** durumu ve içine geçiş değil **çalıştıran** ya da **başarısız** durumunda, bu da olabilir göstergesidir, başlatmak için yeterli kaynakları alamıyorsanız.
 
-    ![Resource Limit](./media/apache-spark-resource-manager/resource-limit.png "Resource Limit")
+![Kaynak sınırına](./media/apache-spark-resource-manager/resource-limit.png "kaynak sınırı")
 
-## <a name="how-do-i-kill-a-running-application-to-free-up-resource"></a>Kaynak boşaltmak için çalışan bir uygulama nasıl KILL?
+## <a name="kill-running-applications"></a>Çalışan uygulamaları Sonlandır
 1. Sol panelindeki Yarn kullanıcı arabiriminde tıklatın **çalıştıran**. Çalışan uygulamalar listesinden, uygulamanın sonlandırıldı ve tıklayın belirlemek **kimliği**.
 
     ![App1 KILL](./media/apache-spark-resource-manager/kill-app1.png "KILL App1")

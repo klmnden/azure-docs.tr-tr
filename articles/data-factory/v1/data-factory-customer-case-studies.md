@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 47889c42160c8d4a8dce042497388827369b0a08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: b388aa0257877446cfec5be1252c0a740f9d478c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - müşteri örnek olay incelemeleri
 Veri Fabrikası taşınmasını ve dönüştürülmesini veri otomatikleştiren bir bulut tabanlı bilgi yönetimi hizmetidir. Birçok endüstriler müşteriler, kendi analiz işlem hatları oluşturabilir ve kendi iş sorunlarını çözmek için veri fabrikası ve diğer Azure hizmetleriyle kullanın.  Doğrudan müşterilerimizden aldığımız neden ve nasıl veri fabrikası kullandıkları öğrenin.
@@ -27,7 +27,7 @@ Veri Fabrikası taşınmasını ve dönüştürülmesini veri otomatikleştiren 
 ## <a name="milliman"></a>Milliman
 [Üst Actuarial kesin sigorta endüstri dönüştürür](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
-## <a name="rockwell-automation"></a>Rockwell Otomasyon
+## <a name="rockwell-automation"></a>Rockwell Automation
 [Endüstriyel Otomasyon kesin keser maliyetleri yüzde 90'e büyük veri çözümleri ile](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## <a name="ziosk"></a>Ziosk

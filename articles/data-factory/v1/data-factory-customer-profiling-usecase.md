@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fcba76555902fb393830f352e6274b3ecd2fba38
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3a3c9c1d483ece71ecc38c7eaa364c35464d80f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---customer-profiling"></a>Kullanım Örneği - Müşteri Profili Oluşturma
 Azure Data Factory Çözüm Hızlandırıcıları Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Cortana Intelligence hakkında daha fazla bilgi için ziyaret [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). Bu belgede, Azure Data Factory ortak analytics sorunları nasıl çözebilir anlama ile çalışmaya başlamanıza yardımcı olmak için basit kullanım örneği açıklanmaktadır.
@@ -53,7 +53,7 @@ Tüm erişmek ve bu basit kullanım örneği denemek için gereken bir [Azure ab
 
     ![Data Factory dikey penceresi](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="solution-overview"></a>Çözüme genel bakış
+## <a name="solution-overview"></a>Çözüme Genel Bakış
 Bu basit kullanım örneği, alma, hazırlamak, dönüştürmek, analiz ve veri yayımlamak için Azure Data Factory nasıl kullanabileceğinize bir örnek olarak kullanılabilir.
 
 ![Uçtan uca iş akışı](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)

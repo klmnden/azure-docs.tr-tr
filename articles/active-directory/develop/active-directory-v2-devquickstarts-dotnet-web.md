@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Oturum açma bir .NET MVC web uygulaması'na ekleyin.
 V2.0 uç noktası ile kolayca web uygulamalarınızı hem kişisel Microsoft hesapları için destek ile kimlik doğrulaması ve iş veya Okul hesapları ekleyebilirsiniz.  ASP.NET web uygulamalarında bunu .NET Framework 4. 5 ' dahil Microsoft'un OWIN ara yazılımı kullanarak gerçekleştirebilirsiniz.
@@ -31,7 +31,7 @@ V2.0 uç noktası ile kolayca web uygulamalarınızı hem kişisel Microsoft hes
 
  Burada size kullanıcı oturum açma, kullanıcı hakkındaki bazı bilgileri görüntülemek ve uygulama dışı kullanıcı oturum OWIN kullanan bir web uygulaması oluşturma.
 
-## <a name="download"></a>İndir
+## <a name="download"></a>İndirme
 Bu öğretici için kod [GitHub'da](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet) korunur.  İzlemek için [uygulamanın çatısını bir .zip karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) veya çatıyı kopyalayın:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
@@ -64,7 +64,7 @@ Burada, Openıd Connect kimlik doğrulama protokolünü kullanmak için OWIN ara
 3. "OWIN başlangıç adlı sınıfı" projeye eklemek `Startup.cs` sağ tıklatın projeye--> **Ekle** --> **yeni öğe** "OWIN" arayın.  OWIN ara yazılımı, uygulamanız başlatıldığında `Configuration(...)` yöntemini çağırır.
 4. Sınıf bildirimi değiştirme `public partial class Startup` -zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık.  İçinde `Configuration(...)` yöntemi, bir web uygulamanız için kimlik doğrulaması ayarlamak için ConfigureAuth(...) çağrı yapma  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -81,7 +81,7 @@ Burada, Openıd Connect kimlik doğrulama protokolünü kullanmak için OWIN ara
 
 5. Dosyayı açmak `App_Start\Startup.Auth.cs` ve uygulamanıza `ConfigureAuth(...)` yöntemi.  Sağladığınız içinde parametreleri `OpenIdConnectAuthenticationOptions` uygulamanız için Azure AD ile iletişim kurmak için koordinatları olarak hizmet verecektir.  Tanımlama bilgisi kimlik doğrulamasını kurmanız gerekir - Openıd Connect Ara kapsar altında tanımlama bilgilerini kullanır.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -118,7 +118,7 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0
 
 - Kullanabilirsiniz, kullanıcı oturum açtığında belirli bir sayfaya erişmeden önce gerektirecek şekilde denetleyicilerinizi etiketlerinde yetkilendirmek.  Açık `Controllers\HomeController.cs`ve ekleme `[Authorize]` hakkında denetleyicisine etiketi.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -127,7 +127,7 @@ Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak v2.0
 
 - OWIN, doğrudan kimlik doğrulama isteklerini kodunuzu içinde vermek için de kullanabilirsiniz.  Açık `Controllers\AccountController.cs`.  SignIn() ve SignOut() Eylemler, Openıd Connect sınama ve oturum kapatma isteklerini sırasıyla gönderin.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -178,7 +178,7 @@ Openıd Connect ile kullanıcıların kimlik doğrulamasını yaparken, v2.0 uç
 
 - `Controllers\HomeController.cs` dosyasını açın.  Denetleyicilerinizi kullanıcının talepleri erişebilmeniz için `ClaimsPrincipal.Current` güvenlik sorumlusu nesnesi.
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
