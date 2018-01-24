@@ -222,7 +222,7 @@
           href: logic-apps-enterprise-integration-xml-validation.md
     - name: Yönetme
       items:
-        - name: Mantıksal uygulamaları yönetme - VS
+        - name: Mantıksal uygulamaları yönetme - Visual Studio
           href: logic-apps-manage-from-vs.md
         - name: Tümleştirme hesaplarını yönetme
           href: logic-apps-enterprise-integration-accounts.md
