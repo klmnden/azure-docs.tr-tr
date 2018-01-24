@@ -75,10 +75,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Buluttan cihaza iletileri gönderme
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Cihazlardan karşıya dosya yükleme
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +90,13 @@
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java arka ucu/Java cihazı](iot-hub-java-java-twin-getstarted.md)
+#### [Python arka ucu/Python cihazı](iot-hub-python-twin-getstarted.md)
 ### Doğrudan yöntemler kullanma
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-direct-methods.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-direct-methods.md)
 #### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java arka ucu/Java cihazı](iot-hub-java-java-direct-methods.md)
+#### [Python arka ucu/Python cihazı](iot-hub-python-python-direct-methods.md)
 ### Cihaz yönetimini kullanmaya başlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-device-management-get-started.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-device-management-get-started.md)

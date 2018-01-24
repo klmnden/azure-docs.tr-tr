@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Cihaz sağlama hizmetini yönetmek için Azure CLI kullanma
       href: how-to-manage-dps-with-cli.md
+    - name: Geliştirme için SDK araçlarını kullanma
+      href: how-to-use-sdk-tools.md
 - name: Başvuru
   items:
     - name: REST

@@ -4,11 +4,11 @@ hide_bc: True
 title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Sanal Makine Ölçek Kümeleri</h3>
-                                                    <p>Onlarca veya binlerce Linux ve Windows sanal makinesini yönetip ölçeklendirin</p>
+                                                    <p>Binlerce Linux ve Windows sanal makinesi yönetin ve ölçeklendirin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Kapsayıcıları kullanarak Linux üzerinde Web uygulamalarını dağıtma</p>
+                                                    <p>Web ve mobil için güçlü bulut uygulamalarını hızlıca oluşturun</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Kubernetes kullanarak kapsayıcılı uygulamaları uygun ölçekte çalıştırma</p>
+                                                    <p>Kubernetes dağıtımı, yönetimi ve işlemlerini kolaylaştırın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeleyici </p>
+                                                    <p>Azure’da güvenli, ölçeklenebilir ve yüksek oranda kullanılabilir web ön uçları oluşturun</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Güçlü küresel veri merkezleri ağı üzerinden son kullanıcılara içerik sağlayın</p>
+                                                    <p>Dünya çapında geniş çaplı erişimle güvenli, güvenilir içerik teslimi sağlayın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Ağ İzleyicisi</h3>
-                                                    <p>Ağ senaryosu düzeyinde koşulları izleme ve tanılama</p>
+                                                    <p>Ağ performansı izleme ve tanılama çözümü</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Depolama</h3>
-                                                    <p>Yapılandırılmamış veriler için yüksek düzeyde ölçeklenebilir nesne depolama</p>
+                                                    <p>Yapılandırılmamış veriler için REST tabanlı nesne depolama</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Disk Depolama</h3>
-                                                    <p>Sanal makineler için disk depolama</p>
+                                                    <p>Sanal makineleri destekleyen kalıcı ve güvenli disk seçenekleri</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Kuyruk Depolama</h3>
-                                                    <p>Büyük hacimli bulut hizmetleri için dayanıklı kuyruklar</p>
+                                                    <p>Uygulamaları, trafiğe göre etkili bir şekilde ölçeklendirme</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Dosya Depolama</h3>
-                                                    <p>Basit, dağıtılmış, platformlar arası dosya sistemi</p>
+                                                    <p>Standart SMB 3.0 protokolünü kullanan dosya paylaşımları</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Kuruluşlar için, veri güvenliğini artıran hibrit bulut depolaması</p>
+                                                    <p>Kurumsal bir hibrit bulut depolaması çözümüyle maliyetleri düşürün</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1845,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Azure VM’leri, şirket için VM’ler ve fiziksel sunucular için olağanüstü durum kurtarmayı yönetme</p>
+                                                    <p>Özel bulutlar için koruma ve kurtarma planları yapın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1927,7 +1926,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Apps</h3>
-                                                    <p>Bulut API'sini kolayca oluşturun ve kullanın</p>
+                                                    <p>Bulut API'lerini kolayca oluşturun ve kullanın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Güçlü küresel veri merkezleri ağı üzerinden son kullanıcılara içerik sağlayın </p>
+                                                    <p>Dünya çapında geniş çaplı erişimle güvenli, güvenilir içerik teslimi sağlayın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Milyonlarca iletiyi aynı anda göndermeye yönelik ölçeklenebilir anında iletme bildirimi altyapısı</p>
+                                                    <p>Herhangi bir arka uçtan herhangi bir platforma anlık bildirimler gönderin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Kubernetes kullanarak kapsayıcılı uygulamaları uygun ölçekte çalıştırma</p>
+                                                    <p>Kubernetes dağıtımı, yönetimi ve işlemlerini kolaylaştırın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>Yönetilen, hizmet olarak ilişkisel veritabanı</p>
+                                                    <p>Yönetilen, ilişkisel hizmet olarak SQL Veritabanı</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Tablo Depolama</h3>
-                                                    <p>Her ölçeğe uygun, global olarak dağıtılan çok modelli veritabanı</p>
+                                                    <p>Kısmen yapılandırılmış veri kümeleri kullanan NoSQL anahtar-değer deposu</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Önbelleği</h3>
-                                                    <p>Hızlı ve ölçeklenebilir uygulamalar oluşturmak için yüksek performansın yanı sıra verilerinize düşük gecikme süreli erişim elde edin</p>
+                                                    <p>Verilere yüksek aktarım hızı ve düşük gecikme süresiyle erişim olanağıyla uygulamaları daha da güçlendirin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2322,7 +2321,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Bulut Hadoop, Spark, R Server, Hbase ve Storm kümeleri sağlayın</p>
+                                                    <p>Bulut Hadoop, Spark, R Server, HBase ve Storm kümeleri sağlayın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Kurumsal düzeyde bulutta veri modelleme</p>
+                                                    <p>Hizmet olarak kurumsal düzeyde analiz altyapısı</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Tahmine dayalı bakımı etkinleştirmek için güçlü ve bulut tabanlı tahmine dayalı analiz</p>
+                                                    <p>Kolayca tahmine dayalı analiz çözümleri oluşturun, dağıtın ve yönetin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Veri Kataloğu</h3>
-                                                    <p>Kuruluş genelinde self servis veri kaynağı bulmayı etkinleştirme</p>
+                                                    <p>Kurumsal veri varlıklarınızdan daha fazla değer elde edin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning hizmetleri</h3>
-                                                    <p>Tahmine dayalı bakımı etkinleştirmek için güçlü ve bulut tabanlı tahmine dayalı analiz</p>
+                                                    <p>Deneme ve model yönetimi özelliklerine sahip uçtan uca, ölçeklenebilir, güvenilir bir platformla herkese yapay zeka olanağı sunun</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Uç cihazlarında da bulut zekasından yararlanın</p>
+                                                    <p>Bulut zekasını uç cihazlarına genişletin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Konum Tabanlı Hizmetler</h3>
-                                                    <p>Haritalar, yönler, arama ve diğer sağlam jeo-uzamsal hizmetler</p>
+                                                    <p>Basit ve güvenli konum API’leri, verilere jeo-uzamsal bağlam sağlar</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning hizmetleri</h3>
-                                                    <p>Tahmine dayalı bakımı etkinleştirmek için güçlü ve bulut tabanlı tahmine dayalı analiz</p>
+                                                    <p>Deneme ve model yönetimi özelliklerine sahip uçtan uca, ölçeklenebilir, güvenilir bir platformla herkese yapay zeka olanağı sunun</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Milyonlarca iletiyi aynı anda göndermeye yönelik ölçeklenebilir anında iletme bildirimi altyapısı</p>
+                                                    <p>Herhangi bir arka uçtan herhangi bir platforma anlık bildirimler gönderin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Kuruluşlar için, veri güvenliğini artıran hibrit bulut depolaması</p>
+                                                    <p>Kurumsal bir hibrit bulut depolaması çözümüyle maliyetleri düşürün</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Veri Kataloğu</h3>
-                                                    <p>Kuruluş genelinde self servis veri kaynağı bulmayı etkinleştirme</p>
+                                                    <p>Kurumsal veri varlıklarınızdan daha fazla değer elde edin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Güvenlik Merkezi</h3>
-                                                    <p>Artırılmış görünürlük sayesinde tehditleri önleyin, algılayın ve tehditlere yanıt verin</p>
+                                                    <p>Hibrit bulut iş yüklerinde güvenlik yönetimini birleştirin ve gelişmiş tehdit korumasını etkinleştirin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Anahtar Kasası</h3>
-                                                    <p>Şifreleme anahtarlarını ve gizli anahtarları nasıl yöneteceğinizi öğrenin</p>
+                                                    <p>Anahtarlarınızı ve diğer gizli dizileri koruyun ve denetimini elinizde tutun</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Ek kimlik doğrulama seviyesi ile verilerinize ve uygulamalarınıza erişimi koruyun</p>
+                                                    <p>Kullanıcılarınızın fazladan çaba harcamasına gerek kalmadan verilerinizi ve uygulamalarınızı daha güvenli hale getirin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure İlkesi</h3>
-                                                    <p>İlke tanımlarını oluşturma, atama ve yönetme </p>
+                                                    <p>Azure kaynakları için uygun ölçekte kurumsal idare ve standartlar uygulayın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Maliyet Yönetimi</h3>
-                                                    <p>Bulut kullanımını ve masrafları izleme</p>
+                                                    <p>Bulut harcamalarınızı iyileştirirken bulut potansiyelinizi en üst düzeye çıkarın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Makine verilerini operasyonel bilgilere dönüştürmeyi öğrenin</p>
+                                                    <p>Şirket içinde ve bulutta makine verilerini toplayın, arayın ve görselleştirin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirin</p>
+                                                    <p>Azure’a yönelik en iyi yöntemler için kişiselleştirilmiş öneri altyapınız</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Hizmet Durumu</h3>
-                                                    <p>Azure hizmetlerindeki sorunların sizi etkilediği durumlar için kişiselleştirilmiş rehberlik ve destek sağlar.</p>
+                                                    <p>Azure hizmetlerindeki sorunlardan etkilenmeniz durumunda kişiselleştirilmiş rehberlik ve destekten yararlanabilirsiniz</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Yönetilen Uygulamalar</h3>
-                                                    <p>Dağıtılan çözümleri müşterileriniz için yönetme</p>
+                                                    <p>Bulut tekliflerinin yönetimini kolaylaştırın</p>
                                                 </div>
                                             </div>
                                         </div>
