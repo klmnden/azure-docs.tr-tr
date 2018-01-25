@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure portalında bir depolama hesabını izleme
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 > Azure dosyaları şu anda Storage Analytics ölçümleri destekliyor, ancak henüz günlük kaydını desteklemiyor.
 >
-> Bir çoğaltma türü, bölge olarak yedekli depolama (ZRS) şu anda depolama hesaplarıyla ölçümleri veya etkin bir günlüğe kaydetme özelliğine sahip değilsiniz.
+> Bölge olarak yedekli depolama (ZRS) çoğaltma türüne sahip depolama hesapları, ölçümleri ve günlük kaydı destekler. Silinmiş önceki ZRS hesapları ZRS Klasik yeniden adlandırılmış, destek ölçümleri değil veya günlük kaydını yapın. ZRS hakkında daha fazla bilgi için bkz: [bölge olarak yedekli depolama](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Ayrıntılı bir kılavuz tanımlamak, tanılama ve Azure Storage ile ilgili sorunları gidermek için depolama çözümlemeleri ve diğer araçları kullanma hakkında bilgi için bkz: [izleme, tanılama ve Microsoft Azure Storage sorun giderme](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -148,7 +148,7 @@ Tanılama günlüklerini okuma kaydetmek yazma ve silme istekleri blob, tablo ve
 1. Sağlamak **durum** ayarlanır **üzerinde**seçip **Hizmetleri** , günlüğü etkinleştirmek istediğiniz için.
 
     ![Azure portalında oturum açmayı yapılandırın.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
-1. **Kaydet** düğmesine tıklayın.
+1. **Kaydet**’e tıklayın.
 
 Tanılama günlüklerini $logs depolama hesabınızdaki adlı blob kapsayıcısında kaydedilir. Bir Depolama Gezgini gibi kullanarak günlük verilerini görüntüleyebilir [Microsoft Storage Gezgini](http://storageexplorer.com), veya program aracılığıyla depolama istemci kitaplığı veya PowerShell kullanarak.
 

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama SAP NetWeaver için
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -698,7 +698,7 @@ Bir Azure sanal makine için birden çok sanal ağ arabirim kartı (Vnıc) tanı
 * [Birden çok NIC PowerShell kullanarak sanal makineleri dağıtma][virtual-network-deploy-multinic-arm-ps]
 * [Birden çok NIC Azure CLI kullanarak sanal makineleri dağıtma][virtual-network-deploy-multinic-arm-cli]
 
-#### <a name="site-to-site-connectivity"></a>Siteden siteye bağlantı
+#### <a name="site-to-site-connectivity"></a>Konumdan Konuma Bağlantı
 Şirket içi Azure Vm'leri ve şirket içi saydam ve kalıcı bir VPN bağlantısıyla bağlı olur. Azure en yaygın SAP dağıtım modelinde hale gelmesi bekleniyor. İşlem yordamlarını ve Azure SAP durumlarda işlemlerle saydam çalışmalıdır varsayılır. Şirket içi SAP aktarım yönetim sistemi (TMS) aktarım için azure'da geliştirme sistemi olan bir test sisteme değiştirir kullanım yanı sıra bu dışında bu sistemler yazdırma açabilmelisiniz anlamına gelir dağıtıldı. Daha fazla belge siteden siteye geçici bulunabilir [bu makalede][vpn-gateway-create-site-to-site-rm-powershell]
 
 ##### <a name="vpn-tunnel-device"></a>VPN tüneli aygıtı
@@ -1626,12 +1626,12 @@ SSL/TLS gibi güvenli iletişim protokolleri tarayıcı erişimi veya VPN tabanl
 
 Tipik SAP aşağıdaki tabloda iletişim bağlantı noktaları listelenir. Temel olarak SAP ağ geçidi bağlantı noktasını açmak yeterli olur.
 
-| Hizmet | Bağlantı noktası adı | Örnek `<nn`> 01 = | Varsayılan aralığı (min-maks.) | Açıklama |
+| Hizmet | Bağlantı noktası adı | Örnek `<nn`> 01 = | Varsayılan aralığı (min-maks.) | Yorum |
 | --- | --- | --- | --- | --- |
 | Dağıtıcı |sapdp`<nn>` bakın * |3201 |3200 - 3299 |Windows için SAP GUI ve Java tarafından kullanılan SAP göndericisi |
 | İleti sunucusu |sapms`<sid`> bkz ** |3600 |Ücretsiz sapms`<anySID`> |SID SAP sistem kimliği = |
-| Ağ geçidi |sapgw`<nn`> bkz * |3301 |Boş |SAP ağ geçidi, CPIC ve RFC iletişim için kullanılan |
-| SAP yönlendirici |sapdp99 |3299 |Boş |Yalnızca CI (Merkezi örneği) hizmeti adlarının yüklendikten sonra /etc/services rasgele bir değere atanamaz. |
+| Ağ geçidi |sapgw`<nn`> bkz * |3301 |ücretsiz |SAP ağ geçidi, CPIC ve RFC iletişim için kullanılan |
+| SAP yönlendirici |sapdp99 |3299 |ücretsiz |Yalnızca CI (Merkezi örneği) hizmeti adlarının yüklendikten sonra /etc/services rasgele bir değere atanamaz. |
 
 *) nn = SAP örnek sayısı
 
@@ -1965,9 +1965,7 @@ Aşağıdaki şekilde yönetilen diskleri kullanarak aynı yatay gösterilmişti
 ![Azure Iaas SQL Server ile SAP NetWeaver uygulama HA mimarisi][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA Linux
-Mimarisi SAP HA Linux Azure üzerinde temel Windows yukarıda açıklandığı gibi aynıdır. Ocak 2016 itibariyle henüz Linux Azure üzerinde desteklenen SAP (A) SCS HA çözümü yoktur
-
-Sonuç olarak Ocak 2016 itibariyle bir SAP Linux Azure sistemi bir SAP Windows Azure sistemi olarak aynı kullanılabilirlik için (A) SCS HA eksik alamayacağınız örneği ve tek örnekli SAP ana veritabanı.
+Mimarisi SAP HA Linux Azure üzerinde temel Windows yukarıda açıklandığı gibi aynıdır. SAP nota bakın [1928533] desteklenen yüksek kullanılabilirlik çözümlerinin listesi.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>SAP örnekleri için Otomatik Başlat'ı kullanma
 SAP SAP örnekleri VM dahilinde OS başlangıcı hemen sonra başlatmak için bir işlevsellik sunmazdı. Uygulanacak adımlar SAP Bilgi Bankası makalesinde belgelenen [1909114]. Ancak, SAP ayarını kullanacak şekilde öneren değil artık örneği yeniden sırasına göre bir denetim yok, çünkü birden fazla VM varsayarak etkilenen veya VM başına birden çok örneği çalıştı. Bir VM ve sonunda yeniden tek bir VM durumunun bir SAP uygulama sunucusu örneği tipik Azure senaryosunu varsayıldığında, Autostart gerçekten kritik değildir ve bu parametre ekleyerek etkinleştirilebilir:

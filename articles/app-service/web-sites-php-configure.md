@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 624dd416f37aacdb3d2f6e59afdc2efe646e610b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0467707a46709674d3f5de3346ad242af5c9dcb8
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web Apps PHP yapılandırma
 ## <a name="introduction"></a>Giriş
@@ -27,7 +27,7 @@ Bu kılavuz Web uygulamaları için yerleşik PHP çalışma zamanı yapılandı
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>Nasıl yapılır: yerleşik PHP sürümünü değiştirme
-Bir App Service web uygulaması oluşturduğunuzda varsayılan olarak, PHP 5.5 yüklü ve kullanmak için hemen kullanılabilir durumdadır. Kullanılabilir sürüm düzeltme, varsayılan yapılandırması ve etkin uzantıları görmek için en iyi yolu çağıran bir komut dosyası dağıtmaktır [phpinfo()] işlevi.
+Bir App Service web uygulaması oluşturduğunuzda varsayılan olarak, PHP 5.6 yüklü ve kullanmak için hemen kullanılabilir durumdadır. Kullanılabilir sürüm düzeltme, varsayılan yapılandırması ve etkin uzantıları görmek için en iyi yolu çağıran bir komut dosyası dağıtmaktır [phpinfo()] işlevi.
 
 PHP 5.6 ve PHP 7.0 sürümleri de kullanılabilir, ancak varsayılan olarak etkin değildir. PHP sürümünü güncelleştirmek için aşağıdaki yöntemlerden birini izleyin:
 
@@ -37,7 +37,7 @@ PHP 5.6 ve PHP 7.0 sürümleri de kullanılabilir, ancak varsayılan olarak etki
     ![Web uygulaması ayarları][settings-button]
 2. Gelen **ayarları** dikey seçin **uygulama ayarları** ve yeni PHP sürümünü seçin.
    
-    ![Uygulama ayarları][application-settings]
+    ![Uygulama Ayarları][application-settings]
 3. Tıklatın **kaydetmek** en üstündeki düğmesi **Web uygulaması ayarları** dikey.
    
     ![Yapılandırma ayarlarını Kaydet][save-button]

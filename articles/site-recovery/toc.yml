@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Yönetme
       items:
-        - name: Kurtarma Hizmetleri kasasına yükseltme
-          href: upgrade-site-recovery-vaults.md
         - name: Azure’da işlem sunucularını yönetme
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Yapılandırma sunucusunu yönetme

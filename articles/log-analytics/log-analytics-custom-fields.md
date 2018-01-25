@@ -1,6 +1,6 @@
 ---
-title: "Günlük analizi içinde özel alanlar | Microsoft Docs"
-description: "Günlük analizi özel alanlar özelliği, toplanan kaydı Özellikler ekleme OMS verilerden aranabilir alanlarınızı oluşturmanıza olanak sağlar.  Bu makalede bir özel alan oluşturma işlemini açıklar ve örnek olay ile ayrıntılı bilgi sağlar."
+title: "Özel alanları Azure günlük analizi | Microsoft Docs"
+description: "Günlük analizi özel alanlar özelliğidir toplanan kaydı Özellikler ekleme günlük analizi kayıtlarından kendi aranabilir alanları oluşturmanızı sağlar.  Bu makalede bir özel alan oluşturma işlemini açıklar ve örnek olay ile ayrıntılı bilgi sağlar."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Günlük analizi içinde özel alanlar
-**Özel alanlar** günlük analizi özelliği OMS deposunda mevcut kayıtları kendi aranabilir alanlar ekleyerek genişletebilir olanak tanır.  Özel alanlar, aynı kayıt diğer özellikleri ayıklanan verilerinden otomatik olarak doldurulur.
+**Özel alanlar** günlük analizi özelliği günlük analizi mevcut kayıtların kendi aranabilir alanlar ekleyerek genişletebilir olanak tanır.  Özel alanlar, aynı kayıt diğer özellikleri ayıklanan verilerinden otomatik olarak doldurulur.
 
 ![Özel alanlarına genel bakış](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ ms.lasthandoff: 10/11/2017
 Aşağıdaki bölümler, özel bir alan oluşturmak için yordamı sağlar.  Bu makalenin alt kısmında örnek ayıklama bir kılavuz vardır.
 
 > [!NOTE]
-> Yalnızca özel alan oluşturulduktan sonra toplanan kayıtlarında görünür OMS veri deposuna belirtilen ölçütlerle eşleşen kayıtları eklendikçe özel alan doldurulur.  Özel alan oluşturulduğunda, veri deposunda zaten olan kayıtlara eklenmedi.
-> 
+> Günlük analizi için belirtilen ölçütlerle eşleşen kayıtları yalnızca özel alan oluşturulduktan sonra toplanan kayıtlarında görünür eklendikçe özel alan doldurulur.  Özel alan oluşturulduğunda, veri deposunda zaten olan kayıtlara eklenmedi.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>1. adım – özel alan olacaktır kayıtları tanımlayın
@@ -72,7 +71,7 @@ Aşağıdaki bölümler, özel bir alan oluşturmak için yordamı sağlar.  Bu 
 7. Herhangi bir kayıt özelliği gibi özel alan kullanın.  Veri toplama ve Grup kullanın ve hatta yeni Öngörüler üretmek için kullanın.
 
 ## <a name="viewing-custom-fields"></a>Özel alanları görüntüleme
-Yönetim grubunuzun içindeki tüm özel alanların listesini görüntüleyebilirsiniz **ayarları** OMS Pano parçasına.  Seçin **veri** ve ardından **özel alanlar** çalışma alanınızdaki tüm özel alanlar listesi.  
+Yönetim grubunuzun içindeki tüm özel alanların listesini görüntüleyebilirsiniz **Gelişmiş ayarları** Azure portalında günlük analizi çalışma alanınız menüsü.  Seçin **veri** ve ardından **özel alanlar** çalışma alanınızdaki tüm özel alanlar listesi.  
 
 ![Özel alanlar](media/log-analytics-custom-fields/list.png)
 

@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 serisi güncelleştirme 4 sürüm notları
 > [!NOTE]
-> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+> StorSimple için klasik portal kullanım dışıdır. StorSimple Cihaz Yöneticileriniz, yeni Azure portalına kullanımdan kaldırma zamanlamasına göre otomatik olarak taşınacaktır. Bu taşımayla ilgili bir e-posta ve portal bildirimi alacaksınız. Bu belge de yakında kullanımdan kaldırılacaktır. Taşıma hakkında tüm sorularınız için bkz. [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -59,7 +59,7 @@ Güncelleştirme 4'te, aşağıdaki anahtar geliştirmeler ve hata düzeltmeleri
 
 * **Değişiklikleri güncelleştirme** -bu sürümde, hataları güncelleştirmek için ilgili hatalar düzeltildi.
 
-* **Disk hataları için uyarı** -bu sürümde yaklaşan disk hatası kullanıcıyı uyarır yeni bir uyarı eklenir. Bu uyarı karşılaşırsanız, Microsoft yedek diski dağıtmayı Support başvurun. Daha fazla bilgi için Git [donanım uyarıları, StorSimple Cihazınızda](storsimple-manage-alerts.md#hardware-alerts).
+* **Disk hataları için uyarı** -bu sürümde yaklaşan disk hatası kullanıcıyı uyarır yeni bir uyarı eklenir. Bu uyarı karşılaşırsanız, Microsoft yedek diski dağıtmayı Support başvurun. Daha fazla bilgi için Git [donanım uyarıları, StorSimple Cihazınızda](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Denetleyici değiştirme değişiklikleri** -denetleyici değiştirme işleminin durumunu sorgulamak kullanıcıya izin veren bir cmdlet bu sürümde eklenir. Daha fazla bilgi için Git [cmdlet sorgu denetleyicisi değiştirme durumuna](https://technet.microsoft.com/library/dn688168.aspx).
 

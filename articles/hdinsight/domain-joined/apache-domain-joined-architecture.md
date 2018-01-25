@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: saurinsh
-ms.openlocfilehash: eca019fa5e7866ed6281e8cfee105ba1d99249bc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c5e6381e7abb18c01031e4168c64cfe9aafec7ae
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Azure etki alanına katılmış Hadoop kümeleri planlama
 
@@ -47,16 +47,13 @@ Aşağıdaki ekran görüntüsünde contoso.com oluşturulan bir OU gösterir. B
 
 ![Ou etki alanına katılmış Hdınsight kümeleri](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="three-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Kendi Active Directory etki alanı denetleyicileri getiren üç yolu
+### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Kendi Active Directory etki alanı denetleyicileri getiren iki yolu
 
-Etki alanına katılmış Hdınsight kümeleri oluşturmak için Active Directory etki alanı denetleyicileri getirebilirsiniz üç yolu vardır. 
+Etki alanına katılmış Hdınsight kümeleri oluşturmak için Active Directory etki alanı denetleyicileri getirebilirsiniz iki yolu vardır. 
 
 - **Azure Active Directory etki alanı Hizmetleri**: Bu hizmet, Windows Server Active Directory ile tamamen uyumlu olan bir yönetilen Active Directory etki alanı sağlar. Microsoft, geçen yönetme, düzeltme eki uygulama ve AD etki alanı izleme dikkat edin. Etki alanı denetleyicilerinin bakımını yapmak hakkında endişelenmeden kümenizi dağıtabilirsiniz. Kullanıcılar, gruplar ve parolalar, Azure Active Directory'den şirket kimlik bilgilerini kullanarak kümeye oturum açmalarını etkinleştirme eşitlenir. Daha fazla bilgi için bkz: [Azure Active Directory etki alanı Hizmetleri kullanarak yapılandırma etki alanına katılmış Hdınsight kümelerini](./apache-domain-joined-configure-using-azure-adds.md).
 
 - **Azure Iaas Vm'leri üzerinde Active Directory**: Bu seçenekte, dağıtma ve Azure Iaas Vm'leri kendi Windows Server Active Directory etki alanında yönetme. Daha fazla bilgi için bkz: [yapılandırma etki alanına katılmış korumalı alan ortamıdır](./apache-domain-joined-configure.md).
-
-- **Şirket içi Active Directory**: Bu seçenekte, şirket içi Active Directory etki alanı denetleyicisiyle Hdınsight tümleştirin.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Etki alanına katılmış bir HDInsight kümesi yapılandırmak için bkz. [Etki alanına katılmış HDInsight kümelerini yapılandırma](apache-domain-joined-configure.md).

@@ -31,6 +31,8 @@
   items:
     - name: 1 -DB ile uygulama
       items:
+        - name: SQL DB ile .NET Core
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: SQL DB ile .NET
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: MySQL ile PHP
@@ -85,7 +87,7 @@
           href: web-sites-python-configure.md
         - name: Şirket içi kaynaklara bağlanma
           href: web-sites-integrate-with-vnet.md
-    - name: Azure’a Dağıt
+    - name: Azure’a dağıtma
       items:
         - name: Uygulamayı dağıtma
           items:

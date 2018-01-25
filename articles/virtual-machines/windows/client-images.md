@@ -14,14 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows İstemcisi Azure üzerinde geliştirme ve test senaryoları için kullanın.
-Windows 10 azure'da geliştirme ve test senaryoları için uygun bir Visual Studio (önceki adıyla MSDN) aboneliğiniz olması koşuluyla veya Windows 7, Windows 8 kullanabilirsiniz. Bu makalede Azure ve Azure galeri görüntüleri kullanımını çalışan Windows İstemcisi için uygunluk gereksinimleri özetlenmektedir.
+Uygun bir Visual Studio (önceki adıyla MSDN) aboneliğiniz varsa Azure geliştirme ve test senaryoları için Windows 10 Enterprise (x64) sağlanan veya Windows 7, Windows 8 kullanabilirsiniz. Bu makalede, Windows 7, Windows 8.1, Windows 10 Enterprise Azure ve aşağıdaki Azure galeri görüntüleri kullanımını çalıştırmak için uygunluk gereksinimleri özetlenmektedir.
+
+![Azure portalından görüntü ayrıntıları](./media/client-images/windows-client-msdn-images.png) 
+
+> [!NOTE]
+> Azure Galerisi'ndeki Windows 10 Pro ve Windows 10 Pro N görüntü için lütfen [çok kullanıcılı barındırma hakları ile azure'da Windows 10 dağıtma](windows-desktop-multitenant-hosting-deployment.md)
+>![Azure portalından Pro görüntü ayrıntıları](./media/client-images/windows-client-pro-images.png) 
+>
 
 ## <a name="subscription-eligibility"></a>Abonelik uygunluk
 Etkin Visual Studio abonelerinden (bir Visual Studio abonelik lisans kişiler) Windows İstemcisi geliştirme ve sınama amacıyla kullanabilirsiniz. Windows İstemcisi, kendi donanım ve herhangi bir türde Azure aboneliği çalışan Azure sanal makineler üzerinde kullanılabilir. Windows İstemcisi dağıtılan veya Azure üzerinde normal üretim kullanımı için kullanılan veya etkin Visual Studio abonelerinden olmayan kişiler tarafından kullanılan.
@@ -33,14 +40,14 @@ Aşağıdaki tabloda, Windows 10 Azure Galerisine dağıtmak uygun olan kimlikle
 
 | Teklif Adı | Teklif Numarası | Kullanılabilir istemci görüntüleri |
 |:--- |:---:|:---:|
-| [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
+| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
 | [Visual Studio Enterprise (MPN) aboneleri](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
 | [Visual Studio Professional aboneleri](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
 | [Visual Studio Test uzmanı aboneleri](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
 | [Visual Studio Premium with MSDN (avantajı)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Visual Studio Enterprise aboneleri](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Visual Studio Enterprise (BizSpark) aboneleri](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise geliştirme ve Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Enterprise Dev/Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Azure aboneliğiniz denetleyin
 Teklif kimliği bilmiyorsanız, bu iki yoldan biriyle Azure Portalı aracılığıyla elde edebilirsiniz:  

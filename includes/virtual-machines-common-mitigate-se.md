@@ -8,7 +8,10 @@ Son açıklanması bir [CPU güvenlik açıklarının yeni sınıf](https://port
 Azure çalışan ve müşteri iş yüklerinin birbirinden ayırır altyapı korunur.  Başka bir deyişle, Azure üzerinde çalışan diğer müşteriler güvenlik açıklarından kullanarak uygulamanızı saldırı olamaz.
 
 > [!NOTE] 
-> 3 Ocak 2018 üzerinde önceden duyurulmuş azure Azaltıcı etkilenmez güncel [yönergeleri güncelleştirildi](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) Intel gelen. Bu yeni bilgilere Intel sonucunda müşteri sanal makineleri üzerinde ek bakım etkinliği yok olacaktır.
+> 3 Ocak 2018 üzerinde önceden duyurulmuş azure Azaltıcı etkilenmez güncel [yönergeleri güncelleştirildi](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) Intel gelen. Bu yeni bilgiler sonucunda müşteri sanal makineleri üzerinde ek bakım etkinliği yok olacaktır.
+>
+> Donanım satıcıları tarafından mikro kodları güncelleştirmeleri aldığımız gibi bu en iyi uygulamaları güncelleştirmeye devam eder. Güncelleştirilmiş yönergeler için gözden geçirin.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>İşletim sistemlerinin güncel tutma
 
@@ -46,9 +49,6 @@ Windows kullanıyorsanız ve güvenilmeyen kod barındırma kurgusal yürütme y
 ### <a name="linux"></a>Linux
 Linux kullanıyorsanız ve güvenilmeyen kod barındırma kullanıcı alanına ait olanlar çekirdekten tarafından kullanılan belleği tabloları ayıran çekirdek sayfa tablosu yalıtım (KPTI) uygulayan daha yeni bir sürüme ayrıca Linux güncelleştirmeniz gerekir. Bu Azaltıcı Etkenler Linux işletim sistemi güncelleştirme gerektirir ve kullanılabilir olduğunda dağıtım sağlayıcınızdan elde edilebilir. İşletim sistemi sağlayıcınız korumaları etkin veya varsayılan olarak devre dışı olup olmadığını söyleyebilir.
 
-
-
-Donanım satıcıları tarafından mikro kodları güncelleştirmeleri aldığımız gibi bu en iyi uygulamaları güncelleştirmeye devam eder. Güncelleştirilmiş yönergeler için gözden geçirin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

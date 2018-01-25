@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c57ceb83951341d4a7bf368e209ba0f88825672c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Oluşturun ve IOT hub'ı iletileri okur
 
@@ -28,7 +28,7 @@ Protokoller kullanılarak sorunsuz birlikte çalışabilirlik desteklemek için 
 * Bir dizi *uygulama özellikleri*. Uygulama tanımlayabilirsiniz dize özellikleri ve ileti gövdesi seri durumdan gerek olmadan erişim, sözlüğü. IOT hub'ı hiçbir zaman bu özellikleri değiştirir.
 * Donuk bir ikili gövdesi.
 
-Özellik adları ve değerleri yalnızca ASCII alfasayısal karakterler içerebilirler, artı ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` olduğunda:  
+Özellik adları ve değerleri yalnızca ASCII alfasayısal karakterler içerebilirler, artı ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` olduğunda:  
 
 * HTTPS protokolünü kullanarak cihaz-bulut iletileri gönderir.
 * Bulut cihaz iletileri gönderir.
@@ -39,13 +39,13 @@ Aşağıdaki tabloda, IOT hub'ı iletileri Sistem özelliklerinde kümesini list
 
 | Özellik | Açıklama |
 | --- | --- |
-| MessageID |İstek-yanıt desenler için kullanılan ileti için kullanıcı ayarlanabilir bir tanımlayıcı. Biçimi: Büyük küçük harfe duyarlı dizesi (en fazla 128 karakter uzunluğunda) ASCII 7 bit alfasayısal karakter + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| MessageId |İstek-yanıt desenler için kullanılan ileti için kullanıcı ayarlanabilir bir tanımlayıcı. Biçimi: Büyük küçük harfe duyarlı dizesi (en fazla 128 karakter uzunluğunda) ASCII 7 bit alfasayısal karakter + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Sıra numarası |Her bulut cihaz iletiye IOT Hub tarafından atanan bir sayı (aygıt sırası benzersiz). |
 | Alıcı |Belirtilen bir hedef [bulut cihaz] [ lnk-c2d] iletileri. |
 | ExpiryTimeUtc |Tarih ve saat iletisi süre sonu. |
 | EnqueuedTime |Tarih ve saat [bulut cihaz] [ lnk-c2d] ileti IOT Hub tarafından alındı. |
 | CorrelationId |Bir dize özelliği genellikle istek, istek-yanıt desenleri MessageID içeren bir yanıt iletisi. |
-| Kullanıcı Kimliği |İletileri kökeni belirtmek için kullanılan bir kimliği. IOT Hub tarafından iletileri oluşturulduğunda ayarlanır `{iot hub name}`. |
+| UserId |İletileri kökeni belirtmek için kullanılan bir kimliği. IOT Hub tarafından iletileri oluşturulduğunda ayarlanır `{iot hub name}`. |
 | ACK |Geri bildirim iletisi üreteci. Bu özellik bulut cihaz iletilerinde aygıt tarafından tüketilen iletinin sonucunda geri bildirim iletileri oluşturmak için IOT Hub istemek için kullanılır. Olası değerler: **hiçbiri** (varsayılan): hiçbir geri bildirim iletisi oluşturulur, **pozitif**: ileti tamamlanmışsa bir geri bildirim iletisi **negatif**: alma bir iletinin zaman aşımına (veya en yüksek teslimat sayısı ulaşıldı varsa) aygıtıyla tamamlandığı olmadan geri bildirim iletisi veya **tam**: pozitif ve negatif. Daha fazla bilgi için bkz: [ileti geri bildirim][lnk-feedback]. |
 | ConnectionDeviceId |IOT Hub tarafından cihaz bulut iletilerini üzerinde ayarlanmış bir kimliği. İçerdiği **DeviceID** iletiyi gönderen cihaz. |
 | ConnectionDeviceGenerationId |IOT Hub tarafından cihaz bulut iletilerini üzerinde ayarlanmış bir kimliği. İçerdiği **Generationıd** (göre [aygıt kimlik özellikleri][lnk-device-properties]) iletiyi gönderen cihaz. |

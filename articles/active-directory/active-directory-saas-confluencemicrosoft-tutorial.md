@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 0409d4576b0671f60c5e3bd7e82a2a1102d3d28c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Öğretici: Microsoft tarafından Confluence SAML SSO Azure Active Directory Tümleştirme
 
@@ -31,6 +31,10 @@ Microsoft tarafından Confluence SAML SSO Azure AD ile tümleştirme ile aşağ�
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+
+## <a name="description"></a>Açıklama:
+
+Microsoft Azure Active Directory hesabınıza Atlassian Confluence sunucusuyla çoklu oturum açmayı etkinleştirmek için kullanın. Bu şekilde tüm kuruluş kullanıcılarınızın Azure AD kimlik Confluence uygulamasına oturum açmak için kullanabilirsiniz. Bu eklenti, Federasyon için SAML 2.0 kullanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -94,8 +98,6 @@ Azure AD Confluence SAML SSO Microsoft tarafından tümleştirilmesi yapılandı
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Confluence SAML SSO "Britta Simon" adlı bir test kullanıcıyı temel alarak Microsoft tarafından test etme.
 
 Tekli çalışmaya oturum için Azure AD ne karşılık gelen Confluence SAML SSO Microsoft tarafından bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve Microsoft tarafından Confluence SAML SSO ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Microsoft tarafından Confluence SAML SSO içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
 Yapılandırma ve Azure AD çoklu oturum açma Confluence SAML SSO Microsoft tarafından test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
@@ -163,7 +165,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Gelen eklentiyi karşıdan [Microsoft Download Center](). Microsoft tarafından sağlanan eklentisini el ile karşıya **karşıya eklenti** menüsü
+8. Gelen eklentiyi karşıdan [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Microsoft tarafından sağlanan eklentisini el ile karşıya **karşıya eklenti** menüsü
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

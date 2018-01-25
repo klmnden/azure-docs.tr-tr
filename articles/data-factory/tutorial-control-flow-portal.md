@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 39cfd269ec7dd9e676a9d4296df1329dc3fbe0cc
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, işlem hattı başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile gönderir. Kopyalama etkinliği başarısız olursa, işlem hattı kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile gönderir. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
@@ -39,7 +39,7 @@ Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 > * Bir işlem hattı çalıştırması başlatma
 > * İşlem hattı ve etkinlik çalıştırmalarını izleme
 
-Bu öğreticide Azure portalı kullanılır. Azure Data Factory ile etkileşim kurmak için başka mekanizmalar kullanabilirsiniz; içindekiler tablosunda "Hızlı Başlangıçlar" bölümüne bakın.
+Bu öğreticide Azure Portal kullanılır. Azure Data Factory ile etkileşim kurmak için başka mekanizmalar kullanabilirsiniz; içindekiler tablosunda "Hızlı Başlangıçlar" bölümüne bakın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -61,7 +61,7 @@ Bu öğreticide Azure portalı kullanılır. Azure Data Factory ile etkileşim k
     3. **input.txt** dosyasını kapsayıcıya yükleyin.
 
 ## <a name="create-email-workflow-endpoints"></a>E-posta iş akışı uç noktaları oluşturma
-İşlem hattından e-posta göndermeyi tetiklemek için [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) kullanarak iş akışını tanımlarsınız. Mantıksal Uygulama iş akışı oluşturma ayrıntıları için bkz. [Mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). 
+İşlem hattından e-posta göndermeyi tetiklemek için [Logic Apps](../logic-apps/logic-apps-overview.md) kullanarak iş akışını tanımlarsınız. Mantıksal Uygulama iş akışı oluşturma ayrıntıları için bkz. [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Başarı e-postası iş akışı 
 `CopySuccessEmail` adlı bir Mantıksal Uygulama iş akışı oluşturun. İş akışı tetikleyicisini `When an HTTP request is received` olarak tanımlayın ve bir `Office 365 Outlook – Send an email` eylemi ekleyin.
@@ -132,7 +132,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 1. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
-2. **Yeni veri fabrikası** sayfasına **ad** için **ADFTutorialDataFactory** girin. 
+2. **Yeni veri fabrikası** sayfasında **ad** için **ADFTutorialDataFactory** girin. 
       
      ![Yeni veri fabrikası sayfası](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
  
@@ -153,10 +153,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 8. Panoda şu kutucuğu ve üzerinde şu durumu görürsünüz: **Veri fabrikası dağıtılıyor**. 
 
     ![veri fabrikası dağıtılıyor kutucuğu](media/tutorial-control-flow-portal/deploying-data-factory.png)
-9. Oluşturma işlemi tamamlandıktan sonra, görüntüde gösterildiği gibi **Data Factory** sayfasını görürsünüz.
+9. Oluşturma işlemi tamamlandıktan sonra, resimde gösterildiği gibi **Data Factory** sayfasını görürsünüz.
    
    ![Data factory giriş sayfası](./media/tutorial-control-flow-portal/data-factory-home-page.png)
-10. Azure Data Factory kullanıcı arabirimini (UI) ayrı bir sekmede açmak için **Geliştir ve İzle** kutucuğuna tıklayın.
+10. Azure Data Factory kullanıcı arabirimini (UI) ayrı bir sekmede açmak için **Yazar ve İzleyici** kutucuğuna tıklayın.
 
 
 ## <a name="create-a-pipeline"></a>İşlem hattı oluşturma

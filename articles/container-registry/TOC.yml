@@ -43,18 +43,20 @@
       href: container-registry-get-started-docker-cli.md
     - name: Depoları görüntüleme
       href: container-registry-repositories.md
-    - name: Hizmet sorumlusu oluşturma
-      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.jso
     - name: Klasik kayıt defterini yükseltme
       href: container-registry-upgrade.md
     - name: ACR web kancalarını kullanma
-      href: ./container-registry-webhook.md
+      href: container-registry-webhook.md
     - name: Kimlik Doğrulaması
       items:
         - name: Kimlik Doğrulamasına genel bakış
           href: container-registry-authentication.md
+        - name: Hizmet sorumlusu kimlik doğrulaması
+          href: container-registry-auth-service-principal.md
+        - name: Azure Container Instances
+          href: container-registry-auth-aci.md
         - name: Azure Container Service
-          href: ./container-registry-auth-aks.md
+          href: container-registry-auth-aks.md
 - name: Başvuru
   items:
     - name: Azure CLI

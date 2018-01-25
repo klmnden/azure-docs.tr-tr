@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 857bbd42fda4abddd9a7551f4de016cecae03868
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
@@ -43,22 +43,28 @@ Makineler için çoğaltma desteği aşağıdaki tabloda özetlenmiştir. Site R
 --- | ---
 Makine Yapılandırması | Azure'a makineler karşılamalıdır [Azure gereksinimleri](#failed-over-azure-vm-requirements).
 Makine işletim sistemini (Windows) | 64-bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi olan sunucu)\*, Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1
-Makine işletim sistemi (Linux) | Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.3 <br/><br/>CentOS: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.3 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, Red Hat uyumlu çekirdek ya da kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Makineler SLES 11 SP4 ' SLES 11 SP3 çoğaltılan yükseltme desteklenmez. Çoğaltılmış bir makineden SLES 11 SP4 ' SLES 11SP3 yükseltildiyse, çoğaltmayı devre dışı bırakın ve makine yükseltme sonrası yeniden korumak gerekir.)
-Linux çekirdek sürüm | Red Hat Enterprise Linux Server 7 + ve CentOS 7 + sunucularda, çekirdek sürüm 3.10.0-514 Azure Site Recovery Mobility hizmeti 9.8 sürümünden itibaren desteklenmektedir.<br/><br/> Mobility hizmetinin 9.8 sürümünden daha düşük bir sürümü ile 3.10.0-514 çekirdek müşteriler çoğaltmasını devre dışı bırakın, Mobility hizmeti sürümü 9.8 sürüme güncelleştirin ve ardından çoğaltma işlemini yeniden etkinleştirmek için gereklidir.
+Makine işletim sistemi (Linux) | Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>CentOS: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, Red Hat uyumlu çekirdek ya da kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Makineler SLES 11 SP4 ' SLES 11 SP3 çoğaltılan yükseltme desteklenmez. Çoğaltılmış bir makineden SLES 11 SP4 ' SLES 11SP3 yükseltildiyse, çoğaltmayı devre dışı bırakın ve makine yükseltme sonrası yeniden korumak gerekir.)
 
+>[!NOTE]
+>
+> - Linux dağıtımları üzerinde ikincil sürüm yayın/güncelleştirme dağıtımının bir parçası olan stok tekrar desteklenir.
+>
+> - Linux dağıtım noktasında bir Azure Site Recovery ana sürümleri arasında yükseltme VMware sanal makinesi korumalı veya fiziksel sunucu desteklenmiyor. Yükseltilirken işletim sistemi ana sürümleri (örneğin CentOS 7.* için CentOS 6.*) arasında makinesi için çoğaltma devre dışı bırakmak, makinedeki işletim sistemini yükseltme ve çoğaltma işlemini yeniden etkinleştirin.
+>
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu çekirdek sürümleri
 
 
 **Desteklenen sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic 3.13.0-117-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-75-generic 4.4.0-21-Generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic 3.13.0-121-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-81-generic 4.4.0-21-Generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic 3.13.0-128-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-91-generic 4.4.0-21-Generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic 3.13.0-132-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-96-generic 4.4.0-21-Generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic 3.13.0-137-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-104-generic 4.4.0-21-Generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic 4.4.0-81-generic için<br/>4.8.0-34-Generic 4.8.0-56-generic için<br/>4.10.0-24-generic 4.10.0-14-Generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic 4.4.0-91-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-32-generic 4.10.0-14-Generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic 4.4.0-96-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-35-generic 4.10.0-14-Generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic 4.4.0-104-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-42-generic 4.10.0-14-Generic |
 
 ## <a name="linux-file-systemsguest-storage-configurations"></a>Linux dosya sistemleri/Konuk depolama yapılandırmaları
 
@@ -70,7 +76,7 @@ Birim Yöneticisi | LVM2
 Paravirtualized depolama aygıtları | Paravirtualized sürücüleri tarafından dışarı aktarılan cihazlar desteklenmez.
 G/ç cihazların çok sıra engelle | Desteklenmiyor.
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
-Dizinler | Bu dizinleri (varsa ayrı bölümleri/dosya-sistemleri ayarlanmış) tümü aynı işletim sistemi diski kaynak sunucuda olmalıdır: / (kök), / Boot/usr, /usr/local, /var, / etc
+Dizinler | Bu dizinleri (varsa ayrı bölümleri/dosya-sistemleri ayarlanmış) tümü aynı işletim sistemi diski kaynak sunucuda olmalıdır: / (kök), / Boot/usr, /usr/local, /var, / etc </br></br>  Varsa / (kök) birimdir LVM birim, sonra/Boot aynı disk ayrı bir bölüme üzerinde bulunan ve bir LVM birim olmaması gerekir.<br/><br/>
 XFSv5 | Sürümünden başlayarak Mobility hizmeti 9.10 XFS dosya sistemleri gibi meta veri sağlama toplamı XFSv5 özellikleri desteklenir. Süper blok XFS kullanarak bölümün denetlemek için xfs_info yardımcı programını kullanın. Ftype 1 olarak ayarlanırsa, XFSv5 özellikleri kullanılıyor olabilir.
 
 
@@ -115,7 +121,7 @@ Ana bilgisayar NFS | VMware için Evet<br/><br/> Fiziksel sunucuları için Hay�
 Konak SAN (İSCSI) | Evet
 Ana bilgisayar çok yollu (MPIO) | Evet - ile test: Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM CLARiiON için
 Konuk/sunucu VMDK | Evet 
-Konuk/sunucu EFI/UEFI'ye| Hayır
+Konuk/sunucu EFI/UEFI'ye| Kısmi (geçiş Azure için Windows Server 2012 ve üzeri içindir.) </br></br> ** Tablonun sonundaki nota bakın.
 Konuk/sunucu paylaşılan küme diski | Hayır 
 Konuk/sunucu şifreli disk | Hayır 
 Konuk/sunucu NFS | Hayır 
@@ -124,7 +130,14 @@ Konuk/sunucu RDM | Evet<br/><br/> Fiziksel sunucuları için yok
 Konuk/sunucu diski > 1 TB | Evet<br/><br/>4095 GB'a kadar 
 Konuk/sunucu diski 4 K mantıksal ve 4 k fiziksel kesim boyutu | Evet
 4K mantıksal Konuk/sunucu diskle ve 512 bayt fiziksel kesim boyutu | Evet 
-Şeritli disk > 1 TB Konuk/sunucu birimle<br/><br/> Konuk/sunucu LVM mantıksal birim yönetimi - depolama alanları | Konuk/sunucu sık kullanılan Ekle/Kaldır disk | / Sunucu - Konuk hariç disk | Konuk/sunucu çok yollu (MPIO) Evet | YOK 
+Şeritli disk > 1 TB Konuk/sunucu birimle<br/><br/> Konuk/sunucu LVM mantıksal birim yönetimi - depolama alanları | Konuk/sunucu sık kullanılan Ekle/Kaldır disk | / Sunucu - Konuk hariç disk | Konuk/sunucu çok yollu (MPIO) Evet | YOK
+
+> [!NOTE]
+> ** UEFI VMware sanal makineleri veya fiziksel sunucular Windows Server 2012 çalıştıran önyükleme veya daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
+> - Yalnızca azure'a geçişini destekler. Yeniden çalışma için şirket içi VMware sitesi desteklenmiyor.
+> - Sunucu, 4'ten fazla bölümleri işletim sistemi disk üzerinde olmalıdır.
+> - Azure Site Recovery Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
+
 
 ## <a name="azure-storage"></a>Azure Storage
 

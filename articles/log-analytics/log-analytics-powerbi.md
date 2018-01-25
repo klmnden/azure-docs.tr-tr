@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure günlük analizi veri Power BI'a aktarın
 
@@ -86,12 +86,12 @@ Power BI ile yapılandırırken bir [eski günlük analizi çalışma alanı](lo
 ![Power BI için günlük analizi](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Power BI zamanlamaları
-A *Power BI zamanlama* Power BI ve veri kümesi güncel kalmasını sağlamak için bu arama ne sıklıkta çalıştırmak tanımlayan bir zamanlama içinde karşılık gelen bir veri kümesi için bir veri kümesi OMS depodan dışarı aktaran bir günlük arama içerir.
+A *Power BI zamanlama* Power BI ve veri kümesi güncel kalmasını sağlamak için bu arama ne sıklıkta çalıştırmak tanımlayan bir zamanlama içinde karşılık gelen bir veri kümesi için günlük analizi bir veri kümesi aktarır günlük arama içerir.
 
 Veri kümesinde yer alan günlük araması tarafından döndürülen kayıt özelliklerini eşleşir.  Arama farklı türlerde kayıtları döndürüyorsa dataset her dahil kayıt türlerinin tüm özellikler dahil edilir.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Power BI için OMS çalışma bağlanma
-Power BI için günlük analizi verebilirsiniz önce aşağıdaki yordamı kullanarak Power BI hesabınızı OMS çalışma alanınızı bağlanmanız gerekir.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Power BI için günlük analizi çalışma alanı bağlanma
+Power BI için günlük analizi verebilirsiniz önce aşağıdaki yordamı kullanarak Power BI hesabınızı için çalışma alanınızı bağlanmanız gerekir.  
 
 1. OMS konsolunda **ayarları** döşeme.
 2. Seçin **hesapları**.

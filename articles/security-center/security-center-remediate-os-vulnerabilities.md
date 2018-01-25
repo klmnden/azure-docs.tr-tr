@@ -1,6 +1,6 @@
 ---
 title: "Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını düzeltmek | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir **güvenlik yapılandırmalarını düzeltmek**."
+description: "Bu belgede \"Düzelt güvenlik yapılandırmalarını.\", Azure Güvenlik Merkezi öneri uygulamak nasıl gösterir"
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,93 +14,99 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını Düzelt
 Azure Güvenlik Merkezi günlük sanal makineleri (VM'ler) ve sanal makineleri hale getirebilecek bir yapılandırma için ve bilgisayarları daha savunmasız işletim sistemi (OS) çözümler. Güvenlik Merkezi, işletim sistemi yapılandırması önerilen güvenlik yapılandırma kuralları eşleşmiyor ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir güvenlik açıkları gidermek önerir.
 
-İzlenmekte olan belirli yapılandırmalar hakkında daha fazla bilgi için bkz: [önerilen yapılandırma kuralları listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Bkz: [özelleştirme işletim sistemi güvenlik yapılandırmalarını](security-center-customize-os-security-config.md) Güvenlik Merkezi'nde Güvenlik Yapılandırması değerlendirmeleri özelleştirme hakkında bilgi edinmek için.
+İzlenmekte olan belirli yapılandırmalar hakkında daha fazla bilgi için bkz: [önerilen yapılandırma kuralları listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Güvenlik Yapılandırma değerlendirmeleri özelleştirmek öğrenmek için bkz: [işletim sistemi özelleştirme (Önizleme) Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını](security-center-customize-os-security-config.md).
 
 ## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-Yapılandırmaları uyuşmazlığı Güvenlik Merkezi'nde bir öneri olarak sunulan güvenlik düzeltin. Bu öneri altında görüntülenen **önerileri** ve altında **işlem**.
+"Güvenlik yapılandırmalarını Düzelt" Güvenlik Merkezi'nde bir öneri olarak sunulur. Önerinin altında görüntülenen **önerileri** > **işlem**.
 
-Bu örnekte ele alacağız **güvenlik yapılandırmalarını düzeltmek** önerinin altında **işlem**.
-1. Seçin **işlem** Güvenlik Merkezi ana menü altında.
+Bu örnekte "güvenlik yapılandırmalarını Düzelt" önerinin altında kapsayan **işlem**.
+1. Sol bölmede, Güvenlik Merkezi'nde seçin **işlem**.  
+  **İşlem** penceresi açılır.
 
-   ![Güvenlik yapılandırmalarını Düzelt][1]
+   ![Güvenlik yapılandırmalarını düzeltme][1]
 
-2. Altında **işlem**seçin **güvenlik yapılandırmalarını düzeltmek**. **Güvenlik yapılandırmalarını** açar.
+2. Seçin **güvenlik yapılandırmalarını düzeltmek**.  
+  **Güvenlik yapılandırmalarını** penceresi açılır.
 
-   ![Güvenlik yapılandırmaları][2]
+   !["Güvenlik yapılandırmalarını" penceresi][2]
 
-  Pano üstündeki sağlar:
+  Pano görüntüler üst kısmında:
 
-  - VM'in ve bilgisayarın arasında işletim sistemi yapılandırması başarısız oldu önem kurallarıyla toplam sayısı.
-  - VM'in ve bilgisayarın arasında işletim sistemi yapılandırması başarısız oldu türü kurallarıyla toplam sayısı.
-  - Windows işletim sistemi yapılandırmalarınızı ve Linux işletim sistemi yapılandırmalarınızı tarafından başarısız kuralları toplam sayısı.
+  - **Önem derecesine göre kuralları başarısız**: işletim sistemi yapılandırması VM'ler ve önem derecesine göre bölünen bilgisayarlar arasında başarısız kuralları toplam sayısı.
+  - **Türe göre kuralları başarısız**: işletim sistemi yapılandırması VM'ler ve türe göre bölünen bilgisayarlar arasında başarısız kuralları toplam sayısı.
+  - **Windows kuralları başarısız**: Windows işletim sistemi yapılandırmalarınızı başarısız kuralları toplam sayısı.
+  - **Linux kuralları başarısız**: başarısız, Linux işletim sistemi yapılandırmalarını tarafından kuralları toplam sayısı.
 
-  Panonun alt Vm'leriniz ve bilgisayarlar ve eksik güncelleştirmenin önem tüm başarısız kuralları listeler. Liste aşağıdakileri içerir:
+  Pano alt bölümünü Vm'leriniz ve bilgisayarlar ve eksik güncelleştirmenin önem derecesi için tüm başarısız kuralları listeler. Liste aşağıdaki öğeleri içerir:
 
-  - **CCEID**: CCE kuralı için benzersiz tanımlayıcı. Güvenlik Merkezi, yapılandırma kuralları için benzersiz tanımlayıcı atamak için Common Configuration Enumeration (CCE) kullanır.
-  - **AD**: başarısız kural adı
-  - **KURAL türü**: kayıt defteri anahtarı, güvenlik ilkesi ya da Denetim İlkesi
-  - **VM Sanal makineleri &AMP; bilgisayarları**: toplam sayısı VM'ler ve başarısız çizgili bilgisayarlar için geçerlidir
-  - **Kural önem**: kritik, önemli ya da uyarı CCE önem derecesi değeri
-  - **DURUM**: Önerinin geçerli durumu:
+  - **CCEID**: CCE kuralı için benzersiz tanımlayıcı. Güvenlik Merkezi, benzersiz tanımlayıcıları için yapılandırma kuralları atamak için Common Configuration Enumeration (CCE) kullanır.
+  - **Ad**: başarısız kuralının adı.
+  - **Kural türü**: *kayıt defteri anahtarı*, *Güvenlik İlkesi*, veya *Denetim İlkesi* kural türü.
+  - **Hayır. sanal makineleri & bilgisayarları**: VM'ler ve başarısız kuralın uygulanacağı bilgisayarların toplam sayısı.
+  - **Kural önem**: CCE değeri *kritik*, *önemli*, veya *uyarı*.
+  - **Durum**: önerinin geçerli durumu:
 
-    - **Açık**: Öneri henüz ele alınmadı
-    - **Devam eden**: öneri şu anda bu kaynaklara uygulanıyor ve sizin tarafınızdan herhangi bir eylem gerekli
-    - **Çözüldü**: Öneri daha önce tamamlandı. (Sorunu Çözümlendi, giriş soluk görüntülenir)
+    - **Açık**: Öneri henüz ele alınmadı.
+    - **Devam eden**: öneri şu anda kaynaklara uygulanıyor ve herhangi bir işlem yapmanız gerekmez.
+    - **Çözümlenen**: öneri uygulanır. Sorun çözüldüğünde, giriş soluk görüntülenir.
 
 3. Başarısız bir kural ayrıntılarını görüntülemek için listeden seçin.
 
-   ![Başarısız olan yapılandırma kuralları][3]
+   ![Ayrıntılı görünümünü başarısız yapılandırma kuralı][3]
 
-  Aşağıdaki bilgiler bu dikey pencerede sağlanır:
+   Ayrıntılı görünümü aşağıdaki bilgileri görüntüler:
 
-  - ADI--Kural adı
-  - CCIED--CCE kuralı için benzersiz bir tanımlayıcı
-  - İşletim sistemi sürümü-VM veya bilgisayar işletim sistemi sürümü
-  - Kuralı önem--Kritik, önemli ya da uyarı CCE önem derecesi değeri
-  - TAM açıklama--Kuralı açıklaması
-  - Güvenlik AÇIĞI - Açıklama güvenlik açığı veya kural uygulanmamış durumunda riski
-  - OLASI etkisini--kuralı uygulandığında iş etkisi
-  - Karşı önlem – düzeltme adımları
-  - BEKLENEN değer--Güvenlik Merkezi kural karşı VM OS yapılandırmanızı inceler, beklenen değer
-  - Gerçek değer--VM OS yapılandırmanızı kural karşı analizini sonra değer döndürdü.
-  - Kural işlemi--VM OS yapılandırmanızın kural karşı Çözümleme sırasında Güvenlik Merkezi tarafından kullanılan kuralı işlemi
+   - **Ad**: kuralının adı.
+   - **CCIED**: CCE kuralı için benzersiz tanımlayıcı.
+   - **İşletim sistemi sürümü**: VM veya bilgisayar işletim sistemi sürümü.
+   - **Kural önem**: CCE değeri *kritik*, *önemli*, veya *uyarı*.
+   - **Tam açıklama**: Kural açıklaması.
+   - **Güvenlik Açığı**: güvenlik açığı veya kural değil uygulanırsa risk açıklaması.
+   - **Olası etkisini**: kuralı uygulandığında iş etkisi.
+   - **Karşı önlem**: düzeltme adımları.
+   - **Beklenen değer**: Güvenlik Merkezi kural karşı VM OS yapılandırmanızı inceler, beklenen değer.
+   - **Gerçek değer**: VM OS yapılandırmanızı kural karşı analizini sonra döndürülen değer.
+   - **Kural işlemi**: Güvenlik Merkezi tarafından VM OS yapılandırmanızı kural karşı Çözümleme sırasında kullanılan kural işlemi.
 
-4. Seçin **arama** üst Şerit simgesi. Arama VM'ler ve seçili güvenlik yapılandırmalarını uyumsuzluğu bilgisayarlarla sahip listeleme çalışma alanları açar. Bu çalışma alanı seçimi dikey yalnızca seçilen kuralı farklı çalışma alanlarına bağlanan birden çok VM için geçerli olup olmadığını gösterilir.
+4. Ayrıntılı Görünüm penceresinin en üstünde seçin **arama**.  
+  Arama VM'ler ve seçili güvenlik yapılandırmalarını uyumsuzluğu bilgisayarlarla sahip çalışma alanları listesi açılır. Çalışma alanı seçimi yalnızca seçilen kuralı farklı çalışma alanlarına bağlanan birden çok VM için geçerli olup olmadığını gösterilir.
 
-  ![Listelenen çalışma alanları][4]
+   ![Listelenen çalışma alanları][4]
 
-5. Bir çalışma alanı seçin. Günlük analizi arama sorgusu güvenlik yapılandırmalarını uyumsuzluğu ile çalışma alanına filtrelenmiş açar.
+5. Bir çalışma alanı seçin.  
+  Günlük analizi arama sorgusu güvenlik yapılandırmalarını uyumsuzluğu ile çalışma alanına filtrelenmiş açar.
 
-  ![İşletim sistemi güvenlik açığı ile çalışma][5]
+   ![İşletim sistemi güvenlik açığı ile çalışma][5]
 
-6. Daha fazla bilgi için listeden bir bilgisayar seçin. Bu bilgisayar için yalnızca filtrelenen bilgilerle başka bir arama sonucu açar.
+6. Listeden bir bilgisayar seçin.  
+  Yalnızca bu bilgisayar için filtre bilgi içeren yeni bir arama sonucu açar.
 
-  ![Bu bilgisayar için filtrelenmiş][6]
+   ![Seçilen bilgisayarla ilgili ayrıntılı bilgiler][6]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede "Düzelt güvenlik yapılandırmalarını." Güvenlik Merkezi öneriyi uygulamayı nasıl oluşturulacağını gösterir Bkz: [özelleştirme işletim sistemi güvenlik yapılandırmalarını](security-center-customize-os-security-config.md) Güvenlik Merkezi'nde Güvenlik Yapılandırması değerlendirmeleri özelleştirme hakkında bilgi edinmek için.
+Bu makalede "Düzelt güvenlik yapılandırmalarını." Güvenlik Merkezi öneriyi uygulamayı nasıl oluşturulacağını gösterir Güvenlik Yapılandırma değerlendirmeleri özelleştirmek öğrenmek için bkz: [işletim sistemi özelleştirme (Önizleme) Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını](security-center-customize-os-security-config.md).
 
-Yapılandırma kuralları gözden geçirebilirsiniz [burada](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Güvenlik Merkezi, yapılandırma kuralları için benzersiz tanımlayıcı atamak için CCE (ortak yapılandırma sıralaması) kullanır. Ziyaret [CCE](https://nvd.nist.gov/cce/index.cfm) daha fazla bilgi için site.
+İzlenmekte olan belirli yapılandırmalar gözden geçirmek için bkz: [önerilen yapılandırma kuralları listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Güvenlik Merkezi, benzersiz tanımlayıcıları için yapılandırma kuralları atamak için Common Configuration Enumeration (CCE) kullanır. Daha fazla bilgi için Git [CCE](https://nvd.nist.gov/cce/index.cfm) site.
 
 Güvenlik Merkezi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [Azure Güvenlik Merkezi'nde desteklenen platformlar](security-center-os-coverage.md) -desteklenen Windows ve Linux VM'ler listesini sağlar.
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri yapılandırmayı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) -önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) -Azure kaynaklarınızın sistem durumunu izlemek öğrenin.
-* [Yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) -yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) -iş ortağı çözümlerinizin sistem durumunu öğrenin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) -Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
+* Desteklenen Windows ve Linux VM'ler listesi için bkz: [desteklenen platformlar Azure Güvenlik Merkezi'nde](security-center-os-coverage.md). 
+* Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerinin nasıl yapılandırılacağını öğrenmek için bkz: [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md). 
+* Önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md). 
+* Azure kaynaklarınızı sağlığını izlemek öğrenmek için bkz: [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). 
+* Yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinmek için [yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md).
+* İş ortağı çözümlerinizin sistem durumunu öğrenmek için bkz: [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md).
+* Hizmet kullanma hakkında sık sorulan soruların yanıtları için bkz: [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md).
+* Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını için bkz: [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

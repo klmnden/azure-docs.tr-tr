@@ -4,7 +4,7 @@ description: "Cihazınızı uzaktan yönetim için yapılandırma ve HTTP veya H
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi cihazınıza uzaktan bağlanma
 
@@ -84,7 +84,10 @@ Uzaktan Yönetimi etkinleştirmek için cihaz seri konsoluna aşağıdaki adıml
 Uzaktan Yönetimi etkinleştirmek için istemcide aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Uzak bağlantı için istemci hazırlamak için
-1. Bir Windows PowerShell oturumu yönetici olarak başlatın.
+1. Bir Windows PowerShell oturumu yönetici olarak başlatın. Bir Windows 10 istemci varsayılan olarak kullanılıyorsa, Windows Uzaktan Yönetim hizmeti el ile olarak ayarlanır. Yazarak hizmeti başlatmak gerekebilir:
+
+    `Start-Service WinRM`
+    
 2. StorSimple cihazı IP adresi istemcinin güvenilir ana bilgisayarlar listesine eklemek için aşağıdaki komutu yazın:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ Bir uzak ana bilgisayara veya istemci, Cihazınızda bir SSAdmin oturumu girmek 
 Aşağıdaki yordam, uzak Windows PowerShell bağlantı kurmak istediğiniz bilgisayarda gerçekleştirin.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Windows PowerShell ve SSL kullanarak aygıtta bir SSAdmin oturumu girmek için
-1. Bir Windows PowerShell oturumu yönetici olarak başlatın.
+1. Bir Windows PowerShell oturumu yönetici olarak başlatın. Bir Windows 10 istemci varsayılan olarak kullanılıyorsa, Windows Uzaktan Yönetim hizmeti el ile olarak ayarlanır. Yazarak hizmeti başlatmak gerekebilir:
+
+    `Start-Service WinRM`
+
 2. Aygıt IP adresi yazarak istemcinin güvenilir konaklar ekleyin:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7ffe44828735a5687008ebc5a7d8d9f017f49daa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma
 Bu makalede, Microsoft bulutunda yer alan ve hepsi tümleştirme sorunlarını çözmeye, iş süreçlerini otomatikleştirmeye yönelik olan aşağıdaki hizmetler karşılaştırılır:
@@ -115,7 +115,7 @@ Bir akış içinde bir mantıksal uygulama çağırabilirsiniz. Ayrıca, mantık
 İlk akışınızı, mantıksal uygulamanızı, işlev uygulamanızı veya Web İşinizi oluşturup hizmetlerden her biriyle çalışmaya başlayın. Aşağıdaki bağlantılardan herhangi birine tıklayın:
 
 * [Microsoft Flow’u kullanmaya başlama](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [Mantıksal uygulama oluşturun.](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [İlk Azure İşlevinizi oluşturma](functions-create-first-azure-function.md)
 * [Visual Studio kullanarak Web İşleri’ni dağıtma](../app-service/websites-dotnet-deploy-webjobs.md)
 

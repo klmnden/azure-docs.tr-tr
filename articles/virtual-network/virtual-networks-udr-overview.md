@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -89,7 +89,7 @@ Kullanıcı tanımlı bir yol oluştururken belirtebileceğiniz sonraki atlama t
     > [!NOTE]
     > Sanal gereci, sanal gereçten yönlendirilen kaynakların dağıtıldığı alt ağdan farklı bir alt ağa yönlendirin. Sanal gerecin aynı alt ağa dağıtılması ve sonra sanal gereçten trafiği yönlendiren alt ağa bir yol tablosunun uygulanması, trafiğin alt ağdan asla ayrılmadığı yönlendirme döngüleri ile sonuçlanabilir.
 
-    - Bir Azure [iç yük dengeleyicisinin](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) özel IP adresi. İç yük dengeleyici genellikle [ağ sanal gereçleri için yüksek kullanılabilirlik stratejisinin](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir parçasıdır.
+    - Bir Azure [iç yük dengeleyicisinin](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) özel IP adresi. İç yük dengeleyici genellikle [ağ sanal gereçleri için yüksek kullanılabilirlik stratejisinin](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json) bir parçasıdır.
 
     Adres ön eki 0.0.0.0/0 ve sonraki atlama türü sanal gereç olan bir yol tanımlayabilir ve gerecin trafiği inceleyip trafiği ileteceğini veya bırakacağını belirlemesini sağlayabilirsiniz. 0.0.0.0/0 adres ön ekini içeren kullanıcı tanımlı bir ol oluşturmak isterseniz öncelikle [0.0.0.0/0 adres ön eki](#default-route) bölümünü okuyun.
 

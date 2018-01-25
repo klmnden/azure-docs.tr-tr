@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Şirket içinden Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -97,7 +97,7 @@ Aşağıdaki tabloda, Azure Site Recovery kullanırken çeşitli dağıtım sena
 
 Aşağıdaki dosya sistemleri ve depolama yapılandırması yazılımı VMware veya fiziksel sunucuları üzerinde çalışan Linux sunucularda desteklenir:
 * Dosya sistemleri: ext3, ext4, ReiserFS (Suse Linux Enterprise Server yalnızca), XFS
-* Birim Yöneticisi: LVM2
+* Volume manager: LVM2
 * Çok yollu yazılım: cihaz Eşleyici
 
 Paravirtualized depolama aygıtları (paravirtualized sürücüleri tarafından dışarı aktarılan) desteklenmez.<br/>
@@ -156,7 +156,7 @@ Aşağıdaki tablolarda depolama yapılandırma desteği Azure'a çoğaltmak iç
 --- | --- | --- | ---
 NFS | VMware için Evet<br/><br/> Fiziksel sunucuları için Hayır'ı | Yok
 SMB 3.0 | Yok | Evet
-SAN (İSCSI) | Evet | Evet
+SAN (ISCSI) | Evet | Evet
 Çok yollu (MPIO)<br></br>İle test: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM CLARiiON için | Evet | Evet
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Konuk veya fiziksel sunucu depolama yapılandırması
@@ -166,7 +166,7 @@ SAN (İSCSI) | Evet | Evet
 VMDK | Evet | Yok
 VHD/VHDX | Yok | Evet
 Gen 2 VM | Yok | Evet
-EFI/UEFI'YE| Hayır | Evet
+EFI/UEFI| Azure için Windows Server 2012 ve daha sonra yalnızca geçiş. </br></br> ** Tablonun sonundaki nota bakın.  | Evet
 Küme diskini paylaşılan | Hayır | Hayır
 Şifrelenmiş disk | Hayır | Hayır
 NFS | Hayır | Yok
@@ -180,6 +180,12 @@ Depolama alanları | Hayır | Evet
 Sık kullanılan Ekle/Kaldır disk | Hayır | Hayır
 Diski hariç tutma | Evet | Evet
 Çok yollu (MPIO) | Yok | Evet
+
+> [!NOTE]
+> ** UEFI VMware sanal makineleri veya fiziksel sunucular Windows Server 2012 çalıştıran önyükleme veya daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
+> - Yalnızca Azure geçiş. Yeniden çalışma için şirket içi VMware sitesi desteklenmiyor.
+> - En fazla 4 bölümleri sunucu işletim sistemi disk üzerinde desteklenir.
+> - Azure Site Recovery Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
 
 **Azure depolama alanı** | **VMware/fiziksel sunucu** | **Hyper-V (ile arama/olmadan Sanal Makine Yöneticisi)**
 --- | --- | ---
@@ -220,7 +226,7 @@ Azure tarafından desteklenen herhangi bir işletim sistemi çalıştıran sanal
 **Paylaşılan VHD** | Desteklenmiyor | Önkoşul denetimi desteklenmeyen başarısız olur
 **FC disk** | Desteklenmiyor | Önkoşul denetimi desteklenmeyen başarısız olur
 **Sabit disk biçimi** | VHD <br/><br/> VHDX | VHDX şu anda Azure'da desteklenmiyor olsa da, Site Recovery, Azure'a yük otomatik olarak VHDX VHD'ye dönüştürür. Geri şirket içi başarısız olduğunda sanal makineler VHDX biçimini kullanacak şekilde devam eder.
-**BitLocker'ı** | Desteklenmiyor | Bir sanal makine korumadan önce BitLocker'ı devre dışı bırakılmalıdır.
+**Bitlocker** | Desteklenmiyor | Bir sanal makine korumadan önce BitLocker'ı devre dışı bırakılmalıdır.
 **VM adı** | 1 ile 63 karakter. Harf, rakam ve kısa çizgi için kısıtlanmış. VM adı başlamalı ve bir harf veya sayı ile bitmelidir. | Site Recovery sanal makine özelliklerinde değeri güncelleştirin.
 **VM türü** | 1. nesil<br/><br/> Nesil 2--Windows | 2. nesil sanal makineleri (VHDX biçimlendirilmiş bir veya iki veri birimlerini içeren) temel bir işletim sistemi disk türüne sahip ve 300 GB disk alanı daha az desteklenir.<br></br>Linux nesil 2 sanal makineleri desteklenmez. [Daha fazla bilgi](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 

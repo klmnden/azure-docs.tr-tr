@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation sık karşılaşılan sorunları giderme 
 Bu makalede Azure Otomasyonu'nda karşılaşabilirsiniz ve bunları gidermek için olası çözümleri önerir ortak hatalarında sorun giderme yardım sağlar.
@@ -152,7 +152,7 @@ Bu makalede Azure Otomasyonu'nda karşılaşabilirsiniz ve bunları gidermek iç
   * Düğüm yapılandırması PowerShell cmdlet'ini kullanarak bir düğüme atamak için kullanılması **kümesi AzureRmAutomationDscNode** cmdlet'i
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Senaryo: düğüm yapılandırması (MOF dosyaları) bir yapılandırma derlendiğinde oluşturulamadığı
-**Hata:** DSC derleme işi şu hata ile askıya alır: "derleme başarıyla tamamlandı, ancak hiçbir düğüm yapılandırması .mofs oluşturuldu".
+**Hata:** DSC derleme işi şu hata ile askıya alır: "derleme başarıyla tamamlandı, ancak hiçbir düğüm configuration.mofs oluşturuldu".
 
 **Hatanın nedeni:** zaman ifade aşağıdaki **düğümü** DSC yapılandırmada anahtar sözcüğü hesaplar için `$null`, düğüm yapılandırması üretilen sonra.
 
@@ -190,6 +190,16 @@ Bu hata kodu çözümü hedeflemek için kullanılan kayıtlı arama bilgisayar 
 **Sorun giderme ipuçları:**
 
 Bu çözüm ve reonboard sorguyu yeniden oluşturur çözüm için sorgu silebilirsiniz. Sorgu, çalışma alanınızı içinde altında bulunabilir **kayıtlı aramalar**. Sorgu adı **MicrosoftDefaultComputerGroup**, ve sorgu kategorisini bu sorguyla ilişkilendirilen çözüm adıdır. Birden çok çözümleri etkinleştirilirse, **MicrosoftDefaultComputerGroup** altında birden çok kez gösterir **kayıtlı aramaları**.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**Hatanın nedeni:**
+
+Bu hata kodu, dağıtım bir ilke ihlali nedeniyle başarısız oldu anlamına gelir.
+
+**Sorun giderme ipuçları:**
+
+Azure portalının sağ üst köşedeki Bildirimlerde denetleyin veya seçin ve automation hesabı içeren kaynak grubuna gidin **dağıtımları** altında **ayarları** başarısız görüntülemek için dağıtımı. İçin hakkında daha fazla bilgi Azure ilke ziyaret edin: [Azure ilke genel bakış](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

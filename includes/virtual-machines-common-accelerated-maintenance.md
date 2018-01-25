@@ -45,7 +45,7 @@ Web ve mobil, IOT, data services de dahil olmak üzere Azure platform hizmetleri
 
 ## <a name="intel-released-additional-guidance-on-january-22-2018-related-to-the-security-vulnerabilities--will-this-guidance-cause-any-additional-maintenance-activities-by-azure"></a>Intel 22 Ocak, güvenlik açıkları ilgili 2018 ek yönergeler yayımladı.  Bu kılavuz, Azure tarafından ek bakım etkinlikler neden olur?  
 
-3 Ocak 2018 üzerinde önceden duyurulmuş azure Azaltıcı Etkenler tarafından etkilenmemesini [yönergeleri güncelleştirildi](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) Intel gelen. Bu yeni bilgilere Intel sonucunda müşteri sanal makineleri üzerinde ek bakım etkinliği yok olacaktır.
+3 Ocak 2018 üzerinde önceden duyurulmuş azure Azaltıcı Etkenler tarafından etkilenmemesini [yönergeleri güncelleştirildi](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) Intel gelen. Bu yeni bilgiler sonucunda müşteri sanal makineleri üzerinde ek bakım etkinliği yok olacaktır.
  
 
 ## <a name="next-steps"></a>Sonraki adımlar

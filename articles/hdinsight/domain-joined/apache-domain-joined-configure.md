@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Etki alanına katılmış Hdınsight sandbox ortamını yapılandırma
 
@@ -29,7 +29,6 @@ Hdınsight kümesi etki alanına katılmış olmadan her küme yalnızca bir Had
 
 -   Tek başına bir Active Directory Azure Iaas üzerinde çalışıyor.
 -   Azure Active Directory.
--   Müşterinin şirket içi ortamda çalışan active Directory.
 
 Tek başına bir Active Directory kullanarak Azure Iaas üzerinde çalışan bu makalede ele alınmıştır. Bu, bir müşteri Hdınsight'ta çok kullanıcılı destek almak için izleyebileceğiniz basit mimarisidir. Bu makalede, bu yapılandırma için iki yaklaşım kapsar:
 
@@ -71,9 +70,10 @@ Bu bölümde, Azure portalından bir Azure kaynak yönetimi şablonunu açın. �
     - **Yönetici kullanıcı adı**: etki alanı yönetici kullanıcı adı girin.
     - **Yönetici parolası**: etki alanı yönetici parolası girin.
     - **Etki alanı adı**: varsayılan ad *contoso.com*.  Etki alanı adını değiştirirseniz, aynı zamanda güncelleştirmelisiniz **güvenli LDAP sertifikası** alan ve **kuruluş birimi DN** alan.
+    - **DNS öneki**: DNS ön yük dengeleyici tarafından kullanılan genel IP adresini girin.
     - **Küme adı**: Hdınsight küme adını girin.
     - **Küme türü**: Bu değeri değiştirmeyin. Küme türü değiştirmek istiyorsanız, son adımda belirli bir şablon kullanın.
-
+    - **Güvenli Ldap sertifika parolası**: Güvenli LDAP sertifika alanı değiştirmediğiniz sürece varsayılan değeri kullanın.
     Bazı değerleri şablonda sabit kodlanmış, örneğin, çalışan düğümü örnek sayısı iki.  Sabit kodlanmış değerler değiştirmek için tıklatın. **Düzen şablonu**.
 
     ![Hdınsight küme etki alanına katılmış Düzen şablonu](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

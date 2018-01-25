@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1 ile V2’yi karşılaştırma
 Bu makale, Azure Data Factory’nin V2 sürümünü V1 sürümüyle karşılaştırır. V1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye giriş](v1/data-factory-introduction.md). V2 hakkında giriş bilgileri için bkz. [Data Factory'ye giriş (V2 - önizleme)](introduction.md).
@@ -128,7 +128,16 @@ Daha fazla bilgi için bkz. [V1 ve V2’de özel etkinlikler arasındaki farklar
 V2 için güncelleştirilmiş olan SDK'lar V1 istemcileriyle uyumlu değildir. 
 
 ## <a name="authoring-experience"></a>Yazma deneyimi
-Data Factory V1 ile Azure Portal'da Data Factory Düzenleyicisi’ni kullanarak işlem hatları yazabilirsiniz. Şu anda Data Factory V2 yalnızca programlı yöntemlerle (.NET SDK, REST API, PowerShell ve Python gibi) veri fabrikası oluşturmayı destekler. Henüz kullanıcı arabirimi desteği sunulmamaktadır.  Data Factory V1; SDK, REST ve PowerShell ile yazma desteği de sağlar.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure portalına | [Evet](quickstart-create-data-factory-portal.md) | [Evet](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Evet](quickstart-create-data-factory-powershell.md) | [Evet](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [Evet](quickstart-create-data-factory-dot-net.md) | [Evet](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST API | [Evet](quickstart-create-data-factory-rest-api.md) | [Evet](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK'sı | [Evet](quickstart-create-data-factory-python.md) | Hayır |
+| Resource Manager şablonu | [Evet](quickstart-create-data-factory-resource-manager-template.md) | [Evet](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>İzleme deneyimi
 V2'de, [Azure İzleyici](monitor-using-azure-monitor.md)’yi kullanarak veri fabrikalarını izleyebilirsiniz. Yeni PowerShell cmdlet’leri, [tümleştirme çalışma zamanlarını](monitor-integration-runtime.md) izlemeyi destekler. V1 ve V2, Azure portalından başlatılabilen izleme uygulaması aracılığıyla görsel izleme desteği sunar.
