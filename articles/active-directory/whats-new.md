@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/23/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c7aab313e6c848c97447cde22752cfed945442df
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
@@ -40,6 +40,126 @@ Azure AD geliştirmeleri düzenli olarak alır. En son gelişmeler ile güncel k
 -   Değişiklikleri planları
 
 Bu sayfayı aylık güncelleştirilir, böylece, düzenli aralıklarla yeniden ziyaret.
+
+
+## <a name="january-2018"></a>Ocak 2018
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Yeni Federal Apps mevcut Azure AD uygulama galerisinde 
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Kurumsal uygulamaları  
+**Ürün yetenek:** 3 taraf tümleştirme
+ 
+
+Ocak 2018 içinde Federasyon desteği aşağıdaki yeni uygulamalarla uygulama galerisinde eklendi:
+
+[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [OneTrust gizlilik yönetim yazılımı](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk federe dizin](https://go.microsoft.com/fwlink/?linkid=864699) ve [doğruluk NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+
+Tüm kullanılabilir öğreticileri eksiksiz bir genel bakış için bkz: [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial).
+ 
+
+---
+ 
+
+
+### <a name="sign-in-with-additional-risk-detected"></a>Ek risk içeren oturumlar algılandı
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** kimlik koruması  
+**Ürün yetenek:** kimlik güvenlik ve koruma
+ 
+
+Algılanan risk olayı için alma Insight Azure AD aboneliğinizi bağlıdır. Azure AD Premium P2 Edition'la tüm temel algılamaların hakkında en ayrıntılı bilgi alın.
+
+Azure AD Premium P1 Edition'la lisansınız tarafından kapsanmayan algılamaların ile ek risk algılanan risk olayı olarak oturum açma görünür.
+
+Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](active-directory-reporting-risk-events.md).
+ 
+
+---
+
+### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Son kullanıcının erişim paneller uygulamalardan Office 365 Gizle
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** My uygulamalar  
+**Ürün yetenek:** SSO
+ 
+
+Artık, yeni bir kullanıcı ayarı yoluyla, kullanıcının erişim paneller üzerinde nasıl Office 365 uygulamaları görünmesini daha iyi yönetebilirsiniz. Bu seçenek, yalnızca Office uygulamaları Office portalındaki göstermek tercih ederseniz, bir kullanıcının erişim paneller uygulamalarında miktarını azaltmak için yararlıdır. Ayar bulunan **kullanıcı ayarları** ve etiketli **kullanıcılar yalnızca Office 365 uygulamaları Office 365 portalında görür**.
+ 
+
+Daha fazla bilgi için bkz: [bir uygulamayı Azure Active Directory'de kullanıcı deneyimini Gizle](active-directory-coreapps-hide-third-party-app.md).
+
+---
+ 
+
+
+### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Sorunsuz oturum doğrudan uygulamanın URL'den parola SSO etkin uygulamalar açın 
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** My uygulamalar  
+**Ürün yetenek:** SSO
+ 
+
+My uygulamaları tarayıcı uzantısı tarayıcınızda bir kısayol olarak yeteneği üzerinde My uygulamaları çoklu oturum verir kullanışlı bir aracı üzerinden kullanıma sunulmuştur. Kullanıcının yükleme tarayıcısında waffle simgesini görürsünüz sonra bunları uygulamaları için hızlı erişim sağlar. Kullanıcılar artık yararlanabilirsiniz:
+
+- Uygulamanın oturum açma sayfasından doğrudan parola SSO tabanlı uygulamalarda oturum açmak için özelliği
+- Hızlı arama özelliğini kullanarak herhangi bir uygulama başlatma
+- Uzantı son kullanılan uygulamalar için kısayollar
+- Uzantı Edge, Chrome ve Firefox için kullanılabilir.
+ 
+Daha fazla bilgi için bkz: [My uygulamaları güvenli oturum açma uzantısı](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure AD yönetim deneyimi Klasik Azure portalındaki Çekildi
+
+**Tür:** kullanım dışı   
+**Servis kategorisi:** Azure AD  
+**Ürün yetenek:** dizini
+ 
+
+8 Ocak 2018'den itibaren Azure AD Yönetimi itibariyle Klasik Azure portalındaki deneyimi Çekildi. Bu, Klasik Azure portalı kendisini bırakma birlikte yapıldı. İleride, kullanmanız gereken [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) tüm, portal tabanlı yönetim için Azure ad.
+ 
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure AD yönetim deneyimi Klasik Azure portalındaki Çekildi
+
+**Tür:** kullanım dışı  
+**Servis kategorisi:** Azure AD  
+**Ürün yetenek:** dizini
+ 
+
+8 Ocak 2018 itibariyle, PhoneFactor web Portalı'nı devre dışı bırakılmış. Bu portalı MFA sunucusunun yönetimi için kullanılan, ancak bu işlevlerin portal.azure.com Azure portalında içine taşınmıştır. 
+
+MFA yapılandırma bulunur: **Azure Active Directory \> MFA sunucusu**
+ 
+---
+ 
+### <a name="deprecate-azure-ad-reports"></a>Azure AD raporları Kaldır
+
+
+**Tür:** kullanım dışı  
+**Servis kategorisi:** raporlama  
+**Ürün yetenek:** kimlik yaşam döngüsü yönetimi  
+
+
+Yeni Azure Active Directory Yönetim Konsolu etkinliği ve güvenlik raporları için raporu API'leri artık kullanılabilir yeni API'leri ve genel kullanılabilirlik ile altında "/ Raporları" uç nokta 31 Aralık 2017 sonuna sürümünden itibaren kullanımdan kaldırılmıştır.
+
+
+**Kullanılabilir nedir?**
+
+Yeni yönetim konsoludur geçiş işleminin bir parçası olarak, biz yerine Azure AD etkinlik günlükleri almak için kullanılabilir 2 yeni API'leri yaptınız. Yeni API kümesi daha zengin filtreleme ve sıralama daha zengin denetim ve oturum açma etkinliklerini sağlama ek işlevsellik sağlar. Güvenlik raporları önceden mevcut verileri artık Microsoft Graph kimlik koruması risk olayları API aracılığıyla erişilebilir.
+
+Daha fazla bilgi için bkz.
+
+- [Azure Active raporlama API'si Directory ile çalışmaya başlama](active-directory-reporting-api-getting-started-azure-portal.md)
+
+- [Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama](active-directory-identityprotection-graph-getting-started.md)
+
+
+---
 
 
 ## <a name="december-2017"></a>Aralık 2017
@@ -130,25 +250,11 @@ Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management nedir?](act
 **Servis kategorisi:** Kurumsal uygulamaları  
 **Ürün yetenek:** üçüncü taraf tümleştirme
  
-Aralık 2017 ' aşağıdaki yeni uygulamalar Federasyonu Desteği ile uygulama galerisinde eklendi.
+Aralık 2017 ' aşağıdaki yeni uygulamalar Federasyonu Desteği ile uygulama galerisinde eklendi:
 
-|Ad|Tümleştirme türü|Açıklama|
-|:-- |----------------|:----------|
-|EFI dijital mağaza|SAML 2.0|[Web 2 yazdırma](https://go.microsoft.com/fwlink/?linkid=861685) uygulama.|
-|Vodeclic|SAML 2.0|Kullanıcı erişimini yönetmek ve çoklu oturum açma ile etkinleştirmek için Azure AD kullanmak [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522). Varolan Vodeclic hesabı gerektirir.|
-|Accredible|SAML 2.0|Kullanım [Accredible](https://go.microsoft.com/fwlink/?linkid=863523) oluşturmak için yönetmek ve sertifikalar, Göstergeler ve blockchain kimlik bilgilerini sunar.|
-|FactSet|SAML 2.0|Çoklu oturum açma için [FactSet FDSWeb uygulama](https://go.microsoft.com/fwlink/?linkid=863525).|
-|MobileIron Azure AD tümleştirme|SAML 2.0|Modern kuruluşların kullanabileceğiniz [MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) güvenli hale getiren ve gizlilik ve güven korumak ederken mobil ve bulut hareket ederken bilgilerini yönetin.|
-|GÖRÜNTÜ ÇALIŞIR|SAML 2.0|Kullanıcı erişimini yönetmek, kullanıcı hesapları sağlama ve çoklu oturum açma ile etkinleştirmek için Azure AD kullanmak [görüntü WORKS](https://go.microsoft.com/fwlink/?linkid=863517). Varolan bir görüntü WORKS aboneliği gerektirir.|
-|SAML SSO GmbH çözünürlüğün Bitbucket için|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) temsilciler kimlik doğrulaması Azure ad. Azure AD ile oturum açmış kullanıcıların Bitbucket doğrudan erişebilirsiniz. Kullanıcıların oluşturulur ve kolay bir şekilde verilerle SAML öznitelik güncelleştirildi.|
-|SAML SSO GmbH çözünürlüğün Bambu için|SAML 2.0|[SSO Bambu](https://go.microsoft.com/fwlink/?linkid=863520) temsilciler kimlik doğrulaması Azure ad. Azure AD ile oturum açmış kullanıcıların Bambu doğrudan erişebilirsiniz.|
-|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) çalışanlar ve iş destekleyen modern, tam özellikli sosyal intranet yazılımdır.|
-|MOBI|SAML 2.0|Kullanım [MOBI](https://go.microsoft.com/fwlink/?linkid=863521) merkezileştirmek için kavrama ve tüm aygıt ekosistemi denetim.|
-|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) performans yönetimi, gerçek zamanlı geri bildirim ve hedef belirleme için modern bir platformdur. |
-|CybSafe|OpenID Connect & OAuth|Bu GCHQ onaylı siber tanıma platform Gelişmiş teknoloji ve veri analizi siber güvenlik ve veri koruma risk İnsan yönünü azaltmak için kullanır.|
-|WebHR|OpenID Connect & OAuth|Bu sosyal İnsan Kaynakları yazılım 197 ülkede birden fazla 20.000 şirketler tarafından güvenilir.|
- |Zenegy Azure AD tümleştirme|OpenID Connect & OAuth|Bu uygulama ile Zenegy için oturum açmak için şirketinizin Azure AD kimlik bilgilerini kullanabilirsiniz.|
-|Adobe Experience Manager|SAML 2.0|Web siteleri, mobil uygulamaları ve pazarlama içeriği ve varlıkları yönetmek için formlar oluşturmak için bu kapsamlı bir içerik yönetim platformu çözüm kullanabilirsiniz.|
+[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe deneyimi Yöneticisi [EFI dijital mağaza](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [görüntü WORKS](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD tümleştirme](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO GmbHçözünürlüğünBambuiçin](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO GmbH çözünürlüğün Bitbucket için](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, Zenegy Azure AD tümleştirme.
+
+Tüm kullanılabilir öğreticileri eksiksiz bir genel bakış için bkz: [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial).
 
  
 ---

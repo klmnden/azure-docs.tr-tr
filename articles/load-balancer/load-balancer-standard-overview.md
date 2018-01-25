@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure yük dengeleyici standart genel bakış (Önizleme)
 
@@ -72,8 +72,8 @@ Yük Dengeleyici standart ortak ve iç yük dengeleyici yapılandırmalarının 
 | --- | --- |
 | VIP kullanılabilirliği | Yük Dengeleyici standart sürekli veri yolundan bir bölgedeki tüm VM destekleyen SDN yığını için ön uç yük dengeleyiciye uygular. Sağlıklı örnekleri kaldığı sürece ölçüm uygulamanızın yükü dengelenmiş trafiğinin aynı yol izler. Müşteriler tarafından kullanılan veri yolu ayrıca doğrulanır. Ölçüm uygulamanıza görünmez olur ve diğer işlemlerle engellemez.|
 | DIP kullanılabilirliği | Yük Dengeleyici standart uygulama uç noktanın yapılandırma ayarlarınıza göre izler hizmeti yoklama dağıtılmış bir sistem durumu kullanır. Bu ölçüm bitiş noktası filtre görünümünde yük dengeleyici her bağımsız örnek uç başına havuzu veya bir toplama sağlar.  Yük Dengeleyici sistem durumu araştırma yapılandırmanızı tarafından belirtildiği gibi uygulamanızın nasıl görünümleri görebilirsiniz.
-| Eşitlemeye paketleri | Yük Dengeleyici standart olmayan TCP bağlantılarını sonlandırma veya TCP veya UDP paket akışları ile etkileşim. Akışlar ve bunların el sıkışmaları her zaman kaynak ve VM örneği arasında olur. Daha iyi TCP protokolü senaryolarınızı gidermek için Eşitlemeye kullanmak yapabileceğiniz kaç TCP bağlantısı anlamak için paketler çalışır hale getirilir. Ölçüm alınan TCP Eşitlemeye paketlerin sayısını raporlar. Ölçüm hizmetiniz için bir bağlantı kurmayı deneyin istemcileri de gösterebilir.|
-| SNAT bağlantıları | Yük Dengeleyici standart ön uç genel IP adresine verdiğinizi giden bağlantı sayısını raporlar. SNAT bağlantı noktalarını exhaustible bir kaynaktır. Bu ölçüm nasıl yoğun bir şekilde uygulamanızın üzerinde SNAT kaynaklı giden bağlantılar için bağlı bir gösterge verebilirsiniz.|
+| Eşitlemeye paketleri | Yük Dengeleyici standart olmayan TCP bağlantılarını sonlandırma veya TCP veya UDP paket akışları ile etkileşim. Akışlar ve bunların el sıkışmaları her zaman kaynak ve VM örneği arasında olur. Daha iyi TCP protokolü senaryolarınızı gidermek için Eşitlemeye kullanmak yapabileceğiniz kaç TCP bağlantısı anlamak için paketler sayaçları çalışır hale getirilir. Ölçüm alınan TCP Eşitlemeye paketlerin sayısını raporlar.|
+| SNAT bağlantıları | Yük Dengeleyici standart ön uç genel IP adresine verdiğinizi giden akış sayısı bildirir. SNAT bağlantı noktalarını exhaustible bir kaynaktır. Bu ölçüm nasıl yoğun bir şekilde uygulamanızın üzerinde SNAT giden kaynaklı akışlar için bağlı bir gösterge verebilirsiniz.  Başarılı ve başarısız giden SNAT akışlar için sayaçları bildirilir ve sorun giderme ve giden trafik akışları durumunu anlamak için kullanılabilir.|
 | Bayt sayaçları | Yük Dengeleyici standart ön uç başına işlenen veri bildirir.|
 | Paket sayaçları | Yük Dengeleyici standart başına ön uç işlenen paketleri bildirir.|
 

@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
@@ -129,7 +129,7 @@ Bu iş akışının mümkün değilse, güvenmek [depolama hizmeti şifrelemesi]
 
 **S:** miyim nereye soru sorun ya da geribildirim sağlamak için?
 
-**Y:** sorular sormak veya geri bildirim sağlayan [Azure Disk şifrelemesi Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**Y:** sorular sormak veya geri bildirim sağlayan [Azure Disk şifrelemesi Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede, Azure Disk şifrelemesi için ilgili en sık kullanılan sorular hakkında daha fazla öğrendiniz. Bu hizmet ve özelliklerini hakkında daha fazla bilgi için aşağıdaki makalelere bakın:

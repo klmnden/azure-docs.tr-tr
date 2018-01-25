@@ -1,21 +1,21 @@
 ---
 title: "Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri dağıtma"
-description: "Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri dağıtma"
+description: "Bir Azure kapsayıcı kayıt defterinde kapsayıcı görüntüleri kullanarak Azure kapsayıcı örnekleri kapsayıcılarında dağıtmayı öğrenin."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c69b95f66bf2eaf4975961da5b25f5ac6172798c
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri dağıtma
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri dağıtma
 
 Azure kapsayıcı kayıt defteri Docker kapsayıcısı görüntüleri için bir Azure tabanlı, özel kayıt defteri ' dir. Bu makalede, Azure kapsayıcı örneklerine Azure kapsayıcı kayıt defterinde depolanan kapsayıcı yansımalarını dağıtmak alınmaktadır.
 
@@ -51,17 +51,23 @@ Azure kapsayıcı kayıt defteri kapsayıcı görüntülerinde bulunduruyorsanı
 
 1. Azure portalında kapsayıcı kayıt defterine gidin.
 
-2. Seçin **depoları**, seçin, dağıtmak istediğiniz depo sağ dağıtmak ve seçmek için kapsayıcı görüntü etiketi **örneği Çalıştır**.
+1. Seçin **depoları**, seçin, dağıtmak istediğiniz depo sağ dağıtmak ve seçmek için kapsayıcı görüntü etiketi **örneği Çalıştır**.
 
     !["Örnek Azure portalında Azure kapsayıcı kayıt defterinde Çalıştır"][acr-runinstance-contextmenu]
 
-3. Kapsayıcı için bir ad ve kaynak grubu için bir ad girin. İsterseniz, varsayılan değerleri de değiştirebilirsiniz.
+1. Kapsayıcı için bir ad ve kaynak grubu için bir ad girin. İsterseniz, varsayılan değerleri de değiştirebilirsiniz.
 
     ![Azure kapsayıcı örnekleri için menü oluşturma][acr-create-deeplink]
 
-4. Dağıtım tamamlandıktan sonra kapsayıcı grubu için IP adresini ve diğer özellikleri bulmak için bildirimler bölmesinden gidebilirsiniz.
+1. Dağıtım tamamlandıktan sonra kapsayıcı grubu için IP adresini ve diğer özellikleri bulmak için bildirimler bölmesinden gidebilirsiniz.
 
     ![Azure kapsayıcı örnekleri kapsayıcı grubu için ayrıntıları görüntüle][aci-detailsview]
+
+## <a name="service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması
+
+Azure kapsayıcı kayıt defteri için yönetici kullanıcı devre dışı bırakılırsa, Azure Active Directory kullanabilirsiniz [hizmet sorumlusu](../container-registry/container-registry-auth-service-principal.md) kayıt defterine bir kapsayıcı örneği oluştururken, kimlik doğrulaması yapmak için. Kimlik doğrulaması için bir hizmet sorumlusunu kullanarak bir komut dosyası veya katılımsız bir şekilde kapsayıcı örnekleri oluşturan uygulama gibi gözetimsiz senaryolarda da önerilir.
+
+Daha fazla bilgi için bkz: [Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri ile kimlik doğrulama](../container-registry/container-registry-auth-aci.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

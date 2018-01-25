@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7667f94ac4e7edd4e94d6605adefea469102a0c4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 948c54a2e9be2260d0a7d2cce31b67ffbbd23d03
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -54,18 +54,13 @@ Uygulama hizmeti çeşitli programlama dillerini içinde oluşturulan uygulamala
 
 1. Deponuzda içerik içermiyorsa, bir statik .html dosyası aşağıdaki şekilde ekleyin; ya da bu adımı atlayın:
    * Bir metin düzenleyicisi kullanarak adlı yeni bir dosya oluşturun **index.html** Git deposu kökündeki
-   * Aşağıdaki metni index.html için içerik dosya ve kaydedin gibi ekleyin: *Hello Git!*
+   * Aşağıdaki metni index.html içeriğini dosya ve kaydedin gibi ekleyin: *Hello Git!*
 1. Komut satırından Git deponuzu kök altında olduğundan emin olun. Ardından depoya dosyaları eklemek için aşağıdaki komutu kullanın:
 
-    ```bash
-    git add -A
-    ```
-    
+        git add -A 
 1. Ardından, aşağıdaki komutu kullanarak depoya değişiklikleri uygulayın:
 
-    ```bash
-    git commit -m "Hello Azure App Service"
-    ```
+        git commit -m "Hello Azure App Service"
 
 ## <a name="Step3"></a>3. adım: uygulama hizmeti uygulama havuzu etkinleştirme
 
@@ -74,7 +69,7 @@ App Service uygulamanız için bir Git deposu etkinleştirmek için aşağıdaki
 1. [Azure portal]’da oturum açın.
 1. App Service uygulamanızın Görüntüle'yi tıklatın **ayarlar > dağıtım kaynağı**. Tıklatın **Kaynak Seç**, ardından **yerel Git deposu**ve ardından **Tamam**.
 
-    ![Yerel Git deposu](./media/app-service-deploy-local-git/local_git_selection.png)
+    ![Yerel 'Git' Havuzu](./media/app-service-deploy-local-git/local_git_selection.png)
 
 1. Bu ilk zaman ayarınız Azure deposunu ise, bunun için oturum açma kimlik bilgileri oluşturmanız gerekir. Bunları yerel Git deposundan Azure depo ve anında iletme değişiklikleri kaydetmek için kullanın. Web uygulamanızın görünümünden tıklatın **ayarlar > Dağıtım kimlik bilgileri**, dağıtım kullanıcı adı ve parola yapılandırın. İşiniz bittiğinde tıklatın **kaydetmek**.
 
@@ -92,7 +87,7 @@ Yerel Git kullanarak uygulama hizmeti uygulamanızı yayımlamak için aşağıd
 1. Komut satırını kullanarak yerel Git deponuzu kök dizininde olduğundan emin olun.
 1. Kullanım `git remote` listelenen uzak başvuru eklemek için **Git URL'si** adım 1. Komutunuzu aşağıdakine benzer:
 
-    ```
+    ```bash
     git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
     ```
 

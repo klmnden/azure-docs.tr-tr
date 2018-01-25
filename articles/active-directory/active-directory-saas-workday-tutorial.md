@@ -4,20 +4,21 @@ description: "Çoklu oturum açma Azure Active Directory ile iş günü arasınd
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 01/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e4d46f9a3954698fbbe3c80fd8a95f4cd87465b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Öğretici: Azure Active Directory Tümleştirme ile iş günü
 
@@ -25,13 +26,13 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile Workday tümleştirmek ö
 
 Workday Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Workday erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Workday (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Workday erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için Workday (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Workday ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -44,7 +45,7 @@ Azure AD tümleştirme Workday ile yapılandırmak için aşağıdaki öğeleri 
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -59,40 +60,37 @@ Azure AD iş günü tümleştirilmesi yapılandırmak için yönetilen SaaS uygu
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Workday**.
+4. Arama kutusuna **Workday**seçin **Workday** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-workday-tutorial/tutorial_workday_search.png)
+    ![Sonuçlar listesinde iş günü](./media/active-directory-saas-workday-tutorial/tutorial_workday_addfromgallery.png)
 
-5. Sonuçlar panelinde seçin **Workday**ve ardından **Ekle** uygulama eklemek için düğmesi.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-workday-tutorial/tutorial_workday_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Workday ile test etme
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Workday ile test etme.
 
 Tekli çalışmaya oturum için Azure AD ne karşılık gelen iş günü içinde bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Workday ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** iş günü içinde.
+İş günü içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
 Yapılandırma ve Azure AD çoklu oturum açma Workday ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir iş günü test kullanıcısı oluşturma](#creating-a-workday-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Workday sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Bir iş günü test kullanıcısı oluşturma](#create-a-workday-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Workday sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Workday uygulamanızda yapılandırın.
 
@@ -100,51 +98,48 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 1. Azure portalında üzerinde **Workday** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-workday-tutorial/tutorial_workday_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-workday-tutorial/tutorial_workday_samlbase.png)
 
 3. Üzerinde **Workday etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-workday-tutorial/tutorial_workday_url.png)
+    ![Oturum açma bilgileri tek bir iş günü etki alanı ve URL'leri](./media/active-directory-saas-workday-tutorial/tutorial_workday_url.png)
 
-    a. İçinde **oturum açma URL'si** metin değeri olarak yazın:`https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://impl.workday.com/<tenant>/login-saml.htmld`
+    b. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`http://www.workday.com`
 
+4. Denetleme **Göster Gelişmiş URL ayarları** ve aşağıdaki adımı gerçekleştirin:
+
+    ![Oturum açma bilgileri tek bir iş günü etki alanı ve URL'leri](./media/active-directory-saas-workday-tutorial/tutorial_workday_url1.png)
+
+    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://impl.workday.com/<tenant>/login-saml.htmld`
+     
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. Yanıt URL'si bir alt etki alanı gibi olmalıdır: www, wd2, wd3, wd3 impl, wd5, wd5 impl). Aşağıdakine benzer kullanarak "*http://www.myworkday.com*" çalışır, ancak "*http://myworkday.com*" desteklemez. Kişi [Workday istemci destek ekibi](https://www.workday.com/en-us/partners-services/services/support.html) bu değerleri almak için. 
- 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. Yanıt URL'si bir alt etki alanı gibi olmalıdır: www, wd2, wd3, wd3 impl, wd5, wd5 impl). Aşağıdakine benzer kullanarak "*http://www.myworkday.com*" çalışır, ancak "*http://myworkday.com*" desteklemez. Kişi [Workday istemci destek ekibi](https://www.workday.com/en-us/partners-services/services/support.html) bu değerleri almak için.  
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-workday-tutorial/tutorial_workday_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-workday-tutorial/tutorial_workday_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+6. Tıklatın **kaydetmek** düğmesi.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-workday-tutorial/tutorial_general_400.png)
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-workday-tutorial/tutorial_general_400.png)
+    
+7. Üzerinde **Workday yapılandırma** 'yi tıklatın **yapılandırma Workday** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-6. Üzerinde **Workday yapılandırma** 'yi tıklatın **yapılandırma Workday** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+    ![İş günü yapılandırma](./media/active-directory-saas-workday-tutorial/tutorial_workday_configure.png) 
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-workday-tutorial/tutorial_workday_configure.png) 
-<CS>
-7. Farklı web tarayıcısı penceresinde Workday şirket sitenize yönetici olarak oturum açın.
+8. Farklı web tarayıcısı penceresinde Workday şirket sitenize yönetici olarak oturum açın.
 
-8. Git **menü \> çalışma ekranı**.
-   
-    ![Çalışma ekranı](./media/active-directory-saas-workday-tutorial/IC782923.png "çalışma ekranı")
-
-9. Git **hesap Yönetim**.
-   
-    ![Hesap Yönetimi](./media/active-directory-saas-workday-tutorial/IC782924.png "hesap yönetimi")
-
-10. Git **Kiracı kurulumunu – güvenlik Düzenle**.
+9. İçinde **arama kutusu** adlı arama **Kiracı kurulumunu Düzenle – güvenlik** yan giriş sayfasının sol üst kısmında.
    
     ![Kiracı Güvenliği Düzenle](./media/active-directory-saas-workday-tutorial/IC782925.png "Kiracı güvenlik Düzenle")
 
-11. İçinde **yönlendirme URL'lerini** bölümünde, aşağıdaki adımları gerçekleştirin:
+10. İçinde **yönlendirme URL'lerini** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Yönlendirme URL'lerini](./media/active-directory-saas-workday-tutorial/IC7829581.png "yeniden yönlendirme URL'leri")
    
@@ -153,15 +148,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **oturum açma yeniden yönlendirme URL'si** textbox ve **mobil yeniden yönlendirme URL'sini** metin kutusuna, türü **oturum açma URL'si** girmiş olduğunuz **Workday etki alanı ve URL'leri** Azure portalının bölümü.
    
     c. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **Sign-Out URL**ve ardından yapıştırın **oturumu kapatıp tekrar yönlendirme URL'sini** metin kutusu.
-   
-    d.  İçinde **ortam** metin kutusuna, ortamının adını yazın.  
+
+    d. İçinde **ortamlar için kullanılan** metin kutusuna, ortam adı seçin.  
 
     >[!NOTE]
     > Ortam özniteliğinin değeri Kiracı URL değerine bağlıdır:  
     >-Workday kiracısı URL'si etki alanı adı ile impl örneğin başlayıp başlamadığını: *https://impl.workday.com/\<Kiracı\>/login-saml2.htmld*), **ortam** uygulamasına özniteliği ayarlanmalıdır.  
     >-Etki alanı adı başka bir şey ile başlarsa başvurmanız gerekir [Workday istemci destek ekibi](https://www.workday.com/en-us/partners-services/services/support.html) eşleştirme almak için **ortam** değeri.
 
-12. İçinde **SAML Kurulumu** bölümünde, aşağıdaki adımları gerçekleştirin:
+11. İçinde **SAML Kurulumu** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![SAML Kurulumu](./media/active-directory-saas-workday-tutorial/IC782926.png "SAML Kurulumu")
    
@@ -169,28 +164,33 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    
     b.  Tıklatın **Satır Ekle**.
 
-13. SAML kimlik sağlayıcısı bölümünde, aşağıdaki adımları gerçekleştirin:
+12. İçinde **SAML kimlik sağlayıcısı** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![SAML kimlik sağlayıcısı](./media/active-directory-saas-workday-tutorial/IC7829271.png "SAML kimlik sağlayıcısı")
    
-    a. Kimlik sağlayıcı adı metin kutusuna bir sağlayıcı adı yazın (örneğin: *SPInitiatedSSO*).
+    a. İçinde **kimlik sağlayıcı adı** metin kutusuna, bir sağlayıcı adı yazın (örneğin: *SPInitiatedSSO*).
    
     b. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **SAML varlık kimliği** değer ve ardından yapıştırın **veren** metin kutusu.
+
+    ![SAML kimlik sağlayıcısı](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "SAML kimlik sağlayıcısı")
    
     c. Seçin **etkinleştirmek iş günü başlatılan oturum kapatma**.
    
-    d. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **Sign-Out URL** değer ve ardından yapıştırın **oturum kapatma istek URL'si** metin kutusu.
+    d. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **Sign-Out URL** değer ve ardından yapıştırın **oturum kapatma yanıt URL'si** metin kutusu.
 
-    e. Tıklatın **kimlik sağlayıcısı ortak anahtar sertifikası**ve ardından **oluşturma**. 
+    e. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **SAML çoklu oturum açma hizmet URL'si** değer ve ardından yapıştırın **IDP SSO hizmet URL'si** metin kutusu.
+
+    f. İçinde **ortamlar için kullanılan** metin kutusuna, ortam adı seçin.
+
+    g. Tıklatın **kimlik sağlayıcısı ortak anahtar sertifikası**ve ardından **oluşturma**. 
 
     ![Oluşturma](./media/active-directory-saas-workday-tutorial/IC782928.png "oluşturma")
 
-    f. Tıklatın **x509 oluşturma ortak anahtar**. 
+    h. Tıklatın **x509 oluşturma ortak anahtar**. 
 
     ![Oluşturma](./media/active-directory-saas-workday-tutorial/IC782929.png "oluşturma")
 
-
-14. İçinde **görünüm x509 ortak anahtar** bölümünde, aşağıdaki adımları gerçekleştirin: 
+13. İçinde **görünüm x509 ortak anahtar** bölümünde, aşağıdaki adımları gerçekleştirin: 
    
     ![Görünüm x509 ortak anahtar](./media/active-directory-saas-workday-tutorial/IC782930.png "görünüm x509 ortak anahtar") 
    
@@ -209,76 +209,68 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    
     e.  İçinde **sertifika** metin kutusuna, Pano içeriğini yapıştırın.
    
-    f.  **Tamam** düğmesine tıklayın.
+    f.  **Tamam**’a tıklayın.
 
-15. Aşağıdaki adımları gerçekleştirin: 
+14. Aşağıdaki adımları gerçekleştirin: 
    
     ![SSO yapılandırma](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguratio.png "SSO yapılandırma")
    
-    a.  Etkinleştirme **x509 özel anahtar çifti**.
+    a.  İçinde **hizmet sağlayıcı kimliği** metin kutusuna, türü **http://www.workday.com**.
    
-    b.  İçinde **hizmet sağlayıcı kimliği** metin kutusuna, türü **http://www.workday.com**.
+    b. Seçin **SP tarafından başlatılan kimlik doğrulama isteği Deflate değil**.
    
-    c.  Seçin **etkinleştir SP tarafından başlatılan SAML kimlik doğrulaması**.
-   
-    d.  Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **SAML çoklu oturum açma hizmet URL'si** değer ve ardından yapıştırın **IDP SSO hizmet URL'si** metin kutusu.
-   
-    e. Seçin **SP tarafından başlatılan kimlik doğrulama isteği Deflate değil**.
-   
-    f. Olarak **kimlik doğrulama isteği imza yöntemi**seçin **SHA256**. 
+    c. Olarak **kimlik doğrulama isteği imza yöntemi**seçin **SHA256**. 
    
     ![Kimlik doğrulama isteği imza yöntemi](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguration.png "kimlik doğrulama isteği imza yöntemi") 
    
-    g. **Tamam** düğmesine tıklayın. 
+    d. **Tamam**’a tıklayın. 
    
-    ![TAMAM](./media/active-directory-saas-workday-tutorial/IC782933.png "TAMAM")
-<CE>
+    ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
->
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-workday-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-workday-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-workday-tutorial/create_aaduser_02.png) 
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-workday-tutorial/create_aaduser_02.png)
+
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+
+    ![Ekle düğmesi](./media/active-directory-saas-workday-tutorial/create_aaduser_03.png)
+
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-workday-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+
+    d. **Oluştur**’a tıklayın.
  
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-workday-tutorial/create_aaduser_03.png) 
+### <a name="create-a-workday-test-user"></a>Bir iş günü test kullanıcısı oluşturma
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-workday-tutorial/create_aaduser_04.png) 
+Bu bölümde, iş günü içinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Workday istemci destek ekibi](https://www.workday.com/en-us/partners-services/services/support.html) Workday platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir. 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
-
-    d. **Oluştur**'a tıklayın.
- 
-### <a name="creating-a-workday-test-user"></a>Bir iş günü test kullanıcısı oluşturma
-
-İş günü içinde sağlanan bir sınama kullanıcısı almak için başvurmanız gerekir [Workday istemci destek ekibi](https://www.workday.com/en-us/partners-services/services/support.html).
-[Workday istemci destek ekibi](https://www.workday.com/en-us/partners-services/services/support.html) kullanıcı sizin için oluşturur.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, iş günü için erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı rolü atayın][200] 
 
 **İş günü için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -288,15 +280,15 @@ Bu bölümde, iş günü için erişim vererek, Azure çoklu oturum açma kullan
 
 2. Uygulamalar listesinde **Workday**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-workday-tutorial/tutorial_workday_app.png) 
+    ![Uygulamalar listesinde Workday bağlantı](./media/active-directory-saas-workday-tutorial/tutorial_workday_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Ekleme atama bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
@@ -304,15 +296,17 @@ Bu bölümde, iş günü için erişim vererek, Azure çoklu oturum açma kullan
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Çoklu oturum açma ayarlarınızı test etmek isterseniz, erişim paneli açın. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+
+Erişim paneli Workday parçasında tıklattığınızda, otomatik olarak Workday uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-workday-inbound-tutorial.md)
 
 
 

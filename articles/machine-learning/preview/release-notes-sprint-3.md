@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: b680d4b828910207367035a8b03bd75f84c79271
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f75fcec3b722563949b6553f17c4f3db3e223675
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="sprint-3---january-2018"></a>Sprint 3 - Ocak 2018 
 
@@ -34,6 +34,7 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 - Program Ekle/Kaldır'ndan uygulamanın yükleme/kaldırma yeteneği
 - Kimlik doğrulama yığınını güncelleştirmeleri zorlar başlangıç oturum açma ve hesap seçimi
 - Windows geliştirilmiş çoklu oturum açma (SSO) deneyimi
+- Farklı kimlik bilgileriyle birden çok kiracıya ait olan kullanıcıların artık çalışma ekranına aktardığınız oturum mümkün olacaktır
 
 #### <a name="ui"></a>UI
 - Genel geliştirmeler ve hata düzeltmeleri
@@ -46,6 +47,7 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 - Desen sıklığı denetçisi için geliştirilmiş algoritması
 - Örnekle dönüşümleri gerçekleştirilirken örnek veriler ve geri bildirim gönderme olanağı ![gönderme geri bildirim bağlantısı üzerinde görüntüsü türetilen sütun dönüştürme](media/release-notes-sprint-3/SendFeedbackFromDeriveColumn.png)
 - Spark çalışma zamanı geliştirmeleri
+- Scala Pyspark değiştirilmiştir
 - Zaman serisi denetleyici için veri uygulanamaz kapatmaya sabit kullanamama 
 - Sabit veri hazırlığı yürütme HDI için yanıt vermemesine saat
 

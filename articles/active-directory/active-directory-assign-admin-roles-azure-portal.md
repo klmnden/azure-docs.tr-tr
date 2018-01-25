@@ -12,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/23/2018
 ms.author: curtand
-ms.reviewer: Vince.Smith
+ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
 Azure Active Directory (Azure AD) kullanarak, farklı işlevler hizmet için ayrı Yöneticiler belirleyebilirsiniz. Yöneticiler Azure portalında ve rollerine bağlı olarak çeşitli özelliklerine erişime sahiptir, oluşturabilir veya kullanıcıların Düzenle, başkalarına yönetici rolleri atamak, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme ve başka şeylerin etki alanlarını yönetme. Yönetici rolü atanan bir kullanıcı için kuruluşunuzun için rolü Office 365 portalında veya Azure portalında veya için Azure AD modülünü kullanarak atamış olup abone olduğu bulut Hizmetleri tümüne aynı izinlere sahip Windows PowerShell.
 
+## <a name="details-about-the-global-administrator-role"></a>Genel yönetici rolüne hakkındaki ayrıntıları
+Genel yönetici tüm yönetim özelliklerine erişebilir. Varsayılan olarak, Azure aboneliği için kaydolan kişi dizin için genel Yönetici rolüne atanır. Yalnızca küresel Yöneticiler diğer yönetici rollerini atayabilir.
+
+## <a name="assign-or-remove-administrator-roles"></a>Atama veya yönetici rolleri kaldırma
+Azure Active Directory'de bir kullanıcıya yönetici rolleri atama hakkında bilgi edinmek için [kullanıcı Azure Active Directory'de yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="available-roles"></a>Kullanılabilir roller
 Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **Faturalama Yöneticisi**: satın alma işlemleri yapar, abonelikleri yönetir, destek biletlerini yönetir ve hizmetin sistem durumunu izler.
@@ -57,6 +64,8 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **Konuk davet eden**: Bu roldeki kullanıcılar, Azure Active Directory B2B Konuk kullanıcı davetleri yönetebilir, "Üyeleri davet edebilirsiniz" Kullanıcı ayarı Hayır olarak ayarlandığında geçerlidir B2B işbirliğinin hakkında daha fazla bilgi [hakkında Azure AD B2B işbirliği Önizleme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Diğer izinler içermez.
 
+* **Bilgi Koruma Yöneticisi**: Bu rolüne sahip kullanıcılar, Azure portalında Azure Information Protection erişebilir. Azure Information Protection ilkesi için etiket yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirin.
+
 * **Intune hizmet yöneticisinin**: Bu rolü olan kullanıcılar hizmet mevcut olduğunda Microsoft Intune çevrimiçi içinde genel izinlere sahiptir. Ayrıca, bu rol İlkesi ilişkilendirme yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme becerisini içerir.
 
 * **Posta kutusu yönetici**: Bu rol yalnızca RIM Blackberry cihazlar için Exchange Online e-posta desteği bir parçası olarak kullanılır. Kuruluşunuz RIM Blackberry cihazlarda Exchange Online e-posta kullanmıyorsa, bu rolü kullanmayın.
@@ -75,6 +84,8 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 * **Power BI Hizmet Yöneticisi**: Bu rol ile kullanıcınız içinde Microsoft Power BI hizmeti mevcut olduğunda, genel izinleri yanı sıra, destek biletlerini yönetme ve hizmet sistem durumu izleme olanağı. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Ayrıcalıklı Rol Yöneticisi**: Bu rolüne sahip kullanıcılar, Azure Active Directory'de yanı sıra Azure AD Privileged Identity Management içinde rol atamalarını yönetebilir. Ayrıca, bu rolün tüm yönlerini Privileged Identity Management yönetilmesine izin verir.
+
+* **Raporları okuyucu**: Bu rolüne sahip kullanıcılar, kullanım verileri ve Office 365 Yönetim Merkezi ve benimseme içerik raporları panosunda pack içinde Powerbı raporu görüntüleyebilirsiniz. Ayrıca, rol için oturum açma erişim sağlayan raporlar ve Azure AD etkinliğinde ve Microsoft Graph tarafından döndürülen veri raporlama API. Raporları okuyucu rolüne atanmış bir kullanıcı yalnızca ilgili kullanım ve benimseme ölçümleri erişebilir. Bunlar ayarları veya Exchange gibi ürün belirli Yönetim Merkezleri erişimi yapılandırmak için tüm yönetim izinleri yok. 
 
 * **Güvenlik Yöneticisi**: Bu rol ile kullanıcınız tüm güvenlik okuyucu rolüne yanı sıra güvenlikle ilgili hizmetler için yapılandırma yönetme olanağı salt okunur izinleri: Azure Active Directory kimlik koruması, Azure Information Protection, Privileged Identity Management ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -117,15 +128,16 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar ve diğer Yardım Masası yöneticileri için parolaları değiştirme</p>|<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Raporları görüntüleme</p>|
 
-### <a name="service-administrator"></a>Hizmet yöneticisi
-| Yapabilirsiniz | Yapamaz |
-| --- | --- |
-| <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p> |
-
-### <a name="user-account-administrator"></a>Kullanıcı Hesap Yöneticisi
-| Yapabilirsiniz | Yapamaz |
-| --- | --- |
-| <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar, Yardım Masası Yöneticiler ve yalnızca diğer kullanıcı hesabı yöneticileri için parolaları değiştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kısıtlamalarla kullanıcı lisanslarını yönetme. İsterse bir genel yöneticiyi silemez veya başka Yöneticiler oluşturamaz.</p> |<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |
+### <a name="information-protection-administrator"></a>Bilgi Koruma Yöneticisi 
+İçinde | Yapabilirsiniz
+-------- | ---------
+Azure Information Protection | * Genel, kapsamlı ilkeler ve etiketleri yapılandırın<br>* Yönetmek, yapılandırmak, koruma şablonları güncelleştirme<br>* Kullanmak için koruma etkinleştirme etkinleştir 
+Privileged Identity Management | * Okuma izinleri<br>* Azure AD rol üyeliklerini veya ayarları yönetemezsiniz.
+ 
+### <a name="reports-reader"></a>Raporları okuyucusu 
+Yapabilirsiniz | Yapamaz
+------ | ----------
+Azure AD oturum açma raporları ve Denetim günlükleri görüntüle<br>Şirket ve kullanıcı bilgilerini görüntüleme<br>Erişim Office 365 kullanım Panosu | Oluşturma ve kullanıcı görünümleri yönetme<br>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme<br>Başkalarını yönetici rollerine temsilci seçme<br>Şirket bilgilerini yönetme
 
 ### <a name="security-reader"></a>Güvenlik Okuyucu
 | İçinde | Yapabilirsiniz |
@@ -141,8 +153,15 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | Privileged Identity Management |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>**Olamaz** Azure AD rol üyeliklerini veya ayarlarını yönetin. |
 | <p>İzleyici Office 365 hizmeti durumu</p><p>Office 365 güvenlik ve Uyumluluk Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>Tüm ayarlar için Gelişmiş tehdit Koruması özelliği (kötü amaçlı yazılım ve virüs koruması, kötü amaçlı URL yapılandırma, URL izleme, vb.) yapılandırabilirsiniz. |
 
-## <a name="details-about-the-global-administrator-role"></a>Genel yönetici rolüne hakkındaki ayrıntıları
-Genel yönetici tüm yönetim özelliklerine erişebilir. Varsayılan olarak, Azure aboneliği için kaydolan kişi dizin için genel Yönetici rolüne atanır. Yalnızca küresel Yöneticiler diğer yönetici rollerini atayabilir.
+### <a name="service-administrator"></a>Hizmet yöneticisi
+| Yapabilirsiniz | Yapamaz |
+| --- | --- |
+| <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p> |
+
+### <a name="user-account-administrator"></a>Kullanıcı Hesap Yöneticisi
+| Yapabilirsiniz | Yapamaz |
+| --- | --- |
+| <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar, Yardım Masası Yöneticiler ve yalnızca diğer kullanıcı hesabı yöneticileri için parolaları değiştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kısıtlamalarla kullanıcı lisanslarını yönetme. İsterse bir genel yöneticiyi silemez veya başka Yöneticiler oluşturamaz.</p> |<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |
 
 ### <a name="to-add-a-colleague-as-a-global-administrator"></a>Genel yönetici olarak bir iş arkadaşı eklemek için
 
@@ -157,9 +176,6 @@ Genel yönetici tüm yönetim özelliklerine erişebilir. Varsayılan olarak, Az
 4. Kullanıcı dikey penceresinde, seçin **dizin rolünü**.
  
 5. Dizin rolü dikey penceresinde, seçin **genel yönetici** rolü ve kaydedin.
-
-## <a name="assign-or-remove-administrator-roles"></a>Atama veya yönetici rolleri kaldırma
-Azure Active Directory'de bir kullanıcıya yönetici rolleri atama hakkında bilgi edinmek için [kullanıcı Azure Active Directory Önizleme'te yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="deprecated-roles"></a>Kullanım dışı rolleri
 

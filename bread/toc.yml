@@ -248,6 +248,9 @@
     - name: IoT Paketi
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/
+    - name: Jenkins
+      tocHref: /azure/jenkins/
+      topicHref: /azure/jenkins/
     - name: Anahtar Kasası
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/

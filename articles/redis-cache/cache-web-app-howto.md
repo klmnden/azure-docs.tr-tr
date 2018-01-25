@@ -3,8 +3,8 @@ title: "Redis Cache ile Web Uygulamaları oluşturma | Microsoft Docs"
 description: "Redis Cache ile Web Uygulaması oluşturmayı öğrenin"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache ile Web Uygulaması oluşturma
 > [!div class="op_single_selector"]
@@ -102,7 +102,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
     ![Model sınıfı ekleme][cache-model-add-class-dialog]
 3. `Team.cs` dosyasının üst tarafındaki `using` deyimini aşağıdaki `using` deyimleriyle değiştirin.
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 
 1. `Team` sınıfının tanımını, bazı diğer Entity Framework yardımcı sınıflarının yanı sıra güncelleştirilmiş `Team` sınıf tanımını içeren aşağıdaki kod parçacığı ile değiştirin. Bu öğreticide kullanılan Entity Framework için ilk kod yaklaşımı hakkında daha fazla bilgi için, bkz. [Yeni bir veritabanına ilk kod](https://msdn.microsoft.com/data/jj193542).
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
     ![Global.asax.cs][cache-global-asax]
 6. Aşağıdaki iki `using` deyimini dosyanın üst tarafındaki diğer `using` deyimlerinin altına ekleyin.
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 
 1. `Application_Start` yönteminin sonuna aşağıdaki kod satırını ekleyin.
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Aşağıdaki örnekte gösterildiği gibi `controller = "Home"` öğesini `RegisterRoutes` yöntemindeki kod `controller = "Teams"` ile değiştirin.
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -296,14 +296,14 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
     ![Ekip denetleyicisi][cache-teamscontroller]
 4. **TeamsController.cs** deyimlerini kullanarak aşağıdaki iki `using` deyimini ekleyin.
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. Aşağıdaki iki özelliği `TeamsController` sınıfına ekleyin.
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 
 1. Aşağıdaki `using` deyimlerini `TeamsController.cs` dosyasının üst tarafındaki diğer `using` deyimleri ile değiştirin.
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. Geçerli `public ActionResult Index()` yöntemi uygulamasını aşağıdaki uygulama ile değiştirin.
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
    
     `PlayGames` yöntemi, oyun sezonunu taklit ederek ekip istatistiklerini güncelleştirir, sonuçları veritabanına kaydeder ve artık güncel olmayan verileri veritabanından temizler.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 
     `RebuildDB` yöntemi, varsayılan ekip kümesine sahip veritabanını yeniden başlatır, bunlar için istatistikler oluşturur ve artık güncel olmayan verileri veritabanından temizler.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 
     `ClearCachedTeams` yöntemi önbelleğe alınan tüm ekip istatistiklerini önbellekten kaldırır.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
    
     `GetFromDB` yöntemi veritabanından ekip istatistiklerini okur.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 
     `GetFromList` yöntemi önbellekteki ekip istatistiklerini seri hale getirilmiş bir `List<Team>` olarak okur. Önbellek isabetsizliği varsa, ekip istatistikleri veritabanından okunur ve ardından gelecek sefer için önbellekte depolanır. Bu örnekte, önbelleğe veya önbellekten .NET nesnelerini seri hale getirmek için JSON.NEY serileştirmeyi kullanıyoruz. Daha fazla bilgi için, bkz. [Azure Redis Cache’te .NET nesneleri ile çalışma](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 
     `GetFromSortedSet` yöntemi önbelleğe alınan bir sıralanmış kümeden ekip istatistiklerini okur. Önbellek isabetsizliği varsa, ekip istatistikleri veritabanından okunur ve ardından bir sıralanmış küme olarak önbellekte depolanır.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 
     `GetFromSortedSetTop5` yöntemi önbelleğe alınan sıralanmış kümesinden en iyi 5 ekibi okur. Bu, `teamsSortedSet` anahtarının varlığı için önbelleği denetleyerek başlar. Bu anahtar yoksa, ekip istatistikleri okumak ve bunları önbellekte depolamak için `GetFromSortedSet` yöntemi çağrılır. Daha sonra önbelleğe alınan sıralanmış küme, döndürülen en iyi 5 takım için sorgulanır.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
 
 1. `TeamsController` sınıfındaki `Create(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
 
 1. `TeamsController` sınıfındaki `Edit(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
 
 1. `TeamsController` sınıfındaki `DeleteConfirmed(int id)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
@@ -717,12 +717,12 @@ Bu **Azure’a Dağıt** düğmesi, bu hizmetleri hazırlamak ve SQL Database i�
 
 **Azure’a Dağıt** düğmesine tıkladığınızda sizi Azure portalına götürür ve şablon tarafından açıklanan kaynakların oluşturma işlemini başlatır.
 
-![Azure’a Dağıt][cache-deploy-to-azure-step-1]
+![Azure’a dağıtma][cache-deploy-to-azure-step-1]
 
 1. **Temel Bilgiler** bölümünde, kullanılacak Azure aboneliğini ve mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun ve kaynak grubu konumunu belirtin.
 2. **Ayarlar** bölümünde bir **Yönetici Kullanıcı Adı** (**admin** adını kullanmayın), **Yönetici Parolaları** ve **Veritabanı Adı** belirtin. Diğer parametreler, ücretsiz bir App Service barındırma planı ve ücretsiz katmanı ile birlikte sunulmayan SQL Veritabanı ve Azure Redis Cache için daha düşük maliyetli seçenekler sunmak için yapılandırılır.
 
-    ![Azure’a Dağıt][cache-deploy-to-azure-step-2]
+    ![Azure’a dağıtma][cache-deploy-to-azure-step-2]
 
 3. Ayarları yapılandırdıktan sonra sayfanın en altına inin, hüküm ve koşulları okuyun ve **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum** onay kutusunu işaretleyin.
 4. Kaynakları sağlamaya başlamak için **Satın al**'a tıklayın.
@@ -733,7 +733,7 @@ Dağıtımınızın ilerlemesini görüntülemek için bildirim simgesine ve **D
 
 **Microsoft.Template** dikey penceresinde dağıtımınızın durumunu görüntüleyebilirsiniz.
 
-![Azure’a Dağıt][cache-deploy-to-azure-step-3]
+![Azure’a dağıtma][cache-deploy-to-azure-step-3]
 
 Hazırlama işlemi tamamlandığında, uygulamanızı Visual Studio’dan Azure’a yayımlayabilirsiniz.
 

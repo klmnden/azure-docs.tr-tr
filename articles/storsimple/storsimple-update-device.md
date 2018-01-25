@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 247c422d7ea3feeec1342bb20f99390a07eb4f7a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi Cihazınızı güncelleştirin
 > [!NOTE]
-> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+> StorSimple için klasik portal kullanım dışıdır. StorSimple Cihaz Yöneticileriniz, yeni Azure portalına kullanımdan kaldırma zamanlamasına göre otomatik olarak taşınacaktır. Bu taşımayla ilgili bir e-posta ve portal bildirimi alacaksınız. Bu belge de yakında kullanımdan kaldırılacaktır. Taşıma hakkında tüm sorularınız için bkz. [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Genel Bakış
 StorSimple güncelleştirme özellikler kolayca StorSimple cihazınız güncel tutmanıza olanak sağlar. Güncelleştirme türüne bağlı olarak, Windows PowerShell arabirimi üzerinden veya Klasik Azure Portalı aracılığıyla aygıta güncelleştirmelerini uygulayabilirsiniz. Bu öğretici, güncelleştirme türlerini ve bunların her birine yüklemek açıklar.
@@ -116,7 +116,7 @@ Aşağıdaki yordamlarda, StorSimple için Windows PowerShell normal ve Bakım m
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Bir cihazı fabrika ayarlarına gerçekleştirmek güncelleştirmeleri ne olur?
-Bir cihazı fabrika ayarlarına sıfırlarsanız tüm güncelleştirmeler kaybolur. Fabrika sıfırlaması cihaz kayıtlı yapılandırıldıktan sonra Klasik Azure portalı ve/veya Windows PowerShell aracılığıyla güncelleştirmeleri StorSimple için el ile yüklemeniz gerekir. Fabrika sıfırlaması hakkında daha fazla bilgi için bkz: [cihazı fabrika varsayılan ayarlarına sıfırlama](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+Bir cihazı fabrika ayarlarına sıfırlarsanız tüm güncelleştirmeler kaybolur. Fabrika sıfırlaması cihaz kayıtlı yapılandırıldıktan sonra Klasik Azure portalı ve/veya Windows PowerShell aracılığıyla güncelleştirmeleri StorSimple için el ile yüklemeniz gerekir. Fabrika sıfırlaması hakkında daha fazla bilgi için bkz: [cihazı fabrika varsayılan ayarlarına sıfırlama](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için StorSimple için Windows PowerShell kullanarak](storsimple-windows-powershell-administration.md).

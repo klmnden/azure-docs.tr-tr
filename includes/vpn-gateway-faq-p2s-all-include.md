@@ -51,9 +51,23 @@ Hayır. SSTP için yalnızca Windows’daki yerel VPN istemcisini ve IKEv2 için
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure Windows ile IKEv2 VPN destekler mi?
 
-Kullanıcılar IKEv2’yi destekleyen yerleşik Windows VPN istemcisini kullanarak Azure’a bağlanabilir. Ancak bir Windows cihazından IKEv2 bağlantıları aşağıdaki senaryoda çalışmaz:
+Ikev2, Windows 10 ve Server 2016 desteklenir. Ancak, Ikev2 kullanmak için güncelleştirmeleri yüklemeli ve kayıt defteri anahtar değerini yerel olarak ayarlayın. Windows 10'den önceki işletim sistemi sürümleri desteklenmez ve SSTP yalnızca kullanabilirsiniz.
 
-  Kullanıcının cihazında çok sayıda güvenilen kök sertifika olduğunda, IKE değişimi sırasında ileti yükü boyutu büyüktür ve bu da IP katmanı parçalanmasına neden olur. Parçalar Azure ucunda reddedilir ve bu da bağlantının başarısız olmasıyla sonuçlanır. Bu sorunun oluştuğu tam sertifika sayısını tahmin etmek zordur. Sonuç olarak, Windows cihazlarından IKEv2 bağlantılarının çalışacağı garanti edilmez. Karma bir ortamda (Windows ve Mac cihazlarından oluşan) hem SSTP hem de IKEv2 yapılandırdığınızda, Windows VPN profili her zaman ilk olarak IKEv2 tünelini dener. Yukarıda açıklanan nedenden dolayı başarısız olursa, SSTP’ye geri döner.
+Windows 10 veya Server 2016 için Ikev2 hazırlamak için:
+
+1. Güncelleştirmeyi yükleyin.
+
+  | OS sürümü | Tarih | Sayı/bağlantı |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 sürümü 1607 | 17 Ocak 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 sürümü 1703 | 17 Ocak 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  |  |  |  |  |
+
+2. Kayıt defteri anahtarı değerini ayarlayın. Oluşturun veya 1 için kayıt defterindeki "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" REG_DWORD anahtarı ayarlayın.
+
+### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>P2S VPN bağlantıları için SSTP ve Ikev2 yapılandırdığım ne olur?
+
+(Windows ve Mac cihazları oluşan), karma bir ortamda SSTP ve Ikev2 yapılandırdığınızda Windows VPN istemcisi Ikev2 tünel önce her zaman deneyecek, ancak Ikev2 bağlantı başarılı olmazsa, SSTP için geri döner. MacOSX yalnızca Ikev2 bağlanır.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Azure, P2S VPN için Windows ve Mac dışında hangi platformları destekliyor?
 

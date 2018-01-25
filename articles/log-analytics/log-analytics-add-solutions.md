@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Sunucunuzdan çalışma alanınıza Azure günlük analizi yönetim çözümleri Ekle
 
@@ -54,7 +54,7 @@ Tıklayarak yönetim çözümleri Azure Marketi'nden yükleyebilirsiniz **Şimdi
     ![İzleme + yönetim dikey penceresi](./media/log-analytics-add-solutions/management-solutions.png)  
 6. Yönetim çözümü dikey penceresinde, yönetim çözümü hakkındaki bilgileri gözden geçirin ve ardından **oluşturma**.
 7. *Yönetim çözümü adı* dikey penceresinde, yönetim çözümüyle ilişkilendirmek istediğiniz bir çalışma alanı seçin.
-8. İsteğe bağlı olarak, Azure abonelik, kaynak grubunu ve konumu çalışma ayarlarını değiştirin. Ayrıca seçebilirsiniz **Otomasyon seçenekleri**. **Oluştur**'a tıklayın.  
+8. İsteğe bağlı olarak, Azure abonelik, kaynak grubunu ve konumu çalışma ayarlarını değiştirin. Ayrıca seçebilirsiniz **Otomasyon seçenekleri**. **Oluştur**’a tıklayın.  
     ![çözüm çalışma alanı](./media/log-analytics-add-solutions/solution-workspace.png)  
 9. Sunucunuzdan çalışma alanınıza eklediğiniz yönetim çözümü kullanmaya başlamak için gidin **günlük analizi** > **abonelikleri** > ***çalışma alanı adı***  >  **Genel bakış**. Yeni bir kutucuk Yönetimi çözümünüz için görüntülenir. Açmak ve çözüm için veriler toplandıktan sonra çözüm kullanmaya başlamak için kutucuğa tıklayın.
 
@@ -89,7 +89,7 @@ Aşağıdaki tabloda tüm çözümleri Azure portalı ve günlük analizi portal
 | [Kapasite ve performans (Önizleme)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Değişiklik İzleme](log-analytics-change-tracking.md)                                       | <ul><li>Otomasyon ve Denetim</li></ul>                                  | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Bir Otomasyon hesabı bağlanması için günlük analizi çalışma alanınız gerektirir |
 | [Kapsayıcılar](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
-| [BT Hizmet Yönetimi Bağlayıcısı (Önizleme)](log-analytics-itsmc-overview.md)                                              | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)     | |
+| [BT Hizmet Yönetimi Bağlayıcısı](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)     | |
 | Hdınsight HBase izleme <br>(Önizleme)                                                  | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Anahtar Kasası Analizi](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | Azure portal/Marketi'nden eklemek kullanılamaz. |
@@ -97,7 +97,7 @@ Aşağıdaki tabloda tüm çözümleri Azure portalı ve günlük analizi portal
 | [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) <br>  | <ul><li>Insight and Analytics</li></ul>                                   | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | |
 | [Office 365 Analytics (Önizleme)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Güvenlik ve Denetim](../operations-management-suite/oms-security-getting-started.md)      | <ul><li>Güvenlik&nbsp;ve&nbsp;uyumluluk</li></ul>                       | Ücretsiz<br> Tek Başına<br>Başına&nbsp;düğümü&nbsp;(OMS)                                                                           | Bu çözüm güvenlik olay günlüklerini toplama gerektirir<br>Güvenlik ve uyumluluk çözümleri 19 Haziran 2017 sonra eklerseniz [faturalama olan düğüm başına](https://azure.microsoft.com/pricing/details/security-compliance/)ne olursa olsun, fiyatlandırma katmanı çalışma. İlk 60 gün ücretsizdir. |
-| [Service Fabric Analytics (Önizleme)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
+| [Service Fabric Analytics (Preview)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Hizmet eşlemesi (Önizleme)](../operations-management-suite/operations-management-suite-service-map.md) | <ul><li>Insight and Analytics</li></ul>                      | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Doğu ABD, Batı Avrupa ve Batı Orta ABD kullanılabilir    |
 | [Site Recovery](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>Insight and Analytics</li></ul>                                   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                       | Klasik Site Recovery kasası gerektirir.<br> Azure portal/Marketi'nden eklemek kullanılamaz. |
 | [SQL Değerlendirmesi](log-analytics-sql-assessment.md)                                         | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
@@ -155,7 +155,7 @@ Günlük analizi Windows aracısı ve System Center Operations Manager Aracısı
 | Anahtar kasası analizi |Windows |  |  |  |  |  |bildirim |
 | Ağ Performansı İzleyicisi | Windows | &#8226; | &#8226; |   |   |   | TCP el sıkışmaları veri her 5 saniye boyunca 3 dakikada gönderilen |
 | Office 365 Analytics (Önizleme) |Windows |  |  |  |  |  |bildirim |
-| Service Fabric analizi |Windows |  |  |&#8226; |  |  |5 dakika |
+| Service Fabric Analytics |Windows |  |  |&#8226; |  |  |5 dakika |
 | Hizmet Eşlemesi | Windows ve Linux | &#8226; | &#8226; |   |   |   | 15 saniye |
 | SQL Değerlendirmesi |Windows |&#8226; |&#8226; |  |  |&#8226; |7 gün |
 | SurfaceHub |Windows |&#8226; |  |  |  |  |geldiğinde |

@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 4278c631ca7f2ce0417eab22ce2e5b12581dac30
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma
 
 Etki alanına katılmış kümeleri çok kullanıcılı Kurumsal Hdınsight'ta güvenlik özellikleri sağlar. Böylece etki alanı kullanıcıları kümeleriyle kimliğini doğrulamak ve büyük veri işlerini çalıştırmak için etki alanı kimlik bilgilerini kullanabilirsiniz active directory etki alanları için etki alanına katılmış Hdınsight kümelerine bağlanır. 
 
-Bir etki alanı denetleyicisini etki alanına katılmış bir Hdınsight kümesi bağlanabileceği şekilde ayarlamak için üç yolu vardır:
+Bir etki alanı denetleyicisini etki alanına katılmış bir Hdınsight kümesi için bağlanabilmesi için iki yöntem vardır:
 
 - Azure Active Directory etki alanı Hizmetleri (Azure AD DS)
-- Şirket içi Active Directory
 - Azure Iaas Vm'leri üzerinde Active Directory etki alanı denetleyicisi
 
 Bu makalede, Azure Active Directory etki alanı Hizmetleri'ni kullanan bir etki alanına katılmış Hdınsight kümesi yapılandırma hakkında bilgi edinin.

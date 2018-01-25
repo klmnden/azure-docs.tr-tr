@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage ölçümleri ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi'ni kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,9 +37,7 @@ Microsoft Azure depolama kullanan istemci uygulamalar sorun giderme için ne zam
   * **Depolama günlük** her istek Azure Depolama Hizmetleri sunucu tarafı günlüğüne kaydeder. Günlük ayrıntılı veri yapılan işleme dahil olmak üzere her istek, işlem ve gecikme bilgileri durumunu izler. Bkz: [depolama Analytics günlük biçimi](/rest/api/storageservices/Storage-Analytics-Log-Format) günlüklerine depolama analizi tarafından yazılan istek ve yanıt verileri hakkında daha fazla bilgi için.
 
 > [!NOTE]
-> Çoğaltma türü, bölge olarak yedekli depolama (ZRS) depolama hesaplarıyla ölçümleri veya şu anda etkin günlüğe kaydetme özelliğine sahip değilsiniz. 
-> 
-> 
+> Bölge olarak yedekli depolama (ZRS) çoğaltma türüne sahip depolama hesapları, ölçümleri ve günlük kaydı destekler. ZRS Klasik hesapları ölçümleri veya günlük desteklemez. ZRS hakkında daha fazla bilgi için bkz: [bölge olarak yedekli depolama](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure portal**. Depolama hesabınız için ölçümleri ve günlük yapılandırabilirsiniz [Azure portal](https://portal.azure.com). Ayrıca, grafikler ve uygulamanızı zaman içinde nasıl gerçekleştirmekte gösteren grafikleri görüntüleyin ve uygulamanız için belirtilen bir ölçüm beklenenden farklı gerçekleştirirse sizi bilgilendirmek üzere uyarılar yapılandırın.
   
@@ -100,7 +98,7 @@ Yapılandırmak için günlüğe kaydetme ve depolama için ölçümleri kullana
 > 
 > 
 
-**PowerShell yoluyla**
+**Via PowerShell**
 
 Azure PowerShell ile çalışmaya başlamak için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
 
@@ -349,17 +347,17 @@ Bu iki sekme görünümü düzenleri gösterilen verileri kullanarak ne hataya n
 
 | Araştırmak için... | Filtre ifadesi kullan... | İfade günlüğüne uygular (istemci, sunucu, ağ, tüm) |
 | --- | --- | --- |
-| Bir kuyruk iletisi Teslimde beklenmeyen gecikme |"Yeniden deneniyor, işlem başarısız oldu." AzureStorageClientDotNetV4.Description içerir |İstemci |
+| Bir kuyruk iletisi Teslimde beklenmeyen gecikme |AzureStorageClientDotNetV4.Description   contains "Retrying failed operation." |İstemci |
 | HTTP PercentThrottlingError artış |HTTP. Response.StatusCode 500 &#124; &#124; == HTTP. Response.StatusCode 503 == |Ağ |
 | İçinde PercentTimeoutError artırın |HTTP. Response.StatusCode 500 == |Ağ |
 | (Tümü) PercentTimeoutError içinde artırın |* StatusCode 500 == |Tümü |
-| İçinde PercentNetworkError artırın |AzureStorageClientDotNetV4.EventLogEntry.Level < 2 |İstemci |
+| İçinde PercentNetworkError artırın |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |İstemci |
 | HTTP 403 (Yasak iletileri) |HTTP. Response.StatusCode 403 == |Ağ |
 | HTTP 404 (bulunamadı) iletileri |HTTP. Response.StatusCode 404 == |Ağ |
-| 404 (Tümü) |* StatusCode 404 == |Tümü |
+| 404 (Tümü) |*StatusCode   == 404 |Tümü |
 | Paylaşılan erişim imzası (SAS) yetkilendirme sorunu |AzureStorageLog.RequestStatus "SASAuthorizationError" == |Ağ |
 | HTTP 409 (Çakışma) iletileri |HTTP. Response.StatusCode 409 == |Ağ |
-| 409 (Tümü) |* StatusCode 409 == |Tümü |
+| 409 (Tümü) |*StatusCode   == 409 |Tümü |
 | Düşük PercentSuccess veya analytics günlük girişlerini ClientOtherErrors işlem durumundaki işlemlerini sahip |AzureStorageLog.RequestStatus "ClientOtherError" == |Sunucu |
 | Nagle uyarı |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) ve (AzureStorageLog.RequestPacketSize < 1460) ve (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Sunucu |
 | Sunucu ve ağ günlüklerine zaman aralığı |#Timestamp > = 2014-10-20T16:36:38 ve #Timestamp < = 2014-10-20T16:36:39 |Sunucu, ağ |

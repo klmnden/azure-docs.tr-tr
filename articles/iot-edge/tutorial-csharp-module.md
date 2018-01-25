@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Geliştir ve C# IOT kenar modülünü sanal Cihazınızı dağıtmak - Önizleme
 
@@ -31,7 +31,7 @@ Bu öğreticide oluşturduğunuz IOT kenar modülü cihazınız tarafından olu�
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Hızlı Başlangıç ya da ilk öğreticide oluşturduğunuz Azure IOT sınır cihazı.
-* IOT sınır cihazı için birincil anahtar bağlantı dizesi.  
+* IoT Edge cihazı için birincil anahtar bağlantı dizesi.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Visual Studio Code için Azure IOT kenar uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [C# Visual Studio Code (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
@@ -70,6 +70,14 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
 5. VS Code Explorer'da tıklatın **Program.cs** açın.
 
    ![Program.cs açın][1]
+
+6. Üstündeki **FilterModule** ad alanı, üç eklemek `using` deyimleri daha sonra kullanılan türleri için:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. Ekleme `temperatureThreshold` değişkenini **Program** sınıfı. Bu değişken, IOT Hub'ına gönderilecek verileri sırayla ölçülen sıcaklık aşmalıdır değeri ayarlar. 
 
@@ -247,7 +255,7 @@ Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı ka
 ## <a name="run-the-solution"></a>Çözümü çalıştırın
 
 1. İçinde [Azure portal](https://portal.azure.com), IOT hub'ına gidin.
-2. Git **IOT kenar (Önizleme)** ve IOT sınır cihazı seçin.
+2. **IoT Edge (önizleme)** sayfasına gidip IoT Edge cihazınızı seçin.
 3. Seçin **ayarlamak modülleri**. 
 2. Denetleyin **tempSensor** modülü otomatik olarak doldurulur. Değilse, bunu eklemek için aşağıdaki adımları kullanın:
     1. Seçin **IOT kenar Modül Ekle**.

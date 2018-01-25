@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Noktadan siteye VPN hakkında
 
@@ -36,7 +36,7 @@ Noktadan siteye VPN aşağıdaki protokollerden birini kullanabilirsiniz:
 Windows ve Mac cihazları oluşan bir karma istemci ortamınız varsa, SSTP ve Ikev2 yapılandırın.
 
 >[!NOTE]
->P2S için Ikev2 Resource Manager dağıtım modeli için kullanılabilir. Klasik dağıtım modeli için kullanılabilir değil.
+>Resource Manager dağıtım modeli için yalnızca Ikev2 P2S için kullanılabilir. Klasik dağıtım modeli için kullanılabilir değil.
 >
 
 ## <a name="authentication"></a>P2S VPN istemcileri nasıl doğrulanır?
@@ -67,6 +67,10 @@ Kullanıcılar yerel VPN istemcileri, Windows ve Mac cihazlarda P2S için kullan
 * Mac cihazlar için kullanıcıların cihazlarına yüklemesi mobileconfig dosya oluşur.
 
 Zip dosyası bazı önemli ayarları değerleri bu aygıtlar için kendi profili oluşturmak için kullanabileceğiniz Azure tarafında de sağlar. Bazı değerleri, VPN ağ geçidi adresi, yapılandırılmış tünel türünü, yollar ve ağ geçidi doğrulaması için kök sertifikasını içerir.
+
+>[!NOTE]
+>Windows istemcileri için istemci cihazı Azure VPN bağlantısını başlatmak için istemci cihaz üzerinde yönetici hakları olmalıdır.
+>
 
 ### <a name="gwsku"></a>Hangi ağ geçidi SKU'ları destek P2S VPN?
 

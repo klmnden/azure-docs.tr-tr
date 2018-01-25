@@ -2,26 +2,24 @@
 title: "Azure Storage veri çoğaltması | Microsoft Docs"
 description: "Microsoft Azure depolama hesabınızdaki veriler dayanıklılık ve yüksek kullanılabilirlik için çoğaltılır. Çoğaltma seçenekleri yerel olarak yedekli depolama (LRS), bölge olarak yedekli depolama (ZRS), coğrafi olarak yedekli depolama (GRS) ve okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) içerir."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 86bdb6d4-da59-4337-8375-2527b6bdf73f
+manager: jeconnoc
 ms.service: storage
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 45883d59e5fe9ab2b7a09bfdc6c11a681bd43d0b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
-Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Çoğaltma işlemi, belirlediğiniz çoğaltma seçeneğine göre verilerinizi aynı veri merkezine veya ikinci bir veri merkezine kopyalar. Çoğaltma işlemi, geçici donanım hataları söz konusu olduğunda uygulamanızın çalışma süresini ve verilerinizi korur. Verileriniz için ikinci bir veri merkezi çoğaltılır, birincil konumda yıkıcı bir hatadan korunmaktadır.
+
+Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Böylece uygulama yukarı zamanı koruma geçici donanım hatalarından korumalı çoğaltma verilerinizi kopyalar. 
+
+Verilerinizi aynı veri merkezi içinde aynı bölge içinde veri merkezleri arasında veya bölgeler arasında çoğaltma seçebilirsiniz. Verilerinizin birden çok veri merkezleri arasında veya bölgeler arasında çoğaltılır, tek bir konumda yıkıcı bir hatadan da korunur.
 
 Çoğaltma işlemi, hata durumunda bile depolama hesabınızın [Depolama için Hizmet Düzeyi Sözleşmesi'ne (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) uymasını sağlar. Azure Depolama'nın dayanıklılık ve kullanılabilirlikle ilgili sağladığı garantiler hakkında bilgi edinmek için SLA'ya göz atın.
 
@@ -34,7 +32,7 @@ Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini s
 
 Bir depolama hesabı oluşturduğunuzda okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) varsayılan seçenektir.
 
-Aşağıdaki tabloda daha ayrıntılı çoğaltma her türünü sonraki bölümlerinde ele LRS, ZRS, GRS ve RA-GRS, arasındaki farklar hızlı bir genel bakış sağlar.
+Aşağıdaki tabloda LRS, ZRS, GRS ve RA-GRS arasındaki farklar hızlı bir bakış sağlar. Bu makalenin sonraki bölümlerinde daha ayrıntılı çoğaltma her türünü adres.
 
 | Çoğaltma stratejisi | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
@@ -52,74 +50,107 @@ Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/detai
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Bölge olarak yedekli depolama
-Bölge olarak yedekli depolama (ZRS) en az %99.9999999999 sağlamak için tasarlanmıştır (12 9'in) dayanıklılık verilerinizi, böylece LRS'den daha fazla daha yüksek bir dayanıklılık sağlayan bir veya iki bölgeleri içindeki veri merkezleri arasında zaman uyumsuz olarak çoğaltan tarafından verilen bir yıl içinde nesne. Birincil veri merkezindeki kullanılamıyor veya kurtarılamaz olsa bile, ZRS içinde depolanan verileri dayanıklı.
-ZRS kullanmayı planlıyorsanız müşteriler kullanan:
 
-* ZRS, yalnızca blok bloblar genel amaçlı depolama hesapları için kullanılabilir ve yalnızca depolama hizmeti sürümleri 2014-02-14 içinde ve üzerinde desteklenir.
-* Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, yerel bir olağanüstü durumda birincil sunucudan verileri kurtarılamazsa, ikincil henüz çoğaltılmamış değişiklikler kaybolacak mümkündür.
-* İkincil bir yük devretme Microsoft başlatana kadar çoğaltma kullanılamayabilir.
-* ZRS hesapları daha sonra LRS veya GRS dönüştürülemez. Benzer şekilde, varolan LRS veya GRS hesabı ZRS hesabına dönüştürülemiyor.
-* ZRS hesapları, ölçümleri veya günlüğe kaydetme özelliğine sahip.
+Bölge olarak yedekli depolama (ZRS) (Önizleme), yüksek oranda kullanılabilir uygulamalar geliştirmeyi kolaylaştırmak için tasarlanmıştır. ZRS depolama nesneler en az %99.9999999999 için dayanıklılık sağlar (12 9'in) belirli bir yılın üstünde. ZRS, verilerinizin eşzamanlı olarak birden çok kullanılabilirlik dilimlerinde çoğaltır. İşlemsel uygulamaları kapalı kalma süresi kabul edilebilir olduğu gibi senaryolar için ZRS göz önünde bulundurun.
+
+ZRS okumak ve tek bir bölge kullanılamıyor veya kurtarılamaz olduğunda bile veri yazmak müşterilerin sağlar. Ekler ve veri güncelleştirmeleri zaman uyumlu olarak yapılan ve kesinlikle tutarlı.   
+
+ZRS şu anda aşağıdaki bölgelerde, daha fazla bölgeleriyle yakında Önizleme için kullanılabilir:
+
+- ABD Doğu 2 
+- ABD Orta 
+- Fransa Merkezi (Bu şu anda önizlemede bölgedir. Bkz: [Azure kullanılabilirlik bölgeleri Fransa içinde artık açık ile Microsoft Azure Önizleme](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) erişim isteğinde bulunmak için.)
+
+### <a name="zrs-classic-accounts"></a>ZRS Klasik hesapları
+
+Artık mevcut ZRS özelliği için ZRS Klasik adlandırılır. ZRS Klasik hesapları yalnızca blok bloblar genel amaçlı V1 depolama hesapları için kullanılabilir. 
+
+ZRS Klasik verilerini zaman uyumsuz olarak bir veya iki bölgeleri içindeki veri merkezleri arasında çoğaltır. İkincil bir yük devretme Microsoft başlatır sürece, bir çoğaltma kullanılamıyor olabilir. 
+
+ZRS Klasik hesapları için veya LRS, GRS veya RA-GRS dönüştürülemez. ZRS Klasik hesapları, ölçümleri veya günlük kaydı da desteklemez.   
+
+ZRS bir bölgede genellikle kullanılabilir olduğunda, artık bu bölgede portalından ZRS klasik bir hesap oluşturmak mümkün olacaktır, ancak arasında başka yollarla bir tane oluşturabilirsiniz.  
+Bir otomatik geçiş işleminden ZRS Klasik ZRS için gelecekte sağlanır.
+
+Bu bölgede ZRS hesabı ya da bir LRS, GRS ve RAGRS hesaptan el ile geçirme ZRS hesaplarını destekler. AzCopy, Azure Storage Gezgini, Azure PowerShell, Azure CLI veya Azure Storage istemci kitaplıklarından birini kullanarak bu el ile geçiş işlemi gerçekleştirebilirsiniz.
+
+> [!NOTE]
+> ZRS Klasik hesaplarını kullanımdan kaldırma ve 31 Mart 2021 üzerinde gerekli geçiş için planlanmıştır. Microsoft, kullanımdan önce ZRS Klasik müşteriler için daha fazla bilgi gönderir.
+
+Ek soruları ele içinde [sık sorulan sorular](#frequently-asked-questions) bölümü. 
 
 ## <a name="geo-redundant-storage"></a>Coğrafi Olarak Yedekli Depolama
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>Coğrafi olarak yedekli depolamaya okuma erişimi
-Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) GRS tarafından sağlanan iki bölgede çoğaltma ek olarak ikincil konumdaki verileri salt okunur erişim sağlayarak depolama hesabınız için kullanılabilirliği en üst düzeye çıkarır.
+Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) depolama hesabınız için kullanılabilirliği en üst düzeye çıkarır. RA-GRS iki bölgede coğrafi çoğaltma ek olarak ikincil konum verilerine salt okunur erişim sağlar.
 
-İkincil bölge verilerinize salt okunur erişimi etkinleştirdiğinizde, verilerinizi depolama hesabınız için birincil endpoint ek olarak ikincil bir uç noktası kullanılabilir. İkincil uç birincil uç noktasına benzer, ancak son ekine ekler `–secondary` hesap adı. Örneğin, Blob Hizmeti uç noktanızı birincil ise `myaccount.blob.core.windows.net`, ikincil uç noktanız ise `myaccount-secondary.blob.core.windows.net`. Erişim tuşları depolama hesabınız için birincil ve ikincil uç için aynıdır.
+İkincil bölge verilerinize salt okunur erişimi etkinleştirdiğinizde, verilerinizi ve depolama hesabınız için birincil noktadaki aynı zamanda bir ikincil uç noktası kullanılabilir. İkincil uç birincil uç noktasına benzer, ancak son ekine ekler `–secondary` hesap adı. Örneğin, Blob Hizmeti uç noktanızı birincil ise `myaccount.blob.core.windows.net`, ikincil uç noktanız ise `myaccount-secondary.blob.core.windows.net`. Erişim tuşları depolama hesabınız için birincil ve ikincil uç için aynıdır.
 
-Dikkate alınacak noktalar:
+RA-GRS kullanırken göz önünde bulundurmanız gereken bazı noktalar:
 
 * Bunu ile RA-GRS kullanırken etkileşimde hangi uç noktaya yönetmek, uygulamanızın sahiptir.
-* Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, bölgesel bir olağanüstü durumda birincil bölgesinden veri kurtarılamazsa, ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolacak mümkündür.
-* Microsoft ikincil bölgeye yük devretme durumunda başlatır, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](../storage-disaster-recovery-guidance.md).
-* RA-GRS, yüksek kullanılabilirlik sağlamak için tasarlanmıştır. Ölçeklenebilirlik yönergeleri için lütfen inceleyin [performans denetim listesi](../storage-performance-checklist.md).
+* Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, veri birincil bölgesinden örneğin bölgesel bir olağanüstü durumda kurtarılamazsa, ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolabilir.
+* Microsoft ikincil bölgeye yük devretme durumunda başlatır, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için bkz: [olağanüstü durum kurtarma Kılavuzu](../storage-disaster-recovery-guidance.md).
+* RA-GRS, yüksek kullanılabilirlik sağlamak için tasarlanmıştır. Ölçeklenebilirlik rehberlik için gözden [performans denetim listesi](../storage-performance-checklist.md).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 <a id="howtochange"></a>
-#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Depolama Hesabımı coğrafi çoğaltma türünü nasıl değiştirebilir miyim?
+#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Depolama Hesabımı coğrafi çoğaltma türü nasıl değiştirebilir miyim?
 
-   Depolama hesabınız LRS, GRS ve RA-GRS kullanarak arasında coğrafi çoğaltma türünü değiştirebilirsiniz [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) veya program aracılığıyla bizim birçok depolama istemci kitaplıklarından birini kullanma.
-Lütfen ZRS hesapları dönüştürülen LRS veya GRS olamayacağını unutmayın. Benzer şekilde, varolan LRS veya GRS hesabı ZRS hesabına dönüştürülemiyor.
+   Depolama hesabınız coğrafi çoğaltma türünü kullanarak değiştirebilirsiniz [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), ya da Azure Storage istemci kitaplıklarından birini.
 
+   > [!NOTE]
+   > ZRS hesapları dönüştürülmüş LRS veya GRS olamaz. Benzer şekilde, varolan LRS veya GRS hesabı ZRS hesabına dönüştürülemiyor.
+    
 <a id="changedowntime"></a>
-#### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. Depolama Hesabımı çoğaltma türünü değiştirirseniz var. herhangi kesinti olacak?
+#### <a name="2-does-changing-the-replication-type-of-my-storage-account-result-in-down-time"></a>2. My depolama hesabı sonucu kesinti çoğaltma türünü değiştirme mu?
 
-   Hayır, olmayacak herhangi kesinti.
+   Hayır, depolama hesabınız çoğaltma türünü değiştirme süresini neden değil.
 
 <a id="changecost"></a>
-#### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. Depolama Hesabımı çoğaltma türünü değiştirirseniz, ek bir maliyet var. olacak mı?
+#### <a name="3-are-there-additional-costs-to-changing-the-replication-type-of-my-storage-account"></a>3. Depolama Hesabımı çoğaltma türünü değiştirmek için ek ücretler var mı?
 
-   Evet. Depolama hesabınız için GRS (veya RA-GRS) LRS'den değiştirirseniz, var olan verileri birincil konumdan ikincil konuma kopyalanması söz konusu çıkışı için ek bir ücret doğurur. İlk veri kopyalandıktan sonra coğrafi veri birincil sunucudan ikincil konuma çoğaltmak için daha fazla ek çıkış ücretsiz yoktur. Bant genişliği ücretleri ayrıntılarını bulunabilir [Azure depolama Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/storage/blobs/).
-LRS için GRS değiştirirseniz, ek bir maliyet yoktur, ancak ikincil konumdan verileriniz silinir.
+   Evet. Depolama hesabınız için GRS (veya RA-GRS) LRS'den değiştirirseniz, varolan verilerin birincil konumdan ikincil konuma kopyalanması söz konusu çıkışı için ek bir ücret doğurur. İlk veri kopyalandıktan sonra coğrafi çoğaltma olarak birincil kopyadan ikincil konuma için hiçbir ek ek çıkış ücretlerini vardır. Bant genişliği ücretleri hakkında daha fazla bilgi için bkz: [Azure depolama Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+   LRS için GRS değiştirirseniz, ek bir maliyet yoktur, ancak, verileri ikincil konumdan silinir.
 
 <a id="ragrsbenefits"></a>
 #### <a name="4-how-can-ra-grs-help-me"></a>4. RA-GRS bana nasıl yardımcı?
 
-   GRS depolama çoğaltmayı birincil sunucudan verileriniz birincil bölge çıktığınızda mil yüzlerce olan ikincil bir bölgeye sağlar. Böyle bir durumda, hatta tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil söz konusu olduğunda dayanıklı verilerdir. RA-GRS depolama bu içerir ve verileri ikincil konumdan okuma özelliği ekler. Bu özelliği kullanabilmeniz nasıl hakkında bazı fikir edinmek için lütfen [tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](../storage-designing-ha-apps-with-ragrs.md).
+   GRS depolama çoğaltmayı birincil sunucudan verileriniz birincil bölge çıktığınızda mil yüzlerce olan ikincil bir bölgeye sağlar. GRS ile bile tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil durumunda verilerinizi sağlam değil. RA-GRS depolama GRS çoğaltma sunar ve verileri ikincil konumdan okuma özelliği ekler. Yüksek kullanılabilirlik için tasarım konusunda daha fazla bilgi için bkz: [tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](../storage-designing-ha-apps-with-ragrs.md).
 
 <a id="lastsynctime"></a>
-#### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Bana verilerimi birincil sunucudan ikincil bölge'ye çoğaltmak için gereken süreyi şekil için bir yolu var mı?
+#### <a name="5-is-there-a-way-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Verilerimi birincil sunucudan ikincil bölge'ye çoğaltmak için gereken süreyi şekilde yolu var mı?
 
-   RA-GRS depolama kullanıyorsanız, depolama hesabınıza son eşitleme zamanı kontrol edebilirsiniz. Son eşitleme saati GMT tarih/saat değeridir; Son eşitleme zamanı önce tüm birincil yazma başarıyla ikincil konumdan okumak kullanılabilir olduğu anlamına gelir ve ikincil konum için yazılmıştır. Son eşitleme süresi okumalar henüz kullanılabilir durumda olmayabilir veya sonra birincil yazar. Bu değeri kullanarak sorgulama yapabilirsiniz [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), veya program aracılığıyla REST API veya depolama istemci kitaplıklarından birini kullanarak.
+   RA-GRS depolama kullanıyorsanız, depolama hesabınıza son eşitleme zamanı kontrol edebilirsiniz. Son eşitleme saati GMT tarih/saat değeridir. Son eşitleme zamanı önce tüm birincil yazma başarıyla ikincil konumdan okumak kullanılabilir olduğu anlamına gelir ve ikincil konum için yazılmıştır. Son eşitleme süresi okumalar henüz kullanılabilir durumda olmayabilir veya sonra birincil yazar. Bu değeri kullanarak sorgulama yapabilirsiniz [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), veya bir Azure Storage istemcisi kitaplıklarını.
 
 <a id="outage"></a>
-#### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. Birincil bölgede bir kesinti durumunda nasıl ikincil bölge'ye geçebilirsiniz?
+#### <a name="6-if-there-is-an-outage-in-the-primary-region-how-do-i-switch-to-the-secondary-region"></a>6. Birincil bölgede bir kesinti durumunda nasıl ikincil bölge'ye geçiş?
 
-   Lütfen makalesine başvurun [bir Azure Storage kesinti oluşursa yapmanız gerekenler](../storage-disaster-recovery-guidance.md) daha fazla ayrıntı için.
+   Daha fazla bilgi için bkz: [bir Azure Storage kesinti oluşursa yapmanız gerekenler](../storage-disaster-recovery-guidance.md).
 
 <a id="rpo-rto"></a>
 #### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. RPO ve GRS ile RTO nedir?
 
-   Kurtarma noktası hedefi (RPO): GRS ve RA-GRS depolama hizmeti zaman uyumsuz olarak coğrafi çoğaltır verilerini birincil ve ikincil konum. Önemli bir bölgesel olağanüstü durum yoktur ve bir yük devretme gerçekleştirilecek sahipse, coğrafi olarak çoğaltılmış edilmemiş son delta değişiklikler kaybolabilir. Kayıp olası veri dakika sayısı (yani noktası verilerin kurtarılabilmesini zamanında) RPO olarak adlandırılır. Genellikle bir RPO 15 dakikadan kısa sahibiz, olmasına rağmen şu anda hiçbir SLA ne kadar süreyle coğrafi çoğaltma üzerinde alır.
+   **Kurtarma noktası hedefi (RPO):** GRS ve RA-GRS depolama hizmet zaman uyumsuz olarak coğrafi çoğaltır verilerini birincil ve ikincil konum. Birincil bölgede bir ana bölgesel olağanüstü durumda Microsoft ikincil bölge için bir yük devretme gerçekleştirir. Bir yük devretme durumda coğrafi olarak çoğaltılmış henüz edilmemiş son değişiklikler kaybolabilir. Kayıp olası veri dakika sayısını RPO adlandırılır ve verilerin kurtarılabilmesini zamanında noktasını belirtir. Azure depolama genellikle, 15 dakikadan kısa bir RPO'ya sahip, olmasına rağmen şu anda hiçbir SLA üzerinde ne kadar süreyle coğrafi çoğaltma alır.
 
-   Kurtarma süresi hedefi (RTO): Bu, yük devretme işlemi gerçekleştirin ve bir yük devretme yapmak varsa depolama hesabı çevrimiçine almak için bize süreyi bir ölçüsüdür. Yük devretme için zaman aşağıdakileri içerir:
-    * Bize araştırmak ve biz birincil konumdaki verileri kurtarabilir veya gerekiyorsa belirlemek için gereken süreyi biz bir yük devretme yapmanız gerekir.
-    * İkincil konumunu gösterecek şekilde yük devretme, birincil DNS girişlerini değiştirerek hesabı.
+   **Kurtarma süresi hedefi (RTO):** RTO depolama hesabı çevrimiçine alın ve yük devretme gerçekleştirmek için gereken süreyi ölçüsüdür. Yük devretme gerçekleştirmek için gereken süre aşağıdaki eylemleri içerir:
 
-   Biz, veri kurtarma ihtimali varsa, biz yük devretme yapmayı bekletir ve birincil konumda veri kurtarma odaklanmak için verilerinizi çok ciddiye koruma sorumluluğunu alın. Gelecekte, ardından RTO kendiniz denetlemenize olanak tanır, bir hesap düzeyinde bir yük devretme tetiklemek izin vermek için bir API sağlayan planlıyoruz ancak bu henüz kullanılabilir değil.
+   * Saat veri birincil konumda kurtarılabilir olup olmadığını veya bir yük devretme gerekli olup olmadığını belirlemek için Microsoft gerektirir.
+   * Depolama hesabı için yük devretme ikincil konumunu gösterecek şekilde birincil DNS girdilerini değiştirerek gerçekleştirmek için geçen süre.
+
+   Microsoft, verilerinizin ciddi koruma sorumluluğunu alır. Birincil bölge içinde veri kurtarma herhangi olasılığı varsa, Microsoft yük devretme gecikme ve verilerinizi kurtarma odaklanabilirsiniz. Hizmet gelecek bir sürümünde, böylece kendiniz RTO kontrol edebilirsiniz hesap düzeyinde bir yük devretme tetiklemek izin verir.
+
+#### <a name="8-what-azure-storage-objects-does-zrs-support"></a>8. Hangi Azure Storage nesneleri ZRS destekliyor mu? 
+Blok blobları, sayfa blobları (dışında bu yedekleme VM diskleri), tablolar, dosyalar ve sıralar. 
+
+#### <a name="9-does-zrs-also-include-geo-replication"></a>9. ZRS, ayrıca coğrafi çoğaltma içeriyor mu? 
+Şu anda ZRS coğrafi çoğaltma desteklemiyor. Senaryonuz olağanüstü durum kurtarma amacıyla bölgeler arası çoğaltma gerektiriyorsa, bir GRS veya RA-GRS depolama hesabı kullanın.   
+
+#### <a name="10-what-happens-when-one-or-more-zrs-zones-go-down"></a>10. Bir veya daha fazla ZRS bölgeleri Git aşağı ne olur? 
+İlk bölgeye azaldığında ZRS bölgede iki kalan bölgeler arasında verilerin çoğaltmalarının yazmaya devam eder. İkinci bir saat dilimi devre dışı kalırsa, okuma ve yazma erişimi kullanılamıyor kadar en az iki bölgeleri yeniden kullanılabilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [RA-GRS depolama kullanarak yüksek oranda kullanılabilir uygulamalar tasarlama](../storage-designing-ha-apps-with-ragrs.md)

@@ -13,19 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-<<<<<<< HEAD
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure faturalama ve maliyet yönetimi ile beklenmeyen ücret oluşmasını önlemek
 
@@ -163,6 +157,7 @@ Kurumsal Maliyet görünümleri şu anda genel önizlemede. Dikkate alınacaklar
 - Abonelik maliyetleri kullanıma dayalı ve ön ödemeli tutarların, fazlalığı, dahil edilen miktarlar, değişiklikler ve vergileri hesabı değil. Gerçek ücret kayıt düzeyinde hesaplanır. 
 - Azure portalını gösterilen tutarlar Enterprise portal değerlerde karşılaştırıldığında gecikebilir.  
 - Maliyetleri görmüyorsanız, aşağıdaki nedenlerden biri olabilir:
+    - Abonelik düzeyinde yeterli RBAC izniniz yok. Kurumsal Maliyet görünümleri görmek için faturalama Okuyucu, okuyucu, katkıda bulunan veya abonelik düzeyinde sahip olması gerekir.
     - Bir hesap sahibi olduğunuz ve kayıt yöneticiniz "ayarı AO görünüm ücretleri" devre dışı bıraktı.  Kayıt maliyetleri erişmek için yöneticinize başvurun. 
     - Bir bölüm yöneticisiyseniz ve kayıt yöneticiniz "ayarını DA görünüm ücretleri" devre dışı bıraktı.  Kayıt erişim kazanmak için yöneticinize başvurun. 
     - Bir kanal iş ortağı üzerinden Azure satın alınan ve iş ortağı fiyatlandırma bilgileri yayımlamadı.  

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/06/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple güvenlik ve veri koruması
 
@@ -155,7 +155,7 @@ Hizmet verileri şifreleme anahtarı yalnızca hizmete kayıtlı ilk cihaz üzer
 > [!IMPORTANT]
 > Hizmet verileri şifreleme anahtarı bir kopyasını alın ve güvenli bir konuma kaydetmek çok önemlidir. Hizmet verileri şifreleme anahtarı bir kopyasını bir yetkili kişi tarafından erişilebilir ve cihaz Yöneticisi kolayca bildirilmesi şekilde depolanması gerekir.
 > 
-> Hizmet verileri şifreleme anahtarı kaybolursa, Microsoft Destek ekibiyle en az bir aygıt çevrimiçi bir durumda olması koşuluyla almak için yardımcı olabilir. Bunu alındıktan sonra hizmet verileri şifreleme anahtarı değiştirmenizi öneririz. Yönergeler için Git [hizmet verileri şifreleme anahtarı değiştirmek](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Hizmet verileri şifreleme anahtarı kaybolursa, Microsoft Destek ekibiyle en az bir aygıt çevrimiçi bir durumda olması koşuluyla almak için yardımcı olabilir. Bunu alındıktan sonra hizmet verileri şifreleme anahtarı değiştirmenizi öneririz.
 
 Hizmet verileri şifreleme anahtarı ve karşılık gelen veri şifreleme sertifikasını değiştirmek için adımları [StorSimple cihaz Yöneticisi hizmeti için hizmet verileri şifreleme anahtarı değiştirmek](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Şifreleme anahtarları değiştirilmesi tüm cihazlar yeni anahtarla güncelleştirilmesini gerektirir. Bu nedenle, tüm cihazlar çevrimiçi olduğunda bu anahtar değiştirmenizi öneririz. Cihaz çevrimdışı ise, kendi anahtarları farklı bir zamanda değiştirilebilir. Güncel olmayan anahtarları aygıtlarla hala yedeklemeleri çalıştırma mümkün olacaktır, ancak bunlar anahtar güncelleştirilene kadar verileri geri yüklemek mümkün olmaz.
 
@@ -254,7 +254,7 @@ Bazı hakkında sorular ve yanıtlar güvenlik ve Microsoft Azure StorSimple ver
 
 **Y:** StorSimple Aygıt Yöneticisi'ni hizmetinden yeni sertifikayı yükleyin ve ardından bunu, uzaktan erişim istemcilerinin sertifika deposunda yüklü olmasını sağlayın. Yönergeler için aşağıdaki adrese gidin:
 
-* [Sertifika İçeri Aktar cmdlet'i](https://technet.microsoft.com/library/hh848630.aspx)
+* [Import-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
 
 **S:** StorSimple cihaz Yöneticisi hizmeti aşılıp aşılmadığını korumalı my veri?
 

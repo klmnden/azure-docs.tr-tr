@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder
 Bu makalede HTTP veri toplayıcı API'sini bir REST API istemciden için günlük analizi veri göndermek için nasıl kullanılacağı gösterilmektedir.  Bu komut dosyası veya uygulama tarafından toplanan veri biçimi, bir istekte içerir ve günlük analizi tarafından yetkili bu istekte açıklar.  PowerShell, C# ve Python için örnekler verilmiştir.
@@ -42,8 +42,8 @@ HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) gö
 ### <a name="request-uri"></a>İstek URI'si
 | Öznitelik | Özellik |
 |:--- |:--- |
-| Yöntem |YAYINLA |
-| URI |https://\<CustomerID\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| Yöntem |POST |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | İçerik türü |uygulama/json |
 
 ### <a name="request-uri-parameters"></a>İstek URI parametreleri
@@ -51,10 +51,10 @@ HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) gö
 |:--- |:--- |
 | CustomerID |Microsoft Operations Management Suite çalışma alanı için benzersiz tanımlayıcı. |
 | Kaynak |API kaynak adı: / api/günlükleri. |
-| API sürümü |Bu istekle kullanmak için API sürümü. Şu anda, 2016-04-01 değil. |
+| API Sürümü |Bu istekle kullanmak için API sürümü. Şu anda, 2016-04-01 değil. |
 
-### <a name="request-headers"></a>İstek üstbilgileri
-| Üstbilgi | Açıklama |
+### <a name="request-headers"></a>İstek üst bilgileri
+| Üst bilgi | Açıklama |
 |:--- |:--- |
 | Yetkilendirme |Yetkilendirme imzası. Makalenin sonraki bölümlerinde HMAC SHA256 üstbilgi oluşturma hakkında bilgi edinebilirsiniz. |
 | Günlük türü |Gönderiliyor veri kaydı türünü belirtin. Şu anda, yalnızca alfasayısal karakterler günlük türünü destekler. Sayısal türler veya özel karakterler desteklemez. |
@@ -132,12 +132,12 @@ Her istek için günlük analizi API içermelidir bir **günlük türü** kayıt
 
 Bir özelliğin veri türünü tanımlamak için günlük analizi özellik adına bir sonek ekler. Bir özellik boş bir değer içeriyorsa, özelliği bulunan ve bu kaydı bulunmaz. Bu tablo karşılık gelen sonek ve özellik veri türünü listeler:
 
-| Özellik veri türü | Son eki |
+| Özellik veri türü | Sonek |
 |:--- |:--- |
-| Dize |_Yanları |
-| Boole değeri |_B |
-| Çift |_D |
-| Tarih/saat |_T |
+| Dize |_s |
+| Boole |_b |
+| Çift |_d |
+| Tarih/saat |_t |
 | GUID |_g |
 
 Yeni kayıt için kayıt türü zaten var olup üzerinde her bir özellik için günlük analizi kullanır veri türüne bağlıdır.
@@ -175,7 +175,7 @@ Bu tabloda tamamını hizmet döndürebilir durum kodları listelenmektedir:
 
 | Kod | Durum | Hata kodu | Açıklama |
 |:--- |:--- |:--- |:--- |
-| 200 |TAMAM | |İsteği başarıyla kabul edildi. |
+| 200 |Tamam | |İsteği başarıyla kabul edildi. |
 | 400 |Hatalı istek |InactiveCustomer |Çalışma alanı kapatıldı. |
 | 400 |Hatalı istek |InvalidApiVersion |Belirtilen API sürümü, hizmet tarafından tanınmadı. |
 | 400 |Hatalı istek |InvalidCustomerId |Belirtilen çalışma alanı kimliği geçersiz. |
@@ -187,9 +187,9 @@ Bu tabloda tamamını hizmet döndürebilir durum kodları listelenmektedir:
 | 400 |Hatalı istek |UnsupportedContentType |İçerik türü ayarlanmadı **uygulama/json**. |
 | 403 |Yasak |InvalidAuthorization |Hizmet, isteğin kimliğini doğrulayamadı. Çalışma alanı kimliği ve bağlantı anahtarı geçerli olduğunu doğrulayın. |
 | 404 |Bulunamadı | | Sağlanan URL yanlış ya da istek çok büyük. |
-| 429 |Çok fazla istek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen isteği daha sonra yeniden deneyin. |
-| 500 |İç sunucu hatası |UnspecifiedError |Hizmet dahili bir hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
-| 503 |Hizmet kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
+| 429 |Çok Fazla İstek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen isteği daha sonra yeniden deneyin. |
+| 500 |İç Sunucu Hatası |UnspecifiedError |Hizmet dahili bir hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
+| 503 |Hizmet Kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
 
 ## <a name="query-data"></a>Verileri sorgulama
 Günlük analizi HTTP veri toplayıcı API, arama ile kayıt tarafından gönderilen verileri sorgulayamadı **türü** eşit olan **LogType** , belirttiğiniz değer eklenmiş olan **_CL**. Örneğin, kullandığınız **MyCustomLog**, tüm kayıtları döndürecekti sonra **türü MyCustomLog_CL =**.
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>C# örneği

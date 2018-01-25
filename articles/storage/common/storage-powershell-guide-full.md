@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage ile Azure PowerShell’i kullanma
 
@@ -133,7 +133,7 @@ Bir depolama hesabı ayarlarını değiştirmek için kullanmak [Set-AzureRmStor
 
 * **Etiketleri** depolama hesabına atanır. Etiketler, genellikle faturalandırma amaçları için kaynakları sınıflandırmak için kullanılır.
 
-* **SKU** gibi yerel olarak yedekli depolama LRS depolama hesabı için çoğaltma ayardır. Örneğin, standart değişebilir\_için standart LRS\_GRS veya standart\_RAGRS. Standart ZRS veya Premium LRS için diğer SKU'ları değiştiremez, veya diğer SKU'ları için bu değişiklik olduğunu unutmayın. 
+* **SKU** gibi yerel olarak yedekli depolama LRS depolama hesabı için çoğaltma ayardır. Örneğin, standart değişebilir\_için standart LRS\_GRS veya standart\_RAGRS. Standart değiştiremezsiniz Not\_ZRS ya da Premium\_diğer SKU'ları için LRS veya bunları başka SKU'ları değiştirin.
 
 * **Erişim katmanı** Blob storage hesapları için. Erişim katmanı için değer kümesine **etkin** veya **cool**, ve depolama hesabını kullanma ile hizalar erişim katmanı seçerek maliyetini en aza indirmenize olanak sağlar. Daha fazla bilgi için bkz: [, cool, sık erişimli ve depolama katmanları arşiv](../blobs/storage-blob-storage-tiers.md).
 
@@ -185,8 +185,8 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Varsayılan olarak, tüm depolama hesapları internet erişimi olan herhangi bir ağ tarafından erişilebilir. Ancak, ağ kuralları yalnızca bir depolama hesabına erişmek belirli sanal ağlar uygulamalardan izin verecek şekilde yapılandırabilirsiniz. Daha fazla bilgi için bkz: [Azure depolama güvenlik duvarlarını yapılandırın ve sanal ağlar](storage-network-security.md). 
 
 Makaleyi bu ayarları aşağıdaki PowerShell cmdlet'lerini kullanarak yönetmek nasıl gösterir:
-* [Ekleme AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Güncelleştirme AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
+* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
+* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
 * [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
 ## <a name="use-storage-analytics"></a>Storage analytics kullanın  
@@ -223,7 +223,7 @@ Azure Cosmos DB tablo API anahtar teslimi genel dağıtım, düşük gecikme sü
 * Daha fazla bilgi için bkz: [Azure Cosmos DB tablo API](../../cosmos-db/table-introduction.md). 
 * Azure Cosmos DB tablo API işlemleri gerçekleştirmek için PowerShell'i kullanmayı öğrenmek için bkz: [PowerShell ile Azure Cosmos DB tablo API gerçekleştirmek işlemleri](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Azure'nın bağımsız olarak dağıtılan Bulutlar
+## <a name="independent-cloud-deployments-of-azure"></a>Azure bağımsız bulut dağıtımları
 
 Çoğu kişi Azure genel bulut, genel Azure dağıtım için kullanın. Ayrıca vardır Egemenlik, nedeniyle Microsoft Azure bağımsız bazı dağıtımları ve benzeri. Bu bağımsız dağıtımlar "ortamlar" adlandırılır Kullanılabilir ortamlar şunlardır:
 
@@ -235,7 +235,7 @@ Bu Bulut ve PowerShell ile kendi depolama nasıl erişileceği hakkında daha fa
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Yeni bir kaynak grubu ve bu alıştırma için bir depolama hesabı oluşturduysanız, yous tüm kaynak grubunu kaldırma tarafından oluşturulan ve varlıkları kaldırabilirsiniz. Bu grup içinde bulunan tüm kaynaklar da siler. Bu durumda, oluşturulan depolama hesabı ve kaynak grubu kaldırır.
+Yeni bir kaynak grubu ve bu alıştırma için bir depolama hesabı oluşturduysanız, yous tüm kaynak grubunu kaldırma tarafından oluşturulan ve varlıkları kaldırabilirsiniz. Bu, ayrıca grubun içerdiği tüm kaynakları da siler. Bu durumda, oluşturulan depolama hesabı ve kaynak grubu kaldırır.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

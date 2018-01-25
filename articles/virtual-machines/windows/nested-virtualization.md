@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 180b87e18d98bb1e7ddefdcce09fc45d2fc26d0f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>İç içe geçmiş sanallaştırma Azure VM'deki etkinleştirme
 
@@ -31,7 +31,7 @@ Bölgesel Dv3 veya Ev3 serisi sanal makinelerin kullanılabilirliğini görünt�
 
 >[!NOTE]
 >
->Yeni bir sanal makine oluşturma hakkında ayrıntılı yönergeler için bkz: [oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)
+>Yeni bir sanal makine oluşturma hakkında ayrıntılı yönergeler için bkz: [oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
     
 ## <a name="connect-to-your-azure-vm"></a>Azure VM'nize bağlanmak
 
@@ -49,7 +49,7 @@ Sanal makine ile bir uzak masaüstü bağlantısı oluşturun.
 Bu ayarları yapılandırabilirsiniz el ile veya yapılandırma otomatikleştirmek için bir PowerShell komut dosyası sağladık.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Seçenek 1: iç içe geçmiş sanallaştırma yapılandırmak için bir PowerShell betiğini kullanın.
-İç içe geçmiş bir Windows Server 2016 konak sanallaştırmayı etkinleştirmek için bir PowerShell Betiği kullanılabilir [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Komut dosyası, önkoşulları denetler ve iç içe geçmiş sanallaştırma Azure VM'de yapılandırır. Azure VM yeniden yapılandırmayı tamamlamak gereklidir. Bu komut diğer ortamlarda çalışabilir ancak garanti edilmez. İç içe geçmiş sanallaştırma Azure üzerinde çalışan bir canlı video Tanıtımı ile Azure blog gönderisine göz atın! https://aka.MS/AzureNVblog.
+İç içe geçmiş bir Windows Server 2016 konak sanallaştırmayı etkinleştirmek için bir PowerShell Betiği kullanılabilir [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Komut dosyası, önkoşulları denetler ve iç içe geçmiş sanallaştırma Azure VM'de yapılandırır. Azure VM yeniden yapılandırmayı tamamlamak gereklidir. Bu komut diğer ortamlarda çalışabilir ancak garanti edilmez. İç içe geçmiş sanallaştırma Azure üzerinde çalışan bir canlı video Tanıtımı ile Azure blog gönderisine göz atın! https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Seçenek 2: iç içe geçmiş sanallaştırma el ile yapılandırma
 
@@ -77,7 +77,7 @@ Konuk sanal makine için yeni bir sanal ağ bağdaştırıcısı oluşturun ve I
 2. Bir iç anahtar oluşturun.
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. Anahtar özelliklerini görüntülemek ve yeni bağdaştırıcısı İfındex dikkat edin.

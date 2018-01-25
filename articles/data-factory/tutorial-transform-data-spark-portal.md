@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 8bd9382ed5a855368533c6bf2305682861c109c0
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c2ec6706c92f229bb05ad9a19246c6ffe5f615c9
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de Spark etkinliğini kullanarak verileri bulutta dönüştürme
 Bu öğreticide, Azure portalını kullanarak verileri Spark Etkinliği ve isteğe bağlı bir HDInsight bağlı hizmeti ile dönüştüren bir Data Factory işlem hattı oluşturursunuz. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
@@ -25,7 +25,7 @@ Bu öğreticide, Azure portalını kullanarak verileri Spark Etkinliği ve iste�
 > [!div class="checklist"]
 > * Veri fabrikası oluşturma. 
 > * Spark etkinliği ile işlem hattı oluşturma
-> * İşlem hattı çalıştırması tetikleme
+> * İşlem hattı çalıştırmasını tetikleme
 > * İşlem hattı çalıştırmasını izleme.
 
 > [!NOTE]
@@ -81,11 +81,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 1. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
-2. **Yeni veri fabrikası** sayfasında **ad** için **ADFTutorialDataFactory** adını girin. 
+2. **Yeni veri fabrikası** sayfasında **ad** için **ADFTutorialDataFactory** girin. 
       
      ![Yeni veri fabrikası sayfası](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   Azure data factory adı **küresel olarak benzersiz** olmalıdır. Ad alanı için aşağıdaki hatayı görürseniz veri fabrikasının adını değiştirin (örneğin, adınızADFTutorialDataFactory). Data Factory yapıtlarını adlandırma kuralları için [Data Factory - Adlandırma Kuralları](naming-rules.md) makalesine bakın.
+   Azure data factory adı **küresel olarak benzersiz** olmalıdır. Ad alanı için aşağıdaki hatayı görürseniz veri fabrikasının adını değiştirin (örneğin, adınızADFTutorialDataFactory). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](naming-rules.md) makalesine bakın.
   
      ![Ad yok - hata](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 3. Veri fabrikasını oluşturmak istediğiniz Azure **aboneliğini** seçin. 
@@ -180,8 +180,10 @@ Bu bölümde iki Bağlı Hizmet oluşturacaksınız:
     
     ![Doğrula düğmesi](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. **Yayımla**’ta tıklayın. Data Factory kullanıcı arabirimi, varlıkları (bağlı hizmetler ve işlem hattı) Azure Data Factory hizmetinde yayımlar. 
+    
+    ![Yayımla düğmesi](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
-## <a name="trigger-a-pipeline-run"></a>İşlem hattı çalıştırması tetikleme
+## <a name="trigger-a-pipeline-run"></a>İşlem hattı çalıştırmasını tetikleme
 Araç çubuğunda **Tetikle**’ye tıklayıp **Şimdi Tetikle**’ye tıklayın. 
 
 ![Şimdi tetikle](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
@@ -219,7 +221,7 @@ Bu örnekteki işlem hattı, Spark etkinliğini ve isteğe bağlı bir HDInsight
 > [!div class="checklist"]
 > * Veri fabrikası oluşturma. 
 > * Spark etkinliği ile işlem hattı oluşturma
-> * İşlem hattı çalıştırması tetikleme
+> * İşlem hattı çalıştırmasını tetikleme
 > * İşlem hattı çalıştırmasını izleme.
 
 Sanal ağdaki bir Azure HDInsight kümesinde Hive betiği çalıştırarak verileri dönüştürme hakkında bilgi almak için sonraki öğreticiye ilerleyin. 

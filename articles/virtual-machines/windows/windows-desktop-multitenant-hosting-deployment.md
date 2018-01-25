@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: e3209abd17c7ba3e39a67f834be69f113c27a021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Çok kullanıcılı barındırma hakları ile azure'da Windows 10 dağıtma 
 Müşteriler için Windows 10 Kurumsal E3/E5 ile kullanıcı başına ya da Windows sanal masaüstü erişimi her kullanıcı (kullanıcı Abonelik lisansı veya eklenti kullanıcı Abonelik Lisansı), çok kullanıcılı barındırma hakları Windows 10 için Windows 10 lisanslarınızı buluta getirmelerine olanak tanır ve Windows 10 sanal makineleri Azure üzerinde başka bir lisans için ödeme olmadan çalıştırın. Daha fazla bilgi için lütfen bkz [Windows 10 için çok kullanıcılı barındırma](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> Bu makalede, Windows 10 Masaüstü görüntüleri için lisans avantajı uygulamak için gösterir. İçin aşağıdakileri başvurabilirsiniz [Azure karma kullanma avantajları için Windows Server görüntülerini](hybrid-use-benefit-licensing.md).
+> Bu makalede, Windows 10 Pro Masaüstü görüntüleri için lisans avantajı Azure Marketi uygulamak için gösterir.
+> - Windows 7, 8.1, MSDN abonelikleri için Azure Marketi 10 Enterprise (x64) görüntülerinde için lütfen [geliştirme ve test senaryoları için azure'da Windows İstemcisi](client-images.md)
+> - Avantajları lisans Windows Server için lütfen [Azure karma kullanma avantajları için Windows Server görüntülerini](hybrid-use-benefit-licensing.md).
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Windows 10 Azure Market görüntüsünden dağıtma 
@@ -32,8 +34,10 @@ PowerShell'i, CLI ve Azure Resource Manager şablonu dağıtımları için Windo
 
 | İşletim Sistemi  |      PublisherName      |  Sunduğu | Sku |
 |:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows 10  | RS2 Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows 10  | RS2 ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Windows 10 karşıya azure'a VHD
 genelleştirilmiş bir Windows 10 VHD yüklüyorsanız, Windows 10 varsayılan olarak etkin yerleşik yönetici hesabı yok Lütfen unutmayın. Yerleşik Yönetici hesabını etkinleştirmek için aşağıdaki komutu özel betik uzantısı'nın bir parçası olarak ekleyin.
@@ -108,7 +112,7 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-- Daha fazla bilgi edinmek [VDA Windows 10 yapılandırma](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation)
+- Daha fazla bilgi edinmek [VDA Windows 10 yapılandırma](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
 - Daha fazla bilgi edinmek [Windows 10 için çok kullanıcılı barındırma](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
 
 

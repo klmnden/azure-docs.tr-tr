@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Bir özel Docker kapsayıcısı kayıt defteri ile kimlik doğrulaması
 
@@ -61,7 +61,9 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Bir uygulama kimliği unutmayın gerek kalmaması oturum açtıktan sonra Docker kimlik bilgileri önbelleğe alır
 
-Yüklü olan Docker sürümüne bağlı olarak, kullanımını öneren bir güvenlik uyarısı görebilirsiniz `--password-stdin` parametresi. Kullanımı, bu makalenin kapsamı dışında olsa da, bu en iyi yöntem öneririz. Daha fazla bilgi için bkz: [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/) komut başvurusu.
+Yüklü olan Docker sürümüne bağlı olarak, kullanımını öneren bir güvenlik uyarısı görebilirsiniz `--password-stdin` parametresi. Bunun kullanımı bu makalenin kapsamında olmasa da bu en iyi yöntemin izlenmesi önerilir. Daha fazla bilgi için bkz: [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/) komut başvurusu.
+
+ACR gözetimsiz kimlik doğrulaması için bir hizmet sorumlusu kullanma hakkında daha fazla bilgi için bkz: [hizmet asıl adı ile Azure kapsayıcı kayıt defteri kimlik doğrulaması](container-registry-auth-service-principal.md).
 
 ## <a name="admin-account"></a>Yönetici hesabı
 

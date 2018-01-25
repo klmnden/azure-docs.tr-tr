@@ -32,7 +32,7 @@ Azure Backup hizmeti yönetilen disklerle zaman tabanlı yedeklemeler, kolay VM 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 
 Yönetilen diskleri kullanırken, aşağıdaki fatura değerlendirmeleri geçerlidir:
-* Depolama Türü
+* Depolama türü
 
 * Disk Boyutu
 
@@ -53,14 +53,14 @@ Premium yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
 | **Yönetilen premium <br>Disk türü** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Boyutu        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Disk Boyutu        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 Gib'den (1 Tıb) | 2048 GiB (2 TiB) | 4095 Gib'den (4 Tıb) | 
 
 
 Standart yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Standart yönetilen <br>Disk türü** | **S4** | **S6** | **S10** | **S20'NİN** | **S30** | **S40** | **S50** |
+| **Standart yönetilen <br>Disk türü** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Boyutu        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Disk Boyutu        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 Gib'den (1 Tıb) | 2048 GiB (2 TiB) | 4095 Gib'den (4 Tıb) | 
 
 
 **İşlem sayısı**: standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılır. Premium yönetilen disk işlemleri için ücret ödemeden yoktur.
@@ -72,7 +72,7 @@ Yönetilen diskler için fiyatlandırma hakkında ayrıntılı bilgi için bkz: 
 
 ## <a name="managed-disk-snapshots"></a>Yönetilen Disk anlık görüntüler
 
-Salt okunur tam bir kopyasını, varsayılan olarak standart yönetilen disk olarak depolanan yönetilen bir disk yönetilen anlık görüntüsüdür. Anlık görüntüleri ile yönetilen disklerinizi herhangi bir noktada zamanında yedekleyebilirsiniz. Bu anlık görüntüler kaynak disk bağımsız var ve yeni yönetilen diskleri oluşturmak için kullanılabilir. Bunlar, kullanılan boyutuna göre faturalandırılır. Sağlanan kapasite 64 GB ve 10 GB gerçek kullanılan veri boyutunu ile yönetilen bir disk görüntüsünü oluşturursanız, örneğin, anlık görüntü yalnızca kullanılan veri boyutu 10 GB için faturalandırılır.  
+Salt okunur tam bir kopyasını, varsayılan olarak standart yönetilen disk olarak depolanan yönetilen bir disk yönetilen anlık görüntüsüdür. Anlık görüntüleri ile yönetilen disklerinizi herhangi bir noktada zamanında yedekleyebilirsiniz. Bu anlık görüntüler kaynak disk bağımsız var ve yeni yönetilen diskleri oluşturmak için kullanılabilir. Bunlar, kullanılan boyutuna göre faturalandırılır. Örneğin, 64 Gib'den sağlanan kapasitesini ve gerçek kullanılan veri boyutunu 10 Gib'den ile yönetilen bir disk görüntüsünü oluşturursanız, anlık görüntü yalnızca kullanılan veri boyutunu 10 Gib'den için faturalandırılacaksınız.  
 
 [Artımlı anlık görüntüleri](../articles/virtual-machines/windows/incremental-snapshots.md) şu anda yönetilen disklerde desteklenmez, ancak gelecekte desteklenecektir.
 

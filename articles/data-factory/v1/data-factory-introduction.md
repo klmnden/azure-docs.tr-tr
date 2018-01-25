@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: bcd0535c689bfda02b3c100b4ae3ab8bacb932e3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="what-is-azure-data-factory"></a>Azure Data Factory nedir?
 Büyük veri dünyasında, işletmede mevcut verilerden nasıl yararlanılır? Şirket içi veri kaynaklarından veya diğer dağınık veri kaynaklarından elde edilen başvuru verilerini kullanarak bulutta oluşturulan verileri zenginleştirmek mümkün mü? 
 
-Örneğin, bir oyun şirketi, oyunlar tarafından üretilen günlükleri bulutta toplamaktadır. Şirket, bu günlükleri analiz ederek müşteri tercihleri, demografik verileri, kullanım davranışı vs. hakkında bilgi sahibi olmak istemektedir. Ayrıca yukarı satış ve çapraz satış fırsatlarını belirlemek, yeni cazip özellikler geliştirmek, işleri büyütmek ve müşterilerine daha iyi bir deneyim sunmayı amaçlamaktadır. 
+Örneğin, bir oyun şirketi, oyunlar tarafından üretilen günlükleri bulutta toplamaktadır. Şirket, bu günlükleri analiz ederek müşteri tercihleri, demografik verileri, kullanım davranışı vb. hakkında bilgi sahibi olmak istemektedir. Ayrıca yukarı satış ve çapraz satış fırsatlarını belirlemek, işleri büyütmek için yeni cazip özellikler geliştirmek ve müşterilerine daha iyi bir deneyim sunmak istemektedir. 
 
 Bu günlükleri analiz etmek için, şirketin şirket içi veri deposunda bulunan müşteri bilgileri, oyun bilgileri ve pazarlama kampanyası bilgileri gibi başvuru verilerini kullanması gerekir. Bu nedenle, şirket bulut veri deposundan günlük verilerini ve şirket içi veri deposundan başvuru verilerini almak istemektedir. 
 
@@ -43,17 +43,17 @@ Bu günlükleri analiz etmek için, şirketin şirket içi veri deposunda buluna
 
 ![Data Factory'ye genel bakış](media/data-factory-introduction/what-is-azure-data-factory.png) 
 
-Azure Data Factory, bu tür senaryolara yönelik platformdur. *Bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir*. Azure Data Factory hizmetini kullanarak aşağıdaki görevleri gerçekleştirebilirsiniz: 
+Azure Data Factory, bu tür senaryolara yönelik bir platformdur. *Bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir*. Azure Data Factory hizmetini kullanarak aşağıdaki görevleri gerçekleştirebilirsiniz: 
 
 - Farklı veri depolarından veri alabilen veri odaklı iş akışları (işlem hattı olarak adlandırılır) oluşturabilir ve zamanlayabilirsiniz.
 
-- Bu platform Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilir veya dönüştürebilirsiniz.
+- Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilir veya dönüştürebilirsiniz.
 
 -  Çıktı verilerini iş zekası (BI) uygulamalarının kullanması için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilirsiniz.  
 
-Bu, geleneksel bir Ayıklama-Dönüştürme-Yükleme (ETL) platformu yerine daha çok Ayıklama-Dönüştürme (EL) ve sonra Dönüştürme-Yükleme (TL) platformudur. Dönüştürmeler verileri türetilmiş sütun ekleme, satır sayısını belirleme, veri sıralama vs. yerine işlem hizmetlerini kullanarak işler. 
+Bu, geleneksel bir Ayıklama-Dönüştürme-Yükleme (ETL) platformu yerine daha çok Ayıklama-Dönüştürme (EL) ve sonra Dönüştürme-Yükleme (TL) platformudur. Dönüştürmeler verileri türetilmiş sütun ekleme, satır sayısını belirleme, veri sıralama vb. yerine işlem hizmetlerini kullanarak işler. 
 
-Şu anda Azure Data Factory'de iş akışları tarafından kullanılan ve üretilen veriler, *zaman dilimli verilerdir* (saatlik, günlük, haftalık vs.). Örneğin, bir işlem hattı günde bir kez giriş verilerini okuyabilir, verileri işleyebilir ve çıktı üretebilir. Bir iş akışını yalnızca bir kez de çalıştırabilirsiniz.  
+Şu anda Azure Data Factory'de iş akışları tarafından kullanılan ve üretilen veriler, *zaman dilimli verilerdir* (saatlik, günlük, haftalık vb.). Örneğin, bir işlem hattı günde bir kez giriş verilerini okuyabilir, verileri işleyebilir ve çıktı üretebilir. Bir iş akışını yalnızca bir kez de çalıştırabilirsiniz.  
   
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır? 
@@ -71,10 +71,10 @@ Data Factory ile, veri işlem hattında Kopyalama Etkinliği’ni kullanarak hem
 Örneğin, Azure Data Lake Store'da veri toplayabilir ve daha sonra Azure Data Lake Analytics işlem hizmetini kullanarak verileri dönüştürebilirsiniz. Verileri Azure blob depolama alanından toplayıp daha sonra Azure HDInsight Hadoop kümesi kullanarak da dönüştürebilirsiniz.
 
 ### <a name="transform-and-enrich"></a>Dönüştürme ve zenginleştirme
-Veriler buluttaki merkezi bir veri deposuna sunulduktan sonra HDInsight Hadoop, Spark, Data Lake Analytics veya Machine Learning gibi işlem hizmetlerini kullanarak işleyin veya dönüştürün. Üretim ortamlarının güvenilir verilerle beslenmesi için sürdürülebilir ve denetlenebilir bir zamanlamaya göre dönüştürülmüş verileri güvenilir bir şekilde üretmeniz gerekir. 
+Veriler buluttaki merkezi bir veri deposuna yerleştirildikten sonra HDInsight Hadoop, Spark, Data Lake Analytics veya Machine Learning gibi işlem hizmetlerini kullanarak bunları işleyin veya aktarın. Üretim ortamlarının güvenilir verilerle beslenmesi için sürdürülebilir ve denetlenebilir bir zamanlamaya göre dönüştürülmüş verileri güvenilir bir şekilde üretmeniz gerekir. 
 
 ### <a name="publish"></a>Yayımlama 
-Dönüştürülen verileri buluttan SQL Server gibi şirket içi kaynaklara gönderebilirsiniz. Alternatif olarak BI analiz araçları ve diğer uygulamalar tarafından kullanılmak üzere bulut depolama kaynaklarınızda tutabilirsiniz.
+Dönüştürülen verileri buluttan SQL Server gibi şirket içi kaynaklara gönderebilirsiniz. Alternatif olarak BI uygulamaları, analiz araçları ve diğer uygulamalar tarafından kullanılmak üzere bulut depolama kaynaklarınızda tutabilirsiniz.
 
 ## <a name="key-components"></a>Başlıca bileşenler
 Azure aboneliğinin bir veya birden çok Azure Data Factory örneği (veya veri fabrikası) olabilir. Azure Data Factory dört temel bileşenden oluşur. Bu bileşenler, üzerinde veri taşıma ve dönüştürme adımları ile veri odaklı iş akışları oluşturabileceğiniz platformu sağlamak üzere birlikte çalışır. 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
-ms.date: 09/15/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: 9f58ea34dad5d4436c13b64653040bd2a57c299e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8c27f22657f7f8d04aab96fbc2ee25aa19cebd9f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Azure SQL veritabanı için bir sanal Hizmeti uç noktası ve kuralı oluşturmak için PowerShell kullanma
 
@@ -40,15 +40,16 @@ Bu makalede adlı cmdlet vurgular **yeni AzureRmSqlServerVirtualNetworkRule**, b
 
 Aşağıdaki liste, diğer gösterilir *ana* aramanız için hazırlamak için çalıştırmalısınız cmdlet'leri **yeni AzureRmSqlServerVirtualNetworkRule**. Bu makalede, bu çağrıları ortaya [betik 3 "sanal ağ kuralı"](#a-script-30):
 
-1. [AzureRmVirtualNetworkSubnetConfig yeni](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): bir alt ağ nesnesi oluşturur.
+1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): Creates a subnet object.
 
 2. [Yeni-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): sanal ağınızı alt vermiş oluşturur.
 
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): sanal hizmet uç noktası, alt ağına atar.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): Assigns a Virtual Service endpoint to your subnet.
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): sanal ağınıza yapılan güncelleştirmeler devam ettirir.
 
-5. **AzureRmSqlServerVirtualNetworkRule yeni**: bir uç nokta, alt ağ olduktan sonra alt ağınızı bir sanal ağ kuralı Azure SQL veritabanı sunucunuzun ACL ekler.
+5. [AzureRmSqlServerVirtualNetworkRule yeni](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): bir uç nokta, alt ağ olduktan sonra alt ağınızı bir sanal ağ kuralı Azure SQL veritabanı sunucunuzun ACL ekler.
+    - Parametre sunar **- IgnoreMissingVnetServiceEndpoint**, Azure RM PowerShell modülü sürümü 5.1.1 başlangıç.
 
 #### <a name="prerequisites-for-running-powershell"></a>PowerShell çalıştırma önkoşulları
 
