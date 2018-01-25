@@ -40,6 +40,9 @@
       maintainContext: true
     - name: VSTS ile Jenkins kullanma
       href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+    - name: Service Fabric uygulamalarını dağıtma
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Örnekler
   items:
     - name: Örnek işler ve betikler
@@ -50,6 +53,8 @@
       items:
         - name: Azure App Service eklentisi
           href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Azure AD eklentisi
+          href: 'https://plugins.jenkins.io/azure-ad'
         - name: Azure Kapsayıcı Aracıları eklentisi
           href: 'https://plugins.jenkins.io/azure-container-agents'
         - name: Azure Container Service eklentisi
@@ -58,10 +63,14 @@
           href: 'https://plugins.jenkins.io/azure-credentials'
         - name: Azure İşlev eklentisi
           href: 'https://plugins.jenkins.io/azure-function'
+        - name: Azure Service Fabric eklentisi
+          href: 'https://plugins.jenkins.io/service-fabric'
         - name: Azure Depolama eklentisi
           href: 'https://plugins.jenkins.io/windows-azure-storage'
         - name: Azure VM aracıları eklentisi
           href: 'https://plugins.jenkins.io/azure-vm-agents'
+        - name: Azure VM ölçek kümesi eklentisi
+          href: 'https://plugins.jenkins.io/azure-vmss'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Jenkins giriş sayfası

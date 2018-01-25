@@ -248,7 +248,7 @@
           items:
             - name: MongoDB hesabınıza bağlanma
               href: connect-mongodb-account.md
-            - name: MongoChef kullanma
+            - name: Studio 3T kullanma
               href: mongodb-mongochef.md
             - name: Robomongo kullanma
               href: mongodb-robomongo.md

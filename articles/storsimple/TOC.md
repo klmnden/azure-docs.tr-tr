@@ -2,7 +2,6 @@
 
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-ova-overview.md)
-### [Bölge kullanılabilirliği](storsimple-regions.md)
 
 ## başlarken
 ### Planlama
@@ -13,6 +12,7 @@
 ### Dağıtma
 #### [Dağıtmaya hazırlanma](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md)
+##### [Yeni kimlik doğrulaması](storsimple-virtual-array-aad-registration-key.md)
 #### [Hyper-V’de sağlama](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [VMware’de sağlama](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Dosya sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### Dağıtma
 #### [StorSimple Cihaz Yöneticisi hizmeti](storsimple-8000-manage-service.md)
+#### [Hizmet için yeni kimlik doğrulaması](storsimple-8000-aad-registration-key.md)
 #### [Azure’da fiziksel cihaz](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Kamu Portalı'nda fiziksel cihaz](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Azure’da bulut gereci](storsimple-8000-cloud-appliance-u2.md)

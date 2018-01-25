@@ -33,6 +33,9 @@
 #### [PowerShell ile bir kullanılabilirlik alanında genel IP adresi oluşturma](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [CLI ile bir kullanılabilirlik alanında genel IP adresi oluşturma](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### Depolama
+#### [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy.md#zone-redundant-storage)
+
 # Olağanüstü Durum Kurtarma
 ## [Azure Site Recovery’yi kullanma](https://docs.microsoft.com/azure/site-recovery/)
 
