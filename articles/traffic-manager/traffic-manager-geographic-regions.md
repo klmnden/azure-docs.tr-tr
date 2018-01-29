@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Coğrafi trafik yönlendirme yöntemini için Azure Traffic Manager tarafından kullanılan ülke/bölge hiyerarşisi
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
         - AD(Andorra)
 
-        - Al(Albania)
+        - AL(Albania)
 
         - AT(Austria)
 
@@ -65,14 +65,6 @@ ms.lasthandoff: 10/11/2017
         - FR(France)
 
         - GB (Birleşik Krallık)
-
-            - GB-eng(England)
-
-            - GB NIR(Northern Ireland)
-
-            - GB-SCT(Scotland)
-
-            - GB-WLS(Wales)
 
         - GG(Guernsey)
 
@@ -134,13 +126,13 @@ ms.lasthandoff: 10/11/2017
 
         - SK(Slovakia)
 
-        - SM (San Marino)
+        - SM(San Marino)
 
         - UA(Ukraine)
 
         - VA (Vatikan)
 
-        - XJ (Jan Mayen)
+        - XJ(Jan Mayen)
 
         - XK(Kosovo)
 
@@ -186,7 +178,7 @@ ms.lasthandoff: 10/11/2017
 
         - BB(Barbados)
 
-        - Bl'yi Denetlemeye (Saint Barthélemy)
+        - BL(Saint Barthélemy)
 
         - BM(Bermuda)
 
@@ -216,7 +208,7 @@ ms.lasthandoff: 10/11/2017
 
             - CA-on(Ontario)
 
-            - CA PE(Prince Edward Island)
+            - CA-PE(Prince Edward Island)
 
             - CA-QC(Québec)
 
@@ -228,7 +220,7 @@ ms.lasthandoff: 10/11/2017
 
         - Cu(Cuba)
 
-        - CW(CuraÃ§AO)
+        - CW(CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -252,9 +244,9 @@ ms.lasthandoff: 10/11/2017
 
         - Anahtarınıza (Cayman Adaları)
 
-        - LC (Saint Lucia)
+        - LC(Saint Lucia)
 
-        - MF (Saint Martin)
+        - MF(Saint Martin)
 
         - MQ(Martinique)
 
@@ -264,7 +256,7 @@ ms.lasthandoff: 10/11/2017
 
         - NI(Nicaragua)
 
-        - Pa(Panama)
+        - PA(Panama)
 
         - PM (Saint Pierre ve Miquelon)
 
@@ -284,7 +276,7 @@ ms.lasthandoff: 10/11/2017
 
             - US-ak(Alaska)
 
-            - US-Al(Alabama)
+            - US-AL(Alabama)
 
             - US-ar(Arkansas)
 
@@ -300,7 +292,7 @@ ms.lasthandoff: 10/11/2017
 
             - US-de(Delaware)
 
-            - US-fl(Florida)
+            - US-FL(Florida)
 
             - US-GA(Georgia)
 
@@ -340,7 +332,7 @@ ms.lasthandoff: 10/11/2017
 
             - ABD ND(North Dakota)
 
-            - US-ne(Nebraska)
+            - US-NE(Nebraska)
 
             - ABD NH(New Hampshire)
 
@@ -354,9 +346,9 @@ ms.lasthandoff: 10/11/2017
 
             - US-OH(Ohio)
 
-            - US-ok(Oklahoma)
+            - US-OK(Oklahoma)
 
-            - US-OR(oregon)
+            - US-OR(Oregon)
 
             - US-Pa(Pennsylvania)
 
@@ -380,7 +372,7 @@ ms.lasthandoff: 10/11/2017
 
             - US-WI(Wisconsin)
 
-            - ABD WV(West Virginia)
+            - US-WV(West Virginia)
 
             - US-WY(Wyoming)
 
@@ -390,9 +382,9 @@ ms.lasthandoff: 10/11/2017
 
         - VI (ABD Virgin Adaları)
 
-        - XE (Sint Eustatius)
+        - XE(Sint Eustatius)
 
-        - Xs(Saba)
+        - XS(Saba)
 
     - GEO-AS(Asia)
 
@@ -404,7 +396,7 @@ ms.lasthandoff: 10/11/2017
 
         - BD(Bangladesh)
 
-        - Bn(Brunei)
+        - BN(Brunei)
 
         - BT(Bhutan)
 
@@ -438,7 +430,7 @@ ms.lasthandoff: 10/11/2017
 
         - LA(Laos)
 
-        - LK (Sri Lanka)
+        - LK(Sri Lanka)
 
         - MM(Myanmar)
 
@@ -496,7 +488,7 @@ ms.lasthandoff: 10/11/2017
 
         - CM(Cameroon)
 
-        - MS (Cape Verde)
+        - CV(Cabo Verde)
 
         - DJ(Djibouti)
 
@@ -520,7 +512,7 @@ ms.lasthandoff: 10/11/2017
 
         - GW(Guinea_Bissau)
 
-        - Ke(Kenya)
+        - KE(Kenya)
 
         - KM(Comoros)
 
@@ -534,7 +526,7 @@ ms.lasthandoff: 10/11/2017
 
         - MG(Madagascar)
 
-        - ML(mali)
+        - ML(Mali)
 
         - MR(Mauritania)
 
@@ -560,7 +552,7 @@ ms.lasthandoff: 10/11/2017
 
         - SH (St Helena, Ascension, Tristan da Cunha)
 
-        - SL (Sierra Leone)
+        - SL(Sierra Leone)
 
         - SN(Senegal)
 

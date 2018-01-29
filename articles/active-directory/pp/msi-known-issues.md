@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
 
@@ -57,6 +57,20 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Konumlar: 
 - Uzantı adı ve türü Windows için: ManagedIdentityExtensionForWindows
 - Uzantı adı ve türü Linux için: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>RBAC rolleri için kullanıcı atanan kimlikleri var mı?
+Evet:
+1. MSI katkıda bulunan: 
+- Yapabilirsiniz: CRUD atanan kullanıcı kimlikleri. 
+- : Bir kullanıcı için bir kaynak kimliği atanır atayamazsınız. (yani kimliğini bir VM'ye atama)
+2. MSI işleci: 
+- Can: bir kaynağa atanmış kullanıcı kimliği atayın. (yani kimliğini bir VM'ye atama)
+- Şunları yapamaz: CRUD atanan kullanıcı kimlikleri.
+
+Not: Yerleşik katılımcı rolü tüm yukarıda açıklanan eylemleri gerçekleştirebilirsiniz: 
+- CRUD atanan kullanıcı kimlikleri
+- Bir kaynağa kimlik atanmış bir kullanıcı atayın. (yani kimliğini bir VM'ye atama)
+
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 

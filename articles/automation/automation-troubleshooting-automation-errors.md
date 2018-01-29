@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation sık karşılaşılan sorunları giderme 
 Bu makalede Azure Otomasyonu'nda karşılaşabilirsiniz ve bunları gidermek için olası çözümleri önerir ortak hatalarında sorun giderme yardım sağlar.
@@ -195,11 +195,19 @@ Bu çözüm ve reonboard sorguyu yeniden oluşturur çözüm için sorgu silebil
 
 **Hatanın nedeni:**
 
-Bu hata kodu, dağıtım bir ilke ihlali nedeniyle başarısız oldu anlamına gelir.
+Bu hata kodu, dağıtım bir veya daha fazla ilke ihlali nedeniyle başarısız oldu anlamına gelir.
 
 **Sorun giderme ipuçları:**
 
-Azure portalının sağ üst köşedeki Bildirimlerde denetleyin veya seçin ve automation hesabı içeren kaynak grubuna gidin **dağıtımları** altında **ayarları** başarısız görüntülemek için dağıtımı. İçin hakkında daha fazla bilgi Azure ilke ziyaret edin: [Azure ilke genel bakış](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+Başarıyla çözümü dağıtmak için belirtilen ilke değiştirilmesine dikkate almanız gerekir. Farklı türlerde tanımlanabilir ilkeleri olarak yapılması gereken belirli değişiklikler ihlal ilkesindeki bağlıdır. Bir ilke, belirli türde bir kaynak grubu içindeki kaynaklara içeriğini değiştirme izni bir kaynak grubu üzerinde tanımlanmışsa, örneğin, örneğin, aşağıdakilerden birini yapmanız olabilir:
+
+*   İlkeyi tamamen kaldırın.
+* Farklı bir kaynak grubu eklemek için deneyin.
+* İlke ile örneğin gözden geçirin:
+   * İlkeyi yeniden hedefleme bir belirli bir kaynak (belirli bir Otomasyon hesabı gibi).
+   * Belirlenen düzeltilmesi kaynakları bu ilkeyi reddedecek şekilde yapılandırıldı.
+
+Azure portalının sağ üst köşedeki Bildirimlerde denetleyin veya seçin ve automation hesabı içeren kaynak grubuna gidin **dağıtımları** altında **ayarları** başarısız görüntülemek için dağıtımı. Azure ilke ziyaret hakkında daha fazla bilgi edinmek için: [Azure ilke genel bakış](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

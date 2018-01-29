@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 01/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 838065287279f1c17e7f294bc919c4a0421e2a58
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Oluşturun ve VPN istemcisi yapılandırma dosyalarını P2S RADIUS kimlik doğrulaması için yükleyin
 
@@ -56,7 +56,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 Komutunu çalıştırarak bir bağlantıyı döndürür. 'VpnClientConfiguration.zip' karşıdan yüklemek için bir web tarayıcısı bağlantısını kopyalayıp yeniden açın. Aşağıdaki klasörlerin görüntülemek için dosyanın sıkıştırmasını açın: 
  
 * **WindowsAmd64** ve **WindowsX86** -bu klasörler sırasıyla Windows 64-bit ve 32-bit yükleyicisi paketleri içerir. 
-* **GenericDevice** -bu klasör, kendi VPN istemci yapılandırması oluşturmak için kullanılan genel bilgiler içerir. Bu klasör için kullanıcı adı/parola kimlik doğrulaması yapılandırmaları gerekli değildir.
+* **Genel** -bu klasör, kendi VPN istemci yapılandırması oluşturmak için kullanılan genel bilgiler içerir. Bu klasör için kullanıcı adı/parola kimlik doğrulaması yapılandırmaları gerekli değildir.
 * **Mac** -sanal ağ geçidi oluştururken, Ikev2 yapılandırılmışsa, 'içeren Mac' adında bir klasör gördüğünüz bir **mobileconfig** dosya. Bu dosya, Mac istemcileri yapılandırmak için kullanılır.
 
 İstemci yapılandırma dosyaları zaten oluşturduysanız 'Get-AzureRmVpnClientConfiguration' cmdlet'ini kullanarak alabilir. Ancak, kimlik doğrulama türü ve VPN protokol türü gibi P2S VPN yapılandırması için herhangi bir değişiklik yaparsanız yapılandırmasını otomatik olarak güncelleştirmez. Yeni bir yapılandırma indirme oluşturmak için 'New-AzureRmVpnClientConfiguration' cmdlet'ini çalıştırmanız gerekir.
@@ -125,7 +125,7 @@ Yapılandırma dosyaları EAP-TLS protokolünü kullanan RADIUS sertifika kimlik
 Sertifika kimlik doğrulaması ile kullanmak için VPN istemcisi yapılandırma dosyalarını oluşturur. Aşağıdaki komutu kullanarak VPN istemcisi yapılandırma dosyalarını oluşturabilirsiniz:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 Komutunu çalıştırarak bir bağlantıyı döndürür. 'VpnClientConfiguration.zip' karşıdan yüklemek için bir web tarayıcısı bağlantısını kopyalayıp yeniden açın. Aşağıdaki klasörlerin görüntülemek için dosyanın sıkıştırmasını açın:
@@ -138,7 +138,7 @@ Komutunu çalıştırarak bir bağlantıyı döndürür. 'VpnClientConfiguration
 Daha önce oluşturulan istemci yapılandırma dosyalarını almak için aşağıdaki komutu kullanın:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ## <a name="setupusername"></a> 2. Windows ve Mac VPN istemcilerini yapılandırma

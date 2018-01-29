@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Örnek dönüştürme tarafından sütun türetilen
 
@@ -68,6 +68,10 @@ Gelişmiş modda kılavuzunda satırı çift tıklayarak bir örnek satır olara
 
 Kullanıcı arasında geçiş yapmak **temel mod** ve **Gelişmiş mod** bağlantıları dönüştürme Düzenleyicisi'ni tıklatarak.
 
+### <a name="transform-editor-send-feedback"></a>Düzenleyici Dönüştür: geri bildirim gönder
+
+Tıklayarak **geri bildirim gönder** bağlantı açar **geri bildirim** örnekler kullanıcıyla önceden doldurulmaz açıklamaları kutusuyla iletişim sağlanan. Kullanıcı, açıklama kutusunun içeriğini gözden geçirin ve sorunu anlamasına yardımcı olmak için daha fazla ayrıntı sağlar. Kullanıcı, verileri Microsoft ile paylaşmak istiyorsanız değil, kullanıcı önceden doldurulmuş örnek veri tıklatmadan önce silmelisiniz **geri bildirim gönder** düğmesi. 
+
 ### <a name="editing-existing-transformation"></a>Varolan dönüştürme düzenleme
 
 Var olan bir kullanıcı düzenleyebilir **sütun örneği tarafından türetilen** dönüştürme seçerek **Düzenle** dönüştürme adımının seçeneği. Tıklayarak **Düzenle** dönüştürme Düzenleyicisi'nde açar **Gelişmiş mod**, ve dönüştürme oluşturma sırasında sağlanan tüm örnekler gösterilmektedir.
@@ -85,16 +89,16 @@ Bu durumda gerekli örnek sayısı: 2
 
 |Girdi|Çıktı|
 |:-----|:-----|
-|C:\Python35\Tools\pynche\TypeinViewer.PY|**TypeinViewer.py**|
+|C:\Python35\Tools\pynche\TypeinViewer.py|**TypeinViewer.py**|
 |C:\Python35\Tools\pynche\webcolors.txt|webcolors.txt|
 |C:\Python35\Tools\pynche\websafe.txt|websafe.txt|
-|C:\Python35\Tools\pynche\X\rgb.txt|RGB.txt|
+|C:\Python35\Tools\pynche\X\rgb.txt|rgb.txt|
 |C:\Python35\Tools\pynche\X\xlicense.txt|xlicense.txt|
-|C:\Python35\Tools\Scripts\2to3.PY|2to3.PY|
-|C:\Python35\Tools\Scripts\analyze_dxp.PY|**analyze_dxp.PY**|
-|C:\Python35\Tools\Scripts\byext.PY|byext.PY|
-|C:\Python35\Tools\Scripts\byteyears.PY|byteyears.PY|
-|C:\Python35\Tools\Scripts\checkappend.PY|checkappend.PY|
+|C:\Python35\Tools\Scripts\2to3.py|2to3.py|
+|C:\Python35\Tools\Scripts\analyze_dxp.py|**analyze_dxp.py**|
+|C:\Python35\Tools\Scripts\byext.py|byext.PY|
+|C:\Python35\Tools\Scripts\byteyears.py|byteyears.py|
+|C:\Python35\Tools\Scripts\checkappend.py|checkappend.PY|
 
 ### <a name="s2-case-manipulation-during-string-extraction"></a>S2. Servis talebi düzenleme dize ayıklama sırasında
 
@@ -126,7 +130,7 @@ Bu durumda gerekli örnek sayısı: 1
 |E LEVERING DEĞİRMEN RD & CONSHOHOCKEN DURUMU RD; DAHA DÜŞÜK MERION; 2015-12-11 07:29:58 @;|12 Kas 2015 7 AM|
 |PENN VADİSİ RD & MANOR RD;  DAHA DÜŞÜK MERION; İstasyon 313; 2015-12-10 20:53:30 @;|12 Eki 2015 8 PM|
 |BELMONT AVE & OVERHILL RD; DAHA DÜŞÜK MERION; 2015-12-10 23:02:27 @;|12 Eki 2015 23: 00|
-|W MONTGOMERY AVE & PENNSWOOD RD; DAHA DÜŞÜK MERION; 2015-12-10 19:25:22 @;|12 Eki 2015 19: 00|
+|W MONTGOMERY AVE & PENNSWOOD RD; LOWER MERION; 2015-12-10 @ 19:25:22;|12 Eki 2015 19: 00|
 |ROSEMONT AVE & ÇIKMAZ;  DAHA DÜŞÜK MERION; İstasyon 313; 2015-12-10 18:43:07 @;|12 Eki 2015 6 PM|
 |AVIGNON DR & ÇIKMAZ; DAHA DÜŞÜK MERION; 20:01:29 @ 2015-12-10-istasyon: STA24;|12 Eki 2015 8 PM|
 
@@ -145,12 +149,12 @@ Bu durumda gerekli örnek sayısı: 1
 |Brandi||Blumenthal|Brandi·· Blumenthal|
 |Jesusita|R|Gezisine|Jesusita· R· Gezisine|
 |Hermina||Hults|Hermina·· Hults|
-|Anne Başak|W|CAN|Anne Marie· W· CAN|
-|Riko||Ropp|Rico·· Ropp|
+|Anne Başak|W|Jones|Anne Marie· W· CAN|
+|Rico||Ropp|Rico·· Ropp|
 |Lauren olabilir||Fullmer|Lauren May·· Fullmer|
 |Marc|S|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie·· Adelman|
-|John Paul||Smith|John Paul·· Smith|
+|John-Paul||Smith|John Paul·· Smith|
 |Şarkı|W|Staller|Song· W· Staller|
 |Jill||Jefferies|Jill·· Jefferies|
 |Ruby yetkisiz kullanım|M|Simmons|Ruby Grace· M· Simmons|
@@ -163,16 +167,16 @@ Bu durumda gerekli örnek sayısı: 2
 |:-----|:-----|
 |Laquanda Lohmann|**L.L.**|
 |Claudio Chew|C.C.|
-|Sarah Jane Smith|S.S.|
+|Sarah-Jane Smith|S.S.|
 |Brandi Blumenthal|B.B.|
-|Jesusita gezisine|J.J.|
+|Jesusita Journey|J.J.|
 |Hermina Hults|H.H.|
 |Anne Başak CAN|A.J.|
-|Riko Ropp|R.R.|
+|Rico Ropp|R.R.|
 |Lauren May Fullmer|L.F.|
 |Marc Maine|M.M.|
 |Angie Adelman|A.A.|
-|John Paul Smith|**J.S.**|
+|John-Paul Smith|**J.S.**|
 |Şarkı Staller|S.S.|
 |Jill Jefferies|J.J.|
 |Ruby yetkisiz Simmons|R.S.|
@@ -288,26 +292,26 @@ Bu tarih kısımlarını aynı veri kümesi üzerinde farklı örnek tarafından
 
 |Tarih Saat|Haftanın günü|Tarih|Ay|Yıl|Saat|Dakika|İkinci|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-|31 Oca 2031 05:54:18|**Cuma**|**31**|**Oca**|**2031**|**5**|**54**|**18**|
+|31-Jan-2031 05:54:18|**Cuma**|**31**|**Oca**|**2031**|**5**|**54**|**18**|
 |17 Oca 1990 13:32:01|Çar|17|Oca|1990|13|32|01|
-|14 Şub 2034 05:36:07|Sal|14|Şub|2034|5|36|07|
+|14-Feb-2034 05:36:07|Sal|14|Şub|2034|5|36|07|
 |14 Mar 2002 13:16:16|Per|14|Mar|2002|13|16|16|
-|21 Oca 1985 05:44:43|Pzt|21|Oca|1985|5|44|**43**|
-|16 Ağu 1985 01:11:56|Cum|16|Ağu|1985|1|11|56|
+|21-Jan-1985 05:44:43|Pzt|21|Oca|1985|5|44|**43**|
+|16-Aug-1985 01:11:56|Cum|16|Ağu|1985|1|11|56|
 |20 Ara 2033 18:36:29|Sal|20|Ara|2033|18|36|29|
-|16 Tem 1984 10:21:59|Pzt|16|Tem|1984|10|21|59|
+|16-Jul-1984 10:21:59|Pzt|16|Tem|1984|10|21|59|
 |13 Ocak 2038 10:59:36|Çar|13|Oca|2038|10|59|36|
-|14 Ağu 1982 15:13:54|Cmt|14|Ağu|1982|15|13|54|
+|14-Aug-1982 15:13:54|Cmt|14|Ağu|1982|15|13|54|
 |22 Kas 2030 08:18:08|Cum|22|Kas|2030|8|18|08|
-|21-1997 08:42:58|Sal|21|Eki|1997|8|42|58|
+|21-Oct-1997 08:42:58|Sal|21|Eki|1997|8|42|58|
 |28 Kasım 2006 14:19:15|Sal|28|Kas|2006|14|19|15|
-|29 Apr 2031 04:59:45|Sal|29|Nis|2031|4|59|45|
-|29 Oca 2032 02:38:36|Per|29|Oca|2032|2|38|36|
+|29-Apr-2031 04:59:45|Sal|29|Nis|2031|4|59|45|
+|29-Jan-2032 02:38:36|Per|29|Oca|2032|2|38|36|
 |11 May 2028 15:31:52|Per|11|May|2028|15|31|52|
 |15 Tem 1977 12:45:39|Cum|15|Tem|1977|12|45|39|
-|27 Oca 2029 05:55:41|Cmt|27|Oca|2029|5|55|41|
+|27-Jan-2029 05:55:41|Cmt|27|Oca|2029|5|55|41|
 |03 Mar 2024 10:17:49|Paz|3|Mar|2024|10|17|49|
-|14 Apr 2010 00:23:13|Çar|14|Nis|2010|0|23|13|
+|14-Apr-2010 00:23:13|Çar|14|Nis|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Tarihleri biçimlendirme
 
@@ -315,26 +319,26 @@ Bu tarih formattings yapıldığını aynı veri kümesi üzerinde farklı örne
 
 |Tarih Saat|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
-|31 Oca 2031 05:54:18|**1/31/2031**|**31 Ocak 2031, Cuma**|**01312031 5:54**|**31/1/2031 5:54 AM**|**S1 2031**|
+|31-Jan-2031 05:54:18|**1/31/2031**|**31 Ocak 2031, Cuma**|**01312031 5:54**|**31/1/2031 5:54 AM**|**S1 2031**|
 |17 Oca 1990 13:32:01|1/17/1990|17 Ocak 1990, Çarşamba|01171990 13:32|17/1/1990 1:32 PM|S1 1990|
-|14 Şub 2034 05:36:07|2/14/2034|14 Şubat 2034, Salı|02142034 5:36|14/2/2034 5:36 AM|S1 2034
+|14-Feb-2034 05:36:07|2/14/2034|14 Şubat 2034, Salı|02142034 5:36|14/2/2034 5:36 AM|S1 2034
 |14 Mar 2002 13:16:16|3/14/2002|14 Mart 2002, Perşembe|03142002 13:16|3/14/2002 1:16 PM|S1 2002
-|21 Oca 1985 05:44:43|1/21/1985|21 Ocak 1985, Pazartesi|01211985 5:44|21/1/1985 5:44 AM|S1 1985
-|16 Ağu 1985 01:11:56|8/16/1985|16 Ağustos 1985, Cuma|08161985 1:11|8/16/1985 1:11:00|S3 1985
+|21-Jan-1985 05:44:43|1/21/1985|21 Ocak 1985, Pazartesi|01211985 5:44|21/1/1985 5:44 AM|S1 1985
+|16-Aug-1985 01:11:56|8/16/1985|16 Ağustos 1985, Cuma|08161985 1:11|8/16/1985 1:11:00|S3 1985
 |20 Ara 2033 18:36:29|12/20/2033|20 Aralık 2033, Salı|12202033 18:36|20/12/2033 6:36 PM|S4 2033
-|16 Tem 1984 10:21:59|7/16/1984|16 Temmuz 1984, Pazartesi|07161984 10:21|16/7/1984 10:21:00|S3 1984
+|16-Jul-1984 10:21:59|7/16/1984|16 Temmuz 1984, Pazartesi|07161984 10:21|16/7/1984 10:21:00|S3 1984
 |13 Ocak 2038 10:59:36|1/13/2038|13 Ocak 2038, Çarşamba|01132038 10:59|13/1/2038 10:59:00|S1 2038
-|14 Ağu 1982 15:13:54|8/14/1982|14 Ağustos 1982, Cumartesi|08141982 15:13|8/14/1982 SAAT 15: 13'E|S3 1982
+|14-Aug-1982 15:13:54|8/14/1982|14 Ağustos 1982, Cumartesi|08141982 15:13|8/14/1982 SAAT 15: 13'E|S3 1982
 |22 Kas 2030 08:18:08|11/22/2030|22 Kasım 2030, Cuma|11222030 8:18|11/22/2030 8:18:00|S4 2030
-|21-1997 08:42:58|10/21/1997|21 Ekim 1997, Salı|10211997 8:42|21/10/1997 8:42:00|S4 1997
+|21-Oct-1997 08:42:58|10/21/1997|21 Ekim 1997, Salı|10211997 8:42|21/10/1997 8:42:00|S4 1997
 |28 Kasım 2006 14:19:15|11/28/2006|28 Kasım 2006, Salı|11282006 14:19|11/28/2006 2:19 PM|S4 2006
-|29 Apr 2031 04:59:45|4/29/2031|29 Nisan 2031, Salı|04292031 4:59|4/29/2031 4:59 AM|S2 2031
-|29 Oca 2032 02:38:36|1/29/2032|29 Ocak 2032, Perşembe|01292032 2:38|1/29/2032 2:38:00|S1 2032
+|29-Apr-2031 04:59:45|4/29/2031|29 Nisan 2031, Salı|04292031 4:59|4/29/2031 4:59 AM|S2 2031
+|29-Jan-2032 02:38:36|1/29/2032|29 Ocak 2032, Perşembe|01292032 2:38|1/29/2032 2:38:00|S1 2032
 |11 May 2028 15:31:52|5/11/2028|11 May 2028, Perşembe|05112028 15:31|11/5/2028 SAAT 15: 31'E|S2 2028
 |15 Tem 1977 12:45:39|7/15/1977|15 Temmuz 1977, Cuma|07151977 12:45|15/7/1977 12:45 PM|S3 1977
-|27 Oca 2029 05:55:41|1/27/2029|27 Ocak 2029, Cumartesi|01272029 5:55|1/27/2029 5:55 AM|S1 2029
+|27-Jan-2029 05:55:41|1/27/2029|27 Ocak 2029, Cumartesi|01272029 5:55|1/27/2029 5:55 AM|S1 2029
 |03 Mar 2024 10:17:49|3/3/2024|3 Mart 2024, Pazar|03032024 10:17|3/3/2024 10:17:00|S1 2024
-|14 Apr 2010 00:23:13|4/14/2010|14 Nisan 2010, Çarşamba|04142010 0:23|4/14/2010:23 00: 00|S2 2010
+|14-Apr-2010 00:23:13|4/14/2010|14 Nisan 2010, Çarşamba|04142010 0:23|4/14/2010:23 00: 00|S2 2010
 
 
 ### <a name="d3-mapping-time-to-time-periods"></a>D3. Eşleme zaman dönemleri
@@ -343,26 +347,26 @@ Bu tarih saat dönem eşlemeleri yapıldığını aynı veri kümesi üzerinde f
 
 |Tarih Saat|Period(seconds)|Period(minutes)|Süre (iki saat)|Süre (30 dakika)|
 |-----:|-----:|-----:|-----:|-----:|
-|31 Oca 2031 05:54:18|**0-20**|**45-60**|**5 AM - 7 AM**|**5:30-6:00**|
-|17 Oca 1990 13:32:01|**0-20**|30-45|3 1 PM -PM|13:30-14:00|
-|14 Şub 2034 05:36:07|0-20|30-45|5 AM - 7 AM|5:30-6:00|
-|14 Mar 2002 13:16:16|0-20|15-30|3 1 PM -PM|13:00-13:30|
-|21 Oca 1985 05:44:43|40-60|30-45|5 AM - 7 AM|5:30-6:00|
-|16 Ağu 1985 01:11:56|40-60|0-15|3 1 AM -AM|1:00-1:30|
-|20 Ara 2033 18:36:29|20-40|30-45|18: 00 - 19: 00|18:30-19:00|
-|16 Tem 1984 10:21:59|40-60|15-30|09: 00 - 11: 00|10:00-10:30|
-|13 Ocak 2038 10:59:36|20-40|45-60|09: 00 - 11: 00|10:30-11:00|
-|14 Ağu 1982 15:13:54|40-60|0-15|3 PM - 17: 00 SAATLERİ|15:00-15:30|
-|22 Kas 2030 08:18:08|0-20|15-30|7 AM - 09: 00|8:00-8:30|
-|21-1997 08:42:58|40-60|30-45|7 AM - 09: 00|8:30-9:00|
-|28 Kasım 2006 14:19:15|0-20|15-30|3 1 PM -PM|14:00-14:30|
-|29 Apr 2031 04:59:45|40-60|45-60|3 AM - 5 AM|4:30-5:00|
-|29 Oca 2032 02:38:36|20-40|30-45|3 1 AM -AM|2:30-3:00|
-|11 May 2028 15:31:52|40-60|30-45|3 PM - 17: 00 SAATLERİ|15:30-16:00|
-|15 Tem 1977 12:45:39|20-40|45-60|11: 00 - 13'TE|12:30-13:00|
-|27 Oca 2029 05:55:41|40-60|45-60|5 AM - 7 AM|5:30-6:00|
-|03 Mar 2024 10:17:49|40-60|15-30|09: 00 - 11: 00|10:00-10:30|
-|14 Apr 2010 00:23:13|0-20|15-30|23 '-1 AM|0:00-0:30|
+|31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
+|17 Oca 1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
+|14-Feb-2034 05:36:07|0-20|30-45|5AM-7AM|5:30-6:00|
+|14 Mar 2002 13:16:16|0-20|15-30|1PM-3PM|13:00-13:30|
+|21-Jan-1985 05:44:43|40-60|30-45|5AM-7AM|5:30-6:00|
+|16-Aug-1985 01:11:56|40-60|0-15|1AM-3AM|1:00-1:30|
+|20 Ara 2033 18:36:29|20-40|30-45|5PM-7PM|18:30-19:00|
+|16-Jul-1984 10:21:59|40-60|15-30|9AM-11AM|10:00-10:30|
+|13 Ocak 2038 10:59:36|20-40|45-60|9AM-11AM|10:30-11:00|
+|14-Aug-1982 15:13:54|40-60|0-15|3PM-5PM|15:00-15:30|
+|22 Kas 2030 08:18:08|0-20|15-30|7AM-9AM|8:00-8:30|
+|21-Oct-1997 08:42:58|40-60|30-45|7AM-9AM|8:30-9:00|
+|28 Kasım 2006 14:19:15|0-20|15-30|1PM-3PM|14:00-14:30|
+|29-Apr-2031 04:59:45|40-60|45-60|3AM-5AM|4:30-5:00|
+|29-Jan-2032 02:38:36|20-40|30-45|1AM-3AM|2:30-3:00|
+|11 May 2028 15:31:52|40-60|30-45|3PM-5PM|15:30-16:00|
+|15 Tem 1977 12:45:39|20-40|45-60|11AM-1PM|12:30-13:00|
+|27-Jan-2029 05:55:41|40-60|45-60|5AM-7AM|5:30-6:00|
+|03 Mar 2024 10:17:49|40-60|15-30|9AM-11AM|10:00-10:30|
+|14-Apr-2010 00:23:13|0-20|15-30|11PM-1AM|0:00-0:30|
 
 ## <a name="examples-of-composite-transformations-by-example"></a>Bileşik dönüşümler örnekleri örneğe göre
 

@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 8fafda2687e81a226bdc91a642cebc9ec97d8cbe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 164f6bf83d7f0673e9ac7eb1107f90d311bca1c0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Öğretici: LinkedIn satış Gezgini otomatik kullanıcı sağlamayı için yapılandırma
+# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Öğretici: LinkedIn satış Gezgini otomatik kullanıcı sağlamayı yapılandırın
 
 
 Bu öğreticinin amacı LinkedIn satış Gezgini ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den LinkedIn satış Gezgini sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -107,7 +107,7 @@ LinkedIn erişim belirteci almak için ilk adımdır bakın. Bir kuruluş yönet
 
 12) Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan ve aşağıdaki onay kutusunu işaretleyin.
 
-13) **Kaydet** düğmesine tıklayın. 
+13) **Kaydet**’e tıklayın. 
 
 14) İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den LinkedIn satış Gezgini'ne eşitleneceğini kullanıcı ve grup öznitelikleri gözden geçirin. Seçilen öznitelikler olarak Not **eşleşen** özellikleri, kullanıcı hesapları ve grupları LinkedIn satış Gezgininde güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
@@ -115,7 +115,7 @@ LinkedIn erişim belirteci almak için ilk adımdır bakın. Bir kuruluş yönet
 
 15) Azure AD hizmeti LinkedIn satış Gezgini için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
-16) **Kaydet** düğmesine tıklayın. 
+16) **Kaydet**’e tıklayın. 
 
 Bu, herhangi bir kullanıcı ve/veya LinkedIn satış Gezgin kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve LinkedIn satış Gezgini uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 

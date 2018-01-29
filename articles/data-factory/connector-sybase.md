@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory kullanarak Sybase'den veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,6 @@ Aşağıdaki özellikler, Sybase bağlantılı hizmeti için desteklenir:
 | type | Type özelliği ayarlanmalıdır: **Sybase** | Evet |
 | sunucu | Sybase sunucunun adıdır. |Evet |
 | veritabanı | Sybase veritabanının adı. |Evet |
-| Şema | Veritabanı şemasında adı. |Hayır |
 | authenticationType | Sybase veritabanına bağlanmak için kullanılan kimlik doğrulama türü.<br/>İzin verilen değerler: **temel**, ve **Windows**. |Evet |
 | kullanıcı adı | Sybase veritabanına bağlanmak için kullanıcı adını belirtin. |Evet |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan bir SecureString işaretleyin. |Evet |

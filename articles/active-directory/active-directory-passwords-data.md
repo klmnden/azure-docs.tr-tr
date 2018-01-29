@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 504316a7d09595d24318d1f574b0f8927914d424
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Parola sıfırlama son kullanıcı kayıt gerektirmeden dağıtma
 
@@ -31,6 +31,8 @@ Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) dağıtm
 Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ CountryCode PhoneNumber*, örneğin, + 1 4255551234.
 
 > [!NOTE]
+> Var. ülke kodunu ve telefon numarası arasında bir boşluk olması gerekir.
+>
 > Parola sıfırlama telefon uzantıları desteklemez. Kurulmadan önce bile + 1 4255551234 X 12345 biçiminde uzantıları kaldırılır.
 
 ## <a name="fields-populated"></a>Doldurulmuş alanları

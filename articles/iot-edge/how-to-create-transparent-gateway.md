@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 1a35a6adae1eec88b314252ea0e3f2eb86f10c1d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Saydam bir ağ geçidi olarak davranan bir IOT sınır cihazı oluşturma - Önizleme
 
@@ -61,7 +61,7 @@ Powershell örneği kullanabilirsiniz ve Bash betiklerini açıklanan [yönetme 
 >Bu örnek yalnızca test amacıyla tasarlanmıştır. Üretim senaryoları için başvurmak [, IOT dağıtımınızın güvenliğini] [ lnk-iothub-secure-deployment] IOT çözümünüzü güvenli ve buna göre sertifikanızı sağlamak nasıl Azure IOT yönergeler.
 
 
-1. [Microsoft Azure IOT SDK'ları ve C için kitaplıkları] Github'dan kopyalama:
+1. Microsoft Azure IOT SDK'ları ve kitaplıklarını github'dan c kopyalama:
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 

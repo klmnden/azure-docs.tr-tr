@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 06772c9e21936d224f721413ccdc1c859b07b940
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: de6bddeedbff5fded716db31b1a528466df1d396
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Öğretici: Azure Active Directory ile sağlama otomatik kullanıcı ServiceNow yapılandırma
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı ServiceNow yapılandırın.
 
 Bu öğreticinin amacı ServiceNow ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den ServiceNow sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -60,7 +60,7 @@ Bu bölümde Azure AD ServiceNow'ın kullanıcı hesabına API sağlama konusund
 
 4. Ayarlama **sağlama** moduna **otomatik**. 
 
-    ![Sağlama](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
+    ![sağlama](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
 
 5. Yönetici kimlik bilgileri bölümü altında aşağıdaki adımları gerçekleştirin:
    

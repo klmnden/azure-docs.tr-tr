@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure uygulama hizmeti tanılama genel bakış 
 
 Bir web uygulaması çalıştırırken, sitenizi çalışmıyor, kullanıcılarınıza söyleyen 500 hataları ortaya çıkabilecek sorunlar için hazırlanması istiyor. Uygulama hizmeti Tanılama, web uygulamanızın yapılandırma gerektirmeden gidermenize yardımcı olması için akıllı ve etkileşimli bir deneyimdir. Web uygulamanızı ile sorunla çalıştırdığınızda, uygulama hizmeti tanılama daha kolay ve hızlı bir şekilde ve sorunu gidermek için doğru bilgileri göstermesi yanlış gelin. 
  
 Son 24 saat içinde web uygulamanızı ile sorunları karşılaştığınızda bir bu deneyim en yararlı olsa da, tüm tanılama grafikleri, her zaman çözümlemek kullanılabilir. Ek sorun giderme araçları ve yardımcı belgelerine ve forumlar bağlantılar sağ taraftaki sütunda yer alır.
+
+## <a name="open-app-service-diagnostics"></a>Açık uygulama hizmeti tanılama
+
+Uygulama hizmeti tanılama erişmek için App Service web uygulamanızda gidin [Azure portal](https://portal.azure.com). 
+
+Sol gezinti bölmesinde tıklayın **Tanıla ve sorunları**.
 
 ![Giriş sayfası](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ Daha fazla bilgi çalıştırdıktan sonra isteyip istemediğiniz bir [sistem du
 
 ![Tanılama raporu](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>Açık uygulama hizmeti tanılama
-
-Uygulama hizmeti tanılama erişmek için App Service web uygulamanızda gidin [Azure portal](https://portal.azure.com). 
-
-Sol gezinti bölmesinde tıklayın **Tanıla ve sorunları**.

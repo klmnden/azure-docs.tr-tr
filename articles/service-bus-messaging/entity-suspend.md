@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 09aee1ba9ec3ce72732cb1f60c9a840ffc4beb2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Askıya alma ve mesajlaşma varlıkları (devre dışı bırak) yeniden etkinleştirin
 
-Kuyruklar, konu başlıkları ve abonelikleri geçici olarak askıya alınabilir. Askıya alma devre dışı durumuna tüm iletileri deposunda saklanır, varlığı yerleştirir. Ancak, iletileri kaldırılamaz veya eklenen ve ilgili protokol işlemlerini hataları verim.
+Kuyruklar, konu başlıkları ve abonelikleri geçici olarak askıya alınabilir. Askıya tüm iletileri deposunda saklanır devre dışı durumuna varlığı yerleştirir. Ancak, iletileri kaldırılamaz veya eklenen ve ilgili protokol işlemlerini hataları verim.
 
 Bir varlık askıya genellikle Acil Yönetimsel nedenlerden dolayı gerçekleştirilir. Bir senaryo sıra dışı iletileri alan hatalı bir alıcı dağıtılan başarısız işlem, henüz yanlış iletileri tamamlandıktan ve bunları kaldırır. Bu davranışı tanı koydu, sıranın devre dışı bırakılabilir düzeltilmiş kod dağıtılır ve daha fazla hatalı kodla kaynaklanan veri kaybı önlenmiş kadar alır.
 
@@ -31,7 +31,7 @@ Portalda, **özellikleri** ilgili varlığın bölüm sağlar durumunu değişti
 
 ![][1]
 
-Portal, yalnızca tamamen sıralarını devre dışı bırakma verir. Ayrıca gönderme devre dışı bırakma ve alma işlemleri ayrı ayrı hizmet veri yolu kullanarak [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'si .NET Framework SDK veya Azure CLI veya Azure PowerShell ile bir Azure Resource Manager şablonu ile.
+Portal, yalnızca tamamen sıralarını devre dışı bırakma verir. Ayrıca gönderme devre dışı bırakma ve alma işlemleri ayrı ayrı hizmet veri yolu kullanarak [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'leri .NET Framework SDK veya Azure CLI veya Azure PowerShell ile bir Azure Resource Manager şablonu ile.
 
 ## <a name="suspension-states"></a>Askıya alma durumları
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f40f0551ed65a42bcacf2307cbec462fd5c3ac25
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 917c3e23fed468a04783456e7dc74a42bea60ae7
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı sanal bir ağa katılmasını sağlayın
 Aşağıdaki koşullardan biri doğruysa bir Azure sanal ağı (VNet) için Azure SSIS tümleştirmesi çalışma zamanı (IR) eklemeniz gerekir: 
@@ -145,7 +145,8 @@ Komut dosyasında [oluşturma Azure SSIS tümleştirmesi çalışma zamanı](cre
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-# OPTIONAL: specify your VNet ID and the subnet name. 
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+# Specify information about your classic or Azure Resource Manager virtual network (VNet).
 $VnetId = "<Name of your Azure virtual netowrk>"
 $SubnetName = "<Name of the subnet in VNet>"
 ```

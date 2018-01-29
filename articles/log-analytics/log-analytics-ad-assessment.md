@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a5e803cadfd08c42e12e6e34feee1c2d0d091d70
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Active Directory ortamınızı günlük analizi Active Directory sistem durumu denetimi çözümde ile en iyi duruma getirme
 
@@ -39,7 +39,7 @@ Kuruluşunuz için en önemli ve ücretsiz ve sağlam bir risk ortam çalıştı
 
 ![Pano AD sistem durumu denetimi görüntüsü](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Active Directory sistem durumu denetimi çözüm .NET Framework 4.5.2 desteklenen bir sürümünü gerektirir veya yukarıdaki Microsoft İzleme Aracısı (yüklenmiş MMA) olan her bilgisayarda yüklü.  MMA Aracısı System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ile günlük analizi hizmeti tarafından kullanılır. 
 * Çözüm, Windows Server 2008 ve 2008 R2, Windows Server 2012 ve 2012 R2 ve Windows Server 2016 çalıştıran etki alanı denetleyicilerini destekler.
@@ -64,12 +64,12 @@ Active Directory sistem durumu denetimi etkinleştirdiğiniz aracısını kullan
 
 - Kayıt Defteri 
 - LDAP 
-- .NET framework
+- .NET Framework
 - Olay günlüğü 
 - Active Directory Hizmeti Arabirimleri (ADSI)
 - Windows PowerShell
 - Dosya verileri 
-- Windows Yönetim Araçları (WMI)
+- Windows Management Instrumentation (WMI)
 - DCDIAG aracı API'si
 - Dosya Çoğaltma Hizmeti (NTFRS) API'si
 - Özel C# kodu
@@ -108,10 +108,8 @@ Yüklendikten sonra çözüm sayfasında Azure Portalı'ndaki Sistem durumu dene
 Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk değerlendirmesi görüntüleyin.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
-1. [https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın. 
-2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-3. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **OMS portalı** döşeme.  
-4. Üzerinde **genel bakış** sayfasında, **AD sistem durumu denetimi** döşeme. 
+3. Tıklatın **genel bakış** döşeme Azure portalında günlük analizi çalışma alanınız için.
+4. Üzerinde **genel bakış** sayfasında, **Active Directory sistem durumu denetimi** döşeme. 
 5. Üzerinde **sistem durumu denetimi** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.
 6. Odak alanı sayfaları hiçbirinde ortamınız için öncelikli önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneleri** öneri neden yapılan hakkında ayrıntıları görüntülemek için.<br><br> ![Sistem durumu denetimi önerileri görüntüsü](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele önerilen eylemleri sonraki değerlendirmeleri kayıtları gerçekleştirilen ve uyumluluk puan artmasına neden olur. Düzeltilmiş öğeler görünür olarak **geçirilen nesneleri**.

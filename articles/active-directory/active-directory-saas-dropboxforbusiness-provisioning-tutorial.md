@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: İş için Dropbox Azure Active Directory Tümleştirme | Microsoft Docs"
+title: "Öğretici: Azure Active Directory ile otomatik olarak bir kullanıcı sağlamak için Dropbox yapılandırma | Microsoft Docs"
 description: "Çoklu oturum açma Azure Active Directory ve iş için Dropbox arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı sağlamak için Dropbox iş için yapılandırma
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Öğretici: İş için Dropbox otomatik kullanıcı sağlamayı yapılandırın
 
 Bu öğreticinin amacı, iş ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den iş için Dropbox sağlanmasını için Dropbox gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -62,7 +62,7 @@ Bu bölümde API sağlama işletmenin kullanıcı hesabı için Azure AD Dropbox
 
 4. Ayarlama **sağlama modunda** için **otomatik**. 
 
-    ![Sağlama](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
+    ![sağlama](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
 
 5. Altında **yönetici kimlik bilgileri** 'yi tıklatın **Authorize**. Bir Dropbox iş oturum açma iletişim için yeni bir tarayıcı penceresinde açar.
 

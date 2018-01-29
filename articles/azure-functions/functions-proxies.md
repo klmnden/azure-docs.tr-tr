@@ -12,21 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-<<<<<<< HEAD
-ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlevleri proxy ile çalışma
 
@@ -70,6 +62,11 @@ Varsayılan olarak, istemci yanıt arka uç yanıtının kopya olarak başlatıl
 
 Bir proxy sunucu yapılandırmasını statik olması gerekmez. Değişkenleri özgün istemci isteği, arka uç yanıt ya da uygulama ayarları kullanmak üzere koşulu.
 
+### <a name="reference-localhost"></a>Başvuru yerel işlevler
+Kullanabileceğiniz `localhost` aynı işlev uygulaması işlevinde bir gidiş dönüş proxy isteği bu olmadan doğrudan başvurmak için.
+
+`"backendurl": "localhost/api/httptriggerC#1"`bir yerel yol tetiklenen HTTP işlevini başvurur.`/api/httptriggerC#1`
+
 ### <a name="request-parameters"></a>Başvuru İstek parametreleri
 
 İstek parametreleri giriş uç URL'si özelliği olarak veya isteklerin ve yanıtların değiştirerek bir parçası olarak kullanabilirsiniz. Bazı parametreler temel proxy yapılandırma dosyasında belirtilen rota şablondan bağlı olabilir ve diğerleri gelen istek özelliklerinden gelebilir.
@@ -84,7 +81,7 @@ Rota şablonu parametrelerine ek olarak, aşağıdaki değerleri yapılandırma 
 
 * **{request.method}** : Özgün istekte kullanılan HTTP yöntemi.
 * **{request.headers. \<HeaderName\>}**: özgün istekteki veriye okunabilir bir üstbilgi. Değiştir  *\<HeaderName\>*  okumak istediğiniz üstbilgi adı. Üstbilgi isteğinde bulunmuyorsa, değer boş dize olacaktır.
-* **{request.querystring. \<ParameterName\>}**: özgün istekteki veriye okunabilir bir sorgu dizesi parametresi. Değiştir  *\<ParameterName\>*  okumak istediğiniz parametre adı. Parametre isteğinde bulunmuyorsa, değer boş dize olacaktır.
+* **{request.querystring.\<ParameterName\>}**: A query string parameter that can be read from the original request. Değiştir  *\<ParameterName\>*  okumak istediğiniz parametre adı. Parametre isteğinde bulunmuyorsa, değer boş dize olacaktır.
 
 ### <a name="response-parameters"></a>Başvuru arka uç yanıt parametreleri
 
@@ -102,6 +99,18 @@ Ayrıca başvurabilir [işlev uygulaması için tanımlanan uygulama ayarları](
 
 > [!TIP] 
 > Birden çok dağıtım varsa, arka uç ana bilgisayarlar için uygulama ayarları kullanın veya test ortamları. Bu şekilde, her zaman bu ortam için uygun arka uç için varsayılır olduğundan emin olabilirsiniz.
+
+## <a name="debugProxies"></a>Proxy sorun giderme
+
+Bayrak ekleyerek `"debug":true` herhangi proxy'sine, `proxy.json` hata ayıklama günlüğünü etkinleştirir. Günlükleri depolanır `D:\home\LogFiles\Application\Proxies\DetailedTrace` ve Gelişmiş araçlar (kudu) üzerinden erişilebilir. HTTP yanıtları de içerecek bir `Proxy-Trace-Location` günlük dosyasına erişmek için bir URL ile üstbilgisi.
+
+İstemci tarafı proxy'sindeki ekleyerek ayıklayabilirsiniz bir `Proxy-Trace-Enabled` üstbilgi kümesine `true`. Bu da dosya sistemine bir izleme günlüğü ve yanıt üst bilgisi olarak dönüş izleme URL'si.
+
+### <a name="block-proxy-traces"></a>Blok proxy izlemeleri
+
+Güvenlik nedenleriyle herkesin bir izleme oluşturmak için hizmet çağırma istemeyebilirsiniz. Oturum açma kimlik bilgilerinizi olmadan izleme içeriğine erişmek seçebilecekler değil, ancak izleme oluşturma kaynağı tüketir ve işlevi proxy'leri kullandığınızı gösterir.
+
+Ekleyerek izlemeleri tamamen devre dışı `"debug":false` herhangi belirli proxy'sine, `proxy.json`.
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
 
@@ -139,13 +148,31 @@ Her proxy gibi kolay bir ada sahip *proxy1* önceki örnekte. Karşılık gelen 
 > [!NOTE] 
 > *Rota* Azure işlevleri proxy'leri özelliğinde dikkate değil *routeprefix öğesi* işlevi uygulama ana bilgisayar yapılandırma özelliği. Bir önek gibi dahil etmek istiyorsanız `/api`, içinde eklenmelidir *rota* özelliği.
 
+### <a name="disableProxies"></a>Tek tek proxy'leri devre dışı bırak
+
+Ekleyerek tek tek proxy'leri devre dışı bırakabilirsiniz `"disabled": true` proxy'sine `proxies.json` dosya. Bu, 404 döndürmek üzere matchCondidtion toplantı tüm istekleri neden olur.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
+
 ### <a name="requestOverrides"></a>RequestOverrides nesnesi tanımlayın
 
 RequestOverrides nesnesi isteği arka uç kaynak çağrıldığında yapılan değişiklikleri tanımlar. Nesne aşağıdaki özellikleri tarafından tanımlanır:
 
 * **backend.Request.Method**: arka uç çağırmak için kullanılan HTTP yöntemi.
-* **backend.Request.QueryString. \<ParameterName\>**: çağrısı arka uç için ayarlanmış bir sorgu dizesi parametresi. Değiştir  *\<ParameterName\>*  ayarlamak istediğiniz parametre adı. Boş dize sağlanırsa, parametre arka uç isteği dahil edilmez.
-* **backend.Request.Headers. \<HeaderName\>**: çağrısı arka uç için ayarlanabilecek üstbilgi. Değiştir  *\<HeaderName\>*  ayarlamak istediğiniz üstbilgi adı. Boş dize sağlarsanız, üstbilgi arka uç isteği dahil edilmez.
+* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Değiştir  *\<ParameterName\>*  ayarlamak istediğiniz parametre adı. Boş dize sağlanırsa, parametre arka uç isteği dahil edilmez.
+* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Değiştir  *\<HeaderName\>*  ayarlamak istediğiniz üstbilgi adı. Boş dize sağlarsanız, üstbilgi arka uç isteği dahil edilmez.
 
 Uygulama ayarları ve parametreleri değerleri özgün istemci istekten başvuruda bulunabilir.
 

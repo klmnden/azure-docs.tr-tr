@@ -4,7 +4,7 @@ description: "Apache Maven bir Java tabanlı Apache HBase uygulaması oluşturma
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 07f6d49b6d5c0a5b77ef5a7a7395a37e79419955
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase için Java uygulamaları derleme
 
@@ -154,7 +154,7 @@ Bu adımlarda belge kullanımı [Maven](http://maven.apache.org/) ve projeyi olu
 
     Maven gölge eklentisi Ayrıca uygulama tarafından istenen tüm bağımlılıkları içeren bir uber jar üretir.
 
-4. Kaydet `pom.xml` dosya.
+4. `pom.xml` dosyasını kaydedin.
 
 5. Adlı bir dizin oluşturun `conf` içinde `hbaseapp` dizin. Bu dizin için HBase bağlanmak için yapılandırma bilgilerini tutmak için kullanılır.
 
@@ -244,7 +244,7 @@ Bu adımlarda belge kullanımı [Maven](http://maven.apache.org/) ve projeyi olu
 
     Bu kodu **CreateTable** adlı bir tablo oluşturur sınıfı **kişiler** ve önceden tanımlanmış bazı kullanıcılar ile doldurabilirsiniz.
 
-3. Kaydet `CreateTable.java` dosya.
+3. `CreateTable.java` dosyasını kaydedin.
 
 4. İçinde `hbaseapp/src/main/java/com/microsoft/examples` dizin adlı bir dosya oluşturun `SearchByEmail.java`. Aşağıdaki metni bu dosyanın içeriğini kullanın:
 
@@ -323,7 +323,7 @@ Bu adımlarda belge kullanımı [Maven](http://maven.apache.org/) ve projeyi olu
 
     **SearchByEmail** sınıfı kullanılabilir e-posta adresine göre satırlar için sorgulanamıyor. Normal ifade filtresi kullandığından, sınıf kullanırken bir dize veya normal bir ifade belirtebilirsiniz.
 
-5. Kaydet `SearchByEmail.java` dosya.
+5. `SearchByEmail.java` dosyasını kaydedin.
 
 6. İçinde `hbaseapp/src/main/hava/com/microsoft/examples` dizin adlı bir dosya oluşturun `DeleteTable.java`. Aşağıdaki metni bu dosyanın içeriğini kullanın:
 
@@ -351,7 +351,7 @@ Bu adımlarda belge kullanımı [Maven](http://maven.apache.org/) ve projeyi olu
 
     Bu sınıf devre dışı bırakma ve tarafından oluşturulan tablo bırakarak bu örnekte, oluşturduğunuz HBase tablolarını temizler `CreateTable` sınıfı.
 
-7. Kaydet `DeleteTable.java` dosya.
+7. `DeleteTable.java` dosyasını kaydedin.
 
 ## <a name="build-and-package-the-application"></a>Yapı ve uygulama paketi
 
@@ -626,7 +626,7 @@ HBase kümesi için varsayılan depolama JAR yüklemek için Azure PowerShell a�
    * **Ekleme HDInsightFile** - kümeye dosyaları yüklemek için kullanılan
    * **Başlangıç HBaseExample** - daha önce oluşturduğunuz sınıfları çalıştırmak için kullanılan
 
-2. Kaydet `hbase-runner.psm1` dosya.
+2. `hbase-runner.psm1` dosyasını kaydedin.
 
 3. Yeni bir Azure PowerShell penceresi açın, dizinleri değiştirmek `hbaseapp` dizin ve aşağıdaki komutu çalıştırın:
 
@@ -642,7 +642,7 @@ HBase kümesi için varsayılan depolama JAR yüklemek için Azure PowerShell a�
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    `hdinsightclustername` değerini kümenizin adıyla değiştirin. Komut yükler `hbaseapp-1.0-SNAPSHOT.jar` için `example/jars` kümeniz için birincil depolama konumu.
+    `hdinsightclustername` değerini kümenizin adıyla değiştirin. İstendiğinde, küme oturum açma (Yönetici) adı ve parola girin. Komut yükler `hbaseapp-1.0-SNAPSHOT.jar` için `example/jars` kümeniz için birincil depolama konumu.
 
 5. Kullanarak bir tablo oluşturmak için `hbaseapp`, aşağıdaki komutu kullanın:
 
@@ -650,7 +650,7 @@ HBase kümesi için varsayılan depolama JAR yüklemek için Azure PowerShell a�
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    `hdinsightclustername` değerini kümenizin adıyla değiştirin.
+    `hdinsightclustername` değerini kümenizin adıyla değiştirin. İstendiğinde, küme oturum açma (Yönetici) adı ve parola girin.
 
     Bu komut adlı bir tablo oluşturur **kişiler** HBase Hdınsight kümenizdeki içinde. Bu komut, konsol penceresinde herhangi bir çıktı göstermez.
 
@@ -660,7 +660,7 @@ HBase kümesi için varsayılan depolama JAR yüklemek için Azure PowerShell a�
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    `hdinsightclustername` değerini kümenizin adıyla değiştirin.
+    `hdinsightclustername` değerini kümenizin adıyla değiştirin. İstendiğinde, küme oturum açma (Yönetici) adı ve parola girin.
 
     Bu komut kullanır `SearchByEmail` sınıfı için herhangi bir satır arama nerede `contactinformation` sütun ailesi ve `email` sütunu içeren dize `contoso.com`. Aşağıdaki sonuçları almanız gerekir:
 

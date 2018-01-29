@@ -15,11 +15,11 @@ ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 0d293833b97b2a65d5377eef668696cb73ee3bd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1532054a9463d710685d3f865d2e26ee7ff5014f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması ile çalışmaya başlama
 Microsoft Authenticator uygulamasını bir ek düzeyi iş veya Okul hesabınızda güvenlik sunar (örneğin, bsimon@contoso.com) veya Microsoft hesabınızı (örneğin, bsimon@outlook.com).
@@ -42,7 +42,7 @@ Kişisel bir hesap için kendiniz için iki aşamalı doğrulamayı ayarlamanız
 Microsoft olmayan hesapların ile Microsoft Authenticator de kullanabilirsiniz. Bunlar özelliği iki aşamalı doğrulama dışında bir şey çağırabilir ancak güvenlik veya oturum açma ayarları altında bulamıyor olmalıdır.
 
 ## <a name="install-the-app"></a>Uygulama yükleme
-Microsoft Authenticator uygulaması [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="add-accounts-to-the-app"></a>Hesapları için uygulama ekleme
 Microsoft Authenticator uygulaması eklemek istediğiniz her hesap için aşağıdaki yordamlardan birini kullanın:

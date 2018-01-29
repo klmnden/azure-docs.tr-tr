@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>İşletim sistemi güvenlik yapılandırmalarını (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme
 
@@ -26,7 +26,7 @@ Bu kılavuz, Azure Güvenlik Merkezi'nde Güvenlik Yapılandırması değerlendi
 
 ## <a name="what-are-os-security-configurations"></a>İşletim sistemi güvenlik yapılandırmalarını nelerdir?
 
-Azure Güvenlik Merkezi izleyiciler güvenlik yapılandırmaları da dahil olmak üzere işletim sistemi sağlamlaştırma kuralları için 150'den fazla önerilen kurallar kümesi uygulayarak güvenlik duvarları, denetleme, parola ilkeleri ve daha fazla bilgi için ilgili. Bir güvenlik açığı yapılandırmaya sahip bir makine bulunursa, Güvenlik Merkezi güvenlik açısından oluşturur.
+Azure Güvenlik Merkezi güvenlik yapılandırmalarını bir dizi uygulayarak izler [150'den önerilen kurallar](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) işletim sistemi sağlamlaştırma için kuralları dahil olmak üzere ilgili güvenlik duvarları, denetleme, parola ilkeleri ve daha fazla bilgi için. Bir güvenlik açığı yapılandırmaya sahip bir makine bulunursa, Güvenlik Merkezi güvenlik açısından oluşturur.
 
 Kuralları özelleştirerek, kuruluşların kendi ortamı için daha uygun olan yapılandırma seçenekleri kontrol edebilirsiniz. Özelleştirilmiş değerlendirme ilkesi ayarlayın ve Abonelikteki tüm geçerli makinelerde uygulayın.
 
@@ -60,8 +60,8 @@ Varsayılan işletim sistemi güvenlik yapılandırması Güvenlik Merkezi'nde �
 3.  Özelleştirme için gerçekleştirmek istediğiniz aboneliği seçin.
 
 4. Altında **İlkesi bileşenleri**seçin **Düzenle güvenlik yapılandırmalarını**.  
-    **Düzenle güvenlik yapılandırmalarını** penceresi açılır. 
-    
+    **Düzenle güvenlik yapılandırmalarını** penceresi açılır.
+
     !["Güvenlik yapılandırmalarını Düzenle" penceresi](media/security-center-customize-os-security-config/blade.png)
 
 5. Sağ bölmede, indirme, düzenleme ve değiştirilen dosya karşıya yükleme adımlarını izleyin.
@@ -70,7 +70,7 @@ Varsayılan işletim sistemi güvenlik yapılandırması Güvenlik Merkezi'nde �
    > Varsayılan olarak, indirdiğiniz yapılandırma dosyasının bulunduğu *json* biçimi. Bu dosyayı değiştirme hakkında yönergeler için Git [yapılandırma dosyasını özelleştirme](#customize-the-configuration-file).
    >
 
-   Dosyası başarıyla kaydettikten sonra yapılandırma tüm VM'ler ve abonelik altında tüm çalışma alanlarına bağlanan bilgisayarlara uygulanır. İşlem genellikle birkaç dakika sürer ancak altyapı büyüklüğüne bağlı olarak uzun sürebilir. 
+   Dosyası başarıyla kaydettikten sonra yapılandırma tüm VM'ler ve abonelik altında tüm çalışma alanlarına bağlanan bilgisayarlara uygulanır. İşlem genellikle birkaç dakika sürer ancak altyapı büyüklüğüne bağlı olarak uzun sürebilir.
 
 6. Değişikliği kaydetmek için seçin **kaydetmek**. Aksi durumda, ilke depolanmaz.
 

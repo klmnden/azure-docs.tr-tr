@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 79cd3e2f91f4eb7cecdf2efcd195b409c947d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Öğretici: Kayma otomatik kullanıcı sağlamayı için yapılandırma
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Öğretici: Kayma otomatik kullanıcı sağlamayı yapılandırın
 
 
 Kayma ve Azure gerçekleştirmesi gereken adımları göstermek için bu öğreticinin amacı olan kayma için Azure AD'den otomatik sağlama ve devre dışı bırakma sağlama kullanıcı hesapları için AD. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -81,7 +81,7 @@ Bu bölümde, Azure AD API sağlama kayma'nın kullanıcı hesabına bağlanma y
 
 8) Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan ve aşağıdaki onay kutusunu işaretleyin.
 
-9) **Kaydet** düğmesine tıklayın. 
+9) **Kaydet**’e tıklayın. 
 
 10) Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları kayma**.
 
@@ -89,7 +89,7 @@ Bu bölümde, Azure AD API sağlama kayma'nın kullanıcı hesabına bağlanma y
 
 12) Azure AD hizmeti kayma için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
-13) **Kaydet** düğmesine tıklayın. 
+13) **Kaydet**’e tıklayın. 
 
 Bu, herhangi bir kullanıcı ve/veya boşluk kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık her 10 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Slack uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 
@@ -105,7 +105,7 @@ Bu, herhangi bir kullanıcı ve/veya boşluk kullanıcılar ve Gruplar bölümü
 
 3) İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den Slack'e eşitleneceğini grup öznitelikleri gözden geçirin. Seçilen öznitelikler olarak Not **eşleşen** özellikleri kayma gruplara güncelleştirme işlemleri için eşleştirmek için kullanılır. 
 
-4) **Kaydet** düğmesine tıklayın.
+4) **Kaydet**’e tıklayın.
 
 Kayma içinde atanmış herhangi bir grup nesne bu sonucu **kullanıcılar ve gruplar** Azure AD'den tam olarak Slack'e eşitlenmekte olan bölüm. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Slack uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 

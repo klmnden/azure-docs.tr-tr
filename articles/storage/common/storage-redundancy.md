@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
@@ -72,7 +72,7 @@ ZRS Klasik hesapları için veya LRS, GRS veya RA-GRS dönüştürülemez. ZRS K
 ZRS bir bölgede genellikle kullanılabilir olduğunda, artık bu bölgede portalından ZRS klasik bir hesap oluşturmak mümkün olacaktır, ancak arasında başka yollarla bir tane oluşturabilirsiniz.  
 Bir otomatik geçiş işleminden ZRS Klasik ZRS için gelecekte sağlanır.
 
-Bu bölgede ZRS hesabı ya da bir LRS, GRS ve RAGRS hesaptan el ile geçirme ZRS hesaplarını destekler. AzCopy, Azure Storage Gezgini, Azure PowerShell, Azure CLI veya Azure Storage istemci kitaplıklarından birini kullanarak bu el ile geçiş işlemi gerçekleştirebilirsiniz.
+El ile ya da bir LRS, ZRS Klasik, GRS ve RAGRS hesaptan ZRS hesap verileri geçirebilirsiniz. AzCopy, Azure Storage Gezgini, Azure PowerShell, Azure CLI veya Azure Storage istemci kitaplıklarından birini kullanarak bu el ile geçiş işlemi gerçekleştirebilirsiniz.
 
 > [!NOTE]
 > ZRS Klasik hesaplarını kullanımdan kaldırma ve 31 Mart 2021 üzerinde gerekli geçiş için planlanmıştır. Microsoft, kullanımdan önce ZRS Klasik müşteriler için daha fazla bilgi gönderir.

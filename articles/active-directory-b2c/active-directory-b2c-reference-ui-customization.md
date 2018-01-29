@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: be3fe7199308606aaab002290319df9c82149433
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C kullanıcı arabirimini (UI) özelleştirme
 
@@ -38,7 +38,7 @@ Bu makalede aşağıdaki konuları içerir:
 
 ## <a name="the-page-ui-customization-feature"></a>Sayfanın UI Özelleştirme özelliği
 
-Müşteri kaydolma, oturum açma parolası görünümünü özelleştirebilirsiniz sıfırlama ve profil düzenleme sayfaları (yapılandırarak [ilkeleri](active-directory-b2c-reference-policies.md)). Uygulama ve Azure AD B2C tarafından sunulan sayfaları arasında gezinme edilirken, müşterilerinizin sorunsuz bir deneyim kullanır.
+Görünüm ve yapısını müşteri kaydolma, oturum açma (Not markalama için ilgili özel durumlar için yukarıdaki bakın), parola sıfırlama ve profil düzenleme özelleştirebilirsiniz sayfaları (yapılandırarak [ilkeleri](active-directory-b2c-reference-policies.md)). Uygulama ve Azure AD B2C tarafından sunulan sayfaları arasında gezinme edilirken, müşterilerinizin sorunsuz bir deneyim kullanır.
 
 Burada kullanıcı Arabirimi seçenekleri, Azure AD B2C kullanan kullanıcı Arabirimi özelleştirme için basit ve modern bir yaklaşım diğer hizmetler farklı.
 
@@ -344,7 +344,7 @@ Sayfa UI Özelleştirme özelliğini kullanmayı planlıyorsanız, aşağıdaki 
 * Yoksa, Azure AD B2C'ın varsayılan içeriği Kopyala ve onu değiştirme girişimi. HTML5 içeriğinizi sıfırdan oluşturmak ve varsayılan içerik referans olarak kullanmak için en iyisidir.
 * Güvenlik nedenleriyle, biz, içeriği tüm JavaScript dahil etmenize izin vermez. Gerekenler çoğu kutu dışı kullanılabilir olması gerekir. Aksi takdirde, kullanın [kullanıcı sesi](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) yeni işlevsellik istemek için.
 * Tarayıcı sürümleri desteklenir:
-  * Internet Explorer 11, 10, sınır
+  * Internet Explorer 11, 10, Edge
   * Internet Explorer 9, 8 için sınırlı destek
   * Google Chrome 42.0 ve üstü
   * Mozilla Firefox 38.0 ve üstü

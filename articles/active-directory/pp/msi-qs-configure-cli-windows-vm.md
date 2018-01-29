@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 98683af2ca35b687f918647602a561d37dd42b11
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Azure CLI kullanarak bir VM için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) yapılandırma
 
@@ -35,7 +35,7 @@ Bu makalede, Azure Azure CLI kullanarak VM için kullanıcı tarafından atanan 
 Bu öğreticide CLI komut dosyası örnekleri çalıştırmak için iki seçeneğiniz vardır:
 
 - Kullanım [Azure bulut Kabuk](~/articles/cloud-shell/overview.md) Azure portalından veya "deneyin" düğmesini, aracılığıyla her kod bloğunun sağ üst köşesinde bulunan.
-- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz. Ardından Azure kullanarak oturum açın [az oturum açma](/cli/azure/#login). Altında kullanıcı tarafından atanan MSI ve VM dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz. Ardından Azure kullanarak oturum açın [az oturum açma](/cli/azure/#az_login). Altında kullanıcı tarafından atanan MSI ve VM dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
 
    ```azurecli
    az login
@@ -45,7 +45,7 @@ Bu öğreticide CLI komut dosyası örnekleri çalıştırmak için iki seçene�
 
 Bu bölümde VM VM oluşturulmasını ve kullanıcı tarafından atanan MSI atanması anlatılmaktadır. Zaten kullanmak istediğiniz bir VM'niz varsa, bu bölüm atlayın ve sonraki devam edin.
 
-1. Kullanmak istediğiniz bir kaynak grubu zaten varsa bu adımı atlayabilirsiniz. Oluşturma bir [kaynak grubu](~/articles/azure-resource-manager/resource-group-overview.md#terminology) kapsama ve, MSI dağıtımı için kullanarak [az grubu oluşturma](/cli/azure/group/#create). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<LOCATION>` parametre değerlerini kendi değerlere sahip. :
+1. Kullanmak istediğiniz bir kaynak grubu zaten varsa bu adımı atlayabilirsiniz. Oluşturma bir [kaynak grubu](~/articles/azure-resource-manager/resource-group-overview.md#terminology) kapsama ve, MSI dağıtımı için kullanarak [az grubu oluşturma](/cli/azure/group/#az_group_create). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<LOCATION>` parametre değerlerini kendi değerlere sahip. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -73,7 +73,7 @@ Yanıt, oluşturulan, aşağıdakine benzer kullanıcı tarafından atanan MSI a
    }
    ```
 
-3. Kullanarak bir VM oluşturun [az vm oluşturma](/cli/azure/vm/#create). Aşağıdaki örnek, yeni kullanıcı tarafından atanan MSI, belirtildiği gibi ilişkili bir VM oluşturur `--assign-identity` parametresi. Değiştirdiğinizden emin olun `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, ve `<`MSI kimliği >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `Kimliği ' özelliği önceki adımda oluşturduğunuz: 
+3. Kullanarak bir VM oluşturun [az vm oluşturma](/cli/azure/vm/#az_vm_create). Aşağıdaki örnek, yeni kullanıcı tarafından atanan MSI, belirtildiği gibi ilişkili bir VM oluşturur `--assign-identity` parametresi. Değiştirdiğinizden emin olun `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, ve `<`MSI kimliği >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `Kimliği ' özelliği önceki adımda oluşturduğunuz: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>

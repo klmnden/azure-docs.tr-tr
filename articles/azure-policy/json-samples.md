@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Azure ilke şablonları
 
@@ -55,7 +55,7 @@ Aşağıdaki tabloda Azure ilkesi için json şablonları bağlantılarını iç
 | [Yük Dengeleyici SKU'ları izin](scripts/allowed-lb-skus.md) | Yük Dengeleyici onaylanmış bir SKU kullanmanızı gerektirir. İzin verilen SKU'lar dizisi belirtin. |
 | [ER ağ eşlemesi ağ yok](scripts/no-peering-er-net.md) | Belirtilen kaynak grubu bir ağda ilişkili eşliği ağ engelliyor. Merkezi yönetilen ağ altyapısı ile bağlantı engellemek için kullanın. İlişkilendirme önlemek için kaynak grubu adını belirtin. |
 | [Hiçbir kullanıcı tanımlı yönlendirme tablosundaki](scripts/no-user-def-route-table.md)  |Sanal ağlar, bir kullanıcı tanımlı yol tablosu ile dağıtılan engelliyor. |
-| [Sanal ağ geçidi SKU'ları izin](scripts/no-user-def-route-table.md) | Sanal ağ geçitlerini onaylanmış bir SKU ve ağ geçidi türü kullanmanızı gerektirir. Onaylanan SKU'ları bir dizi ve onaylanan ağ geçidi türleri dizisi belirtin. |
+| [Sanal ağ geçidi SKU'ları izin](scripts/allowed-vn-gate-sku.md) | Sanal ağ geçitlerini onaylanmış bir SKU ve ağ geçidi türü kullanmanızı gerektirir. Onaylanan SKU'ları bir dizi ve onaylanan ağ geçidi türleri dizisi belirtin. |
 | [Onaylanan alt ağ için VM ağ arabirimleri kullanın](scripts/use-approved-subnet-vm-nics.md) | Ağ arabirimleri onaylanmış bir alt ağ kullanmanızı gerektirir. Onaylanan alt ağ Kimliğini belirtin. |
 | [VM ağ arabirimleri için onaylanan vNet kullanın](scripts/use-approved-vnet-vm-nics.md) | Ağ arabirimleri onaylanmış bir sanal ağı kullanmayı gerektirir. Onaylanan sanal ağ Kimliğini belirtin. |
 |**Etiketler**||

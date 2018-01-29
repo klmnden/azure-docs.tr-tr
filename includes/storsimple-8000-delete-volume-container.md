@@ -1,6 +1,6 @@
-<!--author=alkohli last changed: 01/13/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
-Birim kapsayıcısı birimleri ilişkili varsa bu birimlerin çevrimdışı ilk alın. Adımları [bir birim çevrimdışına](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Birimleri çevrimdışı olduktan sonra bunları silebilirsiniz. Birim kapsayıcısı ilişkili birim olduğunda, birim kapsayıcısı silin. Birim kapsayıcısı silmek için aşağıdaki yordamı gerçekleştirin.
+Birim kapsayıcısı birimleri ilişkili varsa bu birimlerin çevrimdışı ilk alın. Adımları [bir birim çevrimdışına](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Birimleri çevrimdışı olduktan sonra bunları silebilirsiniz. Birim kapsayıcısı ilişkili birim olduğunda, birim kapsayıcısı silin. Birim kapsayıcısı silmek için aşağıdaki yordamı gerçekleştirin.
 
 #### <a name="to-delete-a-volume-container"></a>Birim kapsayıcısı silmek için
 1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. Seçin ve aygıtı tıklatın ve ardından gidin **ayarlar > Yönet > birim kapsayıcıları**.

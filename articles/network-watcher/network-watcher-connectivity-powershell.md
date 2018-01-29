@@ -1,10 +1,10 @@
 ---
-title: "Azure Ağ İzleyicisi - PowerShell ile bağlantısını kontrol edin. | Microsoft Docs"
-description: "Bu sayfa, Ağ İzleyicisi PowerShell kullanarak bağlanabilirliği test etmek açıklanmaktadır"
+title: "Azure Ağ İzleyicisi - PowerShell bağlantılarıyla ilgili sorunları giderme | Microsoft Docs"
+description: "Bağlantı kullanmayı öğrenin özelliği PowerShell kullanarak Azure Ağ İzleyicisi, sorun giderme."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>PowerShell kullanarak Azure Ağ İzleyicisi ile bağlantısını denetleyin
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>PowerShell kullanarak Azure Ağ İzleyicisi ile bağlantı sorunlarını giderme
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,19 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Bir doğrudan belirli bir uç noktası TCP bağlantısı bir sanal makineden oluşturulan olmadığını doğrulamak için bağlantı kullanmayı öğrenin.
+Bağlantı kullanmayı öğrenin bir doğrudan belirli bir uç noktası TCP bağlantısı bir sanal makineden oluşturulan olup olmadığını doğrulamak için sorun giderme.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, aşağıdaki kaynaklara sahip olduğunuz varsayılmaktadır:
-
-* Ağ İzleyicisi bağlantı denetlemek istediğiniz bölgede bir örneği.
-
-* Sanal makineler ile bağlantılarını denetlemek için.
+* Ağ İzleyicisi, bir bağlantı sorunlarını giderme istediğiniz bölgede bir örneği.
+* Bağlantıları ile ilgili sorunları giderme için sanal makineler.
 
 > [!IMPORTANT]
-> Bağlantı onay gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Bağlantı sorunlarını giderme bir sanal makine uzantısı gerektiren `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Bir sanal makineye bağlantısını kontrol edin.
 
-Bu örnekte, bağlantı noktası 80 üzerinden bir hedef sanal makine bağlantısı denetler. Bu örnek, Ağ İzleyicisi'ni kaynak VM içeren bölgede etkin olmasını gerektirir.  
+Bu örnekte, bağlantı noktası 80 üzerinden bir hedef sanal makineye bir bağlantı denetler. Bu örnek, Ağ İzleyicisi'ni kaynak VM içeren bölgede etkin olmasını gerektirir.  
 
 ### <a name="example"></a>Örnek
 
@@ -137,7 +134,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Yönlendirme sorunları doğrula
 
-Örnek bir sanal makine ve bir uzak uç noktası arasındaki bağlantıyı denetler. Bu örnek, Ağ İzleyicisi'ni kaynak VM içeren bölgede etkin olmasını gerektirir.  
+Bu örnek, bir sanal makine ve bir uzak uç noktası arasındaki bağlantıyı denetler. Bu örnek, Ağ İzleyicisi'ni kaynak VM içeren bölgede etkin olmasını gerektirir.  
 
 ### <a name="example"></a>Örnek
 
@@ -201,7 +198,7 @@ Hops             : [
 
 ## <a name="check-website-latency"></a>Web sitesi gecikme denetleyin
 
-Aşağıdaki örnek bir Web sitesi bağlantısını denetler. Bu örnek, Ağ İzleyicisi'ni kaynak VM içeren bölgede etkin olmasını gerektirir.  
+Aşağıdaki örnek bir Web sitesi bağlantısı denetler. Bu örnek, Ağ İzleyicisi'ni kaynak VM içeren bölgede etkin olmasını gerektirir.  
 
 ### <a name="example"></a>Örnek
 
@@ -254,7 +251,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Bir depolama uç noktası bağlantısını kontrol edin
 
-Aşağıdaki örnek, bir sanal makineden bir blog depolama hesabı bağlantı sınar. Bu örnek, Ağ İzleyicisi'ni kaynak VM içeren bölgede etkin olmasını gerektirir.  
+Aşağıdaki örnek, bir sanal makineden bir blog depolama hesabı bağlantı denetler. Bu örnek, Ağ İzleyicisi'ni kaynak VM içeren bölgede etkin olmasını gerektirir.  
 
 ### <a name="example"></a>Örnek
 
@@ -276,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 Aşağıdaki json Önceki cmdlet çalıştırılarak örnek yanıt ' dir. Hedef erişilebilir, olduğu gibi `ConnectionStatus` özelliği gösterildiğinden **erişilebilir**.  Gecikme süresi ve depolama blobu erişmek için gerekli atlama sayısı ile ilgili ayrıntılar verilmiştir.
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -307,22 +304,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Belirli trafik içinde veya dışında VM ziyaret ederek izin verilip verilmediğini Bul [denetleyin IP akış doğrulayın](network-watcher-check-ip-flow-verify-portal.md)
+Belirli trafik içinde veya dışında VM ziyaret ederek izin verilip verilmediğini belirlemek [denetleyin IP akış doğrulayın](network-watcher-check-ip-flow-verify-portal.md).
 
 Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) tanımlanan ağ güvenlik grubu ve güvenlik kuralları izlemek için.
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

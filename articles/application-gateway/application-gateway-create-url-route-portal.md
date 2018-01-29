@@ -1,92 +1,180 @@
 ---
-title: "Uygulama ağ geçidi - Azure portalı için bir yol tabanlı kuralı oluşturun | Microsoft Docs"
-description: "Azure portalı kullanarak bir uygulama ağ geçidi için bir yol tabanlı kuralı oluşturmayı öğrenin."
+title: "URL yolu tabanlı yönlendirme kuralları ile - Azure portalında bir uygulama ağ geçidi oluşturma | Microsoft Docs"
+description: "URL yolu tabanlı yönlendirme kuralları bir uygulama ağ geçidi ve sanal makine ölçek Azure portalını kullanarak ayarlamak için oluşturmayı öğrenin."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Azure portalı kullanarak bir uygulama ağ geçidi için bir yol tabanlı kuralı oluşturma
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
-> [!div class="op_single_selector"]
-> * [Azure portalı](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+Azure Portalı'nı yapılandırmak için kullanabileceğiniz [URL yolu tabanlı yönlendirme kuralları](application-gateway-url-route-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, sanal makineleri kullanarak arka uç havuzları oluşturun. Uygun sunucuları havuzlarındaki web trafiği ulaştığında emin olun yönlendirme kuralları oluşturursunuz.
 
-URL yolu tabanlı yönlendirme, HTTP isteklerini URL yola göre yollar ilişkilendirin. Uygulama ağ geçidi listelenen URL için yapılandırılmış bir arka uç sunucu havuzuna bir yolu yoktur ve ardından ağ trafiğini tanımlı havuzuna gönderir olup olmadığını denetler. URL yolu tabanlı yönlendirme için bir ortak Yük Dengeleme isteklerini farklı arka uç sunucu havuzu için farklı içerik türleri için kullanılır.
+Bu makalede, bilgi nasıl yapılır:
 
-Uygulama ağ geçidine sahip iki kural türü: basic ve URL yolunu tabanlı kurallar. Temel kural türünü, arka uç havuzları hepsini hizmetidir. Yol tabanlı kuralları, hepsini dağıtım yanı sıra da yol deseni istek URL'si, uygun arka uç havuzu seçerken kullanın.
+> [!div class="checklist"]
+> * Uygulama ağ geçidi oluşturma
+> * Arka uç sunucuları için sanal makineler oluşturun
+> * Arka uç sunucular ile arka uç havuzları oluşturma
+> * Arka uç dinleyici oluşturun
+> * Yol tabanlı yönlendirme kuralı oluşturma
 
-## <a name="scenario"></a>Senaryo
+![URL yönlendirme örneği](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Aşağıdaki senaryoyu yol tabanlı bir kural, mevcut bir uygulama ağ geçidi oluşturur.
-Bu senaryo adımları zaten izlediğinizden varsayar [portal ile bir uygulama ağ geçidi oluşturma](application-gateway-create-gateway-portal.md).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-![URL rota][scenario]
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-## <a name="createrule"></a>Yol tabanlı kuralı oluşturma
+Oturum açtığınızda Azure portalında [http://portal.azure.com](http://portal.azure.com)
 
-Yol tabanlı bir kuralı, kendi dinleyici gerektirir. Kural oluşturmadan önce kullanmak için kullanılabilir bir dinleyici yüklü olduğunu doğrulamak emin olun.
+## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-### <a name="step-1"></a>1. Adım
+Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklidir. Bu örnekte, iki alt ağ oluşturulur: bir uygulama ağ geçidi ve arka uç sunucular için diğer için. Uygulama ağ geçidi oluşturma aynı anda bir sanal ağ oluşturabilirsiniz.
 
-Git [Azure portal](http://portal.azure.com) ve var olan bir uygulama ağ geçidi seçin. Tıklatın **kuralları**.
+1. Tıklatın **yeni** Azure portalında sol üst köşesinde bulundu.
+2. Seçin **ağ** ve ardından **uygulama ağ geçidi** öne çıkan listesinde.
+3. Uygulama ağ geçidi için bu değerleri girin:
 
-![Application Gateway’e genel bakış][1]
+    - *myAppGateway* - uygulama ağ geçidi adı.
+    - *myResourceGroupAG* - yeni kaynak grubu için.
 
-### <a name="step-2"></a>2. Adım
+    ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-Tıklatın **yol tabanlı** yol tabanlı yeni bir kural eklemek için düğmeyi.
+4. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
+5. Tıklatın **sanal ağ seçin**, tıklatın **Yeni Oluştur**ve ardından sanal ağ için bu değerleri girin:
 
-### <a name="step-3"></a>3. Adım
+    - *myVNet* - sanal ağın adı.
+    - *10.0.0.0/16* - sanal ağ adres alanı.
+    - *myAGSubnet* - alt ağ adı.
+    - *10.0.0.0/24* - alt ağ adres alanı.
 
-**Yol tabanlı Kuralı Ekle** dikey iki bölümü vardır. Dinleyici, kural ve varsayılan yol ayarları adını tanımlandığı ilk bölümdür. Özel yol tabanlı rota altında kalan yok rotalar için varsayılan yol ayarları ayarlardır. İkinci bölümü **yol tabanlı Kuralı Ekle** dikey olan yol tabanlı kurallar kendilerini burada tanımlayın.
+    ![Sanal ağ oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-**Temel ayarlar**
+6. Tıklatın **Tamam** sanal ağ ve alt ağ oluşturmak için.
+7. Tıklatın **genel bir IP adresi seçin**, tıklatın **Yeni Oluştur**ve ortak IP adresini girin. Bu örnekte adlı ortak IP adresi *myAGPublicIPAddress*. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
+8. Dinleyici yapılandırması için varsayılan değerleri kabul edin, Web uygulaması güvenlik duvarı devre dışı bırakın ve ardından **Tamam**.
+9. Özet sayfasında ayarları gözden geçirin ve ardından **Tamam** ağ kaynaklarını ve uygulama ağ geçidi oluşturmak için. Oluşturulması, dağıtımı, sonraki bölüme geçmeden önce başarıyla tamamlanana kadar bekleyin uygulama ağ geçidi için birkaç dakika sürebilir.
 
-* **Ad**: Portalı'nda erişilebilir olan kural için bir kolay ad.
-* **Dinleyici**: kural için kullanılan dinleyicisi.
-* **Varsayılan arka uç havuzu**: varsayılan kuralı için kullanılacak arka uç.
-* **Varsayılan HTTP ayarları**: varsayılan kuralı için kullanılacak HTTP ayarları.
+### <a name="add-a-subnet"></a>Bir alt ağ Ekle
 
-**Yol tabanlı kural ayarları**
+1. Tıklatın **tüm kaynakları** sol taraftaki menüyü ve ardından **myVNet** kaynakları listesinden.
+2. Tıklatın **alt ağlar**ve ardından **alt**.
 
-* **Ad**: yol tabanlı kuralı için bir kolay ad.
-* **Yollar**: kural zaman arar trafiği iletirken yolu.
-* **Arka uç havuzu**: kural için kullanılacak arka uç.
-* **HTTP ayarı**: kural için kullanılacak HTTP ayarları.
+    ![Alt ağ oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-> [!IMPORTANT]
-> **Yolları** eşleştirilecek yol desenleri listesi bir ayardır. Her desen eğik çizgiyle başlamalıdır ve bir yıldız işareti yalnızca sonunda izin verilir. Geçerli örnekler: /xyz, /xyz*ve /xyz/*.  
+3. Girin *myBackendSubnet* 'ye tıklayın ve alt ağ adı için **Tamam**.
 
-![Doldurulan bilgilerle Ekle yol tabanlı kural dikey penceresi][2]
+## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-Var olan bir uygulama ağ geçidi için bir yol tabanlı kuralın eklenmesi, Azure Portalı aracılığıyla kolay bir işlemdir. Yol tabanlı bir kural oluşturduktan sonra ek kurallar içerecek şekilde düzenleyebilirsiniz. 
+Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak üç sanal makine oluşturun. Ayrıca uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelerde IIS yükleyin.
 
-![Ek yol tabanlı kuralları ekleme][3]
+1. **Yeni**’ye tıklayın.
+2. Tıklatın **işlem** ve ardından **Windows Server 2016 Datacenter** öne çıkan listesinde.
+3. Sanal makine için bu değerleri girin:
 
-Bu adım, yol tabanlı rota yapılandırır. İstekleri değil yazılır anlamak önemlidir. İstekler geldikçe gibi uygulama ağ geçidi isteği inceler ve URL deseni temel alınarak, uygun arka uç havuzu isteği gönderir.
+    - *myVM1* - sanal makine adı için.
+    - *azureuser* - yönetici kullanıcı adı.
+    - *Azure123456!* parolası.
+    - Seçin **var olanı kullan**ve ardından *myResourceGroupAG*.
+
+4. **Tamam**’a tıklayın.
+5. Seçin **DS1_V2** tıklatın ve sanal makine boyutu için **seçin**.
+6. Olduğundan emin olun **myVNet** sanal ağ ve alt ağ için seçili olan **myBackendSubnet**. 
+7. Tıklatın **devre dışı** önyükleme tanılaması devre dışı bırakmak için.
+8. Tıklatın **Tamam**, Özet sayfasında ayarları gözden geçirin ve ardından **oluşturma**.
+
+### <a name="install-iis"></a>IIS yükleme
+
+1. Etkileşimli Kabuğu'nu açın ve onu ayarlandığından emin olun **PowerShell**.
+
+    ![Özel uzantısını yükleyin](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+
+2. IIS sanal makineye yüklemek için aşağıdaki komutu çalıştırın: 
+
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. İki daha fazla sanal makine oluşturun ve yalnızca tamamlandı adımları kullanarak IIS yükleyin. Adlarını girin *myVM2* ve *myVM3* adlarını ve Set-AzureRmVMExtension VMName değerleri.
+
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Sanal makineler ile arka uç havuzları oluşturma
+
+1. Tıklatın **tüm kaynakları** ve ardından **myAppGateway**.
+2. Tıklatın **arka uç havuzları**. Varsayılan bir havuzu uygulama ağ geçidi ile otomatik olarak oluşturuldu. Tıklatın **appGateayBackendPool**.
+3. Tıklatın **Ekle hedef** eklemek için *myVM1* appGatewayBackendPool için.
+
+    ![Arka uç sunucuları ekleme](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. **Kaydet**’e tıklayın.
+5. Tıklatın **arka uç havuzları** ve ardından **Ekle**.
+6. Bir adı girin *imagesBackendPool* ve ekleme *myVM2* kullanarak **Ekle hedef**.
+7. **Tamam**’a tıklayın.
+8. Tıklatın **Ekle** başka bir arka uç havuzu adıyla birlikte yeniden eklemeyi *videoBackendPool* ve ekleme *myVM3* ona.
+
+## <a name="create-a-backend-listener"></a>Arka uç dinleyici oluşturun
+
+1. Tıklatın **dinleyicileri** ve **temel**.
+2. Girin *myBackendListener* adı için *myFrontendPort* ön uç bağlantı noktası adını ve ardından *8080* dinleyicisinin bağlantı noktası olarak.
+3. **Tamam**’a tıklayın.
+
+## <a name="create-a-path-based-routing-rule"></a>Yol tabanlı yönlendirme kuralı oluşturma
+
+1. Tıklatın **kuralları** ve ardından **yol tabanlı**.
+2. Girin *Kural 2* adı.
+3. Girin *görüntüleri* ilk yol adı. Girin */images/** yolu. Seçin **imagesBackendPool** arka uç havuzu için.
+4. Girin *Video* ikinci yol adı. Girin */video/** yolu. Seçin **videoBackendPool** arka uç havuzu için.
+
+    ![Yol tabanlı bir kural oluşturun](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. **Tamam**’a tıklayın.
+
+## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
+
+1. Tıklatın **tüm kaynakları**ve ardından **myAGPublicIPAddress**.
+
+    ![Uygulama ağ geçidi genel IP adresi kaydı](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın. Örneğin, http://http: / / 40.121.222.19.
+
+    ![Temel uygulama ağ geçidi URL'de test](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. URL'nin http:// değiştirme&lt;IP adresi&gt;: 8080/video/test.htm, değiştirerek &lt;IP adresi&gt; ile IP adresi ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
+
+    ![Uygulama ağ geçidi görüntüleri URL Sına](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. URL'nin http:// değiştirme&lt;IP adresi&gt;: 8080/video/test.htm, değiştirerek &lt;IP adresi&gt; ile IP adresi ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
+
+    ![Uygulama ağ geçidi olarak test video URL'si](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure uygulama ağ geçidi ile SSL boşaltma yapılandırma konusunda bilgi edinmek için [Azure portalını kullanarak SSL yük boşaltımı için bir uygulama ağ geçidi yapılandırma](application-gateway-ssl-portal.md).
+Bu makalede, öğrenilen nasıl
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+> [!div class="checklist"]
+> * Uygulama ağ geçidi oluşturma
+> * Arka uç sunucuları için sanal makineler oluşturun
+> * Arka uç sunucular ile arka uç havuzları oluşturma
+> * Arka uç dinleyici oluşturun
+> * Yol tabanlı yönlendirme kuralı oluşturma
+
+Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.

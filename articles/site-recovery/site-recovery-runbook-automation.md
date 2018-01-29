@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Otomasyon çalışma kitabı kurtarma planlara Ekle
 Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Automation ile nasıl tümleşik çalıştığını açıklar. Kurtarma planları korunan sanal makineleri kurtarma Site Recovery ile düzenleyebilirsiniz. Kurtarma planları hem ikincil bulutu için çoğaltma ve çoğaltma Azure için çalışır. Kurtarma planları de yardımcı kurtarma yapmak **tutarlı bir şekilde doğru**, **yinelenebilir**, ve **otomatik**. Vm'lerinizi Azure üzerinden başarısız olursa, Azure Automation tümleştirme kurtarma planlarınızı genişletir. Runbook'ları, ama güçlü bir otomatikleştirme görevleri teklif çalıştırmak için kullanabilirsiniz.
 
-Azure Otomasyonu yeniyseniz, yapabilecekleriniz [kaydolun](https://azure.microsoft.com/services/automation/) ve [örnek komut dosyası yükleme](https://azure.microsoft.com/documentation/scripts/). Daha fazla bilgi için ve Azure Kurtarma kullanarak düzenlemek öğrenmek için [kurtarma planlarına](https://azure.microsoft.com/blog/?p=166264), bkz: [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Azure Otomasyonu yeniyseniz, yapabilecekleriniz [kaydolun](https://azure.microsoft.com/services/automation/) ve [örnek komut dosyası yükleme](https://azure.microsoft.com/documentation/scripts/). Daha fazla bilgi için ve Azure Kurtarma kullanarak düzenlemek öğrenmek için [kurtarma planlarına](./site-recovery-create-recovery-plans.md), bkz: [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 Bu makalede, nasıl Azure Otomasyon çalışma kitabı kurtarma planlarınızı tümleştirebilir açıklanmaktadır. Daha önce el ile müdahale gerekli temel görevleri otomatikleştirmek için örnekler kullanırız. Biz de çok adımlı kurtarma için bir tek tıklamalı kurtarma eylemi dönüştürmek açıklar.
 
@@ -97,10 +97,10 @@ Bu makalede, nasıl Azure Otomasyon çalışma kitabı kurtarma planlarınızı 
     | VmMap |Gruptaki tüm sanal makineleri bir dizi. |
     | VMMap anahtarı |Her VM için benzersiz anahtar (GUID). Bu VM, Azure Virtual Machine Manager (VMM) Kimliğini uygunsa aynıdır. |
     | SubscriptionId |VM oluşturulduğu Azure abonelik kimliği. |
-    | Rol adı |Kurtarılacak Azure VM adı. |
+    | RoleName |Kurtarılacak Azure VM adı. |
     | CloudServiceName |VM oluşturulduğu Azure bulut hizmeti adı. |
-    | resourceGroupName|VM oluşturulduğu Azure kaynak grubu adı. |
-    | Recoverypointıd|VM zaman kurtarılan için zaman damgası. |
+    | ResourceGroupName|VM oluşturulduğu Azure kaynak grubu adı. |
+    | RecoveryPointId|VM zaman kurtarılan için zaman damgası. |
 
 * Otomasyon hesabı aşağıdaki modüller sahip olduğundan emin olun:
     * AzureRM.profile
@@ -256,8 +256,10 @@ Başka bir örnek için aşağıdaki videoya bakın. İki katmanlı WordPress uy
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [Azure Otomasyon hizmeti farklı çalıştır hesabı](../automation/automation-sec-configure-azure-runas-account.md)
+* [Azure Otomasyon hizmeti farklı çalıştır hesabı](../automation/automation-create-runas-account.md)
 * [Azure Otomasyonu genel bakış](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Otomasyonu genel bakış")
 * [Azure Automation örnek betikler](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation örnek betikler")
+
+## <a name="next-steps"></a>Sonraki adımlar
+[Daha fazla bilgi edinin](site-recovery-failover.md) yük devretme işlemleri çalıştırma hakkında.

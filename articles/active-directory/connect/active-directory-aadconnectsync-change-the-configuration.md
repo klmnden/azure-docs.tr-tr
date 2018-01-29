@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/13/2018
 ms.author: billmath
-ms.openlocfilehash: ed71272d2d10cd8b71fd3b2722d3ba033f1b51f9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 1726b53bc54d240f2f468722ac946359145ffa65
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: varsayılan yapılandırmanın bir değişiklik yapma
 Bu konunun amacı, Azure AD Connect eşitleme varsayılan yapılandırmasında değişiklik konusunda size yol sağlamaktır. Bu, bazı ortak senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırma bazı basit değişiklikler yapmak yapabiliyor olmanız gerekir.
@@ -171,227 +171,6 @@ Eşitleme altyapısı out-of-box kurallardan önce eklenen ek kurallar istediği
 
 Aynı kullanarak birçok özel eşitleme kuralları olabilir **PrecedenceBefore** değer gerektiğinde.
 
-## <a name="enable-synchronization-of-preferreddatalocation"></a>PreferredDataLocation eşitlemeyi etkinleştir
-Varsayılan olarak, Office 365 kaynakları kullanıcılarınız için Azure AD kiracınıza ile aynı bölgede yer alır. Örneğin, Kuzey Amerika'da Kiracı bulunuyorsa kullanıcıların Exchange posta kutuları da Kuzey Amerika'da bulunur. Birden çok ulusal bir kuruluş için bu en iyi olmayabilir. Öznitelik preferredDataLocation ayarlayarak kullanıcının bölge tanımlanabilir.
-
-Office 365'te bölgeleri şunlardır:
-
-| Bölge | Açıklama |
-| --- | --- |
-| ADI | Kuzey Amerika |
-| EUR | Avrupa |
-| APC | Asya Pasifik |
-| JPN | Japonya |
-| AVUSTRALYA | Avustralya |
-| CAN | Kanada |
-| GBR | Büyük Britanya |
-| LAM | Latin Amerika |
-
-Tüm Office 365 iş yükleri bir kullanıcının bölge ayarı kullanımını destekler.
-
-Azure AD Connect eşitleme destekleyen **PreferredDataLocation** için öznitelik **kullanıcı** sürüm 1.1.524.0 ve sonra nesneleri. Daha açık belirtmek gerekirse, aşağıdaki değişiklikleri sunulmuştur:
-
-* Nesne türü şeması **kullanıcı** Azure AD Bağlayıcısı türü tek değerli dizesidir PreferredDataLocation özniteliği kapsayacak şekilde genişletilir.
-
-* Nesne türü şeması **kişi** meta veri deposunda türü dize olan ve tek değerli PreferredDataLocation özniteliği kapsayacak şekilde genişletilir.
-
-Şirket içi Active Directory içinde karşılık gelen bir PreferredDataLocation öznitelik olduğundan varsayılan olarak, eşitleme için PreferredDataLocation özniteliği etkin değil. Eşitleme el ile etkinleştirmeniz gerekir.
-
-> [!IMPORTANT]
-> Şu anda Azure AD, Azure AD PowerShell kullanarak doğrudan olacak şekilde yapılandırılmış PreferredDataLocation özniteliği eşitlenmiş kullanıcı nesneleri hem bulut kullanıcı nesneleri sağlar. PreferredDataLocation öznitelik eşitlemesi etkinleştirildiğinde, öznitelik yapılandırmak için Azure AD PowerShell kullanarak durdurmalısınız **kullanıcı nesneleri eşitlenen** Azure AD Connect bunları şirket içi Active Directory'de kaynak öznitelik değerleri temel alarak geçersiz kılar.
-
-> [!IMPORTANT]
-> 1 Eylül 2017'dan itibaren Azure AD artık PreferredDataLocation öznitelik sağlar. **kullanıcı nesneleri eşitlenen** doğrudan Azure AD PowerShell kullanarak yapılandırılmalıdır. Eşitlenen kullanıcı nesnelerindeki PreferredLocation özniteliği yapılandırmak için Azure AD Connect kullanmanız gerekir.
-
-Eşitleme PreferredDataLocation özniteliğinin etkinleştirmeden önce aşağıdakileri yapmalısınız:
-
- * İlk olarak, kaynak özniteliği olarak kullanılmak üzere hangi şirket içi Active Directory öznitelik karar verin. Türünde olmalı **tek değerli dize**. ExtensionAttributes aşağıdaki adımları kullanılır.
-
- * Daha önce PreferredDataLocation özniteliği üzerinde yapılandırdıysanız Azure AD PowerShell kullanarak Azure AD içinde eşzamanlı kullanıcı nesneleri varolan, şunları yapmalısınız **backport** karşılık gelen kullanıcı nesnelerine şirket içi Active Directory'deki öznitelik değerleri.
-
-    > [!IMPORTANT]
-    > Şirket içi Active Directory'de karşılık gelen kullanıcı nesneleri için öznitelik değerlerini değil backport bunu yaparsanız, Azure AD Connect eşitleme PreferredDataLocation özniteliği için etkinleştirildiğinde Azure AD'de mevcut öznitelik değerlerini kaldırın.
-
- * Kaynak özniteliği yapılandırmanız önerilir daha sonra doğrulama için kullanılabilecek artık, şirket içi en az bir birkaç AD kullanıcı nesneleri.
-
-Eşitleme PreferredDataLocation özniteliğinin etkinleştirme adımları olarak özetlenebilir:
-
-1. Eşitleme Zamanlayıcı'yı devre dışı bırakın ve devam eden bir eşitleme doğrulayın
-2. Şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şeması
-3. Azure AD Bağlayıcısı şemaya PreferredDataLocation Ekle
-4. Şirket içi Active Directory'den öznitelik değeri akışı için bir gelen eşitleme kuralı oluşturma
-5. Azure AD öznitelik değerini akışı için bir giden eşitleme kuralı oluşturma
-6. Tam eşitleme döngüsü çalıştırın
-7. Eşitleme Zamanlayıcı etkinleştir
-
-> [!NOTE]
-> Bu bölümde rest Ayrıntıları'nda aşağıdaki adımları kapsar. Özel eşitleme kuralları olmadan tek orman topolojisi ile bir Azure AD dağıtımı bağlamında açıklanmıştır. Çoklu orman topolojisini varsa, özel eşitleme kuralları yapılandırılmış veya bir hazırlama sunucusunda, adımları uygun şekilde ayarlamanız gerekir.
-
-### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1. adım: Eşitleme Zamanlayıcısı'nı devre dışı bırakın ve devam eden bir eşitleme doğrulayın
-Azure AD dışarı aktarılan istenmeyen değişiklikleri önlemek için eşitleme kuralları güncelleştiriliyor ortasında durumdayken eşitleme gerçekleşir emin olun. Yerleşik Eşitleme Zamanlayıcısı'nı devre dışı bırakmak için:
-
-1. Bir PowerShell oturumunda Azure AD Connect bir sunucuda başlatın.
-2. Cmdlet'ini çalıştırarak zamanlanmış eşitleme devre dışı bırak: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
-3. Başlat **Eşitleme Hizmeti Yöneticisi'ni** giderek **Başlat** > **eşitleme hizmeti**.
-4. Git **Operations** sekmesinde ve işlem durumundaki yok onaylayın *devam eden*.
-
-![Eşitleme Hizmeti Yöneticisi - devam eden hiçbir işlemleri denetleyin](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
-
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>2. adım: şirket içi kaynak özniteliği ekleme AD Bağlayıcısı şeması
-Tüm AD öznitelikleri şirket alınır AD bağlayıcı alanı. Varsayılan olarak eşitlenmez bir öznitelik kullanmayı seçtiyseniz, bu içeri aktarmanız gerekir. Kaynak özniteliği içeri aktarılan öznitelikleri listesine eklemek için:
-
-1. Git **Bağlayıcılar** sekme Eşitleme Hizmeti Yöneticisi'nde.
-2. Sağ **şirket içi AD Bağlayıcısı** seçip **özellikleri**.
-3. Açılan iletişim kutusunda, Git **öznitelikleri Seç** sekmesi.
-4. Kullanmak için seçtiğiniz kaynak özniteliği öznitelik listesinde işaretli olduğundan emin olun.
-5. Tıklatın **Tamam** kaydetmek için.
-
-![Şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şeması](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step2.png)
-
-### <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>3. adım: Azure AD Bağlayıcısı şemaya PreferredDataLocation ekleme
-Varsayılan olarak, Azure AD bağlayıcı alanına PreferredDataLocation özniteliği alınmaz. İçeri aktarılan öznitelikleri listesi PreferredDataLocation özniteliği eklemek için:
-
-1. Git **Bağlayıcılar** sekme Eşitleme Hizmeti Yöneticisi'nde.
-2. Sağ **Azure AD Bağlayıcısı** seçip **özellikleri**.
-3. Açılan iletişim kutusunda, Git **öznitelikleri Seç** sekmesi.
-4. Öznitelik listesi PreferredDataLocation özniteliği seçin.
-5. Tıklatın **Tamam** kaydetmek için.
-
-![Azure AD Bağlayıcısı şemaya kaynak öznitelik Ekle](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step3.png)
-
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>4. adım: şirket içi Active Directory'den öznitelik değeri akışı için bir gelen eşitleme kuralı oluşturma
-Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi Active Directory'den kaynak özniteliğinden akış verir:
-
-1. Başlat **eşitleme kuralları Düzenleyicisi** giderek **Başlat** > **eşitleme kuralları Düzenleyicisi**.
-2. Arama filtresi ayarlamak **yönü** olmasını **gelen**.
-3. Tıklatın **Yeni Kural Ekle** düğmesi yeni gelen kuralı oluşturun.
-4. Altında **açıklama** sekmesinde, aşağıdaki yapılandırma sağlayın:
-
-    | Öznitelik | Değer | Ayrıntılar |
-    | --- | --- | --- |
-    | Ad | *Bir ad sağlayın* | Örneğin, *"içinde AD'den – kullanıcı PreferredDataLocation"* |
-    | Açıklama | *Özel bir açıklama belirtin* |  |
-    | Bağlı sistem | *Şirket içi çekme AD Bağlayıcısı* |  |
-    | Bağlı sistem nesne türü | **Kullanıcı** |  |
-    | Meta veri deposu nesne türü | **Person** |  |
-    | Bağlantı türü | **Birleştir** |  |
-    | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
-
-5. Tutmak **Scoping filtre** tüm nesneleri dahil edecek boş. Azure AD Connect dağıtımınızı göre kapsam filtresi ince ayar gerekebilir.
-6. Git **dönüştürme sekmesi** ve aşağıdaki dönüştürme kuralı uygular:
-
-    | Akış türü | Hedef Öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
-    | --- | --- | --- | --- | --- |
-    |Doğrudan | PreferredDataLocation | Kaynak özniteliği seçin | İşaretli | Güncelleştirme |
-
-7. Tıklatın **Ekle** gelen kuralı oluşturmak için.
-
-![Gelen eşitleme kuralı oluşturma](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step4.png)
-
-### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>5. adım: Azure AD öznitelik değerini akışı için bir giden eşitleme kuralı oluşturma
-Giden eşitleme kuralı öznitelik değerini meta veri deposu Azure AD'de PreferredDataLocation öznitelik akış verir:
-
-1. Git **eşitleme kuralları** Düzenleyici.
-2. Arama filtresi ayarlamak **yönü** olmasını **giden**.
-3. Tıklatın **Yeni Kural Ekle** düğmesi.
-4. Altında **açıklama** sekmesinde, aşağıdaki yapılandırma sağlayın:
-
-    | Öznitelik | Değer | Ayrıntılar |
-    | ----- | ------ | --- |
-    | Ad | *Bir ad sağlayın* | Örneğin, "çıkışı için AAD – kullanıcı PreferredDataLocation" |
-    | Açıklama | *Bir açıklama belirtin* ||
-    | Bağlı sistem | *AAD bağlayıcı seçin* ||
-    | Bağlı sistem nesne türü | Kullanıcı ||
-    | Meta veri deposu nesne türü | **Person** ||
-    | Bağlantı türü | **Birleştir** ||
-    | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
-
-5. Git **Scoping filtre** sekmesinde ve ekleme bir **iki maddeleri tek kapsam filtresi grubu**:
-
-    | Öznitelik | İşleç | Değer |
-    | --- | --- | --- |
-    | sourceObjectType | EŞİTTİR | Kullanıcı |
-    | cloudMastered | EŞİT DEĞİLDİR | True |
-
-    Kapsam Filtresi hangi Azure AD bu giden eşitleme kuralının uygulandığı nesneleri belirler. Bu örnekte, "Dışı" AD – kullanıcı kimliği için aynı kapsam filtresinden kullanırız OOB eşitleme kuralı. Eşitleme kuralı şirket içi Active Directory'den eşitlenmez kullanıcı nesnelerine uygulanan engeller. Azure AD Connect dağıtımınızı göre kapsam filtresi ince ayar gerekebilir.
-
-6. Git **dönüştürme** sekmesinde ve aşağıdaki dönüştürme kuralı uygulayın:
-
-    | Akış türü | Hedef Öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
-    | --- | --- | --- | --- | --- |
-    | Doğrudan | PreferredDataLocation | PreferredDataLocation | İşaretli | Güncelleştirme |
-
-7. Kapat **Ekle** giden kuralı oluşturmak için.
-
-![Giden eşitleme kuralı oluştur](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step5.png)
-
-### <a name="step-6-run-full-synchronization-cycle"></a>6. adım: Çalıştır tam eşitleme döngüsü
-AD için yeni öznitelikler ekledik genel olarak, tam eşitleme döngüsü gerekli olduğu ve Azure AD Bağlayıcısı şema ve sunulan özel eşitleme kuralları. Azure AD dışarı aktarmadan önce değişiklikleri doğrulamak önerilir. Bir tam eşitleme döngüsü yapmak adımları el ile çalışırken değişiklikleri doğrulamak için aşağıdaki adımları kullanın.
-
-1. Çalıştırma **tam alma** üzerinde Adım **şirket içi AD Bağlayıcısı**:
-
-   1. Git **Operations** sekme Eşitleme Hizmeti Yöneticisi'nde.
-
-   2. Sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır... **.
-
-   3. Açılan iletişim kutusunda seçin **tam içeri aktarma** tıklatıp **Tamam**.
-
-   4. İşlemin tamamlanmasını bekleyin.
-
-    > [!NOTE]
-    > Tam içeri aktarma atlayabilirsiniz şirket içi AD kaynak özniteliği zaten listesinde yer alıyorsa Bağlayıcısı öznitelikleri alındı. Diğer bir deyişle, sırasında herhangi bir değişiklik yapmak zorunda kalmadığımıza [2. adım: şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
-
-2. Çalıştırma **tam alma** üzerinde Adım **Azure AD Bağlayıcısı**:
-
-   1. Sağ **Azure AD Bağlayıcısı** seçip **Çalıştır...**
-
-   2. Açılan iletişim kutusunda seçin **tam içeri aktarma** tıklatıp **Tamam**.
-
-   3. İşlemin tamamlanmasını bekleyin.
-
-3. Eşitleme kuralı değişiklikleri var olan bir kullanıcı nesnesi üzerinde doğrulayın:
-
-Kaynak özniteliği Active Directory ve Azure AD'den PreferredDataLocation ilgili bağlayıcı alanına içeri aktarıldığını şirket içi. Tam eşitleme adımla devam etmeden önce bunu yapmanız önerilir bir **Önizleme** üzerinde var olan bir kullanıcı nesnesi şirket içi AD bağlayıcı alanı. Seçtiğiniz nesne doldurulmuş kaynak özniteliği olmalıdır. Başarılı bir **Önizleme** eşitleme yapılandırdığınız iyi bir gösterge kuralları doğru meta veri deposunda doldurulmuş PreferredDataLocation olduğu. Nasıl yapılacağı hakkında bilgi için bir **Önizleme**, bölümüne bakın [değişikliği doğrulayın](#verify-the-change).
-
-4. Çalıştırma **tam eşitleme** üzerinde Adım **şirket içi AD Bağlayıcısı**:
-
-   1. Sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır... **.
-
-   2. Açılan iletişim kutusunda seçin **tam eşitleme** tıklatıp **Tamam**.
-
-   3. İşlemin tamamlanmasını bekleyin.
-
-5. Doğrulama **bekleyen dışarı aktarmaların** Azure ad:
-
-   1. Sağ **Azure AD Bağlayıcısı** seçip **arama bağlayıcı alanı**.
-
-   2. Bağlayıcı alanı arama açılan iletişim kutusunda:
-
-      1. Ayarlama **kapsam** için **dışa aktarma bekleyen**.
-
-      2. Dahil olmak üzere, tüm üç checkboxes denetleyin **ekleme, değiştirme ve silme**.
-
-      3. Tıklatın **arama** dışarı değişikliklerle nesneleri listesini almak için düğmesi. Belirli nesne değişiklikleri incelemek için nesne çift tıklayın.
-
-      4. Değişiklikleri beklenen doğrulayın.
-
-6. Çalıştırma **verme** üzerinde Adım **Azure AD Bağlayıcısı**
-
-   1. Sağ **Azure AD Bağlayıcısı** seçip **Çalıştır... **.
-
-   2. Bağlayıcı çalıştırmak açılan iletişim kutusunda, seçin **verme** tıklatıp **Tamam**.
-
-   3. Tamamlamak için Azure ad dışarı aktarma bekleyin.
-
-> [!NOTE]
-> Adımları Azure AD Bağlayıcısı üzerinde tam eşitleme adım ve dışarı aktarma AD Bağlayıcısı üzerinde içermez fark edebilirsiniz. Adımları öznitelik değerleri yalnızca Azure AD ile şirket içi Active Directory'den akmaktadır gerekli değildir.
-
-### <a name="step-7-re-enable-sync-scheduler"></a>7. adım: Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin
-Yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
-
-1. PowerShell oturumu başlatın.
-2. Zamanlanan eşitleme cmdlet'ini çalıştırarak yeniden etkinleştirin:`Set-ADSyncScheduler -SyncCycleEnabled $true`
-
 ## <a name="enable-synchronization-of-usertype"></a>UserType eşitlemeyi etkinleştir
 Azure AD Connect eşitleme destekleyen **UserType** için öznitelik **kullanıcı** sürüm 1.1.524.0 ve sonra nesneleri. Daha açık belirtmek gerekirse, aşağıdaki değişiklikleri sunulmuştur:
 
@@ -430,8 +209,6 @@ Azure AD dışarı aktarılan istenmeyen değişiklikleri önlemek için eşitle
  2. Zamanlanan eşitleme cmdlet'ini çalıştırarak devre dışı bırakın:`Set-ADSyncScheduler -SyncCycleEnabled $false`
  3. Başlat **Eşitleme Hizmeti Yöneticisi'ni** Başlangıç → eşitleme hizmeti giderek.
  4. Git **Operations** sekmesinde ve durumu olan işlem yok onaylayın *"sürüyor."*
-
-![Eşitleme Hizmeti Yöneticisi - devam eden hiçbir işlemleri denetleyin](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
 
 ### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>2. adım: şirket içi kaynak özniteliği ekleme AD Bağlayıcısı şeması
 Tüm AD öznitelikleri şirket alınır AD bağlayıcı alanı. Kaynak özniteliği içeri aktarılan öznitelikleri listesine eklemek için:

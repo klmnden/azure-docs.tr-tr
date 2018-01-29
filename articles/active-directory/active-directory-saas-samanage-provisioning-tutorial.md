@@ -12,26 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-<<<<<<< HEAD
-ms.openlocfilehash: 278ebf464fbe815568fbe332f80d5ea6b29e1811
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 9e6e4fbccc225f0a457bb1fab53b75fe59074576
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 901f0ec7ceeb80687b7b75d9a3710e8d6bc1811c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-samanage-for-automatic-user-provisioning"></a>Öğretici: Samanage otomatik kullanıcı sağlamayı için yapılandırma
+# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Öğretici: Samanage otomatik kullanıcı sağlamayı yapılandırın
 
 
 Bu öğreticinin amacı Samanage ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den Samanage sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -86,7 +80,7 @@ Bu bölümde Azure AD Samanage'nın kullanıcı hesabına API sağlama konusunda
 
 7. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alanına ve "bir hata oluştuğunda e-posta bildirimi gönder." onay kutusunu işaretleyin
 
-8. **Kaydet** düğmesine tıklayın. 
+8. **Kaydet**’e tıklayın. 
 
 9. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Samanage**.
 
@@ -94,7 +88,7 @@ Bu bölümde Azure AD Samanage'nın kullanıcı hesabına API sağlama konusunda
 
 11. Azure AD hizmeti Samanage için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
-12. **Kaydet** düğmesine tıklayın. 
+12. **Kaydet**’e tıklayın. 
 
 Bu işlem, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Samanage atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler anlatılmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 

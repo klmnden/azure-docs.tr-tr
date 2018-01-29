@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 89ecd5ac2b8816e4efc5f8bf37dd7390bbf39ae8
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0686e3fe129abcdcecc5870f7384dd68271e7b3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşlemesi - oluşturma, farklı Aboneliklerde Kaynak Yöneticisi'ni 
 
@@ -31,7 +31,7 @@ Sanal ağlar aynı ya da farklı olup, abonelikleri ve hangi bağlı olarak fark
 |--------- |---------|
 |[Her iki kaynak yöneticisi](virtual-network-create-peering.md) |Aynı|
 |[Bir kaynak yöneticisi, bir Klasik](create-peering-different-deployment-models.md) |Aynı|
-|[Bir kaynak yöneticisi, bir Klasik](create-peering-different-deployment-models-subscriptions.md) |Farklı|
+|[Bir kaynak yöneticisi, bir Klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
 
 Klasik dağıtım modeli aracılığıyla dağıtılan iki sanal ağ arasında bir sanal ağ eşlemesi oluşturulamıyor. Klasik dağıtım modeli aracılığıyla her ikisi de oluşturulan sanal ağlara bağlanmak gerekiyorsa, Azure kullanabilirsiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlara bağlanma. 
 
@@ -58,7 +58,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
 6. İçinde **myVnetA - erişim denetimi (IAM)** görünür, dikey tıklayın **+ Ekle**.
 7. İçinde **izinleri eklemek** görünen seçin dikey **ağ Katılımcısı** içinde **rol** kutusu.
 8. İçinde **seçin** kutusuna bir UserB seçin veya aramak için Kullanıcıb'in e-posta adresini yazın. Gösterilen kullanıcılar için eşlemeyi ayarlama ayarladığınız sanal ağ aynı Azure Active Directory kiracısındaki listesidir.
-9. **Kaydet** düğmesine tıklayın.
+9. **Kaydet**’e tıklayın.
 10. İçinde **myVnetA - erişim denetimi (IAM)** dikey penceresinde tıklatın **özellikleri** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
 11. UserA olarak portal dışında oturum sonra UserB oturum açın.
 12. 2-3 girmek veya 3. adımda aşağıdaki değerleri seçerek, adımları tamamlayın:
@@ -80,7 +80,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
 19. İçinde **myVnetA** görünür, dikey tıklayın **eşlemeler** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden.
 20. İçinde **myVnetA - eşlemeler** görünen dikey tıklayın **+ Ekle**
 21. İçinde **Ekle eşliği** görünür, dikey girin veya aşağıdaki seçenekleri belirleyin ve ardından **Tamam**:
-     - **Ad**: *myVnetAToMyVnetB*
+     - **Name**: *myVnetAToMyVnetB*
      - **Sanal ağ dağıtım modeli**: seçin **Resource Manager**.
      - **Kaynak Kimliğimi biliyorum**: Bu onay kutusunu işaretleyin.
      - **Kaynak Kimliği**: 14. adımdan kaynak kimliği girin.
@@ -334,9 +334,7 @@ Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide 
 
 ## <a name="register"></a>Genel sanal ağ eşleme Önizleme için kaydolun
 
-Sanal ağlar farklı bölgelerde eş yeteneği şu anda önizlemede değil. Yetenek sınırlı sayıda bölgeler (başlangıçta, ABD Batı Orta Kanada merkezi ve ABD Batı 2) içinde kullanılabilir. Sanal ağlar farklı bölgelerde arasında oluşturulan sanal ağ eşlemesi bulunabilir, kullanılabilirliği ve güvenilirliği aynı bölgede bulunan sanal ağlar arasında eşleme olarak aynı düzeyde olmayabilir. Bu özelliğin kullanılabilirliği ve durumuyla ilgili en güncel bildirimler için, [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasına bakın.
-
-Sanal ağlar bölgeler arasında eş için önce önizleme için (içinde eş istediğiniz her bir sanal ağı olduğundan, abonelik) aşağıdaki adımları tamamlayarak kaydetmeniz gerekir Azure PowerShell veya Azure CLI kullanarak:
+Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. Sanal ağlar farklı bölgelerde şu anda önizlemede eşleme. Bkz: [sanal ağı güncelleştirmelerini](https://azure.microsoft.com/en-us/updates/?product=virtual-network) bölgeleri için kullanılabilir. Sanal ağlar bölgeler arasında eş için önce önizleme için (içinde eş istediğiniz her bir sanal ağı olduğundan, abonelik) aşağıdaki adımları tamamlayarak kaydetmeniz gerekir Azure PowerShell veya Azure CLI kullanarak:
 
 ### <a name="powershell"></a>PowerShell
 

@@ -10,15 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/24/2018
+ms.openlocfilehash: 4aca7c4c0c096082d03c0514ce714cfd3624249b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Go dilini kullanma
-Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Apple macOS platformlarından [Go](https://golang.org/) dilinde yazılmış kod kullanarak MySQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu konuda, Go kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Apple macOS platformlarından [Go](https://golang.org/) dilinde yazılmış kod kullanarak MySQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makalede, Go kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
@@ -26,7 +26,7 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 - [Azure CLI kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Go ve MySQL bağlayıcısını yükleme
-Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Platformunuza bağlı olarak, uygun bölümdeki adımları izleyin:
+Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)'i (en düşük 1.3 sürümü olmak şartıyla) yükleyin. Platformunuza bağlı olarak, uygun bölümdeki adımları izleyin:
 
 ### <a name="windows"></a>Windows
 1. [Yükleme yönergelerine](https://golang.org/doc/install) uygun olarak Microsoft Windows için Go’yu [indirin](https://golang.org/dl/) ve yükleyin.
@@ -34,7 +34,7 @@ Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MyS
 3. Projeniz için şöyle bir klasör oluşturun. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
 4. Dizini değiştirerek proje klasörünüze geçin; örneğin, `cd %USERPROFILE%\go\src\mysqlgo`.
 5. GOPATH için ortam değişkenini kaynak kod dizinine işaret edecek şekilde ayarlayın. `set GOPATH=%USERPROFILE%\go`.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Gerekli en düşük sürüm, 1.3 sürümüdür.
 
    Özetle, Go’yu yükleyin ve ardından komut isteminde şu komutları çalıştırın:
    ```cmd
@@ -50,7 +50,7 @@ Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MyS
 3. Giriş dizininizde projeniz için `mkdir -p ~/go/src/mysqlgo/` gibi bir klasör oluşturun.
 4. Dizini değiştirerek klasöre geçin; örneğin, `cd ~/go/src/mysqlgo/`.
 5. GOPATH ortam değişkenini geçerli bir kaynak dizine, örneğin geçerli giriş dizininizin go klasörüne işaret edecek şekilde ayarlayın. Bash kabuğunda `export GOPATH=~/go` komutunu çalıştırarak geçerli kabuk oturumu için GOPATH olarak go dizinini ayarlayın.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Gerekli en düşük sürüm, 1.3 sürümüdür.
 
    Özetle, şu bash komutlarını çalıştırın:
    ```bash
@@ -67,7 +67,7 @@ Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MyS
 3. Giriş dizininizde projeniz için `mkdir -p ~/go/src/mysqlgo/` gibi bir klasör oluşturun.
 4. Dizini değiştirerek klasöre geçin; örneğin, `cd ~/go/src/mysqlgo/`.
 5. GOPATH ortam değişkenini geçerli bir kaynak dizine, örneğin geçerli giriş dizininizin go klasörüne işaret edecek şekilde ayarlayın. Bash kabuğunda `export GOPATH=~/go` komutunu çalıştırarak geçerli kabuk oturumu için GOPATH olarak go dizinini ayarlayın.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Gerekli en düşük sürüm, 1.3 sürümüdür.
 
    Özetle, Go’yu yükleyin ve ardından şu bash komutlarını çalıştırın:
    ```bash

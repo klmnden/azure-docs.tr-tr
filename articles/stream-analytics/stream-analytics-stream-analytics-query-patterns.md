@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler ortak Stream Analytics kullanım desenlerini için sorgu
 ## <a name="introduction"></a>Giriş
@@ -65,14 +65,14 @@ Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Bu so
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC 369 |2015-01-01T00:00:03.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Çıktı**:
 
 | Yapma | LicensePlate | Zaman |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC 369 |2015-01-01T00:00:03.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Çözüm**:
 
@@ -207,7 +207,7 @@ Not ortak tablo ifadelerinde (Cte'lerin) sonuçlarını da kullanabilirsiniz (gi
 
 **Çıktı:**
 
-| Sayı | Zaman |
+| CountMake | Zaman |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -365,8 +365,8 @@ GROUP BY
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
-| Honda |GHI 345 |2015-01-01T00:00:04.0000000Z |
+| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
+| Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Çıktı**:
 
@@ -397,7 +397,7 @@ GROUP BY
 | Kullanıcı | Özellik | Olay | Zaman |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Başlatma |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Bitiş |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **Çıktı**:  
 
@@ -469,7 +469,7 @@ GROUP BY
 
 **Giriş**:
 
-| T | değer |
+| t | değer |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -480,7 +480,7 @@ GROUP BY
 
 **Çıktı (ilk 10 satır)**:
 
-| windowend | lastevent.t | lastevent.Value |
+| windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |

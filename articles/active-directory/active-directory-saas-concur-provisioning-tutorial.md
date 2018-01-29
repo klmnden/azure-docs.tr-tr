@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Concur | Microsoft Docs"
+title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Concur yapılandırma | Microsoft Docs"
 description: "Çoklu oturum açma Azure Active Directory ile Concur arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f39013785f000c7055aaa28f4c6f41998644cb6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 743d974c3711d5359cf7664c6a8709f7eaaeee20
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-concur-for-user-provisioning"></a>Öğretici: Yapılandırma Concur kullanıcı sağlamak için
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Öğretici: Concur otomatik kullanıcı sağlamayı yapılandırın
 
 Bu öğreticinin amacı Concur ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den Concur sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -98,7 +98,7 @@ Aşağıdaki nedenlerle Bu eylem normal T & E Yönetim için kullandıkları pro
 
 9. Ayarlama **sağlama modunda** için **otomatik**. 
  
-    ![Sağlama](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
+    ![sağlama](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
 
 10. Altında **yönetici kimlik bilgileri** bölümünde, girin **kullanıcı adı** ve **parola** Concur yöneticinizin.
 

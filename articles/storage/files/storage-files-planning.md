@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları, endüstri standardı SMB protokolü erişilebilir bulutta sunar. Azure dosyaları tam olarak yönetildiğinden üretim senaryolarında dağıtma dağıtma ve bir dosya sunucusu veya NAS cihazı yönetme daha kolaydır. Bu makale bir Azure dosya paylaşımı, kuruluşunuzdaki üretim kullanımı için dağıtırken dikkate alınacak konular giderir.
@@ -50,7 +50,7 @@ Azure dosyaları teklifleri iki, ayrı ayrı veya birbirleriyle, verilerinize er
 
 Aşağıdaki tabloda, kullanıcılar ve uygulamalar, Azure dosya paylaşımı nasıl erişebileceğinizi gösterilmektedir:
 
-| | Doğrudan bulut erişimi | Azure dosya eşitleme |
+| | Doğrudan bulut erişimi | Azure Dosya Eşitleme |
 |------------------------|------------|-----------------|
 | Hangi protokolleri kullanmak üzere gerekiyor mu? | Azure dosyaları, SMB 2.1, SMB 3.0 ve dosya REST API'si destekler. | Azure dosya paylaşımı (SMB, NFS, FTPS, vb.) Windows Server'da desteklenen tüm protokol üzerinden erişme |  
 | İş yükünüzün çalıştırdığınız? | **Azure'da**: Azure dosyaları verilerinizi doğrudan erişim sağlar. | **Yavaş ağ ile şirket içi**: Windows, Linux ve macOS istemcileri, Azure dosya paylaşımı bir hızlı önbellek yerel şirket içi Windows dosya paylaşımı bağlayın. |
@@ -64,7 +64,7 @@ Azure dosyaları veri güvenliğini sağlamaya yönelik birkaç yerleşik seçen
     * SMB 3.0 desteklemeyen istemciler iletişim kurabilir içi veri merkezi SMB 2.1 veya SMB 3.0 üzerinden şifreleme olmadan. İstemcileri ağlar arası veri merkezi SMB 2.1 veya SMB 3.0 üzerinden şifreleme olmadan iletişim kurmasına izin verilmiyor unutmayın.
     * İstemcileri dosya REST HTTP veya HTTPS üzerinden iletişim kurabilir.
 * Çalışmıyorken şifreleme ([Azure depolama hizmeti şifrelemesi](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): depolama hizmeti şifreleme (SSE) temel alınan Azure Storage platformunda etkinleştirme sürecinde duyuyoruz. Bu, şifreleme tüm depolama hesapları için varsayılan olarak etkin anlamına gelir. Şifreleme çalışmıyorken varsayılan ile bir bölgede yeni bir depolama hesabı oluşturuyorsanız, etkinleştirmek için bir şey yapmanız gerekmez. Tam olarak yönetilen anahtarlarla çalışmıyorken veri şifrelenir. Çalışmıyorken şifreleme bırakmaz depolama maliyetlerini artırabilir veya performansı düşürebilir. 
-* Şifrelenmiş veriler aktarım sırasında isteğe bağlı gereksinimi: Bu onay kutusu seçildiğinde, Azure dosyaları verilere erişim şifrelenmemiş kanalları izin vermez. Özellikle, yalnızca HTTPS ve SMB 3.0 şifreleme bağlantılarıyla izin verilir. 
+* Şifrelenmiş veriler aktarım sırasında isteğe bağlı gereksinimi: Seçili olduğunda, Azure dosyaları şifrelenmemiş kanalları access veri reddeder. Özellikle, yalnızca HTTPS ve SMB 3.0 şifreleme bağlantılarıyla izin verilir. 
 
     > [!Important]  
     > Güvenli veri aktarımı gerektiren başarısız olmasına eski SMB istemcileriniz değil şifrelemesi ile SMB 3.0 ile iletişim kurabilen neden olur. Bkz: [bağlama Windows](storage-how-to-use-files-windows.md), [bağlama Linux'ta](storage-how-to-use-files-linux.md), [bağlama üzerinde macOS](storage-how-to-use-files-mac.md) daha fazla bilgi için.
@@ -74,10 +74,13 @@ En yüksek güvenlik için her zaman iki şifreleme çalışmıyorken etkinleşt
 Azure dosya paylaşımına erişmek için Azure dosya eşitleme kullanıyorsanız, her zaman HTTPS ve SMB 3.0 şifrelemesi ile Windows çalışmıyorken verilerin şifrelenmesini gerektirir mi bağımsız olarak, sunucularınızın verilerinizi eşitlemek için kullanacağız.
 
 ## <a name="data-redundancy"></a>Veri yedekliği
-Azure dosyaları iki veri artıklığı seçeneklerini destekler: yerel olarak yedekli depolama (LRS) ve coğrafi olarak yedekli depolama (GRS). Aşağıdaki bölümlerde, yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama arasındaki farklar açıklanmaktadır:
+Azure dosyaları üç veri artıklığı seçeneklerini destekler: yerel olarak yedekli depolama (LRS), bölge olarak yedekli depolama (ZRS) ve coğrafi olarak yedekli depolama (GRS). Aşağıdaki bölümlerde farklı artıklık seçenekleri arasındaki farklar açıklanmaktadır:
 
 ### <a name="locally-redundant-storage"></a>Yerel olarak yedekli depolama
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Bölge olarak yedekli depolama
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Coğrafi Olarak Yedekli Depolama
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]

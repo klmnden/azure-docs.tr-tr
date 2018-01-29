@@ -1,10 +1,10 @@
 ---
-title: "Azure Ağ İzleyicisi - Azure portal ile bağlantısını kontrol edin. | Microsoft Docs"
-description: "Bu sayfa, Azure Portalı'ndaki Ağ İzleyicisi ile bağlantılarını denetlemek açıklanmaktadır"
+title: "Azure Ağ İzleyicisi - Azure REST API bağlantılarıyla ilgili sorunları giderme | Microsoft Docs"
+description: "Bağlantı kullanmayı öğrenin Özelliği Azure REST API'sini kullanarak Azure Ağ İzleyicisi, sorun giderme."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Azure portalını kullanarak Azure Ağ İzleyicisi ile bağlantısını denetleyin
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile bağlantı sorunlarını giderme
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,17 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Bir doğrudan belirli bir uç noktası TCP bağlantısı bir sanal makineden oluşturulan olmadığını doğrulamak için bağlantı kullanmayı öğrenin.
+Bağlantı kullanmayı öğrenin bir doğrudan belirli bir uç noktası TCP bağlantısı bir sanal makineden oluşturulan olup olmadığını doğrulamak için sorun giderme.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu makalede, aşağıdaki kaynaklara sahip olduğunuz varsayılmaktadır:
 
-* Ağ İzleyicisi bağlantı denetlemek istediğiniz bölgede bir örneği.
-
-* Sanal makineler ile bağlantılarını denetlemek için.
-
-ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient).
-
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+* Ağ İzleyicisi, bir bağlantı sorunlarını giderme istediğiniz bölgede bir örneği.
+* Bağlantıları ile ilgili sorunları giderme için sanal makineler.
 
 > [!IMPORTANT]
-> Bağlantı onay gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Bağlantı sorunlarını giderme bir sanal makine uzantısı gerektiren `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum
 
@@ -471,11 +466,9 @@ Aşağıdaki örnek, önceki API çağrısı çalışmasını yanıt aynıdır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
+Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md).
 
-Belirli trafik içinde veya dışında VM ziyaret ederek izin verilip verilmediğini Bul [denetleyin IP akış doğrulayın](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
+Belirli trafik içinde veya dışında VM ziyaret ederek izin verilip verilmediğini Bul [denetleyin IP akış doğrulayın](network-watcher-check-ip-flow-verify-portal.md).
 
 
 

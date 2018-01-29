@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlaması
 
@@ -47,10 +47,10 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 |---|---|---|
 | [Windows aracıları](log-analytics-windows-agent.md) | Evet | Çözüm Windows aracılardan kapasite ve performans verileri bilgi toplar. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır    | Çözüm, doğrudan Linux aracılarını kapasite ve performans verileri bilgi toplamaz.|
-| [SCOM yönetim grubu](log-analytics-om-agents.md) | Evet |Çözüm bağlı SCOM yönetim grubunda aracıları kapasite ve performans verilerini toplar. OMS SCOM Aracısı'nı arasında doğrudan bağlantı gerekli değildir. Veriler yönetim grubundan OMS deposuna iletilir.|
+| [SCOM yönetim grubu](log-analytics-om-agents.md) | Evet |Çözüm bağlı SCOM yönetim grubunda aracıları kapasite ve performans verilerini toplar. Günlük analizi SCOM Aracısı'nı arasında doğrudan bağlantı gerekli değildir.|
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Azure depolama kapasite ve performans verilerini içermez.|
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Windows Server 2012 veya daha yüksek Hyper-V konakları, sanal makineler üzerinde Windows veya Operations Manager aracıları yüklenmelidir.
 
@@ -59,11 +59,11 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 Sunucunuzdan çalışma alanınıza kapasite ve performans çözümü eklemek için aşağıdaki adımı gerçekleştirin.
 
-- Kapasite ve performans çözümü açıklanan işlemi kullanarak OMS çalışma alanınıza ekleyin [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
+- Kapasite ve performans çözümü açıklanan işlemi kullanarak günlük analizi çalışma alanınıza ekleyin [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Yönetim paketleri
 
-SCOM yönetim grubunuzu, OMS çalışma alanınızla bağlıysa, bu çözüm eklediğinizde, ardından aşağıdaki yönetim paketlerini SCOM yüklenir. Bu yönetim paketleri için bir yapılandırma veya bakım gerekmez.
+SCOM yönetim grubunuzu günlük analizi çalışma alanına bağlıysa, bu çözüm eklediğinizde, ardından aşağıdaki yönetim paketlerini SCOM yüklenir. Bu yönetim paketleri için bir yapılandırma veya bakım gerekmez.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 

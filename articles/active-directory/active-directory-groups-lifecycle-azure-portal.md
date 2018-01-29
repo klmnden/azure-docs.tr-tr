@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Süre sonu Office 365 grupları (Önizleme) için yapılandırma
 
@@ -34,11 +34,21 @@ Bunlar için süre sonu özellikleri ayarlayarak artık Office 365 grupları ya�
 
 Azure AD PowerShell cmdlet'leri yükleyip konusunda daha fazla bilgi için bkz: [PowerShell Azure Active Directory Graph - genel Önizleme sürümü 2.0.0.137 için](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
+## <a name="roles-and-permissions"></a>Rolleri ve izinleri
+Bunlar, yapılandırabilir ve sona erme Azure AD'de Office 365 gruplarında kullanmak rolleridir.
+
+Rol | İzinler
+-------- | --------
+Genel Yönetici<br>Kullanıcı Hesabı Yöneticisi | Oluşturma, okuma, güncelleştirme veya silme Office 365 grupları süre sonu ilkesi ayarları
+Kullanıcı | Oldukları bir Office 365 Grup yenileyebilirsiniz<br>Oldukları bir Office 365 grup geri yükleyebilirsiniz
+
+Silinen gruplarını geri yüklemek için izinler hakkında daha fazla bilgi için bkz: [silinen bir Office 365 Grup Geri](active-directory-groups-restore-azure-portal.md).
+
 ## <a name="set-group-expiration"></a>Set grup süre sonu
 
 1. Açık [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) Azure AD kiracınızda genel yönetici olan bir hesapla.
 
-2. Açık Azure AD, select **kullanıcılar ve gruplar**.
+2. Seçin **kullanıcılar ve gruplar**.
 
 3. Seçin **grup ayarları** ve ardından **sona erme** süre sonu ayarlarını açın.
   
@@ -48,7 +58,7 @@ Azure AD PowerShell cmdlet'leri yükleyip konusunda daha fazla bilgi için bkz: 
 
   * Grup ömrü gün olarak ayarlayın. Hazır değerlerden ya da (31 gün veya daha uzun olmalıdır) özel bir değer birini seçebilirsiniz. 
   * Bir grup sahibi olduğunda burada yenileme ve süre sonu bildirimleri gönderilmesi gereken bir e-posta adresi belirtin. 
-  * Office 365 grupları sona seçin. Süre sonu için etkinleştirebilirsiniz **tüm** Office 365 grupları, Office 365 grupları kümelerini seçebilirsiniz veya seçtiğiniz **hiçbiri** süre sonu tüm gruplar için devre dışı bırakmak için.
+  * Office 365 grupları sona seçin. Süre sonu için etkinleştirebilirsiniz **tüm** Office 365 grupları seçebilirsiniz yalnızca etkinleştirmek **seçili** Office 365 grupları veya seçin **hiçbiri** süre sonu tüm gruplar için devre dışı bırakmak için .
   * Seçerek bittiğinde ayarlarınızı kaydetmek **kaydetmek**.
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Otomatik ölçeklendirme ayarlarını anlama
 Otomatik ölçeklendirme ayarları, uygulamanızın fluctuating yükü işlemek üzere çalışan kaynakları sağ miktarına sahip olmanızı sağlar. Yükleme veya performans belirtmek veya bir zamanlanmış tarih ve saatte tetikleyicisi ölçümleri temel tetiklenmesi için otomatik ölçeklendirme ayarlarını yapılandırabilirsiniz. Bu makalede bir ayrıntılı bir otomatik ölçeklendirme ayarı anatomisi inceler. Makaleyi şeması ve bir ayarın özelliklerini anlayarak başlar, ardından yapılandırılabilir ve son olarak nasıl otomatik ölçeklendirme herhangi bir zamanda çalıştırmak için hangi profilin değerlendirir anlatılmaktadır farklı profil türleri anlatılmaktadır.
@@ -107,14 +107,14 @@ Otomatik ölçeklendirme ayarı şema göstermek için aşağıdaki otomatik öl
 | Profili | Capacity.minimum | İzin verilen en az kapasitesi. Bu otomatik ölçeklendirme sağlar bu profili yürütülürken kaynağınız bu sayının altına ölçeklenmez. |
 | Profili | Capacity.default | (Bu durumda, "vmss1" cpu) kaynak ölçümü okunurken bir sorun oluştu ve Geçerli kapasitenin varsayılan kapasitenin altında sonra kaynak kullanılabilirliğini sağlamak için ise, otomatik ölçeklendirme ölçekler varsayılan genişletme. Geçerli kapasitenin zaten varsayılan kapasitesinden yüksek ise, otomatik ölçeklendirme ölçek bileşenini değil. |
 | Profili | rules | Otomatik ölçeklendirme profili kurallarını kullanarak maksimum ve minimum kapasiteleri arasında otomatik olarak ölçeklendirir. Bir profili birden çok kural bulunabilir. İki kural, bir zaman genişleme belirlemek için ve diğer zaman ölçek bileşenini belirlemek için temel senaryo olmalıdır. |
-| Kural | metricTrigger | Kural ölçüm koşulunu tanımlar. |
+| kural | metricTrigger | Kural ölçüm koşulunu tanımlar. |
 | metricTrigger | metricName | Ölçüm adı. |
 | metricTrigger |  metricResourceUri | Ölçüm yayar kaynak kaynak kimliği. Çoğu durumda, genişletilmiş kaynak ile aynı olur. Bazı durumlarda, farklı olabilir, örneğin bir depolama sıradaki iletilerin sayısına dayalı olarak bir sanal makine ölçek kümesi ölçeklendirebilirsiniz. |
 | metricTrigger | timeGrain | Ölçüm örnekleme süresi. Örneğin, TimeGrain "ölçümleri olmalıdır anlamına gelir toplanan kullanarak her 1 dakika içinde"istatistiği."belirtilen toplama yöntemi PT1M" = |
 | metricTrigger | İstatistiği | Toplama yöntemi timeGrain süre içinde. Örneğin, istatistik = "Ortalama" ve timeGrain ölçümleri olmalıdır "PT1M" anlamına gelir = 1 dakikada ortalama gerçekleştirerek birleştirilir. Bu özellik, ölçüm nasıl örneklenen belirler. |
 | metricTrigger | timeWindow | Geri ölçümlerini aramak için süre miktarı. Örneğin, timeWindow = "PT10M" anlamına gelir otomatik ölçeklendirme her çalıştığında, son 10 dakika için ölçümleri sorgular. Zaman penceresi ölçümlerinizi normalleştirilmiş sağlar ve geçici ani tepki önler. |
 | metricTrigger | timeAggregation | Örneklenen ölçümleri toplamak için kullanılan toplama yöntemi. Örneğin, TimeAggregation = "Ortalama" toplama örneklenen ölçümleri ortalama gerçekleştirerek. Yukarıdaki örnekte on 1 dakikalık örnekleri almak ve bunları ortalaması. |
-| Kural | scaleAction | Kural metricTrigger tetiklendiğinde yapılacak eylem. |
+| kural | scaleAction | Kural metricTrigger tetiklendiğinde yapılacak eylem. |
 | scaleAction | yön | "Genişleme için artırın", "ölçek için azaltmak"|
 | scaleAction | değer | Artırmak veya kaynak kapasitesinin azaltmak için ne kadar |
 | scaleAction | cooldown | Yeniden ölçeklendirme önce bir ölçeklendirme işlemi sonra beklenecek süre miktarı. Örneğin, varsa cooldown bir ölçeklendirme işlemi tamamlandıktan sonra otomatik ölçeklendirme yeniden için başka bir 10 dakika ölçeklendirme çalışmaz sonra "PT10M" =. Cooldown ekleme veya kaldırma örneklerinin sonra kararlı ölçümleri izin vermektir. |
@@ -125,7 +125,7 @@ Otomatik ölçeklendirme ayarı şema göstermek için aşağıdaki otomatik öl
 
 1. **Normal profil:** en yaygın profil. Haftanın gününü veya belirli bir günü farklı dayalı kaynağınız ölçeklendirme gerekmiyorsa, daha sonra yalnızca normal bir otomatik ölçeklendirme ayarının profilinde ayarlamanız gerekir. Bu profil, genişletmek ne zaman ve ne zaman ölçek bileşenini dikte ölçüm kuralları ile sonra yapılandırılabilir. Yalnızca tanımlı bir normal profili olması gerekir.
 
-    Bu makalede kullanılan örnek profili, normal bir profili örneğidir. Değil de, kaynak için bir statik örnek sayısı için ölçeklendirme profili ayarlamak mümkündür.
+    Bu makalede kullanılan örnek profili, normal bir profili örneğidir. Kaynağınız için bir statik örnek sayısı için ölçeklendirme profili ayarlamak mümkündür unutmayın.
 
 2. **Tarih profili sabit:** tanımlanan normal profiliyle 26 aralık 2017'üzerinde (Pasifik Saati) önce yaklaşan önemli bir olayı varsa ve o gün farklı olabilir, ancak hala aynı ölçülerine ölçeklendirmek için kaynak minimum/maksimum kapasiteleri istiyorsanız düşünelim . Bu durumda, bir sabit tarih profili, ayarın profiller listesine eklemeniz gerekir. Profil, yalnızca olayın günü çalışacak şekilde yapılandırılır. Diğer herhangi bir gün için normal profili yürütülür.
 

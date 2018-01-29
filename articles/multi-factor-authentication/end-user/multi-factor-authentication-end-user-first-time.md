@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d516ef578608a6cead3823585007cbd0636de24a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 04b8d2b8d7d84bd4c6b46507be5d597c03d9dbb0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Hesabımı iki aşamalı doğrulama için ayarlama
 İki aşamalı doğrulamayı geçirmesini diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır. Bu makaleyi okuduğunuz, büyük olasılıkla bir e-posta yöneticinizden iş veya Okul çok faktörlü kimlik doğrulaması hakkında aldığınız. Veya belki de oturum açmaya ve ek güvenlik doğrulaması ayarlamak için isteyen bir ileti aldı. Bu durumda, olursa **otomatik kayıt işlemini tamamlayıncaya kadar oturum açamazsınız**.
@@ -43,7 +43,7 @@ Kayıt işlemini ilk soruya sizinle iletişim kurmamızı nasıl istediğiniz sa
 
 | İletişim yöntemi | Açıklama |
 | --- | --- |
-| [Mobil uygulama](#use-a-mobile-app-as-the-contact-method) |- **Doğrulama için bildirim alırsınız.** Bu seçenek, akıllı telefon veya tablet authenticator uygulaması için bir bildirim iter. Bildirimi görüntülemeniz ve işlem meşru ise seçin **kimlik doğrulama** uygulama. İş veya Okul kimlik doğrulaması yapmak için önce bir PIN girmeniz gerekebilir.<br>- **Doğrulama kodunu kullanın.** Bu modda, Doğrulayıcı uygulama güncelleştirmeleri her 30 saniyede bir doğrulama kodu oluşturur. Oturum açma arabiriminde en güncel doğrulama kodunu girin.<br>Microsoft Authenticator uygulaması [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Mobil uygulama](#use-a-mobile-app-as-the-contact-method) |- **Doğrulama için bildirim alırsınız.** Bu seçenek, akıllı telefon veya tablet authenticator uygulaması için bir bildirim iter. Bildirimi görüntülemeniz ve işlem meşru ise seçin **kimlik doğrulama** uygulama. İş veya Okul kimlik doğrulaması yapmak için önce bir PIN girmeniz gerekebilir.<br>- **Doğrulama kodunu kullanın.** Bu modda, Doğrulayıcı uygulama güncelleştirmeleri her 30 saniyede bir doğrulama kodu oluşturur. Oturum açma arabiriminde en güncel doğrulama kodunu girin.<br>Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Cep telefonu araması veya SMS](#use-your-mobile-phone-as-the-contact-method) |- **Telefon araması** otomatik bir sesli aramayla sağladığınız telefon numarasına yerleştirir. Aramayı yanıtlayın ve kimlik doğrulaması için telefon tuş # tuşuna basın.<br>- **SMS mesajı** bir doğrulama kodu içeren bir kısa mesaj sona erer. Metin satırında, aşağıdaki SMS mesajını yanıtlayın veya oturum açma arabirimine sağlanan doğrulama kodunu girin. |
 | [Ofis telefonu araması](#use-your-office-phone-as-the-contact-method) |Otomatik bir sesli aramayla sağladığınız telefon numarasına yerleştirir. Aramayı yanıtlayın ve # kimliğini doğrulamak için telefon basar. |
 
@@ -67,7 +67,7 @@ Bu yöntemi kullanarak, telefon veya Tabletinizi Doğrulayıcı uygulama yüklem
    ![Bir PIN girme kutusu](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. PIN girişi tamamlandıktan sonra Seç **Kapat**. Bu noktada Doğrulamanızın başarılı olması.
-9. Mobil uygulamanıza erişimi kaybetmeniz durumunda cep telefonu numaranızı girin öneririz. Aşağı açılan listeden ülkenizi belirtin ve ülke adının yanındaki kutuya cep telefonu numaranızı girin. Seçin **sonraki**.
+9. Mobil uygulamanıza erişimi kaybetmeniz durumunda cep telefonu numaranızı girin öneririz. Aşağı açılan listeden ülkenizi belirtin ve ülke adının yanındaki kutuya cep telefonu numaranızı girin. **İleri**’yi seçin.
 10. Bu noktada, Outlook 2010 gibi eski veya tarayıcı olmayan uygulamalar için uygulama parolaları veya Apple cihazlarda yerel e-posta uygulamasını ayarlamanız istenir. Bazı uygulamalar iki aşamalı doğrulamayı desteklemeyen olmasıdır. Bu uygulamaları kullanmıyorsanız tıklatın **Bitti** ve kalan adımları atlayın.
 11. Bu uygulamalar kullanıyorsanız, uygulama parolası sağlanan kopyalayıp normal parolanız yerine uygulamanıza yapıştırın. Aynı uygulama parolasını birden çok uygulamaları için kullanabilirsiniz. Daha fazla bilgi için [Yardım ile uygulama parolaları].
 12. **Bitti**’ye tıklayın.

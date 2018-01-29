@@ -12,26 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-<<<<<<< HEAD
-ms.openlocfilehash: 3cc70273e95dbf4913e7bbcd8a37bd9a52987b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 7e202899b697872227da4d7bea54406f99089000
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e06d04234f33633275d85732a321a264c777fc59
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-github-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı sağlamak için GitHub yapılandırma
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Öğretici: GitHub otomatik kullanıcı sağlamayı yapılandırın
 
 
 Bu öğreticinin amacı, GitHub ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den GitHub sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -90,7 +84,7 @@ Bu bölümde Azure AD GitHub'ın kullanıcı hesabına API sağlama konusunda si
 
 8. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alanına ve "bir hata oluştuğunda e-posta bildirimi gönder." onay kutusunu işaretleyin
 
-9. **Kaydet** düğmesine tıklayın. 
+9. **Kaydet**’e tıklayın. 
 
 10. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları GitHub için**.
 
@@ -98,7 +92,7 @@ Bu bölümde Azure AD GitHub'ın kullanıcı hesabına API sağlama konusunda si
 
 12. GitHub için hizmet sağlama Azure AD etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
-13. **Kaydet** düğmesine tıklayın. 
+13. **Kaydet**’e tıklayın. 
 
 Bu işlem, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde GitHub atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler anlatılmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 

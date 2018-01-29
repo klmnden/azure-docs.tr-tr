@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Workday ile şirket içi Active Directory ve Azure Active Directory sağlama otomatik olarak bir kullanıcı için yapılandırma | Microsoft Docs"
+title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı için Workday yapılandırma | Microsoft Docs"
 description: "Active Directory ve Azure Active Directory için Workday kimlik veri kaynağı olarak kullanmayı öğrenin."
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Öğretici: Workday ile şirket içi Active Directory ve Azure Active Directory sağlama otomatik olarak bir kullanıcı için yapılandırın.
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
+
 Bu öğreticinin amacı kişiler Workday için bazı özniteliklerin isteğe bağlı geri yazma ile Active Directory ve Azure Active Directory'de Workday'deki alma işlemini gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
 
@@ -51,7 +52,7 @@ Azure AD kullanıcı sağlama hizmeti tarafından desteklenen Workday kullanıc�
 
 Workday entegrasyonu başlamadan önce aşağıdaki önkoşulları denetleyin ve geçerli bir Active Directory mimarisi ve Azure Active Directory tarafından sağlanan solution(s) ile gereksinimleri sağlama kullanıcı eşleşmesi konusunda aşağıdaki yönergeleri okuyun.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -141,12 +142,12 @@ Kısıtlanmamış tümleştirme sistemi güvenlik grubu oluşturun ve kullanıc�
 
 1. Girin arama kutusunda güvenlik grubu oluşturun ve ardından **güvenlik grubu oluşturma**. 
    
-    ![Güvenlik grubu oluştur](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "güvenlik grubu oluştur")
+    ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
 2. Tamamlamak **güvenlik grubu oluşturma** görev.  
 3. Tümleştirme sistemi güvenlik grubu seç — Kısıtlanmamış öğesinden **kiralanan güvenlik grubu türü** açılır.
 4. İçin açıkça üyeleri eklenecek bir güvenlik grubu oluşturun. 
    
-    ![Güvenlik grubu oluştur](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "güvenlik grubu oluştur")
+    ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
 
 ### <a name="assign-the-integration-system-user-to-the-security-group"></a>Tümleştirme sistemi kullanıcısı güvenlik grubuna atayın
 
@@ -176,7 +177,7 @@ Bu adımda, yeni güvenlik grubu izinlerini vermek **almak** ve **Put** aşağı
 1. Etki alanı güvenlik ilkeleri arama kutusuna girin ve ardından bağlantıyı tıklatın **işlevsel alanı için etki alanı güvenlik ilkeleri**.  
    
     ![Etki alanı güvenlik ilkeleri](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "etki alanı güvenlik ilkeleri")  
-2. Sistem ve select arama **sistem** işlevsel alan.  **Tamam** düğmesine tıklayın.  
+2. Sistem ve select arama **sistem** işlevsel alan.  **Tamam**’a tıklayın.  
    
     ![Etki alanı güvenlik ilkeleri](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "etki alanı güvenlik ilkeleri")  
 3. Sistem işlevsel alan için güvenlik ilkelerini listesinde genişletin **güvenlik Yönetim** ve etki alanı güvenlik ilkesi seçin **Harici hesap sağlama**.  
@@ -325,13 +326,13 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 | İŞ GÜNÜ ÖZNİTELİĞİ | ACTIVE DIRECTORY ÖZNİTELİĞİ |  KİMLİĞİ EŞLEŞİYOR MU? | OLUŞTUR / GÜNCELLEŞTİR |
 | ---------- | ---------- | ---------- | ---------- |
 |  **WorkerID**  |  EmployeeID | **Evet** | Yazılan üzerinde yalnızca oluştur | 
-|  **Belediye**   |   m   |     | Oluştur + güncelleştir |
+|  **Belediye**   |   l   |     | Oluştur + güncelleştir |
 |  **Şirket**         | Şirket   |     |  Oluştur + güncelleştir |
 |  **CountryReferenceTwoLetter**      |   Ortak |     |   Oluştur + güncelleştir |
-| **CountryReferenceTwoLetter**    |  C  |     |         Oluştur + güncelleştir |
+| **CountryReferenceTwoLetter**    |  c  |     |         Oluştur + güncelleştir |
 | **SupervisoryOrganization**  | Bölüm  |     |  Oluştur + güncelleştir |
-|  **PreferredNameData**  |  Görünen adı |     |   Oluştur + güncelleştir |
-| **EmployeeID**    |  CN =    |   |   Yazılan üzerinde yalnızca oluştur |
+|  **PreferredNameData**  |  displayName |     |   Oluştur + güncelleştir |
+| **EmployeeID**    |  cn    |   |   Yazılan üzerinde yalnızca oluştur |
 | **Faks**      | facsimileTelephoneNumber     |     |    Oluştur + güncelleştir |
 | **FirstName**   | givenName       |     |    Oluştur + güncelleştir |
 | **Anahtar (\[etkin\],, "0", "True", "1")** |  AccountDisabled      |     | Oluştur + güncelleştir |
@@ -339,14 +340,14 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 | **EmailAddress**    | Posta    |     |     Oluştur + güncelleştir |
 | **ManagerReference**   | Yöneticisi  |     |  Oluştur + güncelleştir |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Oluştur + güncelleştir |
-| **Posta kodu**  |   posta kodu  |     | Oluştur + güncelleştir |
+| **PostalCode**  |   posta kodu  |     | Oluştur + güncelleştir |
 | **LocalReference** |  preferredLanguage  |     |  Oluştur + güncelleştir |
-| ** Değiştirin (Mid (Değiştir (\[EmployeeID\],, "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
+| **Değiştirin (Mid (Değiştir (\[EmployeeID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
 | **Soyadı**   |   sn   |     |  Oluştur + güncelleştir |
-| **CountryRegionReference** |  St     |     | Oluştur + güncelleştir |
-| **AddressLineData**    |  StreetAddress  |     |   Oluştur + güncelleştir |
+| **CountryRegionReference** |  st     |     | Oluştur + güncelleştir |
+| **AddressLineData**    |  streetAddress  |     |   Oluştur + güncelleştir |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Oluştur + güncelleştir |
-| **BusinessTitle**   |  Başlık     |     |  Oluştur + güncelleştir |
+| **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir |
 | **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "q",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([]) w" harfinin, "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Oluştur + güncelleştir                                                   
 | **Anahtar (\[belediye\], "OU standart kullanıcılar, OU = Kullanıcılar, OU = varsayılan, OU = konumları, DC = contoso, DC = com =", "Dallas" "OU standart kullanıcılar, OU = Kullanıcılar, OU = Dallas, OU = konumları, DC = contoso, DC = com =", "Ankara'da" "OU standart kullanıcılar, OU = Kullanıcılar, OU = Ankara'da, OU = konumları, DC = contoso, DC = com =", "Seattle", "OU standart kullanıcılar, OU = Kullanıcılar, OU = Seattle, OU = konumları, DC = contoso, DC = com =", "Londra", "OU standart kullanıcılar = OU Kullanıcılar, OU = Londra, OU = konumları, DC = contoso, DC = com = ")**  | parentDistinguishedName     |     |  Oluştur + güncelleştir |
   
@@ -362,18 +363,18 @@ Aracıyı yükledikten sonra ortamınız için aracısını yapılandırmak içi
 
 > CD C:\\Program dosyaları\\Microsoft Azure Active Directory Eşitleme Aracı\\modülleri\\AADSyncAgent
 
-> Import-module AADSyncAgent.psd1
+> import-module AADSyncAgent.psd1
 
 **Komut #2**
 
-> Ekleme ADSyncAgentActiveDirectoryConfiguration
+> Add-ADSyncAgentActiveDirectoryConfiguration
 
 * Giriş: "Dizin", AD orman adı kısmen girildiği gibi adı \#2
 * Giriş: Yönetici kullanıcı adı ve parolası Active Directory ormanı için
 
 **Komut #3**
 
-> Ekleme ADSyncAgentAzureActiveDirectoryConfiguration
+> Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
 * Giriş: Genel yönetici kullanıcı adı ve parola Azure AD kiracınız için
 
@@ -395,7 +396,7 @@ Aracıyı yükledikten sonra ortamınız için aracısını yapılandırmak içi
 >
 > Belgeli: yanlış
 >
-> Tanımlayıcı: WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
+> Identifier    : WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
 
 **Komut #5**
 
@@ -421,8 +422,8 @@ Azure Active Directory kiracınızın AB veri merkezleri birinde yer alıyorsa, 
 1. Açık **Services.msc** , durdurup **Microsoft Azure AD Connect sağlama Aracısı** hizmet.
 2. Aracı yükleme klasörüne gidin (örnek: C:\Program Files\Microsoft Azure AD Connect Aracısı sağlama).
 3. Açık **SyncAgnt.exe.config** bir metin düzenleyicisinde.
-4. Https://Manage.hub.syncfabric.windowsazure.com/Management ile Değiştir **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
-5. Https://provision.hub.syncfabric.windowsazure.com/Provisioning ile Değiştir **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
+4. Replace https://manage.hub.syncfabric.windowsazure.com/Management with **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
+5. Replace https://provision.hub.syncfabric.windowsazure.com/Provisioning with **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
 6. Kaydet **SyncAgnt.exe.config** dosya.
 7. Açık **Services.msc**ve başlangıç **Microsoft Azure AD Connect sağlama Aracısı** hizmet.
 
@@ -445,7 +446,7 @@ Bölümleri 1-3 tamamladıktan sonra Azure portalında sağlama hizmeti başlata
 
 1.  İçinde **sağlama** sekmesinde, ayarlamak **sağlama durumu** için **üzerinde**.
 
-2. **Kaydet** düğmesine tıklayın.
+2. **Kaydet**’e tıklayın.
 
 3. Bu değişken sayıda iş günü içinde kaç kullanıcılardır bağlı olarak saatler sürebilir ilk eşitlemeyi başlatır.
 
@@ -568,7 +569,7 @@ Bölümleri 1-2 tamamladıktan sonra sağlama hizmeti başlatabilirsiniz.
 
 1.  İçinde **sağlama** sekmesinde, ayarlamak **sağlama durumu** için **üzerinde**.
 
-2. **Kaydet** düğmesine tıklayın.
+2. **Kaydet**’e tıklayın.
 
 3. Bu değişken sayıda iş günü içinde kaç kullanıcılardır bağlı olarak saatler sürebilir ilk eşitlemeyi başlatır.
 
@@ -629,7 +630,7 @@ Bölümleri 1-2 tamamladıktan sonra sağlama hizmeti başlatabilirsiniz.
 
 1.  İçinde **sağlama** sekmesinde, ayarlamak **sağlama durumu** için **üzerinde**.
 
-2. **Kaydet** düğmesine tıklayın.
+2. **Kaydet**’e tıklayın.
 
 3. Bu değişken sayıda iş günü içinde kaç kullanıcılardır bağlı olarak saatler sürebilir ilk eşitlemeyi başlatır.
 

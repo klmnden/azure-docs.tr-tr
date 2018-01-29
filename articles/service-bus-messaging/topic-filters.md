@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: b3fe467b7d6ae9b207956ece4980bf558a69761f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topic-filters-and-actions"></a>Konu filtreleri ve eylemleri
 
-Aboneler bir konusundan almak istediği hangi iletilerin tanımlayabilirsiniz. Bu iletiler bir veya birden çok adlandırılmış abonelik kuralları biçiminde belirtilir. Her kural belirli iletileri ve seçili iletiyi açıklama ekler bir eylemi seçen bir koşulu oluşur. Her eşleşen Kural koşulu için abonelik eşleşen her kural için farklı bir şekilde açıklama iletinin bir kopyasını oluşturur.
+Aboneler bir konusundan almak istediği hangi iletilerin tanımlayabilirsiniz. Bu iletiler bir veya daha fazla adlandırılmış abonelik kuralları biçiminde belirtilir. Her kural belirli iletileri ve seçili iletiyi açıklama ekler bir eylemi seçen bir koşulu oluşur. Her eşleşen Kural koşulu için abonelik eşleşen her kural için farklı bir şekilde açıklama iletinin bir kopyasını oluşturur.
 
 Her yeni oluşturulan konu aboneliği ilk varsayılan aboneliği kuralı vardır. Kural için bir filtre koşulu açıkça belirtmezseniz, uygulanan filtredir **true** aboneliğinize seçilecek tüm iletileri etkinleştirir filtre. Varsayılan kural herhangi bir ilişkili ek açıklama eylemi yok.
 
@@ -39,7 +39,7 @@ Karmaşık filtre kuralları, işlem kapasitesi gerektirir. Özellikle, SQL filt
 
 ## <a name="actions"></a>Eylemler
 
-SQL filtre koşulları ve yalnızca bu, ileti ekleme, kaldırma veya özellikler ve değerlerinin değiştirilmesi açıklayabilirsiniz bir eylem tanımlayabilirsiniz. Eylem [SQL benzeri ifade kullanan](service-bus-messaging-sql-filter.md) SQL güncelleştirme deyimi sözdizimi, geniş leans. İleti üzerinde gerçekleştirilen eylem sonra eşlenen ve iletiyi konu ile seçilmeden önce. İleti özelliklerine yapılan değişiklikler, aboneliğinize kopyalanan iletisi özeldir.
+SQL filtre koşulları ve yalnızca bu, ileti ekleme, kaldırma veya özellikler ve değerlerinin değiştirilmesi açıklayabilirsiniz bir eylem tanımlayabilirsiniz. Eylem [SQL benzeri ifade kullanan](service-bus-messaging-sql-filter.md) SQL güncelleştirme deyimi sözdizimi, geniş leans. Eylem, eşleşen sonra ve iletiyi konu ile seçilmeden önce ileti üzerinde gerçekleştirilir. İleti özelliklerine yapılan değişiklikler, aboneliğinize kopyalanan iletisi özeldir.
 
 ## <a name="usage-patterns"></a>Kullanım desenleri
 

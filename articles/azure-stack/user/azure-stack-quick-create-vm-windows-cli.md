@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 36930cc38b6c1933b58651f6c63e7d5d453c447d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Azure CLI kullanarak Azure yığında bir Windows sanal makine oluşturma
 
 Azure CLI oluşturmak ve komut satırından Azure yığın kaynakları yönetmek için kullanılır. Azure CLI kullanarak Azure yığınında bir Windows Server 2016 sanal makine oluşturmak için bu kılavuzu ayrıntıları. Sanal makine oluşturulduktan sonra Uzak Masaüstü'nü, IIS yüklemek, bağlanmak sonra varsayılan Web sitesini görüntülemek. 
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 * Azure yığın operatörünüze Azure yığın Market "Windows Server 2016" görüntü ekledi emin olun.  
 
@@ -33,7 +33,7 @@ Azure CLI oluşturmak ve komut satırından Azure yığın kaynakları yönetmek
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bir kaynak grubu hangi Azure yığına kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. Geliştirme Seti veya Azure yığınından tümleşik çalıştırılan sistemi [az grubu oluşturma](/cli/azure/group#create) bir kaynak grubu oluşturmak için komutu. Bu belgedeki tüm değişkenleri için değerleri atamış olduğunuz, bunları ya da farklı bir değer atamak gibi kullanabilirsiniz. Aşağıdaki örnek, yerel bir konum myResourceGroup adlı bir kaynak grubu oluşturur.
+Bir kaynak grubu hangi Azure yığına kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. Geliştirme Seti veya Azure yığınından tümleşik çalıştırılan sistemi [az grubu oluşturma](/cli/azure/group#az_group_create) bir kaynak grubu oluşturmak için komutu. Bu belgedeki tüm değişkenleri için değerleri atamış olduğunuz, bunları ya da farklı bir değer atamak gibi kullanabilirsiniz. Aşağıdaki örnek, yerel bir konum myResourceGroup adlı bir kaynak grubu oluşturur.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#create) komutu. Aşağıdaki örnek, myVM adlı VM oluşturur. Bu örnek için bir yönetici kullanıcı adı Demouser kullanır ve Demouser@123 ve parola olarak. Bu değerleri ortamınız için uygun olan bir değerle güncelleştirin. Bu değerler, sanal makineye bağlanırken gereklidir.
+Kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. Aşağıdaki örnek, myVM adlı VM oluşturur. Bu örnek için bir yönetici kullanıcı adı Demouser kullanır ve Demouser@123 ve parola olarak. Bu değerleri ortamınız için uygun olan bir değerle güncelleştirin. Bu değerler, sanal makineye bağlanırken gereklidir.
 
 ```cli
 az vm create \
@@ -88,7 +88,7 @@ Sanal makinenizde İnternet’ten IIS yüklenmiş ve bağlantı noktası 80 aç�
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse, [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
+Artık gerekli değilse, [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```cli
 az group delete --name myResourceGroup

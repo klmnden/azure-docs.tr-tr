@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/10/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Düzeltmeleri indirmek için
 
@@ -27,7 +27,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
 
 Normal mod düzeltmelerini yüklemek ve doğrulamak için aşağıdaki adımları gerçekleştirin. Bu düzeltmeleri klasik Azure portalını kullanarak yüklediyseniz, [bakım modu düzeltmelerini yükleme ve doğrulama](#to-install-and-verify-maintenance-mode-hotfixes) bölümüne atlayın.
 
-1. Düzeltmeleri yüklemek için StorSimple cihazı seri konsolunuzdaki Windows PowerShell arabirimine erişin. [Seri konsola bağlanmak için PuTTy kullanma](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console) bölümündeki ayrıntılı yönergeleri izleyin. Komut isteminde **Enter** tuşuna basın.
+1. Düzeltmeleri yüklemek için StorSimple cihazı seri konsolunuzdaki Windows PowerShell arabirimine erişin. [Seri konsola bağlanmak için PuTTy kullanma](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) bölümündeki ayrıntılı yönergeleri izleyin. Komut isteminde **Enter** tuşuna basın.
 2. Cihazda tam erişimle oturum açmak için **Seçenek 1**’i belirleyin. Düzeltmeyi ilk olarak edilgen denetleyiciye yüklemeniz önerilir.
 3. Düzeltmeyi yüklemek için komut istemine şunu yazın:
    

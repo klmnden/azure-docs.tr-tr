@@ -12,86 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5f691fb88c6764309bf012dfc65b561ec87afede
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile profil Canlı Azure web uygulamaları
 
 *Bu özellik Application Insights, Azure App Service için genel olarak kullanılabilir ve Azure işlem kaynakları önizlemede.*
 
-Ne kadar süre her yöntem, canlı web uygulamanızda kullanarak harcanan Bul [uygulama Öngörüler profil oluşturucu](app-insights-overview.md). Aracı profili oluşturma Application Insights, uygulamanız tarafından sunulduğunu Canlı istekleri ayrıntılı profillerini gösterir ve vurgular *etkin yolunuzda* en uzun süre kullanır. Profil Oluşturucu farklı yanıt sürelerini sahip örnekler otomatik olarak seçer ve ek yükü en aza indirmek için çeşitli teknikler kullanır.
+Ne kadar süre her yöntem, canlı web uygulamanızda kullanırken harcanan Bul [Application Insights](app-insights-overview.md). Aracı profili oluşturma Application Insights, uygulamanız tarafından sunulduğunu Canlı istekleri ayrıntılı profillerini gösterir ve vurgular *etkin yolunuzda* en uzun süre kullanır. Farklı yanıt sürelerini istekleriyle örnekleme temelinde profili. Uygulama yükünü çeşitli teknikler kullanılarak en aza indirilir.
 
-Profil Oluşturucu şu anda Azure App Service üzerinde en az temel hizmet katmanını çalışan ASP.NET web uygulamaları için çalışır.
+ASP.NET ve ASP.NET web uygulamaları Azure uygulama hizmeti üzerinde içinde çalışan çekirdek için profil oluşturucu şu anda çalışan en az **temel** hizmet katmanı.
 
-## <a id="installation"></a>Profil Oluşturucu etkinleştir
+## <a id="installation"></a>Uygulama Hizmetleri Web uygulaması için profil oluşturucu etkinleştir
+Zaten bir uygulama hizmetleri için yayımlanan uygulamaya sahip ancak Application Insights kullanmak için Azure portalında uygulama hizmetleri bölmesine gidin kaynak kodunda herhangi bir şey yapmadıysanız, Git **izleme | Application Insights**, bölmesinde yeni oluşturmak veya mevcut Application Insights kaynağı Web uygulamanızı izlemek üzere seçmek için yönergeleri izleyin. Profil Oluşturucu ile yalnızca çalıştığını unutmayın **temel** uygulama hizmetlerini planlama veya üstü.
 
-[Application Insights yükleme](app-insights-asp-net.md) kodunuzda. Zaten yüklüyse, en son sürüme sahip olduğundan emin olun. Çözüm Gezgini'nde, en son sürümünü denetlemek için projenize sağ tıklayın ve ardından **Manage NuGet paketleri** > **güncelleştirmeleri** > **Tümünü Güncelleştir paketleri**. Ardından, uygulamanızı yeniden dağıtın.
+![Uygulama Hizmetleri portalında App Insights'ı etkinleştir][appinsights-in-appservices]
 
-*ASP.NET Core kullanarak? Alma [daha fazla bilgi](#aspnetcore).*
+Proje kaynak kodunuz için erişiminiz varsa [Application Insights yükleme](app-insights-asp-net.md). Zaten yüklüyse, en son sürüme sahip olduğundan emin olun. Çözüm Gezgini'nde, en son sürümünü denetlemek için projenize sağ tıklayın ve ardından **Manage NuGet paketleri** > **güncelleştirmeleri** > **Tümünü Güncelleştir paketleri**. Ardından, uygulamanızı dağıtın.
+
+Bir ASP.NET Core uygulama Microsoft.ApplicationInsights.AspNetCore NuGet Paketi 2.1.0-beta6 yüklemek veya daha sonra Profil Oluşturucu ile çalışmak için gerekir. Önceki sürümlerde 27 Haziran 2017 itibariyle desteklemiyoruz.
 
 İçinde [Azure portalı](https://portal.azure.com), web uygulamanız için Application Insights kaynağı açın. Seçin **performans** > **etkinleştirmek uygulama Öngörüler profil oluşturucu**.
 
 ![Etkinleştirme profil oluşturucu başlığını seçin][enable-profiler-banner]
 
-Alternatif olarak, seçebileceğiniz **yapılandırma** durumunu görüntüleyin ve etkinleştirme veya profil oluşturucu devre dışı.
+Alternatif olarak, seçebileceğiniz **profil oluşturucu** durumunu görüntüleyin ve etkinleştirmek veya profil oluşturucu devre dışı bırakmak için yapılandırma.
 
-![Configure performans altında'ı seçin][performance-blade]
+![Performans altında profil oluşturucu yapılandırmasını seçin][performance-blade]
 
-Application Insights ile yapılandırılmış olan web apps altında listelenen **yapılandırma**. Gerekirse profil oluşturucu aracıyı yüklemek için yönergeleri izleyin. Application Insights ile web uygulamaları yapılandırıldıysa seçin **bağlantılı uygulama Ekle**.
+Application Insights ile yapılandırılmış olan web apps listelenmiştir **profil oluşturucu** yapılandırma bölmesi. Yukarıdaki adımları izlediyseniz, Profil Oluşturucu aracı zaten yüklü olmalıdır. Seçin **etkinleştirmek profil oluşturucu** içinde **profil oluşturucu** yapılandırma bölmesi.
 
-Profil Oluşturucu, bağlantılı web uygulamalarını denetim için **yapılandırma** bölmesinde, **etkinleştirmek profil oluşturucu** veya **devre dışı profil oluşturucu**.
+Gerekirse profil oluşturucu aracıyı yüklemek için yönergeleri izleyin. Application Insights ile web uygulamaları yapılandırıldıysa seçin **bağlantılı uygulama Ekle**.
 
 ![Bölmesi seçenekleri yapılandırın][linked app services]
 
 Uygulama hizmeti planları barındırılan web uygulamalarından farklı Azure işlem kaynakları (örneğin, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Service Fabric veya Azure bulut Hizmetleri) barındırılan uygulamalara doğrudan Azure tarafından yönetilen değil. Bu durumda, bağlantı sağlamak için hiçbir web uygulaması yoktur. Bir uygulamaya bağlama yerine seçin **etkinleştirmek profil oluşturucu** düğmesi.
 
-## <a name="disable-the-profiler"></a>Profil Oluşturucu devre dışı bırak
-Tek bir uygulama hizmeti örneği için profil oluşturucu altında yeniden başlatmak veya durdurmak için **Web işleri**, uygulama hizmeti kaynak gidin. Profil Oluşturucu silmek için Git **uzantıları**.
-
-![Web işleri için profil oluşturucu devre dışı bırak][disable-profiler-webjob]
-
-Tüm web uygulamaları üzerinde mümkün olduğunca performans sorunları erken bulmak için etkinleştirilmiş profil oluşturucu sahip olmasını öneririz.
-
-WebDeploy değişiklikleri web uygulamanızı dağıtmak için kullanırsanız, dağıtım sırasında silinmiş App_Data klasöründe hariç emin olun. Aksi takdirde, profil oluşturucu uzantının dosyaları Azure web uygulamasına dağıtma başlatıldığında silinir.
-
-### <a name="using-profiler-with-azure-vms-and-azure-compute-resources-preview"></a>Profil Oluşturucu Azure Vm'leri ve Azure işlem kaynakları (Önizleme) ile kullanma
-
-Olduğunda, [Application Insights Azure App Service için çalışma zamanında etkinleştir](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), uygulama Öngörüler profil oluşturucu otomatik olarak kullanılabilir. Application Insights kaynağı için zaten etkinleştirdiyseniz, Yapılandırma Sihirbazı'nı kullanarak en son sürüme güncelleştirmeniz gerekebilir.
+### <a name="enable-the-profiler-for-azure-compute-resources-preview"></a>Profil Oluşturucu Azure işlem kaynakları (Önizleme) etkinleştir
 
 Hakkında bilgi almak bir [Azure işlem kaynakları için profil oluşturucu önizleme sürümünü](https://go.microsoft.com/fwlink/?linkid=848155).
 
-
-## <a name="limitations"></a>Sınırlamalar
-
-Varsayılan veri saklama beş gündür. Gün başına alınan en fazla 10 GB veridir.
-
-Profil Oluşturucu bu hizmeti kullanmak için hiçbir ücret vardır. Profil Oluşturucu hizmeti kullanmak için web uygulamanızı olmalıdır en az App Service'in temel katmana barındırılan.
-
-## <a name="overhead-and-sampling-algorithm"></a>Ek yükü ve örnekleme algoritması
-
-Profil Oluşturucu iki dakika saatte izlemelerini yakalama için etkinleştirilmiş profil oluşturucu olan uygulamayı barındıran her sanal makineye rastgele çalışır. Profil Oluşturucu çalıştırırken, %5 ile % 15 arasında CPU ek yükünü sunucusuna ekler.
-Daha fazla sunucular, daha az profil oluşturucu genel uygulama performansına etkisi uygulamasını barındırmak için kullanılabilir. Herhangi bir anda yalnızca sunucuların % 5 üzerinde çalışan profil oluşturucu örnekleme algoritması sonuçlanır olmasıdır. Daha fazla sunucu profil oluşturucu çalıştırarak neden Sunucu yükünü dengelemek için web isteklerine hizmet vermek kullanılabilir.
-
-
 ## <a name="view-profiler-data"></a>Profil Oluşturucu verilerini görüntüleme
 
-Git **performans** bölmesinde ve ardından işlemlerin listesini kaydırın.
+**Uygulamanızı traffics aldığından emin olun.** Bir deneme yapıyorsanız, istekleri kullanarak Web uygulaması oluşturabileceğiniz [uygulama Öngörüler performans testi](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Profil Oluşturucu yeni etkinleştirilirse, yaklaşık 15 dakika için kısa yük testi çalıştırabilir ve profil oluşturucu izlemeleri almanız gerekir. Lütfen bir süre için etkinleştirilmiş profil oluşturucu varsa, profil oluşturucu için iki kez her saat ve iki dakika her onu çalışması sırasında rastgele çalıştıran aklınızda bulundurun. Örnek profil oluşturucu izlemelerini almak emin olmak bir saat için yük testi çalıştırmak için öneririz.
 
-![Uygulama Öngörüler performans bölmesi örnekler sütun][performance-blade-examples]
-
-İşlemleri tablo şu sütunları vardır:
-
-* **COUNT**: zaman aralığını bu isteklerin sayısı **sayısı** bölmesi.
-* **ORTANCA**: saat tipik bir isteğine yanıt vermek için uygulama alır. Tüm yanıtları yarısı bu değerden daha hızlı.
-* **95**: bu değerden daha hızlı yanıt % 95. Bu değer ORTANCA önemli ölçüde farklı ise, uygulamanızı aralıklı bir sorun olabilir. (Veya önbelleğe alma gibi bir tasarım özelliği tarafından açıklanan.)
-* **Profil OLUŞTURUCU İZLEMELERİ**: Profil Oluşturucu bu işlem için Yığın izlemeleri yakalandı simge gösterir.
-
-Seçin **Görünüm** izleme Gezgini'ni açmak için. Profil Oluşturucu yakalanan olduğunu birkaç örnek Gezgini gösterir yanıt süresine göre sınıflandırılmış.
-
-Kullanıyorsanız **Önizleme performans** bölmesinde, Git **eylemleri** profil oluşturucu izlemeleri görüntülemek için sayfanın bölümünü. Seçin **profil oluşturucu izlemeleri** düğmesi.
+Uygulamanızı bir miktar trafik alındığında Git **performans** dikey penceresinde, Git **eylemleri** profil oluşturucu izlemeleri görüntülemek için sayfanın bölümünü. Seçin **profil oluşturucu izlemeleri** düğmesi.
 
 ![Uygulama Öngörüler performans bölmesi Önizleme profil oluşturucu izlemelerini][performance-blade-v2-examples]
 
@@ -113,7 +81,7 @@ Microsoft Hizmet Profil Oluşturucu örnekleme yöntemleri ve araçları birleş
 Zaman çizelgesi görünümünde gösterilen çağrı yığını izleme ve örnekleme sonucudur. İş parçacığının tam çağrı yığını her örnek yakalar olduğundan, Microsoft .NET Framework ve başvuru diğer çerçeveler kodu içerir.
 
 ### <a id="jitnewobj"></a>Nesne ayırma (clr! JIT\_yeni veya clr! JIT\_Newarr1)
-**CLR! JIT\_yeni** ve **clr! JIT\_Newarr1** yönetilen yığınından bellek yardımcı işlevleri .NET Framework'teki. **CLR! JIT\_yeni** bir nesne ayrılmış olduğunda çağrılır. **CLR! JIT\_Newarr1** bir nesne dizisinin atandığında çağrılır. Bu iki işlevler tipik olarak çok hızlı ve zaman görece küçük miktarda gerçekleştirin. Görürseniz **clr! JIT\_yeni** veya **clr! JIT\_Newarr1** önemli bir süre içinde zaman çizelgeniz alın, bunu kodu olarak birçok nesne ayırma ve önemli miktarda bellek tüketerek olduğunu göstergesidir.
+**CLR! JIT\_yeni** ve **clr! JIT\_Newarr1** yönetilen yığınından bellek yardımcı işlevleri .NET Framework'teki. **CLR! JIT\_yeni** bir nesne ayrılmış olduğunda çağrılır. **CLR! JIT\_Newarr1** bir nesne dizisinin atandığında çağrılır. Bu iki işlevler genellikle hızlı ve zaman görece küçük miktarda gerçekleştirin. Görürseniz **clr! JIT\_yeni** veya **clr! JIT\_Newarr1** önemli bir süre içinde zaman çizelgeniz alın, bunu kodu olarak birçok nesne ayırma ve önemli miktarda bellek tüketerek olduğunu göstergesidir.
 
 ### <a id="theprestub"></a>Yükleme kodu (clr! ThePreStub)
 **CLR! ThePreStub** ilk kez yürütmek için kodu hazırlar .NET Framework yardımcı işlevdir. Bu genellikle içerir, ancak tam zamanında (JIT) derleme için sınırlı değildir. Her C# yönteminde **clr! ThePreStub** bir işlem ömrü boyunca en fazla bir kez çağrılmalıdır.
@@ -151,6 +119,26 @@ Uygulama ağ işlemlerini gerçekleştirme.
 
 ### <a id="when"></a>Zaman sütun
 **Zaman** bir düğüm için toplanan dahil örnekleri zaman içinde nasıl farklılık, bir görsel öğe bir sütundur. İstek toplam aralığı 32 zaman demet ayrılmıştır. Bu düğüm için kapsayıcı örnekleri bu 32 demet toplanır. Her demet çubuğu olarak temsil edilir. Çubuğunun yüksekliği ölçeklendirilmiş bir değeri temsil eder. İşaretlenen düğümleri için **CPU_TIME** veya **BLOCKED_TIME**, veya bir kaynağa (CPU, disk, iş parçacığı) kullanan, belirgin bir ilişki olduğu çubuk temsil eder Bu kaynaklardan biri süre için kullanma Bu demet zamanı. Bu ölçümleri, birden fazla kaynak tüketen tarafından % 100'den büyük bir değer almak mümkündür. Örneğin, ortalama iki CPU bir zaman aralığı boyunca kullanırsanız, % 200 alın.
+
+## <a name="limitations"></a>Sınırlamalar
+
+Varsayılan veri saklama beş gündür. Gün başına alınan en fazla 10 GB veridir.
+
+Profil Oluşturucu bu hizmeti kullanmak için hiçbir ücret vardır. Profil Oluşturucu hizmeti kullanmak için web uygulamanızı olmalıdır en az App Service'in temel katmana barındırılan.
+
+## <a name="overhead-and-sampling-algorithm"></a>Ek yükü ve örnekleme algoritması
+
+Profil Oluşturucu iki dakika saatte izlemelerini yakalama için etkinleştirilmiş profil oluşturucu olan uygulamayı barındıran her sanal makineye rastgele çalışır. Profil Oluşturucu çalıştırırken, %5 ile % 15 arasında CPU ek yükünü sunucusuna ekler.
+Daha fazla sunucular, daha az profil oluşturucu genel uygulama performansına etkisi uygulamasını barındırmak için kullanılabilir. Herhangi bir anda yalnızca sunucuların % 5 üzerinde çalışan profil oluşturucu örnekleme algoritması sonuçlanır olmasıdır. Daha fazla sunucu profil oluşturucu çalıştırarak neden Sunucu yükünü dengelemek için web isteklerine hizmet vermek kullanılabilir.
+
+## <a name="disable-the-profiler"></a>Profil Oluşturucu devre dışı bırak
+Tek bir uygulama hizmeti örneği için profil oluşturucu altında yeniden başlatmak veya durdurmak için **Web işleri**, uygulama hizmeti kaynak gidin. Profil Oluşturucu silmek için Git **uzantıları**.
+
+![Web işleri için profil oluşturucu devre dışı bırak][disable-profiler-webjob]
+
+Tüm web uygulamaları üzerinde mümkün olduğunca performans sorunları erken bulmak için etkinleştirilmiş profil oluşturucu sahip olmasını öneririz.
+
+WebDeploy değişiklikleri web uygulamanızı dağıtmak için kullanırsanız, dağıtım sırasında silinmiş App_Data klasöründe hariç emin olun. Aksi takdirde, profil oluşturucu uzantının dosyaları Azure web uygulamasına dağıtma başlatıldığında silinir.
 
 
 ## <a id="troubleshooting"></a>Sorun giderme
@@ -229,7 +217,7 @@ Profil Oluşturucu yapılandırdığınızda güncelleştirmeler web uygulamanı
 9. Web uygulaması yeniden başlatın.
 
 ## <a id="profileondemand"></a>El ile tetikleyici Profil Oluşturucu
-Biz profil oluşturucu geliştirilen profil oluşturucu uygulama hizmetleri üzerinde test edebilirsiniz böylece biz bir komut satırı arabirimi eklenmesi. Bu aynı arabirimi kullanıcılara kullanarak profil oluşturucu nasıl başlatır de özelleştirebilirsiniz. Yüksek düzeyde profil oluşturucu App Service'in Kudu sistemi arka planda profil yönetmek için kullanır. Uygulama Insights uzantısını yüklediğinizde profil oluşturucu barındıran bir sürekli web işi oluşturuyoruz. Gereksinimlerinize uygun şekilde özelleştirebileceğiniz yeni bir web işi oluşturmak için aynı bu teknoloji kullanacağız.
+Biz profil oluşturucu geliştirilen profil oluşturucu uygulama hizmetleri üzerinde test edebilirsiniz böylece biz bir komut satırı arabirimi eklenmesi. Bu aynı arabirimi kullanıcılar kullanarak profil oluşturucu nasıl başlatır de özelleştirebilirsiniz. Yüksek bir düzeyde profil oluşturucu App Service'in Kudu sistemi arka planda profil yönetmek için kullanır. Uygulama Insights uzantısını yüklediğinizde, profil oluşturucu barındıran bir sürekli web işi oluşturuyoruz. Bu aynı teknoloji gereksinimlerinize uyacak şekilde özelleştirebilirsiniz yeni bir web işi oluşturmak için kullanırız.
 
 Bu bölümde nasıl yapılır:
 
@@ -243,9 +231,9 @@ Bu bölümde nasıl yapılır:
 
 ![Web işleri dikey penceresi](./media/app-insights-profiler/webjobs-blade.png)
 
-Bu panoyu görebileceğiniz gibi tüm sitenizde şu anda yüklü web işleri gösterir. Çalışan profil oluşturucu işin ApplicationInsightsProfiler2 web işi görebilirsiniz. Biz el ile ve zamanlanmış profil oluşturma için bizim yeni web işleri oluşturuluyor yukarı nerede biteceğini budur.
+Bu panoyu görebileceğiniz gibi tüm sitenizde şu anda yüklü web işleri gösterir. Çalışan profil oluşturucu işin hangi ApplicationInsightsProfiler2 web işi görebilirsiniz. Burada el ile ve zamanlanmış profil oluşturma için bizim yeni web işleri oluşturuluyor yukarı bitiş budur.
 
-İlk şimdi biz gerekir ikilileri alın.
+İlk şimdi ihtiyacımız ikili dosyalarını alın.
 
 1.  İlk kudu sitesine gidin. Geliştirilme Araçlar sekmesini tıklatın "Gelişmiş araçlar" sekmesinde Kudu logosu. "Üzerinde Git" seçeneğine tıklayın. Bu, yeni bir siteye alın ve otomatik olarak oturum açın.
 2.  Profil Oluşturucu ikilileri indirmek için ihtiyacımız İleri. Hata ayıklama Konsolu aracılığıyla dosya Gezgini'ne gidin sayfanın en üstünde bulunan CMD ->.
@@ -263,7 +251,7 @@ a.  `start` Komutu başlatmak için profil oluşturucu bildirir.
 b.  `--engine-mode immediate`Profil Oluşturucu hemen başla istiyoruz söyler.
 c.  `--single`çalıştırmak için anlamına gelir ve ardından stop otomatik olarak d.  `--immediate-profiling-duration 120`Profil Oluşturucu 120 saniye veya 2 dakika çalıştırmak anlamına gelir.
 5.  Bu dosyayı kaydedin.
-6.  Bu klasörü arşive, klasörü sağ tıklatın ve sıkıştırılmış (daraltılmış) klasör -> için Gönder'i seçin. Bu klasörünüzün adını kullanarak bir .zip dosyası oluşturur.
+6.  Bu klasörü arşive, klasörü sağ tıklatın ve sıkıştırılmış klasörü için Gönder'i seçin. Bu klasörünüzün adını kullanarak bir .zip dosyası oluşturur.
 
 ![Profil oluşturucu komut Başlat](./media/app-insights-profiler/start-profiler-command.png)
 
@@ -275,7 +263,7 @@ Bizim sitede yeni bir web işi sonraki ekleyeceğiz. Bu örnek bir el ile Tetikl
 1.  Web işleri panoya gidin.
 2.  Araç çubuğundan Ekle komutuna tıklayın.
 3.  Web işinizin bir ad verin, my arşiv daha anlaşılır olması için adıyla aynı ve run.cmd farklı sürümlerine sahip kadar açmak için seçtiniz.
-4.  Dosyanın dosya Aç simgesi form tıklatıldığında parçası karşıya yükleme ve yukarıda gerçekleştirdiğiniz .zip dosyasını bulun.
+4.  Dosyanın dosya Aç simgesi form tıklatıldığında bölümlerini karşıya yükleme ve, yukarıda gerçekleştirdiğiniz .zip dosyasını bulun.
 5.  Türü için Triggered seçin.
 6.  Tetikleyici el ile seçin.
 7.  Kaydetmek için Tamam'ı tıklatın.
@@ -299,19 +287,13 @@ Bu yöntem görece basit olsa dikkate alınması gereken bazı şeyler vardır.
 1.  Bu bizim hizmeti tarafından yönetilmediğinden biz web işinizin Aracısı ikili dosyaları güncelleştiriliyor hiçbir şekilde sahip olur. En son almanın tek yolu, uzantısının güncelleştirilmesi ve yukarıdaki yaptığımız gibi sürekli klasöründen ele geçirme nedenle biz şu anda kararlı indirme sayfası bizim ikili dosyaları yok.
 2.  Bu kullanan son kullanıcı kullanmak yerine, geliştirici kullanımı ile tasarlanmış komut satırı bağımsız değişkenleri, bu bağımsız değişkenler değişiklik gelecekte, böylece yalnızca yükseltirken, duyarlı olabilir. Bir web işi, çalıştırma ve çalıştığını test eklemek için bir sorun çoğunu olmamalıdır. Sonunda olmadan el ile işlem yapmak için kullanıcı Arabirimi oluşturulmasını sağlar ancak dikkate alınacak değil.
 3.  Web işi çalıştırıldığında işleminizi aynı ortam değişkenleri ve web sitenizi sahip sona erer uygulama ayarlarını sahip olmasını sağlar Web işleri özelliği uygulama hizmetleri için benzersizdir. Geçiş için profil oluşturucu komut satırı aracılığıyla izleme anahtarı gerekmez Bunun anlamı, Ortamı'ndan izleme anahtarı yalnızca seçmelisiniz. Ancak profil oluşturucu geliştirme kutunuzun veya uygulama hizmetleri dışındaki bir makine üzerinde çalıştırmak istiyorsanız, bir izleme anahtarı sağlamanız gerekir. Bu bağımsız değişken geçirerek yapabilirsiniz `--ikey <instrumentation-key>`. Bu değer, uygulamanızın kullanıyor izleme anahtarını eşleşmesi gerektiğini unutmayın. Profil Oluşturucu günlük çıktısı de profil oluşturucu kullanmaya hangi ikey size bildirir ve bu izleme anahtarını şu hatayla etkinliğinden algıladık, profil.
-4.  El ile Tetiklenmiş web işleri Web kancası gerçekte tetiklenebilir. Bu url, web işi panodan sağ tıklayarak ve özelliklerini görüntüleme veya web işi tablosundan seçtikten sonra araç çubuğundaki özellikler seçme alabilirsiniz. I kadar ayrıntısı ilgili gireceğini değil, böylece bu hakkında çevrimiçi bulabilirsiniz makaleleri çok vardır, ancak bu profil oluşturucu CI/CD hattınızı (gibi VSTS) veya Microsoft Flow (https://flow.microsoft.com/en-us/) gibi bir şey tetikleme olasılığını yukarı açar. Nasıl süslü olabilen yolu tarafından bir run.ps1, run.cmd yapmak istediğiniz bağlı olarak olanakları kapsamlı.  
-
-
-
-
-## <a id="aspnetcore"></a>ASP.NET çekirdeği desteği
-
-Bir ASP.NET Core uygulama Microsoft.ApplicationInsights.AspNetCore NuGet Paketi 2.1.0-beta6 yüklemek veya daha sonra Profil Oluşturucu ile çalışmak için gerekir. Önceki sürümlerde 27 Haziran 2017 itibariyle desteklemiyoruz.
+4.  El ile Tetiklenmiş web işleri Web kancası gerçekte tetiklenebilir. Sağ Pano ve özelliklerini görüntüleme veya web işi tablosundan seçtikten sonra araç çubuğundaki özellikler seçme web işi tıklayarak bu URL'yi elde edebilirsiniz. I kadar ayrıntısı ilgili gireceğini değil, böylece bu hakkında çevrimiçi bulabilirsiniz makaleleri çok vardır, ancak bu profil oluşturucu CI/CD hattınızı (gibi VSTS) veya Microsoft Flow (https://flow.microsoft.com/en-us/) gibi bir şey tetikleme olasılığını yukarı açar. Nasıl süslü olabilen yolu tarafından bir run.ps1, run.cmd yapmak istediğiniz bağlı olarak olanakları kapsamlı.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Visual Studio'da Application Insights ile çalışma](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
+[appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png

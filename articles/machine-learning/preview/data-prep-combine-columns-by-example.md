@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Örnek dönüştürme tarafından sütunu birleştirme
 Bu dönüşümü yeni bir sütun birden çok sütun değerlerinden birleştirerek eklemesine izin verir. Kullanıcı bir ayırıcı belirtin veya bu dönüştürme gerçekleştirmek için birleştirilmiş değer örnekleri sağlayın. Kullanıcı örnekleri birleşimi sağladığında, dönüşüm aynı tarafından işlenir **örnek tarafından** kullanılan altyapısı **türetilen sütun örneğe göre** Dönüştür.
@@ -38,6 +38,10 @@ Seçme **örnekler** altında **birleştirmek sütunlara göre** örnek birleşi
 
 Kullanıcı arasında geçiş yapmak **temel mod** ve **Gelişmiş mod** bağlantıları dönüştürme Düzenleyicisi'ni tıklatarak.
 
+### <a name="transform-editor-send-feedback"></a>Düzenleyici Dönüştür: geri bildirim gönder
+
+Tıklayarak **geri bildirim gönder** bağlantı açar **geri bildirim** örnekler kullanıcıyla önceden doldurulmaz açıklamaları kutusuyla iletişim sağlanan. Kullanıcı, açıklama kutusunun içeriğini gözden geçirin ve sorunu anlamasına yardımcı olmak için daha fazla ayrıntı sağlar. Kullanıcı, verileri Microsoft ile paylaşmak istiyorsanız değil, kullanıcı önceden doldurulmuş örnek veri tıklatmadan önce silmelisiniz **geri bildirim gönder** düğmesi. 
+
 ### <a name="editing-existing-transformation"></a>Varolan dönüştürme düzenleme
 
 Var olan bir kullanıcı düzenleyebilir **sütun örnekle birleştirmek** dönüştürme seçerek **Düzenle** dönüştürme adımının seçeneği. Tıklayarak **Düzenle** dönüştürme Düzenleyicisi'nde açar **temel mod**. Kullanıcının girebileceği **Gelişmiş mod** üstbilgi bağlantıya tıklayarak. Dönüştürme oluşturma sırasında sağlanan tüm örnekler var. gösterilir.
@@ -46,7 +50,7 @@ Var olan bir kullanıcı düzenleyebilir **sütun örnekle birleştirmek** dön�
 
 Birleştirmek için bu örnek ayırıcı olarak virgül bir boşluk bırakarak kullanılan *Sokak*, *Şehir*, *durumu*, ve *ZIP* sütun.
 
-|Sokak|Şehir|Durum|ZIP|Sütun|
+|Cadde|Şehir|Durum|ZIP|Sütun|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th yolu|REDMOND|WA|98052|16011 N.E. 36th yolu, REDMOND, Washington, 98052|
 |16021 N.E. 36th yolu|REDMOND|WA|98052|16021 N.E. 36th yolu, REDMOND, Washington, 98052|
@@ -54,9 +58,9 @@ Birleştirmek için bu örnek ayırıcı olarak virgül bir boşluk bırakarak k
 |16041 N.E. 36th yolu|REDMOND|WA|98052|16041 N.E. 36th yolu, REDMOND, Washington, 98052|
 |16051 N.E. 36th yolu|REDMOND|WA|98052|16051 N.E. 36th yolu, REDMOND, Washington, 98052|
 |16061 N.E. 36th yolu|REDMOND|WA|98052|16061 N.E. 36th yolu, REDMOND, Washington, 98052|
-|3460 157th avenue NE|REDMOND|WA|98052|3460 157th avenue NE, REDMOND, Washington, 98052|
+|3460 157th Avenue NE|REDMOND|WA|98052|3460 157th Avenue NE, REDMOND, WA, 98052|
 |3350 157th Ave N.E.|REDMOND|WA|98052|3350 157th Ave N.E., REDMOND, Washington, 98052|
-|3240 157th avenue N.E.|REDMOND|WA|98052|3240 157th avenue N.E., REDMOND, Washington, 98052|
+|3240 157th Avenue N.E.|REDMOND|WA|98052|3240 157th avenue N.E., REDMOND, Washington, 98052|
 
 ## <a name="example-using-by-example"></a>Örnek tarafından kullanma örneği
 

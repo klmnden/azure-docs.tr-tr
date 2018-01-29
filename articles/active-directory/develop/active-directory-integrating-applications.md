@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Uygulamaları Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -309,7 +309,7 @@ Kuruluşunuzun kayıtlı olan uygulamaları Göster altında, kiracının ana "u
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Başka bir kuruluş tarafından yetkili bir çok kiracılı uygulama kaldırma
 Bir alt kümesini Göster "Tüm uygulamaların" filtre altında uygulamaları (hariç "Uygulamalarım" kayıtlar), kiracının ana "Uygulama kayıtlar" sayfasında, çok kiracılı uygulamalardır. Teknik koşulları, bu çok kiracılı uygulamalar başka bir kiracıdan yüklenir ve Kiracı onay işlemi sırasında kaydettirildi. Daha açık belirtmek gerekirse, bunlar yalnızca bir hizmet asıl nesnesinde, Kiracı tarafından karşılık gelen hiçbir uygulama nesnesi ile temsil edilir. Uygulama ve hizmet asıl nesneleri arasındaki farklar hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneleri Azure AD'de](active-directory-application-objects.md).
 
-(İzin verilen sonra) dizininiz bir çok kiracılı uygulama erişimi kaldırmak için şirket Yöneticisi kendi hizmet sorumlusu kaldırmanız gerekir. Yönetici genel yönetici erişimine sahip olmalıdır ve Azure portalı üzerinden kaldırabilirsiniz [Azure AD PowerShell cmdlet'leri](http://go.microsoft.com/fwlink/?LinkId=294151) erişimi kaldırmak için.
+(İzin verilen sonra) dizininiz bir çok kiracılı uygulama erişimi kaldırmak için şirket Yöneticisi kendi hizmet sorumlusu kaldırmanız gerekir. Yönetici gerekir genel yönetici erişimine sahip ve Azure portalından kaldırabilir veya kullanmak [Azure AD PowerShell cmdlet'leri](http://go.microsoft.com/fwlink/?LinkId=294151) erişimi kaldırmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Kimlik doğrulaması Azure AD'de nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).

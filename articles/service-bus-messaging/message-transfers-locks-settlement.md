@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: edb6e207852fa59d5828906c891693f367739c9c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-transfers-locks-and-settlement"></a>İleti aktarımı, kilitler ve kapatma
 
-En merkezi bir ileti aracısı hizmet veri yolu gibi kuyruk veya konu iletileri kabul edip sonraki alınamayabilir tutmak için bir özelliktir. *Gönderme* bir ileti aktarımı içine ileti aracısı için yaygın olarak kullanılan bir terimdir. *Alma* olan bir ileti transfer alınırken bir istemci için yaygın olarak kullanılan terim.
+Merkezi bir ileti aracısı hizmet veri yolu gibi kuyruk veya konu iletileri kabul edip sonraki alınamayabilir tutmak için bir özelliktir. *Gönderme* bir ileti aktarımı içine ileti aracısı için yaygın olarak kullanılan bir terimdir. *Alma* olan bir ileti transfer alınırken bir istemci için yaygın olarak kullanılan terim.
 
 Bir istemci bir ileti gönderdiğinde, genellikle olup ileti olduğundan düzgün bir şekilde aktarılır ve aracısı tarafından kabul veya hata çeşit oluşup oluşmadığını bilmek ister. Bu olumlu veya olumsuz bildirim istemcisi ve ileti aktarım durumu hakkında anlama Aracısı kapatır ve bu nedenle olarak adlandırılır *kapatma*.
 

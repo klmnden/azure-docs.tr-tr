@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Azure CLI ile Azure Resource Manager şablonları dışarı aktarma
 
@@ -44,7 +44,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Şablonu dağıtım geçmişinden Kaydet
 
-Kullanarak bir şablonu dağıtım geçmişinden alabilirsiniz [az grubu dağıtım verme](/cli/azure/group/deployment#export) komutu. Aşağıdaki örnek, daha önce dağıttığınız şablonu kaydeder:
+Kullanarak bir şablonu dağıtım geçmişinden alabilirsiniz [az grubu dağıtım verme](/cli/azure/group/deployment#az_group_deployment_export) komutu. Aşağıdaki örnek, daha önce dağıttığınız şablonu kaydeder:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -55,7 +55,7 @@ az group deployment export --name NewStorage --resource-group ExampleGroup
 
 ## <a name="export-resource-group-as-template"></a>Kaynak grubunu şablon olarak dışarı aktarma
 
-Bir şablonu dağıtım geçmişinden almanın yerine kullanarak bir kaynak grubunun geçerli durumunu temsil eden bir şablonu alabilir [az grup verme](/cli/azure/group#export) komutu. Kaynak grubu için çok sayıda değişiklik yaptınız ve tüm değişiklikleri olan bir şablonunu temsil ettiğinde bu komutu kullanın.
+Bir şablonu dağıtım geçmişinden almanın yerine kullanarak bir kaynak grubunun geçerli durumunu temsil eden bir şablonu alabilir [az grup verme](/cli/azure/group#az_group_export) komutu. Kaynak grubu için çok sayıda değişiklik yaptınız ve tüm değişiklikleri olan bir şablonunu temsil ettiğinde bu komutu kullanın.
 
 ```azurecli
 az group export --name ExampleGroup

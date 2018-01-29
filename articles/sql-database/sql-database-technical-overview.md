@@ -17,11 +17,11 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Veritabanı hizmeti nedir? 
 
@@ -156,7 +156,7 @@ SQL Veritabanı MacOS, Linux ve Windows üzerinde Python, Java, Node.js, PHP, Ru
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Veritabanı yönetimi hakkında sorular için
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Geliştirme hakkında sorular için
 - [MSDN Forumları](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Teknik sorular için
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): Hata bildirimleri ve özellik istekleri için
+- [Geri bildirim](http://aka.ms/sqlfeedback): Hata bildirimleri ve özellik istekleri için
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server’ı tartışmak için
 
 ## <a name="next-steps"></a>Sonraki adımlar

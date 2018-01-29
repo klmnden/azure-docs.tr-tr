@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Düşük öncelikli sanal makineleri Batch ile kullanma
 
@@ -71,9 +71,12 @@ Azure toplu işlem kullanmasına ve düşük öncelikli Vm'lerden yararlanmak ko
 
 -   Görevler kesintiye toplu algılar ve otomatik olarak yeniden çalıştırılacak görevleri requeues.
 
--   Düşük öncelikli sanal makineleri ayrı vCPU kotası, özel VM'ler için farklıdır. 
+-   Düşük öncelikli sanal makineleri özel VM'ler için farklı bir ayrı vCPU kota sahip. 
     Düşük öncelikli sanal makineleri daha az maliyet olduğundan kota düşük öncelikli sanal makineleri için özel VM'ler için kota daha yüksektir. Daha fazla bilgi için bkz: [Batch Hizmeti kotaları ve sınırlarına](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Düşük öncelikli sanal makineleri şu anda desteklenmemektedir oluşturulan Batch hesaplarıyla ilgili [kullanıcı abonelik modu](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Oluşturma ve havuzları güncelleştirme
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 

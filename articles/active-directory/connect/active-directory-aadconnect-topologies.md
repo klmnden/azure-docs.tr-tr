@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makalede, desteklenen ve desteklenmeyen yapılandırmalar içerir.
@@ -110,10 +110,11 @@ Bu senaryoda, tüm hesap ormanları bir (veya daha fazla) kaynak orman güvenler
 Bazı Office 365 iş yükleri üzerinde desteklenen topolojiler bazı kısıtlamalar vardır:
 
 | İş yükü | Kısıtlamalar |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | Exchange Online tarafından desteklenen karma topolojiler hakkında daha fazla bilgi için bkz: [birden çok Active Directory ormanına karma dağıtımlarında](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype Kurumsal | Birden çok şirket içi ormanları kullanırken, yalnızca hesap-kaynak orman topolojisini desteklenir. Daha fazla bilgi için bkz: [Business Server 2015 için Skype ortam gereksinimleri](https://technet.microsoft.com/library/dn933910.aspx). |
 
+Daha büyük bir kuruluşta olduğunuz sonra kullanmayı düşünmelisiniz [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) özelliği. Kullanıcının resocues hangi veri merkezinde bölgede bulunan tanımlamanızı sağlar.
 
 ## <a name="staging-server"></a>Hazırlama sunucusu
 ![Hazırlama sunucu topoloji](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: Kavramlar
   items:
+    - name: Veri merkezi tümleştirmesi
+      items:
+        - name: Genel Azure yığın tümleştirme konuları
+          href: azure-stack-datacenter-integration.md
+        - name: Azure yığın dağıtım bağlantı modeli
+          href: azure-stack-connection-models.md
+        - name: Bağlı dağıtımında dikkat edilecek noktalar
+          href: azure-stack-connected-deployment.md
+        - name: Bağlantısı kesilmiş dağıtımında dikkat edilecek noktalar
+          href: azure-stack-disconnected-deployment.md
+        - name: Veri Merkezi ağ tümleştirme
+          items:
+            - name: Ağ tümleştirme
+              href: azure-stack-network.md
+            - name: Kenarlık bağlantısı
+              href: azure-stack-border-connectivity.md
+            - name: DNS tümleştirmesi
+              href: azure-stack-integrate-dns.md
+            - name: Güvenlik Duvarı tümleştirmesi
+              href: azure-stack-firewall.md
+              items:
+                - name: Uç noktalarını yayımlama
+                  href: azure-stack-integrate-endpoints.md
+        - name: Azure yığın dağıtım PKI gereksinimleri
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Azure yığın dağıtımı için PKI sertifikaları alma
+              href: azure-stack-get-pki-certs.md
+        - name: Kimlik Tümleştirme
+          href: azure-stack-integrate-identity.md
+        - name: Azure yığın kaydetme
+          href: azure-stack-registration.md
+        - name: Dış izleme
+          href: azure-stack-integrate-monitor.md
+        - name: Güvenlik tümleştirme
+          href: azure-stack-integrate-security.md
     - name: Hizmet ilkesi
       href: azure-stack-servicing-policy.md
     - name: Önemli özellikler ve kavramlar
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: Test VM’si oluşturma
           href: azure-stack-provision-vm.md
-    - name: Azure tümleşik yığını sistemleri dağıtma
-      items:
-        - name: Dağıtım Planlama konuları
-          href: azure-stack-deployment-planning.md
-        - name: Dağıtım Planlama kararları
-          href: azure-stack-deployment-decisions.md
-        - name: Dağıtmak için Azure bağlı
-          href: azure-stack-connected-deployment.md
-        - name: Dağıtma Azure'dan bağlantısı kesildi
-          href: azure-stack-disconnected-deployment.md
-        - name: Azure yığın dağıtım PKI gereksinimleri
-          href: azure-stack-pki-certs.md
-          items:
-            - name: Azure yığın dağıtımı için PKI sertifikaları alma
-              href: azure-stack-get-pki-certs.md
-        - name: Azure yığın kaydetme
-          href: azure-stack-registration.md
-    - name: Veri merkezi tümleştirmesi
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: Kimlik
-          href: azure-stack-integrate-identity.md
-        - name: Uç noktalarını yayımlama
-          href: azure-stack-integrate-endpoints.md
-        - name: Dış izleme
-          href: azure-stack-integrate-monitor.md
-        - name: Güvenlik
-          href: azure-stack-integrate-security.md
     - name: Yönetme
       items:
         - name: Bölge yönetimi

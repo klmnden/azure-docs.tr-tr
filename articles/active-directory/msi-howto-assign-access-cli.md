@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: bryanla
-ms.openlocfilehash: 7d817a90277a1320ccc028822032916c98cae4b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 15a7d43da7b5a700ae84a42d59a7f01f1711c5cd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Azure CLI kullanarak bir kaynak için bir yönetilen hizmet kimliği (MSI) erişimi atayın
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 Bir Azure kaynağı ile bir MSI yapılandırdıktan sonra herhangi bir güvenlik asıl gibi başka bir kaynak MSI erişim izni verebilirsiniz. Bu örnek bir Azure depolama hesabı için Azure CLI kullanarak bir Azure sanal makinenin MSI erişmesini sağlamak nasıl gösterir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -41,13 +41,13 @@ CLI komut dosyası örnekleri çalıştırmak için üç seçeneğiniz vardır:
 
 Bir Azure kaynağı üzerinde MSI etkinleştirdikten sonra [bir Azure VM gibi](msi-qs-configure-cli-windows-vm.md): 
 
-1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#login). Altında VM dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#az_login). Altında VM dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Bu örnekte, biz bir depolama hesabı için bir Azure VM erişimi vermiş olursunuz. İlk kullanırız [az kaynak listesi](/cli/azure/resource/#list) "biz VM'de MSI etkinleştirildiğinde oluşturulduğu myVM", adlı VM için hizmet sorumlusu almak için:
+2. Bu örnekte, biz bir depolama hesabı için bir Azure VM erişimi vermiş olursunuz. İlk kullanırız [az kaynak listesi](/cli/azure/resource/#az_resource_list) "biz VM'de MSI etkinleştirildiğinde oluşturulduğu myVM", adlı VM için hizmet sorumlusu almak için:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)

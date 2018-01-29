@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>İleti kullanım süresi sonu (yaşam süresi)
 
@@ -25,11 +25,11 @@ Bir ileti veya bir komut veya bir alıcıya, ileti ilettiği sorgulama içinde y
 
 Geliştirme ve test ortamları, kuyruklar ve konu başlıkları genellikle uygulamaları veya uygulama bölümleri kısmi çalıştırılan bağlamında kullanılan için de otomatik olarak sonraki test çalışabilmesi toplanacak olabilir kenarda kalmış test ileti almak için tercih edilir temiz başlatın.
 
-Tek bir ileti için sona erme ayarlayarak denetlenebilir [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) göreli süreyi belirten sistem özelliği. İleti sıraya alınan varlık içine süre sonu mutlak anlık olur. Bu sırada, [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) özelliği değeri temel alır [ **EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Tek bir ileti için sona erme ayarlayarak denetlenebilir [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) göreli süreyi belirten sistem özelliği. İleti sıraya alınan varlık içine süre sonu mutlak anlık olur. Bu sırada, [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) özelliği değeri temel alır [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
 
 Son **ExpiresAtUtc** anlık, iletileri alma işlemi için uygun hale gelir. Sona erme teslim için şu anda kilitli iletileri etkilemez; Bu iletiler hala normal şekilde işlenir. Kilit süresi veya iletinin terk, sona erme hemen etkinleşir.
 
-İleti kilidi altında olsa da, uygulama ismen süresi dolmuş bir ileti elinde olabilir. Uygulamanın işlemeyle devam etmeye hazır veya iletinin abandon seçti kadar uygulayan ' dir.
+İleti kilidi altında olsa da, uygulama süresi dolmuş bir ileti elinde olabilir. Uygulamanın işlemeyle devam etmeye hazır veya iletinin abandon seçti kadar uygulayan ' dir.
 
 ## <a name="entity-level-expiration"></a>Varlık düzeyi süre sonu
 
@@ -47,11 +47,11 @@ Birleşimi [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetoliv
 
 Service Bus kuyrukları, konu başlıkları ve Abonelikleri, belirtilen bir süre için kullanılmamış bağlandığınızda otomatik olarak kaldırılır geçici varlıklar olarak oluşturulabilir.
  
-Otomatik temizleme varlıkları dinamik olarak oluşturulur ve test ya da hata ayıklama çalışma yarıda nedeniyle kullandıktan sonra temizlenmesini değil geliştirme ve test senaryolarda kullanışlıdır. Dinamik varlıklar, web sunucusu işlemine geri yükleme ya da güvenilir bir şekilde bu varlıkların temiz zor olduğu başka bir görece kısa süreli nesnesine yanıtları almak için bir yanıt sırası gibi bir uygulama oluşturduğunda, de kullanışlıdır zaman nesnesi Örnek kaybolur.
+Otomatik temizleme varlıkları dinamik olarak oluşturulur ve hata ayıklama çalıştırma ya da test bazı kesintisi nedeniyle kullandıktan sonra temizlenmesini değil geliştirme ve test senaryolarda kullanışlıdır. Dinamik varlıklar, web sunucusu işlemine geri yükleme ya da güvenilir bir şekilde bu varlıkların temiz zor olduğu başka bir görece kısa süreli nesnesine yanıtları almak için bir yanıt sırası gibi bir uygulama oluşturduğunda, de kullanışlıdır zaman nesnesi Örnek kaybolur.
 
 Kullanarak özelliği etkinleştirilmişse [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) otomatik olarak silinmeden önce bir varlık olmalıdır süresini ayarlama özelliği (kullanılmayan) boş. En düşük süre 5 dakikadır.
  
-Bir Azure Resource Manager işlemi veya .NET Framework istemci aracılığıyla özelliği ayarlanmalıdır [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'leri. Portalı aracılığıyla ayarlanamaz.
+**AutoDeleteOnIdle** özelliği ayarlanmalıdır, .NET Framework istemci aracılığıyla veya bir Azure Resource Manager işlemi [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'leri. Portalı aracılığıyla ayarlanamaz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

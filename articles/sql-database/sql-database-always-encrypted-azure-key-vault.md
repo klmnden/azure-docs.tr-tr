@@ -5,8 +5,7 @@ keywords: "veri şifreleme, şifreleme anahtarı, bulut şifreleme"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: SQL veritabanındaki hassas verileri korumak ve Azure anahtar kasası, şifreleme anahtarlarını saklamak
 
@@ -38,7 +37,7 @@ Her zaman şifreli bir Azure SQL veritabanı için ayarlama hakkında bilgi edin
 * Bir veritabanı tablosu oluşturmak ve sütunları şifreleyebilirsiniz.
 * Ekler, seçer ve şifrelenmiş sütunlar verileri görüntüleyen bir uygulama oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici için ihtiyacınız vardır:
 
 * Bir Azure hesabı ve aboneliği Yoksa, kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
@@ -48,30 +47,18 @@ Bu öğretici için ihtiyacınız vardır:
 * [Azure PowerShell](/powershell/azure/overview), sürüm 1.0 veya üstü. Tür **(Get-Module azure - listavailable birlikte). Sürüm** PowerShell sürümünü çalıştırıyorsanız görmek için.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>İstemci uygulamanızın SQL Database hizmetine erişmek etkinleştirme
-SQL veritabanı hizmetinin gerekli kimlik doğrulamayı ayarlama ve alma erişmek üzere istemci uygulamanız etkinleştirmelisiniz *ClientID* ve *gizli* aşağıdaki kodu, uygulamanızda kimliğini doğrulaması gerekir.
+İstemci uygulamanızın SQL Database hizmeti bir Azure Active Directory (AAD) uygulamasını ayarlama ve kopyalama erişmek etkinleştirmeniz gerekir *uygulama kimliği* ve *anahtar* için gereken Uygulamanız için kimlik doğrulaması.
 
-1. Açık [Klasik Azure portalı](http://manage.windowsazure.com).
-2. Seçin **Active Directory** ve uygulamanız kullanacak Active Directory örneğine'ı tıklatın.
-3. Tıklatın **uygulamaları**ve ardından **eklemek**.
-4. Uygulamanız için bir ad yazın (örneğin: *myClientApp*), select **WEB uygulaması**ve devam etmek için oka tıklayın.
-5. İçin **oturum açma URL** ve **uygulama kimliği URI'si** geçerli bir URL yazın (örneğin, *http://myClientApp*) ve devam edin.
-6. Tıklatın **yapılandırma**.
-7. Kopyalama, **istemci kimliği**. (Bu değer, kodunuzda daha sonra gerekecektir.)
-8. İçinde **anahtarları** bölümünde, select **1 yıl** gelen **seçin süresi** aşağı açılan liste. (Adım 13 kaydettikten sonra anahtar kopyalayacak.)
-9. Aşağı kaydırın ve tıklatın **uygulama eklemek**.
-10. Bırakın **Göster** kümesine **Microsoft Apps** seçip **Microsoft Azure Hizmet Yönetimi API'si**. Devam etmek için onay işaretine tıklayın.
-11. Seçin **erişim Azure hizmet yönetimi...**  gelen **izinlere temsilci** aşağı açılan liste.
-12. **KAYDET**'e tıklayın.
-13. Kayıt tamamlandıktan sonra anahtar değerini kopyalayın **anahtarları** bölümü. (Bu değer, kodunuzda daha sonra gerekecektir.)
+Alınacak *uygulama kimliği* ve *anahtar*, adımları [bir Azure Active Directory kaynaklara erişebilir uygulama ve hizmet sorumlusu oluşturmak](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Anahtarlarınızı depolamak için bir anahtar kasası oluşturma
-İstemci uygulamanızı yapılandırılmıştır ve istemci Kimliğiniz sahip göre bir anahtar kasası oluşturma ve siz ve uygulamanızı Kasası'nın gizli anahtarları (her zaman şifreli anahtarlar) erişebilmesi için erişim ilkesi yapılandırma zamanı geldi. *Oluşturma*, *almak*, *listesi*, *oturum*, *doğrulayın*, *wrapKey*, ve *unwrapKey* yeni bir sütun ana anahtar oluşturma ve şifreleme SQL Server Management Studio ile ayarlamak için gerekli izinleri.
+İstemci uygulamanızı yapılandırılır ve uygulama Kimliğinizi sahip göre bir anahtar kasası oluşturun ve siz ve uygulamanızı Kasası'nın gizli anahtarları (her zaman şifreli anahtarlar) erişebilmesi için erişim ilkesini yapılandırmak için zaman yapılır. *Oluşturma*, *almak*, *listesi*, *oturum*, *doğrulayın*, *wrapKey*, ve *unwrapKey* yeni bir sütun ana anahtar oluşturma ve şifreleme SQL Server Management Studio ile ayarlamak için gerekli izinleri.
 
 Aşağıdaki komut dosyasını çalıştırarak, bir anahtar kasası hızlı bir şekilde oluşturabilirsiniz. Ayrıntılı bir açıklaması ve bu cmdlet'leri ve oluşturma ve bir anahtar kasası yapılandırma hakkında daha fazla bilgi için bkz: [Azure anahtar kasası ile çalışmaya başlama](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,7 +72,7 @@ Aşağıdaki komut dosyasını çalıştırarak, bir anahtar kasası hızlı bir
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
@@ -233,7 +220,7 @@ Aşağıdaki kod, ADO.NET sürücüsüyle Azure anahtar kasası sağlayıcısın
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ Her zaman şifreli eylemde görmek için uygulamayı çalıştırın.
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ Her zaman şifreli eylemde görmek için uygulamayı çalıştırın.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
