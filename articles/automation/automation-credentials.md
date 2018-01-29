@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 12a7d00f9e0721fc4cf2668598515fd769c8a728
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Otomasyonu kimlik bilgisi varlıkları
 Bir Otomasyon kimlik bilgisi varlığı tutan bir [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) bir kullanıcı adı ve parola gibi güvenlik kimlik bilgileri içeren bir nesne. Kullanıcı adı ve parola için bazı uygulama veya hizmet kimlik doğrulaması gerektiren sağlamak için PSCredential nesnesinin ayıklamak veya runbook'ları ve DSC yapılandırmaları kimlik doğrulaması için bir PSCredential nesnesi kabul cmdlet'leri kullanabilir. Kimlik bilgileri özellikleri Azure Otomasyonu'nda güvenli bir şekilde depolanır ve runbook veya DSC yapılandırması ile erişilen [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) etkinlik.
@@ -32,9 +32,9 @@ Aşağıdaki tabloda yer alan cmdlet'ler oluşturmak ve Windows PowerShell ile a
 | Cmdlet'leri | Açıklama |
 |:--- |:--- |
 | [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Bir kimlik bilgisi varlığı ilgili bilgileri alır. Kimlik yalnızca alabilir gelen **Get-AutomationPSCredential** etkinlik. |
-| [AzureAutomationCredential yeni](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
-| [Remove - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Otomasyon kimlik bilgileri kaldırır. |
-| [Set - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Var olan Otomasyon kimlik bilgileri özelliklerini ayarlar. |
+| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
+| [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Otomasyon kimlik bilgileri kaldırır. |
+| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Var olan Otomasyon kimlik bilgileri özelliklerini ayarlar. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet'leri
 AzureRM için aşağıdaki tablodaki cmdlet'ler oluşturmak ve Windows PowerShell ile automation kimlik bilgisi varlıkları yönetmek için kullanılır.  Bir parçası olarak sevk [AzureRM.Automation Modülü](/powershell/azure/overview) olduğu Automation runbook'ları ve DSC yapılandırmaları için kullanılabilir.
@@ -42,11 +42,11 @@ AzureRM için aşağıdaki tablodaki cmdlet'ler oluşturmak ve Windows PowerShel
 | Cmdlet'leri | Açıklama |
 |:--- |:--- |
 | [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Bir kimlik bilgisi varlığı ilgili bilgileri alır.  |
-| [AzureRmAutomationCredential yeni](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
 | [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Otomasyon kimlik bilgileri kaldırır. |
 | [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Var olan Otomasyon kimlik bilgileri özelliklerini ayarlar. |
 
-## <a name="runbook-activities"></a>Runbook etkinlikleri
+## <a name="activities"></a>Etkinlikler
 Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları kimlik bilgilerini erişmek için kullanılır.
 
 | Etkinlikler | Açıklama |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 4681138dfc7ed67c8c9da0c55abfc27351736be4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Visual Studio için Azure işlevleri araçları  
 
@@ -141,7 +141,7 @@ Uygulama ayarları şu diğer yöntemlerden birini kullanarak da yönetebilirsin
 
 * [Azure portalını kullanarak](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Kullanarak `--publish-local-settings` Azure işlevleri çekirdek araçları publish seçeneği](functions-run-local.md#publish).
-* [Azure CLI kullanarak](/cli/azure/functionapp/config/appsettings#set). 
+* [Azure CLI kullanarak](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

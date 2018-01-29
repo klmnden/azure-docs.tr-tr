@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple Cihazınızda güncelleştirme 5 yükleyin
 
@@ -77,7 +77,7 @@ Karşıdan yükle ve önceden belirlenen sırasını ve önerilen klasörlerinde
 
 | Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükleyin|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Yazılım güncelleştirmesi<br> Her ikisi de karşıdan _HcsSfotwareUpdate.exe_ ve _CisMSDAgent.exe_ |Normal <br></br>Olmayan kesintiye uğratan |~ 25 dakika |FirstOrderUpdate|
+| 1. |KB4037264 |Yazılım güncelleştirmesi<br> Her ikisi de karşıdan _HcsSoftwareUpdate.exe_ ve _CisMSDAgent.exe_ |Normal <br></br>Olmayan kesintiye uğratan |~ 25 dakika |FirstOrderUpdate|
 
 Güncelleştirme 4 çalıştıran bir CİHAZDAN güncelleştirme, yalnızca işletim sistemi toplu güncelleştirmeler ikinci sipariş güncelleştirmeleri yüklemeniz gerekir.
 
@@ -89,9 +89,9 @@ Güncelleştirme 3'ü çalıştıran bir aygıttan yükleme veya önceki sürüm
 
 | Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükleyin|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI sürücü ve bellenim güncelleştirmeleri <br> USM bellenim güncelleştirme (sürüm 3,38) |Normal <br></br>Olmayan kesintiye uğratan |~ 3 saat <br> (2A içerir. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2 C |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |İşletim sistemi güvenlik güncelleştirmeleri paketi <br> Windows Server 2012 R2 sürümünü karşıdan yükleyin |Normal <br></br>Olmayan kesintiye uğratan |- |SecondOrderUpdate|
-| 2B. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |İşletim sistemi güncelleştirmeleri paketi <br> Windows Server 2012 R2 sürümünü karşıdan yükleyin |Normal <br></br>Olmayan kesintiye uğratan |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI sürücü ve bellenim güncelleştirmeleri <br> USM bellenim güncelleştirme (sürüm 3,38) |Normal <br></br>Olmayan kesintiye uğratan |~ 3 saat <br> (2A içerir. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |İşletim sistemi güvenlik güncelleştirmeleri paketi <br> Windows Server 2012 R2 sürümünü karşıdan yükleyin |Normal <br></br>Olmayan kesintiye uğratan |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |İşletim sistemi güncelleştirmeleri paketi <br> Windows Server 2012 R2 sürümünü karşıdan yükleyin |Normal <br></br>Olmayan kesintiye uğratan |- |SecondOrderUpdate|
 
 
 Önceki tabloda gösterilen tüm güncelleştirmeleri üstünde disk Bellenim güncelleştirmeleri yüklemeniz gerekebilir. Disk Bellenim güncelleştirmeleri çalıştırarak gerekmediğini doğrulayabilirsiniz `Get-HcsFirmwareVersion` cmdlet'i. Bu bellenim sürümleri çalıştırıyorsanız: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, sonra da bu güncelleştirmeleri yüklemek gerekmez.

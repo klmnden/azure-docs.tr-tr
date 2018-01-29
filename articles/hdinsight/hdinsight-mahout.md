@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: a0dd7388b3fa7517b97f4dd66eb121ebfd98d4a4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: a2477b0a7c9c76f8ce4a183f4d699ddf4c291023
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>(PowerShell) hdınsight'ta Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 
 Nasıl kullanacağınızı öğrenin [Apache Mahout](http://mahout.apache.org) machine learning kitaplığı Azure Hdınsight'ın Film önerileri oluşturma ile. Bu belge örnekte Mahout işlerini çalıştırmak için Azure PowerShell'i kullanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Linux tabanlı Hdınsight kümesi. Bir oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight'ta Linux tabanlı Hadoop ile çalışmaya başlamak][getstarted].
 
@@ -68,7 +68,7 @@ Kullanıcı-ratings.txt bulunan verileri yapısını sahip `userID`, `movieID`, 
     244    51     2    880606923
     166    346    1    886397596
 
-### <a name="run-the-job"></a>İşi çalıştır
+### <a name="run-the-job"></a>İşini çalıştır
 
 Film verilerle Mahout öneri altyapısı kullanan bir iş çalıştırmak için aşağıdaki Windows PowerShell betiğini kullanın:
 

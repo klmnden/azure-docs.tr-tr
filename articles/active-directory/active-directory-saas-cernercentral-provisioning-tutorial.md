@@ -12,26 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-<<<<<<< HEAD
-ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: f7e6d4275940174074c1758a5b73030e0b3f107c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe24db4e573ef9c9daf34bb8069c7a1e57616ffb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Öğretici: Cerner Orta otomatik kullanıcı sağlamayı için yapılandırma
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Öğretici: Cerner Orta otomatik kullanıcı sağlamayı yapılandırın
 
 Bu öğreticinin amacı Cerner Orta ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den kullanıcı ad listesi Cerner Orta sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -73,25 +67,25 @@ Kullanıcı hesaplarına Cerner Orta sağlamak için Cerner Cerner Orta sistem h
 
 1.  Cerner yönetme kişiler emin olmak için ilk adımdır ve Azure AD tümleştirme yönergeleri işlemini tamamlamak için gereken belgelerine erişmek için gerekli bir CernerCare hesabı vardır. Gerekirse, her bir geçerli ortamda CernerCare hesapları oluşturmak için aşağıdaki URL'ler kullanın.
 
-   * Korumalı alan: https://sandboxcernercare.com/accounts/create
+   * Sandbox:  https://sandboxcernercare.com/accounts/create
 
-   * Üretim: https://cernercare.com/accounts/create  
+   * Production:  https://cernercare.com/accounts/create  
 
 2.  Ardından, bir sistem hesabı için Azure AD oluşturulması gerekir. Korumalı alan ve üretim ortamları için bir sistem hesabı istemek için aşağıdaki yönergeleri kullanın.
 
-   * Yönergeler: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instructions:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * Korumalı alan: https://sandboxcernercentral.com/system-accounts/
+   * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Üretim: https://cernercentral.com/system-accounts/
+   * Production:  https://cernercentral.com/system-accounts/
 
 3.  Ardından, OAuth taşıyıcı belirteci her sistem hesapları için oluşturur. Bunu yapmak için aşağıdaki yönergeleri izleyin.
 
    * Yönergeler: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * Korumalı alan: https://sandboxcernercentral.com/system-accounts/
+   * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Üretim: https://cernercentral.com/system-accounts/
+   * Production:  https://cernercentral.com/system-accounts/
 
 4. Son olarak, yapılandırmayı tamamlamak için Cerner hem korumalı hem de üretim ortamlarında için kullanıcı ad listesi bölge kimlikleri alma gerekir. Bu alma hakkında daha fazla bilgi için bkz: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
@@ -109,9 +103,9 @@ Kullanıcı hesaplarına Cerner Orta sağlamak için Cerner Cerner Orta sistem h
 
    * İçinde **Kiracı URL** alan, "Kullanıcı-ad listesi-bölge-ID" #4. adımda aldığınız bölge kimliği değiştirerek bir URL aşağıdaki biçimde girin.
 
-> Korumalı alan: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Üretim: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * İçinde **gizli belirteci** alanına #3. adımda oluşturulan OAuth taşıyıcı belirteci girin ve tıklatın **Bağlantıyı Sına**.
 
@@ -119,13 +113,13 @@ Kullanıcı hesaplarına Cerner Orta sağlamak için Cerner Cerner Orta sistem h
 
 10. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan ve aşağıdaki onay kutusunu işaretleyin.
 
-11. **Kaydet** düğmesine tıklayın. 
+11. **Kaydet**’e tıklayın. 
 
 12. İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den Cerner Orta eşitlenmek üzere kullanıcı ve grup öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcı hesapları ve grupları Cerner Orta güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
 13. Azure AD hizmeti Cerner Orta için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
-14. **Kaydet** düğmesine tıklayın. 
+14. **Kaydet**’e tıklayın. 
 
 Bu, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Cerner Orta atanan ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek yaklaşık 20 dakikada hizmet sağlama Azure AD çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Cerner Orta uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 

@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Azure Active Directory ile vxMaintain tümleştirme | Microsoft Docs"
+title: "Öğretici: Azure Active Directory Tümleştirme ile vxMaintain | Microsoft Docs"
 description: "Çoklu oturum açma Azure Active Directory ile vxMaintain arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Öğretici: Azure Active Directory vxMaintain ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Öğretici: Azure Active Directory Tümleştirme vxMaintain ile
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile vxMaintain tümleştirmek öğrenin.
 
@@ -31,7 +31,7 @@ Bu tümleştirme birkaç önemli avantaj sağlar. Şunları yapabilirsiniz:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme vxMaintain ile yapılandırmak için aşağıdaki öğeleri gerekir:
 

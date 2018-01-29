@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: fd8c92e575071b5b3647d51ba79603a2174dcd3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ed4adfa0698eabe8994da95554377b4dad76b291
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure çok faktörlü kimlik doğrulaması için beni anlamı nedir?
 Bu nedenle, kişilerden bir e-posta getirildiğini BT ya da bunlar hesabınıza ek güvenlik doğrulaması eklediğiniz belirten yöneticinizden.  Bu nedenle bu ne anlama geliyor?
@@ -46,4 +46,4 @@ Başlamak için aşağıdaki konulardan birini seçin.
 | [Oturum açma deneyimi](multi-factor-authentication-end-user-signin.md) |Telefon veya uygulama gibi çeşitli yöntemler kullanarak imzalama düşüklüğü görebilir gösterir. |
 | [Ayarlarınızı değiştirme](multi-factor-authentication-end-user-manage-settings.md) |Telefon numarası ya da tercih edilen yöntemi gibi ayarlarınızı nasıl değiştirebileceğiniz gösterir. |
 | [Uygulama parolalarıyla Yardım](multi-factor-authentication-end-user-app-passwords.md) |Oluşturma ve uygulama parolaları kullanma hakkında bilgi edinin. |
-| [Mobil uygulama kullanma](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator uygulaması [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Mobil uygulama kullanma](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |

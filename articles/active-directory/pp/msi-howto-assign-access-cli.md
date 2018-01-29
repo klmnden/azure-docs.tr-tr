@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 732fc1981bdf95e7548ea0ebe0ca8ece00f483ce
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 6e3bab5356812c256cfd147e42f065f381e0f63d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Azure CLI kullanarak bir kaynak için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) erişimi atayın
 
@@ -33,7 +33,7 @@ Kullanıcı tarafından atanan bir MSI oluşturduktan sonra herhangi bir güvenl
 Bu öğreticide CLI komut dosyası örnekleri çalıştırmak için iki seçeneğiniz vardır:
 
 - Kullanım [Azure bulut Kabuk](~/articles/cloud-shell/overview.md) Azure portalından veya "deneyin" düğmesini, aracılığıyla her kod bloğunun sağ üst köşesinde bulunan.
-- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz. Ardından Azure kullanarak oturum açın [az oturum açma](/cli/azure/#login). Altında kullanıcı tarafından atanan MSI ve VM dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz. Ardından Azure kullanarak oturum açın [az oturum açma](/cli/azure/#az_login). Altında kullanıcı tarafından atanan MSI ve VM dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
 
    ```azurecli
    az login

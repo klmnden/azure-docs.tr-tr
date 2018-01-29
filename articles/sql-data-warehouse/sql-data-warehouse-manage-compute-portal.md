@@ -15,22 +15,14 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f56e62576cae0c594f26bcddf44528032bd5ea69
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Azure SQL Data warehouse'da (Azure portalı) işlem güç yönetimi
-> [!div class="op_single_selector"]
-> * [Genel Bakış](sql-data-warehouse-manage-compute-overview.md)
-> * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
-
+Ölçek Azure portalını kullanarak Azure SQL Data Warehouse kaynakları işlem.
 
 ## <a name="scale-compute-power"></a>Ölçek işlem gücü
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
@@ -47,43 +39,6 @@ ms.lasthandoff: 12/21/2017
 
     ![Kaydet’e tıklayın.][3]
 
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>Duraklatma işlem
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-Bir veritabanı duraklatmak için:
-
-1. Açık [Azure portal] [ Azure portal] ve veritabanınızı açın. Durum olduğuna dikkat edin **çevrimiçi**.
-
-    ![Çevrimiçi durumu][6]
-2. İşlem ve bellek kaynakları askıya almak için tıklayın **duraklatma**, ve ardından bir onay iletisi görüntülenir. Tıklatın **Evet** onaylamak için veya **hiçbir** iptal etmek için.
-
-    ![Duraklatma onaylayın][7]
-3. SQL veri ambarı veritabanı başlatılırken durumudur **duraklatma**.
-4. Durum olduğunda **duraklatıldı**, duraklatma işlemi yapılır ve, artık Dwu için ücretlendirilirsiniz.
-
-    ![Duraklatma durumu][4]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>Resume işlem
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-Bir veritabanı devam ettirmek için:
-
-1. Açık [Azure portal] [ Azure portal] ve veritabanınızı açın. Durum olduğuna dikkat edin **duraklatıldı**.
-
-    ![Duraklatma veritabanı][4]
-2. Veritabanı sürdürmek için **Başlat**, ve ardından bir onay iletisi görüntülenir. Tıklatın **Evet** onaylamak için veya **hiçbir** iptal etmek için.
-
-    ![Resume onaylayın][5]
-3. SQL veri ambarı veritabanı başlatılırken durum "Sürdürülüyor" olur.
-4. Durum olduğunda **çevrimiçi**, hazır bir veritabanıdır.
-
-    ![Çevrimiçi durumu][6]
-
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi için bkz: [yönetimine genel bakış][Management overview].
@@ -92,10 +47,7 @@ Daha fazla bilgi için bkz: [yönetimine genel bakış][Management overview].
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
 [2]: ./media/sql-data-warehouse-manage-compute-portal/move-slider.png
 [3]: ./media/sql-data-warehouse-manage-compute-portal/click-save.png
-[4]: ./media/sql-data-warehouse-manage-compute-portal/resume-database.png
-[5]: ./media/sql-data-warehouse-manage-compute-portal/resume-confirm.png
-[6]: ./media/sql-data-warehouse-manage-compute-portal/pause-database.png
-[7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
+
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md

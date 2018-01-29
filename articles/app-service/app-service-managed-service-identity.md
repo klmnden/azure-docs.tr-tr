@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği (genel Önizleme) uygulama hizmeti ve Azure işlevleri kullanma
 
@@ -42,7 +42,7 @@ Bir yönetilen hizmet kimliği portalında ayarlamak için önce bir uygulamayı
 
 3. Seçin **yönetilen hizmet kimliği**.
 
-4. Anahtar **kaydetmek Azure Active Directory ile** için **üzerinde**. **Kaydet** düğmesine tıklayın.
+4. Anahtar **kaydetmek Azure Active Directory ile** için **üzerinde**. **Kaydet**’e tıklayın.
 
 ![Yönetilen uygulama Hizmeti'nde hizmet kimliği](media/app-service-managed-service-identity/msi-blade.png)
 
@@ -56,7 +56,7 @@ Azure CLI kullanarak bir yönetilen hizmet kimliği ayarlamak için kullanmanız
 
 Aşağıdaki adımlar bir web uygulaması oluşturma ve CLI kullanarak bir kimlik atama size yol gösterir:
 
-1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#login). Altında uygulamayı dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#az_login). Altında uygulamayı dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
 
     ```azurecli-interactive
     az login

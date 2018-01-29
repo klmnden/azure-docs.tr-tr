@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c84f1671d8e23e5ff222455192e020700f1ff51e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Otomasyonu DSC yapılandırmalarında derleme
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 01/24/2018
 * Geçişi ConfigurationData
 * Kimlik bilgilerini kullanan yapılandırmaları derleme
 
-Bir derleme yöntem karar verdikten sonra ilgili derleme başlatmak için aşağıdaki yordamları izleyebilirsiniz.
+Bir derleme yöntem karar verdikten sonra derleme başlatmak için aşağıdaki yordamları kullanın.
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>DSC yapılandırması Azure portal ile derleme
 
 1. Otomasyon hesabınızdan tıklatın **DSC yapılandırmaları**.
 2. Kendi dikey penceresini açmak için bir yapılandırma öğesini tıklatın.
 3. Tıklatın **derleme**.
-4. Yapılandırma hiçbir parametrelere sahipse, derlemeniz isteyip istemediğinizi onaylamanız istenir. Yapılandırma parametreleri, varsa **derleme yapılandırma** parametre değerlerini sağlayabilmesi için dikey pencere açılır. Bkz: [ **temel parametreleri** ](#basic-parameters) bölümünde aşağıdaki parametreler hakkında daha fazla ayrıntı için.
+4. Yapılandırma hiçbir parametrelere sahipse, derlemeniz isteyip istemediğinizi onaylamanız istenir. Yapılandırma parametreleri, varsa **derleme yapılandırma** parametre değerlerini sağlayabilmesi için dikey pencere açılır. Aşağıdaki bakın [ **temel parametreleri** ](#basic-parameters) parametreler hakkında daha fazla ayrıntı için bölüm.
 5. **Derleme işi** derleme işin durumu ve neden Azure Automation DSC çekme Sunucusu'nda yerleştirilecek düğüm yapılandırmaları (MOF yapılandırma belgeler) izleyebilmeniz için dikey penceresi açılır.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>DSC Yapılandırması Windows PowerShell ile derleme
@@ -131,10 +131,10 @@ PSCredentials parametre olarak geçirme hakkında daha fazla bilgi için bkz: <a
 
 ## <a name="composite-resources"></a>Bileşik kaynakları
 
-**Bileşik kaynakları** bir yapılandırma içinde iç içe kaynaklar olarak DSC yapılandırmaları kullanmanızı sağlar. Bu, tek kaynak için birden çok yapılandırmaları uygulamak sağlar.  Bkz: [bileşik kaynaklar: bir kaynak olarak DSC Yapılandırması kullanılarak](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) hakkında daha fazla bilgi için **bileşik kaynakları**
+**Bileşik kaynakları** bir yapılandırma içinde iç içe kaynaklar olarak DSC yapılandırmaları kullanmanızı sağlar. Bu, tek kaynak için birden çok yapılandırmaları uygulamak sağlar. Bkz: [bileşik kaynaklar: bir kaynak olarak DSC Yapılandırması kullanılarak](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) hakkında daha fazla bilgi için **bileşik kaynakları**
 
 > [!NOTE]
-> Sırayla **bileşik kaynakları** doğru şekilde derlenmesi için ilk bileşik güvenen DSC kaynakları ilk Azure Automation hesabı modülleri depoda yüklü değil veya düzgün almaz sağlamalısınız.
+> Sırayla **bileşik kaynakları** doğru şekilde derlenmesi için ilk bileşik güvenen DSC kaynakları ilk Azure Automation hesabı modülleri depoda yüklü değil veya düzgün içe aktarmaz sağlamalısınız.
 
 Bir DSC eklemek için **bileşik kaynak**, kaynak modülü arşive eklemeniz gerekir (* .zip). Modülleri depoya Azure Otomasyon hesabınıza gidin. Ardından 'Bir modül Ekle' düğmesini tıklayın.
 
@@ -144,7 +144,7 @@ Arşiviniz bulunduğu dizine gidin. Arşiv dosyasını seçin ve Tamam'ı tıkla
 
 ![Modülü seçin](./media/automation-dsc-compile/select_dscresource.png)
 
-Daha sonra geri burada izleyebilirsiniz durumunu modülleri dizinine gerçekleştirilecek, **bileşik kaynak** dizine açar ve Azure Automation ile kaydeder.
+Burada izleyebilirsiniz durumunu modülleri dizinine geri alınır, **bileşik kaynak** dizine açar ve Azure Automation ile kaydeder.
 
 ![Bileşik kaynak Al](./media/automation-dsc-compile/register_composite_resource.png)
 
@@ -174,7 +174,7 @@ Modül kaydedildiğinde, daha sonra doğrulamak için tıklatabilirsiniz **bile�
 ```
 
 ## <a name="configurationdata"></a>ConfigurationData
-**ConfigurationData** , PowerShell DSC kullanırken hiçbir ortamı belirli yapılandırması yapısal yapılandırmasından ayırmanıza olanak tanır. Bkz: ["Ne" PowerShell DSC "nerede" ayırarak](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) hakkında daha fazla bilgi için **ConfigurationData**.
+**ConfigurationData** , PowerShell DSC kullanırken herhangi bir ortama özgü yapılandırma yapısal yapılandırmasından ayırmanıza olanak tanır. Bkz: ["Ne" PowerShell DSC "nerede" ayırarak](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) hakkında daha fazla bilgi için **ConfigurationData**.
 
 > [!NOTE]
 > Kullanabileceğiniz **ConfigurationData** Azure PowerShell kullanarak Azure Otomasyonu DSC, ancak Azure Portalı'ndaki derlerken.
@@ -200,7 +200,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Yukarıdaki PowerShell DSC yapılandırması derleyebilirsiniz. Aşağıdaki PowerShell iki düğüm yapılandırmaları Azure Automation DSC çekme sunucusuna ekler: **ConfigurationDataSample.MyVM1** ve **ConfigurationDataSample.MyVM3**:
+Önceki PowerShell DSC yapılandırması derleyebilirsiniz. Aşağıdaki PowerShell iki düğüm yapılandırmaları Azure Automation DSC çekme sunucusuna ekler: **ConfigurationDataSample.MyVM1** ve **ConfigurationDataSample.MyVM3**:
 
 ```powershell
 $ConfigData = @{
@@ -238,7 +238,7 @@ Varlık başvuruları Azure Otomasyonu DSC yapılandırmaları ve runbook'ları 
 
 ### <a name="credential-assets"></a>Kimlik bilgisi varlıkları
 
-Azure Otomasyonu DSC yapılandırmalarında kullanarak kimlik bilgisi varlıkları başvurabilir sırada **Get-AzureRmAutomationCredential**, kimlik bilgisi varlıkları de geçirilebilir içinde parametreleri aracılığıyla isterseniz. Bir yapılandırma parametresi, uzun sürerse **PSCredential** bir Azure Otomasyonu kimlik bilgisi varlığı dize adını bir PSCredential nesnesi yerine bu parametrenin değeri olarak geçirmenize gerek sonra yazın. Arka planda Azure Otomasyonu kimlik bilgisi varlığı bu ada sahip alınabilir ve yapılandırmaya geçirildi.
+Azure Otomasyonu DSC yapılandırmalarında kullanarak kimlik bilgisi varlıkları başvurabilir sırada **Get-AzureRmAutomationCredential**, kimlik bilgisi varlıkları de geçirilebilir içinde parametreleri aracılığıyla isterseniz. Bir yapılandırma parametresi, uzun sürerse **PSCredential** bir Azure Otomasyonu kimlik bilgisi varlığı dize adını bir PSCredential nesnesi yerine bu parametrenin değeri olarak geçirmenize gerek sonra yazın. Arka planda Azure Otomasyonu kimlik bilgisi varlığı bu adı taşıyan alınır ve yapılandırmaya geçirildi.
 
 Kimlik bilgileri tutma düğüm yapılandırmaları (MOF yapılandırma belgeler) güvenli kimlik bilgileri düğüm yapılandırması MOF dosyasındaki şifrelenmesini gerektirir. Azure Otomasyonu bunu bir adım daha fazla sürer ve tüm MOF dosyası şifreler. Ancak, şu anda, PowerShell DSC Azure Otomasyonu tüm MOF dosyası neslini sonra şifreleme, PowerShell DSC bilmiyor çünkü için kimlik bilgilerini düz metin olarak düğüm yapılandırması MOF oluşturma sırasında yüzdelik kesebilirsiniz söylemelisiniz derleme işi.
 
@@ -263,7 +263,7 @@ Configuration CredentialSample
 }
 ```
 
-Yukarıdaki PowerShell DSC yapılandırması derleyebilirsiniz. Aşağıdaki PowerShell iki düğüm yapılandırmaları Azure Automation DSC çekme sunucusuna ekler: **CredentialSample.MyVM1** ve **CredentialSample.MyVM2**.
+Önceki PowerShell DSC yapılandırması derleyebilirsiniz. Aşağıdaki PowerShell iki düğüm yapılandırmaları Azure Automation DSC çekme sunucusuna ekler: **CredentialSample.MyVM1** ve **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{

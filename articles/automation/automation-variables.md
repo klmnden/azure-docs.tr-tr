@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Otomasyonu değişken varlıkları
 
@@ -51,20 +51,20 @@ Değişken türleri Otomasyon kullanılabilir bir listesi verilmiştir:
 * Boole
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>Oluşturulmasını ve yönetimini değişkenlerin komut dosyası oluşturma
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet'leri
+AzureRM için aşağıdaki tablodaki cmdlet'ler oluşturmak ve Windows PowerShell ile automation kimlik bilgisi varlıkları yönetmek için kullanılır.  Bir parçası olarak sevk [AzureRM.Automation Modülü](/powershell/azure/overview) olduğu Automation runbook'ları ve DSC yapılandırmaları için kullanılabilir.
 
-Aşağıdaki tabloda yer alan cmdlet'ler oluşturmak ve Otomasyon değişkenleri Windows PowerShell ile yönetmek için kullanılır. Bir parçası olarak sevk [Azure PowerShell Modülü](../powershell-install-configure.md) olduğu Automation runbook'ları ve DSC yapılandırması için kullanılabilir.
-
-|Cmdlet'leri|Açıklama|
+| Cmdlet'leri | Açıklama |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Mevcut bir değişken değerini alır.|
-|[AzureRmAutomationVariable yeni](https://msdn.microsoft.com/library/mt603613.aspx)|Yeni bir değişken oluşturur ve değerini ayarlar.|
+|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Yeni bir değişken oluşturur ve değerini ayarlar.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Mevcut bir değişken kaldırır.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Mevcut bir değişken için değeri ayarlar.|
 
-Aşağıdaki tabloda iş akışı etkinlikleri Otomasyon bir runbook'ta değişkenlere erişmek için kullanılır. Bunlar yalnızca runbook ya da DSC yapılandırması kullanmak için kullanılabilir ve Azure PowerShell modülünün bir parçası olarak bulunmaz.
+## <a name="activities"></a>Etkinlikler
+Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları kimlik bilgilerini erişmek için kullanılır.
 
-|İş akışı etkinlikleri|Açıklama|
+| Etkinlikler | Açıklama |
 |:---|:---|
 |Get-AutomationVariable|Mevcut bir değişken değerini alır.|
 |Set-AutomationVariable|Mevcut bir değişken için değeri ayarlar.|
@@ -205,4 +205,3 @@ Aşağıdaki resimde bir grafik runbook basit bir değere sahip bir değişken g
 
 * Grafik yazma etkinlikleri birbirine bağlama hakkında daha fazla bilgi için bkz: [grafik yazma içindeki bağlantılar](automation-graphical-authoring-intro.md#links-and-workflow)
 * Grafik runbook'ları kullanmaya başlamak için bkz. [İlk grafik runbook uygulamam](automation-first-runbook-graphical.md) 
-

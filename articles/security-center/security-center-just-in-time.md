@@ -1,6 +1,6 @@
 ---
 title: "Yalnızca zaman sanal makineye erişim Azure Güvenlik Merkezi'nde | Microsoft Docs"
-description: "Size nasıl tam zamanında VM erişim Azure Güvenlik Merkezi yardımcı olur, bu belge yetenekte Azure sanal makinelerinizi erişimi denetler."
+description: "Bu belgede Azure Güvenlik Merkezi'nde VM erişim yardımcı nasıl zamanında Azure sanal makinelerinizi erişimi denetleme gösterir."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Tam zamanında (Önizleme) kullanarak sanal makine erişimini yönetme
 
@@ -50,11 +50,13 @@ Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının s
 
 ## <a name="using-just-in-time-access"></a>Yalnızca süresi erişimi kullanma
 
-**Saat VM erişimi hemen** altında döşeme **Güvenlik Merkezi** yalnızca saat erişimi ve sayısı için yapılandırılan VM sayısını onaylanmış son bir hafta içinde yapılan erişim istekleri gösterir.
+1. **Güvenlik Merkezi** panosunu açın.
+
+2. Sol bölmede seçin **saat VM erişimi hemen**.
 
 ![Tam zamanında VM erişim döşeme][2]
 
-Seçin **saat VM erişimi hemen** döşeme ve **saat VM erişimi hemen** açar.
+**Saat VM erişimi hemen** penceresi açılır.
 
 ![Tam zamanında VM erişim döşeme][10]
 
@@ -127,7 +129,7 @@ Varolan yalnızca bir VM zaman İlkesi'nde düzenlemek için **yapılandırıld�
 1. Altında **VM'ler**, o VM için üç nokta satırdaki tıklayarak bir bağlantı noktası eklemek için VM seçin. Bir menüdeki açılır.
 2. Seçin **Düzenle** menüde. Bu açılır **JIT VM erişim yapılandırması**.
 
-  ![İlkeyi Düzenle][8]
+  ![İlkeyi düzenle][8]
 
 3. Altında **JIT VM erişim yapılandırması**, kendi bağlantı noktasında tıklayarak ya da zaten korumalı olan bir bağlantı noktası var olan ayarları düzenleyebilirsiniz veya seçebileceğiniz **Ekle**. Bu açılır **Ekle bağlantı noktası yapılandırmasını**.
 

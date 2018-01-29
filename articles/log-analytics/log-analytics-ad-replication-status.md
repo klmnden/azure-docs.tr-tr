@@ -1,6 +1,6 @@
 ---
 title: "Azure günlük analizi ile Active Directory çoğaltma durumunu izleme | Microsoft Docs"
-description: "Active Directory çoğaltma durumunu çözüm paketi düzenli olarak çoğaltma hatalar için Active Directory ortamınızı izler ve OMS Panonuzda sonuçları raporlar."
+description: "Active Directory çoğaltma durumunu çözüm paketi, Active Directory ortamınızı çoğaltma hatalar için düzenli olarak izler."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/24/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7ca3b87ea14589aa2c45c8fe49b01d3b10a75aa1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Günlük analizi ile Active Directory çoğaltma durumunu izleme
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 12/13/2017
 
 Active Directory kuruluş BT ortamında anahtar bir bileşenidir. Yüksek kullanılabilirlik ve yüksek performans sağlamak için Active Directory veritabanının kopyasını her etki alanı denetleyicisi vardır. Etki alanı denetleyicileri birbirleri ile kuruluş genelinde değişiklikleri yaymak için çoğaltılır. Bu çoğaltma işlemi hatalarına sorunları, çeşitli kuruluş genelinde neden olabilir.
 
-AD çoğaltma durumunu çözüm paketi düzenli olarak çoğaltma hatalar için Active Directory ortamınızı izler ve OMS Panonuzda sonuçları raporlar.
+AD çoğaltma durumunu çözüm paketi, Active Directory ortamınızı çoğaltma hatalar için düzenli olarak izler.
 
 ## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
 Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
-* Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyene ve aracıları için OMS AD çoğaltma veri göndermek için yapılandırmanız gerekir. Windows bilgisayarları için OMS bağlanmak nasıl anlamak için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md). Etki alanı denetleyicisi için OMS bağlanma, görmek istediğiniz mevcut bir System Center Operations Manager ortamının bir parçası ise [Operations Manager'a günlük analizi](log-analytics-om-agents.md).
-* Active Directory çoğaltma durumunu çözümü açıklanan işlemi kullanarak OMS çalışma alanınıza ekleyin [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
+* Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyene ve günlük analizi için AD çoğaltma veri göndermek için aracıları yapılandırmanız gerekir. Windows bilgisayarları için günlük analizi bağlanmak nasıl anlamak için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md). Etki alanı denetleyicinizi istediğiniz günlük Analizi'ne bağlamak için bkz: mevcut bir System Center Operations Manager ortamının bir parçası ise [Operations Manager'a günlük analizi](log-analytics-om-agents.md).
+* Active Directory çoğaltma durumunu çözümü açıklanan işlemi kullanarak günlük analizi çalışma alanınıza ekleyin [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD çoğaltma durumu verileri toplama ayrıntıları
 Aşağıdaki tabloda, veri toplama yöntemleri ve veri AD çoğaltma durumunun nasıl toplandığını ilgili diğer ayrıntıları gösterir.
@@ -42,12 +42,12 @@ Aşağıdaki tabloda, veri toplama yöntemleri ve veri AD çoğaltma durumunun n
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |beş günde |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>İsteğe bağlı olarak, olmayan etki alanı denetleyicisi için OMS AD veri göndermesini etkinleştir
-Herhangi bir etki alanı denetleyicileriniz doğrudan OMS bağlamak istemiyorsanız, AD çoğaltma durumunu çözüm paketi için veri toplamak ve sahip veri göndermek için etki alanınızdaki diğer OMS bağlı bilgisayar kullanabilirsiniz.
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>İsteğe bağlı olarak, günlük analizi için AD veri göndermek bir etki alanı dışı denetleyicisi etkinleştir
+Herhangi bir etki alanı denetleyicileriniz doğrudan günlük Analizi'ne bağlamak istemiyorsanız, herhangi bir bilgisayar için günlük analizi bağlı etki alanınızdaki AD çoğaltma durumunu çözüm paketi için veri toplamak ve sahip veri göndermek için kullanabilirsiniz.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>OMS için AD veri göndermek bir etki alanı dışı denetleyicisi etkinleştirmek için
+### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Günlük analizi için AD veri göndermek bir etki alanı dışı denetleyicisi etkinleştirmek için
 1. Bilgisayar, AD çoğaltma durumunu çözümünü kullanarak izlemek istediğiniz etki alanının bir üyesi olduğundan emin olun.
-2. [Windows bilgisayarına bağlanmak için OMS](log-analytics-windows-agent.md) veya [var olan Operations Manager ortamınıza OMS kullanarak bağlanmak](log-analytics-om-agents.md), zaten bağlı değilse.
+2. [Windows bilgisayarı günlük Analizi'ne bağlamak](log-analytics-windows-agent.md) veya [var olan Operations Manager ortamınıza günlük analizi kullanarak bağlanmak](log-analytics-om-agents.md), zaten bağlı değilse.
 3. Bu bilgisayarda, aşağıdaki kayıt defteri anahtarını ayarlayın:
 
    * Anahtar: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupları\<ManagementGroupName > \Solutions\ADReplication**
@@ -60,7 +60,7 @@ Herhangi bir etki alanı denetleyicileriniz doğrudan OMS bağlamak istemiyorsan
    >
 
 ## <a name="understanding-replication-errors"></a>Çoğaltma hataları anlama
-OMS için gönderilen AD çoğaltma durumu verileri bulduktan sonra şu anda kaç çoğaltma hataları belirten OMS panosunda aşağıdaki görüntüye benzer bir kutucuk bakın.  
+Günlük analizi için gönderilen AD çoğaltma durumu verileri bulduktan sonra günlük analizi şu anda kaç çoğaltma hataları gösteren aşağıdaki görüntüde benzeyen bir kutucuk bakın.  
 ![AD çoğaltma durumu kutucuğu](./media/log-analytics-ad-replication-status/oms-ad-replication-tile.png)
 
 **Kritik çoğaltma hataları** veya üstü %75 hatalarını olan [ömründen](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) , Active Directory ormanı için.
@@ -124,14 +124,14 @@ Y: bilgiler beş günde bir güncelleştirilir.
 **S: Bu verileri ne sıklıkta güncelleştirileceğini yapılandırmanıza bir yolu var mı?**
 Şu anda A:.
 
-**S: my etki alanı denetleyicilerinin çoğaltma durumunu görmek için OMS çalışma alanıma Ekle gerekiyor mu?**
-Y: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. OMS çalışma alanınızda birden çok etki alanı denetleyicisi varsa, bunların tümünün verileri için OMS gönderilir.
+**S: my etki alanı denetleyicilerinin çoğaltma durumunu görmek için günlük analizi çalışma alanıma Ekle gerekiyor mu?**
+Y: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Günlük analizi çalışma alanınızda birden çok etki alanı denetleyicisi varsa, bunların tümünün verilerden günlük analizi için gönderilir.
 
-**S: herhangi bir etki alanı denetleyicisine OMS çalışma alanıma Ekle istemiyorum. AD çoğaltma durumunu çözüm kullanabilir miyim?**
-Y: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [olmayan etki alanı denetleyicisi için OMS AD veri göndermesini sağlamak için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+**S: herhangi bir etki alanı denetleyicisine günlük analizi çalışma alanıma Ekle istemiyorum. AD çoğaltma durumunu çözüm kullanabilir miyim?**
+Y: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [olmayan etki alanı denetleyicisi için günlük analizi AD veri göndermesini sağlamak için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **S: adı olmadığından veri toplama işlemi nedir?**
-Y: AdvisorAssessment.exe
+A: AdvisorAssessment.exe
 
 **S: ne kadar süreyle verilerinin toplanmasını sürer?**
 Y: veri toplama zamanı Active Directory ortamında boyutuna bağlıdır, ancak genellikle 15 dakikadan kısa sürer.
@@ -146,11 +146,11 @@ Y: çoğaltma bilgilerini LDAP toplanır.
 A: Active Directory normal kullanıcı izinlerini yeterlidir.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Veri toplama sorunlarını giderme
-Verileri toplamak için AD çoğaltma durumunu çözüm paketi, OMS çalışma alanınızla bağlanması için en az bir etki alanı denetleyicisi gerektirir. Bir etki alanı denetleyicisine bağlanmak kadar belirten bir ileti görüntülenir **veri devam toplanır**.
+Verileri toplamak için AD çoğaltma durumunu çözüm paketi için günlük analizi çalışma alanınız bağlanması için en az bir etki alanı denetleyicisi gerektirir. Bir etki alanı denetleyicisine bağlanmak kadar belirten bir ileti görüntülenir **veri devam toplanır**.
 
 Etki alanı denetleyicilerinden biri bağlama konusunda yardıma ihtiyacınız varsa, belgeleri görüntüleyebilirsiniz [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md). Alternatif olarak, etki alanı denetleyicinizi zaten mevcut bir System Center Operations Manager ortamına bağlı ise, belgeleri görüntüleyebilirsiniz [System Center Operations Manager bağlanmak için günlük analizi](log-analytics-om-agents.md).
 
-Herhangi bir etki alanı denetleyicileriniz doğrudan OMS veya SCOM bağlanmak istemiyorsanız bkz [olmayan etki alanı denetleyicisi için OMS AD veri göndermesini sağlamak için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Herhangi bir etki alanı denetleyicileriniz doğrudan günlük analizi veya System Center Operations Manager bağlanmak istemiyorsanız bkz [olmayan etki alanı denetleyicisi için günlük analizi AD veri göndermesini sağlamak için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kullanım [günlük analizi aramaları oturum](log-analytics-log-searches.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.

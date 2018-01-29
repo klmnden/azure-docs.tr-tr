@@ -1,298 +1,372 @@
 ---
-title: "URL yönlendirme kurallarını kullanarak bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "Bu sayfayı oluşturmak ve URL yönlendirme kurallarını kullanarak bir Azure uygulama ağ geçidi yapılandırmak için yönergeler sağlar."
-documentationcenter: na
+title: "URL yolu tabanlı yönlendirme kuralları ile - Azure PowerShell bir uygulama ağ geçidi oluşturma | Microsoft Docs"
+description: "URL yolu tabanlı yönlendirme kuralları Azure PowerShell kullanarak bir uygulama ağ geçidi ve sanal makine ölçek oluşturmayı öğrenin."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: d141cfbb-320a-4fc9-9125-10001c6fa4cf
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-path-based-routing"></a>Yol tabanlı yönlendirme kullanarak bir uygulama ağ geçidi oluşturma
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Azure PowerShell kullanarak URL yolu tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+Azure PowerShell yapılandırmak için kullanabileceğiniz [URL yolu tabanlı yönlendirme kuralları](application-gateway-url-route-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide oluşturduğunuz kullanarak arka uç havuzları bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Uygun sunucuları havuzlarındaki web trafiği ulaştığında emin olun yönlendirme kuralları oluşturursunuz.
 
-Yol tabanlı yönlendirme bir HTTP isteği URL yola göre yollar ilişkilendirir. Uygulama ağ geçidi sunulan URL için yapılandırılmış bir arka uç havuzu için bir yol yoktur ve ardından ağ trafiğini tanımlı arka uç havuzuna gönderir olup olmadığını denetler. URL tabanlı yönlendirme için bir genel Yük Dengeleme isteklerini farklı arka uç sunucu havuzu için farklı içerik türleri için kullanılır.
+Bu makalede, bilgi nasıl yapılır:
 
-Azure uygulama ağ geçidi sahip iki kural türleri: temel Yönlendirme ve yol tabanlı yönlendirme. Basic arka uç havuzları için hepsini hizmet sağlar. Yol tabanlı hepsini dağıtım yanı sıra, yönlendirme, istenen URL yolu desenini arka uç havuzu seçin için de kullanır.
+> [!div class="checklist"]
+> * Ağ kurma
+> * Bir uygulama ağ geçidi ile URL eşlemesi oluşturma
+> * Sanal makine ölçek kümeleri ile arka uç havuzları oluşturma
 
-## <a name="scenario"></a>Senaryo
+![URL yönlendirme örneği](./media/application-gateway-create-url-route-arm-ps/scenario.png)
 
-Aşağıdaki örnekte uygulama ağ geçidi trafiği contoso.com için iki arka uç sunucu havuzu ile hizmet eder: bir video sunucu havuzu ve bir görüntü sunucu havuzu.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-İstekleri için http://contoso.com/image * görüntü sunucu havuzuna yönlendirilen (**pool1**), ve istekleri için http://contoso.com/video * video sunucu havuzuna yönlendirilen (**pool2**). Yol desenleri hiçbiri eşleşiyorsa, varsayılan sunucu havuzuna (**pool1**) seçilidir.
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-![URL rota](./media/application-gateway-create-url-route-arm-ps/figure1.png)
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürüm bulmak için Çalıştır ` Get-Module -ListAvailable AzureRM` . Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
-## <a name="before-you-begin"></a>Başlamadan önce
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
-2. Bir sanal ağ ve bir uygulama ağ geçidi için alt ağ oluşturun. Hiçbir sanal makine veya Bulut dağıtımlarının alt kullandığınızdan emin olun. Uygulama ağ geçidi tek başına bir sanal ağ alt ağında olmalıdır.
-3. Uygulama ağ geçidi için arka uç havuzuna eklenen sunucuların mevcut veya atanmış IP/VIP'ye oluşturduğunuz sanal ağda veya bir ortak uç noktaları sahip olduğunuzdan emin olun.
+Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Kullanarak bir Azure kaynak grubu oluşturma [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
 
-## <a name="requirements-to-create-an-application-gateway"></a>Bir uygulama ağ geçidi oluşturmak için gereksinimleri
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+```
 
-* **Arka uç sunucu havuzuna**: arka uç sunucularının IP adresleri listesi. Listede bulunan IP adresleri sanal ağ alt ağına ait veya genel IP/VIP'ye olabilir.
-* **Arka uç sunucu havuzu ayarları**: bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşimi gibi. Bunlar bir havuza bağlıdır ve havuzdaki tüm sunuculara uygulanır.
-* **Ön uç bağlantı noktası**: uygulama ağ geçidinde açılan genel bağlantı noktası. Trafiği, bu bağlantı noktasında trafik ve arka uç sunuculardan birine yönlendirir.
-* **Dinleyici**: (SSL yük boşaltımı yapılandırılıyorsa) dinleyicisinde bir ön uç bağlantı noktası, bir protokol (Http veya Https büyük küçük harfe duyarlıdır) ve SSL sertifika adı kullanılır.
-* **Kural**: kural dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve bir Dinleyicide trafik olduğunda trafiğin hangi havuzuna yönlendirilmesi gerektiğini tanımlar.
+## <a name="create-network-resources"></a>Ağ kaynakları oluşturun
+
+Alt ağı yapılandırmaları oluşturmak *myAGSubnet* ve *myBackendSubnet* kullanarak [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Adlı sanal ağ oluşturma *myVNet* kullanarak [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) alt ağ yapılandırmaları ile. Ve son olarak, adlı ortak IP adresi oluşturun *myAGPublicIPAddress* kullanarak [yeni AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Bu kaynaklar, uygulama ağ geçidi ve onun ilişkili kaynakları için ağ bağlantısı sağlamak için kullanılır.
+
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
+```
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Klasik dağıtım modeli ve Azure Resource Manager kullanma arasındaki fark uygulama ağ geçidi ve yapılandırılması gereken öğeleri oluşturma sırasıdır.
+### <a name="create-the-ip-configurations-and-frontend-port"></a>IP yapılandırmaları ve ön uç bağlantı noktası oluşturma
 
-Resource Manager’da uygulama ağ geçidini oluşturan öğeler ayrı ayrı yapılandırılır ve sonra uygulama ağ geçidi kaynağı oluşturmak için bir araya getirilir.
+İlişkilendirme *myAGSubnet* daha önce oluşturduğunuz uygulama ağ geçidi kullanarak [yeni AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Ata *myAGPublicIPAddress* uygulama ağ geçidi kullanarak [yeni AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
 
-Bir uygulama ağ geçidi oluşturmak için aşağıdaki adımları izleyin:
-
-1. Resource Manager için kaynak grubu oluşturun.
-2. Uygulama ağ geçidi için sanal ağ, alt ağ ve genel IP oluşturun.
-3. Uygulama ağ geçidi yapılandırma nesnesi oluşturun.
-4. Uygulama ağ geçidi kaynağı oluşturun.
-
-## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager için kaynak grubu oluşturun
-
-Azure PowerShell'in en son sürümünü kullandığınızdan emin olun. Konumundaki daha fazla bilgi bulmak [Resource Manager ile Windows PowerShell kullanarak](../powershell-azure-resource-manager.md).
-
-### <a name="step-1"></a>1. Adım
-
-Azure'da oturum açın.
-
-```powershell
-Login-AzureRmAccount
-```
-
-Kimlik bilgilerinizle kimliğinizi istenir.<BR>
-
-### <a name="step-2"></a>2. Adım
-
-Hesapla ilişkili abonelikleri kontrol edin.
-
-```powershell
-Get-AzureRmSubscription
-```
-
-### <a name="step-3"></a>3. Adım
-
-Hangi Azure aboneliğinizin kullanılacağını seçin. <BR>
-
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
-
-### <a name="step-4"></a>4. Adım
-
-Bir kaynak grubu oluşturun. (Mevcut bir kaynak grubunu kullanıyorsanız bu adımı atlayın.)
-
-```powershell
-$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US"
-```
-
-Alternatif olarak, bir uygulama ağ geçidi için bir kaynak grubu için etiketler oluşturabilirsiniz:
-
-```powershell
-$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway URL routing"} 
-```
-
-Azure Resource Manager kaynak grupları, gruptaki tüm kaynaklar için kullanılan bir varsayılan konum belirtmesini gerektirir. Bir uygulama ağ geçidi oluşturmak için verilecek komutların aynı kaynak grubunda kullandığınızdan emin olun.
-
-Önceki örnekte, biz "appgw-RG" adlı bir kaynak grubu oluşturduk ve kullanılan konumun "Batı ABD."
-
-> [!NOTE]
-> Uygulama ağ geçidiniz için özel bir araştırma yapılandırmanız gerekiyorsa, Git [PowerShell kullanarak özel araştırmalara sahip bir uygulama ağ geçidi oluşturma](application-gateway-create-probe-ps.md). Bkz: [ uygulama ağ geçidi durumu izlemeye genel bakış](application-gateway-probe-overview.md) daha fazla bilgi için.
-> 
-> 
-
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Uygulama ağ geçidi için bir sanal ağ ve bir alt ağ oluşturun
-
-Aşağıdaki örnek Resource Manager kullanarak nasıl sanal ağ oluşturulacağını gösterir. Bu örnek uygulama ağ geçidi için bir sanal ağ oluşturur. Uygulama ağ geçidi, kendi alt gerektirir. Bu nedenle, uygulama ağ geçidi için oluşturulan alt sanal ağ adres alanı küçüktür. Bu da dahil olmak üzere kaynaklar sağlar ancak web sunucuları için bunlarla sınırlı olmamak aynı sanal ağda yapılandırılması.
-
-### <a name="step-1"></a>1. Adım
-
-10.0.0.0/24 adres aralığını, sanal ağ oluşturmak için kullanılacak bir alt ağ değişkenine atayın.  Bu, sonraki örnekte kullanılan uygulama ağ geçidi için alt ağ yapılandırma nesnesi oluşturur.
-
-```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-```
-
-### <a name="step-2"></a>2. Adım
-
-Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubunda **appgw-rg** 10.0.0.0/24 alt ağıyla önek 10.0.0.0/16 kullanarak Batı ABD bölgesi için. Bu bulunmasını uygulama ağ geçidi için tek bir alt ağ ile sanal ağ yapılandırmasını tamamlar.
-
-```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-```
-
-### <a name="step-3"></a>3. Adım
-
-Sonraki adımlarda alt ağ değişkenine atayın. Bu geçirilir `New-AzureRMApplicationGateway` bir sonraki adımda cmdlet'i.
-
-```powershell
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
 $subnet=$vnet.Subnets[0]
+$pip = Get-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAGPublicIPAddress
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Ön uç yapılandırma için genel bir IP adresi oluşturun
+### <a name="create-the-default-pool-and-settings"></a>Ayarlar ve varsayılan havuzu oluşturma
 
-Batı ABD bölgesi için **appgw-rg** kaynak grubunda **publicIP01** genel bir IP kaynağı oluşturun. Uygulama ağ geçidi, bir ortak IP adresi, bir iç IP adresi veya her ikisi de, Yük Dengeleme için istekleri almak için kullanabilirsiniz.  Bu örnek yalnızca genel IP adresi kullanır. Uygulama ağ geçidi genel IP adreslerini özel DNS adlarını desteklemediğinden aşağıdaki örnekte, genel IP adresi oluşturmak için bir DNS adı yapılandırılır.  Genel bir uç nokta için özel bir adı gerekiyorsa, ortak IP adresi için otomatik olarak oluşturulan DNS adını işaret etmek için bir CNAME kaydı oluşturun.
+Adlı varsayılan arka uç havuzu oluşturma *appGatewayBackendPool* kullanarak uygulama ağ geçidi için [yeni AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Kullanarak arka uç havuzu ayarlarını yapılandırmak [yeni AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
-```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
+```azurepowershell-interactive
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-Hizmet başlatıldığında uygulama ağ geçidine bir IP adresi atanır.
+### <a name="create-the-default-listener-and-rule"></a>Varsayılan dinleyici ve kural oluşturma
 
-## <a name="create-the-application-gateway-configuration"></a>Uygulama ağ geçidi yapılandırmasını oluşturma
+Dinleyici için arka uç havuzu uygun şekilde trafiği yönlendirmek uygulama ağ geçidi etkinleştirmek için gereklidir. Bu öğreticide, iki dinleyici oluşturun. Oluşturduğunuz ilk temel dinleyicisi kök URL'sindeki trafiğini dinler. Oluşturduğunuz ikinci dinleyicisi belirli URL'leri trafiğini dinler.
 
-Uygulama ağ geçidi oluşturmadan önce tüm yapılandırma öğeleri ayarlanması gerekir. Aşağıdaki adımlar uygulama ağ geçidi kaynağı için gerekli yapılandırma öğeleri oluşturun.
+Adlı varsayılan dinleyiciyi oluşturun *myDefaultListener* kullanarak [yeni AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) ön uç yapılandırma ve daha önce oluşturduğunuz ön uç bağlantı noktası. Bir kural hangi arka uç havuzuna gelen trafiği için kullanılacak bilmeniz dinleyici için gereklidir. Adlı temel bir kural oluşturmak *kuralı 1* kullanarak [yeni AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
-### <a name="step-1"></a>1. Adım
-
-**gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Uygulama ağ geçidi başladığında, yapılandırılan alt ağdan bir IP adresi seçer ve ağ trafiği arka uç IP havuzundaki IP adreslerine yollar. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
-
-```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name myDefaultListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Adlı arka uç IP adresi havuzu yapılandırmak **pool1** ve **pool2** için IP adresleriyle **pool1** ve **pool2**. Bu uygulama ağ geçidi tarafından korunacak web uygulama ana bilgisayar kaynakları IP adresleridir. Bu arka uç havuzu üyeleri tüm sağlıklı olmasını temel veya özel araştırmalar tarafından doğrulanır. Uygulama ağ geçidine istekler geldiğinde trafik bunlara yönlendirilir. Arka uç havuzları, uygulama ağ geçidi içinde birden çok kurallar tarafından kullanılabilir. Bu, aynı ana bilgisayarda bulunan birden çok web uygulamaları için bir arka uç havuzu kullanılabilir anlamına gelir.
+Gerekli destekleyici kaynakları oluşturduğunuza göre adlı uygulama ağ geçidi için parametre belirtin *myAppGateway* kullanarak [yeni AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)ve kullanarakoluşturma[ Yeni-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
 
-```powershell
-$pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-
-$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.47, 134.170.189.222, 134.170.186.51
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku
 ```
 
-Bu örnekte, iki arka uç havuzları URL yola göre ağ trafiğini yönlendirebilir. Bir havuz alır trafik URL yolu "/ video," ve diğer havuzu trafiği yolundan alır. "/ görüntü." Kendi uygulamanızın IP adresi uç noktalarını eklemek için önceki IP adreslerini değiştirin. 
+### <a name="add-image-and-video-backend-pools-and-port"></a>Görüntü ve video arka uç havuzu ve bağlantı noktası ekleme
 
-### <a name="step-3"></a>3. Adım
+Adlı arka uç havuzları ekleyebilirsiniz *imagesBackendPool* ve *videoBackendPool* kullanarak uygulama ağ geçidi için [Ekle-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/add-azurermapplicationgatewaybackendaddresspool). Ön uç bağlantı noktası kullanarak havuzları ekleme [Ekle AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport). Daha sonra uygulama ağ geçidi kullanarak değişiklikleri gönderme [Set-AzureRmApplicationGateway](/powershell/module/azurerm.network/set-azurermapplicationgateway).
 
-Uygulama ağ geçidi ayarlarını yapılandırma **poolsetting01** ve **poolsetting02** arka uç havuzundaki yük dengeli ağ trafiği için. Bu örnekte, arka uç havuzları farklı arka uç havuzu ayarlarını yapılandırın. Her bir arka uç havuzu kendi ayarlara sahip olabilir.  Kuralları doğru arka uç havuzu üyelerine trafiğini yönlendirmek için arka uç HTTP ayarları kullanın. Bu arka uç havuzu üyelerine trafiği göndermek için kullanılan bağlantı noktası ve protokolü belirler. Tanımlama bilgisi tabanlı oturum Ayrıca arka uç HTTP ayarları tarafından belirlenir. Etkinleştirilirse, tanımlama bilgisi tabanlı oturum benzeşimi trafiği için aynı arka uç her paket için olarak önceki istekleri gönderir.
-
-```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-
-$poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+Add-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name imagesBackendPool 
+Add-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name videoBackendPool
+Add-AzureRmApplicationGatewayFrontendPort `
+  -ApplicationGateway $appgw `
+  -Name bport `
+  -Port 8080
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-4"></a>4. Adım
+### <a name="add-backend-listener"></a>Arka uç dinleyici ekleyin
 
-Ön uç IP genel IP uç ile yapılandırın. Dinleyici ön uç IP yapılandırması nesnesi dışa dönük IP adresi dinleyicisi ile ilişkilendirmek için kullanır.
+Adlı arka uç dinleyicisi eklemek *backendListener* kullanarak trafiği yönlendirmek gerekli [Ekle AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
 
-```powershell
-$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPort = Get-AzureRmApplicationGatewayFrontendPort `
+  -ApplicationGateway $appgw `
+  -Name bport
+$fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
+  -ApplicationGateway $appgw
+Add-AzureRmApplicationGatewayHttpListener `
+  -ApplicationGateway $appgw `
+  -Name backendListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $backendPort
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-5"></a>5. Adım
+### <a name="add-url-path-map"></a>URL yolu Eşlemesi Ekle
 
-Bir uygulama ağ geçidi için ön uç bağlantı noktasını yapılandırın. Dinleyici ön uç bağlantı noktası yapılandırma nesnesini uygulama ağ geçidi dinleyicisi trafiğini dinleyen hangi bağlantı noktasını tanımlamak için kullanır.
+URL yolu eşlemeleri belirli URL'leri belirli arka uç havuzları yönlendirildiğinden emin olun. URL yolu eşlemeleri adlı oluşturabilirsiniz *imagePathRule* ve *videoPathRule* kullanarak [yeni AzureRmApplicationGatewayPathRuleConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewaypathruleconfig) ve [ Ekleme AzureRmApplicationGatewayUrlPathMapConfig](/powershell/module/azurerm.network/add-azurermapplicationgatewayurlpathmapconfig).
 
-```powershell
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$poolSettings = Get-AzureRmApplicationGatewayBackendHttpSettings `
+  -ApplicationGateway $appgw `
+  -Name myPoolSettings
+$imagePool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name imagesBackendPool
+$videoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name videoBackendPool
+$defaultPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name appGatewayBackendPool
+$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig `
+  -Name imagePathRule `
+  -Paths "/images/*" `
+  -BackendAddressPool $imagePool `
+  -BackendHttpSettings $poolSettings
+$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig `
+  -Name videoPathRule `
+    -Paths "/video/*" `
+    -BackendAddressPool $videoPool `
+    -BackendHttpSettings $poolSettings
+Add-AzureRmApplicationGatewayUrlPathMapConfig `
+  -ApplicationGateway $appgw `
+  -Name urlpathmap `
+  -PathRules $imagePathRule, $videoPathRule `
+  -DefaultBackendAddressPool $defaultPool `
+  -DefaultBackendHttpSettings $poolSettings
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-6"></a>6. Adım
+### <a name="add-routing-rule"></a>Yönlendirme kuralı Ekle
 
-Dinleyici gelen ağ trafiğini almak için kullanılan bağlantı noktası ve genel IP adresi için yapılandırın. Aşağıdaki örnek, önceden yapılandırılmış ön uç IP yapılandırmasını, ön uç bağlantı noktası yapılandırması ve bir protokol (Http veya Https büyük küçük harfe duyarlıdır) alır ve dinleyicisi yapılandırır. Bu örnekte, dinleyici daha önce oluşturulan genel IP adresi üzerinde bağlantı noktası 80 üzerindeki HTTP trafiğini dinler.
+Yönlendirme kuralı URL eşlemesi oluşturduğunuz dinleyicisi ile ilişkilendirir. Adlı kuralı ekleyebilirsiniz **Kural 2* kullanarak [Ekle AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
 
-```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendlistener = Get-AzureRmApplicationGatewayHttpListener `
+  -ApplicationGateway $appgw `
+  -Name backendListener
+$urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig `
+  -ApplicationGateway $appgw `
+  -Name urlpathmap
+Add-AzureRmApplicationGatewayRequestRoutingRule `
+  -ApplicationGateway $appgw `
+  -Name rule2 `
+  -RuleType PathBasedRouting `
+  -HttpListener $backendlistener `
+  -UrlPathMap $urlPathMap
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-7"></a>7. Adım
+## <a name="create-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri oluşturma
 
-URL kuralı yolları arka uç havuzları için yapılandırın. Bu adım, uygulama ağ geçidi tarafından kullanılan göreli yolu yapılandırır ve URL yolunu ve gelen trafiği işlemeye atadığı arka uç havuzuna arasındaki eşleme tanımlar.
+Bu örnekte, oluşturduğunuz üç arka uç havuzu destekleyen üç sanal makine ölçek kümeleri oluşturun. Oluşturduğunuz ölçek kümeleri adlı *myvmss1*, *myvmss2*, ve *myvmss3*. Her bir ölçek kümesi IIS yüklemek iki sanal makine örneklerini içerir. Ölçeği IP ayarlarını yapılandırdığınızda arka uç havuzuna Ayarla atayın.
 
-> [!IMPORTANT]
-> Her yol başlamalıdır bir "/ ile" ve bir yıldız işareti yalnızca sonunda izin verilir. Geçerli örnekler /xyz, /xyz*, veya /xyz/*. Yol Eşleştirici sat dize ilk sonra herhangi bir metin içermiyor "?" veya "#" ve bu karakterleri izin verilmez. 
-
-Aşağıdaki örnekte iki kural oluşturur: biri bir "/ Görüntü /" yol yönlendirme trafiği için arka uç **pool1**başka bir "/ video /" yol yönlendirme trafiği için arka uç **pool2**. Bu kurallar URL'leri her kümesi trafiği arka ucuna yönlendirilir emin olun. Http://contoso.com/image/figure1.jpg Örneğin, gider **pool1** ve http://contoso.com/video/example.mp4 gider **pool2**.
-
-```powershell
-$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
-
-$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
+$imagesPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name imagesBackendPool `
+  -ApplicationGateway $appgw
+$videoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name videoBackendPool `
+  -ApplicationGateway $appgw
+for ($i=1; $i -le 3; $i++)
+{
+  if ($i -eq 1)
+  {
+     $poolId = $backendPool.Id
+  }
+  if ($i -eq 2) 
+  {
+    $poolId = $imagesPool.Id
+  }
+  if ($i -eq 3)
+  {
+    $poolId = $videoPool.Id
+  }
+  $ipConfig = New-AzureRmVmssIpConfig `
+    -Name myVmssIPConfig$i `
+    -SubnetId $vnet.Subnets[1].Id `
+    -ApplicationGatewayBackendAddressPoolsId $poolId
+  $vmssConfig = New-AzureRmVmssConfig `
+    -Location eastus `
+    -SkuCapacity 2 `
+    -SkuName Standard_DS2 `
+    -UpgradePolicyMode Automatic
+  Set-AzureRmVmssStorageProfile $vmssConfig `
+    -ImageReferencePublisher MicrosoftWindowsServer `
+    -ImageReferenceOffer WindowsServer `
+    -ImageReferenceSku 2016-Datacenter `
+    -ImageReferenceVersion latest
+  Set-AzureRmVmssOsProfile $vmssConfig `
+    -AdminUsername azureuser `
+    -AdminPassword "Azure123456!" `
+    -ComputerNamePrefix myvmss$i
+  Add-AzureRmVmssNetworkInterfaceConfiguration `
+    -VirtualMachineScaleSet $vmssConfig `
+    -Name myVmssNetConfig$i `
+    -Primary $true `
+    -IPConfiguration $ipConfig
+  New-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -Name myvmss$i `
+    -VirtualMachineScaleSet $vmssConfig
+}
 ```
 
-Yolun önceden tanımlanmış bir yol kurallardan herhangi birinin eşleşmiyorsa, kural yol haritası yapılandırmasını varsayılan arka uç adres havuzu da yapılandırır. Http://contoso.com/shoppingcart/test.html Örneğin, gider **pool1** eşleşmeyen trafiği için varsayılan havuzu olarak tanımlanmadığından.
+### <a name="install-iis"></a>IIS yükleme
 
-```powershell
-$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+
+for ($i=1; $i -le 3; $i++)
+{
+  $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss$i
+  Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+    -Name "customScript" `
+    -Publisher "Microsoft.Compute" `
+    -Type "CustomScriptExtension" `
+    -TypeHandlerVersion 1.8 `
+    -Setting $publicSettings
+
+  Update-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -Name myvmss$i `
+    -VirtualMachineScaleSet $vmss
+}
 ```
 
-### <a name="step-8"></a>8. Adım
+## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
 
-Bir kural ayarı oluşturun. Bu adım, yol tabanlı URL yönlendirmeyi kullanmak için uygulama ağ geçidi yapılandırır. `$urlPathMap` Değişkeni önceki adımda tanımlanan yol tabanlı kuralı oluşturmak için şimdi kullanılır. Bu adımda, biz kuralı ile bir dinleyici ilişkilendirin ve URL yolunu eşleme daha önce oluşturduğunuz.
+Kullanabileceğiniz [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) uygulama ağ geçidi genel IP adresi alınamıyor. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın. Gibi *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, veya *http://52.168.55.24:8080/video/test.htm*.
 
-```powershell
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-### <a name="step-9"></a>9. Adım
+![Temel uygulama ağ geçidi URL'de test](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Uygulama ağ geçidi için örnek sayısını ve boyutu yapılandırın.
+Temel URL sonuna http://<ip-address>:8080/video/test.htm için URL'yi değiştirin ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
-```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name "Standard_Small" -Tier Standard -Capacity 2
-```
+![Uygulama ağ geçidi görüntüleri URL Sına](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
+URL için http://<ip-address>:8080/video/test.htm değiştirin ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
-Yukarıdaki adımlarda geçen tüm yapılandırma nesnelerle bir uygulama ağ geçidi oluşturun.
-
-```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
-```
-
-## <a name="get-an-application-gateway-dns-name"></a>Bir uygulama ağ geçidi DNS adını Al
-
-Ağ geçidi oluşturduktan sonra iletişim için ön uç yapılandıracaksınız. Genel IP kullanırken, uygulama ağ geçidi kolay olmayan dinamik olarak atanmış bir DNS adı gerektirir. Müşteriler uygulama ağ geçidi isabet emin olmak için uygulama ağ geçidi için ortak uç noktası için bir CNAME kaydı kullanabilirsiniz. Daha fazla bilgi için bkz: [bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md).
-
-Ön uç IP CNAME kaydını yapılandırmak için uygulama ağ geçidine bağlı Publicıpaddress öğesi kullanarak uygulama ağ geçidi ve ilişkili IP/DNS adı ayrıntılarını alabilirsiniz. Uygulama ağ geçidi DNS adı bir CNAME kaydı oluşturmak için kullanın. A kayıtları kullanımını VIP üzerinde değişebileceğinden uygulama ağ geçidi yeniden öneririz yok.
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
-```
-
-```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
-```
+![Uygulama ağ geçidi olarak test video URL'si](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Güvenli Yuva Katmanı (SSL) yük boşaltma hakkında bilgi edinmek istiyorsanız, bkz: [Azure Resource Manager kullanarak SSL yük boşaltımı için bir uygulama ağ geçidi yapılandırma](application-gateway-ssl-arm.md).
+Bu makalede, öğrenilen nasıl yapılır:
 
+> [!div class="checklist"]
+> * Ağ kurma
+> * Bir uygulama ağ geçidi ile URL eşlemesi oluşturma
+> * Sanal makine ölçek kümeleri ile arka uç havuzları oluşturma
+
+Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.

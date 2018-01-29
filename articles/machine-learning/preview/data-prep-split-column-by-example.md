@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5d624735a91d0828c4ac3796bde6c17acf6e131a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Bölünmüş sütuna göre örnek dönüştürme
 Bu dönüştürme kullanıcı girişi gerektirmeden anlamlı sınırlarındaki bir sütunun içerik predictively ayırır. Bölünmüş algoritmasını sütunun içeriğini çözümledikten sonra sınırları seçer. Bu sınırları tarafından tanımlanan
@@ -52,6 +52,11 @@ Kullanıcı **Sütun Sil** veya **eklenecek yeni sütunlar** başlığında sağ
 Kullanıcı kopyalayabilir ve Yapıştır bir hücreden diğerine bölünmüş örneği sağlamak için değerleri.
 
 Kullanıcı arasında geçiş yapmak **temel mod** ve **Gelişmiş mod** bağlantıları dönüştürme Düzenleyicisi'ni tıklatarak.
+
+### <a name="transform-editor-send-feedback"></a>Düzenleyici Dönüştür: geri bildirim gönder
+
+Tıklayarak **geri bildirim gönder** bağlantı açar **geri bildirim** parametre seçimleri ve örnekler kullanıcı ile önceden doldurulmaz açıklamaları kutusuyla iletişim sağlanan. Kullanıcı, açıklama kutusunun içeriğini gözden geçirin ve sorunu anlamasına yardımcı olmak için daha fazla ayrıntı sağlar. Kullanıcı, verileri Microsoft ile paylaşmak istiyorsanız değil, kullanıcı önceden doldurulmuş örnek veri tıklatmadan önce silmelisiniz **geri bildirim gönder** düğmesi. 
+
 
 ### <a name="editing-an-existing-transformation"></a>Varolan bir dönüşüm düzenleme
 
@@ -114,27 +119,27 @@ Birden çok rasgele sınırlayıcıları başka bir örneği burada verilmiştir
 
 |logtext|
 |:-----|
-|192.128.138.20--[eki/16/2016 16:22:33-0200] "GET /images/picture.gif HTTP/1.1" 234 343 www.yahoo.com "http://www.example.com/" "Mozilla/4.0 (uyumlu; MSIE 4)""-"|
-|10.128.72.213--[eki/17/2016 12:43:12 +0300] "GET /news/stuff.html HTTP/1.1" 200 6233 www.aol.com "http://www.sample.com/" "Mozilla/5.0 (MSIE)" "-"|
-|192.165.71.165--[Kas/12/2016 14:22:44 -0500] "GET /sample.ico HTTP/1.1" 342 7342 www.facebook.com "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; RV:1.7.3) ""-"|
+|192.128.138.20 - - [16/Oct/2016 16:22:33 -0200] "GET /images/picture.gif HTTP/1.1" 234 343 www.yahoo.com "http://www.example.com/" "Mozilla/4.0 (compatible; MSIE 4)" "-"|
+|10.128.72.213 - - [17/Oct/2016 12:43:12 +0300] "GET /news/stuff.html HTTP/1.1" 200 6233 www.aol.com "http://www.sample.com/" "Mozilla/5.0 (MSIE)" "-"|
+|192.165.71.165 - - [12/Nov/2016 14:22:44 -0500] "GET /sample.ico HTTP/1.1" 342 7342 www.facebook.com "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; rv:1.7.3)" "-"|
 |10.166.64.165--[Kas/23/2016 01:52:45 -0800] "GET /style.css HTTP/1.1" 200 2552 www.google.com "http://www.test.com/index.html" "Mozilla/5.0 (Windows)" "-"|
 |192.167.1.193--[Oca/16/2017 22:34:56 +0200] "GET /js/ads.js HTTP/1.1" 200 23462 www.microsoft.com "http://www.illustration.com/index.html" "Mozilla/5.0 (Windows)" "-"|
 |192.147.76.193--[Oca/28/2017 26:36:16 +0800] "GET /search.php HTTP/1.1" 400 1777 www.bing.com "-" "Mozilla/4.0 (uyumlu; MSIE 6.0; Windows NT 5.1)""-"|
-|192.166.64.165--[Mar/23/2017 01:55:25 -0800] "GET /style.css HTTP/1.1" 200 2552 www.google.com "http://www.test.com/index.html" "Mozilla/5.0 (Windows)" "-"|
+|192.166.64.165 - - [23/Mar/2017 01:55:25 -0800] "GET /style.css HTTP/1.1" 200 2552 www.google.com "http://www.test.com/index.html" "Mozilla/5.0 (Windows)" "-"|
 |11.167.1.193--[Apr/16/2017 11:34:36 +0200] "GET /js/ads.js HTTP/1.1" 200 23462 www.microsoft.com "http://www.illustration.com/index.html" "Mozilla/5.0 (Windows)" "-"|
 
 Böl:
 
 |logtext_1|logtext_2|logtext_3|logtext_4|logtext_5|logtext_6|logtext_7|logtext_8|logtext_9|logtext_10|logtext_11|logtext_12|logtext_13|logtext_14|logtext_15|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
-|192.128.138.20|Eki/16/2016|16:22:33|-0200|GET|images/Picture.gif|HTTP|1.1|234|343|www.yahoo.com|Http://www.example.com/|Mozilla|4.0|uyumlu; MSIE 4|
-|10.128.72.213|Eki/17/2016|12:43:12|+0300|GET|News/STUFF.HTML|HTTP|1.1|200|6233|www.aol.com|http://www.Sample.com/|Mozilla|5.0|MSIE|
-|192.165.71.165|Kas/12/2016|14:22:44|-0500|GET|Sample.ico|HTTP|1.1|342|7342|www.facebook.com|-|Mozilla|5.0|Windows; U; Windows NT 5.1; RV:1.7.3|
-|10.166.64.165|Kas/23/2016|01:52:45|-0800|GET|Style.css|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
-|192.167.1.193|Oca/16/2017|22:34:56|+0200|GET|js/ADs.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.HTML|Mozilla|5.0|Windows|
-|192.147.76.193|Oca/28/2017|26:36:16|+0800|GET|Search.php|HTTP|1.1|400|1777|www.Bing.com|-|Mozilla|4.0|uyumlu; MSIE 6.0; Windows NT 5.1|
-|192.166.64.165|Mar/23/2017|01:55:25|-0800|GET|Style.css|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
-|11.167.1.193|Apr/16/2017|11:34:36|+0200|GET|js/ADs.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.HTML|Mozilla|5.0|Windows|
+|192.128.138.20|Eki/16/2016|16:22:33|-0200|GET|images/picture.gif|HTTP|1.1|234|343|www.yahoo.com|http://www.example.com/|Mozilla|4.0|uyumlu; MSIE 4|
+|10.128.72.213|17/Oct/2016|12:43:12|+0300|GET|news/stuff.html|HTTP|1.1|200|6233|www.aol.com|http://www.sample.com/|Mozilla|5.0|MSIE|
+|192.165.71.165|Kas/12/2016|14:22:44|-0500|GET|Sample.ico|HTTP|1.1|342|7342|www.facebook.com|-|Mozilla|5.0|Windows; U; Windows NT 5.1; rv:1.7.3|
+|10.166.64.165|Kas/23/2016|01:52:45|-0800|GET|Style.css|HTTP|1.1|200|2552|www.google.com|http://www.test.com/index.html|Mozilla|5.0|Windows|
+|192.167.1.193|Oca/16/2017|22:34:56|+0200|GET|js/ads.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.html|Mozilla|5.0|Windows|
+|192.147.76.193|Oca/28/2017|26:36:16|+0800|GET|search.php|HTTP|1.1|400|1777|www.bing.com|-|Mozilla|4.0|uyumlu; MSIE 6.0; Windows NT 5.1|
+|192.166.64.165|Mar/23/2017|01:55:25|-0800|GET|Style.css|HTTP|1.1|200|2552|www.google.com|http://www.test.com/index.html|Mozilla|5.0|Windows|
+|11.167.1.193|Apr/16/2017|11:34:36|+0200|GET|js/ads.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.html|Mozilla|5.0|Windows|
 
 ## <a name="examples-of-splitting-without-delimiters"></a>Sınırlayıcıları bölme örnekleri
 Bazı durumlarda, hiçbir gerçek ayırıcısı vardır ve veri alanları bitişik birbirinin yanına oluşabilir. Bu durumda, bölünmüş dönüştürme büyük olasılıkla bölme noktalarını anlamak için verileri desenleri otomatik olarak algılar. Örneğin, aşağıdaki senaryoda para birimi türünden tutar ayrı istiyoruz ve bölünmüş sınır bölünmüş noktası olarak sayısal ve sayısal olmayan veriler arasında otomatik olarak oluşturur.
@@ -162,9 +167,9 @@ Aşağıdaki örnekte, ölçü birimlerinden ağırlık değerleri ayırmak iste
 
 |Ağırlık|Weight_1|Weight_2|
 |:-----|:-----|:-----|
-|2,27 KG|2.27|KG|
-|1 M|1|L|
-|2.5 KG|2.5|KG|
+|2.27KG|2.27|KG|
+|1L|1|L|
+|2.5KG|2.5|KG|
 |2KG|2|KG|
 |1.7KGA|1.7|KGA|
 |3KG|3|KG|

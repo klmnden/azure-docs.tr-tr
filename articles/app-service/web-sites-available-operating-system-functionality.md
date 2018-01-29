@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service'te işletim sistemi işlevi
 Bu makalede çalışan tüm uygulamaları için kullanılabilir ortak temel işletim sistemi işlevselliğini [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Bu işlevsellik, dosya, ağ ve kayıt defteri erişimi ve tanılama günlüklerini ve olayları içerir. 
@@ -49,7 +49,7 @@ Yerel sürücüler ve ağ sürücülerini içeren uygulama hizmeti içinde çeş
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Yerel sürücüler
-Özünde, App Service Azure PaaS (hizmet olarak platform) altyapısı üzerinde çalışan bir hizmettir. Sonuç olarak, "bir sanal makineye bağlı olan" yerel sürücüleri aynı sürücü Azure'da çalışan herhangi bir çalışan rolü için kullanılabilir türleridir. Bu, bir işletim sistemi sürücüsü (D:\ sürücüsüne), Azure paket cspkg dosyalarını özel olarak App Service tarafından kullanılan (ve müşteriler için erişilemez) içeren bir uygulama sürücü ve büyüklüğü VM boyutuna bağlı olarak değişir "kullanıcı" sürücüsü (C:\ sürücüsü) içerir.
+Özünde, App Service Azure PaaS (hizmet olarak platform) altyapısı üzerinde çalışan bir hizmettir. Sonuç olarak, "bir sanal makineye bağlı olan" yerel sürücüleri aynı sürücü Azure'da çalışan herhangi bir çalışan rolü için kullanılabilir türleridir. Bu, bir işletim sistemi sürücüsü (D:\ sürücüsüne), Azure paket cspkg dosyalarını özel olarak App Service tarafından kullanılan (ve müşteriler için erişilemez) içeren bir uygulama sürücü ve büyüklüğü VM boyutuna bağlı olarak değişir "kullanıcı" sürücüsü (C:\ sürücüsü) içerir. Uygulamanız büyüdükçe, disk kullanımını izlemek önemlidir. Disk kotası üst sınırına ulaşıldığında, uygulamanıza olumsuz etkileri olabilir.
 
 <a id="NetworkDrives"></a>
 

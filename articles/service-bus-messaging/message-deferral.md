@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f84b870de4b79399d5edc90284c9c56222156b5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bece2be88a020610dfd3d22f15f7d276d99bb153
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-deferral"></a>İleti erteleme
 
@@ -35,9 +35,9 @@ API [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredm
 
 Diğer etkin iletileri (aksine, bir alt sırada Canlı teslim edilemeyen iletiler) yanı sıra ana sırasındaki ertelenmiş iletileri kalır, ancak bunlar artık normal alma/ReceiveAsync işlevler kullanılarak alınabilir. Ertelenmiş iletileri keşfedilecek aracılığıyla [ileti gözatma](message-browsing.md) uygulamanın bunları izini kaybederse.
 
-Ertelenmiş ileti almak için "sahibi" hatırlamak için sorumludur [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) onu erteler gibi. Bilir alıcı **SequenceNumber** ertelenmiş bir ileti iletinin açıkça Receive(sequenceNumber) daha sonra alabilirsiniz.
+Ertelenmiş ileti almak için onun sahibi hatırlamak için sorumludur [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) onu erteler gibi. Ertelenmiş ileti sıra numarası bilir alıcı iletiyi açıkça daha sonra alabilir `Receive(sequenceNumber)`.
 
-Bir ileti işlenemedi, ileti işleme değil summarily askıya alınır ancak bu iletiyi işlemek için belirli bir kaynak geçici olarak kullanılamıyor çünkü tarafında için bir kaç dakika bu iletiyi almaya zarif bir şekilde anımsamasıvarsa,**SequenceNumber** içinde bir [zamanlanmış ileti](message-sequencing.md) birkaç dakika içinde gönderilen ve zamanlanmış ileti geldiğinde ertelenmiş ileti yeniden almak için. Tüm işlemler için bir veritabanı bir ileti işleyicisini bağlıdır ve bu veritabanı geçici olarak devre dışı ise, bu erteleme kullanmaz, bunun yerine iletileri alma askıya olduğunu not veritabanını yeniden kullanılabilir hale gelene kadar değerlerinin.
+Bir ileti işlenemedi, ileti işleme değil summarily askıya alınır ancak bu iletiyi işlemek için belirli bir kaynak geçici olarak kullanılamıyor çünkü, bu iletiyi tarafında için bir kaç dakika koymak için bir yol anımsaması ise  **SequenceNumber** içinde bir [zamanlanmış ileti](message-sequencing.md) birkaç dakika içinde gönderilen ve zamanlanmış ileti geldiğinde ertelenmiş ileti yeniden almak için. Tüm işlemler için bir veritabanı bir ileti işleyicisini bağlıdır ve bu veritabanı geçici olarak devre dışı ise, bu erteleme kullanmaz, bunun yerine iletileri alma askıya olduğunu not veritabanını yeniden kullanılabilir hale gelene kadar değerlerinin.
 
 İletileri ertelemeyi öyle yapılandırılmışsa, ertelenmiş iletileri hala başlangıçta zamanlanan saatte sona ve ardından sahipsiz sıraya taşınır anlamına ileti sona erme etkilemez.
 

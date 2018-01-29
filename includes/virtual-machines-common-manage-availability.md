@@ -36,7 +36,8 @@ Hata etki alanları ortak bir güç kaynağı ve ağ anahtarını paylaşan sana
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Bir kullanılabilirlik kümesindeki VM’ler için yönetilen diskleri kullanma
 Şu anda yönetilmeyen disklere sahip VM’ler kullanıyorsanız, [Kullanılabilirlik Kümesindeki VM’leri Yönetilen Diskleri kullanacak şekilde dönüştürmeniz](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) önemle tavsiye edilir.
 
-[Yönetilen diskler](../articles/virtual-machines/windows/managed-disks-overview.md), bir Kullanılabilirlik Kümesindeki VM disklerinin tek arıza noktalarından kaçınmak üzere birbirinden yeterince ayrılmasını sağlayarak Kullanılabilirlik Kümeleri için daha fazla güvenilirlik sunar. Bunu otomatik olarak farklı depolama hata etki alanı (damga) diskleri yerleştirme ve VM hata etki alanı ile hizalama yapar. Depolama hata etki alanı donanım veya yazılım arızasından dolayı başarısız olursa, yalnızca VM örneği depolama hata etki alanı disklerle başarısız olur.
+[Yönetilen diskler](../articles/virtual-machines/windows/managed-disks-overview.md), bir Kullanılabilirlik Kümesindeki VM disklerinin tek arıza noktalarından kaçınmak üzere birbirinden yeterince ayrılmasını sağlayarak Kullanılabilirlik Kümeleri için daha fazla güvenilirlik sunar. Bunu otomatik olarak diskleri (depolama kümeleri) farklı depolama hatası alanlarında yerleştirip VM hata etki alanı ile hizalama yapar. Depolama hata etki alanı donanım veya yazılım arızasından dolayı başarısız olursa, yalnızca VM örneği depolama hata etki alanı disklerle başarısız olur.
+![Yönetilen disklerde FDs](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
 > Yönetilen kullanılabilirlik kümelerine yönelik arıza etki alanlarının sayısı bölgeye göre farklılık gösterir (bölge başına iki veya üç). Aşağıdaki tabloda bölge başına sayı gösterilmektedir
@@ -47,7 +48,7 @@ VM’leri [yönetilmeyen diskler](../articles/virtual-machines/windows/about-dis
 
 1. **Bir VM ile ilişkili tüm diskleri (işletim sistemi ve veri) aynı depolama hesabında tutma**
 2. Bir depolama hesabına daha fazla VHD eklemeden önce **Depolama hesabındaki yönetilmeyen disk sayısına ilişkin [limitleri](../articles/storage/common/storage-scalability-targets.md) gözden geçirin**
-3. **Bir Kullanılabilirlik Kümesindeki her VM için ayrı depolama hesabı kullanın.** Depolama hesaplarını aynı Kullanılabilirlik Kümesinde birden fazla VM ile paylaşmayın. Farklı kullanılabilirlik en iyi yöntemler izlediyseniz depolama hesaplarında paylaşmak için kümeleri arasında VM'ler için kabul edilebilir ![diskleri FDs yönetilmeyen](./media/virtual-machines-common-manage-availability/md-fd.png)
+3. **Bir Kullanılabilirlik Kümesindeki her VM için ayrı depolama hesabı kullanın.** Depolama hesaplarını aynı Kullanılabilirlik Kümesinde birden fazla VM ile paylaşmayın. Farklı kullanılabilirlik en iyi yöntemler izlediyseniz depolama hesaplarında paylaşmak için kümeleri arasında VM'ler için kabul edilebilir ![diskleri FDs yönetilmeyen](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Her uygulama katmanını ayrı kullanılabilirlik kümeleri halinde yapılandırma
 Sanal makinelerinizin neredeyse tümü aynıysa ve uygulamanız için aynı amaca hizmet ediyorsa, uygulamanızın her katmanı için bir kullanılabilirlik kümesi yapılandırmanız önerilir.  Aynı kullanılabilirlik kümesine iki farklı katman yerleştirirseniz, aynı uygulama katmanındaki tüm sanal makineler tek seferde yeniden başlatılabilir. Her katman için bir kullanılabilirlik kümesinde en az iki sanal makineyi yapılandırarak, her katmanda en az bir sanal makinenin kullanılabilir olmasını garanti edersiniz.

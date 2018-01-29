@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 510e578f3ebeb6ad7a4d81249cdfd7ce1d3684ad
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Olay kılavuz güvenlik ve kimlik doğrulama 
 
@@ -24,7 +24,7 @@ Azure olay kılavuz üç tür kimlik doğrulama vardır:
 
 ## <a name="webhook-event-delivery"></a>Web kancası olay teslimi
 
-Web kancası Azure olay kılavuz gelen gerçek zamanlı olaylarını almak için birçok yolu vardır. Olduğundan her zaman yeni bir olay teslim edilecek hazır, olay kılavuz Web kancası olay gövdesinde yapılandırılan HTTP uç noktası için bir HTTP isteği çekirdeğini oluşturur.
+Web kancası Azure olay kılavuz gelen gerçek zamanlı olaylarını almak için birçok yolu vardır. Olduğundan her zaman yeni bir olay teslim edilecek hazır, olay kılavuz Web kancası olay gövdesinde yapılandırılan HTTP uç noktası bir HTTP isteği gönderir.
 
 Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç nokta sahipliği kanıtlamak için basit bir doğrulama kodu içeren bir POST isteği gönderir. Uygulamanızın geri doğrulama kodu Yankı tarafından yanıt vermesi gerekir. Olay kılavuz olayları doğrulama geçmedi Web kancası Uç noktalara dağıtmaz.
 
@@ -175,7 +175,7 @@ Kullanıcıların farklı eylemler gerçekleştirmesine olanak sağlayan örnek 
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: kısıtlı sonrası eylemler ancak silme işlemlerinin izin vermeyecek izin.
+**EventGridNoDeleteListKeysRole.json**: Allow restricted post actions but disallow delete actions.
 
 ```json
 {
@@ -198,7 +198,7 @@ Kullanıcıların farklı eylemler gerçekleştirmesine olanak sağlayan örnek 
 }
 ```
 
-**EventGridContributorRole.json**: tüm olay kılavuz eylemleri sağlar.
+**EventGridContributorRole.json**: Allows all event grid actions.
 
 ```json
 {

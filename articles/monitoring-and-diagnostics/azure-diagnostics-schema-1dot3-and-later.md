@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve daha sonra yapılandırma şeması
 > [!NOTE]
@@ -386,7 +386,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**PrivateConfig**|İsteğe bağlı. Açıklama, bu sayfada başka bir yerde bakın.|  
 |**IsEnabled**|Boole değeri. Açıklama, bu sayfada başka bir yerde bakın.|  
 
-## <a name="publicconfig-element"></a>PublicConfig öğesi  
+## <a name="publicconfig-element"></a>PublicConfig Element  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig*
 
  Genel tanılama yapılandırması açıklar.  
@@ -411,7 +411,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öznitelikler|Açıklama|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | Maksimum Azure tanılama tarafından toplanan Tanılama verileri çeşitli türlerde tarafından tüketilebilir yerel disk alanı miktarı. Varsayılan ayar 5120 MB'tır.<br />
+| **overallQuotaInMB** | Maksimum Azure tanılama tarafından toplanan Tanılama verileri çeşitli türlerde tarafından tüketilebilir yerel disk alanı miktarı. Varsayılan ayar 4096 MB'tır.<br />
 |**useProxyServer** | IE ayarlarının kümesinde olarak ara sunucu ayarlarını kullanmak için Azure tanılama yapılandırın.|  
 
 <br /> <br />
@@ -419,11 +419,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Alt öğeler|Açıklama|  
 |--------------------|-----------------|  
 |**CrashDumps**|Açıklama, bu sayfada başka bir yerde bakın.|  
-|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** -toplanan günlüklerini en düşük önem derecesi yapılandırır.<br /><br /> - **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** - Configures the minimum severity level of the logs collected.<br /><br /> - **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 |**Dizinleri**|Açıklama, bu sayfada başka bir yerde bakın.|  
 |**EtwProviders**|Açıklama, bu sayfada başka bir yerde bakın.|  
 |**Ölçümler**|Açıklama, bu sayfada başka bir yerde bakın.|  
-|**Performans sayaçları**|Açıklama, bu sayfada başka bir yerde bakın.|  
+|**PerformanceCounters**|Açıklama, bu sayfada başka bir yerde bakın.|  
 |**WindowsEventLog**|Açıklama, bu sayfada başka bir yerde bakın.| 
 |**DockerSources**|Açıklama, bu sayfada başka bir yerde bakın. | 
 
@@ -436,7 +436,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öznitelikler|Açıklama|  
 |----------------|-----------------|  
-|**kapsayıcı adı**|İsteğe bağlı. Kilitlenme bilgi dökümleri depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.|  
+|**containerName**|İsteğe bağlı. Kilitlenme bilgi dökümleri depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.|  
 |**crashDumpType**|İsteğe bağlı.  Mini ya da tam kilitlenme dökümleri toplamak için Azure tanılama yapılandırır.|  
 |**directoryQuotaPercentage**|İsteğe bağlı.  Yüzdesini yapılandırır **overallQuotaInMB** VM kilitlenme dökümleri için ayrılmış olmalıdır.|  
 
@@ -532,7 +532,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="performancecounters-element"></a>PerformanceCounters öğesi  
+## <a name="performancecounters-element"></a>PerformanceCounters Element  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - performans sayaçları*
 
  Performans sayaçları koleksiyonunu sağlar.  
@@ -548,7 +548,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="windowseventlog-element"></a>WindowsEventLog öğesi
+## <a name="windowseventlog-element"></a>WindowsEventLog Element
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
  
  Windows olay günlüklerini toplama sağlar.  
@@ -557,7 +557,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Alt öğe|Açıklama|  
 |-------------------|-----------------|  
-|**Veri kaynağı**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Tüm olaylarını toplamak için belirtin "*"|  
+|**DataSource**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Tüm olaylarını toplamak için belirtin "*"|  
 
 
 
@@ -594,7 +594,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**Havuz**|Açıklama, bu sayfada başka bir yerde bakın.|  
 
-## <a name="sink-element"></a>Öğe havuzu
+## <a name="sink-element"></a>Sink Element
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz*
 
  Sürüm 1.5 eklendi.  
@@ -603,12 +603,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
-|**adı**|Dize|Sinkname tanımlayan bir dize.|  
+|**adı**|dize|Sinkname tanımlayan bir dize.|  
 
-|Öğesi|Tür|Açıklama|  
+|Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
-|**Application Insights**|Dize|Yalnızca veri Application Insights'a gönderirken kullanılır. Erişiminiz etkin bir Application Insights hesabı izleme anahtarını içerir.|  
-|**Kanalları**|Dize|Her ek, akış filtrelemesi için bir tane|  
+|**Application Insights**|dize|Yalnızca veri Application Insights'a gönderirken kullanılır. Erişiminiz etkin bir Application Insights hesabı izleme anahtarını içerir.|  
+|**Kanalları**|dize|Her ek, akış filtrelemesi için bir tane|  
 
 ## <a name="channels-element"></a>Kanallar öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz - kanalları*
@@ -617,9 +617,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Bir havuz geçirme günlük veri akışları için filtreleri tanımlar.  
 
-|Öğesi|Tür|Açıklama|  
+|Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
-|**Kanal**|Dize|Açıklama, bu sayfada başka bir yerde bakın.|  
+|**Channel**|dize|Açıklama, bu sayfada başka bir yerde bakın.|  
 
 ## <a name="channel-element"></a>Kanal öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz - kanalları - kanal*
@@ -634,7 +634,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**adı**|**dize**|Kanal başvurmak için benzersiz bir ad|  
 
 
-## <a name="privateconfig-element"></a>PrivateConfig öğesi 
+## <a name="privateconfig-element"></a>PrivateConfig Element 
  *Ağaç: Kök - DiagnosticsConfiguration - PrivateConfig*
 
  Sürüm 1.3 eklendi.  

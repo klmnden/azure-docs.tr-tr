@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure Otomasyonu sertifika varlıkları
 
@@ -28,18 +28,26 @@ Sertifikaları depolanabilir güvenli bir şekilde Azure Otomasyonu'nda runbook'
 > Azure Automation güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantıları ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure Automation depolanır. Bu anahtarı bir sertifika tarafından şifrelenir ve Azure Otomasyonu'nda depolanır. Güvenli bir varlık depolamak önce anahtar Otomasyon hesabı için sertifika aracılığıyla çözülür ve varlık şifrelemek için kullanılan.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet'leri
-
-Aşağıdaki tabloda yer alan cmdlet'ler oluşturmak ve Windows PowerShell ile automation sertifika varlıkları yönetmek için kullanılır. Bir parçası olarak sevk [Azure PowerShell Modülü](../powershell-install-configure.md) olduğu Automation runbook'ları ve DSC yapılandırmaları için kullanılabilir.
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet'leri
+AzureRM için aşağıdaki tablodaki cmdlet'ler oluşturmak ve Windows PowerShell ile automation kimlik bilgisi varlıkları yönetmek için kullanılır.  Bir parçası olarak sevk [AzureRM.Automation Modülü](/powershell/azure/overview) olduğu Automation runbook'ları ve DSC yapılandırmaları için kullanılabilir.
 
 |Cmdlet'leri|Açıklama|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Bir runbook veya DSC yapılandırması kullanmak için bir sertifikayla ilgili bilgileri alır. Bu gibi durumlarda, sertifika yalnızca Get-AutomationCertificate etkinliğinden alabilirsiniz.|
-|[AzureRmAutomationCertificate yeni](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Yeni bir sertifika Azure Automation'a oluşturur.|
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Yeni bir sertifika Azure Automation'a oluşturur.|
 [Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Bir sertifika Azure Otomasyon kaldırır.|Yeni bir sertifika Azure Automation'a oluşturur.
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Sertifika dosyası karşıya yükleme ve bir .pfx için parolayı ayarlama da dahil olmak üzere var olan bir sertifikayı özelliklerini ayarlar.|
-|[Ekleme AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Belirtilen bulut hizmeti için hizmet sertifikası yükler.|
+|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Belirtilen bulut hizmeti için hizmet sertifikası yükler.|
 
+## <a name="activities"></a>Etkinlikler
+Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları sertifikalarda erişmek için kullanılır.
+
+| Etkinlikler | Açıklama |
+|:---|:---|
+|Get-AutomationCertificate|Bir runbook veya DSC yapılandırması kullanmak üzere bir sertifika alır. Döndürür bir [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) nesnesi.|
+
+> [!NOTE] 
+> Yapmaktan kaçınmalısınız – Name parametresinde **Get-AutomationCertificate** runbook veya runbook'ları veya DSC yapılandırması ve Otomasyon arasındaki bağımlılıkları getirebileceğinden DSC yapılandırması Tasarım zamanında değişkenleri.
 
 ## <a name="python2-functions"></a>Python2 işlevleri
 

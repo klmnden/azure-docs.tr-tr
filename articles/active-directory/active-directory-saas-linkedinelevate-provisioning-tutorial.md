@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 6c2f26e6df435b522346f22ce697468d094de23e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7694c28dd41b75438bfa4ffc8d032f439173122b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>Öğretici: Yapılandırma LinkedIn yükseltmesine otomatik kullanıcı hazırlama
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Öğretici: LinkedIn yükseltmesine otomatik kullanıcı sağlamayı yapılandırın
 
 
 Bu öğreticinin amacı LinkedIn yükseltmesine ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den LinkedIn yükseltmesine sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -106,7 +106,7 @@ LinkedIn erişim belirteci almak için ilk adımdır bakın. Bir kuruluş yönet
 
 12) Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan ve aşağıdaki onay kutusunu işaretleyin.
 
-13) **Kaydet** düğmesine tıklayın. 
+13) **Kaydet**’e tıklayın. 
 
 14) İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den LinkedIn yükseltmek için eşitlenecek kullanıcı ve grup öznitelikleri gözden geçirin. Seçilen öznitelikler olarak Not **eşleşen** özellikleri, kullanıcı hesapları ve grupları LinkedIn yükseltmesine güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
@@ -114,7 +114,7 @@ LinkedIn erişim belirteci almak için ilk adımdır bakın. Bir kuruluş yönet
 
 15) Azure AD hizmeti LinkedIn yükseltmek için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
-16) **Kaydet** düğmesine tıklayın. 
+16) **Kaydet**’e tıklayın. 
 
 Bu, herhangi bir kullanıcı ve/veya LinkedIn yükseltmesine kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve LinkedIn yükseltmesine uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 

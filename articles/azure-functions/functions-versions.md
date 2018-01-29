@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 3f816f661767d2e372b02b207d6fa7efd494e6ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Hedef Azure işlevleri çalışma zamanı sürümlerini nasıl
 
@@ -105,7 +105,7 @@ Sürüm geçerli sürümle dışında ya da sürüm 2.0 hedef gerektiğinde ayar
 
 ## <a name="target-a-version-using-azure-cli"></a>Hedef Azure CLI kullanarak bir sürüm
 
- Ayrıca ayarlayabilirsiniz `FUNCTIONS_EXTENSION_VERSION` Azure clı'dan. Azure CLI kullanarak güncelleştirme ile işlev uygulaması uygulama ayarı [az functionapp config appsettings kümesi](/cli/azure/functionapp/config/appsettings#set) komutu.
+ Ayrıca ayarlayabilirsiniz `FUNCTIONS_EXTENSION_VERSION` Azure clı'dan. Azure CLI kullanarak güncelleştirme ile işlev uygulaması uygulama ayarı [az functionapp config appsettings kümesi](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) komutu.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

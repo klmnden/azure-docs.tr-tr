@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure Hizmetleri için sanal ağ tümleştirme
 
@@ -50,7 +50,7 @@ Sanal ağa doğrudan dağıtılan her bir hizmet yönlendirmesi için belirli ge
 - Sanal makineler: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Service fabric](../service-fabric/service-fabric-patterns-networking.md?toc=%2fazure%2fvirtual-network%2ftoc.json#existingvnet)
 - [Sanal makine ölçekleme kümeleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Hdınsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [App Service Ortamı](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [RedisCache](../redis-cache/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -58,7 +58,7 @@ Sanal ağa doğrudan dağıtılan her bir hizmet yönlendirmesi için belirli ge
 - [Uygulama ağ geçidi (iç)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure kapsayıcı Hizmeti altyapısının](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): Azure kapsayıcı hizmeti bir varsayılan sanal ağ oluşturur. İle kullanılmak üzere özel bir sanal ağ oluşturabilirsiniz [Azure kapsayıcı Hizmeti altyapısının](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
 - [Azure Active Directory etki alanı Hizmetleri](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): sanal ağ (Klasik) yalnızca
-- [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration): sanal ağ (Klasik) yalnızca
+- [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Bulut Hizmetleri](https://msdn.microsoft.com/library/azure/jj156091): sanal ağ (Klasik) yalnızca
 
 Dağıtabilmeniz için bir [iç Azure yük dengeleyici](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yüklemek için önceki listede bulunan kaynaklar çoğunu dengeleyin. Bazı durumlarda, hizmet otomatik olarak oluşturur ve bir kaynak oluşturduğunuzda, bir yük dengeleyici dağıtır.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>İzleme ve tanılama Azure Service Fabric için
 
@@ -136,5 +136,6 @@ Grafikler özelleştirmek için yönergeleri izleyin [Microsoft Azure ölçümle
 
 * Platform ve Service Fabric sağlar için önceden olayları izleme hakkında daha fazla bilgi [Platform düzeyi olay ve günlük oluşturma](service-fabric-diagnostics-event-generation-infra.md)
 * Uygulamaları ile çalışmaya başlama için bkz: [uygulama düzeyi olay ve günlük oluşturma](service-fabric-diagnostics-event-generation-app.md)
-* Öğreticide geçin [İzleyici ve Service Fabric bir ASP.NET Core uygulama tanılama](service-fabric-tutorial-monitoring-aspnet.md)
+* AI uygulamanızla birlikte ayarlamak için adımları gidin [İzleyici ve Service Fabric bir ASP.NET Core uygulama tanılama](service-fabric-tutorial-monitoring-aspnet.md)
+* OMS günlük analizi kapsayıcıları izleme için ayarlama hakkında bilgi edinmek- [izleme ve tanılama için Windows kapsayıcılarında Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: a97038b942998b611bdde50ccf67c5b2e3fa4cd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c5d6eb8333083cf87e35a667159ecc71b944e9a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Öğretici: New Relic Azure Active Directory Tümleştirme
 
@@ -32,7 +32,7 @@ New Relic Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile New Relic yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,12 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma bilgileri tek bir yeni Relic etki alanı ve URL'leri](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.newrelic.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` -kendi yeni Relic hesabı kimliği değiştirdiğinizden emin olun
 
     b. İçinde **tanımlayıcısı** metin değeri yazın:`rpm.newrelic.com`
-
-    > [!NOTE] 
-    > Oturum açma URL değeri gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [yeni Relic istemci destek ekibi](https://support.newrelic.com/) bu değeri alınamıyor. 
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
@@ -183,7 +180,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-new-relic-test-user"></a>New Relic test kullanıcısı oluşturma
 

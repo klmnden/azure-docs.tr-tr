@@ -4,7 +4,7 @@ description: "Azure Batch havuzlarında RDMA özellikli GPU etkinleştirilmiş v
 services: batch
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: danlep
-ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch havuzları, RDMA özellikli GPU etkinleştirilmiş veya örnekleri kullanın
 
@@ -50,10 +50,10 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, veya<br/>CentOS tabanlı HPC<br/>(Azure Market) | Intel MPI 5 | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
-| [NC serisi *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS tabanlı 7.3<br/>(Azure Market) | NVIDIA CUDA Araç Seti 9.0 sürücüleri | Yok | 
+| [NC, NCv2, ND serisi *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS tabanlı 7.3<br/>(Azure Market) | NVIDIA CUDA Araç Seti 9.1 sürücüleri | Yok | 
 | [NV serisi](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS tabanlı 7.3<br/>(Azure Market) | NVIDIA Kılavuz 4.3 sürücüleri | Yok |
 
-* RDMA bağlantısı NC24r vm'lerde Ubuntu 16.04 LTS veya CentOS tabanlı 7.3 HPC (Azure Marketi'nden) Intel MPI ile desteklenir.
+* RDMA bağlantısı NC24r, NC24r_v2 ve ND24r VM'ler Ubuntu 16.04 LTS veya CentOS tabanlı 7.3 HPC (Azure Marketi'nden) Intel MPI ile desteklenir.
 
 
 
@@ -62,10 +62,10 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 veya<br/>Windows Server 2012 (Azure Market) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
-| [NC serisi *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 veya <br/>Windows Server 2012 R2 (Azure Market) | NVIDIA Tesla sürücüleri veya CUDA Araç Seti 9.0 sürücülerini| Yok | 
+| [NC, NCv2, ND serisi *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Windows Server 2016 veya <br/>Windows Server 2012 R2 (Azure Market) | NVIDIA Tesla sürücüleri veya CUDA Araç Seti 9.1 sürücülerini| Yok | 
 | [NV serisi](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 veya<br/>Windows Server 2012 R2 (Azure Market) | NVIDIA Kılavuz 4.3 sürücüleri | Yok |
 
-* RDMA bağlantısı NC24r vm'lerde Windows Server 2012 R2 (Azure Marketi'nden) HpcVMDrivers uzantısı ve Microsoft MPI veya Intel MPI ile desteklenir.
+* RDMA bağlantısı NC24r, NC24r_v2 ve ND24r VM'ler HpcVMDrivers uzantısı ve Microsoft MPI veya Intel MPI ile Windows Server 2012 R2 (Azure Marketi'nden) desteklenir.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows havuzları - Cloud services yapılandırması
 

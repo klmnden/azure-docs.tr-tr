@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>İleti gözatma
 
-("Atmayı") gözatma ileti bir kuyruk veya genellikle tanılama için abonelik bulunan ve hata ayıklama amacıyla tüm iletileri numaralandırmak bir istemci sağlar.
+("Atmayı") gözatma ileti bir kuyruk veya genellikle tanılama için abonelik bulunan ve hata ayıklama amacıyla tüm iletileri numaralandırmak Service Bus istemci sağlar.
 
-Peek operations mevcut tüm iletileri kuyruğa veya abonelik iletisi günlükte değil yalnızca ile hemen alım için kullanılabilir dönmek *Receive()* veya *OnMessage()* döngü. *Durumu* her iletinin özelliği bildirir, ileti etkin olup (alınabilmesi kullanılabilir), ertelenmiş (erteleme [henüz Belirlenmedi bağlantı] bakın) veya zamanlanmış (zamanlanmış iletileri [henüz Belirlenmedi bağlantı] bakın).
+Peek operations mevcut tüm iletileri kuyruğa veya abonelik iletisi günlükte değil yalnızca ile hemen alım için kullanılabilir dönmek `Receive()` veya `OnMessage()` döngü. `State` Her iletinin özelliği bildirir, ileti etkin olup (alınabilmesi kullanılabilir), [ertelenmiş](message-deferral.md), veya [zamanlanmış](message-sequencing.md).
 
-Tüketilen ve süresi dolan iletileri Temizlenen bir zaman uyumsuz "Çöp toplama" çalıştırın ve mutlaka tam iletileri ne zaman sona ve bu nedenle gözlem süresi zaten dolmuş olan ve veya eski-lettered alma işlemi sırasında kaldırılır iletiler gerçekten döndürebilir işlemi, kuyruk veya abonelik sonraki çağrılır.
+Tüketilen ve süresi dolan iletileri Temizlenen bir zaman uyumsuz "Çöp toplama Çalıştır" ve mutlaka tam iletileri ne zaman sona, bu nedenle `Peek` süresi zaten dolmuş olan ve kaldırılacak iletiler veya eski lettered olduğunda gerçekten döndürebilir alma işlemi, kuyruk veya abonelik sonraki çağrılır.
 
 Bu, özellikle ertelenmiş iletileri sıradan kurtarmayı denediğinizde göz önünde bulundurmanız önemlidir. Kendisi için bir ileti [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) anlık geçtikten gözlem tarafından bile döndürülmüyor olduğunda artık normal alma diğer herhangi bir yöntem için uygun değil. Peek günlük geçerli durumunu yansıtan bir tanılama aracı olduğundan bu iletilerini döndürmek öğrenirken kalır.
 

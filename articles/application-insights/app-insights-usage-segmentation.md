@@ -10,17 +10,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 04efb82addd0f307c68c73e28e46b602e5bc194a
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.date: 01/24/2018
+ms.author: mbullwin; daviste
+ms.openlocfilehash: 1a5380cac08ab32cfea4cf457aed1fb1510099ed
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights kullanıcıları, oturumlar ve olayları çözümleme
 
-Kişilerin web uygulamanızı kullandığınızda, bunlar en, kullanıcılarınızın bulunduğu ilgileniyor hangi sayfaların, hangi tarayıcılar ve işletim sistemleri bunlar kullandığını öğrenin. İş ve kullanım telemetrisi kullanarak çözümlemek [Azure Application Insights](app-insights-overview.md).
+Kişiler bunlar en, burada kullanıcılarınızın bulunur ve hangi tarayıcılar ve işletim sistemleri kullandıkları ilgileniyor hangi sayfaların web uygulamanızı kullandığınızda öğrenin. İş ve kullanım telemetrisi kullanarak çözümlemek [Azure Application Insights](app-insights-overview.md).
+
+![Uygulama Öngörüler kullanıcıları ekran görüntüsü](./media/app-insights-usage-segmentation/0001-users.png)
 
 ## <a name="get-started"></a>başlarken
 
@@ -31,40 +33,35 @@ Kullanıcılar, oturumlar veya Application Insights portalında olayları Kanatl
 Üç kullanım Kanatlar aynı aracı dilimlediği telemetri üç perspektiflerden web uygulamanızı kullanın. Filtreleme ve veri bölme farklı sayfalarında ve özelliklerin göreli kullanımı hakkında Öngörüler açığa.
 
 * **Kullanıcılar aracını**: kaç kişinin uygulamanızı ve özelliklerini kullanılır.  Kullanıcıların, tarayıcı tanımlama bilgilerinde depolanan anonim kimlikleri kullanılarak sayılır. Farklı tarayıcılar ya da makineleri kullanan tek bir kişi olarak birden fazla kullanıcı sayılacaktır.
-* **Oturumlar aracını**: kullanıcı etkinliği kaç oturumları belirli sayfalarını ve özelliklerini, uygulamanızın eklediniz. Bir oturum kullanım sürekli 24 h veya kullanıcı yapılmadıktan yarım saat sonra sayılır.
+* **Oturumlar aracını**: kullanıcı etkinliği kaç oturumları belirli sayfalarını ve özelliklerini, uygulamanızın eklediniz. Bir oturum, kullanıcı yapılmadıktan yarım saat sürekli kullanımı 24 saat sonra veya sayılır.
 * **Olayları aracı**: belirli sayfalarını ve özelliklerini, uygulamanızın ne sıklıkta kullanılır. Sahip olduğunuz sağlanan sayfa görünümü bir tarayıcı, uygulamanızdan bir sayfa yüklediğinde sayılır [onu izlenmiş](app-insights-javascript.md). 
 
     Özel bir olay, bir şeyin uygulamanızı, genellikle bir düğmeye gibi bir kullanıcı etkileşimi veya bazı görev tamamlandığında bir oluşumu temsil eder. Uygulamanızda için kod ekleme [özel olayları](app-insights-api-custom-events-metrics.md#trackevent).
 
-![Kullanım aracı](./media/app-insights-usage-segmentation/users.png)
+## <a name="querying-for-certain-users"></a>Belirli kullanıcıların sorgulama
 
-## <a name="querying-for-certain-users"></a>Belirli kullanıcıların sorgulama 
+Farklı kullanıcı grupları, kullanıcıları aracın üstündeki sorgu seçeneklerini ayarlayarak keşfedin:
 
-Farklı kullanıcı grupları, kullanıcıları aracın üstündeki sorgu seçeneklerini ayarlayarak keşfedin: 
-
-* Kim: özel olaylar seçin ve sayfa görünümleri. 
-* İşlem sırasında: bir zaman aralığı seçin. 
-* Tarafından: bir süre veya tarayıcı veya şehir gibi başka bir özellik tarafından veri aralığı nasıl ek Yardım düğmesini seçin. 
+* Göster: çözümlemek için bir kohort kullanıcıları seçin.
+* Kim: özel olaylar seçin ve sayfa görünümleri.
+* İşlem sırasında: bir zaman aralığı seçin.
+* Tarafından: bir süre veya tarayıcı veya şehir gibi başka bir özellik tarafından veri aralığı nasıl ek Yardım düğmesini seçin.
 * Bölme: bir özellik olarak bölme veya kesimine verileri seçin. 
 * Filtreler ekleyin: belirli kullanıcılar, oturumlar ve olayları, tarayıcı veya şehir gibi özelliklerine göre sorgu sınırlayın. 
  
 ## <a name="saving-and-sharing-reports"></a>Kaydetme ve raporları paylaşma 
-Bu Application Insights kaynağı paylaşılan Raporlar bölümündeki erişimi olan başka herkesle kullanıcıların raporları, yalnızca, raporlarım bölümünde özel ya da paylaşılan kaydedebilirsiniz.  
- 
-Raporu kaydetme veya özelliklerini düzenlerken, "Geçerli göreli zaman bazı sabit süreyi geri dönerseniz sürekli yenilenen verileri bir raporu olacak şekilde aralığı" seçin.  
- 
-"Geçerli mutlak zaman sabit bir veri kümesiyle bir raporu kaydetmek için aralığı" seçin. Application Insights verileri yalnızca 90 90 günden itibaren mutlak zaman aralığı olan bir raporu geçmişse kaydedildiği şekilde gün süreyle depolanır unutmayın, rapor boş görünür. 
- 
-## <a name="example-instances"></a>Örnek örnekleri
+Bu Application Insights kaynağı paylaşılan Raporlar bölümündeki erişimi olan başka herkesle kullanıcıların raporları, yalnızca, raporlarım bölümünde özel ya da paylaşılan kaydedebilirsiniz.
 
-Örnek örnekleri bölümüne sayıda bireysel kullanıcıları, oturumları veya geçerli sorgu tarafından eşleşen olaylar hakkında bilgi gösterir. Dikkate ve toplamalar, yanı sıra kişiler davranışlarını keşfetme kişiler gerçekten uygulamanızı kullanma hakkında bilgiler sağlar. 
- 
-## <a name="insights"></a>Insights 
+Kullanıcıları, oturumları veya olayları rapora bir bağlantı paylaşmak için; tıklatın **paylaşımı** araç çubuğunda, ardından bağlantı kopyalayın.
 
-Öngörüler kenar ortak özellikleri paylaşır kullanıcılar büyük kümelerini gösterir. Bu kümeleri kişiler uygulamanızı kullanma şaşırtıcı eğilimleri ortaya çıkarmaya. Örneğin, tüm uygulamanızı kullanımı % 40 tek bir özelliğini kullanarak kişilerden geliyorsa.  
+Kullanıcıları, oturumları veya olayları rapordaki verilerin bir kopyasını paylaşmak için; tıklatın **paylaşımı** araç çubuğunda, ardından **Word simgesi** verilerle bir Word belgesi oluşturmak için. Veya tıklatın **Word simgesi** ana grafiğin üstünde.
 
+## <a name="meet-your-users"></a>Kullanıcılarınızın karşılayan
+
+**Kullanıcılarınızın karşılayan** bölüm geçerli sorgu tarafından eşleşen beş örnek kullanıcılar bilgileri gösterir. Dikkate ve toplamalar, yanı sıra kişiler davranışlarını keşfetme kişiler gerçekten uygulamanızı kullanma hakkında bilgiler sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - Kullanımı deneyimleri etkinleştirmek için göndermeye Başla [özel olaylar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) veya [sayfa görünümleri](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Özel olaylar veya sayfa görünümleri zaten gönderirseniz, kullanıcıların hizmetinizin kullanımını öğrenmek için kullanım araçları keşfedin.
     - [Huniler](usage-funnels.md)
@@ -72,4 +69,3 @@ Raporu kaydetme veya özelliklerini düzenlerken, "Geçerli göreli zaman bazı 
     - [Kullanıcı Akışları](app-insights-usage-flows.md)
     - [Çalışma kitapları](app-insights-usage-workbooks.md)
     - [Kullanıcı bağlamı Ekle](app-insights-usage-send-user-context.md)
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Azure Site Recovery kullanarak çok katmanlı SAP NetWeaver uygulama dağıtımı koruma
 
@@ -32,7 +32,7 @@ Azure Site Recovery ile şunları yapabilirsiniz:
 Bu makalede kullanarak SAP NetWeaver uygulama dağıtımları korumak nasıl [Azure Site Recovery](site-recovery-overview.md). Bu makalede Azure ile ilgili üç katmanlı SAP NetWeaver dağıtım Azure Site Recovery, desteklenen senaryolar ve yapılandırmaları kullanarak başka bir Azure veri merkezine çoğaltma tarafından korunması için en iyi yöntemler yer almaktadır ve yük devretme, gerçekleştirme hem de yük devretme (olağanüstü durum kurtarma ayrıntılarını) ve gerçek yük devretme testi.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce aşağıdakileri bildiğinizden emin olun:
 
 1. [Bir sanal makine Azure'a çoğaltma](azure-to-azure-walkthrough-enable-replication.md)
@@ -81,7 +81,7 @@ Bir statik IP kullanıyorsanız, sanal makinenin işlem ve ağ ayarlarının ağ
 Bir kurtarma planı çeşitli katmanlarda çok katmanlı bir uygulama, bu nedenle, uygulama tutarlılığını sağlamak için yük devretme sıralama sağlar. Açıklanan adımları izleyin [burada](site-recovery-create-recovery-plans.md) çok katmanlı web uygulaması için bir kurtarma planı oluşturma sırasında.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Betikleri kurtarma planına ekleniyor
-Azure sanal makineleri post yük devretme ve test yük devretme düzgün çalışması, uygulamalarınız için üzerindeki bazı işlemler yapmanız gerekebilir. DNS girişi güncelleştirme ve ilgili betikleri kurtarma planında açıklandığı gibi ekleyerek bağlamalar ve bağlantıları değiştirme gibi post yük devretme işlemi otomatikleştirebilirsiniz [bu makalede](site-recovery-create-recovery-plans.md#add-scripts).
+Azure sanal makineleri post yük devretme ve test yük devretme düzgün çalışması, uygulamalarınız için üzerindeki bazı işlemler yapmanız gerekebilir. DNS girişi güncelleştirme ve ilgili betikleri kurtarma planında açıklandığı gibi ekleyerek bağlamalar ve bağlantıları değiştirme gibi post yük devretme işlemi otomatikleştirebilirsiniz [bu makalede](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>DNS güncelleştirme
 DNS genellikle dinamik DNS güncelleştirmeleri ve ardından sanal makineleri için yapılandırılmışsa, DNS başladıktan sonra yeni IP ile güncelleştirin. Sanal makineleri yeni IP ile DNS güncelleştirme sonra bu eklemek için açık bir adım eklemek istiyorsanız [IP DNS'de güncelleştirmek için komut dosyası](https://aka.ms/asr-dns-update) kurtarma planı grupları sonrası eylemi olarak.  

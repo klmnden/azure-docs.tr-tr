@@ -15,17 +15,17 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 073b8adfcbe5fdcc2a6d1dba820a1101fac83218
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator uygulaması hakkında SSS
 
 Bu makalede Microsoft Authenticator uygulaması hakkında aldığımız sık sorulan sorular yanıtlanmaktadır. Sorunuzun yanıtını görmüyorsanız, Git [Microsoft Authenticator uygulama Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Ayrıca belirli bir özellikle ilgili başka bir SSS uygulama üzerinde sahip olduğumuz [oturum telefonunuz SSS oturum](microsoft-authenticator-app-phone-signin-faq.md).
 
-Microsoft Authenticator uygulamasını Azure Authenticator uygulamasını değiştirildi ve Azure çok faktörlü kimlik doğrulaması kullandığınızda önerilen uygulamadır. Microsoft Authenticator uygulaması [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Microsoft Authenticator uygulamasını Azure Authenticator uygulamasını değiştirildi ve Azure çok faktörlü kimlik doğrulaması kullandığınızda önerilen uygulamadır. Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -79,7 +79,7 @@ Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmal�
 >
 
 > [!IMPORTANT]
-> API Management bir sanal ağdan kaldırın veya içinde dağıtılan bir değişiklik, daha önce kullanılan VNET 4 saat için kilitli kalabilir. Bu süre zarfında VNET silin veya yeni bir kaynak dağıtma mümkün olmaz.
+> API Management bir sanal ağdan kaldırın veya içinde dağıtılan bir değişiklik, daha önce kullanılan VNET iki saate kadar kilitli kalabilir. Bu süre zarfında VNET silin veya yeni bir kaynak dağıtma mümkün olmaz.
 
 ## <a name="enable-vnet-powershell"></a>PowerShell cmdlet'lerini kullanarak etkinleştir VNET bağlantısı
 PowerShell cmdlet'lerini kullanarak VNET bağlantısı da etkinleştirebilirsiniz
@@ -99,7 +99,7 @@ Sanal ağınıza API Management hizmeti dağıtırken oluşabilecek yaygın yete
 * **Özel DNS Sunucusu Kurulumu**: API Management hizmeti üzerinde çeşitli Azure hizmetlerine bağlıdır. API Management, özel bir DNS sunucusu ile bir VNET içinde barındırıldığında Azure hizmetlerin ana bilgisayar adları çözümlemek gerekir. Lütfen izleyin [bu](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) özel DNS kurulumu hakkında yönergeler. Aşağıdaki bağlantı noktaları tablo ve diğer ağ gereksinimleri başvuru için bkz.
 
 > [!IMPORTANT]
-> VNET için bir özel DNS sunucularını kullanıyorsanız, ayarladığınız, önerilen **önce** içine bir API Management hizmeti dağıtma. Aksi takdirde, DNS sunucuları (s) çalıştırarak her seferinde değiştirirseniz API Management hizmeti güncelleştirmeniz gerekir [ağ yapılandırma işlemi Uygula](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> VNET için bir özel DNS sunucularını kullanmayı planlıyorsanız, kurmalısınız **önce** içine bir API Management hizmeti dağıtma. Aksi takdirde, API Management hizmeti çalıştırarak DNS sunucuları değiştirdiğinizde güncelleştirmeniz gerekir [ağ yapılandırma işlemi Uygula](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **API yönetimi için gereken bağlantı noktaları**: gelen ve giden trafik API Management dağıtıldığı alt içine kullanılarak denetlenebilir [ağ güvenlik grubu][Network Security Group]. Bu bağlantı noktalarının hiçbirinde yoksa, API Management düzgün çalışmayabilir ve erişilemez duruma gelebilir. Bir veya daha fazla engellenen Bu bağlantı noktalarına sahip başka bir ortak yetersizliğini API Management bir VNET ile birlikte kullanırken bir sorundur.
 
@@ -124,7 +124,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 
 * **DNS erişim**: DNS sunucuları ile iletişim için bağlantı noktası 53 giden erişim gereklidir. Özel bir DNS sunucusu bir VPN ağ geçidi diğer ucundaki varsa, DNS Sunucusu API Management barındıran alt ağdan erişilebilir olması gerekir.
 
-* **Ölçümleri ve sistem durumu izleme**: altında şu etki alanlarına çözmek Azure Monitoring uç noktalarına giden ağ bağlantısı: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
+* **Ölçümleri ve sistem durumu izleme**: altında şu etki alanlarına çözmek Azure Monitoring uç noktalarına giden ağ bağlantısı: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com.
 
 * **Hızlı rota Kurulum**: bir ortak müşteri bunun yerine şirket içi giden Internet akışına zorlar kendi varsayılan yol (0.0.0.0/0) tanımlamak için bir yapılandırmadır. Bu trafik akışı neredeyse şaşmaz biçimde ya da engellenen şirket içi giden trafik olduğundan veya tanınmayan bir artık çeşitli Azure uç noktaları ile çalışma adresleri kümesini NAT ister Azure API Management ile bağlantısını keser. Çözümü bir (veya daha fazla) kullanıcı tanımlı yollar tanımlamaktır ([Udr'ler][UDRs]) Azure API Management içeren alt ağ üzerinde. Bir UDR yerine varsayılan yol uyulacaktır alt özel yollar tanımlar.
   Mümkünse, aşağıdaki yapılandırmayı kullanmak için önerilir:
@@ -150,6 +150,13 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 
 * **Kaynak Gezinti Bağlantıları**: Resource Manager stili sanal alt dağıtırken, API Management alt kaynak Gezinti bağlantısı oluşturarak ayırır. Alt ağ zaten farklı bir sağlayıcı kaynağı içeriyorsa, dağıtım olacak **başarısız**. Benzer şekilde, bir API Management hizmeti farklı bir alt ağa taşıyın veya silin, biz bu kaynak Gezinti bağlantıyı kaldırır. 
 
+## <a name="subnet-size"></a> Alt ağ boyutu gereksinimi
+Her alt ağ içindeki bazı IP adreslerini Azure ayırır ve bu adresleri kullanılamaz. Alt ağlar ilk ve son IP adreslerini Azure Hizmetleri için kullanılan üç daha fazla adres birlikte Protokolü uyum için ayrılmıştır. Daha fazla bilgi için bkz: [bu alt ağ içindeki IP adresleri kullanma kısıtlamaları vardır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
+Azure sanal ağ altyapısı tarafından kullanılan IP adreslerinin yanı sıra, alt ağ kullanan iki IP adresi birim başına Premium SKU ya da bir 1 her API Management örnek IP adresi Geliştirici SKU için. Her bir örnek dış yük dengeleyici için 1 IP adresi ayırır. İç vnet dağıtırken, iç yük dengeleyici için ek bir IP adresi gerektirir.
+
+API Management dağıtılabilir alt hesaplanması minimum boyut yukarıda verilen 3 IP adreslerini sağlayan /29 olur.
+
 ## <a name="routing"></a> Yönlendirme
 + Bir yük dengeli ortak IP adresi (VIP), tüm hizmet uç noktalarına erişim sağlamak için ayrılacak.
 + Bir alt ağ IP aralığı (DIP) bir IP adresinden vnet içindeki kaynaklara erişmek için kullanılan ve bir genel IP adresi (VIP) sanal ağ dışında kaynaklara erişmek için kullanılır.
@@ -166,13 +173,14 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 * [Bir sanal ağ Vpn ağ geçidi kullanarak arka ucuna bağlama](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Farklı dağıtım modelinden bir sanal ağa bağlanma](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Azure API Management'te izleme API denetleyici kullanma çağırır](api-management-howto-api-inspector.md)
+* [Sanal ağ ile ilgili SSS](../virtual-network/virtual-networks-faq.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
-[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-private.png
-[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-public.png
+[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png
+[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-external.png
 
 [Enable VPN connections]: #enable-vpn
 [Connect to a web service behind VPN]: #connect-vpn

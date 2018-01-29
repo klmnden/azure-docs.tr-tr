@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps sınırları ve yapılandırma
 
@@ -85,12 +85,12 @@ Bu sınırlar çalıştıran tek bir mantıksal uygulama için geçerlidir.
 Bu sınırlar bir tek mantığı uygulama örneği için geçerlidir.
 
 | Ad | Sınır | Notlar | 
-| ---- | ----- | ----- | 
-| Eylemler yürütmeleri 5 dakika başına | 100,000 | İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
+| ----- | ----- | ----- | 
+| Eylemler yürütmeleri 5 dakika başına | 100,000 |<p>Bir mantıksal uygulama çalıştırarak 300000 kadar artırılabilir sınırı `High Througput` modu ve bu ayarlayarak yapılabilir `operationOptions` altında özellik`runtimeConfiguration` için iş akışı kaynağının `OptimizedForHighThroughput`. <p>Lütfen bu yüksek verimlilik modu önizlemede olduğuna dikkat edin. Ayrıca bir iş yükü gerektiği gibi birden çok uygulama arasında dağıtılabilir. | 
 | Eylemler eşzamanlı giden çağrıları | ~2,500 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
-| Çalışma zamanı uç noktası: eşzamanlı gelen çağrıları | ~1,000 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma | 60,000 | İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrı çağırma | 45,000 | İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: eşzamanlı gelen çağrıları |~1,000 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma  | 60,000 | İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrı çağırma| 45,000 |İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
 |||| 
 
 Bu sınırlar aşabilir bu sınırları normal işleme veya çalıştırılan bir yük testi aşmayı [Bize Ulaşın](mailto://logicappsemail@microsoft.com) böylece gereksinimlerinizle yardımcı olabiliriz.

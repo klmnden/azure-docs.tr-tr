@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim konumu koşullar 
 
@@ -100,7 +100,7 @@ Konum koşul yapılandırdığınızda ayırt etmek için seçeneğiniz vardır:
 
 ### <a name="any-location"></a>Herhangi bir konum
 
-Varsayılan olarak, seçme **herhangi bir yere** Internet üzerindeki herhangi bir adresi Bunun anlamı tüm IP adresleri için uygulanacak bir ilke neden olur. Bu ayar yok adlı konumu olarak yapılandırılmış IP adresleri için sınırlı değildir. Seçtiğinizde, **herhangi bir yere**, belirli konumlara hala bir ilkesinden hariç tutabilirsiniz. Örneğin, tüm konumlara bir ilke uygulayabilirsiniz şirket ağı dışındaki tüm konumlara kapsamını belirlemek için güvenilir konumlar excepts.
+Varsayılan olarak, seçme **herhangi bir yere** Internet üzerindeki herhangi bir adresi Bunun anlamı tüm IP adresleri için uygulanacak bir ilke neden olur. Bu ayar yok adlı konumu olarak yapılandırılmış IP adresleri için sınırlı değildir. Seçtiğinizde, **herhangi bir yere**, belirli konumlara hala bir ilkesinden hariç tutabilirsiniz. Örneğin, şirket ağı dışındaki tüm konumlara kapsamını belirlemek için güvenilen konumları dışındaki tüm konumlara yönelik bir ilke uygulayabilirsiniz.
 
 ### <a name="all-trusted-locations"></a>Tüm güvenilen konumlar
 

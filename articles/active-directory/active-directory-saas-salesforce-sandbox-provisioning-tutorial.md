@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Salesforce korumalı alan Azure Active Directory Tümleştirme | Microsoft Docs"
+title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Salesforce korumalı alan yapılandırma | Microsoft Docs"
 description: "Çoklu oturum açma Azure Active Directory ve Salesforce korumalı alan arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9ff50ddc2460a94c17b2401f0c8e4ad12c6d23a7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Öğretici: Salesforce korumalı alan otomatik kullanıcı sağlamayı için yapılandırma
+# <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Öğretici: Salesforce korumalı alan otomatik kullanıcı sağlamayı yapılandırın
 
 Bu öğreticinin amacı Salesforce korumalı alan ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den Salesforce korumalı alan sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
@@ -65,7 +65,7 @@ Bu bölümün amacı Salesforce korumalı alan Active Directory kullanıcı hesa
 
 4. Ayarlama **sağlama modunda** için **otomatik**.
 
-    ![Sağlama](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![sağlama](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 5. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki yapılandırma ayarları sağlar:
    

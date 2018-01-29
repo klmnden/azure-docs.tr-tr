@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -82,7 +82,7 @@ AD DS hesabı için ayarları artırmak için çalıştırabilirsiniz [bu PowerS
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Burada 
+Konum 
 
 **$ObjectDN** = Active Directory hesap izinlerini sıkılaştırıldığını gerekir.
 
@@ -401,7 +401,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Şunu seçin:|
-    |CertKeyAlgorithmParams|CertHashString|Burada|
+    |CertKeyAlgorithmParams|CertHashString|Konum|
     |||Avantaj ile|
 
 * Aşağıdaki şema değişiklikleri, sAMAccountName, domainNetBios ve Grup nesneleri için domainFQDN yanı sıra, kullanıcı nesnelerinin distinguishedName akış için özel eşitleme kuralları oluşturmak müşteriler izin vermek için sunulmuştur:
@@ -473,7 +473,7 @@ Azure AD Connect Eşitleme
   * Güncelleştirilmiş varsayılan eşitleme kural kümesi öznitelikleri değil dışarı aktarmak için **userCertificate** ve **userSMIMECertificate** öznitelikleri 15'ten fazla değerleri varsa.
   * AD öznitelikleri **EmployeeID** ve **msExchBypassModerationLink** şimdi varsayılan eşitleme kuralı kümesine eklenir.
   * AD özniteliği **fotoğraf** varsayılan eşitleme kuralı kümesinden kaldırılmıştır.
-  * Eklenen **preferredDataLocation** meta veri deposu şeması ve AAD bağlayıcı şema. Azure AD içinde ya da öznitelikleri güncelleştirmek istediğiniz müşterileri Bunu yapmak için özel eşitleme kurallarını uygulayabilir. Öznitelik hakkında daha fazla bilgi için makale bölümüne bakın. [Azure AD Connect eşitleme: varsayılan yapılandırması - PreferredDataLocation etkinleştir eşitlenmesi değişiklik yapmak nasıl](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Eklenen **preferredDataLocation** meta veri deposu şeması ve AAD bağlayıcı şema. Azure AD içinde ya da öznitelikleri güncelleştirmek istediğiniz müşterileri Bunu yapmak için özel eşitleme kurallarını uygulayabilir. 
   * Eklenen **userType** meta veri deposu şeması ve AAD bağlayıcı şema. Azure AD içinde ya da öznitelikleri güncelleştirmek istediğiniz müşterileri Bunu yapmak için özel eşitleme kurallarını uygulayabilir.
 
 * Azure AD Connect artık şirket içi kaynak bağlantısı özniteliği olarak ConsistencyGuid özniteliği kullanımını otomatik olarak etkinleştirir AD nesnelerini. Boş ise daha, Azure AD Connect ConsistencyGuid özniteliği objectGUID özniteliğinin değeri ile doldurur. Bu özellik yalnızca yeni dağıtımı için geçerlidir. Bu özellik hakkında daha fazla bilgi için makale bölümüne bakın. [Azure AD Connect: tasarım kavramları - sourceAnchor msDS-ConsistencyGuid kullanarak](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

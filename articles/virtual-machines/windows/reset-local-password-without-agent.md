@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/07/2017
+ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 880f5e5967298401fc2522124af3746d9906ffa8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f9efdbaf0ae79781d6f9c7dfa4c8317185be79e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>Azure VM için yerel Windows parola sıfırlama
-Azure kullanarak bir VM yerel Windows parolasını sıfırlama [Azure portalında veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Azure Konuk aracısı yüklü sağlanan. Bu yöntem, bir Azure VM için bir parola sıfırlama için birincil yoludur. Azure Konuk aracısı yanıt vermiyor ile sorunlarla ya da özel bir görüntü dosyalarını karşıya yükledikten sonra yüklemek başarısız, el ile yapabilecekleriniz Windows parola sıfırlama. Bu makalede kaynak işletim sistemi sanal disk için başka bir VM ekleyerek bir yerel hesap parolasını sıfırlama hakkında ayrıntılar. 
+# <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM için çevrimdışı yerel Windows parola sıfırlama
+Azure kullanarak bir VM yerel Windows parolasını sıfırlama [Azure portalında veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Azure Konuk aracısı yüklü sağlanan. Bu yöntem, bir Azure VM için bir parola sıfırlama için birincil yoludur. Azure Konuk aracısı yanıt vermiyor ile sorunlarla ya da özel bir görüntü dosyalarını karşıya yükledikten sonra yüklemek başarısız, el ile yapabilecekleriniz Windows parola sıfırlama. Bu makalede kaynak işletim sistemi sanal disk için başka bir VM ekleyerek bir yerel hesap parolasını sıfırlama hakkında ayrıntılar. Bu makalede açıklanan adımları Windows etki alanı denetleyicileri için geçerli değildir. 
 
 > [!WARNING]
 > Yalnızca bu işlemi son çare olarak kullanın. Kullanarak bir parolayı sıfırlamak her zaman deneyin [Azure portalında veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ilk.
@@ -39,6 +39,12 @@ Azure Konuk aracısı için erişimi olmadığında sıfırlama Azure Windows VM
 * Yeni VM önyüklendiğinde, oluşturduğunuz yapılandırma dosyalarını gerekli kullanıcı parolasını güncelleştirin.
 
 ## <a name="detailed-steps"></a>Ayrıntılı adımlar
+
+> [!NOTE]
+> Adımlar Windows etki alanı denetleyicileri için geçerli değildir. Yalnızca tek başına sunucu veya bir etki alanının üyesi olan bir sunucu üzerinde çalışır.
+> 
+> 
+
 Kullanarak bir parolayı sıfırlamak her zaman deneyin [Azure portalında veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) aşağıdaki adımları denemeden önce. Başlamadan önce VM yedeği olduğundan emin olun. 
 
 1. Azure portalında etkilenen VM silin. VM silme yalnızca VM içinden Azure başvuru meta verileri siler. VM silindiğinde sanal diskleri korunur:
@@ -86,7 +92,7 @@ Kullanarak bir parolayı sıfırlamak her zaman deneyin [Azure portalında veya 
      Version=1
      ```
      
-     ![GPT.ini oluşturma](./media/reset-local-password-without-agent/create_gpt_ini.png)
+     ![Create gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
 5. Oluşturma `scripts.ini` içinde `\Windows\System32\GroupPolicy\Machine\Scripts`. Gizli klasörlere gösterilen emin olun. Gerekirse, oluşturma `Machine` veya `Scripts` klasörler.
    
    * Aşağıdaki satırları ekleyin `scripts.ini` oluşturduğunuz dosyası:
@@ -104,10 +110,9 @@ Kullanarak bir parolayı sıfırlamak her zaman deneyin [Azure portalında veya 
     net user <username> <newpassword> /add
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
-
     ```
 
-    ![FixAzureVM.cmd oluşturma](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
+    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
    
     Yeni parola tanımlarken, VM için yapılandırılmış parola karmaşıklığı gereksinimlerini karşılamalıdır.
 7. Azure Portalı'nda, sorun giderme VM diski kullanımdan çıkarın:
@@ -115,7 +120,7 @@ Kullanarak bir parolayı sıfırlamak her zaman deneyin [Azure portalında veya 
    * Azure portalında sorun giderme VM seçin, *diskleri*.
    * Veri diski, 2. adımda eklenen seçin *ayırma*:
      
-     ![Disk ayırma](./media/reset-local-password-without-agent/detach_disk.png)
+     ![Diski kullanımdan çıkar](./media/reset-local-password-without-agent/detach_disk.png)
 8. Bir VM oluşturmadan önce kaynak işletim sistemi diski için URI alın:
    
    * Azure Portal'da depolama hesabı seçin, *BLOB'lar*.
@@ -137,9 +142,9 @@ Kullanarak bir parolayı sıfırlamak her zaman deneyin [Azure portalında veya 
 11. Yeni VM, uzak oturumunuzda, ortamını temizleyecek aşağıdaki dosyaları kaldırın:
     
     * %Windir%\System32
-      * FixAzureVM.cmd Kaldır
-    * %Windir%\System32\GroupPolicy\Machine\
-      * scripts.ini Kaldır
+      * remove FixAzureVM.cmd
+    * From %windir%\System32\GroupPolicy\Machine\
+      * remove scripts.ini
     * %Windir%\System32\GroupPolicy
       * (önce gpt.ini var ve gpt.ini.bak, .bak dosyası için gpt.ini geri yeniden adlandırma için adlandırdığınız varsa) GPT.ini Kaldır
 

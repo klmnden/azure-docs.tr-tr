@@ -10,11 +10,11 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/13/2017
-ms.openlocfilehash: 80ec9e177e5c1408eb28338c0c0acae9c672eeb1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2aae105b7454209131db79c60d74740ce97c21ce
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>Azure veritabanı geçiş hizmeti Önizleme nedir?
 Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma süresi ile birden çok veritabanı kaynakları sorunsuz kümesinden sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Hizmet şu anda odaklanan geliştirme çalışmalarını ile genel önizlemede değil:
@@ -34,6 +34,11 @@ Azure veritabanı geçiş hizmetinin genel Önizleme sürümü aşağıdaki böl
 - Güney Brezilya
 - Batı Avrupa
 - Kuzey Avrupa
+- Güneydoğu Asya
+- Batı Hindistan
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Azure portalı kullanarak Azure veritabanı geçiş hizmeti örneğini oluşturmak](quickstart-create-data-migration-service-portal.md).
+- [SQL Server Azure SQL veritabanına geçirme](tutorial-sql-server-to-azure-sql.md).
+- [Azure veritabanı geçiş hizmeti kullanma önkoşulları genel bakış](pre-reqs.md).
+- [Azure veritabanı geçiş hizmeti ile ilgili SSS](faq.md).

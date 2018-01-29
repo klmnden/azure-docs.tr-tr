@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b69f6b2190362b970420ba81450978ac9faecd86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Hazırlık Azure App Service ortamları ayarlama
 <a name="Overview"></a>
@@ -44,7 +44,7 @@ Uygulamayı çalışır durumda **standart** veya **Premium** modu, birden çok 
 1. İçinde [Azure Portal](https://portal.azure.com/), uygulamanızın açmak [kaynak dikey](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Seçin **dağıtım yuvası** seçeneğini ve ardından **yuva Ekle**.
    
-    ![Yeni bir dağıtım yuvası Ekle][QGAddNewDeploymentSlot]
+    ![Yeni bir dağıtım yuvası ekle][QGAddNewDeploymentSlot]
    
    > [!NOTE]
    > Uygulama zaten değilse **standart** veya **Premium** modu, aşamalı yayımlamayı etkinleştirmeye ilişkin desteklenen modları belirten bir ileti alırsınız. Bu noktada, seçmek için seçeneğiniz **yükseltme** gidin **ölçek** devam etmeden önce uygulamanızın sekmesi.
@@ -52,7 +52,7 @@ Uygulamayı çalışır durumda **standart** veya **Premium** modu, birden çok 
    > 
 3. İçinde **bir yuva eklemek** dikey penceresinde, yuva bir ad verin ve başka bir var olan dağıtım yuvası uygulama yapılandırmasından kopyalamak seçin. Devam etmek için onay işaretine tıklayın.
    
-    ![Yapılandırma kaynağı][ConfigurationSource1]
+    ![Yapılandırma Kaynağı][ConfigurationSource1]
    
     İlk kez bir yuva eklemek için yalnızca iki seçenek olacaktır: üretim ya da hiç varsayılan yuvadan kopya yapılandırma.
     Birkaç yuvaları oluşturduktan sonra üretim farklı bir yuvadan yapılandırmayı kopyalama mümkün olacaktır:
@@ -82,7 +82,7 @@ Başka bir dağıtım yuvası yapılandırmasından kopyaladığınızda kopyala
 **Değil takas ayarları**:
 
 * Yayımlama uç noktaları
-* Özel etki alanı adları
+* Özel Etki Alanı Adları
 * SSL sertifikaları ve bağlamaları
 * Ölçek ayarları
 * Web işleri zamanlayıcılar
@@ -107,7 +107,7 @@ Dağıtım yuvaları takas **genel bakış** veya **dağıtım yuvası** uygulam
 
 2. Takas kaynak ve hedef takas düzgün ayarlandığından emin olun. Genellikle, değiştirme hedefi üretim yuvasıdır. Tıklatın **Tamam** işlem tamamlanamadı. İşlem sona erdiğinde, dağıtım yuvaları takas.
 
-    ![Değiştirmeyi Tamamla](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Değiştirmeyi tamamla](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     İçin **Önizleme ile değiştirme** değiştirme türü için bkz: [(çok aşaması takas) önizleme ile değiştirme](#Multi-Phase).  
 
@@ -244,7 +244,7 @@ Azure CLI, Azure uygulama hizmeti dağıtım yuvaları yönetmek için destek da
 * Azure App Service'te Azure CLI için kullanılabilen komutları listelemek için arama `azure site -h`.
 
 > [!NOTE] 
-> İçin [Azure CLI 2.0](https://github.com/Azure/azure-cli) bkz: dağıtım yuvaları için komutları [az appservice web dağıtım yuvası](/cli/azure/appservice/web/deployment/slot).
+> İçin [Azure CLI 2.0](https://github.com/Azure/azure-cli) bkz: dağıtım yuvaları için komutları [az webapp dağıtım yuvası](/cli/azure/webapp/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>Azure site listesi

@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Azure otomatik kullanıcı sağlamayı Google uygulamaları yapılandırma | Microsoft Docs"
+title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Google uygulamaları yapılandırma | Microsoft Docs"
 description: "Otomatik olarak sağlamak ve Google Apps için kullanıcı hesapları Azure AD'den sağlanmasını öğrenin."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a77b5b1fff670ed7698d0ef48fa63f8a8f9be819
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Öğretici: Google Apps otomatik kullanıcı sağlamayı yapılandırın
 
 Bu öğreticinin amacı, size nasıl otomatik olarak sağlamak ve Azure Active Directory (Azure AD) kullanıcı hesaplarından Google Apps için sağlanmasını göstermektir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuz varsayılmaktadır:
 
