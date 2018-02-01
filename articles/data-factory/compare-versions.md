@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1 ile V2’yi karşılaştırma
 Bu makale, Azure Data Factory’nin V2 sürümünü V1 sürümüyle karşılaştırır. V1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye giriş](v1/data-factory-introduction.md). V2 hakkında giriş bilgileri için bkz. [Data Factory'ye giriş (V2 - önizleme)](introduction.md).
@@ -86,7 +86,7 @@ SSIS iş yüklerinizi buluta taşımak, V2 kullanarak bir veri fabrikası oluşt
 
 Azure-SSIS Integration Runtime, bulutta SSIS paketlerinizi çalıştırmaya ayrılmış Azure VM'lerin (düğümler) tam yönetilen bir kümesidir. Azure-SSIS Integration Runtime sağladıktan sonra, SSIS paketlerini şirket içi SSIS ortamına dağıtmak için kullandığınız araçları kullanabilirsiniz. 
 
-Örneğin, SQL Server Veri Araçları veya SQL Server Management Studio’yu kullanarak Azure’da bu çalışma zamanına SSIS paketleri dağıtabilirsiniz. Adım adım yönergeler için bkz. [SQL Server tümleştirme hizmetleri paketlerini Azure'a dağıtma](tutorial-deploy-ssis-packages-azure.md). 
+Örneğin, SQL Server Veri Araçları veya SQL Server Management Studio’yu kullanarak Azure’da bu çalışma zamanına SSIS paketleri dağıtabilirsiniz. Adım adım yönergeler için bkz. [SQL Server tümleştirme hizmetleri paketlerini Azure'a dağıtma](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Esnek zamanlama
 Data Factory V2’de veri kümesi kullanılabilirlik zaman çizelgelerini tanımlamanız gerekmez. İşlem hatlarını bir zaman çizelgesi oluşturma paradigmasından zamanlayabilen bir tetikleyici kaynak belirleyebilirsiniz. Esnek bir zamanlama ve yürütme modeli için, parametreleri tetikleyiciden işlem hatlarına geçirebilirsiniz. 

@@ -14,19 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-<<<<<<< HEAD
-ms.openlocfilehash: f0d33f7671cad7e5c5ef9c2320fcca19b4c89b24
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
 ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Denetim Azure içerik teslim ağı kuralları önbelleğe alma ile önbelleğe alma davranışı
 

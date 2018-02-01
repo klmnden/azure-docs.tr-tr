@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Azure CLI ile Blob depolama işlemleri gerçekleştirme
 
@@ -44,7 +44,7 @@ Bu öğretici, Azure CLI 2.0.4 veya üzeri bir sürümü gerektirir. Sürümü b
 
 Kapsayıcılar bilgisayarınızdaki dizinlere benzer ve kapsayıcıdaki blob gruplarını, dizindeki dosyaları düzenlediğiniz gibi düzenlemenize olanak sağlar. Bir depolama hesabında herhangi bir sayıda kapsayıcı olabilir. Bir kapsayıcıda, bir depolama hesabındaki en yüksek veri miktarı olan 500 TB blob verisi depolayabilirsiniz.
 
-[az storage container create](/cli/azure/storage/container#create) komutunu kullanarak blobları depolamak için bir kapsayıcı oluşturun.
+[az storage container create](/cli/azure/storage/container#az_storage_container_create) komutunu kullanarak blobları depolamak için bir kapsayıcı oluşturun.
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ Yeni oluşturulan bir kapsayıcı varsayılan olarak özeldir. Diğer bir deyiş
 
 Genel erişimi `blob` veya `container` olarak ayarladığınızda, salt okunur erişimi İnternet’teki herkes için etkinleştirirsiniz. Örneğin, web sitenizde bloblar olarak depolanan görüntüleri görüntülemek istiyorsanız, genel okuma erişimini etkinleştirmeniz gerekir. Okuma/yazma erişimini etkinleştirmek istiyorsanız, bunu yerine bir [paylaşılan erişim imzası (SAS)](#create-a-shared-access-signature-sas) kullanmanız gerekir.
 
-[az storage container set-permission](/cli/azure/storage/container#create) komutu ile kapsayıcınız için genel okuma erişimini etkinleştirin.
+[az storage container set-permission](/cli/azure/storage/container#az_storage_container_create) komutu ile kapsayıcınız için genel okuma erişimini etkinleştirin.
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları Azure Depolama içinde depolanan en yaygın blob türüdür. Ekleme blobları, verilerin mevcut içeriği değiştirmeden mevcut bir bloba eklenmesi gerektiğinde (örneğin günlüğe kaydetme için) kullanılır. Sayfa blobları IaaS sanal makinelerinin VHD dosyalarını yedekler.
 
-Bu örnekte, son adımda [az storage blob upload](/cli/azure/storage/blob#upload) komutuyla oluşturduğumuz kapsayıcıya bir blob yükleyeceğiz.
+Bu örnekte, son adımda [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) komutuyla oluşturduğumuz kapsayıcıya bir blob yükleyeceğiz.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, aksi takdirde 
 
 ## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-[az storage blob list](/cli/azure/storage/blob#list) komutuyla kapsayıcıdaki blobları listeleyin.
+[az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) komutuyla kapsayıcıdaki blobları listeleyin.
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Blob indirme
 
-Önceki bir adımda [az storage blob download](/cli/azure/storage/blob#download) komutunu kullanarak karşıya yüklediğiniz blobu indirin.
+Önceki bir adımda [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) komutunu kullanarak karşıya yüklediğiniz blobu indirin.
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Blob silme
 
-[az storage blob delete](/cli/azure/storage/blob#delete) komutunu kullanarak blobu kapsayıcıdan silin.
+[az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete) komutunu kullanarak blobu kapsayıcıdan silin.
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Blob özelliklerini ve meta verilerini görüntüleme ve değiştirme
 
-Her blobda, [az storage blob show](/cli/azure/storage/blob#show) komutuyla görüntüleyebileceğiniz hizmet tanımlı çeşitli özellikler (adı, türü, uzunluğu gibi) bulunur. Ayrıca [az storage blob metadata update](/cli/azure/storage/blob/metadata#update) komutunu kullanarak kendi özellikleriniz ve bunların değerleriyle bir blob yapılandırabilirsiniz.
+Her blobda, [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) komutuyla görüntüleyebileceğiniz hizmet tanımlı çeşitli özellikler (adı, türü, uzunluğu gibi) bulunur. Ayrıca [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update) komutunu kullanarak kendi özellikleriniz ve bunların değerleriyle bir blob yapılandırabilirsiniz.
 
-Bu örnekte, önce bir blobun hizmet tarafından tanımlanan özelliklerini görüntüleyip ardından kendi meta veri özelliklerimizden iki tanesiyle güncelleştireceğiz. Son olarak, [az storage blob metadata show](/cli/azure/storage/blob/metadata#show) komutuyla blobun meta veri özelliklerini ve bunların değerlerini görüntüleyeceğiz.
+Bu örnekte, önce bir blobun hizmet tarafından tanımlanan özelliklerini görüntüleyip ardından kendi meta veri özelliklerimizden iki tanesiyle güncelleştireceğiz. Son olarak, [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show) komutuyla blobun meta veri özelliklerini ve bunların değerlerini görüntüleyeceğiz.
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>Özel erişimi doğrulama
 
-Kapsayıcıdaki bloblara genel erişim olmadığını doğrulamak için, [az storage blob url](/cli/azure/storage/blob#url) komutuyla bloblarından birinin URL’sini alın.
+Kapsayıcıdaki bloblara genel erişim olmadığını doğrulamak için, [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url) komutuyla bloblarından birinin URL’sini alın.
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ az storage blob url \
 
 ### <a name="create-a-sas-uri"></a>SAS URI’si oluşturma
 
-Şimdi bloba erişim izni veren bir SAS URI’si oluşturacağız. Aşağıdaki örnekte, önce bir değişkeni [az storage blob url](/cli/azure/storage/blob#url) ile blob için URL’yle doldurur ve daha sonra başka bir değişkeni [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas) komutuyla oluşturulmuş bir SAS belirteciyle doldururuz. Son olarak, ikisini birleştirerek blob için `?` sorgu dizesi ayırıcıyla ayrılmış tam SAS URI’si çıkışını alacağız.
+Şimdi bloba erişim izni veren bir SAS URI’si oluşturacağız. Aşağıdaki örnekte, önce bir değişkeni [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url) ile blob için URL’yle doldurur ve daha sonra başka bir değişkeni [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas) komutuyla oluşturulmuş bir SAS belirteciyle doldururuz. Son olarak, ikisini birleştirerek blob için `?` sorgu dizesi ayırıcıyla ayrılmış tam SAS URI’si çıkışını alacağız.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ URL’nin süresinin dolması için bekleyin (bu örnekte iki dakika) ve ardınd
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Oluşturduğunuz depolama hesabı ve bu öğreticide karşıya yüklediğiniz bloblar dahil, kaynak grubunuzdaki hiçbir kaynağa artık ihtiyacınız yoksa [az group delete](/cli/azure/group#delete) komutuyla kaynak grubunu silin.
+Oluşturduğunuz depolama hesabı ve bu öğreticide karşıya yüklediğiniz bloblar dahil, kaynak grubunuzdaki hiçbir kaynağa artık ihtiyacınız yoksa [az group delete](/cli/azure/group#az_group_delete) komutuyla kaynak grubunu silin.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

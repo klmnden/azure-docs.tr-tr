@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Azure şablonuyla Linux sanal makine ölçek kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu başlangıç makalesinde bir Azure Resource Manager şablonu ile bir Linux sanal makinesi ölçek kümesi oluşturacaksınız. Ölçek kümesi oluşturmak için [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) veya [Azure portalı](virtual-machine-scale-sets-create-portal.md) da kullanabilirsiniz.
@@ -135,7 +135,7 @@ Bir ölçek kümesini dağıttığınızda VM uzantıları uygulama yükleme gib
 
 [![Şablonu Azure'a dağıtma](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Azure CLI 2.0 ile [az group deployment create](/cli/azure/group/deployment#create) komutunu kullanarak da Python HTTP sunucusunu Linux'ta dağıtabilirsiniz:
+Azure CLI 2.0 ile [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) komutunu kullanarak da Python HTTP sunucusunu Linux'ta dağıtabilirsiniz:
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ VM örnekleri için ölçek kümesi adı, örnek sayısı ve yönetici kimlik bi
 
 
 ## <a name="test-your-sample-application"></a>Örnek uygulamanızı test etme
-Uygulamanızı çalışır halde görmek için [az network public-ip list](/cli/azure/network/public-ip#show) ile yük dengeleyicisinin genel IP adresini alın:
+Uygulamanızı çalışır halde görmek için [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) ile yük dengeleyicisinin genel IP adresini alın:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ Yük dengeleyicinin genel IP adresini bir web tarayıcısına şu biçimde girin
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz:
+Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
