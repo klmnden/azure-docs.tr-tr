@@ -1,6 +1,6 @@
 ---
-title: "Azure İnternet’e yönelik yük dengeleyicisi oluşturma - PowerShell | Microsoft Docs"
-description: "PowerShell kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
+title: "Herkese açık yük dengeleyici oluşturma - PowerShell | Microsoft Docs"
+description: "PowerShell kullanarak Resource Manager’da herkese açık yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>PowerShell kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturma
+# <a name="get-started"></a>PowerShell kullanarak Resource Manager’da herkese açık yük dengeleyici oluşturma
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Çözümü Azure PowerShell kullanarak dağıtma
 
-Aşağıdaki yordamlarda, Azure Resource Manager ve PowerShell kullanarak İnternet’e yönelik yük dengeleyici oluşturma işlemleri açıklanmaktadır. Azure Resource Manager ile her bir kaynak ayrı ayrı oluşturulup yapılandırıldıktan sonra yük dengeleyici oluşturmak için bir araya getirilir.
+Aşağıdaki yordamlarda, Azure Resource Manager ve PowerShell kullanarak herkese açık yük dengeleyici oluşturma işlemleri açıklanmaktadır. Azure Resource Manager ile her bir kaynak ayrı ayrı oluşturulup yapılandırıldıktan sonra yük dengeleyici oluşturmak için bir araya getirilir.
 
 Yük dengeleyici dağıtmak için aşağıdaki nesneleri oluşturmanız ve yapılandırmanız gerekir:
 

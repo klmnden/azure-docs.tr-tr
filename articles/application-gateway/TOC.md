@@ -12,38 +12,40 @@
 ## [Birden çok kiracı desteği](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
-# Başlarken
-## Application Gateway Oluşturma
-### [Azure portal](application-gateway-create-gateway-portal.md)
-### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-### [Resource Manager Şablonu](application-gateway-create-gateway-arm-template.md)
-### [Azure CLI](application-gateway-create-gateway-cli.md)
-# Nasıl yapılır?
+# başlarken
+## [Azure portalı](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [Azure CLI](application-gateway-create-gateway-cli.md)
+# Nasıl yapılır
+## VMSS ile uygulama ağ geçidi oluşturma
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [Azure CLI](tutorial-create-vmss-cli.md)
+## [Şablon kullanma](application-gateway-create-gateway-arm-template.md)
 ## Web uygulaması güvenlik duvarını yapılandırma
-### [Azure portal](application-gateway-web-application-firewall-portal.md)
+### [Azure portalı](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
 ### [Azure CLI](application-gateway-web-application-firewall-cli.md)
 ## Web uygulaması güvenlik duvarı kurallarını özelleştirme
-### [Azure portal](application-gateway-customize-waf-rules-portal.md)
+### [Azure portalı](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 ## SSL yapılandırma
-### [Azure portal](application-gateway-ssl-portal.md)
+### [Azure portalı](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL ilkesi](application-gateway-configure-ssl-policy-powershell.md)
-## URL yol tabanlı yönlendirmeyi yapılandırma
-### [Azure portal](application-gateway-create-url-route-portal.md)
+## URL yolu tabanlı yönlendirmeyi yapılandırma
+### [Azure portalı](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [Azure CLI](application-gateway-create-url-route-cli.md)
 ## Birden çok site barındırmayı yapılandırma
-### [Azure portal](application-gateway-create-multisite-portal.md)
+### [Azure portalı](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Yeniden yönlendirmeyi yapılandırma
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Web uygulamalarını arka uç havuzu üyeleri olarak yapılandırma
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Sistem durumu araştırmalarını yapılandırma
-### [Azure portal](application-gateway-create-probe-portal.md)
+### [Azure portalı](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Azure Güvenlik Merkezi tümleştirmesi](application-gateway-integration-security-center.md)
 ## [Yük dengeleme hizmetlerini birleştirme](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)

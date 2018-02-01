@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="my-first-python-runbook"></a>İlk Python runbook Uygulamam
 
@@ -68,12 +68,11 @@ Tıklatın **kaydetmek** runbook'u kaydetmek için.
 Runbook’u üretimde kullanılabilir hale getirmek üzere yayımlamadan önce düzgün çalıştığından emin olmak için test etmeniz gerekir. Bir runbook'u test ettiğinizde, bunun **Taslak** sürümünü çalıştırır ve çıktısını etkileşimli olarak görüntülersiniz.
 
 1. Test bölmesini açmak için **Test bölmesi**’ne tıklayın.
-   ![Test Bölmesi](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. Testi başlatmak için **Başlat**’a tıklayın. Etkinleştirilen tek seçenek bu olmalıdır.
-1. Bir [runbook işi](automation-runbook-execution.md) oluşturulur ve durumu görüntülenir.
+2. Testi başlatmak için **Başlat**’a tıklayın. Etkinleştirilen tek seçenek bu olmalıdır.
+3. Bir [runbook işi](automation-runbook-execution.md) oluşturulur ve durumu görüntülenir.
    İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar. Bu taşınır *başlangıç* bir çalışan işi talep ettiğinde ve ardından *çalıştıran* runbook gerçekten çalışmaya başladığında.
-1. Runbook işi tamamlandığında çıktısı görüntülenir. Bu durumda, görmelisiniz *Hello World*.
-1. Tuvale geri dönmek için Test bölmesini kapatın.
+4. Runbook işi tamamlandığında çıktısı görüntülenir. Bu durumda, görmelisiniz *Hello World*.
+5. Tuvale geri dönmek için Test bölmesini kapatın.
 
 ## <a name="publish-and-start-the-runbook"></a>Yayımlama ve runbook'u Başlat
 
@@ -82,19 +81,18 @@ Bir runbook yayımladığınızda, Taslak sürümü mevcut yayımlanmış sürü
 Bu durumda, runbook oluşturduğunuz çünkü yayımlanmış bir sürüm henüz yok.
 
 1. Runbook’u yayımlamak için **Yayımla**’ya tıklayın ve sorulduğunda **Evet**’e tıklayın.
-   ![Yayımla düğmesi](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. Runbook'ta görüntülemek için sola kaydırırsanız, **Runbook'lar** Bölmesi şimdi gösterir bir **yazma durumu** , **yayımlanan**.
+2. Runbook'ta görüntülemek için sola kaydırırsanız, **Runbook'lar** Bölmesi şimdi gösterir bir **yazma durumu** , **yayımlanan**.
 1. Bölmeyi görüntülemek üzere geri sağa kaydırın **MyFirstRunbook-Python**.
    Üst kısımdaki seçenekler runbook’u başlatmamıza, görüntülememize, gelecek bir zamanda başlatılmak üzere zamanlamamıza ya da bir HTTP çağrısıyla başlatılabilmesi için [web kancası](automation-webhooks.md) oluşturmamıza olanak tanır.
-1. İstediğiniz runbook'u başlatmak için bu nedenle tıklatın **Başlat** ve ardından **Tamam** zaman Runbook'u Başlat dikey pencere açılır.
-1. Oluşturduğunuz runbook işi için bir iş bölmesi açıldı. Bu bölme kapatılabilir, ancak işin ilerleme durumunu izleyebilmek için bu durumda, bu açık bırakın.
-1. İş durumu gösterilen **iş özeti** ve runbook test zaman gördüğümüz durumların aynısıdır.
-1. Runbook durumu olarak *Tamamlandı* gösterilince **Çıktı**’ya tıklayın. Çıktı bölmesi açılır ve görebilirsiniz, *Hello World*.
-1. Çıktı bölmesini kapatın.
-1. Runbook işine ait Akışlar bölmesini açmak için **Tüm Günlükler**’e tıklayın. Çıktı akışında yalnızca *Merhaba Dünya* metnini görmelisiniz, ancak bu bölmede, runbook bunlara yazıyorsa Ayrıntılı ve Hata gibi runbook işine yönelik diğer akışlar da gösterilebilir.
-1. Akışlar bölmesini ve Python MyFirstRunbook bölmesine dönmek için iş bölmesini kapatın.
-1. Bu runbook’a ait İşler bölmesini açmak için **İşler**’e tıklayın. Bu bölmede, bu runbook tarafından oluşturulan tüm işler listelenir. İşi yalnızca bir kez çalıştırdığınız için sadece bir işin listelendiğini görmeniz gerekir.
-1. Runbook’u başlattığınızda, görüntülediğiniz iş bölmesini açmak için bu işe tıklayabilirsiniz. Böylece zaman içinde geri dönerek, belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntüleyebilirsiniz.
+2. İstediğiniz runbook'u başlatmak için bu nedenle tıklatın **Başlat** ve ardından **Tamam** zaman Runbook'u Başlat dikey pencere açılır.
+3. Oluşturduğunuz runbook işi için bir iş bölmesi açıldı. Bu bölme kapatılabilir, ancak işin ilerleme durumunu izleyebilmek için bu durumda, bu açık bırakın.
+4. İş durumu gösterilen **iş özeti** ve runbook test zaman gördüğümüz durumların aynısıdır.
+5. Runbook durumu olarak *Tamamlandı* gösterilince **Çıktı**’ya tıklayın. Çıktı bölmesi açılır ve görebilirsiniz, *Hello World*.
+6. Çıktı bölmesini kapatın.
+7. Runbook işine ait Akışlar bölmesini açmak için **Tüm Günlükler**’e tıklayın. Çıktı akışında yalnızca *Merhaba Dünya* metnini görmelisiniz, ancak bu bölmede, runbook bunlara yazıyorsa Ayrıntılı ve Hata gibi runbook işine yönelik diğer akışlar da gösterilebilir.
+8. Akışlar bölmesini ve Python MyFirstRunbook bölmesine dönmek için iş bölmesini kapatın.
+9. Bu runbook’a ait İşler bölmesini açmak için **İşler**’e tıklayın. Bu bölmede, bu runbook tarafından oluşturulan tüm işler listelenir. İşi yalnızca bir kez çalıştırdığınız için sadece bir işin listelendiğini görmeniz gerekir.
+10. Runbook’u başlattığınızda, görüntülediğiniz iş bölmesini açmak için bu işe tıklayabilirsiniz. Böylece zaman içinde geri dönerek, belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntüleyebilirsiniz.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Azure kaynaklarınızı yönetmek için kimlik doğrulaması ekleme
 
@@ -194,9 +192,7 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-Python runbook başlattığınızda (üzerinde **Test** dikey veya yayımlanan bir runbook olarak), parametreler için değerler girebilirsiniz **Runbook'u Başlat** altında dikey **parametreleri**.
-
-![Parametre değeri kutusu](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+Python runbook başlattığınızda (üzerinde **Test** sayfa veya yayımlanan bir runbook olarak), parametreler için değerler girebilirsiniz **Runbook'u Başlat** altında sayfa **parametreleri** .
 
 İlk kutusunda bir değer girmeniz başlattıktan sonra ikinci bir görünür ve, böylece gereken sayıda parametre değerlerini girebilirsiniz benzeri.
 

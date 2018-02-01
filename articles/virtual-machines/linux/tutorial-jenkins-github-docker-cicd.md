@@ -1,6 +1,6 @@
 ---
-title: "Jenkins ile azure'da geliştirme işlem hattı oluşturma | Microsoft Docs"
-description: "Her kod tamamlama Github'dan çeker ve uygulamanızı çalıştırmak için yeni bir Docker kapsayıcısı derlemeler Azure'da Jenkins sanal makine oluşturma hakkında bilgi edinin"
+title: "Jenkins ile Azure’da bir geliştirme işlem hattı oluşturma | Microsoft Docs"
+description: "Azure’da her kod işlendiğinde GitHub’dan çekerek uygulamanızı çalıştırmak için yeni bir Docker kapsayıcısı oluşturan bir Jenkins sanal makinesi oluşturmayı öğrenin"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,32 +16,32 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Jenkins, GitHub ve Docker ile azure'da bir Linux VM üzerinde bir geliştirme altyapısı oluşturma
-Uygulama geliştirme, derleme ve test aşaması otomatikleştirmek için sürekli tümleştirme ve dağıtım (CI/CD) ardışık düzen kullanabilirsiniz. Bu öğreticide, Azure VM temelinde CI/CD işlem hattı oluşturmak için nasıl dahil:
+# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturmayı öğrenin
+Uygulama geliştirme sürecinin derleme ve test aşamasını otomatikleştirmek için bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı kullanabilirsiniz. Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
 
 > [!div class="checklist"]
-> * Jenkins VM oluşturma
-> * Yükleme ve Jenkins yapılandırma
-> * GitHub ile Jenkins arasında Web kancası tümleştirme oluşturma
-> * Oluşturma ve GitHub yürütme Jenkins yapı işlerden tetikler
-> * Uygulamanız için Docker görüntü oluşturma
-> * Yeni Docker görüntü ve uygulamayı çalıştıran güncelleştirmeleri GitHub yürütme yapı doğrulayın
+> * Jenkins sanal makinesi oluşturma
+> * Jenkins’i yükleme ve yapılandırma
+> * GitHub ile Jenkins arasında web kancası tümleştirmesi oluşturma
+> * GitHub işlemelerinden Jenkins derleme işleri oluşturma ve tetikleme
+> * Uygulamanız için bir Docker görüntüsü oluşturma
+> * GitHub işlemelerinin yeni Docker görüntüsü oluşturduğunu ve çalışmakta olan uygulamayı güncelleştirdiğini doğrulama
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.22 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.22 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Jenkins örneği oluşturma
-Önceki bir öğretici içinde [Linux sanal bir makinede ilk önyükleme özelleştirmek nasıl](tutorial-automate-vm-deployment.md), bulut init VM özelleştirmesiyle otomatikleştirmek öğrendiniz. Bu öğretici bir bulut init dosya Jenkins ve Docker bir VM yüklemek için kullanır. Jenkins sürekli tümleştirme (CI) ve kesintisiz teslim (CD) etkinleştirmek için Azure ile sorunsuz bir şekilde tümleşen bir popüler açık kaynak Otomasyon sunucusudur. Jenkins kullanma hakkında daha fazla öğretici için bkz: [Jenkins Azure hub'ında](https://docs.microsoft.com/azure/jenkins/).
+[İlk önyüklemede Linux sanal makinelerini özelleştirme](tutorial-automate-vm-deployment.md) konulu önceki bir öğreticide, cloud-init ile VM özelleştirmeyi nasıl otomatikleştirebileceğinizi öğrendiniz. Bu öğreticide, cloud-init dosyası kullanarak bir VM’ye Jenkins and Docker yükleme öğretilir. Jenkins, sürekli tümleştirme (CI) ve sürekli teslimi (CD) etkinleştirmek için Azure ile sorunsuz bir şekilde tümleştirilen popüler bir açık kaynak otomasyon sunucusudur. Jenkins kullanmayla ilgili diğer öğreticiler için bkz. [Azure’da Jenkins merkezi](https://docs.microsoft.com/azure/jenkins/).
 
-Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init jenkins.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. Girin `sensible-editor cloud-init-jenkins.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+Geçerli kabuğunuzda *cloud-init-jenkins.txt* adlı bir dosya oluşturup aşağıdaki yapılandırmayı yapıştırın. Örneğin, dosyayı yerel makinenizde değil Cloud Shell’de oluşturun. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloud-init-jenkins.txt` adını girin. Başta birinci satır olmak üzere cloud-init dosyasının tamamının doğru bir şekilde kopyalandığından emin olun:
 
 ```yaml
 #cloud-config
@@ -64,16 +64,17 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
+  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
-Bir VM oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupJenkins* içinde *eastus* konumu:
+VM oluşturabilmek için önce [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte, *eastus* konumunda *myResourceGroupJenkins* adlı bir kaynak grubu oluşturulur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Şimdi bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create). Kullanım `--custom-data` bulut init yapılandırma dosyanızda geçirmek için parametre. Tam yolunu belirtmeniz *bulut init jenkins.txt* mevcut çalışma dizininizi dışında dosyasını kaydettiyseniz.
+Şimdi [az vm create](/cli/azure/vm#create) ile bir VM oluşturun. `--custom-data` parametresini kullanarak cloud-init yapılandırma dosyanızı geçirin. Dosyayı geçerli çalışma dizininizin dışına kaydettiyseniz *cloud-init-jenkins.txt* dosyasının tam yolunu belirtin.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -84,9 +85,9 @@ az vm create --resource-group myResourceGroupJenkins \
     --custom-data cloud-init-jenkins.txt
 ```
 
-Oluşturulan ve yapılandırılacak VM için birkaç dakika sürer.
+Sanal makinenin oluşturulup yapılandırılması birkaç dakika sürer.
 
-VM ulaşmak web trafiğine izin vermek için kullanın [az vm Aç-port](/cli/azure/vm#open-port) bağlantı noktasını açmak için *8080* Jenkins trafiği ve bağlantı noktası için *1337* bir örnek uygulamayı çalıştırmak için kullanılan Node.js uygulaması için:
+VM’nize web trafiğinin ulaşmasına izin vermek için [az vm open-port](/cli/azure/vm#open-port) komutunu kullanarak Jenkins trafiği için *8080* bağlantı noktasını, Node.js uygulaması için örnek uygulama çalıştırmaya yönelik *1337* bağlantı noktasını açın:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -94,86 +95,86 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 
 ```
 
 
-## <a name="configure-jenkins"></a>Jenkins yapılandırın
-Jenkins örneğinizi erişmek için VM genel IP adresi alın:
+## <a name="configure-jenkins"></a>Jenkins’i Yapılandırma
+Jenkins örneğinize erişmek için VM’nizin genel IP adresini edinin:
 
 ```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Güvenlik nedeniyle, Jenkins yüklemeyi başlatmak için VM üzerindeki bir metin dosyasında depolanan ilk yönetici parolasını girmeniz gerekir. SSH, VM için önceki adımda elde edilen ortak IP adresi kullanın:
+Güvenlik nedeniyle, Jenkins yüklemesini başlatmak için VM’nizde bir metin dosyasında saklanan ilk yönetici parolasını girmeniz gerekir. Önceki adımda edinilen genel IP adresini kullanarak VM’niz ile SSH bağlantısı kurun:
 
 ```bash
 ssh azureuser@<publicIps>
 ```
 
-Görünüm `initialAdminPassword` , Jenkins yükleyin ve onu kopyalamak için:
+Jenkins yüklemenizin `initialAdminPassword` değerini görüntüleyin ve kopyalayın:
 
 ```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-Dosya henüz kullanılabilir durumda değilse, Jenkins ve Docker yüklemeyi tamamlamak bulut başlatma birkaç dakika daha bekleyin.
+Dosya henüz kullanılamıyorsa cloud-init tarafından Jenkins ve Docker yüklemesinin tamamlanması için birkaç dakika daha bekleyin.
 
-Şimdi bir web tarayıcısı açın ve gidin `http://<publicIps>:8080`. İlk Jenkins Kurulum aşağıdaki gibi tamamlayın:
+Şimdi bir web tarayıcısı açıp `http://<publicIps>:8080` adresine gidin. Aşağıdaki adımları uygulayarak ilk Jenkins kurulumunu tamamlayın:
 
-- Kullanıcı adı girin **yönetici**, ardından sağlayın *initialAdminPassword* VM önceki adımda elde.
-- Seçin **yönetmek Jenkins**, ardından **eklentileri yönetme**.
-- Seçin **kullanılabilir**, ardından arama *GitHub* üstte metin kutusuna. Onay kutusunu için *GitHub eklentisi*seçeneğini belirleyip **şimdi yükleyip yeniden başlatma sonrasında**.
-- Onay kutusunu için **yeniden yükleme tamamlandığında ve herhangi bir iş çalışmadığı zaman Jenkins**, eklenti yükleyene kadar işlem bekleme tamamlandıktan sonra.
+- Kullanıcı adı olarak **admin** yazıp ardından bir önceki adımda VM’den edinilen *initialAdminPassword* değerini sağlayın.
+- **Jenkins’i Yönet**’i, sonra **Eklentileri yönet**’i seçin.
+- **Kullanılabilir**’i seçin, sonra üstteki metin kutusundan *GitHub* araması yapın. *GitHub eklentisi* kutusunu işaretleyip **Şimdi indir ve yeniden başlatma işleminden sonra yükle**’yi seçin.
+- **Yükleme tamamlandığında ve çalışan iş kalmadığında Jenkins’i yeniden başlat** kutusunu işaretleyin ve eklenti yükleme işleminin tamamlanmasını bekleyin.
 
 
-## <a name="create-github-webhook"></a>GitHub Web kancası oluşturma
-GitHub ile tümleştirme yapılandırmak için açın [Node.js Hello World örnek uygulaması](https://github.com/Azure-Samples/nodejs-docs-hello-world) Azure örneklerinden depoyu gelen. Kendi GitHub hesabınızda depoyu çatallaştırma için seçin **çatalı** sağ üst köşesindeki düğmesi.
+## <a name="create-github-webhook"></a>GitHub web kancası oluşturma
+GitHub tümleştirmesini yapılandırmak için Azure örnek deposundan [Node.js Hello World örnek uygulamasını](https://github.com/Azure-Samples/nodejs-docs-hello-world) açın. Depoyu kendi GitHub hesabınızla çatallamak için sağ üst köşedeki **Çatal Oluştur** düğmesini seçin.
 
-Oluşturduğunuz çatalı içinde bir Web kancası oluşturun:
+Oluşturduğunuz çatalın içinde bir web kancası oluşturun:
 
-- Seçin **ayarları**seçeneğini belirleyip **tümleştirmeler & Hizmetleri** sol taraftaki.
-- Seçin **Hizmet Ekle**, enter *Jenkins* filtre kutusuna.
-- Seçin *Jenkins (GitHub eklentisi)*
-- İçin **Jenkins kanca URL**, girin `http://<publicIps>:8080/github-webhook/`. Sondaki eklediğinizden emin olun /
-- Seçin **Hizmet Ekle**
+- **Ayarlar**’ı seçip sol taraftan **Tümleştirmeler ve hizmetler**’i seçin.
+- **Hizmet ekle**’yi seçip filtre kutusuna *Jenkins* yazın.
+- *Jenkins (GitHub eklentisi)* seçeneğini belirleyin
+- **Jenkins kanca URL’si** için şunu girin: `http://<publicIps>:8080/github-webhook/`. Sondaki / karakterini eklemeyi unutmayın
+- **Hizmet ekle**’yi seçin
 
-![GitHub Web kancası, forked deposuna ekleme](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+![GitHub web kancasını çatalı oluşturulan deponuza ekleyin](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
 
 ## <a name="create-jenkins-job"></a>Jenkins işi oluşturma
-Bir olay Jenkins yanıt kodu yürütme gibi Github'da sağlamak için Jenkins işi oluşturun. 
+Jenkins’in GitHub’daki kod işleme gibi olaylara yanıt vermesini sağlamak için bir Jenkins işi oluşturun. 
 
-Jenkins sitenizi seçin **yeni işleri oluşturmak** giriş sayfasından:
+Jenkins web sitenizde, giriş sayfasından **Yeni iş oluştur**’u seçin:
 
-- Girin *HelloWorld* iş adı olarak. Seçin **Serbest stilde proje**seçeneğini belirleyip **Tamam**.
-- Altında **genel** bölümünde, select **GitHub** proje ve çatallanmış depodaki URL'nizi girin *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- Altında **kaynak kodu Yönetimi** bölümünde, select **Git**, forked depodaki girin *.git* URL gibi *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
-- Altında **yapı tetikleyicileri** bölümünde, select **GITscm yoklama için GitHub kanca tetikleyici**.
-- Altında **yapı** bölümünde, seçin **Ekle derleme adımı**. Seçin **Kabuk yürütme**, enter `echo "Testing"` komut penceresinde.
-- Seçin **kaydetmek** işleri pencerenin altındaki.
+- İş adı olarak *HelloWorld* adını girin. **Serbest tarzda proje**’yi seçip **Tamam**’ı seçin.
+- **Genel** bölümünden **GitHub** projesini seçip çatalı oluşturulan deponuzun URL’sini *https://github.com/iainfoulds/nodejs-docs-hello-world* şeklinde girin
+- **Kaynak kodu yönetimi** bölümünden **Git**’i seçip çatalı oluşturulan deponuzun *.git* URL’sini *https://github.com/iainfoulds/nodejs-docs-hello-world.git* şeklinde girin
+- **Derleme Tetikleyicileri** bölümünden **GITScm yoklaması için GitHub kanca tetikleyicisi**’ni seçin.
+- **Derleme** bölümünden **Derleme adımı ekle**’yi seçin. **Kabuğu yürüt**’ü seçin ve komut penceresine `echo "Testing"` ifadesini girin.
+- İşler penceresinin en altından **Kaydet**’i belirleyin.
 
 
-## <a name="test-github-integration"></a>Test GitHub tümleştirme
-Jenkins GitHub tümleşme test etmek için bir değişiklik, çatalı uygulayın. 
+## <a name="test-github-integration"></a>GitHub tümleştirmesini test etme
+Jenkins ile GitHub tümleştirmesini test etmek için çatalınızda bir değişiklik işleyin. 
 
-Geri Github'da web kullanıcı Arabirimi, forked depoyu seçin ve ardından **index.js** dosya. Satır 6 okunacak şekilde bu dosyayı düzenlemek için Kurşun Kalem simgesini seçin:
+GitHub web kullanıcı arabirimine dönerek çatalı oluşturulan deponuzu seçip **index.js** dosyasını seçin. Kalem simgesini seçerek bu dosyayı 6. satırda şu yazacak şekilde düzenleyin:
 
 ```nodejs
 response.end("Hello World!");
 ```
 
-Değişikliklerinizi uygulamak için seçin **değişiklikleri** altındaki düğmesini.
+Değişikliklerinizi işlemek için alttaki **Değişiklikleri işle** düğmesini seçin.
 
-Jenkins içinde altında yeni bir yapı başlatır **yapı geçmiş** iş sayfanızı sol alt köşesindeki bölümü. Yapı numarası bağlantısına seçip **konsol çıkış** sol taraftaki. Jenkins alan, kodunuzun Github'dan çekildiğinde adımları görüntüleyebilir ve yapı eylemi ileti çıkaran `Testing` Konsolu'na. Github'da, her bir işleme yapıldığında Web kancası için Jenkins ulaştığında ve bu şekilde yeni bir derleme tetikler.
+Jenkins’de işinizin bulunduğu sayfanın sol alt köşesindeki **Derleme geçmişi** bölümünün altında yeni bir derleme başlar. Derleme numarası bağlantısını seçip sol taraftan **Konsol çıktısı**’nı seçin. Kodunuz GitHub’dan çekilirken ve derleme eylemi tarafından konsola çıktı olarak `Testing` mesajı iletilirken Jenkins’in uyguladığı adımları görebilirsiniz. GitHub’da her işleme gerçekleştirildiğinde web kancası bu şekilde Jenkins’e ulaşır ve yeni bir derleme tetikler.
 
 
-## <a name="define-docker-build-image"></a>Docker derleme görüntüyü tanımlayın
-GitHub yürütme üzerinde göre çalışan Node.js uygulaması görmenizi sağlar uygulamayı çalıştırmak için Docker görüntüsünü oluşturabilirsiniz. Görüntü uygulamanın çalıştığı kapsayıcı yapılandırma tanımlayan bir Dockerfile yerleşik olarak bulunur. 
+## <a name="define-docker-build-image"></a>Docker derleme görüntüsünü tanımlama
+Node.js uygulamasının GitHub işlemelerinize bağlı olarak çalışmasını görmek için uygulamayı çalıştırmaya yönelik bir Docker görüntüsü oluşturalım. Görüntü, uygulamayı çalıştıran kapsayıcının nasıl yapılandırılacağını tanımlayan bir Dockerfile’dan oluşturulur. 
 
-Bir önceki adımda oluşturduğunuz iş sonra adlı Jenkins çalışma dizini için VM SSH bağlantısı değiştirin. Bu örnekte, adlandırılması *HelloWorld*.
+VM’niz ile kurulan SSH bağlantısından, önceki adımlardan birinde oluşturduğunuz işin adını verdiğiniz Jenkins çalışma dizinine geçin. Bu örnekte *HelloWorld* olarak adlandırılmıştı.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Bu çalışma alanı dizindeki bir dosya oluşturun `sudo sensible-editor Dockerfile` ve aşağıdaki içeriğini yapıştırın. Tüm Dockerfile doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+`sudo sensible-editor Dockerfile` ile bu çalışma alanı dizininde bir dosya oluşturun ve aşağıdaki içeriği yapıştırın. Başta birinci satır olmak üzere Dockerfile’ın tamamının doğru bir şekilde kopyalandığından emin olun:
 
 ```yaml
 FROM node:alpine
@@ -186,17 +187,17 @@ RUN npm install
 COPY index.js /var/www/
 ```
 
-Alpine Linux kullanarak temel Node.js görüntü, Hello World uygulama çalıştıran çıkarır bağlantı noktası 1337 sonra uygulama dosyalarını kopyalar ve onu başlatır bu Dockerfile kullanır.
+Bu Dockerfile, Alpine Linux kullanan temel Node.js görüntüsünü kullanır, Hello World uygulamasının üzerinde çalıştığı 1337 bağlantı noktasını kullanıma açar ve sonra uygulama dosyalarını kopyalayıp uygulamayı başlatır.
 
 
 ## <a name="create-jenkins-build-rules"></a>Jenkins derleme kuralları oluşturma
-Önceki adımda, bir ileti konsola çıktı temel bir Jenkins yapı kuralı oluşturuldu. Bizim Dockerfile kullanın ve uygulamayı çalıştırmak için derleme adımı oluşturmak olanak sağlar.
+Önceki adımlardan birinde, çıktı olarak konsola mesaj gönderen temel bir Jenkins derleme kuralı oluşturmuştunuz. Dockerfile’ımızı kullanmak için derleme adımını oluşturalım ve uygulamayı çalıştıralım.
 
-Geri Jenkins örneğinizi içinde bir önceki adımda oluşturduğunuz işi seçin. Seçin **yapılandırma** aşağı kaydırın ve sol taraftaki **yapı** bölümü:
+Jenkins örneğine dönerek önceki adımlardan birinde oluşturduğunuz işi seçin. Sol taraftan **Yapılandır**’ı seçin ve aşağı kaydırarak **Derleme** bölümüne gidin:
 
-- Var olan kaldırmak `echo "Test"` adım oluşturma. Varolan derleme adımı kutusu sağ üst köşesinde bulunan kırmızı çarpı seçin.
-- Seçin **Ekle derleme adımı**seçeneğini belirleyip **Kabuk yürütme**
-- İçinde **komutu** kutusunda, aşağıdaki Docker komutları girin, ardından seçin **kaydetmek**:
+- Mevcut `echo "Test"` derleme adımınızı kaldırın. Mevcut derleme adımı kutusunun sağ üst köşesindeki kırmızı çarpı işaretini seçin.
+- **Derleme adımı ekle**’yi seçip **Kabuğu yürüt**’ü seçin
+- **Komut** kutusuna aşağıdaki Docker komutlarını girip **Kaydet**’i seçin:
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -204,39 +205,39 @@ Geri Jenkins örneğinizi içinde bir önceki adımda oluşturduğunuz işi seç
   docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
   ```
 
-Docker derleme adımları imaj ve Jenkins ile yapı numarası görüntüleri bir geçmişini sağlamak için etiketi oluşturun. Uygulamayı çalıştıran herhangi bir varolan kapsayıcıdaki durdurulur ve sonra kaldırılır. Yeni bir kapsayıcı görüntüsünü kullanarak başlatılır ve Node.js uygulamanızı github'da son işlemeleri göre çalıştırır.
+Docker derleme adımları bir görüntü oluşturur ve görüntülerin geçmişini tutabilmeniz için bunu Jenkins derleme numarasıyla etiketler. Uygulamayı çalıştıran mevcut kapsayıcılar varsa bunlar durdurulup kaldırılır. Daha sonra, yeni bir kapsayıcı görüntüyü kullanmaya başlar ve GitHub’daki en son işlemeleri temel alarak Node.js uygulamanızı çalıştırır.
 
 
-## <a name="test-your-pipeline"></a>İşlem hattınızı test
-Eylem tüm ardışık görmek için düzenleme *index.js* , forked GitHub deposuna dosya yeniden ve seçin **Commit değişiklik**. Jenkins için GitHub Web kancası üzerinde dayalı yeni bir iş başlatır. Docker görüntü oluşturma ve yeni bir kapsayıcı uygulamanızı başlatmak için birkaç saniye sürer.
+## <a name="test-your-pipeline"></a>İşlem hattınızı test etme
+İşlem hattının tamamını iş başında görmek için çatalı oluşturulan GitHub deponuzdaki *index.js* dosyasını yeniden düzenleyin ve **Değişikliği işle**’yi seçin. Jenkins’de GitHub’a yönelik web kancasını temel alan yeni bir iş başlatılır. Docker görüntüsünün oluşturulup uygulamanızın yeni bir kapsayıcıda başlatılması birkaç saniye alır.
 
-Gerekirse, VM genel IP adresi yeniden alın:
+Gerekirse VM’nizin genel IP adresini yeniden edinin:
 
 ```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Bir web tarayıcısı açın ve girin `http://<publicIps>:1337`. Node.js uygulamanızı görüntülenir ve en son işlemeleri GitHub çatalı içinde aşağıdaki gibi yansıtır:
+Bir web tarayıcısı açıp `http://<publicIps>:1337` adresini girin. Node.js uygulamanız görüntülenir ve GitHub çatalınızdaki son işlemeleri aşağıdaki gibi gösterir:
 
-![Çalışan Node.js uygulaması](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
+![Node.js uygulaması çalıştırma](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
 
-Artık başka bir düzenleme yapın *index.js* dosya Github'da ve değişikliği uygulayın. İş Jenkins içinde tamamlanması birkaç saniye bekleyin, sonra da yeni bir kapsayıcı şu şekilde çalışan, uygulamanın güncelleştirilmiş sürümünü görmek için web tarayıcınızı yenileyin:
+Şimdi GitHub’daki *index.js* dosyasında bir düzenleme işlemi daha yapın ve değişikliği işleyin. Jenkins’deki işin tamamlanması için birkaç saniye bekleyin, sonra uygulamanızın güncelleştirilen sürümünün aşağıdaki gibi yeni bir kapsayıcıda çalıştığını görmek için web tarayıcınızı yenileyin:
 
-![Başka bir GitHub yürütme sonrasında çalışan Node.js uygulaması](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
+![Başka bir GitHub işlemesinden sonra Node.js uygulamasını çalıştırma](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir Jenkins yapı her kod tamamlama çalıştırın ve uygulamanızı test etmek için Docker kapsayıcısı dağıtmak için GitHub yapılandırılmış. Şunları öğrendiniz:
+Bu öğreticide, GitHub’ı her kod işlemesinde bir Jenkins derleme işi çalıştıracak ve sonra uygulamanızı test etmek için bir Docker kapsayıcısı dağıtacak şekilde yapılandırdınız. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Jenkins VM oluşturma
-> * Yükleme ve Jenkins yapılandırma
-> * GitHub ile Jenkins arasında Web kancası tümleştirme oluşturma
-> * Oluşturma ve GitHub yürütme Jenkins yapı işlerden tetikler
-> * Uygulamanız için Docker görüntü oluşturma
-> * Yeni Docker görüntü ve uygulamayı çalıştıran güncelleştirmeleri GitHub yürütme yapı doğrulayın
+> * Jenkins sanal makinesi oluşturma
+> * Jenkins’i yükleme ve yapılandırma
+> * GitHub ile Jenkins arasında web kancası tümleştirmesi oluşturma
+> * GitHub işlemelerinden Jenkins derleme işleri oluşturma ve tetikleme
+> * Uygulamanız için bir Docker görüntüsü oluşturma
+> * GitHub işlemelerinin yeni Docker görüntüsü oluşturduğunu ve çalışmakta olan uygulamayı güncelleştirdiğini doğrulama
 
-Jenkins Visual Studio Team Services ile tümleştirme hakkında daha fazla bilgi için sonraki öğretici ilerleyin.
+Jenkins’i Visual Studio Team Services ile tümleştirme hakkında daha fazla bilgi edinmek için bir sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Jenkins ve Team Services ile uygulamaları dağıtma](tutorial-build-deploy-jenkins.md)
+> [Jenkins ve Team Services ile uygulama dağıtma](tutorial-build-deploy-jenkins.md)

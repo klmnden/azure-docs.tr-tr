@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory kullanarak birden çok tabloyu toplu olarak kopyalama
 Bu öğreticide **Azure SQL Veritabanından Azure SQL Veri Ambarı'na birkaç tabloyu kopyalama** işlemi gösterilmektedir. Aynı düzeni diğer kopyalama senaryolarında da uygulayabilirsiniz. Örneğin, SQL Server/Oracle’dan Azure SQL Veritabanı/Veri Ambarı/Azure Blob’a tablo kopyalama, Blob’dan Azure SQL Veritabanı tablolarına farklı yollar kopyalama.
@@ -195,7 +195,7 @@ Bu öğreticide, kaynak ve hedef SQL tabloları veri kümesi tanımında sabit k
 5. **Parametreler** sekmesine geçin ve **+ Yeni**’ye tıklayın.
 
     ![Kaynak veri kümesi bağlantı sayfası](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Parametre adı olarak **DWTableName** girin. 
+6. Parametre adı olarak **DWTableName** girin. Bu adı sayfadan kopyalayıp yapıştırırken **DWTableName** komutunun sonunda **boşluk karakteri olmadığından** emin olun. 
 7. **Parametreli özellikler** bölümünde, **tableName** özelliği için `@{dataset().DWTableName}` girin. Veri kümesinin **tableName** özelliği, **DWTableName** parametresine bağımsız değişken olarak geçirilen değere ayarlanır. ForEach etkinliği bir tablo listesi boyunca yinelenir ve birer birer Kopyalama etkinliğine geçirilir. 
    
     ![Parametre adı](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

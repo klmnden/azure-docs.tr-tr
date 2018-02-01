@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f43c95753e2cb190270a25fecd4c490e6fb0ed34
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -35,7 +35,7 @@ Sanal ağ eşlemesini kullanmanın avantajları şunlardır:
 
 ## <a name="requirements-constraints"></a>Gereksinimler ve kısıtlamalar
 
-* Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. Farklı bölgelerdeki sanal ağları eşleme özelliği ABD Orta Batı, Kanada Orta ve ABD Batı 2 bölgelerinde önizleme sürümündedir. Farklı bölgelerdeki sanal ağları eşlemeden önce, önizleme için [aboneliğinizi kaydetmeniz](virtual-network-create-peering.md#register) gerekir. Önizleme için kaydı tamamlamadıysanız, farklı bölgelerdeki sanal ağlar arasında bir eşleme oluşturma denemesi başarısız olur.
+* Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. Farklı bölgelerdeki sanal ağları eş düğümleme, şu anda ABD Orta Batı, Kanada Orta, ABD Batı 2, Kore Güney, UK Güney, UK Batı, Kanada Doğu, Hindistan Güney, Hindistan Orta ve Hindistan Batı bölgelerinde önizleme aşamasındadır. Farklı bölgelerdeki sanal ağları eşlemeden önce, önizleme için [aboneliğinizi kaydetmeniz](virtual-network-create-peering.md#register) gerekir. Önizleme için kaydı tamamlamadıysanız, farklı bölgelerdeki sanal ağlar arasında bir eşleme oluşturma denemesi başarısız olur.
     > [!WARNING]
     > Birden fazla bölge arasında oluşturulan sanal ağ eşlemeleri genel kullanım sürümünde mevcut olan eşlemelerle aynı kullanılabilirlik ve güvenilirlik seviyesine sahip değildir. Sanal ağ eşlemeleri sınırlı özelliklere sahip olabilir ve tüm Azure bölgelerinde kullanılamayabilir. Bu özelliğin kullanılabilirliği ve durumuyla ilgili en güncel bildirimler için, [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasına bakın.
 

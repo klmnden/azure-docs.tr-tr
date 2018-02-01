@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
@@ -50,16 +50,7 @@ Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/detai
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Bölge olarak yedekli depolama
-
-Bölge olarak yedekli depolama (ZRS) (Önizleme), yüksek oranda kullanılabilir uygulamalar geliştirmeyi kolaylaştırmak için tasarlanmıştır. ZRS depolama nesneler en az %99.9999999999 için dayanıklılık sağlar (12 9'in) belirli bir yılın üstünde. ZRS, verilerinizin eşzamanlı olarak birden çok kullanılabilirlik dilimlerinde çoğaltır. İşlemsel uygulamaları kapalı kalma süresi kabul edilebilir olduğu gibi senaryolar için ZRS göz önünde bulundurun.
-
-ZRS okumak ve tek bir bölge kullanılamıyor veya kurtarılamaz olduğunda bile veri yazmak müşterilerin sağlar. Ekler ve veri güncelleştirmeleri zaman uyumlu olarak yapılan ve kesinlikle tutarlı.   
-
-ZRS şu anda aşağıdaki bölgelerde, daha fazla bölgeleriyle yakında Önizleme için kullanılabilir:
-
-- ABD Doğu 2 
-- ABD Orta 
-- Fransa Merkezi (Bu şu anda önizlemede bölgedir. Bkz: [Azure kullanılabilirlik bölgeleri Fransa içinde artık açık ile Microsoft Azure Önizleme](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) erişim isteğinde bulunmak için.)
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>ZRS Klasik hesapları
 

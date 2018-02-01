@@ -1,8 +1,8 @@
 ---
-title: "Bir işlev için bir OpenAPI tanımı oluşturun | Microsoft Docs"
-description: "Diğer uygulamalar ve Azure içinde bir işlevi çağırmak hizmetleri sağlayan bir OpenAPI tanımı oluşturun."
+title: "Bir işlev için OpenAPI tanımı oluşturma | Microsoft Docs"
+description: "Azure’da diğer uygulama ve hizmetlerin işlevinize çağrı yapmasına imkan tanıyan bir OpenAPI tanımı oluşturun."
 services: functions
-keywords: "OpenAPI, Swagger, bulut uygulamaları, bulut Hizmetleri,"
+keywords: "OpenAPI, Swagger, bulut uygulamaları, bulut hizmetleri,"
 documentationcenter: 
 author: mgblythe
 manager: cfowler
@@ -16,28 +16,28 @@ ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-an-openapi-definition-for-a-function"></a>Bir işlev için bir OpenAPI tanımı oluştur
-REST API'leri, OpenAPI tanımı kullanılarak genellikle açıklanmıştır (önceki adıyla bilinen bir [Swagger](http://swagger.io/) dosyası). Bu tanım hangi işlemlerin bir API kullanılabilir olduğunu ve API istek ve yanıt verilerini nasıl yapılandırılacağını hakkında bilgi içerir.
+# <a name="create-an-openapi-definition-for-a-function"></a>Bir işlev için OpenAPI tanımı oluşturma
+REST API’ler genellikle bir OpenAPI tanımı (eski adıyla [Swagger](http://swagger.io/) dosyası) kullanılarak açıklanır. Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir.
 
-Bu öğreticide, bir Acil Onarım Rüzgar Türbin üzerinde uygun maliyetli olup olmadığını belirleyen bir işlev oluşturun. Böylece işlevi diğer uygulama ve hizmetlere çağrılabilir ardından işlev uygulaması için bir OpenAPI tanımı oluşturun.
+Bu öğreticide, bir rüzgar türbini için acil onarımın uygun maliyetli olup olmadığını belirleyen bir işlev oluşturursunuz. Daha sonra, işleve diğer uygulama ve hizmetlerden çağrı yapılabilmesi için işlev uygulamasına yönelik bir OpenAPI tanımı oluşturursunuz.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir işlev oluşturma
-> * OpenAPI Araçları'nı kullanarak bir OpenAPI tanımı oluştur
-> * Ek meta verilerini sağlamak için tanımını değiştirin
-> * İşlevini çağırarak tanımı test
+> * Azure’da işlev oluşturma
+> * OpenAPI araçlarını kullanarak OpenAPI tanımı oluşturma
+> * Tanımı ek meta veri sağlayacak şekilde değiştirme
+> * İşleve çağrı yaparak tanımı test etme
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
-İşlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlevler ölçekleme ve kaynak paylaşımı, bir mantıksal birim olarak daha kolay yönetim için dağıtım, Grup işlevi uygulama sağlar. 
+İşlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, kaynakların daha kolay yönetilmesi, dağıtılması, ölçeklendirilmesi ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -46,23 +46,23 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="create-the-function"></a>İşlevi oluşturma
 
-Bu öğretici iki parametre isteyen bir HTTP tetiklenen işlevi kullanır: (saat); onarma türbin yapmak için gereken tahmini süre ve (içinde kilowatt) Türbin kapasitesi. İşlev sonra ne kadar onarım maliyetlidir, hesaplar ve ne kadar gelir türbin yapmak 24 saatlik süre içinde.
+Bu öğreticide HTTP ile tetiklenen ve şu iki parametreyi alan bir işlev kullanılır: türbin onarımı için gereken tahmini süre (saat cinsinden) ve türbinin kapasitesi (kilovat cinsinden). Daha sonra, işlev tarafından onarım maliyetinin ne olacağı ve türbinin 24 saatlik bir dönemde ne kadar gelir kazandırabileceği hesaplanır.
 
-1. İşlev uygulamanızı genişletin ve seçin  **+**  düğmesine **işlevler**. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir. 
+1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesini seçin. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir. 
 
     ![Azure portalındaki İşlevler hızlı başlangıç sayfası](media/functions-openapi-definition/add-first-function.png)
 
-2. Arama alanına yazın `http` ve ardından **C#** HTTP tetikleyicisi şablonu için. 
+2. Arama alanına `http` yazıp HTTP tetikleyici şablonunuz için **C#** dilini seçin. 
  
     ![HTTP tetikleyicisini seçin](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. Tür `TurbineRepair` işlevi için **adı**, seçin `Function` için  **[kimlik doğrulama düzeyi](functions-bindings-http-webhook.md#http-auth)**ve ardından **oluşturma**.  
+3. İşlevin **Ad** alanına `TurbineRepair` yazın, **[Kimlik doğrulama düzeyi](functions-bindings-http-webhook.md#http-auth)** için `Function` seçeneğini belirleyip **Oluştur**’u seçin.  
 
-    ![HTTP tetiklenen bir işlev oluşturun](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![HTTP ile tetiklenen işlevi oluşturun](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
-1. Run.csx dosyasının içeriğini aşağıdaki kodla değiştirin ve ardından **kaydetmek**:
+1. run.csx dosyasının içeriğini aşağıdaki kodla değiştirip **Kaydet**’e tıklayın:
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 
@@ -96,9 +96,9 @@ Bu öğretici iki parametre isteyen bir HTTP tetiklenen işlevi kullanır: (saat
         }); 
     }
     ```
-    Bu işlev kodu bir ileti döndürür `Yes` veya `No` Acil Durum Onarım uygun maliyetli, olup yanı sıra Türbin temsil eden gelir fırsatı ve maliyet Türbin düzeltmek için belirtmek için. 
+    Bu işlev kodu, acil onarımın uygun maliyetli olup olmadığının yanı sıra türbinin temsil ettiği gelir fırsatını ve türbin onarımının maliyetini gösteren `Yes` veya `No` şeklinde bir ileti döndürür. 
 
-1. İşlevi test etmek için tıklatın **Test** test sekmesi genişletmek sağ uçta. Aşağıdaki değerini girmeniz **istek gövdesinde**ve ardından **çalıştırmak**.
+1. İşlevi test etmek için en sağdaki **Test** seçeneğine tıklayarak test sekmesini genişletin. **İstek gövdesi** için aşağıdaki değeri girip **Çalıştır**’a tıklayın.
 
     ```json
     {
@@ -107,43 +107,43 @@ Bu öğretici iki parametre isteyen bir HTTP tetiklenen işlevi kullanır: (saat
     }
     ```
 
-    ![Azure portalında işlevi test etme](media/functions-openapi-definition/test-function.png)
+    ![İşlevi Azure portalında test etme](media/functions-openapi-definition/test-function.png)
 
-    Aşağıdaki değeri yanıt gövdesi döndürülür.
+    Yanıtın gövdesinde aşağıdaki değer döndürülür.
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-Artık Acil Durum Onarım düşük belirleyen işlev var. Ardından, oluşturmak ve işlev uygulaması için bir OpenAPI tanımı değiştirin.
+Acil onarımların maliyet açısından uygunluğunu belirleyen bir işleviniz oldu. Bir sonraki öğreticide, işlev uygulaması için bir OpenAPI tanımı oluşturup bu tanımı düzenleyeceksiniz.
 
-## <a name="generate-the-openapi-definition"></a>OpenAPI tanımı oluştur
+## <a name="generate-the-openapi-definition"></a>OpenAPI tanımını oluşturma
 
-Artık OpenAPI tanımı oluşturmak hazırsınız. Bu tanım API uygulamaları gibi diğer Microsoft teknolojileri tarafından kullanılan [PowerApps](functions-powerapps-scenario.md) ve [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), iyi gibi üçüncü taraf geliştirici araçları dilediğiniz şekilde [Postman](https://www.getpostman.com/docs/importing_swagger) ve [pek çok daha fazla paket](http://swagger.io/tools/).
+Artık OpenAPI tanımını oluşturmaya hazırsınız. Bu tanımı API Uygulamaları, [PowerApps](functions-powerapps-scenario.md) ve [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md) gibi diğer Microsoft teknolojilerinin yanı sıra [Postman](https://www.getpostman.com/docs/importing_swagger) ve [diğer birçok paket](http://swagger.io/tools/) gibi üçüncü taraf geliştirici araçları kullanabilir.
 
-1. Yalnızca seçin *fiiller* API'nizi (Bu örnek POSTASINA) destekler. Bu, oluşturulan API tanımı temizleyici sağlar.
+1. Yalnızca API'nizin desteklediği *fiilleri* (bu durumda POST) seçin. Bu, oluşturulan API tanımının daha temiz olmasını sağlar.
 
-    1. Üzerinde **tümleştir** yeni HTTP tetikleyicisini işlevinizi değişiklik sekmesinde **izin verilen HTTP yöntemleri** için **seçili yöntemleri**
+    1. Yeni HTTP Tetikleyici işlevinizin **Tümleştir** sekmesinde, **İzin verilen HTTP metotları**’nı **Seçili metotlar** olarak değiştirin
 
-    1. İçinde **seçili HTTP yöntemleri**, dışında her seçeneğini temizleyin **POST**, ardından **kaydetmek**.
+    1. **Seçili HTTP metotları** bölümünde **POST** dışındaki tüm seçenekleri temizleyip **Kaydet**’e tıklayın.
 
         ![Seçili HTTP metotları](media/functions-openapi-definition/selected-http-methods.png)
         
-1. İşlev uygulaması adınıza tıklayın (gibi **işlevi demo enerji**) > **Platform özellikleri** > **API tanımı**.
+1. İşlev uygulamanızın adı (**function-demo-energy** gibi) > **Platform özellikleri** > **API tanımı**’na tıklayın.
 
     ![API tanımı](media/functions-openapi-definition/api-definition.png)
 
-1. Üzerinde **API tanımı** sekmesini tıklatın, **işlevi**.
+1. **API tanımı** sekmesinde **İşlev**’e tıklayın.
 
     ![API tanımı kaynağı](media/functions-openapi-definition/api-definition-source.png)
 
-    Bu adım bir paketi işlevi uygulamanızın etki alanı, bir satır içi kopyasını OpenAPI dosyasından barındırmak için bir uç nokta da dahil olmak üzere işlevi uygulamanız için OpenAPI seçeneklerini etkinleştirir [OpenAPI Düzenleyicisi](http://editor.swagger.io)ve bir API tanımı şablon oluşturucu.
+    Bu adım, işlev uygulamanız için işlev uygulamanızın etki alanından bir OpenAPI dosyasının barındırılmasına yönelik uç nokta, [OpenAPI Düzenleyicisi](http://editor.swagger.io)’nin satır içi bir kopyası ve bir API tanım şablonu oluşturucu dahil olmak üzere bir dizi OpenAPI seçeneğini etkinleştirir.
 
-1. Tıklatın **oluşturmak API tanımı şablonu** > **kaydetmek**.
+1. **API tanımı şablonu oluşturun** > **Kaydet**’e tıklayın.
 
-    ![API tanımı şablonu oluşturun](media/functions-openapi-definition/generate-template.png)
+    ![API tanımı şablonu oluşturma](media/functions-openapi-definition/generate-template.png)
 
-    Azure işlevi uygulamanız HTTP tetikleyicisini işlevleri için tarar ve OpenAPI tanımı oluşturmak için functions.json bilgilerinizi kullanır. Oluşturulan tanımı aşağıda verilmiştir:
+    Azure, işlev uygulamanızdaki HTTP Tetikleyicisi işlevlerini tarar ve functions.json dosyasındaki bilgileri kullanarak bir OpenAPI tanımı oluşturur. Oluşturulan tanım şudur:
 
     ```yaml
     swagger: '2.0'
@@ -178,10 +178,10 @@ Artık OpenAPI tanımı oluşturmak hazırsınız. Bu tanım API uygulamaları g
         in: query
     ```
 
-    Bu tanım olarak tanımlanan bir _şablonu_ , tam bir OpenAPI tanımı olması için daha fazla meta veri gerektiriyor. Sonraki adımda tanımı değiştireceksiniz.
+    Bu tanımın tam bir OpenAPI tanımı olabilmesi için daha fazla meta veri gerektiğinden tanım bir _şablon_ olarak tanımlanmıştır. Bu tanımı bir sonraki adımda değiştireceksiniz.
 
-## <a name="modify-the-openapi-definition"></a>OpenAPI tanımını değiştirin
-Bir şablon tanımı sahip olduğunuza göre API işlemleri ve veri yapıları hakkında ek meta veriler sağlayacak şekilde değiştirin. İçinde **API tanımı**, oluşturulan tanımından Sil `post` tanımı altına, içeriği yapıştırın ve tıklatın **kaydetmek**.
+## <a name="modify-the-openapi-definition"></a>OpenAPI tanımını değiştirme
+Artık bir şablon tanımınız olduğuna göre, API'nin işlemleri ve veri yapıları hakkında ek meta veri sağlamak için bunu değiştirirsiniz. **API tanımı**’nda, tanımın altındaki `post` bölümünden oluşturulan tanımı silin, içeriği aşağıya yapıştırın ve **Kaydet**’e tıklayın.
 
 ```yaml
     post:
@@ -243,63 +243,63 @@ securityDefinitions:
     in: query
 ```
 
-Bu durumda yalnızca güncelleştirilmiş meta verilerde yapıştırın, ancak biz varsayılan şablona yapılan değişiklikler türlerini anlamak önemlidir:
+Bu durumda yalnızca güncelleştirilen meta verileri yapıştırabilirsiniz, ancak varsayılan şablonda yaptığımız değişiklik türlerinin anlaşılması önemlidir:
 
-+ Belirtilen API üretir ve verileri JSON biçiminde kullanır.
++ API’nin verileri bir JSON biçiminde ürettiğini ve tükettiğini belirttik.
 
-+ Gerekli parametre adları ve veri türleriyle belirtildi.
++ Adları ve veri türleriyle birlikte gerekli parametreleri belirttik.
 
-+ Başarılı bir yanıt için dönüş değerlerini kendi adları ve veri türleriyle belirtildi.
++ Başarılı bir yanıt için döndürülen değerleri adları ve veri türleriyle birlikte belirttik.
 
-+ Kolay özetler ve açıklamaları API ve işlemleri ve parametreleri için sağlanan. Bu, bu işlev kullanan kişiler için önemlidir.
++ API ile ona ait işlemler ve parametreler için kolay özetler ve açıklamalar sağladık. Bu, işlevi kullanacak kişiler için önemlidir.
 
-+ Kullanıcı Arabiriminde Microsoft Flow ve Logic Apps için kullanılan x-ms-Özet ve x-ms-görünürlük eklendi. Daha fazla bilgi için bkz: [Microsoft Flow özel API'leri için OpenAPI uzantıları](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
++ Kullanıcı arabiriminde Microsoft Flow ve Logic Apps için kullanılan x-ms-summary ve x-ms-visibility öğelerini ekledik. Daha fazla bilgi için bkz. [Microsoft Flow’da özel API’ler için OpenAPI uzantıları](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
 
 > [!NOTE]
-> Biz güvenlik tanımı API anahtarı varsayılan kimlik doğrulama yöntemiyle kalmadı. Farklı türde bir kimlik doğrulaması kullanılırsa bu bölümde tanımının değiştirirsiniz.
+> API anahtarının varsayılan kimlik doğrulama metodunu içeren güvenlik tanımını olduğu gibi bıraktık. Farklı bir kimlik doğrulama türü kullansaydınız tanımın bu bölümünü değiştirmeniz gerekirdi.
 
-API işlemleri tanımlama hakkında daha fazla bilgi için bkz: [açık API belirtimine](https://swagger.io/specification/#operationObject).
+API işlemlerini tanımlama hakkında daha fazla bilgi için bkz. [OpenAPI belirtimi](https://swagger.io/specification/#operationObject).
 
-## <a name="test-the-openapi-definition"></a>OpenAPI tanımı test
-API tanımı kullanmadan önce Azure işlevleri Arabiriminde test etmek için iyi bir fikirdir.
+## <a name="test-the-openapi-definition"></a>OpenAPI tanımını test etme
+API tanımı kullanmadan önce Azure İşlevleri kullanıcı arabiriminde test etmek iyi bir fikirdir.
 
-1. Üzerinde **Yönet** işlevinizi sekmesi altında **ana bilgisayar anahtarları**, kopya **varsayılan** anahtarı.
+1. İşlevinizin **Yönet** sekmesindeki **Ana Bilgisayar Anahtarları** bölümünden **varsayılan** anahtarı kopyalayın.
 
-    ![API anahtarını kopyalayın](media/functions-openapi-definition/copy-api-key.png)
+    ![API anahtarını kopyalama](media/functions-openapi-definition/copy-api-key.png)
 
     > [!NOTE]
-    >Test etmek için bu anahtarı kullanın ve bir uygulama veya hizmet API çağrısı de kullanılır.
+    >Test için kullanılan bu anahtarı bir uygulama veya hizmetten API’ye çağrı yaparken de kullanırsınız.
 
-1. API tanımı geri gidin: **işlevi demo enerji** > **Platform özellikleri** > **API tanımı**.
+1. API tanımına dönün: **function-demo-energy** > **Platform özellikleri** > **API tanımı**.
 
-1. Sağ bölmede **kimlik doğrulama**, kopyalanır ve tıklatın API anahtarını girin **kimlik doğrulama**.
+1. Sağ bölmeden **Kimlik Doğrula**’ya tıklayıp kopyaladığınız API anahtarını girin ve **Kimlik Doğrula**‘ya tıklayın.
 
-    ![API anahtarı ile kimlik doğrulaması](media/functions-openapi-definition/authenticate-api-key.png)
+    ![API anahtarıyla kimlik doğrulaması](media/functions-openapi-definition/authenticate-api-key.png)
 
-1. Aşağı kaydırın ve tıklatın **bu işlemi deneyin**.
+1. Ekranı aşağı kaydırıp **Bu işlemi dene**’ye tıklayın.
 
-    ![Bu işlemi deneyin](media/functions-openapi-definition/try-operation.png)
+    ![Bu işlemi dene](media/functions-openapi-definition/try-operation.png)
 
-1. İçin değerler girin **saatleri** ve **kapasite**.
+1. **Saat** ve **kapasite** değerlerini girin.
 
     ![Parametreleri girin](media/functions-openapi-definition/parameters.png)
 
-    Kullanıcı arabirimini API tanımından açıklamaları nasıl kullandığını dikkat edin.
+    Kullanıcı arabiriminin API tanımından alınan açıklamaları kullandığına dikkat edin.
 
-1. Tıklatın **İsteği Gönder**, ardından **oldukça** çıkışı görmek için sekme.
+1. **İsteği Gönder**’e tıklayın ve sonra çıktıyı görmek için **Düzgün** sekmesine tıklayın.
 
-    ![Bir isteği gönder](media/functions-openapi-definition/send-request.png)
+    ![İstek gönderme](media/functions-openapi-definition/send-request.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Bir işlev oluşturma
-> * OpenAPI Araçları'nı kullanarak bir OpenAPI tanımı oluştur
-> * Ek meta verilerini sağlamak için tanımını değiştirin
-> * İşlevini çağırarak tanımı test
+> * Azure’da işlev oluşturma
+> * OpenAPI araçlarını kullanarak OpenAPI tanımı oluşturma
+> * Tanımı ek meta veri sağlayacak şekilde değiştirme
+> * İşleve çağrı yaparak tanımı test etme
 
-Oluşturduğunuz OpenAPI tanımını kullanan bir PowerApps uygulamasının nasıl oluşturulacağını öğrenmek için sonraki konu ilerleyin.
+Oluşturduğunuz OpenAPI tanımını kullanan bir PowerApps uygulaması oluşturmayı öğrenmek için bir sonraki konuya geçin.
 > [!div class="nextstepaction"]
-> [PowerApps bir işlev çağrısı](functions-powerapps-scenario.md)
+> [PowerApps’ten bir işlev çağırma](functions-powerapps-scenario.md)

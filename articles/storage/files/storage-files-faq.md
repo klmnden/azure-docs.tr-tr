@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ortak Internet dosya sistemi veya CIFS olarak da bilinir). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
@@ -73,7 +73,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 
 * <a id="redundancy-options"></a>
 **Hangi depolama artıklığı seçeneği Azure dosyaları tarafından destekleniyor mu?**  
-    Şu anda Azure dosyaları yalnızca yerel olarak yedekli depolama (LRS) ve coğrafi olarak yedekli depolama (GRS) destekler. Bölge olarak yedekli depolama (ZRS) ve okuma erişimli coğrafi olarak yedekli (RA-GRS) depolama gelecekte desteği planlıyoruz, ancak şu anda paylaşmak için zaman çizelgesi bulunmuyor.
+    Şu anda Azure dosyaları yerel olarak yedekli depolama (LRS), bölge olarak yedekli depolama (ZRS) ve coğrafi olarak yedekli depolama (GRS) destekler. Okuma erişimli coğrafi olarak yedekli (RA-GRS) depolama gelecekte destek planlıyoruz, ancak şu anda paylaşmak için zaman çizelgesi bulunmuyor.
 
 * <a id="tier-options"></a>
 **Hangi depolama katmanları Azure dosyalarında destekleniyor mu?**  
@@ -86,7 +86,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 **Gerçekten Azure dosyalara eklenen belirli bir özellik görmek istiyorum. Ekleyebilir miyim?**  
     Azure dosyaları takım hizmetimizi hakkında sahip olduğunuz tüm geri bildirim işitme içinde ilgileniyor. Lütfen özellik istekleri oylamak [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! İleri için birçok yeni özellik ile delighting bekliyoruz.
 
-## <a name="azure-file-sync"></a>Azure dosya eşitleme
+## <a name="azure-file-sync"></a>Azure Dosya Eşitleme
 
 * <a id="afs-region-availability"></a>
 **Hangi bölgeleri Azure dosya eşitleme (Önizleme) destekleniyor mu?**  
@@ -171,9 +171,9 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 * <a id="afs-files-excluded"></a>
 **Otomatik olarak Azure dosya eşitleme tarafından hangi dosya veya klasörleri hariç tutulur?**  
     Varsayılan olarak, Azure dosya eşitleme aşağıdaki dosyaları hariç tutar:
-    * Desktop.ini
-    * Thumbs.DB
-    * ehthumbs.DB
+    * desktop.ini
+    * thumbs.db
+    * ehthumbs.db
     * ~$\*.\*
     * \*.laccdb
     * \*.tmp
@@ -181,7 +181,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 
     Aşağıdaki klasörlerin de varsayılan olarak tutulur:
 
-    * \System volume Information
+    * \System Volume Information
     * \$GERİ DÖNÜŞÜM. DEPO
     * \SyncShareState
 

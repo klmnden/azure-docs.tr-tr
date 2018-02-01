@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3bad625e598d4249496849d3be020be083f8da7f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Hızlı Başlangıç: Azure Time Series Insights’ı Keşfedin
-Bu hızlı başlangıç, ücretsiz bir tanıtım ortamında Azure Time Series Insights gezgininin nasıl kullanılmaya başlanacağını gösterir. Web tarayıcınızı kullanarak büyük hacimlerdeki IoT verilerini görselleştirmeyi öğrenecek ve Time Series Insights gezgininin temel özelliklerinde bir tura çıkacaksınız. 
+Bu hızlı başlangıç, ücretsiz bir tanıtım ortamında Azure Time Series Insights gezgininin nasıl kullanılmaya başlanacağını gösterir. Web tarayıcınızı kullanarak büyük hacimlerdeki IoT verilerini görselleştirmeyi öğrenecek ve Time Series Insights gezgininin temel özelliklerini anlatan bir tura çıkacaksınız. 
 
 Azure Time Series Insights, milyarlarca IoT olayını aynı anda keşfedip analiz etmeyi kolaylaştıran ve tam olarak yönetilen bir analiz, depolama ve görselleştirme hizmetidir. Verilerinize ilişkin genel bir görünüm sunan bu hizmet, gizli eğilimleri keşfetmenize, anormallikleri belirlemenize ve neredeyse gerçek zamanlı olarak kök neden analizleri gerçekleştirmenize yardımcı olarak IoT çözümünüzü hızla doğrulamanıza ve görev açısından kritik cihazlarda, kapalı kalma süresinden kaynaklanan maliyetleri önlemenize olanak sağlar.  Zaman serisi verilerini depolaması veya saklaması gereken bir uygulama oluşturuyorsanız Time Series Insights REST API’lerini kullanarak geliştirebilirsiniz.
 

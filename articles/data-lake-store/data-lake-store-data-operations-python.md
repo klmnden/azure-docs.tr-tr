@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ffb691b5c04457e5781934b18304fac7b3c43cbb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 19e41cb0bb22bf27db4581954f1f6e68b8a941c2
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Azure Data Lake Store'da REST API'si kullanılarak gerçekleştirilen dosya sistemi işlemleri
+# <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Azure Data Lake Store'da Python kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Bu makalede Python SDK'sını kullanarak Azure Data Lake Store'daki dosya sistemi işlemlerini nasıl gerçekleştireceğinizi öğreneceksiniz. Data Lake Store'da hesap yönetim işlemlerini Python kullanarak gerçekleştirme talimatları için bkz. [Data Lake Store'da Python kullanılarak gerçekleştirilen hesap yönetimi işlemleri](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * **Python**. Python’u [buradan](https://www.python.org/downloads/) indirebilirsiniz. Bu makalede Python 3.6.2 kullanılmıştır.
 

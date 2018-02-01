@@ -1,6 +1,6 @@
 ---
 title: "Azure Application Insights kullanarak performans sorunlarını tanılama | Microsoft Docs"
-description: "Azure Application Insights'ı kullanarak uygulamanızdaki performans sorunlarını tanılamak ve Bul Öğreticisi."
+description: "Azure Application Insights kullanarak uygulamanızdaki performans sorunlarını bulma ve tanılama hakkındaki öğretici."
 services: application-insights
 keywords: 
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights ile performans sorunlarını tanılamak ve Bul
+# <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights ile performans sorunlarını bulma ve tanılama
 
-Azure Application Insights telemetri işlemi ve performansını çözümlemek amacıyla uygulamanızdan toplar.  Bu bilgileri oluşabilecek bir sorunu belirlemek için veya etkisi kullanıcıların çoğunun misiniz uygulama geliştirmeleri belirlemek için kullanabilirsiniz.  Bu öğretici, uygulamanızın hem sunucu bileşenleri ve istemci perspektif performansını analiz etme işleminde size gösterir.  Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Azure Application Insights, uygulamanızdan çalışma ve performans analizine yardımcı olan telemetri verileri toplar.  Bu bilgileri kullanarak gerçekleşmekte olan sorunları belirleyebilir veya uygulamanın geliştirilmesi durumunda kullanıcıları en çok etkileyecek özelliklerini belirleyebilirsiniz.  Bu öğreticide hem uygulamanızın sunucu bileşenlerinin performansını hem de istemcinin bakış açısını analiz etme süreci adım adım gösterilir.  Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Sunucu tarafı işlemlerinin performansını tanımlayın
-> * Yavaş performans kök nedenini belirlemek için sunucu işlemleri Çözümle
-> * En yavaş istemci-tarafı işlemleri tanımlayın
-> * Sorgu dili kullanarak sayfa görünümleri ayrıntılarını Çözümle
+> * Sunucu tarafı işlemlerin performansını belirleme
+> * Düşük performansın kök nedenini belirlemek için sunucu işlemlerini analiz etme
+> * En yavaş istemci tarafı işlemleri belirleme
+> * Sorgu dilini kullanarak sayfa görüntülemelerinin ayrıntılarını analiz etme
 
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -34,94 +34,102 @@ Bu öğreticiyi tamamlamak için:
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
     - ASP.NET ve web geliştirme
     - Azure geliştirme
-- .NET uygulaması azure'a dağıtma ve [Application Insights SDK'sı etkinleştirmek](app-insights-asp-net.md).
-- [Application Insights profil oluşturucu etkinleştirmek](app-insights-profiler.md#installation) uygulamanız için.
+- Azure’a .NET uygulaması dağıtma ve [Application Insights SDK’sını etkinleştirme](app-insights-asp-net.md).
+- Uygulamanız için [Application Insights profil oluşturucuyu etkinleştirme](app-insights-profiler.md#installation).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
-Oturum açtığınızda Azure portalında [https://portal.azure.com](https://portal.azure.com).
+[https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın.
 
-## <a name="identify-slow-server-operations"></a>Yavaş sunucu işlemleri tanımlayın
-Application Insights, uygulamanızda farklı işlemler için performans ayrıntıları toplar.  Bu işlemler uzun süreli belirleyerek olası sorunları tanılamak veya en iyi uygulama genel performansını artırmak için devam eden geliştirme hedefleyin.
+## <a name="identify-slow-server-operations"></a>Yavaş sunucu işlemlerini belirleme
+Application Insights, uygulamanızdaki farklı işlemlerin performans ayrıntılarını toplar.  Süresi en uzun olan işlemleri belirleyerek olası sorunları veya sürmekte olan geliştirme sürecinizin en iyi hedefini tanılayabilir ve uygulamanın genel performansını geliştirebilirsiniz.
 
-1. Seçin **Application Insights** ve aboneliğinizi seçin.  
-1. Açmak için **performans** ya da seçin panel **performans** altında **Araştır** tıklayın veya menü **sunucu yanıt süresi** grafiği .
+1. **Application Insights**’ı ve sonra aboneliğinizi seçin.  
+1. **Performans** panelini açmak için **Araştır** menüsü altından **Performans**’ı seçin veya **Sunucu Yanıt Süresi** grafiğine tıklayın.
 
     ![Performans](media/app-insights-tutorial-performance/performance.png)
 
-2. **Performans** paneli uygulaması için her işlemi sayısı ve ortalama süresini gösterir.  Çoğu kullanıcıları etkileyen bu işlemleri tanımlamak için bu bilgileri kullanın. Bu örnekte, **müşteriler/ayrıntıları alma** ve **GET Home/Index** kendi görece yüksek süre ve çağrı sayısı nedeniyle araştırmak için büyük olasılıkla bir aday değildir.  Diğer işlemleri daha yüksek bir süre olabilir ancak kendi geliştirme etkisini en az olacak şekilde nadiren, adı veriliyordu.  
+2. **Performans** panelinde uygulamaya ait her işlemin sayısı ve ortalama süresi gösterilir.  Bu bilgileri kullanarak kullanıcıları en çok etkileyen işlemleri bulabilirsiniz. Bu örnekte, olası araştırma adayları süresi ve çağrı sayısı nispeten yüksek olan **GET Customers/Details** ve **GET Home/Index** işlemleridir.  Süresi yüksek olsa da nadiren çağrıldığı için geliştirilmesinin çok etkili olmayacağı başka işlemler olabilir.  
 
     ![Performans paneli](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Grafik şu anda tüm işlemleri ortalama süresi zamanla gösterir.  Sizin de grafiğe sabitlemenin ilgileniyor işlemleri ekleyin.  Bu araştırma değerinde bazı yükselmeleri gösterir.  Bu, daha fazla zaman penceresi grafik azaltarak yalıtma.
+3. Grafikte şu anda tüm çağrıların zaman içindeki ortalama süresi gösterilmektedir.  İlgilendiğiniz işlemleri grafiğe sabitleyerek ekleyin.  Burada, araştırmaya değer bazı tepe noktaları olduğu görülmektedir.  Grafiğin zaman aralığını kısaltarak sorunu daha iyi yalıtın.
 
-    ![PIN işlemleri](media/app-insights-tutorial-performance/pin-operations.png)
+    ![İşlemleri sabitleme](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Sağ tarafta kendi performansını paneli görüntülemek için bir işlem'ı tıklatın. Bu farklı istekleri için süreleri gösterir.  Kullanıcılar, yaklaşık yarım saniye performanslarının yavaş, böylece penceresi istekleri 500 milisaniye azaltmak genellikle unutmayın.  
+4.  Bir işleme tıklayarak işlemin sağ tarafta açılan performans panelini görüntüleyin. Bu panelde farklı istekler için süre dağılımı gösterilir.  Kullanıcılar genellikle yaklaşık yarım saniyelik bir düşük performans fark ettiğinden, istek aralığını 500 milisaniyenin üzerine düşürün.  
 
-    ![Süre dağıtım](media/app-insights-tutorial-performance/duration-distribution.png)
+    ![Süre dağılımı](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  Bu örnekte, çok sayıda istekleri işlemek için saniyenin kaplayan görebilirsiniz. Tıklayarak, bu işlem ayrıntılarını görebilirsiniz **işlem ayrıntıları**.
+5.  Bu örnekte, önemli sayıda isteğin işlenmesinin bir saniyeden uzun sürdüğünü görebilirsiniz. **İşlem ayrıntıları**’na tıklayarak bu işlemin ayrıntılarını görebilirsiniz.
 
     ![İşlem ayrıntıları](media/app-insights-tutorial-performance/operation-details.png)
 
-6.  Topladığınız bilgileri şu ana kadar yalnızca yavaş performans yoktur, ancak kök nedeni almak için çok az mu onaylar.  **Profil oluşturucu** bu işlemi ve her adımı için gereken süreyi çalıştırılan gerçek bir kod göstererek yardımcı olur. Profil Oluşturucu düzenli aralıklarla çalışan bu yana bazı işlemler izleme olmayabilir.  Zaman içinde daha fazla işlem izlemeleri olması gerekir.  İşlem için profil oluşturucu başlatmak için tıklatın **profil oluşturucu izlemeleri**.
-5.  Genel işlem süresi için temel nedeni tanılamanıza için izleme olayları tek tek her işlem için gösterir.  En uzun süresi olan üst örneklerinden birini tıklatın.
-6.  Tıklatın **Göster etkin yolunuzda** belirli yolun toplam işlem süresi için en çok katkıda olayların vurgulamak için.  Bu örnekte, en yavaş çağrısı kaynaklı olduğunu görebilirsiniz *FabrikamFiberAzureStorage.GetStorageTableData* yöntemi. Çoğu zaman alır parçasıdır *CloudTable.CreateIfNotExist* yöntemi. İşlevi çağrıldığında her zaman bu kod satırı yürütülürse, gereksiz ağ çağrısı ve CPU kaynak kullanılır. Kodunuzu düzeltmek için en iyi yalnızca için bir kez yürütme bazı başlangıç yönteminde bu satırı yerleştirilecek yoludur. 
+    > [!NOTE]
+    Tek bir tam ekran görünümünde istekler, bağımlılıklar, özel durumlar, izlemeler, olaylar, vb. sunucu tarafı telemetri verilerinin tamamını görmek için "Unified details: E2E Transaction Diagnostics" (Birleşik ayrıntılar: E2E İşlem Tanılama) [önizleme deneyimini](app-insights-previews.md) etkinleştirin. 
 
-    ![Profil Oluşturucu ayrıntıları](media/app-insights-tutorial-performance/profiler-details.png)
+    Önizleme etkinleştirildiğinde, bağımlılık çağrılarına harcanan sürenin yanı sıra herhangi bir hatayı veya özel durumu birleşik bir deneyimde görebilirsiniz. Bileşenler arası işlemler için Gantt grafiğinin yanı sıra ayrıntılar bölmesi, sorunun kök nedeni olan bileşeni, bağımlılığı veya özel durumu hızlıca tanılamanıza yardımcı olabilir. Alttaki bölümü genişleterek seçili bileşen işlemi için toplanan tüm izlemelerin veya olayların zaman sıralamasını görebilirsiniz. [Yeni deneyim hakkında daha fazla bilgi edinin](app-insights-transaction-diagnostics.md)  
 
-7.  **Performans İpucu** ekranın üstünde bekleme nedeniyle aşırı aralıktır değerlendirme destekler.  Tıklatın **bekleyen** farklı türlerdeki olayların yorumlanması hakkında belgeler için bağlantı.
+    ![İşlem tanılamaları](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
 
-    ![Performans İpucu](media/app-insights-tutorial-performance/performance-tip.png)
 
-8.  Daha fazla çözümleme için tıklattığınız **karşıdan .etl izleme** izlemede Visual Studio'ya karşıdan yüklemek için.
+6.  Şimdiye kadar topladığınız bilgiler yalnızca performansın yavaş olduğunu gösterir, ancak kök nedenin bulunması konusunda pek yararlı değildir.  **Profil oluşturucu**, işlem için çalıştırılan kodun kendisini ve her adım için gereken süreyi göstererek bu konuda yardımcı olur. Profil oluşturucu belirli aralıklarla çalıştığından, bazı işlemlerin izlemesi olmayabilir.  Zamanla daha fazla işlemin izlemesi olmalıdır.  İşlem için profil oluşturucuyu başlatmak için **Profiler izlemeleri**’ne tıklayın.
+5.  İzlemede her işleme yönelik olaylar tek tek gösterildiğinden, genel işlem süresinin kök nedenini tanılayabilirsiniz.  Üstteki en uzun süreye sahip örneklerden birine tıklayın.
+6.  Toplam işlem süresinin en büyük bölümünü oluşturan olaylara özgü yolu vurgulamak için **Etkin Yolu Göster**’e tıklayın.  Bu örnekte, en yavaş çağrının *FabrikamFiberAzureStorage.GetStorageTableData* metodundan geldiğini görebilirsiniz. En çok zaman alan bölüm *CloudTable.CreateIfNotExist* metodudur. İşlev her çağrıldığında bu kod satırı yürütülürse gereksiz ağ çağrısı ve CPU kaynağı tüketilir. Kodunuzu düzeltmenin en iyi yolu, bu satırı yalnızca bir kere yürütülen bir başlangıç metoduna eklemektir. 
 
-## <a name="use-analytics-data-for-server"></a>Sunucusu için analiz verileri kullanma
-Uygulama Öngörüler Analytics Application Insights tarafından toplanan tüm verileri çözümlemek sağlayan zengin bir sorgu dili sağlar.  Bu istek ve performans verilerini üzerinde derin çözümleme gerçekleştirmek için kullanabilirsiniz.
+    ![Profil oluşturucu ayrıntıları](media/app-insights-tutorial-performance/profiler-details.png)
 
-1. İşlemi ayrıntı Masası'na dönün ve analizi düğmesini tıklatın.
+7.  Ekranın üstündeki **Performans İpucu**, sürenin uzun olmasının beklemekten kaynaklandığı değerlendirmesini destekliyor.  Farklı olay türlerinin yorumlanmasına yönelik belgeler için **bekliyor** bağlantısına tıklayın.
+
+    ![Performans ipucu](media/app-insights-tutorial-performance/performance-tip.png)
+
+8.  Daha fazla analiz için **.etl izlemesini indir**’e tıklayarak izlemeyi Visual Studio’ya indirebilirsiniz.
+
+## <a name="use-analytics-data-for-server"></a>Sunucuya yönelik analiz verilerini kullanma
+Application Insights Analytics, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlar.  Bunu kullanarak istek ve performans verileri üzerinde ayrıntılı analiz gerçekleştirebilirsiniz.
+
+1. İşlem ayrıntıları paneline dönün ve Analytics düğmesine tıklayın.
 
     ![Analytics düğmesi](media/app-insights-tutorial-performance/server-analytics-button.png)
 
-2. Uygulama Öngörüler Analytics her panelinde görünüm için bir sorgu ile açılır.  Olan veya gereksinimleriniz için değiştirmek gibi bu sorguları çalıştırabilirsiniz.  İlk sorgu zaman içinde bu işlem süresince gösterir.
+2. Paneldeki görünümlerin her birine yönelik bir sorgu içeren Application Insights Analytics açılır.  Bu sorguları olduğu gibi çalıştırabilir veya gereksinimlerinize göre özelleştirebilirsiniz.  İlk sorgu, zaman içinde bu işlemin süresini gösterir.
 
     ![Analiz](media/app-insights-tutorial-performance/server-analytics.png)
 
 
-## <a name="identify-slow-client-operations"></a>Yavaş istemci işlemleri tanımlayın
-Application Insights iyileştirmek için sunucu işlemleri tanımlamaya ek olarak, istemci tarayıcıları açısından çözümleyebilirsiniz.  Bu istemci bileşenleri için olası geliştirmeleri tanımlamak ve hatta farklı tarayıcılar veya farklı konumlarda sorunları belirlemenize yardımcı olabilir.
+## <a name="identify-slow-client-operations"></a>Yavaş istemci işlemlerini belirleme
+Application Insights, iyileştirilecek sunucu işlemlerini belirlemeye ek olarak istemci tarayıcılarının bakış açısını da analiz edebilir.  Bu, istemci bileşenlerine yönelik olası geliştirme fırsatlarını, hatta farklı tarayıcı veya konumlarla ilgili sorunları belirlemenize yardımcı olabilir.
 
-1. Seçin **tarayıcı** altında **Araştır** Özet tarayıcıyı açın.  Bu, çeşitli telemetries uygulamanızın tarayıcı perspektifinden görsel özetini sağlar.
+1. Tarayıcı özetini açmak için **Araştır** bölümünden **Tarayıcı**’yı seçin.  Burada, tarayıcının bakış açısından uygulamanızın çeşitli telemetri verilerinin görsel bir özetini sağlar.
 
     ![Tarayıcı özeti](media/app-insights-tutorial-performance/browser-summary.png)
 
-2.  Ekranı aşağı kaydırarak **yavaş sayfalarımı nelerdir?**.  Bu istemcilerin yüklemek en uzun zaman almış, uygulamanızdaki sayfaların listesini gösterir.  Kullanıcıya en önemli etkiye sahip bu sayfaları önceliğini belirlemek için bu bilgileri kullanın.
-3.  Açmak için sayfaları birini tıklatın **sayfa görünümü** paneli.  Örnekte, **/FabrikamProd** sayfasını aşırı bir ortalama süre gösteren.  **Sayfa görünümü** paneli farklı süre aralıkları dökümünü dahil olmak üzere bu sayfayı hakkında ayrıntılar sağlar.
+2.  Ekranı aşağı kaydırarak **En yavaş sayfalarım hangileri?** bölümüne gidin.  Burada, uygulamanızın istemciler tarafından yüklenmesi en uzun süren sayfalarının bir listesi gösterilir.  Bu bilgileri kullanarak kullanıcıları en çok etkileyen sayfalara öncelik verebilirsiniz.
+3.  Sayfalardan birine tıklayarak **Sayfa görüntüleme** panelini açın.  Örnekte, **/FabrikamProd** sayfasının ortalama süresinin aşırı uzun olduğu görülmektedir.  **Sayfa görüntüleme** panelinde, bu sayfayla ilgili olarak farklı süre aralıklarının dökümünü de içeren ayrıntılar sağlanır.
 
-    ![Sayfa görünümü](media/app-insights-tutorial-performance/page-view.png)
+    ![Sayfa görüntüleme](media/app-insights-tutorial-performance/page-view.png)
 
-4.  Bu istekler ayrıntılarını incelemek için en yüksek süre'yi tıklatın.  Tarayıcı ve konumunu türünü de dahil olmak üzere sayfa isteyen istemci ayrıntılarını görüntülemek için ayrı istek'ye tıklayın.  Bu bilgiler performans sorunları ile ilgili belirli istemci türlerini olup olmadığını belirlemenize yardımcı olabilir.
+4.  Bu isteklerin ayrıntılarını incelemek için en yüksek süreye tıklayın.  Sonra, tarayıcı türü ve konumu dahil olmak üzere sayfa isteğinde bulunan istemcinin ayrıntılarını görüntülemek için ilgili isteğe tıklayın.  Bu bilgiler, belirli istemci türleriyle ilgili performans sorunları olup olmadığını belirlemenize yardımcı olabilir.
 
-    ![İstek Ayrıntıları](media/app-insights-tutorial-performance/request-details.png)
+    ![İstek ayrıntıları](media/app-insights-tutorial-performance/request-details.png)
 
-## <a name="use-analytics-data-for-client"></a>İstemci için analiz verileri kullanın
-Sunucu performansını toplanan verileri gibi Application Insights tüm istemci verilerini analiz kullanarak derin çözümleme için kullanılabilir hale getirir.
+## <a name="use-analytics-data-for-client"></a>İstemci için analiz verilerini kullanma
+Sunucu performansı için toplanan verilerde olduğu gibi, Application Insights tüm istemci verilerinin Analytics ile ayrıntılı analiz gerçekleştirmek için kullanılmasına imkan tanır.
 
-1. Tarayıcıya Özet dönün ve analizi simgesine tıklayın.
+1. Tarayıcı özetine dönün ve Analytics simgesine tıklayın.
 
     ![Analytics simgesi](media/app-insights-tutorial-performance/client-analytics-icon.png)
 
-2. Uygulama Öngörüler Analytics her panelinde görünüm için bir sorgu ile açılır. İlk sorguyu farklı sayfa görünümlerini süresince zamanla gösterilir.
+2. Paneldeki görünümlerin her birine yönelik bir sorgu içeren Application Insights Analytics açılır. İlk sorgu, zaman içinde farklı sayfa görüntüleme işlemlerinin süresini gösterir.
 
     ![Analiz](media/app-insights-tutorial-performance/client-analytics.png)
 
-3.  Akıllı Tanılama verileri benzersiz düzenleri tanımlar uygulaması Öngörüler Analytics özelliğidir.  Çizgi grafikte akıllı tanılama nokta tıkladığınızda, aynı sorgu anomali neden olan kayıtların çalışır.  Aşırı süresi neden olan bu sayfa görünümlerini özelliklerini tanımlayabilmeniz kayıtların ayrıntılarını sorgu Açıklama bölümünde gösterilir.
+3.  Akıllı Tanılama, Application Insights Analytics’in verilerdeki benzersiz desenleri tanımlayan bir özelliğidir.  Çizgi grafikte Akıllı Tanılama noktasına tıkladığınızda, aynı sorgu anomaliye yol açan kayıtlar olmadan çalıştırılır.  Sürenin aşırı uzun olmasına yol açan sayfa görüntülemelerini tanımlayabilmeniz için sorgunun açıklama bölümünde bu kayıtların ayrıntıları gösterilir.
 
-    ![Akıllı tanılama](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
+    ![Akıllı Tanılama](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Çalışma zamanı özel durumları tanımlamak nasıl öğrendiğinize göre yanıt hatalarına uyarılar oluşturma hakkında bilgi edinmek için sonraki öğretici için ilerleyin.
+Artık çalışma zamanı özel durumlarının nasıl belirleneceğini öğrendiğinize göre, hatalara yanıt olarak uyarı oluşturmayı öğrenmek için bir sonraki öğreticiye ilerleyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Üzerinde uygulama sistem durumu Uyarısı](app-insights-tutorial-alert.md)
+> [Uygulama durumuyla ilgili uyarılar](app-insights-tutorial-alert.md)

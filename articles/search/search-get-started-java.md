@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Azure Search'e yönelik tüm REST API çağrıları, hizmet URL'si ve api anahta
 5. Hizmet URL'sini ve bir yönetici anahtarını kopyalayın. Bunlara daha sonra, bunları **config.properties** dosyasına eklerken ihtiyacınız olacak.
 
 ## <a name="download-the-sample-files"></a>Örnek dosyalarını indirme
-1. GitHub'da [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)'ya gidin.
+1. GitHub’da [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) öğesine gidin.
 2. **ZIP'i İndir**'e tıklayın, .zip dosyasını diske kaydedin ve ardından içerdiği tüm dosyaları ayıklayın. Daha sonra projeyi bulmayı kolaylaştırmak için, dosyaları Java çalışma alanınıza ayıklamayı göz önünde bulundurun.
 3. Örnek dosyaları salt okunurdur. Klasör özelliklerine sağ tıklayın ve salt okunur özniteliğini kaldırın.
 
@@ -85,7 +85,7 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 2. **Select root directory (Kök dizini seç)** bölümünde örnek dosyaları içeren klasöre gidin. Proje klasörünü içeren klasörü seçin. Proje, **Projects (Projeler)** listesinde seçili öğe olarak görünmelidir.
    
     ![][12]
-3. **Finish (Son)** düğmesine tıklayın.
+3. **Son**'a tıklayın.
 4. Dosyaları görüntülemek ve düzenlemek için **Proje Gezgini**'ni kullanın. Zaten açık değilse **Pencere** > **Görünümü Göster** > **Proje Gezgini**'ne tıklayın veya açmak için kısayolu kullanın.
 
 ## <a name="configure-the-service-url-and-api-key"></a>Hizmet URL'sini ve api anahtarını yapılandırma
@@ -106,7 +106,7 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
    
     ![][7]
 6. Sonraki sayfada Tomcat yükleme dizinini belirtin. Windows bilgisayarda, bu büyük olasılıkla C:\Program Files\Apache Software Foundation\Tomcat *sürüm* olacaktır.
-7. **Finish (Son)** düğmesine tıklayın.
+7. **Son**'a tıklayın.
 8. **Window (Pencere)** > **Preferences (Tercihler)** > **Java** > **Installed JREs (Yüklü JRE'ler)** > **Add (Ekle)** seçeneğini belirleyin.
 9. **Add JRE (JRE Ekle)** bölümünde **Standard VM (Standart VM)** öğesini seçin.
 10. **İleri**’ye tıklayın.

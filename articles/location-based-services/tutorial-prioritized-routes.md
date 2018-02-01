@@ -1,6 +1,6 @@
 ---
-title: "Azure konum tabanlı Hizmetleri olan birden çok yol | Microsoft Docs"
-description: "Farklı Azure konum tabanlı Hizmetleri kullanarak seyahat modu yolları Bul"
+title: "Azure Konum Tabanlı Hizmetler ile birden çok yol tarifi | Microsoft Docs"
+description: "Azure Konum Tabanlı Hizmetler’i kullanarak farklı ulaşım yöntemleri için yol tarifi alma"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,32 +12,32 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Farklı Azure konum tabanlı Hizmetleri kullanarak seyahat modu yolları Bul
+# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Azure Konum Tabanlı Hizmetler’i kullanarak farklı ulaşım yöntemleri için yol tarifi alma
 
-Bu öğretici Azure konum tabanlı Hizmetleri hesabınızı ve rota hizmeti SDK'sı noktanızın seyahat modunuzu göre öncelik ilgi rotayı bulmak için nasıl kullanılacağını gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, istediğiniz konuma yönelik ve ulaşım yönteminize göre önceliklendirilmiş yol tarifleri almak için Azure Konum Tabanlı Hizmetler hesabınız ile Yönlendirme Hizmeti SDK’sını nasıl kullanacağınız gösterilmektedir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Rota hizmeti sorgunuzu yapılandırın
-> * Seyahat modu tarafından öncelik yollar oluşturma
+> * Yönlendirme Hizmeti sorgunuzu yapılandırma
+> * Ulaşım yöntemine göre önceliklendirilmiş yolları işleme
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Devam etmeden önce emin olun [Azure konum tabanlı Hizmetleri hesabınızı oluşturmak](./tutorial-search-location.md#createaccount), ve [hesabınız için abonelik anahtarı alma](./tutorial-search-location.md#getkey). Harita denetiminin ve arama hizmeti API'leri öğreticide anlatıldığı gibi nasıl kullanılacağını da gözlemleyebilirsiniz [arama ilgi çekici Azure konum tabanlı Hizmetleri kullanarak yakındaki](./tutorial-search-location.md), yanı sıra temel rota hizmeti API'ları kullanımını öğrenin öğreticide ele alınan [Azure konum tabanlı Hizmetleri kullanarak ilgi rotaya](./tutorial-route-location.md).
+Devam etmeden önce, [Azure Konum Tabanlı Hizmetler hesabınızı oluşturduğunuzdan](./tutorial-search-location.md#createaccount) ve [hesabınızdan bir anahtar edindiğinizden](./tutorial-search-location.md#getkey) emin olun. Ayrıca, Harita Denetimi ile Arama Hizmeti API’lerini [Azure Konum Tabanlı Hizmetler’i kullanarak yakınlardaki bir konumu arama](./tutorial-search-location.md) öğreticisinde açıklandığı şekilde de kullanabilirsiniz. Dilerseniz, Yönlendirme Hizmeti API’lerini [Azure Konum Tabanlı Hizmetler’i kullanarak yakınlardaki bir konuma yol tarifi alma](./tutorial-route-location.md) öğreticisinde açıklandığı şekilde kullanmayı da öğrenebilirsiniz.
 
 
 <a id="queryroutes"></a>
 
-## <a name="configure-your-route-service-query"></a>Rota hizmeti sorgunuzu yapılandırın
+## <a name="configure-your-route-service-query"></a>Yönlendirme Hizmeti sorgunuzu yapılandırma
 
-Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir statik HTML sayfası oluşturmak için aşağıdaki adımları kullanın. 
+Konum Tabanlı Hizmetler’in Harita Denetimi API’sinin ekli olduğu statik bir HTML sayfası oluşturmak için aşağıdaki adımları izleyin. 
 
-1. Yerel makinenizde yeni bir dosya oluşturun ve adlandırın **MapTruckRoute.html**. 
+1. Yerel makinenizde yeni bir dosya oluşturun ve bu dosyayı **MapTruckRoute.html** olarak adlandırın. 
 2. Aşağıdaki HTML bileşenlerini dosyaya ekleyin:
 
     ```HTML
@@ -75,19 +75,19 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
 
     </html>
     ```
-    HTML üstbilgisi Azure konum tabanlı Hizmetleri kitaplığı CSS ve JavaScript dosyaları için kaynak konumlarını katıştırır unutmayın. Ayrıca fark *betik* segment satır içi Azure Harita Denetim API'si erişmek için JavaScript kodu içeren HTML, gövdesine eklenir.
-3. Şu JavaScript kodunu eklemek *betik* HTML dosyası bloğu. Yer tutucu Değiştir *< anahtar Ekle >* konum tabanlı Hizmetleri hesabınızın birincil anahtara sahip.
+    HTML üst bilgisinin, Azure Konum Tabanlı Hizmetler kitaplığı için CSS ve JavaScript dosyalarına yönelik kaynak konumlarını eklediğini göz önünde bulundurun. Ayrıca, HTML’nin gövdesine eklenen *betik* segmentinde yer alan Harita Denetimi API’sine erişmeye yönelik satır içi JavaScript kodunu da inceleyin.
+3. HTML dosyasının *betik* bloğuna aşağıdaki JavaScript kodunu ekleyin. *<insert-key>* yer tutucusunu Konum Tabanlı Hizmetler hesabınızın birincil anahtarıyla değiştirin.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    **Atlas. Harita** denetim için bir görsel ve etkileşimli web eşleme sağlar ve Azure Harita Denetim API'si bir bileşenidir.
+    Azure Harita Denetimi API’sinin bir bileşeni olan **atlas.Map**, görsel ve etkileşimli bir web haritası için denetim olanağı sunar.
 
-4. Şu JavaScript kodunu eklemek *betik* bloğu, trafik akışı görünen eşlemesine eklemek için:
+4. Trafik akışı görünümünü haritaya eklemek için, aşağıdaki JavaScript kodunu *betik* bloğuna ekleyin:
 
     ```JavaScript
     // Add Traffic Flow to the Map
@@ -95,9 +95,9 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
         flow: "relative"
     });
     ```
-    Bu kod trafik akışı ayarlar `relative`, serbest akış göreli yol hızına olduğu. Ayrıca ayarlamanız `absolute` yol hızına veya `relative-delay` serbest akış göreli hızından nerede farklı görüntüler. 
+    Bu kod, trafik akışını `relative` olacak şekilde ayarlar. Bu, serbest akışa göre trafik hızıdır. Bunu trafik hızı olan `absolute` veya serbest akışla farklılık gösteren bağıl hız `relative-delay` olarak da ayarlayabilirsiniz. 
 
-5. Başlangıç ve bitiş noktalarını rotanın için PIN oluşturmak için aşağıdaki JavaScript kodu ekleyin:
+5. Yolun başlangıç ve bitiş noktalarını sabitlemek için aşağıdaki JavaScript kodunu ekleyin:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -113,9 +113,9 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
         icon: "pin-blue"
     });
     ```
-    Bu kod iki oluşturur [GeoJSON nesne](https://en.wikipedia.org/wiki/GeoJSON) başlangıç ve bitiş noktalarını rotanın temsil etmek için. 
+    Bu kod, yolun başlangıç ve bitiş noktalarını temsil eden iki [GeoJSON nesnesi](https://en.wikipedia.org/wiki/GeoJSON) oluşturur. 
 
-6. Katmanları eklemek için şu JavaScript kodunu eklemek *MultiPoint* taşıma, örneğin, Modu'na bağlı yolları görüntüler için harita denetimine _araba_ ve _kamyon_.
+6. _Otomobil_ veya _kamyon_ gibi ulaşım yöntemlerini temel alan yol tariflerini görüntülemek üzere Harita Denetimi’ne *linestrings* katmanları eklemek için aşağıdaki JavaScript kodunu ekleyin.
 
     ```JavaScript
     // Place route layers on the map
@@ -140,7 +140,7 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
     });
     ```
 
-7. Başlangıç ve bitiş noktalarını eşlemesine eklemek için aşağıdaki JavaScript kodu ekleyin:
+7. Haritaya başlangıç ve bitiş noktalarını eklemek için aşağıdaki JavaScript kodunu ekleyin:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -160,17 +160,17 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
         textOffset: [0, -20]
     });
     ``` 
-    API **map.setCameraBounds** Haritası penceresini başlangıç ve bitiş noktası koordinatları göre ayarlar. API **map.addPins** görsel bileşenleri olarak harita denetim noktaları ekler.
+    **map.setCameraBounds** API’si, harita penceresini başlangıç ve bitiş noktalarının koordinatlarına göre ayarlar. **map.addPins** API’si, Harita denetimine görsel bileşen olarak nokta ekler.
 
-8. Kaydet **MapTruckRoute.html** makinenizde dosya. 
+8. **MapTruckRoute.html** dosyasını makinenize kaydedin. 
 
 <a id="multipleroutes"></a>
 
-## <a name="render-routes-prioritized-by-mode-of-travel"></a>Seyahat modu tarafından öncelik yollar oluşturma
+## <a name="render-routes-prioritized-by-mode-of-travel"></a>Ulaşım yöntemine göre önceliklendirilmiş yolları işleme
 
-Bu bölümde Azure konum tabanlı hizmetlerin rota hizmeti API'si, aktarım modu üzerinde temel bir hedefe birden çok yol verilen başından noktası bulmak için nasıl kullanılacağını gösterir. Rota hizmet en hızlı, kısa plana API'leri veya gerçek zamanlı trafiği koşulları dikkate iki konum arasında ekonomik yolu sağlar. Ayrıca, kullanıcıların Azure'nın kapsamlı geçmiş trafik veritabanı kullanarak ve her gün ve saat için rota sürelerini tahmin etmeye gelecekte yollar planlama imkan tanır. 
+Bu bölümde, bir hedef için belirtilen başlangıç noktasından ulaşım aracınıza bağlı olarak birden fazla yol tarifi almak için Azure Konum Tabanlı Hizmetler’in Yönlendirme Hizmeti API’sini nasıl kullanabileceğiniz açıklanmaktadır. Yönlendirme Hizmeti, gerçek zamanlı trafik durumlarını da göz önünde bulundurarak iki konum arasındaki en hızlı, en kısa ve en ekonomik yolu planlamak amacıyla API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. 
 
-1. Açık **MapTruckRoute.html** dosyası önceki bölümde oluşturulan ve şu JavaScript kodunu ekleyin *betik* rota hizmetini kullanarak bir kamyon için rota almak için blok.
+1. Yönlendirme Hizmeti’nden kamyon için yol tarifi almak mı istiyorsunuz? Önceki bölümde oluşturulan **MapTruckRoute.html** dosyasını açın ve aşağıdaki JavaScript kodunu *betik* bloğuna ekleyin.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting truck route on the map
@@ -195,7 +195,7 @@ Bu bölümde Azure konum tabanlı hizmetlerin rota hizmeti API'si, aktarım modu
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -207,13 +207,13 @@ Bu bölümde Azure konum tabanlı hizmetlerin rota hizmeti API'si, aktarım modu
     xhttpTruck.open("GET", truckRouteUrl, true);
     xhttpTruck.send();
     ```
-    Bu kod parçacığını oluşturur bir [XMLHttpRequest](https://xhr.spec.whatwg.org/), ve gelen yanıtı ayrıştırılamadı olay işleyicisi ekler. Başarılı bir yanıt için bu koordinatları döndürülen yol için bir dizi oluşturur ve haritanın ekler `truckRouteLayerName` katmanı. 
+    Bu kod parçacığı bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) oluşturur ve gelen yanıtları ayrıştırmak için bir olay işleyicisi ekler. Bu, başarılı bir yanıt için, döndürülen yola yönelik koordinat dizisi oluşturur ve bu diziyi haritanın `truckRouteLayerName` katmanına ekler. 
     
-    Bu kod parçacığını yol için belirtilen başlangıç ve bitiş noktası hesabınızın abonelik anahtarı için rota almak için hizmet ayrıca sorgusu gönderir. Aşağıdaki isteğe bağlı parametreleri ağır kamyon için yol göstermek için kullanılır:-parametresi `travelMode=truck` seyahat modunu belirtir *kamyon*. Diğer modlar desteklenen seyahat *ücreti*, *veri yolu*, *van*, *motosikletinizin*ve varsayılan *araba* .  
-        -Parametreleri `vehicleWidth`, `vehicleHeight`, ve `vehicleLength` metre araç boyutları belirtmek ve yalnızca seyahat modunda olup olmadığını dikkate *kamyon*.  
-        - `vehicleLoadType` Kargo tehlikeli ve bazı yollar üzerinde kısıtlı olarak sınıflandırır. Bu da şu anda yalnızca değerlendirilir *kamyon* modu.  
+    Kod parçacığı, hesap anahtarınız için belirli bir başlangıç ve bitiş noktasına yönelik yol tarifi almak üzere, sorguyu aynı zamanda Yönlendirme Hizmeti’ne de gönderir. Aşağıdaki isteğe bağlı parametreler, ağır bir kamyon için yol tarifini belirlemek için kullanılır: `travelMode=truck` parametresi, ulaşım aracını *kamyon* olarak belirler. Desteklenen diğer ulaşım araçları *taksi*, *otobüs*, *kamyonet*, *motosiklet* ve varsayılan olan *otomobildir*.  
+        `vehicleWidth`, `vehicleHeight` ve `vehicleLength` parametreleri, aracın boyutunu metre cinsinden belirtir ve yalnızca ulaşım aracının *kamyon* olması durumunda hesaba katılır.  
+        - `vehicleLoadType`, yükün tehlikeli olduğunu belirtir ve aracın bazı yollara çıkmasını kısıtlar. - Bu seçenek de yalnızca ulaşım aracının *kamyon* olması durumunda hesaba katılır.  
 
-2. Rota hizmetini kullanarak bir araba için rota almak için aşağıdaki JavaScript kodu ekleyin:
+2. Yönlendirme Hizmeti’ni kullanarak otomobile yönelik yol tarifi almak için aşağıdaki JavaScript kodunu ekleyin:
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting car route on the map
@@ -238,28 +238,28 @@ Bu bölümde Azure konum tabanlı hizmetlerin rota hizmeti API'si, aktarım modu
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttpCar.open("GET", carRouteUrl, true);
     xhttpCar.send();
     ```
-    Bu kod parçacığını başka oluşturur [XMLHttpRequest](https://xhr.spec.whatwg.org/), ve gelen yanıtı ayrıştırılamadı olay işleyicisi ekler. Başarılı bir yanıt için bu koordinatları döndürülen yol için bir dizi oluşturur ve haritanın ekler `carRouteLayerName` katmanı. 
+    Bu kod parçacığı başka bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) oluşturur ve gelen yanıtları ayrıştırmak için bir olay işleyicisi ekler. Bu, başarılı bir yanıt için, döndürülen yola yönelik koordinat dizisi oluşturur ve bu diziyi haritanın `carRouteLayerName` katmanına ekler. 
     
-    Bu kod parçacığında belirtilen başlangıç ve bitiş noktası hesabınızın abonelik anahtarı için rota almak için rota hizmeti de sorgusu gönderir. Diğer bir parametreleri kullanıldığından rota için varsayılan modu seyahat olan *araba* döndürülür. 
+    Kod parçacığı, hesap anahtarınız için belirli bir başlangıç ve bitiş noktasına yönelik yol tarifi almak üzere sorguyu aynı zamanda Yönlendirme Hizmeti’ne de gönderir. Başka bir parametre kullanılmadığından, varsayılan ulaşım aracı olan *otomobil* için hesaplanan yol tarifi döndürülür. 
 
-3. Kaydet **MapTruckRoute.html** yerel olarak dosya sonra tercih ettiğiniz bir web tarayıcısında açın ve sonucu inceleyin. Konum tabanlı hizmetlerin API'leri ile başarılı bir bağlantı için aşağıdakine benzer bir harita görmeniz gerekir. 
+3. **MapTruckRoute.html** dosyasını yerel olarak kaydedin, ardından dosyayı dilediğiniz web tarayıcısında açarak sonucu inceleyin. Konum Tabanlı Hizmetler API’leriyle başarılı bir şekilde bağlantı kurulması için aşağıdakine benzer bir harita görürsünüz. 
 
-    ![Azure yol hizmetiyle öncelikli yolları](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
+    ![Azure Yönlendirme Hizmeti ile önceliklendirilen yollar](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
 
-    Araba rotası mor durumdayken kamyon rota mavi renkte olduğuna dikkat edin.
+    Kamyon yolunun mavi, otomobil yolunun mor renkli olduğunu göz önünde bulundurun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Rota hizmeti sorgunuzu yapılandırın
-> * Seyahat modu tarafından öncelik yollar oluşturma
+> * Yönlendirme Hizmeti sorgunuzu yapılandırma
+> * Ulaşım yöntemine göre önceliklendirilmiş yolları işleme
 
-İle devam **kavramları** ve **nasıl yapılır** makaleler Azure konum tabanlı Hizmetleri SDK derinlemesine öğrenin. 
+Azure Konum Tabanlı Hizmetler SDK’sı hakkında daha fazla bilgi edinmek için **Kavramlar** ve **Nasıl Yapılır** makalelerini inceleyin. 

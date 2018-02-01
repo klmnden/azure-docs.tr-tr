@@ -1,6 +1,6 @@
 ---
-title: "Bir web sunucusu ile Azure SSL sertifikalarının güvenli | Microsoft Docs"
-description: "Azure'da bir Linux VM üzerinde SSL sertifikalarını NGINX web sunucusuyla güvenli öğrenin"
+title: "Azure’da SSL sertifikalarıyla web sunucusunun güvenliğini sağlama | Microsoft Docs"
+description: "Azure’da Linux VM’sinde, SSL sertifikalarını kullanarak NGINX web sunucusunun güvenliğini nasıl sağlayabileceğinizi öğrenin"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,40 +16,40 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 2cebe6dd35e2a20738e2766447451ee32807eb4d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Bir web sunucusu ile SSL sertifikalarını azure'da bir Linux sanal makinede güvenli
-Web sunucularının güvenliğini sağlamak için bir Güvenli Yuva daha sonra (SSL) sertifikası web trafiğini şifrelemek için kullanılabilir. Bu SSL sertifikalarını Azure anahtar kasası depolanabilir ve Azure'da, Linux sanal makineleri (VM'ler) sertifikalarının güvenli dağıtımlar sağlar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+# <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Azure’da Linux sanal makinesi üzerinde SSL sertifikalarını kullanarak bir web sunucusunun güvenliğini sağlama
+Web sunucularının güvenliğini sağlamak için, web trafiğini şifrelemek üzere Güvenli Yuva Katmanı (SSL) sertifikası kullanılabilir. SSL sertifikaları Azure Key Vault’ta depolanabilir ve sertifikaların Azure’daki Linux sanal makinelerine (VM’ler) güvenli bir şekilde dağıtılabilmesini sağlar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Azure anahtar kasası oluşturma
-> * Oluşturmak veya bir sertifika anahtar Kasası'na Karşıya Yükle
-> * Bir VM oluşturun ve NGINX web sunucusu yükleme
-> * Sertifika VM ekleme ve NGINX SSL bağlaması ile yapılandırma
+> * Azure Key Vault oluşturma
+> * Sertifikaları oluşturma veya Key Vault’a yükleme
+> * VM oluşturma ve NGINX web sunucusunu yükleme
+> * Sertifikayı VM’ye ekleme ve NGINX’i bir SSL bağlamasıyla yapılandırma
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.22 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).  
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.22 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Genel Bakış
-Azure anahtar kasası, şifreleme anahtarlarını ve gizli anahtarları, bu tür sertifikalar veya parolaları koruma sağlar. Anahtar kasası, sertifika yönetimi işlemini kolaylaştırmaya yardımcı olur ve bu sertifikaları erişim anahtarlarını denetim kurmanızı sağlar. Anahtar kasası içinde otomatik olarak imzalanan bir sertifika oluşturun veya zaten sahip olduğunuz bir varolan, güvenilen bir sertifika yükleyin.
+Azure Key Vault, sertifikalar veya pasaportlar gibi şifreleme anahtarları ile gizli dizilerin güvenliğini sağlar. Key Vault, sertifika yönetimi işlemini kolaylaştırır ve bu sertifikalara erişen anahtarları denetiminizde tutmanıza olanak sağlar. Key Vault içinde otomatik olarak imzalanan bir sertifika oluşturabilir veya sahip olduğunuz güvenli bir sertifikayı karşıya yükleyebilirsiniz.
 
-Sertifikaları içeren özel bir VM görüntüsü kullanarak yerine desteklenmiş, sertifikaları çalışan VM ekleme. Bu işlem en güncel sertifikaları dağıtımı sırasında bir web sunucusunda yüklü olan sağlar. Yenileme veya bir sertifikayı değiştirin, yeni bir özel VM görüntüsü oluşturmanız gerekmez. Ek sanal makineleri oluştururken en son sertifikaları otomatik olarak eklenmiş. Tüm işlem sırasında sertifikalar hiçbir zaman Azure platformu bırakın veya bir komut dosyası, komut satırı geçmiş veya şablonda sunulur.
+Oluşturulan sertifikaları içeren özel bir VM görüntüsü kullanmak yerine, sertifikaları çalışan bir VM’ye eklersiniz. Bu işlem, dağıtım sırasında web sunucusuna en güncel sertifikaların yüklenip yüklenmediğini kontrol eder. Ayrıca, bir sertifikayı yeniler veya değiştirirseniz yeni ve özel bir VM görüntüsü oluşturmanız da gerekmez. En güncel sertifikalar, siz ek VM oluşturdukça otomatik olarak eklenir. Bu işlem sırasında, sertifikalar Azure platformundan ayrılmaz veya bir betikte, komut satırı geçmişinde veya şablonda kullanıma sunulmaz.
 
 
-## <a name="create-an-azure-key-vault"></a>Azure anahtar kasası oluşturma
-Bir anahtar kasası ve sertifikaları oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupSecureWeb* içinde *eastus* konumu:
+## <a name="create-an-azure-key-vault"></a>Azure Key Vault oluşturma
+Key Vault ve sertifikalarını oluşturabilmek için [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroupSecureWeb* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Ardından, bir anahtar kasası ile oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) ve bir VM dağıttığınızda kullanım için etkinleştirin. Her anahtar kasası benzersiz bir ad gerektirir ve tüm küçük olmalıdır. Değiştir  *<mykeyvault>*  aşağıdaki örnekte kendi benzersiz bir anahtar kasası ad ile:
+Ardından, [az keyvault create](/cli/azure/keyvault#create) ile bir Key Vault oluşturun ve bu anahtarın VM dağıtırken kullanılmasını etkinleştirin. Her Key Vault benzersiz bir ad gerektirir ve küçük harflerle yazılmalıdır. Aşağıdaki örnekte yer alan *<mykeyvault>* değerini, kendi benzersiz Key Vault adınızla değiştirin:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -59,8 +59,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-## <a name="generate-a-certificate-and-store-in-key-vault"></a>Bir sertifika oluşturmak ve anahtar kasasına depolamak
-Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanmış geçerli bir sertifika almanız gerekir [az keyvault sertifika alma](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Bu öğretici için aşağıdaki örnek, otomatik olarak imzalanan bir sertifika ile nasıl oluşturabileceğiniz gösterir [az keyvault sertifika oluştur](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) varsayılan sertifika ilkesi kullanır:
+## <a name="generate-a-certificate-and-store-in-key-vault"></a>Sertifika oluşturma ve sertifikayı Key Vault’ta depolama
+Üretim sırasında kullanım için, [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) komutunu kullanarak güvenilen bir sağlayıcı tarafından imzalanan geçerli bir sertifikayı içeri aktarmalısınız. Bu öğreticide, aşağıdaki örnekte varsayılan sertifika ilkesini kullanan [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) ile nasıl otomatik olarak imzalanan sertifika oluşturabileceğiniz gösterilmektedir:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -69,8 +69,8 @@ az keyvault certificate create \
     --policy "$(az keyvault certificate get-default-policy)"
 ```
 
-### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Bir VM ile kullanılmak üzere bir sertifika hazırlama
-VM sırasında sertifikayı kullanmak üzere işlem oluşturma, sertifikanızla kimliği elde [az keyvault gizli listesi sürümleri](/cli/azure/keyvault/secret#list-versions). Sertifikayla Dönüştür [az vm biçimi-gizli](/cli/azure/vm#format-secret). Aşağıdaki örnek sonraki adımlarda kullanım kolaylığı için değişkenleri bu komutların çıktısı atar:
+### <a name="prepare-a-certificate-for-use-with-a-vm"></a>VM ile kullanım için sertifika hazırlama
+VM oluşturma sürecinde sertifikayı kullanmak için, [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions) komutuyla sertifikanızın kimliğini alın. [az vm format-secret](/cli/azure/vm#format-secret) komutuyla sertifikayı dönüştürün. Aşağıdaki örnekte, sonraki adımlarda kullanım kolaylığı sağlamak için bu komutların çıkışı değişkenlere atanmaktadır:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -80,12 +80,12 @@ secret=$(az keyvault secret list-versions \
 vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
-### <a name="create-a-cloud-init-config-to-secure-nginx"></a>NGINX güvenli hale getirmek için bir bulut init yapılandırması oluştur
-[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çalışırken, ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.
+### <a name="create-a-cloud-init-config-to-secure-nginx"></a>NGINX’in güvenliğini sağlamak için cloud-init yapılandırması oluşturma
+[Cloud-init](https://cloudinit.readthedocs.io), Linux VM’sini ilk kez önyüklendiğinde özelleştirmeyi sağlayan, sık kullanılan bir yaklaşımdır. cloud-init’i paket yükleme, dosyalara yazma ve kullanıcılar ile güvenliği yapılandırma işlemleri için kullanabilirsiniz. cloud-init önyükleme işlemi sırasında çalışırken, yapılandırmanıza uygulayabileceğiniz ek adım veya gerekli aracı yoktur.
 
-VM, sertifikaları oluşturduğunuzda ve anahtarlar depolanır korumalı içinde */var/lib/waagent/* dizin. Sertifika VM ekleme ve web sunucusu yapılandırma otomatikleştirmek için bulut init kullanın. Bu örnekte, yükleyin ve NGINX web sunucusu yapılandırın. Aynı işlem yüklemek ve Apache yapılandırmak için kullanabilirsiniz. 
+VM oluşturduğunuzda, sertifika ve anahtarlar korunan */var/lib/waagent/* dizininde depolanır. VM’ye sertifika ekleme ve web sunucusunu yapılandırma işlemlerini otomatikleştirmek için cloud-init’i kullanın. Bu örnekte, NGINX web sunucusunu yükleme ve yapılandırma işlemleri anlatılmaktadır. Aynı işlemleri Apache’yi yüklemek ve yapılandırmak için de kullanabilirsiniz. 
 
-Adlı bir dosya oluşturun *bulut-init-web-server.txt* ve aşağıdaki yapılandırma yapıştırın:
+*cloud-init-web-server.txt* adlı bir dosya oluşturup aşağıdaki yapılandırmayı yapıştırın:
 
 ```yaml
 #cloud-config
@@ -109,8 +109,8 @@ runcmd:
   - service nginx restart
 ```
 
-### <a name="create-a-secure-vm"></a>Güvenli bir VM oluşturma
-Şimdi bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create). Sertifika verileri ile anahtar Kasası'ndan eklenen `--secrets` parametresi. Bulut init config ile geçirdiğiniz `--custom-data` parametre:
+### <a name="create-a-secure-vm"></a>Güvenli VM oluşturma
+Şimdi [az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Bu sertifika verileri, `--secrets` parametresiyle Key Vault’tan eklenir. cloud-init yapılandırmasını `--custom-data` parametresiyle geçirirsiniz:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,9 +123,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Oluşturulacak VM, yüklemek için paketleri ve uygulamayı başlatmak için birkaç dakika sürer. VM oluşturduğunuzda not edin `publicIpAddress` Azure CLI tarafından görüntülenir. Bu adresi bir web tarayıcısında, siteye erişmek için kullanılır.
+VM’nin oluşturulması, paketlerin yüklenmesi ve uygulamanın başlatılması birkaç dakika sürebilir. VM oluşturulduktan sonra, Azure CLI tarafından görüntülenen `publicIpAddress` değerini not edin. Bu adres, web tarayıcısında sitenize erişmek için kullanılır.
 
-VM ulaşmak güvenli web trafiği izin vermek için 443 numaralı bağlantı noktasını Internet'ten gelen ile açmayı [az vm Aç-port](/cli/azure/vm#open-port):
+Güvenli web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm#open-port) komutuyla internette 443 numaralı bağlantı noktasını açın:
 
 ```azurecli-interactive 
 az vm open-port \
@@ -135,27 +135,28 @@ az vm open-port \
 ```
 
 
-### <a name="test-the-secure-web-app"></a>Güvenli web uygulamayı test etme
-Bir web tarayıcısı açın ve girin artık *https://<publicIpAddress>*  adres çubuğundaki. Kendi ortak sağlamak VM IP adresinden oluşturma işlemi. Kendinden imzalı bir sertifika kullanılması durumunda güvenlik uyarısı kabul edin:
+### <a name="test-the-secure-web-app"></a>Güvenli web uygulamasını sınama
+Artık web tarayıcısı açıp adres çubuğuna *https://<publicIpAddress>* ifadesini girebilirsiniz. VM oluşturma işleminden kendi herkese açık IP adresinizi sağlayın. Otomatik olarak imzalanan sertifika kullanıyorsanız güvenlik uyarısını kabul edin:
 
 ![Web tarayıcısı güvenlik uyarısını kabul edin](./media/tutorial-secure-web-server/browser-warning.png)
 
-Güvenli NGINX sitenizi sonra aşağıdaki örnekte olduğu gibi görüntülenir:
+Güvenli NGINX siteniz, sonra aşağıdaki örnekte olduğu gibi görüntülenir:
 
-![Çalışan güvenli NGINX sitesini görüntüle](./media/tutorial-secure-web-server/secured-nginx.png)
+![Çalışan güvenli NGINX sitesini görüntüleme](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure anahtar kasasında depolanan bir SSL sertifikası ile bir NGINX web sunucusu güvenli. Şunları öğrendiniz:
+Bu öğreticide, Azure Key Vault’ta depolanan bir SSL sertifikasıyla NGINX web sunucusunun güvenliğini sağlayacaksınız. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Azure anahtar kasası oluşturma
-> * Oluşturmak veya bir sertifika anahtar Kasası'na Karşıya Yükle
-> * Bir VM oluşturun ve NGINX web sunucusu yükleme
-> * Sertifika VM ekleme ve NGINX SSL bağlaması ile yapılandırma
+> * Azure Key Vault oluşturma
+> * Sertifikaları oluşturma veya Key Vault’a yükleme
+> * VM oluşturma ve NGINX web sunucusunu yükleme
+> * Sertifikayı VM’ye ekleme ve NGINX’i bir SSL bağlamasıyla yapılandırma
 
-Önceden derlenmiş sanal makine kod örnekleri görmek için bu bağlantıyı izleyin.
+Hazır sanal makine betik örneklerini görmek için bu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
-> [Windows sanal makine kod örnekleri](./cli-samples.md)
+> [Linux sanal makinesi betik örnekleri](./cli-samples.md)
+

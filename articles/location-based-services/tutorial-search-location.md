@@ -1,6 +1,6 @@
 ---
-title: "Azure konumu ile arama tabanlı Hizmetleri | Microsoft Docs"
-description: "İlgi çekici Azure konum tabanlı Hizmetleri kullanarak arama"
+title: "Azure Konum Tabanlı Hizmetler ile arama | Microsoft Docs"
+description: "Azure Konum Tabanlı Hizmetler ile yakınlardaki istenen konumları arama"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,27 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: 15afdead60d4c1ee3c7e3c079d43e0651b262ec8
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
-=======
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>İlgi çekici Azure konum tabanlı Hizmetleri kullanarak arama
+# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Azure Konum Tabanlı Hizmetler ile yakınlardaki istenen konumları arama
 
-Bu öğretici, Azure konum tabanlı Hizmetleri olan bir hesap ayarlayın ve ardından ilgi için arama yapmak için sağlanan API'leri kullanın gösterilmektedir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, bir Azure Konum Tabanlı Hizmetler hesabı ayarlama ve sağlanan API’leri kullanarak istenen bir konumu arama işlemleri gösterilmektedir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Temel Azure konum Hizmetleri ile bir hesabı oluşturma
-> * Hesabınız için abonelik anahtarı alma
-> * Harita denetimi API'si kullanılarak yeni bir web sayfası oluşturma
-> * Arama hizmeti ilgi çekici bulmak için kullanın
+> * Azure Konum Tabanlı Hizmetler hesabı oluşturma
+> * Azure Konum Tabanlı Hizmetler hesabınızın birincil anahtarını öğrenme
+> * Harita Denetimi API’sini kullanarak yeni web sayfası oluşturma
+> * Arama Hizmeti’ni kullanarak yakınlardaki istenen konumları bulma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
@@ -41,43 +35,43 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 <a id="createaccount"></a>
 
-## <a name="create-an-account-with-azure-location-based-services"></a>Temel Azure konum Hizmetleri ile bir hesabı oluşturma
+## <a name="create-an-account-with-azure-location-based-services"></a>Azure Konum Tabanlı Hizmetler hesabı oluşturma
 
-Yeni bir konum tabanlı hizmetleri hesabı oluşturmak için aşağıdaki adımları izleyin.
+Yeni bir Konum Tabanlı Hizmetler hesabı oluşturmak için bu adımları izleyin.
 
 1. [Azure portalının](https://portal.azure.com) sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 2. *Market’te Ara* kutusunda, **konum tabanlı hizmetler** yazın.
 3. *Sonuçlar* sayfasından, **Konum Tabanlı Hizmetler (önizleme)** seçeneğine tıklayın. Haritanın altında görüntülenen **Oluştur** düğmesine tıklayın. 
-4. Üzerinde **konum tabanlı hizmetleri hesabı oluştur** sayfasında, aşağıdaki değerleri girin:
-    - *Adı* yeni hesabınızın. 
-    - *Abonelik* bu hesap için kullanmak istediğiniz.
-    - *Kaynak grubu* bu hesap adı. Tercih edebilirsiniz *Yeni Oluştur* veya *var olanı kullan* kaynak grubu.
-    - Seçin *kaynak grubu konumu*.
-    - Okuma *Önizleme koşulları* ve koşulları kabul etmek için onay kutusunu işaretleyin. 
-    - Son olarak, tıklatın **oluşturma** düğmesi.
+4. **Konum Tabanlı Hizmetler Hesabı Oluştur** sayfasında aşağıdaki değerleri girin:
+    - Yeni hesabınıza verilen *Ad*. 
+    - Bu hesap için kullanmak istediğiniz *Abonelik*.
+    - Bu hesap için *Kaynak grubu* adı. Kaynak grubu için *Yeni oluştur* veya *Mevcut olanı kullan* seçeneğini belirleyebilirsiniz.
+    - *Kaynak grubu konumu*nu seçin.
+    - *Önizleme Koşulları*’nı okuyun ve kabul etmek için onay kutusunu işaretleyin. 
+    - Son olarak **Oluştur** düğmesine tıklayın.
    
     ![Portalda Konum Tabanlı Hizmetler Hesabı oluşturma](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>Hesabınız için abonelik anahtarı alma
+## <a name="get-the-primary-key-for-your-account"></a>Hesabınızın birincil anahtarını alma
 
-Konum tabanlı Hizmetleri hesabınızı başarıyla oluşturulduktan sonra kendi harita arama API'leri bağlamak için adımları izleyin:
+Konum Tabanlı Hizmetler hesabınız başarıyla oluşturulduktan sonra hesabı harita arama API’lerine bağlamak için şu adımları izleyin:
 
-1. Konum tabanlı Hizmetleri hesabınızı portalda açın.
-2. Hesabınıza ait gidin **ayarları**ve ardından **anahtarları**.
-3. Kopya **birincil anahtar** panonuza. Devam etmeden adımlarda yerel olarak kullanmak üzere kaydedin. 
+1. Portalda Konum Tabanlı Hizmetler hesabınızı açın.
+2. Hesabınızın **AYARLAR** bölümüne gidip **Anahtarlar**’ı seçin.
+3. **Birincil Anahtar**’ı panonuza kopyalayın. Sonraki adımlarda kullanmak üzere yerel olarak kaydedin. 
 
-    ![Portalı'nda birincil anahtarı alma](./media/tutorial-search-location/lbs-get-key.png)
+    ![Portalda Birincil Anahtar’ı alma](./media/tutorial-search-location/lbs-get-key.png)
 
 
 <a id="createmap"></a>
 
-## <a name="create-new-web-page-using-azure-map-control-api"></a>Azure Harita Denetim API'sini kullanarak yeni bir web sayfası oluşturma
-Azure Harita Denetim API'si Azure konum tabanlı Hizmetleri web uygulamanıza kolayca tümleştirmenize olanak tanıyan bir uygun istemci kitaplıktır. Tam REST hizmeti çağrıları karmaşıklığını ve styleable ve özelleştirilebilir bileşenleri verimliliğinizi artırır. Aşağıdaki adımlar konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir statik HTML sayfası oluşturulacağını gösterir. 
+## <a name="create-new-web-page-using-azure-map-control-api"></a>Azure Harita Denetimi API’sini kullanarak yeni web sayfası oluşturma
+Azure Harita Denetimi API'si, Azure Konum Tabanlı Hizmetler’i web uygulamanızla kolayca tümleştirmenize olanak tanıyan kullanışlı bir istemci kitaplığıdır. Açık REST hizmet çağrılarının karmaşıklığını gizlemesinin yanı sıra, stili değiştirilebilen ve özelleştirilebilen bileşenlerle üretkenliğinizi arttırır. Aşağıdaki adımlarda, Konum Tabanlı Hizmetler’in Harita Denetimi API’sinin ekli olduğu statik bir HTML sayfası oluşturma işlemi gösterilmiştir. 
 
-1. Yerel makinenizde yeni bir dosya oluşturun ve adlandırın **MapSearch.html**. 
+1. Yerel makinenizde yeni bir dosya oluşturun ve bu dosyayı **MapSearch.html** olarak adlandırın. 
 2. Aşağıdaki HTML bileşenlerini dosyaya ekleyin:
 
     ```HTML
@@ -117,20 +111,20 @@ Azure Harita Denetim API'si Azure konum tabanlı Hizmetleri web uygulamanıza ko
 
     </html>
     ``` 
-    HTML üstbilgisi Azure harita denetiminin kitaplığı tarafından barındırılan CSS ve JavaScript kaynak dosyaları içerdiğine dikkat edin. Not *betik* eklenecek segment *gövde* HTML dosyası. Bu kesimin satır içi Azure konumu dayalı hizmetin API'lere erişim için JavaScript kodunu içerir.
+    HTML üst bilgisinin Azure Harita Denetimi kitaplığı tarafından barındırılan CSS ve JavaScript kaynak dosyalarını içerdiğine dikkat edin. HTML dosyasının *gövdesine* *Betik* segmentinin eklendiğine dikkat edin. Bu segment, Azure Konum Tabanlı Hizmetler API’lerine erişime yönelik satır içi JavaScript kodunu içerir.
  
-3.  Şu JavaScript kodunu eklemek *betik* HTML dosyası bloğu. Yer tutucu Değiştir *< anahtar Ekle >* konum tabanlı Hizmetleri hesabınızın birincil anahtara sahip. 
+3.  HTML dosyasının *betik* bloğuna aşağıdaki JavaScript kodunu ekleyin. Betikte Konum Tabanlı Hizmetler hesabınızın birincil anahtarını kullanın. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Bu kesimin abonelik anahtarınızı Harita Denetim API'si başlatır. **Atlas** Azure Harita Denetim API ve ilişkili visual bileşenleri içeren ad alanıdır. **Atlas. Harita** denetim için bir görsel ve etkileşimli web eşleme sağlar. Nasıl harita tarayıcıda HTML sayfası açarak benzer gözlemleyebilirsiniz. 
+    Bu segment, Azure Konum Tabanlı Hizmetler hesap anahtarınız için Harita Denetimi API’sini başlatır. **Atlas**, Azure Harita Denetimi API’sini ve ilgili görsel bileşenleri içeren ad alanıdır. **atlas.Map**, görsel ve etkileşimli bir web haritası için gerekli denetimi sağlar. HTML sayfasını tarayıcıda açarak haritanın nasıl göründüğüne bakabilirsiniz. 
 
-4. Şu JavaScript kodunu eklemek *betik* bloğu, arama PIN'ler bir katmanı harita denetim eklemek için:
+4. Harita Denetimi’ne bir arama raptiyeleri katmanı eklemek için *betik* bloğuna aşağıdaki JavaScript kodunu ekleyin:
 
     ```JavaScript
     // Initialize the pin layer for search results to the map
@@ -142,16 +136,16 @@ Azure Harita Denetim API'si Azure konum tabanlı Hizmetleri web uygulamanıza ko
     });
     ```
 
-5. Makinenizde dosyasını kaydedin. 
+5. Dosyayı makinenize kaydedin. 
 
 
 <a id="usesearch"></a>
 
-## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Arama hizmeti ilgi çekici bulmak için kullanın
+## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Arama Hizmeti’ni kullanarak yakınlardaki istenen konumları bulma
 
-Bu bölümde Azure konum tabanlı hizmetlerin arama hizmeti API'si, haritada ilginizi çeken bir noktayı bulmak için nasıl kullanılacağını gösterir. Bu bir RESTful adresleri, ilgilenilen noktaları ve diğer coğrafi bilgileri aramak geliştiricileri için tasarlanmış bir API'dir. Arama hizmeti için belirtilen bir adres enlem ve boylam bilgi atar. 
+Bu bölümde, Konum Tabanlı Hizmetler’in Harita Denetimi API’sini kullanarak haritanızda istediğiniz bir konumu nasıl bulabileceğiniz gösterilmiştir. Bu, geliştiricilerin adres, istenen nokta ve diğer coğrafi bilgileri araması için tasarlanmış bir RESTful API’dir. Arama Hizmeti, belirtilen bir adrese enlem ve boylam bilgileri atar. 
 
-1. Açık **MapSearch.html** dosyası önceki bölümde oluşturulan ve şu JavaScript kodunu ekleyin *betik* arama hizmeti göstermeye bloğu. 
+1. Arama Hizmeti’ni göstermek için, önceki bölümde oluşturulan **MapSearch.html** dosyasını açın ve *betik* bloğuna aşağıdaki JavaScript kodunu ekleyin. 
     ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
@@ -191,15 +185,15 @@ Bu bölümde Azure konum tabanlı hizmetlerin arama hizmeti API'si, haritada ilg
         }
     };
     ```
-    Bu kod parçacığını oluşturur bir [XMLHttpRequest](https://xhr.spec.whatwg.org/), ve gelen yanıtı ayrıştırılamadı olay işleyicisi ekler. Başarılı bir yanıt için topladığı adresleri, adları, buna, döndürülen her konum için enlem ve logitude bilgi `searchPins` değişkeni. Son olarak, bu koleksiyon için konum noktalarının ekler `map` denetim PIN'ler olarak. 
+    Bu kod parçacığı bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) oluşturur ve gelen yanıtları ayrıştırmak için bir olay işleyicisi ekler. Yanıtın başarılı olması için `searchPins` değişkeninde döndürülen her konumun adres, ad, enlem ve boylam bilgilerini toplar. Son olarak, bu konum koleksiyonunu raptiyeler olarak `map` denetimine ekler. 
 
-2. Aşağıdaki kodu ekleyin *betik* XMLHttpRequest Azure konum tabanlı hizmetlerin arama hizmetine göndermek için engelle:
+2. *Betik* bloğuna aşağıdaki kodu ekleyerek Azure Konum Tabanlı Hizmetler’in Arama Hizmeti’ne XMLHttpRequest gönderin:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -207,9 +201,9 @@ Bu bölümde Azure konum tabanlı hizmetlerin arama hizmeti API'si, haritada ilg
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Bu kod parçacığında adlı arama hizmeti temel arama API kullanan **benzer arama**. Girdi adresi herhangi bir bileşimini işleme en belirsiz işleme veya *POI* belirteçleri. Arar yakındaki **Akaryakıt istasyon**, belirli bir adresi enlem ve boylam ve belirtilen RADIUS içinde için. Konum tabanlı Hizmetleri çağrısı yapmak için daha önce örnek dosyasında sağlanan hesabınızın abonelik anahtarı kullanır. Enlem/boylam sonuçlar getirir bulunan konumlar için çiftleri. Tarayıcıda HTML sayfası açarak arama PIN'ler gözlemleyebilirsiniz. 
+    Bu kod parçacığında adlı arama hizmeti temel arama API kullanan **benzer arama**. En belirsiz girdileri bile işleyebildiğinden, tüm adres veya *POI* belirteçlerini işler. Belirtilen enlem ve boylamdaki adres için, belirtilen yarıçap içindeki **petrol istasyonlarını** arar. Hesabınızın daha önce örnek dosyada sağlanan birincil anahtarını kullanarak Konum Tabanlı Hizmetler’e çağrı yapar. Bulunan konumlar için sonuçları enlem/boylam çiftleri olarak döndürür. HTML sayfasını tarayıcıda açarak arama raptiyelerini gözlemleyebilirsiniz. 
 
-3. Aşağıdaki satırları ekleyin *betik* bloğu, arama hizmeti tarafından döndürülen ilgilenilen noktaları için açılır pencereleri oluşturmak için:
+3. Arama Hizmeti tarafından döndürülen istenen noktalara yönelik açılan pencereler oluşturmak için *betik* bloğuna aşağıdaki satırları ekleyin:
 
     ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
@@ -238,20 +232,20 @@ Bu bölümde Azure konum tabanlı hizmetlerin arama hizmeti API'si, haritada ilg
         popup.open(map);
     });
     ```
-    API **atlas. Açılan** bilgi sağlayan pencere bağlantılı harita üzerinde gerekli konumunda. Bu kod parçacığında içerik ve açılan konumunu ayarlar yanı sıra bir olay dinleyicisi ekler `map` bekleniyor denetim _fare_ açılan alma. 
+    **atlas.Popup** API’si, haritada gerekli konuma sabitlenmiş bir bilgi penceresi sağlar. Bu kod parçacığı, açılan pencerenin içeriğini ve konumunu belirlemesinin yanı sıra _farenin_ açılan pencerenin üzerine gelmesini bekleyen bir `map` denetimi ekler. 
 
-4. Dosyayı kaydedin ve ardından açın **MapSearch.html** dosya tercih ettiğiniz bir web tarayıcısında ve sonucu uyun. Bu noktada, gösterilen, aşağıdakine benzer arama PIN'ler hiçbirini üzerine geldiğinizde tarayıcıda haritada bilgileri açılır pencereleri gösterilir. 
+4. Dosyayı kaydedin ve sonra dilediğiniz web tarayıcısında **MapSearch.html** dosyasını açarak sonucu inceleyin. Bu noktada, tarayıcıdaki haritada gösterilen herhangi bir arama raptiyesinin üzerine gelip beklediğinizde aşağıdakine benzeyen bilgi açılan pencereleri gösterilir. 
 
-    ![Azure harita denetiminin ve arama hizmeti](./media/tutorial-search-location/lbs-map-search.png)
+    ![Azure Harita Denetimi ve Arama Hizmeti](./media/tutorial-search-location/lbs-map-search.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Temel Azure konum Hizmetleri ile bir hesabı oluşturma
-> * Hesabınız için abonelik anahtarı alma
-> * Harita denetimi API'si kullanılarak yeni bir web sayfası oluşturma
-> * Arama hizmeti ilgi çekici bulmak için kullanın
+> * Azure Konum Tabanlı Hizmetler hesabı oluşturma
+> * Hesabınızın birincil anahtarını alma
+> * Harita Denetimi API’sini kullanarak yeni web sayfası oluşturma
+> * Arama Hizmeti’ni kullanarak yakınlardaki istenen konumları bulma
 
-Öğreticisine devam [Azure konum tabanlı Hizmetleri kullanarak ilgi rotaya](./tutorial-route-location.md) Azure konum tabanlı Hizmetleri noktanızı ilgi yönlendirmek için nasıl kullanılacağını öğrenin. 
+Azure Konum Tabanlı Hizmetler’i kullanarak istediğiniz konumun yol tarifini almayı öğrenmek için [Azure Konum Tabanlı Hizmetler ile istenen konuma yol tarifi alma](./tutorial-route-location.md) öğreticisine geçin. 

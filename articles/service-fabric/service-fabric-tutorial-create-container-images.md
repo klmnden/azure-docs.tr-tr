@@ -1,13 +1,13 @@
 ---
-title: "Kapsayıcı görüntüleri oluşturmak için Azure Service Fabric | Microsoft Docs"
-description: "Kapsayıcı görüntüler için birden çok kapsayıcı Service Fabric uygulaması oluşturmayı öğrenin."
+title: "Azure Service Fabric için kapsayıcı görüntüleri oluşturma | Microsoft Docs"
+description: "Çok kapsayıcılı bir Service Fabric uygulaması için kapsayıcı görüntülerini nasıl oluşturabileceğinizi öğrenin."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, kapsayıcıları, mikro, Service Fabric, Azure"
+keywords: "Docker, Kapsayıcılar, Mikro Hizmetler, Service Fabric, Azure"
 ms.assetid: 
 ms.service: service-fabric
 ms.topic: tutorial
@@ -16,41 +16,41 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Service Fabric için kapsayıcı görüntüleri oluşturma
 
-Bu öğreticide her biri bir Linux Service Fabric kümesi kapsayıcıları kullanmayı gösteren öğretici bir parçasıdır. Bu öğreticide, bir çok kapsayıcı uygulaması Service Fabric ile kullanım için hazırlanır. Sonraki öğreticilerde, bu görüntüleri bir Service Fabric uygulaması bir parçası olarak kullanılır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz: 
+Bu öğretici, Linux Service Fabric kümesinde kapsayıcıları kullanmayı gösteren öğretici serisinin ilk parçasıdır. Bu öğreticide, bir çoklu konteyner uygulaması Service Fabric ile kullanılmak üzere hazırlanmaktadır. Sonraki öğreticilerde, bu görüntüler Service Fabric uygulamasının bir parçası olarak kullanılır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz: 
 
 > [!div class="checklist"]
-> * Kopya Uygulama kaynağı github'dan  
-> * Uygulama kaynağından bir kapsayıcı görüntüsü oluşturun
-> * Azure kapsayıcı kayıt defteri (ACR) örneğini dağıtma
-> * ACR için bir kapsayıcı görüntü etiketi
-> * ACR için görüntüyü karşıya yükleme
+> * Uygulama kaynağını GitHub’dan kopyalama  
+> * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
+> * Azure Container Registry (ACR) örneği dağıtma
+> * ACR için kapsayıcı görüntüsü etiketleme
+> * Görüntüyü ACR’ye yükleme
 
-Bu öğretici serisinde öğrenin nasıl yapılır: 
+Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz: 
 
 > [!div class="checklist"]
 > * Service Fabric için kapsayıcı görüntüleri oluşturma
-> * [Derleme ve Service Fabric uygulaması ile kapsayıcıları çalıştırma](service-fabric-tutorial-package-containers.md)
-> * [Service Fabric yük devretme ve ölçeklendirme nasıl işlenir](service-fabric-tutorial-containers-failover.md)
+> * [Kapsayıcılara Sahip bir Service Fabric Uygulaması Derleme ve Çalıştırma](service-fabric-tutorial-package-containers.md)
+> * [Service Fabric’de yük devretme ve ölçeklendirme nasıl işlenir?](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-- Service Fabric için Linux geliştirme ortamı ayarlayın. Yönergeleri izleyerek [burada](service-fabric-get-started-linux.md) Linux ortamınızı ayarlamak için. 
-- Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
-- Ayrıca, bir Azure aboneliğine sahip olmasını gerektirir. Ücretsiz deneme sürümü hakkında daha fazla bilgi için Git [burada](https://azure.microsoft.com/free/).
+- Service Fabric için ayarlanan Linux geliştirme ortamı. Linux ortamınızı ayarlamak için [buradaki](service-fabric-get-started-linux.md) yönergeleri izleyin. 
+- Bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+- Ayrıca, Azure aboneliğine sahip olmalısınız. Ücretsiz deneme sürümü hakkında daha fazla bilgi için [buraya](https://azure.microsoft.com/free/) göz atın.
 
 ## <a name="get-application-code"></a>Uygulama kodunu alma
 
-Bu öğreticide kullanılan örnek bir oylama uygulaması uygulamasıdır. Uygulama bir ön uç web bileşeni ve bir arka uç Redis örneği oluşur. Bileşenleri kapsayıcı görüntülere paketlenir. 
+Bu öğreticide kullanılan örnek uygulama, oylama uygulamasıdır. Bu uygulama, ön uç bileşen ile arka uç Redis örneğinden oluşur. Bileşenler, kapsayıcı görüntüleri olarak paketlenir. 
 
-Geliştirme ortamınızı uygulamaya bir kopyasını indirmek için Git kullanın.
+Geliştirme ortamına uygulamanın bir kopyasını indirmek için Git kullanın.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
@@ -58,23 +58,23 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Çözüm iki klasör içerir ve bir ' docker-compse.yml' dosyası. 'Azure-oy' klasörü görüntü oluşturmak için kullanılan Dockerfile birlikte Python ön uç hizmeti içerir. 'Oylama' dizini kümeye dağıtılan Service Fabric uygulama paketini içerir. Bu dizinleri, Bu öğretici için gerekli varlıkları içerir.  
+Çözüm, iki klasör ve bir ‘docker-compose.yml’ dosyası içerir. ‘azure-vote’ klasörü, görüntüyü derlemek için kullanılan Dockerfile dosyasının yanı sıra Python ön uç hizmetini de içerir. ‘Voting’ dizini ise kümeye dağıtılmış Service Fabric uygulama paketini içerir. Bu dizinler, bu öğreticiyi tamamlamak için gerekli varlıkları içerir.  
 
 ## <a name="create-container-images"></a>Kapsayıcı görüntüleri oluşturma
 
-İçinde **azure oy** dizin, ön uç web bileşeni için görüntü oluşturmak için aşağıdaki komutu çalıştırın. Bu komut, görüntü oluşturmak için bu dizinde Dockerfile kullanır. 
+**azure-vote** dizini içinde, ön uç web bileşeni için görüntü derlemek üzere aşağıdaki komutu çalıştırın. Bu komut, görüntüyü oluşturmak için bu dizindeki Docker dosyasını kullanır. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-Bu komut, tüm gerekli bağımlılıkları Docker hub'dan çekebilir gerektiği biraz zaman alabilir. Tamamlandığında kullanmak [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) oluşturulan görüntüleri görmek için komutu.
+Gerekli tüm bağımlılıkların Docker Hub’dan çekilmesi gerektiğinden, bu komutun çalıştırılması uzun sürebilir. Tamamlandığında, oluşturulan görüntüleri görmek için [docker images](https://docs.docker.com/engine/reference/commandline/images/) komutunu kullanın.
 
 ```bash
 docker images
 ```
 
-İki görüntü indirilebilir veya oluşturulan dikkat edin. *Azure oy ön* görüntü, uygulama içerir. Türetilmiş bir *python* Docker hub'a görüntüden.
+İndirilen veya oluşturulan iki görüntü olduğunu göz önünde bulundurun. *azure-vote-front* görüntüsü, uygulamayı içerir. Bu görüntü, Docker Hub’daki bir *python* görüntüsünden türetilmiştir.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -83,51 +83,51 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ```
 
-## <a name="deploy-azure-container-registry"></a>Azure kapsayıcı kayıt defteri dağıtın
+## <a name="deploy-azure-container-registry"></a>Azure Container Registry’yi dağıtma
 
-İlk çalıştırma **az oturum açma** Azure hesabınızda oturum açmak için komutu. 
+Önce, Azure hesabınızda oturum açmak için **az login** komutunu çalıştırın. 
 
 ```bash
 az login
 ```
 
-Ardından, kullanın **az hesabı** komutu Azure kapsayıcı kayıt oluşturmak için aboneliğinizi seçin. Abonelik kimliği, Azure aboneliğinizin < ABONELİK_KİMLİĞİ > yerine girmeniz gerekir. 
+Sonra, Azure Container kayıt defterini oluşturmada kullanacağınız aboneliğinizi seçmenizi sağlayan **az account** komutunu kullanın. Azure aboneliğinizin abonelik kimliğini <subscription_id> alanına girmeniz gerekir. 
 
 ```bash
 az account set --subscription <subscription_id>
 ```
 
-Azure kapsayıcı kayıt defteri dağıtırken, önce bir kaynak grubu gerekir. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+Bir Azure Container Registry dağıtırken önce bir kaynak grubuna ihtiyaç duyarsınız. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-**az group create** komutuyla bir kaynak grubu oluşturun. Bu örnekte, bir kaynak grubu adında *myResourceGroup* oluşturulan *westus* bölge.
+**az group create** komutuyla bir kaynak grubu oluşturun. Bu örnekte, *westus* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturulur.
 
 ```bash
 az group create --name <myResourceGroup> --location westus
 ```
 
-Azure kapsayıcı kayıt defteri ile oluşturma **az acr oluşturmak** komutu. Değiştir \<acrName > aboneliğinizi altında oluşturmak istediğiniz kapsayıcı kayıt defteri adı. Bu ad benzersiz ve alfasayısal olmalıdır. 
+**az acr create** komutuyla Azure Container kayıt defteri oluşturun. \<acrName> değerini, aboneliğiniz altında oluşturmak istediğiniz kapsayıcı kayıt defteriyle değiştirin. Bu ad, alfasayısal karakterler içermeli ve benzersiz olmalıdır. 
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Bu öğreticinin geri kalanını, "acrName" yer tutucu olarak seçtiğiniz kapsayıcı kayıt defteri adını kullanıyoruz. Lütfen bu değeri not edin. 
+Bu öğreticinin geri kalan aşamalarında, seçtiğiniz kapsayıcı kayıt defteri adı için yer tutucu olarak “acrName” kullanacağız. Lütfen bu değeri not edin. 
 
-## <a name="log-in-to-your-container-registry"></a>Kapsayıcı kaydınız oturum açın
+## <a name="log-in-to-your-container-registry"></a>Kapsayıcı kayıt defterinizde oturum açma
 
-Görüntüleri göndermeden önce ACR Örneğiniz için oturum açın. Kullanım **az acr oturum açma** işlemi tamamlamak için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad sağlayın.
+Görüntüleri göndermeden önce ACR örneğinizde oturum açın. İşlemi tamamlamak için **az acr login** komutunu kullanın. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz adı sağlayın.
 
 ```bash
 az acr login --name <acrName>
 ```
 
-Komut tamamlandıktan sonra 'Başarılı oturum açma' iletisi döndürür.
+Komut tamamlandığında bir “Oturum Başarıyla Açıldı” iletisi döndürür.
 
-## <a name="tag-container-images"></a>Etiket kapsayıcı görüntüleri
+## <a name="tag-container-images"></a>Kapsayıcı görüntülerini etiketleme
 
-Her kapsayıcı görüntü kayıt loginServer adıyla etiketlenmesi gerekiyor. Bu etiket kapsayıcı görüntüleri bir görüntü kayıt defterine Ftp'den zaman yönlendirme için kullanılır.
+Her kapsayıcı görüntüsünün, kayıt defterinin loginServer adıyla etiketlenmesi gerekir. Bu etiket, görüntü kayıt defterine kapsayıcı görüntüleri gönderilirken kullanılır.
 
-Geçerli görüntüleri listesini görmek için [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) komutu.
+Mevcut görüntülerin listesini görüntülemek için [docker images](https://docs.docker.com/engine/reference/commandline/images/) komutunu kullanın.
 
 ```bash
 docker images
@@ -141,13 +141,13 @@ azure-vote-front             latest              052c549a75bf        About a min
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
-LoginServer adını almak için aşağıdaki komutu çalıştırın:
+loginServer adını almak için aşağıdaki komutu çalıştırın:
 
 ```bash
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Aşağıdaki sonuçları içeren bir tablo çıkarır. Bu sonuç etiketi için kullanılacak, **azure oy ön** sonraki adımda kapsayıcı kayıt defterine Ftp'den önce görüntü.
+Bu çıkış, aşağıdaki sonuçları içeren bir tablo döndürür. Bu sonuç, sonraki adımda kapsayıcı kayıt defterine göndermeden önce **azure-vote-front** görüntünüzü etiketleyebilmeniz için gereklidir.
 
 ```bash
 Result
@@ -155,13 +155,13 @@ Result
 <acrName>.azurecr.io
 ```
 
-Şimdi, etiket *azure oy ön* kapsayıcı kaydınız loginServer görüntüsüyle. Ayrıca, ekleme `:v1` sonuna kadar görüntü adı. Bu etiket resim sürümünü gösterir.
+Şimdi, kapsayıcı kayıt defterinizin loginServer’ı için *azure-vote-front* görüntüsünü etiketleyin. Ayrıca, görüntü adının sonuna `:v1` ekleyin. Bu etiket, görüntü sürümünü belirtir.
 
 ```bash
 docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
-Etiketli sonra 'docker görüntüleri' çalıştırma işlemi doğrulamak için.
+Etiketledikten sonra, işlemi doğrulamak için ‘docker images’ komutunu çalıştırın.
 
 
 Çıktı:
@@ -174,21 +174,21 @@ tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5
 
 ```
 
-## <a name="push-images-to-registry"></a>Kayıt defteri itme görüntüleri
+## <a name="push-images-to-registry"></a>Kayıt defterine görüntü gönderme
 
-Anında *azure oy ön* kayıt defterine görüntü. 
+*azure-vote-front* görüntüsünü kayıt defterine gönderin. 
 
-Aşağıdaki örneği kullanarak, ortamınızdan loginServer ACR loginServer adını değiştirin.
+Aşağıdaki örneği kullanarak, ortamınızda, ACR loginServer adını loginServer olarak değiştirin.
 
 ```bash
 docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
-Docker itme komutları birkaç tamamlamak için dakika alın.
+Docker gönderme komutlarının tamamlanması birkaç dakika sürebilir.
 
-## <a name="list-images-in-registry"></a>Kayıt defterinde listesi görüntüler
+## <a name="list-images-in-registry"></a>Kayıt defterindeki görüntüleri listeleme
 
-Azure kapsayıcı kaydınız gönderilen görüntüleri listesini döndürmek için kullanın [az acr deposu listesi](/cli/azure/acr/repository#list) komutu. Komut ACR örnek adıyla güncelleştirin.
+Azure Container Registry’nize gönderilen görüntülerin listesini döndürmek için [az acr repository list](/cli/azure/acr/repository#list) komutunu kullanın. Komutu ACR örneği adıyla güncelleştirin.
 
 ```bash
 az acr repository list --name <acrName> --output table
@@ -202,20 +202,20 @@ Result
 azure-vote-front
 ```
 
-Eğitmen tamamlandığında, kapsayıcı görüntünün bir özel Azure kapsayıcı kayıt defteri örneğinde zamandır depolanmış. Bu görüntü ACR bir Service Fabric kümesi için sonraki öğreticilerde dağıtılır.
+Öğretici tamamlandığında, kapsayıcı görüntüsü özel bir Azure Container Registry örneğinde depolanır. Sonraki öğreticilerde, bu görüntüyü ACR’den bir Service Fabric kümesine dağıtma işlemi açıklanmıştır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir uygulama Github'dan çekilen ve kapsayıcı görüntüleri oluşturulan ve bir kayıt defterine gönderilir. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide GitHub’dan bir uygulama çekilmiştir, kapsayıcı görüntüleri oluşturulmuş ve bir kayıt defterine gönderilmiştir. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * Kopya Uygulama kaynağı github'dan  
-> * Uygulama kaynağından bir kapsayıcı görüntüsü oluşturun
-> * Azure kapsayıcı kayıt defteri (ACR) örneğini dağıtma
-> * ACR için bir kapsayıcı görüntü etiketi
-> * ACR için görüntüyü karşıya yükleme
+> * Uygulama kaynağını GitHub’dan kopyalama  
+> * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
+> * Azure Container Registry (ACR) örneği dağıtma
+> * ACR için kapsayıcı görüntüsü etiketleme
+> * Görüntüyü ACR’ye yükleme
 
-Yeoman kullanarak bir Service Fabric uygulamasına paketleme kapsayıcıları hakkında bilgi edinmek için sonraki öğretici ilerleyin. 
+Yeoman kullanarak bir Service Fabric uygulamasına kapsayıcı paketleme hakkında bilgi edinmek için sonraki öğreticiye geçin. 
 
 > [!div class="nextstepaction"]
-> [Paket ve bir Service Fabric uygulaması olarak kapsayıcıları dağıtın](service-fabric-tutorial-package-containers.md)
+> [Kapsayıcıları Service Fabric uygulaması olarak paketleme ve dağıtma](service-fabric-tutorial-package-containers.md)

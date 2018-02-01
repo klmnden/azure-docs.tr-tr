@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ad61870b49f7a8753e4dbd2e34847daf14b793a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
@@ -103,32 +103,38 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS 2.0 hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
 4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir Komut İstemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. **Yerel Güvenlik İlkesi**'ni kapatın ve ardından **AD FS Yönetim** ek bileşenini açın. AD FS Yönetim ek bileşenini açmak için **Başlat**'a tıklayın, **Programlar** ve **Yönetim Araçları**'nın üzerine gidin ve ardından **AD FS 2.0 Yönetimi**'ne tıklayın.
-6. **Eylemler** bölmesinde **Federasyon Hizmeti Özelliklerini Düzenle**'ye tıklayın.
-7. **Federation Service Properties (Federasyon Hizmeti Özellikleri)** iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
-8. **Success audits (Başarı denetimleri)** ve **Failure audits (Hata denetimleri)** onay kutularını seçin.
-9. **OK (Tamam)** düğmesine tıklayın.
+5. **Yerel Güvenlik İlkesi**’ni kapatın.
+<br>   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- </br>
+6. **AD FS Yönetim** ek bileşenini açın. AD FS Yönetim ek bileşenini açmak için **Başlat**'a tıklayın, **Programlar** ve **Yönetim Araçları**'nın üzerine gidin ve ardından **AD FS 2.0 Yönetimi**'ne tıklayın.
+7. **Eylemler** bölmesinde **Federasyon Hizmeti Özelliklerini Düzenle**'ye tıklayın.
+8. **Federation Service Properties (Federasyon Hizmeti Özellikleri)** iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
+9. **Success audits (Başarı denetimleri)** ve **Failure audits (Hata denetimleri)** onay kutularını seçin.
+10. **OK (Tamam)** düğmesine tıklayın.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Windows Server 2012 R2'de AD FS için denetimi etkinleştirme
 1. Başlat ekranından **Sunucu Yöneticisi**'ni açarak **Yerel Güvenlik İlkesi**'ni veya masaüstünde bulunan görev çubuğundan Sunucu Yöneticisi'ni açıp **Araçlar/Yerel Güvenlik İlkesi**'ne tıklayın.
 2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
 4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
-5. **Yerel Güvenlik İlkesi**'ni kapatın ve ardından **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
-6. Eylemler bölmesinde **Edit Federation Service Properties (Federasyon Hizmeti Özelliklerini Düzenle)** seçeneğine tıklayın.
-7. Federation Service Properties (Federasyon Hizmeti Özellikleri) iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
-8. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın.
+5. **Yerel Güvenlik İlkesi**’ni kapatın.
+<br>   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- </br>
+6. **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
+7. **Eylemler** bölmesinde **Federasyon Hizmeti Özelliklerini Düzenle**'ye tıklayın.
+8. **Federation Service Properties (Federasyon Hizmeti Özellikleri)** iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
+9. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Windows Server 2016'da AD FS için denetimi etkinleştirme
 1. Başlat ekranından **Sunucu Yöneticisi**'ni açarak **Yerel Güvenlik İlkesi**'ni veya masaüstünde bulunan görev çubuğundan Sunucu Yöneticisi'ni açıp **Araçlar/Yerel Güvenlik İlkesi**'ne tıklayın.
 2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Mevcut değilse, **Kullanıcı veya Grup Ekle**'ye tıklayın, AD FS hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
 4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. **Yerel Güvenlik İlkesi**'ni kapatın ve ardından **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
-6. Eylemler bölmesinde **Edit Federation Service Properties (Federasyon Hizmeti Özelliklerini Düzenle)** seçeneğine tıklayın.
-7. Federation Service Properties (Federasyon Hizmeti Özellikleri) iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
-8. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın. Bu seçenek varsayılan olarak etkindir.
-9. Bir PowerShell penceresi açın ve şu komutu çalıştırın: ```Set-AdfsProperties -AuditLevel Verbose```.
+5. **Yerel Güvenlik İlkesi**’ni kapatın.
+<br>   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- </br>
+6. **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
+7. **Eylemler** bölmesinde **Federasyon Hizmeti Özelliklerini Düzenle**'ye tıklayın.
+8. **Federation Service Properties (Federasyon Hizmeti Özellikleri)** iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
+9. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın. Bu seçenek varsayılan olarak etkindir.
+10. Bir PowerShell penceresi açın ve şu komutu çalıştırın: ```Set-AdfsProperties -AuditLevel Verbose```.
 
 "Temel" denetim düzeyi varsayılan olarak etkindir. [Windows Server 2016’da AD FS Denetimini geliştirme](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016) hakkında daha fazla bilgi edinin
 
@@ -211,7 +217,7 @@ Yapılandırmayı tamamladıysanız bu hizmetlerin çalışır durumda olması g
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
-### <a name="agent-registration-using-powershell"></a>PowerShell kullanarak Aracı Kaydı
+## <a name="agent-registration-using-powershell"></a>PowerShell kullanarak Aracı Kaydı
 Uygun aracı setup.exe dosyasını yükledikten sonra role bağlı olarak aşağıdaki PowerShell komutlarını kullanarak aracı kaydı adımını gerçekleştirebilirsiniz. Bir PowerShell penceresi açın ve uygun komutu yürütün:
 
 ```

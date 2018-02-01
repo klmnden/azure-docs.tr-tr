@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Kurtarma planlarına Azure runbook ekleme
           href: site-recovery-runbook-automation.md
+        - name: Kurtarma planlarına VMM betikleri ekleme
+          href: site-recovery-how-to-add-vmmscript.md
         - name: Yük devretme
           items:
             - name: Yük devretme hakkında

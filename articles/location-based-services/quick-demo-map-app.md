@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Azure Konum Tabanlı Hizmetler (önizleme) kullanarak bir demo etkileşimli harita araması başlatma
 
@@ -38,13 +38,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     ![Portalda Konum Tabanlı Hizmetler Hesabı oluşturma](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Hesabınız başarıyla oluşturulduğunda, hesabı açıp **AYARLAR**’a gidin. Hesabınızın birincil ve ikincil abonelik anahtarlarını almak için **Anahtarlar**’a tıklayın. **Birincil Anahtar** değerini sonraki bölümde kullanmak üzere yerel panonuza kopyalayın. 
+5. Hesabınız başarıyla oluşturulduğunda, hesabı açıp **AYARLAR**’a gidin. Azure Konum Tabanlı Hizmetler hesabının birincil ve ikincil anahtarlarını almak için **Anahtarlar**’a tıklayın. **Birincil Anahtar** değerini sonraki bölümde kullanmak üzere yerel panonuza kopyalayın. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Azure Haritalar için demo uygulamasını indirme
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) dosyasının içeriklerini indirin veya kopyalayın.
 2. Bu dosyanın içeriklerini **AzureMapDemo.html** olarak yerel olarak kaydedin ve bir metin düzenleyicide açın.
-3. **&#60;insert-key&#62;** dizesini arayın ve önceki bölümde aldığınız **Birincil Anahtar** değeriyle değiştirin. 
+3. `<insert-key>` dizesini arayın ve önceki bölümde aldığınız **Birincil Anahtar** değeriyle değiştirin. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Azure Haritalar için demo uygulamasını başlatma

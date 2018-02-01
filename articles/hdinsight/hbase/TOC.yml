@@ -72,6 +72,21 @@
             - name: HDInsight uygulamalarını Azure Market’te yayımlama
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Güvenlik
       items:
         - name: HDInsight ile SSH kullanma
@@ -165,6 +180,8 @@
         - name: HDInsight kümesini yeni bir sürüme yükseltme
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: HBase kümesini daha yeni bir sürüme geçirme
+          href: apache-hbase-migrate-new-version.md
         - name: HDInsight kümesi için işletim sistemi düzeltme eki uygulama
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -227,11 +244,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Azure VNet’te HBase kümesi çoğaltma
           href: apache-hbase-replication.md
+        - name: HBase ve Phoenix için yedekleme ve çoğaltma ayarlama
+          href: apache-hbase-backup-replication.md
     - name: OMS’leri kullanarak izleme
       items:
         - name: Azure Log Analytics’i kullanma
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: HBase'i OMS ile izleme
+          href: apache-hbase-monitor-with-oms.md
         - name: Kümeye özgü panolar
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -241,6 +262,8 @@
         - name: Küme performansını izleme
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Phoenix performansı için en iyi yöntemler
+          href: apache-hbase-phoenix-performance.md
 - name: Başvuru
   items:
     - name: Kod örnekleri

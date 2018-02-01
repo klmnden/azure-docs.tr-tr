@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1d80796073c0e85bb3475f9182c79ad2129ace8b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Windows Masaüstü uygulamalarında kullanımı ve performansı izleme
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/01/2017
 6. Uygulamanızı çalıştırdığınızda, oluşturduğunuz kaynaktaki telemetriyi Azure Portal’da görürsünüz.
 
 ## <a name="telemetry"></a>Örnek kod
-```C#
+```csharp
 
     public partial class Form1 : Form
     {

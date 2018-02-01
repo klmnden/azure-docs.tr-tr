@@ -1,6 +1,5 @@
 # Genel Bakış
 ## [Veritabanı Geçiş Hizmeti hakkında](dms-overview.md)
-## [Önkoşullara genel bakış](pre-reqs.md)
 
 # Hızlı Başlangıçlar
 ## [Hizmet oluşturma - Portal](quickstart-create-data-migration-service-portal.md)
@@ -17,4 +16,6 @@
 ## [Veritabanı Geçiş Kılavuzu](https://aka.ms/datamigration)
 ## [Veri Geçiş Yardımcısı](https://aka.ms/dma)
 ## [Fiyatlandırma](https://aka.ms/dms-pricing)
+## [Önkoşullara genel bakış](pre-reqs.md)
 ## [SSS](faq.md)
+

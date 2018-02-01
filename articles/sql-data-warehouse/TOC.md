@@ -6,6 +6,10 @@
 # Hızlı Başlangıçlar
 
 ## [Oluşturun ve bağlanın - portal](create-data-warehouse-portal.md)
+## İşlemi duraklatma ve sürdürme
+### [Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Öğreticiler
 ## [1 - Blobdan veri yükleme](load-data-from-azure-blob-storage-using-polybase.md)

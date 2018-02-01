@@ -140,6 +140,8 @@
           href: data-prep-python-extensibility-overview.md
         - name: Desteklenen veri kaynakları
           href: data-prep-appendix2-supported-data-sources.md
+        - name: Veri kaynağı olarak Azure Cosmos DB'yi yükleme
+          href: data-prep-load-azure-cosmos-db.md
         - name: Desteklenen denetçiler
           href: data-prep-appendix4-supported-inspectors.md
         - name: Desteklenen veri hedefleri

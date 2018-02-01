@@ -1,27 +1,27 @@
 ---
-title: "Hızlı Başlangıç - Azure PowerShell ile özel bir Docker kayıt defteri oluşturun"
-description: "PowerShell ile özel bir Docker kapsayıcısı kayıt defteri oluşturmak hızlı bir şekilde öğrenin."
+title: "Hızlı Başlangıç: PowerShell ile Azure’da özel bir Docker kayıt defteri oluşturun"
+description: "PowerShell ile hızlıca özel bir Docker kapsayıcısı kayıt defteri oluşturmayı öğrenin."
 services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fbf643ad342d712452d39c71b8706b6213198512
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell kullanarak bir Azure kapsayıcı kayıt defteri oluşturma
+# <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell kullanarak Azure Container Registry oluşturma
 
-Azure Container Registry, özel Docker kapsayıcı görüntülerini depolamak için kullanılan bir yönetilen Docker kapsayıcı kayıt defteridir. PowerShell kullanarak Azure kapsayıcı kayıt defteri örneği oluşturma bu kılavuzu ayrıntıları.
+Azure Container Registry, özel Docker kapsayıcı görüntülerini depolamak için kullanılan bir yönetilen Docker kapsayıcı kayıt defteridir. Bu kılavuzda, PowerShell kullanarak bir Azure Container Registry örneği oluşturma hakkındaki ayrıntılar yer alır.
 
-Bu Hızlı Başlangıç, Azure PowerShell modülü 3,6 veya sonraki bir sürümü gerektiriyor. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
+Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
 
-Ayrıca, Docker yerel olarak yüklü olması gerekir. Docker, [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) veya [Linux](https://docs.docker.com/engine/installation/#supported-platforms)’ta Docker’ı kolayca yapılandırmanızı sağlayan paketler sağlar.
+Ayrıca sisteminizde yerel olarak Docker yüklü olması gerekir. Docker, [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) veya [Linux](https://docs.docker.com/engine/installation/#supported-platforms)’ta Docker’ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -41,23 +41,23 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-Bir ACR örneği kullanarak oluşturduğunuz [yeni AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) komutu.
+[New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) komutunu kullanarak bir ACR örneği oluşturun.
 
-Kayıt defteri adını **benzersiz olmalıdır**. Aşağıdaki örnekte *myContainerRegistry007* kullanılır. Benzersiz bir değere güncelleştirin.
+Kaynak defteri adı Azure’da benzersiz olmalı ve 5-50 arası alfasayısal karakter içermelidir. Aşağıdaki örnekte *myContainerRegistry007* komutu kullanılmıştır. Bunu benzersiz bir değerle güncelleştirin.
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-## <a name="log-in-to-acr"></a>ACR için oturum açın
+## <a name="log-in-to-acr"></a>ACR üzerinde oturum açın
 
-Kapsayıcı görüntülerini gönderip çekmeden önce ACR örneğinde oturum açmalısınız. İlk olarak, kullanın [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) ACR örneği için yönetici kimlik bilgilerini almak için komutu.
+Kapsayıcı görüntülerini gönderip çekmeden önce ACR örneğinde oturum açmalısınız. Önce, ACR örneğinin yönetici kimlik bilgilerini öğrenmek için [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) komutunu kullanın.
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Ardından, kullanın [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/) ACR örneğinde oturum açma için komutu.
+Sonra, ACR örneğinde oturum açmak için [docker login](https://docs.docker.com/engine/reference/commandline/login/) komutunu kullanın.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
@@ -65,27 +65,27 @@ docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 
 Komut tamamlandığında bir “Oturum Açma Başarılı” iletisi döndürür.
 
-## <a name="push-image-to-acr"></a>ACR itme görüntüye
+## <a name="push-image-to-acr"></a>Görüntüyü ACR’ye gönderme
 
-Azure kapsayıcı kayıt defterine görüntü göndermek için ilk görüntüsü olması gerekir. Gerekirse, önceden oluşturulmuş bir görüntü Docker hub'dan çıkarmak için aşağıdaki komutu çalıştırın.
+Azure Container kayıt defterine görüntü gönderebilmeniz için önce bir görüntünüz olmalıdır. Gerekirse aşağıdaki komutu çalıştırarak Docker Hub’dan önceden oluşturulmuş bir görüntüyü çekin.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-Görüntü ACR oturum açma sunucu adıyla etiketlenmelidir. Çalıştırma [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) ACR örneğinin oturum açma sunucusu adını döndürmek için komutu.
+Görüntünün, ACR oturum açma sunucusu adıyla etiketlenmiş olması gerekir. ACR örneğinin oturum açma sunucusu adını döndürmek için, [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) komutunu çalıştırın.
 
 ```powershell
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Kullanarak resim etiketi [docker etiketi](https://docs.docker.com/engine/reference/commandline/tag/) komutu. Değiştir *acrLoginServer* ACR örneğinizi oturum açma sunucusu adı.
+Görüntüyü [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) komutunu kullanarak etiketleyin. *acrLoginServer* değerini ACR örneğinizin sunucu adıyla değiştirin.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Son olarak, [docker itme](https://docs.docker.com/engine/reference/commandline/push/) görüntüleri ACR örneğine göndermek için. Değiştir *acrLoginServer* ACR örneğinizi oturum açma sunucusu adı.
+Son olarak, [docker push](https://docs.docker.com/engine/reference/commandline/push/) komutunu kullanarak görüntüleri ACR örneğine gönderin. *acrLoginServer* değerini ACR örneğinizin sunucu adıyla değiştirin.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -93,7 +93,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olduğunda, kullanabileceğiniz [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) kaynak grubu, ACR örneği ve tüm kapsayıcı görüntüleri kaldırmak için komutu.
+Artık gerekli değillerse [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu, ACR örneğini ve tüm kapsayıcı görüntülerini kaldırabilirsiniz.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -101,7 +101,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç Azure CLI ile Azure kapsayıcı kayıt defteri oluşturuldu. Azure kapsayıcı kayıt defteri Azure kapsayıcı örnekleri ile kullanmak istiyorsanız, Azure kapsayıcı örnekleri Öğreticisine devam edin.
+Bu hızlı başlangıçta, Azure CLI ile bir Azure Container Registry oluşturdunuz. Azure Container Registry’yi Azure Container Instances ile kullanmak istiyorsanız Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
-> [Azure kapsayıcı örnekleri Öğreticisi](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Azure Container Instances öğreticisi](../container-instances/container-instances-tutorial-prepare-app.md)

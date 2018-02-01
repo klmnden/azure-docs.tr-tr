@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 142b9e052e09f88826ae8ea3866316444a5d7acc
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 89a4a165690c7a308d5bc7222b8a5a9716d22785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="network-security"></a>Ağ güvenliği
 
@@ -119,7 +119,7 @@ Varsayılan kuralları kaldıramazsınız ancak daha yüksek önceliğe sahip ku
 * **VirtualNetwork** (*Resource Manager) (klasik için **VIRTUAL_NETWORK**): Bu etiket sanal ağ adres alanını (sanal ağ için tanımlanmış olan tüm CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve [eşlenmiş](virtual-network-peering-overview.md) sanal ağları ya da bir [sanal ağ geçidine](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bağlı olan sanal ağı içerir.
 * **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Bu etiket, Azure'ın sistem durumu araştırmalarının kaynağı olan bir [Azure veri merkezi IP adresine](https://www.microsoft.com/download/details.aspx?id=41653) çevrilir. Azure yük dengeleyiciyi kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
 * **Internet** (Resource Manager) (klasik için **INTERNET**): Bu etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. Adres aralığı [Azure'a ait genel IP adresi alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
-* **AzureTrafficManager** (yalnızca Resource Manager): Bu etiket Azure Traffic Manager hizmeti için IP adresi alanını belirtir.
+* **AzureTrafficManager** (yalnızca Resource Manager): Bu etiket Azure Traffic Manager araştırması için IP adresi alanını belirtir. Traffic Manager araştırma IP’leri hakkında daha fazla bilgi için [Azure Traffic Manager hakkında SSS](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs) sayfasına göz atın.
 * **Storage** (yalnızca Resource Manager): Bu etiket Azure Storage hizmeti için IP adresi alanını belirtir. *Depolama* değerini belirtirseniz depolama alanına gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgedeki](https://azure.microsoft.com/regions) depolama alanına erişime izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure Depolama hizmetine erişim izni vermek istiyorsanız *Storage.EastUS* hizmet etiketini kullanabilirsiniz. Bu etiket hizmetin belirli örneklerini değil yalnızca hizmetin kendisini temsil eder. Örneğin etiket belirli bir Azure Depolama hesabını değil Azure Depolama hizmetini temsil eder.
 * **Sql** (yalnızca Resource Manager): Bu etiket Azure SQL Veritabanı ve Azure SQL Veri Ambarı hizmetlerinin adres ön eklerini belirtir. *Sql* değerini belirtirseniz Sql’e gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgedeki](https://azure.microsoft.com/regions) Sql’e erişime izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure SQL Veritabanı hizmetine erişim izni vermek istiyorsanız *Sql.EastUS* hizmet etiketini kullanabilirsiniz. Bu etiket hizmetin belirli örneklerini değil yalnızca hizmetin kendisini temsil eder. Örneğin etiket belirli bir SQL veritabanını veya sunucusunu değil Azure SQL Veritabanı hizmetini temsil eder.
 

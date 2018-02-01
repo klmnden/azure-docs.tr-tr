@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Iris sınıflandırma bölüm 2: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -34,7 +34,7 @@ Bu öğretici üç bölümden oluşan bir serinin ikinci bölümüdür. Öğreti
 
 Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak Mac OS deneyimi de çok benzerdir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici serisinin ilk bölümünü tamamlayın. Bu öğreticideki adımları uygulamaya başlamadan önce [Veri öğreticisini hazırlama](tutorial-classifying-iris-part-1.md) bölümündeki talimatları izleyerek Azure Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
 
 İsteğe bağlı olarak betikleri yerel Docker kapsayıcısıyla çalıştırabilirsiniz. Bunun için bir Docker altyapısının (Community Edition yeterlidir) Windows veya Mac OS makinenizde yüklü ve başlatılmış olması gerekir. Docker yükleme hakkında daha fazla bilgi için bkz. [Docker yükleme yönergeleri](https://docs.docker.com/engine/installation/).
@@ -326,7 +326,7 @@ Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütm
 3. CLI penceresine daha önce çalıştırdığınız komutu girin ancak bu durumda hedef olarak _myvm_ belirtin:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
-   az ml experiment submit -c myvm .\iris_sklearn.py
+   az ml experiment submit -c myvm iris_sklearn.py
    ```
    Komut, uzak Linux VM üzerinde gerçekleşmesi dışında `docker-python` ortamındaymışsınız gibi yürütülür. CLI penceresinde aynı çıktı bilgileri görüntülenir.
 
@@ -346,7 +346,7 @@ Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütm
 Bu betiği bir HDInsight Spark kümesinde de çalıştırabilirsiniz. [Azure ML Workbench’te kullanılacak bir HDInsight Spark Kümesi oluşturma](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) hakkında bilgi edinin.
 
 >[!NOTE] 
->Hdınsight kümesi birincil depolama alanı olarak Azure Blob kullanmanız gerekir. Azure Data Lake depolamanın kullanılması henüz desteklenmemektedir.
+>HDInsight kümesi birincil depolama olarak Azure Blob kullanmalıdır. Azure Data Lake depolamanın kullanılması henüz desteklenmemektedir.
 
 1. Azure HDInsight Spark kümesine erişiminiz varsa burada gösterilen şekilde bir HDInsight çalıştırma yapılandırması oluşturun. Parametrelere HDInsight kümesinin adını, HDInsight kullanıcı adınızı ve parolanızı girin. Aşağıdaki komutu kullanın:
 

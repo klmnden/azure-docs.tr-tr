@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>İlk C# Service Fabric durum bilgisi olan reliable services uygulamanızı oluşturma
 
-Yalnızca birkaç dakika içinde Windows üzerinde .NET için ilk Service Fabric uygulamanızı nasıl dağıtacağınızı öğrenin. Tamamladığınızda, güvenilir hizmet uygulamasıyla çalışan bir yerel kümeniz olacaktır.
+Yalnızca birkaç dakika içinde Windows üzerinde .NET için ilk Service Fabric uygulamanızı nasıl dağıtacağınızı öğrenin. Öğreticiyi tamamladığınızda, güvenilir hizmet uygulamasıyla çalışan bir yerel küme oluşturmuş olursunuz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -82,7 +82,7 @@ Uygulama başlatıldığında, Visual Studio otomatik olarak **Tanılama Olay G�
    
 ![Tanılama olayları görüntüleyicisi][5]
 
-Kullandığımız durum bilgisi olan hizmet şablonu, yalnızca **MyStatefulService.cs**'nin `RunAsync` yönteminde artan sayaç değerini gösterir.
+Kullandığımız durum bilgisi olan hizmet şablonu, **MyStatefulService.cs**'nin `RunAsync` metodunda artan sayaç değerini gösterir.
 
 Kodun çalıştığı düğüm dahil olmak üzere daha fazla ayrıntı görmek için olaylardan birini genişletin. Bu durumda, \_Node\_0 genişletilir ancak makinenize göre değişiklik gösterebilir.
    

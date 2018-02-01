@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure’daki sanal makine ölçek kümeleri nedir?
 Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Tüm sanal makinelerin aynı şekilde yapılandırıldığı ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır ve sanal makinelerin önceden hazırlanması gerekmez. Bu nedenle büyük işlem, büyük veri ve kapsayıcı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
@@ -35,10 +35,7 @@ Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kü
 ## <a name="creating-and-managing-scale-sets"></a>Ölçek kümeleri oluşturma ve yönetme
 [Azure portalında](https://portal.azure.com) **yeni** öğesini seçip arama çubuğuna **ölçek** yazarak bir ölçek kümesi oluşturabilirsiniz. Sonuçlar arasında **Sanal makine ölçek kümesi** seçeneği listelenir. Buradan gerekli alanları doldurarak ölçek kümenizi özelleştirip dağıtabilirsiniz. Portalda CPU kullanımına göre temel otomatik ölçeklendirme kurallarını ayarlamaya yönelik seçenekler de mevcuttur. Ölçek kümenizi yönetmek için Azure portalını, [Azure PowerShell cmdlet'lerini](virtual-machine-scale-sets-windows-manage.md) veya Azure CLI 2.0'ı kullanabilirsiniz.
 
-Ölçek kümeleri bir [kullanılabilirlik alanına](../availability-zones/az-overview.md) dağıtılabilir.
-
-> [!NOTE]
-> Şu anda sanal makine ölçek kümeleri yalnızca tek bir kullanılabilirlik alanına dağıtmayı desteklemektedir. İleride birden fazla alana dağıtım desteği eklenecektir.
+Ölçek kümeleri bir [kullanılabilirlik alanları](virtual-machine-scale-sets-use-availability-zones.md) genelinde dağıtılabilir.
 
 Tıpkı tek Azure Resource Manager VM’lerinde olduğu gibi JSON şablonları ve [REST API’leri](https://msdn.microsoft.com/library/mt589023.aspx) kullanarak da ölçek kümeleri tanımlayıp dağıtabilirsiniz. Bu nedenle, tüm standart Azure Resource Manager dağıtım yöntemlerini kullanabilirsiniz. Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -52,7 +49,7 @@ Uygulama performansının tutarlı olması için ölçek kümenizdeki VM örneğ
 
 Temel otomatik ölçeklendirme kuralları için CPU kullanımı veya disk G/Ç gibi konak tabanlı performans ölçümlerini kullanabilirsiniz. Bu konak tabanlı ölçümler ek aracı veya uzantı yükleyip yapılandırmaya gerek olmadan otomatik olarak kullanılabilir. Konak tabanlı ölçümleri kullanan otomatik ölçeklendirme kuralları aşağıdaki araçlarla oluşturulabilir:
 
-- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure portalı](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -94,7 +91,7 @@ Bir Azure kaynağının temel aldığı JSON tanımını görmeniz veya düzenle
 Bu bölümde tipik ölçek kümesi senaryolarından bazıları listelenmektedir. Daha yüksek düzeydeki bazı Azure hizmetleri (Batch, Service Fabric ve Container Service gibi) bu senaryoları kullanır.
 
 * **RDP veya SSH kullanarak ölçek kümesi örneklerine bağlanma**: Sanal ağ içinde bir ölçek kümesi oluşturulur ve ölçek kümesindeki ayrı VM'ler için genel IP adresleri varsayılan olarak ayrılmaz. Bu ilke, işlem kılavuzunuzdaki tüm düğümlere ayrı genel IP adresleri atama maliyeti ve yönetim yükünü ortadan kaldırır. Ölçek kümesi VM'lerine yönelik doğrudan harici bağlantıya ihtiyacınız varsa bir ölçek kümesini, yeni VM'lere otomatik olarak genel IP adresi atayacak şekilde yapılandırabilirsiniz. Alternatif olarak, sanal ağınızda bulunan ve genel IP adresi atanabilen diğer VM'lere (örneğin, yük dengeleyiciler ve tek başına sanal makineler) diğer kaynaklardan bağlanabilirsiniz. 
-* **NAT kurallarını kullanarak VM’lere bağlanma** - Bir genel IP adresi oluşturabilir, bunu bir yük dengeleyiciye bağlayabilir ve bir gelen NAT havuzu tanımlayabilirsiniz. Bu eylemler, IP adresindeki bağlantı noktalarını ölçek kümesindeki VM’nin bir bağlantı noktasına eşler. Örneğin:
+* **NAT kurallarını kullanarak VM’lere bağlanma** - Bir genel IP adresi oluşturabilir, bunu bir yük dengeleyiciye bağlayabilir ve bir gelen NAT havuzu tanımlayabilirsiniz. Bu eylemler, IP adresindeki bağlantı noktalarını ölçek kümesindeki VM’nin bir bağlantı noktasına eşler. Örnek:
   
   | Kaynak | Kaynak bağlantı noktası | Hedef | Hedef bağlantı noktası |
   | --- | --- | --- | --- |

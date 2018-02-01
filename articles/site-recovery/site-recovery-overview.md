@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c6ec4b6e468bf03b18c0f26d1c61a17309a83eb2
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 4cc5d849630114577709f8373d08f0ce659e7e65
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="about-site-recovery"></a>Site Recovery Hakkında
 
@@ -55,7 +55,7 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 
 **Destekleniyor** | **Ayrıntılar**
 --- | ---
-**Çoğaltma senaryosu** | Azure VM’leri bir Azure bölgesinden diğerine çoğaltın.<br/><br/>  Şirket içi VMware VM’leri, Hyper-V VM’leri, fiziksel sunucuları (Windows ve Linux) Azure’a çoğaltın.<br/><br/> Şirket içi VMware VM’leri, System Center VMM tarafından yönetilen Hyper-V VM’leri ve fiziksel sunucuları ikincil siteye çoğaltın.
+**Çoğaltma senaryoları** | Azure VM’leri bir Azure bölgesinden diğerine çoğaltın.<br/><br/>  Şirket içi VMware VM’leri, Hyper-V VM’leri, fiziksel sunucuları (Windows ve Linux) Azure’a çoğaltın.<br/><br/> Şirket içi VMware VM’leri, System Center VMM tarafından yönetilen Hyper-V VM’leri ve fiziksel sunucuları ikincil siteye çoğaltın.
 **Bölgeler** | Site Recovery için [desteklenen bölgeleri](https://azure.microsoft.com/regions/services/) inceleyin. |
 **Çoğaltılan makineler** | [Azure VM’lere](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [şirket içi VM’lere](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) ve [fiziksel sunuculara](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) yönelik çoğaltma gereksinimlerini inceleyin.
 **VMware sunucuları/ana bilgisayarları** | Çoğaltmak istediğiniz VMware VM'leri [desteklenen vSphere ana bilgisayarları/vCenter sunucuları](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) üzerinde konumlandırılabilir.
