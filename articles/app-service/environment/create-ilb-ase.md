@@ -133,7 +133,7 @@ ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gö
 ILB ASE’nizin geçerli bir SSL sertifikası olmalıdır. İç sertifika yetkililerini kullanın, harici bir verenden sertifika satın alın ya da otomatik olarak imzalanan bir sertifika kullanın. SSL sertifikasının kaynağından bağımsız olarak, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
 * **Konu**: Bu öznitelik *.your-root-domain-here olarak ayarlanmalıdır.
-* **Konu Diğer Adı**: Bu öznitelik hem **.your-root-domain-here* hem de **.scm.your-root-domain-here* değerlerini içermelidir. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantıları, *your-app-name.scm.your-root-domain-here* biçiminde bir adres kullanır.
+* **Konu Diğer Adı**: Bu öznitelik hem **.your-root-domain-here* hem de **.scm.your-root-domain-here değerlerini* içermelidir. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantıları *your-app-name.scm.your-root-domain-here* biçiminde bir adres kullanır.
 
 SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .pfx dosyası, tüm ara ve kök sertifikaları içermelidir. Bir parola ile güvenli hale getirin.
 

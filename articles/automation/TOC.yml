@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Runbook oluşturma ve çalıştırma
           href: automation-creating-importing-runbook.md
+        - name: Grafik runbook'u oluşturma
+          href: automation-first-runbook-graphical.md
+        - name: PowerShell runbook’u oluşturma
+          href: automation-first-runbook-textual-powershell.md
+        - name: PowerShell iş akışı runbook’u oluşturma
+          href: automation-first-runbook-textual.md
+        - name: Python runbook'u oluşturma
+          href: automation-first-runbook-textual-python2.md
         - name: Metin temelli runbook’ları düzenleme
           href: automation-edit-textual-runbook.md
         - name: Grafik temelli runbook’ları düzenleme

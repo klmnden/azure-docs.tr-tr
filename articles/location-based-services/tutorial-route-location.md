@@ -1,6 +1,6 @@
 ---
-title: "Azure konum tabanlı Hizmetleri Bul rotası | Microsoft Docs"
-description: "Azure konum tabanlı Hizmetleri kullanarak ilgi noktasına yönlendirmek"
+title: "Azure Konum Tabanlı Hizmetler ile yol tarifi alma | Microsoft Docs"
+description: "Azure Konum Tabanlı Hizmetler ile istenen konuma yol tarifi alma"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,32 +12,32 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Azure konum tabanlı Hizmetleri kullanarak ilgi noktasına yönlendirmek
+# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Azure Konum Tabanlı Hizmetler ile istenen konuma yol tarifi alma
 
-Bu öğretici Azure konum tabanlı Hizmetleri hesabınızı ve rota hizmeti SDK'sı noktanızın ilgi rotayı bulmak için nasıl kullanılacağını gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, Azure Konum Tabanlı Hizmetler hesabı ile Yönlendirme Hizmeti SDK’nızı kullanarak istenen bir konuma nasıl yol tarifi alabileceğinizden bahsedilmektedir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Adres koordinatlarını alma
-> * Rota ilgi işaret edecek şekilde hizmeti yönergeleri için sorgu
+> * Adres koordinatlarını öğrenme
+> * İstenen konuma yol tarifi almak için Sorgu Yönlendirme Hizmeti
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Devam etmeden önce emin olun [Azure konum tabanlı Hizmetleri hesabınızı oluşturmak](./tutorial-search-location.md#createaccount), ve [hesabınız için abonelik anahtarı alma](./tutorial-search-location.md#getkey). Harita denetiminin ve arama hizmeti API'leri öğreticide anlatıldığı gibi nasıl kullanılacağını da gözlemleyebilirsiniz [arama ilgi çekici Azure konum tabanlı Hizmetleri kullanarak yakındaki](./tutorial-search-location.md).
+Devam etmeden önce, [Azure Konum Tabanlı Hizmetler hesabınızı oluşturduğunuzdan](./tutorial-search-location.md#createaccount) ve [hesabınızın abonelik anahtarını edindiğinizden](./tutorial-search-location.md#getkey) emin olun. Ayrıca, [Azure Konum Tabanlı Hizmetler’i kullanarak yakınlardaki bir konuma yol tarifi alma](./tutorial-search-location.md) öğreticisinde açıklanan Harita Denetimi ve Arama Hizmeti API’lerini nasıl kullanacağınızı da öğrenebilirsiniz.
 
 
 <a id="getcoordinates"></a>
 
-## <a name="get-address-coordinates"></a>Adres koordinatlarını alma
+## <a name="get-address-coordinates"></a>Adres koordinatlarını öğrenme
 
-Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir statik HTML sayfası oluşturmak için aşağıdaki adımları kullanın. 
+Konum Tabanlı Hizmetler’in Harita Denetimi API’sinin ekli olduğu statik bir HTML sayfası oluşturmak için aşağıdaki adımları izleyin. 
 
-1. Yerel makinenizde yeni bir dosya oluşturun ve adlandırın **MapRoute.html**. 
+1. Yerel makinenizde yeni bir dosya oluşturun ve bu dosyayı **MapRoute.html** olarak adlandırın. 
 2. Aşağıdaki HTML bileşenlerini dosyaya ekleyin:
 
     ```HTML
@@ -75,20 +75,20 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
 
     </html>
     ```
-    HTML üstbilgisi Azure konum tabanlı Hizmetleri kitaplığı CSS ve JavaScript dosyaları için kaynak konumlarını nasıl katıştırır unutmayın. Ayrıca fark *komut dosyası* satır içi Azure konumu dayalı hizmetin API'lere erişim için JavaScript kodunu içeren HTML dosyası gövdesinde kesimi.
+    HTML üst bilgisinin, Azure Konum Tabanlı Hizmetler kitaplığı için CSS ve JavaScript dosyalarına yönelik kaynak konumlarını nasıl eklediğini dikkate alın. Ayrıca, HTML dosyasının gövdesindeki *betik* segmentinde yer alan Azure Konum Tabanlı Hizmet’in API’lerine erişmeye yönelik satır içi JavaScript kodunu da inceleyin.
 
-3. Şu JavaScript kodunu eklemek *betik* HTML dosyası bloğu. Yer tutucu Değiştir *< anahtar Ekle >* konum tabanlı Hizmetleri hesabınızın birincil anahtara sahip.
+3. HTML dosyasının *betik* bloğuna aşağıdaki JavaScript kodunu ekleyin. Betikteki Konum Tabanlı Hizmetler hesabınızın birincil anahtarını kullanın.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    **Atlas. Harita** denetim için bir görsel ve etkileşimli web eşleme sağlar ve Azure Harita Denetim API'si bir bileşenidir.
+    Azure Harita Denetimi API’sinin bir bileşeni olan **atlas.Map**, görsel ve etkileşimli bir web haritası için denetim olanağı sunar.
 
-4. Şu JavaScript kodunu eklemek *betik* bloğu. Bu bir katmanı ekler *MultiPoint* yol göstermek için harita denetiminin için:
+4. *Betik* bloğuna aşağıdaki JavaScript kodunu ekleyin. Bu işlem, yolu göstermek üzere Harita Denetimi’ne *linestrings* katmanı ekler:
 
     ```JavaScript
     // Initialize the linestring layer for routes on the map
@@ -103,7 +103,7 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
     });
     ```
 
-5. Başlangıç ve bitiş noktalarını rota oluşturmak için aşağıdaki JavaScript kodu ekleyin:
+5. Yol için başlangıç ve bitiş noktaları oluşturmak üzere aşağıdaki JavaScript kodunu ekleyin:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -119,9 +119,9 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
         icon: "pin-blue"
     });
     ```
-    Bu kod iki oluşturur [GeoJSON nesne](https://en.wikipedia.org/wiki/GeoJSON) başlangıç ve bitiş noktalarını rotanın temsil etmek için. Uç noktası biri için enlem/boylam birleşimidir *Akaryakıt istasyonları* önceki öğreticide aranır [arama ilgi çekici Azure konum tabanlı Hizmetleri kullanarak yakındaki](./tutorial-search-location.md).
+    Bu kod, yolun başlangıç ve bitiş noktalarını temsil eden iki [GeoJSON nesnesi](https://en.wikipedia.org/wiki/GeoJSON) oluşturur. Bitiş noktası, önceki [Azure Konum Tabanlı Hizmetler’i kullanarak yakınlarda bir konumu arama *öğreticisinde belirtilen bir* benzin istasyonunun](./tutorial-search-location.md) enlem/boylam kombinasyonudur.
 
-6. Başlangıç ve bitiş noktaları için PIN eşlemesine eklemek için aşağıdaki JavaScript kodu ekleyin:
+6. Haritaya başlangıç ve bitiş noktalarını sabitlemek için aşağıdaki JavaScript kodunu ekleyin:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -141,17 +141,17 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
         textOffset: [0, -20]
     });
     ``` 
-    API **map.setCameraBounds** Haritası penceresini başlangıç ve bitiş noktası koordinatları göre ayarlar. API **map.addPins** görsel bileşenleri olarak harita denetim noktaları ekler.
+    **map.setCameraBounds** API’si, harita penceresini başlangıç ve bitiş noktalarının koordinatlarına göre ayarlar. **map.addPins** API’si, Harita denetimine görsel bileşen olarak nokta ekler.
 
-7. Kaydet **MapRoute.html** makinenizde dosya. 
+7. **MapRoute.html** dosyasını makinenize kaydedin. 
 
 <a id="getroute"></a>
 
-## <a name="query-route-service-for-directions-to-point-of-interest"></a>Rota ilgi işaret edecek şekilde hizmeti yönergeleri için sorgu
+## <a name="query-route-service-for-directions-to-point-of-interest"></a>İstenen konuma yol tarifi almak için Sorgu Yönlendirme Hizmeti
 
-Bu bölümde Azure konum tabanlı hizmetlerin rota hizmeti API'si bir hedef için belirtilen başlangıç noktasından rotayı bulmak için nasıl kullanılacağını gösterir. Rota hizmet en hızlı, kısa plana API'leri veya gerçek zamanlı trafiği koşulları dikkate iki konum arasında ekonomik yolu sağlar. Ayrıca, kullanıcıların Azure'nın kapsamlı geçmiş trafik veritabanı kullanarak ve her gün ve saat için rota sürelerini tahmin etmeye gelecekte yollar planlama imkan tanır. 
+Bu bölümde, bir hedef için belirtilen başlangıç noktasından yol bulmak için Azure Konum Tabanlı Hizmetler’in Yönlendirme Hizmeti API’sini nasıl kullanabileceğiniz açıklanmaktadır. Yönlendirme Hizmeti, gerçek zamanlı trafik durumlarını da göz önünde bulundurarak iki konum arasındaki en hızlı, en kısa ve en ekonomik yolu planlamak amacıyla API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. 
 
-1. Açık **MapRoute.html** dosyası önceki bölümde oluşturulan ve şu JavaScript kodunu ekleyin *betik* rota hizmeti göstermeye bloğu.
+1. Yönlendirme Hizmeti’ni göstermek için, önceki bölümde oluşturulan **MapRoute.html** dosyasını açın ve aşağıdaki JavaScript kodunu *betik* bloğuna ekleyin.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting route on the map
@@ -172,32 +172,32 @@ Bu bölümde Azure konum tabanlı hizmetlerin rota hizmeti API'si bir hedef içi
         }
     };
     ```
-    Bu kod parçacığını oluşturur bir [XMLHttpRequest](https://xhr.spec.whatwg.org/), ve gelen yanıtı ayrıştırılamadı olay işleyicisi ekler. Başarılı bir yanıt için bir dizi satır bölümü döndürülen ilk rotanın koordinatları oluşturur. Ardından haritanın koordinatları bu yol için bu kümesini ekler *MultiPoint* katmanı.
+    Bu kod parçacığı bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) oluşturur ve gelen yanıtları ayrıştırmak için bir olay işleyicisi ekler. Başarılı bir yanıt için, döndürülen ilk yolun doğru parçaları için bir koordinat dizisi oluşturur. Daha sonra, haritanın *linestrings* katmanı için şu koordinat kümesini ekler.
 
-2. Aşağıdaki kodu ekleyin *betik* Azure konum tabanlı hizmetlerin rota hizmete XMLHttpRequest göndermeye engelle:
+2. Aşağıdaki kodu *betik* bloğuna ekleyerek XMLHttpRequest’i Azure Konum Tabanlı Hizmetler’in Yönlendirme Hizmeti’ne gönderin:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    Yukarıdaki istek hesabınızın abonelik anahtarı ve başlangıç ve bitiş noktası koordinatları olduğundan, gerekli parametreleri verildikleri sırada gösterilir. 
+    Yukarıdaki istek, belirtilme sırasına göre hesap anahtarınız ve başlangıç ile bitiş noktalarının koordinatları olan gerekli parametreleri gösterir. 
 
-3. Kaydet **MapRoute.html** yerel olarak dosya sonra tercih ettiğiniz bir web tarayıcısında açın ve sonucu inceleyin. Konum tabanlı hizmetlerin API'leri ile başarılı bir bağlantı için aşağıdakine benzer bir harita görmeniz gerekir. 
+3. **MapRoute.html** dosyasını yerel olarak kaydedin, sonra dosyayı dilediğiniz web tarayıcısında açarak sonucu inceleyin. Konum Tabanlı Hizmetler API’leriyle başarılı bir şekilde bağlantı kurulması için aşağıdakine benzer bir harita görürsünüz. 
 
-    ![Azure harita denetiminin ve rota hizmeti](./media/tutorial-route-location/lbs-map-route.png)
+    ![Azure Harita Denetimi ve Yönlendirme Hizmeti](./media/tutorial-route-location/lbs-map-route.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Adres koordinatlarını alma
-> * Rota ilgi işaret edecek şekilde hizmeti yönergeleri için sorgu
+> * Adres koordinatlarını öğrenme
+> * İstenen konuma yol tarifi almak için Sorgu Yönlendirme Hizmeti
 
-Öğreticisine devam [farklı Azure konum tabanlı Hizmetleri kullanarak seyahat modu yolları Bul](./tutorial-prioritized-routes.md) aktarım modu üzerinde temel Azure konum tabanlı Hizmetleri noktanızı ilgi alanı yolları önceliğini belirlemek için nasıl kullanılacağını öğrenin. 
+Azure Konum Tabanlı Hizmetler’i, ulaşım yöntemini temel alarak dilediğiniz yolu önceliklendirecek şekilde nasıl kullanabileceğinizi öğrenmek için [Azure Konum Tabanlı Hizmetler’i kullanarak farklı ulaşım yöntemleri için yol tarifi alma](./tutorial-prioritized-routes.md) öğreticisine geçin. 

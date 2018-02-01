@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 945b16553d56d5138b17e7768e43a298b310551d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka’ya giriş
 
@@ -29,23 +29,45 @@ ms.lasthandoff: 12/08/2017
 
 HDInsight üzerinde Kafka aşağıdaki özellikleri sunar:
 
-* Hizmet Düzeyi Sözleşmesi (SLA): [HDInsight için SLA bilgileri](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __Kafka çalışma süresiyle ilgili %99 Hizmet Düzeyi Sözleşmesi (SLA)__ : Daha fazla bilgi için [HDInsight için SLA bilgileri](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) belgesine göz atın.
 
-* Yayımla-abone ol mesajlaşma modeli: Kafka, bir Kafka konu başlığında kayıt yayımlamaya yönelik bir Producer API (Üretici API’si) sağlar. Bir konu başlığına abone olurken Consumer API (Tüketici API’si) kullanılır.
+* __Hataya dayanıklılık ve raf tanıma__: Kafka, tek boyutlu bir raf düşünülerek tasarlanmıştır ve bu yaklaşım bazı ortamlar için çok uygundur. Ancak, Azure gibi bazı ortamlarda raf iki boyuta ayrılmıştır: Güncelleştirme Etki Alanları (UD) ve Hata Etki Alanları (FD). Microsoft, UD ve FD’ler genelinde Kafka bölümleri ve çoğaltmalarını yeniden dengelemeyi sağlayan araçlar sunar. 
 
-* Akış işleme: Kafka genellikle gerçek zamanlı akış işleme için Apache Storm veya Spark ile birlikte kullanılır. Kafka 0.10.0.0 (HDInsight sürüm 3.5 ve 3.6), Storm ya da Spark gerektirmeden akış çözümleri oluşturmanızı sağlayan bir akış API’sini kullanıma sunmuştur.
+    Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka ile yüksek kullanılabilirlik](apache-kafka-high-availability.md).
 
-* Yatay ölçek: Kafka bölümleri, HDInsight kümesindeki düğümler arasında akış yapar. Kayıtlar kullanılırken yük dengeleme sağlamak üzere tüketici işlemleri, tek bölümlerle ilişkilendirilebilir.
-
-* Sıralı teslim: Her bölüm için kayıtlar alındıkları sırayla akışa depolanır. Bölüm başına bir tüketici işlemi ile ilişkilendirerek, kayıtların sırayla işlenmesini garanti edebilirsiniz.
-
-* Hataya dayanıklı: Bölümler, hataya dayanıklılığı sağlamak üzere düğümler arasında çoğaltılabilir.
-
-* Azure Yönetilen Diskler ile tümleştirme: Yönetilen diskler, HDInsight kümesinde sanal makineler tarafından kullanılan diskler için daha yüksek ölçek ve aktarım hızı sağlar.
-
-    Yönetilen diskler HDInsight üzerinde Kafka için varsayılan olarak etkindir. Düğüm başına kullanılan disk sayısı HDInsight oluşturma işlemi sırasında yapılandırılabilir. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Diskler](../../virtual-machines/windows/managed-disks-overview.md).
+* **Azure Yönetilen Diskler ile tümleştirme**: Yönetilen diskler, kümede HDInsight üzerinde Kafka tarafından düğüm başına 16 TB’a kadar kullanılabilen diskler için daha yüksek ölçek ve aktarım hızı sağlar.
 
     Yönetilen disklerin HDInsight üzerinde Kafka ile yapılandırılması hakkında bilgi edinmek için bkz. [HDInsight üzerinde Kafka'nın ölçeklenebilirliğini artırma](apache-kafka-scalability.md).
+
+    Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Diskler](../../virtual-machines/windows/managed-disks-overview.md).
+
+* **Uyarı, izleme ve tahmine dayalı bakım**: Azure Log Analytics, HDInsights üzerinde Kafka’yı izlemek için kullanılabilir. Log Analytics, Kafka’dan sanal disk, NIC ölçüleri ve JMX ölçüleri gibi makine düzeyinde bilgi açığa çıkarır.
+
+    Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka için günlük çözümleme](apache-kafka-log-analytics-operations-management.md).
+
+* **Kafka verilerini çoğaltma**: Kafka, Kafka kümeleri arasında verileri çoğaltan MirrorMaker yardımcı programını sağlar.
+
+    MirrorMaker hakkında bilgi için bkz. [HDInsight üzerinde Kafka ile Kafka konularını çoğaltma](apache-kafka-mirroring.md).
+
+* **Küme ölçekleme**: HDInsight, küme oluşturulduktan sonra çalışan düğümlerinizin sayısını (Kafka aracısını barındıran) değiştirebilmenizi sağlar. İş yükleri arttıkça kümenin ölçeğini artırın veya maliyeti azaltmak için ölçeği azaltın. Ölçeklendirme Azure portalı, Azure PowerShell ve diğer Azure yönetim arabirimleri üzerinde gerçekleştirilebilir. Kafka için, bölüm çoğaltmalarını ölçeklendirme işlemlerinden sonra yeniden dengelemeniz gerekir. Bölümleri yeniden dengelemek, Kafka’nın yeni çalışan düğüm sayısından yararlanabilmesini sağlar.
+
+    Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka ile yüksek kullanılabilirlik](apache-kafka-high-availability.md).
+
+* **Yayımla-abone ol mesajlaşma modeli**: Kafka, bir Kafka konu başlığında kayıt yayımlamaya yönelik bir Producer API (Üretici API’si) sağlar. Bir konu başlığına abone olurken Consumer API (Tüketici API’si) kullanılır.
+
+    Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka kullanmaya başlama](apache-kafka-get-started.md).
+
+* **Akış işleme**: Kafka genellikle gerçek zamanlı akış işleme için Apache Storm veya Spark ile birlikte kullanılır. Kafka 0.10.0.0 (HDInsight sürüm 3.5 ve 3.6), Storm ya da Spark gerektirmeden akış çözümleri oluşturmanızı sağlayan bir akış API’sini kullanıma sunmuştur.
+
+    Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka kullanmaya başlama](apache-kafka-get-started.md).
+
+* **Yatay ölçek**: Kafka bölümleri, HDInsight kümesindeki düğümler arasında akış yapar. Kayıtlar kullanılırken yük dengeleme sağlamak üzere tüketici işlemleri, tek bölümlerle ilişkilendirilebilir.
+
+    Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka kullanmaya başlama](apache-kafka-get-started.md).
+
+* **Sıralı teslim**: Her bölüm için kayıtlar alındıkları sırayla akışa depolanır. Bölüm başına bir tüketici işlemi ile ilişkilendirerek, kayıtların sırayla işlenmesini garanti edebilirsiniz.
+
+    Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka kullanmaya başlama](apache-kafka-get-started.md).
 
 ## <a name="use-cases"></a>Uygulama alanları
 
@@ -66,7 +88,7 @@ Bu şemada olayların hata dayanıklılığı ile paralel olarak okunması için
 Her Kafka aracısı, Azure Yönetilen Diskler’i kullanır. Disk sayısı kullanıcı tarafından tanımlanmıştır ve diskler aracı başına 16 TB’a varan depolama alanı sunabilir.
 
 > [!IMPORTANT]
-> Kafka, Azure veri merkezindeki temel donanımın (raf) farkında değildir. Bölümlerin temel donanım üzerinde doğru şekilde dengelendiğinden emin olmak için bkz. [yüksek kullanılabilirliği yapılandırma (Kafka)](apache-kafka-high-availability.md).
+> Kafka, Azure veri merkezindeki temel donanımın (raf) farkında değildir. Bölümlerin temel donanım üzerinde doğru şekilde dengelendiğinden emin olmak için [Yüksek kullanılabilirliği yapılandırma (Kafka)](apache-kafka-high-availability.md) belgesine göz atın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

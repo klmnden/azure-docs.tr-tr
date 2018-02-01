@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Azure Öğreticisi - ACR hazırlama hakkında"
-description: "AKS Öğreticisi - ACR hazırlama"
+title: "Azure’da Kubernetes öğreticisi - ACR Hazırlama"
+description: "AKS öğreticisi - ACR Hazırlama"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,60 +9,60 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Dağıtma ve Azure kapsayıcı kayıt defteri kullanma
+# <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry’yi dağıtma ve kullanma
 
-Azure kapsayıcı kayıt defteri (ACR) Docker kapsayıcısı görüntüleri için bir Azure tabanlı, özel kayıt defteri ' dir. Bu Eğitmeni, bölüm iki sekiz, Azure kapsayıcı kayıt defteri örneğini dağıtma ve kapsayıcı görüntü için itme kılavuzluk. Tamamlanan adımları içerir:
+Azure Container Registry (ACR), Docker kapsayıcı görüntüleri için Azure tabanlı özel bir kayıt defteridir. Sekiz öğreticiden oluşan bu serinin ikinci kısmında, Azure Container Registry örneği dağıtma ve bu örneğe kapsayıcı görüntüsü göndermeyle ilgili bilgi verilmektedir. Tamamlanan adımlar:
 
 > [!div class="checklist"]
-> * Azure kapsayıcı kayıt defteri (ACR) örneğini dağıtma
-> * ACR için bir kapsayıcı görüntüsü etiketleme
-> * Görüntü ACR için karşıya yükleme
+> * Azure Container Registry (ACR) örneği dağıtma
+> * ACR için kapsayıcı görüntüsü etiketleme
+> * Görüntüyü ACR’ye yükleme
 
-Sonraki öğreticilerde bu ACR örneği AKS Kubernetes kümede tümleşiktir.
+Sonraki öğreticilerde, bu ACR örneği AKS’deki Kubernetes kümesiyle tümleştirilecektir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-İçinde [önceki öğretici][aks-tutorial-prepare-app], basit bir Azure oylama uygulaması için bir kapsayıcı görüntüsü oluşturuldu. Azure oylama uygulama görüntüsü oluşturmadıysanız, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
+[Önceki öğreticide][aks-tutorial-prepare-app], basit bir Azure Voting uygulaması için kapsayıcı görüntüsü oluşturulacaktır. Azure Voting uygulaması görüntüsünü oluşturmadıysanız [Öğretici 1 - Kapsayıcı görüntüleri oluştur][aks-tutorial-prepare-app]’a dönün.
 
-Bu öğretici, Azure CLI Sürüm 2.0.21 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yükleyin veya yükseltin, bakın [Azure CLI yükleme][azure-cli-install].
+Bu öğretici için Azure CLI 2.0.21 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
-## <a name="deploy-azure-container-registry"></a>Azure kapsayıcı kayıt defteri dağıtın
+## <a name="deploy-azure-container-registry"></a>Azure Container Registry’yi dağıtma
 
-Azure kapsayıcı kayıt defteri dağıtırken, önce bir kaynak grubu gerekir. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+Bir Azure Container Registry dağıtırken önce bir kaynak grubuna ihtiyaç duyarsınız. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-[az group create][az-group-create] komutuyla bir kaynak grubu oluşturun. Bu örnekte, bir kaynak grubu adında `myResourceGroup` oluşturulan `eastus` bölge.
+[az group create][az-group-create] komutuyla bir kaynak grubu oluşturun. Bu örnekte, `eastus`bölgesinde `myResourceGroup` adlı bir kaynak grubu oluşturulur.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Azure kapsayıcı kayıt defteri ile oluşturma [az acr oluşturma] [ az-acr-create] komutu. Bir kapsayıcı kayıt defteri adını **benzersiz olmalıdır**.
+[az acr create][az-acr-create] komutuyla Azure Container kayıt defteri oluşturun. Kaynak defteri adı Azure’da benzersiz olmalı ve 5-50 arası alfasayısal karakter içermelidir.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Bu öğreticinin geri kalanını, kullandığımız `<acrName>` kapsayıcı kayıt defteri adı için bir yer tutucu olarak.
+Bu öğreticinin geri kalan aşamalarında, kapsayıcı kayıt defteri adı için yer tutucu olarak `<acrName>` kullanacağız.
 
-## <a name="container-registry-login"></a>Kapsayıcı kayıt defteri oturum açma
+## <a name="container-registry-login"></a>Kapsayıcı kayıt defterinde oturum açma
 
-Kullanım [az acr oturum açma] [ az-acr-login] ACR örneğinde oturum açma için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad vermeniz gerekir.
+ACR örneğinde oturum açmak için [az acr login][az-acr-login] komutunu kullanın. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir adı sağlamanız gerekir.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Komut tamamlandıktan sonra 'Başarılı oturum açma' iletisi döndürür.
+Komut tamamlandığında bir “Oturum Başarıyla Açıldı” iletisi döndürür.
 
-## <a name="tag-container-images"></a>Etiket kapsayıcı görüntüleri
+## <a name="tag-container-images"></a>Kapsayıcı görüntülerini etiketleme
 
-Geçerli görüntüleri listesini görmek için [docker görüntüleri] [ docker-images] komutu.
+Mevcut görüntülerin listesini görüntülemek için [docker images][docker-images] komutunu kullanın.
 
 ```console
 docker images
@@ -77,21 +77,21 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-Her kapsayıcı görüntü kayıt loginServer adıyla etiketlenmesi gerekiyor. Bu etiket kapsayıcı görüntüleri bir görüntü kayıt defterine Ftp'den zaman yönlendirme için kullanılır.
+Her kapsayıcı görüntüsünün, kayıt defterinin loginServer adıyla etiketlenmesi gerekir. Bu etiket, görüntü kayıt defterine kapsayıcı görüntüleri gönderilirken kullanılır.
 
-LoginServer adını almak için aşağıdaki komutu çalıştırın.
+loginServer adını almak için aşağıdaki komutu çalıştırın.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Şimdi, etiket `azure-vote-front` kapsayıcı kayıt defteri loginServer görüntüsüyle. Ayrıca, ekleme `:redis-v1` sonuna kadar görüntü adı. Bu etiket resim sürümünü gösterir.
+Şimdi, `azure-vote-front` değerini, kapsayıcı kayıt defterinin loginServer’ıyla etiketleyin. Ayrıca, görüntü adının sonuna `:redis-v1` ekleyin. Bu etiket, görüntü sürümünü belirtir.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Etiketlenmiş bir kez çalıştır [docker görüntüleri] [ docker-images] işlemi doğrulamak için.
+Etiketledikten sonra, işlemi doğrulamak için [docker images][docker-images] komutunu çalıştırın.
 
 ```console
 docker images
@@ -107,21 +107,21 @@ redis                                                latest              a1b99da
 tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
 
-## <a name="push-images-to-registry"></a>Kayıt defteri itme görüntüleri
+## <a name="push-images-to-registry"></a>Kayıt defterine görüntü gönderme
 
-Anında iletme `azure-vote-front` kayıt defterine görüntü.
+`azure-vote-front` görüntüsünü kayıt defterinize gönderin.
 
-Aşağıdaki örneği kullanarak, ortamınızdan loginServer ACR loginServer adını değiştirin.
+Aşağıdaki örneği kullanarak, ortamınızda, ACR loginServer adını loginServer olarak değiştirin.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Bu, birkaç tamamlamak için dakika sürer.
+Bu işlemin tamamlanması birkaç dakika sürer.
 
-## <a name="list-images-in-registry"></a>Kayıt defterinde listesi görüntüler
+## <a name="list-images-in-registry"></a>Kayıt defterindeki görüntüleri listeleme
 
-Azure kapsayıcı kaydınız gönderilen görüntüleri listesini döndürmek için kullanıcı [az acr deposu listesi] [ az-acr-repository-list] komutu. Komut ACR örnek adıyla güncelleştirin.
+Azure Container Registry’nize gönderilen görüntülerin listesini döndürmek için [az acr repository list][az-acr-repository-list] komutunu kullanın. Komutu ACR örneği adıyla güncelleştirin.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-Ve ardından belirli bir resim için etiketleri görmek için [az acr deposunu Göster-etiketleri] [ az-acr-repository-show-tags] komutu.
+Sonra, belirli bir görüntünün etiketlerini görmek için [az acr repository show-tags][az-acr-repository-show-tags] komutunu kullanın.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -149,18 +149,18 @@ Result
 redis-v1
 ```
 
-Eğitmen tamamlandığında, kapsayıcı görüntünün bir özel Azure kapsayıcı kayıt defteri örneğinde zamandır depolanmış. Bu görüntü ACR sonraki öğreticilerde Kubernetes kümeye dağıtılır.
+Öğretici tamamlandığında, kapsayıcı görüntüsü özel bir Azure Container Registry örneğinde depolanır. Sonraki öğreticilerde, bu görüntüyü ACR’den bir Kubernetes kümesine dağıtma işlemi açıklanmıştır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure kapsayıcı kayıt defteri AKS kümesinde kullanmak için hazırlanan. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide, AKS kümesinde kullanılmak üzere bir Azure Container Registry hazırlanmıştır. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * Azure kapsayıcı kayıt defteri örneği dağıtılan
-> * ACR için bir kapsayıcı görüntüsü etiketli
-> * ACR için görüntüyü karşıya
+> * Azure Container Registry örneği dağıtıldı
+> * ACR için kapsayıcı görüntüsü etiketlendi
+> * Görüntü ACR’ye yüklendi
 
-Azure Kubernetes kümede dağıtma hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Azure’da Kubernetes kümesi dağıtmayla ilgili daha fazla bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [Kubernetes kümesi dağıtma][aks-tutorial-deploy-cluster]

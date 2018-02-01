@@ -11,78 +11,74 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2017
+ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: d94abbd24aee5217cc460e0c48df177aaff80920
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8922759295928a59114fcea55470d113d59b9387
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
 
-Bu yordam ASP.NET web uygulamanızı [Azure Application Insights](app-insights-overview.md) hizmetine telemetri gönderecek şekilde yapılandırır. Kendi IIS sunucunuzda veya Bulut’ta barındırılan ASP.NET uygulamaları için çalışır. Uygulamanızın performansını ve nasıl kullanıldığını anlamanıza yardımcı olan grafikler ve güçlü bir sorgu dilinin yanı sıra hata ya da performans sorunları hakkında otomatik uyarılar alırsınız. Çoğu geliştirici, özellikleri bu haliyle mükemmel bulsa da, gerekirse telemetriyi genişletip özelleştirebilirsiniz.
+Bu yordam ASP.NET web uygulamanızı [Azure Application Insights](app-insights-overview.md) hizmetine telemetri gönderecek şekilde yapılandırır. Kendi IIS sunucunuzda şirket içi olarak veya Bulut’ta barındırılan ASP.NET uygulamaları için çalışır. Uygulamanızın performansını ve nasıl kullanıldığını anlamanıza yardımcı olan grafikler ve güçlü bir sorgu dilinin yanı sıra hata ya da performans sorunları hakkında otomatik uyarılar alırsınız. Çoğu geliştirici, özellikleri bu haliyle mükemmel bulsa da, gerekirse telemetriyi genişletip özelleştirebilirsiniz.
 
 Visual Studio'da kurulum yalnızca birkaç tıklama ile yapılır. Telemetri hacmini sınırlayarak ücret doğmamasını sağlayabilirsiniz. Bunun yapılması, çok fazla kullanıcı olmadan bir siteyi deneyip hatalarını ayıklamanıza veya izlemenize olanak tanır. Devam edip üretim merkezinizi izlemeye karar verdiğinizde, sınırı daha sonra kolayca artırabilirsiniz.
 
-## <a name="before-you-start"></a>Başlamadan önce
-Gerekenler:
+## <a name="prerequisites"></a>Ön koşullar
+Application Insights’ı ASP.NET web sitenize eklemek için şunu yapmanız gerekir:
 
-* Visual Studio 2013 güncelleştirme 3 veya sonraki bir sürümü. Ne kadar yeniyse o kadar iyidir.
-* Bir [Microsoft Azure](http://azure.com) aboneliği. Takımınızın veya kuruluşunuzun Azure aboneliği varsa, abonelik sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi aboneliğe ekleyebilir.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
+    - ASP.NET ve web geliştirme
+    - Azure geliştirme
 
-İlginizi çekiyorsa inceleyebileceğiniz alternatif konu başlıkları da mevcuttur:
-
-* [Çalışma zamanında bir web uygulamasını izleme](app-insights-monitor-performance-live-website-now.md)
-* [Azure Cloud Services](app-insights-cloudservices.md)
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="ide"></a> 1. Adım: Application Insights SDK’yı ekleme
 
-Çözüm Gezgini'nde web uygulaması projenize sağ tıklayın ve **Ekle** > **, Application Insights Telemetrisi...**'ni veya **Application Insights'ı Yapılandır**'ı seçin.
+Çözüm Gezgini’nde web uygulamanızın adına sağ tıklayın ve **Application Insights’ı Yapılandır** seçeneğini belirleyin
 
-![Application Insights Telemetrisi Ekle seçeneğinin vurgulandığı Çözüm Gezgini’nin ekran görüntüsü](./media/app-insights-asp-net/appinsights-03-addExisting.png)
+![Application Insights’ı Yapılandır seçeneğinin vurgulandığı Çözüm Gezgini’nin ekran görüntüsü](./media/app-insights-asp-net/0001-configure-application-insights.png)
 
-(Visual Studio 2015'te Yeni Proje iletişim kutusunda da Application Insights ekleme seçeneği mevcuttur.)
+(Application Insights SDK sürümünüze bağlı olarak, son SDK sürümüne güncelleştirme yapmanız istenebilir. İstenirse **SDK’yı güncelleştir**’i seçin.)
 
-Application Insights yapılandırma sayfasına gidin:
+![Ekran görüntüsü: Yeni bir Microsoft Application Insights SDK sürümü mevcut. SDK’yı güncelleştir seçeneğinin vurgulandığı görüntü](./media/app-insights-asp-net/0002-update-sdk.png)
 
-![Uygulamanızı Application Insights'a kaydedin sayfasının ekran görüntüsü](./media/app-insights-asp-net/visual-studio-register-dialog.png)
+Application Insights Yapılandırması ekranı:
 
-**a.** Azure'a erişmek için kullandığınız hesabı ve aboneliği seçin.
+**Ücretsiz Olarak Başla**’yı seçin.
 
-**b.** Uygulamanızdan gelen verileri görmek istediğiniz Azure kaynağını seçin. Genellikle:
+![Uygulamanızı Application Insights'a kaydedin sayfasının ekran görüntüsü](./media/app-insights-asp-net/0004-start-free.png)
 
-* Tek bir uygulamanın [farklı bileşenleri için tek kaynak](app-insights-monitor-multi-role-apps.md) kullanın. 
-* İlişkisiz uygulamalar için ayrı kaynaklar oluşturun.
- 
 Verilerin depolandığı kaynak grubunu veya konumu ayarlamak isterseniz **Ayarları yapılandır**'a tıklayın. Kaynak grupları, verilere erişimi denetlemek için kullanılır. Örneğin aynı sistemin parçalarını oluşturan birden uygulamanız varsa bunların Application Insights verilerini aynı kaynak grubuna ekleyebilirsiniz.
 
-**c.** Ücret yansımaması için ücretsiz veri hacmi sınırında bir sınır ayarlayın. Application Insights, belirli bir telemetri hacmine kadar ücretsizdir. Kaynak oluşturulduktan sonra portalda **Özellikler + fiyatlandırma** > **Veri hacmi yönetimi** > **Günlük hacim sınırı** sayfasından seçiminizi değiştirebilirsiniz.
+ **Kaydol**’u seçin. 
 
-**d.** Devam etmek ve web uygulamanızda Application Insights'ı yapılandırmak için **Kaydol**'a tıklayın. Telemetri hem hata ayıklama sırasında hem de uygulamanızı yayımladıktan sonra [Azure portalına](https://portal.azure.com) gönderilir.
+![Uygulamanızı Application Insights'a kaydedin sayfasının ekran görüntüsü](./media/app-insights-asp-net/0005-register-ed.png)
 
-**e.** Hata ayıklama sırasında portala telemetri göndermek istemiyorsanız, uygulamanıza Application Insights SDK’sını ekleyin, ancak portalda bir kaynak yapılandırmayın. Hata ayıklama sırasında telemetri verilerini Visual Studio'da görebilirsiniz. Daha sonra bu yapılandırma sayfasına dönebilir veya uygulamanızı dağıtana kadar bekleyip [telemetriyi çalışma zamanında açabilirsiniz](app-insights-monitor-performance-live-website-now.md).
-
+ Telemetri hem hata ayıklama sırasında hem de uygulamanızı yayımladıktan sonra [Azure portalına](https://portal.azure.com) gönderilir.
+> [!NOTE]
+> Hata ayıklama sırasında portala telemetri göndermek istemiyorsanız, uygulamanıza Application Insights SDK’sını ekleyin, ancak portalda bir kaynak yapılandırmayın. Hata ayıklama sırasında telemetri verilerini Visual Studio'da görebilirsiniz. Daha sonra bu yapılandırma sayfasına dönebilir veya uygulamanızı dağıtana kadar bekleyip [telemetriyi çalışma zamanında açabilirsiniz](app-insights-monitor-performance-live-website-now.md).
 
 ## <a name="run"></a> 2. Adım: Uygulamanızı çalıştırma
 F5 tuşuna basarak uygulamanızı çalıştırın. Farklı sayfalar açarak telemetri verileri oluşturun.
 
-Visual Studio'da, günlüğe kaydedilmiş etkinliklerin sayısını görürsünüz.
+Visual Studio'da günlüğe kaydedilmiş etkinliklerin sayısını görürsünüz.
 
-![Visual Studio’nun ekran görüntüsü. Hata ayıklama sırasında Application Insights düğmesi görünür.](./media/app-insights-asp-net/54.png)
+![Visual Studio’nun ekran görüntüsü. Hata ayıklama sırasında Application Insights düğmesi görünür.](./media/app-insights-asp-net/0006-Events.png)
 
 ## <a name="step-3-see-your-telemetry"></a>Adım 3: Telemetrinize bakma
 Visual Studio’da veya Application Insights web portalında telemetrinizi görebilirsiniz. Uygulamanızın hatalarını ayıklamanıza yardımcı olması için Visual Studio'da telemetri arayın. Sisteminiz canlıyken web portalında performans ve kullanımı izleyin. 
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>Visual Studio'da telemetrinize bakma
 
-Visual Studio’da Application Insights penceresini açın. **Application Insights** düğmesine tıklayın veya Çözüm Gezgini’nden projenize sağ tıklayıp **Application Insights**’ı seçin ve ardından **Canlı Telemetride Ara**’ya tıklayın.
+Visual Studio’da Application Insights verilerini görüntülemek için şunları yapın.  **Çözüm Gezgini** > **Bağlı Hizmetler**’i seçin > **Application Insights**’a sağ tıklayın ve ardından **Canlı Telemetri Ara**’ya tıklayın.
 
-Visual Studio Application Insights Arama penceresinde, uygulamanızın sunucu tarafında oluşturulan telemetri için **Hata Ayıklama oturumundan alınan veriler** görünümüne bakın. Filtrelerle denemeler yapın ve daha fazla ayrıntı için herhangi bir etkinliğe tıklayın.
+Visual Studio Application Insights Arama penceresinde, uygulamanızın sunucu tarafında oluşturulan telemetri için uygulamanızdan alınan veriler görünümü açılır. Filtrelerle denemeler yapın ve daha fazla ayrıntı için herhangi bir etkinliğe tıklayın.
 
 ![Application Insights penceresindeki Hata ayıklama oturumundan alınan veriler görünümünün ekran görüntüsü.](./media/app-insights-asp-net/55.png)
 
-> [!NOTE]
+> [!Tip]
 > Herhangi bir veri gösterilmiyorsa zaman aralığının doğru olduğundan emin olup Ara simgesine tıklayın.
 
 [Visual Studio’daki Application Insights araçları hakkında daha fazla bilgi edinin](app-insights-visual-studio.md).
@@ -92,12 +88,7 @@ Visual Studio Application Insights Arama penceresinde, uygulamanızın sunucu ta
 
 Yalnızca SDK’yı yüklemeyi seçmediyseniz telemetriyi Application Insights web portalında da görüntüleyebilirsiniz. Portalda, Visual Studio’ya kıyasla daha çok grafik, analiz aracı ve bileşenler arası görünüm bulunur. Portal ayrıca uyarılar sağlar.
 
-Application Insights kaynağınızı açın. [Azure portalında](https://portal.azure.com/) oturum açıp portalda bulun ya da Visual Studio’da projeye sağ tıklayıp sizi yönlendirmesini sağlayın.
-
-![Visual Studio’da Application Insights portalının nasıl açılacağını gösteren ekran görüntüsü](./media/app-insights-asp-net/appinsights-04-openPortal.png)
-
-> [!NOTE]
-> Bir erişim hatası alırsanız: Birden çok Microsoft kimlik bilgisi kümeniz mi var ve yanlış küme ile mi oturum açtınız? Portalda oturumunuzu kapatıp yeniden oturum açın.
+Application Insights kaynağınızı açın. [Azure portalında](https://portal.azure.com/) oturum açarak aradığınız öğeyi orada bulabilir veya **Çözüm Gezgini** > **Bağlı Hizmetler**’i seçip > **Application Insights** > **Application Insights Portal’ı aç**’a sağ tıklayarak sayfaya yönlendirilebilirsiniz.
 
 Portal, uygulamanızdan alınan telemetri görünümünde açılır.
 
@@ -129,7 +120,7 @@ Uygulamanızın telemetrisini alan Azure kaynağı bir *izleme anahtarı* ile ta
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>Gelecek SDK sürümlerine yükseltme
-[SDK’nın yeni bir sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) yükseltmek için **NuGet paket yöneticisini** yeniden açıp yüklü paketleri filtreleyin. **Microsoft.ApplicationInsights.Web**’i seçip **Yükselt**’i seçin.
+[SDK’nın yeni bir sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) yükseltme yapmak için, **NuGet paket yöneticisini** açıp yüklü paketleri filtreleyin. **Microsoft.ApplicationInsights.Web**’i seçip **Yükselt**’i seçin.
 
 ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiyseniz yükseltmeden önce dosyanın bir kopyasını kaydedin. Daha sonra, yaptığınız değişiklikleri yeni sürümle birleştirin.
 
@@ -138,6 +129,11 @@ ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiysen
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+İlginizi çekiyorsa inceleyebileceğiniz alternatif konu başlıkları da mevcuttur:
+
+* [Çalışma zamanında bir web uygulamasını izleme](app-insights-monitor-performance-live-website-now.md)
+* [Azure Cloud Services](app-insights-cloudservices.md)
 
 ### <a name="more-telemetry"></a>Daha fazla telemetri
 

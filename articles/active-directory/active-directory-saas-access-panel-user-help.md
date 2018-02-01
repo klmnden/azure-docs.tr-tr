@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory'de My uygulamaları portal ile ilgili Yardım gerekiyor mu | Microsoft Docs"
-description: "Erişim paneli ile çalışırken, ortak görevleri gerçekleştirmek için yönergeler alın."
+title: "Verilere erişme ve Azure Active Directory'de My uygulamaları Portalı'nı kullanarak Yardım alma | Microsoft Docs"
+description: "Oturum açma ve erişim panelinde ortak görevleri gerçekleştirme ile ilgili yardım alın."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,123 +15,109 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="do-you-need-help-with-the-my-apps-portal"></a>My uygulamaları portalıyla Yardım gerekiyor mu?
+# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Verilere erişme ve My uygulamaları Portalı'nı kullanarak sorunları giderme
 
-Ne yazık ki bir sorun My uygulamaları portal kullanırken çalıştırdığınız için bu sayfayı büyük olasılıkla üst sınırına ulaştınız. Yardım Masası veya bir sorun Çözüldü almak için yöneticinize başvurun ihtiyaç duyduğunuz durumlarda olsa da, ilk yardımcı olabilecek bazı sorun giderme konularına aşağıda verilmiştir.
+Oturum açma veya My uygulamaları Portalı'nı kullanarak sorunlar yaşıyorsanız, Yardım için yardım masasına veya yöneticinize başvurun önce bu sorun giderme ipuçları deneyin.
 
 ## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>My uygulamaları Portalı'na imzalama sorun yaşıyorum
 
-Denetlemek için genel sorunlar:
+Bu genel ipuçları deneyin:
 
-- Doğru URL'de imzalama olmadığını denetleyin: [https://myapps.microsoft.com](https://myapps.microsoft.com)
-
+- İlk olarak, onay doğru URL'yi kullanarak görmek için [https://myapps.microsoft.com](https://myapps.microsoft.com).
 - Tarayıcınızın güvenilen siteler için URL eklemeyi deneyin.
-
-- Parolanızı süresi dolmuş ya da unutulursa emin olun. Denetleme [burada](active-directory-passwords-update-your-own-password.md) parolanızı güncelleştirme hakkında daha fazla ayrıntı için.
-
-- Kimlik doğrulama kişi bilgilerinizi en fazla tarih ve erişiminizi engellemediğini olup olmadığını denetleyin. Denetleme [burada](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) kimlik bilgilerinizi ayarlama hakkında daha fazla bilgi.
-
+- Parolanızı doğru olduğundan ve süresi geçmemiş emin olun. Daha fazla bilgi için bkz: [iş veya Okul parolanızı sıfırlama](active-directory-passwords-update-your-own-password.md).
+- Kimlik doğrulama iletişim bilgilerinizi en fazla tarih ve erişiminizi engellemediğini olduğundan emin olmak için kontrol edin. Daha fazla bilgi için bkz: [ne Azure çok faktörlü kimlik doğrulaması için beni anlama geliyor?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
 - Tarayıcınızın tanımlama bilgilerini temizlemeyi deneyin ve yeniden oturum açmayı deneyin.
 
-Lütfen, hala oturum açmaya çalışırken sorunlarla karşılaşıyorsanız, daha fazla yardım için yöneticinize başvurun.
+Hala oturum açmaya çalışırken sorunlarla karşılaşıyorsanız, sistem yöneticinize başvurun.
 
 
-## <a name="how-do-i-update-my-password"></a>Parolamı nasıl güncelleştiririm?
+## <a name="i-seem-to-be-having-password-issues"></a>Parola sorunları yaşıyor göründüğü
 
-Parolanızı unuttuysanız, hiçbir zaman, BT personeliniz birinden alınan, hesap ya da değiştirmek için bkz: istediğiniz dışında kilitlendiğinden [Yardım, unuttum Azure AD parolamı](active-directory-passwords-update-your-own-password.md) daha fazla ayrıntı için.
+Parolanızı mı unuttunuz, hiçbir zaman, BT personeliniz birinden alınan, hesabınızın kilitli veya parolanızı değiştirmek için bkz: [Yardım, unuttum Azure AD parolamı](active-directory-passwords-update-your-own-password.md).
 
-## <a name="how-do-i-register-for-password-reset"></a>Parola sıfırlama için nasıl kaydettirebilirim?
+## <a name="i-need-to-register-for-password-reset"></a>Parola sıfırlama için kaydetme gerekir
 
-Bir son kullanıcı parolanızı sıfırlama veya Self Servis parola sıfırlama (SSPR) kullanan bir kişi için seslendir gerek kalmadan hesabınızın kilidini açın. Bu işlevi kullanabilmeniz için önce kimlik doğrulama yöntemlerini kaydetmeniz veya yöneticinizin doldurduğu önceden tanımlı kimlik doğrulama yöntemlerini onaylamanız gerekir. Daha fazla ayrıntı için bkz: [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
+Parolanızı sıfırlamak veya birine Self Servis parola sıfırlama (SSPR) kullanarak seslendir gerek kalmadan hesabınızın kilidini açın. Bu işlevi kullanabilmek için kimlik doğrulama yöntemleri kaydedilemedi veya yöneticiniz gerektirir önceden tanımlanmış kimlik doğrulama yöntemlerini onaylayın. Daha fazla bilgi için bkz: [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
 
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Oturum açma My uygulamaları güvenli uzantısı yükleme sorun yaşıyorum
 
-Tarayıcı gereksinimleri karşılayıp karşılamadığını denetleyin:
+My uygulamaları portal JavaScript destekleyen bir tarayıcı gerektirir ve CSS etkinleştirdi. Parola tabanlı tek oturum açma uygulamalar kullanıyorsanız, eşlik eden uzantısı da yüklenmesi gerekir. Parola tabanlı tek oturum açma uygulamaları için yapılandırılmış bir uygulama başlattığınızda bu uzantıyı otomatik olarak yüklenir.
 
-- Portal, JavaScript destekleyen bir tarayıcı gerektirir ve CSS etkinleştirdi. Parola tabanlı tek oturum açma uygulamalar kullanıyorsanız, eşlik eden uzantısı da yüklenmesi gerekir. Bu uzantı, parola tabanlı tek oturum açma uygulamaları için yapılandırılmış bir uygulama başlattığında otomatik olarak yüklenir.
+Aşağıdaki tarayıcı gereksinimleri karşıladığından emin olun:
+- **Kenar**: Windows 10 Anniversary Edition veya sonraki sürümlerde.
+- **Chrome**: Windows 7 veya daha sonra ve Mac OS x veya sonraki sürümlerde.
+- **Firefox 26,0 veya üzeri**: Windows XP SP2 veya daha sonra ve Mac OS X 10.6 veya sonraki sürümlerde.
+- **Internet Explorer 8, 9, 10, 11**: Windows 7 veya üzeri (sınırlı destek).
 
-- Uzantı için tarayıcı gereksinimleri şunlardır:
-    - Edge Windows 10 Anniversary Edition veya daha yenisi
-    - Windows 7 veya daha sonra ve MacOS x veya sonraki sürümlerde chrome
-    - Firefox 26,0 veya daha sonra Windows XP SP2 veya daha sonra ve Mac OS X 10.6 üzerinde veya üstü
-    - Internet Explorer 8, 9, 10, 11 Windows 7 veya üzeri (sınırlı destek)
-
-Ayrıca uzantıyı Chrome ve kenar için aşağıdaki doğrudan bağlantılarından indirebilirsiniz:
+Chrome ve aşağıdaki siteleri doğrudan kenarından uzantısı da yükleyebilirsiniz:
 
 - [Chrome uzantısı](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-
 - [Edge uzantısı](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-Yükleme çalıştıktan sonra aşağıdaki adımları, sorunlarla karşılaşıyorsanız:
+Uzantısı yüklediyseniz ve hala sorun yaşıyorsanız, aşağıdakileri deneyin:
 
-- Tarayıcı uzantısı ayarlarınızı uzantısı etkin olduğunu denetleyin.
-
+- Uzantısının etkinleştirildiğinden emin olmak için tarayıcı uzantısı ayarlarınızı denetleyin.
 - Tarayıcınızı yeniden başlatın ve My uygulamaları portalında oturum açın.
-
 - Tarayıcınızın tanımlama bilgilerini temizleyin ve My uygulamaları portalında oturum açın.
-- İzleyin [erişim paneli uzantısı Internet Explorer için sorun giderme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) için IE Uzantısı Yapılandırma Kılavuzu erişim için bir tanılama aracı ve adım adım yönergeler.
+- Bir tanılama aracı ve adım adım yönergeler için Internet Explorer uzantısı yapılandırma erişmek için bkz: [erişim paneli uzantısı Internet Explorer için sorun giderme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Oturum açma My uygulamaları güvenli uzantısı nasıl kullanabilirim?
-My uygulamalar varsayılan URL uzantısı değiştirme
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Kullanım uygulamalarım güvenli oturum açma uzantısı
+* My uygulamaları URL dışında kullanıyorsanız `https://myapps.microsoft.com`, aşağıdakileri yaparak, varsayılan URL yapılandırın:
+   1. Siz *değil* uzantısı açtığınız uzantısı simgesine sağ tıklayın.
+   2. Menüsünde seçin **My uygulamaları URL**.
+   3. Varsayılan URL seçin.
+   4. Uzantı simgesini seçin.
+   5. Uzantı oturum açmak için seçin **başlamak oturum**.
 
-Https://myapps.microsoft.com daha farklı bir My uygulamaları URL kullanıyorsanız, sonra varsayılan URL ancak aşağıdaki adımları yapılandırmanız gerekir:
-1. Uzantısına, imzalanmamış sırada **sağ tıklatın** uzantısı simgesi.
-2. Tıklayın **My uygulamaları URL Seç** menüsünde.
-3. **Seçin** , varsayılan URL.
-4. Uzantı simgesine tıklayın.
-5. Oturum açma seçerek uzantısına **başlamak oturum**.
+* Doğrudan bir uygulama tarayıcıdan oturum açmak için aşağıdakileri yapın:
+   1. Uzantıyı yükledikten sonra kendisine seçerek oturum **başlamak oturum**.
+   2. Uygulama oturum açma URL'si ile oturum açın.  
+       Oturum açma genellikle oturum açma formu görüntüler uygulamanın URL'dir.
+      Uzantı durumunu değiştirme ve bir parola kullanılabilir olduğunu biliyor sağlar.
+   3. Oturum açmak için uzantı simgesini seçin.
 
-Bir uygulama tarayıcıdan doğrudan oturum açın
-1. Oturum açma seçerek uzantısının uzantı yükledikten sonra **başlamak oturum**.
-2. Gidin **URL oturum açma** oturum açmak için istediğiniz uygulama bu genellikle oturum açma formu görüntüleyen uygulama URL'sidir.
-3. Uzantı durumunu değiştirme ve bir parola kullanılabilir olduğunu biliyorsanız, tıklayın izin **uzantısı simgesi** oturum açmak için
-
-Uzantı uygulama başlatma
-1. Oturum açma seçerek uzantısının uzantı yükledikten sonra **başlamak oturum**.
-2. Kendi menüsünü açmak için uzantı simgesine tıklayın.
-3. **Arama** My uygulamaları Portalı'nda kullanılabilir bir uygulama için.
-4. Uygulamadan tıklayın **arama sonuçlarında** başlatmak için.
-5. Başlatılan son üç uygulamalar da kategoride görüneceğini **kısa süre önce kullanılan** kısayol listesi
+* Bir uygulama uzantı başlatmak için aşağıdakileri yapın:
+   1. Uzantıyı yükledikten sonra kendisine seçerek oturum **başlamak oturum**.
+   2. Kendi menüsünü açmak için uzantı simgesini seçin.
+   3. My uygulamaları Portalı'nda kullanılabilir olan bir uygulamayı arayın.
+   4. Arama sonuçları listesinde uygulamayı seçin.  
+       Kullandığınız son üç uygulamaları görüntülenen **kısa süre önce kullanılan** kısayol listesi.
 
 > [!NOTE]
-> Bu seçenekler yalnızca kenar, Chrome, Firefox için kullanılabilir.
+> Bu seçenekler yalnızca kenar, Chrome ve Firefox için kullanılabilir.
 
 ## <a name="how-do-i-add-a-new-app"></a>Yeni bir uygulama nasıl eklenir?
 
 1.  Üzerinde **uygulamaları** sayfasında, **uygulama Ekle**.
-
 2.  Ekleyin ve ardından istediğiniz uygulamayı arayın **Ekle**.
 
-**Notlar:**
-
-- Yöneticiniz hesabınız için yapılandırılmışsa, yalnızca bu seçenek erişimi.
-
-- Uygulama izni gerektiriyorsa, yönetici onayı için beklemeniz gerekebilir.
-
+   > [!NOTE]
+   > * Yalnızca yöneticiniz, hesabınız için etkinleştirilmişse, bu seçenek erişebilirsiniz.
+   > * Uygulama izni gerektiriyorsa, yönetici onayı için beklemeniz gerekebilir.
+   > 
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>My grup üyeliklerini nasıl yönetebilirim?
 
-1. Tıklatın **grupları** döşeme. 
-2. I kendi, gruplar altında bir grup oluşturmak için tıklatın **Grup Oluştur**ve ardından yönergeleri izleyin.
-3. Ben, gruplar altında bir gruba katılması için tıklatın **gruba Katıl**ve ardından yönergeleri izleyin.
+Seçin **grupları** kutucuğuna ve ardından aşağıdakilerden birini yapın: 
+* Bir grup altında oluşturmak için **olduğum grupları**seçin **Grup Oluştur**ve ardından yönergeleri izleyin.
+* Altında bir gruba katılması için **ben içinde grupları**seçin **gruba Katıl**ve ardından yönergeleri izleyin.
 
-**Notlar:**
-
-- Yöneticiniz hesabınız için yapılandırılmışsa, yalnızca bu seçenek erişimi.
-
-- Bir üyesi olan gruplar ayrıntıları görüntülemek ve gruptan ayrılmak sağlar.
-
-- Gruplar sahibi ayrıntılarını görüntülemek sağlar, ekleme veya üyeleri kaldırın ve grubu bırakın.
+   > [!NOTE]
+   > * Yalnızca yöneticiniz, hesabınız için etkinleştirilmişse, bu seçenek erişebilirsiniz.
+   > * Bir grubun üyesi ise, ayrıntıları görüntülemek ve grubu bırakın.
+   > * Bir grubun sahibi varsa, ayrıntılarını görüntülemek, eklemek veya üyeleri kaldırın ve grubu bırakın.
+   >
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sorun giderme ilgili bilgileri için bkz: [uygulama erişim paneli Web sitesi ya da mobil uygulama kullanma ile ilgili sorunlar](active-directory-application-access-panel-content-map.md)
+Daha fazla sorun giderme bilgileri için bkz: [uygulama erişim paneli Web sitesi ya da mobil uygulama kullanarak sorunları](active-directory-application-access-panel-content-map.md).
 

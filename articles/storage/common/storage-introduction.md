@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage’a Giriş
 
@@ -149,19 +149,17 @@ Depolama hesabınızın ve verilerinizin güvenliğini sağlama hakkında daha f
 
 ## <a name="replication"></a>Çoğaltma
 
-Azure Depolama, verilerinizin güvende olmasını sağlamak için verilerinizin birden çok kopyasını tutma (ve yönetme) özelliğine sahiptir. Buna çoğaltma veya yedekleme denir. Depolama hesabınızı ayarladığınızda, çoğaltma türünü seçersiniz. Çoğu durumda, depolama hesabı ayarlandıktan sonra bu ayar değiştirilebilir.
-
-Tüm depolama hesapları, belirli bir yıl boyunca en az %99,999999999% (11 basamaklı) nesne dayanıklılığı sağlamak için tasarlanan **yerel olarak yedekli depolamaya (LRS)** sahiptir. Bu, verilerinizin birden çok kopyasının, depolama hesabı ayarlandığı zaman belirtilen veri merkezinde Azure Depolama veri merkezi tarafından yönetildiği anlamına gelir. Değişiklik yapıldığında, başarılı sonuç döndürülmeden önce tüm kopyalar güncelleştirilir. Bu, kopyaların her zaman eşitlenmiş durumda olduğu anlamına gelir. Ayrıca, kopyalar ayrı hata etki alanları ve yükseltme etki alanlarında bulunur, böylece verilerinizin bulunduğu bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile verileriniz kullanılabilir.
+Verilerinizin güvende olmasını sağlamak için, Azure Depolama verilerinizin birden çok kopyasını saklar (ve yönetir). Buna çoğaltma veya yedekleme denir. Depolama hesabınızı ayarladığınızda, çoğaltma türünü seçersiniz. Çoğu durumda, depolama hesabı ayarlandıktan sonra bu ayar değiştirilebilir.
 
 **Yerel olarak yedekli depolama (LRS)**
 
-Yukarıda da açıklandığı şekilde, LRS ile tek bir veri merkezinde verilerinizin birden çok kopyasına sahip olursunuz. Bu da verilerinizin, bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile kullanılabileceği, ancak veri merkezinin tamamı devre dışı olduğunda kullanılamayacağı anlamına gelir.
+Yerel olarak yedekli depolama (LRS), belirli bir yıl boyunca en az %99,999999999% (11 basamaklı) nesne dayanıklılığı sağlamak için tasarlanmıştır. Bu, verilerinizin birden çok kopyasının, depolama hesabı ayarlandığı zaman belirtilen veri merkezinde Azure Depolama veri merkezi tarafından yönetildiği anlamına gelir. Değişiklik yapıldığında, başarılı sonuç döndürülmeden önce tüm kopyalar güncelleştirilir. Bu, kopyaların her zaman eşitlenmiş durumda olduğu anlamına gelir. Ayrıca, kopyalar ayrı hata etki alanları ve yükseltme etki alanlarında bulunur, böylece verilerinizin bulunduğu bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile verileriniz kullanılabilir.
 
-**Bölgesel olarak yedekli depolama (ZRS)**
+**Bölgesel olarak yedekli depolama (ZRS) (Önizleme)**
 
-Bölgesel olarak yedekli depolama (ZRS), verilerinizin yerel kopyalarının yanı sıra başka bir kopya kümesini de saklayarak belirli bir yıl boyunca en az %99,9999999999 (12 basamaklı) nesne dayanıklılığı sağlamak için tasarlanmıştır. İkinci kopya kümesi, bir veya iki bölgedeki veri merkezleri arasında zaman uyumsuz olarak çoğaltılır. ZRS’nin yalnızca genel amaçlı depolama hesaplarındaki blok bloblar için kullanılabilir olduğunu unutmayın. Ayrıca, Depolama hesabınızı oluşturup ZRS’yi seçtiğinizde farklı bir tür çoğaltma seçeneği kullanmak üzere dönüştüremezsiniz; tersi durumda da aynısı söz konusudur.
+Bölgesel olarak yedekli depolama (ZRS), kullanılabilirliği uygulamalar geliştirmeyi kolaylaştırmak için tasarlanmıştır. ZRS, belirli bir yıl boyunca depolama nesneleri için en az %99,9999999999 (12 basamaklı) dayanıklılık sağlar. ZRS, birden çok kullanılabilirlik alanında verilerinizi eşzamanlı olarak çoğaltır. Kapalı kalmanın kabul edilemeyeceği işlem tabanlı uygulamalar gibi senaryolarda ZRS’den yararlanabilirsiniz. ZRS, tek bir bölgenin kullanılamadığı veya kurtarılamadığı durumlarda bile müşterilerin verileri okuyup yazabilmesine olanak tanır. Veriler üzerindeki eklemeler ve güncelleştirmeler zaman uyumlu ve son derece tutarlı olarak yapılır.    
 
-ZRS hesapları LRS’ye göre daha fazla dayanıklılık sağlar, ancak ZRS hesaplarının ölçüm ve günlüğe kaydetme özelliği yoktur.
+Önceki ZRS özellikleri artık ZRS Klasik olarak adlandırılır. ZRS Klasik hesapları yalnızca blok blob’larına ve genel amaçlı V1 depolama hesaplarında sunulur. ZRS Klasik, verileri zaman uyumsuz olarak bir veya iki bölge içindeki veri merkezleri arasında çoğaltır. Çoğaltma, Microsoft ikincil birime yük devretme işlemini başlatana kadar kullanılamayabilir. ZRS Klasik hesabı, LRS veya GRS’ye iki yönlü olarak dönüştürülemez ve ölçüm veya günlüğe kaydetme özelliklerine sahip değildir.
 
 **Coğrafi olarak yedekli depolama (GRS)**
 
@@ -172,10 +170,10 @@ Coğrafi olarak yedekli depolama (GRS), verilerinizin bir birincil bölgede yere
 Okuma erişimli coğrafi olarak yedekli depolama, ikincil konumdaki verilere yalnızca okuma erişimi sağlaması dışında aynı GRS gibidir. Birincil veri merkezi geçici olarak kullanılamaz duruma gelirse, verileri ikincil konumdan okumaya devam edebilirsiniz. Bu çok yararlı olabilir. Örneğin, bir web uygulamanız salt okunur moda geçip ikincil kopyaya başvurabilir. Böylece güncelleştirmeler kullanılabilir olmasa da belirli bir düzey erişim sağlanır.
 
 > [!IMPORTANT]
-> Hesabınızı oluştururken ZRS seçmediyseniz, depolama hesabınız oluşturulduktan sonra verilerinizin çoğaltılma yöntemini değiştirebilirsiniz. Buna karşın LRS’den GRS’ye veya RA-GRS’ye geçiş yaparsanız tek seferlik veri aktarımı ücreti ödemeniz gerekebileceğini unutmayın.
+> Depolama hesabınız oluşturulduktan sonra verilerinizin çoğaltılma yöntemini değiştirebilirsiniz. Buna karşın LRS veya ZRS’den GRS’ye veya RA-GRS’ye geçiş yaparsanız tek seferlik veri aktarımı ücreti ödemeniz gerekebilir.
 >
 
-Çoğaltma hakkında daha fazla bilgi için bkz. [Azure Depolama çoğaltma](storage-redundancy.md).
+Çoğaltma seçenekleri hakkında daha fazla bilgi için bkz. [Azure Depolama çoğaltma](storage-redundancy.md).
 
 Olağanüstü durum kurtarma için bkz. [Azure Depolama kesinti oluşursa yapmanız gerekenler](storage-disaster-recovery-guidance.md).
 

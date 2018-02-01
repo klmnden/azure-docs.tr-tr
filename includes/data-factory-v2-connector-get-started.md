@@ -1,7 +1,7 @@
 <!--
-    Separate the generic "Getting started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
+    Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-Aşağıdaki araçlar/Sdk'lardan birini kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz: kopyalama etkinliği ile işlem hattı oluşturmak için adım adım yönergeler içeren bir öğretici gitmek üzere bir bağlantıya tıklayın. 
+Aşağıdaki araçlar ya da SDK'ları birini kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Kopyalama etkinliği ile işlem hattı oluşturmak için adım adım yönergeler içeren bir öğretici gitmek için bir bağlantı seçin. 
 
 - [Kopya veri aracı](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Azure portalı](../articles/data-factory/quickstart-create-data-factory-portal.md)

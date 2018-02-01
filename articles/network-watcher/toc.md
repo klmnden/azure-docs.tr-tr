@@ -7,7 +7,7 @@
 ## [Güvenlik grubu görünümü](network-watcher-security-group-view-overview.md)
 ## [Sonraki atlama](network-watcher-next-hop-overview.md)
 ## [VPN bağlantı sorunlarını giderme](network-watcher-troubleshoot-overview.md)
-## [Bağlantı denetimi](network-watcher-connectivity-overview.md)
+## [Bağlantı sorunlarını giderme](network-watcher-connectivity-overview.md)
 ## [Hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Başlarken
@@ -46,7 +46,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Bağlantıyı test etme
+## Bağlantı sorunlarını giderme
 ### [Azure portalı](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)

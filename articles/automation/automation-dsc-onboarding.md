@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ffe08f0f85f07accdce9e3b8fa9524ef3c99c878
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler
 
@@ -36,14 +36,14 @@ Azure Otomasyonu DSC, çeşitli makinelerde yönetmek için kullanılabilir:
 Ayrıca, buluttan makine yapılandırmasını yönetmek hazır değilseniz Azure Otomasyonu DSC de yalnızca rapor uç noktası olarak kullanılabilir. Bu DSC şirket içi aracılığıyla (anında iletme) istenen yapılandırmayı ayarlamak ve düğüm uyumluluğunu belirtilen istenen duruma Azure Automation ile zengin raporlama ayrıntıları görüntülemenizi sağlar.
 
 > [!NOTE]
-> Yüklü sanal makine DSC uzantısı 2.70 büyükse, DSC ile Azure Vm'lerini yönetme ekstra ücret ödemeden dahil edilir. Lütfen [ **fiyatlandırma sayfası Otomasyon** ](https://azure.microsoft.com/en-us/pricing/details/automation/) daha fazla ayrıntı için.
+> Yüklü sanal makine DSC uzantısı 2.70 büyükse, DSC ile Azure Vm'lerini yönetme ekstra ücret ödemeden dahil edilir. Başvurmak [ **fiyatlandırma sayfası Otomasyon** ](https://azure.microsoft.com/en-us/pricing/details/automation/) daha fazla ayrıntı için.
 
 
 Aşağıdaki bölümlerde, her tür bir Azure Otomasyonu DSC makineye discovery'yi ekleyebilir nasıl verilmiştir.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure sanal makineleri (Klasik)
 
-Azure Otomasyonu DSC'ye kolayca yerleşik Azure sanal makineleri (Klasik) yapılandırma yönetimi için Azure portal veya PowerShell kullanarak yapabilirsiniz. Başlık altında ve yönetici VM içine uzak zorunda kalmadan Azure VM istenen durum yapılandırması uzantısı VM Azure Otomasyonu DSC'ye kaydeder. Azure VM istenen durum yapılandırması uzantısı zaman uyumsuz olarak çalışır olduğundan, ilerleme durumunu izlemek ve bu sorun giderme adımları sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümüne bakın.
+Azure Otomasyonu DSC'ye kolayca yerleşik Azure sanal makineleri (Klasik) yapılandırma yönetimi için Azure portal veya PowerShell kullanarak yapabilirsiniz. Başlık altında ve yönetici VM içine uzak zorunda kalmadan Azure VM istenen durum yapılandırması uzantısı VM Azure Otomasyonu DSC'ye kaydeder. Azure VM istenen durum yapılandırması uzantısı zaman uyumsuz olarak çalışır olduğundan, ilerleme durumunu izlemek ve bu sorun giderme adımları aşağıda sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümü.
 
 ### <a name="azure-portal"></a>Azure portalına
 
@@ -51,7 +51,7 @@ Azure Otomasyonu DSC'ye kolayca yerleşik Azure sanal makineleri (Klasik) yapıl
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
-Giriş için Otomasyon hesabının görmek için makine anahtarı ve kayıt URL'sini bulmak için [ **güvenli kayıt** ](#secure-registration) bölümüne bakın.
+Otomasyon hesabının giriş için aşağıdaki görmek için makine anahtarı ve kayıt URL'sini bulmak için [ **güvenli kayıt** ](#secure-registration) bölümü:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -119,11 +119,11 @@ $VM | Update-AzureVM
 
 ## <a name="azure-virtual-machines"></a>Azure sanal makineleri
 
-Azure Otomasyonu DSC kolayca yerleşik Azure sanal makineleri yapılandırma yönetimi için Azure portalı, Azure Resource Manager şablonları veya PowerShell kullanarak olanak sağlar. Başlık altında ve yönetici VM içine uzak zorunda kalmadan Azure VM istenen durum yapılandırması uzantısı VM Azure Otomasyonu DSC'ye kaydeder. Azure VM istenen durum yapılandırması uzantısı zaman uyumsuz olarak çalışır olduğundan, ilerleme durumunu izlemek ve bu sorun giderme adımları sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümüne bakın.
+Azure Otomasyonu DSC kolayca yerleşik Azure sanal makineleri yapılandırma yönetimi için Azure portalı, Azure Resource Manager şablonları veya PowerShell kullanarak olanak sağlar. Başlık altında ve yönetici VM içine uzak zorunda kalmadan Azure VM istenen durum yapılandırması uzantısı VM Azure Otomasyonu DSC'ye kaydeder. Azure VM istenen durum yapılandırması uzantısı zaman uyumsuz olarak çalışır olduğundan, ilerleme durumunu izlemek ve bu sorun giderme adımları aşağıda sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümü.
 
 ### <a name="azure-portal"></a>Azure portalına
 
-İçinde [Azure portal](https://portal.azure.com/), yerleşik sanal makinelere istediğiniz Azure Automation hesabı gidin. Otomasyon hesabı Panoda tıklatın **DSC düğümleri** -> **eklemek Azure VM**.
+İçinde [Azure portal](https://portal.azure.com/), yerleşik sanal makinelere istediğiniz Azure Automation hesabı gidin. Otomasyon hesabı Panoda tıklatın **DSC düğümleri** -> **+ Azure VM eklemek**.
 
 Giriş için bir Azure sanal makinesini seçin.
 
@@ -135,7 +135,7 @@ Altında **kayıt**, girin [PowerShell DSC Local Configuration Manager değerler
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 
-Azure sanal makineler dağıtılabilir ve Azure Resource Manager şablonları aracılığıyla Azure Otomasyonu dsc'ye edildi. Bkz: [VM DSC uzantısı aracılığıyla ve Azure Otomasyonu DSC yapılandırma](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) bir örnek şablon için bu onboards var olan bir Azure Otomasyonu DSC VM. Kayıt anahtarı ve kayıt URL'si gerçekleştirilecek bulmak için bkz. Bu şablondaki giriş olarak [ **güvenli kayıt** ](#secure-registration) bölümüne bakın.
+Azure sanal makineler dağıtılabilir ve Azure Resource Manager şablonları aracılığıyla Azure Otomasyonu dsc'ye edildi. Bkz: [VM DSC uzantısı aracılığıyla ve Azure Otomasyonu DSC yapılandırma](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) bir örnek şablon için bu onboards var olan bir Azure Otomasyonu DSC VM. Kayıt anahtarı ve kayıt URL'si gerçekleştirilecek bulmak için bu şablonda giriş olarak aşağıdaki bakın [ **güvenli kayıt** ](#secure-registration) bölümü.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -150,7 +150,7 @@ Kolayca yerleşik Amazon Web Hizmetleri sanal makineler AWS DSC Araç Seti kulla
 Birkaç basit adımda üzerinden internet'e giden erişime sahip oldukları sürece şirket içi Windows makinelerini ve Windows Azure olmayan Bulutları (örneğin, Amazon Web Hizmetleri) makinelerinizde da Azure Otomasyonu DSC, sayede olabilir:
 
 1. En son sürümünü emin olun [WMF 5](http://aka.ms/wmf5latest) onboarding için Azure Automation DSC'ye eklemek istediğiniz makinelerde yüklü.
-2. Bölümündeki yönergeleri izleyin [ **oluşturma DSC metaconfigurations** ](#generating-dsc-metaconfigurations) gerekli DSC metaconfigurations içeren bir klasör oluşturmak için aşağıdaki.
+2. Aşağıdaki bölümde'ndaki yönergeleri izleyin [ **oluşturma DSC metaconfigurations** ](#generating-dsc-metaconfigurations) gerekli DSC metaconfigurations içeren bir klasör oluşturmak için.
 3. Uzaktan PowerShell DSC meta yapılandırmasını eklemek istediğiniz makinelere uygulayın. **En son sürümünü bu komutu çalıştırmak makinenin olmalıdır [WMF 5](http://aka.ms/wmf5latest) yüklü**:
 
     ```powershell
@@ -171,11 +171,11 @@ Birkaç basit adımda üzerinden internet'e giden erişime sahip oldukları sür
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   + Kayıt anahtarı ve kayıt URL'si Automation hesabınız için bulmak için bkz: [ **güvenli kayıt** ](#secure-registration) bölümüne bakın.
+   + Kayıt anahtarı ve kayıt URL'si Automation hesabınız için bulmak için aşağıdakilere bakın [ **güvenli kayıt** ](#secure-registration) bölümü.
 
      PowerShell DSC Local Configuration Manager varsayılan olarak, **yapmak** **değil** , kullanım örneği veya istediğiniz onboarding için eşleşme makineleri sağlayacak şekilde bunlar yalnızca Azure Otomasyonu DSC için rapor ancak çekme yapılandırma veya PowerShell modülleri ondan yapmak için 3-6 adımlarını izleyin. Aksi takdirde, 6. adıma doğrudan devam edin.
 
-3. İçindeki yönergeleri izleyin [ **oluşturma DSC metaconfigurations** ](#generating-dsc-metaconfigurations) gerekli DSC metaconfigurations içeren bir klasör oluşturmak için aşağıdaki bölümü.
+3. Aşağıdaki yönergeleri izleyin [ **oluşturma DSC metaconfigurations** ](#generating-dsc-metaconfigurations) gerekli DSC metaconfigurations içeren bir klasör oluşturmak için bölüm.
 4. Uzaktan PowerShell DSC meta yapılandırmasını eklemek istediğiniz makinelere uygulayın:
 
     ```powershell
@@ -321,7 +321,7 @@ Genel olarak yerleşik herhangi bir Azure Otomasyonu DSC için makine bir [DSC m
     DscMetaConfigs @Params
     ```
 
-3. Kayıt anahtarı ve URL yerleşik makinelerine adlarını yanı sıra, Automation hesabınız için doldurun. Diğer tüm parametreler isteğe bağlıdır. Kayıt anahtarı ve kayıt URL'si Automation hesabınız için bulmak için bkz: [ **güvenli kayıt** ](#secure-registration) bölümüne bakın.
+3. Kayıt anahtarı ve URL yerleşik makinelerine adlarını yanı sıra, Automation hesabınız için doldurun. Diğer tüm parametreler isteğe bağlıdır. Kayıt anahtarı ve kayıt URL'si Automation hesabınız için bulmak için aşağıdakilere bakın [ **güvenli kayıt** ](#secure-registration) bölümü.
 4. Azure Otomasyonu DSC, ancak çekme yapılandırma veya PowerShell modülleri DSC durum bilgilerini bildirmek için makineler istiyorsanız ayarlayın **sadece rapor** parametresi true.
 5. Betiği çalıştırın. Adlı bir klasör şimdi olmalıdır **DscMetaConfigs** çalışma dizininizi makineler için PowerShell DSC metaconfigurations içeren (Yönetici) olarak onboarding için:
 
@@ -359,9 +359,9 @@ PowerShell DSC Local Configuration Manager Varsayılanları, kullanım büyük k
 
 ## <a name="secure-registration"></a>Güvenli kayıt
 
-Makineler güvenli bir şekilde bir Azure Otomasyonu hesabı (Azure Otomasyonu DSC dahil) bir PowerShell V2 DSC çekme veya Raporlama sunucusuna kimlik doğrulaması için bir DSC düğüm verir WMF 5 DSC kaydı protokolü üzerinden gerçekleştirebilir. Düğüm sunucusuna kaydeder bir **kayıt URL'si**, kimlik doğrulama kullanarak bir **kayıt anahtarı**. Kayıt sırasında sunucu sonrası kaydı için kimlik doğrulaması için kullanmak üzere bu düğüm için benzersiz bir sertifika DSC çekme/raporlama sunucusu ve DSC düğümü anlaşmaları. Bu işlem, bir başka bir düğüm bir gibi tehlikeye kimliğine bürünmek ve kötü amaçlı olarak davranmakta edildi düğümleri engeller. Kayıt sonra kayıt anahtarını yeniden kimlik doğrulaması için kullanılmaz ve düğümden silinir.
+Makineler güvenli bir şekilde bir Azure Otomasyonu hesabı (Azure Otomasyonu DSC dahil) bir PowerShell DSC çekme veya Raporlama sunucusuna kimlik doğrulaması için bir DSC düğüm verir WMF 5 DSC kaydı protokolü üzerinden gerçekleştirebilir. Düğüm sunucusuna kaydeder bir **kayıt URL'si**, kimlik doğrulama kullanarak bir **kayıt anahtarı**. Kayıt sırasında sunucu sonrası kaydı için kimlik doğrulaması için kullanmak üzere bu düğüm için benzersiz bir sertifika DSC çekme/raporlama sunucusu ve DSC düğümü anlaşmaları. Bu işlem, bir başka bir düğüm bir gibi tehlikeye kimliğine bürünmek ve kötü amaçlı olarak davranmakta edildi düğümleri engeller. Kayıt sonra kayıt anahtarını yeniden kimlik doğrulaması için kullanılmaz ve düğümden silinir.
 
-DSC kaydı protokolünden için gerekli bilgileri almak **anahtarları Yönet** dikey penceresinde Azure Önizleme portalı. Anahtar simgesine tıklayarak bu dikey penceresini açmak **Essentials** Otomasyon hesabının paneli.
+DSC kaydı protokolünden için gerekli bilgileri almak **anahtarları** altında **hesap ayarlarını** Azure portalında. Anahtar simgesine tıklayarak bu dikey penceresini açmak **Essentials** Otomasyon hesabının paneli.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
@@ -377,15 +377,13 @@ Azure Otomasyonu DSC, yapılandırma yönetimi için Azure Windows Vm'lerini kol
 > [!NOTE]
 > Onboarding Azure VM istenen durum yapılandırması uzantısını kullanan Azure Otomasyonu DSC bir Azure Windows VM herhangi bir yöntemini bir saate kadar Azure Otomasyonu'nda kayıtlı olarak göstermek için düğümünü doğru kadar sürebilir. Windows Management Framework 5.0 VM'de yerleşik için gerekli olan Azure VM DSC uzantısı yüklemesi nedeniyle Azure Otomasyonu DSC VM'ye budur.
 
-Azure portalında Azure VM istenen durum yapılandırması uzantısının durumunu görüntülemek veya sorun giderme için edildi olan VM gidin ve ardından tıklatın -> **tüm ayarları** -> **uzantıları** -> **DSC**. Daha fazla ayrıntı için tıklattığınız **ayrıntılı durumunu görüntüleme**.
-
-[![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
+Sorun giderme veya Azure VM istenen durum yapılandırması uzantısının durumunu görüntülemek için Azure portalında edildi olan VM gidin ve ardından **uzantıları** altında **ayarları**. Ardından **DSC** veya **DSCForLinux** işletim sisteminize bağlı olarak. Daha fazla ayrıntı için tıklattığınız **ayrıntılı durumunu görüntüleme**.
 
 ## <a name="certificate-expiration-and-reregistration"></a>Sertifika geçerlilik süresi ve saklanması
 
 Bir Azure Otomasyonu DSC DSC düğüm olarak bir makine kaydolduktan sonra pek çok neden bu düğüme gelecekte yeniden kaydettirin gerekebilir vardır:
 
-* Kaydolduktan sonra her düğüme benzersiz bir sertifikası bir yıl sonra süresi dolar kimlik doğrulaması için otomatik olarak görüşür. Şu anda, böylece düğümleri bir yılın süre sonra yeniden kaydettirin gerek süre sonu yaklaştığı zaman PowerShell DSC kaydı Protokolü otomatik olarak sertifikalar yenileyemezsiniz. Yeniden önce her düğüm Windows Management Framework 5.0 RTM çalıştığından emin olun. Bir düğümün kimlik doğrulama sertifikasının süresi dolmadan ve düğüm yeniden kaydetme değil, düğüm Azure Automation ile iletişim kuramaz ve 'Unresponsive.' işaretli Saklanması gerçekleştirilen 90 gün veya daha az sertifika sona erme saati veya sertifika sona erme zamanı sonra herhangi bir noktada oluşturulan ve kullanılan yeni bir sertifika içinde neden olur.
+* Kaydolduktan sonra her düğüme benzersiz bir sertifikası bir yıl sonra süresi dolar kimlik doğrulaması için otomatik olarak görüşür. Şu anda, böylece düğümleri bir yılın süre sonra yeniden kaydettirin gerek süre sonu yaklaştığı zaman PowerShell DSC kaydı Protokolü otomatik olarak sertifikalar yenileyemezsiniz. Yeniden önce her düğüm Windows Management Framework 5.0 RTM çalıştığından emin olun. Bir düğümün kimlik doğrulama sertifikasının süresi dolmadan ve düğüm yeniden kaydetme değil, düğüm Azure Automation ile iletişim kuramıyor ve 'Unresponsive.' işaretli Saklanması gerçekleştirilen 90 gün veya daha az sertifika sona erme saati veya sertifika sona erme zamanı sonra herhangi bir noktada oluşturulan ve kullanılan yeni bir sertifika içinde neden olur.
 * Değişiklik yapmak için [PowerShell DSC Local Configuration Manager değerleri](https://msdn.microsoft.com/powershell/dsc/metaconfig4) ConfigurationMode gibi bir düğümün başlangıç kayıt sırasında kümesi. Şu anda bu DSC Aracısı değerleri yalnızca yeniden kayıt işlemi değiştirilebilir. Düğüm yapılandırması düğüme atanan tek istisnası--bu doğrudan Azure Otomasyonu DSC değiştirilebilir.
 
 Yeniden kayıt işlemi, düğüm başlangıçta, bu belgede açıklanan ekleme yöntemlerden birini kullanarak kayıtlı aynı şekilde gerçekleştirilebilir. Azure Otomasyonu DSC düğüm yeniden önce kaydı gerekmez.

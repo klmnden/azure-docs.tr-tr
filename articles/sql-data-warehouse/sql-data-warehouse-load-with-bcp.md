@@ -13,52 +13,44 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 10/31/2016
+ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 55211e29149cd334421bd8723d47278a19afbfbb
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="load-data-with-bcp"></a>BCP ile veri yükleme
-> [!div class="op_single_selector"]
-> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
-> * [BCP](sql-data-warehouse-load-with-bcp.md)
-> 
-> 
+# <a name="load-data-with-bcp"></a>bcp ile veri yükleme
 
-**[bcp][bcp]**; SQL Server, veri dosyaları ve SQL Veri Ambarı arasında veri kopyalamanıza olanak sağlayan bir komut satırı toplu yükleme yardımcı programıdır. Çok sayıda satırı SQL Data Warehouse tablolarına aktarmak veya SQL Server tablolarından veri dosyalarına veri aktarmak için bcp yardımcı programını kullanın. queryout seçeneğiyle kullanılmadığı sürece bcp programını kullanmak için Transact-SQL ile ilgili herhangi bir bilginizin olması gerekmez.
+**[bcp](/sql/tools/bcp-utility.md)**; SQL Server, veri dosyaları ve SQL Data Warehouse arasında veri kopyalamanıza olanak sağlayan bir komut satırı toplu yükleme yardımcı programıdır. Çok sayıda satırı SQL Data Warehouse tablolarına aktarmak veya SQL Server tablolarından veri dosyalarına veri aktarmak için bcp yardımcı programını kullanın. queryout seçeneğiyle kullanılmadığı sürece bcp programını kullanmak için Transact-SQL ile ilgili herhangi bir bilginizin olması gerekmez.
 
-bcp, nispeten küçük veri kümelerini SQL Data Warehouse veritabanına aktarmanın veya SQL Data Warehouse'dan dışarı aktarmanın hızlı ve kolay bir yoludur. bcp aracılığıyla yükleme/ayıklama işlemi gerçekleştirmek için önerilen tam veri miktarı, Azure veri merkezine yönelik ağ bağlantınıza göre değişir.  Genel olarak, boyut tabloları bcp aracılığıyla kolayca yüklenip ayıklanabilir ancak büyük miktarda veriyi yüklemek veya ayıklamak için bcp'nin kullanılması önerilmez.  SQL Data Warehouse'un yüksek düzeyde paralel işleme mimarisinden faydalanma konusunda daha başarılı olduğundan, büyük miktarlarda veri yükleme ve ayıklama işlemleri için Polybase aracının kullanılması önerilir.
+bcp, nispeten küçük veri kümelerini SQL Data Warehouse veritabanına aktarmanın veya SQL Data Warehouse'dan dışarı aktarmanın hızlı ve kolay bir yoludur. bcp aracılığıyla yükleme/ayıklama işlemi gerçekleştirmek için önerilen tam veri miktarı, Azure’a yönelik ağ bağlantınıza göre değişir.  Küçük boyutlu tablolar, bcp ile kolayca yüklenebilir ve ayıklanabilir. Ancak, büyük hacimli verileri yükleme ve ayıklama işlemleri için önerilen araç PolyBase’tir (bcp değil). PolyBase, SQL Veri Ambarı’nın büyük ölçüde paralel işleme mimarisi için tasarlanmıştır.
 
 bcp ile yapabilecekleriniz:
 
-* Basit bir komut satırı yardımcı programını kullanarak SQL Data Warehouse'a veri yükleme.
-* Basit bir komut satırı yardımcı programını kullanarak SQL Data Warehouse'dan veri ayıklama.
+* Bir komut satırı yardımcı programını kullanarak SQL Veri Ambarı'na veri yükleyin.
+* Bir komut satırı yardımcı programını kullanarak SQL Veri Ambarı’ndan veri ayıklayın.
 
-Bu öğreticide şunları nasıl yapacağınızı gösterilecek:
+Bu öğreticide:
 
-* bcp in komutunu kullanarak bir tabloya veri aktarma
-* bcp out komutunu kullanarak bir tablodaki verileri dışarı aktarma
+* Komut içi bcp kullanılarak bir tabloya veri aktarılır
+* Komut içi bcp kullanarak bir tablodan veri aktarılır
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
 * SQL Data Warehouse veritabanı
-* bcp komut satırı yardımcı programının yüklü olması
-* SQLCMD komut satırı yardımcı programının yüklü olması
+* bcp ve sqlcmd komut satırı yardımcı programıyla çalışılır. Bu programları [Microsoft Yükleme Merkezi](https://www.microsoft.com/download/details.aspx?id=36433)'nden indirebilirsiniz. 
 
-> [!NOTE]
-> bcp ve sqlcmd yardımcı programlarını [Microsoft İndirme Merkezi][Microsoft Download Center]'nden indirebilirsiniz.
-> 
-> 
+### <a name="data-in-ascii-or-utf-16-format"></a>ASCII veya UTF-16 biçimindeki veriler
+UTF-8 biçimi bcp tarafından desteklenmediğinden, bu öğreticiyi kendi verilerinizle deniyorsanız verilerinizin ASCII veya UTF-16 kodlamasını kullanıyor olması gerekir. 
+
+PolyBase UTF-8'i destekler ancak henüz UTF-16'yi desteklemiyor. Veri aktarma için bcp’yi ve sonra veri yükleme için PolyBase’i kullandıktan sonra, SQL Server’dan aktarılan verileri UTF-8 biçimine dönüştürmeniz gerekir. 
 
 ## <a name="import-data-into-sql-data-warehouse"></a>SQL Data Warehouse'a veri aktarma
 Bu öğreticide, Azure SQL Data Warehouse'da bir tablo oluşturup tabloya veri aktaracaksınız.
@@ -82,10 +74,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-> [!NOTE]
-> SQL Veri Ambarı'nda tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][Table Overview] veya [CREATE TABLE söz dizimi][CREATE TABLE syntax].
-> 
-> 
+Tablo oluşturma hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış](sql-data-warehouse-tables-overview.md) veya [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse.md) söz dizimi.
+ 
 
 ### <a name="step-2-create-a-source-data-file"></a>2. Adım: Kaynak veri dosyası oluşturma
 Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırlarını kopyalayıp dosyayı yerel geçici dizininize (C:\Temp\DimDate2.txt) kaydedin.
@@ -106,7 +96,7 @@ Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırları
 ```
 
 > [!NOTE]
-> bcp.exe dosyasının UTF-8 dosya kodlamasını desteklemediğini unutmayın. bcp.exe dosyasını kullanırken lütfen ASCII dosyalarını veya UTF-16 kodlu dosyaları kullanın.
+> bcp.exe dosyasının UTF-8 dosya kodlamasını desteklemediğini unutmayın. bcp.exe dosyasını kullanırken ASCII dosyalarını veya UTF-16 kodlu dosyaları kullanın.
 > 
 > 
 
@@ -123,7 +113,7 @@ sqlcmd ile aşağıdaki sorguyu çalıştırarak verilerin yüklendiğini doğru
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Bu işlem sonrasında şu sonuçların döndürülmesi gerekir:
+Bu sorgu sonrasında şu sonuçların döndürülmesi gerekir:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -141,9 +131,8 @@ Bu işlem sonrasında şu sonuçların döndürülmesi gerekir:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4. Adım: Yeni yüklenmiş verilerinize ilişkin İstatistikler oluşturma
-Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor. Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir. İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][Statistics] bölümüne göz atın. Aşağıda bu örnekte yüklenen tablolar için nasıl istatistik oluşturacağınıza yönelik kısa bir örnek verilmiştir.
+Veriler yüklendikten sonra, son adım istatistikleri oluşturmak veya güncelleştirmektir. Bu, sorgu performansını artırmaya yardımcı olur. Daha fazla bilgi için bkz. [İstatistikler](sql-data-warehouse-tables-statistics.md). Aşağıdaki sqlcmd örneği, istatistikleri yeni yüklenen verileri içeren tabloda oluşturur.
 
-Bir sqlcmd isteminden şu CREATE STATISTICS deyimlerini yürütün:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -154,7 +143,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 ## <a name="export-data-from-sql-data-warehouse"></a>SQL Data Warehouse'dan veri aktarma
-Bu öğreticide SQL Data Warehouse'da bulunan bir tablodan veri dosyası oluşturacaksınız. Yukarıda oluşturduğumuz verileri DimDate2_export.txt adlı dosyaya aktaracağız.
+Bu öğreticide SQL Veri Ambarı'nda bulunan bir tablodan veri dosyası oluşturulmaktadır. Bu dosya, önceki bölümde içeri aktardığınız verileri dışarı aktarır. Sonuçlar, DimDate2_export.txt adlı bir dosyaya kaydedilir.
 
 ### <a name="step-1-export-the-data"></a>1. Adım: Verileri dışarı aktarma
 bcp yardımcı programı ile aşağıdaki komutu kullanıp değerleri uygun şekilde değiştirerek bağlanabilir ve verileri içeri aktarabilirsiniz.
@@ -185,21 +174,13 @@ Yeni dosyayı açarak verilerin düzgün bir şekilde dışarı aktarıldığın
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yüklemeye genel bakış için bkz. [SQL Veri Ambarı'na veri yükleme][Load data into SQL Data Warehouse].
-Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı’nda geliştirmeye genel bakış][SQL Data Warehouse development overview].
+Yükleme işleminizi tasarlamak için bkz. [Genel bakışı yükleme](sql-data-warehouse-design-elt-data-loading].  
 
-<!--Image references-->
 
-<!--Article references-->
-
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Table Overview]: ./sql-data-warehouse-tables-overview.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+
+
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

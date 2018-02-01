@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight'a üçüncü taraf Hadoop uygulamaları yükleme
 
@@ -28,14 +28,14 @@ Bir üçüncü taraf Hadoop uygulamanın Azure Hdınsight üzerinde nasıl yükl
 
 Hdınsight uygulaması kullanıcıların bir Hdınsight kümesine yükleyebileceği bir uygulamadır. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir.  
 
-Follosing listesi yayımlanan uygulamalar gösterilmektedir:
+Aşağıdaki listede, yayımlanan uygulamalar gösterilmektedir:
 
 * **AtScale Intelligence Platform** Hdınsight kümenize genişleme OLAP Sunucusu'na kapatır. Uygulama, sorgu milyarlarca satır etkileşimli olarak Microsoft Excel, Powerbı, Tableau yazılım QlikView BI araçları kullanarak verilerin olanak tanır.
 * **Hdınsight için CDAP cask** % 80'üretime veri uygulamaları ve verileri Göller süresini keser büyük veri için ilk Birleşik tümleştirme platformu sağlar. Bu uygulama yalnızca Standart HBase 3.4 kümelerini destekler.
 * **Hdınsight üzerinde DATAIKU DDS** prototip, veri uzmanlarına derleme ve etkili iş tahminleri ham verileri dönüştürme yüksek oranda belirli hizmetleri dağıtma sağlar.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft), analiz uzmanlarına Büyük Veri üzerinde sonuçları bulma, çözümleme ve görselleştirme için etkileşimli bir yol sunar. Yeni ilişkileri keşfetmek ve ihtiyaç duyduğunuz yanıtları almak için ek veri kaynaklarını kolayca alın.
 * **Hdınsight (Beta) için H2O yapay zeka** H2O Sparkling su aşağıdaki dağıtılmış algoritmalarını destekler: GLM, Naïve Bayes, dağıtılmış rasgele orman, gradyan artırmanın makine, derin öğrenme derin sinir ağları, K-ortalamaları, PCA, genelleştirilmiş düşük derece modelleri, Anomali algılama ve Autoencoders.
-* **Kyligence analiz platformu** Kyligence analizi Platformu (KAP) Apache Kylin ve Apache Hadoop tarafından desteklenen bir kurumsal kullanıma hazır veri ambarı; büyük ölçekli veri kümesi üzerinde saniyeden sorgu gecikmesi güçlendirir ve veri analizi için işletme kullanıcılarının ve analistleri basitleştirir. 
+* **Kyligence analiz platformu** Kyligence analizi Platformu (KAP) Apache Kylin ve Apache Hadoop tarafından desteklenen bir kurumsal kullanıma hazır veri ambarı; alt ikinci sağlar sorgu büyük ölçekli veri kümesi üzerinde gecikme süresi ve veri analizi için basitleştirir işletme kullanıcılarının ve analistleri. 
 * **Paxata Self Servis veri hazırlama**
 * **SnapLogic Hadooplex** SnapLogic Hadooplex Hdınsight üzerinde çalışan Self Servis veri alımı ve neredeyse tüm kaynak hazırlık Microsoft Azure bulut platformu sağlayarak iş bilgileri daha hızlı elde etmek müşteriler sağlar.
 * **KNIME Spark Yürütücü için Spark iş sunucusu** KNIME Spark Yürütücü için Spark iş sunucusu KNIME analiz platformu Hdınsight kümelerine bağlanmak için kullanılır.
@@ -44,15 +44,15 @@ Follosing listesi yayımlanan uygulamalar gösterilmektedir:
 
 Bu makalede verilen yönergeler Azure portalı kullanmaktadır. Ayrıca portaldan Azure Resource Manager şablonunu dışarı aktarabilir veya satıcılardan Resource Manager şablonunun bir kopyasını edinebilir ve Azure PowerShell ile Azure CLI kullanarak şablonu dağıtabilirsiniz.  Bkz: [oluşturmak Hadoop kümeleri Resource Manager şablonları kullanarak Hdınsight'ta](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 HDInsight uygulamalarını mevcut bir HDInsight kümesine yüklemek istiyorsanız bir HDInsight kümesine sahip olmanız gerekir. Küme oluşturmak için bkz. [Küme oluşturma](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). HDInsight uygulamalarını ayrıca bir HDInsight kümesi oluştururken yükleyebilirsiniz.
 
 ## <a name="install-applications-to-existing-clusters"></a>Var olan kümelere uygulama yükleme
 Aşağıdaki yordamda var olan bir HDInsight kümesine HDInsight uygulamalarının nasıl yükleneceği gösterilmektedir.
 
-**Bir HDInsight uygulaması yüklemek için**
+**Hdınsight uygulaması yükleme**
 
-1. [Azure portalında](https://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın.
 3. Bir HDInsight kümesine tıklayın.  Henüz yoksa öncelikle bir tane oluşturmanız gerekir.  bkz. [Küme oluşturma](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. **Yapılandırmalar** kategorisinden **Uygulamalar**‘a tıklayın. Yüklü uygulamaların bir listesini görebilirsiniz. Uygulamalar seçeneğini bulamıyorsanız bu, HDInsight kümesinin bu sürümü için bir uygulama olmadığı anlamına gelir.
@@ -75,9 +75,9 @@ Bir küme oluştururken HDInsight uygulamaları yükleme seçeneğine sahipsiniz
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Yüklü HDInsight uygulamalarını ve özelliklerini listeleme
 Portal bir küme için yüklü HDInsight uygulamalarının listesini ve yüklü olan her bir uygulamanın özelliklerini gösterir.
 
-**HDInsight uygulamasını listelemek ve özellikleri görüntülemek için**
+**Hdınsight uygulamasını listelemek ve özellikleri görüntüle**
 
-1. [Azure portalında](https://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın. 
 3. Bir HDInsight kümesine tıklayın.
 4. Gelen **ayarları**, tıklatın **uygulamaları** altında **genel** kategorisi. Sağ tarafta yüklü uygulamalar listelenir. 

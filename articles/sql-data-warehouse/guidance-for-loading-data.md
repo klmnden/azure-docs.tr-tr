@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı’na veri yüklemek için en iyi uygulamalar
 Azure SQL Veri Ambarı’na veri yüklemeye yönelik öneriler ve performans iyileştirmeleri. 
@@ -31,7 +31,7 @@ Azure SQL Veri Ambarı’na veri yüklemeye yönelik öneriler ve performans iyi
 ## <a name="preparing-data-in-azure-storage"></a>Azure Depolama’da verileri hazırlama
 Gecikme süresini en aza indirmek için depolama katmanınız ve veri ambarınızı birlikte bulundurun.
 
-Verileri bir ORC Dosya Biçimi’ne aktarırken, Java yetersiz bellek hataları nedeniyle yoğun metin içerikli sütunların sayısı 50 ile sınırlandırılabilir. Bu sınırlama için bir geçici çözüm olarak, sütunların yalnızca bir alt kümesini dışarı aktarın.
+Verileri ORC Dosya Biçimi’ne aktarırken, verilerde büyük metin sütunları varsa Java belleği yetersiz hatası gibi hatalar alabilirsiniz. Bu sınırlama için bir geçici çözüm olarak, sütunların yalnızca bir alt kümesini dışarı aktarın.
 
 PolyBase 1.000.000 bayttan daha fazla veri içeren satırları yükleyemez. Azure Blob depolama veya Azure Data Lake Store’da verileri metin dosyalarına yerleştirdiğinizde, dosyaların 1.000.000 bayttan daha az veri içermesi gerekir. Bu bayt sınırlaması, tablo şemasından bağımsız olarak geçerlidir.
 
@@ -45,14 +45,22 @@ En yüksek yükleme hızı için aynı anda yalnızca bir yük işi çalıştır
 
 Yükleri uygun bilgisayar kaynaklarıyla çalıştırmak için, çalıştırma yükleri için ayrılmış yükleme kullanıcıları oluşturun. Her bir yükleme kullanıcısını belirli bir kaynak sınıfına atayın. Bir yük çalıştırmak için, yükleme kullanıcılarından biri olarak oturum açıp yükü çalıştırın. Yük, kullanıcının kaynak sınıfıyla çalıştırılır.  Bu yöntem bir kullanıcının kaynak sınıfını geçerli sınıfı ihtiyacına uygun olarak değiştirmeye çalışmaktan daha basittir.
 
-Bu kod staticrc20 kaynak sınıfı için bir yükleme kullanıcısı oluşturur. Kullanıcılara bir veritabanında denetim izni verir ve kullanıcıyı staticrc20 veritabanı rolünün bir üyesi olarak ekler. StaticRC20 kaynak sınıflarıyla bir yükü çalıştırmak için, LoaderRC20 olarak oturum açıp yükü çalıştırın. 
+### <a name="example-of-creating-a-loading-user"></a>Yükleme kullanıcısı oluşturmayla ilgili örnek
+Bu örnekte, staticrc20 kaynak sınıfı için bir yükleme kullanıcısı oluşturulmaktadır. İlk adım, **ana öğeye bağlanmak** ve oturum açma bilgisi oluşturmaktır.
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+Veri ambarına bağlanın ve bir kullanıcı oluşturun. Aşağıdaki kodda, mySampleDataWarehouse adlı bir veritabanına bağlı olduğunuz varsayılmıştır. Kodda, LoaderRC20 adlı bir kullanıcı oluşturma ve veritabanı üzerinde kullanıcı denetimi izni sağlama işlemlerinin nasıl yapılacağı gösterilmiştir. Daha sonra, kullanıcı staticrc20 veritabanı rolünün bir parçası olarak eklenmiştir.  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+StaticRC20 kaynak sınıflarıyla bir yükü çalıştırmak için, LoaderRC20 olarak oturum açıp yükü çalıştırın.
 
 Yükleri dinamik yerine statik kaynak sınıfları altında çalıştırın. Statik kaynak sınıflarını kullanmak, [hizmet düzeyinizden](performance-tiers.md#service-levels) bağımsız olarak aynı kaynakları garantiler. Bir dinamik kaynak sınıfı kullanırsanız, kaynaklar hizmet düzeyinize göre değişir. Dinamik sınıflar için, daha düşük bir hizmet düzeyi, yükleme kullanıcınız için daha büyük bir kaynak sınıfı kullanmanız gerektiğini gösteriyor olabilir.
 
@@ -124,7 +132,7 @@ Dış tablolarınızı yeni veri kaynağına geçirdikten sonra aşağıdaki tem
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yükleme işlemini izlemek için, bkz. [DMV’leri kullanarak iş yükünüzü izleme](sql-data-warehouse-manage-monitor.md).
+Veri yüklerini izlemek için bkz. [DMV’leri kullanarak iş yükünüzü izleme](sql-data-warehouse-manage-monitor.md).
 
 
 

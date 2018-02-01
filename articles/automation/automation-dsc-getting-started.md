@@ -14,16 +14,16 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 45afb09f09e754e37ae8dba02e1e16b3fde1e408
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Azure Otomasyonu DSC ile çalışmaya başlama
 Bu makale ile Azure Otomasyonu istenen durum yapılandırması (oluşturma, alma ve yapılandırmaları, onboarding makineleri yönetmek için derleme ve raporları görüntüleme gibi DSC), en yaygın görevlerin nasıl yapılacağını açıklar. Hangi Azure Otomasyonu DSC genel bir bakış için bkz: [Azure Automation DSC genel bakış](automation-dsc-overview.md). DSC belgeler için bkz: [Windows PowerShell istenen durum yapılandırması genel bakış](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Bu makale Azure Otomasyonu DSC kullanarak adım adım yönergeler sağlar. Zaten bu makalede açıklanan adımları izleyerek olmadan ayarlanmış bir örnek ortamı isterseniz, aşağıdakileri kullanabilirsiniz [Resource Manager şablonu](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Bu şablon tamamlanmış bir Azure Otomasyonu DSC ortam, Azure Otomasyonu DSC tarafından yönetilen bir Azure VM dahil olmak üzere ayarlar.
+Bu makale Azure Otomasyonu DSC kullanarak adım adım yönergeler sağlar. Zaten bu makalede açıklanan adımları izleyerek olmadan ayarlanmış bir örnek ortamı istiyorsanız aşağıdaki Resource Manager şablonu kullanabilirsiniz: Bu şablon, Azure VM'deki gibi bir tamamlanmış Azure Otomasyonu DSC ortamını ayarlama ayarlar Azure Otomasyonu DSC tarafından yönetiliyor.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makaledeki örneklerde tamamlamak için aşağıdakiler gereklidir:
@@ -134,11 +134,11 @@ Azure Otomasyonu DSC, Azure Vm'leri (Klasik ve Resource Manager), şirket içi s
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Onboarding için Azure Otomasyonu DSC tarafından Yönetim için bir Azure Kaynak Yöneticisi'ni VM
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Sol bölmede, tıklatın **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** sayfasında, **DSC düğümleri** altında **yapılandırma yönetimi**...
+3. Üzerinde **Otomasyon hesabı** sayfasında, **DSC düğümleri** altında **yapılandırma yönetimi**.
 4. İçinde **DSC düğümleri** sayfasında, **eklemek Azure VM**.
    
     ![Azure VM Ekle düğmesi vurgulama DSC düğümleri sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/OnboardVM.png)
-5. Üzerinde **sanal makineleri** sayfasında VM'yi seçin.  **Azure VM'ler eklemek** sayfasında, **giriş için sanal makine Seç**.
+5. Sanal makineler sayfasındaki VM'yi seçin. **Azure VM'ler eklemek** sayfasında, **giriş için sanal makine Seç**.
 6. **Bağlan**'a tıklayın.
    
    > [!IMPORTANT]

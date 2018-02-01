@@ -44,12 +44,12 @@
 ### [Özel bir Etki Alanı Denetleyicisi’ne bağlanma](cloud-services-connect-to-custom-domain.md)
 
 ## Hizmeti yönetme
-### [Kurgusal yürütmeyi azaltma](mitigate-se.md}
 ### [Genel yönetim görevleri](cloud-services-how-to-manage-portal.md)
 ### [Bulut Hizmetini Yapılandırma](cloud-services-how-to-configure-portal.md)
 ### [Azure Otomasyonu’nu kullanarak bir Bulut Hizmetini yönetme](automation-manage-cloud-services.md)
 ### [Otomatik ölçeklendirmeyi yapılandırma](cloud-services-how-to-scale-portal.md)
 ### [Python ile Azure Kaynaklarını yönetme](cloud-services-python-how-to-use-service-management.md)
+### [Kurgusal yürütmeyi azaltma](mitigate-se.md)
 
 ### [Konuk işletim sistemi düzeltme ekleri](cloud-services-guestos-msrc-releases.md)
 ### Konuk işletim sistemini kullanımdan kaldırma

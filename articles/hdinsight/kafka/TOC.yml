@@ -73,6 +73,21 @@
             - name: HDInsight uygulamalarını Azure Market’te yayımlama
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Yayımlanan uygulamayı yükleme - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Güvenlik
       items:
         - name: HDInsight ile SSH kullanma
