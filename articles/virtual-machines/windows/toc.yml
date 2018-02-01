@@ -251,6 +251,8 @@
           href: ../workloads/sap/get-started.md
         - name: MATLAB kümesi
           href: matlab-mdcs-cluster.md
+        - name: Visual Studio
+          href: using-visual-studio-vm.md
         - name: Yüksek Performanslı Bilgi İşlem (HPC)
           href: hpcpack-cluster-options.md
           items:

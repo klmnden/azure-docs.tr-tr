@@ -24,7 +24,7 @@
 ### [Şirket içi bağlanma - adanmış](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # başlarken
-## [İlk sanal ağınızı oluşturma](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [İlk sanal ağınızı oluşturma](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Nasıl yapılır
 ## İnternet bağlantısı

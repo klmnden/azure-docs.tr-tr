@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 180a476445760930ab4f3505e0e6e9474e404445
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 05e6dbfbae3efd1dee39b87f32440b73da069f91
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Docker Swarm kümesi dağıtma
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümü kullanm
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur.
+[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur.
 
 Aşağıdaki örnek *westus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm kümesi oluşturma
 
-Azure Container Service'te [az acs create](/cli/azure/acs#create) komutuyla bir Docker Swarm kümesi oluşturun. 
+Azure Container Service'te [az acs create](/cli/azure/acs#az_acs_create) komutuyla bir Docker Swarm kümesi oluşturun. 
 
 Aşağıdaki örnekte, bir Linux ana düğümü ve üç Linux aracı düğümüyle *mySwarmCluster* adlı bir küme oluşturulur.
 
@@ -58,7 +58,7 @@ Aşağıdaki örnekte, bir Linux ana düğümü ve üç Linux aracı düğümüy
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-Sınırlı deneme sürümünde olduğu gibi bazı durumlarda, bir Azure aboneliğinin Azure kaynaklarına sınırlı erişimi olur. Dağıtım sınırlı kullanılabilir çekirdek sayısı nedeniyle başarısız olursa, `--agent-count 1` öğesini [az acs create](/cli/azure/acs#create) komutuna ekleyerek varsayılan aracı sayısını azaltın. 
+Sınırlı deneme sürümünde olduğu gibi bazı durumlarda, bir Azure aboneliğinin Azure kaynaklarına sınırlı erişimi olur. Dağıtım sınırlı kullanılabilir çekirdek sayısı nedeniyle başarısız olursa, `--agent-count 1` öğesini [az acs create](/cli/azure/acs#az_acs_create) komutuna ekleyerek varsayılan aracı sayısını azaltın. 
 
 Birkaç dakika sonra komut tamamlanır ve küme hakkında json tarafından biçimlendirilmiş bilgiler gösterilir.
 
@@ -145,7 +145,7 @@ Azure Vote uygulamasını test etmek için Swarm aracı havuzunun IP adresine g�
 ![Azure Vote’a göz atma görüntüsü](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Kümeyi silme
-Kümeye artık ihtiyacınız yoksa [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.
+Kümeye artık ihtiyacınız yoksa [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

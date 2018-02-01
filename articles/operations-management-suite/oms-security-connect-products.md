@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Güvenlik ürünlerinizi Operations Management Suite (OMS) Güvenlik ve Denetim Çözümü’ne bağlama 
 Bu belge, güvenlik ürünlerinizi OMS Güvenlik ve Denetim Çözümü’ne bağlamanıza yardımcı olur. Aşağıdaki kaynaklar desteklenir:
@@ -95,7 +95,7 @@ Aracı makinede olayların syslog daemon’dan yerel 25226 numaralı yerel UDP b
 
 ## <a name="reviewing-collected-security-events"></a>Toplanan güvenlik olaylarını gözden geçirme
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Yapılandırma tamamlandıktan sonra güvenlik olayı OMS Security tarafından alınmaya başlanır. Bu olayları görselleştirmek için Günlük Arama’yı açıp arama alanına *Type=CommonSecurityLog* komutunu yazın ve ENTER tuşuna basın. Aşağıdaki örnekte bu komutun sonucu gösterilmiştir; bu durumda OMS Security’nin zaten birden çok satıcıdan güvenlik günlükleri aldığını fark edebilirsiniz:
    

@@ -159,8 +159,6 @@
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Ters proxy tanılama
               href: service-fabric-reverse-proxy-diagnostics.md
-            - name: ASP.NET Çekirdeği
-              href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: Uygulama yaşam döngüsü
           href: service-fabric-application-lifecycle.md
           items:
@@ -388,8 +386,8 @@
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
         - name: Güvenli iletişim için ters proxy ayarlarını yapılandırma
           href: service-fabric-reverseproxy-configure-secure-communication.md
-        - name: ASP.NET Core hizmeti oluşturma
-          href: service-fabric-add-a-web-frontend.md
+        - name: ASP.NET Çekirdeği
+          href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: Güvenliği yapılandırma
           items:
             - name: Uygulama parolalarını yönetme

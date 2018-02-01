@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: a5d446986f810993d65c7e73eb95eeb2283c39a3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2b4c6128d9b50f200a40c8d96faede1e80fbee9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Azure Data Lake Store'da .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Data Lake Store'da hesap yönetim işlemlerini .NET SDK kullanarak gerçekleşti
    | --- | --- |
    | Kategori |Şablonlar/Visual C#/Windows |
    | Şablon |Konsol Uygulaması |
-   | Ad |CreateADLApplication |
+   | Adı |CreateADLApplication |
 
 4. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
@@ -85,7 +85,7 @@ Data Lake Store'da hesap yönetim işlemlerini .NET SDK kullanarak gerçekleşti
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
             }
         }
 

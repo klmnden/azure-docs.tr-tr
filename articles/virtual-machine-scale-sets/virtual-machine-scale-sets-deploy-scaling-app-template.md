@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 201b752c2a79362f2e049d2e0f0b953d77aaedfe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0 ile Sanal Makine Ölçek Kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu başlangıç makalesinde bir Azure Resource Manager şablonu ile bir sanal makine ölçek kümesi oluşturacaksınız. Ölçek kümesi oluşturmak için [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) veya [Azure portalı](virtual-machine-scale-sets-create-portal.md) da kullanabilirsiniz.
@@ -175,7 +175,7 @@ az group deployment create \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-Uygulamanızı çalışır halde görmek için [az network public-ip list](/cli/azure/network/public-ip#show) ile yük dengeleyicisinin genel IP adresini alın:
+Uygulamanızı çalışır halde görmek için [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) ile yük dengeleyicisinin genel IP adresini alın:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -213,7 +213,7 @@ Yük dengeleyicinin genel IP adresini bir web tarayıcısına şu biçimde girin
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz:
+Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

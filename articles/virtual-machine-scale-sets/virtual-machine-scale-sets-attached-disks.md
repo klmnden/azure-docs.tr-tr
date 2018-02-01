@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure sanal makine ölçek kümeleri ve bağlı veri diskleri
 Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), bağlı veri diskleri olan sanal makineleri artık desteklemektedir. Veri diskleri, Azure Yönetilen Diskler ile oluşturulmuş olan ölçek kümeleri için depolama profilinde tanımlanabilir. Daha önce, ölçek kümelerindeki sanal makinelere doğrudan bağlı depolama seçeneği olarak yalnızca işletim sistemi sürücüsü ve geçici sürücüler kullanılabiliyordu.
@@ -28,14 +28,14 @@ Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), bağ
 >  Bağlı veri diskleri tanımlanmış bir ölçek kümesi oluşturduğunuz durumlarda da tek başına Azure sanal makinelerinde olduğu gibi, diskleri kullanabilmek için bir VM içinde takmanız ve biçimlendirmeniz gerekir. Bu işlemi tamamlamanın uygun bir yolu, bir VM üzerindeki tüm verileri bölümlemek ve biçimlendirmek için standart bir betik çağıran özel bir betik uzantısı kullanılmasıdır.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Bağlı veri diskleri olan ölçek kümesi oluşturma
-Bağlı diskleri olan bir ölçek kümesi oluşturmanın basit bir yolu, [az vmss create](/cli/azure/vmss#create) komutunu kullanmaktır. Aşağıdaki örnekte bir Azure kaynak grubu ile birlikte, her birinin boyutu sırasıyla 50 GB ve 100 GB olan 2 bağlı veri diski içeren 10 Ubuntu sanal makinesiyle bir sanal makine ölçek kümesi oluşturulmaktadır.
+Bağlı diskleri olan bir ölçek kümesi oluşturmanın basit bir yolu, [az vmss create](/cli/azure/vmss#az_vmss_create) komutunu kullanmaktır. Aşağıdaki örnekte bir Azure kaynak grubu ile birlikte, her birinin boyutu sırasıyla 50 GB ve 100 GB olan 2 bağlı veri diski içeren 10 Ubuntu sanal makinesiyle bir sanal makine ölçek kümesi oluşturulmaktadır.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Belirtmemeniz durumunda, [az vmss create](/cli/azure/vmss#create) komutu bazı yapılandırma değerlerini varsayılan olarak kullanır. Geçersiz kılabileceğiniz seçenekleri görmek için şunları deneyin:
+Belirtmemeniz durumunda, [az vmss create](/cli/azure/vmss#az_vmss_create) komutu bazı yapılandırma değerlerini varsayılan olarak kullanır. Geçersiz kılabileceğiniz seçenekleri görmek için şunları deneyin:
 
 ```bash
 az vmss create --help

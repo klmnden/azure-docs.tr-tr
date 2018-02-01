@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 222bfa1c3070fa4634cf5c48d934a6387c48a4b0
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8794ea7d998293e7ea88ba780f67ef8a021f2298
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0 ile Sanal Makine Ölçek Kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu başlangıç makalesinde Azure CLI 2.0 ile bir sanal makine ölçek kümesi oluşturacaksınız. Ölçek kümesi oluşturmak için [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) veya [Azure portalı](virtual-machine-scale-sets-create-portal.md) da kullanabilirsiniz.
@@ -32,13 +32,13 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 
 
 ## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
-Ölçek kümesi oluşturabilmek için [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Ölçek kümesi oluşturabilmek için [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Bu adımda [az vmss create](/cli/azure/vmss#create) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek *myScaleSet* adlı bir ölçek kümesini ve yoksa SSH anahtarlarını oluşturur:
+Bu adımda [az vmss create](/cli/azure/vmss#az_vmss_create) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek *myScaleSet* adlı bir ölçek kümesini ve yoksa SSH anahtarlarını oluşturur:
 
 ```azurecli-interactive 
 az vmss create \
@@ -70,7 +70,7 @@ az vmss extension set \
 
 
 ## <a name="allow-web-traffic"></a>Web trafiğine izin verme
-Web trafiğinin web sunucunuza ulaşmasına izin vermek için [az network lb rule create](/cli/azure/network/lb/rule#create) ile bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek *myLoadBalancerRuleWeb* adlı bir kural oluşturur:
+Web trafiğinin web sunucunuza ulaşmasına izin vermek için [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) ile bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek *myLoadBalancerRuleWeb* adlı bir kural oluşturur:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -86,7 +86,7 @@ az network lb rule create \
 
 
 ## <a name="test-your-web-server"></a>Web sunucunuzu test etme
-Web sunucunuzu çalışır halde görmek için [az network public-ip show](/cli/azure/network/public-ip#show) ile yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetLBPublicIP* için IP adresini alır:
+Web sunucunuzu çalışır halde görmek için [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) ile yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetLBPublicIP* için IP adresini alır:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -102,7 +102,7 @@ Yük dengeleyicinin genel IP adresini bir web tarayıcısına girin. Aşağıdak
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz:
+Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
