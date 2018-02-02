@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure hdınsight'ta Apache Spark küme kaynaklarını yönetme 
 
@@ -76,7 +76,7 @@ Uygulama gereksinimleri bağlı olarak Spark yapılandırması için kullanılab
 Üç yapılandırma parametrelerini (için küme üzerinde çalışan tüm uygulamaları) küme düzeyinde yapılandırılabilir veya her tek tek uygulama için belirtilebilir.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Ambari kullanıcı arabirimini kullanarak parametrelerini değiştirin
-1. Ambari UI'ı tıklatın **Spark**, tıklatın **Contigs**, genişletin ve ardından **özel spark-varsayılanları**.
+1. Ambari UI'ı tıklatın **Spark**, tıklatın **yapılandırmalar**, genişletin ve ardından **özel spark-varsayılanları**.
 
     ![Ambari kullanarak parametrelerini](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. Aynı anda kümede çalışan dört Spark uygulamalarında iyi varsayılan değerlerdir. Aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcı arabiriminden bu değerleri değiştirebilirsiniz:

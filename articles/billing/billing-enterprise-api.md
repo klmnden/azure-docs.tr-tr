@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Kurumsal müşteriler için raporlama API'leri genel bakış
 Raporlama API tercih edilen veri çözümleme araçları kullanım ve fatura verileri programlı olarak çekmesini müşteriler kuruluş Azure etkinleştirin. 
@@ -43,6 +43,9 @@ Swagger uç nokta kullanılabilir [burada](https://consumption.azure.com/swagger
 
 * **Fiyat listesi** - [fiyat listesi API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) verilen kayıt ve Faturalama dönem için geçerli oranı her ölçer sağlar. 
 
+## <a name="data-freshness"></a>Veri Güncelliği
+Etag'ler yukarıdaki tüm API yanıt olarak döndürülür. Etag bir değişiklik, verilerin yenilenmesi gösterir.  Sonraki çağrılarında aynı parametreleri kullanarak aynı API yakalanan Etag anahtarla "If-None-Match" http isteği üstbilgisi geçirin. Verileri başka yenilenmemiş ve veri döndürmedi yanıt durum kodu "NotModified" olacaktır. API etag herhangi bir değişiklik olduğunda gereken süre için tam veri kümesi döndürür.
+
 ## <a name="helper-apis"></a>Yardımcısı API'ları
  **Liste faturalama nokta** - [faturalama nokta API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) ters kronolojik sırada belirtilen kayıt için verilere sahip nokta faturalama bir liste döndürür. Her dönem veri - BalanceSummary, UsageDetails, Market ücretleri ve fiyat listesi dört kümelerinin API rota işaret eden bir özellik içerir.
 
@@ -50,11 +53,11 @@ Swagger uç nokta kullanılabilir [burada](https://consumption.azure.com/swagger
 ## <a name="api-response-codes"></a>API yanıt kodları  
 |Yanıt durum kodu|İleti|Açıklama|
 |-|-|-|
-|200| TAMAM|Hiçbir hata|
+|200| Tamam|Hata yok|
 |401| Yetkilendirilmemiş| API anahtarı bulunamadı, geçersiz, vb. süresi doldu.|
-|404| Kullanılamıyor| Rapor uç noktası bulunamadı|
-|400| Hatalı istek| Geçersiz params – tarih aralıkları EA numaralarını vb.|
-|500| Sunucu hatası| İstek işleme Unexoected hatası| 
+|404| Kullanılamaz| Rapor uç noktası bulunamadı|
+|400| Hatalı İstek| Geçersiz params – tarih aralıkları EA numaralarını vb.|
+|500| Sunucu Hatası| İstek işleme Unexoected hatası| 
 
 
 

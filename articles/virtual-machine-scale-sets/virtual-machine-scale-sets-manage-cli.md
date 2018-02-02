@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0 ile ayarlanmış bir sanal makine ölçek yönetme
 Bir sanal makine ölçek kümesi yaşam döngüsü boyunca, bir veya daha fazla yönetim görevleri çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevleri otomatikleştiren komut dosyaları oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak sağlayan ortak Azure CLI 2.0 komutları bazıları ayrıntılarını verir.
@@ -28,7 +28,7 @@ Bu yönetim görevleri tamamlamak için en son Azure CLI 2.0 yapı gerekir. Yük
 
 
 ## <a name="view-information-about-a-scale-set"></a>Ölçek kümesi hakkında bilgi görüntüleyin
-Ölçek kümesi hakkındaki genel bilgileri görüntülemek için kullanın [az vmss Göster](/cli/azure/vmss#show). Aşağıdaki örnek ölçeği adlandırılmış Ayarla hakkındaki bilgileri alır *myScaleSet* içinde *myResourceGroup* kaynak grubu. Aşağıdaki gibi kendi adlarınızı girin:
+Ölçek kümesi hakkındaki genel bilgileri görüntülemek için kullanın [az vmss Göster](/cli/azure/vmss#az_vmss_show). Aşağıdaki örnek ölçeği adlandırılmış Ayarla hakkındaki bilgileri alır *myScaleSet* içinde *myResourceGroup* kaynak grubu. Aşağıdaki gibi kendi adlarınızı girin:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -68,7 +68,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ölçek kümesi kapasitesi değiştirme
 Yukarıdaki komutlar, Ölçek kümesi ve VM örnekleri hakkında bilgi gösterdi. Artırmak veya ölçek kümesindeki örneklerinin sayısını azaltmak için kapasite değiştirebilirsiniz. Ölçek kümesi oluşturur veya VM'ler gereken sayıda kaldırır ve sonra uygulama trafiği almaya VM'ler yapılandırır.
 
-Ölçek kümesindeki şu anda sahip örneklerinin sayısını görmek için [az vmss Göster](/cli/azure/vmss#show) ve sorgulayın *sku.capacity*:
+Ölçek kümesindeki şu anda sahip örneklerinin sayısını görmek için [az vmss Göster](/cli/azure/vmss#az_vmss_show) ve sorgulayın *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -78,7 +78,7 @@ az vmss show \
     --output table
 ```
 
-Daha sonra el ile artırabilir veya sanal makine ölçek kümesi sayısını azaltmak [az vmss ölçek](/cli/azure/vmss#scale). Aşağıdaki örnek VM'lerin sayısını ayarlamak, Ölçek ayarlar *5*:
+Daha sonra el ile artırabilir veya sanal makine ölçek kümesi sayısını azaltmak [az vmss ölçek](/cli/azure/vmss#az_vmss_scale). Aşağıdaki örnek VM'lerin sayısını ayarlamak, Ölçek ayarlar *5*:
 
 ```azurecli
 az vmss scale \
@@ -99,7 +99,7 @@ Aşağıdaki örnek örneği durdurur *0* adlandırılmış kümesi ölçeğinde
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Durdurulmuş VM'ler ayrılmış kalır ve bilgi işlem ücretleri uygulanmaya devam eder. Bunun yerine bırakılmasına VM'ler istiyor ve yalnızca depolama ücretleri kullanın [az vmss ayırması](/cli/azure/vmss#deallocate). Birden çok VM serbest bırakma için her örnek kimliği boşlukla ayırın. Aşağıdaki örnek durdurur ve örnek kaldırır *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Değerlerinizi aşağıdaki gibi belirtin:
+Durdurulmuş VM'ler ayrılmış kalır ve bilgi işlem ücretleri uygulanmaya devam eder. Bunun yerine bırakılmasına VM'ler istiyor ve yalnızca depolama ücretleri kullanın [az vmss ayırması](/cli/azure/vmss#az_vmss_deallocate). Birden çok VM serbest bırakma için her örnek kimliği boşlukla ayırın. Aşağıdaki örnek durdurur ve örnek kaldırır *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Değerlerinizi aşağıdaki gibi belirtin:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -107,7 +107,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Ölçek kümesindeki sanal makineleri Başlat
-Ölçek kümesindeki bir veya daha fazla VM başlatmak için kullanmak [az vmss Başlat](/cli/azure/vmss#start). `--instance-ids` Parametresi başlatmak için bir veya daha fazla VM belirtmenize olanak verir. Bir örnek kimliği belirtmezseniz, Ölçek kümesindeki tüm VM'ler başlatılır. Birden çok VM başlatmak için her örnek kimliği boşlukla ayırın.
+Ölçek kümesindeki bir veya daha fazla VM başlatmak için kullanmak [az vmss Başlat](/cli/azure/vmss#az_vmss_start). `--instance-ids` Parametresi başlatmak için bir veya daha fazla VM belirtmenize olanak verir. Bir örnek kimliği belirtmezseniz, Ölçek kümesindeki tüm VM'ler başlatılır. Birden çok VM başlatmak için her örnek kimliği boşlukla ayırın.
 
 Aşağıdaki örnekte bir örneğini başlatır *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Değerlerinizi aşağıdaki gibi belirtin:
 
@@ -117,7 +117,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Ölçek kümesindeki sanal makineleri yeniden başlatın
-Bir veya daha fazla VM ölçek kümesindeki yeniden başlatmak için kullanın [az vmss yeniden](/cli/azure/vmss#restart). `--instance-ids` Parametresi yeniden başlatmak için bir veya daha fazla VM belirtmenize olanak verir. Bir örnek kimliği belirtmezseniz, Ölçek grubundaki tüm sanal makineleri yeniden başlatılır. Birden çok VM yeniden başlatmak için her örnek kimliği boşlukla ayırın.
+Bir veya daha fazla VM ölçek kümesindeki yeniden başlatmak için kullanın [az vmss yeniden](/cli/azure/vmss#az_vmss_restart). `--instance-ids` Parametresi yeniden başlatmak için bir veya daha fazla VM belirtmenize olanak verir. Bir örnek kimliği belirtmezseniz, Ölçek grubundaki tüm sanal makineleri yeniden başlatılır. Birden çok VM yeniden başlatmak için her örnek kimliği boşlukla ayırın.
 
 Aşağıdaki örnek örneği yeniden *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Değerlerinizi aşağıdaki gibi belirtin:
 

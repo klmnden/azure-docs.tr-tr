@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -44,7 +44,7 @@ Uygulamanızı Azure için çeşitli seçenekler sağlayan bulut depolama gereki
 
 Azure, çeşitli bulut tabanlı altyapı ayrıntılarını endişelenmenize gerek yoktur, uygulamanız çalışmaya teklifleri işlem sağlar. Kolayca artırın veya kaynaklarınızı, uygulama kullanımınızı büyüdükçe ölçeğinizi.
 
-Azure uygulama geliştirme ve gereksinimlerini barındırma destek hizmetleri sunar. Azure altyapı olarak-hizmet uygulamasını barındıran üzerinde tam denetim sağlamak için (Iaas) sağlar. Azure'nın hizmet olarak platform (PaaS) teklifleri uygulamalarınızı güç için gereken tam olarak yönetilen hizmetler sağlar. Olduğu bile true sunucusuz Azure'da barındıran tüm yapmanız gereken kodunuzu yazın.
+Azure uygulama geliştirme ve gereksinimlerini barındırma destek hizmetleri sunar. Azure (Iaas) uygulama barındırma üzerinde tam denetim vermek için hizmet olarak altyapı sağlar. Azure'nın Platform (PaaS) hizmet teklifleri olarak uygulamalarınızı güç için gereken tam olarak yönetilen hizmetler sağlar. Olduğu bile true sunucusuz Azure'da barındıran tüm yapmanız gereken kodunuzu yazın.
 
 ![Azure uygulama seçenekleri barındırma](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -69,7 +69,7 @@ Kullanarak mevcut uygulamalarınızı App Service'e geçirebilirsiniz [çevrimi�
 
 #### <a name="azure-virtual-machines"></a>Azure Sanal Makineler
 
-Bir hizmet olarak altyapı (Iaas) sağlayıcısı olarak, Azure dağıtmak veya uygulamanızı Windows veya Linux sanal makineleri geçirmek olanak sağlar. Azure Virtual Network ile birlikte, Azure sanal makineleri Windows veya Linux sanal makineleri azure'a dağıtımını destekler. VM'ler ile makinenin yapılandırmasını toplam denetime sahip olursunuz. Sanal makineleri kullanırken, tüm sunucu yazılımı yükleme, yapılandırma, Bakım ve işletim sistemi için düzeltme ekleri sorumlu.
+Olarak altyapı (Iaas) sağlayıcısı olarak, Azure dağıtmak veya uygulamanızı Windows veya Linux sanal makineleri geçirmek olanak sağlar. Azure Virtual Network ile birlikte, Azure sanal makineleri Windows veya Linux sanal makineleri azure'a dağıtımını destekler. VM'ler ile makinenin yapılandırmasını toplam denetime sahip olursunuz. Sanal makineleri kullanırken, tüm sunucu yazılımı yükleme, yapılandırma, Bakım ve işletim sistemi için düzeltme ekleri sorumlu.
 
 Vm'lerde bulunan denetim düzeyi nedeniyle, çok çeşitli sunucu iş yükleri uymayan Azure üzerinde bir PaaS modelini çalıştırabilirsiniz. Bu iş yükleri, veritabanı sunucuları, Windows Server Active Directory ve Microsoft SharePoint içerir. Daha fazla bilgi için ya da sanal makineleri belgelerine bakın [Linux](/azure/virtual-machines/linux/) veya [Windows](/azure/virtual-machines/windows/).
 

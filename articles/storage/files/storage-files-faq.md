@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ortak Internet dosya sistemi veya CIFS olarak da bilinir). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
@@ -90,7 +90,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 
 * <a id="afs-region-availability"></a>
 **Hangi bölgeleri Azure dosya eşitleme (Önizleme) destekleniyor mu?**  
-    Şu anda, Azure dosya eşitleme Doğu ABD, Batı ABD, Batı Avrupa, Doğu Avustralya ve Güneydoğu Asya kullanılabilir. Biz genel kullanılabilirlik doğru çalışırken daha fazla bölgeler için destek eklenecektir. Daha fazla bilgi için bkz: [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability).
+    Şu anda, Azure dosya eşitleme Avustralya Doğu, Orta Kanada, Doğu ABD, Güneydoğu Asya, Birleşik Krallık Güney, Batı Avrupa ve Batı ABD içinde kullanılabilir. Biz genel kullanılabilirlik doğru çalışırken daha fazla bölgeler için destek eklenecektir. Daha fazla bilgi için bkz: [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Etki alanına katılmış ve etki alanına katılmış sunucuları aynı eşitleme grubuna sahip olabilir?**  

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure olay kılavuzuna giriş
 
@@ -22,18 +22,20 @@ Belirli olayları farklı uç noktalar, birden çok uç nokta için çok noktaya
 
 Şu anda, olay kılavuz aşağıdaki bölgeler destekler:
 
+* Güneydoğu Asya
+* Asia East
 * Orta ABD
 *   Doğu ABD
 *   Doğu ABD 2
+* Batı Avrupa
+* Kuzey Avrupa
 *   Batı Orta ABD
 *   Batı ABD
 *   Batı ABD 2
 
-Diğer bölgeler eklenir.
-
 Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başlamak istiyorsanız, bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md). Aşağıdaki resimde Yayımcılar ve işleyicileri olayı kılavuz nasıl bağlanacağını gösterir, ancak desteklenen seçenekler kapsamlı bir listesini sağlamaz.
 
-![Olay kılavuz işlevsel modeli](./media/overview/event-grid-functional-model.png)
+![Olay kılavuz işlevsel modeli](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>Olay yayımcıları
 
@@ -42,10 +44,10 @@ Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başl
 * Azure abonelikleri (yönetim işlemlerini)
 * Özel konular
 * Event Hubs
+* IoT Hub’ı
 * Kaynak grupları (yönetim işlemlerini)
 * Depolama blobu
-
-Diğer Azure hizmetleriyle bu yıl eklenir.
+* Depolama genel amaçlı v2 (GPv2)
 
 ## <a name="event-handlers"></a>Olay işleyicileri
 
@@ -55,10 +57,10 @@ Diğer Azure hizmetleriyle bu yıl eklenir.
 * Azure İşlevleri
 * Event Hubs
 * Logic Apps
-* Microsoft Akış
+* Microsoft Flow
 * WebHooks
 
-Diğer Azure hizmetleriyle bu yıl eklenir.
+Azure işlevleri işleyici olarak kullanırken, olay kılavuz tetikleyici genel HTTP INSTEAD OF Tetikleyicileri kullanın. Olay kılavuz otomatik olarak olay kılavuz işlevi Tetikleyicileri doğrular. Genel HTTP tetikleyicileri ile uygulamanız gereken [doğrulama yanıt](security-authentication.md#webhook-event-delivery).
 
 ## <a name="concepts"></a>Kavramlar
 
@@ -111,9 +113,7 @@ Event Grid, uygulamanızı diğer hizmetlerle bağlar. Örneğin, olay kılavuza
 
 ## <a name="how-much-does-event-grid-cost"></a>Nasıl olay kılavuz maliyeti nedir?
 
-Azure olay kılavuz bir olay başına ödeme fiyatlandırma modelini kullanır, bu nedenle, yalnızca, kullanım için ücret ödersiniz.
-
-0.60 milyon işlemleri ($0.30 Önizleme sırasında) başına olay kılavuz maliyetleri ve ilk 100.000 işlemi her ay ücretsiz. İşlem eşleştirme, teslim girişimi ve yönetim çağrıları Gelişmiş olay giriş tanımlanır.  Daha fazla ayrıntı bulunabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure olay kılavuz bir olay başına ödeme fiyatlandırma modelini kullanır, bu nedenle, yalnızca, kullanım için ücret ödersiniz. Ayda ilk 100.000 işlemleri ücretsizdir. İşlem eşleştirme, teslim girişimi ve yönetim çağrıları Gelişmiş olay giriş tanımlanır. Ayrıntılar için bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

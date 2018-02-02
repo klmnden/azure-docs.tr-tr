@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 504316a7d09595d24318d1f574b0f8927914d424
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Parola sıfırlama son kullanıcı kayıt gerektirmeden dağıtma
 
@@ -44,6 +44,11 @@ Azure AD Connect varsayılan ayarları kullanırsanız, aşağıdaki eşlemeleri
 | telephoneNumber | Ofis telefonu | Alternatif telefon |
 | Mobil | Cep telefonu | Telefon |
 
+Bir kullanıcı kimlik doğrulama verilerini onaylayıncaya kadar bu alanları boş görünebilir.
+
+Genel yönetici, aşağıdaki ekran görüntüsünde gösterildiği kullanıcı için kimlik doğrulama kişi bilgilerini el ile ayarlayabilirsiniz.
+
+![İlgili kişi][Contact]
 
 ## <a name="security-questions-and-answers"></a>Güvenlik sorularını ve yanıtlarını
 
@@ -154,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
 * [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
 * [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Genel Yöneticiler bir kullanıcının kimlik doğrulaması kişi bilgilerini değiştirebilirsiniz"

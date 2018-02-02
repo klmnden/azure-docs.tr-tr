@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Olay hub'ları için Azure olay kılavuz şeması
 
@@ -44,7 +44,9 @@ Bu örnek olay yakalama özelliği bir dosya depoladığında gerçekleşen bir 
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -55,26 +57,28 @@ Bir olay aşağıdaki üst düzey veri sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | Dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. |
-| Konu | Dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| Olay türü | Dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | Dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | Dize | Olay için benzersiz tanımlayıcı. |
-| Veri | Nesne | Olay hub'ı olay verileri. |
+| Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
+| Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
+| eventType | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
+| id | dize | Olay için benzersiz tanımlayıcı. |
+| veriler | nesne | Olay hub'ı olay verileri. |
+| dataVersion | dize | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| FileURL ' | Dize | Yakalama dosyasının yolu. |
-| Dosya türü | Dize | Yakalama dosyasının dosya türü. |
-| PartitionID | Dize | Parça kimliği. |
-| sizeInBytes | tamsayı | Dosya boyutu. |
-| eventCount | tamsayı | Dosyasındaki olay sayısıdır. |
-| firstSequenceNumber | tamsayı | En küçük sıra numarası kuyruktan. |
-| lastSequenceNumber | tamsayı | Son sıra numarası kuyruktan. |
-| firstEnqueueTime | Dize | Kuyruktan ilk kez. |
-| lastEnqueueTime | Dize | Kuyruktan son zamanı. |
+| fileUrl | dize | Yakalama dosyasının yolu. |
+| fileType | dize | Yakalama dosyasının dosya türü. |
+| partitionId | dize | Parça kimliği. |
+| sizeInBytes | integer | Dosya boyutu. |
+| eventCount | integer | Dosyasındaki olay sayısıdır. |
+| firstSequenceNumber | integer | En küçük sıra numarası kuyruktan. |
+| lastSequenceNumber | integer | Son sıra numarası kuyruktan. |
+| firstEnqueueTime | dize | Kuyruktan ilk kez. |
+| lastEnqueueTime | dize | Kuyruktan son zamanı. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

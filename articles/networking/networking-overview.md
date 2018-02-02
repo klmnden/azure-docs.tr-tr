@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Azure ağı
 
@@ -159,6 +159,6 @@ Başkalarının özgürlüğüne sahip olmanıza rağmen Azure Ağ Hizmetleri ba
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- İlk sanal ağınızı oluşturun ve birkaç VM'ler, içindeki adımları tamamlayarak bağlanmak [ilk sanal ağınızı oluşturmak](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
+- İlk sanal ağınızı oluşturun ve birkaç VM'ler, içindeki adımları tamamlayarak bağlanmak [ilk sanal ağınızı oluşturmak](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - Bilgisayarınızı içindeki adımları tamamlayarak bir sanal ağa bağlamak [noktadan siteye bağlantı yapılandırma](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - Yük Dengelemesi ortak sunucuları Internet trafiğini içindeki adımları tamamlayarak [bir Internet'e yönelik Yük Dengeleyici oluşturma](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'lardan ve modüllerden oluşturmak yerine, zaten Microsoft ve topluluk tarafından oluşturulmuş senaryoları çeşitli erişebilir.  Bu senaryolar değişiklik yapmadan ya da kullanabilir veya bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -37,11 +37,8 @@ Yalnızca Azure portalını kullanarak doğrudan Runbook'u Galeriden içeri akta
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Azure portalı ile Runbook Galeriden bir runbook'u içeri aktarma
 1. Azure portalında, Otomasyon hesabınızı açın.
-2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.
-3. Tıklatın **Gözat galeri** düğmesi.
-   
-    ![Gözat galeri düğmesi](media/automation-runbook-gallery/browse-gallery-button.png)
-4. İstediğiniz ve ayrıntılarını görüntülemek için seçin galeri öğesini bulun.
+2. Altında **işlem Otomasyonu**, tıklayın **Runbook Galerisi**
+3. İstediğiniz ve ayrıntılarını görüntülemek için seçin galeri öğesini bulun. Sol tarafta yayımcı ve türü için ek arama parametrelerini girebilirsiniz.
    
     ![Galerisine gözatma](media/automation-runbook-gallery/browse-gallery.png)
 5. Tıklayın **görünüm kaynak proje** öğesinde görüntülemek için [TechNet Komut Merkezi](http://gallery.technet.microsoft.com/).
@@ -94,14 +91,8 @@ PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azu
    
     ![PowerShell modülü ayrıntıları](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. Doğrudan Azure Automation'a modülünü yüklemek için tıklayın **alma** düğmesi.
-   
-    ![İçeri aktarma modülü düğmesi](media/automation-runbook-gallery/module-import-button.png)
 8. Üzerinde İçe Aktar düğmesini tıklattığınızda **alma** bölmesinde gördüğünüz almak üzere olduğunuz modül adı. Tüm bağımlılıkları yüklediyseniz, **Tamam** düğmesi etkinleştirilir. Bağımlılıklar yoksa, bu modül içeri aktarmadan önce bu içeri aktarmanız gerekir.
-9. Tıklatın **Tamam** modülü içeri aktarmak için. Azure Automation hesabınız için bir modül alırken, modül ve cmdlet'leri hakkındaki meta verileri ayıklar.
-   
-    ![İçeri aktarma modül sayfası](media/automation-runbook-gallery/module-import-blade.png)
-   
-    Her etkinlik ayıklanacak gerektiğinden bu birkaç dakika sürebilir.
+9. Üzerinde **alma** sayfasında, **Tamam** modülü içeri aktarmak için. Azure Automation hesabınız için bir modül alırken, modül ve cmdlet'leri hakkındaki meta verileri ayıklar. Her etkinlik ayıklanacak gerektiğinden bu birkaç dakika sürebilir.
 10. Bu tamamlandığında, modül dağıtıldığı bir ilk bildirim ve başka bir bildirim alırsınız.
 11. Modül içeri aktarıldıktan sonra kullanılabilir etkinlikler görebilirsiniz ve runbook'larınızda ve istenen durum yapılandırması kaynaklarını kullanabilirsiniz.
 

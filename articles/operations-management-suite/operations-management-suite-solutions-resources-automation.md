@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Azure Automation kaynaklarınız OMS yönetim çözümünü (Önizleme) ekleme
 > [!NOTE]
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 > Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [Operations Management Suite (OMS) yönetimi çözümleri oluşturma](operations-management-suite-solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makale, zaten aşağıdaki bilgilerle aşina olduğunuzu varsayar.
 
 - Nasıl yapılır [bir yönetim çözümü oluşturma](operations-management-suite-solutions-creating.md).
@@ -40,7 +40,7 @@ Bu makale, zaten aşağıdaki bilgilerle aşina olduğunuzu varsayar.
 - Nasıl yapılır [Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Otomasyon hesabı
-Azure Otomasyonu tüm kaynakları bulunan bir [Otomasyon hesabı](../automation/automation-security-overview.md#automation-account-overview).  Bölümünde açıklandığı gibi [OMS çalışma ve Automation hesabı](operations-management-suite-solutions.md#oms-workspace-and-automation-account) Otomasyon hesabı Yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
+Azure Otomasyonu tüm kaynakları bulunan bir [Otomasyon hesabı](../automation/automation-security-overview.md#automation-account-overview).  Bölümünde açıklandığı gibi [OMS çalışma ve Automation hesabı](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) Otomasyon hesabı Yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
 
 Her Otomasyon kaynağın adını kendi Otomasyon hesabının adını içerir.  Bu çözümle yapılır **accountName** bir runbook kaynağın aşağıdaki örnekteki gibi parametre.
 
@@ -201,8 +201,8 @@ Zamanlama kaynaklar için özellikler aşağıdaki tabloda açıklanmıştır.
 |:--- |:--- |
 | açıklama |Zamanlama için isteğe bağlı bir açıklama. |
 | startTime |Zamanlama Başlangıç saati DateTime nesnesi olarak belirtir. Geçerli bir DateTime dönüştürülebilir ise bir dize sağlanabilir. |
-| IsEnabled |Zamanlama etkinleştirilip etkinleştirilmeyeceğini belirtir. |
-| interval |Zamanlaması için aralık türü.<br><br>günü<br>saat |
+| isEnabled |Zamanlama etkinleştirilip etkinleştirilmeyeceğini belirtir. |
+| interval |Zamanlaması için aralık türü.<br><br>gün<br>saat |
 | frequency |Zamanlama gün veya saat cinsinden yangın sıklığı. |
 
 Zamanlama Başlangıç saati geçerli saatten büyük bir değere sahip olması gerekir.  Zaman yüklenecek gittiği bilmesinin yolu yoktur beri bu değere sahip bir değişken sağlayamaz.
@@ -270,7 +270,7 @@ Değişken kaynaklar için özellikler aşağıdaki tabloda açıklanmıştır.
 | Özellik | Açıklama |
 |:--- |:--- |
 | açıklama | Değişken için isteğe bağlı bir açıklama. |
-| Isencrypted | Değişkeni şifrelenmesi gerekip gerekmediğini belirtir. |
+| isEncrypted | Değişkeni şifrelenmesi gerekip gerekmediğini belirtir. |
 | type | Bu özellik şu anda hiçbir etkisi yoktur.  Değişken veri türü ilk değeri tarafından belirlenir. |
 | değer | Değişken için değeri. |
 
@@ -281,10 +281,10 @@ Değişken için ilk değeri ayarlarsanız, doğru veri türü olarak yapıland�
 
 | Veri türü | Açıklama | Örnek | Çözümler |
 |:--|:--|:--|:--|
-| Dize   | Değeri çift tırnak içine alın.  | "\"Merhaba Dünya\"" | "Hello world" |
+| dize   | Değeri çift tırnak içine alın.  | "\"Merhaba Dünya\"" | "Hello world" |
 | sayısal  | Tek tırnak sahip bir sayısal değer.| "64" | 64 |
-| Boole değeri  | **doğru** veya **false** tırnak.  Bu değer küçük harfli olması gerektiğini unutmayın. | "true" | TRUE |
-| Tarih saat | Serileştirilmiş tarih değeri.<br>Bu değer için belirli bir tarih oluşturmak için PowerShell'de ConvertTo-Json cmdlet'ini kullanabilirsiniz.<br>Örnek: get-date "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| boole  | **doğru** veya **false** tırnak.  Bu değer küçük harfli olması gerektiğini unutmayın. | "true" | doğru |
+| datetime | Serileştirilmiş tarih değeri.<br>Bu değer için belirli bir tarih oluşturmak için PowerShell'de ConvertTo-Json cmdlet'ini kullanabilirsiniz.<br>Örnek: get-date "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modüller
 Yönetim çözümünüzü tanımlamak gerekmez [genel modülleri](../automation/automation-integration-modules.md) bunlar her zaman Otomasyon hesabınızda kullanılabilir olacağından, runbook'lar tarafından kullanılan.  Runbook'lar tarafından kullanılan başka bir modül için bir kaynak eklemeniz gerekir.
@@ -316,7 +316,7 @@ Runbook önce runbook oluşturulduğundan emin olmak için modülü kaynak bağl
 ### <a name="updating-modules"></a>Modülleri güncelleştiriliyor
 Bir zamanlama kullanan bir runbook içeren bir yönetim çözümü güncelleştirin ve bu runbook tarafından kullanılan yeni bir modül çözümünüzü yeni sürümü varsa, runbook modülünün eski sürümünü kullanabilir.  Aşağıdaki runbook'lar çözümünüzde dahil ve diğer runbook'ları önce çalıştırılacak bir işi oluşturmanız gerekir.  Bu herhangi bir modül olarak güncelleştirildiğini sağlayacak runbook'lar yüklenmeden önce gerekli.
 
-* [Güncelleştirme ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) tüm runbook'ları çözümünüzdeki tarafından kullanılan modülleri en son sürümü olduğundan emin olun.  
+* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) will ensure that all of the modules used by runbooks in your solution are the latest version.  
 * [ReRegisterAutomationSchedule MS Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) tüm runbook'ları onlara ile kullanmak üzere en son modülleri bağlantılı emin olmak için zamanlama kaynakları yeniden kaydettirin.
 
 

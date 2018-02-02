@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/19/2018
 ms.topic: article
-ms.openlocfilehash: da5d1a8277d87a771b080ef9cefb3b40448d1563
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible modülü ve sürüm Matrisi
 
@@ -33,6 +33,7 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | azure_rm_virtualmachine                     | Evet          | Evet                         | Evet                                 | 
 | azure_rm_virtualmachine_extension           | Evet          | Evet                         | Evet                                 | 
 | azure_rm_virtualmachine_scaleset            | Evet          | Evet                         | Evet                                 | 
+| azure_rm_image                              |              | Evet                         | Evet                                 | 
 | **Ağ**                    |           |                          |                                  | 
 | azure_rm_virtualnetwork                     | Evet          | Evet                         | Evet                                 | 
 | azure_rm_virtualnetwork_facts               | Evet          | Evet                         | Evet                                 | 
@@ -45,13 +46,16 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | azure_rm_dnsrecordset_facts                 | Evet          | Evet                         | Evet                                 | 
 | azure_rm_dnszone                            | Evet          | Evet                         | Evet                                 | 
 | azure_rm_dnszone_facts                      | Evet          | Evet                         | Evet                                 | 
-| **Depolama**                    |           |                          |                                  | 
 | azure_rm_loadbalancer                       | Evet          | Evet                         | Evet                                 | 
 | azure_rm_loadbalancer_facts                 | Evet          | Evet                         | Evet                                 | 
-| azure_rm_applicationgateway                 | -            | Evet                         |                                     | 
-| azure_rm_applicationgateway_facts           | -            | -                           | Evet                                 | 
-| azure_rm_securitygroup                      | -            | -                           | Evet                                 | 
-| azure_rm_securitygroup_facts                | -            | -                           | Evet                                 | 
+| azure_rm_appgw                              | -            | -                           | Evet                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Evet                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Evet                                 |
+| azure_rm_appgwroute_facts                   | -            | -                           | Evet                                 |
+| azure_rm_appgwroutetable                    | -            | -                           | Evet                                 |
+| azure_rm_securitygroup                      | Evet          | Evet                         | Evet                                 | 
+| azure_rm_appgwroutetable_facts              | Evet          | Evet                         | Evet                                 | 
+| **Depolama**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Evet          | Evet                         | Evet                                 | 
 | azure_rm_storageaccount_facts               | Evet          | Evet                         | Evet                                 | 
 | azure_rm_storageblob                        | Evet          | Evet                         | Evet                                 | 
@@ -59,7 +63,7 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | azure_rm_managed_disk_facts                 | Evet          | Evet                         | Evet                                 | 
 | **Kapsayıcılar**                    |           |                          |                                  | 
 | azure_rm_acs                                | Evet          | Evet                         | Evet                                 | 
-| azure_rm_containerinstance                  | -            | Evet                        |                                     | 
+| azure_rm_containerinstance                  | -            | Evet                         | Evet                                 | 
 | azure_rm_containerinstance_facts            | -            | -                           | Evet                                 | 
 | azure_rm_containerregistry                  | -            | Evet                         | Evet                                 | 
 | azure_rm_containerregistry_facts            | -            | -                           | Evet                                 | 
@@ -73,7 +77,7 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | **Veritabanları**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Evet                         | Evet                                 | 
 | azure_rm_sqlserver_facts                    | -            | -                           | Evet                                 | 
-| azure_rm_sqldatabase                        | -            | -                           | Evet                                 | 
+| azure_rm_sqldatabase                        | -            | Evet                         | Evet                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Evet                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Evet                                 | 
 | azure_rm_sqlelasticpool_facts               | -            | -                           | Evet                                 | 
@@ -81,7 +85,7 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | azure_rm_sqlfirewallrule_facts              | -            | -                           | Evet                                 | 
 | azure_rm_mysqlserver                        | -            | Evet                         | Evet                                 | 
 | azure_rm_mysqlserver_facts                  | -            | -                           | Evet                                 | 
-| azure_rm_mysqldatabase                      | -            | -                           | Evet                                 | 
+| azure_rm_mysqldatabase                      | -            | Evet                         | Evet                                 | 
 | azure_rm_mysqldatabase_facts                | -            | -                           | Evet                                 | 
 | azure_rm_mysqlfirewallrule                  | -            | -                           | Evet                                 | 
 | azure_rm_mysqlfirewallrule_facts            | -            | -                           | Evet                                 | 
@@ -89,12 +93,17 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | azure_rm_mysqlconfiguration_facts           | -            | -                           | Evet                                 | 
 | azure_rm_postgresqlserver                   | -            | Evet                         | Evet                                 | 
 | azure_rm_postgresqlserver_facts             | -            | -                           | Evet                                 | 
-| azure_rm_postgresqldatabase                 | -            | -                           | Evet                                 | 
+| azure_rm_postgresqldatabase                 | -            | Evet                         | Evet                                 | 
 | azure_rm_postgresqldatabase_facts           | -            | -                           | Evet                                 | 
 | azure_rm_postgresqlfirewallrule             | -            | -                           | Evet                                 | 
 | azure_rm_postgresqlfirewallrule_facts       | -            | -                           | Evet                                 | 
 | azure_rm_postgresqlconfiguration            | -            | -                           | Evet                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Evet                                 | 
+| **Anahtar Kasası**                    |           |                          |                                  | 
+| azure_rm_keyvault                           | -            | -                           | Evet                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | Evet                                 |
+| azure_rm_keyvaultkey                        | -            | -                           | Evet                                 |
+| azure_rm_keyvaultsecret                     | -            | -                           | Evet                                 |
 
 ## <a name="introduction-to-azuremodule"></a>Introduction to azure_module
 [Azure_module playbook rol](https://galaxy.ansible.com/Azure/azure_modules/) en son değişiklikler ve Azure modüllerden hata düzeltmeleri içerir [devel Ansible deponun dalı](https://github.com/ansible/ansible/tree/devel). Ansible'nın bir sonraki sürümü bekleyemiyorsanız azure_module rolünü yüklemek iyi bir seçimdir.

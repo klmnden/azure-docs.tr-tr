@@ -1,5 +1,5 @@
 ---
-title: "OMSManagement çözüm en iyi uygulamalar | Microsoft Docs"
+title: "Azure en iyi yöntemler Yönetimi çözümünde | Microsoft Docs"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Operations Management Suite (OMS) (Önizleme) yönetim çözümleri oluşturmak için en iyi uygulamalar
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Azure (Önizleme) yönetim çözümleri oluşturmak için en iyi uygulamalar
 > [!NOTE]
-> Bu, şu anda önizlemede OMS yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.  
+> Bu, şu anda önizlemede olan Azure yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.  
 
-Bu makale için en iyi yöntemler sağlar [bir yönetim çözümü dosyası oluşturma](operations-management-suite-solutions-solution-file.md) Operations Management Suite (OMS).  Diğer en iyi yöntemleri tanımlandığı gibi bu bilgileri güncelleştirilir.
+Bu makale için en iyi yöntemler sağlar [bir yönetim çözümü dosyası oluşturma](operations-management-suite-solutions-solution-file.md) azure'da.  Diğer en iyi yöntemleri tanımlandığı gibi bu bilgileri güncelleştirilir.
 
 ## <a name="data-sources"></a>Veri kaynakları
 - Veri kaynakları olabilir [Resource Manager şablonu ile yapılandırılmış](../log-analytics/log-analytics-template-workspace-configuration.md), ancak bir çözüm dosyasında eklenmemelidir.  Veri kaynaklarını yapılandırma şu anda çözümünüzü kullanıcının çalışma alanında mevcut yapılandırmanın üzerine anlamına ıdempotent olmadığını nedenidir.<br><br>Örneğin, çözümünüzü uyarı ve hata olayları uygulama olay günlüğünden gerektirebilir.  Bu veri kaynağı olarak çözümünüzde belirtirseniz, kullanıcı bu kendi çalışma alanında yapılandırılmış olsaydı bilgi olayları kaldırma riski oluşur.  Tüm olayları dahil edilmişse, kullanıcının çalışma alanında aşırı bilgi Olay toplama.

@@ -4,7 +4,7 @@ description: "Azure Cosmos DB öykünücüsü kullanarak, geliştirmek ve uygula
 services: cosmos-db
 documentationcenter: 
 keywords: "Azure Cosmos DB öykünücüsü"
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
-ms.author: arramac
-ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danoble
+ms.openlocfilehash: daaa628fae3e495a0c9c7a3c74e643caa56fb18b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker hub'a](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker kaynak</strong></td>
@@ -39,6 +39,9 @@ ms.lasthandoff: 12/14/2017
 </table>
   
 Azure Cosmos DB öykünücüsü geliştirme amacıyla Azure Cosmos DB hizmet öykünen yerel bir ortam sağlar. Azure Cosmos DB öykünücüsü kullanarak, geliştirmek ve bir Azure aboneliği oluşturmak veya herhangi bir maliyet olmadan uygulamanızı yerel olarak test etmek. Uygulamanızı Azure Cosmos DB öykünücüsünde nasıl çalıştığını ile memnun kaldığınızda, bulutta bir Azure Cosmos DB hesabı kullanmaya geçiş yapabilirsiniz.
+
+> [!NOTE]
+> Şu anda öykünücü veri Gezgini'nde SQL API koleksiyonları ve MongoDB koleksiyonları yalnızca tam olarak destekler. Tablo, grafik ve Cassandra kapsayıcıları tam olarak desteklenmez. 
 
 Bu makalede aşağıdaki görevleri içerir: 
 
@@ -62,9 +65,6 @@ Burada Kirill Gavrylyuk Azure Cosmos DB öykünücü ile çalışmaya başlama g
 Azure Cosmos DB öykünücüsü yüksek doğruluk öykünmesi Azure Cosmos DB hizmet sağlar. Azure Cosmos JSON belgelerini sorgulamak için destek dahil olmak üzere sağlama DB olarak aynı işlevselliği destekler ve koleksiyonları ölçekleme ve yürütme yordamları ve Tetikleyicileri depolanır. Geliştirmek ve Azure Cosmos DB öykünücüsü kullanarak uygulamaları test ve bunları Azure'a yalnızca tek bir yapılandırma için Azure Cosmos DB bağlantı uç noktasına değişikliği yaparak genel ölçekte dağıtma.
 
 Yüksek kaliteli yerel öykünme gerçek Azure Cosmos DB hizmetinin oluşturduğumuz olsa da, Azure Cosmos DB öykünücüsü hizmet farklı uygulamasıdır. Örneğin, Azure Cosmos DB öykünücüsü Kalıcılık ve HTTPS protokol yığını bağlantısı için yerel dosya sistemi gibi standart işletim sistemi bileşenlerini kullanır. Bu genel çoğaltma, okuma/yazma ve ince ayarlanabilir tutarlılık düzeyleri için tek basamaklı milisaniyelik gecikme süresi yok gibi Azure Cosmos DB öykünücüsü kullanılabilir Azure altyapı dayanan bazı işlevler anlamına gelir.
-
-> [!NOTE]
-> Şu anda öykünücü veri Explorer'da yalnızca SQL API koleksiyonları ve MongoDB koleksiyonları oluşturmayı destekler. Öykünücü veri Explorer'da oluşturulmasını tablolar ve grafikler şu anda desteklemiyor. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Öykünücü ve hizmet arasındaki farklar 
 Azure Cosmos DB öykünücüsü yerel geliştirici istasyonunda çalıştıran benzetilmiş bir ortam sağladığından, bazı arasındaki işlevsel farklılıklar öykünücüsü ve bir Azure Cosmos DB hesap bulutta vardır:
@@ -197,25 +197,25 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
 <tr>
   <td>Kapat</td>
   <td>Azure Cosmos DB öykünücüsü kapatır.</td>
-  <td>CosmosDB.Emulator.exe Shutdown</td>
+  <td>CosmosDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>DataPath</td>
   <td>Veri dosyalarını depolamak yolu belirtir. % LocalAppdata%\CosmosDBEmulator varsayılandır.</td>
-  <td>CosmosDB.Emulator.exe /DataPath =&lt;datapath&gt;</td>
+  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
   <td>&lt;DataPath&gt;: erişilebilir yolu</td>
 </tr>
 <tr>
   <td>Bağlantı noktası</td>
   <td>Öykünücü için kullanılacak bağlantı noktası numarasını belirtir.  8081 varsayılandır.</td>
-  <td>CosmosDB.Emulator.exe Port =&lt;bağlantı noktası&gt;</td>
+  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
   <td>&lt;bağlantı noktası&gt;: tek bir bağlantı noktası numarası</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>API MongoDB uyumluluk için kullanılacak bağlantı noktası numarasını belirtir. Varsayılandır 10255 değerini bulur.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort =&lt;mongoport&gt;</td>
+  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: tek bir bağlantı noktası numarası</td>
 </tr>
 <tr>
@@ -227,7 +227,7 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
 <tr>
   <td>Anahtar</td>
   <td>Öykünücü için yetkilendirme anahtar. Anahtarı bir 64 baytlık vektör 64 tabanlı kodlama olması gerekir.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;anahtarı&gt;</td>
+  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
   <td>&lt;anahtar&gt;: anahtarı bir 64 baytlık vektör 64 tabanlı kodlama olması gerekir</td>
 </tr>
 <tr>
@@ -243,9 +243,9 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
   <td></td>
 </tr>
 <tr>
-  <td>Nouı</td>
+  <td>NoUI</td>
   <td>Öykünücü kullanıcı arabirimi gösterme.</td>
-  <td>CosmosDB.Emulator.exe/nouı</td>
+  <td>CosmosDB.Emulator.exe /NoUI</td>
   <td></td>
 </tr>
 <tr>
@@ -255,21 +255,21 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
   <td></td>
 </tr>
 <tr>
-  <td>bölüm sayısı</td>
+  <td>PartitionCount</td>
   <td>Bölümlenmiş koleksiyonlar en fazla sayısını belirtir. Bkz: [koleksiyonları sayısını değiştirme](#set-partitioncount) daha fazla bilgi için.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount =&lt;bölüm sayısı&gt;</td>
+  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;bölüm sayısı&gt;: maksimum sayısı, izin verilen tek bölüm koleksiyonları. Varsayılan 25'tir. İzin verilen en fazla 250'dir.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
   <td>Bölümler bölümlendirilmiş bir koleksiyon için varsayılan sayısını belirtir.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount =&lt;defaultpartitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
   <td>&lt;defaultpartitioncount&gt; 25 varsayılandır.</td>
 </tr>
 <tr>
   <td>AllowNetworkAccess</td>
   <td>Bir ağ üzerinden öykünücüsü erişim sağlar. /Key geçmesi gereken =&lt;key_string&gt; veya/keyfile =&lt;dosya_adı&gt; ağ erişimini etkinleştirmek için.</td>
-  <td>CosmosDB.Emulator.exe AllowNetworkAccess /Key =&lt;key_string&gt;<br><br>or<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess/keyfile =&lt;dosya_adı&gt;</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>or<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
   <td></td>
 </tr>
 <tr>
@@ -287,7 +287,7 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
 <tr>
   <td>Tutarlılık</td>
   <td>Hesap için varsayılan tutarlılık düzeyini ayarlayın.</td>
-  <td>CosmosDB.Emulator.exe /Consistency =&lt;tutarlılık&gt;</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
   <td>&lt;Tutarlılık&gt;: değeri şunlardan biri olmalıdır [tutarlılık düzeylerini](consistency-levels.md): oturum, güçlü, Eventual veya BoundedStaleness.  Varsayılan değer oturumdur.</td>
 </tr>
 <tr>
@@ -404,6 +404,14 @@ Hata ayıklama izlemeleri toplamak için bir yönetici komut isteminden aşağı
 2. Windows Arama kutusuna yazın **uygulamalar ve Özellikler** ve tıklayın **uygulamalar ve Özellikler (sistem ayarlarını)** sonucu.
 3. Uygulamalar listesinde kaydırın **Azure Cosmos DB öykünücüsü**, onu seçin, **kaldırma**, ardından onaylayın ve tıklatın **kaldırma** yeniden.
 4. Uygulama kaldırıldığında C:\Users gidin\<kullanıcı > \AppData\Local\CosmosDBEmulator ve klasörü silin. 
+
+## <a name="change-list"></a>Değişiklik listesi
+
+Görev çubuğunda yerel öykünücü simgesine sağ tıklatıp'ı tıklatarak sürüm numarasını denetlemek Menü öğesiyle ilgili.
+
+### <a name="120-released-on-january-26-2018"></a>1.20 26 Ocak 2018 üzerinde yayınlanan
+
+* MongoDB toplama ardışık düzen, varsayılan olarak etkindir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

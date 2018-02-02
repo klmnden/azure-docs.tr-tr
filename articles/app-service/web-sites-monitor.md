@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
 ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Nasıl yapılır: Azure uygulama hizmetinde uygulamaları izleme
 [Uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714) yerleşik izleme işlevselliği sağlayan [Azure portal](https://portal.azure.com).

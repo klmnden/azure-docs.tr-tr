@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>IOT hub'a cihaz-bulut iletileri gönder
 
 Zaman serisi telemetri ve uyarılar, çözüm arka ucuna cihazlarınızdan göndermek için cihaz bulut iletilerini cihazınızın IOT hub'ınıza gönderin. IOT Hub tarafından desteklenen diğer cihaz bulut seçenekleri tartışma için bkz [cihaz bulut iletişimleri Kılavuzu][lnk-d2c-guidance].
 
-Bir aygıt'e yönelik uç noktası aracılığıyla cihaz bulut iletilerini gönder (**/devices/ {DeviceID} / iletileri/olayları**). Yönlendirme kuralları ardından, IOT hub'ındaki service'e yönelik uç noktalardan biri iletilerinizi rotaya. Yönlendirme kuralları, onları yönlendirmek nereye belirlemek için üstbilgiler ve hub'ınız akan cihaz bulut iletilerini gövdesi kullanın. Varsayılan olarak, yerleşik service'e yönelik uç noktasına iletileri yönlendirilir (**iletileri/olayları**), diğer bir deyişle uyumlu [Event Hubs][lnk-event-hubs]. Bu nedenle, standart kullanabilirsiniz [olay hub'ları tümleştirme ve SDK] [ lnk-compatible-endpoint] çözüm arka ucu cihaz-bulut iletileri almak için.
+Bir aygıt'e yönelik uç noktası aracılığıyla cihaz bulut iletilerini gönder (**/devices/ {DeviceID} / iletileri/olayları**). Yönlendirme kuralları ardından, IOT hub'ındaki service'e yönelik uç noktalardan biri iletilerinizi rotaya. Yönlendirme kuralları, onları yönlendirmek nereye belirlemek için üstbilgiler ve cihaz bulut iletilerini gövdesi kullanın. Varsayılan olarak, yerleşik service'e yönelik uç noktasına iletileri yönlendirilir (**iletileri/olayları**), diğer bir deyişle uyumlu [Event Hubs][lnk-event-hubs]. Bu nedenle, standart kullanabilirsiniz [olay hub'ları tümleştirme ve SDK] [ lnk-compatible-endpoint] çözüm arka ucu cihaz-bulut iletileri almak için.
 
 IOT Hub cihaz bulut akış Mesajlaşma düzeni kullanarak ileti uygular. IOT Hub'ın cihaz bulut iletilerini gibi daha fazla [Event Hubs] [ lnk-event-hubs] *olayları* daha [Service Bus] [ lnk-servicebus] *iletileri* birden çok okuyucular tarafından okunabilir hizmeti aracılığıyla geçirme olayları hacmi yüksek olmasını durumunda.
 
@@ -36,11 +36,11 @@ Cihaz bulut IOT Hub ile Mesajlaşma aşağıdaki özelliklere sahiptir:
 * IOT Hub, milyonlarca eş zamanlı cihazı sağlar (bkz [kotalar ve azaltma][lnk-quotas]).
 * IOT hub'ı rasgele bölümleme izin vermiyor. Cihaz bulut iletilerini bölümlenmiş kendi oluşturan bağlı **DeviceID**.
 
-IOT Hub ve Event Hubs Hizmetleri arasındaki farklar hakkında daha fazla bilgi için bkz: [karşılaştırma Azure IOT Hub ve Azure Event Hubs][lnk-comparison].
+IOT Hub ve Event Hubs arasındaki farklar hakkında daha fazla bilgi için bkz: [karşılaştırma Azure IOT Hub ve Azure Event Hubs][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Telemetri olmayan trafiği Gönder
 
-Genellikle, telemetri veri noktaları ek olarak, iletileri ve ayrı yürütme ve çözüm arka ucu işlemede gerektiren isteklerinin aygıtları gönderin. Arka uçtaki belirli bir eylemi tetikleyen gerekir Örneğin, kritik uyarılar. Kolayca yazabilen bir [yönlendirme kuralı] [ lnk-devguide-custom] ya da bir başlığına bir ileti ya da bir değeri ileti gövdesi göre bunların işlenmesini adanmış bir uç nokta ileti türlerinden göndermek için.
+Genellikle, telemetri ek olarak, iletileri ve ayrı yürütme ve çözüm arka ucu işlemede gerektiren isteklerinin aygıtları gönderin. Arka uçtaki belirli bir eylemi tetikleyen gerekir Örneğin, kritik uyarılar. Yazma bir [yönlendirme kuralı] [ lnk-devguide-custom] ya da bir başlığına bir ileti ya da bir değeri ileti gövdesi göre bunların işlenmesini adanmış bir uç nokta ileti türlerinden göndermek için.
 
 Bu tür bir iletiyi işlemek için en iyi yolu hakkında daha fazla bilgi için bkz: [Öğreticisi: IOT Hub cihaz bulut iletilerini işlemek nasıl] [ lnk-d2c-tutorial] Öğreticisi.
 

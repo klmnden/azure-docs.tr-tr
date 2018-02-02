@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site RECOVERY'yi kullanarak olağanüstü durum kurtarma için çok katmanlı bir SharePoint uygulama Çoğalt
 
@@ -40,7 +40,7 @@ Bu makalede kullanarak bir SharePoint uygulama koruma konusunda ayrıntılı ola
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce aşağıdakileri bildiğinizden emin olun:
 
@@ -66,11 +66,12 @@ Bu makalede oluşturmak için Windows Server 2012 R2 Enterprise VMware sanal mak
 
 ### <a name="source-and-target"></a>Kaynak ve hedef
 
-**Senaryo** | **İkincil bir siteye** | **Azure'a**
+**Senaryo** | **İkincil bir siteye** | **To Azure**
 --- | --- | ---
 **Hyper-V** | Evet | Evet
 **VMware** | Evet | Evet
 **Fiziksel sunucu** | Evet | Evet
+**Azure** | NA | Evet
 
 ### <a name="sharepoint-versions"></a>SharePoint sürümleri
 Aşağıdaki SharePoint server sürümleri desteklenir.
@@ -116,7 +117,7 @@ Siteler, Internet'e için ['Priority' türünde bir Traffic Manager profili olu�
 
 | **Burada** | **Kaynak** | **Hedef**|
 | --- | --- | --- |
-| Genel DNS | Genel DNS SharePoint siteleri için <br/><br/> Örn: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.NET |
+| Genel DNS | Genel DNS SharePoint siteleri için <br/><br/> Örn: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | Şirket içi DNS | sharepointonprem.contoso.com | Şirket içi grubu üzerinde genel IP |
 
 

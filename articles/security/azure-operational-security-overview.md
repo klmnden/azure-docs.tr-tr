@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Azure operational güvenliğine genel bakış
 Azure işletimsel güvenlik hizmetleri, denetimleri ve kullanıcılar için kullanılabilir özellikler verilerini, uygulamaları ve diğer Microsoft Azure varlıkları korumak için ifade eder. [Azure işlem güvenliği](https://docs.microsoft.com/azure/security/azure-operational-security) bilgi içeren bir çerçeve Microsoft Security Development Lifecycle (SDL), Microsoft Güvenlik Yanıt dahil olmak üzere Microsoft'a benzersiz yeteneklerini çeşitli elde edilen Merkezi program ve siber güvenlik tehdit derin tanıma.
@@ -56,7 +56,7 @@ Microsoft [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/automat
 [Azure yedekleme](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) yedekleme (veya korumak için) kullanabileceğiniz Azure tabanlı hizmet ve verilerinizi Microsoft bulutunda geri yükleyin. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Bkz: [Azure Backup bileşenleri tablo](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Site kurtarma
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery), şirket içi sanal ve fiziksel makinelerin Azure’a veya ikincil bir konuma çoğaltılmasını düzenleyerek iş sürekliliği sağlar. Birincil konumunuzun kullanılamaması durumunda kullanıcılarınızın çalışmaya devam edebilmesi için ikincil konuma yük devreder; sistemler çalışır hale geldiğindeyse yeniden başlatma gerçekleştirirsiniz. Akıllı ve etkili tehdit algılama.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery), şirket içi sanal ve fiziksel makinelerin Azure’a veya ikincil bir konuma çoğaltılmasını düzenleyerek iş sürekliliği sağlar. Birincil konumunuzun kullanılamaması durumunda kullanıcılarınızın çalışmaya devam edebilmesi için ikincil konuma yük devreder; sistemler çalışır hale geldiğindeyse yeniden başlatma gerçekleştirirsiniz. Azure güvenlik daha akıllı ve etkili tehdit algılama gerçekleştirmek için Merkezi'ni kullanın.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) Microsoft'un kapsamlı kimlik Service (Idaas) çözümü olarak:
@@ -158,5 +158,5 @@ Olgun DevOps uygulayıcıları aşağıdaki yöntemleri çeşitli benimser. Bu y
 OMS güvenlik ve denetim çözüm hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - [Operations Management Suite | Güvenlik ve Uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [İzleme ve güvenlik uyarılarını Operations Management Suite güvenlik ve denetim çözümü yanıt](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [Operations Management Suite güvenlik ve denetim çözümü kaynakları izleme](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [İzleme ve güvenlik uyarılarını Operations Management Suite güvenlik ve denetim çözümü yanıt](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [Operations Management Suite güvenlik ve denetim çözümü kaynakları izleme](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

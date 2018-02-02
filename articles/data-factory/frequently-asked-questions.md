@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory hakkında SSS
 Bu makalede Azure Data Factory hizmetinin 2 sürümü için geçerlidir. Data Factory hakkında sık sorulan soruların yanıtlarını sağlar.  
@@ -68,7 +68,7 @@ Artık, veri tümleştirmesi için gerekli ve isteğe bağlı veya sürekli olar
 Daha fazla bilgi için bkz: [Öğreticisi: denetim akışı](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>SSIS paketlerini Azure'a dağıtma 
-SSIS iş yüklerinizi taşımak istiyorsanız, bir Data Factory sürüm 2 oluşturun ve bir Azure SSIS tümleştirmesi çalışma zamanı sağlayın. Azure SSIS tümleştirmesi çalışma zamanı Azure SSIS paketleri bulutta çalıştırmak için adanmış VM'nin (düğümler) tam olarak yönetilen bir kümedir. Adım adım yönergeler için bkz: [azure'a dağıtma SSIS paketleri](tutorial-deploy-ssis-packages-azure.md) Öğreticisi. 
+SSIS iş yüklerinizi taşımak istiyorsanız, bir Data Factory sürüm 2 oluşturun ve bir Azure SSIS tümleştirmesi çalışma zamanı sağlayın. Azure SSIS tümleştirmesi çalışma zamanı Azure SSIS paketleri bulutta çalıştırmak için adanmış VM'nin (düğümler) tam olarak yönetilen bir kümedir. Adım adım yönergeler için bkz: [azure'a dağıtma SSIS paketleri](tutorial-create-azure-ssis-runtime-portal.md) Öğreticisi. 
  
 
 ### <a name="sdks"></a>SDK’lar

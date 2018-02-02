@@ -3,7 +3,7 @@ title: "Değişiklik çalışmak akışı destek Azure Cosmos DB'de | Microsoft 
 description: "Belgelerdeki değişiklikleri izlemek ve tetikleyiciler gibi olay tabanlı işleme ve önbellekleri ve analizi sistemleri güncel tutma gerçekleştirmek için Azure Cosmos DB Değiştir Akış desteği kullanın."
 keywords: "Akış Değiştir"
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Destek Azure Cosmos DB'de akış değişiklik ile çalışma
 
@@ -60,6 +60,7 @@ Ek ayrıntılar:
 * Değişiklikleri herhangi noktası zaman eşitlenebilir, diğer bir deyişle, değişiklikler kullanılabilir hiçbir sabit veri saklama süresi vardır.
 * Değişiklikler bölüm anahtar aralıklarına yığınlar halinde kullanılabilir. Bu özellik paralel olarak birden çok tüketiciye/sunucuları tarafından işlenmek üzere büyük topluluklara değişikliklerden sağlar.
 * Uygulamalar aynı koleksiyonda üzerinde eşzamanlı olarak birden çok değişikliği akışları isteyebilir.
+* ChangeFeedOptions.StartTime kullanılabilir ilk bir başlangıç noktası, örneğin sağlamak için saatin karşılık gelen devamlılık belirteci bulunamıyor. ContinuationToken belirtilmişse StartTime ve StartFromBeginning değerleri WINS. ChangeFeedOptions.StartTime kesinliğini ~ 5 saniye olur. 
 
 ## <a name="use-cases-and-scenarios"></a>Kullanım örnekleri ve senaryoları
 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IOT Hub Geliştirici Kılavuzu
 
@@ -42,10 +42,10 @@ Bu IOT Hub Geliştirici Kılavuzu, aşağıdaki makaleler içerir:
   * [IOT Hub'ından bulut-cihaz iletilerini göndermek][devguide-messages-c2d].
   * [Oluşturun ve IOT hub'ı iletileri okumak][devguide-format].
 * [Bir CİHAZDAN dosyaları karşıya yükleme] [ devguide-upload] aygıttan dosyaları karşıya nasıl yükleneceğini açıklar. Makale ayrıca karşıya yükleme işlemi gönderebilirsiniz bildirimleri gibi konular hakkında bilgi içerir.
-* [IOT Hub cihaz kimliklerini yönetmek] [ devguide-identities] hangi bilgilerin açıklar her IOT hub'ın kimlik kayıt defteri depolarına ve nasıl erişmek ve değiştirebilirsiniz.
+* [IOT Hub cihaz kimliklerini yönetmek] [ devguide-identities] hangi bilgilerin açıklar her IOT hub'ın kimlik kayıt defteri depolar. Makale ayrıca erişmek ve değiştirmek nasıl açıklanmaktadır.
 * [IOT Hub'ına erişim denetim] [ devguide-security] hem de IOT hub'ı işlevselliği erişim ve bileşenleri bulut için kullanılan güvenlik modeli açıklanır. Makaleyi belirteçleri ve X.509 sertifikalarını ve erişim izni verebilir izinleri ayrıntılarını kullanma hakkında bilgi içerir.
-* [Durum ve yapılandırmaları eşitlemek için cihaz çiftlerini kullanmak] [ devguide-device-twins] açıklar *cihaz çifti* kavram ve kullanıma sunan bir aygıt, cihaz çifti ile eşitleme gibi işlevselliği. Makale bir cihaz çiftine depolanan verileri hakkında bilgiler içerir.
-* [Bir cihazda doğrudan bir yöntem çağırma] [ devguide-directmethods] doğrudan bir yöntem, arka uç uygulama cihaza yöntemleri çağırma ve Cihazınızda doğrudan yöntemi işlemek hakkında bilgi yaşam döngüsü açıklar.
+* [Durum ve yapılandırmaları eşitlemek için cihaz çiftlerini kullanmak] [ devguide-device-twins] açıklar *cihaz çifti* kavram. Makaleyi da descibes işlevselliği cihaz çiftlerini, bir cihaz, cihaz çifti ile eşitleme gibi açın. Makale bir cihaz çiftine depolanan verileri hakkında bilgiler içerir.
+* [Bir cihazda doğrudan bir yöntem çağırma] [ devguide-directmethods] doğrudan bir yöntem yaşam döngüsü açıklar. Makale, arka uç uygulama cihaza yöntemleri çağırma ve Cihazınızda doğrudan yöntemi işlemek açıklar.
 * [Zamanlama işlerini birden çok aygıta] [ devguide-jobs] işleri birden çok aygıta nasıl zamanlayabilirsiniz açıklar. Makale olarak cihaz çiftine kullanarak bir cihazı güncelleştirme doğrudan bir yöntem yürütülen görevleri gerçekleştiren iş göndermek açıklar. Ayrıca, bir işin durumunu sorgulamak nasıl açıklanır.
 * [Başvuru - iletişim protokolü seçin] [ devguide-protocol] IOT Hub cihaz iletişimi destekler ve açık olması gereken bağlantı noktalarını listeler iletişim protokolleri açıklar.
 * [Başvuru - IOT Hub uç noktaları] [ devguide-endpoints] her IOT hub'ı çalışma zamanı ve yönetim işlemleri için kullanıma sunan çeşitli uç noktaları açıklar. Makalede ayrıca, IOT hub'ınıza ek uç noktaları nasıl oluşturabileceğinizi ve bir alan ağ geçidi, IOT Hub uç noktaları standart senaryolarda bağlantıyı etkinleştirmek için nasıl kullanılacağı açıklanmaktadır.

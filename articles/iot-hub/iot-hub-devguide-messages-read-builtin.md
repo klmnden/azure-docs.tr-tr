@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Yerleşik uç noktasından cihaz bulut iletilerini okuyun
 
@@ -32,7 +32,7 @@ IOT Hub ayrıca yönetmenize imkan sağlar tüketici grupları yerleşik cihaz-b
 
 Varsayılan olarak, açıkça bir ileti yönlendirme kuralı ile eşleşmiyor tüm iletileri yerleşik uç noktasına yazılır. Bu geri dönüş yolu devre dışı bırakırsanız, tüm ileti yönlendirme kuralları açıkça eşleşmiyor iletileri bırakılır.
 
-Bekletme süresini ya da değiştirebilirsiniz üzerinden programlı olarak [IOT hub'ı kaynak sağlayıcısı REST API'leri][lnk-resource-provider-apis], veya kullanarak [Azure portal][lnk-management-portal].
+Ya da program aracılığıyla kullanarak da saklama süresini değiştirebilirsiniz [IOT hub'ı kaynak sağlayıcısı REST API'leri][lnk-resource-provider-apis], veya ile [Azure portal] [ lnk-management-portal].
 
 IOT hub'ı sunan **iletileri/olayları** hub tarafından alınan cihaz bulut iletilerini okumanızı arka uç hizmetleriniz için yerleşik bir uç nokta. Bu uç noktaya olaydır iletileri okumak için Event Hubs hizmeti mekanizmaları birini kullanmanızı sağlayan Hub ile uyumlu destekler.
 
@@ -40,14 +40,14 @@ IOT hub'ı sunan **iletileri/olayları** hub tarafından alınan cihaz bulut ile
 
 Kullandığınızda [.NET için Azure hizmet veri yolu SDK] [ lnk-servicebus-sdk] veya [Event Hubs - olay işleyicisi konağı][lnk-eventprocessorhost], doğru izinlere sahip IOT Hub bağlantı dizelerini kullanabilirsiniz. Ardından **iletileri/olayları** olay hub'ı adı olarak.
 
-SDK'ları (veya ürün tümleştirmeler) kullandığınızda, IOT hub'ını farkında, IOT hub ayarlarınızı bir Event Hub ile uyumlu uç noktası ve Event Hub ile uyumlu adı almanız gerekir:
+SDK'ları (veya ürün tümleştirmeler) kullandığınızda, IOT hub'ını farkında, bir Event Hub ile uyumlu uç noktası ve Event Hub ile uyumlu adı almanız gerekir:
 
 1. Oturum [Azure portal] [ lnk-management-portal] ve IOT hub'ına gidin.
 1. **Uç Noktalar**’a tıklayın.
 1. İçinde **yerleşik uç noktaları** 'yi tıklatın **olayları**. 
 1. Aşağıdaki değerleri içeren bir özellikleri sayfası açılır: **Event Hub ile uyumlu uç nokta**, **Event Hub ile uyumlu adı**, **bölümleri**,  **Saklama süresi**, ve **tüketici grupları**.
 
-    ![Cihaz bulut ayarları][img-eventhubcompatible]
+    ![Cihazdan buluta ayarları][img-eventhubcompatible]
 
 IOT Hub SDK'sı olan IOT Hub uç nokta adı gerektirir **iletileri/olayları** altında gösterildiği gibi **uç noktaları**.
 

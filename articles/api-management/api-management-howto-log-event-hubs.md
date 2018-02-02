@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: ff882889aba7add77d974500ac13a474523b3b53
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure Event hubs'a Azure API Management'te olayları günlüğe kaydetme hakkında
 Azure Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki verileri işleyip analiz edebilmeniz için saniye başına milyonlarca olayı işleyebilen ileri düzeyde ölçeklenebilir bir veri alım sistemidir. Event Hubs bir olay komut zincirinin "ön kapı" olarak görev yapan ve veriler bir event hub'ına toplandıktan sonra dönüştürülebilir ve tüm gerçek zamanlı analiz sağlayıcısı veya toplu işlem/depolama bağdaştırıcısı kullanılarak saklanır. Event Hubs olay akışı üretimlerini bu olayların tüketilmesinden ayırır, böylece olay tüketicileri olaylara kendi zamanlamalarında erişebilir.
@@ -26,45 +26,28 @@ Azure Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üreti
 Bu makalede bir yardımcı olan [olay hub'ları ile Azure API Management tümleştirmek](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video ve Azure Event Hubs kullanarak API Management olaylarını günlüğe kaydedecek şekilde açıklar.
 
 ## <a name="create-an-azure-event-hub"></a>Bir Azure olay hub'ı Oluştur
-Yeni bir olay hub'ı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**hizmet veri yolu**  -> **Olay hub'ı**->**hızlı Oluştur**. Bir olay hub'ı adını girin, bölge, bir abonelik seçin ve bir ad seçin. Daha önce bir ad alanı oluşturmadıysanız bir ad yazarak bir tane oluşturabilirsiniz **Namespace** metin kutusu. Tüm özellikleri yapılandırıldıktan sonra tıklatın **yeni bir olay hub'ı oluşturma** olay hub'ı oluşturmak için.
 
-![Olay hub'ı Oluştur][create-event-hub]
-
-Ardından, gitmek **yapılandırma** sekmesinde yeni olay hub'ınız için ve iki oluşturmak **paylaşılan erişim ilkeleri**. Adı ilk **gönderme** ve verin **Gönder** izinleri.
-
-![Gönderme İlkesi][sending-policy]
-
-Ad ikinci **alma**, bu verin **dinleme** izinleri ve tıklatın **kaydetmek**.
-
-![İlke alma][receiving-policy]
-
-Her paylaşılan erişim ilkesinin uygulamaların olayları olay hub'ı gelen ve giden gönderip almasına izin verir. Bu ilkeler için bağlantı dizelerini erişmek için gidin **Pano** sekmesini tıklatın ve olay hub'ı **bağlantı bilgilerini**.
-
-![Bağlantı dizesi][event-hub-dashboard]
-
-**Gönderme** bağlantı dizesi, olaylar, oturum açarken kullanılır ve **alma** bağlantı dizesi, olayların Event Hub'ından indirirken kullanılır.
-
-![Bağlantı dizesi][event-hub-connection-string]
+Bir olay hub'ı oluşturma ve olay hub'ı gelen ve giden olayları alıp göndermek için gereken bağlantı dizeleri alma hakkında ayrıntılı adımlar için bkz: [bir olay hub'ları ad alanı oluşturup Azure portalını kullanarak bir event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="create-an-api-management-logger"></a>Bir API Management Günlükçü oluşturma
 Bir Event Hub sahip olduğunuza göre sonraki adıma yapılandırmaktır bir [Günlükçü](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) , API Management hizmeti bu olayları Event Hub'ına oturum açabilir.
 
 API Management günlükçüleri kullanılarak yapılandırılmış olan [API Management REST API](http://aka.ms/smapi). REST API ilk kez kullanmadan önce gözden [Önkoşullar](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) ve olduğundan emin olun [REST API erişim etkin](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
-Günlükçü oluşturmak için aşağıdaki URL şablonu kullanarak bir HTTP PUT isteği oluşturun.
+Günlükçü oluşturmak için aşağıdaki URL şablonu kullanarak bir HTTP PUT İsteği olun:
 
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Değiştir `{your service}` API Management hizmet örneği adı.
-* Değiştir `{new logger name}` yeni Günlükçü için istenen adı ile. Yapılandırdığınızda bu adı başvurur [günlük eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) İlkesi
+* Değiştir `{new logger name}` yeni Günlükçü için istenen adı ile. Yapılandırdığınızda bu adına başvuruda [günlük eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) İlkesi
 
-Aşağıdaki üst bilgiler isteği ekleyin.
+Aşağıdaki üst bilgiler isteği ekleyin:
 
 * Content-Type: uygulama/json
 * Yetkilendirme: SharedAccessSignature 58...
   * Oluşturma yönergeleri için `SharedAccessSignature` bkz [Azure API Management REST API kimlik doğrulama](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
-Aşağıdaki şablonu kullanarak istek gövdesini belirtin.
+Aşağıdaki şablonu kullanarak istek gövdesini belirtin:
 
 ```json
 {
@@ -84,31 +67,29 @@ Aşağıdaki şablonu kullanarak istek gövdesini belirtin.
 Yaptığınızda isteği durum kodu Günlükçü oluşturduysanız `201 Created` döndürülür.
 
 > [!NOTE]
-> Diğer olası dönüş kodları ve bunların nedenleri için bkz: [Günlükçü oluşturma](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Görmek için nasıl listesi, güncelleştirme ve silme, bkz: gibi diğer işlemleri [Günlükçü](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) varlık belgeleri.
+> Diğer olası dönüş kodları ve bunların nedenleri için bkz: [Günlükçü oluşturma](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Liste, güncelleştirme ve silme gibi diğer işlemler gerçekleştirme hakkında bilgi için bkz: [Günlükçü](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) varlık belgeleri.
 >
 >
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Günlük eventhubs ilkeleri yapılandırma
+
 API Management'te, Günlükçü yapılandırıldıktan sonra günlük eventhubs ilkelerinizi istenen olaylarını günlüğe kaydedecek şekilde yapılandırabilirsiniz. Günlük eventhubs ilkesi gelen ilke bölümünü veya giden ilke bölümünü kullanılabilir.
 
-İlkeleri yapılandırmak için oturum için açma [Azure portal](https://portal.azure.com)API Management hizmetiniz gidin ve tıklayın **yayımcı portalına** yayımcı portalına erişmek için.
-
-![Yayımcı portalı][publisher-portal]
-
-Tıklatın **ilkeleri** sol API Management menüsünde istenen ürün ve API seçin ve tıklayın **ilke Ekle**. Bu örnekte, biz bir ilkeye eklediğiniz **Echo API'si** içinde **sınırsız** ürün.
-
-![İlke ekleme][add-policy]
-
-İmleç Konumlandır `inbound` İlkesi bölümüne ve tıklatın **EventHub günlüğüne** eklemek için ilke `log-to-eventhub` ilke deyimi şablonu.
-
-![İlke düzenleyicisi][event-hub-policy]
+1. APIM örneğinize göz atın.
+2. API sekmesini seçin.
+3. İlke eklemek istediğiniz API seçin. Bu örnekte, biz bir ilkeye eklediğiniz **Echo API'si** içinde **sınırsız** ürün.
+4. Seçin **tüm işlemleri**.
+5. Ekranın üst kısmında Tasarım sekmesini seçin.
+6. Gelen veya giden işlem penceresinde üçgen (yanındaki kalem) tıklatın.
+7. Kod Düzenleyicisi'ni seçin. Daha fazla bilgi için bkz: [nasıl ayarlayacağınız veya ilkeleri düzenleme](set-edit-policies.md).
+8. İmleç Konumlandır `inbound` veya `outbound` ilke bölümü.
+9. Sağdaki penceresinde seçin **ilkeleri Gelişmiş** > **EventHub günlüğüne**. Bu ekler `log-to-eventhub` ilke deyimi şablonu.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>
   @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
 </log-to-eventhub>
 ```
-
 Değiştir `logger-id` önceki adımda yapılandırdığınız API Management günlükçü adı.
 
 Değeri olarak bir dize döndürür. herhangi bir ifade kullanabileceğiniz `log-to-eventhub` öğesi. Bu örnekte, tarih ve saat, hizmet adı, istek kimliği, istek IP adresi ve işlem adı içeren bir dize günlüğe kaydedilir.
@@ -124,11 +105,6 @@ Tıklatın **kaydetmek** güncelleştirilmiş ilke yapılandırmasını kaydetme
   * [Günlükçü varlık başvurusu](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [Günlük eventhub ilke başvurusu](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [Azure API Management, olay hub'ları ve Runscope Apı'lerinizi izleme](api-management-log-to-eventhub-sample.md)    
-
-## <a name="watch-a-video-walkthrough"></a>Bir videosu izleme
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
->
->
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

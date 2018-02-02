@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim denetimleri 
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 12/11/2017
 
 - "**Sonra bunu**" olarak adlandırılır **denetimleri**
 
-![denetimi](./media/active-directory-conditional-access-controls/11.png)
+![Denetim](./media/active-directory-conditional-access-controls/11.png)
 
 Bir koşul deyimi, denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
 
-![denetimi](./media/active-directory-conditional-access-controls/12.png)
+![Denetim](./media/active-directory-conditional-access-controls/12.png)
 
 Her denetimidir kişi tarafından yerine getirilmesi gereken bir gereksinim veya sistem oturum açma veya bir kısıtlama hangi kullanıcı oturum açtıktan sonra yapabilirsiniz. 
 
@@ -46,14 +46,14 @@ Her denetimidir kişi tarafından yerine getirilmesi gereken bir gereksinim veya
 
 Bu konu, Azure AD koşullu erişim kullanılabilen çeşitli denetimleri açıklar. 
 
-## <a name="grant-controls"></a>Verme denetimleri
+## <a name="grant-controls"></a>İzin verme denetimleri
 
 GRANT denetimleriyle için tamamen engelleyin veya istenen denetimleri seçerek ek gereksinimler erişimle izin verebilirsiniz. Birden çok denetim için gerektirebilir:
 
 - Tüm seçilen yerine getirilmesi için denetimleri (*ve*) 
 - Bir seçili yerine getirilmesi için denetimi (*veya*)
 
-![denetimi](./media/active-directory-conditional-access-controls/17.png)
+![Denetim](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -107,7 +107,7 @@ Bu denetimler belirli dış veya özel Hizmetleri koşullu erişim denetimleri o
 
 Şu anda uyumlu bir hizmet sunumu sağlayıcıları içerir:
 
-- Duo güvenlik
+- [Duo güvenlik](https://duo.com/docs/azure-ca)
 
 - RSA
 
@@ -123,12 +123,12 @@ JSON verilerini kopyalayın ve ardından ilgili metin kutusuna yapıştırın. D
 
 Özel bir denetim oluşturmak için seçeneği olarak **Yönet** bölümünü **koşullu erişim** sayfası.
 
-![denetimi](./media/active-directory-conditional-access-controls/82.png)
+![Denetim](./media/active-directory-conditional-access-controls/82.png)
 
 Tıklatarak **yeni bir özel denetim**, denetiminizin JSON verilerini bir metin kutusu ile bir dikey pencere açılır.  
 
 
-![denetimi](./media/active-directory-conditional-access-controls/81.png)
+![Denetim](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Özel denetimler silme
@@ -150,11 +150,11 @@ Tıklatarak **yeni bir özel denetim**, denetiminizin JSON verilerini bir metin 
 
 ## <a name="session-controls"></a>Oturum denetimleri
 
-Oturum denetimleri bir bulut uygulama içinde sınırlı deneyimi sağlar. Oturum denetimleri bulut uygulamaları tarafından zorunlu tutulmaz ve oturumla ilgili uygulama için Azure AD tarafından sağlanan ek bilgileri kullanır.
+Oturum denetimleri, bulut uygulaması içinde sınırlı deneyim sağlar. Oturum denetimleri bulut uygulamaları tarafından zorunlu tutulmaz ve oturumla ilgili uygulama için Azure AD tarafından sağlanan ek bilgileri kullanır.
 
-![denetimi](./media/active-directory-conditional-access-controls/31.png)
+![Denetim](./media/active-directory-conditional-access-controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Zorlanan uygulama kısıtlamaları kullanan
+### <a name="use-app-enforced-restrictions"></a>Uygulama tarafından zorlanan kısıtlamaları kullan
 
 Bu denetim, aygıt bilgisi bulut uygulamasına geçirmek Azure AD gerektirecek şekilde kullanabilirsiniz. Bu kullanıcı bir uyumlu aygıt veya etki alanına katılmış CİHAZDAN geliyorsa bilmeniz bulut uygulaması yardımcı olur. Bu denetimidir şu anda yalnızca bulut uygulaması olarak SharePoint ile desteklenir. SharePoint aygıt bilgileri kullanıcılara cihaz durumuna bağlı olarak bir tam veya sınırlı deneyimi sağlamak için kullanır.
 SharePoint ile sınırlı erişim gerektiren hakkında daha fazla bilgi için bkz: [kontrol yönetilmeyen cihazların erişimini](https://aka.ms/spolimitedaccessdocs).

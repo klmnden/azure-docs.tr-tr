@@ -13,13 +13,16 @@ Tablo depolamada şu bileşenler bulunur:
 
 ![Tablo depolama bileşen diyagramı][Table1]
 
-* **URL biçimi:** Kod, buradaki adres biçimini kullanarak hesaptaki tabloları işaret eder:   
-  http://`<storage account>`.table.core.windows.net/`<table>`  
-  
+* **URL biçimi:** Azure Table Storage hesapları bu biçimi kullanın:`http://<storage account>.table.core.windows.net/<table>`
+
+  Azure Cosmos DB tablo API hesapları şu biçimi kullanın:`http://<storage account>.table.cosmosdb.azure.com/<table>`  
+
   Bu adres biçimini OData protokolüyle birlikte kullanarak doğrudan Azure tablolarını işaret edebilirsiniz. Daha fazla bilgi için bkz. [OData.org][OData.org].
-* **Depolama Hesabı:** Tüm Azure Storage erişimi bir depolama hesabıyla yapılır. Depolama hesabı kapasitesi hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/common/storage-scalability-targets.md).
-* **Tablo**: Tablo, bir varlıklar koleksiyonudur. Tablolar varlıklardaki şemayı zorlamaz; bu da, tek tabloda farklı özellik kümelerine sahip varlıklar olabileceği anlamına gelir. Depolama hesabında olabilecek tablo sayısı yalnızca depolama hesabının kapasite sınırıyla sınırlanır.
-* **Varlık**: Varlık bir dizi özellikler kümesidir, veritabanı satırına benzer. Varlığın boyutu en çok 1MB olabilir.
+* **Hesaplar:** tüm Azure Storage erişimi bir depolama hesabıyla yapılır. Depolama hesabı kapasitesi hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/common/storage-scalability-targets.md). 
+
+    Azure Cosmos DB tüm erişimi tablo API hesabı üzerinden yapılır. Bkz: [tablo API hesabı oluşturma](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) tablo API hesabı oluşturma Ayrıntılar için.
+* **Tablo**: Tablo, bir varlıklar koleksiyonudur. Tablolar varlıklardaki şemayı zorlamaz; bu da, tek tabloda farklı özellik kümelerine sahip varlıklar olabileceği anlamına gelir.  
+* **Varlık**: Varlık bir dizi özellikler kümesidir, veritabanı satırına benzer. Bir varlık olarak Azure Storage'da en çok 1 MB boyutunda olabilir. Bir varlık Azure Cosmos veritabanı 2 MB boyutunda olabilir.
 * **Özellikler**: Özellik bir ad-değer çiftidir. Her varlıkta verileri depolayacak en çok 252 özellik olabilir. Her varlıkta ayrıca, bölüm anahtarını, satır anahtarını ve zaman damgasını belirten üç sistem özelliği bulunur. Aynı bölüm anahtarına sahip varlıklar daha hızlı sorgulanabilir ve atomik işlemlere eklenir/güncelleştirilir. Varlığın satır anahtarı bölüm içinde kendine ait benzersiz tanımlayıcıdır.
 
 Tabloları ve özellikleri adlandırma hakkında daha fazla bilgi için bkz. [Tablo Hizmeti Veri Modelini Anlama](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).

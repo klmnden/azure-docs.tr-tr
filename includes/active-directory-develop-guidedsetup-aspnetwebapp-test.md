@@ -64,4 +64,4 @@ Tek bir olan kullanıcı hesapları için uygulamanız için oturum açma erişi
 #### <a name="use-a-custom-method-to-validate-issuers"></a>Verenler doğrulamak için özel bir yöntem kullanın
 Özel bir yöntem kullanarak verenler doğrulamak için uygulayabileceğiniz **IssuerValidator** parametresi. Bu parametre kullanma hakkında daha fazla bilgi için bilgiyi [tokenvalidationparameters değerini sınıfı](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) konusuna bakın.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

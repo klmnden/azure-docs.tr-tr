@@ -1,6 +1,6 @@
 ---
-title: Veri kopyalama/Azure Data Factory kullanarak Oracle | Microsoft Docs
-description: "Veri Fabrikası kullanarak Oracle veritabanı için desteklenen kaynak depoları (veya) desteklenen havuz depoları için Oracle veri kopyalamak öğrenin."
+title: "Azure Data Factory kullanarak için ve Oracle veri kopyalama | Microsoft Docs"
+description: "Veri Fabrikası kullanarak bir Oracle veritabanına desteklenen kaynak depoları veya desteklenen havuz depoları için Oracle veri kopyalamak öğrenin."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 10db7959396b4ee9927e4272dec9939ac8c13580
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6b96bc40325d398c91e293ec6ca8f8cc2993e58
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>İlk ve son Azure Data Factory kullanarak Oracle veri kopyalama
+# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Oracle veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-onprem-oracle-connector.md)
+> * [Sürüm 1 - genel olarak kullanılabilir](v1/data-factory-onprem-oracle-connector.md)
 > * [Sürüm 2 - Önizleme](connector-oracle.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de gelen ve bir Oracle veritabanına veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede kopyalama etkinliği Azure Data Factory'de gelen ve bir Oracle veritabanına veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
 > [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Oracle Bağlayıcısı](v1/data-factory-onprem-oracle-connector.md).
+> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir, veri fabrikası 1 sürümünü kullanıyorsanız bkz [Oracle Bağlayıcısı sürüm 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna Oracle veritabanından veri kopyalama veya tüm desteklenen kaynak veri deposundan Oracle veritabanına veri kopyalamak. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Bir Oracle veritabanından veri tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Ayrıca, tüm desteklenen kaynak veri deposundan Oracle veritabanına veri kopyalayabilirsiniz. Kaynakları veya havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu Oracle bağlayıcı Oracle veritabanı aşağıdaki sürümlerini destekler ve temel veya OID kimlik doğrulamaları destekler.
+Özellikle, bu Oracle bağlayıcı bir Oracle veritabanına aşağıdaki sürümlerini destekler. Ayrıca, temel veya OID kimlik doğrulamaları destekler:
 
-- Oracle 12c R1 (12,1)
+- Oracle 12c R1 (12.1)
 - Oracle 11g R1, R2 (11.1, 11.2)
-- Oracle 10g R1, R2 (10,1, 10.2)
+- Oracle 10g R1, R2 (10.1, 10.2)
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlangıç/bitiş genel olarak erişilebilir değil bir Oracle veritabanına veri kopyalamak için bir Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) makale tümleştirmesi çalışma zamanı hakkında ayrıntılı bilgi için. Yerleşik bir Oracle sürücü tümleştirmesi çalışma zamanı sağlar, bu nedenle herhangi bir sürücüsü başlangıç/bitiş Oracle veri kopyalama işlemi sırasında el ile yüklemeniz gerekmez.
+Gelen ve genel olarak erişilebilir değil bir Oracle veritabanına veri kopyalamak için bir Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Tümleştirme çalışma zamanı hakkında daha fazla bilgi için bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md). Tümleştirme çalışma zamanı yerleşik bir Oracle sürücü sağlar. Bu nedenle, ilk ve son Oracle veri kopyaladığınızda, bir sürücüyü el ile yüklemeniz gerekmez.
 
-## <a name="getting-started"></a>Başlarken
+## <a name="get-started"></a>başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,12 +53,12 @@ Aşağıdaki bölümler, Oracle bağlayıcıya Data Factory varlıklarını beli
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
 
-Aşağıdaki özellikler, Oracle bağlantılı hizmeti için desteklenir:
+Aşağıdaki özellikler Oracle bağlantılı hizmeti için desteklenir.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **Oracle** | Evet |
-| connectionString | Oracle veritabanına bağlanmak için gereken bilgileri belirtin. Bu alan bir SecureString işaretleyin.<br><br>**Bağlantı türü desteklenen**: kullanmayı tercih edebileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID kullanma:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanma:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Evet |
+| type | Type özelliği ayarlamak **Oracle**. | Evet |
+| connectionString | Oracle veritabanına bağlanmak için gereken bilgileri belirtir. Bu alan SecureString işaretleyin.<br><br>**Bağlantı türü desteklenen**: kullanabileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID kullanıyorsanız:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanıyorsanız:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -84,14 +84,14 @@ Aşağıdaki özellikler, Oracle bağlantılı hizmeti için desteklenir:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde, Oracle veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Oracle veri kümesi tarafından desteklenen özellikler listesini sağlar.
 
-Veri kopyalama/Oracle için veri kümesi türü özelliğini ayarlayın **OracleTable**. Aşağıdaki özellikler desteklenir:
+Gelen ve Oracle veri kopyalamak için kümesine tür özelliği ayarlamak **OracleTable**. Aşağıdaki özellikler desteklenir.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Veri kümesi türü özelliği ayarlamak: **OracleTable** | Evet |
-| tableName |Oracle veritabanında bağlantılı hizmet başvurduğu tablonun adı. | Evet |
+| type | Veri kümesi türü özelliği ayarlamak **OracleTable**. | Evet |
+| tableName |Bağlantılı hizmet başvurduğu Oracle veritabanı tablosunun adı. | Evet |
 
 **Örnek:**
 
@@ -112,18 +112,18 @@ Veri kopyalama/Oracle için veri kümesi türü özelliğini ayarlayın **Oracle
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Oracle kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Oracle kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
 
-### <a name="oracle-as-source"></a>Oracle kaynağı olarak
+### <a name="oracle-as-a-source-type"></a>Oracle bir kaynak türü
 
-Oracle kaynağından veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **OracleSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Oracle kaynağından veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **OracleSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **OracleSource** | Evet |
-| oracleReaderQuery | Verileri okumak için özel SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Hayır |
+| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak **OracleSource**. | Evet |
+| oracleReaderQuery | Verileri okumak için özel SQL sorgusu kullanın. `"SELECT * FROM MyTable"` bunun bir örneğidir. | Hayır |
 
 "OracleReaderQuery" belirtmezseniz, veri kümesi'nin "yapısı" bölümünde tanımlanan sütunları bir sorgu oluşturmak için kullanılır (`select column1, column2 from mytable`) Oracle veritabanına karşı çalıştırmak için. Veri kümesi tanımı "yapısı" yoksa, tüm sütunları tablodan seçilir.
 
@@ -159,16 +159,16 @@ Oracle kaynağından veri kopyalamak için kopyalama etkinliği için kaynak tü
 ]
 ```
 
-### <a name="oracle-as-sink"></a>Oracle havuz olarak
+### <a name="oracle-as-a-sink-type"></a>Havuz türü olarak Oracle
 
-Oracle için veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın. **OracleSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **havuz** bölümü:
+Oracle için veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın. **OracleSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **havuz** bölümü.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopya etkinliği havuz tür özelliği ayarlamak: **OracleSink** | Evet |
-| writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler.<br/>İzin verilen değerler: tamsayı (satır sayısı). |Hayır (varsayılan değeri: 10000) |
-| writeBatchTimeout | Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin.<br/>İzin verilen değerler: Timespan. Örnek: 00:30:00 (30 dakika). | Hayır |
-| preCopyScript | Her çalışmasında Oracle veri yazmadan önce yürütmek kopyalama etkinliği için bir SQL sorgusunu belirtin. Önceden yüklenmiş veriyi temizlemek için bu özelliği kullanın. | Hayır |
+| type | Kopya etkinliği havuz tür özelliği ayarlamak **OracleSink**. | Evet |
+| writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler.<br/>Tamsayı (satır sayısı) izin verilen değerler. |Hayır (varsayılan değeri: 10.000) |
+| writeBatchTimeout | Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin.<br/>Timespan izin verilen değerler. 00:30:00 (30 dakika) örneğidir. | Hayır |
+| preCopyScript | Her çalışmasında Oracle veri yazmadan önce yürütmek kopyalama etkinliği için bir SQL sorgusunu belirtin. Önceden yüklenen verileri temizlemek için bu özelliği kullanın. | Hayır |
 
 **Örnek:**
 
@@ -203,11 +203,11 @@ Oracle için veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 
 ## <a name="data-type-mapping-for-oracle"></a>Eşleme için Oracle veri türü
 
-/ İçin Oracle veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Oracle veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
+İlk ve son Oracle veri kopyaladığınızda, aşağıdaki eşlemelerini Oracle veri türlerinden Data Factory geçici veri türleri için kullanılır. Nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md).
 
 | Oracle veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| BDOSYA |Byte] |
+| BFILE |Byte] |
 | BLOB |Byte]<br/>(yalnızca Oracle 10 g desteklenir ve üzeri) |
 | CHAR |Dize |
 | CLOB |Dize |
@@ -215,14 +215,14 @@ Oracle için veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 | KAYAN NOKTA |Ondalık, dize (varsa precision > 28) |
 | TAMSAYI |Ondalık, dize (varsa precision > 28) |
 | UZUN |Dize |
-| UZUN HAM |Byte] |
+| LONG RAW |Byte] |
 | NCHAR |Dize |
 | NCLOB |Dize |
 | SAYI |Ondalık, dize (varsa precision > 28) |
 | NVARCHAR2 |Dize |
-| HAM |Byte] |
+| RAW |Byte] |
 | SATIR KİMLİĞİ |Dize |
-| ZAMAN DAMGASI |Tarih Saat |
+| TIMESTAMP |Tarih Saat |
 | YEREL SAAT DİLİMİ ZAMAN DAMGASI |Dize |
 | SAAT DİLİMİ ZAMAN DAMGASI |Dize |
 | İŞARETSİZ TAMSAYI |Sayı |
@@ -230,8 +230,8 @@ Oracle için veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 | XML |Dize |
 
 > [!NOTE]
-> Veri türü ARALIĞI yıl ay ve ARALIĞI gün için ikinci desteklenmez.
+> Veri türleri ARALIĞI Yıl Bitiş ayı ve ARALIĞI gün için ikinci desteklenmiyor.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).
+Kaynakları ve havuzlarını Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

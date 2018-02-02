@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapasite Azure yığınında Azure App Service sunucu rolleri için planlama
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 Azure uygulama hizmeti Azure yığında üretim hazır dağıtımını sağlayacak desteklemek için sistem beklediğiniz kapasiteyi planlamanız gerekir.  Aşağıda, en az sayıda örnekleri ve işlem her üretim dağıtımı için kullanması gereken SKU'ları hakkında yönergeler verilmiştir.
 
@@ -29,7 +30,7 @@ Bu yönergeleri kullanarak, uygulama hizmeti kapasite stratejinizi planlayabilir
 | App Service sunucu rolü | Minimum örnek sayısı önerilir | Önerilen işlem SKU|
 | --- | --- | --- |
 | Denetleyici | 2 | A1 |
-| Ön uç | 2 | A1 |
+| Ön Uç | 2 | A1 |
 | Yönetim | 2 | A3 |
 | Yayımcı | 2 | A1 |
 | Web çalışanları - paylaşılan | 2 | A1 |

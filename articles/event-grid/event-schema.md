@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: caa709fdc2a59472ee812bde91f7300396aa5755
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure olay kılavuz olay şeması
 
 Bu makalede, tüm olaylar için mevcut şema ve özellikler açıklanmaktadır. Olayları beş gerekli dize özellikleri ve gerekli veri nesnesi kümesinden oluşur. Tüm olayları için herhangi bir yayımcıdan yaygın özelliklerdir. Veri nesnesi her yayımcı için özel özellikleri içerir. Sistem konuları için bu özellikler Azure Storage veya Azure Event Hubs gibi kaynak sağlayıcısı özgüdür.
 
 Olayları Azure olay kılavuza birden çok olay nesneleri içeren bir dizide gönderilir. Yalnızca tek bir olay ise, dizi 1 uzunluğuna sahip. Dizi toplam boyutu en fazla 1 MB olabilir. Her olay dizisindeki 64 KB ile sınırlıdır.
+
+Olay kılavuz olay ve her Azure yayımcının veri yükü için JSON şeması bulabilirsiniz [olay şema deposuna](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Olay şeması
 
@@ -34,7 +36,9 @@ Aşağıdaki örnek, tüm olay yayımcıları tarafından kullanılan özellikle
     "eventTime": string,
     "data":{
       object-unique-to-each-publisher
-    }
+    },
+    "dataVersion": string,
+    "metadataVersion": string
   }
 ]
 ```
@@ -62,7 +66,9 @@ Aşağıdaki örnek, tüm olay yayımcıları tarafından kullanılan özellikle
       "storageDiagnostics": {
         "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
       }
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -73,12 +79,14 @@ Tüm olaylar aynı aşağıdaki üst düzey veri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | Dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. |
-| Konu | Dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| Olay türü | Dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | Dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | Dize | Olay için benzersiz tanımlayıcı. |
-| Veri | Nesne | Olay verileri kaynak sağlayıcıya özel. |
+| Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
+| Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
+| eventType | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
+| id | dize | Olay için benzersiz tanımlayıcı. |
+| veriler | nesne | Olay verileri kaynak sağlayıcıya özel. |
+| dataVersion | dize | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi özellikleri hakkında bilgi edinmek için olay kaynağı bakın:
 

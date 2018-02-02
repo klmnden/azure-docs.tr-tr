@@ -1,11 +1,24 @@
- ---
-Başlık: Azure Media Services REST açıklama çağırır Postman ortamı alın: Azure Media Services REST çağrıları için bu konuda Postman ortam tanımını sağlar.
-Hizmetleri: media services documentationcenter: '' Yazar: Juliako Yöneticisi: cfowler Düzenleyicisi: ''
-
-MS.Service: media services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: ms.date makale: 04/01/2017 ms.author: juliako
-
 ---
-
+title: "Postman ortamınız için Azure Media Services REST çağrılarını içeri aktarma"
+description: "Bu konu Azure Media Services REST çağrılarını Postman ortamını tanımını sağlar."
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>Postman ortam alma 
 
 Bu makalede bir tanımını içeren **Postman** kullanılan ortam değişkenleri [Postman koleksiyonu](postman-collection.md) Media Services REST API çağrısı gruplandırılmış HTTP isteklerini içerir. Tarafından kullanılan ortam ve koleksiyon dosyalarını [Postman yapılandırmak için Media Services REST API çağrıları](media-rest-apis-with-postman.md) Öğreticisi.

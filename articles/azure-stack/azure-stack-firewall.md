@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 737df48a24d8e077f898d00526c7138db69dbb93
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure yığın güvenlik duvarı tümleştirmesi
 Güvenli Azure yığın yardımcı olmak için bir güvenlik duvarı cihazı kullanmanız önerilir. Güvenlik duvarları ile dağıtılmış hizmet engelleme (DDOS) saldırıları, izinsiz giriş algılama ve içerik denetimi gibi yardımcı olmakla birlikte, aynı zamanda BLOB'lar, tablolar ve Kuyruklar gibi Azure storage Hizmetleri için bir işleme ayak haline gelebilir.
@@ -59,7 +59,9 @@ Bir Kurumsal intranet veya çevre dağıtımında, Azure yığın çoklu bölges
 
 ![Azure yığın çevre ağı örneği](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
+## <a name="learn-more"></a>Daha fazla bilgi edinin
+Daha fazla bilgi edinmek [bağlantı noktalarını ve protokolleri Azure yığın uç noktaları tarafından kullanılan](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [bağlantı noktaları ve Azure yığın uç noktaları tarafından kullanılan protokoller](azure-stack-integrate-endpoints.md)
+[Azure yığın PKI gereksinimleri](azure-stack-pki-certs.md)
 

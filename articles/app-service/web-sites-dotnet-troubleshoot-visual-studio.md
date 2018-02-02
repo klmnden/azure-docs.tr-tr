@@ -3,8 +3,8 @@ title: "Visual Studio kullanarak Azure App Service web uygulamasında sorun gide
 description: "Uzaktan hata ayıklama, izleme ve Visual Studio 2013 için yerleşik günlük araçlarını kullanarak bir Azure web uygulaması giderileceğini öğrenin."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme
 ## <a name="overview"></a>Genel Bakış
@@ -117,9 +117,9 @@ Ayrıntılı hata iletisi yeterli bilgi sağlamaz ve hata yerel olarak yeniden o
 
 Uzaktan hata ayıklama Visual Studio Express sürümlerinde çalışmaz.
 
-Bu bölümde oluşturduğunuz proje kullanarak uzaktan hata ayıklama gösterilmektedir [Azure][app-service-web-get-started-dotnet.md içinde bir ASP.NET web uygulaması oluştur].
+Bu bölümde oluşturduğunuz proje kullanarak uzaktan hata ayıklama gösterilmektedir [bir ASP.NET web uygulaması oluşturma](app-service-web-get-started-dotnet.md).
 
-1. Oluşturduğunuz web projesini açın [Azure][app-service-web-get-started-dotnet.md içinde bir ASP.NET web uygulaması oluştur].
+1. Oluşturduğunuz web projesini açın [bir ASP.NET web uygulaması oluşturma](app-service-web-get-started-dotnet.md).
 
 2. Açık *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ Bu bölümde oluşturduğunuz proje kullanarak uzaktan hata ayıklama gösterilm
 
 5. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve **Yayımla**.
 
-6. İçinde **profil** aynı profil, kullanılan aşağı açılan listesinden, [Azure][app-service-web-get-started-dotnet.md içinde bir ASP.NET web uygulaması oluştur]. Ardından, Ayarlar'ı tıklatın.
+6. İçinde **profil** aynı profil, kullanılan aşağı açılan listesinden, [bir ASP.NET web uygulaması oluşturma](app-service-web-get-started-dotnet.md). Ardından, Ayarlar'ı tıklatın.
 
 7. İçinde **Yayımla** iletişim kutusunda, tıklatın **ayarları** sekmesini ve sonra değiştirmek **yapılandırma** için **hata ayıklama**ve ardından  **Kaydet**.
 
@@ -222,7 +222,7 @@ Uzaktan hata ayıklama yalnızca sürekli Webjob'lar ile çalışır. Zamanlanm�
 
 15. Azure kimlik bilgilerinizle oturum ve, WebJob için sayfaya gitmek için Web işi adı'ye tıklayın.
 
-     ![ContosoAdsWebJob'ı tıklatın](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
+     ![Click ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
      Pano gösterir `GenerateThumbnail` son yürütülen işlevi.
 
@@ -595,7 +595,7 @@ Bir tarayıcıda, yerel bilgisayarınıza indirmek için bir FTP aracı kullanar
 
     ![Başarısız istek izleme tarayıcıda](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="nextsteps"></a>Sonraki Adımlar
+## <a name="nextsteps"></a>Sonraki adımlar
 Nasıl Visual Studio Azure web uygulaması tarafından oluşturulan günlükleri görüntülemek kolaylaştırır gördünüz. Aşağıdaki bölümler, ilgili konular hakkında daha fazla kaynaklarına bağlantılar sağlar:
 
 * Azure web uygulaması sorunlarını giderme

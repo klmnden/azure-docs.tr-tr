@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Genel Bakış: Yük devretme grupları ve etkin coğrafi çoğaltma
 Aktif coğrafi çoğaltma, en fazla dört okunabilir ikincil veritabanları aynı veya farklı bir veri merkezi konumlarını (bölge) yapılandırmanıza olanak sağlar. Veri Merkezi kesintisinden veya birincil veritabanına bağlanamama ise ikincil veritabanlarıyla sorgulamak için ve yük devretme için kullanılabilir. Yük devretme kullanıcı uygulama tarafından el ile başlatılması gerekir. Yük devretme işleminden sonra yeni birincil farklı bağlantı uç noktası vardır. 
@@ -37,7 +37,7 @@ Aktif coğrafi çoğaltma kullanıyorsanız ve için birincil veritabanı başar
 - [Azure portalı](sql-database-geo-replication-portal.md)
 - [PowerShell: Tek veritabanı](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Esnek havuz](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-- [PowerShell: Yük devretme grubu](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell: Failover Group](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - [Transact-SQL: Tek veritabanı veya esnek havuz](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Tek veritabanı](/rest/api/sql/replicationlinks/failover)
 - [REST API: Yük devretme grubu](/rest/api/sql/failovergroups/failover). 
@@ -71,7 +71,7 @@ Aktif coğrafi çoğaltma özelliği aşağıdaki temel yetenekleri sağlar:
 * **Birden çok okunabilir ikinciller**: iki veya daha fazla ikincil veritabanları artırmak artıklık ve birincil veritabanı ve uygulama için bir koruma düzeyi. Birden fazla ikincil veritabanı yoksa, ikincil veritabanlarıyla biri başarısız olsa bile uygulama korumalı olarak kalır. Yeni bir ikincil veritabanı oluşturulana kadar yalnızca bir ikincil veritabanı yoktur ve bu başarısız olursa, uygulama için daha yüksek risk açıktır.
 
    > [!NOTE]
-   > Genel olarak dağıtılmış bir uygulama oluşturun ve dörtten fazla segions verilerde salt okunur erişim sağlamak gereken etkin coğrafi çoğaltma kullanıyorsanız, ikincil (zincirleme olarak bilinen işlem), ikincil oluşturabilirsiniz. Bu şekilde veritabanı çoğaltma neredeyse sınırsız ölçeği elde edebilirsiniz. Ayrıca, zincirleme birincil veritabanından çoğaltma ek yükünü azaltır. Dengelemeyi yaprak çoğu ikincil veritabanları hakkında daha fazla çoğaltma gecikmesi ' dir. 
+   > Genel olarak dağıtılmış bir uygulama oluşturun ve dörtten fazla bölgelerindeki veri salt okunur erişim sağlamak gereken etkin coğrafi çoğaltma kullanıyorsanız, ikincil (zincirleme olarak bilinen işlem), ikincil oluşturabilirsiniz. Bu şekilde veritabanı çoğaltma neredeyse sınırsız ölçeği elde edebilirsiniz. Ayrıca, zincirleme birincil veritabanından çoğaltma ek yükünü azaltır. Dengelemeyi yaprak çoğu ikincil veritabanları hakkında daha fazla çoğaltma gecikmesi ' dir. 
    >
 
 * **Esnek havuz veritabanlarının Destek**: aktif coğrafi çoğaltma, herhangi bir esnek havuzdaki herhangi bir veritabanı için yapılandırılabilir. İkincil veritabanını başka bir esnek havuzda olabilir. Hizmet katmanları aynı olduğu sürece normal veritabanları için ikincil bir esnek havuz tersi olabilir. 
@@ -130,7 +130,7 @@ Yükseltme veya ikincil bir veritabanınız kesmeden birincil veritabanı farkl�
 Geniş alan ağları yüksek gecikme nedeniyle sürekli kopyalama bir zaman uyumsuz çoğaltma mekanizması kullanır. Zaman uyumsuz çoğaltma bir hata oluşursa bazı veri kaybı kaçınılmaz hale getirir. Ancak, bazı uygulamalar, veri kaybı gerektirebilir. Bu kritik güncelleştirmeler korumak için uygulama geliştiricisi çağırabilirsiniz [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) işlemi sonlandırdı hemen sonra sistem yordamı. Çağırma **sp_wait_for_database_copy_sync** son kaydedilmiş işlem ikincil veritabanına gönderilene kadar çağıran iş parçacığı engeller. Ancak, yeniden ve ikincil kaydedilen iletilen işlemler için beklemez. **sp_wait_for_database_copy_sync** belirli sürekli kopyalama bağlantısı kapsamlıdır. Birincil veritabanına bağlantı haklarıyla herhangi bir kullanıcı, bu yordamı çağırabilirsiniz.
 
 > [!NOTE]
-> **sp_wait_for_database_copy_sync** yük devretme işleminden sonra veri kaybı engeller, ancak okuma erişimi için tam eşitleme garanti etmez. Nedeni gecikme bir **sp_wait_for_database_copy_sync** yordam çağrısı önemli olabilir ve çağrı aynı anda işlem günlüğü boyutuna bağlıdır. 
+> **sp_wait_for_database_copy_sync** prevents data loss after failover, but does not guarantee full synchronization for read access. Nedeni gecikme bir **sp_wait_for_database_copy_sync** yordam çağrısı önemli olabilir ve çağrı aynı anda işlem günlüğü boyutuna bağlıdır. 
 > 
 
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Yük devretme grupları ve etkin coğrafi çoğaltma programlı olarak yönetme
@@ -146,8 +146,8 @@ Otomatik Yük devretme grupları (Önizleme-) ve etkin daha önce açıklandığ
 | [ALTER DATABASE (Azure SQL veritabanı)](/sql/t-sql/statements/alter-database-azure-sql-database) |Yük devretme başlatmak için birincil olarak ikincil bir veritabanı geçiş yapmak için yük DEVRETME veya FORCE_FAILOVER_ALLOW_DATA_LOSS kullanın |
 | [ALTER DATABASE (Azure SQL veritabanı)](/sql/t-sql/statements/alter-database-azure-sql-database) |Bir SQL veritabanı ve belirtilen ikincil veritabanı arasında veri kopyalama sonlandırmak için ikincil üzerinde SUNUCUSUNU Kaldır kullanın. |
 | [sys.geo_replication_links (Azure SQL veritabanı)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Azure SQL Database mantıksal sunucusunda her veritabanı için tüm yineleme bağlantıları hakkında bilgi verir. |
-| [sys.dm_geo_replication_link_status (Azure SQL veritabanı)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Belirli bir SQL veritabanı için son çoğaltma saati, son çoğaltma gecikmesi ve çoğaltma bağlantısı hakkında diğer bilgi alır. |
-| [sys.dm_operation_status (Azure SQL veritabanı)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Çoğaltma bağlantılarının durumunu da dahil olmak üzere tüm veritabanı işlemleri için durumunu gösterir. |
+| [sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Belirli bir SQL veritabanı için son çoğaltma saati, son çoğaltma gecikmesi ve çoğaltma bağlantısı hakkında diğer bilgi alır. |
+| [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Çoğaltma bağlantılarının durumunu da dahil olmak üzere tüm veritabanı işlemleri için durumunu gösterir. |
 | [sp_wait_for_database_copy_sync (Azure SQL veritabanı)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |tüm kaydedilmiş işlemleri çoğaltılır ve etkin ikincil veritabanı tarafından onaylanan kadar beklemeniz uygulamanın neden olur. |
 |  | |
 
@@ -156,15 +156,15 @@ Otomatik Yük devretme grupları (Önizleme-) ve etkin daha önce açıklandığ
 | Cmdlet | Açıklama |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Bir veya daha fazla veritabanı alır. |
-| [AzureRmSqlDatabaseSecondary yeni](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Var olan bir veritabanı için ikincil bir veritabanı oluşturur ve veri çoğaltma başlatır. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Var olan bir veritabanı için ikincil bir veritabanı oluşturur ve veri çoğaltma başlatır. |
 | [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Yük devretme başlatmak için birincil olarak ikincil bir veritabanı geçer. |
 | [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Bir SQL veritabanı ve belirtilen ikincil veritabanı arasında veri kopyalama sonlandırır. |
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Bir Azure SQL Database ve bir kaynak grubu veya SQL Server arasındaki coğrafi Çoğaltma bağlantılarını alır. |
-| [AzureRmSqlDatabaseFailoverGroup yeni](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
 | [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Yük devretme grubu sunucusundan kaldırır ve tüm siler ikincil veritabanları dahil grubu |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Yük devretme grubu yapılandırmasını alır. |
 | [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Yük devretme grubunun yapılandırmasını değiştirir |
-| [Anahtar AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | İkincil sunucuya Yük devretme grubu Tetikleyicileri yük devretme |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | İkincil sunucuya Yük devretme grubu Tetikleyicileri yük devretme |
 |  | |
 
 > [!IMPORTANT]
@@ -182,10 +182,10 @@ Otomatik Yük devretme grupları (Önizleme-) ve etkin daha önce açıklandığ
 | [Çoğaltma bağlantılarını - veritabanı göre listesi](/rest/api/sql/replicationlinks/listbydatabase) | Coğrafi çoğaltma ortaklığı belirli bir SQL veritabanında tüm çoğaltma bağlantılarını alır. Sys.geo_replication_links katalog görünümünde görünür bilgi alır. |
 | [Çoğaltma bağlantısı Sil](/rest/api/sql/databases/delete) | Bir veritabanı yinelemesi siler. Yük devretme sırasında yapılamaz. |
 | [Yük devretme grubu güncelle](/rest/api/sql/failovergroups/createorupdate) | Oluşturur veya bir yük devretme grubu güncelleştirir |
-| [Yük devretme grubu Sil](/rest/api/sql/failovergroups/delete) | Yük devretme grubu sunucudan kaldırır |
+| [Delete Failover Group](/rest/api/sql/failovergroups/delete) | Yük devretme grubu sunucudan kaldırır |
 | [Yük devretme (planlanmış)](/rest/api/sql/failovergroups/failover) | Geçerli birincil sunucudan bu sunucuya yöneltilir. |
 | [Zorla yük devretme veri kaybı izin ver](/rest/api/sql/failovergroups/forcefailoverallowdataloss) |üzerinden bu sunucu için geçerli birincil sunucudan ails. Bu işlem, veri kaybına neden olabilir. |
-| [Get yük devretme grubu](/rest/api/sql/failovergroups/get) | Bir yük devretme grubunu alır. |
+| [Get Failover Group](/rest/api/sql/failovergroups/get) | Bir yük devretme grubunu alır. |
 | [Sunucu tarafından listesi yük devretme grupları](/rest/api/sql/failovergroups/listbyserver) | Bir sunucu yük devretme gruplarında listeler. |
 | [Yük devretme grubu güncelleştir](/rest/api/sql/failovergroups/update) | Bir yük devretme grubu güncelleştirir. |
 |  | |

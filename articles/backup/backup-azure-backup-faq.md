@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -33,7 +33,7 @@ Bu makaledeki bölümleri hızlı taramak için **bu makale altında** sağ tara
 Evet. Eylül 2016 itibariyle, abonelik başına 25 kurtarma Hizmetleri kasa oluşturabilirsiniz. Her abonelikte, Azure Backup hizmetinin desteklenen her bir bölgesi için en fazla 25 Kurtarma Hizmetleri kasası oluşturabilirsiniz. Daha fazla kasaya ihtiyacınız varsa başka bir abonelik oluşturun.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Her bir kasa için kaydedilebilen sunucu/makine sayısına yönelik sınırlar var mıdır? <br/>
-Evet, kasa başına en fazla 50 makine kaydedebilirsiniz. Azure IaaS sanal makineleri için sınır, kasa başına 200 VM'dir. Daha fazla makine kaydetmeniz gerekirse başka bir kasa oluşturun.
+Kasa başına 200 Azure sanal makineleri fazla kaydedebilirsiniz. MAB aracı kullanıyorsanız, kasa başına 50 MAB aracıları fazla kaydedebilirsiniz. Ve 50 MAB sunucuları/DPM sunucularını bir kasaya kaydedebilirsiniz.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Kuruluşumun bir kasası varsa veri geri yükleme sırasında bir sunucunun verilerini başka bir sunucudan nasıl ayırabilirim?<br/>
 Aynı kasaya kayıtlı tüm sunucular, *aynı parolayı kullanan* diğer sunucular tarafından yedeklenen verileri kurtarabilir. Yedekleme verilerini kuruluşunuzdaki diğer sunucularından ayırmak istediğiniz sunucularınız varsa bu sunucular için belirlenmiş bir parola kullanın. Örneğin, insan kaynakları sunucuları bir şifreleme parolası kullanırken, muhasebe sunucuları ve depolama sunucuları farklı birer şifreleme parolası kullanabilir.
@@ -161,6 +161,9 @@ Azure Backup ile gerçekleştirilen kurtarma işlemlerinin sayısına yönelik b
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Verileri geri yüklerken Azure'dan çıkış trafiği için ödeme yapacak mıyım? <br/>
 Hayır. Kurtarma işlemleriniz ücretsizdir ve çıkış trafiği için sizden ücret tahsil edilmez.
+
+### <a name="what-happens-when-i-change-my-backup-policy"></a>My yedekleme İlkesi değiştirdiğinizde ne olur?
+Yeni bir ilke uygulandığında, zamanlama ve bekletme yeni ilkenin izlendiği. Bekletme genişletilirse, var olan kurtarma noktalarının yeni İlkesi uyarınca tutmak için işaretlenir. Bekletme azaltıldığında bunlar ayıklama sonraki temizleme işi için işaretlenmiş ve daha sonra silinir.
 
 ## <a name="azure-backup-encryption"></a>Azure Backup şifrelemesi
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Veriler Azure'a şifreli olarak mı gönderilir? <br/>

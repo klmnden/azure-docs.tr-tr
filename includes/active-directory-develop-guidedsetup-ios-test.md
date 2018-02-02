@@ -26,4 +26,4 @@ Bir uygulama bağlamında kullanıcının takvimleri erişmek için eklemeniz **
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

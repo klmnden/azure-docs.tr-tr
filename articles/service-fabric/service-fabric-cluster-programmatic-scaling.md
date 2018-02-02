@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Service Fabric kümesi programlı olarak ölçeklendirin 
 
@@ -93,7 +93,7 @@ Bir düğüm el ile eklerken, örnek bir ölçek kümesi ekleme olması gerekti�
 
 İçinde ölçeklendirme ölçeğini için benzer. Gerçek sanal makine ölçek değişiklikleri hemen hemen aynı ayarlanır. Ancak, daha önce açıklandığı gibi Service Fabric kaldırılan düğümlerini altın veya Gümüş bir dayanıklılık yalnızca otomatik olarak temizlenir. Bu nedenle Bronz dayanıklılık ölçek bileşenini durumunda kaldırılacak düğümü kapatılacağını Service Fabric kümesi ile etkileşim kurmak ise gerekli ardından durumuna kaldırmak için.
 
-Düğümü için kapatma hazırlanıyor (en son eklenen düğüm) düğümü kaldırılan bulunmasını ve devre dışı bırakmadan içerir. Çekirdek olmayan düğümleri için yeni düğümler karşılaştırarak bulunabilir `NodeInstanceId`. 
+Kaldırıldı (en son eklenen sanal makine ölçek kümesi örneği) düğümü bulma kapatma içerir düğüm hazırlama ve onu devre dışı bırakma. Yeni düğümler (hangi eşleşme örnek adları temel sanal makine ölçek kümesi) düğümleri adları sayı soneki karşılaştırarak bulunabilir böylece sanal makine ölçek kümesi örneklerinin eklendikleri, sırayla numaralandırılır. 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-Çekirdek düğüm farklı ve büyük örneği kimlikleri ilk kaldırılır kuralı mutlaka izlemeyin.
 
 Kaldırılacak düğüm bulunduktan sonra devre dışı bırakılabilir ve aynı kullanarak kaldırılan `FabricClient` örneği ve `IAzure` örneğinden daha önce.
 

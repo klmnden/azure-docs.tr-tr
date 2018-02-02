@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: 4eb5680c618d78e0722e1eb4a0f551f26b4dc902
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 43da2bf5b66ff7db03a6fb5c2e1ceaebe322bcbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Azure bulut Kabuğu penceresini kullanma
 
@@ -29,7 +29,7 @@ Bu belge bulut Kabuk penceresinin nasıl kullanılacağını açıklar.
 
 Bash ve PowerShell ortamlar arasında takas için bulut Kabuk araç çubuğunda ortamı seçiciyi kullanın.
 
-## <a name="restart-cloud-shell"></a>Bulut Kabuk yeniden başlatın
+## <a name="restart-cloud-shell"></a>Cloud Shell'i yeniden başlat
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
 > Bulut Kabuk yeniden makine durumunu sıfırlamak ve tüm dosyalar, Azure tarafından kalıcı olmayan dosya paylaşımı kaybolacak.
@@ -46,7 +46,7 @@ Bulut Kabuk ayrı bir Bash işlem olarak bulunmasını her oturum vererek taray�
 Bir oturum çıkmadan, her işlem aynı makine üzerinde çalışsa bağımsız olarak çalışan her oturum penceresinden çıkmak emin olun.
 
 ## <a name="copy-and-paste"></a>Kopyala ve Yapıştır
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## <a name="resize-cloud-shell-window"></a>Bulut Kabuğu penceresini yeniden boyutlandırın
 * ' I tıklatın ve araç üst kenarı yukarı veya aşağı boyutlandırma bulut Kabuğu penceresini sürükleyin.

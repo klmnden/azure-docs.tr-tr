@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Data Lake Store için çevrimdışı veri kopyası için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, büyük veri kümeleri kopyalamak nasıl öğreneceksiniz (> 200 GB) gibi çevrimdışı kopya yöntemleri kullanarak bir Azure Data Lake Store içine [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md). Özellikle, bu makaledeki örnek olarak kullanılan 339,420,860,416 bayt ya da yaklaşık 319 GB disk üzerindeki dosyasıdır. Şimdi bu dosya 319GB.tsv çağırın.
 
 Azure içeri/dışarı aktarma hizmeti, büyük miktarlarda verinin daha güvenli bir şekilde Azure Blob depolama alanına bir Azure veri merkezi sabit disk sürücülerine sevkiyat tarafından aktarmasına yardımcı olur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
@@ -33,6 +33,7 @@ Başlamadan önce aşağıdakilere sahip olmanız gerekir:
 * **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Veri hazırlama
+
 İçeri/dışarı aktarma hizmeti kullanmadan önce aktarılacak veri dosyası bölün **200 GB daha az olan kopyaları içine** boyutu. İçeri aktarma aracını 200 GB'den büyük dosyalarla çalışmaz. Bu öğreticide, biz 100 GB öbeklere dosyayı bölün. Kullanarak bunu yapabilirsiniz [Cygwin](https://cygwin.com/install.html). Cygwin Linux komutları destekler. Bu durumda, aşağıdaki komutu kullanın:
 
     split -b 100m 319GB.tsv

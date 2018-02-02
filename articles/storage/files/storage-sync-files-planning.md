@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -158,11 +158,13 @@ Azure dosya eşitleme yalnızca önizleme aşağıdaki bölgelerde kullanılabil
 
 | Bölge | Veri merkezinin konumu |
 |--------|---------------------|
-| Doğu ABD | Virginia, ABD |
-| Batı ABD | California, ABD |
-| Batı Avrupa | Hollanda |
+| Avustralya Doğu | New South Wales |
+| Orta Kanada | Toronto |
+| Doğu ABD | Virginia |
 | Güneydoğu Asya | Singapur |
-| Avustralya Doğu | Yeni Güney İngiltere, Avustralya |
+| Birleşik Krallık Güney | Londra |
+| Batı Avrupa | Hollanda |
+| Batı ABD | Kaliforniya |
 
 Önizleme'de depolama eşitleme hizmeti ile aynı bölgede olan bir Azure dosya paylaşımı ile eşitleme destekler.
 

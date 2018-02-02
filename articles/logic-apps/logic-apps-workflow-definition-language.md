@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 36eee42b7b10dfb62e569d665f62a94fc94365be
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cee0619df4e2ed2e31becc764dd64dafef6e97d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure mantıksal uygulamaları için iş akışı tanımlama dili şeması
 
@@ -44,12 +44,12 @@ Bir iş akışı tanımı temel yapısını şöyledir:
   
 |Öğe adı|Gerekli|Açıklama|  
 |------------------|--------------|-----------------|  
-|$schema|Hayır|Tanım dili sürümü açıklanmaktadır JSON şema dosyası için konumu belirtir. Bu konum, bir tanım dışarıdan başvurduğunuzda gereklidir. Bu belge için konumu şudur: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
+|$schema|Hayır|Tanım dili sürümü açıklanmaktadır JSON şema dosyası için konumu belirtir. Bu konum, bir tanım dışarıdan başvurduğunuzda gereklidir. Bu belge için konum şöyledir: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
 |contentVersion|Hayır|Tanım sürümü belirtir. Bir iş akışı tanımı kullanarak dağıttığınızda, doğru tanımı kullanıldığından emin olmak için bu değeri kullanabilirsiniz.|  
 |parametreler|Hayır|Tanımı veri girişi için kullanılan parametreleri belirtir. En fazla 50 parametreleri tanımlanabilir.|  
 |Tetikleyicileri|Hayır|İş akışını başlatmak Tetikleyicileri bilgilerini belirtir. En fazla 10 Tetikleyicileri tanımlanabilir.|  
 |Eylemler|Hayır|Akış yürütür olarak gerçekleştirilen eylemler belirtir. En fazla 250 Eylemler tanımlanabilir.|  
-|Çıkışları|Hayır|Dağıtılan kaynak hakkındaki bilgileri belirtir. En fazla 10 çıkışları tanımlanabilir.|  
+|çıkışlar|Hayır|Dağıtılan kaynak hakkındaki bilgileri belirtir. En fazla 10 çıkışları tanımlanabilir.|  
   
 ## <a name="parameters"></a>Parametreler
 
@@ -90,7 +90,7 @@ Bu örnek, bir eylem gövde bölümünü bir parametre nasıl kullanabileceğini
 
 Tetikleyiciler ve Eylemler katılabilir çağrıları iş akışı yürütme belirtin. Bu bölümde hakkında daha fazla ayrıntı için bkz: [iş akışı eylemleri ve Tetikleyicileri](logic-apps-workflow-actions-triggers.md).
   
-## <a name="outputs"></a>Çıkışları  
+## <a name="outputs"></a>Çıkışlar  
 
 Çıkış çalıştıran bir iş akışından döndürülebilecek bilgilerini belirtin. Örneğin, bir özel durum ya da her çalıştırmak için izlemek istediğiniz değer varsa, bu verilerin çalışma çıktılarında içerebilir. Veri Yönetimi REST API için çalıştıran ve Azure portalında çalıştıran için kullanıcı Arabirimi yönetim görünür. Panoları oluşturmak için de bu çıktıları Powerbı gibi diğer dış sistemler akabilir. Çıkış olan *değil* hizmeti REST API'si gelen isteklerini yanıtlamak için kullanılır. Bir gelen talep kullanmaya yanıt `response` eylem türü örnek aşağıda verilmiştir:
   
@@ -153,7 +153,7 @@ Bu özellik benzer kılar bir dize sonucudur her zaman `concat` işlevi. Tanıml
 
 İşleçler ifadeler veya işlevler içinde kullanabileceğiniz karakterler olur. 
   
-|işleci|Açıklama|  
+|İşleç|Açıklama|  
 |--------------|-----------------|  
 |.|Nokta işleci, nesnenin özelliklerini başvuru olanak sağlar|  
 |?|Soru işareti işleci, null bir çalışma zamanı hatası olmadan bir nesnenin özelliklerini başvuru sağlar. Örneğin, bu ifade null tetikleyici çıkışları işlemek için kullanabilirsiniz: <p>`@coalesce(trigger().outputs?.body?.property1, 'my default value')`|  
@@ -164,7 +164,7 @@ Bu özellik benzer kılar bir dize sonucudur her zaman `concat` işlevi. Tanıml
 
 Ayrıca, ifadeler işlevlerinde çağırabilirsiniz. Aşağıdaki tabloda kullanılabilir işlevler bir ifadede gösterir.  
   
-|ifade|Değerlendirme|  
+|İfade|Değerlendirme|  
 |----------------|----------------|  
 |"@function('Hello')"|Değişmez değer dize Hello tanımıyla ilk parametre olarak işlevin üyesi çağırır.|  
 |"@function(', '' S Cool!')"|Değişmez değer dize tanımıyla işlevi üyesi 'Cool kadar!' çağırır İlk parametre olarak|  
@@ -172,14 +172,14 @@ Ayrıca, ifadeler işlevlerinde çağırabilirsiniz. Aşağıdaki tabloda kullan
 |"@function('Hello') .prop1"|Değişmez değer dize tanımıyla işlevi üyesi 'Hello' ilk parametre olarak çağırır ve nesnesinin prop1 özelliği döndürür.|  
 |"@function(parameters('Hello'))"|Merhaba parametre değerlendirir ve değeri işleve geçirir|  
   
-### <a name="referencing-functions"></a>İşlevler başvurma  
+### <a name="referencing-functions"></a>Başvuru işlevleri  
 
 Mantıksal uygulama veya mantıksal uygulama oluşturulduğunda geçirilen değerleri diğer eylemlerine çıkışları başvurmak için bu işlevler kullanabilirsiniz. Örneğin, başka bir programda kullanmak için bir adım veri başvuruda bulunabilir.  
   
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
 |parametreler|Tanımında tanımlanan bir parametre değeri döndürür. <p>`parameters('password')` <p> **Numaralı parametre**: 1 <p> **Ad**: parametre <p> **Açıklama**: gerekli. Değerleri istediğiniz parametresinin adı.|  
-|Eylem|İfadenin değerini diğer JSON ad ve değer çiftleri ya da geçerli çalışma zamanı eylem çıktısını türetmemize olanak sağlar. Aşağıdaki örnekte propertyPath tarafından temsil edilen özelliği isteğe bağlıdır. PropertyPath belirtilmezse, tüm eylem nesnesine başvurudur. Bu işlev yalnızca içinde kullanılabilir-bir eylem koşullarını kadar. <p>`action().outputs.body.propertyPath`|  
+|action|İfadenin değerini diğer JSON ad ve değer çiftleri ya da geçerli çalışma zamanı eylem çıktısını türetmemize olanak sağlar. Aşağıdaki örnekte propertyPath tarafından temsil edilen özelliği isteğe bağlıdır. PropertyPath belirtilmezse, tüm eylem nesnesine başvurudur. Bu işlev yalnızca içinde kullanılabilir-bir eylem koşullarını kadar. <p>`action().outputs.body.propertyPath`|  
 |Eylemler|Bir ifadenin değerini diğer JSON ad ve değer çiftleri ya da çalışma zamanı eylem çıktısını türetilen sağlar. Bu ifadeler, açıkça bir eylem başka bir eyleme dayanan bildirin. Aşağıdaki örnekte propertyPath tarafından temsil edilen özelliği isteğe bağlıdır. PropertyPath belirtilmezse, tüm eylem nesnesine başvurudur. Bağımlılıkları belirtmek için bu öğeyi veya koşullar öğesini kullanabilirsiniz, ancak aynı bağımlı kaynak için her ikisini de kullanmanız gerekmez. <p>`actions('myAction').outputs.body.propertyPath` <p> **Numaralı parametre**: 1 <p> **Ad**: eylem adı <p> **Açıklama**: gerekli. Değerleri istediğiniz eylemin adı. <p> Eylem nesnesindeki kullanılabilir özellikleri şunlardır: <ul><li>`name`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Bkz: [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850646) bu özellikleri hakkında ayrıntılı bilgi için.|
 |Tetikleyici|İfadenin değerini diğer JSON ad ve değer çiftleri ya da çalışma zamanı tetikleyici çıktısını türetmemize olanak sağlar. Aşağıdaki örnekte propertyPath tarafından temsil edilen özelliği isteğe bağlıdır. PropertyPath belirtilmezse, tüm tetikleyici nesnesine başvurudur. <p>`trigger().outputs.body.propertyPath` <p>İçinde bir tetikleyicinin girişleri kullanıldığında, önceki yürütme çıkışları işlevi döndürür. Ancak, bir tetikleyici koşul içinde kullanıldığında `trigger` işlevi, geçerli yürütme çıkışları döndürür. <p> Tetikleyici nesne üzerinde kullanılabilir özellikleri şunlardır: <ul><li>`name`</li><li>`scheduledTime`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Bkz: [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850644) bu özellikleri hakkında ayrıntılı bilgi için.|
 |actionOutputs|Bu işlev için toplu özelliktir`actions('actionName').outputs` <p> **Numaralı parametre**: 1 <p> **Ad**: eylem adı <p> **Açıklama**: gerekli. Değerleri istediğiniz eylemin adı.|  
@@ -223,13 +223,13 @@ Aşağıdaki işlevleri yalnızca dizeleri için geçerlidir. Dizeleri bazı top
 |endswith|Dize değeri durumuyla insensitively bitip bitmediğini denetler. Örneğin, bu işlevi döndürür `true`: <p>`endswith('hello, world', 'world')` <p> **Numaralı parametre**: 1 <p> **Ad**: dize <p> **Açıklama**: gerekli. Değer içerebilir dize. <p> **Numaralı parametre**: 2 <p> **Ad**: dize <p> **Açıklama**: gerekli. Dize değeri ile bitebilir.|  
 |split|Ayırıcı kullanarak dize böler. Örneğin, bu işlevi döndürür `["a", "b", "c"]`: <p>`split('a;b;c',';')` <p> **Numaralı parametre**: 1 <p> **Ad**: dize <p> **Açıklama**: gerekli. Bölünen dize. <p> **Numaralı parametre**: 2 <p> **Ad**: dize <p> **Açıklama**: gerekli. Ayırıcı.|  
   
-### <a name="logical-functions"></a>Mantıksal işlevleri  
+### <a name="logical-functions"></a>Mantıksal işlevler  
 
 Bu işlevler içinde koşullar yararlıdır ve herhangi bir türde mantığı değerlendirmek için kullanılan.  
   
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
-|eşittir|İki değer eşitse true değerini döndürür. Örneğin, parametre1 someValue ise, bu işlev, döndürür `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 1**.|  
+|şuna eşittir:|İki değer eşitse true değerini döndürür. Örneğin, parametre1 someValue ise, bu işlev, döndürür `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 1**.|  
 |daha az|İlk bağımsız değişken daha az ise true değeri döndürür ikinciden. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, bu işlevi döndürür `true`: <p>`less(10,100)` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Olup olmadığını denetlemek için nesne değerinden **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Büyük olup olmadığını denetlemek için nesne **nesne 1**.|  
 |lessOrEquals|İlk bağımsız değişken ikinci eşit veya daha az ise true, aksi durumda değeri döndürür. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, bu işlevi döndürür `true`: <p>`lessOrEquals(10,10)` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Bu daha az olup olmadığını denetleyin veya eşit nesnesine **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Büyük veya eşit olup olmadığını denetlemek için nesne **nesne 1**.|  
 |büyük|İlk bağımsız değişken saniyeden büyükse, true döndürür. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, bu işlevi döndürür `false`:  <p>`greater(10,10)` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Büyük olup olmadığını denetlemek için nesne **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Olup olmadığını denetlemek için nesne değerinden **nesne 1**.|  
@@ -237,19 +237,19 @@ Bu işlevler içinde koşullar yararlıdır ve herhangi bir türde mantığı de
 |ve|Parametrelerinin her ikisini de doğruysa, true döndürür. Her iki değişken Boole değerlerini olması gerekir. Örneğin, bu işlevi döndürür `false`: <p>`and(greater(1,10),equals(0,0))` <p> **Numaralı parametre**: 1 <p> **Ad**: Boolean 1 <p> **Açıklama**: gerekli. Gereken ilk bağımsız değişken `true`. <p> **Numaralı parametre**: 2 <p> **Ad**: Boolean 2 <p> **Açıklama**: gerekli. İkinci bağımsız değişkeni olmalıdır `true`.|  
 |or|Her iki parametre true olduğunda true değerini döndürür. Her iki değişken Boole değerlerini olması gerekir. Örneğin, bu işlevi döndürür `true`: <p>`or(greater(1,10),equals(0,0))` <p> **Numaralı parametre**: 1 <p> **Ad**: Boolean 1 <p> **Açıklama**: gerekli. Olabilir ilk bağımsız değişken `true`. <p> **Numaralı parametre**: 2 <p> **Ad**: Boolean 2 <p> **Açıklama**: gerekli. İkinci bağımsız değişkeni olabilir `true`.|  
 |değil|Parametreler, true döndürür `false`. Her iki değişken Boole değerlerini olması gerekir. Örneğin, bu işlevi döndürür `true`: <p>`not(contains('200 Success','Fail'))` <p> **Numaralı parametre**: 1 <p> **Ad**: Boolean <p> **Açıklama**: parametreler varsa true değerini döndürür `false`. Her iki değişken Boole değerlerini olması gerekir. Bu işlev, döndürür `true`:`not(contains('200 Success','Fail'))`|  
-|Eğer|Olup olmadığını ifade ile sonuçlandı üzerinde temel belirtilen değeri döndüren `true` veya `false`.  Örneğin, bu işlevi döndürür `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Numaralı parametre**: 1 <p> **Ad**: ifade <p> **Açıklama**: gerekli. Hangi değerini belirleyen bir boolean değeri ifade döndürmelidir. <p> **Numaralı parametre**: 2 <p> **Ad**: True <p> **Açıklama**: gerekli. İfade ise döndürülecek değer `true`. <p> **Numaralı parametre**: 3 <p> **Ad**: yanlış <p> **Açıklama**: gerekli. İfade ise döndürülecek değer `false`.|  
+|if|Olup olmadığını ifade ile sonuçlandı üzerinde temel belirtilen değeri döndüren `true` veya `false`.  Örneğin, bu işlevi döndürür `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Numaralı parametre**: 1 <p> **Ad**: ifade <p> **Açıklama**: gerekli. Hangi değerini belirleyen bir boolean değeri ifade döndürmelidir. <p> **Numaralı parametre**: 2 <p> **Ad**: True <p> **Açıklama**: gerekli. İfade ise döndürülecek değer `true`. <p> **Numaralı parametre**: 3 <p> **Ad**: yanlış <p> **Açıklama**: gerekli. İfade ise döndürülecek değer `false`.|  
   
 ### <a name="conversion-functions"></a>Dönüşüm işlevleri  
 
 Bu işlevlerin her dil içindeki yerel türler arasında dönüştürme için kullanılır:  
   
-- Dize  
+- dize  
   
-- tamsayı  
+- integer  
   
-- Kayan nokta  
+- float  
   
-- Boole değeri  
+- boole  
   
 - Diziler  
   
@@ -260,9 +260,9 @@ Bu işlevlerin her dil içindeki yerel türler arasında dönüştürme için ku
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
 |Int|Parametresi, bir tamsayıya dönüştürür. Örneğin, bu işlev bir dize yerine bir sayı olarak 100 döndürür: <p>`int('100')` <p> **Numaralı parametre**: 1 <p> **Ad**: değer <p> **Açıklama**: gerekli. Bir tamsayıya dönüştürülüp değeri.|  
-|Dize|Parametresi bir dizeye dönüştürün. Örneğin, bu işlevi döndürür `'10'`: <p>`string(10)` <p>Ayrıca, bir nesne bir dizeye dönüştürebilirsiniz. Örneğin, varsa `myPar` parametredir bir özelliği olan bir nesne `abc : xyz`, bu işlevi döndürür sonra `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Numaralı parametre**: 1 <p> **Ad**: değer <p> **Açıklama**: gerekli. Bir dizeye dönüştürülen değer.|  
-|JSON|Parametresi bir JSON türü değerine dönüştürür ve tersidir `string()`. Örneğin, bu işlevi döndürür `[1,2,3]` bir dize yerine bir dizi olarak: <p>`json('[1,2,3]')` <p>Benzer şekilde, bir nesneye bir dize dönüştürebilirsiniz. Örneğin, bu işlevi döndürür `{ "abc" : "xyz" }`: <p>`json('{"abc" : "xyz"}')` <p> **Numaralı parametre**: 1 <p> **Ad**: dize <p> **Açıklama**: gerekli. Yerel tür değerine dönüştürülüp dize. <p>`json()` İşlevi çok giriş XML destekler. Örneğin, parametre değeri: <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>Bu JSON biçiminde seri hale dönüştürülür: <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|Kayan nokta|Parametre bağımsız değişkeni bir kayan nokta sayıya dönüştürün. Örneğin, bu işlevi döndürür `10.333`: <p>`float('10.333')` <p> **Numaralı parametre**: 1 <p> **Ad**: değer <p> **Açıklama**: gerekli. Kayan nokta sayıya dönüştürülmüş değeri.|  
+|dize|Parametresi bir dizeye dönüştürün. Örneğin, bu işlevi döndürür `'10'`: <p>`string(10)` <p>Ayrıca, bir nesne bir dizeye dönüştürebilirsiniz. Örneğin, varsa `myPar` parametredir bir özelliği olan bir nesne `abc : xyz`, bu işlevi döndürür sonra `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Numaralı parametre**: 1 <p> **Ad**: değer <p> **Açıklama**: gerekli. Bir dizeye dönüştürülen değer.|  
+|json|Parametresi bir JSON türü değerine dönüştürür ve tersidir `string()`. Örneğin, bu işlevi döndürür `[1,2,3]` bir dize yerine bir dizi olarak: <p>`json('[1,2,3]')` <p>Benzer şekilde, bir nesneye bir dize dönüştürebilirsiniz. Örneğin, bu işlevi döndürür `{ "abc" : "xyz" }`: <p>`json('{"abc" : "xyz"}')` <p> **Numaralı parametre**: 1 <p> **Ad**: dize <p> **Açıklama**: gerekli. Yerel tür değerine dönüştürülüp dize. <p>`json()` İşlevi çok giriş XML destekler. Örneğin, parametre değeri: <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>Bu JSON biçiminde seri hale dönüştürülür: <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|float|Parametre bağımsız değişkeni bir kayan nokta sayıya dönüştürün. Örneğin, bu işlevi döndürür `10.333`: <p>`float('10.333')` <p> **Numaralı parametre**: 1 <p> **Ad**: değer <p> **Açıklama**: gerekli. Kayan nokta sayıya dönüştürülmüş değeri.|  
 |bool|Parametre bir Boole değeri dönüştürün. Örneğin, bu işlevi döndürür `false`: <p>`bool(0)` <p> **Numaralı parametre**: 1 <p> **Ad**: değer <p> **Açıklama**: gerekli. Bir Boole değeri dönüştürülen değer.|  
 |Base64|Giriş dizesi base64 gösterimini döndürür. Örneğin, bu işlevi döndürür `c29tZSBzdHJpbmc=`: <p>`base64('some string')` <p> **Numaralı parametre**: 1 <p> **Ad**: Dize 1 <p> **Açıklama**: gerekli. Base64 gösterimine kodlanacak dize.|  
 |base64ToBinary|Bir base64 kodlu dize ikili bir gösterimini döndürür. Örneğin, bu işlev ikili gösterimini döndürür `some string`: <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **Numaralı parametre**: 1 <p> **Ad**: dize <p> **Açıklama**: gerekli. Base64 ile kodlanmış dize.|  
@@ -279,7 +279,7 @@ Bu işlevlerin her dil içindeki yerel türler arasında dönüştürme için ku
 |uriComponentToBinary|Bir URI ikili gösterimidir kodlanmış dizesi döndürür. Örneğin, bu işlev bir ikili biçimi döndürür `You Are:Cool/Awesome`: <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **Numaralı parametre**: 1 <p> **Ad**: dize<p> **Açıklama**: gerekli. URI kodlanmış dize.|  
 |uriComponentToString|Bir URI dize gösterimini kodlanmış dizesi döndürür. Örneğin, bu işlevi döndürür `You Are:Cool/Awesome`: <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **Numaralı parametre**: 1<p> **Ad**: dize<p> **Açıklama**: gerekli. URI kodlanmış dize.|  
 |xml|Değerinin XML gösterimini döndürür. Örneğin, bu işlev XML tarafından temsil edilen içerik döndürür `'\<name>Alan\</name>'`: <p>`xml('\<name>Alan\</name>')` <p>`xml()` İşlevi çok giriş JSON nesnesi destekler. Örneğin, parametre `{ "abc": "xyz" }` XML içeriği dönüştürülür:`\<abc>xyz\</abc>` <p> **Numaralı parametre**: 1<p> **Ad**: değer<p> **Açıklama**: gerekli. XML biçimine dönüştürülecek değer.|  
-|Dizi|Parametresi bir diziye dönüştürür. Örneğin, bu işlevi döndürür `["abc"]`: <p>`array('abc')` <p> **Numaralı parametre**: 1 <p> **Ad**: değer <p> **Açıklama**: gerekli. Bir dizi dönüştürülen değer.|
+|array|Parametresi bir diziye dönüştürür. Örneğin, bu işlevi döndürür `["abc"]`: <p>`array('abc')` <p> **Numaralı parametre**: 1 <p> **Ad**: değer <p> **Açıklama**: gerekli. Bir dizi dönüştürülen değer.|
 |createArray|Bir dizi parametrelerinden oluşturur. Örneğin, bu işlevi döndürür `["a", "c"]`: <p>`createArray('a', 'c')` <p> **Numaralı parametre**: 1...*n* <p> **Ad**: tüm*n* <p> **Açıklama**: gerekli. Bir diziye birleştirmek için kullanılan değerler.|
 |triggerFormDataValue|Form verileri veya form kodlu tetikleyici çıkış anahtar adıyla eşleşen tek bir değer döndürür.  Varsa birden çok işlem hata eşleşir.  Örneğin, aşağıdaki döndürülecek `bar`:`triggerFormDataValue('foo')`<br /><br />**Numaralı parametre**: 1<br /><br />**Ad**: anahtar adı<br /><br />**Açıklama**: gerekli. Döndürülecek form veri değeri anahtar adı.|
 |triggerFormDataMultiValues|Form verileri veya form kodlu tetikleyici çıkış anahtar adıyla eşleşen değerleri dizisi döndürür.  Örneğin, aşağıdaki döndürülecek `["bar"]`:`triggerFormDataValue('foo')`<br /><br />**Numaralı parametre**: 1<br /><br />**Ad**: anahtar adı<br /><br />**Açıklama**: gerekli. Döndürülecek form veri değerleri anahtar adı.|
@@ -300,19 +300,19 @@ Bu işlevler, XML ve nesneler için geçerlidir.
 |removeProperty|Kaldırılan bir özelliğe sahip bir nesne döndürür. Kaldırmak için özelliği yoksa, özgün nesne döndürülür. Örneğin, bu işlev nesnesi döndürür `{ "abc" : "xyz" }`: <p>`removeProperty(json('{"abc" : "xyz", "def": "uvw"}'), 'def')` <p> **Numaralı parametre**: 1 <p> **Ad**: nesnesi <p> **Açıklama**: gerekli. Özelliğinden kaldırılacak nesne.<p> **Numaralı parametre**: 2 <p> **Ad**: özellik adı <p> **Açıklama**: gerekli. Kaldırılacak özelliğin adı. <p>|
 |XPath|Xpath ifadesi xpath ifadesi değerlendiren bir değeri ile eşleşen XML düğümleri bir dizi döndürür. <p> **Örnek 1** <p>Parametresinin değeri varsayın `p1` bu XML dize gösterimi ise: <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>Bu kod:`xpath(xml(parameters('p1')), '/lab/robot/name')` <p>döndürür <p>`[ <name>R1</name>, <name>R2</name> ]` <p>Bu kodu: <p>`xpath(xml(parameters('p1')), ' sum(/lab/robot/parts)')` <p>döndürür <p>`13` <p> <p> **Örnek 2** <p>Aşağıdaki XML içeriğini verilen: <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>Bu kod:`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>veya bu kod: <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>döndürür <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>Ve bu kodu:`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>döndürür <p>``xyz`` <p> **Numaralı parametre**: 1 <p> **Ad**: Xml <p> **Açıklama**: gerekli. XPath ifadesi değerlendirileceği XML. <p> **Numaralı parametre**: 2 <p> **Ad**: XPath <p> **Açıklama**: gerekli. Değerlendirilecek XPath ifadesi.|
 
-### <a name="math-functions"></a>Matematik işlevleri  
+### <a name="math-functions"></a>Matematiksel işlevler  
 
 Bu işlevlerin her iki tür numarası için kullanılabilir: **tamsayılar** ve **gezinen**.  
   
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
-|Ekleme|İki sayı ekleme sonucunu döndürür. Örneğin, bu işlevi döndürür `20.333`: <p>`add(10,10.333)` <p> **Numaralı parametre**: 1 <p> **Ad**: Summand 1 <p> **Açıklama**: gerekli. Eklemek üzere numarasını **Summand 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: Summand 2 <p> **Açıklama**: gerekli. Eklemek üzere numarasını **Summand 1**.|  
+|ekle|İki sayı ekleme sonucunu döndürür. Örneğin, bu işlevi döndürür `20.333`: <p>`add(10,10.333)` <p> **Numaralı parametre**: 1 <p> **Ad**: Summand 1 <p> **Açıklama**: gerekli. Eklemek üzere numarasını **Summand 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: Summand 2 <p> **Açıklama**: gerekli. Eklemek üzere numarasını **Summand 1**.|  
 |Sub|İki sayı çıkarılmasıyla sonucunu döndürür. Örneğin, bu işlevi döndürür `-0.333`: <p>`sub(10,10.333)` <p> **Numaralı parametre**: 1 <p> **Ad**: Minuend <p> **Açıklama**: gerekli. Sayı, **Subtrahend** kaldırılır. <p> **Numaralı parametre**: 2 <p> **Ad**: Subtrahend <p> **Açıklama**: gerekli. Kaldırmak üzere numarasını **Minuend**.|  
 |mul|İki sayının çarparak sonucunu döndürür. Örneğin, bu işlevi döndürür `103.33`: <p>`mul(10,10.333)` <p> **Numaralı parametre**: 1 <p> **Ad**: Multiplicand 1 <p> **Açıklama**: gerekli. Çarp üzere numarasını **Multiplicand 2** ile. <p> **Numaralı parametre**: 2 <p> **Ad**: Multiplicand 2 <p> **Açıklama**: gerekli. Çarp üzere numarasını **Multiplicand 1** ile.|  
 |div|İki sayının sonucunu döndürür. Örneğin, bu işlevi döndürür `1.0333`: <p>`div(10.333,10)` <p> **Numaralı parametre**: 1 <p> **Ad**: bölünen <p> **Açıklama**: gerekli. Sayı bölün **bölen**. <p> **Numaralı parametre**: 2 <p> **Ad**: bölen <p> **Açıklama**: gerekli. Bölmek için numarası **bölünen** tarafından.|  
 |mod|(Modül) iki sayı bölen sonra kalanı döndürür. Örneğin, bu işlevi döndürür `2`: <p>`mod(10,4)` <p> **Numaralı parametre**: 1 <p> **Ad**: bölünen <p> **Açıklama**: gerekli. Sayı bölün **bölen**. <p> **Numaralı parametre**: 2 <p> **Ad**: bölen <p> **Açıklama**: gerekli. Bölmek için numarası **bölünen** tarafından. Ayırmadan sonra kalan alınır.|  
 |dk|Bu işlevi çağırmak için iki farklı modeli vardır. <p>Burada `min` bir dizi alır ve işlevi döndürür `0`: <p>`min([0,1,2])` <p>Alternatif olarak, bu işlev virgülle ayrılmış bir liste değerleri ve ayrıca döndürür sürebilir `0`: <p>`min(0,1,2)` <p> **Not**: tüm değerleri sayı olması gerekir böylece parametresi bir dizi ise dizinin yalnızca rakam olmalıdır. <p> **Numaralı parametre**: 1 <p> **Ad**: koleksiyon veya değeri <p> **Açıklama**: gerekli. Ya da bir dizi en küçük değerini bulmak için değerleri ya da bir kümenin ilk değer. <p> **Numaralı parametre**: 2...*n* <p> **Ad**: değer*n* <p> **Açıklama**: isteğe bağlı. İlk parametre bir değer ise, ek değerleri geçirmek ve geçirilen tüm değerlerin minimum döndürülür.|  
-|max|Bu işlevi çağırmak için iki farklı modeli vardır. <p>Burada `max` bir dizi alır ve işlevi döndürür `2`: <p>`max([0,1,2])` <p>Alternatif olarak, bu işlev virgülle ayrılmış bir liste değerleri ve ayrıca döndürür sürebilir `2`: <p>`max(0,1,2)` <p> **Not**: tüm değerleri sayı olması gerekir böylece parametresi bir dizi ise dizinin yalnızca rakam olmalıdır. <p> **Numaralı parametre**: 1 <p> **Ad**: koleksiyon veya değeri <p> **Açıklama**: gerekli. Ya da bir dizi en büyük değeri bulmak için değerleri ya da bir kümenin ilk değer. <p> **Numaralı parametre**: 2...*n* <p> **Ad**: değer*n* <p> **Açıklama**: isteğe bağlı. İlk parametre bir değer ise, ek değerleri geçirmek ve maksimum tüm geçirilen değeri döndürülür.|  
+|en çok|Bu işlevi çağırmak için iki farklı modeli vardır. <p>Burada `max` bir dizi alır ve işlevi döndürür `2`: <p>`max([0,1,2])` <p>Alternatif olarak, bu işlev virgülle ayrılmış bir liste değerleri ve ayrıca döndürür sürebilir `2`: <p>`max(0,1,2)` <p> **Not**: tüm değerleri sayı olması gerekir böylece parametresi bir dizi ise dizinin yalnızca rakam olmalıdır. <p> **Numaralı parametre**: 1 <p> **Ad**: koleksiyon veya değeri <p> **Açıklama**: gerekli. Ya da bir dizi en büyük değeri bulmak için değerleri ya da bir kümenin ilk değer. <p> **Numaralı parametre**: 2...*n* <p> **Ad**: değer*n* <p> **Açıklama**: isteğe bağlı. İlk parametre bir değer ise, ek değerleri geçirmek ve maksimum tüm geçirilen değeri döndürülür.|  
 |Aralık|Belirli bir numarasından başlayarak dizisi oluşturur. Döndürülen dizi uzunluğu, tanımlayın. <p>Örneğin, bu işlevi döndürür `[3,4,5,6]`: <p>`range(3,4)` <p> **Numaralı parametre**: 1 <p> **Ad**: Başlangıç dizini <p> **Açıklama**: gerekli. Dizideki ilk tamsayı. <p> **Numaralı parametre**: 2 <p> **Ad**: sayısı <p> **Açıklama**: gerekli. Bu değer dizideki olan tamsayılar sayısıdır.|  
 |rand|(Yalnızca ilk ucunda dahil) belirtilen aralıkta rasgele bir tamsayı oluşturur. Örneğin, bu işlev ya da döndürebilirsiniz `0` veya '1': <p>`rand(0,2)` <p> **Numaralı parametre**: 1 <p> **Ad**: en az <p> **Açıklama**: gerekli. Döndürülebilecek en küçük tamsayı. <p> **Numaralı parametre**: 2 <p> **Ad**: en fazla <p> **Açıklama**: gerekli. Bu değeri sonraki döndürülebilen en büyük tamsayıyı sonra tamsayıdır.|  
  

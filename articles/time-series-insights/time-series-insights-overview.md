@@ -4,22 +4,24 @@ description: "Giriş Azure zaman serisi Öngörüler, zaman serisi veri analizi 
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: anshan, jasonh
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.date: 01/26/2018
+ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure zaman serisi Öngörüler nedir?
 
 Zaman serisi Öngörüler depolamak, Görselleştirme ve büyük miktarlarda IOT cihazları tarafından oluşturulan gibi zaman serisi veri sorgulama için yerleşik olarak bulunur.  Depolamak, yönetmek, sorgu veya Bulut zaman serisi verileri görselleştirmek istiyorsanız, zaman serisinin Öngörüler sağ sizin için olasıdır.  
+
+! [Zaman serisi Öngörüler akış çizelgesi] (media/overview/time-series-insights-flowchart.png)
 
 Zaman serisi Öngörüler dört anahtar işleri sahiptir:
 
@@ -67,7 +69,6 @@ Başlarken 5 dakikadan daha kısa sürer.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights gezgini
 Bu diyagramda zaman serisi örneği gösterilmektedir Öngörüler Veri Gezgini üzerinden görüntülenebilir:! [Zaman serisi Öngörüler Gezgini] (media/time-series-insights-explorer/explorer4.png)
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
  - [Bir tanıtım ortamında zaman serisi Öngörüler explorer'ı kullanarak keşfedin](./time-series-quickstart.md)

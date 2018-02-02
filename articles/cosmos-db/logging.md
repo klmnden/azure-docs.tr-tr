@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/29/2018
 ms.author: mimig
-ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Tanılama Günlüğü
 
@@ -30,7 +30,7 @@ Azure Cosmos Azure portal, CLI veya PowerShell oturum DB ile çalışmaya başla
 
 ## <a name="what-is-logged"></a>Ne kaydedilir?
 
-* Erişim izinleri, sistem hataları veya hatalı istekler sonucunda başarısız olan istekleri içeren tüm kimliği doğrulanmış REST SQL API istekleri günlüğe kaydedilir. MongoDB, grafik ve tablo API desteği şu anda kullanılamıyor.
+* Tüm kimliği doğrulanmış arka uç istekleri (TCP/REST) erişim izinleri, sistem hataları veya hatalı istekler sonucunda başarısız olan istekleri içeren tüm API'leri kaydedilir. Grafik, Cassandra, kullanıcı için destek başlatılan ve tablo API istekleri şu anda kullanılamıyor.
 * Tüm belgeler, kapsayıcıları ve veritabanları üzerinde CRUD işlemleri içeren veritabanının kendisi, üzerinde işlemler.
 * Oluşturma, değiştirme veya bu anahtarları silme dahil hesabı anahtarları üzerinde işlemler.
 * Bir 401 yanıtına neden olan kimliği doğrulanmamış istekler. Örneğin, bir taşıyıcı belirtecine sahip olmayan veya hatalı biçimlendirilmiş ya da süresi dolmuş veya geçersiz bir belirtece sahip olan istekler.
@@ -54,8 +54,8 @@ Bu öğreticiyi tamamlamak için aşağıdaki kaynaklara sahip olmalısınız:
     * **Arşiv depolama hesabı**. Bu seçeneği kullanmak için bağlanmak için var olan bir depolama hesabı gerekir. Portalda yeni bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) ve Kaynak Yöneticisi, genel amaçlı hesabı oluşturmak için yönergeleri izleyin. Depolama hesabınız seçmek için portal bu sayfaya dönün. Yeni oluşturulan depolama hesapları açılır menüde görünmesi birkaç dakika sürebilir.
     * **Bir olay hub'ına akış**. Bu seçeneği kullanmak için bağlanmak için bir var olan olay hub'ı ad alanı ve olay hub'ı gerekir. Bir olay hub'ları ad alanı oluşturmak için bkz: [bir olay hub'ları ad alanı oluşturup Azure portalını kullanarak bir event hub](../event-hubs/event-hubs-create.md). Olay hub'ı ad alanı ve ilke adı seçmek için portal bu sayfaya dönün.
     * **Günlük analizi için Gönder**.     Bu seçeneği kullanmak için varolan bir çalışma alanını kullanın ya da yeni bir günlük analizi çalışma alanı için adımları izleyerek oluşturun [yeni bir çalışma alanı oluşturma](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) Portalı'nda. Günlük analizi, günlükleri görüntüleme hakkında daha fazla bilgi için bkz: [görünüm günlüklerini günlük analizi](#view-in-loganalytics).
-    * **Oturum DataPlaneRequests**. SQL, grafik ve tablo API hesapları için tanılama günlük için bu seçeneği belirleyin. Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
-    * **Oturum MongoRequests**. MongoDB API hesapları için tanılama günlük için bu seçeneği belirleyin. Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
+    * **Oturum DataPlaneRequests**. Arka uç isteklerini Azure Cosmos DB'ın temel dağıtılmış platform SQL, grafik, MongoDB, Cassandra ve tablo API hesapları için günlüğe kaydetmek için bu seçeneği belirleyin. Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
+    * **Oturum MongoRequests**. Kullanıcı tarafından başlatılan isteklerini MongoDB API hesapları hizmet için ön uç Azure Cosmos veritabanı günlüğe kaydetmek için bu seçeneği belirleyin.  Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
     * **Ölçüm istekleri**. Ayrıntılı verileri depolamak için bu seçeneği [Azure ölçümleri](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
 
 3. **Kaydet**’e tıklayın.

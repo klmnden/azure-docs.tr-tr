@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Blob Depolama için Azure olay kılavuz olay şeması
 
@@ -51,7 +51,9 @@ Aşağıdaki örnek, olay oluşturulmuş bir blob şeması gösterir:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ Bir blob silinmiş olayı için şemayı benzer:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -84,27 +88,29 @@ Bir olay aşağıdaki üst düzey veri sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | Dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. |
-| Konu | Dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| Olay türü | Dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | Dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | Dize | Olay için benzersiz tanımlayıcı. |
-| Veri | Nesne | BLOB Depolama olay verileri. |
+| Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
+| Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
+| eventType | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
+| id | dize | Olay için benzersiz tanımlayıcı. |
+| veriler | nesne | BLOB Depolama olay verileri. |
+| dataVersion | dize | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| api | Dize | Olayı tetikleyen işlemi. |
-| ClientRequestId | Dize | Bir istemci tarafından oluşturulan, donuk değerle bir 1 KB karakter sınırı. Depolama çözümlemeleri günlük kaydı etkinleştirildiğinde, analytics günlüklerine kaydedilir. |
-| RequestId | Dize | İstek için benzersiz tanımlayıcı. İstek sorun giderme için kullanın. |
-| ETag | Dize | Koşullu işlemleri gerçekleştirmek için kullanabileceğiniz değeri. |
-| ContentType | Dize | İçerik türü için blob belirtildi. |
-| contentLength | tamsayı | Blob bayt cinsinden boyutu. |
-| BlobType | Dize | Blob türü. |
-| URL | Dize | Blob yolu. |
-| Sıralayıcı | Dize | İstekleri izlemek için kullanabileceğiniz bir kullanıcı tarafından denetlenen bir değer. |
-| storageDiagnostics | Nesne | Depolama Tanılama hakkında bilgi sağlar. |
+| api | dize | Olayı tetikleyen işlemi. |
+| clientRequestId | dize | Bir istemci tarafından oluşturulan, donuk değerle bir 1 KB karakter sınırı. Depolama çözümlemeleri günlük kaydı etkinleştirildiğinde, analytics günlüklerine kaydedilir. |
+| requestId | dize | İstek için benzersiz tanımlayıcı. İstek sorun giderme için kullanın. |
+| eTag | dize | Koşullu işlemleri gerçekleştirmek için kullanabileceğiniz değeri. |
+| contentType | dize | İçerik türü için blob belirtildi. |
+| contentLength | integer | Blob bayt cinsinden boyutu. |
+| blobType | dize | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" dir. |
+| url | dize | Blob yolu. |
+| Sıralayıcı | dize | İstekleri izlemek için kullanabileceğiniz bir kullanıcı tarafından denetlenen bir değer. |
+| storageDiagnostics | nesne | Depolama Tanılama hakkında bilgi sağlar. |
  
 ## <a name="next-steps"></a>Sonraki adımlar
 

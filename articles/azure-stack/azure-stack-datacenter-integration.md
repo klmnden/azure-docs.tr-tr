@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure tümleşik yığını sistemler için veri merkezi tümleştirme konuları
 Bir Azure tümleşik yığını sistemde düşünüyorsanız, bazı önemli planlama konuları dağıtım ve sistem merkeziniz nasıl uyduğunu etrafında anlamanız gerekir. Bu makalede, Azure yığını çok düğümlü sisteminiz için önemli altyapı kararları almanıza yardımcı olmak için bu noktalar üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması veri merkeziniz için Azure yığın dağıtırken OEM donanım satıcınızla çalışırken yardımcı olur.  
@@ -27,9 +27,7 @@ Bir Azure tümleşik yığını sistemde düşünüyorsanız, bazı önemli plan
 > [!NOTE]
 > Azure yığını çok düğümlü sistemleri yalnızca yetkili donanım satıcıları tarafından alınabilir. 
 
-Azure bir dizi düzgün Azure yığın ortamınız ile tümleştirmek yapmanız gereken kararlar vardır yığını dağıtmak için. Bu bilgiler Planlama işlemi sırasında çözüm sağlayıcınızda ve hızlı ve sorunsuz Git işlem yardımcı olmak dağıtım başlamadan önce donanım satıcısının hazır olması gerekir.
-
-Bilgi aralıkları ağı, güvenlik ve birçok farklı alanlara ve karar alıcılar bilgi gerektirebilir birçok önemli kararları ile kimlik bilgileri gereklidir. Bu nedenle, dağıtım başlamadan önce gerekli tüm bilgileri hazır olmasını sağlamak için birden çok ekibin kuruluşunuzdaki kişilerin çekme gerekebilir. Bu bilgi toplarken, donanım satıcınıza öneriler kararları için yararlı olabilir gibi konuşun yardımcı olabilir.
+Azure yığın dağıtmak için hızlı ve sorunsuz Git işlem yardımcı olmak dağıtım başlamadan önce çözüm sağlayıcınızda planlama bilgilerini sağlamanız gerekir. Bilgi aralıkları ağı, güvenlik ve birçok farklı alanlara ve karar alıcılar bilgi gerektirebilir birçok önemli kararları ile kimlik bilgileri gereklidir. Bu nedenle, dağıtım başlamadan önce gerekli tüm bilgileri hazır olmasını sağlamak için birden çok ekibin kuruluşunuzdaki kişilerin çekme gerekebilir. Bu bilgi toplarken, donanım satıcınıza öneriler kararları için yararlı olabilir gibi konuşun yardımcı olabilir.
 
 Araştırma ve gerekli bilgileri toplama sırasında ağ ortamınıza bazı dağıtım öncesi yapılandırma değişiklikleri yapmanız gerekebilir. Bu IP adresi alanlarını, yönlendiriciler, anahtarlar ve yeni Azure yığın çözüm anahtarları bağlantıyı hazırlamak için güvenlik duvarlarını yapılandırma Azure yığın çözüm ayırma içerebilir. Planlama ile Yardım kadar çizgili konu alanında Uzman bulunduğundan emin olun.
 
@@ -38,7 +36,7 @@ Azure yığın burada altyapısı hem de bir izin kilitlenmiştir korumalı bir 
 
 Günlük yönetimi ve işlemleri için altyapısına Kısıtlanmamış yönetici erişimi yoktur. Azure yığın operatörleri sistem Yönetici portalı üzerinden veya Azure Resource Manager (aracılığıyla, PowerShell veya REST API) aracılığıyla yönetmeniz gerekir. Hyper-V Yöneticisi'ni veya yük devretme kümesi Yöneticisi gibi diğer yönetim araçları tarafından sisteme erişimi yoktur. Sistem korunmasına yardımcı olmak için üçüncü taraf yazılım (örneğin, aracıları) Azure yığın altyapısının bileşenleri içinde yüklenemez. Dış yönetim ve güvenlik yazılım ile birlikte çalışabilirlik PowerShell veya REST API oluşur.
 
-Uyarı aracı adımlara çözülmüş olmayan sorunlarını gidermek için erişimi daha yüksek düzeyde gerekli olduğunda, destek ile çalışması gerekir. Destek daha gelişmiş işlemleri gerçekleştirmek için sistem geçici tam yönetici erişimi sağlamak için bir yöntem yoktur. 
+Uyarı aracı adımlara çözülmüş olmayan sorunlarını gidermek için erişimi daha yüksek düzeyde gerekli olduğunda, Microsoft Support çalışmanız gerekir. Destek daha gelişmiş işlemleri gerçekleştirmek için sistem geçici tam yönetici erişimi sağlamak için bir yöntem yoktur. 
 
 ## <a name="identity-considerations"></a>Kimlik konuları
 
@@ -179,7 +177,10 @@ Linux veya Windows Iaas sanal makineleri yedeklemek için yedekleme ürünleri k
 > [!IMPORTANT]
 > Bir Iaas sanal makine Konuk düzeyinde çalışır koruma teknolojileri tümleşik sistemlerin ilk sürümünü destekliyoruz. Temel alınan altyapı sunucularındaki aracılar yükleyemezsiniz.
 
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="learn-more"></a>Daha fazla bilgi edinin
 
 - Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz: [Azure yığın](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
 - Tümleşik sistemleri Azure yığını için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi için teknik incelemesine bakın: [Azure yığın: Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## <a name="next-steps"></a>Sonraki adımlar
+[Azure yığın dağıtım bağlantı modeli](azure-stack-connection-models.md)

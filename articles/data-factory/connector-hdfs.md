@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 01/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 80892d5f87c1f7a588023e4baa5de79bd73329a5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: fb4802a6a3bed163f0d2bba04cf9d80a917ba7ba
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>İlk ve son Azure Data Factory kullanarak HDFS veri kopyalama
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Azure Data Factory kullanarak HDFS verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1 - Genel Kullanım](v1/data-factory-hdfs-connector.md)
 > * [Sürüm 2 - Önizleme](connector-hdfs.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de ilk ve son HDFS verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede kopya etkinliği Azure Data Factory'de HDFS verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 HDFS Bağlayıcısı](v1/data-factory-hdfs-connector.md).
@@ -42,7 +42,7 @@ Verileri HDFS tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakla
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Genel olarak erişilebilir değil bir HDFS başlangıç/bitiş verileri kopyalamak için bir Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) daha ayrıntılı bilgi için makalenin.
+Genel olarak erişilebilir değil bir HDFS verileri kopyalamak için bir Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) daha ayrıntılı bilgi için makalenin.
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -151,7 +151,7 @@ HDFS verileri kopyalamak için kümesine tür özelliği ayarlamak **FileShare**
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde HDFS kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde HDFS kaynak tarafından desteklenen özellikler listesini sağlar.
 
 ### <a name="hdfs-as-source"></a>Kaynak olarak HDFS
 

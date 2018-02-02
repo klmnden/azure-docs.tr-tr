@@ -4,20 +4,20 @@ description: "Çoklu oturum açma Azure Active Directory ile VERITAS Kurumsal Va
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Öğretici: Azure Active Directory Tümleştirme VERITAS Kurumsal Vault.cloud SSO
 
@@ -31,7 +31,7 @@ VERITAS Kurumsal Vault.cloud SSO Azure AD ile tümleştirme ile aşağıdaki ava
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme VERITAS Kurumsal Vault.cloud SSO'su yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,7 +110,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. İçinde **tanımlayıcısı** metin kutusuna, veri merkezi başına URL'yi kullanın
+
+    | Veri merkezi| URL |
+    |----------|----|
+    | Kuzey Amerika| `https://auth.lax.archivecloud.net` |
+    | Avrupa | `https://auth.ams.archivecloud.net` |
+    | Asya Pasifik| `https://auth.syd.archivecloud.net`|
+
+    c. İçinde **yanıt URL'si** metin kutusuna, veri merkezi başına URL'yi kullanın
+
+    | Veri merkezi| URL |
+    |----------|----|
+    | Kuzey Amerika| `https://auth.lax.archivecloud.net` |
+    | Avrupa | `https://auth.ams.archivecloud.net` |
+    | Asya Pasifik| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
     > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [VERITAS Kurumsal Vault.cloud SSO istemci destek ekibi](https://www.veritas.com/support/.html) bu değeri alınamıyor. 
@@ -162,7 +178,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-veritas-enterprise-vaultcloud-sso-test-user"></a>VERITAS Kurumsal Vault.cloud SSO test kullanıcısı oluşturma
 

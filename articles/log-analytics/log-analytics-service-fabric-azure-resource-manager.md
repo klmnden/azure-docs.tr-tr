@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 10c5394935c59b21139c0e141c348ce20a7c0800
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Service Fabric uygulamaları ve mikro hizmetler Azure portal ile değerlendirin
 
@@ -79,7 +79,7 @@ Yukarıdaki aynı adımları, aşağıdaki giriş gerekli parametreleri ve dağ�
 Performans verileri, düğümlerden görüntülemek için:
 
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Azure portalından günlük analizi çalışma alanı başlatın.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)

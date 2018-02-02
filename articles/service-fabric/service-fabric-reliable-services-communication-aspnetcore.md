@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET çekirdek Service Fabric güvenilir hizmetler
 
@@ -26,7 +26,7 @@ ASP.NET Core modern bulut tabanlı Internet'e bağlı uygulamaları, web uygulam
 
 Bu makalede hizmet doku güvenilir hizmetler kullanarak ASP.NET Core hizmetlerini barındıran bir ayrıntılı kılavuzdur **Microsoft.ServiceFabric.AspNetCore.** * NuGet paketlerini kümesi.
 
-Service Fabric ASP.NET çekirdek tanıtım bir öğretici ve geliştirme ortamınızı ayarlayın alma hakkında yönergeler için bkz: [bir web uygulamanız için ASP.NET Core kullanarak ön derleme](service-fabric-add-a-web-frontend.md).
+Service Fabric ASP.NET çekirdek tanıtım bir öğretici ve geliştirme ortamınızı ayarlayın alma hakkında yönergeler için bkz: [.NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md).
 
 Bu makalede geri kalanı ile ASP.NET Core bilginiz varsayar. Okuma öneririz, varsa [ASP.NET Core Temelleri](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -104,7 +104,7 @@ HttpSys üzerinde oluşturulan [Windows HTTP sunucu API'sini](https://msdn.micro
 
 Aşağıdaki diyagram HttpSys nasıl kullandığını gösterir *http.sys* bağlantı noktası paylaşımı için Windows çekirdek sürücüsü:
 
-![HTTP.sys][3]
+![http.sys][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>Durum bilgisiz hizmetindeki HttpSys
 Kullanılacak `HttpSys` durum bilgisiz hizmetinde, geçersiz kılma `CreateServiceInstanceListeners` yöntemi ve return bir `HttpSysCommunicationListener` örneği:
@@ -309,9 +309,9 @@ Internet'e açık olduğunda bir durum bilgisi olmayan hizmetin bir yük dengele
 |  |  | **Notlar** |
 | --- | --- | --- |
 | Web sunucusu | kestrel | Windows ve Linux desteklenenler kestrel tercih edilen web sunucusudur. |
-| Bağlantı noktası yapılandırması | Statik | İyi bilinen statik bağlantı noktası olarak yapılandırılmalıdır `Endpoints` ServiceManifest.xml, yapılandırmayı 80 HTTP veya HTTPS için 443 gibi. |
+| Bağlantı noktası yapılandırması | statik | İyi bilinen statik bağlantı noktası olarak yapılandırılmalıdır `Endpoints` ServiceManifest.xml, yapılandırmayı 80 HTTP veya HTTPS için 443 gibi. |
 | ServiceFabricIntegrationOptions | None | `ServiceFabricIntegrationOptions.None` Hizmeti, gelen istekler için benzersiz bir kimlik doğrulama girişiminde değil böylece Service Fabric tümleştirme Ara yapılandırırken seçeneği kullanılmalıdır. Dış kullanıcılar, uygulamanızın ara yazılım tarafından kullanılan benzersiz tanımlayıcı bilgiler bilmez. |
-| Örnek sayısı | -1 | Bir örnek, bir yük dengeleyici trafiği almak tüm düğümlere kullanılabilir olmasını sağlamak, ayarı örnek sayısı tipik kullanım durumlarında, "-"1 olarak ayarlanmalıdır. |
+| Örnek Sayısı | -1 | Bir örnek, bir yük dengeleyici trafiği almak tüm düğümlere kullanılabilir olmasını sağlamak, ayarı örnek sayısı tipik kullanım durumlarında, "-"1 olarak ayarlanmalıdır. |
 
 Birden çok dışarıdan kullanıma sunulan hizmetler düğümleri aynı kümesi paylaşıyorsanız, HttpSys benzersiz ancak kararlı URL yolu ile kullanılabilir. Bu, IWebHost yapılandırırken sağlanan URL değiştirerek gerçekleştirilebilir. Bu, yalnızca HttpSys için geçerlidir unutmayın.
 
@@ -336,7 +336,7 @@ Yalnızca küme içinde çağrılır durum bilgisi olmayan hizmetler benzersiz U
 | Web sunucusu | kestrel | HttpSys iç durum bilgisi olmayan hizmetler için kullanılabilir ancak Kestrel bir ana bilgisayar paylaşmak birden fazla hizmet örneği izin vermek için önerilen sunucusudur.  |
 | Bağlantı noktası yapılandırması | dinamik olarak atanan | Bir durum bilgisi olan hizmetin birden fazla çoğaltma bir ana bilgisayar işlemi veya ana bilgisayar işletim sistemi paylaşabilir ve bu nedenle benzersiz bağlantı noktaları gerekir. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Dinamik bağlantı noktası atama ile bu ayar daha önce açıklanan hatalı kimlik sorunu önler. |
-| Instancecount | tüm | Ayarlama örnek sayısı hizmeti çalıştırmak gerekli olarak herhangi bir değere ayarlanabilir. |
+| InstanceCount | herhangi biri | Ayarlama örnek sayısı hizmeti çalıştırmak gerekli olarak herhangi bir değere ayarlanabilir. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Yalnızca dahili durum bilgisi olan ASP.NET Core hizmeti
 Yalnızca küme içinde çağrılır durum bilgisi olan hizmetler dinamik olarak atanan bağlantı noktaları, birden çok hizmetleri arasında işbirliği sağlamak için kullanmalısınız. Aşağıdaki yapılandırma önerilir:

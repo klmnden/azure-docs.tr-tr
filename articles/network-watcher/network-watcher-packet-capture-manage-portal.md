@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Paket yakalama Portalı'nı kullanarak Azure Ağ İzleyicisi ile yönetme
 
@@ -80,6 +80,7 @@ Bir paket yakalama tanımlanabilir özellikleri şunlardır:
 
 **Yapılandırma Yakalama**
 
+- **Yerel dosya yolu** -paket yakalama kaydettiğiniz yere sanal makinedeki yerel yol (yalnızca olduğunda geçerlidir **[dosya]** seçilir). Geçerli bir yol belirtmeniz gerekir. Linux sanal makine kullanıyorsanız, yol ile başlamalıdır / var / yakalar.
 - **Depolama hesabı** -paket yakalama bir depolama hesabında kaydedilip kaydedilmeyeceğini belirler.
 - **Dosya** -paket yakalama sanal makinede yerel olarak kaydedilirse belirler.
 - **Depolama hesapları** - seçili paket yakalama kaydetmek için depolama hesabı. Varsayılan konumdur https://{storage hesap name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription kimliği} /resourcegroups/ {kaynak grubu name}/providers/microsoft.compute/virtualmachines/{virtual makine adı} / {YY} / {MM} / {gg} / {ss} packetcapture__{MM}_{SS} _ {XXX} .cap. (Yalnızca etkin olup **depolama** seçili)

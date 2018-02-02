@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 446e39f57448cbc0cd9a6f93a388159d7eca5863
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Microsoft Account hem de Azure Active Directory'de kullanıcılar tek bir uygulamada oturum
 Geçmişte, hem kişisel Microsoft hesaplarını destekler ve iş hesaplarını Azure Active Directory'den isteyen uygulama geliştiricileri iki ayrı sistemlerle tümleştirmek gerekiyordu. Azure Active Directory (Azure AD) v2.0 uç noktası bu işlemi basitleştirir yeni bir kimlik doğrulama API sürümü tanıtır. Tek bir tümleştirme kullanarak oturum açma hesapları her iki tür Azure AD v2.0 uç sağlar. Azure AD v2.0 uç kullanan uygulamalar, REST API'lerinin ayrıca tüketebileceği [Microsoft Graph API](https://graph.microsoft.io) ya da hesap türünü kullanarak.
@@ -51,4 +51,4 @@ Azure AD v2.0 uç noktası platformu hakkında ayrıntılı bilgi keşfedin:
 > [!NOTE]
 > Yalnızca oturum açma iş ve Okul hesapları Azure Active Directory'den gerekiyorsa, başlayın [Azure AD Geliştirici Kılavuzu](active-directory-developers-guide.md). Azure AD v2.0 uç açıkça Microsoft Kişisel hesaplarında oturum açmanız gerekir geliştiriciler tarafından kullanılmaya yöneliktir.
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintileri ve olağanüstü karşı uygulamalar insulating için en iyi uygulamalar
 
@@ -31,12 +31,7 @@ Bir olağanüstü durum kalıcı kaybı Service Bus ölçek birimi veya veri mer
 ## <a name="current-architecture"></a>Geçerli mimari
 Service Bus kuyrukları veya konuları gönderilen iletileri depolamak için birden çok Mesajlaşma deposu kullanır. Bölümlenmemiş kuyruk veya konu bir Mesajlaşma deposuna atanır. Bu ileti deposunu kullanılamıyorsa, kuyruk veya konu tüm işlemler başarısız olur.
 
-Bir veri merkezi ile bağlantılı bir hizmet ad alanındaki tüm Service Bus Mesajlaşma varlıkları (kuyruklar, konular, geçişler) bulunur. Service Bus otomatik coğrafi çoğaltma veri etkinleştirmez veya birden çok veri merkezi span bir ad alanı izin vermez.
-
-## <a name="protecting-against-acs-outages"></a>ACS kesintilere karşı koruma
-ACS kimlik bilgilerini kullandığını ve ACS kullanılamaz hale, istemciler artık belirteçleri alabilir. ACS arıza zaman bir belirteç olan istemcileri belirteçleri süresi dolana kadar Service Bus kullanmaya devam edebilirsiniz. Varsayılan belirteç ömrü 3 saattir.
-
-ACS kesintilere karşı korumak için paylaşılan erişim imzası (SAS) belirteçleri kullanın. Bu durumda, istemci gizli bir anahtar ile bir kendi kendine minted belirteç imzalama tarafından doğrudan Service Bus ile kimliğini doğrular. ACS çağrıları artık gerekli değildir. SAS belirteci hakkında daha fazla bilgi için bkz: [Service Bus kimlik doğrulama][Service Bus authentication].
+Bir veri merkezi ile bağlantılı bir hizmet ad alanındaki tüm Service Bus Mesajlaşma varlıkları (kuyruklar, konular, geçişler) bulunur. Hizmet veri yolu destekler [ *coğrafi olağanüstü durum kurtarma* ve *coğrafi çoğaltma* ](service-bus-geo-dr.md) ad alanı düzeyinde.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Kuyruklar ve konu başlıkları deposu başarısızlıkları Mesajlaşma karşı koruma
 Bölümlenmemiş kuyruk veya konu bir Mesajlaşma deposuna atanır. Bu ileti deposunu kullanılamıyorsa, kuyruk veya konu tüm işlemler başarısız olur. Bölümlenmiş bir sıra diğer taraftan, birden çok parçalarını oluşur. Her parça farklı bir Mesajlaşma deposunda depolanır. Bölümlenmiş kuyruk veya konu için bir ileti gönderildiğinde, hizmet veri yolu ileti parçasının birine atar. Hizmet veri yolu ileti için farklı bir parçası, karşılık gelen ileti deposu kullanılamıyorsa, mümkünse yazar. Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
@@ -82,9 +77,14 @@ Pasif çoğaltma kullanırken, aşağıdaki senaryolarda iletileri kaybolabilir 
 
 [Coğrafi çoğaltma ile Service Bus aracılı ileti] [ Geo-replication with Service Bus Brokered Messages] örnek Mesajlaşma, pasif çoğaltma gösterir.
 
+## <a name="geo-replication"></a>Coğrafi çoğaltma
+
+Hizmet veri yolu coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma, ad alanı düzeyinde destekler. Daha fazla bilgi için bkz: [Azure Service Bus coğrafi olağanüstü durum kurtarma](service-bus-geo-dr.md). Kullanılabilir olağanüstü durum kurtarma özelliği [Premium SKU](service-bus-premium-messaging.md) yalnızca meta veri olağanüstü durum kurtarma uygular ve birincil ve ikincil olağanüstü durum kurtarma ad alanında bulunan kullanır.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Olağanüstü durum kurtarma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
+* [Azure Service Bus coğrafi olağanüstü durum kurtarma](service-bus-geo-dr.md)
 * [Azure SQL veritabanı iş sürekliliği][Azure SQL Database Business Continuity]
 * [Azure için esnek uygulamalar tasarlama][Azure resiliency technical guidance]
 

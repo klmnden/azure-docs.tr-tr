@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 92bb4f2a6458057613bdbcb749026781111a778d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-cost-management-reports"></a>Maliyet yönetim raporları kullanma
+# <a name="use-cost-management-reports"></a>Maliyet Yönetimi raporlarını kullanma
 
 Bu makalede, çeşitli maliyet yönetim raporları Cloudyn Portalı'nda kullanmayı açıklar. Çoğu Cloudyn raporlar sezgisel ve Tekdüzen bir görünümüne sahip. Cloudyn raporlar hakkında bir genel bakış için bkz: [anlama maliyet raporları](understading-cost-reports.md). Makale ayrıca çeşitli seçenekler ve çoğu raporlarda kullanılan alanları açıklar.
 
@@ -135,7 +135,7 @@ Bir Tablo görünümünde aynı bilgileri örneği burada verilmiştir.
 
 
 
-### <a name="cost-over-time-report"></a>Zaman içinde maliyeti raporu
+### <a name="cost-over-time-report"></a>Zaman İçinde Maliyet raporu
 
 Zaman içinde maliyet rapor zamanla eğilimler gözlemleyip sıradışı dağıtımınızda algılamak için harcama görüntüler. Aslında, tanımlanan bir süre içinde dağıtılmış maliyetleri gösterir. Rapor devam eden maliyetler ve seçilen bir zaman çerçevesinde harcanan tek seferlik ayrılmış örnek ücretleri dahil olmak üzere, ana maliyet katkıda bulunanlar gibi bilgileri içerir. Bu rapor kümesini maliyet Yöneticisi'nde 360 derecelik ilkeleri kullanılabilir.
 

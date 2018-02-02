@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Azure Akış Analizi’ni kullanarak Azure Depolama Blobundan Data Lake Store’a veri akışı gerçekleştirme
 Bu makalede Azure Data Lake Store için Azure Stream Analytics işi çıkış olarak kullanmak üzere öğreneceksiniz. Bu makale bir Azure Storage blobundan (giriş) veri okuyan ve Data Lake Store (çıktı) verileri yazar basit bir senaryo gösterir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
@@ -65,7 +65,7 @@ Bir giriş kaynağı ve bir çıkış hedefini içeren bir akış analizi işi o
     * İçin **sınırlayıcı**seçin **sekmesini**.
     * İçin **kodlama**seçin **UTF-8**.
 
-    **Oluştur**'a tıklayın. Şimdi portal giriş ekler ve bağlantıyı sınar.
+    **Oluştur**’a tıklayın. Şimdi portal giriş ekler ve bağlantıyı sınar.
 
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>İş için Data Lake Store çıktı oluşturma
@@ -94,7 +94,7 @@ Bir giriş kaynağı ve bir çıkış hedefini içeren bir akış analizi işi o
     * İçin **sınırlayıcı**seçin **sekmesini**.
     * İçin **kodlama**seçin **UTF-8**.
     
-    **Oluştur**'a tıklayın. Portal şimdi çıktı ekler ve bağlantıyı sınar.
+    **Oluştur**’a tıklayın. Portal şimdi çıktı ekler ve bağlantıyı sınar.
     
 ## <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştır
 

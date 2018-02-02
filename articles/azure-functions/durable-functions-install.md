@@ -14,17 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-<<<<<<< HEAD
-ms.openlocfilehash: 91b632c0c4bab2f0ac71b662cf1b73f5d37881ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Dayanıklı işlevleri uzantısı ve örnekleri (Azure işlevleri) yükleyin
 
@@ -38,7 +32,7 @@ ms.lasthandoff: 12/08/2017
 
 Visual Studio şu anda sağlam işlevleri kullanan uygulamalar geliştirmek için en iyi deneyimi sağlar.  İşlevlerinizi yerel olarak çalıştırın ve Azure'a de yayımlanabilir. Boş bir proje veya bir örnek işlevler kümesi ile başlayabilirsiniz.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 * Yükleme [en son sürümünü Visual Studio](https://www.visualstudio.com/downloads/) (sürüm 15.3 veya daha büyük). Dahil **Azure geliştirme** Kurulum seçeneklerinizi iş yükü.
 
@@ -64,7 +58,7 @@ Visual Studio şu anda sağlam işlevleri kullanan uygulamalar geliştirmek içi
 
 Visual Studio Code tüm önemli platformlar - Windows, macOS ve Linux kapsayan bir yerel geliştirme deneyimi sağlar.  İşlevlerinizi yerel olarak çalıştırın ve Azure'a de yayımlanabilir. Boş bir proje veya bir örnek işlevler kümesi ile başlayabilirsiniz.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 * Yükleme [en son sürümünü Visual Studio Code](https://code.visualstudio.com/Download) 
 
@@ -129,7 +123,7 @@ Visual Studio Code tüm önemli platformlar - Windows, macOS ve Linux kapsayan b
 
 1. En yeni bir işlev uygulaması oluşturmak [functions.azure.com](https://functions.azure.com/signin).
 
-2. İşlev uygulaması yapılandırma [2.0 çalışma zamanı sürümü kullanmak](functions-versions.md).
+2. İşlev uygulaması yapılandırma [2.0 çalışma zamanı sürümü kullanmak](set-runtime-version.md).
 
 3. Seçerek yeni bir işlev oluşturun **"özel işlevinizi oluşturun."** .
 

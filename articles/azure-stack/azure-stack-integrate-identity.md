@@ -5,25 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-<<<<<<< HEAD
-ms.openlocfilehash: e43b9c7a854bc7150247a2b92d2d37ad6d74c705
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure yığın datacenter tümleştirmesi - kimliği
-
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
-
 Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak Azure yığın kimlik sağlayıcıları olarak dağıtabilirsiniz. Azure yığın dağıtmadan önce seçim yapmanız gerekir. AD FS kullanarak dağıtımı da bağlantısı kesilmiş modunda Azure yığın dağıtma olarak adlandırılır.
 
 Aşağıdaki tabloda iki kimlik seçenekleri arasındaki farklar gösterilmektedir:
@@ -32,7 +24,7 @@ Aşağıdaki tabloda iki kimlik seçenekleri arasındaki farklar gösterilmekted
 |---------|---------|---------|
 |Faturalandırma|Kapasite olması gerekir<br> Yalnızca Kurumsal Anlaşma (EA)|Kapasite veya ödeme olarak-size-kullanımı<br>EA veya Bulut çözümü sağlayıcısı (CSP)|
 |Kimlik|AD FS olmalıdır|Azure AD veya AD FS|
-|Market dağıtım|Şu anda kullanılamıyor|Destekleniyor<br>KLG lisanslama|
+|Market dağıtım|Desteklenen<br>KLG lisanslama|Desteklenen<br>KLG lisanslama|
 |Kayıt|Önerilen, çıkarılabilir medya gerektirir<br> ve ayrı bağlı bir aygıt.|Otomatik|
 |Düzeltme eki ve güncelleştirme|Gerekli, çıkarılabilir medya gerektirir<br> ve ayrı bağlı bir aygıt.|Güncelleştirme paketini doğrudan indirilebilir<br> Internet'ten Azure yığını.|
 
@@ -72,7 +64,7 @@ Otomasyon parametre için girdi olarak aşağıdaki bilgiler gereklidir:
 
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
-|CustomADGlobalCatalog|Active Directory ormanı hedef FQDN'si<br>ile tümleştirmek istediğiniz|contoso.com|
+|CustomADGlobalCatalog|Active Directory ormanı hedef FQDN'si<br>ile tümleştirmek istediğiniz|Contoso.com|
 |CustomADAdminCredentials|LDAP okuma izni olan bir kullanıcı|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Kullanıcı hesabı var olan Active Directory (isteğe bağlı) oluşturun
@@ -125,7 +117,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreleri için giriş olarak:
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
 |CustomAdfsName|Talep sağlayıcı adı. <cr>AD FS giriş sayfasında bu şekilde görünür.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Federasyon meta veri bağlantısı|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomAD<br>FSFederationMetadataEndpointUri|Federasyon meta veri bağlantısı|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Talep sağlayıcı güveni Azure yığınında yapılandırmak için tetikleyici Otomasyon
@@ -164,7 +156,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreleri için giriş olarak:
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
 |CustomAdfsName|Talep sağlayıcı adı. AD FS giriş sayfasında bu şekilde görünür.|Contoso|
-|CustomADFSFederationMetadataFile|Federasyon meta veri dosyası|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomADFSFederationMetadataFile|Federasyon meta veri dosyası|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 ### <a name="create-federation-metadata-file"></a>Federasyon meta veri dosyası oluşturma
 
@@ -259,7 +251,7 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
-   **AD FS 2012/2012 R2 için**
+   **For AD FS 2012/2012 R2**
 
    ```powershell
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
@@ -341,4 +333,4 @@ Cmdlet'lerinden herhangi birini başarısız olursa, kullanarak ek günlüklerin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure veri merkezi tümleştirme yığın - uç noktalarını yayımlama](azure-stack-integrate-endpoints.md)
+[Azure yığın kaydetme](azure-stack-registration.md)

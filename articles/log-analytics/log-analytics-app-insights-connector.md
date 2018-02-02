@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Uygulama Öngörüler Bağlayıcısı çözümü (Önizleme) Operations Management Suite (OMS)
 
@@ -37,14 +37,14 @@ Uygulamaları Öngörüler Bağlayıcısı çözüm, performans sorunlarını ta
 
 Çoğu diğer günlük analizi çözümlerden farklı olarak uygulama Öngörüler Bağlayıcısı için aracıları tarafından toplanan veriler değil. Çözüm tarafından kullanılan tüm verileri doğrudan Azure'dan gelir.
 
-| Bağlı Kaynak | Destekleniyor | Açıklama |
+| Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
 | [Windows aracıları](log-analytics-windows-agent.md) | Hayır | Çözüm Windows aracılardan bilgi toplamaz. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Çözüm, Linux aracılarını bilgi toplamaz. |
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | Çözüm bağlı SCOM yönetim grubunda aracılardan gelen bilgiler toplamaz. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Çözüm koleksiyonu bilgileri Azure depolama biriminden değil yapar. |
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Uygulama Öngörüler Bağlayıcısı bilgilere erişmek için bir Azure aboneliğinizin olması gerekir
 - En az bir yapılandırılmış Application Insights kaynağı olması gerekir.
@@ -55,7 +55,7 @@ Uygulamaları Öngörüler Bağlayıcısı çözüm, performans sorunlarını ta
 1. Azure Web Apps Analytics çözümden etkinleştirmek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
 2. OMS Portalı'nda tıklatın **ayarları** &gt; **veri** &gt; **Application Insights**.
 3. Altında **bir abonelik seçin**, Application Insights kaynaklara sahip bir abonelik seçin ve ardından **uygulama adı**, bir veya daha fazla uygulamaları seçin.
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 Yaklaşık 30 dakika içinde veri kullanılabilir hale gelir ve Application Insights döşeme aşağıdaki görüntü gibi verilerle güncelleştirilir:
 
@@ -84,7 +84,7 @@ Tıklatın **Application Insights** açmak için kutucuğa **Application Insight
 
 Pano tabloda gösterilen Kanatlar içerir. Her dikey penceresinde belirtilen kapsam ve zaman aralığı için o dikey 's ölçütlerle eşleşen en fazla 10 öğeleri listeler. Tüm kayıtları tıkladığınızda döndüren bir günlük arama çalıştırabilirsiniz **tümünü görmek** alt dikey veya dikey başlığını tıklatın.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Sütun** | **Açıklama** |
 | --- | --- |
@@ -182,13 +182,13 @@ Bir kayıtla bir *türü* , *Applicationınsights* her giriş veri türü için 
 | ScreenResolution |   |
 | Kıta | İsteğin geldiği Kıtada |
 | Ülke | İsteğin geldiği ülke |
-| Bölge | Bölge, durum veya isteğin geldiği yerel ayar |
+| İl | Bölge, durum veya isteğin geldiği yerel ayar |
 | Şehir | Şehir veya isteğin geldiği Şehir |
 | isSynthetic | İstek bir kullanıcı veya otomatik olarak yöntemi tarafından oluşturulup oluşturulmadığını belirtir. Doğru oluşturulan kullanıcı = ya da yanlış = otomatik yöntemi |
 | SamplingRate | Portala gönderilen SDK'sı tarafından oluşturulan telemetri yüzdesi. 0,0 100.0 aralığı. |
 | SampledCount | 100/(SamplingRate). Örneğin, 4 =&gt; % 25 |
 | IsAuthenticated | True veya false |
-| Operationıd | Kimliği ilgili öğeler Portalı'nda gösterilen aynı işlemi sahip öğeler. Genellikle istek kimliği |
+| OperationID | Kimliği ilgili öğeler Portalı'nda gösterilen aynı işlemi sahip öğeler. Genellikle istek kimliği |
 | ParentOperationID | Üst işlem kimliği |
 | OperationName |   |
 | SessionID | İstek oluşturulduğu oturumunu benzersiz şekilde tanımlamak için GUID |

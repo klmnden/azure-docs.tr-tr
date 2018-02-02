@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri, belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil ya da bağlama belirli Ayrıntılar öğrenme moduna geçmek önce bunların tümüne uygulanır Bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
@@ -53,9 +53,9 @@ Ayarlama `disabled` özelliğine `true` işlevi çalıştırılmasını engellem
 
 | Özellik | Değerleri/türleri | Yorumlar |
 | --- | --- | --- |
-| `type` |Dize |Bağlama türü. Örneğin, `queueTrigger`. |
+| `type` |dize |Bağlama türü. Örneğin, `queueTrigger`. |
 | `direction` |'in', 'out' |Bağlama işlevdeki veri alma veya işlevinden veri göndermek için olup olmadığını gösterir. |
-| `name` |Dize |Bağlı veri işlevinde için kullanılan ad. C# ' ta bir bağımsız değişken adı budur; JavaScript için bir anahtar/değer listesinde anahtardır. |
+| `name` |dize |Bağlı veri işlevinde için kullanılan ad. C# ' ta bir bağımsız değişken adı budur; JavaScript için bir anahtar/değer listesinde anahtardır. |
 
 ## <a name="function-app"></a>İşlev uygulaması
 Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir veya daha fazla tekil işlevler oluşur. Bir işlev uygulaması işlevlerde tümünün aynı fiyatlandırma planı, sürekli dağıtımı ve çalışma zamanı sürümü paylaşır. Çeşitli dillerde yazılmış işlevleri tüm aynı işlev uygulaması paylaşabilirsiniz. Bir işlev uygulaması düzenlemek ve topluca işlevlerinizi yönetmek için bir yol olarak düşünün. 
@@ -102,7 +102,7 @@ Birden çok tetikleyici olaylar tek iş parçacıklı işlevi çalışma zamanı
 
 ## <a name="functions-runtime-versioning"></a>İşlevler çalışma zamanı sürüm oluşturma
 
-Çalışma zamanı işlevleri kullanarak sürümünü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 1" değeri, işlev uygulaması kendi ana sürüm 1 kullanacağını gösterir. İşlev uygulamalarının en yeni her ikincil sürüme yükseltilir. İşlev uygulamanızı'nün tam sürümünü görüntülemek nasıl dahil olmak üzere daha fazla bilgi için bkz: [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](functions-versions.md).
+Çalışma zamanı işlevleri kullanarak sürümünü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 1" değeri, işlev uygulaması kendi ana sürüm 1 kullanacağını gösterir. İşlev uygulamalarının en yeni her ikincil sürüme yükseltilir. İşlev uygulamanızı'nün tam sürümünü görüntülemek nasıl dahil olmak üzere daha fazla bilgi için bkz: [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](set-runtime-version.md).
 
 ## <a name="repositories"></a>Depolar
 Azure işlevleri için kod açık bir kaynaktır ve GitHub depolarının depolanır:

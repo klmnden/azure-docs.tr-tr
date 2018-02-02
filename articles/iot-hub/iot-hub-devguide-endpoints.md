@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Başvuru - IOT Hub uç noktaları
 
@@ -81,7 +81,12 @@ Ekleyebileceğiniz uç noktaların sayısını sınırları için bkz: [kotalar 
 
 ### <a name="when-using-azure-storage-containers"></a>Azure Storage kapsayıcıları kullanırken
 
-IOT hub'ı yalnızca destekler bloblar olarak Azure Storage kapsayıcıları için veri yazma [Apache Avro](http://avro.apache.org/) biçimi. IOT hub'ı iletileri toplu işlemleri ve veri bir blobu ya da belirli bir boyuta ulaştığında veya belirli bir süre geçtikten sonra hangisi önce gerçekleşir yazar. IOT hub'ı boş bir blob yazmak için hiçbir veri olup olmadığını yazmaz.
+IOT hub'ı yalnızca destekler bloblar olarak Azure Storage kapsayıcıları için veri yazma [Apache Avro](http://avro.apache.org/) biçimi. IOT Hub iletileri toplu işlemleri ve bir blob verileri yazar zaman:
+
+* Toplu işlem belirli bir boyuta ulaştığında.
+* Veya belirli bir süre geçti.
+
+IOT hub'ı mu yazma yazmak için veri yoksa boş bir blob.
 
 IOT hub'ı varsayılan olarak aşağıdaki dosya adlandırma kuralları:
 

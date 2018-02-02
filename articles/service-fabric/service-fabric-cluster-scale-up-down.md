@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Service Fabric kümesi veya otomatik ölçeklendirme kurallarını kullanarak uzaklaştırma ölçeklendirme
 Sanal makine ölçek kümeleri dağıtmak ve sanal makinelerin bir koleksiyon kümesi olarak yönetmek için kullanabileceğiniz bir Azure işlem kaynaktır. Service Fabric kümesi içinde tanımlanan her düğüm türü ayrı bir sanal makine ölçek kümesi ayarlanır. Her düğüm türü, genişletilebilir veya çıkışı bağımsız olarak, farklı bağlantı noktalarının açık olması ve farklı kapasite ölçümlerini olabilir. İçinde hakkında daha fazla bilgiyi [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) belge. Service Fabric düğüm türleri kümenizdeki arka uç, sanal makine ölçek kümelerinin yapıldıktan sonra otomatik ölçek kuralı her düğüm türü/sanal makine ölçek kümesi için ayarlamanız gerekir.
@@ -91,7 +91,7 @@ Aşağıdaki adımlar, bir VM örneği çalıştırma aynı anda gerekir. Bu kal
 4. 1 ile gerektiğinde 3 arasındaki adımları yineleyin, ancak hiçbir zaman birincil düğüm türleri ne güvenilirlik katmanını sağlayacağını değerinden sayısının ölçeğini. Başvurmak [burada güvenilirlik katmanları ayrıntıları](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Service Fabric Explorer'da davranışlarla karşılaşabilirsiniz
-Bir küme ölçeklendirdiğinizde Service Fabric Explorer kümesinin parçası olan (sanal makine ölçek kümesi örneklerinin) düğüm sayısını yansıtır.  Ölçeklendirmek ancak, bir küme, aşağı, gerektirmediği sürece kötü durumda görüntülenen kaldırılan düğüm/VM örneği görürsünüz [Kaldır ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) uygun düğümü ada sahip.   
+Bir küme ölçeklendirdiğinizde Service Fabric Explorer kümesinin parçası olan (sanal makine ölçek kümesi örneklerinin) düğüm sayısını yansıtır.  Ölçeklendirmek ancak, bir küme, aşağı, gerektirmediği sürece kötü durumda görüntülenen kaldırılan düğüm/VM örneği görürsünüz [Kaldır ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) uygun düğümü ada sahip.   
 
 Aşağıda, bu davranışı için bir açıklama verilmiştir.
 

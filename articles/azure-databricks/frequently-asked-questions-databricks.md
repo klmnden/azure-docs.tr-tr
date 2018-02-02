@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
-ms.openlocfilehash: b56253e7b9c9ab144ebc4006511631756de4f89b
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks hakkında sık sorulan sorular
 
@@ -36,7 +36,7 @@ Yeni bir sanal ağ Databricks sağlama bir parçası olarak oluşturulur. Bu sü
 2. Data Lake Store'da hizmet sorumlusu için gerekli izinleri atayın.
 3. Data Lake Store'da bir dosyaya erişmek için not defterinde hizmet asıl kimlik bilgilerini kullanın.
 
-Daha fazla bilgi için bkz: [kullanım Data Lake Store ile Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+Daha fazla bilgi için bkz: [kullanım Data Lake Store ile Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
 
 ## <a name="fix-common-problems"></a>Sık karşılaşılan sorunları giderin
 

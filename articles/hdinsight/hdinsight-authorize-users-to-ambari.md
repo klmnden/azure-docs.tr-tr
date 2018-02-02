@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Kullanıcıları Ambari Views için yetkilendirme
 
-[Etki alanına katılmış Hdınsight kümeleri](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory tabanlı kimlik doğrulaması dahil Kurumsal düzeyde özellikler sunar. Yeni kullanıcılar eşitleyebilirsiniz
-<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both domain-joined HDInsight cluster and standard HDInsight cluster.
+[Etki alanına katılmış Hdınsight kümeleri](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory tabanlı kimlik doğrulaması dahil Kurumsal düzeyde özellikler sunar. Yeni kullanıcılar eşitleyebilirsiniz <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> belirli eylemleri gerçekleştirmek belirli kullanıcılarla izin kümesine erişimi sağlanan Azure AD gruplarına eklenebilir. Kullanıcıları, grupları ve izinleri Ambari içinde çalışmak etki alanına katılmış Hdınsight kümesi ve standart Hdınsight kümesi için desteklenir.
 
 Active Directory kullanıcıları kendi etki alanı kimlik bilgilerini kullanarak küme düğümlerine oturum açabilir. Küme etkileşimleri ton, Ambari görünümleri, ODBC, JDBC, PowerShell ve REST API'leri gibi diğer onaylı uç noktaları ile kimlik doğrulaması yapmak için etki alanı kimlik bilgilerini de kullanabilirsiniz.
 

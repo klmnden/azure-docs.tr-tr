@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 415eddaec9702a42ceee51858a39840fcd6a202b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 540dca5416367f39d6132ae306dd1e44ec0561d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Automation
 Çoğu Azure Automation runbook kullanıcıya bir hata iletisi gibi bir çıkış sahiptir veya karmaşık bir nesne başka bir iş akışı tarafından kullanılması amaçlanan. Windows PowerShell sağlar [birden çok akış](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) bir komut dosyası veya iş akışı çıkış göndermek için. Azure Otomasyonu her bu akışları farklı şekilde çalışır ve bir runbook oluştururken her kullanımı için en iyi uygulamaları izlemelisiniz.
@@ -31,11 +31,11 @@ Aşağıdaki tabloda hem yayımlanan bir runbook çalıştırılırken hem de he
 | Uyarı |Kullanıcıya yönelik uyarı iletisi. |İş geçmişine yazılır. |Test çıkış Bölmesi'nde görüntülenir. |
 | Hata |Kullanıcıya yönelik hata iletisi. Bir özel durumun aksine, runbook varsayılan olarak bir hata iletisinden sonra devam eder. |İş geçmişine yazılır. |Test çıkış Bölmesi'nde görüntülenir. |
 | Ayrıntılı |Genel ya da hata ayıklama bilgileri sağlayan iletiler. |Yalnızca runbook için ayrıntılı günlük kaydı etkin değilse iş geçmişine yazılır. |Yalnızca $VerbosePreference devam et runbook'ta ayarlandıysa Test çıkışı bölmesinde görüntülenir. |
-| İlerleme |Önce ve sonra runbook'taki her etkinlik otomatik olarak oluşturulan kayıtlar. Runbook için etkileşimli bir kullanıcı amaçlandığından kendi ilerleme durumu kayıtlarını oluşturmaya çalışmamalıdır. |Yalnızca runbook için ilerleme durumu günlük kaydı etkin değilse iş geçmişine yazılır. |Test çıkış Bölmesi'nde görüntülenmez. |
+| İlerleme Durumu |Önce ve sonra runbook'taki her etkinlik otomatik olarak oluşturulan kayıtlar. Runbook için etkileşimli bir kullanıcı amaçlandığından kendi ilerleme durumu kayıtlarını oluşturmaya çalışmamalıdır. |Yalnızca runbook için ilerleme durumu günlük kaydı etkin değilse iş geçmişine yazılır. |Test çıkış Bölmesi'nde görüntülenmez. |
 | Hata ayıklama |Etkileşimli bir kullanıcıya yönelik iletiler. Runbook'larda kullanılmamalıdır. |İş geçmişine yazılmaz. |Test çıkış Bölmesi'ne yazılmaz. |
 
 ## <a name="output-stream"></a>Çıkış akışı
-Çıkış akışı, doğru çalıştığı zaman bir komut dosyası veya iş akışı tarafından oluşturulan nesnelerin çıkışı için tasarlanmıştır. Azure Otomasyonu'nda Bu akış öncelikle tarafından kullanılması amaçlanan nesneler için kullanılan [üst geçerli runbook'u çağıran runbook'ları](automation-child-runbooks.md). Olduğunda, [bir runbook'u satır içi olarak çağırdığınızda](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) üst runbook'tan, veri çıkış akışından üst öğeye döndürür. Yalnızca runbook'un hiçbir zaman başka bir runbook tarafından çağrılmaz biliyorsanız geri kullanıcıya genel bilgiler iletişim kurmak için çıkış akışı kullanmanız gerekir. En iyi uygulama, ancak genellikle kullanmanız [ayrıntılı akış](#Verbose) kullanıcıya genel bilgiler iletişim kurmak için.
+Çıkış akışı, doğru çalıştığı zaman bir komut dosyası veya iş akışı tarafından oluşturulan nesnelerin çıkışı için tasarlanmıştır. Azure Otomasyonu'nda Bu akış öncelikle tarafından kullanılması amaçlanan nesneler için kullanılan [üst geçerli runbook'u çağıran runbook'ları](automation-child-runbooks.md). Olduğunda, [bir runbook'u satır içi olarak çağırdığınızda](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) üst runbook'tan, veri çıkış akışından üst öğeye döndürür. Yalnızca runbook'un hiçbir zaman başka bir runbook tarafından çağrılır biliyorsanız geri kullanıcıya genel bilgiler iletişim kurmak için çıkış akışı kullanmanız gerekir. En iyi uygulama, ancak genellikle kullanmanız [ayrıntılı akış](#Verbose) kullanıcıya genel bilgiler iletişim kurmak için.
 
 Çıkış akışı kullanan veri yazabilirsiniz [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) veya nesneyi runbook'ta kendi satırına koyarak kullanılabilir.
 
@@ -95,17 +95,17 @@ Aşağıdaki örnek runbook bir dize nesnesi çıkışı yapar ve çıkış tür
        Write-Output $output
     }
 
-Grafik veya grafik PowerShell iş akışı runbook'ları bir çıktı türünün bildirmek için seçebileceğiniz **giriş ve çıkış** menü seçeneğini ve çıkış türü adını yazın. Tam .NET sınıf adı kolayca tanımlanabilen bir üst runbook'tan başvururken yapmak için kullanmanızı öneririz. Bu runbook'taki veri yolu o sınıfın tüm özelliklerini gösterir ve bunları günlüğe kaydetme ve runbook'taki diğer etkinlikler için değerler olarak başvuran koşullu mantık için kullanırken büyük bir esneklik sağlar.<br> ![Runbook giriş ve çıkış seçeneği](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+Grafik veya grafik PowerShell iş akışı runbook'ları bir çıktı türünün bildirmek için seçebileceğiniz **giriş ve çıkış** menü seçeneğini ve çıkış türü adını yazın. Kolayca tanımlanabilen bir üst runbook'tan başvururken yapmak için tam .NET sınıf adı kullanmanız önerilir. Bu runbook'taki veri yolu o sınıfın tüm özelliklerini gösterir ve bunları günlüğe kaydetme ve runbook'taki diğer etkinlikler için değerler olarak başvuran koşullu mantık için kullanırken çok esneklik sağlar.<br> ![Runbook giriş ve çıkış seçeneği](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
-Aşağıdaki örnekte, bu özellik göstermek için iki grafik runbook'lar sahip. Biz modüler runbook tasarım modeli uygularsanız, görevi gören bir runbook sahibiz *kimlik doğrulaması Runbook şablonu* kimlik doğrulama farklı çalıştır hesabını kullanarak Azure ile yönetme. Normal olarak belirli bir senaryo otomatikleştirmek için çekirdek mantığını gerçekleştireceği, bizim ikinci runbook, bu durumda yürütme yükleneceği *kimlik doğrulaması Runbook şablonu* ve sonuçları görüntülemek, **Test** çıkış bölmesi.  Normal koşullar altında Biz bu runbook alt runbook'un çıktısını yararlanan bir kaynak karşı bir şeyler gerekir.    
+Aşağıdaki örnekte, bu özellik göstermek için iki grafik runbook'lar sahip. Modüler runbook tasarım modeli uygularsanız, görevi gören bir runbook sahip *kimlik doğrulaması Runbook şablonu* kimlik doğrulama farklı çalıştır hesabını kullanarak Azure ile yönetme. Normal olarak belirli bir senaryo otomatikleştirmek için çekirdek mantığını gerçekleştireceği, bizim ikinci runbook, bu durumda yürütme yükleneceği *kimlik doğrulaması Runbook şablonu* ve sonuçları görüntülemek, **Test** çıkış bölmesi. Normal koşullar altında bu runbook alt runbook'un çıktısını yararlanan bir kaynak karşı bir şeyler gerekir.    
 
 Temel mantığını işte **AuthenticateTo Azure** runbook.<br> ![Runbook şablonu örnek kimliğini](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
-Çıkış türü içeren *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, hangi döndürecektir kimlik doğrulaması profil özellikleri.<br> ![Runbook'u çıktı türü örneği](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
+Çıkış türü içeren *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, profil özellikleri kimlik doğrulaması döndürür.<br> ![Runbook'u çıktı türü örneği](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
 
 Bu runbook düz İleri olmakla birlikte, burada duyurmak için bir yapılandırma öğesi yok. Son Etkinlik yürütme **Write-Output** cmdlet'i ve profil verileri için bir PowerShell ifadesi kullanan bir $_ değişkeni yazan **Inputobject** Bu cmdlet'i için gerekli olan parametre.  
 
-Bu örnekte ikinci runbook için adlı *Test ChildOutputType*, yalnızca iki etkinlik sunuyoruz.<br> ![Örnek alt türü Runbook çıkış](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
+Bu örnekte ikinci runbook için adlı *Test ChildOutputType*, yalnızca iki etkinlik vardır.<br> ![Örnek alt türü Runbook çıkış](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
 
 İlk etkinlik çağrıları **AuthenticateTo Azure** runbook ve ikinci etkinlik çalışıyor **Write-Verbose** cmdlet'iyle **veri kaynağı** , **etkinlik çıkışı** ve değeri **alan yolu** olan **Context.Subscription.SubscriptionName**, bağlam çıkışı belirtme **AuthenticateTo Azure** runbook.<br> ![Write-Verbose cmdlet parametresi veri kaynağı](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
 
@@ -149,7 +149,7 @@ Yapılandırırsanız, bir runbook'u ilerleme oturum (Azure Portalı'nda runbook
 ## <a name="preference-variables"></a>Tercih değişkenleri
 Windows PowerShell kullanan [tercih değişkenleri](http://technet.microsoft.com/library/hh847796.aspx) farklı çıkış akışlarına gönderilen verilerin yanıt vereceğinizi belirlemek için. Bir runbook'ta nasıl farklı akışlara gönderilen verilerin yanıt denetlemek için bu değişkenleri ayarlayabilirsiniz.
 
-Aşağıdaki tabloda geçerli runbook'ları ve varsayılan değerleri kullanılabilir tercih değişkenleri listeler. Bu tablo yalnızca bir runbook'ta geçerli olan değerleri içerdiğini unutmayın. Windows PowerShell Azure Otomasyonu dışında kullanıldığında tercih değişkenleri için ek değerler geçerlidir.
+Aşağıdaki tabloda geçerli runbook'ları ve varsayılan değerleri kullanılabilir tercih değişkenleri listeler. Bu tablo yalnızca bir runbook'ta geçerli olan değerleri içerir. Windows PowerShell Azure Otomasyonu dışında kullanıldığında tercih değişkenleri için ek değerler geçerlidir.
 
 | Değişken | Varsayılan Değer | Geçerli Değerler |
 |:--- |:--- |:--- |
@@ -170,7 +170,7 @@ Aşağıdaki tabloda runbook'larda geçerli olan tercih değişkeni değerleri i
 Bir runbook'un işler sekmesinden Azure portalında bir runbook işi ayrıntılarını görüntüleyebilirsiniz. Giriş parametreleri iş özetini görüntüler ve [çıkış akışı](#Output) işi ve bunlar oluştuysa hakkındaki genel bilgileri. Gelen iletileri geçmişini içerir [çıkış akışı](#Output) ve [uyarı ve hata akışları](#WarningError) ek olarak [ayrıntılı akış](#Verbose) ve [ilerleme durumu kayıtlarını](#Progress) runbook günlük ayrıntılı ve ilerleme durumu kayıtlarını için yapılandırılmışsa.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
-Windows PowerShell'de, çıkışı ve iletileri kullanarak bir runbook'tan alabilirsiniz [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) cmdlet'i. Bu cmdlet iş Kimliğini gerektirir ve hangi akışın döndürüleceğini belirttiğiniz akış adlı bir parametreye sahiptir. Herhangi bir işin tüm akışlarını döndürmek için belirtebilirsiniz.
+Windows PowerShell'de, çıkışı ve iletileri kullanarak bir runbook'tan alabilirsiniz [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) cmdlet'i. Bu cmdlet iş Kimliğini gerektirir ve hangi akışın döndürüleceğini belirttiğiniz akış adlı bir parametreye sahiptir. Belirleyebileceğiniz **herhangi** işin tüm akışlarını döndürmek için.
 
 Aşağıdaki örnek, örnek bir runbook başlatır ve tamamlanmasını bekler. Tamamlandığında, çıkış akışı işten toplanır.
 
@@ -194,27 +194,27 @@ Aşağıdaki örnek, örnek bir runbook başlatır ve tamamlanmasını bekler. T
     
 
 ### <a name="graphical-authoring"></a>Grafik yazma
-Grafik runbook'lar için fazladan günlüğü etkinlik düzeyi izleme formunda kullanılabilir.  İzleme iki düzeyi vardır: temel ve ayrıntılı.  Temel izleme başlangıç görebilirsiniz ve runbook yanı sıra tüm etkinlik yeniden deneme sayısı gibi ilgili bilgileri her etkinliğin bitiş saati çalışır ve Etkinliğin başlangıç.  Ayrıntılı izleme, her etkinlik için temel izleme artı girdi ve çıktı veri alın.  Şu anda izleme kayıtları izlemeyi etkinleştirdiğinizde, ayrıntılı günlük etkinleştirmelisiniz ayrıntılı akış kullanarak yazıldığını unutmayın.  İzlemenin etkin ile grafik runbook'lar için temel izleme aynı amaca hizmet eder ve daha bilgilendirici olduğu için ilerleme durumu kayıtlarını günlüğe kaydetmek için gerek yoktur.
+Grafik runbook'lar için fazladan günlüğü etkinlik düzeyi izleme formunda kullanılabilir. İzleme iki düzeyi vardır: temel ve ayrıntılı. Temel izleme başlangıç görebilirsiniz ve runbook yanı sıra tüm etkinlik yeniden deneme sayısı gibi ilgili bilgileri her etkinliğin bitiş saati çalışır ve Etkinliğin başlangıç. Ayrıntılı izleme, her etkinlik için temel izleme artı girdi ve çıktı veri alın. Şu anda izleme kayıtları izlemeyi etkinleştirdiğinizde, ayrıntılı günlük etkinleştirmeniz gerekir böylece ayrıntılı akış kullanılarak yazılır. İzlemenin etkin ile grafik runbook'lar için temel izleme aynı amaca hizmet eder ve daha bilgilendirici olduğu için ilerleme durumu kayıtlarını günlüğe kaydetmek için gerek yoktur.
 
 ![Görünüm grafik yazma iş akışları](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-Ayrıntılı günlüğe kaydetme ve grafik runbook'lar için izlemeyi etkinleştirdiğinizde, çok daha fazla bilgi iş akışları görünüm üretimde kullanılabilir olduğunu, yukarıdaki ekran görüntüsünde görebilirsiniz.  Bu ek bilgiler ile runbook üretim sorunlarını gidermeye yönelik temel olabilir ve bu nedenle, yalnızca bu genel bir uygulama değil de, bunun için etkinleştirmeniz gerekir. İzleme kayıtları, özellikle çok sayıda olabilir.  Grafik runbook izleme ile etkinlik basit veya ayrıntılı izleme yapılandırmış olmanıza bağlı olarak her iki ila dört kayıt elde edebilirsiniz.  Sorun giderme için bir runbook ilerlemesini izlemek için bu bilgileri gerekli olmadıkça, izleme tutmak kapalı isteyebilirsiniz.
+Önceki ekran görüntüsünde, ayrıntılı günlük kaydı ve grafik runbook'lar için izlemeyi etkinleştirdiğinizde, çok daha fazla bilgi iş akışları görünüm üretimde kullanılabilir olduğunu görebilirsiniz. Bu ek bilgiler ile runbook üretim sorunlarını gidermeye yönelik temel olabilir ve bu nedenle, yalnızca bu genel bir uygulama değil de, bunun için etkinleştirmeniz gerekir. İzleme kayıtları, özellikle çok sayıda olabilir. Grafik runbook izleme ile etkinlik basit veya ayrıntılı izleme yapılandırmış olmanıza bağlı olarak her iki ila dört kayıt elde edebilirsiniz. Sorun giderme için bir runbook ilerlemesini izlemek için bu bilgileri gerekli olmadıkça, izleme tutmak kapalı isteyebilirsiniz.
 
-**Etkinlik düzeyinde izlemeyi etkinleştirmek için aşağıdaki adımları gerçekleştirin.**
+**Etkinlik düzeyinde izlemeyi etkinleştirmek için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure Portal’da, Automation hesabınızı açın.
-2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.
-3. Runbook dikey penceresinde, grafik runbook, runbook'ları listesinden seçmek için tıklatın.
-4. Ayarlar dikey penceresinde seçili runbook'u, tıklatın **günlüğe kaydetme ve izleme**.
-5. Günlüğe kaydetme ve ayrıntılı kayıtları günlüğe altında dikey izleme tıklayın **üzerinde** ayrıntılı günlük kaydını etkinleştir ve etkinlik düzeyinde izleme altında izleme düzeyini değiştirmek için **temel** veya **ayrıntılı** ihtiyaç duyduğunuz izleme düzeyi temelinde.<br>
+1. Azure portalında, Otomasyon hesabınızı açın.
+2. Altında **işlem Otomasyonu**seçin **Runbook'lar** listesini açmak için.
+3. Runbook'ları sayfasında, grafik runbook, runbook'ları listesinden seçmek için tıklatın.
+4. Altında **ayarları**, tıklatın **günlüğe kaydetme ve izleme**.
+5. Günlüğe kaydetme ve ayrıntılı kayıtları günlüğe altında sayfa izleme tıklayın **üzerinde** ayrıntılı günlük kaydını etkinleştir ve etkinlik düzeyinde izleme altında izleme düzeyini değiştirmek için **temel** veya **ayrıntılı** ihtiyaç duyduğunuz izleme düzeyi temelinde.<br>
    
    ![Grafik yazma günlüğe kaydetme ve dikey izleme](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Microsoft Operations Management Suite (OMS) günlük analizi
-Otomasyon runbook iş durumu ve iş akışları için Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanınız gönderebilirsiniz.  Günlük analizi ile şunları yapabilirsiniz,
+Otomasyon runbook iş durumu ve iş akışları için Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanınız gönderebilirsiniz. Günlük analizi ile şunları yapabilirsiniz,
 
 * Otomasyon işleriniz hakkında bilgi edinme 
-* Bir e-posta veya uyarı (örneğin başarısız oldu veya askıya alınmış), runbook işi durumlarına dayalı tetikleyici 
+* Bir e-posta veya uyarı (örneğin, başarısız veya askıya alınmış), runbook işi durumlarına dayalı tetikleyici 
 * Gelişmiş sorgular, iş akışları yazma 
 * İşlerini Automation hesaplarında ilişkilendirmek 
 * İş Geçmişi zaman içinde görselleştirin    

@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Uygulama ağ geçidi ve Azure Güvenlik Merkezi arasında tümleştirme genel bakış
 
@@ -37,7 +37,7 @@ Uygulama ağ geçidi WAF Güvenlik Merkezi'nde açığından yararlanma girişim
 
 Gidin **daha Hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve **Güvenlik Merkezi - genel bakış** dikey penceresinde tıklatın **uygulamaları**. Üzerinde **Güvenlik Merkezi - uygulamaları** dikey penceresinde, tablo, Güvenlik Merkezi, aboneliğinizde algıladı uygulamaların bir listesini içerir.
 
-![Web uygulamaları][3]
+![web uygulaması][3]
 
 Kritik bir sorunu web uygulamasıyla tıklayarak, get **uygulama güvenlik durumu** dikey. Aşağıdaki resimde, bir web uygulaması güvenlik duvarı tarafından korumalı olmayan web uygulaması. 
 
@@ -81,7 +81,7 @@ Bir kural tıklatarak uyarıların bir listesi için bu belirli WAF kuralı sağ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Web uygulaması güvenlik duvarı var olan bir uygulama ağ geçidi'nı etkinleştirme hakkında bilgi için [oluştur veya güncelleştir web uygulaması güvenlik duvarı ile Azure uygulama ağ geçidi](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+Web uygulaması güvenlik duvarı var olan bir uygulama ağ geçidi'nı etkinleştirme hakkında bilgi için [oluştur veya güncelleştir Azure uygulama ağ geçidi web uygulaması güvenlik duvarı ile](application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

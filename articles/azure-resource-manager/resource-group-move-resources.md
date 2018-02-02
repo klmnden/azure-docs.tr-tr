@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
-ms.translationtype: MT
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -53,7 +53,10 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, başvurmalıdır [Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) kaynakları için yeni bir kiracı taşımak için.
+  Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, Kiracı kimliklerini karşılaştırmak için aşağıdaki yöntemleri kullanın: 
+
+  * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
+  * [İlişkilendirme veya bir Azure aboneliğinin Azure Active Directory'ye ekleme](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. Hizmet, kaynakları taşıma olanağını sağlamalıdır. Bu makalede, hangi hizmetlerin taşıma kaynakları etkinleştirmek ve hangi hizmetlerin taşıma kaynakları etkinleştirmeyin listelenmektedir.
 3. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Kaynağı taşıdığınız yeni abonelik, ilgili kaynak türüyle daha önce kullanılmamışsa bu sorunla karşılaşabilirsiniz.
@@ -93,7 +96,7 @@ Bu makalede gösterilen Self Servis işlemleri üzerinden en fazla kaynak taşı
 
 Kişi [Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) için gerektiğinde:
 
-* Kaynaklarınızın bir yeni bir Azure hesabı (ve Azure Active Directory kiracısı) taşıyın.
+* Kaynaklarınızın bir yeni bir Azure hesabı (ve Azure Active Directory kiracısı) taşıyın ve önceki bölümünde yer alan yönergeleri ile ilgili Yardım gerekiyor.
 * Klasik kaynakları taşımak ancak kısıtlamalarla sorunu yaşıyor.
 
 ## <a name="services-that-enable-move"></a>Taşıma Etkinleştirme Hizmetleri
@@ -319,7 +322,7 @@ Kayıtlı bir VM taşımak için **Azure yedekleme** kaynak grupları arasında:
  1. Geçici olarak yedeklemeyi durdurma ve yedekleme verileri tut
  2. VM hedef kaynak grubuna taşıma
  3. Kullanıcıların taşıma işlemi önce oluşturulan kullanılabilir geri yükleme noktaları geri yükleyebilirsiniz aynı/yeni kasa altında yeniden koruyun.
-Kullanıcı abonelikleri yedeklenen VM geçerse, adım 1 ve 2. adım aynı kalır. 3. adımda, mevcut / hedef abonelik içinde oluşturulan yeni bir kasa altında VM korumak kullanıcı gerekir. Kurtarma Hizmetleri kasası bilgilerine desteği çapraz abonelik yedekler.
+Kullanıcı abonelikleri yedeklenen VM geçerse, adım 1 ve 2. adım aynı kalır. 3. adımda, mevcut / hedef abonelik içinde oluşturulan yeni bir kasa altında VM korumak kullanıcı gerekir. Kurtarma Hizmetleri kasası çapraz abonelik yedeklemeleri desteklemez.
 
 ## <a name="hdinsight-limitations"></a>Hdınsight sınırlamaları
 

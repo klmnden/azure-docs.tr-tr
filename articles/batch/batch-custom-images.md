@@ -2,17 +2,17 @@
 title: "Azure Batch havuzları özel görüntülerden sağlama | Microsoft Docs"
 description: "Özel görüntü havuzundan sağlamak için işlem yazılım ve uygulamanız için gereksinim duyduğunuz verileri içeren düğümlerini toplu oluşturabilirsiniz. Özel resimler toplu iş yüklerini çalıştırmak için işlem düğümleri yapılandırmak için etkili bir yoludur."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Sanal makinelerin bir havuz oluşturmak için yönetilen özel görüntü kullanın 
 
@@ -33,7 +33,7 @@ Senaryonuz için yapılandırılan özel görüntü kullanarak çeşitli avantaj
 - **Havuzları herhangi bir boyuta artar.** Bir havuzu oluşturmak için yönetilen özel görüntü kullandığınızda, havuz, istek herhangi bir boyuta büyüyebilir. Görüntü blob'u VM'ler uyum sağlayacak şekilde VHD'ler kopyalarını gerekmez. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Yönetilen görüntü kaynağı**. Özel görüntü kullanarak sanal makineleri havuzu oluşturmak için aynı Azure abonelik ve toplu işlem hesabı bölgeye yönetilen görüntü kaynağı oluşturmanız gerekir. Yönetilen bir görüntüsünü hazırlamak seçenekleri için aşağıdaki bölüme bakın.
 - **Azure Active Directory (AAD) kimlik doğrulama**. Toplu İstemcisi API AAD kimlik doğrulaması kullanmanız gerekir. AAD için Azure Batch destek bölümlerinde [Active Directory ile kimlik doğrulaması toplu hizmet çözümlerine](batch-aad-auth.md).

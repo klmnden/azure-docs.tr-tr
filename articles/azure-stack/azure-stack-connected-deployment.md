@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: c1a3b2107abdc3ef19a314616518c494687d81bf
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planlama kararları Azure yığınının azure bağlı dağıtım sistemleri tümleşik
 Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-deployment-decisions.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
@@ -41,7 +41,7 @@ Kullandığınızda, Azure AD kimlik deposu iki Azure AD hesapları gerektirir: 
     - Hizmet yöneticisi hesabı olarak. (Daha sonra değiştirebilirsiniz) varsayılan sağlayıcı aboneliği sahibidir. Bu hesap ile Azure yığın Yönetim Portalı uygulamasına oturum açabilir ve sunar ve planları oluşturun, kotaları ayarlayabilir ve Azure yığındaki diğer yönetim işlevleri gerçekleştirmek için kullanabilirsiniz.
 2. **Faturalama hesabı** (her ikisi de bağlı ve bağlantısı kesilmiş dağıtımları için gerekli). Bu Azure hesap Azure tümleşik yığını sisteminizi ve Azure ticaret arka uç arasında fatura ilişkisi oluşturmak için kullanılır. Azure yığın ücretlerinin Fatura edilecek hesap budur. Bu hesap, Market dağıtım ve diğer karma senaryolar için kullanılır. 
 
-### <a name="ad-fs-identity-store"></a>AD FS KİMLİK DEPOSU
+### <a name="ad-fs-identity-store"></a>AD FS kimlik deposu
 Şirket, Active Directory gibi kendi kimlik deposu hizmet yönetici hesapları için kullanmak istiyorsanız bu seçeneği belirleyin.  
 
 ## <a name="choose-a-billing-model"></a>Faturalama modelini seçin
@@ -57,9 +57,8 @@ Bir CSP abonelik kullanacaksanız, doğru yaklaşım tam CSP senaryoya bağlıd�
 
 |Senaryo|Etki alanı ve abonelik seçenekleri|
 |-----|-----|
-|Bir doğrudan veya dolaylı CSP ortak ve Azure yığın çalışır|CSL (ortak hizmet katmanı) aboneliği kullanın.|
-|Bir doğrudan veya dolaylı CSP ortak ve Azure yığın çalışır|Örneğin açıklayıcı bir ad ile iş ortağı Merkezi'nde Azure AD kiracısı oluşturmak <your organization>CSPAdmin ve bir Azure CSP abonelik ile ilişkilendirilmiş.|
-|Dolaylı bir CSP satıcı olduğunuz ve Azure yığın çalışır|Dolaylı CSP oluşturmak için iş ortağı Merkezi'nde, kuruluşunuz ve onunla ilişkili bir Azure CSP aboneliğiniz için Azure AD kiracısı kullanarak sağlayıcınıza başvurun.|
+|Siz bir **doğrudan CSP iş ortağı** veya bir **dolaylı CSP sağlayıcı**, ve Azure yığın çalışır|CSL (ortak hizmet katmanı) aboneliği kullanın.<br>     or<br>İş ortağı Merkezi'nde açıklayıcı bir ad ile Azure AD kiracısı oluşturun. Örneğin &lt;kuruluşunuz > CSPAdmin bir Azure CSP aboneliğiyle ilişkili.|
+|Siz bir **dolaylı CSP satıcı**, ve Azure yığın çalışır|Bir Azure CSP aboneliğiyle ilişkili iş ortağı Merkezi'ni kullanarak, kuruluşunuz için Azure AD kiracısı oluşturmak için dolaylı, CSP sağlayıcınıza başvurun.|
 
 ### <a name="capacity-based-billing"></a>Kapasite tabanlı faturalama
 Kapasite faturalama modeli kullanmaya karar verirseniz, bir Azure yığın kapasite planlama sisteminizi kapasitesini temel SKU satın almanız gerekir. Doğru miktarı satın almak için Azure yığınında fiziksel çekirdek sayısı bilmeniz gerekir. 
@@ -70,3 +69,6 @@ Kapasite faturalama gerektiren bir Kurumsal Anlaşma (Kurumsal Sözleşme) kayd�
 - Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz: [Azure yığın](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
 - Tümleşik sistemleri Azure yığını için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi için teknik incelemesine bakın: [Azure yığın: Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Microsoft Azure yığın paketleme ve fiyatlandırma hakkında daha fazla bilgi edinmek için [.pdf karşıdan](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+
+## <a name="next-steps"></a>Sonraki adımlar
+[Veri Merkezi ağ tümleştirme](azure-stack-network.md)

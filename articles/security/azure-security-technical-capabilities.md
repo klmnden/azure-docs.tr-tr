@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 7288466cf31e180a16db18f8ddfe02ace3588a8d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikleri
 
@@ -42,14 +42,13 @@ Microsoft Azure ile şunları yapabilirsiniz:
 
 ## <a name="scope"></a>Kapsam
 
-Bu teknik odak noktası işlemiyle ilgili güvenlik özellikleri ve işlevleri Microsoft Azure'nın temel bileşenleri, yani destekleyen [Microsoft Azure depolama](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL veritabanları](https://docs.microsoft.com/azure/sql-database/), [ Microsoft Azure'nın sanal makine modeli](https://docs.microsoft.com/azure/virtual-machines/    )ve araçları ve tüm yönetmek altyapı. Bu güvenlik ve gizlilik verilerini koruma konusunda rolleri karşılamak için Microsoft Azure teknik özellikleri müşterilerin kullanımına incelemeyi odaklanır.
+Bu teknik odak noktası işlemiyle ilgili güvenlik özellikleri ve işlevleri Microsoft Azure'nın temel bileşenleri, yani destekleyen [Microsoft Azure depolama](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL veritabanları](https://docs.microsoft.com/azure/sql-database/), [ Microsoft Azure'nın sanal makine modeli](https://docs.microsoft.com/azure/virtual-machines/)ve araçları ve tüm yönetmek altyapı. Bu güvenlik ve gizlilik verilerini koruma konusunda rolleri karşılamak için Microsoft Azure teknik özellikleri müşterilerin kullanımına incelemeyi odaklanır.
 
 Bu paylaşılan sorumluluk modelini anlama önemini buluta taşıma müşteriler için gereklidir. Bulut sağlayıcıları için güvenlik ve uyumluluk çalışmalarını önemli avantajlar sunar, ancak bu avantajlar, kullanıcılar, uygulamaları ve hizmet teklifleri koruma gelen müşteri muaf olmasını değil.
 
 Iaas çözümler için müşteri sorumludur veya güvenli hale getirme ve işletim sistemi, ağ yapılandırması, uygulamalar, kimlik, istemciler ve verilerin yönetilmesi için paylaşılan bir sorumluluğa sahiptir.  PaaS çözümleri derleme Iaas dağıtımlarda müşteri hala sorumludur veya güvenli hale getirme ve uygulamalar, kimlik, istemciler ve verilerin yönetilmesi için paylaşılan bir sorumluluğa sahiptir. SaaS çözümleri, Nonetheless, müşteri sorumlu olmayı sürdürür. Bunlar veri doğru şekilde sınıflandırılır ve bunların kullanıcılar ve son nokta cihazları yönetmek için bir sorumluluk paylaştıkları emin olmalısınız.
 
 Bu belge, Azure Web siteleri, Azure Active Directory, Hdınsight, Media Services ve çekirdek bileşenleri üzerinde katmanlanmış diğer hizmetler gibi ilgili Microsoft Azure platform bileşenleri ayrıntılı kapsamını sağlamaz. Genel bilgiler en düşük düzeyde bulunmakla okuyucular Microsoft tarafından sağlanan ve bu teknik yazıda sağlanan bağlantılar dahil diğer başvuruları açıklandığı gibi Azure temel kavramlarını varsayılır.
-
 
 ## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>Kullanıcı (müşteri) sorumluluk - büyük resmi karşılamak için kullanılabilir güvenlik Teknik Özellikleri
 
@@ -61,11 +60,11 @@ Microsoft Azure, müşterilere yardımcı olmak Hizmetleri güvenlik, gizlilik v
 
 Azure, kullanıcı kimliklerini ve kimlik bilgilerini yönetme ve erişimi denetlemek sağlayarak iş ve kişisel bilgilerinizin korunmasına yardımcı olur.
 
-### <a name="azure-active-directory"></a>Azure active directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Microsoft kimlik ve erişim yönetimi çözümlerini Yardım BT doğrulama çok faktörlü kimlik doğrulama ve koşullu erişim gibi ek düzeylerini etkinleştirme uygulamaları ve kaynaklara erişim kurumsal veri merkezi genelinde ve buluta koruma ilkeleri. Raporlama, Denetim ve yardımcı olası güvenlik sorunlarını azaltmak uyarı Gelişmiş Güvenlik ile izleme şüpheli etkinlik. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) çoklu oturum açma bulut binlerce (SaaS) uygulamaları sağlar ve web uygulamaları için şirket içi erişebilirsiniz.
 
-Güvenlik, Azure Active Directory (AD) yeteneği yararları:
+Azure Active Directory (Azure AD) sunduğu güvenlik avantajlarından yeteneğini içerir:
 
 - Oluşturun ve her kullanıcı için tek bir kimliği kullanıcıları, grupları ve aygıtları eşitlenmiş şekilde kalmasının karma kuruluşunuz yönetin.
 
@@ -75,11 +74,11 @@ Güvenlik, Azure Active Directory (AD) yeteneği yararları:
 
 - Şirket içi web uygulamaları Azure AD uygulama proxy'si aracılığıyla güvenli uzaktan erişim sağlayın.
 
-[Azure active directory portalında](http://aad.portal.azure.com/) kullanılabilir azure portalında bir parçası. Bu panodan kuruluşunuz durumu özetini almak ve kolayca dizini, kullanıcılar ya da uygulama erişimini yönetme içine daha yakından inceleyin.
+[Azure Active Directory portalında](http://aad.portal.azure.com/) kullanılabilir Azure portalında bir parçası. Bu panodan kuruluşunuz durumu özetini almak ve kolayca dizini, kullanıcılar ya da uygulama erişimini yönetme içine daha yakından inceleyin.
 
-![Azure active directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-Aşağıdaki çekirdek Azure kimlik yönetimi özellikleri:
+Çekirdek Azure kimlik yönetimi özellikleri şunlardır:
 
 - Çoklu oturum açma
 
@@ -107,13 +106,13 @@ Yalnızca kullanıcıların kullanıcı adları ve parolalar birden çok kümele
 
 #### <a name="multi-factor-authentication"></a>Multi-factor authentication
 
-[Azure çok faktörlü kimlik doğrulaması (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) birden fazla doğrulama yöntemi kullanılmasını gerektiren ve kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekleyen kimlik doğrulama yöntemidir. [MFA koruma sağlanmasına yardımcı olan](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) veri ve basit bir oturum açma işlemi için kullanıcı talebine toplantı sırasında uygulamalara erişim. Güçlü kimlik doğrulama seçeneklerini çeşitli aracılığıyla sunar — telefon araması, SMS mesajı veya mobil uygulama bildirimi veya doğrulama kodu ve üçüncü taraf OAuth belirteçleri.
+[Azure multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) birden fazla doğrulama yöntemi kullanılmasını gerektiren ve kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekleyen kimlik doğrulama yöntemidir. [MFA koruma sağlanmasına yardımcı olan](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) veri ve basit bir oturum açma işlemi için kullanıcı talebine toplantı sırasında uygulamalara erişim. Güçlü kimlik doğrulama seçeneklerini çeşitli aracılığıyla sunar — telefon araması, SMS mesajı veya mobil uygulama bildirimi veya doğrulama kodu ve üçüncü taraf OAuth belirteçleri.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Güvenlik İzleme, uyarılar ve makine öğrenme tabanlı raporlar
 
 Güvenlik İzleme ve uyarılar ve tutarsız erişim desenlerini tanımlamak makine öğrenme tabanlı raporlar, işinizin korunmasına yardımcı olabilir. Bütünlük ve kuruluşunuzun dizininin güvenlik görünürlük elde etmek için Azure Active Directory'nin erişim ve kullanım raporlarını kullanabilirsiniz. Bu bilgileri kullanarak bir dizin yönetici böylece bunlar bu riskleri azaltmak yeterli planlayabilirsiniz olası güvenlik riskleri burada bulunan daha iyi belirleyebilirsiniz.
 
-Azure portal veya aracılığıyla [Azure Active directory portalında](http://aad.portal.azure.com/), [raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) aşağıdaki yollarla kategorilere ayrılır:
+Azure portal veya aracılığıyla [Azure Active Directory portalında](http://aad.portal.azure.com/), [raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) aşağıdaki yollarla kategorilere ayrılır:
 
 - Anomali raporları – oturum açma anormal olarak bulduk olaylarını içerir. Amacımız, bu tür etkinlik farkında olun ve bir olay şüpheli olup hakkında karar kullanabilmek etkinleştirmeniz olmaktır.
 
@@ -133,9 +132,9 @@ Azure portal veya aracılığıyla [Azure Active directory portalında](http://a
 
 Azure Active Directory B2C kullandığınızda tüketicileriniz uygulamalarınız için var olan sosyal hesaplarını (Facebook, Google, Amazon, LinkedIn) kullanarak veya yeni kimlik bilgileri (e-posta adresi ve parola veya kullanıcı adı ve parola) oluşturarak kaydolabilir.
 
-Cihaz kaydı
+#### <a name="device-registration"></a>Cihaz kaydı
 
-[Azure AD cihaz kaydı](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) temelidir aygıt tabanlı [koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) senaryoları. Bir cihaz kaydedildiğinde Azure Active Directory cihaz kaydı kullanıcı oturum açtığında cihazın kimliğini doğrulamak için kullanılan bir kimliğe sahip cihazı sağlar. Kimliği doğrulanmış cihaz ve cihaz öznitelikleri böylece bulutta ve şirket içinde barındırılan uygulamalar için koşullu erişim ilkelerini zorlamak üzere kullanılabilir.
+[Azure AD cihaz kaydı](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) temelidir aygıt tabanlı [koşullu erişim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) senaryoları. Bir cihaz kaydedildiğinde Azure AD cihaz kaydı kullanıcı oturum açtığında cihazın kimliğini doğrulamak için kullanılan bir kimliğe sahip cihazı sağlar. Kimliği doğrulanmış cihaz ve cihaz öznitelikleri böylece bulutta ve şirket içinde barındırılan uygulamalar için koşullu erişim ilkelerini zorlamak üzere kullanılabilir.
 
 İle birlikte kullanıldığında bir [mobil cihaz Yönetimi (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) çözüm gibi Intune, Azure Active Directory'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu durum, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar.
 
@@ -161,7 +160,7 @@ Azure AD Privileged Identity Management sağlar:
 
 ## <a name="secured-resource-access-in-azure"></a>Azure'da güvenli kaynak erişimi
 
-Azure erişim denetimi faturalandırma açısından başlatır. Ziyaret ederek erişilen bir Azure hesabı sahibinin [Azure hesaplar Merkezi](https://account.windowsazure.com/subscriptions), Hesap Yöneticisi'nin (AA) değil. Abonelik faturalama için bir kapsayıcı olsa da, bunlar aynı zamanda bir güvenlik sınırı hareket: her abonelik bir Hizmet Yöneticisi (kimin eklemek, kaldırmak ve Azure portalını kullanarak bu abonelik Azure kaynaklarında değiştirme SA) sahiptir. Yeni bir aboneliğin varsayılan SA AA olur ancak AA SA Azure hesapları Center'da değiştirebilirsiniz.
+Azure erişim denetimi faturalandırma açısından başlatır. Ziyaret ederek erişilen bir Azure hesabı sahibinin [Azure hesap Merkezi](https://account.windowsazure.com/subscriptions), Hesap Yöneticisi'nin (AA) değil. Abonelik faturalama için bir kapsayıcı olsa da, bunlar aynı zamanda bir güvenlik sınırı hareket: her abonelik bir Hizmet Yöneticisi (kimin eklemek, kaldırmak ve Azure portalını kullanarak bu abonelik Azure kaynaklarında değiştirme SA) sahiptir. Yeni bir aboneliğin varsayılan SA AA olur ancak AA Azure hesap Merkezi'nde SA değiştirebilirsiniz.
 
 ![Azure'da güvenli kaynak erişimi](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
@@ -173,7 +172,7 @@ Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam v
 
 RBAC kullanarak, ekibiniz içinde görevleri kurabilmeleri ve işlerini yapmak için gereksinim duydukları kullanıcılara sadece erişim miktarını verebilirsiniz. Kısıtlanmamış izinlerini herkes vermek yerine, Azure aboneliği veya kaynakları yalnızca belirli eylemleri izin verebilirsiniz. Örneğin, bir çalışan başka bir SQL veritabanları aynı abonelik içindeki yönetebilirsiniz sırada bir Abonelikteki sanal makineleri yönetme izin vermek için RBAC kullanın.
 
-![Azure(RBAC) içinde güvenli kaynak erişimi](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Güvenli kaynak erişimi Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="azure-data-security-and-encryption-protect"></a>Azure veri güvenliği ve şifreleme (koruma)
 
@@ -183,15 +182,15 @@ Veri koruma bulutta anahtarlarından birini verilerinizi ortaya çıkabilecek ve
 
 - Aktarım sırasında: Ne zaman veri bileşenleri, konumlara veya ağ bir hizmet veri yolu (Başlangıç, bulut şirket içi ve ExpressRoute gibi karma bağlantılar dahil olmak üzere tersi,) programları gibi üzerinde arasında ya da bir giriş/çıkış işlemi sırasında aktarıldığı , da olduğu düşünülen hareket halinde.
 
-### <a name="encryption--rest"></a>Rest @ şifreleme
+### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
 
-Bekleyen şifreleme her birini elde etmek için:
+Bekleyen şifreleme elde etmek için her birini yapın:
 
 Aşağıdaki tabloda ayrıntılı verileri şifrelemek için önerilen şifreleme modelleri en az biri destekler.
 
 | Şifreleme modeli |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
-| Sunucu şifreleme | Sunucu şifreleme | Sunucu şifreleme | İstemci şifreleme
+| Server Encryption | Server Encryption | Server Encryption | İstemci şifreleme
 | Sunucu tarafı şifreleme hizmeti yönetilen anahtarları kullanma | Azure anahtar kasası Customer-Managed tuşlarını kullanarak sunucu tarafı şifreleme | Şirket içi müşteri kullanarak sunucu tarafı şifreleme anahtarları yönetilen |
 | • Azure kaynak sağlayıcıları şifreleme ve şifre çözme işlemi gerçekleştirir <br> • Microsoft anahtarları yönetir <br>• Tam bulut işlevi | • Azure kaynak sağlayıcıları şifreleme ve şifre çözme işlemi gerçekleştirir<br>• Müşteri anahtarları Azure anahtar kasası aracılığıyla denetler<br>• Tam bulut işlevi | • Azure kaynak sağlayıcıları şifreleme ve şifre çözme işlemi gerçekleştirir <br>• Müşteri anahtarları şirket içi denetler <br> • Tam bulut işlevi| • Azure Hizmetleri şifresi çözülmüş verileri göremezsiniz <br>• Müşterilerin anahtarlarını şirket içi tutun (veya diğer depoları güvenli). Anahtarları Azure hizmetlerine kullanılabilir değil <br>• Azaltılmış bulut işlevi|
 
@@ -224,15 +223,15 @@ Kullandığınız her mağaza için Rest destek varolan şifreleme yararlanın.
 
 VM ve yerel disk depolama için Azure Disk şifrelemesi kullanan desteklendiği yerlerde:
 
-IaaS
+#### <a name="iaas"></a>IaaS
 
 Iaas VM'ler (Windows veya Linux) hizmetleriyle kullanması gereken [Azure Disk şifrelemesi](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) müşteri verilerini içeren birimler şifrelemek için.
 
-PaaS v2
+#### <a name="paas-v2"></a>PaaS v2
 
 Çalışan hizmetleri üzerinde PaaS v2 Service Fabric kullanan Azure disk şifrelemesi sanal makine ölçek kümesi için [VMSS] PaaS v2 Vm'leri şifrelemek için kullanabilirsiniz.
 
-PaaS v1
+#### <a name="paas-v1"></a>PaaS v1
 
 Azure Disk şifrelemesi PaaS v1 üzerinde şu anda desteklenmiyor. Bu nedenle, kalan kalıcı verileri şifrelemek için uygulama düzeyinde şifreleme kullanmanız gerekir.  Bu, içerir, ancak uygulama verilerini, geçici dosyaları, günlükler ve kilitlenme bilgi dökümleri için sınırlı değildir.
 
@@ -319,13 +318,11 @@ Azure uygulamanız için hem gelen hem de giden trafiği güvenli hale getirmek 
 
 - [Uygulamanız için Azure Active Directory kimlik doğrulaması kurulumu](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-
 - [Aktarım Katmanı Güvenliği (TLS/SSL) - HTTPS etkinleştirerek uygulamanızı trafiğinin güvenliğini](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-    - [Tüm gelen trafiği HTTPS bağlantısı üzerinden zorla](http://microsoftazurewebsitescheatsheet.info/)
+  - [Tüm gelen trafiği HTTPS bağlantısı üzerinden zorla](http://microsoftazurewebsitescheatsheet.info/)
 
   - [Katı taşıma güvenliği (HSTS) etkinleştir](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
-
 
 - [İstemcinin IP adresine göre uygulamanıza erişimi kısıtlama](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 
@@ -454,7 +451,7 @@ Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, 
 
 Ağınızda güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT güvenliği ve Mevzuat idare modeli ile uyumluluğu sağlamak için önemlidir. Güvenlik grubu görünümü ile yapılandırılmış ağ güvenlik grubu ve güvenlik kuralları yanı sıra, etkin güvenlik kuralları alabilir. Uygulanacak kurallar listesi ile ağ güvenlik açığı açık bağlantı noktalarını ve ss belirleyebilirsiniz.
 
-### <a name="network-watcher"></a>Ağ İzleyicisi
+### <a name="network-watcher"></a>Ağ izleyicisi
 
 [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) izleme ve bir ağ düzeyinde içinde için ve azure'dan koşullar tanılama sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme Ağ İzleyicisi ile kullanılabilen araçlar anlamak, tanılama ve Azure ağınızdaki serisidir yardımcı olur. Bu hizmet içeren paket yakalama, sonraki atlama IP akış, güvenlik grubu görünümü, NSG akış günlükleri doğrulayın. Senaryo düzeyi izleme kaynak tek tek ağ izleme aksine ağ kaynaklarına bir uçtan uca görünümünü sağlar.
 
@@ -462,7 +459,7 @@ Ağınızda güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT gü
 
 [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) bir depolama birimi hizmeti istekleriyle ilgili toplu işlem istatistiklerini ve kapasite verilerini dahil ölçümleri depolayabilirsiniz. İşlem düzeyinde hem de API işlemi ve aynı zamanda depolama hizmeti düzeyinde bildirilir ve kapasite depolama hizmet düzeyinde bildirilir. Ölçüm verilerini depolama hizmeti kullanım çözümlemek, depolama birimi hizmeti karşı yapılan istekleri ile sorunlarını tanılamak ve bir hizmeti kullanan uygulamaların performansını artırmak için kullanılabilir.
 
-### <a name="application-insights"></a>Application ınsights
+### <a name="application-insights"></a>Application Insights
 
 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) birden çok platformdaki web geliştiricileri için genişletilebilir bir uygulama performansı Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Uygulamanızla kullanıcıların ne anlamak için ve sorunları tanılamanıza yardımcı olmak için güçlü analytics araçlar içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizi ile tümleşir ve bağlantı noktaları için çeşitli geliştirme araçlarına sahiptir.
 
@@ -487,6 +484,7 @@ Ağınızda güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT gü
 - Uygulamanızdan **tanılama izleme günlükleri**: İzleme olayları ile istekler arasında bağıntı kurmanıza imkan tanır.
 
 - **Özel olayları ve ölçümleri** , kendiniz öğeleri satışı gibi iş olaylarını izlemek için istemci veya sunucu kodu veya Kazanılan oyun yazma.
+
 Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da 3. taraf hizmetler gibi birçok bileşenden meydana gelir.  Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) bir grup olarak çözümünüzdeki kaynaklar ile çalışmanıza olanak tanır.
 
 Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar.

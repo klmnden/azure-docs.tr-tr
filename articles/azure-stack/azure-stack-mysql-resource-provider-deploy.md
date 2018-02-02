@@ -1,6 +1,6 @@
 ---
 title: "MySQL veritabanları PaaS Azure yığında kullanın | Microsoft Docs"
-description: "MySQL kaynak sağlayıcı dağıtmak ve Azure yığında bir hizmet olarak MySQL veritabanları sağlar nasıl bilgi edinin"
+description: "MySQL kaynak sağlayıcı dağıtmak ve Azure yığında bir hizmet olarak MySQL veritabanları sağlar nasıl öğrenin."
 services: azure-stack
 documentationCenter: 
 author: mattbriggs
@@ -13,35 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Bir MySQL kaynak sağlayıcı Azure yığında dağıtabilirsiniz. Kaynak sağlayıcısı dağıttıktan sonra MySQL sunucuları ve Azure Resource Manager dağıtım şablonları aracılığıyla veritabanları oluşturabilir ve bir hizmet olarak MySQL veritabanları sağlar. Web sitelerinde yaygın olarak kullanılan MySQL veritabanları, birçok Web sitesi platformları destekler. Kaynak sağlayıcısı dağıttıktan sonra örnek olarak, WordPress Web siteleri Azure Web Apps platformundan hizmet (PaaS) eklentisi için Azure yığın oluşturabilirsiniz.
+Bir MySQL kaynak sağlayıcı Azure yığında dağıtabilirsiniz. Kaynak sağlayıcısı dağıttıktan sonra MySQL sunucuları ve Azure Resource Manager dağıtım şablonları aracılığıyla veritabanları oluşturabilirsiniz. Bu gibi durumlarda, MySQL veritabanları aynı zamanda hizmet olarak sağlayabilirsiniz. 
 
-İnternet erişimi olmayan bir sistemde MySQL sağlayıcı dağıtmak için dosyayı kopyalayabilirsiniz [bağlayıcı net 6.10.5.msi mysql](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) bir yerel paylaşıma. Ardından, istendiğinde bu paylaşım adı sağlayın. Azure ve Azure yığın PowerShell modüllerini de yüklemeniz gerekir.
+Web sitelerinde yaygın olarak kullanılan MySQL veritabanları, birçok Web sitesi platformları destekler. Kaynak sağlayıcısı dağıttıktan sonra Örneğin, WordPress Web siteleri Web Apps platformundan hizmet (PaaS) eklenti gibi Azure yığını için oluşturabilirsiniz.
+
+Internet erişimi olmayan bir sistemde MySQL sağlayıcı dağıtmak için dosyayı kopyalama [bağlayıcı net 6.10.5.msi mysql](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) bir yerel paylaşıma. Bunun için istendiğinde bu paylaşım adı belirtin. Azure ve Azure yığın PowerShell modülleri yüklemeniz gerekir.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>MySQL Server Kaynak sağlayıcısı bağdaştırıcısı mimarisi
 
 Kaynak sağlayıcısı üç bileşenlerden oluşur:
 
-- **MySQL kaynak sağlayıcı bağdaştırıcısı VM**, hangi sağlayıcı hizmetlerini çalıştıran bir Windows sanal makine.
-- **Kaynak sağlayıcısı**, sağlama isteklerini işler ve kullanıma sunar kaynaklarını veritabanı.
-- **MySQL Server barındıran sunucular**, veritabanları için kapasite sağlayan barındırma sunucuları denir.
+- **MySQL kaynak sağlayıcı bağdaştırıcısı VM**, sağlayıcı hizmetlerini çalıştıran bir Windows sanal makine olduğu.
 
-Bu sürüm, artık bir MySQL örneği oluşturur. Siz bunları oluşturmanız veya dış SQL örnekleri erişim sağlamak. Ziyaret [Azure yığın hızlı başlama Galerisi](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) için bir örnek şablonu için:
-- sizin için bir MySQL server oluşturun
-- indirin ve MySQL Server marketten dağıtın.
+- **Kaynak sağlayıcısı**, sağlama isteklerini işler ve kullanıma sunar kaynaklarını veritabanı.
+
+- **MySQL Server barındıran sunucular**, barındırma sunucuları adı verilen veritabanları için kapasite sağlar.
+
+Bu sürümde artık MySQL örneklerini oluşturur. Bu, kendiniz oluşturmanız ve/veya dış SQL örnekleri erişim sağlamak gerektiği anlamına gelir. Ziyaret [Azure yığın hızlı başlama Galerisi](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) için bir örnek şablonu için:
+- MySQL sunucusu için oluşturun.
+- İndirin ve MySQL Server Azure Marketi'nden dağıtın.
 
 > [!NOTE]
-> Barındırma sunucuları bir çok düğümlü Azure yığında yüklü bir kiracı abonelikten oluşturulması gerekir. Varsayılan sağlayıcı abonelikten oluşturulamıyor. Diğer bir deyişle, Kiracı portalından veya uygun bir oturum açma ile bir PowerShell oturumu oluşturulmalıdır. Tüm barındırma sunucuları ücrete tabi VM'ler ve uygun izinlere sahip olmalıdır. Hizmet Yöneticisi, bu aboneliğin sahibi olabilir.
+> Bir çok düğümlü Azure yığın uygulama üzerinde yüklü olan sunucuları barındıran bir kiracı abonelikten oluşturulması gerekir. Varsayılan sağlayıcı abonelikten oluşturulamıyor. Bunlar, Kiracı portalından veya bir uygun oturum açma ile bir PowerShell oturumu oluşturulmalıdır. Tüm barındırma sunucuları ücrete tabi VM'ler ve uygun izinlere sahip olmalıdır. Hizmet Yöneticisi Kiracı aboneliğin sahibi olabilir.
 
 ### <a name="required-privileges"></a>Gerekli ayrıcalıklar
 Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
@@ -51,23 +55,22 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
 
 ## <a name="deploy-the-resource-provider"></a>Kaynak sağlayıcısı dağıtma
 
-1. Zaten yapmadıysanız, Geliştirme Seti kaydolun ve Windows Server 2016 Datacenter Core görüntünün Market yönetiminden indirilebilir indirin. Bir Windows Server 2016 Core görüntüsü kullanmanız gerekir. Bir komut dosyası oluşturmak için de kullanabilirsiniz bir [Windows Server 2016 görüntü](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) -çekirdek seçeneğini belirlediğinizden emin olun. .NET 3.5 çalışma zamanı artık gerekli değildir.
+1. Zaten yapmadıysanız, Geliştirme Seti kaydolun ve Windows Server 2016 Datacenter Core görüntünün Market yönetiminden indirilebilir indirin. Bir Windows Server 2016 Core görüntüsü kullanmanız gerekir. Bir komut dosyası oluşturmak için de kullanabilirsiniz bir [Windows Server 2016 görüntü](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Çekirdek seçeneğini belirlediğinizden emin olun.) .NET 3.5 çalışma zamanı artık gerekli değildir.
 
 
-2. Ayrıcalıklı uç nokta VM erişebileceği bir ana bilgisayara oturum açın.
+2. VM ayrıcalıklı uç noktasına erişebildiğinden bir ana bilgisayara oturum açın.
 
-    a. Azure yığın Geliştirme Seti (ASDK) yüklemelerinde fiziksel ana bilgisayara oturum açın.
-
-    b. Birden çok düğümlü sistemlerde konak ayrıcalıklı uç noktasına erişebildiğinden bir sistem olmalıdır.
+    - Azure SDK'sı yüklemelerinde fiziksel ana bilgisayara oturum açın. 
+    - Birden çok düğümlü sistemlerde konak ayrıcalıklı uç noktasına erişebildiğinden bir sistem olmalıdır.
     
     >[!NOTE]
-    > Burada betik çalıştırılıyor sistem *gerekir* yüklü .NET çalışma zamanı en son sürümü Windows 10 veya Windows Server 2016 sistemiyle olabilir. Aksi takdirde yükleme başarısız olur. ASDK ana bilgisayar bu ölçütleri karşılayan.
+    > Betik çalıştırılıyor sistem *gerekir* yüklü .NET çalışma zamanı en son sürümü Windows 10 veya Windows Server 2016 sistemiyle olabilir. Aksi takdirde yükleme başarısız olur. Azure SDK'sı konak Bu ölçütleri karşılayan.
     
 
-3. MySQL kaynak sağlayıcı ikili indirin ve içeriğini geçici bir dizine ayıklayın ayıklayıcısı yürütün.
+3. İkili MySQL kaynak sağlayıcıyı yükleyin. Daha sonra içeriği geçici bir dizine ayıklayın ayıklayıcısı çalıştırın.
 
     >[!NOTE] 
-    > Kaynak sağlayıcı yapı Azure yığın derlemeleri karşılık gelir. Çalışan Azure yığın sürümü için doğru ikili indirmeniz gerekir.
+    > Kaynak sağlayıcı yapı Azure yığın derlemeleri karşılık gelir. Doğru ikili çalıştıran Azure yığın sürümü yüklediğinizden emin olun.
 
     | Azure yığın derleme | MySQL RP yükleyici |
     | --- | --- |
@@ -75,18 +78,20 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
     | 1.0.171122.1 | [MySQL RP sürüm 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP sürüm 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. ASDK için bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
+4.  Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. İçin Azure SDK, bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
 
-    Kendi sertifikanızı sağlamanız gerekiyorsa, yerleştirilen bir PFX dosyası gerekir **DependencyFilesLocalPath** (aşağıdaki gibi bakın):
+    Kendi sertifikanızı sağlamanız gerekiyorsa, bir .pfx dosyasına yerleştirin **DependencyFilesLocalPath** ve şu ölçütlere uymalıdır:
 
-    - İçin bir joker karakter sertifika \*.dbadapter.\< Bölge\>.\< Dış fqdn\> veya mysqladapter.dbadapter bir ortak adı tek bir site sertifikayla.\< Bölge\>.\< Dış fqdn\>
-    - Bu sertifikayı Güvenilir olması gerekir, gibi bir sertifika yetkilisi tarafından verilmiş. Yani, güven zinciri ara sertifika gerektirmeden bulunması gerekir.
+    - İçin bir joker karakter sertifika \*.dbadapter.\< Bölge\>.\< Dış fqdn\> veya mysqladapter.dbadapter bir ortak adı tek bir site sertifikayla.\< Bölge\>.\< Dış fqdn\>.
+
+    - Bu sertifikayı Güvenilir olması gerekir. Yani, güven zinciri ara sertifika gerektirmeden bulunması gerekir.
+
     - Yalnızca tek bir sertifika dosyası DependencyFilesLocalPath bulunmaktadır.
+    
     - Dosya adı özel karakterler içermemelidir.
 
 
-
-5. Açık bir **yeni** yükseltilmiş (Yönetim) PowerShell konsolu ve dosyaları ayıkladığınız dizine geçin. Sistemde zaten yüklü yanlış PowerShell modüllerden ortaya çıkabilecek sorunları önlemek için yeni bir pencere kullanın.
+5. Açık bir **yeni** yükseltilmiş (Yönetim) PowerShell Konsolu. Ardından dosyaları ayıkladığınız dizine geçin. Sistemde zaten yüklü olan yanlış PowerShell modüllerden doğabilecek sorunları önlemek için yeni bir pencere kullanın.
 
 6. [Azure PowerShell sürüm 1.2.11 yükleme](azure-stack-powershell-install.md).
 
@@ -94,56 +99,56 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
 
 Komut dosyası, aşağıdaki adımları gerçekleştirir:
 
-* (Bu çevrimdışı sağlanabilir) MySQL bağlayıcı ikili indirin.
-* Sertifikaları ve diğer yapıları depolama hesabı, Azure yığında karşıya yükleyin.
-* Böylece SQL veritabanları Galerisine dağıtabilirsiniz galeri paketleri yayımlama.
-* Barındırma sunucuları dağıtmak için bir galeri paketi Yayımla
-* 1. adımda oluşturduğunuz Windows Server 2016 görüntüsünü kullanan bir VM'yi dağıtmak ve kaynak sağlayıcısını yükleyin.
-* Kaynak sağlayıcınız VM eşler yerel bir DNS kaydı kaydedin.
-* Kaynak sağlayıcısı yerel Azure Resource Manager ile (Kiracı ve yönetim) kaydedin.
+* (Bu çevrimdışı sağlanabilir) MySQL bağlayıcı ikili indirir.
+* Sertifikaları ve diğer yapıları depolama hesabı Azure yığında yükler.
+* SQL veritabanları Galerisine dağıtabilirsiniz galeri paketleri yayınlar.
+* Barındırma sunucuları dağıtmak için bir galeri paketi yayımlar.
+* 1. adımda oluşturulan Windows Server 2016 görüntüsünü kullanarak bir VM dağıtır. Ayrıca, kaynak sağlayıcısı yükler.
+* Kaynak sağlayıcınız VM eşler yerel bir DNS kaydı kaydeder.
+* Kaynak sağlayıcısı yerel Azure Resource Manager ile (Kiracı ve yönetim) kaydeder.
 
 
 Şunları yapabilirsiniz:
-- en az komut satırında gerekli parametreleri belirtin
-- veya hiçbir parametre olmadan çalıştırırsanız, bunları istendiğinde girin.
+- Komut satırında gerekli parametreleri belirtin.
+- Hiçbir parametre olmadan çalıştırın ve bunları istendiğinde girin.
 
-Powershell'den çalıştırabilirsiniz örneği sor (ancak hesap bilgilerini ve parolaları gerektiği gibi değiştirin):
+PowerShell isteminden çalıştırabilirsiniz örnek aşağıda verilmiştir. Hesap bilgileri ve gerektiğinde parolaları değiştirdiğinizden emin olun:
 
 
 ```
-# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
-# For integrated systems, the domain and the prefix will be the same.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure SDK, the default is AzureStack, and the default prefix is AzS.
+# For integrated systems, the domain and the prefix are the same.
 $domain = "AzureStack"
 $prefix = "AzS"
 $privilegedEndpoint = "$prefix-ERCS01"
 
-# Point to the directory where the RP installation files were extracted
+# Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\MYSQLRP'
 
-# The service admin account (can be AAD or ADFS)
+# The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the new Resource Provider VM
+# Set the credentials for the new resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
-# and the cloudadmin credential required for Privleged Endpoint access
+# And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
-# change the following as appropriate
+# Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Run the installation script from the folder where you extracted the installation files
-# Find the ERCS01 IP address first and make sure the certificate
-# file is in the specified directory
+# Run the installation script from the folder where you extracted the installation files.
+# Find the ERCS01 IP address first, and make sure the certificate
+# file is in the specified directory.
 . $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
@@ -155,40 +160,41 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
-Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli olanları sağlamanız istenir.
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
+Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli parametreler sağlamanız istenir.
 
-| Parametre Adı | Açıklama | Açıklama veya varsayılan değeri |
+| Parametre adı | Açıklama | Açıklama veya varsayılan değer |
 | --- | --- | --- |
-| **CloudAdminCredential** | Bulut Yöneticisi, ayrıcalıklı Endpoint erişmek için gerekli kimlik bilgileri. | _Gerekli_ |
-| **AzCredential** | Azure yığın Hizmet yöneticisi hesabı için kimlik bilgilerini sağlayın. Azure yığın dağıtmak için kullanılan aynı kimlik bilgilerini kullanın). | _Gerekli_ |
-| **VMLocalCredential** | MySQL kaynak sağlayıcısı VM yerel yönetici hesabının kimlik bilgilerini tanımlar. | _Gerekli_ |
-| **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı sağlayın. |  _Gerekli_ |
-| **DependencyFilesLocalPath** | İçeren bir yerel paylaşıma yolu [bağlayıcı net 6.10.5.msi mysql](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Bir sağlarsanız, sertifika dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
-| **DefaultSSLCertificatePassword** | .Pfx sertifika için parola | _Gerekli_ |
-| **MaxRetryCount** | Bir hata varsa her işlemini yeniden denemek istiyor kaç kez tanımlayın.| 2 |
-| **RetryDuration** | Zaman aşımı saniye içinde yeniden denemeler arasında tanımlayın. | 120 |
-| **Kaldırma** | (Aşağıdaki notlara bakın) ilişkili tüm kaynakları ve kaynak sağlayıcısını Kaldır | Hayır |
-| **DebugMode** | Otomatik temizleme hatasında engeller | Hayır |
-| **AcceptLicense** | GPL lisansı (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) kabul etmek için istemi atlanıyor | |
-
-
-Sistem performansı ve indirme hızına bağlı olarak, yükleme olarak birkaç saat 20 dakika veya uzun olarak biraz sürebilir. MySQLAdapter dikey kullanılabilir durumda değilse, Yönetici portalı yenileyin.
-
-> [!NOTE]
-> Yükleme 90 dakikadan uzun sürerse, başarısız olabilir ve ekranında ve günlük dosyasında bir hata iletisi görürsünüz. Dağıtımı başarısız olan adımdan denenir. Önerilen bellek ve çekirdek belirtimleri karşılamıyor sistemleri MySQL RP dağıtmak mümkün olmayabilir.
+| **CloudAdminCredential** | Bulut Yöneticisi, ayrıcalıklı endpoint erişmek için gerekli kimlik bilgileri. | _Gerekli_ |
+| **AzCredential** | Azure yığın hizmet yönetici hesabı için kimlik bilgileri. Azure yığın dağıtmak için kullanılan kimlik bilgilerini kullanın. | _Gerekli_ |
+| **VMLocalCredential** | MySQL kaynak sağlayıcı VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ |
+| **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı. |  _Gerekli_ |
+| **DependencyFilesLocalPath** | İçeren bir yerel paylaşıma yoluna [bağlayıcı net 6.10.5.msi mysql](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Bu yollarından biri, sağlarsanız, sertifika dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
+| **DefaultSSLCertificatePassword** | .Pfx sertifika parolası. | _Gerekli_ |
+| **MaxRetryCount** | Bir hata olduğunda her işlemini yeniden denemek istiyor sayısı.| 2 |
+| **RetryDuration** | Saniye cinsinden yeniden denemeler arasındaki zaman aşımı aralığı. | 120 |
+| **Kaldırma** | (Aşağıdaki notlara bakın) ilişkili tüm kaynakları ve kaynak sağlayıcısını kaldırır. | Hayır |
+| **DebugMode** | Otomatik temizleme hatasında engeller. | Hayır |
+| **AcceptLicense** | GPL lisansı kabul etmek için istemi atlar.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Azure yığın Portalı'nı kullanarak dağıtımı doğrulama
+Sistem performansı ve indirme hızına bağlı olarak, yükleme olarak birkaç saat 20 dakika veya uzun olarak biraz sürebilir. Varsa **MySQLAdapter** dikey kullanılabilir değil, Yönetici portalı yenileyin.
 
 > [!NOTE]
->  Yükleme komut dosyası tamamlandıktan sonra Yönetim dikey penceresini görmek için portal yenilemeniz gerekir.
+> Yükleme 90 dakikadan uzun sürerse, başarısız olabilir. Aşması durumunda ekranında ve günlük dosyasında bir hata iletisini görürsünüz. Dağıtımı başarısız olan adımdan denenir. Önerilen bellek ve çekirdek belirtimleri karşılamıyor sistemleri MySQL RP dağıtmak mümkün olmayabilir.
+
+
+
+## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Azure yığın portalını kullanarak dağıtımı doğrulama
+
+> [!NOTE]
+>  Yükleme komut dosyası çalışması bittikten sonra Yönetim dikey penceresini görmek için portal yenilemeniz gerekir.
 
 
 1. Yönetim portalında Hizmet Yöneticisi olarak oturum açın.
 
-2. Dağıtım başarılı olduğunu doğrulayın. Göz **kaynak grupları** &gt;, tıklayın **sistem.\< Konum\>.mysqladapter** kaynak grubunu ve tüm dört dağıtımlarının başarılı olduğunu doğrulayın.
+2. Dağıtım başarılı olduğunu doğrulayın. Git **kaynak grupları**ve ardından **sistem.\< Konum\>.mysqladapter** kaynak grubu. Tüm dört dağıtımlarının başarılı olduğunu doğrulayın.
 
       ![MySQL RP dağıtımını doğrulayın](./media/azure-stack-mysql-rp-deploy/mysqlrp-verify.png)
 
@@ -196,16 +202,16 @@ Sistem performansı ve indirme hızına bağlı olarak, yükleme olarak birkaç 
 
 1. Azure yığın portalında hizmet yönetici olarak oturum açın
 
-2. Gözat **yönetim KAYNAKLARININ** &gt; **sunucuları barındırma MySQL** &gt; **+ Ekle**.
+2. Seçin **yönetim KAYNAKLARININ** > **sunucuları barındırma MySQL** > **+ Ekle**.
 
-    **MySQL barındırma sunucuları** dikey olduğu yere MySQL Server'ın kaynak sağlayıcısının arka ucu olarak hizmet gerçek örneklerini MySQL Server Kaynak sağlayıcısı bağlanabilir.
+    Üzerinde **MySQL barındırma sunucuları** dikey penceresinde, MySQL Server'ın kaynak sağlayıcısının arka ucu olarak hizmet gerçek örnekleri için MySQL Server Kaynak sağlayıcısı bağlanabilir.
 
     ![Barındırma sunucuları](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
-3. Form, MySQL Server örneği ile bağlantı ayrıntıları doldurun. Tam etki alanı adı (FQDN) veya geçerli bir IPv4 adresi ve değil kısa VM adını sağlayın. Bu yükleme artık varsayılan MySQL örneği sağlar. Sağlanan boyutu veritabanı kapasitesine yönetmek kaynak sağlayıcısı yardımcı olur. Veritabanı sunucusu fiziksel kapasite yakın olması gerekir.
+3. MySQL Server örneğinizi bağlantı ayrıntılarını sağlayın. Tam etki alanı adı (FQDN) veya geçerli bir IPv4 adresi ve değil kısa VM adını verdiğinizden emin olun. Bu yükleme artık varsayılan MySQL örneği sağlar. Sağlanan boyutu veritabanı kapasitesine yönetmek kaynak sağlayıcısı yardımcı olur. Veritabanı sunucusu fiziksel kapasite yakın olması gerekir.
 
     > [!NOTE]
-    > MySQL örneğine Kiracı ve yönetici Azure Resource Manager tarafından erişilebilen sürece, kaynak sağlayıcısı denetiminde yerleştirilebilir. MySQL örneğine __gerekir__ özel olarak RP ayrılamadı.
+    >MySQL örneğine Kiracı ve yönetici Azure Resource Manager tarafından erişilebiliyorsa, kaynak sağlayıcısı denetiminde yerleştirilebilir. MySQL örneğine *gerekir* özel olarak kaynak sağlayıcısı ayrılamadı.
 
 4. Sunucu eklemek gibi ayrıştırması hizmet tekliflerinin izin vermek için bir yeni veya var olan SKU'ya atamanız gerekir.
   Örneğin, bir kuruluş örneği sağlama sahip olabilir:
@@ -223,14 +229,14 @@ Böylece kiracılar kendi veritabanlarını uygun şekilde yerleştirebilirsiniz
 > SKU'ları portalında görünür olması için bir saat sürebilir. SKU oluşturulana kadar bir veritabanı oluşturulamıyor.
 
 
-## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Dağıtımınızı test etmek için ilk MySQL veritabanınızı oluşturma
+## <a name="test-your-deployment-by-creating-your-first-mysql-database"></a>İlk MySQL veritabanınızı oluşturarak dağıtımınızı test edin
 
 
 1. Azure yığın portalında hizmet yönetici olarak oturum açın
 
-2. Tıklatın **+ yeni** düğmesini &gt; **veri + depolama** &gt; **MySQL veritabanı**.
+2. Seçin **+ yeni** > **veri + depolama** > **MySQL veritabanı**.
 
-3. Veritabanı ayrıntılarla formu doldurun.
+3. Veritabanı bilgileri sağlar.
 
     ![MySQL veritabanı test oluşturma](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
 
@@ -238,7 +244,7 @@ Böylece kiracılar kendi veritabanlarını uygun şekilde yerleştirebilirsiniz
 
     ![Bir SKU seçin](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
 
-5. Bir oturum açma ayarı oluşturun. Oturum açma ayarı yeniden kullanılabilir veya yeni bir tane oluşturulur. Bu ayar, kullanıcı adını ve veritabanı parolasını içerir.
+5. Bir oturum açma ayarı oluşturun. Varolan bir oturum açma ayarı yeniden kullanabilir veya yeni bir tane oluşturun. Bu ayar, kullanıcı adını ve veritabanı parolasını içerir.
 
     ![Yeni bir veritabanı oturum açmayı oluşturma](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
 
@@ -247,7 +253,7 @@ Böylece kiracılar kendi veritabanlarını uygun şekilde yerleştirebilirsiniz
     ![MySQL veritabanı için bağlantı dizesi alma](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
 
 > [!NOTE]
-> Kullanıcı adları uzunluk MySQL 5.7 ile 32 karakter veya daha önceki sürümlerinde 16 karakter aşamaz.
+> Kullanıcı adları uzunluk MySQL 5.7 32 karakteri aşamaz. Önceki sürümlerinde, 16 karakterden uzun olamaz.
 
 
 ## <a name="add-capacity"></a>Kapasite ekleme
@@ -256,56 +262,58 @@ Kapasite Azure yığın Portalı'nda ek MySQL sunucuları ekleyerek ekleyin. Ek 
 
 
 ## <a name="make-mysql-databases-available-to-tenants"></a>MySQL veritabanları kiracılar için kullanılabilir hale
-Planları ve MySQL veritabanlarını kiracıların kullanımına sunmak için teklifleri oluşturun. Microsoft.MySqlAdapter hizmeti eklemek, kota, vb. ekleyin.
+Planları ve MySQL veritabanlarını kiracıların kullanımına sunmak için teklifleri oluşturun. Örneğin, Microsoft.MySqlAdapter hizmeti eklemek, kota eklemek ve benzeri.
 
 ![Planları ve veritabanlarını içerecek şekilde teklifleri oluştur](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
 ## <a name="update-the-administrative-password"></a>Yönetici parolasını güncelleştirin
-Parola ilk, MySQL server örneğinde değiştirerek değiştirebilirsiniz. Gözat **yönetim KAYNAKLARININ** &gt; **MySQL barındırma sunucuları** &gt; ve barındırma sunucusundaki'ı tıklatın. Parola Ayarları panelinde tıklayın.
+Parola ilk, MySQL server örneğinde değiştirerek değiştirebilirsiniz. Seçin **yönetim KAYNAKLARININ** > **sunucuları barındırma MySQL**. Ardından barındırma sunucusu seçin. İçinde **ayarları** paneli, select **parola**.
 
 ![Yönetici parolasını güncelleştirin](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
 ## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>MySQL kaynak sağlayıcı bağdaştırıcısını (çok düğümlü yalnızca derlemeleri 1710 ve üzeri) güncelleştir
-Azure yığın derleme güncelleştirildiğinde, yeni bir MySQL kaynak sağlayıcı bağdaştırıcısı yayınlanacaktır. Varolan bağdaştırıcısı çalışmaya devam edebilir, ancak Azure yığın güncelleştirildikten sonra en son sürüme hemen güncelleştirmek için önerilir. Güncelleştirme işlemini yukarıda anlatılan yükleme işlemine çok benzer. Yeni bir VM son RP kodla oluşturulur ve ayarları ve gerekli DNS kaydı yanı sıra sunucu bilgilerini barındırma veritabanı dahil olmak üzere bu yeni örnek geçirilecektir.
+Azure yığın derleme güncelleştirildiğinde, yeni bir MySQL kaynak sağlayıcı bağdaştırıcısı yayımlanır. Varolan bağdaştırıcısı çalışmaya devam edebilir. Ancak, Azure yığın güncelleştirildikten sonra en son sürüme mümkün olan en kısa sürede güncelleştirilmesi önerilir. 
 
-Yukarıdaki gibi aynı bağımsız değişkenlere sahip UpdateMySQLProvider.ps1 komut dosyasını kullanın. Sertifika burada de sağlamanız gerekir.
+Güncelleştirme işlemi, daha önce açıklanan yükleme işlemine benzer. Son kaynak sağlayıcısı kodu ile yeni bir VM oluşturun. Bu yeni örneğine barındırma sunucusu bilgilerini ve veritabanı dahil olmak üzere ayarlarını geçirmek sonra. Ayrıca, gerekli DNS kaydı de geçirin.
+
+Daha önce açıklanan aynı bağımsız değişkenlere UpdateMySQLProvider.ps1 komut dosyası kullanın. Sertifika burada da sağlar.
 
 > [!NOTE]
 > Güncelleştirme, yalnızca birden çok düğümlü sistemlerde desteklenir.
 
 ```
-# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
-# For integrated systems, the domain and the prefix will be the same.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure SDK, the default is AzureStack and the default prefix is AzS.
+# For integrated systems, the domain and the prefix are the same.
 $domain = "AzureStack"
 $prefix = "AzS"
 $privilegedEndpoint = "$prefix-ERCS01"
 
-# Point to the directory where the RP installation files were extracted
+# Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
 
-# The service admin account (can be AAD or ADFS)
+# The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new Resource Provider VM
+# Set credentials for the new resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-# and the cloudadmin credential required for Privileged Endpoint access
+# And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
-# change the following as appropriate
+# Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change directory to the folder where you extracted the installation files
-# and adjust the endpoints
+# Change directory to the folder where you extracted the installation files.
+# Then adjust the endpoints.
 . $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
@@ -316,21 +324,21 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 ### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parametreleri
-Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli olanları sağlamanız istenir.
+Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli parametreler sağlamanız istenir.
 
-| Parametre Adı | Açıklama | Açıklama veya varsayılan değeri |
+| Parametre Adı | Açıklama | Açıklama veya varsayılan değer |
 | --- | --- | --- |
-| **CloudAdminCredential** | Bulut Yöneticisi, ayrıcalıklı Endpoint erişmek için gerekli kimlik bilgileri. | _Gerekli_ |
-| **AzCredential** | Azure yığın Hizmet yöneticisi hesabı için kimlik bilgilerini sağlayın. Azure yığın dağıtmak için kullanılan aynı kimlik bilgilerini kullanın). | _Gerekli_ |
-| **VMLocalCredential** | SQL kaynak sağlayıcısının VM yerel yönetici hesabının kimlik bilgilerini tanımlar. | _Gerekli_ |
-| **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı sağlayın. |  _Gerekli_ |
-| **DependencyFilesLocalPath** | Sertifika PFX dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
+| **CloudAdminCredential** | Bulut Yöneticisi, ayrıcalıklı endpoint erişmek için gerekli kimlik bilgileri. | _Gerekli_ |
+| **AzCredential** | Azure yığın hizmet yönetici hesabı için kimlik bilgileri. Azure yığın dağıtmak için kullanılan kimlik bilgilerinin aynısını kullanın. | _Gerekli_ |
+| **VMLocalCredential** |SQL kaynak sağlayıcısının VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ |
+| **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı. |  _Gerekli_ |
+| **DependencyFilesLocalPath** | Sertifika .pfx dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
 | **DefaultSSLCertificatePassword** | .Pfx sertifika için parola | _Gerekli_ |
-| **MaxRetryCount** | Bir hata varsa her işlemini yeniden denemek istiyor kaç kez tanımlayın.| 2 |
-| **RetryDuration** | Zaman aşımı saniye içinde yeniden denemeler arasında tanımlayın. | 120 |
-| **Kaldırma** | (Aşağıdaki notlara bakın) ilişkili tüm kaynakları ve kaynak sağlayıcısını Kaldır | Hayır |
-| **DebugMode** | Otomatik temizleme hatasında engeller | Hayır |
-| **AcceptLicense** | GPL lisansı (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) kabul etmek için istemi atlanıyor | |
+| **MaxRetryCount** | Bir hata olduğunda her işlemini yeniden denemek istiyor sayısı.| 2 |
+| **RetryDuration** | Saniye cinsinden yeniden denemeler arasındaki zaman aşımı aralığı. | 120 |
+| **Kaldırma** | (Aşağıdaki notlara bakın) ilişkili tüm kaynakları ve kaynak sağlayıcısı kaldırın. | Hayır |
+| **DebugMode** | Otomatik temizleme hatasında engeller. | Hayır |
+| **AcceptLicense** | GPL lisansı kabul etmek için istemi atlar.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>MySQL kaynak sağlayıcı bağdaştırıcısını Kaldır
 
@@ -338,21 +346,18 @@ Kaynak sağlayıcısı kaldırmak için önce tüm bağımlılıklarını kaldı
 
 1. Kaynak Sağlayıcısı'nın bu sürümü için indirdiğiniz özgün dağıtım paketi olduğundan emin olun.
 
-2. Tüm Kiracı veritabanı (Bu verileri silmez) kaynak Sağlayıcısı'ndan silinmesi gerekir. Bu, kiracılar tarafından gerçekleştirilmelidir.
+2. Tüm Kiracı veritabanları kaynak Sağlayıcısı'ndan silinmesi gerekir. (Kiracı veritabanlarını silerek verileri silmez.) Bu görev, kiracılar tarafından gerçekleştirilmelidir.
 
 3. Kiracılar ad alanından kayıttan çıkarmanız gerekir.
 
-4. Yönetici barındırma sunucuları MySQL bağdaştırıcısından silmeniz gerekir
+4. Yönetici barındırma sunucuları MySQL bağdaştırıcısından silmeniz gerekir.
 
 5. Yönetici, MySQL bağdaştırıcısı başvuru herhangi bir plan silmeniz gerekir.
 
-6. Yönetici, MySQL bağdaştırıcıya ilişkili tüm kotalar silmeniz gerekir.
+6. Yönetici, MySQL bağdaştırıcısı ile ilişkili tüm kotalar silmeniz gerekir.
 
-7. Dağıtım betiği ile yeniden parametresi, Azure Resource Manager uç noktaları, DirectoryTenantID ve hizmet yönetici hesabının kimlik bilgilerini kaldırın.
-
-
-
-
-## <a name="next-steps"></a>Sonraki adımlar
-
-Diğer deneyin [PaaS Hizmetleri](azure-stack-tools-paas-services.md) gibi [SQL Server Kaynak sağlayıcısı](azure-stack-sql-resource-provider-deploy.md) ve [uygulama hizmetleri kaynak sağlayıcı](azure-stack-app-service-overview.md).
+7. Aşağıdaki öğeleri içeren dağıtım betiği yeniden çalıştırın:
+    - Parametre kaldırma
+    - Azure Resource Manager uç noktaları
+    - DirectoryTenantID
+    - Hizmet yöneticisi hesabı için kimlik bilgileri

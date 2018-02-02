@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Bir özel Docker kapsayıcısı kayıt defteri ile kimlik doğrulaması
 
@@ -45,7 +45,7 @@ Kullanılabilir roller şunlardır:
 
 Hizmet sorumluları hem İtme hem de çekme senaryoları aşağıdaki gibi bir kayıt defteri gözetimsiz bağlantısını etkinleştir:
 
-  * *Okuyucu*: Kubernetes, DC/OS ve Docker Swarm gibi orchestration sistemleri için bir kayıt defterinden kapsayıcı dağıtımlarını. Ayrıca kapsayıcı defterlerinden ilgili Azure hizmetlerine gibi çekebilir [AKS](../aks/index.yml), [uygulama hizmeti](../app-service/index.yml), [toplu](../batch/index.md), [Service Fabric](/azure/service-fabric/), ve Başkalarının.
+  * *Okuyucu*: Kubernetes, DC/OS ve Docker Swarm gibi orchestration sistemleri için bir kayıt defterinden kapsayıcı dağıtımlarını. Ayrıca kapsayıcı defterlerinden ilgili Azure hizmetlerine gibi çekebilir [AKS](../aks/index.yml), [uygulama hizmeti](../app-service/index.yml), [toplu](../batch/index.yml), [Service Fabric](/azure/service-fabric/), ve Başkalarının.
 
   * *Katkıda bulunan*: Visual Studio Team Services (VSTS) veya kapsayıcı görüntülerini oluşturmak ve bunları bir kayıt defterine gönderme Jenkins sürekli tümleştirme ve dağıtım çözümleri gibi.
 

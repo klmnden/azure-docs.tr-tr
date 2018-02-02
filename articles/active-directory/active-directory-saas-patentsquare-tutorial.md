@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 2738af56782dbe8c917afd942e3f6b1eada026b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 47ba146d18a20cf6c7e7480d74a02ba354486988
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Öğretici: Azure Active Directory Tümleştirme PatentSQUARE ile
 
@@ -118,7 +118,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-patentsquare-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açma yapılandırmak için **PatentSQUARE** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [PatentSQUARE destek ekibi](http://www.panasonic.com/jp/company/pstc.html). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+6. Çoklu oturum açma yapılandırmak için **PatentSQUARE** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [PatentSQUARE destek ekibi](https://www.panasonic.com/jp/business/its/patentsquare.html). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,7 +158,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="create-a-patentsquare-test-user"></a>PatentSQUARE test kullanıcısı oluşturma
 
-Bu bölümde, PatentSQUARE içinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [PatentSQUARE destek ekibi](http://www.panasonic.com/jp/company/pstc.html) PatentSQUARE platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir. 
+Bu bölümde, PatentSQUARE içinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [PatentSQUARE destek ekibi](https://www.panasonic.com/jp/business/its/patentsquare.html) PatentSQUARE platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

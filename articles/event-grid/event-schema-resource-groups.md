@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7435d87f9aaa906c3f6758186b64f3458cb9716
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 109f5af5cc1647cebee805c3141f4bc83c73bcfc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Kaynak grupları için Azure olay kılavuz olay şeması
 
@@ -39,7 +39,7 @@ Aşağıdaki örnek, olay oluşturulan bir kaynak şeması gösterir:
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -56,8 +56,10 @@ Aşağıdaki örnek, olay oluşturulan bir kaynak şeması gösterir:
         "status":"Succeeded",
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
-        },
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ Silinen kaynak olay için şemayı benzer:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -91,27 +95,29 @@ Bir olay aşağıdaki üst düzey veri sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | Dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. |
-| Konu | Dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| Olay türü | Dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | Dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | Dize | Olay için benzersiz tanımlayıcı. |
-| Veri | Nesne | Kaynak grubu olay verileri. |
+| Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
+| Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
+| eventType | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
+| id | dize | Olay için benzersiz tanımlayıcı. |
+| veriler | nesne | Kaynak grubu olay verileri. |
+| dataVersion | dize | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Yetkilendirme | Dize | İstenen Yetkilendirme işlemi için. |
-| Talepleri | Dize | Talep özellikleri. |
-| correlationId | Dize | Sorun giderme için bir işlem kimliği. |
-| httpRequest | Dize | İşlem ayrıntıları. |
-| resourceProvider | Dize | İşlemi gerçekleştiren kaynak sağlayıcısı. |
-| resourceUri | Dize | İşlemi kaynak URI'si. |
-| operationName | Dize | Gerçekleştirilen işlem. |
-| durum | Dize | İşlem durumu. |
-| subscriptionId | Dize | Kaynak abonelik kimliği. |
-| Tenantıd | Dize | Kaynak Kiracı kimliği. |
+| Yetkilendirme | dize | İstenen Yetkilendirme işlemi için. |
+| Talepleri | dize | Talep özellikleri. |
+| correlationId | dize | Sorun giderme için bir işlem kimliği. |
+| httpRequest | dize | İşlem ayrıntıları. |
+| resourceProvider | dize | İşlemi gerçekleştiren kaynak sağlayıcısı. |
+| resourceUri | dize | İşlemi kaynak URI'si. |
+| operationName | dize | Gerçekleştirilen işlem. |
+| durum | dize | İşlem durumu. |
+| subscriptionId | dize | Kaynak abonelik kimliği. |
+| tenantId | dize | Kaynak Kiracı kimliği. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

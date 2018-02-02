@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/30/2018
 ms.author: alfredop
-ms.openlocfilehash: 65b9ff0881e46836d9f19a04cf470835679e7b2f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 855d74698f2109fa426d34044cbc89b83c224e6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Sık sorulan sorular Azure yığın kullanımı API
 Bu makalede Azure yığın kullanım API'si hakkında sık sorulan bazı sorular yanıtlanmaktadır.
@@ -28,8 +28,8 @@ Kullanım aşağıdaki kaynak sağlayıcıları için bildirdi:
 
 | **Kaynak sağlayıcısı** | **Ölçer kimliği** | **Ölçüm adı** | **Birim** | **Ek bilgi** |
 | --- | --- | --- | --- | --- |
-| **Ağ** |F271A8A388C44D93956A063E1D2FA80B |Statik IP adresi kullanımı |IP adresleri| Kullanılan sayısı, IP adresleri |
-| |9E2739BA86744796B465F64674B822BA |Dinamik IP adresi kullanımı |IP adresleri| Kullanılan sayısı, IP adresleri |
+| **Ağ** |F271A8A388C44D93956A063E1D2FA80B |Statik IP adresi kullanımı |IP adresleri| Kullanılan sayısı, IP adresleri. Günlük bir ayrıntı düzeyi içeren kullanım API'si çağırırsanız, ölçüm saat sayısıyla çarpılmasıyla IP adresini döndürür. |
+| |9E2739BA86744796B465F64674B822BA |Dinamik IP adresi kullanımı |IP adresleri| Kullanılan sayısı, IP adresleri. Günlük bir ayrıntı düzeyi içeren kullanım API'si çağırırsanız, ölçüm saat sayısıyla çarpılmasıyla IP adresini döndürür. |
 | **Depolama** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*saatleri |Tabloları tarafından kullanılan toplam kapasite |
 | |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*saatleri |Sayfa blobları tarafından kullanılan toplam kapasite |
 | |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*saatleri |Sıra tarafından kullanılan toplam kapasite |
@@ -43,10 +43,10 @@ Kullanım aşağıdaki kaynak sağlayıcıları için bildirdi:
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |000's 10'da isteklerinin sayısı |Kuyruk hizmet isteklerini (10, 000's) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Giriş verileri GB |Kuyruk hizmeti veri giriş GB |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Çıkış GB |Kuyruk hizmeti veri çıkışı GB |
-| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*saatleri   | Toplam DB kapasitede oluşturma, her saat bildirdi.  |
-| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*saatleri    | Toplam DB kapasitede oluşturma, her saat bildirdi. |
-| **İşlem** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Temel VM boyutu saatleri |Sanal çekirdek dakika | Sanal çekirdek sayısı VM çalıştıran dakika zaman |
-| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM boyutu saatleri |Sanal çekirdek dakika | Sanal çekirdek sayısı VM çalıştıran dakika zaman |
+| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*saatleri   | Toplam DB kapasitede oluşturma. Günlük bir ayrıntı düzeyi içeren kullanım API'si çağırırsanız, ölçüm saat sayısıyla çarpılmasıyla MB döndürür. |
+| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*saatleri    | Toplam DB kapasitede oluşturma. Günlük bir ayrıntı düzeyi içeren kullanım API'si çağırırsanız, ölçüm saat sayısıyla çarpılmasıyla MB döndürür. |
+| **İşlem** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Temel VM boyutu saatleri |Sanal çekirdek saatleri | VM çalıştıran saatleri tarafından sanal çekirdek sayısı çarpılmasıyla hesaplanır |
+| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM boyutu saatleri |Sanal çekirdek saatleri | VM çalıştıran saatleri tarafından sanal çekirdek sayısı çarpılmasıyla hesaplanır |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM boyutu saatleri |VM saatleri |Hem temel hem de Windows VM yakalar. Çekirdeği ayarlanmaz |
 | **Anahtar Kasası** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Anahtar kasası işlemleri | 10, 000's isteği sayısı| Anahtar kasası veri düzlemi tarafından alınan REST API isteklerinin sayısı |
 | **Uygulama hizmeti** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | App Service   | Sanal çekirdek saatleri  | Uygulama hizmeti çalıştırmak için kullanılan sanal çekirdek sayısı |

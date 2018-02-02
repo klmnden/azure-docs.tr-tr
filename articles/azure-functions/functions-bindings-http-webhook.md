@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 5fe981b96725917b9cf567ded9ff38a8055fdb4d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
@@ -528,6 +528,8 @@ Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetik
 ## <a name="trigger---limits"></a>Tetikleyici - sınırları
 
 HTTP istek uzunluğu (102,400) 100 K bayt ile sınırlı ve URL uzunluğu 4 k (4.096) bayt ile sınırlı olur. Bu sınırlar tarafından belirtilen `httpRuntime` zamanının öğesinin [Web.config dosyasında](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
+Kullanan bir işlev, HTTP tetikleyicisini değil yaklaşık 2,5 dakika içinde ağ geçidi zaman aşımı tamamlayın ve HTTP 502 hata döndürür. İşlev çalışmaya devam eder ancak bir HTTP yanıtı döndüremedi görüntülenir. Uzun süre çalışan işlevleri için zaman uyumsuz desenleri izleyin ve isteğin durumunu burada ping bir konum döndürür öneririz. Bir işlev ne kadar çalıştırabilirsiniz hakkında daha fazla bilgi için bkz: [ölçek ve barındırma - tüketim planlama](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - host.json properties
 

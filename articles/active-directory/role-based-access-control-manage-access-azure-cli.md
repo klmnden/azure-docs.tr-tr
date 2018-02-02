@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Rol tabanlı erişim denetimini Azure komut satırı arabirimi ile yönetme
 > [!div class="op_single_selector"]
@@ -27,9 +27,14 @@ ms.lasthandoff: 12/21/2017
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-Abonelik ve ayrıntılı bir düzeyde kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimi (RBAC) Azure portalında ve Azure Resource Manager API'sini kullanabilirsiniz. Bu özellik ile bazı roller belirli bir kapsamda atayarak Active Directory Kullanıcıları, grupları veya hizmet asıl adı için erişim izni verebilir.
+Abonelik ve ayrıntılı bir düzeyde kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimi (RBAC) Azure portalında ve Azure Resource Manager API'sini kullanabilirsiniz. Bu özellik ile bazı roller belirli bir kapsamda atayarak Active Directory Kullanıcıları, grupları veya hizmet asıl adı için erişim izni verebilir. 
 
-RBAC yönetmek için Azure komut satırı arabirimi (CLI) kullanmadan önce aşağıdaki önkoşullara sahip olmalıdır:
+> [!NOTE] 
+> En son rol belgeleri için kullanıma sunulmuştur [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+
+
+ 
++ > En son rol belgelerine [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) RBAC yönetmek için Azure komut satırı arabirimi (CLI) kullanmadan önce aşağıdaki önkoşullara sahip olmalıdır:
 
 * Azure CLI Sürüm 0.8.8 veya sonraki bir sürümü. En son sürümünü yükleyin ve Azure aboneliğinizle ilişkilendirmek için bkz: [Azure CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md).
 * Azure Resource Manager'da Azure CLI. Git [Resource Manager ile Azure CLI kullanarak](../xplat-cli-azure-resource-manager.md) daha fazla ayrıntı için.

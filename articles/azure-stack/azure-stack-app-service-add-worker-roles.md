@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 30ab325488684a26a6ef442e7c8241526a66aa4c
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: a9be9011062f07d59842d417bf6761ec81c39275
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure yığın uygulama hizmeti: daha fazla altyapı veya çalışan rolleri Ekle
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*  
 
 Bu belge, Azure yığın altyapı ve çalışan rolleri uygulama hizmeti ölçeklendirme hakkında yönergeler sağlar. Herhangi bir boyuttaki uygulamaları desteklemek için ek çalışan rolleri oluşturmak için adımları içerir.
 
@@ -40,15 +41,15 @@ Uygulama hizmeti kaynak sağlayıcısı yönetici doğrudan içinde ek çalışa
 2. Gözat **uygulama hizmetleri**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. Tıklatın **rolleri**. Burada, dağıtılan tüm uygulama hizmeti rolleri dökümünü görürsünüz.
 
 4. Ölçek ve ardından istediğiniz türü satırındaki sağ tıklayın **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. Tıklatın **ölçeklendirme**, üzere ölçek ve ardından istediğiniz örneklerinin sayısını seçin **kaydetmek**.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. Azure yığın uygulama hizmeti şimdi ilave VM'ler eklemek, bunları yapılandırmanız, tüm gerekli yazılımları yüklemek ve bu işlem tamamlandıktan sonra bunları hazır olarak işaretlemek. Bu işlem yaklaşık 80 dakika sürebilir.

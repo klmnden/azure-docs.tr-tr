@@ -47,4 +47,4 @@ Bir arka uç API'si (önerilmez) bir kapsam gerek yoksa, kullanabileceğiniz **C
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

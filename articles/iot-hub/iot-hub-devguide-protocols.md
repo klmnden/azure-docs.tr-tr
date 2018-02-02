@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 37602bf78f7a43fb8255ddc0aad21f24095cb43c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f115d1e7313d2c9d378129c021a37489674fe81f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Başvuru - iletişim protokolü seçin
 
@@ -44,7 +44,7 @@ Cihaz tarafındaki iletişimleri için protokol seçtiğinizde aşağıdaki nokt
 
 * **Bulut cihaz düzeni**. HTTPS server itme uygulamak için etkili bir yol yok. Bu nedenle, HTTPS kullanırken, cihazlar IOT Hub için bulut-cihaz iletilerini yoklar. Bu yaklaşım aygıt ve IOT Hub için yetersiz olduğunu. Geçerli HTTPS yönergeleri altında her aygıt için iletileri 25 dakikada bir veya daha fazla yoklama. MQTT ve AMQP sunucu itme bulut-cihaz iletilerini alırken destekler. Bunlar, anında bildirim iletilerinin IOT hub'dan cihaz için etkinleştirin. Teslim gecikme ilgili bir sorun varsa, MQTT veya AMQP kullanmak için en iyi protokolleri edilir. Nadiren bağlanan cihazlar için HTTPS de çalışır.
 * **Alan ağ geçitleri**. MQTT ve HTTPS kullanırken, birden çok aygıt (her kendi cihaz başına kimlik bilgileriyle) bağlanamıyor aynı TLS bağlantısı kullanarak. İçin [alan ağ geçidi senaryoları] [ lnk-azure-gateway-guidance] bağlı her cihaz için alan ağ geçidi ve IOT hub'ı arasında bir TLS bağlantısı gerektirir, bu protokollere yetersiz.
-* **Düşük kaynak aygıtları**. MQTT ve HTTPS kitaplıkları AMQP kitaplıkları daha küçük bir yer vardır. Cihaz kaynakları (örneğin'den az 1 MB RAM) sınırlıdır, bu nedenle, bu protokollere yalnızca protokol uygulanması olabilir.
+* **Düşük kaynak aygıtları**. MQTT ve HTTPS kitaplıkları AMQP kitaplıkları daha küçük bir yer vardır. Cihaz kaynakları (örneğin, değerinden 1 MB RAM) sınırlıdır, bu nedenle, bu protokollere yalnızca protokol uygulanması olabilir.
 * **Ağ geçişi**. Bağlantı noktası 5671 standart AMQP protokolünü kullanır ve MQTT 8883 bağlantı noktasını dinler. Bu bağlantı noktalarının kullanımını HTTPS dışındaki protokoller için kapalı ağlarında sorunlara neden olabilir. MQTT WebSockets, AMQP WebSockets veya HTTPS üzerinden bu senaryoda kullanın.
 * **Yükü boyutu**. MQTT ve AMQP HTTPS değerinden daha küçük yüklerini sonucunda ikili protokoller şunlardır.
 

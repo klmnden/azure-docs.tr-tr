@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 043de0e8a934a2fd92522eeb70261203afac180e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB kullanarak bir Node.js web uygulaması oluşturma
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] sürüm v0.10.29 veya üzeri.
+* [Node.js][Node.js] sürüm v0.10.29 veya üzeri. Node.js 6.10 ya da daha yüksek öneririz.
 * [Express oluşturucu](http://www.expressjs.com/starter/generator.html) (bunu `npm install express-generator -g` aracılığıyla yükleyebilirsiniz)
 * [Git][Git].
 
@@ -80,7 +80,7 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
    
     ![Node.js öğrenin - Bir tarayıcı penceresinde Hello World uygulamasının ekran görüntüsü](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    Ardından, uygulamayı durdurmak için terminal penceresinde CTRL+C tuşlarına basın ve ardından toplu işlemi sonlandırmak için **y** öğesine tıklayın.
+    Ardından, uygulamayı durdurmak için terminal penceresinde CTRL + C tuşlarına basın ve ardından yalnızca Windows makinelerde tıklayın **y** toplu işlem sonlandırılacak.
 
 ## <a name="_Toc395783179"></a>3. Adım: Ek modülleri yükleme
 **Package.json** dosyası, projenin kökünde oluşturulan dosyalardan biridir. Bu dosya, Node.js uygulamanız için gerekli olan ek modüllerin listesini içerir. Daha sonra Azure Web siteleri için bu uygulamayı dağıttığınızda, bu dosya modüllerine uygulamanızı desteklemek amacıyla Azure'a yüklenmesi gerektiğini belirlemek için kullanılır. Bu öğretici için iki paket daha yüklememiz gerekiyor.
@@ -91,29 +91,6 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
 2. Npm aracılığıyla **documentdb** modülünü yükleyin. Bu modülde burada tüm Azure Cosmos DB Sihirli meydana gelir.
    
         npm install documentdb --save
-3. Uygulamanın **package.json** dosyası hızlı bir şekilde denetlendiğinde ek modüller görüntülenmelidir. Bu dosya, uygulamanızı çalıştırırken hangi paketlerin indirilip yükleneceğini Azure'a bildirir. Aşağıdaki örneğe benzemelidir.
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    Bu düğüm, Düğüme (ve daha sonra Azure’a) uygulamanızın bu ek modüllere bağlı olduğunu bildirir.
 
 ## <a name="_Toc395783180"></a>4. Adım: Azure Cosmos DB hizmetini bir düğüm uygulamasında kullanma
 Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada olma nedenimize dönelim ve Azure Cosmos DB'yi kullanarak biraz kod yazalım.
@@ -384,13 +361,13 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. **config.js** dosyasında [Microsoft Azure portalındaki](https://portal.azure.com) Azure Cosmos DB hesabınızın Anahtarlar dikey penceresinde bulunan değerleri kullanarak HOST ve AUTH_KEY değerlerini güncelleştirin.
+3. İçinde **config.js** dosya, HOST ve auth_key değerlerini Azure Cosmos DB hesabınızı anahtarları sayfasında bulunan değerleri kullanarak değerlerini güncelleştirin [Microsoft Azure portal](https://portal.azure.com).
 4. **config.js** dosyasını kaydedin ve kapatın.
 
 ### <a name="modify-appjs"></a>App.js'yi değiştirme
@@ -513,7 +490,7 @@ Uygulamamızın çalışması için bunlar yeterli olacaktır.
 3. Sayfa, Yapılacaklar listesinde yeni oluşturulan öğeyi görüntülemek üzere güncelleştirilmelidir.
    
     ![Yapılacaklar listesinde yeni bir öğeyi içeren uygulamanın ekran görüntüsü](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. Bir görevi tamamlamak için Tamamla sütunundaki onay kutusunu işaretlemeniz ve ardından **Görevleri güncelleştir**'e tıklamanız yeterlidir. Bu işlem önceden oluşturduğunuz belgeyi güncelleştirir.
+4. Bir görevi tamamlamak için Tamamla sütunundaki onay kutusunu işaretlemeniz ve ardından **Görevleri güncelleştir**'e tıklamanız yeterlidir. Bu belgenin daha önce oluşturduğunuz ve görünümden kaldırır güncelleştirir.
 
 5. Uygulamayı durdurmak için terminal penceresinde CTRL+C tuşlarına basın ve ardından toplu işlemi sonlandırmak için **Y** öğesine tıklayın.
 

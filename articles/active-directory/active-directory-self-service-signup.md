@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory'de Self Servis veya viral kaydolma | Microsoft Docs
+title: Azure Active Directory'de Self Servis veya deneme kaydolma | Microsoft Docs
 description: "Bir Azure Active Directory (Azure AD) Kiracı Self Servis kaydolma kullanın"
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f2b541d5028596f9beabc7fd82001b4c9dacad4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Azure Active Directory için Self Servis kaydolma nedir?
 Bu makalede, Self Servis kaydolma ve Azure Active Directory (Azure AD) desteklemek nasıl açıklanmaktadır. Bir etki alanı adı almak istiyorsanız yönetilmeyen bir Azure AD Kiracı için bkz: [yönetilmeyen bir dizini yönetici olarak ele](domains-admin-takeover.md).
@@ -46,7 +46,12 @@ Yöneticilere iki Self Servis denetimleri bugün sahip. Kontrol edebilirsiniz ol
 Bir yönetici, aşağıdaki Azure AD cmdlet Set-MsolCompanySettings parametreleri kullanarak bu yetenekleri yapılandırabilirsiniz:
 
 * **AllowEmailVerifiedUsers** bir kullanıcı oluşturabilir veya yönetilmeyen bir directory katılım olup olmadığını denetler. Bu parametreyi $false olarak ayarlarsanız, e-posta doğrulanan kullanıcı dizini birleştirebilirsiniz.
-* **AllowAdHocSubscriptions** Self Servis kaydolma gerçekleştirmek kullanıcılara denetler. Bu parametreyi $false olarak ayarlarsanız, hiçbir kullanıcı Self Servis kaydolma gerçekleştirebilirsiniz.
+* **AllowAdHocSubscriptions** Self Servis kaydolma gerçekleştirmek kullanıcılara denetler. Bu parametreyi $false olarak ayarlarsanız, hiçbir kullanıcı Self Servis kaydolma gerçekleştirebilirsiniz. 
+  
+  > [!NOTE]
+  > Akış ve PowerApps deneme kayıtlara tarafından değil denetlenen **AllowAdHocSubscriptions** ayarı. Daha fazla bilgi için aşağıdaki makalelere bakın:
+  > * [Varolan kullanıcılar Power BI kullanmaya başlamasını nasıl önleyebilirim?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [Soru- cevap, kuruluşunuzda akış](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Denetimleri birlikte nasıl çalışır?
 Bu iki parametre birlikte Self Servis kaydolma üzerinde daha kesin denetim tanımlamak için kullanılabilir. Örneğin, aşağıdaki komutu kullanıcıların bu kullanıcıların Azure AD'de bir hesabınız zaten varsa ancak yalnızca Self Servis kaydolma gerçekleştirmesini sağlayacak (diğer bir deyişle, bir e-posta doğrulandı hesabı oluşturulması için gereken kullanıcılar ilk Self Servis kaydolma gerçekleştiremezsiniz):

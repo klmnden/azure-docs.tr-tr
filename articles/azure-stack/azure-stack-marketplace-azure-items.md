@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/27/2018
 ms.author: JeffGoldner
-ms.openlocfilehash: d6a0cbf696d59cec5b70e147de2879a311d88687
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -38,8 +38,6 @@ ms.lasthandoff: 01/22/2018
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [Linux VM erişim](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Bu güncelleştirme için Linux uzantısı VMAccess yerleşik sürümünü indirin. Debian Linux VM'ler kullanmayı planlıyorsanız, bu önemlidir.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Linux için Acronis yedekleme uzantısı](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows için Acronis yedekleme uzantısı](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis International GmbH. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Linux için ayrıntılı güvenlik aracısı](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Linux için eğilim mikro derin güvenlik uzantısı. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Windows için ayrıntılı güvenlik aracısı](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Windows için eğilim mikro derin güvenlik uzantısı. | Trend Micro | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft sanal makine görüntüleri ve çözüm şablonları
 
@@ -47,7 +45,7 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 
 |  | Öğe adı | Açıklama | Yayımcı |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Basit dağıtmak, uygun maliyetli, uygulama odaklı ve kullanıcı merkezli kurumsal sınıf çözümleri. Bu görüntüler ile en son düzeltme eklerinin düzenli olarak güncelleştirilir. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Basit dağıtmak, uygun maliyetli, uygulama odaklı ve kullanıcı merkezli kurumsal sınıf çözümleri. Bu görüntüler ile en son düzeltme eklerinin düzenli olarak güncelleştirilir. <b>Önemli bilgiler: 18 Ocak 2018 silinir ve en son sürümleri ile değiştirilir önce indirilen görüntüler.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Uzak Masaüstü Hizmetleri (RDS) dağıtım](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Temel bir Uzak Masaüstü Hizmetleri (RDS) dağıtım oluşturun. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 deneme sürümü](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 deneme sürümü Windows Server 2012 Datacenter ve Visual Studio 2017 community Edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 deneme sürümü](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 deneme sürümü Windows Server 2016 Datacenter üzerinde. | Microsoft |
