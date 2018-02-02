@@ -62,25 +62,7 @@
         - name: Mantıksal uygulamanızı güvenli hale getirme
           href: logic-apps-securing-a-logic-app.md
         - name: Özel bağlayıcılar geliştirme
-          items:
-            - name: Özel bağlayıcılara genel bakış
-              href: custom-connector-overview.md
-            - name: Web API'lerinden bağlayıcı oluşturma
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Azure AD ile bağlayıcıların güvenliğini sağlama
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: Postman ile API'leri açıklama
-              href: custom-connector-api-postman-collection.md
-            - name: Özel bağlayıcılar için OpenAPI’yi genişletme
-              href: custom-connector-openapi-extensions.md
-            - name: OpenAPI bağlayıcısı oluşturma ve kaydetme
-              href: logic-apps-custom-connector-register.md
-            - name: SOAP bağlayıcısı oluşturma ve kaydetme
-              href: logic-apps-soap-connector-create-register.md
-            - name: Bağlayıcınızı onaylama
-              href: custom-connector-submit-certification.md
-            - name: Özel bağlayıcılarla ilgili SSS bölümü
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: Özel API'ler geliştirme
           items:
             - name: Mantıksal uygulamalar için özel API’ler oluşturma
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: XML dönüştürme için eşlemeler ekleme
           href: logic-apps-enterprise-integration-maps.md
+        - name: JSON’u dönüştürme
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Güvenlik sertifikaları ekleme
           href: logic-apps-enterprise-integration-certificates.md
         - name: B2B hatalarında sorun giderme

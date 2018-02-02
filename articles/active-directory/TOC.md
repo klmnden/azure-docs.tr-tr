@@ -176,6 +176,16 @@
 ##### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [SaaS uygulamalarına kullanıcı hazırlama ve hazırlamayı kaldırma](active-directory-saas-app-provisioning.md)
+#### [Uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
+#### [SCIM etkin uygulamalara otomatik sağlama](active-directory-scim-provisioning.md)
+#### [Öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)
+#### [Öznitelik eşlemeleri için ifadeler yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Kapsam belirleme filtrelerini kullanma](active-directory-saas-scoping-filters.md)
+#### [Otomatik kullanıcı hazırlama raporu](active-directory-saas-provisioning-reporting.md)
+#### [Kullanıcı hazırlama sorunlarını giderme](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](active-directory-application-proxy-get-started.md)
 #### başlarken
@@ -219,7 +229,7 @@
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Uygulamayı kullanıcı deneyiminden gizleme](active-directory-coreapps-hide-third-party-app.md)
 ### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](active-directory-auto-acceleration-using-hrd.md)
-
+### [AD FS uygulamalarını Azure AD’ye geçirme](migrate-adfs-apps-to-azure.md)
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [SSO erişimi](active-directory-appssoaccess-whatis.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## Kaynaklara temsilci erişimi
 ### [Yönetici rolleri](active-directory-assign-admin-roles-azure-portal.md)
-#### [Yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md)
+#### [Kullanıcıya yönetici rolü atama](active-directory-users-assign-role-azure-portal.md)
+#### [Üye ve konuk kullanıcı izinlerini karşılaştırma](users-default-permissions.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 ### [Acil durum erişimi yönetici hesaplarını yönetin](active-directory-admin-manage-emergency-access-accounts.md)
@@ -284,7 +295,7 @@
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Denetimler](active-directory-conditional-access-controls.md)
 #### [Konum koşulu](active-directory-conditional-access-locations.md)
-#### [Başlarken](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
@@ -306,7 +317,7 @@
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Başlarken](active-directory-certificate-based-authentication-get-started.md)
+#### [Kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Kimlik Koruması](active-directory-identityprotection.md)
 #### [Etkinleştirme](active-directory-identityprotection-enable.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Diğer hizmetleri Azure AD ile tümleştirme]()
-### [LinkedIn ile tümleştirmeyi etkinleştirme](linkedin-integration.md)
+## Diğer hizmetleri Azure AD ile tümleştirme
+### [LinkedIn’i Azure AD ile tümleştirme](linkedin-integration.md)
 
 ## [Azure VM’lerinde AD DS dağıtma](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Azure VM’lerinde Windows Server Active Directory](active-directory-deploying-ws-ad-guidelines.md)

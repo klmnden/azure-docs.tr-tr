@@ -146,6 +146,8 @@
           href: security-center-search.md
     - name: Azure günlük tümleştirmesi
       href: security-center-integrating-alerts-with-log-integration.md
+    - name: SIEM’e veri aktarma
+      href: security-center-export-data-to-siem.md
     - name: Senaryolar
       items:
         - name: Olay yanıtı

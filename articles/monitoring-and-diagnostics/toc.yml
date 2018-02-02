@@ -2,8 +2,8 @@
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Azure İzleyici
-      href: monitoring-overview-azure-monitor.md
+    - name: Azure'da izleme
+      href: monitoring-overview.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -27,8 +27,8 @@
       href: monitoring-partners.md
     - name: Ek incelemeler
       items:
-        - name: Azure genelinde izleme araçları
-          href: monitoring-overview.md
+        - name: Azure İzleyici
+          href: monitoring-overview-azure-monitor.md
         - name: Ölçümler
           href: monitoring-overview-metrics.md
         - name: Uyarılar

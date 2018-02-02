@@ -84,10 +84,14 @@
       items:
         - name: Data Lake Store ile kullanma
           href: apache-spark-use-with-data-lake-store.md
+        - name: Azure SQL Veritabanı'na bağlanma
+          href: apache-spark-connect-to-sql-database.md
     - name: Spark Streaming
       items:
         - name: Genel Bakış
           href: apache-spark-streaming-overview.md
+        - name: YARN’da yüksek oranda kullanılabilir Spark akış işleri oluşturma
+          href: apache-spark-streaming-high-availability.md
         - name: Akış olaylarını işleme
           href: apache-spark-eventhub-streaming.md
         - name: Event Hubs kullanarak yapılandırılmış akış
@@ -101,6 +105,8 @@
         - name: Kafka ile Spark Streaming (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Kesinlikle bir kere olay işleme ile Spark akış işleri oluşturma
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark ve Machine Learning
       items:
         - name: HVAC performansını tahmin etme
@@ -198,6 +204,8 @@
           maintainContext: true
     - name: Yönetme
       items:
+        - name: Spark ayarlarını yapılandırma
+          href: apache-spark-settings.md
         - name: Spark işlerini en iyi duruma getirme
           href: apache-spark-perf.md
         - name: Küme kapasitesi planlama

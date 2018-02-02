@@ -1,57 +1,94 @@
+
+# [Batch Belgeleri](index.yml)
+
 # Genel Bakış
 ## [Azure Batch nedir?](batch-technical-overview.md)
-## [Özelliklere genel bakış](batch-api-basics.md)
+
+# Hızlı Başlangıçlar
+## [Batch işi çalıştırma - CLI](quick-create-cli.md)
+## [Batch işi çalıştırma - Portal](quick-create-portal.md)
+## [Batch işi çalıştırma - .NET](quick-run-dotnet.md)
+## [Batch işi çalıştırma - Python](quick-run-python.md)
+
+
+# Öğreticiler
+
+## [Paralel dosya işleme - .NET](tutorial-parallel-dotnet.md)
+## [Paralel dosya işleme - Python](tutorial-parallel-python.md)
+## [Arnold ile sahne işlemesi](tutorial-rendering-cli.md)
+## [Paralel R benzetimi](tutorial-r-doazureparallel.md)
+
+# Örnekler
+## Kod örnekleri
+### [Azure kod örnekleri](https://azure.microsoft.com/resources/samples/?service=batch)
+### [Batch örnekleri deposu](https://github.com/Azure/azure-batch-samples)
+## [Azure CLI](cli-samples.md)
+
+# Kavramlar
+## [Geliştirici özellikleri](batch-api-basics.md)
 ## [API’ler ve araçlar](batch-apis-tools.md)
 ## [Kotalar ve sınırlar](batch-quota-limit.md)
-# Kullanmaya Başlama
-## [Batch hesabı oluşturma](batch-account-create-portal.md)
-## [Batch .NET öğreticisi](batch-dotnet-get-started.md)
-## [Batch Python öğreticisi](batch-python-tutorial.md)
-## [Batch Node.js öğreticisi](batch-nodejs-get-started.md)
-## [Toplu İşleme hizmeti](batch-rendering-service.md)
-# Nasıl yapılır
-## Geliştirme
-### [Uygulama paketleri](batch-application-packages.md)
+
+# Nasıl yapılır kılavuzları
+## Batch hesaplarını yönetme
+### [Portal ile Batch hesaplarını yönetme](batch-account-create-portal.md)
+### [Toplu İşlem Yönetimi .NET ile Batch hesaplarını yönetme](batch-management-dotnet.md)
+
+## Azure AD ile kimlik doğrulaması
+### [Batch hizmeti ile Azure AD](batch-aad-auth.md)
+### [Batch Yönetimi ile Azure AD](batch-aad-auth-management.md)
+
+## [Uygulama paketleri oluşturma](batch-application-packages.md)
+
+## Havuz oluşturma ve yönetme
 ### [İşlem düğümlerini otomatik ölçeklendirme](batch-automatic-scaling.md)
-### Azure AD kimlik doğrulaması
-#### [Batch hizmeti ile Azure AD](batch-aad-auth.md)
-#### [Batch Yönetimi ile Azure AD](batch-aad-auth-management.md)
 ### [Yoğun işlem gücü kullanımlı VM’ler](batch-pool-compute-intensive-sizes.md)
-### [Kapsayıcı iş yükleri](batch-docker-container-workloads.md)
-### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
-### [Görevleri duruma göre sayma](batch-get-task-counts.md)
 ### [Özel bir görüntü ile havuz oluşturma](batch-custom-images.md)
 ### [Sanal ağ içinde havuz oluşturma](batch-virtual-network.md)
-### [Etkili liste sorguları](batch-efficient-list-queries.md)
-### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
 ### [Linux işlem düğümleri](batch-linux-nodes.md)
 ### [Düşük öncelikli sanal makineler](batch-low-pri-vms.md)
-### [Toplu İşlem Yönetimi .NET ile Batch hesaplarını yönetme](batch-management-dotnet.md)
-### [İş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md)
-#### [Batch API’si ile çıkışı kalıcı hale getirme](batch-task-output-files.md)
-#### [Dosya Kuralları kitaplığı](batch-task-output-file-conventions.md)
-### [Batch’de MPI işlerini çalıştırma](batch-mpi.md)
+
+## İşleri ve görevleri yönetme
+### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
+### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
+### [Görevleri duruma göre sayma](batch-get-task-counts.md)
 ### [Görev bağımlılıkları](batch-task-dependencies.md)
 ### [Görev çalıştırmaya yönelik kullanıcı hesapları](batch-user-accounts.md)
-### [Batch için Visual Studio proje şablonları](batch-visual-studio-templates.md)
-## Yönet
-### [Batch PowerShell cmdlet’leri](batch-powershell-cmdlets-get-started.md)
-### [Azure CLI](batch-cli-get-started.md)
-#### [Toplu işleri kodsuz çalıştırma](batch-cli-templates.md)
-#### [Batch hesabı oluşturma](./scripts/batch-cli-sample-create-account.md)
-#### [Uygulama ekleme](./scripts/batch-cli-sample-add-application.md)
-#### [Havuzları yönetme](./scripts/batch-cli-sample-manage-pool.md)
-#### [Bir işi ve görevleri çalıştırma](./scripts/batch-cli-sample-run-job.md)
+### [Toplu işleri kodsuz çalıştırma](batch-cli-templates.md)
+
+
+## [İş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md)
+### [Batch API’si ile çıkışı kalıcı hale getirme](batch-task-output-files.md)
+### [Dosya Kuralları kitaplığı](batch-task-output-file-conventions.md)
+
+## İş yükleri çalıştırma
+### [MPI işleri](batch-mpi.md)
+### [Kapsayıcı iş yükleri](batch-docker-container-workloads.md)
+### [İşleme](batch-rendering-service.md)
+### [Batch ve Data Factory kullanarak veri işleme](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+
+## Kaynakları izleme
+### [Tanılama günlüğüne kaydetme](batch-diagnostics.md)
+### [Etkili liste sorguları](batch-efficient-list-queries.md)
+
+## Geliştirici araçları kullanma
+### [Batch .NET kullanma](batch-dotnet-get-started.md)
+### [Batch Python kullanma](batch-python-tutorial.md)
+### [Batch Node.js kullanma](batch-nodejs-get-started.md)
+### [PowerShell cmdlet'leri kullanma](batch-powershell-cmdlets-get-started.md)
+### [Azure CLI kullanma](batch-cli-get-started.md)
+
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [Azure PowerShell](/powershell/module/azurerm.batch)
+
 ## [Azure CLI](/cli/azure/batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](/nodejs/api/overview/azure/batch)
-## [Python SDK'sı](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
-## [REST](/rest/api/batchservice)
-## [Batch tanılama günlükleri](batch-diagnostics.md)
+## [Python](/python/api/overview/azure/batch)
+## REST
+### [Batch Hizmeti](/rest/api/batchservice)
+### [Batch Yönetimi](/rest/api/batchmanagement/)
 ## [Toplu Analiz](batch-analytics.md)
 ### [Havuz oluşturma olayı](batch-pool-create-event.md)
 ### [Havuz silme başlangıç olayı](batch-pool-delete-start-event.md)
@@ -61,22 +98,17 @@
 ### [Görev başlangıç olayı](batch-task-start-event.md)
 ### [Görev tamamlama olayı](batch-task-complete-event.md)
 ### [Görev başarısızlık olayı](batch-task-fail-event.md)
-## [Azure Batch işlem düğümü ortam değişkenleri](batch-compute-node-environment-variables.md)
-
-# İlgili
-## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Batch ve Data Factory kullanarak veri işleme](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Azure bulutta Batch ve HPC çözümleri](batch-hpc-solutions.md)
+## [Batch işlem düğümü ortam değişkenleri](batch-compute-node-environment-variables.md)
+### [Resource Manager Şablonu](/templates/microsoft.batch/batchaccounts)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Batch forumu](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
-## [C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Azure’da HPC çözümleri](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/batch/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
-## [Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=batch)

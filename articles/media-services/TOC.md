@@ -117,6 +117,7 @@
 ### [Şirket içi kodlayıcıları bulut kodlayıcıyla kullanılmak üzere yapılandırma](media-services-live-encoders-overview.md)
 #### [Elemental Live kodlayıcı](media-services-configure-elemental-live-encoder.md)
 #### [FMLE kodlayıcı](media-services-configure-fmle-live-encoder.md)
+#### [Haivision KB kodlayıcı](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster kodlayıcı](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast kodlayıcı](media-services-configure-wirecast-live-encoder.md)
 ### [Uzun süren işlemleri çözme](media-services-dotnet-long-operations.md)

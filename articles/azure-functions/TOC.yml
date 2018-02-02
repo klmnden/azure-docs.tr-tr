@@ -63,6 +63,8 @@
       href: functions-cli-samples.md
 - name: Kavramlar
   items:
+    - name: 1.x ve 2.x’i karşılaştırma
+      href: functions-versions.md
     - name: Ölçeklendirme ve barındırma
       href: functions-scale.md
     - name: Tetikleyiciler ve bağlamalar
@@ -146,7 +148,7 @@
         - name: İşlev uygulaması yönetme
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Çalıştırma sürümünü ayarlama
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: İzleme
       href: functions-monitoring.md
     - name: Tümleştirme
@@ -183,6 +185,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Dış dosya

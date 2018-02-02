@@ -29,6 +29,10 @@
       href: understading-cost-reports.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Azure aboneliklerini ve hesaplarını etkinleştirme
+      href: activate-subs-accounts.md
+    - name: VM'ler için genişletilmiş ölçümler ekleme
+      href: azure-vm-extended-metrics.md
     - name: Maliyet Yönetimi raporlarını kullanma
       href: use-reports.md
 - name: Kaynaklar

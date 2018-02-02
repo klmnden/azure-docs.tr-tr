@@ -15,7 +15,9 @@
 ### [Erişim denetim listeleri](virtual-networks-acl.md)
 
 # Başlarken
-## [İlk sanal ağınızı oluşturma](virtual-network-get-started-vnet-subnet.md)
+## [Sanal ağ oluşturma - Portal](quick-create-portal.md)
+## [Sanal ağ oluşturma - PowerShell](quick-create-powershell.md)
+## [Sanal ağ oluşturma - Azure CLI](quick-create-cli.md)
 
 # Nasıl yapılır
 ## Planlama ve tasarım
