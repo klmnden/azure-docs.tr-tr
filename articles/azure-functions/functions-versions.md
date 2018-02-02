@@ -1,6 +1,6 @@
 ---
-title: "Hedef Azure işlevleri çalışma zamanı sürümlerini nasıl"
-description: "Azure işlevleri çalışma zamanı birden fazla sürümünü destekler. Azure üzerinde barındırılan bir işlev uygulaması çalışma zamanı sürümü belirleme konusunda bilgi edinin."
+title: "Azure işlevleri çalışma zamanı sürümleri genel bakış"
+description: "Azure işlevleri çalışma zamanı birden fazla sürümünü destekler. Bunları ve sizin için uygun olan bir seçme arasındaki farklar hakkında bilgi edinin."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -10,19 +10,17 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: 3f816f661767d2e372b02b207d6fa7efd494e6ec
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9f916aaa8032ff519709d73a1c1f51195f811686
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="how-to-target-azure-functions-runtime-versions"></a>Hedef Azure işlevleri çalışma zamanı sürümlerini nasıl
+# <a name="azure-functions-runtime-versions-overview"></a>Azure işlevleri çalışma zamanı sürümleri genel bakış
 
-Bir işlev uygulaması Azure işlevleri çalışma zamanı belirli bir sürümünü çalıştırır. İki ana sürümü vardır: 1.x ve 2.x. Bu makalede, kullanılacak ana sürüm ve sürümü çalıştırdığınız Azure'da bir işlev uygulaması yapılandırma seçim seçim açıklanmaktadır. Belirli bir sürümü için bir yerel geliştirme ortamı yapılandırma hakkında daha fazla bilgi için bkz: [koduna ve test Azure işlevleri yerel olarak](functions-run-local.md).
-
-## <a name="differences-between-runtime-1x-and-2x"></a>Çalışma zamanı arasındaki farklar 1.x ve 2.x
+ Azure işlevleri çalışma zamanı iki ana sürümü vardır: 1.x ve 2.x. Bu makalede önemli hangi sürümün kullanılacağını seçme açıklanmaktadır.
 
 > [!IMPORTANT] 
 > Çalışma zamanı 1.x üretim kullanımı için onaylanan yalnızca sürüm değil.
@@ -32,89 +30,37 @@ Bir işlev uygulaması Azure işlevleri çalışma zamanı belirli bir sürümü
 |1.x|Genellikle kullanılabilir (GA)|
 |2.x|Önizleme|
 
-Aşağıdaki bölümlerde diller, bağlamaları ve platformlar arası geliştirme desteği farkları açıklamaktadır.
+Bir işlev uygulaması veya geliştirme ortamınızı belirli bir sürüm için nasıl yapılandırılacağı hakkında daha fazla bilgi için bkz: [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](set-runtime-version.md) ve [koduna ve test yerel olarak Azure işlevleri](functions-run-local.md).
 
-### <a name="languages"></a>Diller
+## <a name="cross-platform-development"></a>Platformlar arası geliştirme
 
-Aşağıdaki tabloda, hangi programlama dillerini her çalışma zamanı sürümünde desteklendiğini gösterir.
+Çalışma zamanı 1.x destekler geliştirme ve yalnızca portalında veya Windows barındırma. .NET Core, macOS ve Linux dahil .NET Core tarafından desteklenen tüm platformlarda çalışabilir anlamına çalışma zamanı 2.x çalışır. Bu, platformlar arası geliştirme ve 1.x ile mümkün olmayan barındırma senaryolarını sağlar.
+
+## <a name="languages"></a>Diller
+
+Çalışma zamanı 2.x yeni bir dil genişletilebilirlik modeli kullanır. Başlangıçta, JavaScript ve Java yeni Bu modelin avantajı, sürüyor. Azure işlevleri 1.x Deneysel dilleri 2.x içinde desteklenmez şekilde yeni model kullanılacak güncelleştirilmedi. Aşağıdaki tabloda, hangi programlama dillerini her çalışma zamanı sürümünde desteklendiğini gösterir.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 Daha fazla bilgi için bkz: [desteklenen diller](supported-languages.md).
 
-### <a name="bindings"></a>Bağlamalar 
+## <a name="bindings"></a>Bağlamalar 
 
-Çalışma zamanı 2.x sağlar, oluşturduğunuz özel [uzantıları bağlama](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Bu genişletilebilirlik modelini kullanan yerleşik bağlamaları, yalnızca 2.x içinde bulunur; Bunlardan ilki arasında [Microsoft Graph bağlamaları](functions-bindings-microsoft-graph.md).
+Çalışma zamanı 2.x kullanan yeni bir [bağlama genişletilebilirlik modelini](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) aşağıdaki avantajları sunar:
+
+* Üçüncü taraf bağlama uzantıları için destek.
+* Çalışma zamanı ve bağlamaları ayırma. Bu bağlama uzantıları sürümü tutulan ve bağımsız olarak yayımlanmış olmasını sağlar. Örneğin, temel alınan bir SDK daha yeni bir sürümü güvenen uzantı sürümüne yükseltmek için tercih edebilirsiniz.
+* Bağlamaları kullanımda olduğu bilinen ve çalışma zamanı tarafından yüklenen bir açık yürütme ortamı.
+
+Tüm yerleşik Azure işlevleri bağlamaları bu modeli benimseyen ve artık Zamanlayıcı tetikleyicisi ve HTTP tetikleyicisini dışında varsayılan olarak dahil edilir. Bu uzantılar, Visual Studio gibi araçlar aracılığıyla veya portal üzerinden işlevleri oluşturduğunuzda otomatik olarak yüklenir.
+
+Aşağıdaki tabloda, hangi bağlamaları her çalışma zamanı sürümünde desteklendiğini gösterir.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
+## <a name="known-issues-in-2x"></a>2.x bilinen sorunlar
+
 Bağlamaları desteği ve diğer işlevsel boşlukları 2.x hakkında daha fazla bilgi için bkz: [çalışma zamanı bilinen sorunlar 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-
-### <a name="cross-platform-development"></a>Platformlar arası geliştirme
-
-Çalışma zamanı 1.x destekler işlevi geliştirme yalnızca portalında veya Windows; 2.x ile geliştirin ve Linux veya macOS Azure işlevleri çalıştırın.
-
-## <a name="automatic-and-manual-version-updates"></a>Otomatik ve el ile sürüm güncelleştirmeleri
-
-Çalışma zamanı belirli bir sürümünü kullanarak hedef işlevleri sağlar `FUNCTIONS_EXTENSION_VERSION` bir işlev uygulaması uygulama ayarı. Yeni bir sürüme taşımak seçtiğiniz kadar işlev uygulaması belirtilen ana sürümü tutulur.
-
-Yalnızca birincil sürüm (~ için "1" 1.x) veya "beta" 2.x için belirtirseniz, mevcut olduklarında işlev uygulaması çalışma zamanının yeni ikincil sürümleri için otomatik olarak güncelleştirilir. Yeni ikincil sürümleri önemli değişiklikler tanıtmak değil. Alt sürüm (örneğin, "1.0.11360") belirtirseniz, işlev uygulaması açıkça değiştirene kadar bu sürümünde tutulur. 
-
-Yeni bir sürüm genel kullanıma açık olduğunda, Portalı'nda isteme, bu sürüme yukarı olanağı sağlar. Yeni bir sürüme taşıdıktan sonra her zaman kullanabilirsiniz `FUNCTIONS_EXTENSION_VERSION` bir önceki sürüme geri taşımak için uygulama ayarı.
-
-Çalışma zamanı sürümü değişiklik yeniden başlatmak bir işlev uygulaması neden olur.
-
-İçinde ayarlanan değerlerle `FUNCTIONS_EXTENSION_VERSION` otomatik güncelleştirmeleri etkinleştirmek üzere bu ayarı uygulama şu anda olan ~ için "1" 1.x çalışma zamanı ve 2.x için "beta".
-
-## <a name="view-the-current-runtime-version"></a>Geçerli çalışma zamanı sürümü görüntüleyin
-
-Şu anda bir işlev uygulaması tarafından kullanılan çalışma zamanı sürümü görüntülemek için aşağıdaki yordamı kullanın. 
-
-1. İçinde [Azure portal](https://portal.azure.com), işlev uygulaması için ve altında gidin **yapılandırılan özellikler**, seçin **işlev uygulaması ayarları**. 
-
-    ![İşlev uygulama ayarlarını seçin](./media/functions-versions/add-update-app-setting.png)
-
-2. İçinde **işlev uygulaması ayarları** sekmesinde, bulmak **çalışma zamanı sürümü**. Belirli bir çalışma zamanı sürümü ve istenen ana sürüm unutmayın. Aşağıdaki örnekte, İŞLEVLERİ\_UZANTISI\_sürüm uygulama ayar `~1`.
- 
-   ![İşlev uygulama ayarlarını seçin](./media/functions-versions/function-app-view-version.png)
-
-## <a name="target-the-version-20-runtime"></a>Hedef sürüm 2.0 çalışma zamanı
-
->[!IMPORTANT]   
-> Azure işlevleri çalışma zamanı 2.0 Önizleme aşamasındadır ve Azure işlevlerinin şu anda tüm özellikler desteklenir. Daha fazla bilgi için bkz: [çalışma zamanı arasındaki farklar 1.x ve 2.x](#differences-between-runtime-1x-and-2x) bu makalenin önceki.
-
-Çalışma zamanı sürüm 2.0 Önizleme Azure portalında bir işlev uygulaması taşıyabilirsiniz. İçinde **işlev uygulaması ayarları** sekmesinde, seçin **beta** altında **çalışma zamanı sürümü**.  
-
-![İşlev uygulama ayarlarını seçin](./media/functions-versions/function-app-view-version.png)
-
-Bu ayar ayarına eşdeğerdir `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı için `beta`. Seçin **~ 1** geri geçerli genel olarak taşımak için düğmeyi desteklenen ana sürüm. Azure CLI, bu uygulama ayarını güncelleştirmek için de kullanabilirsiniz. 
-
-## <a name="target-a-version-using-the-portal"></a>Hedef Portalı'nı kullanarak bir sürüm
-
-Sürüm geçerli sürümle dışında ya da sürüm 2.0 hedef gerektiğinde ayarlamalısınız `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı.
-
-1. İçinde [Azure portal](https://portal.azure.com), işlevi uygulamanıza ve altında gidin **yapılandırılan özellikler**, seçin **uygulama ayarları**.
-
-    ![İşlev uygulama ayarlarını seçin](./media/functions-versions/add-update-app-setting1a.png)
-
-2. İçinde **uygulama ayarları** sekmesinde, bulmak `FUNCTIONS_EXTENSION_VERSION` ayarlama ve değeri 1.x çalışma zamanı geçerli bir sürüm olarak değiştirin veya `beta` sürüm 2.0 için. 
-
-    ![İşlev uygulama ayarı](./media/functions-versions/add-update-app-setting2.png)
-
-3. Tıklatın **kaydetmek** uygulama ayarı güncelleştirmesi kaydetmek için. 
-
-## <a name="target-a-version-using-azure-cli"></a>Hedef Azure CLI kullanarak bir sürüm
-
- Ayrıca ayarlayabilirsiniz `FUNCTIONS_EXTENSION_VERSION` Azure clı'dan. Azure CLI kullanarak güncelleştirme ile işlev uygulaması uygulama ayarı [az functionapp config appsettings kümesi](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) komutu.
-
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group <my_resource_group> \
---settings FUNCTIONS_EXTENSION_VERSION=<version>
-```
-Bu kodla `<function_app>` işlevi uygulamanızın adı. Ayrıca değiştirin `<my_resource_group>` işlevi uygulamanız için kaynak grubu adı. Değiştir `<version>` 1.x çalışma zamanı geçerli sürümü veya `beta` sürüm 2.0 için. 
-
-Bu komutu çalıştırabilirsiniz [Azure bulut Kabuk](../cloud-shell/overview.md) seçerek **deneyin** önceki kod örneğinde. Aynı zamanda [yerel olarak Azure CLI](/cli/azure/install-azure-cli) yürüttükten sonra bu komutu yürütmek için [az oturum açma](/cli/azure#az_login) oturum açmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

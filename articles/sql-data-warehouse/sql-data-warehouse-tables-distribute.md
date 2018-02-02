@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse dağıtılmış tablolarda tasarlamak için kılavuz
 
@@ -121,7 +121,7 @@ Veri taşıma en aza indirmek için bir dağıtım sütunu seçin:
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Sütunları hiçbiri iyi dağıtım sütunu olduğunda yapılması gerekenler
 
-İyi bir adaydır sütun mevcut olduğunda dağıtım yöntemi olarak hepsini kullanarak düşünün.
+Sütunlar hiçbiri dağıtım sütun için yeterli farklı değerleri varsa, bir veya daha fazla değer bileşimi yeni bir sütun oluşturabilirsiniz. Sorgu yürütme sırasında veri taşıma önlemek için sorguları birleştirme sütunu olarak bileşik dağıtım sütunu kullanın.
 
 Bir karma dağıtılmış tablosu tasarlamak sonra sonraki tabloya veri yüklemek için bir adımdır.  Kılavuzu yüklemek için bkz: [yüklemeye genel bakış](sql-data-warehouse-overview-load.md). 
 

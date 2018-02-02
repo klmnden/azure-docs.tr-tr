@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Ağ Performans İzleyicisi'ni (Önizleme) ExpressRoute için yapılandırma
 
@@ -46,6 +46,7 @@ ExpressRoute bağlantı hatları dünya herhangi bir parçası olarak barındır
 * Batı Avrupa 
 * Doğu ABD 
 * Güneydoğu Asya 
+* Güney Doğu Avustralya
 
 ## <a name="workflow"></a>İş akışı
 
@@ -109,7 +110,7 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
 Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağlar) her tarafında en az iki aracı yüklemenizi öneririz. Aracıları yüklemek için aşağıdaki adımları kullanın:
 
 1. Çalıştırma **Kurulum** ExpressRoute izleme için kullanmak istediğiniz her sunucuda aracıyı yüklemek için. İzleme için kullanacağınız sunucu bir VM ya da şirket içi ya da olabilir ve Internet erişimi olması gerekir. Azure'da izlemek istediğiniz her ağ kesimindeki en az bir aracı şirket içi ve bir aracı yüklemeniz gerekir.
-2. Üzerinde **Hoş Geldiniz** sayfasında, **sonraki**.
+2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.
 3. Üzerinde **Lisans Koşulları'nı** sayfasında, lisans okuyun ve ardından **ediyorum**.
 4. Üzerinde **hedef klasörü** sayfasında, değiştirmek veya varsayılan yükleme klasörünü ve ardından **sonraki**.
 5. Üzerinde **aracı Kur Seçenekleri** sayfasında, Azure günlük analizi (OMS) veya Operations Manager Aracısı bağlanmak seçebilirsiniz. Veya aracıyı daha sonra yapılandırmak istiyorsanız seçimleri boş bırakabilirsiniz. Selection(s) yaptıktan sonra tıklatın **sonraki**.
@@ -124,7 +125,7 @@ Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağ
 
     ![Hesap](.\media\how-to-npm\10.png)
 6. Üzerinde **yüklemeye hazır** sayfasında, seçimlerinizi gözden geçirin ve ardından **yükleme**.
-7. Üzerinde **yapılandırması başarıyla tamamlandı** sayfasında, **son**.
+7. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
 8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Vardır, yapılandırmanızı gözden geçirin ve aracı Operational Insights (OMS için) bağlı olduğunu doğrulayın. Bildiren bir ileti aracısı için OMS bağlıyken görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
 
 ### <a name="proxy"></a>2.3: (isteğe bağlı) proxy ayarlarını yapılandır
@@ -174,16 +175,13 @@ Azure'da olan Aracısı sunucularını izlemek için ağ güvenlik grubu (NSG) k
 
 NSG hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>4. adım: İsteği güvenilir listeye çalışma
-
 >[!NOTE]
 >(Hem şirket içi sunucu Aracısı hem de Azure sunucu Aracısı) aracıları yüklü ve PowerShell Betiği devam etmeden önce bu adımda çalıştırdığınızdan emin olun.
 >
 >
 
-NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma alanı Güvenilenler listesine sahip istemeniz gerekir. [Sayfasına gidin ve istek formu doldurmak için burayı tıklatın](https://aka.ms/npmcohort). (İpucu: bir yeni penceresinde veya sekmesinde bu bağlantıyı açmak istediğiniz). Uygulamaları güvenilir listeye almayı işlemi, bir iş günü veya daha fazla sürebilir. Uygulamaları güvenilir listeye almayı tamamlandıktan sonra bir e-posta alacaksınız.
 
-## <a name="setupmonitor"></a>Adım 5: ExpressRoute izleme için NPM yapılandırma
+## <a name="setupmonitor"></a>Adım 4: ExpressRoute izleme için NPM yapılandırma
 
 >[!WARNING]
 >Daha fazla çalışma alanınızı Güvenilenler listesine bırakıldı ve bir onay e-postası kadar devam etmeyin.
@@ -208,7 +206,7 @@ NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma ala
 
   ![Döşeme izleme](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>6. adım: döşeme izleme görünümü
+## <a name="explore"></a>5. adım: döşeme izleme görünümü
 
 ### <a name="dashboard"></a>Ağ Performans İzleyicisi sayfası
 

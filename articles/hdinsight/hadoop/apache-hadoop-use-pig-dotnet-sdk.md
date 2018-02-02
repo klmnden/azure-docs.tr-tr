@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5510d64b518e4694caa8e35140907b55c01ecd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop için .NET SDK kullanarak Pig işleri çalıştırma
 
@@ -30,7 +30,7 @@ Hadoop için .NET SDK'sı Azure hdınsight'ta Hadoop Apache Pig iş göndermek i
 
 Hdınsight .NET SDK'sı .NET gelen Hdınsight kümeleri ile çalışmayı kolaylaştırır .NET istemci kitaplıkları sağlar. Pig, bir dizi Veri Dönüşümleri modelleme tarafından MapReduce işlemleri oluşturmanıza olanak sağlar. Bu belgede, temel bir C# uygulaması Hdınsight kümesi için Pig işi göndermek için nasıl kullanılacağını öğrenin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
 
@@ -70,7 +70,7 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyl
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {

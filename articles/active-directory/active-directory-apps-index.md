@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -137,7 +137,7 @@ Oluşturulması, Bakım ve kullanıcı kimlikleri Dropbox, Salesforce, ServiceNo
 | Sık sorulan soruların yanıtlarını bulun ve nasıl çalıştığı hakkında bilgi edinin |[Sağlama & SaaS uygulamaları için sağlama kaldırmayı kullanıcı otomatikleştirme](active-directory-saas-app-provisioning.md) |
 | Bilgileri Azure AD arasında nasıl eşlendi yapılandırmak ve SaaS uygulamanız |[Öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Özellik eşlemeleri için ifade yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Otomatik sağlama SCIM'yi protokolünü destekleyen herhangi bir uygulama için etkinleştirme |[Otomatik kullanıcı hazırlama hiçbir SCIM-Enabled uygulamaya ayarlama](active-directory-scim-provisioning.md) |
-| Raporlama ve kullanıcı hazırlama ilgili sorunları giderme |[Otomatik kullanıcı sağlamayı raporlama](active-directory-saas-provisioning-reporting.md)<br><br>[Sağlama bildirimleri](active-directory-saas-account-provisioning-notifications.md)<br><br>[Kullanıcı sağlama sorunlarını giderme](active-directory-application-provisioning-content-map.md) |
+| Raporlama ve kullanıcı hazırlama ilgili sorunları giderme |[Otomatik kullanıcı sağlamayı raporlama](active-directory-saas-provisioning-reporting.md)<br><br>[Kullanıcı sağlama sorunlarını giderme](active-directory-application-provisioning-content-map.md) |
 | Öznitelik değerlerine göre bir uygulamaya sağlanan sınırı |[Kapsam belirleme filtreleri](active-directory-saas-scoping-filters.md) |
 
 Otomatik kullanıcı hazırlama, kullanıcı başına en fazla on uygulamaları için Azure AD'in tüm sürümleri için kullanılabilir. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) sınırsız uygulamaları destekler. Kuruluşunuzun varsa [Azure AD temel](https://azure.microsoft.com/pricing/details/active-directory/) veya [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), yapabilecekleriniz sonra [hangi kullanıcıların sağlanan yönetmek için grupları kullanma](#managing-access-to-applications).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ekleme, değiştirme veya bir sanal ağ alt ağı silme
 
@@ -35,7 +35,7 @@ Bu makalede, ekleme, değiştirme ve Azure Resource Manager dağıtım modeli ku
 
 Bu makalede açıklanan görevler başlamadan önce aşağıdaki önkoşulları tamamlayın:
 
-- Sanal ağlar ile çalışmaya yeniyseniz alıştırmada gözden geçirmenizi öneririz [ilk Azure sanal ağınızı oluşturmak](virtual-network-get-started-vnet-subnet.md). Bu alıştırmada sanal ağlar ile daha öğrenmenize yardımcı olabilir.
+- Sanal ağlar ile çalışmaya yeniyseniz alıştırmada gözden geçirmenizi öneririz [ilk Azure sanal ağınızı oluşturmak](quick-create-portal.md). Bu alıştırmada sanal ağlar ile daha öğrenmenize yardımcı olabilir.
 - Sanal ağlar için sınırları hakkında bilgi edinmek için gözden [Azure sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Azure portalı, Azure komut satırı aracı (Azure CLI) veya Azure PowerShell'i Azure hesabınızı kullanarak oturum açın. Bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
 - Bu makalede açıklanan görevleri tamamlamak için PowerShell komutlarını kullanmayı planlıyorsanız, öncelikle [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure PowerShell cmdlet'lerinin yüklü en son sürümüne sahip olduğunuzdan emin olun. Örneklerde PowerShell komutları için Yardım almak için girin `get-help <command> -full`.
@@ -67,7 +67,7 @@ Bir alt ağı eklemek için:
 |Aracı|Komut|
 |---|---|
 |Azure CLI|[az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[AzureRmVirtualNetworkSubnetConfig yeni](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [ekleme AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet"></a>Alt ağ ayarlarını değiştirme
 
@@ -78,7 +78,7 @@ Bir alt ağdaki kaynakları yöneterek, bir alt ağ için ağ güvenlik gruplar�
 3. Üzerinde **sanal ağlar** dikey penceresinde, bir alt ağ adres aralığı değiştirmek istediğiniz sanal ağ'ı tıklatın.
 4. Adres aralığını değiştirmek istediğiniz alt ağ'ı tıklatın.
 5. Alt ağ dikey olarak **adres aralığı** kutusuna, yeni adres aralığı girin. Aralığın sanal ağın adres alanı içinde benzersiz olmalıdır. Aralık, diğer sanal ağ içinde alt ağ adres aralığı ile örtüşemez. Adres alanı CIDR gösterimini kullanarak belirtilmelidir. Örneğin, bir sanal ağda adres alanı 10.0.0.0/16, 10.0.0.0/24 alt ağ adres alanının tanımlayabilirsiniz. Belirleyebileceğiniz en küçük /29, alt ağ için sekiz IP adreslerini sağlayan aralıktır. Azure her alt ağ protokolü uyumluluğu için ilk ve son adresi ayırır. Üç ek adresleri Azure hizmetinin kullanım için ayrılmıştır. Sonuç olarak, / 29 alt ağı adres aralığı üç kullanılabilir IP adresleri vardır. Bir sanal ağ VPN ağ geçidi bağlanmak istiyorsanız, bir ağ geçidi alt ağı oluşturmanız gerekir. Daha fazla bilgi edinmek [ağ geçidi alt ağları için belirli bir adresi aralığı konuları](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Belirli koşullar altında alt ağ oluşturulduktan sonra adres aralığını değiştirebilirsiniz. Bir alt ağ adresi aralığını değiştirmek konusunda bilgi almak için bkz: [alt ağ ayarlarını değiştirme](#change-subnet) bu makalede.
-6. **Kaydet** düğmesine tıklayın.
+6. **Kaydet**’e tıklayın.
 
 **Komutları**
 
@@ -107,4 +107,4 @@ Alt ağ içindeki kaynak varsa, bir alt ağ silebilirsiniz. Alt ağ içindeki ka
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir alt ağda bir sanal makine oluşturmak için bkz: [bir sanal ağ oluşturma ve alt ağ içindeki VM'ler dağıtma](virtual-network-get-started-vnet-subnet.md#create-vms).
+Bir alt ağda bir sanal makine oluşturmak için bkz: [bir sanal ağ oluşturma ve alt ağ içindeki VM'ler dağıtma](quick-create-portal.md#create-virtual-machines).

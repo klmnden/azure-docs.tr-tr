@@ -12,25 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT hub'ı kotalar ve azaltma
 
 ## <a name="quotas-and-throttling"></a>Kotalar ve azaltma
 Her Azure aboneliğinin en fazla 10 IOT hub'ları ve en fazla 1 ücretsiz hub sahip olabilir.
 
-Her IOT hub'ı belirli bir sayıda belirli bir SKU birimlerinde ile sağlanan (daha fazla bilgi için bkz: [Azure IOT Hub fiyatlandırma][lnk-pricing]). SKU ve birim sayısı maksimum günlük kotası gönderebileceğiniz iletilerin belirler.
+Her IOT hub'ı belirli bir sayıda belirli bir SKU birimleri ile birlikte sağlanır. Daha fazla bilgi için bkz: [Azure IOT Hub fiyatlandırma][lnk-pricing]. SKU ve birim sayısı maksimum günlük kotası gönderebileceğiniz iletilerin belirler.
 
 SKU da IOT hub'ı tüm işlemler zorlar azaltma sınırları belirler.
 
 ## <a name="operation-throttles"></a>İşlem kısıtlamaları
-İşlem kısıtlamaları dakika aralıklardaki uygulanır ve kötüye önlemek üzere tasarlanmıştır oranı sınırlamalardır. Mümkün olduğunda hataları döndürüyor önlemek IOT hub'ı çalışır, ancak kısıtlama çok uzun süre ihlal edilirse özel durumları döndüren başlatır.
+İşlem kısıtlamaları dakika aralıklardaki uygulanır ve kötüye önlemek üzere tasarlanmıştır oranı sınırlamalardır. IOT hub'ı mümkün olduğunca hataları döndürüyor önlemek çalışır, ancak kısıtlama çok uzun süre ihlal edilirse özel durumları döndüren başlatır.
 
 Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir hub'ına bakın.
 
@@ -50,15 +50,16 @@ Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir
 
 <sup>1</sup>8 KB olduğunu ölçer boyutunu azaltma
 
-Açıklamak önemlidir *cihaz bağlantılarını* kısıtlama yeni cihaz bağlantılarını kurulabileceği bir IOT hub ile oranı yönetir. *Cihaz bağlantılarını* kısıtlama en fazla eş zamanlı cihaz sayısını belirleyen değil. IOT hub için sağlanan birim sayısını azaltma bağlıdır.
+> [!IMPORTANT]
+> *Cihaz bağlantılarını* kısıtlama yeni cihaz bağlantılarını kurulabileceği bir IOT hub ile oranı yönetir. *Cihaz bağlantılarını* kısıtlama en fazla eş zamanlı cihaz sayısını belirleyen değil. IOT hub için sağlanan birim sayısını azaltma bağlıdır.
 
 Örneğin, tek bir S1 birim satın alırsanız, bir kısıtlama saniyede 100 bağlantısı alın. Bu nedenle, 100.000 cihaz bağlanmak için en az 1000 saniye (yaklaşık 16 dakika) alır. Ancak, kimlik kayıt defterinizde kayıtlı cihazlara sahip sayıda eş zamanlı cihazı olabilir.
 
 IOT hub'ı kapsamlı bir açıklama için blog gönderisine bakın davranışı, azaltma [IOT Hub'ın azaltma ve][lnk-throttle-blog].
 
 > [!NOTE]
-> Belirli bir zamanda, bir IOT hub'ındaki sağlanan birim sayısını artırarak kotaları veya azaltma sınırları artırmak mümkündür.
-> 
+> Belirli bir zamanda, bir IOT hub'ındaki sağlanan birim sayısını artırarak kotaları veya azaltma sınırları artırabilir.
+
 > [!IMPORTANT]
 > Kimlik kayıt defteri işlemlerini aygıt yönetimi ve senaryoları sağlama çalışma zamanı kullanmak için tasarlanmıştır. Okunurken ya da çok sayıda cihaz kimliklerini güncelleştirilirken desteklenen aracılığıyla [içeri ve dışarı aktarma işleri][lnk-importexport].
 > 

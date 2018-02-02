@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 87c4573ce3b688cdc63b3a342bbc0bebb416ad36
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1323,7 +1323,7 @@ Benzer şekilde, SAP tarafından desteklenen tüm Azure VM örneği türleri iç
 
 A-series daha % 60 daha hızlı işlemcilere sahip oldukları gibi bu açısından bakıldığında, yeni D-serisi veya (kombinasyondaki Azure Premium Storage ile) DS serisi Azure VM türünü kullanmak için önerilir. En yüksek RAM ve CPU yükü G-serisi ve GS serisi (kombinasyondaki Azure Premium Storage ile) VM'ler ile en son Intel kullanabileceğiniz?? Xeon?? İşlemci iki kez bellek ve dört E5 v3 ailesi D/DS serisi katı hal sürücüsü depolama (SSD) zaman.
 
-#### <a name="storage-configuration"></a>Depolama yapılandırması
+#### <a name="storage-configuration"></a>Depolama Yapılandırması
 SAP liveCache SAP MaxDB teknolojisine dayalı olarak, tüm Azure depolama en iyi yöntem önerileri için SAP MaxDB bölümde belirtildiği [depolama yapılandırması] [ dbms-guide-8.4.1] da SAP liveCache için geçerlidir. 
 
 #### <a name="dedicated-azure-vm-for-livecache"></a>Ayrılmış Azure VM liveCache için
@@ -1360,7 +1360,7 @@ Azure üzerinde SAP içerik sunucusu için desteklenen Windows sürümü bulmak 
 Microsoft Windows Server'ın en yeni sürümü kullanmak için önerilir.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>SAP yüklemelerde Azure VM'ler için SAP içerik sunucusu yapılandırma yönergeleri
-#### <a name="storage-configuration"></a>Depolama yapılandırması
+#### <a name="storage-configuration"></a>Depolama Yapılandırması
 SAP MaxDB veritabanında dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, SAP MaxDB bölümde belirtildiği öneri tüm Azure depolama en iyi yöntemler [depolama yapılandırması] [ dbms-guide-8.4.1] da SAP içerik sunucusu senaryo için geçerlidir. 
 
 Dosya sistemindeki dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, adanmış bir mantıksal sürücü kullanmak için önerilir. Windows depolama alanları'nı kullanarak sağlar, ayrıca mantıksal disk boyutu ve IOPS verimliliği artırmak bölümde açıklandığı gibi [yazılım RAID][dbms-guide-2.2]. 
@@ -1406,7 +1406,7 @@ IBM DB2 için Microsoft Azure sanal makine hizmetleri üzerinde LUW üzerinde SA
 Desteklenen SAP ürünler ve Azure VM türleri hakkında daha fazla bilgi için SAP nota bakın [1928533].
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM DB2 Linux, UNIX ve SAP yüklemelerde Azure VM'ler için Windows yapılandırma yönergeleri
-#### <a name="storage-configuration"></a>Depolama yapılandırması
+#### <a name="storage-configuration"></a>Depolama Yapılandırması
 Tüm veritabanı dosyaları, doğrudan bağlı disklerde dayalı NTFS dosya sistemi depolanmalıdır. Bu diskleri Azure VM'ye bağlanır ve Azure sayfa BLOB depolama alanına bağlı (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya yönetilen diskleri (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Her türlü ağ sürücülerine veya aşağıdaki Azure Dosya Hizmetleri gibi uzak paylaşımlara **değil** veritabanı dosyaları için desteklenir: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-Microsoft-Azure-File-Service.aspx>
@@ -1462,7 +1462,7 @@ IBM DB2 için Microsoft Azure sanal makine hizmetleri üzerinde LUW üzerinde SA
 Desteklenen SAP ürünler ve Azure VM türleri hakkında daha fazla bilgi için SAP nota bakın [1928533].
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM DB2 Linux, UNIX ve SAP yüklemelerde Azure VM'ler için Windows yapılandırma yönergeleri
-#### <a name="storage-configuration"></a>Depolama yapılandırması
+#### <a name="storage-configuration"></a>Depolama Yapılandırması
 Tüm veritabanı dosyaları, doğrudan bağlı disklerde tabanlı bir dosya sisteminde depolanmalıdır. Bu diskleri Azure VM'ye bağlanır ve Azure sayfa BLOB depolama alanına bağlı (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya yönetilen diskleri (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Her türlü ağ sürücülerine veya aşağıdaki Azure Dosya Hizmetleri gibi uzak paylaşımlara **değil** veritabanı dosyaları için desteklenir:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-Microsoft-Azure-File-Service.aspx>

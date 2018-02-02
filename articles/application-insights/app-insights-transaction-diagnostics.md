@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Birleşik arası bileşeni işlem tanılama
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Bileşen Application Insights bağlamında anlamı nedir?
 
-Dağıtılmış mikro uygulamanızın bağımsız olarak dağıtılabilir parçalarını bileşenleridir. Geliştiriciler ve işlemleri ekipleri kodu düzeyinde görünürlüğe veya bu uygulama bileşenleri tarafından oluşturulan telemetri erişimine sahip. 
+Dağıtılmış mikro uygulamanızın bağımsız olarak dağıtılabilir parçalarını bileşenleridir. Geliştiriciler ve işlemleri ekipleri kodu düzeyinde görünürlüğe veya bu uygulama bileşenleri tarafından oluşturulan telemetri erişimine sahip.
 
 * Bileşenleri "gözlemlenen" dış bağımlılıkları SQL gibi farklı takım/kuruluşunuz olmayabilir EventHub vb. erişim (kod veya telemetri için).
 * Bileşenleri rol/sunucu/kapsayıcı örnekleri herhangi bir sayı üzerinde çalıştırın.
@@ -40,11 +40,11 @@ Etkinleştir "Ayrıntıları birleşik: E2E işlem Tanılama" den [önizlemeleri
 
 ![Önizlemeyi etkinleştir](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-Bu önizleme, sunucu tarafı istekler, bağımlılıklar ve özel durumlar için şu anda kullanılabilir. Yeni deneyimi erişebilirsiniz **arama sonuçlarında**, **performans**, veya **hatası** önceliklendirme deneyimleri. Önizleme karşılık gelen Klasik Ayrıntılar dikey pencereleri değiştirir. 
+Bu önizleme, sunucu tarafı istekler, bağımlılıklar ve özel durumlar için şu anda kullanılabilir. Yeni deneyimi erişebilirsiniz **arama sonuçlarında**, **performans**, veya **hatası** önceliklendirme deneyimleri. Önizleme karşılık gelen Klasik Ayrıntılar dikey pencereleri değiştirir.
 
 ![Performans örnekleri](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>İşlem tanılama deneyimi 
+## <a name="transaction-diagnostics-experience"></a>İşlem tanılama deneyimi
 Bu görünüm anahtar üç bölümden oluşur: arası bileşeni işlem grafiği, belirli bileşeni işlemi ve herhangi bir seçili telemetri öğeyi soldaki için Ayrıntılar bölmesinde tüm telemetri zaman serisi listesi.
 
 ![Anahtar bölümleri](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ Bu bölmesi sol tarafta iki bölümlerden birine seçili öğelerden ayrıntıla
 ## <a name="profiler-and-snapshot-debugger"></a>Profil Oluşturucu ve anlık görüntü hata ayıklayıcı
 
 [Uygulama Öngörüler profil oluşturucu](app-insights-profiler.md) veya [anlık görüntü hata ayıklayıcı](app-insights-snapshot-debugger.md) yardımcı kod düzey performans ve arıza sorunları tanılama ile. Bu deneyim profil oluşturucu izlemeleri görebilirsiniz veya herhangi bir bileşenin tek bir anlık görüntüler'i tıklatın.
+
+Profil Oluşturucu çalışma alınamadı, lütfen başvurun**serviceprofilerhelp@microsoft.com**
+
+Anlık görüntü çalışma hata ayıklayıcı alınamadı, lütfen başvurun**snapshothelp@microsoft.com**
 
 ![Hata ayıklayıcı tümleştirme](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

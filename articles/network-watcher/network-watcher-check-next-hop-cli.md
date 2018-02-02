@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-<<<<<<< HEAD
-ms.openlocfilehash: c865793190e6079227ca093a018b0a6f98528d4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: fb4a24fd758ad4b7231364f3ee7d56a9a2dbccb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Hangi bir sonraki atlama türü sonraki atlama yetenek Azure CLI 2.0 kullanan Azure Ağ İzleyicisi içinde kullandığını bulmak
 
@@ -33,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
-> - [Azure REST API'si](network-watcher-check-next-hop-rest.md)
+> - [Azure REST API](network-watcher-check-next-hop-rest.md)
 
 Sonraki atlama özelliğini get sonraki atlama türü ve belirtilen bir sanal makineye dayalı IP adresi sağlayan Ağ İzleyicisi özelliğidir. Bu özellik, bir sanal makine trafiğe bir ağ geçidi, internet veya sanal ağlar hedefine almak için geçiyorsa belirlemede yararlıdır.
 
@@ -56,7 +50,7 @@ Bu makalede ele alınan senaryosu, sonraki atlama, sonraki atlama türü ve IP a
 
 Diyoruz sonraki atlama almak için `az network watcher show-next-hop` cmdlet'i. Cmdlet Ağ İzleyicisi kaynak grubu, NetworkWatcher, sanal makine kimliği, kaynak IP adresi ve hedef IP adresi geçirin. Bu örnekte, başka bir sanal ağ içinde bir VM hedef IP adresi değil. İki sanal ağ arasında bir sanal ağ geçidi yok.
 
-Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login). Ardından aşağıdaki komutu çalıştırın:
+Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login). Ardından aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>

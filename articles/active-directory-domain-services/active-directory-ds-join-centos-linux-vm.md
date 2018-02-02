@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 65a9e4267c8883db5c8d8bfc5e0167577cd969d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux sanal makinesini yönetilen bir etki alanına katma
 Bu makalede CentOS Linux sanal makine Azure'da bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
@@ -34,7 +34,7 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>CentOS Linux sanal makine sağlama
 Aşağıdaki yöntemlerden birini kullanarak azure'da bir CentOS sanal makine sağlama:
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure portalı](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -82,14 +82,14 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE]
-      > **Sorun giderme:** varsa *bölge Bul* yönetilen etki alanınızı bulamıyor:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+    > [!NOTE]
+    > **Sorun giderme:** varsa *bölge Bul* yönetilen etki alanınızı bulamıyor:  
+      * Etki alanı sanal makine (try ping) erişilebilir olduğundan emin olun.  
+      * Sanal makine yönetilen etki alanı kullanılamıyor aynı sanal ağa gerçekten dağıtıldıktan denetleyin. 
+      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.  
       >
 
-2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın:
+2. Initialize Kerberos. SSH terminalinizde aşağıdaki komutu yazın:
 
     > [!TIP]
     > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirtin.
@@ -139,5 +139,5 @@ Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guid
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)
 * [Bir Windows Server sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Linux çalıştıran bir sanal makine için oturum açma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* [Kerberos yükleme](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+* [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows tümleştirme Kılavuzu](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

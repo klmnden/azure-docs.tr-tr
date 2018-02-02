@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerini özelleştirme
 
@@ -55,7 +55,7 @@ Erişim yönetimiyle çalışma hakkında daha fazla bilgi için aşağıdaki be
 
 ## <a name="understanding-script-actions"></a>Betik eylemleri anlama
 
-Bir komut dosyası için bir URI sağlayın Bash komut dosyası ve parametreleri eylemdir. Hdınsight küme düğümlerinde komut dosyasını çalıştırır. Aşağıdaki özellikleri ve betik eylemleri özelliklerini geçerlidir.
+Betik eylemi Hdınsight kümesi düğümler üzerinde çalıştırılan Bash komut dosyasıdır. Aşağıdaki özellikleri ve betik eylemleri özelliklerini geçerlidir.
 
 * Hdınsight küme erişilebilen bir URI üzerinde depolanmalıdır. Olası depolama konumları şunlardır:
 
@@ -79,9 +79,7 @@ Bir komut dosyası için bir URI sağlayın Bash komut dosyası ve parametreleri
 
 * Olabilir **kalıcı** veya **geçici**.
 
-    **Kalıcı** komut dosyaları, komut çalıştıktan sonra kümesine çalışan düğümlerine uygulanır. Örneğin, küme ölçeklendirme.
-
-    Kalıcı bir betik, ayrıca bir baş düğüm gibi başka bir düğüm türü için değişiklikler uygulanabilir.
+    **Kalıcı** komut dosyaları, küme işlemleri ölçeklendirme aracılığıyla eklenen yeni çalışan düğümleri özelleştirmek için kullanılır. Ölçeklendirme işlemleri ortaya çıktığında kalıcı bir betik bir baş düğüm gibi başka bir düğüm türü için de değişiklikler uygulanabilir.
 
   > [!IMPORTANT]
   > Kalıcı betik eylemleri benzersiz bir ad olmalıdır.
@@ -94,30 +92,32 @@ Bir komut dosyası için bir URI sağlayın Bash komut dosyası ve parametreleri
   > Başarısız olmayan betikleri özellikle olması gerektiğini belirtmek olsa bile kalıcı.
 
 * Kabul edebilir **parametreleri** kullanılan komut dosyası tarafından yürütme sırasında.
+
 * Çalıştırma **kök düzeyinde ayrıcalıklara** küme düğümlerinde.
-* Aracılığıyla kullanılan **Azure portal**, **Azure PowerShell**, **Azure CLI**, veya **Hdınsight .NET SDK'sı**
+
+* Aracılığıyla kullanılan **Azure portal**, **Azure PowerShell**, **Azure CLI v1.0**, veya **Hdınsight .NET SDK'sı**
 
 Küme çalıştırdığınız sahip tüm betikler geçmişini tutar. Geçmiş, yükseltme veya indirgeme işlemleri için bir komut dosyası Kimliğini bulmanız gerektiğinde kullanışlıdır.
 
 > [!IMPORTANT]
 > Bir komut dosyası eylemi tarafından yapılan değişiklikleri geri almak için otomatik bir yolu yoktur. El ile değişikliklerinizi geri ya da bunları tersine çevirir bir komut dosyası sağlar.
 
-
 ### <a name="script-action-in-the-cluster-creation-process"></a>Küme oluşturma işlemi betik eylemi
 
 Küme oluşturma sırasında kullanılan betik eylemleri eylemler var olan bir küme üzerinde çalışan komut dosyasından biraz farklılık gösterir:
 
 * Komut dosyası **otomatik olarak kalıcı**.
+
 * A **hatası** komut dosyasında küme oluşturma işleminin başarısız olmasına neden olabilir.
 
 Betik eylemi oluşturma işlemi sırasında çalıştırıldığında aşağıdaki diyagramda gösterilmektedir:
 
 ![Hdınsight küme özelleştirme ve küme oluşturma sırasında aşamaları][img-hdi-cluster-states]
 
-Hdınsight yapılandırılırken komut dosyasını çalıştırır. Bu aşamada, betik belirtilen kümedeki tüm düğümler üzerinde paralel olarak çalışır ve düğümlerde kök ayrıcalıklarıyla çalıştırır.
+Hdınsight yapılandırılırken komut dosyasını çalıştırır. Komut dosyası belirtilen kümedeki tüm düğümler üzerinde paralel olarak çalışır ve düğümlerde kök ayrıcalıklarıyla çalıştırır.
 
 > [!NOTE]
-> Komut dosyası kök düzeyinde ayrıcalığıyla küme düğümleri üzerinde çalıştığı için durdurma ve Hadoop ile ilgili hizmetlerin gibi hizmetler başlatma gibi işlemler gerçekleştirebilirsiniz. Hizmetleri durdurun, çalışan betik tamamlanmadan önce Ambari hizmet ve diğer Hadoop ile ilgili hizmetlerin hazır ve çalışır olduğundan emin olmalısınız. Bu hizmetler, oluşturulurken başarıyla sistem durumunu ve küme durumunu belirlemek için gereklidir.
+> Durdurma ve Hadoop ile ilgili hizmetlerin gibi hizmetler başlatma gibi işlemler gerçekleştirebilirsiniz. Hizmetleri durdurun, Ambari hizmeti ve önce betik çalıştıran diğer Hadoop ile ilgili hizmetler tamamlandığından emin olmalısınız. Bu hizmetler, oluşturulurken başarıyla sistem durumunu ve küme durumunu belirlemek için gereklidir.
 
 
 Küme oluşturma sırasında aynı anda birden çok betik eylemleri kullanabilirsiniz. Bu komut belirtilen sırada çağrılır.
@@ -130,12 +130,12 @@ Küme oluşturma sırasında aynı anda birden çok betik eylemleri kullanabilir
 
 ### <a name="script-action-on-a-running-cluster"></a>Betik eylemi çalıştıran bir kümede
 
-Aksine, bir komut dosyasında hata küme oluşturma sırasında kullanılan eylemler zaten çalışan bir küme üzerinde çalışan komut dosyası otomatik olarak başarısız duruma değiştirmek küme neden olmaz. Bir komut dosyası tamamlandıktan sonra kümenin bir "çalışır" duruma dönmesi gerekir.
+Bir zaten üzerinde çalışan bir komut dosyasında hata çalışan küme otomatik olarak neden olmaz başarısız duruma değiştirmek küme. Bir komut dosyası tamamlandıktan sonra kümenin bir "çalışır" duruma dönmesi gerekir.
 
 > [!IMPORTANT]
 > Küme bir 'çalışıyor' durumuna sahip olsa bile, başarısız olan kodu şeyler kopuk olabilir. Örneğin, bir komut dosyası küme için gerekli dosyaları silebilir.
 >
-> Kümenize uygulamadan önce bir komut dosyası yaptığı anladığınızdan emin olmanız gerekir böylece komut dosyalarını eylemleri kök ayrıcalıkları ile çalıştırın.
+> Komut dosyalarını eylemleri kök ayrıcalıkları ile çalıştırın. Kümenize uygulamadan önce bir komut dosyası yaptığı anladığınızdan emin olun.
 
 Bir komut dosyası bir kümeye uygularken, küme durumu değişiklikleri **çalıştıran** için **kabul edilen**, ardından **Hdınsight yapılandırma**ve son olarak yeniden  **Çalışan** başarılı bir komut dosyası. Komut durumu betik eylemi geçmişinde kaydedilir ve komut başarılı veya başarısız olup olmadığını belirlemek için bu bilgileri kullanın. Örneğin, `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet, bir komut dosyası durumunu görüntülemek için kullanılabilir. Bilgi aşağıdaki metni benzer döndürür:
 
@@ -144,7 +144,7 @@ Bir komut dosyası bir kümeye uygularken, küme durumu değişiklikleri **çal�
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!NOTE]
+> [!IMPORTANT]
 > Küme oluşturulduktan sonra küme kullanıcı (Yönetici) parolasını değiştirdiyseniz, bu küme karşı eylemler çalışan betik başarısız olabilir. Bu hedef çalışan düğümleri kalıcı betik eylemleri varsa, küme ölçeklendirdiğinizde bu komut dosyaları başarısız olabilir.
 
 ## <a name="example-script-action-scripts"></a>Örnek komut dosyası eylemi betikler
@@ -153,20 +153,20 @@ Betik eylemi komut dosyaları aşağıdaki yardımcı programlar kullanılabilir
 
 * Azure portalına
 * Azure PowerShell
-* Azure CLI
+* Azure CLI v1.0
 * HDInsight .NET SDK'sı
 
 Hdınsight Hdınsight kümelerinde aşağıdaki bileşenleri yüklemek için komut dosyaları sağlar:
 
 | Ad | Betik |
 | --- | --- |
-| **Bir Azure depolama hesabı ekleme** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxaddstorageaccountv01/Add-Storage-Account-v01.sh. Bkz: [Hdınsight kümesi için ek depolama alanı eklentisi](hdinsight-hadoop-add-storage.md). |
-| **Hue yüklemek** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxhueconfigactionv02/install-Hue-uber-v02.sh. Bkz: [yükleme ve kullanma ton hdınsight kümeleri](hdinsight-hadoop-hue-linux.md). |
-| **Presto yükleyin** |https://RAW.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh. Bkz: [yükleme ve kullanma Presto hdınsight kümeleri](hdinsight-hadoop-install-presto.md). |
-| **Solr yükleyin** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxsolrconfigactionv01/solr-installer-v01.sh. Bkz: [yükleme ve kullanma Solr hdınsight kümeleri](hdinsight-hadoop-solr-install-linux.md). |
-| **Giraph yükleyin** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Bkz: [yükleme ve kullanma Giraph hdınsight kümeleri](hdinsight-hadoop-giraph-install-linux.md). |
-| **Ön yük Hıve kitaplıkları** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxsetupcustomhivelibsv01/Setup-customhivelibs-v01.sh. Bkz: [eklemek Hive kitaplıkları Hdınsight kümelerinde](hdinsight-hadoop-add-hive-libraries.md). |
-| **Mono yükleme veya güncelleştirme** | https://hdiconfigactions.BLOB.Core.Windows.NET/install-Mono/install-Mono.bash. Bkz: [yükleme veya güncelleştirme Mono hdınsight'ta](hdinsight-hadoop-install-mono.md). |
+| **Bir Azure depolama hesabı ekleme** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. Bkz: [Hdınsight kümesi için ek depolama alanı eklentisi](hdinsight-hadoop-add-storage.md). |
+| **Hue yüklemek** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Bkz: [yükleme ve kullanma ton hdınsight kümeleri](hdinsight-hadoop-hue-linux.md). |
+| **Presto yükleyin** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh. Bkz: [yükleme ve kullanma Presto hdınsight kümeleri](hdinsight-hadoop-install-presto.md). |
+| **Solr yükleyin** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Bkz: [yükleme ve kullanma Solr hdınsight kümeleri](hdinsight-hadoop-solr-install-linux.md). |
+| **Giraph yükleyin** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Bkz: [yükleme ve kullanma Giraph hdınsight kümeleri](hdinsight-hadoop-giraph-install-linux.md). |
+| **Ön yük Hıve kitaplıkları** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Bkz: [eklemek Hive kitaplıkları Hdınsight kümelerinde](hdinsight-hadoop-add-hive-libraries.md). |
+| **Mono yükleme veya güncelleştirme** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash. Bkz: [yükleme veya güncelleştirme Mono hdınsight'ta](hdinsight-hadoop-install-mono.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Küme oluşturma sırasında bir betik eylemi kullanın
 
@@ -192,10 +192,10 @@ Bu bölümde, betik eylemleri bir Hdınsight kümesi oluştururken kullanabilece
 
     | Özellik | Değer |
     | --- | --- |
-    | Bir komut dosyası seçin | Kendi komut dosyası kullanmayı seçin __özel__. Aksi durumda, sağlanan komut dosyalarından birini seçin. |
+    | Bir betik seçin | Kendi komut dosyası kullanmayı seçin __özel__. Aksi durumda, sağlanan komut dosyalarından birini seçin. |
     | Ad |Betik eylemi için bir ad belirtin. |
-    | Bash betik URI |Küme özelleştirmek için çağrılan betik URI'si belirtin. |
-    | HEAD/çalışan/Zookeeper |Düğüm belirtin (**Head**, **çalışan**, veya **ZooKeeper**) özelleştirme betik çalıştığı şirket. |
+    | Bash betiği URI'si |Betik URI'si belirtin. |
+    | HEAD/çalışan/Zookeeper |Düğüm belirtin (**Head**, **çalışan**, veya **ZooKeeper**) komut dosyası çalıştığı üzerinde. |
     | Parametreler |Komut dosyası tarafından gerekli parametreleri belirtin. |
 
     Kullanım __bu betik eylemini Sürdür__ komut dosyası işlemleri ölçeklendirme sırasında uygulandığından emin olmak için giriş.
@@ -269,10 +269,10 @@ Bu bölümde, betik eylemleri çalıştıran bir kümeye uygulamayı öğrenin.
 
     | Özellik | Değer |
     | --- | --- |
-    | Bir komut dosyası seçin | Kendi komut dosyası kullanmayı seçin __özel__. Aksi durumda, sağlanan komut dosyasını seçin. |
+    | Bir betik seçin | Kendi komut dosyası kullanmayı seçin __özel__. Aksi durumda, sağlanan komut dosyasını seçin. |
     | Ad |Betik eylemi için bir ad belirtin. |
-    | Bash betik URI |Küme özelleştirmek için çağrılan betik URI'si belirtin. |
-    | HEAD/çalışan/Zookeeper |Düğüm belirtin (**Head**, **çalışan**, veya **ZooKeeper**) özelleştirme betik çalıştığı şirket. |
+    | Bash betiği URI'si |Betik URI'si belirtin. |
+    | HEAD/çalışan/Zookeeper |Düğüm belirtin (**Head**, **çalışan**, veya **ZooKeeper**) komut dosyası çalıştığı üzerinde. |
     | Parametreler |Komut dosyası tarafından gerekli parametreleri belirtin. |
 
     Kullanım __bu betik eylemini Sürdür__ komut dosyası işlemleri ölçeklendirme sırasında uygulanan emin olmak için giriş.
@@ -298,9 +298,10 @@ Aşağıdaki örnek betik eylemi çalıştıran bir kümeye uygulama gösterilmi
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Betik eylemi çalıştıran bir kümeye Azure CLI üzerinden uygulayın.
 
-Devam etmeden önce Azure CLI yükleyip yapılandırdığınızdan emin olun. Daha fazla bilgi için bkz: [Azure CLI yükleme](../cli-install-nodejs.md).
+Devam etmeden önce Azure CLI yükleyip yapılandırdığınızdan emin olun. Daha fazla bilgi için bkz: [Azure CLI 1.0 yüklemeyi](../cli-install-nodejs.md).
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+> [!IMPORTANT]
+> Hdınsight Azure CLI 1.0 gerektirir. Şu anda Azure CLI 2.0 Hdınsight ile çalışmak için komutları sağlamaz.
 
 1. Azure Resource Manager moduna geçmek için komut satırında aşağıdaki komutu kullanın:
 
@@ -458,7 +459,7 @@ Küme oluşturma bir komut dosyası hatası nedeniyle başarısız olursa, günl
 
     * **Zookeeper düğümü** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Tüm stdout ve stderr karşılık gelen konağının depolama hesabına karşıya. Bir **çıkış -\*.txt** ve **hataları -\*.txt** her komut dosyası eylemi için. Çıktı *.txt dosya konakta çalışan komut dosyasının URI hakkında bilgi içerir. Örneğin:
+* Tüm stdout ve stderr karşılık gelen konağının depolama hesabına karşıya. Bir **çıkış -\*.txt** ve **hataları -\*.txt** her komut dosyası eylemi için. Çıktı *.txt dosya konakta çalışan komut dosyasının URI hakkında bilgi içerir. Aşağıdaki metni, bu bilgileri örneğidir:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 

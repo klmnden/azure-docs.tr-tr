@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2017
+ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric destek seçenekleri
 
@@ -76,12 +76,13 @@ Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş t
 | 5.5.* | 5.4.164.* |Sürüm 2.5 küçük veya eşit |Ağustos 10,2017    |
 | 5.6.* | 5.4.164.* |Sürüm 2.6 küçük veya eşit |Ekim 13,2017   |
 | 5.7.* | 5.4.164.* |Sürüm 2.7 küçük veya eşit |Aralık 15,2017  |
-| 6.0.* | 5.6.205.* |Sürüm 2.8 küçük veya eşit |Geçerli sürüm ve dolayısıyla bitiş tarihi |
+| 6.0.* | 5.6.205.* |Sürüm 2.8 küçük veya eşit |30,2018 Mart     | 
+| 6.1.* | 5.7.221.* |Sürüm 3.0 küçük veya eşit |Geçerli sürüm ve dolayısıyla bitiş tarihi |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric Önizleme sürümlerini - üretim kullanımı için desteklenmiyor.
 Zaman zaman önizlemeleri sunulan, geri bildirim istiyoruz önemli özellikleri olan sürümleri bırakın. Bu önizleme sürümleri yalnızca sınama amacıyla kullanılmalıdır. Üretim kümenizi her zaman bir desteklenen ve kararlı, Service Fabric sürümünü çalıştırması gerekir. Önizleme sürümü her zaman 255 birincil ve ikincil sürüm numarası ile başlar. Örneğin, Service Fabric sürümü 255.255.5703.949 görürseniz, bu sürümü yalnızca test kümelerde kullanılacak ve önizleme aşamasındadır. Bu önizleme sürümleri de üzerinde duyurulur [Service Fabric ekip blogu](https://blogs.msdn.microsoft.com/azureservicefabric) ve dahil edilen özellikler ayrıntıları sahip olacaktır.
 
-Bu önizleme sürümleri için Ücretli destek seçeneği yoktur. Altında listelenen seçeneklerden birini kullanın [rapor Azure Service Fabric sorunları](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) sorular sormak veya görüş bildirin.
+Bu önizleme sürümleri için Ücretli destek seçeneği yoktur. Altında listelenen seçeneklerden birini kullanın [rapor Azure Service Fabric sorunları](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) sorular sormak veya görüş bildirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite (OMS) yönetimi çözümleri oluşturma | Microsoft Docs"
-description: "Yönetim çözümleri, müşterilerin kendi OMS çalışma alanına ekleyebilirsiniz paketlenmiş yönetim senaryoları sağlayarak Operations Management Suite (OMS) işlevselliği genişletir.  Bu makalede, kendi ortamınızda kullanılacak yönetim çözümleri nasıl oluşturabileceğinizi hakkında ayrıntılar sağlar veya müşterileriniz için kullanılabilir."
+title: "Azure'da bir yönetim çözümü dosyası oluşturma | Microsoft Docs"
+description: "Yönetim çözümleri müşteriler kendi Azure ortamına ekleyebileceğiniz paket Yönetimi senaryoları sağlar.  Bu makalede, kendi ortamınızda kullanılacak yönetim çözümleri nasıl oluşturabileceğinizi hakkında ayrıntılar sağlar veya müşterileriniz için kullanılabilir."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Operations Management Suite (OMS) (Önizleme) bir yönetim çözümü dosyası oluşturma
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure (Önizleme) bir yönetim çözümü dosyası oluşturma
 > [!NOTE]
-> Bu, şu anda önizlemede OMS yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.  
+> Bu, şu anda önizlemede olan Azure yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.  
 
-Yönetim çözümleri Operations Management Suite (OMS) olarak uygulanır [Resource Manager şablonları](../azure-resource-manager/resource-manager-template-walkthrough.md).  Yönetim çözümleri yazmak öğrenme için ana görev öğrenme nasıl [şablon Yazar](../azure-resource-manager/resource-group-authoring-templates.md).  Bu makale şablonları çözümleri ve nasıl tipik çözüm kaynaklarını yapılandırmak için kullanılan benzersiz ayrıntılarını sağlar.
+Azure yönetim çözümlerine olarak gerçekleştirilen [Resource Manager şablonları](../azure-resource-manager/resource-manager-template-walkthrough.md).  Yönetim çözümleri yazmak öğrenme için ana görev öğrenme nasıl [şablon Yazar](../azure-resource-manager/resource-group-authoring-templates.md).  Bu makale şablonları çözümleri ve nasıl tipik çözüm kaynaklarını yapılandırmak için kullanılan benzersiz ayrıntılarını sağlar.
 
 
 ## <a name="tools"></a>Araçlar
@@ -53,7 +53,8 @@ Bir yönetim çözümü dosyasının temel yapısı aynıdır bir [Resource Mana
 ## <a name="parameters"></a>Parametreler
 [Parametreleri](../azure-resource-manager/resource-group-authoring-templates.md#parameters) yönetim çözümü yüklediğinizde, kullanıcıdan gerektiren değerlerdir.  Tüm çözümleri olan standart parametreler vardır ve ek parametreler gerektiği gibi belirli çözümünüz için ekleyebilirsiniz.  Çözümünüzü yüklediğinizde kullanıcılar parametre değerlerini nasıl sağlayacak belirli parametre ve çözümün nasıl yüklendiği değişir.
 
-Kullanıcı Yönetimi çözümünüz aracılığıyla yüklendiğinde [Azure Marketi](operations-management-suite-solutions.md#finding-and-installing-management-solutions) veya [Azure hızlı başlangıç şablonlarını](operations-management-suite-solutions.md#finding-and-installing-management-solutions) seçim yapması istenir bir [HesapOMSçalışmaveOtomasyon](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Bunlar, her bir standart parametrelerinin değerleri doldurmak için kullanılır.  Kullanıcının doğrudan standart parametrelerin değerlerini sağlamasını istenmez, ancak bunlar ek parametreler için değerler sağlamanız istenir.
+Kullanıcı Yönetimi çözümünüz aracılığıyla yüklendiğinde [Azure Marketi](operations-management-suite-solutions.md#finding-and-installing-management-solutions) veya [Azure hızlı başlangıç şablonlarını](operations-management-suite-solutions.md#finding-and-installing-management-solutions) seçim yapması istenir bir [günlük analizi çalışma alanı ve Otomasyon Hesap](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Bunlar, her bir standart parametrelerinin değerleri doldurmak için kullanılır.  Kullanıcının doğrudan standart parametrelerin değerlerini sağlamasını istenmez, ancak bunlar ek parametreler için değerler sağlamanız istenir.
+
 
 Kullanıcı çözümünüzü yüklendiğinde [başka bir yöntem](operations-management-suite-solutions.md#finding-and-installing-management-solutions), tüm standart parametreleri ve tüm ek parametreleri için bir değer girmelisiniz.
 
@@ -86,12 +87,12 @@ Aşağıdaki tabloda, tüm yönetim çözümleri için standart parametreleri li
 
 | Parametre | Tür | Açıklama |
 |:--- |:--- |:--- |
-| accountName |string |Azure Otomasyon hesabı adı. |
-| pricingTier |string |Hem günlük analizi çalışma alanı hem de Azure Otomasyonu hesabı fiyatlandırma katmanı. |
-| RegionID |string |Azure Otomasyonu hesabı bölgesi. |
-| solutionName |string |Çözüm adı.  Çözümünüzü hızlı başlangıç şablonlarıyla dağıtıyorsanız, bunun yerine bir tane belirtmek kullanıcının gerektiren bir dize tanımlamak için daha sonra solutionName parametre olarak tanımlamanız gerekir. |
-| workspaceName |string |Günlük analizi çalışma alanı adı. |
-| workspaceRegionId |string |Günlük analizi çalışma alanı bölgesi. |
+| accountName |dize |Azure Otomasyon hesabı adı. |
+| pricingTier |dize |Hem günlük analizi çalışma alanı hem de Azure Otomasyonu hesabı fiyatlandırma katmanı. |
+| regionId |dize |Azure Otomasyonu hesabı bölgesi. |
+| solutionName |dize |Çözüm adı.  Çözümünüzü hızlı başlangıç şablonlarıyla dağıtıyorsanız, bunun yerine bir tane belirtmek kullanıcının gerektiren bir dize tanımlamak için daha sonra solutionName parametre olarak tanımlamanız gerekir. |
+| workspaceName |dize |Günlük analizi çalışma alanı adı. |
+| workspaceRegionId |dize |Günlük analizi çalışma alanı bölgesi. |
 
 
 Çözüm dosyanıza kopyalayıp standart parametreleri yapısını aşağıdadır.  
@@ -168,8 +169,9 @@ Bu durumda, söz dizimi çözümüyle değişken değerlerini başvuruda **varia
 ### <a name="dependencies"></a>Bağımlılıklar
 **DependsOn** öğesi belirttiğinden bir [bağımlılık](../azure-resource-manager/resource-group-define-dependencies.md) başka bir kaynak üzerinde.  Çözüm yüklendiğinde, tüm bağımlılıkları oluşturulmuş kadar kaynak oluşturulmaz.  Örneğin, çözümünüzü olabilir [bir runbook başlatın](operations-management-suite-solutions-resources-automation.md#runbooks) kullanarak yüklendiğinde bir [işi kaynak](operations-management-suite-solutions-resources-automation.md#automation-jobs).  İş kaynak iş oluşturulmadan önce runbook oluşturulduğundan emin olmak için runbook kaynağına bağlı olacaktır.
 
-### <a name="oms-workspace-and-automation-account"></a>OMS çalışma ve Automation hesabı
-Yönetim çözümleri gerektiren bir [OMS çalışma](../log-analytics/log-analytics-manage-access.md) görünümleri içerecek şekilde ve bir [Otomasyon hesabı](../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde.  Çözüm kaynaklarında oluşturulur ve çözümde tanımlanmamalıdır önce bu kullanılabilir olması gerekir.  Kullanıcı [çalışma ve hesabı belirtin](operations-management-suite-solutions.md#oms-workspace-and-automation-account) zaman çözümünüzü dağıtmak, ancak yazarı olarak, aşağıdaki noktaları dikkate almanız gerekir.
+### <a name="log-analytics-workspace-and-automation-account"></a>Günlük analizi çalışma alanı ve Automation hesabı
+Yönetim çözümleri gerektiren bir [günlük analizi çalışma alanı](../log-analytics/log-analytics-manage-access.md) görünümleri içerecek şekilde ve bir [Otomasyon hesabı](../automation/automation-security-overview.md#automation-account-overview) runbook'ları ve ilgili kaynakları içerecek şekilde.  Çözüm kaynaklarında oluşturulur ve çözümde tanımlanmamalıdır önce bu kullanılabilir olması gerekir.  Kullanıcı [çalışma ve hesabı belirtin](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) zaman çözümünüzü dağıtmak, ancak yazarı olarak, aşağıdaki noktaları dikkate almanız gerekir.
+
 
 ## <a name="solution-resource"></a>Çözüm kaynağı
 Kaynak girişi her çözüm gerektirir **kaynakları** çözümü tanımlar öğesi.  Bu bir türü olacak **Microsoft.OperationsManagement/solutions** ve aşağıdaki yapı ayarlanmıştır. Bu içerir [standart parametreler](#parameters) ve [değişkenleri](#variables) , genellikle çözümün özelliklerini tanımlamak için kullanılır.
@@ -227,7 +229,7 @@ Yukarıdaki örnekte, bir runbook, zamanlama ve görünüm ile bir çözüm içi
 | ad |Çözüm adı. |
 | sürüm |Yazar tarafından belirlenen çözümü sürümü. |
 | ürün |Çözümü tanımlamak için benzersiz bir dize. |
-| Yayımcı |Çözüm Yayımcısı. |
+| publisher |Çözüm Yayımcısı. |
 
 
 

@@ -1,45 +1,58 @@
 ---
-title: "Azure AD'de LinkedIn tümleştirmesini yapılandırma | Microsoft Docs"
-description: "Etkinleştirmek veya devre dışı LinkedIn tümleştirme Azure Active Directory'de Microsoft uygulamaları için açıklanmaktadır."
+title: "Etkinleştirmek veya Office uygulamaları için Azure Active Directory'de LinkedIn tümleştirme devre dışı bırakma | Microsoft Docs"
+description: "Etkinleştirmek veya devre dışı LinkedIn tümleştirme Azure Active Directory'de Microsoft uygulamaları için açıklanmaktadır"
 services: active-directory
-author: jeffgilb
+author: curtand
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: jeffgilb
-ms.reviewer: jsnow
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 15c161542d6826e6aeb5f708a0d9c3fa1f1885e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5ebc44d0ef6200baeacf4f1f8c4371e2d1eed9db
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="enabling-linkedin-integration-in-azure-active-directory"></a>Azure Active Directory'de LinkedIn Integration etkinleştirme
-LinkedIn Integration etkinleştirme kullanıcılarınızın iki ortak LinkedIn veri erişim sağlar ve bunlar, kendi kişisel LinkedIn ağdan Microsoft uygulamaların içindeki seçerseniz. Her bir kullanıcı kendi iş hesabını LinkedIn hesaplarında bağlanmak bağımsız olarak seçebilirsiniz.
-
-### <a name="linkedin-integration-from-your-end-users-perspective"></a>Son kullanıcılarınızın açısından LinkedIn tümleştirme
-Kuruluşunuzdaki son kullanıcılar iş hesaplarını, LinkedIn hesaplarını bağlandığınızda, bunlar içinde hem de şirket dışından çalışmak kişiler daha iyi tanımlamak kullanabilirsiniz. İki hesap bağlanmak kullanıcının LinkedIn bağlantıları ve kuruluşunuzun Microsoft uygulamalarındaki kullanılacak profil verilerini sağlar, ancak bunlar her zaman bu verileri paylaşmak LinkedIn izinlerini kaldırarak iptal edilebilir. Tümleştirme genel kullanıma açık profil bilgileri de kullanır ve kullanıcıların LinkedIn gizlilik ayarları aracılığıyla Microsoft uygulamalarıyla kendi ortak profil ve ağ bilgilerini paylaşmayı seçebilirsiniz.
-
->[!NOTE]
-> Azure AD'de LinkedIn tümleştirme etkinleştirilmesi, uygulamalar ve hizmetler, son kullanıcılarınız bilgilerin bazıları erişim sağlar. Okuma [Microsoft gizlilik bildirimi](https://privacy.microsoft.com/privacystatement/) LinkedIn tümleştirme Azure AD'de etkinleştirirken gizlilik konuları hakkında daha fazla bilgi edinmek için. 
-
-## <a name="enable-linkedin-integration"></a>LinkedIn tümleştirmeyi etkinleştir
-LinkedIn tümleştirme kuruluşlar için Azure AD içinde varsayılan olarak etkindir. Bu nedenle, bu özellik, Kiracı için kullanılabilir yapıldığında, kuruluşunuzdaki tüm kullanıcılar LinkedIn özellikleri ve profilleri görebilirsiniz. LinkedIn Integration etkinleştirme Outlook içinde bir e-posta alırken, profilleri görüntüleme gibi Microsoft Hizmetleri içinde LinkedIn özellikleri kullanmak için kuruluşunuzdaki kullanıcılar sağlar. Bu özellik devre dışı bırakma LinkedIn özelliklerine erişimi engeller ve kullanıcı hesabı bağlantıları ve veri LinkedIn ve kuruluşunuzun Microsoft Hizmetleri aracılığıyla arasında paylaşımı durdurur.
+# <a name="linkedin-integration-for-office-applications"></a>Office uygulamaları için LinkedIn tümleştirme
+Bu makalede Azure Active Directory (Azure AD) LinkedIn tümleştirme sağlanan kullanıcıların kısıtlamak nasıl bildirir. Bazı Microsoft uygulamalarını içinde genel LinkedIn verilere erişmesine olanak tanır, Kiracı eklendiğinde LinkedIn tümleştirme varsayılan olarak etkindir. Her bir kullanıcı, iş veya Okul hesabı LinkedIn hesaplarında bağlanmak bağımsız olarak seçebilirsiniz.
 
 > [!IMPORTANT]
-> Bu özellik yerel Git, sovereign ve kamu kiracılar için kullanılabilir değil. Ayrıca, Azure AD hizmeti, LinkedIn tümleştirme özellikleri gibi güncelleştirmeler için tüm Azure kiracılar dağıtılmaz aynı anda. Bu özellik Azure kiracınız alındı kadar Azure AD ile LinkedIn tümleştirme etkinleştiremezsiniz.
+> LinkedIn tümleştirme tüm Azure AD kiracılarıyla aynı anda dağıtıldığı değil. Azure kiracınız alındı, sonra LinkedIn tümleştirme varsayılan olarak etkindir. LinkedIn tümleştirme yerel Git, sovereign ve kamu kiracılar için kullanılabilir değil. 
 
-1. Oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/) dizini için genel yönetici olan bir hesapla.
+## <a name="linkedin-integration-from-the-user-perspective"></a>Kullanıcı açısından LinkedIn tümleştirme
+Kuruluşunuzdaki kullanıcılar kendi işlerine LinkedIn hesabı veya Okul hesabı bağladığınızda [veri sağlamak LinkedIn izin](https://www.linkedin.com/help/linkedin/answer/84077) Microsoft uygulamaları ve kuruluşunuzun sağladığı hizmetler'kullanılacak. [Kullanıcıların hesaplarını bağlantısını kesmek](https://www.linkedin.com/help/linkedin/answer/85097), Microsoft ile veri paylaşımı LinkedIn izinlerini kaldırır. LinkedIn tümleştirme genel kullanıma açık LinkedIn profil bilgilerini kullanır. [Kullanıcılar kendi LinkedIn profilini nasıl görüntülenen denetleyebilir](https://www.linkedin.com/help/linkedin/answer/83) profillerini Microsoft uygulamalarındaki görüntülenebilir olup olmadığını da dahil olmak üzere LinkedIn gizlilik ayarları kullanarak.
+
+## <a name="privacy-considerations"></a>Gizlilik konuları
+Azure AD'de LinkedIn Integration etkinleştirme Microsoft uygulamaları ve kullanıcılarınızın LinkedIn bilgilerin bazıları erişmek için hizmetler sağlar. Okuma [Microsoft gizlilik bildirimi](https://privacy.microsoft.com/privacystatement/) LinkedIn tümleştirme Azure AD'de etkinleştirirken gizlilik konuları hakkında daha fazla bilgi edinmek için. 
+
+## <a name="manage-linkedin-integration"></a>LinkedIn tümleştirmeyi Yönet
+LinkedIn tümleştirme kuruluşlar için Azure AD içinde varsayılan olarak etkindir. LinkedIn Integration etkinleştirme LinkedIn profilleri Outlook'ta görüntüleme gibi Microsoft Hizmetleri içinde LinkedIn özellikleri kullanmak için kuruluşunuzdaki tüm kullanıcılar sağlar. LinkedIn tümleştirme devre dışı bırakma LinkedIn özellikleri Microsoft uygulamaları ve Hizmetleri kaldırır ve veri LinkedIn ve kuruluşunuzun Microsoft Hizmetleri aracılığıyla arasında paylaşımı durdurur.
+
+### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Etkinleştirmek veya devre dışı kuruluşunuzun Azure portalında LinkedIn tümleştirme
+
+1. Oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/) Azure AD Kiracı için genel yönetici olan bir hesapla.
 2. Seçin **kullanıcılar ve gruplar**.
 3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **kullanıcı ayarlarını**.
-4. Altında **LinkedIn tümleştirme**seçin Evet veya Hayır etkinleştirme veya devre dışı LinkedIn tümleştirme.
+4. Altında **LinkedIn tümleştirme**seçin **Evet** veya **Hayır** etkinleştirme veya devre dışı LinkedIn tümleştirme.
    ![LinkedIn Integration etkinleştirme](./media/linkedin-integration/LinkedIn-integration.PNG)
+
+### <a name="enable-or-disable-linkedin-integration-for-your-organizations-office-2016-apps-using-group-policy"></a>Etkinleştirmek veya Grup İlkesi kullanarak, kuruluşunuzun Office 2016 uygulamaları için LinkedIn tümleştirmesi devre dışı
+
+1. Karşıdan [Office 2016 Yönetim Şablonu dosyalarını (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
+2. Extract **ADMX** dosyaları ve kopyalamak için **merkezi bir depoya**.
+3. Açık Grup İlkesi Yönetimi.
+4. Aşağıdaki ayarlarla bir Grup İlkesi nesnesi oluşturmak: **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Microsoft Office 2016**  >  **Çeşitli** > **LinkedIn tümleştirme izin**.
+5. Seçin **etkin** veya **devre dışı**.
+  * İlke olduğunda **etkin**, **Göster LinkedIn özellikleri Office uygulamalarında** Office 2016 Seçenekleri iletişim kutusunda bulunan ayarı etkindir. Bu ayrıca kuruluşunuzdaki kullanıcıların Office uygulamalarında LinkedIn özellikleri kullanabileceğiniz anlamına gelir.
+  * İlke olduğunda **devre dışı**, **Göster LinkedIn özellikleri Office uygulamalarında** bulunan ayarlama Office 2016 seçeneklerinde iletişim devre dışı durumuna ayarlanır ve son kullanıcılar, bu ayar değiştiremiyor. Kuruluşunuzdaki kullanıcılar, Office 2016 uygulamalarında LinkedIn özellikleri kullanamazsınız. 
+
+Bu Grup İlkesi yalnızca yerel bilgisayar için Office 2016 uygulamaları etkiler. Bunlar LinkedIn Office 2016 uygulamalarını devre dışı bıraksanız bile kullanıcılar Office 365 boyunca profili kartları LinkedIn özelliklerini görebilir. 
 
 ### <a name="learn-more"></a>Daha fazla bilgi edinin 
 * [LinkedIn bilgileri ve Microsoft uygulamalarınızdaki özellikleri](https://go.microsoft.com/fwlink/?linkid=850740)
@@ -47,6 +60,6 @@ LinkedIn tümleştirme kuruluşlar için Azure AD içinde varsayılan olarak etk
 * [LinkedIn Yardım Merkezi](https://www.linkedin.com/help/linkedin)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Etkinleştirmek veya Azure portalından Azure AD ile LinkedIn tümleştirme devre dışı bırakmak için aşağıdaki bağlantıyı kullanın:
+Azure Portalı'ndaki geçerli LinkedIn tümleştirme ayarınız görmek için aşağıdaki bağlantıyı kullanın:
 
 [LinkedIn tümleştirmesini yapılandırma](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

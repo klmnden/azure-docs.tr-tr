@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: b48ba1a1a47bc27e1d394e6fa56826df1eb742dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 sanal makinesini yönetilen bir etki alanına ekleme
 Bu makalede bir Red Hat Enterprise Linux (RHEL) 7 sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
@@ -34,7 +34,7 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Red Hat Enterprise Linux sanal makine sağlama
 Aşağıdaki yöntemlerden birini kullanarak azure'da bir RHEL 7 sanal makine sağlama:
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure portalı](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -69,7 +69,7 @@ Burada, 'contoso100.com' DNS etki alanı, yönetilen etki alanı adıdır. 'cont
 Ardından, sanal makinenin etki alanına katılma için gerekli paketleri yüklemek. SSH terminalinizde gereken paketleri yüklemek için aşağıdaki komutu yazın:
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 
@@ -89,7 +89,7 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
      >
 
-2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın: 
+2. Initialize Kerberos. SSH terminalinizde aşağıdaki komutu yazın: 
 
     > [!TIP] 
     > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun. 
@@ -139,5 +139,5 @@ Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guid
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)
 * [Bir Windows Server sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Linux çalıştıran bir sanal makine için oturum açma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* [Kerberos yükleme](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+* [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows tümleştirme Kılavuzu](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

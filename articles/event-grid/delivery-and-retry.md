@@ -2,17 +2,17 @@
 title: "Azure olay kılavuz teslim ve yeniden deneyin"
 description: "Azure olay kılavuz olayları nasıl sunar ve teslim edilmeyen iletilerini nasıl işlediğini açıklar."
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Olay kılavuz ileti teslimi ve yeniden deneyin 
 
@@ -58,11 +58,11 @@ Olay kılavuz üstel geri alma yeniden deneme ilkesi olay teslimi için kullanı
 6. 30 dakika
 7. 1 saat
 
-Olay kılavuz, küçük rasgele tüm yeniden deneme aralıkları ekler.
+Olay kılavuz, küçük rasgele tüm yeniden deneme aralıkları ekler. Bir saat sonra saatte bir olay teslimi denenir.
 
 ## <a name="retry-duration"></a>Süre yeniden deneyin
 
-Önizleme sırasında Azure olay kılavuz iki saat içinde teslim edilmedi tüm olayları süresi dolar.
+Azure olay kılavuz 24 saat içinde teslim edilmedi tüm olayları süresi dolar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

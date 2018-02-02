@@ -3,7 +3,7 @@ title: "U-SQL betiği - Azure kullanarak veri dönüştürme | Microsoft Docs"
 description: "Azure Data Lake Analytics işlem hizmette U-SQL betiklerini çalıştırarak nasıl işleneceğini veya dönüştürme veri öğrenin."
 services: data-factory
 documentationcenter: 
-author: shengcmsft
+author: nabhishek
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 01/29/2018
+ms.author: abnarain
+ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betiklerini çalıştırarak veri dönüştürme 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,17 +66,17 @@ Hizmet asıl kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanı
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "azuredatalakeanalytics URI",
-            "servicePrincipalId": "service principal id",
+            "accountName": "<account name>",
+            "dataLakeAnalyticsUri": "<azure data lake analytics URI>",
+            "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
-                "value": "service principal key",
+                "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "tenant ID",
+            "tenant": "<tenant ID>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
-        }
+        },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -96,12 +96,12 @@ Aşağıdaki JSON parçacığında, bir Data Lake Analytics U-SQL etkinliği ile
     "description": "description",
     "type": "DataLakeAnalyticsU-SQL",
     "linkedServiceName": {
-        "referenceName": "AzureDataLakeAnalyticsLinkedService",
+        "referenceName": "<linked service name of Azure Data Lake Analytics>",
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
         "scriptLinkedService": {
-            "referenceName": "LinkedServiceofAzureBlobStorageforscriptPath",
+            "referenceName": "<linked service name of Azure Data Lake Store or Azure Storage which contains the U-SQL script>",
             "type": "LinkedServiceReference"
         },
         "scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
@@ -124,11 +124,11 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü özellikle
 | type                | Data Lake Analytics U-SQL etkinliği için etkinlik türüdür **DataLakeAnalyticsU SQL**. | Evet      |
 | linkedServiceName   | Azure Data Lake Analytics bağlantılı hizmetine. Bu bağlantılı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  |Evet       |
 | scriptPath          | U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harf duyarlıdır. | Evet      |
-| scriptLinkedService | Veri Fabrikası için komut dosyasını içeren depolamayı bağlı hizmet | Evet      |
+| scriptLinkedService | Bağlantılı bağlantılar hizmeti **Azure Data Lake Store** veya **Azure Storage** data factory betiğe içeren | Evet      |
 | degreeOfParallelism | Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. | Hayır       |
 | öncelik            | İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. | Hayır       |
-| parametreler          | U-SQL betiği için parametreler          | Hayır       |
-| runtimeVersion      | Çalışma zamanı sürümü kullanmak için U-SQL | Hayır       |
+| parametreler          | U-SQL komut dosyasına geçirilecek parametreler.    | Hayır       |
+| runtimeVersion      | Çalışma zamanı sürümü kullanmak için U-SQL altyapısı. | Hayır       |
 | compilationMode     | <p>U-SQL derleme modu. Şu değerlerden biri olmalıdır: **Semantic:** yalnızca anlamsal denetler ve gerekli sağlamlık denetimleri gerçekleştirmek **tam:** sözdizimi denetimi, en iyi duruma getirme, kod oluşturma, vb. dahil olmak üzere tam derleme gerçekleştirin., **SingleBox:** SingleBox için TargetType ayarıyla tam derleme gerçekleştirin. Bu özellik için bir değer belirtmezseniz, sunucu en iyi bir derleme moduna belirler. | Hayır |
 
 Veri Fabrikası gönderir bakın [SearchLogProcessing.txt betik tanımı](#sample-u-sql-script) betik tanımı. 
@@ -180,12 +180,12 @@ Dinamik parametreleri bunun yerine kullanmak da mümkündür. Örneğin:
 
 ```json
 "parameters": {
-    "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
-    "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    "in": "/datalake/input/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/data.tsv",
+    "out": "/datalake/output/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/result.tsv"
 }
 ```
 
-Bu durumda, giriş dosyaları hala /datalake/input klasöründen toplanmış ve çıktı dosyaları /datalake/output klasöründe oluşturulur. Dosya adları dilim başlangıç zamanı temel alınarak dinamik.  
+Bu durumda, giriş dosyaları hala /datalake/input klasöründen toplanmış ve çıktı dosyaları /datalake/output klasöründe oluşturulur. Dosya adları, ardışık düzen tetiklendiğinde geçirilen penceresi başlangıç zamanı temel alınarak dinamik.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalelere bakın: 

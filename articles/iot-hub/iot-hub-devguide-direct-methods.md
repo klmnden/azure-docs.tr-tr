@@ -12,22 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT hub'ı doğrudan yöntemleri çağırma
-IOT Hub, bulutta cihazlarda doğrudan yöntemlerini çağırmasına olanak sağlar. Başarılı veya başarısız hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra), bir HTTP çağrısıyla benzer bir cihaz istek-yanıt etkileşim doğrudan yöntemleri temsil eder. Bu yaklaşım, Acil eylem seyri aygıt bir aygıtı (çevrimdışı SMS yöntem çağrısı daha pahalı olması) ise, bir SMS Uyandırma bir cihaza gönderme gibi yanıt verebilmesini olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır.
+IOT Hub, bulutta cihazlarda doğrudan yöntemlerini çağırmasına olanak sağlar. Başarılı veya başarısız hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra), bir HTTP çağrısıyla benzer bir cihaz istek-yanıt etkileşim doğrudan yöntemleri temsil eder. Bu yaklaşım, Acil eylem seyri aygıtı yanıt verebilmesini olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır. Örneğin, bir SMS Uyandırma (çevrimdışı SMS yöntem çağrısı daha pahalı olması) ise bir cihaza gönderme.
 Her cihaz yöntemi tek bir cihazı hedefler. [İşlerini] [ lnk-devguide-jobs] doğrudan yöntemlerini birden çok aygıta çağırmak için bir yol sağlar ve zamanlama yöntem çağırma bağlantısı kesilmiş aygıtları için.
 
 Herkesle **service bağlanma** IOT Hub üzerindeki izinleri bir aygıtta bir yöntemi çağırma.
 
-Doğrudan yöntemleri istek-yanıt desenler izleyen ve örneğin fan üzerinde etkinleştirmek aygıtın genellikle etkileşimli denetimini kendi sonucunun hemen onay gerektiren iletişimleri için yöneliktir.
+Doğrudan yöntemleri bir istek-yanıt desen izleyin ve kendi sonucunun hemen onay gerektiren iletişimleri için yöneliktir. Örneğin, etkileşimli denetim üzerinde fan kapatma gibi cihaz.
 
 Başvurmak [bulut-cihaz iletişimi Kılavuzu] [ lnk-c2d-guidance] istenen özelliklerini kullanarak arasında emin değilseniz, yöntemler veya Bulut-cihaz iletilerini doğrudan.
 
@@ -39,7 +39,7 @@ Doğrudan yöntemleri cihazda uygulanır ve doğru örneği oluşturmak için y�
 > 
 > 
 
-Zaman uyumlu yöntemleri ve ya da başarılı doğrudan veya zaman aşımı süresinden sonra başarısız (varsayılan: 30 saniye, 3600 saniye olarak ayarlanabilir kurma). Doğrudan yöntemler, bir Phone ışığı kapatma gibi çevrimiçi ve alıcı komutları, cihaz, yalnızca ve yalnızca, görev yapması için bir aygıt istediğiniz etkileşimli senaryolarda kullanışlıdır. Bu senaryolarda, bulut hizmeti sonucuna mümkün olan en kısa sürede hareket etmesini sağlamak bir hemen başarı veya başarısızlık görmek istediğinizi açıklayın. Cihaz bazı ileti gövdesi yöntemi sonucunda döndürebilir ancak yöntemi bunu yapmak gerekli değildir. Garanti sıralama üzerinde veya tüm eşzamanlılık semantiği yöntem çağrılarını üzerinde yok.
+Zaman uyumlu yöntemleri ve ya da başarılı doğrudan veya zaman aşımı süresinden sonra başarısız (varsayılan: 30 saniye, 3600 saniye olarak ayarlanabilir kurma). Doğrudan yöntemler cihaz çevrimiçi ve alıcı komutları varsa ve yalnızca ise görev yapması için bir aygıt istediğiniz etkileşimli senaryolarda kullanışlıdır. Örneğin, bir Phone ışığı kapatılıyor. Bu senaryolarda, bulut hizmeti sonucuna mümkün olan en kısa sürede hareket etmesini sağlamak bir hemen başarı veya başarısızlık görmek istediğinizi açıklayın. Cihaz bazı ileti gövdesi yöntemi sonucunda döndürebilir ancak yöntemi bunu yapmak gerekli değildir. Garanti sıralama üzerinde veya tüm eşzamanlılık semantiği yöntem çağrılarını üzerinde yok.
 
 Yöntemleri doğrudan HTTPS salt bulut yan ve MQTT veya AMQP aygıt taraftaki.
 
@@ -54,16 +54,16 @@ Bir cihazda doğrudan yöntem çağrılarını oluşturan HTTPS çağrıları ş
 * *Üstbilgileri* yetkilendirme içeren, istek kimliği, içerik türü ve içerik kodlaması
 * Saydam JSON *gövde* şu biçimde:
 
-   ```
-   {
-       "methodName": "reboot",
-       "responseTimeoutInSeconds": 200,
-       "payload": {
-           "input1": "someInput",
-           "input2": "anotherInput"
-       }
-   }
-   ```
+    ```json
+    {
+        "methodName": "reboot",
+        "responseTimeoutInSeconds": 200,
+        "payload": {
+            "input1": "someInput",
+            "input2": "anotherInput"
+        }
+    }
+    ```
 
 Zaman aşımı saniye cinsindendir. Zaman aşımı ayarlanmamışsa 30 saniye olarak varsayılan olarak ayarlanır.
 
@@ -74,13 +74,14 @@ Arka uç uygulama içeren bir yanıt alır:
 * *Üstbilgileri* ETag içeren, istek kimliği, içerik türü ve içerik kodlaması
 * JSON *gövde* şu biçimde:
 
-   ```   {
-       "status" : 201,
-       "payload" : {...}
-   }
-   ```
+    ```json
+    {
+        "status" : 201,
+        "payload" : {...}
+    }
+    ```
 
-   Her ikisi de `status` ve `body` cihaz tarafından sağlanan ve cihazın kendi durum kodu ve/veya açıklama ile yanıtlamak için kullanılır.
+    Her ikisi de `status` ve `body` cihaz tarafından sağlanan ve cihazın kendi durum kodu ve/veya açıklama ile yanıtlamak için kullanılır.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Bir cihazda doğrudan bir yöntem işleme
 ### <a name="mqtt"></a>MQTT
@@ -89,7 +90,7 @@ Cihazlar, MQTT konusunda doğrudan yöntem isteği alır:`$iothub/methods/POST/{
 
 Cihaz aldıktan gövdesi aşağıdaki biçimdedir:
 
-```
+```json
 {
     "input1": "someInput",
     "input2": "anotherInput"
@@ -127,7 +128,7 @@ Yöntemin yanıt gönderen bağlantıyı döndürülür ve aşağıdaki gibi yap
 IOT Hub Geliştirici Kılavuzu'ndaki diğer başvuru konuları içerir:
 
 * [IOT Hub uç noktaları] [ lnk-endpoints] her IOT hub'ı çalışma zamanı ve yönetim işlemleri için kullanıma sunan çeşitli uç noktaları açıklar.
-* [Azaltma ve kotaları] [ lnk-quotas] IOT Hub hizmeti ve azaltma davranışı hizmetini kullandığınızda beklediğiniz uygulama kotaları açıklar.
+* [Azaltma ve kotaları] [ lnk-quotas] geçerli kotalar ve azaltma davranışı IOT hub'ı kullandığınızda beklediğiniz açıklar.
 * [Azure IOT cihaz ve hizmet SDK'ları] [ lnk-sdks] çeşitli dil IOT Hub ile etkileşim hem cihaz hem de hizmet uygulamaları geliştirirken kullanabilir SDK'ları listeler.
 * [IOT Hub cihaz çiftlerini, işler ve ileti yönlendirme için sorgu dili] [ lnk-query] IOT Hub'ından, cihaz çiftlerini ve işleri hakkında bilgi almak için kullanabileceğiniz IOT hub'ı sorgu dili açıklar.
 * [IOT Hub MQTT Destek] [ lnk-devguide-mqtt] IOT hub'ı desteği hakkında daha fazla bilgi için MQTT Protokolü sağlar.

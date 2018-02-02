@@ -1,6 +1,6 @@
 ---
-title: "Çözüm OMS hedefleme | Microsoft Docs"
-description: "Çözüm hedefleme bulunan bir özelliktir Operations Management Suite (OMS) aracıları belirli bir dizi yönetim çözümleri sınırlamanıza olanak sağlar.  Bu makalede, bir kapsam yapılandırması oluşturma ve bir çözüm uygulama açıklar."
+title: "Azure yönetim çözümlerine hedefleme | Microsoft Docs"
+description: "Yönetim çözümleri hedefleme aracıları belirli bir dizi yönetim çözümleri sınırlamanıza olanak sağlar.  Bu makalede, bir kapsam yapılandırması oluşturma ve bir çözüm uygulama açıklar."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Kapsam yönetim çözümleri için belirli aracıları (Önizleme) için Operations Management Suite (OMS) çözümü hedefleme kullanın
-Bir çözüm için OMS eklediğinizde, varsayılan olarak, günlük analizi çalışma alanına bağlı tüm Windows ve Linux aracıları için otomatik olarak dağıtılır.  Maliyetlerinizi yönetmek ve yönelik bir çözüm aracıların belirli bir dizi sınırlama tarafından toplanan veri miktarını sınırlamak isteyebilirsiniz.  Bu makalede nasıl kullanılacağını açıklar **çözüm hedefleme** kapsam çözümlerinizi uygulamanıza imkan sağlayan bir OMS özelliği olduğu.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Azure (Önizleme) yönetim çözümlerine hedefleme
+Aboneliğiniz için bir yönetim çözümü eklediğinizde, varsayılan olarak, günlük analizi çalışma alanına bağlı tüm Windows ve Linux aracıları için otomatik olarak dağıtılır.  Maliyetlerinizi yönetmek ve yönelik bir çözüm aracıların belirli bir dizi sınırlama tarafından toplanan veri miktarını sınırlamak isteyebilirsiniz.  Bu makalede nasıl kullanılacağını açıklar **çözüm hedefleme** , kapsam çözümlerinizi uygulamanıza imkan sağlayan bir özelliktir.
 
 ## <a name="how-to-target-a-solution"></a>Hedef bir çözümü nasıl
-Aşağıdaki bölümlerde açıklandığı gibi bir çözüm hedefleme için üç adım vardır.  OMS portalı ve Azure portal için farklı adımlar gerekeceğini unutmayın.
+Aşağıdaki bölümlerde açıklandığı gibi bir çözüm hedefleme için üç adım vardır. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Bir bilgisayar grubu oluşturun

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IOT hub'ınızdaki kimlik kayıt defterinde anlama
 
@@ -74,11 +74,11 @@ Güncelleştirerek aygıtlarını devre dışı bırakabilir **durum** kimlik ka
 
 ## <a name="import-and-export-device-identities"></a>İçeri ve dışarı aktarma aygıt kimlikleri
 
-Zaman uyumsuz işlemleri kullanarak bir IOT hub'ın kimlik kayıt defterinden toplu cihaz kimliklerini verebilirsiniz [IOT hub'ı kaynak sağlayıcı uç][lnk-endpoints]. Olan kimlik kayıt defterinden okunacak aygıt kimlik verilerini kaydetmek için müşteri tarafından sağlanan blob kapsayıcısı kullanmak uzun süre çalışan işleri dışarı aktarır.
+Zaman uyumsuz işlemleri kullanılacağı [IOT hub'ı kaynak sağlayıcı uç] [ lnk-endpoints] bir IOT hub'ın kimlik kayıt defterinden toplu cihaz kimliklerini vermek için. Olan kimlik kayıt defterinden okunacak aygıt kimlik verilerini kaydetmek için müşteri tarafından sağlanan blob kapsayıcısı kullanmak uzun süre çalışan işleri dışarı aktarır.
 
-Zaman uyumsuz işlemleri kullanarak bir IOT hub'ın kimlik kayıt defterine toplu cihaz kimliklerini aktarabilirsiniz [IOT hub'ı kaynak sağlayıcı uç][lnk-endpoints]. İçeri aktarmalar olan kimlik kayıt defterine aygıt kimlik verilerini yazmak için bir müşteri tarafından sağlanan blob kapsayıcısında verileri kullanmak uzun süre çalışan işleri.
+Zaman uyumsuz işlemleri kullanılacağı [IOT hub'ı kaynak sağlayıcı uç] [ lnk-endpoints] bir IOT hub'ın kimlik kayıt defterine toplu cihaz kimliklerini almak için. İçeri aktarmalar olan kimlik kayıt defterine aygıt kimlik verilerini yazmak için bir müşteri tarafından sağlanan blob kapsayıcısında verileri kullanmak uzun süre çalışan işleri.
 
-İçeri ve dışarı aktarma API'ler hakkında ayrıntılı bilgi için bkz: [IOT hub'ı kaynak sağlayıcısı REST API'leri][lnk-resource-provider-apis]. İçeri aktarma çalıştırma hakkında daha fazla bilgi edinin ve işleri dışarı aktarmak için bkz: [toplu yönetim IOT Hub cihaz kimlikleri][lnk-bulk-identity].
+İçeri ve dışarı aktarma API'ler hakkında daha fazla bilgi için bkz: [IOT hub'ı kaynak sağlayıcısı REST API'leri][lnk-resource-provider-apis]. İçeri aktarma çalıştırma hakkında daha fazla bilgi edinin ve işleri dışarı aktarmak için bkz: [toplu yönetim IOT Hub cihaz kimlikleri][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Cihaz sağlama
 
@@ -109,13 +109,13 @@ Bir cihaz kimliği oluşturulduğunda veya cihaz yaşam döngüsü bildirimleri 
 | --- | --- |
 $content-türü | uygulama/json |
 $iothub-enqueuedtime |  Zaman zaman bildirim gönderildi |
-$iothub-ileti-kaynak | deviceLifecycleEvents |
-$content-kodlama | UTF-8 |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
 opType | **createDeviceIdentity** veya **deleteDeviceIdentity** |
 hubName | IOT hub'ının adı |
 deviceId | Cihaz kimliği |
 operationTimestamp | İşlemin ISO8601 zaman damgası |
-ıothub ileti şeması | deviceLifecycleNotification |
+iothub-message-schema | deviceLifecycleNotification |
 
 Gövde: Bu bölümde, JSON biçiminde ve twin oluşturulan cihaz kimliğini temsil eder. Örneğin,
 
@@ -147,7 +147,7 @@ Bir cihaz kimlikleri aşağıdaki özelliklerle JSON belgeleri olarak temsil edi
 | Özellik | Seçenekler | Açıklama |
 | --- | --- | --- |
 | deviceId |gerekli, güncelleştirmelerinin salt okunur |Büyük küçük harf duyarlı dize (en fazla 128 karakter uzunluğunda) ASCII 7 bit alfasayısal karakterler ve belirli özel karakterler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| Generationıd |gerekli, salt okunur |Bir IOT hub tarafından üretilen, büyük küçük harf duyarlı dize en çok 128 karakter uzunluğunda. Bu değer ile aynı cihazları ayırt etmek için kullanılır **DeviceID**, silinmiş ve yeniden oluşturulacak. |
+| generationId |gerekli, salt okunur |Bir IOT hub tarafından üretilen, büyük küçük harf duyarlı dize en çok 128 karakter uzunluğunda. Bu değer ile aynı cihazları ayırt etmek için kullanılır **DeviceID**, silinmiş ve yeniden oluşturulacak. |
 | ETag |gerekli, salt okunur |Göre zayıf bir ETag cihaz kimliğini temsil eden bir dize [RFC7232][lnk-rfc7232]. |
 | kimlik doğrulama |isteğe bağlı |Kimlik doğrulama bilgileri ve güvenlik malzemeleri içeren bileşik bir nesne. |
 | auth.symkey |isteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bileşik bir nesne. |
@@ -180,7 +180,7 @@ IOT Hub kimlik kayıt defteri kullanmayı öğrendiniz, aşağıdaki IOT Hub Gel
 * [Bir cihazda doğrudan bir yöntem çağırma][lnk-devguide-directmethods]
 * [Birden çok aygıta işleri zamanla][lnk-devguide-jobs]
 
-Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıdaki IOT hub'ı öğreticide ilgilenen olabilir:
+Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki IOT hub'ı öğretici bakın:
 
 * [Azure IOT Hub ile çalışmaya başlama][lnk-getstarted-tutorial]
 

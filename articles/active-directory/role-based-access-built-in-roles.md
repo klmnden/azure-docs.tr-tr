@@ -3,24 +3,23 @@ title: "Eylemler ve NotActions - Azure rol tabanlı erişim denetimi (RBAC) | Mi
 description: "Bu konu için rol tabanlı erişim denetimi (RBAC) rollerdeki yerleşik açıklar. Rolleri sürekli olarak eklenir, belgeleri yenilik kontrol edin."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
 Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve hizmetlere atanmış aşağıdaki yerleşik rolleri ile birlikte gelir. Yerleşik rol tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](role-based-access-control-custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
@@ -68,7 +67,9 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Redis önbelleği katkıda bulunan](#redis-cache-contributor) |Redis önbellekleri yönetebilirsiniz. |
 | [Zamanlayıcı İş koleksiyonları katkıda bulunan](#scheduler-job-collections-contributor) |Zamanlayıcı İş koleksiyonları yönetebilir |
 | [Arama hizmeti katkıda bulunan](#search-service-contributor) |Arama Hizmetleri yönetebilir. |
-| [Güvenlik Yöneticisi](#security-manager) |Güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz |
+| [Güvenlik Yöneticisi](#security-administrator) | Yalnızca Güvenlik Merkezi'nde: görüntülemek güvenlik ilkeleri, güvenlik durumları görüntülemek, güvenlik ilkeleri, Uyarıları görüntüle ve öneriler düzenleme, uyarısı ve öneri yok sayın |
+| [Güvenlik Yöneticisi](#security-manager) | Güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz |
+| [Güvenlik okuyucusu](#security-reader) | Yalnızca Güvenlik Merkezi'nde: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz görünümü görüntüleyebilirsiniz |
 | [Site kurtarma katkıda bulunan](#site-recovery-contributor) | Site Recovery kurtarma Hizmetleri kasasına yönetebilirsiniz |
 | [Site kurtarma işleci](#site-recovery-operator) | Yük devretme ve yeniden çalışma işlemlerini Site Recovery kurtarma Hizmetleri kasasına yönetebilirsiniz |
 | [Site kurtarma okuyucusu](#site-recovery-reader) | Tüm Site Recovery yönetim işlemlerinin görüntüleyebilirsiniz  |
@@ -506,21 +507,50 @@ Arama Hizmetleri yönetebilir.
 | Microsoft.Search/searchServices/* |Oluşturma ve arama hizmetleri yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
+### <a name="security-administrator"></a>Güvenlik Yöneticisi
+Yalnızca Güvenlik Merkezi'nde: görüntülemek güvenlik ilkeleri, güvenlik durumları görüntülemek, güvenlik ilkeleri, Uyarıları görüntüle ve öneriler düzenleme, uyarısı ve öneri yok sayın
+
+| **Eylemler** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
+| Microsoft.Authorization/policyAssignments/* | Oluşturma ve ilke atamalarını yönetme |
+| Microsoft.Authorization/policySetDefinitions/* | Oluşturun ve ilke kümelerini yönetme |
+| Microsoft.Authorization/policyDefinitions/* | Oluşturma ve ilke tanımları yönetme |
+| Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönetme |
+| Microsoft.operationalInsights/workspaces/*/read | Günlük analizi verilerini görüntüleme |
+| Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
+| Microsoft.Security/*/read | Okuma güvenlik bileşenleri ve ilkeleri |
+| Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
+
 ### <a name="security-manager"></a>Güvenlik Yöneticisi
 Güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz
 
 | **Eylemler** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
-| Microsoft.ClassicCompute/*/read |Klasik sanal makineler işlem yapılandırma bilgilerini okumak |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Sanal makineler için yapılandırma yazma |
+| Microsoft.ClassicCompute/*/read |Klasik sanal makineleri yapılandırma bilgilerini okumak |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Klasik sanal makineler için yapılandırma yazma |
 | Microsoft.ClassicNetwork/*/read |Klasik ağ hakkında yapılandırma bilgilerini okuyun |
-| Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
+| Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Security/* |Güvenlik bileşenleri ve ilkeleri oluşturma ve yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
+
+### <a name="security-reader"></a>Güvenlik okuyucusu
+Yalnızca Güvenlik Merkezi'nde: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz görünümü görüntüleyebilirsiniz
+
+| **Eylemler** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
+| Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönetme |
+| Microsoft.operationalInsights/workspaces/*/read | Günlük analizi verilerini görüntüleme |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
+| Microsoft.Security/*/read | Okuma güvenlik bileşenleri ve ilkeleri |
+| Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
+| Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 
 ### <a name="site-recovery-contributor"></a>Site Recovery Katkıda Bulunanı
 Kurtarma Hizmetleri kasası oluşturma ve diğer kullanıcılara erişim hakları atama hariç tüm Site Recovery yönetim eylemleri, yönetebilirsiniz
@@ -872,3 +902,4 @@ Web siteleri ancak olmayan bağlı web planlarını yönetme
 * [Azure rbac'de özel roller](role-based-access-control-custom-roles.md): erişim gereksinimlerinize uyacak şekilde özel roller oluşturma hakkında bilgi edinin.
 * [Erişim değişiklik geçmişi raporu oluşturma](role-based-access-control-access-change-history-report.md): RBAC içinde rol atamalarını değiştirme izler.
 * [Rol tabanlı erişim denetimi sorun giderme](role-based-access-control-troubleshooting.md): sık karşılaşılan sorunları düzeltmek için öneriler alın.
+* [Azure Güvenlik Merkezi'nde izinleri](../security-center/security-center-permissions.md)

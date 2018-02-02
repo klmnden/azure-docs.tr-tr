@@ -1,5 +1,5 @@
 ---
-title: "Azure depolama güvenlik duvarları ve sanal ağlar (Önizleme) yapılandırma | Microsoft Docs"
+title: "Azure depolama güvenlik duvarları ve sanal ağları yapılandırma | Microsoft Docs"
 description: "Depolama hesabınız için katmanlı ağ güvenliği yapılandırın."
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure depolama güvenlik duvarları ve sanal ağlar (Önizleme) yapılandırma
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarları ve sanal ağları yapılandırma
 Azure depolama, izin verilen ağlar belirli bir dizi depolama hesaplarınıza güvenli imkan tanıyan katmanlı bir güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağlar uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağrılırken uygulamalar (geçerli erişim tuşu veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
 
-## <a name="preview-availability-and-support"></a>Önizleme kullanılabilirliği ve Destek
-Depolama güvenlik duvarları ve sanal ağlar önizlemede.  Bu özellik şu anda tüm Azure genel bulut bölgeleri yeni veya var olan depolama hesapları için kullanılabilir.
-
-> [!NOTE]
-> Önizleme sırasında üretim iş yükleri desteklenmez.
+> [!IMPORTANT]
+> Depolama hesabınız için güvenlik duvarı kurallarında kapatma veri Azure hizmetlerinden dahil olmak üzere, gelen istekleri için erişimi engeller.  Bu yazma günlükleri, vb. Portal kullanarak içerir.  Katılımcı Hizmetleri aracılığıyla işlevselliği yeniden etkinleştirebilirsiniz [özel durumları](#Exceptions) bölümüne bakın.  Portalına erişmek için ayarladığınız güvenilen sınırları (IP veya VNet) içinde bir makineden bunu gerekir.
 >
 
 ## <a name="scenarios"></a>Senaryolar
@@ -55,9 +52,6 @@ Varsayılan olarak, depolama hesapları herhangi bir ağ üzerindeki istemcilerd
 
 #### <a name="azure-portal"></a>Azure portalına
 1. Korumak istediğiniz depolama hesabınıza gidin.  
-> [!NOTE]
-> Genel Önizleme için desteklenen bölgeler birinde depolama hesabınız olduğundan emin olun.
->
 
 2. Adlı ayarlar menüsünde **güvenlik duvarları ve sanal ağlar**.
 3. Varsayılan olarak erişimi reddetmek için 'Seçili ağlardan' erişime izin vermek seçin.  'Tüm ağlar' erişime izin verecek şekilde tüm ağlardan trafiğine izin vermek için seçin.

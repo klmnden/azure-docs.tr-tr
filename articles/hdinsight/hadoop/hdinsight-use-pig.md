@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f5b34c6610a1c07687f0681480f7422986d6f20
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ca68391db99d882887e41005928a30610c7cb930
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Hdınsight'ta Hadoop ile pig kullanma
 
-Nasıl kullanacağınızı öğrenin [Apache Pig](http://pig.apache.org/) Hdınsight ile...
+Nasıl kullanacağınızı öğrenin [Apache Pig](http://pig.apache.org/) Hdınsight ile.
 
 Pig olan bir platform olarak bilinen bir yordam dilini kullanarak Hadoop için programlar oluşturma için *Pig Latin*. Pig alternatiftir Java için oluşturmak için *MapReduce* çözümleri ve bunu Azure Hdınsight ile birlikte. Hdınsight ile Pig çeşitli yolları kullanılabilir bulmak için aşağıdaki tabloyu kullanın:
 
@@ -34,7 +34,6 @@ Pig olan bir platform olarak bilinen bir yordam dilini kullanarak Hadoop için p
 | [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
 | [Hadoop için .NET SDK](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux veya Windows |Windows (için şimdi) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux veya Windows |Windows |
-| [Uzak Masaüstü](apache-hadoop-use-pig-remote-desktop.md) (Hdınsight 3.2 ve 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -104,7 +103,6 @@ Hdınsight, Pig Latin işleri çeşitli yöntemler kullanarak çalıştırabilir
 | [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
 | [Hadoop için .NET SDK](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux veya Windows |Windows (için şimdi) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux veya Windows |Windows |
-| [Uzak Masaüstü](apache-hadoop-use-pig-remote-desktop.md) (Hdınsight 3.2 ve 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

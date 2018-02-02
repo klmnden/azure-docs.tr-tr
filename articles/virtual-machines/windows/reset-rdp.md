@@ -3,7 +3,7 @@ title: "Parola veya uzak masaüstü yapılandırması Windows VM üzerinde sıf�
 description: "Bir hesap parolası veya Uzak Masaüstü Hizmetleri Azure portalında veya Azure PowerShell kullanarak bir Windows VM üzerinde sıfırlama öğrenin."
 services: virtual-machines-windows
 documentationcenter: 
-author: genlin
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: genli
-ms.openlocfilehash: 555a9e44d1386e27dcb71b3826d162f2ea99f200
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d9ca3d393bd4544fb4efdbc779f139ca13d98bcd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Uzak Masaüstü hizmetini veya bir Windows VM oturum açma parolasını sıfırlama
 Bir Windows sanal makine (VM) bağlanamıyorsanız, yerel yönetici parolasını sıfırlama veya Uzak Masaüstü hizmet yapılandırmasını (Windows etki alanı denetleyicilerinde desteklenmez). Parola sıfırlama için Azure PowerShell'de Azure portalından veya VM erişim uzantısı kullanabilirsiniz. PowerShell kullanıyorsanız, bilgisayarınızda yüklü olduğundan emin olun [yüklenmiş ve yapılandırılmış en son PowerShell Modülü](/powershell/azure/overview) ve Azure aboneliğinizde oturum açtınız. Ayrıca [Klasik dağıtım modeliyle oluşturulan VM'ler için bu adımları uygulamadan](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
@@ -82,8 +82,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" 
 > [!TIP]
 > Herhangi bir noktada bir VM yalnızca bir VM erişim aracıyı olabilir. VM erişim Aracısı özellikleri başarılı bir şekilde ayarlamak için `-ForceRerun` seçeneği kullanılabilir. Kullanırken `-ForceRerun`, herhangi bir önceki komut kullanılan VM erişim aracısı için aynı adı kullandığınızdan emin olun.
 
-Hala uzaktan sanal makineye bağlanamıyorsanız, daha fazla adımları deneyin bkz [Windows tabanlı bir Azure sanal makine için sorun giderme Uzak Masaüstü bağlantıları](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+Hala uzaktan sanal makineye bağlanamıyorsanız, daha fazla adımları deneyin bkz [Windows tabanlı bir Azure sanal makine için sorun giderme Uzak Masaüstü bağlantıları](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Windows etki alanı denetleyicisine bağlantısı kesildiğinde bir etki alanı denetleyicisi yedekten geri yüklemeniz gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure VM erişim uzantısı yanıt vermiyor ve parola sıfırlamaya yoksa, şunları yapabilirsiniz [çevrimdışı yerel Windows parola sıfırlama](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu yöntem daha gelişmiş bir işlemdir ve başka bir VM için sanal sabit disk sorunlu VM bağlanmanızı gerektirir. Bu makalede ilk belgelenen adımları izleyin ve yalnızca son çare olarak çevrimdışı parola sıfırlama yöntemi deneyin.

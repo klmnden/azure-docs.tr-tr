@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Günlük analizi ile ortamınızdaki bilgisayarlardan veri toplama
 
@@ -32,7 +32,7 @@ Ortamınızda bulunan bilgisayarlar doğrudan bağlanması için günlük analiz
 
 ## <a name="overview"></a>Genel Bakış
 
-![log-Analytics-Agent-Direct-Connect-Diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
+![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
 Çözümleme ve toplanan verileri üzerinde hareket önce ilk yükleme ve aracılar için günlük analizi hizmetine veri göndermek istediğiniz tüm bilgisayarların bağlanmak gerekir. Kurulum, komut satırı kullanılarak, şirket içi bilgisayarları veya ile istenen durum yapılandırması (DSC) Azure Automation aracıları yükleyebilirsiniz. 
 
@@ -42,7 +42,11 @@ Yalnızca günlük analizi bağlanmak için aracı Linux ve Windows için değil
 
 BT güvenlik ilkelerinizi bilgisayarları Internet'e bağlanmak için ağınızdaki izin vermiyorsa, aracı yapılandırma bilgilerini almak ve etkinleştirdiğiniz çözümüne bağlı olarak toplanan verileri göndermek için OMS ağ geçidine bağlanmak için yapılandırılabilir. Daha fazla bilgi ve günlük analizi hizmetine bir OMS ağ geçidi üzerinden iletişim kurmak için Linux veya Windows Aracısı yapılandırma adımları için bkz: [OMS ağ geçidini kullanarak OMS bilgisayarları bağlamak](log-analytics-oms-gateway.md). 
 
-## <a name="prerequisites"></a>Ön koşullar
+> [!NOTE]
+> Windows için aracı yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0 ve 1.1 destekler.  
+> 
+
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce en düşük sistem gereksinimlerini karşıladığını doğrulamak için aşağıdaki ayrıntıları gözden geçirin.
 
 ### <a name="windows-operating-system"></a>Windows işletim sistemi

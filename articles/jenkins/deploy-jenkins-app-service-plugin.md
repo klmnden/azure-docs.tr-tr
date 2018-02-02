@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisi kullanarak Azure App Service'e dağıtma 
 
@@ -71,7 +71,7 @@ Projeniz için Web uygulamalarını dağıtmak için Git veya FTP kullanarak der
 Jenkins işinde ayarlama önce Azure App Service planı ve bir web uygulaması Java uygulama çalıştırmak için gerekir.
 
 
-1. İle bir Azure uygulama hizmeti planı oluştur **serbest** fiyatlandırma katmanı kullanarak `az appservice plan create` [Azure CLI komutu](/cli/azure/appservice/plan#create). Uygulama hizmeti planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Bir uygulama hizmeti planına atanmış olan tüm uygulamalar, bu kaynakları paylaşır. Paylaşılan kaynakları birden fazla uygulama barındırdığında giderlerinden tasarruf edersiniz yardımcı olur.
+1. İle bir Azure uygulama hizmeti planı oluştur **serbest** fiyatlandırma katmanı kullanarak `az appservice plan create` [Azure CLI komutu](/cli/azure/appservice/plan#az_appservice_plan_create). Uygulama hizmeti planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Bir uygulama hizmeti planına atanmış olan tüm uygulamalar, bu kaynakları paylaşır. Paylaşılan kaynakları birden fazla uygulama barındırdığında giderlerinden tasarruf edersiniz yardımcı olur.
 2. Bir web uygulaması oluşturun. Kullanabileceğiniz [Azure portal](/azure/app-service-web/web-sites-configure) veya aşağıdaki `az` Azure CLI komutu:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>

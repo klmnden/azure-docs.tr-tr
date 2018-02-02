@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 68aaf0fda2e60c5736ab020c15e516144e11d68e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31254788b840ccc1f1017df3c533e84b9c99f10d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Şirket içi kodlayıcılardan Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services kullanarak yapılandırma
 Bu konu, Canlı olayları yakalamak ve daha ayrıntılı işleme için tek bit hızlı canlı akış (olan gerçek zamanlı kodlama etkin) AMS kanallarında göndermek için kullanabileceğiniz şirket içi gerçek zamanlı kodlayıcılar listeler. Konusunda listelenen kodlayıcılar yapılandırmayı gösterir öğreticileri için de bağlar.
@@ -27,7 +27,10 @@ Bu konu, Canlı olayları yakalamak ve daha ayrıntılı işleme için tek bit h
 Nasıl yapılandırılacağı hakkında bilgi için [Elemental canlı](http://www.elementaltechnologies.com/products/elemental-live) bir AMS kanala tek bit hızlı bir canlı akışı göndermeyi Kodlayıcı bkz [yapılandırma Elemental canlı](media-services-configure-elemental-live-encoder.md).
 
 ## <a name="flash-media-live-encoder"></a>Flash medya gerçek zamanlı kodlayıcı
-Nasıl yapılandırılacağı hakkında bilgi için [Flash medya Canlı Kodlayıcı](http://www.adobe.com/products/flash-media-encoder.html) bir AMS kanala tek bit hızlı bir canlı akışı göndermek için (FMLE) Kodlayıcı bkz [yapılandırma FMLE](media-services-configure-fmle-live-encoder.md) .
+Nasıl yapılandırılacağı hakkında bilgi için [Flash medya Canlı Kodlayıcı](http://www.adobe.com/products/flash-media-encoder.html) bir AMS kanala tek bit hızlı bir canlı akışı göndermek için (FMLE) Kodlayıcı bkz [yapılandırma FMLE](media-services-configure-fmle-live-encoder.md).
+
+## <a name="haivision-kb-encoder"></a>Haivision KB kodlayıcı
+Nasıl yapılandırılacağı hakkında bilgi için [Haivision KB Kodlayıcı](https://www.haivision.com/products/kb-series/) bir AMS kanala tek bit hızlı bir canlı akışı göndermeyi Kodlayıcı bkz [Haivision KB Kodlayıcı yapılandırma](media-services-configure-kb-live-encoder.md).
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
 Nasıl yapılandırılacağı hakkında bilgi için [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) bir AMS kanala tek bit hızlı bir canlı akışı göndermeyi Kodlayıcı bkz [yapılandırma Wirecast](media-services-configure-wirecast-live-encoder.md).

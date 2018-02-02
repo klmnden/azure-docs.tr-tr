@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 52e176711f512e8a3788309a58011c8484821a1e
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store'da güvenlik
 Çoğu kurum, büyük veri analizi için akıllı kararlar almanıza yardımcı olmak iş öngörüleri avantajlarından sürüyor. Bir kuruluşun farklı kullanıcılar artan sayıda ile karmaşık ve düzenlenen bir ortam olabilir. Kritik iş verileri doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake Store, bu güvenlik gereksinimlerini karşılamak amacıyla tasarlanmıştır. Bu makalede, Data Lake Store, güvenlik özellikleri hakkında bilgi de dahil olmak üzere:
@@ -54,7 +54,7 @@ Hesap yönetimi için rolleri atanmış rağmen bazı roller verilere erişim et
 
 | Roller | Yönetim hakları | Veri erişim hakları | Açıklama |
 | --- | --- | --- | --- |
-| Atanmış bir role yok |None |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
+| Atanmış bir role yok |Hiçbiri |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
 | Sahip |Tümü |Tümü |Süper kullanıcı sahibi rolüdür. Bu rolü her şeyi yönetebilir ve veri tam erişimi vardır. |
 | Okuyucu |Salt okunur |ACL ile yönetilen |Okuyucu rolüne hangi role atanmış kullanıcı gibi hesap yönetimi ile ilgili her şeyi görüntüleyebilir. Okuyucu rolüne değişiklik yapamazsınız. |
 | Katılımcı |Tüm ekleme ve kaldırma rolleri dışında |ACL ile yönetilen |Katkıda bulunan rolü dağıtımları ve oluşturma ve Uyarıları yönetme gibi bir hesap, bazı yönlerini yönetebilirsiniz. Katkıda bulunan rolü ekleme veya rollerini kaldırın. |
@@ -63,7 +63,7 @@ Hesap yönetimi için rolleri atanmış rağmen bazı roller verilere erişim et
 Yönergeler için bkz: [Data Lake Store hesapları için kullanıcıların veya güvenlik gruplarının atamak](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
 
 ### <a name="using-acls-for-operations-on-file-systems"></a>ACL'leri kullanarak dosya sistemi işlemleri
-Data Lake Store olan hiyerarşik dosya sistemi gibi Hadoop dağıtılmış dosya sistemi (HDFS) ve onu destekleyen [POSIX ACL'leri](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Okuma (r) denetimleri, yazma (w) ve yürütme (x) kaynaklara sahip rolünü, sahipleri grup ve diğer kullanıcılar ve gruplar için izinleri. Data Lake Store Public Preview’da (geçerli sürüm), ACL’ler kök klasörde, alt klasörlerde ve tek tek dosyalarda etkinleştirilebilir. Data Lake Store bağlanımda ACL’lerin nasıl çalıştığı üzerine daha fazla bilgi için bkz. [Data Lake Store’da erişim denetimi](data-lake-store-access-control.md).
+Data Lake Store olan hiyerarşik dosya sistemi gibi Hadoop dağıtılmış dosya sistemi (HDFS) ve onu destekleyen [POSIX ACL'leri](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Okuma (r) denetimleri, yazma (w) ve yürütme (x) kaynaklara sahip rolünü, sahipleri grup ve diğer kullanıcılar ve gruplar için izinleri. Data Lake Store'da, kök klasör, alt klasörler ve dosyaları tek tek ACL'ler etkinleştirilebilir. Data Lake Store bağlanımda ACL’lerin nasıl çalıştığı üzerine daha fazla bilgi için bkz. [Data Lake Store’da erişim denetimi](data-lake-store-access-control.md).
 
 ACL'leri kullanarak birden çok kullanıcı için tanımladığınız öneririz [güvenlik grupları](../active-directory/active-directory-groups-create-azure-portal.md). Kullanıcılar bir güvenlik grubuna ekleyin ve bir dosya veya klasör için ACL'leri bu güvenlik grubuna atayın. En fazla dokuz girişleri özel erişim için ekleme ile sınırlı olduğundan, özel erişim sağlamak istediğinizde kullanışlıdır. Daha iyi Azure Active Directory güvenlik gruplarını kullanarak Data Lake Store'da depolanan verilerin güvenliğini sağlama hakkında daha fazla bilgi için bkz: [ACL'ler kullanıcılar veya güvenlik grubu için Azure Data Lake Store dosya sistemi atamak](data-lake-store-secure-data.md#filepermissions).
 

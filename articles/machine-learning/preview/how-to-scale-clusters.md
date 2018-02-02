@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 44aa167375355433851453010cebe5b49ef56ebd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Web hizmeti üretilen işini yönetmenizi küme ölçeklendirme
 
@@ -55,7 +55,7 @@ Aşağıdaki komut, kümedeki Aracısı düğümleri sayısı ayarlar:
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-Bu işlemin tamamlanması birkaç dakika sürecek. Kümedeki düğüm sayısını ölçeklendirme ile ilgili daha fazla bilgi için bkz: [bir kapsayıcı hizmeti kümesinde Aracısı düğümleri ölçeklendirme](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale).
+Bu işlemin tamamlanması birkaç dakika sürecek. Kümedeki düğüm sayısını ölçeklendirme ile ilgili daha fazla bilgi için bkz: [bir kapsayıcı hizmeti kümesinde Aracısı düğümleri ölçeklendirme](https://docs.microsoft.com/azure/container-service/container-service-scale).
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Bir kümede Kubernetes pod çoğaltmaların sayısı ölçeklendirme
  
@@ -85,11 +85,11 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 
 | Parametre adı | Tür | Açıklama |
 |--------------------|--------------------|--------------------|
-| `autoscale-enabled` | Boole değeri | Otomatik ölçeklendirme etkinleştirilip etkinleştirilmeyeceğini belirtir. Varsayılan: true |
-| `autoscale-min-replicas` | tamsayı | Pod'ları minimum sayısını belirtir. 0 veya daha büyük olmalıdır. Varsayılan: 1 |
-| `autoscale-max-replicas` | tamsayı | Pod'ları üst sınırını belirtir. 1 veya daha büyük olmalıdır. Otomatik ölçeklendirme max çoğaltmaları otomatik ölçeklendirme-min-çoğaltmaları küçük ise, otomatik ölçeklendirme max çoğaltmaları yoksayılacak. Varsayılan: 10 |
-| `autoscale-refresh-period-seconds` | tamsayı | Otomatik ölçeklendirme yenilemeleri arasında saniye cinsinden süreyi belirtir. Varsayılan: 1 |
-| `autoscale-target-utilization` | tamsayı | 1 ile 100 arasında otomatik ölçeklendirme hedefleyen yüzdesi kullanımı belirtir. Varsayılan: 70 |
+| `autoscale-enabled` | boole | Otomatik ölçeklendirme etkinleştirilip etkinleştirilmeyeceğini belirtir. Varsayılan: true |
+| `autoscale-min-replicas` | integer | Pod'ları minimum sayısını belirtir. 0 veya daha büyük olmalıdır. Varsayılan: 1 |
+| `autoscale-max-replicas` | integer | Pod'ları üst sınırını belirtir. 1 veya daha büyük olmalıdır. Otomatik ölçeklendirme max çoğaltmaları otomatik ölçeklendirme-min-çoğaltmaları küçük ise, otomatik ölçeklendirme max çoğaltmaları yoksayılacak. Varsayılan: 10 |
+| `autoscale-refresh-period-seconds` | integer | Otomatik ölçeklendirme yenilemeleri arasında saniye cinsinden süreyi belirtir. Varsayılan: 1 |
+| `autoscale-target-utilization` | integer | 1 ile 100 arasında otomatik ölçeklendirme hedefleyen yüzdesi kullanımı belirtir. Varsayılan: 70 |
 
 Aşağıdaki iki koşul sağlamak için otomatik ölçeklendirme çalışır:
 
@@ -159,6 +159,6 @@ Pano sunucusu başladıktan sonra bir tarayıcı açın ve aşağıdaki URL'yi g
 
 Pano Ana ekranından tıklatın **dağıtımları** sol gezinti çubuğunda. Gezinti bölmesinde görüntülenmiyorsa bu simgeyi seçin ![üç kısa yatay çizgiler oluşan menü](media/how-to-scale-clusters/icon-hamburger.png) üst sol.
 
-Bu simgeyi tıklatın ve değiştirmek için dağıtımını bulun ![üç dikey noktalarından oluşan menüsü simgesini](media/how-to-scale-clusters/icon-kebab.png) sağ tıkladıktan sonra **görünüm/EDI YAML**.
+Bu simgeyi tıklatın ve değiştirmek için dağıtımını bulun ![üç dikey noktalarından oluşan menüsü simgesini](media/how-to-scale-clusters/icon-kebab.png) sağ tıkladıktan sonra **Görüntüle/Düzenle YAML**.
 
 Düzen dağıtım ekranda bulun *spec* düğümü değiştirme *çoğaltmaları* değeri ve'ı tıklatın **güncelleştirme**.

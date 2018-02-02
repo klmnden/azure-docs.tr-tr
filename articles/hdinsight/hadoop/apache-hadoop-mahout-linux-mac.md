@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 65d6dc7bf96666f004038c6dae00d2f4e9ea5d7f
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4674008523704b9b1fb86de8606641f6140e2910
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Hdınsight (SSH) Linux tabanlı Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
 
@@ -30,7 +30,7 @@ Nasıl kullanacağınızı öğrenin [Apache Mahout](http://mahout.apache.org) m
 
 Mahout olan bir [makine öğrenme] [ ml] Apache Hadoop için kitaplığı. Mahout, Sınıflandırma, filtreleme ve kümeleme gibi veri işlemeye algoritmalarını içerir. Bu makalede, arkadaşlarınızın gördünüz filmler dayalı film önerileri oluşturma için bir öneri altyapısı kullanın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Linux tabanlı Hdınsight kümesi. Bir oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight'ta Linux tabanlı Hadoop ile çalışmaya başlamak][getstarted].
 
@@ -45,13 +45,13 @@ Hdınsight'ta Mahout sürümü hakkında daha fazla bilgi için bkz: [Hdınsight
 
 ## <a name="recommendations"></a>Anlama önerileri
 
-Mahout tarafından sağlanan işlevleri bir öneri altyapısı biridir. Bu altyapı biçiminde verilerini kabul eden `userID`, `itemId`, ve `prefValue` (tercih öğesi için). Mahout sonra belirlemek için ortak occurance analiz gerçekleştirin: *bir öğe için bir öncelik olan kullanıcıların diğer öğeler bir tercih bunlar için de*. Mahout sonra öneriler yapmak için kullanılan benzer öğe Tercihler kullanıcılarla belirler.
+Mahout tarafından sağlanan işlevleri bir öneri altyapısı biridir. Bu altyapı biçiminde verilerini kabul eden `userID`, `itemId`, ve `prefValue` (tercih öğesi için). Mahout sonra belirlemek için ortak oluşumu analiz gerçekleştirin: *bir öğe için bir öncelik olan kullanıcıların diğer öğeler bir tercih bunlar için de*. Mahout sonra öneriler yapmak için kullanılan benzer öğe Tercihler kullanıcılarla belirler.
 
 Aşağıdaki iş akışı film verilerini kullanan basitleştirilmiş bir örnek verilmiştir:
 
-* **Ortak occurance**: Can, Alice ve Bob tüm beğendiğinizi *yıldız çatışmaları*, *geri Empire düşer*, ve *Jedi dönüşünü*. Bu filmler herhangi biri de gibi kullanıcıların diğer iki ister mahout belirler.
+* **Ortak oluşumu**: Can, Alice ve Bob tüm beğendiğinizi *yıldız çatışmaları*, *geri Empire düşer*, ve *Jedi dönüşünü*. Bu filmler herhangi biri de gibi kullanıcıların diğer iki ister mahout belirler.
 
-* **Ortak occurance**: Bob ve Alice de beğendiğinizi *hayali İstilası*, *klonlar saldırı*, ve *Sith Revenge*. Önceki üç filmler de ilişkilendirilmiş kullanıcılar bu üç filmler ister mahout belirler.
+* **Ortak oluşumu**: Bob ve Alice de beğendiğinizi *hayali İstilası*, *klonlar saldırı*, ve *Sith Revenge*. Önceki üç filmler de ilişkilendirilmiş kullanıcılar bu üç filmler ister mahout belirler.
 
 * **Benzerlik öneri**: çünkü Joe beğendiğinizi ilk üç filmler, Mahout o beğendiğinizi benzer Tercihler başkalarıyla filmler görünür, ancak Joe olmayan izlenen (beğendiğinizi/derecelendirilmiş). Bu durumda, Mahout önerir *hayali İstilası*, *klonlar saldırı*, ve *Sith Revenge*.
 

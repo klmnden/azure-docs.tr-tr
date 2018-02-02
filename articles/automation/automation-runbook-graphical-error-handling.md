@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure Otomasyonu grafik runbook’larında hata işleme
 
@@ -40,7 +40,7 @@ Azure Otomasyonu grafiksel runbook’ları, hata işleme özelliğiyle geliştir
 
 Hata veya özel durum oluşturan kritik bir etkinlik olduğunda runbook’unuzdaki bir sonraki etkinliğin işlenmesini önlemek ve hatayı uygun bir şekilde işlemek önemlidir. Bu, özellikle de runbook’larınızın bir işletmeyi ya da hizmet işlemleri sürecini desteklediği durumlarda gereklidir.
 
-Runbook yazarı, bir hata oluşturabilecek her bir etkinlik için başka herhangi bir etkinliği işaret eden bir hata bağlantısı ekleyebilir.  Hedef etkinlik kod etkinliği, bir cmdlet’in çağrılması, başka bir runbook’un çağrılması gibi herhangi bir türde olabilir.
+Runbook yazarı, bir hata oluşturabilecek her bir etkinlik için başka herhangi bir etkinliği işaret eden bir hata bağlantısı ekleyebilir. Hedef etkinlik kod etkinliği, bir cmdlet’in çağrılması, başka bir runbook’un çağrılması gibi herhangi bir türde olabilir.
 
 Ayrıca, hedef etkinliğin giden bağlantıları da olabilir. Bu bağlantılar normal bağlantılar veya hata bağlantıları olabilir. Başka bir deyişle, runbook yazarı bir kod etkinliğine başvurmadan karmaşık hata işleme mantığı uygulayabilir. Ortak işlevselliğe sahip bir özel hata işleme runbook’u oluşturulması önerilir, ancak zorunlu değildir. Bir PowerShell kod etkinliğinde hata işleme mantığı tek seçenek değildir.  
 
@@ -63,7 +63,7 @@ Bu ayarı yapılandırdıktan sonra hatayı işleyen bir etkinlik oluşturursunu
 
 Aşağıdaki örnekte runbook, bir sanal makinenin bilgisayar adını içeren bir değişken alır. Ardından, sanal makineyi sonraki etkinlikle başlatmayı dener.<br><br> ![Otomasyon runbook’u hata işleme örneği](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-**Get-AutomationVariable** etkinliği ve **Start-AzureRmVm**, özel durumları hatalara dönüştürecek şekilde yapılandırılmıştır.  Değişkeni alma veya VM’yi başlatma ile ilgili sorunlarla karşılaşılırsa hata oluşturulur.<br><br> ![Otomasyon runbook’u hata işleme etkinlik ayarları](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+**Get-AutomationVariable** etkinliği ve **Start-AzureRmVm**, özel durumları hatalara dönüştürecek şekilde yapılandırılmıştır. Değişkeni alma veya VM’yi başlatma ile ilgili sorunlarla karşılaşılırsa hata oluşturulur.<br><br> ![Otomasyon runbook’u hata işleme etkinlik ayarları](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 Hata bağlantıları bu etkinliklerden tek bir **hata yönetimi** etkinliğine (kod etkinliği) geçer. Bu etkinlik, geçerli özel durumu açıklayan *$Error.Exception.Message* ile birlikte *Throw* anahtar sözcüğünü kullanan bir PowerShell ifadesiyle birlikte yapılandırılır.<br><br> ![Otomasyon runbook’u hata işleme kod örneği](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

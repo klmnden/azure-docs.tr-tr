@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Azure Machine Learning ile derin öğrenme kullanarak düşünceleri çözümlemesi
 
-Düşünceleri analiz doğal dil işleme bölgedeki iyi bilinen bir görevdir. Metinleri kümesi düşünüldüğünde AIM metnin düşünceleri belirlemektir. Bu çözüm amacı CNTK arka ucu olarak Keras (derin learning modellerini geliştirmek için yüksek düzey yapı taşları sağlayan bir model düzeyi kitaplık) için film yorumlarını düşünceleri çözümlemesinden uygulamak kullanmaktır.
+Düşünceleri analiz doğal dil işleme bölgedeki iyi bilinen bir görevdir. Metinleri kümesi düşünüldüğünde AIM metnin düşünceleri belirlemektir. Bu çözüm amacı derin öğrenme film yorumlarını gelen düşünceleri etmede kullanmaktır.
 
 Çözüm https://github.com/Azure/MachineLearningSamples-SentimentAnalysis bulunur
 

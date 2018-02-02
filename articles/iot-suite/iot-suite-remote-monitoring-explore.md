@@ -12,17 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-<<<<<<< HEAD
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
-=======
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü özelliklerini keşfedin
 
@@ -38,7 +32,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Aygıtlarınızı bellenimi güncelleştirme
 > * Varlıklarınızı düzenleme
 
-## <a name="prerequisites"></a>Ön koşullar
+Aşağıdaki video Uzaktan izleme çözümünün bir kılavuz gösterir:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
+
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
@@ -64,7 +62,7 @@ Contoso akıllı aygıtlar farklı türde kullanır. Bu aygıtların çeşitli t
 
 Aşağıdaki tabloda sağlanan aygıt türlerinin bir özeti gösterilir:
 
-| Aygıt türü        | Telemetri                                  | Özellikler                                  | Etiketler                    | Yöntemler                                                                                      |
+| Cihaz türü        | Telemetri                                  | Özellikler                                  | Etiketler                    | Yöntemler                                                                                      |
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Soğutucu            | Sıcaklık, nem, baskısı            | Türü, üretici yazılımı sürümüne modeli               | Konum, Floor, Kampüs | Yeniden başlatma, bellenim güncelleştirme, Acil Durum Vana yayın artış baskısı                          |
 | Prototipi oluşturulurken cihaz | Sıcaklık, baskı, coğrafi konum        | Türü, üretici yazılımı sürümüne modeli               | Konum, modu          | Yeniden başlatma, bellenim güncelleştirme taşıma aygıt, Dur aygıt, sıcaklık sürüm, sıcaklık artış |
@@ -81,11 +79,11 @@ Contoso'da işleçleri bir aygıtın düzgün çalışıp çalışmadığını b
 
 | Kural Adı | Açıklama | Eşik | Önem Derecesi | Etkilenen cihazlar |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Soğutucu baskısı çok yüksek | Chillers normal baskısı düzeyleri daha yüksek ulaşırsa uyarıları   |P > 250 PSI       | Kritik | Chillers            |
-| Prototipi oluşturulurken aygıt temp çok yüksek  | Prototipi oluşturulurken aygıtları normal sıcaklık düzeyleri daha yüksek ulaşırsa uyarıları  |T > 80&deg; F |Kritik | Prototipi oluşturulurken cihazları |
+| Soğutucu baskısı çok yüksek | Chillers normal baskısı düzeyleri daha yüksek ulaşırsa uyarıları   |P>250 psi       | Kritik | Chillers            |
+| Prototipi oluşturulurken aygıt temp çok yüksek  | Prototipi oluşturulurken aygıtları normal sıcaklık düzeyleri daha yüksek ulaşırsa uyarıları  |T>80&deg; F |Kritik | Prototipi oluşturulurken cihazları |
 | Altyapısı tank boş  | Altyapısı yakıt tank boş kalırsa uyarıları                     | F < 5 galon | Bilgi     | Altyapıları             |
-| Normal Kargo sıcaklık değerinden yüksek | Kamyon'ın Kargo sıcaklık normalden yüksekse uyarıları                 | T < 45&deg; F |Uyarı  | Kamyonlar              |
-| Fırsatınızdır titreşimi durduruldu      | Fırsatınızdır tamamen durduğunda uyarıları (Titreşim düzeyine bağlı)                     | V < 0,1 mm |Uyarı  | Asansörler           |
+| Normal Kargo sıcaklık değerinden yüksek | Kamyon'ın Kargo sıcaklık normalden yüksekse uyarıları                 | T<45&deg; F |Uyarı  | Kamyonlar              |
+| Fırsatınızdır titreşimi durduruldu      | Fırsatınızdır tamamen durduğunda uyarıları (Titreşim düzeyine bağlı)                     | V<0.1 mm |Uyarı  | Asansörler           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Contoso örnek dağıtım çalışmayabilir
 

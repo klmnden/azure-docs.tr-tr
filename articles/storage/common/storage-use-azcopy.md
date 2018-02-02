@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows AzCopy ile veri aktarımı
 AzCopy, en iyi performans için tasarlanmış basit komutlarını kullanarak denetleyicisinden Microsoft Azure Blob, dosya ve tablo depolama, veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Veri depolama hesapları arasında veya bir dosya sistemi ve depolama hesabı arasında kopyalayabilirsiniz.  
@@ -624,13 +624,13 @@ Kopyalanacak kaynak verileri belirtir. Kaynak dosya sistemi dizini, bir blob kap
 
 **Uygulanabilir:** BLOB'lar, dosyalar, tablolar
 
-### <a name="destdestination"></a>/ Taşınmaya: "hedef"
+### <a name="destdestination"></a>/Dest:"destination"
 
 Kopyalamak için hedef belirtir. Hedef dosya sistemi dizini, bir blob kapsayıcı, blob sanal dizin, bir depolama dosya paylaşımı, bir depolama dosyası dizini veya bir Azure tablosu olabilir.
 
 **Uygulanabilir:** BLOB'lar, dosyalar, tablolar
 
-### <a name="patternfile-pattern"></a>/ Desen: "dosya deseni"
+### <a name="patternfile-pattern"></a>/Pattern:"file-pattern"
 
 Kopyalamak için hangi dosyaların gösteren bir dosya düzeni belirtir. /Pattern parametresi davranışını kaynak verilerin konumu ve yinelemeli modu seçeneği varlığını tarafından belirlenir. /S. seçeneği belirtilen Özyinelemeli modu
 
@@ -652,7 +652,7 @@ Hedef kaynak için depolama hesabı anahtar belirtir.
 
 **Uygulanabilir:** BLOB'lar, dosyalar, tablolar
 
-### <a name="destsassas-token"></a>/ DestSAS: "sas belirteci"
+### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
 (Eğer varsa) hedef için okuma ve yazma izinlerine sahip paylaşılan erişim imzası (SAS) belirtir. İçerdiğinden özel komut satırı karakter çift tırnak işareti ile SAS koyun.
 
@@ -668,7 +668,7 @@ Kaynak kaynak için depolama hesabı anahtar belirtir.
 
 **Uygulanabilir:** BLOB'lar, dosyalar, tablolar
 
-### <a name="sourcesassas-token"></a>/ SourceSAS: "sas belirteci"
+### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
 
 Kaynak için okuma ve liste izinlerine sahip paylaşılan erişim imzası (varsa) belirtir. İçerdiğinden özel komut satırı karakter çift tırnak işareti ile SAS koyun.
 
@@ -678,19 +678,19 @@ Kaynak dosya paylaşımı veya tablo ise, bir anahtar veya bir SAS sağlanmalıd
 
 **Uygulanabilir:** BLOB'lar, dosyalar, tablolar
 
-### <a name="s"></a>/ S
+### <a name="s"></a>/S
 
 Kopyalama işlemleri için özyinelemeli modunu belirtir. Özyinelemeli modunda AzCopy tüm BLOB'ları veya alt klasörler de dahil olmak üzere belirtilen dosya desenle eşleşen dosyaları kopyalar.
 
 **Uygulanabilir:** BLOB'ların, dosyaları
 
-### <a name="blobtypeblock--page--append"></a>/ BlobType: "blok" | "Sayfa" | "Ekle"
+### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
 
 Hedef blob blok blobu, bir sayfa blob'u ya da bir ek blobu olup olmadığını belirtir. Bu seçenek yalnızca bir blob karşıya yüklenirken kullanılır. Aksi takdirde bir hata oluşturulur. Hedef blob ise ve bu seçenek, varsayılan olarak, belirtilmemiş bir blok blobu AzCopy oluşturur.
 
 **Uygulanabilir:** BLOB'ları
 
-### <a name="checkmd5"></a>/ CheckMD5
+### <a name="checkmd5"></a>/CheckMD5
 
 Karşıdan yüklenen veriler için MD5 karma değeri hesaplar ve MD5 karma değeri blob içinde depolanan veya hesaplanan karma dosyanın içeriği MD5 özelliği eşleşen doğrular. MD5 denetimi verilerini yüklerken gerçekleştirmek için bu seçeneği belirtmeniz gerekir böylece MD5 onay varsayılan olarak kapalıdır.
 
@@ -710,7 +710,7 @@ Varsayılan olarak, anlık görüntüleri kopyalanmaz.
 
 **Uygulanabilir:** BLOB'ları
 
-### <a name="vverbose-log-file"></a>/ V: [verbose-günlük dosyası]
+### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
 
 Bir günlük dosyasına çıkarır ayrıntılı durum iletileri.
 
@@ -718,7 +718,7 @@ Varsayılan olarak, içinde AzCopyVerbose.log adlı ayrıntılı günlük dosyas
 
 **Uygulanabilir:** BLOB'lar, dosyalar, tablolar
 
-### <a name="zjournal-file-folder"></a>/ Z: [günlük dosyası klasörü]
+### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
 Bir işlemi sürdürme bir günlük dosyası klasörü belirtir.
 
@@ -750,7 +750,7 @@ Birden çok yanıt dosyaları belirtebilirsiniz. Ancak, AzCopy iç içe yanıt d
 
 ### <a name="y"></a>/Y
 
-Tüm AzCopy onay komut istemlerini bastırır.
+Tüm AzCopy onay komut istemlerini bastırır. /XO ve /XN belirlenmediğinde bu seçenek yalnızca yazma SAS belirteci kullanım verileri karşıya yükleme senaryoları için de sağlar.
 
 **Uygulanabilir:** BLOB'lar, dosyalar, tablolar
 
@@ -766,7 +766,7 @@ AzCopy, bu seçenek kullanıldığında bu kaynak konumunun listesi ve okuma izn
 
 **Uygulanabilir:** BLOB'ların, dosyaları
 
-### <a name="mt"></a>/ MT
+### <a name="mt"></a>/MT
 
 Aynı kaynak blob veya dosya indirilen dosyanın son değişiklik süreyi ayarlar.
 
@@ -789,7 +789,7 @@ Yalnızca arşiv özniteliği kümesine sahip dosyaları karşıya yükleme.
 
 **Uygulanabilir:** BLOB'ların, dosyaları
 
-### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
+### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
 Belirtilen öznitelikler kümesi olan dosyaları karşıya yükler.
 
@@ -808,7 +808,7 @@ Mevcut öznitelikleri şunlardır:
 
 **Uygulanabilir:** BLOB'ların, dosyaları
 
-### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
+### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
 Belirtilen öznitelikler kümesi olan dosyaları dışlar.
 
@@ -827,7 +827,7 @@ Mevcut öznitelikleri şunlardır:
 
 **Uygulanabilir:** BLOB'ların, dosyaları
 
-### <a name="delimiterdelimiter"></a>/ Sınırlayıcı: "sınırlayıcı"
+### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
 Bir blob adındaki sanal dizinleri sınırlandırmak için kullanılan sınırlayıcı karakter gösterir.
 
@@ -853,13 +853,13 @@ Belirleyen `source` kaynaktır bir blob depolama öykünücüsünde çalıştır
 
 **Uygulanabilir:** BLOB'ların, tabloları
 
-### <a name="desttypeblob--table"></a>/ DestType: "Blob" | "Tablo"
+### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 
 Belirleyen `destination` kaynaktır bir blob depolama öykünücüsünde çalıştıran yerel geliştirme ortamında kullanılabilir.
 
 **Uygulanabilir:** BLOB'ların, tabloları
 
-### <a name="pkrskey1key2key3"></a>/ PKRS: "anahtar&#1;key2 anahtar&#3;..."
+### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 
 Tablo verileri dışarı aktarma işlemi hızını artırır paralel dışarı aktarma etkinleştirmek için bölüm anahtarı aralığının böler.
 
@@ -871,11 +871,11 @@ Her işlem, aşağıda gösterildiği gibi üç bölüm anahtarı aralıkları, 
 
   [aa, bb)
 
-  [bb, son bölüm anahtarı]
+  [bb, last-partition-key]
 
 **Uygulanabilir:** tabloları
 
-### <a name="splitsizefile-size"></a>/ SplitSize: "dosya boyutu"
+### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 
 32 MB, izin verilen minimum değer boyutu bölme dışarı aktarılan dosyayı olduğunu belirtir.
 
@@ -885,7 +885,7 @@ Bu seçenek belirtilmezse bile tablo verileri için blob aktarılır ve blob boy
 
 **Uygulanabilir:** tabloları
 
-### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/ EntityOperation: "InsertOrSkip" | "InsertOrMerge" | "Yerleştir veya Değiştir"
+### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
 Tablo verileri alma davranışını belirtir.
 
@@ -905,7 +905,7 @@ Bu seçenek, veri dosyalarını bulmak için içeri aktarma işlemi sırasında 
 
 **Uygulanabilir:** tabloları
 
-### <a name="synccopy"></a>/ SyncCopy
+### <a name="synccopy"></a>/SyncCopy
 
 BLOB veya iki Azure Storage uç noktalar arasında dosyaları zaman uyumlu olarak kopyalamak gösterir.
 
@@ -915,7 +915,7 @@ Blob storage, dosya depolama içinde veya Blob depolamadan dosya depolama (veya 
 
 **Uygulanabilir:** BLOB'ların, dosyaları
 
-### <a name="setcontenttypecontent-type"></a>/ SetContentType: "content-type"
+### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
 
 Hedef BLOB'ları veya dosyaları için MIME içerik türünü belirtir.
 
@@ -925,7 +925,7 @@ Bu seçenek olmadan bir değer belirtirseniz, AzCopy her bir blob veya dosyanın
 
 **Uygulanabilir:** BLOB'ların, dosyaları
 
-### <a name="payloadformatjson--csv"></a>/ PayloadFormat: "JSON" | "CSV"
+### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 
 Tablo dışarı aktarılan veri dosyasının biçimi belirtir.
 

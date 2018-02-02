@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 29b25a476344ed048673039beacdffd39469ec85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi sık sorulan sorular
 
@@ -70,7 +70,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
   >
 * **S: miyim eşitlemek veya kimlik doğrulama telefon, kimlik doğrulama e-posta veya diğer kimlik doğrulama telefon alanları Kullanıcılarım adına ayarlayın?**
 
-  > **Y:** Hayır, bu bugün mümkün değildir.
+  > **Y:** genel bir yönetici tarafından ayarlanması mümkün olan alanlar makalesinde tanımlanan [SSPR veri gereksinimleri](active-directory-passwords-data.md).
   >
   >
 * **S: kayıt portalı Kullanıcılarım göstermek için hangi seçeneklerin nasıl belirler?**

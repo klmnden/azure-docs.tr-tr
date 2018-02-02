@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus ileti Hazırlık
 
@@ -37,7 +37,7 @@ Alış tarafı için bu ayar kolayca ekleyebilirsiniz [QueuesGettingStarted](htt
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Daha hızlı olması durumunda neden hazırlık varsayılan seçeneği değil mi?
 
-Önceden getirme ne zaman ve uygulama için bir tane ister önce yerel alımı için kullanıma hazır bir ileti sağlayarak ileti akışı hızlandırır. Bu işleme kazanç uygulama yazarı açıkça yapmalısınız bir denge karar sonucudur:
+Önceden getirme ne zaman ve uygulama için bir tane ister önce yerel alımı için kullanıma hazır bir ileti sağlayarak ileti akışı hızlandırır. Bu işleme kazanç uygulama yazarı açıkça yapmalısınız bir denge sonucudur:
 
 İle [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) modu Al, hazırlık arabelleğe alınan tüm iletileri artık sırada kullanılabilir olmayan ve uygulamaya alınana kadar bellek içi önceden getirme arabelleğinde yalnızca bulunur aracılığıyla **alma**/**ReceiveAsync** veya **Onmessageoptions**/**OnMessageAsync** API'leri. Bu iletiler iletileri uygulamasına alınmadan önce uygulama sona ererse, modelinizden kaybolur.
 

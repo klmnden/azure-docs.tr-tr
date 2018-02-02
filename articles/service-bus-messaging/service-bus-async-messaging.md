@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: d36360f3fb46adf96f53976584987590791b07d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e48e95d99847e68bdb218b341ad2fbcd44eb31f4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Zaman uyumsuz mesajlaşma modelleri ve yüksek kullanılabilirlik
 
@@ -95,7 +95,7 @@ Eşleştirilmiş ad alanları özelliği içerir [PairNamespaceAsync] [ PairName
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
-Görev tamamlandığında ad alanı eşleştirme ayrıca tam ve için görev için hazır [MessageReceiver][MessageReceiver], [QueueClient][QueueClient], veya [TopicClient] [ TopicClient] ile oluşturulan [Eventhubclient] [ MessagingFactory] örneği. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] [ Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] , çifti farklı uygulama türleri ile kullanılabilen için temel sınıfı olan bir [Eventhubclient] [ MessagingFactory] nesnesi. Şu anda yalnızca türetilmiş sınıf adlı biridir [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], gönderme kullanılabilirlik gereksinimlerini uygular. [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] birbirine yapı oluşturucuları kümesi vardır. Oluşturucusu çoğu parametrelerle baktığınızda, diğer oluşturucular davranışını anlayabilirsiniz.
+Görev tamamlandığında ad alanı eşleştirme ayrıca tam ve için görev için hazır [MessageReceiver][MessageReceiver], [QueueClient][QueueClient], veya [TopicClient] [ TopicClient] ile oluşturulan [Eventhubclient] [ MessagingFactory] örneği. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] is the base class for the different types of pairing that are available with a [MessagingFactory][MessagingFactory] object. Şu anda yalnızca türetilmiş sınıf adlı biridir [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], gönderme kullanılabilirlik gereksinimlerini uygular. [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] birbirine yapı oluşturucuları kümesi vardır. Oluşturucusu çoğu parametrelerle baktığınızda, diğer oluşturucular davranışını anlayabilirsiniz.
 
 ```csharp
 public SendAvailabilityPairedNamespaceOptions(

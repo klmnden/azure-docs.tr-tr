@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de Laboratuvar için bir duyuru sonrası
 
@@ -47,6 +47,13 @@ Duyuru özelliği geçici bildirimler için kullanılmak üzere tasarlanmıştı
 
 1. Kullanıcılar için bir mesaj bu laboratuvarda oluşturmak için **etkin** için **Evet**.
 
+1. Girdiğiniz bir **sona erme tarihi** bir tarih ve saat sonra duyuruyu artık gösterilen kullanıcılara belirtmek için. Sona erme tarihi girmezseniz, devre dışı kadar duyuruyu kalır.
+
+   > [!NOTE]
+   > Duyurunun sona erdikten sonra artık kullanıcılara gösterilir, ancak hala var. **Laboratuvar duyuru** bölmesi. Kendisine düzenlemeleri yapın ve yeniden etkinleştirmek için yeniden etkinleştirin.
+   >
+   >
+
 1. Girin bir **duyuru başlık** ve **duyuru metin**.
 
    Başlık en fazla 100 karakter olabilir ve Laboratuvar ait genel bakış sayfasında kullanıcıya gösterilir. Kullanıcı başlık seçerse, duyuru metin görüntülenir.
@@ -58,7 +65,7 @@ Duyuru özelliği geçici bildirimler için kullanılmak üzere tasarlanmıştı
 
 1. Seçin **kaydetmek** duyurunuzun göndermeye hazır olduğunda.
 
-Artık bu duyuru Laboratuvar kullanıcılara göstermek istediğinizde, geri dönüp **Laboratuvar duyuru** sayfasında ve ayarlama **etkin** için **Hayır**.
+Artık bu duyuru Laboratuvar kullanıcılara göstermek istediğinizde, geri dönüp **Laboratuvar duyuru** sayfasında ve ayarlama **etkin** için **Hayır**. Sona erme tarihi belirtilen duyuru otomatik olarak en, tarih ve saat devre dışı bırakılır.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Duyuru görüntülemek kullanıcılar için adımları
 

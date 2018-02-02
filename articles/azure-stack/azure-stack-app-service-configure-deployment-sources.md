@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Dağıtım kaynaklarını yapılandırma
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+
 
 Azure yığın uygulama hizmeti birden çok kaynak denetim sağlayıcılarından isteğe bağlı dağıtımını destekler. Bu özellik uygulama geliştiricileri kendi kaynak denetimi havuzların doğrudan dağıtmanıza olanak sağlar. Kullanıcılar kendi depoları bağlanmak için uygulama hizmeti yapılandırmak istiyorsanız, bir bulut işleci öncelikle Azure yığın uygulama hizmeti ve kaynak denetimi sağlayıcısı arasında tümleştirme yapılandırmanız gerekir.  
 
@@ -29,7 +31,7 @@ Kaynak denetimi sağlayıcısı, yerel Git yanı sıra, desteklenen şunlardır:
 * GitHub
 * BitBucket
 * OneDrive
-* Açılan kutu
+* DropBox
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Uygulama Hizmeti Yönetim görünümü dağıtım kaynakları
 
@@ -55,7 +57,7 @@ Bu görevi tamamlamak için GitHub hesabı olması gerekir. Kişisel hesabı yer
 8.  Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.
 9. Tıklatın **kaynak denetimini yapılandırma**.
 10. Kopyalama ve yapıştırma **istemci kimliği** ve **gizli** karşılık gelen bir giriş için GitHub kutuları.
-11. **Kaydet** düğmesine tıklayın.
+11. **Kaydet**’e tıklayın.
 
 ## <a name="configure-bitbucket"></a>BitBucket yapılandırın
 
@@ -72,13 +74,13 @@ Bu görevi tamamlamak için bir BitBucket hesabınızın olması gerekir. Kişis
 7. Seçin **izinleri** gerekir:
     - **Depoları**: *okuma*
     - **Web kancası**: *okuma ve yazma*
-8. **Kaydet** düğmesine tıklayın.  Şimdi bu yeni uygulama ile birlikte göreceğiniz **anahtar** ve **gizli** altında **OAuth tüketicileri**.
+8. **Kaydet**’e tıklayın.  Şimdi bu yeni uygulama ile birlikte göreceğiniz **anahtar** ve **gizli** altında **OAuth tüketicileri**.
     ![BitBucket uygulama listeleme][9]
 9.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın yönetim portalı (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak oturum açın.
 10.  Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.
 11. Tıklatın **kaynak denetimini yapılandırma**.
 12. Kopyalama ve yapıştırma **anahtar** içine **istemci kimliği** giriş kutusu ve **gizli** içine **gizli** BitBucket için giriş kutusu.
-13. **Kaydet** düğmesine tıklayın.
+13. **Kaydet**’e tıklayın.
 
 
 ## <a name="configure-onedrive"></a>OneDrive yapılandırın
@@ -100,12 +102,12 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![OneDrive uygulaması - grafik izinleri][13]
-9. **Kaydet** düğmesine tıklayın.
+9. **Kaydet**’e tıklayın.
 10.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın yönetim portalı (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak oturum açın.
 11.  Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.
 12. Tıklatın **kaynak denetimini yapılandırma**.
 13. Kopyalama ve yapıştırma **uygulama kimliği** içine **istemci kimliği** giriş kutusu ve **parola** içine **gizli** OneDrive için giriş kutusu.
-14. **Kaydet** düğmesine tıklayın.
+14. **Kaydet**’e tıklayın.
 
 ## <a name="configure-dropbox"></a>DropBox yapılandırın
 
@@ -129,7 +131,7 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
 10.  Gözat **kaynak sağlayıcıları** seçip **uygulama hizmeti kaynak sağlayıcısı yönetici**.
 11. Tıklatın **kaynak denetimini yapılandırma**.
 12. Kopyalama ve yapıştırma **uygulama anahtarı** içine **istemci kimliği** giriş kutusu ve **uygulama gizli anahtarı** içine **gizli** dropbox giriş kutusu.
-13. **Kaydet** düğmesine tıklayın.
+13. **Kaydet**’e tıklayın.
 
 
 <!--Image references-->

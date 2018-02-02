@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: d586ee1b96b34d6ca83e1ffd76aee38e79bdd727
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçları Azure connect
 
@@ -334,10 +334,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-itsm-connections"></a>ITSM bağlantı sorunlarını giderme
 1.  Bağlantılı kaynağın kullanıcı Arabirimi ile gelen bağlantı başarısız olursa bir **bağlantı kaydetmede hata** iletisi, aşağıdaki adımları uygulayın:
 - ServiceNow, Cherwell ve Provance bağlantıları için  
-       -doğru girdiğiniz kullanıcı adı, parola, istemci kimliği ve istemci parolası bağlantıların her biri için emin olun.  
-       -karşılık gelen ITSM üründe bağlantıyı kurmak için yeterli ayrıcalıklara sahip olmadığını denetleyin.  
+           -doğru girdiğiniz kullanıcı adı, parola, istemci kimliği ve istemci parolası bağlantıların her biri için emin olun.  
+           -karşılık gelen ITSM üründe bağlantıyı kurmak için yeterli ayrıcalıklara sahip olmadığını denetleyin.  
 - Service Manager bağlantılarında  
-       -Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturulur emin olun. Şirket içi Service Manager makineyle bağlantı kuran başarıyla doğrulamak için Web uygulaması URL'si yapma belgelerindeki ayrıntılı olarak ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+           -Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturulur emin olun. Şirket içi Service Manager makineyle bağlantı kuran başarıyla doğrulamak için Web uygulaması URL'si yapma belgelerindeki ayrıntılı olarak ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  ServiceNow verileri için günlük analizi eşitlenmedi, örneği değil uykuda ServiceNow emin olun. ServiceNow geliştirme örnekleri bazen boştayken uzun bir süre için uyku moduna gidin. Aksi takdirde, sorunu bildirin.
 3.  OMS uyarıları yangın ancak iş öğeleri ITSM üründe oluşturulmamış veya yapılandırma öğeleri oluşturulan/iş öğeleri veya herhangi diğer genel bilgi için aşağıdaki konumlarda aramak için bağlı değil:

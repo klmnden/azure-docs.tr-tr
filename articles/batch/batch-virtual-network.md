@@ -2,17 +2,17 @@
 title: "Bir sanal ağ Azure Batch havuzunda sağlama | Microsoft Docs"
 description: "İşlem düğümlerine güvenli bir şekilde ağındaki bir dosya sunucusu gibi diğer VM'ler ile iletişim kurabilmesi için Batch havuzundaki bir sanal ağ oluşturabilirsiniz."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: v-dotren
-ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: danlep
+ms.openlocfilehash: 647a123e403b0ed6458bc26e7b26a73f3c1f8e91
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Bir sanal ağ içinde bir Azure Batch havuzu oluşturma
 
@@ -28,7 +28,7 @@ Bir Azure Batch havuzunda işlem düğümlerini birbirleri ile - örneğin ileti
 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Kimlik Doğrulaması**. Azure sanal ağı kullanmak için Batch istemci API'sinin Azure Active Directory (AD) kimlik doğrulamasını kullanması gerekir. Azure AD için Azure Batch desteği, [Batch hizmeti çözümlerinin kimliğini Active Directory ile doğrulama](batch-aad-auth.md) makalesinde belirtilmiştir. 
 

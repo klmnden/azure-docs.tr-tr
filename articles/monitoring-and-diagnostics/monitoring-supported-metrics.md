@@ -12,19 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 1/31/2018
 ms.author: ancav
-<<<<<<< HEAD
-ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyicisi ile desteklenen ölçümleri
 Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümleri tam bir listesi ile Azure monitörün ölçüm ardışık düzen şu anda kullanılabilir.
@@ -439,10 +433,10 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |TotalStorage|Toplam depolama alanı|Bayt|Maksimum|Hesapta depolanan verilere toplam miktarı.|Hiç boyut|
-|DataWritten|Yazılan veriler|Bayt|Toplam|Toplam hesabına yazılan veri miktarı.|Hiç boyut|
+|DataWritten|Yazılan Veriler|Bayt|Toplam|Toplam hesabına yazılan veri miktarı.|Hiç boyut|
 |DataRead|Okunan Veriler|Bayt|Toplam|Toplam veri miktarını hesabından okuyun.|Hiç boyut|
-|WriteRequests|İstekleri Yazın|Sayı|Toplam|Hesaba veri sayısı yazma isteği.|Hiç boyut|
-|ReadRequests|İstekleri Okuyun|Sayı|Toplam|Veri sayısı hesabına istekleri okuyun.|Hiç boyut|
+|WriteRequests|Yazma isteklerine|Sayı|Toplam|Hesaba veri sayısı yazma isteği.|Hiç boyut|
+|ReadRequests|Okuma isteği|Sayı|Toplam|Veri sayısı hesabına istekleri okuyun.|Hiç boyut|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -535,6 +529,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Jobs.Failed|Başarısız olan işler|Sayı|Toplam|Tüm başarısız işler sayısı.|Hiç boyut|
 |d2c.telemetry.ingress.sendThrottle|Azaltma hatalarının sayısı|Sayı|Toplam|Kısıtlama hataları aygıt işleme nedeniyle sayısını kısıtlar|Hiç boyut|
 |dailyMessageQuotaUsed|Kullanılan iletilerin toplam sayısı|Sayı|Ortalama|Günümüzde kullanılan toplam ileti sayısı. Bu, sıfırlanır, toplu bir değerdir her gün 00:00 UTC adresindeki.|Hiç boyut|
+|deviceDataUsage|Toplam devicedata kullanımı|Sayı|Toplam|Iothub'a bağlı cihazlara giden ve gelen bayt|Hiç boyut|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -713,15 +708,6 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |BillableTriggerExecutions|Faturalanabilir Tetikleyici Yürütmeleri|Sayı|Toplam|Faturalandırılan iş akışı tetikleyicisi yürütmelerinin sayısı.|Hiç boyut|
 |TotalBillableExecutions|Toplam Faturalanabilir Yürütme Sayısı|Sayı|Toplam|Faturalandırılan iş akışı yürütmelerinin sayısı.|Hiç boyut|
 
-## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
-
-|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
-|---|---|---|---|---|---|
-|BytesSentRate|Gönderilen bayt|Sayı|Toplam|Ağ arabirimi gönderilen bayt sayısı|Hiç boyut|
-|BytesReceivedRate|Alınan bayt|Sayı|Toplam|Bayt alınan ağ arabirimi|Hiç boyut|
-|PacketsSentRate|Gönderilen paketleri|Sayı|Toplam|Ağ arabirimi gönderilen paket sayısı|Hiç boyut|
-|PacketsReceivedRate|Alınan paket sayısı|Sayı|Toplam|Ağ arabirimi alınan paket sayısı|Hiç boyut|
-
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
@@ -763,13 +749,6 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |ByteCount|Bayt sayısı|Sayı|Toplam|Toplam süre içinde aktarılan bayt sayısı|Bağlantı noktası, yönü|
 |PacketCount|Paket sayısı|Sayı|Toplam|Toplam süre içinde gönderilen paket sayısı|Bağlantı noktası, yönü|
 |SynCount|Eşitlemeye sayısı|Sayı|Toplam|Eşitlemeye süre içinde aktarılan paketlerin toplam sayısı|Bağlantı noktası, yönü|
-
-## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
-
-|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
-|---|---|---|---|---|---|
-|PacketsInDroppedVMProtection|Bırakılan gelen paketleri için VM koruma|CountPerSecond|Ortalama|Bırakılan gelen paketleri için VM koruma|Hiç boyut|
-|PacketsOutDroppedVMProtection|Giden paketler için VM koruma bırakıldı|CountPerSecond|Ortalama|Giden paketler için VM koruma bırakıldı|Hiç boyut|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
@@ -867,8 +846,15 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |outgoing.mpns.pnserror|MPNS Hataları|Sayı|Toplam|MPNS ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Hiç boyut|
 |outgoing.mpns.authenticationerror|MPNS Kimlik Doğrulaması Hataları|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Hiç boyut|
 |notificationhub.pushes|Tüm Giden Bildirimler|Sayı|Toplam|Bildirim hub'ındaki tüm giden bildirimler|Hiç boyut|
-|incoming.all.Requests|Tüm Gelen İstekler|Sayı|Toplam|Bildirim hub'ı için toplam gelen istek sayısı|Hiç boyut|
+|incoming.all.requests|Tüm Gelen İstekler|Sayı|Toplam|Bildirim hub'ı için toplam gelen istek sayısı|Hiç boyut|
 |incoming.all.failedrequests|Tüm Gelen Başarısız İstekler|Sayı|Toplam|Bildirim hub'ı için toplam gelen başarısız istek sayısı|Hiç boyut|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|QueryDuration||Sayı|Ortalama||Hiç boyut|
+|QueryPoolJobQueueLength|İş parçacıkları: Sorgu havuzu iş sırası uzunluğu|Sayı|Ortalama|Sorgu iş parçacığı havuzunun sıraya işlerin sayısı.|Hiç boyut|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -943,23 +929,16 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|Hiç boyut|
-|database_cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|DatabaseResourceId|
 |physical_data_read_percent|Veri G/Ç yüzdesi|Yüzde|Ortalama|Veri G/Ç yüzdesi|Hiç boyut|
-|database_physical_data_read_percent|Veri G/Ç yüzdesi|Yüzde|Ortalama|Veri G/Ç yüzdesi|DatabaseResourceId|
 |log_write_percent|Günlük g/ç yüzdesi|Yüzde|Ortalama|Günlük g/ç yüzdesi|Hiç boyut|
-|database_log_write_percent|Günlük g/ç yüzdesi|Yüzde|Ortalama|Günlük g/ç yüzdesi|DatabaseResourceId|
 |dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|Hiç boyut|
-|database_dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|DatabaseResourceId|
 |storage_percent|Depolama yüzdesi|Yüzde|Ortalama|Depolama yüzdesi|Hiç boyut|
 |workers_percent|Çalışanlar yüzdesi|Yüzde|Ortalama|Çalışanlar yüzdesi|Hiç boyut|
-|database_workers_percent|Çalışanlar yüzdesi|Yüzde|Ortalama|Çalışanlar yüzdesi|DatabaseResourceId|
 |sessions_percent|Oturumları yüzdesi|Yüzde|Ortalama|Oturumları yüzdesi|Hiç boyut|
-|database_sessions_percent|Oturumları yüzdesi|Yüzde|Ortalama|Oturumları yüzdesi|DatabaseResourceId|
 |eDTU_limit|eDTU sınırı|Sayı|Ortalama|eDTU sınırı|Hiç boyut|
 |storage_limit|Depolama sınırı|Bayt|Ortalama|Depolama sınırı|Hiç boyut|
 |eDTU_used|kullanılan eDTU|Sayı|Ortalama|kullanılan eDTU|Hiç boyut|
 |storage_used|Kullanılan depolama|Bayt|Ortalama|Kullanılan depolama|Hiç boyut|
-|database_storage_used|Kullanılan depolama|Bayt|Ortalama|Kullanılan depolama|DatabaseResourceId|
 |xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Yüzde|Ortalama|Bellek içi OLTP depolama yüzdesi|Hiç boyut|
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
@@ -967,9 +946,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|ElasticPoolResourceId|
-|database_dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|DatabaseResourceId, ElasticPoolResourceId|
 |storage_used|Kullanılan depolama|Bayt|Ortalama|Kullanılan depolama|ElasticPoolResourceId|
-|database_storage_used|Kullanılan depolama|Bayt|Ortalama|Kullanılan depolama|DatabaseResourceId, ElasticPoolResourceId|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
@@ -988,7 +965,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |BlobCapacity|Blob Kapasitesi|Bayt|Ortalama|Bayt olarak depolama hesabının Blob hizmeti tarafından kullanılan depolama miktarı.|BlobType|
-|BLOB sayısı|Blob Sayısı|Sayı|Ortalama|Depolama hesabının Blob hizmetindeki Blob sayısı.|BlobType|
+|BlobCount|Blob Sayısı|Sayı|Ortalama|Depolama hesabının Blob hizmetindeki Blob sayısı.|BlobType|
 |ContainerCount|Blob Kapsayıcı Sayısı|Sayı|Ortalama|Depolama hesabının Blob hizmetindeki kapsayıcı sayısı.|Hiç boyut|
 |İşlemler|İşlemler|Sayı|Toplam|Depolama hizmet ya da belirtilen API işlemi için yapılan isteklerin sayısı. Bu sayı, hataları üretilen isteklerinin yanı sıra başarılı ve başarısız istekleri içerir. ResponseType boyut yanıt farklı türde sayısı için kullanın.|ResponseType, GeoType, ApiName|
 |Giriş|Giriş|Bayt|Toplam|Bayt cinsinden giriş veri miktarı. Bu sayı, Azure içinde giriş yanı sıra Azure Storage içine bir dış istemcinin giriş içerir.|GeoType, ApiName|
@@ -1086,6 +1063,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |MemoryWorkingSet|Bellek çalışma kümesi|Bayt|Ortalama|Bellek çalışma kümesi|Örnek|
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
 |AverageResponseTime|Ortalama Yanıt Süresi|Saniye|Ortalama|Ortalama Yanıt Süresi|Örnek|
+|AppConnections|Bağlantılar|Sayı|Ortalama|Bağlantılar|Örnek|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (işlev)
 
@@ -1097,7 +1075,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |MemoryWorkingSet|Bellek çalışma kümesi|Bayt|Ortalama|Bellek çalışma kümesi|Örnek|
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
 |FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Toplam|İşlev Yürütme Birimleri|Örnek|
-|İşlev yürütme sayısı|İşlev Yürütme Sayısı|Sayı|Toplam|İşlev Yürütme Sayısı|Örnek|
+|FunctionExecutionCount|İşlev Yürütme Sayısı|Sayı|Toplam|İşlev Yürütme Sayısı|Örnek|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1119,8 +1097,9 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |MemoryWorkingSet|Bellek çalışma kümesi|Bayt|Ortalama|Bellek çalışma kümesi|Örnek|
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
 |AverageResponseTime|Ortalama Yanıt Süresi|Saniye|Ortalama|Ortalama Yanıt Süresi|Örnek|
-|FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Ortalama|İşlev Yürütme Birimleri|Örnek|
-|İşlev yürütme sayısı|İşlev Yürütme Sayısı|Sayı|Ortalama|İşlev Yürütme Sayısı|Örnek|
+|FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Toplam|İşlev Yürütme Birimleri|Örnek|
+|FunctionExecutionCount|İşlev Yürütme Sayısı|Sayı|Toplam|İşlev Yürütme Sayısı|Örnek|
+|AppConnections|Bağlantılar|Sayı|Ortalama|Bağlantılar|Örnek|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1144,18 +1123,18 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |DiskQueueLength|Disk Kuyruğu Uzunluğu|Sayı|Ortalama|Disk Kuyruğu Uzunluğu|Örnek|
 |HttpQueueLength|Http Kuyruk Uzunluğu|Sayı|Ortalama|Http Kuyruk Uzunluğu|Örnek|
 |ActiveRequests|Etkin İstekler|Sayı|Toplam|Etkin İstekler|Örnek|
-|TotalFrontEnds|Toplam Ön Uç Sayısı|Sayı|Ortalama|Toplam Ön Uç Sayısı|Örnek|
-|SmallAppServicePlanInstances|Kısa App Service Planı Çalışanları|Sayı|Ortalama|Kısa App Service Planı Çalışanları|Örnek|
-|MediumAppServicePlanInstances|Orta App Service Planı Çalışanları|Sayı|Ortalama|Orta App Service Planı Çalışanları|Örnek|
-|LargeAppServicePlanInstances|Uzun App Service Planı Çalışanları|Sayı|Ortalama|Uzun App Service Planı Çalışanları|Örnek|
+|TotalFrontEnds|Toplam Ön Uç Sayısı|Sayı|Ortalama|Toplam Ön Uç Sayısı|Hiç boyut|
+|SmallAppServicePlanInstances|Kısa App Service Planı Çalışanları|Sayı|Ortalama|Kısa App Service Planı Çalışanları|Hiç boyut|
+|MediumAppServicePlanInstances|Orta App Service Planı Çalışanları|Sayı|Ortalama|Orta App Service Planı Çalışanları|Hiç boyut|
+|LargeAppServicePlanInstances|Uzun App Service Planı Çalışanları|Sayı|Ortalama|Uzun App Service Planı Çalışanları|Hiç boyut|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|Bugün için WorkersTotal|Toplam Çalışanlar|Sayı|Ortalama|Toplam Çalışanlar|Örnek|
-|WorkersAvailable|Kullanılabilir Çalışanlar|Sayı|Ortalama|Kullanılabilir Çalışanlar|Örnek|
-|WorkersUsed|Kullanılan Çalışanlar|Sayı|Ortalama|Kullanılan Çalışanlar|Örnek|
+|Bugün için WorkersTotal|Toplam Çalışanlar|Sayı|Ortalama|Toplam Çalışanlar|Hiç boyut|
+|WorkersAvailable|Kullanılabilir Çalışanlar|Sayı|Ortalama|Kullanılabilir Çalışanlar|Hiç boyut|
+|WorkersUsed|Kullanılan Çalışanlar|Sayı|Ortalama|Kullanılan Çalışanlar|Hiç boyut|
 |CpuPercentage|CPU Yüzdesi|Yüzde|Ortalama|CPU Yüzdesi|Örnek|
 |MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
 

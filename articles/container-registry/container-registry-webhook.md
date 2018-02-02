@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 915f90fd5d969d5544d56e5bec754b799f349015
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure kapsayıcı kayıt defteri Web kancalarını kullanarak
 
@@ -20,7 +20,7 @@ Azure kapsayıcı kayıt defteri depolar ve özel Docker kapsayıcısı görünt
 
 Web kancası istekleri hakkında daha fazla bilgi için bkz: [Azure kapsayıcı kayıt defteri Web kancası şema başvurusu](container-registry-webhook-reference.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure kapsayıcı kayıt defteri - Azure aboneliğinizde bir kapsayıcı kayıt oluşturun. Örneğin, [Azure portal](container-registry-get-started-portal.md) veya [Azure CLI](container-registry-get-started-azure-cli.md).
 * Docker CLI - yerel bilgisayarınıza Docker ana bilgisayar olarak ayarlayabilir ve Docker CLI komutlara erişmek için yükleme [Docker altyapısına](https://docs.docker.com/engine/installation/).
@@ -48,7 +48,7 @@ Web kancası istekleri hakkında daha fazla bilgi için bkz: [Azure kapsayıcı 
 
 ## <a name="create-webhook-azure-cli"></a>Web kancası Azure CLI oluşturma
 
-Azure CLI kullanarak bir Web kancası oluşturmak üzere kullanmanız [az acr Web kancası oluşturma](/cli/azure/acr/webhook#create) komutu.
+Azure CLI kullanarak bir Web kancası oluşturmak üzere kullanmanız [az acr Web kancası oluşturma](/cli/azure/acr/webhook#az_acr_webhook_create) komutu.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -68,7 +68,7 @@ Kullanarak önceki kapsayıcısı üzerinde Web kancası görüntü gönderme ve
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI ile bir ACR Web kancası sınamak için kullanın [az acr Web kancası ping](/cli/azure/acr/webhook#ping) komutu.
+Azure CLI ile bir ACR Web kancası sınamak için kullanın [az acr Web kancası ping](/cli/azure/acr/webhook#az_acr_webhook_ping) komutu.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

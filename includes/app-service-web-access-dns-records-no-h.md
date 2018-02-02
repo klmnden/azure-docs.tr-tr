@@ -1,3 +1,8 @@
+> [!NOTE]
+> Azure DNS, Azure Web uygulamaları için özel bir DNS adı yapılandırmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [bir Azure hizmetini özel etki alanı ayarları sağlamak için Azure DNS'yi](../articles/dns/dns-custom-domain.md#app-service-web-apps).
+>
+>
+
 Etki alanı sağlayıcınızın web sitesinde oturum açın.
 
 DNS kayıtlarını yönetme sayfasını bulun. Her etki alanı sağlayıcısının kendi DNS kayıtları arabirimi vardır, bu nedenle sağlayıcının belgelerine başvurun. Sitede **Domain Name**, **DNS** veya **Name Server Management** etiketli alanları bulun. 

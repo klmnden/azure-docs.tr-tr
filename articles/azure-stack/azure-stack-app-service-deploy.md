@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure yığın uygulama hizmeti kaynak Sağlayıcısı Ekle
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 Bir Azure yığın bulut operatörü, web ve API uygulamaları oluşturma olanağı, kullanıcılarınızın verebilirsiniz. Bunu yapmak için öncelikle eklemelisiniz [uygulama hizmeti kaynak sağlayıcısı](azure-stack-app-service-overview.md) bu makalede anlatıldığı gibi Azure yığın dağıtımına. Uygulama hizmeti kaynak sağlayıcısı yükledikten sonra teklifleri ve planları içerebilir. Kullanıcılar daha sonra get hizmet ve uygulamalar oluşturmaya başlamak için abone olabilirsiniz.
 
 > [!IMPORTANT]
 > Yükleyiciyi çalıştırmadan önce yer alan yönergeleri izlediğinizden emin olun [çalışmaya başlamadan önce](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -85,7 +86,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     | Box | Sertifika dosyası adı örneği |
     | --- | --- |
-    | **Uygulama hizmeti varsayılan SSL sertifika dosyası** | \_. appservice.local.AzureStack.external.pfx |
+    | **Uygulama hizmeti varsayılan SSL sertifika dosyası** | \_.appservice.local.AzureStack.external.pfx |
     | **Uygulama hizmeti API SSL sertifika dosyası** | api.appservice.local.AzureStack.external.pfx |
     | **Uygulama hizmeti yayımcı SSL sertifika dosyası** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -101,7 +102,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     > [!NOTE]
     > Üretim dağıtımlarında yer alan yönergeleri izleyerek, [kapasite Azure yığınında Azure App Service sunucu rolleri için planlama](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Rol | Minimum örnekleri | Minimum SKU | Notlar |

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 8f0bb2266cb3a8a869ad50c40a46eb82985d17ed
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler kümesine atanmış dışarıdan erişilebilir ortak IP adresleri kullanan bir ortak altyapı ağı Azure yığınına sahiptir. Bu Azure yığın ortak altyapısı uç noktalar için uygun DNS adları ile birlikte PKI sertifikalarını Azure yığın dağıtımı sırasında gereklidir. Bu makalede, hakkında bilgi sağlar:
@@ -91,8 +91,9 @@ Aşağıdaki tabloda, SQL ve MySQL bağdaştırıcıları ve uygulama hizmeti i�
 
 <sup>2</sup> A &#42;.appservice.*&lt;region>.&lt;fqdn>* wild card certificate cannot be used in place of these three certificates (api.appservice.*&lt;region>.&lt;fqdn>*, ftp.appservice.*&lt;region>.&lt;fqdn>*, and sso.appservice.*&lt;region>.&lt;fqdn>*. Uygulama hizmeti açıkça Bu uç noktalar için ayrı sertifikaların kullanımını gerektirir. 
 
+## <a name="learn-more"></a>Daha fazla bilgi edinin
+Bilgi edinmek için nasıl [Azure yığın dağıtımı için PKI sertifikalarını oluşturmak](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure yığın dağıtımı için PKI sertifikaları oluşturun](azure-stack-get-pki-certs.md) 
-
+[Kimlik Tümleştirme](azure-stack-integrate-identity.md)
 

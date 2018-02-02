@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: de65d820f2d9eea49b58185c81d815675fd76740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ce89f3aa84b7639b0367ba91304d97ae2754aba
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Çok katmanlı uygulamalar için bir ağ oluşturma
 
@@ -49,15 +49,15 @@ Bu komut, bir kaynak grubu, sanal ağ ve ağ güvenlik grupları oluşturmak iç
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](/cli/azure/group#create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az ağ vnet oluşturma](/cli/azure/network/vnet#create) | Bir Azure sanal ağı ve ön uç alt ağı oluşturur. |
-| [az ağ alt ağı oluşturun](/cli/azure/network/vnet/subnet#create) | Bir arka uç alt ağı oluşturur. |
-| [az ağ genel IP oluşturun](/cli/azure/network/public-ip#create) | VM Internet'ten erişmek için genel bir IP adresi oluşturur. |
-| [az ağ NIC oluşturun](/cli/azure/network/nic#create) | Sanal ağ arabirimi oluşturur ve bunları sanal ağın ön uç ve arka uç alt ağlara ekler. |
-| [az ağ nsg oluşturma](/cli/azure/network/nsg#create) | Ağ ön uç ve arka uç alt ağlar için ilişkili güvenlik grupları (NSG) oluşturur. |
-| [az ağ nsg kuralı oluşturma](/cli/azure/network/nsg/rule#create) |İzin veren veya özel alt ağları için belirli bağlantı noktalarını engellemek NSG kuralları oluşturur. |
-| [az vm oluşturma](/cli/azure/vm#create) | Sanal makineler oluşturur ve her bir VM için bir NIC ekler. Bu komut ayrıca kullanmak için sanal makine görüntüsü ve yönetici kimlik bilgilerini belirtir. |
-| [az grubu Sil](/cli/azure/group#delete) | Bir kaynak grubu ve içerdiği tüm kaynakları siler. |
+| [az grubu oluşturma](/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
+| [az ağ vnet oluşturma](/cli/azure/network/vnet#az_network_vnet_create) | Bir Azure sanal ağı ve ön uç alt ağı oluşturur. |
+| [az ağ alt ağı oluşturun](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Bir arka uç alt ağı oluşturur. |
+| [az ağ genel IP oluşturun](/cli/azure/network/public-ip#az_network_public_ip_create) | VM Internet'ten erişmek için genel bir IP adresi oluşturur. |
+| [az ağ NIC oluşturun](/cli/azure/network/nic#az_network_nic_create) | Sanal ağ arabirimi oluşturur ve bunları sanal ağın ön uç ve arka uç alt ağlara ekler. |
+| [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create) | Ağ ön uç ve arka uç alt ağlar için ilişkili güvenlik grupları (NSG) oluşturur. |
+| [az ağ nsg kuralı oluşturma](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |İzin veren veya özel alt ağları için belirli bağlantı noktalarını engellemek NSG kuralları oluşturur. |
+| [az vm oluşturma](/cli/azure/vm#az_vm_create) | Sanal makineler oluşturur ve her bir VM için bir NIC ekler. Bu komut ayrıca kullanmak için sanal makine görüntüsü ve yönetici kimlik bilgilerini belirtir. |
+| [az grubu Sil](/cli/azure/group#az_group_delete) | Bir kaynak grubu ve içerdiği tüm kaynakları siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

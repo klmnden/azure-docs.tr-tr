@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f7ef46d9c40138c211427845423783fefde5dc3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Bir SQL &#92; IIS &#92; yükle. Azure ağ yığını
 
@@ -32,7 +32,9 @@ Bu öğreticide, bir SQL &#92; IIS &#92;yüklememiz;. Azure PowerShell kullanara
 > * SQL Server çalıştıran bir VM oluşturma
 > * SQL Server uzantısını yükleyin
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.1.1 veya sonraki bir sürümü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="create-a-iis-vm"></a>Bir IIS VM oluşturma 
 
@@ -41,9 +43,10 @@ Bu örnekte, kullandığımız [yeni AzVM](https://www.powershellgallery.com/pac
 Tıklayın **deneyin** bulut Kabuğu'nda bu pencereyi başlatmak için şu kod bloğu üst düğme. Komut isteminde sanal makine için kimlik bilgilerini sağlamanız istenir.
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 IIS ve özel betik uzantısı kullanılarak .NET Framework'ü yükleyin.
@@ -52,7 +55,7 @@ IIS ve özel betik uzantısı kullanılarak .NET Framework'ü yükleyin.
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `

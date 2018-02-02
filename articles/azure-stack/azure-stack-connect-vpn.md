@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure yığın VPN kullanarak Azure'a bağlanma
 
@@ -71,7 +71,7 @@ Ağ örnek değerler tablosu, bu makalede kullanılan örnek değerleri gösteri
 3. Seçin **ağ geçidi alt ağı** sanal ağa bir ağ geçidi alt ağı eklemek için.
 4. Alt ağın adı varsayılan olarak **GatewaySubnet** şeklinde ayarlanır.
    Ağ geçidi alt ağları özeldir ve düzgün şekilde çalışabilmesi için bu ada sahip olmalıdır.
-5. İçinde **adres aralığı** alan, adresi doğrulayın **10.100.0.0/24**.
+5. İçinde **adres aralığı** alan, adresi doğrulayın **10.100.1.0/24**.
 6. Seçin **Tamam** ağ geçidi alt ağı oluşturmak için.
 
 ### <a name="create-the-virtual-network-gateway"></a>Sanal ağ geçidini oluşturma
@@ -93,7 +93,7 @@ Ağ örnek değerler tablosu, bu makalede kullanılan örnek değerleri gösteri
 5. Kaynakların listesinden **yerel ağ geçidi**.
 6. İçinde **adı**, türü **Azs-GW**.
 7. İçinde **IP adresi**, Azure yığın sanal ağ, daha önce ağ yapılandırması tabloda listelenen geçidinizin genel IP adresini yazın.
-8. İçinde **adres alanı**, Azure yığınından yazın **10.0.10.0/23** adres alanı için **AzureVNet**.
+8. İçinde **adres alanı**, Azure yığınından yazın **10.1.0.0/24** ve **10.1.1.0/24** adres alanı için **AzureVNet**.
 9. Doğrulayın, **abonelik**, **kaynak grubu**, ve **konumu** doğru olduğunu onaylayın ve ardından **oluşturma**.
 
 ## <a name="create-the-connection"></a>Bağlantı oluşturma
@@ -118,7 +118,7 @@ Bir sanal makine Azure'da şimdi oluşturmak ve sanal ağınızda VM alt ağın�
 5. Geçerli kullanıcı adı ve parola yazın. Oluşturulduktan sonra sanal makinede oturum açmak için bu hesabı kullanın.
 6. Sağlayan bir **abonelik**, **kaynak grubu**, ve **konumu**ve ardından **Tamam**.
 7. Üzerinde **boyutu** bölümünde, bu örnek için bir sanal makine boyutu seçin ve ardından **seçin**.
-8. Üzerinde **ayarları** bölümünde, Varsayılanları kabul edebilir. Olduğundan emin olun **AzureVnet** sanal ağ seçilir ve alt ağ değerine ayarlandığını doğrulayın **10.0.20.0/24**. **Tamam**’ı seçin.
+8. Üzerinde **ayarları** bölümünde, Varsayılanları kabul edebilir. Olduğundan emin olun **AzureVnet** sanal ağ seçilir ve alt ağ değerine ayarlandığını doğrulayın **10.100.0.0/24**. **Tamam**’ı seçin.
 9. Ayarları gözden **Özet** bölümünde ve ardından **Tamam**.
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>Ağ kaynakları Azure yığınında oluşturun
@@ -181,7 +181,7 @@ Bu konuda daha genel düşünmek için bir yerel ağ geçidi kaynağı her zaman
 4. Kaynakların listesinden **yerel ağ geçidi**.
 5. İçinde **adı**, türü **Azure-GW**.
 6. İçinde **IP adresi**, Azure'da sanal ağ geçidi için genel IP adresi yazın **Azure GW PIP**. Bu adres, daha önce ağ yapılandırması tablosunda görünür.
-7. İçinde **adres alanı**, oluşturduğunuz Azure VNET adres alanı için yazın **10.0.20.0/23**.
+7. İçinde **adres alanı**, oluşturduğunuz Azure VNET adres alanı için yazın **10.100.0.0/24** ve **10.100.1.0/24**.
 8. Doğrulayın, **abonelik**, **kaynak grubu**, ve **konumu** doğru olduğunu onaylayın ve ardından **oluşturma**.
 
 ### <a name="create-the-connection"></a>Bağlantı oluşturma
@@ -225,7 +225,7 @@ Siteden siteye bağlantı üzerinden trafiği gönderme emin olmak için uzak al
 5. Sanal makine oluşturduğunuzda, yapılandırdığınız hesabıyla oturum açın.
 6. Yükseltilmiş bir açık **Windows PowerShell** penceresi.
 7. **ipconfig /all** yazın.
-8. Çıktıda Bul **IPv4 adresi**ve daha sonra kullanmak için adresi kaydedin. Bu, Azure ping gönderecek adresidir. Örnek ortamda adres **10.0.10.4** şeklindedir, ancak sizin ortamınızda farklı olabilir. İçinde girecektir **10.0.10.0/24** daha önce oluşturduğunuz alt ağ.
+8. Çıktıda Bul **IPv4 adresi**ve daha sonra kullanmak için adresi kaydedin. Bu, Azure ping gönderecek adresidir. Örnek ortamında adresidir **10.1.0.4**, ancak ortamınızda farklı olabilir. İçinde girecektir **10.1.0.0/24** daha önce oluşturduğunuz alt ağ.
 9. Sanal makinenin ping komutuna yanıt veren bir güvenlik duvarı kuralı oluşturmak için aşağıdaki PowerShell komutunu çalıştırın:
 
    ```powershell
@@ -242,7 +242,7 @@ Siteden siteye bağlantı üzerinden trafiği gönderme emin olmak için uzak al
 5. Sanal makine oluşturduğunuzda, yapılandırdığınız hesabıyla oturum açın.
 6. Yükseltilmiş bir açık **Windows PowerShell** penceresi.
 7. **ipconfig /all** yazın.
-8. İçine düşerse bir IPv4 adresi görmeniz gerekir **10.0.20.0/24**. Örnek ortamında adresidir **10.0.20.4**, ancak adresinizi farklı olabilir.
+8. İçine düşerse bir IPv4 adresi görmeniz gerekir **10.100.0.0/24**. Örnek ortamında adresidir **10.100.0.4**, ancak adresinizi farklı olabilir.
 9. Sanal makinenin ping komutuna yanıt veren bir güvenlik duvarı kuralı oluşturmak için aşağıdaki PowerShell komutunu çalıştırın:
 
    ```powershell
@@ -252,7 +252,7 @@ Siteden siteye bağlantı üzerinden trafiği gönderme emin olmak için uzak al
    ```
 
 10. Azure'da sanal makineden Azure yığınında, sanal makine tüneli üzerinden ping işlemi yapın. Bunu yapmak için Azs VM'den kaydettiğiniz DIP ping atın.
-   Örnek ortamında budur **10.0.10.4**, ancak laboratuvarınızda ettiğiniz adresi ping emin olun. Aşağıdaki ekran görüntüsü gibi görünen bir sonuç görmeniz gerekir:
+   Örnek ortamında budur **10.1.0.4**, ancak laboratuvarınızda ettiğiniz adresi ping emin olun. Aşağıdaki ekran görüntüsü gibi görünen bir sonuç görmeniz gerekir:
    
     ![PING başarılı](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. Uzak sanal makineden bir yanıt başarılı bir test gösteriyor! Sanal makine penceresinin kapatabilirsiniz. Bağlantınızı test veri aktarımları bir dosya kopyalama gibi diğer tür deneyebilirsiniz.
@@ -264,7 +264,7 @@ Siteden siteye bağlantınızı ne kadar veri geçirmeden bilmek istiyorsanız, 
 2. Git **tüm kaynakları**ve ardından **Azs Azure** bağlantı. **Bağlantıları** görüntülenir.
 4. Üzerinde **bağlantı** bölümünde, istatistikleri **verileri** ve **verileri** görünür. Aşağıdaki ekran görüntüsünde, çok sayıda ek dosya aktarımı öznitelikli. Bazı sıfır olmayan değerler var. görmeniz gerekir.
    
-    ![Veri giriş ve çıkış](media/azure-stack-connect-vpn/Connection.png)
+    ![Giren ve çıkan veriler](media/azure-stack-connect-vpn/Connection.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

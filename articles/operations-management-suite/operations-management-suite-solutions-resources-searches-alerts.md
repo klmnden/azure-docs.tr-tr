@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Günlük analizi ekleme arar ve Uyarıları kaydedilmiş OMS yönetim çözümü (Önizleme)
 
@@ -36,7 +36,7 @@ Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [bir yöneti
 
 
 ## <a name="log-analytics-workspace"></a>Günlük analizi çalışma alanı
-Günlük analizi tüm kaynaklarında bulunan bir [çalışma](../log-analytics/log-analytics-manage-access.md).  Bölümünde açıklandığı gibi [OMS çalışma ve Automation hesabı](operations-management-suite-solutions.md#oms-workspace-and-automation-account), çalışma alanı yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
+Günlük analizi tüm kaynaklarında bulunan bir [çalışma](../log-analytics/log-analytics-manage-access.md).  Bölümünde açıklandığı gibi [OMS çalışma ve Automation hesabı](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), çalışma alanı yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
 
 Her günlük analizi kaynak adına çalışma adıdır.  Bu çözümle yapılır **çalışma** savedsearch kaynak aşağıdaki örnekteki gibi parametre.
 

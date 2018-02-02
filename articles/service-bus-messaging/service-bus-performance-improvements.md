@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: 1f57fbb8e2a86b744808ee844e5f853bdb587a5d
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus Mesajlaşma hizmeti kullanarak performans iyileştirmeleri için en iyi yöntemler
 
@@ -29,6 +29,7 @@ Bu konu boyunca terimi "istemci" Service Bus erişen herhangi bir varlığa anla
 Bu bölümler performansı artırmaya yardımcı olmak için hizmet veri yolu kullanır birkaç kavramları tanıtır.
 
 ## <a name="protocols"></a>Protokoller
+
 Hizmet veri yolu, istemcilerin üç protokolden birini aracılığıyla iletileri almasına ve göndermesine olanak sağlar:
 
 1. Gelişmiş Message Queuing Protokolü (AMQP)
@@ -38,9 +39,11 @@ Hizmet veri yolu, istemcilerin üç protokolden birini aracılığıyla iletiler
 Mesajlaşma fabrikası var olduğu sürece, hizmet veri yolu bağlantı korumak için AMQP ve SBMP daha etkili olurlar. Ayrıca, toplu işleme ve prefetching uygular. Açıkça belirtilmediği sürece, bu konudaki tüm içeriğin AMQP veya SBMP kullanımını varsayar.
 
 ## <a name="reusing-factories-and-clients"></a>Oluşturucular ve istemcilerin yeniden kullanma
+
 Service Bus istemci nesneleri, gibi [QueueClient] [ QueueClient] veya [MessageSender][MessageSender], aracılığıyla oluşturulan bir [Eventhubclient] [ MessagingFactory] bağlantılarının iç yönetimi de sağlayan nesne. İleti gönderme ve sonraki iletiyi gönderdiğinizde, ardından yeniden oluşturduktan sonra ileti oluşturucuları veya kuyruk, konu ve abonelik istemcileri kapatmalısınız değil. Bir Mesajlaşma fabrikası kapatma Service Bus hizmeti bağlantısı siler ve Fabrika yeniden zaman yeni bir bağlantı kurulur. Bir bağlantı kurarak, aynı Fabrika ve birden çok işlemleri için istemci nesneleri yeniden kullanarak önleyebilirsiniz pahalı bir işlemdir. Güvenli bir şekilde kullanabilirsiniz [QueueClient] [ QueueClient] eşzamanlı zaman uyumsuz işlemleri ve birden çok iş parçacığı ileti göndermek için nesne. 
 
 ## <a name="concurrent-operations"></a>Eşzamanlı operasyonlar
+
 Bir işlemi gerçekleştirilirken (gönderme, alma, silme, vb.) biraz zaman alabilir. Bu süre, istek ve yanıt gecikmesi ek olarak Service Bus hizmeti tarafından işlemi işlenmesini içerir. Saat başına işlem sayısını artırmak için işlemler aynı anda yürütmeniz gerekir. Birkaç farklı yolla bunu yapabilirsiniz:
 
 * **Zaman uyumsuz işlemleri**: zaman uyumsuz işlemleri gerçekleştirerek istemci işlemleri zamanlar. Bir sonraki istekte, önceki isteği tamamlanmadan önce başlatılır. Bir zaman uyumsuz gönderme işleminin bir örnek verilmiştir:
@@ -78,9 +81,11 @@ Bir işlemi gerçekleştirilirken (gönderme, alma, silme, vb.) biraz zaman alab
     Console.WriteLine("{0} complete", m.Label);
   }
   ```
+
 * **Birden çok oluşturucuları**: bir TCP bağlantı aynı fabrikası tarafından oluşturulan tüm istemciler (göndericiler alıcıları ek olarak) paylaşır. En fazla ileti işleme bu TCP bağlantısı üzerinden gidebilirsiniz işlemlerinin sayısı sınırlıdır. Tek bir Fabrika ile elde edilebilir verimlilik TCP iletim süreleriyle ve ileti boyutu olmadığına göre değişir. Daha yüksek performans oranına elde etmek için birden çok Mesajlaşma oluşturucuları kullanmanız gerekir.
 
 ## <a name="receive-mode"></a>Mod alma
+
 Bir kuyruk veya abonelik istemci oluştururken, alma modu belirtebilirsiniz: *gözlem kilidinin* veya *alma ve silme*. Varsayılan alma modu olan [PeekLock][PeekLock]. Bu modda çalışırken, istemci hizmeti yolundan bir ileti almak için bir istek gönderir. İstemci iletiyi aldıktan sonra iletiyi tamamlamak için bir istek gönderir.
 
 Alma modu ayarlarken [ReceiveAndDelete][ReceiveAndDelete], her iki adım tek bir istekte birleştirilir. Bu işlem genel sayısını azaltır ve genel ileti üretilen işi artırabilir. Bu performans kazancı iletileri kaybetme at the risk of gelir.
@@ -88,6 +93,7 @@ Alma modu ayarlarken [ReceiveAndDelete][ReceiveAndDelete], her iki adım tek bir
 Hizmet veri yolu, alma ve silme işlemleri için işlemleri desteklemiyor. Ayrıca, gözlem kilidinin semantiği, istemcinin istediği erteleme herhangi senaryoları için gerekli veya [sahipsiz](service-bus-dead-letter-queues.md) bir ileti.
 
 ## <a name="client-side-batching"></a>İstemci-tarafı toplu işleme
+
 İstemci-tarafı toplu bir ileti gönderme belirli bir süre geciktirmek bir kuyruk veya konu istemci sağlar. İstemci bu süre içinde ek iletiler gönderirse, tek bir toplu iletileri iletir. İstemci-tarafı toplu işleme ayrıca neden olan birden çok toplu sıra veya abonelik bir istemci **tam** tek bir istek isteklerine. Toplu işleme yüklenebilir yalnızca zaman uyumsuz **Gönder** ve **tam** işlemleri. Zaman uyumlu işlemler hemen Service Bus hizmetine gönderilir. Toplu işleme için gözlem oluşur veya değil alma işlemleri ya da toplu işleme istemciler arasında etmiyorsa.
 
 Varsayılan olarak, istemci bir toplu iş aralığı 20ms kullanır. Toplu iş aralığı ayarlayarak değiştirebileceğiniz [BatchFlushInterval] [ BatchFlushInterval] Mesajlaşma fabrikası oluşturmadan önce özelliği. Bu ayar bu fabrikası tarafından oluşturulan tüm istemcilerini etkiler.
@@ -104,6 +110,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 Toplu işleme Faturalanabilir Mesajlaşma işlemlerinin sayısını etkilemez ve yalnızca hizmet veri yolu istemci protokolü için kullanılabilir. Toplu işleme HTTP protokolünü desteklemiyor.
 
 ## <a name="batching-store-access"></a>Mağaza erişimi toplu işleme
+
 Bir kuyruk, konu veya abonelik verimliliğini artırmak için iç depolama alanına yazdığında birden fazla ileti Service Bus. toplu iş. Bir kuyruk veya konu etkinleştirilirse, ileti deposuna yazma toplu hale. Bir kuyruk veya abonelik etkinleştirilirse, mağaza'dan iletilerini silerken toplu hale. Toplu depolama erişimi için bir varlık etkinleştirilirse, hizmet veri yolu en fazla 20ms tarafından deposu yazma işlemi varlığın ilgili geciktirir. Bu zaman aralığı boyunca gerçekleşen ek depolama işlem toplu eklenir. Toplu depolama erişim yalnızca etkiler **Gönder** ve **tam** işlemleri; alma işlemleri etkilenmez. Toplu depolama erişim bir varlığı üzerinde bir özelliktir. Toplu işleme toplu depolama erişimi etkinleştir tüm varlıklar arasında oluşur.
 
 Yeni Kuyruk, konu veya abonelik oluştururken, toplu depolama erişim varsayılan olarak etkindir. Toplu iş mağazası erişimini devre dışı bırakmak için ayarlanmış [EnableBatchedOperations] [ EnableBatchedOperations] özelliğine **false** varlık oluşturmadan önce. Örneğin:
@@ -117,6 +124,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 Toplu depolama erişim Faturalanabilir Mesajlaşma işlemlerinin sayısını etkilemez ve kuyruk, konu veya abonelik bir özelliğidir. Alma modu ve bir istemci ve Service Bus hizmeti arasında kullanılan protokol bağımsızdır.
 
 ## <a name="prefetching"></a>Prefetching
+
 [Prefetching](service-bus-prefetch.md) alma işlemi gerçekleştirdiğinde, ek iletiler hizmetinden yüklemek sıra veya abonelik istemci sağlar. İstemci bu iletiler bir yerel önbellekte depolar. Önbellek boyutu tarafından belirlenir [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] veya [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] özellikleri. Prefetching sağlayan her bir istemci kendi önbelleğini korur. Bir önbellek istemcileri arasında paylaşılmaz. İstemci bir alma işlemi başlatır ve önbelleğinde boş ise, hizmet toplu iletiler iletir. Toplu iş boyutu 256 KB ve önbellek boyutunu eşittir, hangisi daha küçüktür. İstemci bir alma işlemi başlatır ve bir ileti önbellek içeriyorsa, ileti önbellekten alınır.
 
 Bir ileti prefetched, hizmet prefetched ileti kilitler. Bunu yaparak, farklı bir alıcı tarafından prefetched ileti alınamıyor. Kilit süresi dolmadan önce alıcı iletiyi tamamlanamazsa, iletinin diğer alıcılar için kullanılabilir hale gelir. İletinin prefetched kopyasını önbellekte kalır. Bu iletiyi tamamlamak çalıştığında, süresi dolan önbelleğe alınan kopya tüketir alıcı bir özel durum alır. Varsayılan olarak, ileti kilidi 60 saniye sonra süresi dolar. Bu değer 5 dakika olarak genişletilebilir. Süresi dolan iletileri kullanımını önlemek için önbellek boyutu her zaman bir istemci tarafından kilit zaman aşımı aralığı içinde kullanılabilecek iletileri sayısından daha küçük olmalıdır.
@@ -145,6 +153,7 @@ Kayıp olmaması gereken önemli bilgileri içeren bir ileti hızlı bir varlı�
 > İfade varlıkları işlemleri desteklemez.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Bölümlenmiş sıraları veya konuları
+
 Dahili olarak, Service Bus aynı düğümde kullanır ve iletileri depolamak bir Mesajlaşma varlığıyla (kuyruk veya konu) için tüm iletileri depolamak ve işlemek için. A [bölümlenmiş kuyruk veya konu](service-bus-partitioning.md), diğer yandan, birden çok düğümüne dağıtılmış ve depoları Mesajlaşma. Bölümlenmiş kuyruklar ve konu başlıkları yalnızca normal kuyruklar ve konu başlıkları daha yüksek verimlilik elde etmek, bunlar ayrıca üst düzey kullanılabilirlik sergiler. Bölümlenmiş bir varlık oluşturmak için [EnablePartitioning] [ EnablePartitioning] özelliğine **doğru**, aşağıdaki örnekte gösterildiği gibi. Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
 
 ```csharp
@@ -165,9 +174,11 @@ Hizmet veri yolu olan özellikle geliştirme için kullanılan bir özellik olan
 Yeni kurallar veya filtreler konuya eklendiğinde, kullanabileceğiniz [TopicDescription.EnableFilteringMessagesBeforePublishing][] yeni filtre ifadesi beklendiği gibi çalıştığını doğrulayın.
 
 ## <a name="scenarios"></a>Senaryolar
+
 Aşağıdaki bölümlerde, tipik Mesajlaşma senaryolar açıklanmaktadır ve tercih edilen hizmet veri yolu ayarlar alır. Verimi sınıflandırılan küçük (1 saniye başına ileti daha azını), Orta (1 saniye başına ileti veya 100'den az ancak büyük ileti/saniye) ve yüksek (100 iletileri/ikinci veya daha büyük). İstemci sayısı küçük sınıflandırılır (5 veya daha az), Orta (5'ten fazla ancak 20 küçük veya buna eşit) ve büyük (birden çok 20).
 
 ### <a name="high-throughput-queue"></a>Yüksek verimlilik sırası
+
 Hedef: tek bir sıraya verimini ekranı kaplamasını sağlayın. Göndericiler ile alıcılar küçük sayısıdır.
 
 * Bölümlenmiş bir sıra, Gelişmiş performans ve kullanılabilirlik için kullanın.
@@ -179,11 +190,13 @@ Hedef: tek bir sıraya verimini ekranı kaplamasını sağlayın. Göndericiler 
 * Önceden getirme sayısı 20 kez en yüksek işleme oranları bir Factory tüm alıcılar için ayarlayın. Bu hizmet veri yolu istemci iletişim kuralı iletimlerini sayısını azaltır.
 
 ### <a name="multiple-high-throughput-queues"></a>Birden çok yüksek işleme sırası
+
 Hedef: birden çok sıraların genel üretilen işi en üst düzeye çıkarın. Tek bir sıra işleme, Orta veya yüksek.
 
 Birden çok kuyrukta en yüksek verimlilik elde etmek için tek bir sıraya verimliliğini en üst düzeye çıkarmak için ana hatlarıyla ayarlarını kullanın. Ayrıca, farklı oluşturucuları farklı sıralarından gönderip istemciler oluşturmak için kullanın.
 
 ### <a name="low-latency-queue"></a>Düşük gecikme süresi sırası
+
 Hedef: bir kuyruk veya konu uçtan uca gecikme süresi en aza indirin. Göndericiler ile alıcılar küçük sayısıdır. Sıranın işleme küçük veya Orta değil.
 
 * Bölümlenmiş bir kuyruk için geliştirilmiş kullanılabilirlik kullanın.
@@ -193,6 +206,7 @@ Hedef: bir kuyruk veya konu uçtan uca gecikme süresi en aza indirin. Gönderic
 * Birden çok istemci kullanıyorsanız, hazırlık sayısı 0 olarak ayarlayın. Bunu yaparak, ilk istemci hala ilk iletiyi işlerken ikinci istemci ikinci bir ileti alabilir.
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Çok sayıda Gönderenler sıraya
+
 Hedef: bir kuyruk veya konu çok sayıda göndericiler ile verimini ekranı kaplamasını sağlayın. Her göndereni Orta oranı içeren iletileri gönderir. Alıcıları küçük sayısıdır.
 
 Service Bus Mesajlaşma varlığı en fazla 1000 eşzamanlı bağlantı sağlar (veya 5000 AMQP kullanarak). Bu sınır ad alanı düzeyinde uygulanır ve ad alanı başına eşzamanlı bağlantı sınırını tarafından konuları/sıraları/abonelikleri tutulabilir. Sıralar için bu numara göndericiler ile alıcılar arasında paylaşılır. Göndericiler için tüm 1000 bağlantıları gerekirse, sıra konu ve tek bir abonelik ile değiştirmeniz gerekir. Abonelik alıcıları gelen ek bir 1000 eşzamanlı bağlantıları kabul eder ancak konu gönderenlerden, en fazla 1000 eşzamanlı bağlantı kabul eder. 1000'den fazla eşzamanlı Gönderenler gerekirse, HTTP üzerinden Service Bus kuralına Gönderenler ileti göndermesi gerekir.
@@ -207,6 +221,7 @@ Verimliliği en üst düzeye çıkarmak için aşağıdakileri yapın:
 * Önceden getirme sayısı 20 kez en yüksek işleme oranları bir Factory tüm alıcılar için ayarlayın. Bu hizmet veri yolu istemci iletişim kuralı iletimlerini sayısını azaltır.
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Çok sayıda alıcı sırası
+
 Hedef: sıra ya da çok sayıda alıcı abonelikle alma hızı en üst düzeye çıkarın. Her alıcı Orta hızında iletilerini alır. Göndericiler küçük sayısıdır.
 
 Service Bus varlık için en fazla 1000 eşzamanlı bağlantı sağlar. Bir kuyruk 1000'den fazla alıcıları gerektiriyorsa, sıranın bir konu ve birden çok abonelik ile değiştirmeniz gerekir. Her abonelik 1000 en fazla eş zamanlı bağlantıyı destekler. Alternatif olarak, alıcılar sıranın HTTP protokolü aracılığıyla erişebilirsiniz.
@@ -220,6 +235,7 @@ Verimliliği en üst düzeye çıkarmak için aşağıdakileri yapın:
 * Önceden getirme sayısı küçük bir değere ayarlayın (örneğin, PrefetchCount = 10). Bu alıcılar çok sayıda önbelleğe alınmış iletiyi diğer alıcılar varken boşta engeller.
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Konu Abonelikleri, küçük bir değere sahip
+
 Hedef: abonelikler, küçük bir değere sahip bir konu verimini ekranı kaplamasını sağlayın. Bir ileti, tüm abonelikleri üzerinden birleşik alma hızı gönderme hızından daha büyük olduğu anlamına gelir pek çok abonelik tarafından alınır. Göndericiler küçük sayısıdır. Abonelik başına alıcıları küçük sayısıdır.
 
 Verimliliği en üst düzeye çıkarmak için aşağıdakileri yapın:
@@ -233,6 +249,7 @@ Verimliliği en üst düzeye çıkarmak için aşağıdakileri yapın:
 * Önceden getirme sayısı 20 kez en yüksek işleme oranları bir Factory tüm alıcılar için ayarlayın. Bu hizmet veri yolu istemci iletişim kuralı iletimlerini sayısını azaltır.
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Çok sayıda abonelikleri konuyla
+
 Hedef: çok sayıda abonelikleri konuyla verimini ekranı kaplamasını sağlayın. Bir ileti, tüm abonelikleri üzerinden birleşik alma hızı gönderme hızından daha çok daha büyük olduğu anlamına gelir pek çok abonelik tarafından alınır. Göndericiler küçük sayısıdır. Abonelik başına alıcıları küçük sayısıdır.
 
 Tüm iletiler için tüm abonelikleri yönlendirilir, çok sayıda abonelikleri konularda genellikle düşük genel üretilen işi kullanıma sunar. Bu, her ileti birçok kez alınan ve konu başlığında yer alan tüm iletileri ve tüm abonelikleri aynı deposunda saklanır olgu kaynaklanır. Gönderenlerin sayısını ve abonelik başına alıcıları küçük olduğu varsayılır. Service Bus konu başına en fazla 2000 abonelik destekler.
@@ -246,6 +263,7 @@ Verimliliği en üst düzeye çıkarmak için aşağıdakileri yapın:
 * Önceden getirme sayısı 20 kez beklenen alma hızı saniye cinsinden ayarlayın. Bu hizmet veri yolu istemci iletişim kuralı iletimlerini sayısını azaltır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Hizmet veri yolu performansı en iyi duruma getirme hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
 
 [QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient

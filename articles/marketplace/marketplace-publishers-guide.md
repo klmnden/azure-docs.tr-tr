@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7a980a9a4f0a4fa22e72aa9d6eec83865250a084
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-publisher-guide"></a>Azure Market yayımcı Kılavuzu
 
@@ -225,7 +225,7 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 
 |**Gereksinim**  |**Ayrıntılar**  |**Yayımlama seçeneği**  |
 |---------|---------|---------|
-|**Katılım ilkeleri**    |  Gözden geçirme Azure Market yayımcı sözleşmesi [here](file:///C:/Users/ellacroi/Downloads/Microsoft%20Marketplace%20Publisher%20Agreement.pdf). Azure Market katılım ilkelerini [burada] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/) gözden geçirin.       | Liste, deneme, Transact        |
+|**Katılım ilkeleri**    | Azure Market katılım ilkelerini [burada] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/) gözden geçirin.       | Liste, deneme, Transact        |
 |**Microsoft ile tümleştirme**    | Azure Market sunar, yararlanan ya da işlem, ağ veya depolama gibi Microsoft Azure Hizmetleri genişletmek ve var olan bir Azure Marketi kategori veritabanları, güvenlik, ağ, vb. gibi Hizala. Tam listeyi Bul [burada](https://azuremarketplace.microsoft.com/marketplace/apps).        | Liste, deneme, Transact        |
 |**Hedef kitle**    | Azure Market sunar, BT uzmanları, bulut geliştiriciler veya diğer teknik müşteri rolleri olması gerekir.       |  Liste, deneme, Transact 
 |**Sağlama Yönetimi**    | Marketten müşteri adayları almak için CRM (Marketo, Microsoft Dynamics veya Salesforce) sağlama verileri kabul etmek için etkinleştirmeniz gerekir.        |   Liste, deneme, Transact      |

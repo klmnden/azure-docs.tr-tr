@@ -2,19 +2,19 @@
 title: "Azure batch kapsayıcı iş yükleri | Microsoft Docs"
 description: "Azure Batch kapsayıcı görüntülerden uygulamaları çalıştırmayı öğrenin."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 12/01/2017
-ms.author: v-dotren
-ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: danlep
+ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch kapsayıcı uygulamaları çalıştırma
 
@@ -25,7 +25,7 @@ Kapsayıcıları kullanma, uygulama paketler ve bağımlılıklar yönetmek zoru
 Bu makale, Docker kapsayıcısı kavramları ve Batch havuzu ve .NET SDK kullanarak iş oluşturma varsayar. Kod parçacıkları benzer bir istemci uygulamasında kullanılması amaçlanmıştır [DotNetTutorial örnek](batch-dotnet-get-started.md), ve toplu işlemde kapsayıcı uygulamaları desteklemek için ihtiyacınız kod örnekleri.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * SDK sürümleri: Batch SDK'ları destek kapsayıcı görüntüleri aşağıdaki sürümler:
     * Batch REST API'si sürüm 2017 09 01.6.0

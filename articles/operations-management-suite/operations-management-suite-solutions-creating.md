@@ -1,6 +1,6 @@
 ---
-title: "OMS Yönetimi çözümünde yapı | Microsoft Docs"
-description: "Yönetim çözümleri, müşterilerin kendi OMS çalışma alanına ekleyebilirsiniz paketlenmiş yönetim senaryoları sağlayarak Operations Management Suite (OMS) işlevselliği genişletir.  Bu makalede, kendi ortamınızda kullanılacak yönetim çözümleri nasıl oluşturabileceğinizi hakkında ayrıntılar sağlar veya müşterileriniz için kullanılabilir."
+title: "Azure yönetimi çözümü oluşturmak | Microsoft Docs"
+description: "Yönetim çözümleri paketlenmiş yönetim senaryoları müşteriler kendi günlük analizi çalışma alanına ekleyebilirsiniz Azure dahil edin.  Bu makalede, kendi ortamınızda kullanılacak yönetim çözümleri nasıl oluşturabileceğinizi hakkında ayrıntılar sağlar veya müşterileriniz için kullanılabilir."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0f5d42292c8e885491aed55ada129f05cb3bcd35
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Tasarlama ve bir yönetim çözümü Operations Management Suite (OMS) (Önizleme) içinde oluşturma
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Tasarlama ve Azure (Önizleme) bir yönetim çözümü oluşturma
 > [!NOTE]
-> Bu, şu anda önizlemede OMS yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.
+> Bu, şu anda önizlemede olan Azure yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.
 
-[Yönetim çözümleri](operations-management-suite-solutions.md) müşteriler kendi OMS çalışma alanına ekleyebilirsiniz paketlenmiş yönetim senaryoları sağlayarak Operations Management Suite (OMS) işlevselliğini genişleten.  Bu makalede, tasarım ve en yaygın gereksinimleri için uygun bir yönetim çözümü oluşturmak için temel işlemi sunar.  Bu işlemi başlangıç noktası olarak kullanın ve gereksinimlerinizi geliştikçe daha karmaşık çözümleri için kavramlar yararlanan yönetim çözümleri oluşturmak için yeni varsa.
+[Yönetim çözümleri](operations-management-suite-solutions.md) müşteriler kendi günlük analizi çalışma alanına ekleyebilirsiniz paket Yönetimi senaryoları sağlar.  Bu makalede, tasarım ve en yaygın gereksinimleri için uygun bir yönetim çözümü oluşturmak için temel işlemi sunar.  Bu işlemi başlangıç noktası olarak kullanın ve gereksinimlerinizi geliştikçe daha karmaşık çözümleri için kavramlar yararlanan yönetim çözümleri oluşturmak için yeni varsa.
 
 ## <a name="what-is-a-management-solution"></a>Bir yönetim çözümü nedir?
 
-Yönetim çözümleri OMS ve belirli bir izleme senaryo elde etmek için birlikte çalışan Azure kaynaklarını içerir.  Olarak uygulanan [kaynak Yönetim Şablonları](../azure-resource-manager/resource-manager-template-walkthrough.md) yüklemek ve çözüm yüklendiğinde kapsanan kaynaklarını yapılandırma ayrıntılarını içerir.
+Yönetim çözümleri belirli Yönetimi senaryosu elde etmek için birlikte çalışan Azure kaynaklarını içerir.  Olarak uygulanan [kaynak Yönetim Şablonları](../azure-resource-manager/resource-manager-template-walkthrough.md) yüklemek ve çözüm yüklendiğinde kapsanan kaynaklarını yapılandırma ayrıntılarını içerir.
 
 Temel stratejisi, Azure ortamınızda bileşenleri tek tek oluşturarak Yönetimi çözümünüzü başlatmaktır.  Düzgün çalışmasını işlevselliği olduktan sonra sonra bunları paketleme başlatabilirsiniz bir [yönetim çözümü dosyası](operations-management-suite-solutions-solution-file.md). 
 
@@ -37,7 +37,7 @@ Temel stratejisi, Azure ortamınızda bileşenleri tek tek oluşturarak Yönetim
 ## <a name="design-your-solution"></a>Çözümünüzü tasarlayın
 En yaygın düzeni bir yönetim çözümü için aşağıdaki çizimde gösterilmiştir.  Bu modelde farklı bileşenleri ele alınmıştır aşağıda.
 
-![OMS çözümüne genel bakış](media/operations-management-suite-solutions-creating/solution-overview.png)
+![Yönetim çözümüne genel bakış](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Veri kaynakları

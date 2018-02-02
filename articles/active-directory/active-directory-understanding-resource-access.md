@@ -13,23 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
-<<<<<<< HEAD
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
-=======
 ms.custom: it-pro;
-ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Azure'da kaynak erişimini anlama
 
-Azure erişim denetimi faturalandırma açısından başlatır. Ziyaret ederek erişilen bir Azure hesabı sahibinin [Azure hesaplar Merkezi](https://account.windowsazure.com/subscriptions), Hesap Yöneticisi'nin (AA) değil. Abonelik faturalama için bir kapsayıcı olsa da, bunlar aynı zamanda bir güvenlik sınırı hareket: her abonelik bir Hizmet Yöneticisi (kimin eklemek, kaldırmak ve bu abonelik Azure kaynaklarında kullanarak değiştirme SA) sahip [Azure portal](https://portal.azure.com/). Yeni bir aboneliğin varsayılan SA AA olur ancak AA SA Azure hesapları Center'da değiştirebilirsiniz.
+Azure erişim denetimi faturalandırma açısından başlatır. Ziyaret ederek erişilen bir Azure hesabı sahibinin [Azure hesap Merkezi](https://account.azure.com), Hesap Yöneticisi'nin (AA) değil. Abonelik faturalama için bir kapsayıcı olsa da, bunlar aynı zamanda bir güvenlik sınırı hareket: her abonelik bir Hizmet Yöneticisi (kimin eklemek, kaldırmak ve bu abonelik Azure kaynaklarında kullanarak değiştirme SA) sahip [Azure portal](https://portal.azure.com/). Yeni bir aboneliğin varsayılan SA AA olur ancak AA Azure hesap Merkezi'nde SA değiştirebilirsiniz.
 
 <br><br>![Azure hesapları][1]
 

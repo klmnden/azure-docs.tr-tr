@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure işlevleri için Host.JSON başvurusu
 
@@ -49,6 +49,13 @@ Aşağıdaki örnek *host.json* dosya belirtilen tüm olası seçeneği vardır.
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -115,7 +122,7 @@ Kaç tane işlev çağrılarını belirtir ne zaman bir araya getirilir [için A
 
 İşlev çağrılarını toplanan ilk iki sınırları ulaşıldı.
 
-## <a name="applicationinsights"></a>Applicationınsights
+## <a name="applicationinsights"></a>applicationInsights
 
 Denetimleri [Application Insights örnekleme özelliği](functions-monitoring.md#configure-sampling).
 
@@ -132,10 +139,10 @@ Denetimleri [Application Insights örnekleme özelliği](functions-monitoring.md
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|IsEnabled|yanlış|Etkinleştirir veya örnekleme devre dışı bırakır.| 
+|isEnabled|yanlış|Etkinleştirir veya örnekleme devre dışı bırakır.| 
 |maxTelemetryItemsPerSecond|5|Hangi örnekleme eşiğine başlar.| 
 
-## <a name="eventhub"></a>EventHub
+## <a name="eventhub"></a>eventHub
 
 Yapılandırma ayarları [olay hub'ı Tetikleyicileri ve bağlamaları](functions-bindings-event-hubs.md).
 
@@ -160,6 +167,30 @@ Tüm İşlevler için zaman aşımı süresini gösterir. Tüketim planları, ge
     "functionTimeout": "00:05:00"
 }
 ```
+
+## <a name="healthmonitor"></a>Durum İzleme
+
+Yapılandırma ayarları [ana bilgisayar sistem durumu İzleyicisi](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------| 
+|enabled|doğru|Özellik etkinleştirilip etkinleştirilmediği. | 
+|healthCheckInterval|10 saniye|Düzenli arka plan sistem arasındaki zaman aralığını denetler. | 
+|healthCheckWindow|2 dakika|İle birlikte kullanılan kayan bir zaman penceresi `healthCheckThreshold` ayarı.| 
+|healthCheckThreshold|6|Bir ana bilgisayar geri dönüşüm başlatılmadan önce en fazla kaç kez sistem durumu denetimi başarısız olabilir.| 
+|counterThreshold|0.80|Eşik değer, bir performans sayacı sağlıksız olarak kabul edilir.| 
 
 ## <a name="http"></a>http
 
@@ -226,7 +257,7 @@ Yapılandırma ayarları [depolama queue Tetikleyicileri ve bağlamaları](funct
 |maxDequeueCount|5|Kaç kez zararlı kuyruğuna taşınmadan önce bir ileti işlenirken deneyin.| 
 |newBatchThreshold|batchSize/2|En yeni toplu iletiler getirilen eşiği.| 
 
-## <a name="servicebus"></a>ServiceBus
+## <a name="servicebus"></a>serviceBus
 
 Yapılandırma ayarı [Service Bus Tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md).
 

@@ -3,8 +3,8 @@ title: "Azure toplu işlem için kotalar ve sınırlar hizmet | Microsoft Docs"
 description: "Varsayılan Azure Batch kotalar, sınırlar ve kısıtlamalar hakkında bilgi edinin ve kota istemek nasıl artırır"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -55,7 +55,7 @@ Havuzu ayırma modu ayarlamak toplu işlem hesabı oluşturmak için toplu işle
 
 <sup>1</sup> en büyük blok blob boyutu için azure depolama sınırı<br />
 <sup>2</sup> kaynak dosyaları ve ortam değişkenleri içerir<br />
-<sup>3</sup> tamamlandığında, bunu projeye eklendiğinde bir görevin, en uzun kullanım ömrünü 7 gündür. Tamamlanan görevler süresiz olarak kalır; en fazla yaşam süresi içinde Tamamlanmayan görevler için veri erişilebilir değil.
+<sup>3</sup> tamamlandığında, bunu projeye eklendiğinde bir görevin, en uzun kullanım ömrünü 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
 
 
 ## <a name="view-batch-quotas"></a>Toplu kotaları görüntüle

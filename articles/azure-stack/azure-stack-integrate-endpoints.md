@@ -5,15 +5,15 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: ae59ae74dd6dfe29a077ed5943eb1a16e561078a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure veri merkezi tümleştirme yığın - uç noktalarını yayımlama
 
@@ -46,11 +46,13 @@ Dış ağlara yayımlama Azure yığın uç noktalar için gerekli altyapı VIP'
 |Graf|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Sertifika iptal listesi|CRL.*&lt;bölge >.&lt; FQDN >*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP VE UDP|53|
-|Anahtar kasası (kullanıcı)|*.Vault.*  &lt;bölge >.&lt; FQDN > *|TCP|443|
-|Anahtar kasası (Yönetici)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Anahtar kasası (kullanıcı)|&#42;. Kasa.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
+|Anahtar kasası (Yönetici)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Depolama Kuyruğu|&#42;. sıra.  *&lt;bölge >.&lt; FQDN >*|HTTP<br>HTTPS|80<br>443|
 |Depolama tablosu|&#42;. Tablo.  *&lt;bölge >.&lt; FQDN >*|HTTP<br>HTTPS|80<br>443|
 |Depolama blobu|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL kaynak sağlayıcısı|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL kaynak sağlayıcısı|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## <a name="ports-and-urls-outbound"></a>Bağlantı noktaları ve URL'ler (giden)
 
@@ -67,4 +69,4 @@ Azure yığını yalnızca saydam proxy sunucuları destekler. Bir dağıtımda 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure yığın datacenter tümleştirmesi - güvenlik](azure-stack-integrate-security.md)
+[Azure yığın PKI gereksinimleri](azure-stack-pki-certs.md)

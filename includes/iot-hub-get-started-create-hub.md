@@ -25,11 +25,11 @@ Bağlanılacak sanal cihaz uygulamanız için bir IoT Hub oluşturun. Aşağıda
 
 1. **Oluştur**’a tıklayın. IoT hub’ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden izleyebilirsiniz.
 
-1. IOT hub'ı sorunsuz oluşturulduğunda, yeni IOT hub'ının özellikler penceresini açmak için Azure portalındaki IOT hub'ına yönelik yeni kutucuğa tıklayın. IOT hub'ı oluşturduğunuza göre cihazlar ve uygulamalar IOT hub'ınıza bağlanmak için kullanacağınız önemli bilgiler bulun. **Ana bilgisayar adını** not edin ve **Paylaşılan erişim ilkeleri**'ne tıklayın.
+1. Yeni IOT hub'ınızı hazır olduğunda, kendi Özellikler penceresini açmak için Azure portalında kendi kutucuğa tıklayın. IOT hub'ı oluşturduğunuza göre cihazlar ve uygulamalar IOT hub'ınıza bağlanmak için kullanacağınız önemli bilgiler bulun. **Ana bilgisayar adını** not edin ve **Paylaşılan erişim ilkeleri**'ne tıklayın.
    
     ![Yeni IoT hub penceresi][4]
 
-1. **Paylaşılan erişim ilkeleri** penceresinde **iothubowner** ilkesine tıklayın, ardından **iothubowner** penceresindeki IoT Hub bağlantı dizesini kopyalayın ve not edin. Daha fazla bilgi için "IoT Hub geliştirici kılavuzunun" [Erişim denetimi][lnk-access-control] bölümüne bakın.
+1. İçinde **paylaşılan erişim ilkeleri**, tıklatın **iothubowner** İlkesi ve ardından IOT Hub bağlantı dizesini Not **iothubowner** penceresi. Daha fazla bilgi için "IoT Hub geliştirici kılavuzunun" [Erişim denetimi][lnk-access-control] bölümüne bakın.
    
     ![Paylaşılan erişim ilkeleri][5]
 

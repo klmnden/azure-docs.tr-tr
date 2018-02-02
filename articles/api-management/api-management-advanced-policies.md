@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="api-management-advanced-policies"></a>API Management ilkeleri Gelişmiş
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -93,7 +93,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -132,7 +132,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Öznitelik|Açıklama|Gerekli|  
 |---------------|-----------------|--------------|  
-|koşul = "Boole ifadesi &#124; Boole sabiti"|Boole ifadesi veya bir sabite hesaplanan ne zaman içeren `when` ilke bildirimi değerlendirildiği.|Evet|  
+|condition="Boolean expression &#124; Boolean constant"|Boole ifadesi veya bir sabite hesaplanan ne zaman içeren `when` ilke bildirimi değerlendirildiği.|Evet|  
   
 ###  <a name="ChooseUsage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -236,14 +236,14 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
-|İletme isteği|Kök öğesi.|Evet|  
+|forward-request|Kök öğesi.|Evet|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|zaman aşımı = "tamsayı"|Arka uç hizmetine çağırmadan önce saniye cinsinden zaman aşımı aralığı başarısız olur.|Hayır|300 saniye|  
-|yeniden yönlendirmeleri izleyin = "true &#124; false"|Arka uç hizmetinden yeniden yönlendirmeleri gateway tarafından izlenen veya yapana olup olmadığını belirtir.|Hayır|yanlış|  
+|timeout="integer"|Arka uç hizmetine çağırmadan önce saniye cinsinden zaman aşımı aralığı başarısız olur.|Hayır|300 saniye|  
+|follow-redirects="true &#124; false"|Arka uç hizmetinden yeniden yönlendirmeleri gateway tarafından izlenen veya yapana olup olmadığını belirtir.|Hayır|yanlış|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -289,8 +289,8 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|--------------|  
-|anahtar|Bir dize. İzin verilen ifade. Eşzamanlılık kapsamı belirler. Birden çok ilke tarafından paylaşılabilir.|Evet|Yok|  
-|en yüksek sayısı|Bir tam sayı. En fazla bir ilke girmesine izin verilen istek sayısını belirtir.|Evet|Yok|  
+|anahtar|A string. İzin verilen ifade. Eşzamanlılık kapsamı belirler. Birden çok ilke tarafından paylaşılabilir.|Evet|Yok|  
+|max-count|Bir tam sayı. En fazla bir ilke girmesine izin verilen istek sayısını belirtir.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -333,13 +333,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
-|Günlük eventhub|Kök öğesi. Bu öğenin değerini event hub'ına oturum dizedir.|Evet|  
+|log-to-eventhub|Kök öğesi. Bu öğenin değerini event hub'ına oturum dizedir.|Evet|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
 |Öznitelik|Açıklama|Gerekli|  
 |---------------|-----------------|--------------|  
-|Günlükçü kimliği|Günlükçü kimliğini API Management hizmetiniz ile kayıtlı.|Evet|  
+|logger-id|Günlükçü kimliğini API Management hizmetiniz ile kayıtlı.|Evet|  
 |bölüm kimliği|İletilerin gönderileceği bölüm dizinini belirtir.|İsteğe bağlı. Bu öznitelik, kullanılamaz. `partition-key` kullanılır.|  
 |Bölüm anahtarı|İleti gönderildiğinde bölüm ataması için kullanılan değer belirtir.|İsteğe bağlı. Bu öznitelik, kullanılamaz. `partition-id` kullanılır.|  
   
@@ -441,9 +441,9 @@ status code and media type. If no example or schema found, the content is empty.
 |koşul|Boole bir hazır değer veya [ifade](api-management-policy-expressions.md) yeniden deneme durmuş olup belirtme (`false`) veya devam (`true`).|Evet|Yok|  
 |sayı|Denemek için yeniden deneme sayısını belirten pozitif bir sayı.|Evet|Yok|  
 |interval|Yeniden deneme bekleme aralığını belirterek saniye cinsinden pozitif bir sayı çalışır.|Evet|Yok|  
-|en fazla aralığı|Yeniden deneme girişimleri arasındaki aralığı saniye cinsinden maksimum belirten pozitif bir sayı bekleyin. Üstel yeniden deneme algoritması uygulamak için kullanılır.|Hayır|Yok|  
-|Delta|Saniye olarak bekleme aralığı artırma belirten pozitif bir sayı. Doğrusal ve üstel yeniden deneme algoritmaları uygulamak için kullanılır.|Hayır|Yok|  
-|ilk hızlı yeniden|Varsa kümesine `true` , ilk yeniden deneme girişimi hemen gerçekleştirilir.|Hayır|`false`|  
+|max-interval|Yeniden deneme girişimleri arasındaki aralığı saniye cinsinden maksimum belirten pozitif bir sayı bekleyin. Üstel yeniden deneme algoritması uygulamak için kullanılır.|Hayır|Yok|  
+|delta|Saniye olarak bekleme aralığı artırma belirten pozitif bir sayı. Doğrusal ve üstel yeniden deneme algoritmaları uygulamak için kullanılır.|Hayır|Yok|  
+|first-fast-retry|Varsa kümesine `true` , ilk yeniden deneme girişimi hemen gerçekleştirilir.|Hayır|`false`|  
   
 > [!NOTE]
 >  Sadece `interval` belirtilirse, **sabit** aralığı yeniden denemeler gerçekleştirilir.  
@@ -553,9 +553,9 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
-|bir şekilde İsteği Gönder|Kök öğesi.|Evet|  
+|send-one-way-request|Kök öğesi.|Evet|  
 |url|İstek URL'si.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
-|Yöntemi|İstek HTTP yöntemi.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
+|yöntem|İstek HTTP yöntemi.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |üst bilgi|İstek üstbilgisi. Birden çok üstbilgi öğeleri için birden çok istek üstbilgileri kullanın.|Hayır|  
 |body|İstek gövdesi.|Hayır|  
   
@@ -563,9 +563,9 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|modu = "dize"|Yeni bir istek veya bir kopyasını geçerli istek olup olmadığını belirler. Giden modunda modu = kopyalama istek gövdesi başlatamadı.|Hayır|Yeni|  
+|mode="string"|Yeni bir istek veya bir kopyasını geçerli istek olup olmadığını belirler. Giden modunda modu = kopyalama istek gövdesi başlatamadı.|Hayır|Yeni|  
 |ad|Ayarlanacak üstbilginin adını belirtir.|Evet|Yok|  
-|Mevcut eylem|Üstbilgi zaten belirtildiğinde gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -Geçersiz Kıl - varolan üstbilgisinin değerini değiştirir.<br />-skip - varolan üstbilgi değeri değiştirmez.<br />-Ekle - Varolan üstbilgi değeri değer ekler.<br />-delete - istekten üstbilgiyi kaldırır.<br /><br /> Ayarlandığında `override` aynı ada sahip birden çok girdi kaydetme sonuçları (birden çok kez listelenir) tüm girdisi göre ayarlanan üstbilgisinde; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|geçersiz kılma|  
+|Mevcut eylem|Üstbilgi zaten belirtildiğinde gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -Geçersiz Kıl - varolan üstbilgisinin değerini değiştirir.<br />-skip - varolan üstbilgi değeri değiştirmez.<br />-Ekle - Varolan üstbilgi değeri değer ekler.<br />-delete - istekten üstbilgiyi kaldırır.<br /><br /> Ayarlandığında `override` aynı ada sahip birden çok girdi kaydetme sonuçları (birden çok kez listelenir) tüm girdisi göre ayarlanan üstbilgisinde; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|override|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -632,9 +632,9 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
-|Gönderme isteği|Kök öğesi.|Evet|  
+|send-request|Kök öğesi.|Evet|  
 |url|İstek URL'si.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
-|Yöntemi|İstek HTTP yöntemi.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
+|yöntem|İstek HTTP yöntemi.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |üst bilgi|İstek üstbilgisi. Birden çok üstbilgi öğeleri için birden çok istek üstbilgileri kullanın.|Hayır|  
 |body|İstek gövdesi.|Hayır|  
   
@@ -642,12 +642,12 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|modu = "dize"|Yeni bir istek veya bir kopyasını geçerli istek olup olmadığını belirler. Giden modunda modu = kopyalama istek gövdesi başlatamadı.|Hayır|Yeni|  
+|mode="string"|Yeni bir istek veya bir kopyasını geçerli istek olup olmadığını belirler. Giden modunda modu = kopyalama istek gövdesi başlatamadı.|Hayır|Yeni|  
 |yanıt değişkeni adı = "dize"|Yoksa, `context.Response` kullanılır.|Hayır|Yok|  
-|zaman aşımı = "tamsayı"|URL çağırmadan önce saniye cinsinden zaman aşımı aralığı başarısız olur.|Hayır|60|  
-|Hatayı Yoksay|Varsa true ve istek sonuçları hata:<br /><br /> -Eğer bir null değer içerecek yanıt değişkeni adı belirtildi.<br />-Yanıt değişkeni adı belirtilmedi Eğer bağlamı. İstek güncelleştirilmez.|Hayır|yanlış|  
+|timeout="integer"|URL çağırmadan önce saniye cinsinden zaman aşımı aralığı başarısız olur.|Hayır|60|  
+|ignore-error|Varsa true ve istek sonuçları hata:<br /><br /> -Eğer bir null değer içerecek yanıt değişkeni adı belirtildi.<br />-Yanıt değişkeni adı belirtilmedi Eğer bağlamı. İstek güncelleştirilmez.|Hayır|yanlış|  
 |ad|Ayarlanacak üstbilginin adını belirtir.|Evet|Yok|  
-|Mevcut eylem|Üstbilgi zaten belirtildiğinde gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -Geçersiz Kıl - varolan üstbilgisinin değerini değiştirir.<br />-skip - varolan üstbilgi değeri değiştirmez.<br />-Ekle - Varolan üstbilgi değeri değer ekler.<br />-delete - istekten üstbilgiyi kaldırır.<br /><br /> Ayarlandığında `override` aynı ada sahip birden çok girdi kaydetme sonuçları (birden çok kez listelenir) tüm girdisi göre ayarlanan üstbilgisinde; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|geçersiz kılma|  
+|Mevcut eylem|Üstbilgi zaten belirtildiğinde gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -Geçersiz Kıl - varolan üstbilgisinin değerini değiştirir.<br />-skip - varolan üstbilgi değeri değiştirmez.<br />-Ekle - Varolan üstbilgi değeri değer ekler.<br />-delete - istekten üstbilgiyi kaldırır.<br /><br /> Ayarlandığında `override` aynı ada sahip birden çok girdi kaydetme sonuçları (birden çok kez listelenir) tüm girdisi göre ayarlanan üstbilgisinde; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|override|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -684,9 +684,9 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|URL = "dize"|Proxy URL'si http://host:port biçiminde.|Evet|Yok|  
+|url="string"|Proxy URL'si http://host:port biçiminde.|Evet|Yok|  
 |Kullanıcı adı = "dize"|Proxy kimlik doğrulaması için kullanılacak kullanıcı adı.|Hayır|Yok|  
-|parola = "dize"|Proxy kimlik doğrulaması için kullanılan parola.|Hayır|Yok|  
+|password="string"|Proxy kimlik doğrulaması için kullanılan parola.|Hayır|Yok|  
 
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -784,8 +784,8 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|kod = "tamsayı"|Döndürülecek HTTP durum kodu.|Evet|Yok|  
-|nedeni = "dize"|Durum kodunu döndüren nedeni açıklaması.|Evet|Yok|  
+|code="integer"|Döndürülecek HTTP durum kodu.|Evet|Yok|  
+|reason="string"|Durum kodunu döndüren nedeni açıklaması.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -813,7 +813,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 |Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
-|değişken Ayarla|Kök öğesi.|Evet|  
+|set-variable|Kök öğesi.|Evet|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
@@ -953,7 +953,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|için|Belirler olup olmadığını `wait` ilke tüm hemen alt ilkeleri tamamlanan veya yalnızca bir olmasını bekler. İzin verilen değerler:<br /><br /> -   `all`-Tüm hemen alt ilkeleri tamamlanması bekleyin<br />-any - tamamlamak hemen alt ilke bekleyin. İlk anında alt ilke tamamlandıktan sonra `wait` ilkeyi tamamladıktan ve diğer hemen alt ilkeleri yürütülmesi biter.|Hayır|tümü|  
+|for|Belirler olup olmadığını `wait` ilke tüm hemen alt ilkeleri tamamlanan veya yalnızca bir olmasını bekler. İzin verilen değerler:<br /><br /> -   `all`-Tüm hemen alt ilkeleri tamamlanması bekleyin<br />-any - tamamlamak hemen alt ilke bekleyin. İlk anında alt ilke tamamlandıktan sonra `wait` ilkeyi tamamladıktan ve diğer hemen alt ilkeleri yürütülmesi biter.|Hayır|tümü|  
   
 ### <a name="usage"></a>Kullanım  
  

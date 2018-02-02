@@ -1,5 +1,5 @@
 ---
-title: "Duraklatma ve sürdürme işlem Azure SQL Data Warehouse'da - Azure portalı | Microsoft Docs"
+title: "Hızlı Başlangıç: Azure SQL Data Warehouse'da - Azure portalında duraklatma ve sürdürme işlem | Microsoft Docs"
 description: "Bir Azure SQL veri ambarı'nın maliyet tasarrufu sağlamak için işlem duraklatmak azure portal görevler. Veri ambarı kullanılmaya hazır olduğunuzda sürdürebilirsiniz."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/23/2018
 ms.author: barbkess
-ms.openlocfilehash: d5200cc2e07dea9e34d23b0f3fb89e76a65515d9
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: f8b4e29595c6a71696cf2c4939ad4c6c096a28b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Azure portalında Azure SQL Data Warehouse için duraklatma ve sürdürme işlem
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında Azure SQL Data Warehouse için duraklatma ve sürdürme işlem
 Bir Azure SQL veri ambarı'nın maliyet tasarrufu sağlamak için Duraklat işlem. Veri ambarı kullanılmaya hazır olduğunuzda sürdürebilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
-ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IOT Hub'ından bulut cihaza ileti gönderme
 
@@ -41,12 +41,12 @@ IOT Hub hizmeti bir cihaza ileti gönderdiğinde, hizmet ileti durumu ayarlar **
 
 Bir aygıt de seçebilirsiniz:
 
-* *Reddetme* IOT Hub'ı ayarlamak için neden olan ileti **Deadlettered** durumu. MQTT protokolü üzerinden bağlanan aygıtları bulut-cihaz iletilerini reddedemezsiniz.
+* *Reddetme* IOT Hub'ı ayarlamak için neden olan ileti **kullanılmayan lettered** durumu. MQTT protokolü üzerinden bağlanan aygıtları bulut-cihaz iletilerini reddedemezsiniz.
 * *Abandon* ileti kümesine durumuyla kuyruğa geri koymak için IOT Hub neden olan ileti **sıraya alınan**. MQTT protokolü üzerinden bağlanan aygıtları bulut-cihaz iletilerini iptal edilemez.
 
 Bir iş parçacığı IOT hub'ı bildirmeden bir iletiyi işlemek başarısız olabilir. Bu durumda, ileti otomatik olarak gelen geçiş **görünmez** geri durum **sıraya alınan** sonra durum bir *görünürlük (veya kilidi) zaman aşımı*. Bir dakika zaman aşımı varsayılan değerdir.
 
-**Maksimum teslimat sayısı** IOT hub'ındaki özelliği belirler en fazla kaç kez bir ileti arasında geçiş **sıraya alınan** ve **görünmez** durumları. Geçişleri sayıdaki sonra IOT hub'ı iletiye durumunu ayarlar **Deadlettered**. Benzer şekilde, IOT Hub için bir ileti durumunu ayarlar **Deadlettered** kendi sona erme zamanı sonra (bkz [yaşam süresi][lnk-ttl]).
+**Maksimum teslimat sayısı** IOT hub'ındaki özelliği belirler en fazla kaç kez bir ileti arasında geçiş **sıraya alınan** ve **görünmez** durumları. Geçişleri sayıdaki sonra IOT hub'ı iletiye durumunu ayarlar **kullanılmayan lettered**. Benzer şekilde, IOT Hub için bir ileti durumunu ayarlar **kullanılmayan lettered** kendi sona erme zamanı sonra (bkz [yaşam süresi][lnk-ttl]).
 
 [IOT Hub ile bulut-cihaz iletilerini göndermek nasıl] [ lnk-c2d-tutorial] buluttan bulut-cihaz iletilerini göndermek ve bunları bir aygıtta almak nasıl gösterir.
 
@@ -73,10 +73,10 @@ Bkz: [bulut cihaz yapılandırma seçenekleri][lnk-c2d-configuration].
 
 Bir bulut cihaz ileti gönderirken hizmet ileti son durumu ile ilgili her ileti geri bildirim teslimini isteyebilirler.
 
-| ACK özelliği | Davranışı |
+| ACK özelliği | Davranış |
 | ------------ | -------- |
 | **pozitif** | Bulut cihaz iletisi ulaşırsa **tamamlandı** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
-| **negatif** | Bulut cihaz iletisi ulaşırsa **Deadlettered** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
+| **negatif** | Bulut cihaz iletisi ulaşırsa **kullanılmayan lettered** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
 | **tam**     | IOT Hub, her iki durumda da bir geri bildirim iletisi oluşturur. |
 
 Varsa **Ack** olan **tam**ve geri bildirim iletisi almadığınız, geri bildirim iletisi dolduğunu anlamına gelir. Hizmet, özgün iletiye ne bilemezsiniz. Uygulamada, bir hizmet süresi dolmadan önce bu geri bildirim işleyebilir emin olmalısınız. Bir hata oluşursa maksimum süre sonu zamanı hizmet almak için süre bırakır iki gün yeniden çalışıyor.
@@ -86,7 +86,7 @@ Varsa **Ack** olan **tam**ve geri bildirim iletisi almadığınız, geri bildiri
 | Özellik     | Açıklama |
 | ------------ | ----------- |
 | EnqueuedTime | İleti ne zaman oluşturulduğunu belirten bir zaman damgası. |
-| Kullanıcı Kimliği       | `{iot hub name}` |
+| UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 Gövde bir JSON serileştirilmiş dizisi kayıtları, her biri aşağıdaki özelliklere sahip olan:
@@ -95,9 +95,9 @@ Gövde bir JSON serileştirilmiş dizisi kayıtları, her biri aşağıdaki öze
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Ne zaman ileti sonucu olduğunu belirten bir zaman damgası. Örneğin, tamamlandı aygıt ya da ileti süresi. |
 | OriginalMessageId  | **MessageID** bu geri bildirim bilgilerini ilgili olduğu bulut cihaz iletisi. |
-| statusCode         | Gerekli dize. IOT Hub tarafından oluşturulan geri bildirim iletileri kullanılır. <br/> 'Başarılı' <br/> 'Süresi' <br/> 'DeliveryCountExceeded' <br/> 'Reddedildi' <br/> 'Temizlendi' |
+| StatusCode         | Gerekli dize. IOT Hub tarafından oluşturulan geri bildirim iletileri kullanılır. <br/> 'Başarılı' <br/> 'Süresi' <br/> 'DeliveryCountExceeded' <br/> 'Reddedildi' <br/> 'Temizlendi' |
 | Açıklama        | Dize değerlerini **StatusCode**. |
-| Cihaz kimliği           | **DeviceID** hedef cihaz bu aldığımız geri Bildirimlerden biri ilgili olduğu bulut cihaz iletisi. |
+| DeviceId           | **DeviceID** hedef cihaz bu aldığımız geri Bildirimlerden biri ilgili olduğu bulut cihaz iletisi. |
 | DeviceGenerationId | **DeviceGenerationId** bu aldığımız geri Bildirimlerden biri ilgili olduğu bulut cihaz iletisinin hedef cihaz. |
 
 Hizmet belirtmelisiniz bir **MessageID** kendi geri bildirim özgün iletiyle ilişkilendirmek bulut cihaz ileti.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 9cf5b1227e69ada46bc0b1e5ff01cc12e73598f7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft’ı Azure Container Service ve Azure Container Registry ile kullanarak bir uygulama oluşturma ve Kubernetes’e dağıtma
 
@@ -32,7 +32,7 @@ Kolayca [yeni Azure Container Registry](../../container-registry/container-regis
       az group create --name draft --location eastus
       ```
 
-2. Bir ACR görüntü kayıt defterini kullanarak oluşturduğunuz [az acr oluşturma](/cli/azure/acr#create) ve emin `--admin-enabled` seçeneği `true`.
+2. Bir ACR görüntü kayıt defterini kullanarak oluşturduğunuz [az acr oluşturma](/cli/azure/acr#az_acr_create) ve emin `--admin-enabled` seçeneği `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -40,7 +40,7 @@ Kolayca [yeni Azure Container Registry](../../container-registry/container-regis
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Kubernetes ile Azure Container Service oluşturma
 
-Artık [az acs create](/cli/azure/acs#create) komutu ile `--orchestrator-type` değeri olarak Kubernetes’i kullanarak bir ACS kümesi oluşturmaya hazırsınız.
+Artık [az acs create](/cli/azure/acs#az_acs_create) komutu ile `--orchestrator-type` değeri olarak Kubernetes’i kullanarak bir ACS kümesi oluşturmaya hazırsınız.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -220,7 +220,7 @@ Etki alanı sağlayıcınız, DNS sunucularını atamak için kendi yöntemini k
     ```
 
 2. Etki alanınız için bir DNS bölgesi oluşturun.
-Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiyorsanız [az network dns zone create](/cli/azure/network/dns/zone#create) komutunu kullanarak ad sunucularını edinin.
+Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiyorsanız [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) komutunu kullanarak ad sunucularını edinin.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {

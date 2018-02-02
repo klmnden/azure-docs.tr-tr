@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
 ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Application Insights'ta Analytics kullanma
 [Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfaları günlük analizi sorgu dili açıklanmaktadır.
@@ -109,7 +109,7 @@ Beklediğiniz tüm sonuçları görmüyorsanız düşünüyorsanız, birkaç ola
 
   * [zaman damgası tarafından ilk 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
   * [100 alın](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
-  * [Özetle](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [summarize ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
   * [Burada zaman damgası > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (10'dan fazla k satırları istiyorsunuz? Kullanmayı [sürekli verme](app-insights-export-telemetry.md) yerine. Analytics alınırken ham verileri yerine analiz için tasarlanmıştır.)

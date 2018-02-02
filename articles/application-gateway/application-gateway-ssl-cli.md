@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
 ms.author: davidmu
-ms.openlocfilehash: f0a18f940cf3b4bbedd4b8e5c89cbbeb1bafef77
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>İle SSL sonlandırma Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
 
@@ -137,17 +137,6 @@ az vmss create \
 
 ### <a name="install-nginx"></a>NGINX yükleme
 
-Bulut Kabuğu'nda dosya oluşturmak istediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Girin `sensible-editor cloudConfig.json` dosyası oluşturmak için kullanılabilir düzenleyicileri listesini görmek için. Geçerli kabuğunuzu customConfig.json adlı bir dosya oluşturun ve aşağıdaki yapılandırma yapıştırın:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Bu komut kabuğu penceresinde çalıştırın:
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -155,7 +144,8 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
@@ -172,7 +162,7 @@ az network public-ip show \
 
 ![Güvenli uyarı](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Kendinden imzalı bir sertifika kullanıyorsa uyarı güvenlik kabul etmeyi seçin **ayrıntıları** ve ardından **Web sayfasına gidin**. Güvenli NGINX sitenizi sonra aşağıdaki örnekte olduğu gibi görüntülenir:
+Kendinden imzalı bir sertifika kullanıyorsa uyarı güvenlik kabul etmeyi seçin **ayrıntıları** ve ardından **Web sayfasına gidin**. Güvenli NGINX siteniz, sonra aşağıdaki örnekte olduğu gibi görüntülenir:
 
 ![Temel uygulama ağ geçidi URL'de test](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 

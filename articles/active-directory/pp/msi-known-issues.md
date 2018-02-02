@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8194e6bab35fe7a486fcc3bf0cdf5b00fcd9000c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
 
@@ -61,9 +61,12 @@ Konumlar:
 ### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>RBAC rolleri için kullanıcı atanan kimlikleri var mı?
 Evet:
 1. MSI katkıda bulunan: 
+
 - Yapabilirsiniz: CRUD atanan kullanıcı kimlikleri. 
 - : Bir kullanıcı için bir kaynak kimliği atanır atayamazsınız. (yani kimliğini bir VM'ye atama)
+
 2. MSI işleci: 
+
 - Can: bir kaynağa atanmış kullanıcı kimliği atayın. (yani kimliğini bir VM'ye atama)
 - Şunları yapamaz: CRUD atanan kullanıcı kimlikleri.
 
@@ -118,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - MSI'lerini atanan tüm kullanıcı kaldırmanın tek yolu sistem etkinleştirerek MSI atanır. 
 - Bir VM VM uzantısının sağlama DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin. 
-- Azure CLI: `Az resource show` ve `Az resource list` bir VM üzerinde MSI atanmış bir kullanıcı ile başarısız olur. Geçici bir çözüm olarak, lütfen kullanın`az vm/vmss show`
+- 'Varolmayan' MSI eklemek VM başarısız olmasına neden olur. *Not: Düzeltme MSI yoksa, Ata-identity başarısız toplu genişletme*
 - Azure depolama Öğreticisi yalnızca şu anda merkezi BİZE EUAP içinde kullanılabilir. 
-- Atanmış bir kullanıcı MSI bir kaynağa erişim izni verildiğinde, "Erişim veri alınamıyor." kaynağı için IAM dikey gösterir Geçici bir çözüm olarak, bu kaynak için rol atamalarını görüntüleyin/düzenleyin için CLI kullanın.
-- MSI adında alt çizgi ile atanmış bir kullanıcı oluşturma, desteklenmiyor.
+- MSI adında özel karakterler (örneğin, alt çizgi) ile atanmış bir kullanıcı oluşturma, desteklenmiyor.
 - İkinci bir kullanıcı ekleme kimlik atandığında ClientID belirteçleri istekleri için kullanılamayabilir. Bir azaltma, aşağıdaki iki bash komutlarla MSI VM uzantısı yeniden başlatın:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

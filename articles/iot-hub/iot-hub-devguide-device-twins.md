@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT hub'da cihaz çiftlerini kullanın
 
@@ -58,47 +58,49 @@ Cihaz çifti içeren bir JSON belgesi şöyledir:
 
 Aşağıdaki örnek, bir cihaz çifti JSON belgesi gösterir:
 
-        {
-            "deviceId": "devA",
-            "etag": "AAAAAAAAAAc=", 
-            "status": "enabled",
-            "statusReason": "provisioned",
-            "statusUpdateTime": "0001-01-01T00:00:00",
-            "connectionState": "connected",
-            "lastActivityTime": "2015-02-30T16:24:48.789Z",
-            "cloudToDeviceMessageCount": 0, 
-            "authenticationType": "sas",
-            "x509Thumbprint": {     
-                "primaryThumbprint": null, 
-                "secondaryThumbprint": null 
-            }, 
-            "version": 2, 
-            "tags": {
-                "$etag": "123",
-                "deploymentLocation": {
-                    "building": "43",
-                    "floor": "1"
-                }
-            },
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata" : {...},
-                    "$version": 1
-                },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": 55,
-                    "$metadata" : {...},
-                    "$version": 4
-                }
-            }
+```json
+{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=", 
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0, 
+    "authenticationType": "sas",
+    "x509Thumbprint": {     
+        "primaryThumbprint": null, 
+        "secondaryThumbprint": null 
+    }, 
+    "version": 2, 
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": 55,
+            "$metadata" : {...},
+            "$version": 4
+        }
+    }
+}
+```
 
 Kök nesnesinde cihaz kimlik özelliklerdir ve kapsayıcı nesneleri için `tags` ve her ikisi de `reported` ve `desired` özellikleri. `properties` Kapsayıcısı bazı salt okunur öğeleri içerir (`$metadata`, `$etag`, ve `$version`) açıklanan [cihaz çifti meta verilerini] [ lnk-twin-metadata] ve [ İyimser eşzamanlılık] [ lnk-concurrency] bölümler.
 
@@ -112,26 +114,32 @@ Kök nesnesinde cihaz kimlik özelliklerdir ve kapsayıcı nesneleri için `tags
 Önceki örnekte, `telemetryConfig` cihaz çifti istenen ve bildirilen özellikler çözüm arka ucu ve cihaz uygulaması tarafından bu cihaz için telemetri yapılandırma eşitlemek için kullanılır. Örneğin:
 
 1. Çözüm arka ucu istenen özelliği istenen yapılandırma değeri ayarlar. İstenen özellik kümesine sahip belge kısmı şöyledir:
-   
-        ...
-        "desired": {
-            "telemetryConfig": {
-                "sendFrequency": "5m"
-            },
-            ...
+
+    ```json
+    ...
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
         },
         ...
+    },
+    ...
+    ```
+
 2. Cihaz uygulaması hemen bağlıysa değişiklik ya da ilk yeniden bağlanma sırasında bildirilir. Cihaz uygulaması güncelleştirilmiş yapılandırmayı daha sonra raporlar (veya bir hata koşulu kullanarak `status` özelliği). Bildirilen özellikleri kısmı şöyledir:
-   
-        ...
-        "reported": {
-            "telemetryConfig": {
-                "sendFrequency": "5m",
-                "status": "success"
-            }
-            ...
+
+    ```json
+    ...
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
         }
         ...
+    }
+    ...
+    ```
+
 3. Çözüm arka ucu yapılandırma işleminin sonuçlarını birçok cihaz arasında göre izleyebilirsiniz [sorgulama] [ lnk-query] cihaz çiftlerini.
 
 > [!NOTE]
@@ -144,23 +152,26 @@ Bellenim güncelleştirmeleri gibi uzun süre çalışan işlemleri eşitlemek i
 ## <a name="back-end-operations"></a>Arka plan işlemleri
 Çözüm arka ucu HTTPS kullanıma sunulan aşağıdaki atomik işlemleri kullanarak cihaz çifti çalıştırır:
 
-* **Cihaz çifti kimliğine göre almak**. Bu işlem, etiketler ve istenen ve bildirilen sistem özellikleri dahil olmak üzere cihaz çifti belge döndürür.
+* **Cihaz çifti Kimliğine göre almak**. Bu işlem, etiketler ve istenen ve bildirilen sistem özellikleri dahil olmak üzere cihaz çifti belge döndürür.
 * **Cihaz çifti kısmen güncelleştirmek**. Bu işlem etiketler veya cihaz çifti istenen özelliklerinde kısmen güncelleştirmek çözüm arka ucu sağlar. Kısmi güncelleştirmeyi ekler veya herhangi bir özellik güncelleştirmeleri bir JSON belgesi olarak ifade edilir. Özelliklerini ayarlamak `null` kaldırılır. Aşağıdaki örnek yeni bir istenen özellik değeri ile oluşturur `{"newProperty": "newValue"}`, var olan değerini geçersiz kılar `existingProperty` ile `"otherNewValue"`ve kaldırır `otherOldProperty`. Herhangi bir değişiklik mevcut istenen özellikleri veya etiketleri oluşturulur:
-   
-        {
-            "properties": {
-                "desired": {
-                    "newProperty": {
-                        "nestedProperty": "newValue"
-                    },
-                    "existingProperty": "otherNewValue",
-                    "otherOldProperty": null
-                }
+
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
             }
         }
+    }
+    ```
+
 * **İstenen Özellikleri Değiştir**. Bu işlem tamamen varolan tüm istenen özellikler üzerine ve yeni bir JSON belgesi için alternatif çözüm arka ucu sağlayan `properties/desired`.
 * **Etiketleri değiştirmek**. Bu işlem tamamen varolan tüm etiketleri üzerine ve yeni bir JSON belgesi için alternatif çözüm arka ucu sağlayan `tags`.
-* **Twin bildirimlerin**. Bu işlem twin değiştirildiğinde bildirim almak çözüm arka ucu sağlar. Bunu yapmak için IOT çözümünüzün bir rota oluşturmak ve veri kaynağı eşit ayarlamak için gereken *twinChangeEvents*. Varsayılan olarak, hiçbir twin bildirimler gönderilir, diğer bir deyişle, bu tür bir yollar önceden mevcut. Değişiklik hızı çok yüksekse, veya diğer nedenlerle iç hataları gibi IOT hub'ı tüm değişiklikleri içeren tek bir bildirim gönderebilirsiniz. Uygulamanızı güvenilir denetim ve tüm ara durumlarıyla ilgili günlük gerekiyorsa, bu nedenle, daha sonra hala D2C iletileri kullanan önerilir. Özellikler ve gövde twin bildirim iletisi içerir.
+* **Twin bildirimlerin**. Bu işlem twin değiştirildiğinde bildirim almak çözüm arka ucu sağlar. Bunu yapmak için IOT çözümünüzün bir rota oluşturmak ve veri kaynağı eşit ayarlamak için gereken *twinChangeEvents*. Varsayılan olarak, hiçbir twin bildirimler gönderilir, diğer bir deyişle, bu tür bir yollar önceden mevcut. Değişiklik hızı çok yüksekse, veya diğer nedenlerle iç hataları gibi IOT hub'ı tüm değişiklikleri içeren tek bir bildirim gönderebilirsiniz. Bu nedenle, uygulamanızın güvenilir denetim ve tüm ara durumlarıyla ilgili günlük gerekirse, cihaz bulut iletilerini kullanmanız gerekir. Özellikler ve gövde twin bildirim iletisi içerir.
 
     - Özellikler
 
@@ -168,12 +179,12 @@ Bellenim güncelleştirmeleri gibi uzun süre çalışan işlemleri eşitlemek i
     | --- | --- |
     $content-türü | uygulama/json |
     $iothub-enqueuedtime |  Zaman zaman bildirim gönderildi |
-    $iothub-ileti-kaynak | twinChangeEvents |
-    $content-kodlama | UTF-8 |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
     deviceId | Cihaz kimliği |
     hubName | IOT hub'ının adı |
     operationTimestamp | [ISO8601] işleminin zaman damgası |
-    ıothub ileti şeması | deviceLifecycleNotification |
+    iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" veya "updateTwin" |
 
     İleti sistemi özelliklerini öneki ile `'$'` simgesi.
@@ -181,7 +192,8 @@ Bellenim güncelleştirmeleri gibi uzun süre çalışan işlemleri eşitlemek i
     - Gövde
         
     Bu bölüm bir JSON biçiminde tüm twin değişiklikleri içerir. Bir düzeltme eki aynı biçimi kullanır, farkı olan tüm twin bölümleri içerebilir: etiketleri, properties.reported, properties.desired ve "$metadata" öğeleri içerir. Örneğin,
-    ```
+
+    ```json
     {
         "properties": {
             "desired": {
@@ -198,10 +210,10 @@ Bellenim güncelleştirmeleri gibi uzun süre çalışan işlemleri eşitlemek i
             }
         }
     }
-    ``` 
+    ```
 
 Önceki tüm işlemleri destekleyen [iyimser eşzamanlılık] [ lnk-concurrency] ve gerektiren **ServiceConnect** tanımlandığı şekilde izin [güvenlik] [ lnk-security] makalesi.
- 
+
 Bu işlemlerin yanı sıra çözüm arka ucu yapabilirsiniz:
 
 * SQL benzeri kullanarak cihaz çiftlerini sorgulamak [IOT hub'ı sorgu dili][lnk-query].
@@ -225,23 +237,25 @@ Etiketler, istenen özellikleri ve bildirilen özellikleri JSON nesnelerinin aş
 * JSON nesnelerinin tüm değerleri aşağıdaki JSON türde olabilir: boolean, sayı, dize, nesne. Diziler izin verilmiyor. Tamsayı değeri en fazla 4503599627370495 ve tamsayılar için en düşük değer-4503599627370496.
 * Etiketler, istenen ve bildirilen özellikleri tüm JSON nesnelerinin maksimum derinliği 5 olabilir. Örneğin, aşağıdaki nesne geçerli değil:
 
-        {
-            ...
-            "tags": {
-                "one": {
-                    "two": {
-                        "three": {
-                            "four": {
-                                "five": {
-                                    "property": "value"
-                                }
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
                             }
                         }
                     }
                 }
-            },
-            ...
-        }
+            }
+        },
+        ...
+    }
+    ```
 
 * Tüm dize değeri uzunluğu en fazla 4 KB olabilir.
 
@@ -254,48 +268,50 @@ IOT hub'ı bir hata ile bu belgelerin sınırı üstünde boyutunu artırır tü
 IOT Hub cihaz çiftine her bir JSON nesnesi için son güncelleştirme zaman damgası istenen ve Özellikler bildirilen korur. Zaman damgaları UTC biçimindedir ve kodlanmış [ISO8601] biçimi `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Örneğin:
 
-        {
-            ...
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": {
-                                "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
-                    "$version": 23
+                    "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": "55%",
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": "5m",
-                            "status": {
-                                "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        }
-                        "batteryLevel": {
-                            "$lastUpdated": "2016-04-01T16:35:48.789Z"
-                        },
-                        "$lastUpdated": "2016-04-01T16:24:48.789Z"
-                    },
-                    "$version": 123
-                }
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
+            },
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
             }
-            ...
+            "batteryLevel": "55%",
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": "5m",
+                    "status": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
+                },
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
+    }
+    ...
+}
+```
 
 Bu bilgiler, Nesne anahtarları kaldırmak güncelleştirmeleri korumak için her düzeyde (yalnızca JSON yapısındaki bırakır) tutulur.
 
@@ -336,7 +352,7 @@ IOT Hub Geliştirici Kılavuzu'ndaki diğer başvuru konuları içerir:
 * [Bir cihazda doğrudan bir yöntem çağırma][lnk-methods]
 * [Birden çok aygıta işleri zamanla][lnk-jobs]
 
-Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıdaki IOT hub'ı öğreticilerde ilgilenen olabilir:
+Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki IOT hub'ı öğreticileri bakın:
 
 * [Cihaz çifti kullanma][lnk-twin-tutorial]
 * [Cihaz çifti özellikleri kullanma][lnk-twin-properties]

@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>Bulut Kabuk depolama Bash'te nasıl çalışır? 
 Bulut Kabuk bash'te dosyalar aşağıdaki yöntemlerin her ikisi de ile devam eder: 
@@ -69,12 +69,12 @@ Dosya paylaşımınızı el ile silmediğiniz sürece var olmaya devam eder. Bul
 ![Çalışan ' clouddrive unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Bu komutu çalıştırmak el ile silinmesi bir kaynak grubu, depolama hesabı, herhangi bir kaynağa silmez veya Bulut Kabuk eşlenmiş dosya paylaşımını silme olsa da, `$Home` dizin disk görüntüsü ve dosya paylaşımınızı klasördeki tüm dosyaları. Bu eylem geri alınamaz.
+> Bu komutu çalıştıran herhangi bir kaynağa silmez ancak el ile bir kaynak grubu, depolama hesabı ya da bulut Kabuk eşlenmiş dosya paylaşımını silme siler, `$Home` dizin disk görüntüsü ve dosya paylaşımınızı klasördeki tüm dosyaları. Bu eylem geri alınamaz.
 
 ## <a name="list-clouddrive"></a>Liste`clouddrive`
 Hangi dosya paylaşımı olarak takılı bulmak için `clouddrive`, çalışma `df` komutu. 
 
-URL'de, depolama hesabı adı ve dosya paylaşımı clouddrive dosya yolunu gösterir. Örneğin, `//storageaccountname.file.core.windows.net/filesharename`
+URL'de, depolama hesabı adı ve dosya paylaşımı clouddrive dosya yolu gösterir. Örneğin, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,7 +88,7 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bulut Kabuk hızlı başlangıcı bash](quickstart.md) <br>

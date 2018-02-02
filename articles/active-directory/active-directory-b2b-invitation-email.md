@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: b84dba6aa7ac11aef6d958d72564b8b83514a753
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B işbirliği davet e - Azure Active Directory öğeleri
 
@@ -32,7 +32,7 @@ En iyi şekilde nasıl yeteneklerini kullanmak için bilmesi e-postanın birkaç
 E-postanın konu şu deseni izler: davet ettiğiniz &lt;tenantname&gt; kuruluş
 
 ### <a name="from-address"></a>Gönderici adresi
-Başlangıç adresi için bir LinkedIn desen kullanırız.  Davet eden olan temizleyin ve hangi şirket ve ayrıca bir Microsoft e-posta geliyor açıklamak e-posta adresi gerekir. Biçim: &lt;davet eden görünen adını&gt; gelen &lt;tenantname&gt; (aracılığıyla Microsoft) <invites@microsoft.com&gt;
+Başlangıç adresi için bir LinkedIn desen kullanırız.  Davet eden olan temizleyin ve hangi şirket ve ayrıca bir Microsoft e-posta geliyor açıklamak e-posta adresi gerekir. Biçim: &lt;davet eden görünen adını&gt; gelen &lt;tenantname&gt; (aracılığıyla Microsoft)<invites@microsoft.com>
 
 ### <a name="reply-to"></a>Yanıtla
 E-posta yanıtlama geri davet eden bir e-posta gönderir Yanıtla e-posta davet eden'ın e-posta için kullanılabilir olduğunda ayarlanır.

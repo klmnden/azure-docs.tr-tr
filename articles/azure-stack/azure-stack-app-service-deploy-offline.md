@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure yığın ortam için bir uygulama hizmeti kaynak Sağlayıcısı Ekle
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 Bu makaledeki yönergeleri izleyerek yükleyebilirsiniz [uygulama hizmeti kaynak sağlayıcısı](azure-stack-app-service-overview.md) bir Azure yığın ortam için:
 - internet'e bağlı değil
@@ -98,7 +99,7 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
 
     | Box | Sertifika dosyası adı örneği |
     | --- | --- |
-    | **Uygulama hizmeti varsayılan SSL sertifika dosyası** | \_. appservice.local.AzureStack.external.pfx |
+    | **Uygulama hizmeti varsayılan SSL sertifika dosyası** | \_.appservice.local.AzureStack.external.pfx |
     | **Uygulama hizmeti API SSL sertifika dosyası** | api.appservice.local.AzureStack.external.pfx |
     | **Uygulama hizmeti yayımcı SSL sertifika dosyası** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -114,7 +115,7 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
 
      > [!NOTE]
      > Üretim dağıtımlarında yer alan yönergeleri izleyerek, [kapasite Azure yığınında Azure App Service sunucu rolleri için planlama](azure-stack-app-service-capacity-planning.md).
-     > 
+     >
      >
 
     | Rol | Minimum örnekleri | Minimum SKU | Notlar |

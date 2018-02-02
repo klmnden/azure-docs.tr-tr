@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>IOT Hub ile dosyaları karşıya yükleme
 
@@ -96,14 +96,14 @@ Aşağıdaki başvuru konuları aygıttan dosyaları karşıya yükleme hakkınd
 
 ## <a name="file-upload-notifications"></a>Dosya karşıya yükleme bildirimleri
 
-Bir cihaz IOT hub'ı bir karşıya yükleme tamamlandığını bildirir, isteğe bağlı olarak, IOT hub'ı dosyasının adını ve depolama konumunu içeren bir bildirim iletisi oluşturabilir.
+İsteğe bağlı olarak, bir cihaz IOT hub'ı bir karşıya yükleme tamamlanana bildirdiğinde, IOT hub'ı dosyasının adını ve depolama konumunu içeren bir bildirim iletisi oluşturur.
 
 İçinde anlatıldığı gibi [uç noktaları][lnk-endpoints], IOT hub'ı sunan bir hizmet'e yönelik uç noktası aracılığıyla dosya karşıya yükleme bildirimleri (**/messages/servicebound/fileuploadnotifications**) iletileri olarak. Dosya karşıya yükleme bildirimlerini alma anlamları bulut-cihaz iletilerini aynıdır ve aynı olan [ileti yaşam döngüsü][lnk-lifecycle]. Dosya karşıya yükleme bildirim uç noktasından alınan her ileti, aşağıdaki özelliklere sahip bir JSON kaydıdır:
 
 | Özellik | Açıklama |
 | --- | --- |
 | EnqueuedTimeUtc |Bildirim ne zaman oluşturulduğunu belirten bir zaman damgası. |
-| Cihaz kimliği |**DeviceID** olan dosya karşıya cihaz. |
+| DeviceId |**DeviceID** olan dosya karşıya cihaz. |
 | BlobUri |Yüklenen dosya URI'si. |
 | BlobName |Karşıya yüklenen dosyanın adı. |
 | LastUpdatedTime |Dosyanın en son güncelleştirildiği belirten bir zaman damgası. |
@@ -153,7 +153,7 @@ IOT hub'ı kullanarak cihazları dosyaları karşıya yüklemek öğrendiniz art
 * [Bir cihazda doğrudan bir yöntem çağırma][lnk-devguide-directmethods]
 * [Birden çok aygıta işleri zamanla][lnk-devguide-jobs]
 
-Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıdaki IOT hub'ı öğreticide ilgilenen olabilir:
+Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki IOT hub'ı öğretici bakın:
 
 * [IOT Hub ile bulut aygıtlardan dosyaları karşıya yükleme yapma][lnk-fileupload-tutorial]
 

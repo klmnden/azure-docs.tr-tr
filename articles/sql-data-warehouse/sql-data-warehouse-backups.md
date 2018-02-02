@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Yedekleme ve geri yükleme SQL veri ambarı
 Bu makalede SQL Data Warehouse yedeklemelerin özellikleri açıklanmaktadır. Birincil bölge için anlık görüntü bir veritabanını geri yüklemek için veri ambarı yedekleri kullanın veya coğrafi yedekleme coğrafi eşleştirilmiş bölgenizi geri yükleyin. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>Coğrafi yedekleri
 SQL veri ambarı gerçekleştirir coğrafi yedekleme için günde bir kez bir [eşleştirilmiş veri merkezi](../best-practices-availability-paired-regions.md). RPO bir coğrafi geri yükleme için 24 saattir. Sunucunun coğrafi eşleştirilmiş bölgede coğrafi yedekleme geri yükleyebilirsiniz. coğrafi yedekleme anlık görüntüleri birincil bölgenizde erişemiyor durumunda, veri ambarı geri yükleyebilirsiniz sağlar.
 
-Coğrafi yedeklemeleri varsayılan olarak açıktır. Veri ambarınız esneklik için optimize edilmiştir, yapabilecekleriniz [çıkma](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) istiyorsanız. En iyi duruma getirilmiş ile coğrafi yedek dışında kabul edemiyor işlem performans katmanı.
+Coğrafi yedeklemeleri varsayılan olarak açıktır. Veri ambarınız esneklik için optimize edilmiştir, yapabilecekleriniz [çıkma](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) istiyorsanız. En iyi duruma getirilmiş ile coğrafi yedek dışında kabul edemiyor işlem performans katmanı.
 
 ## <a name="backup-costs"></a>Yedekleme maliyetleri
 Azure Premium Storage ve coğrafi olarak yedekli depolama için bir satır öğesi için bir satır öğesi Azure faturasını sahip fark edeceksiniz. Premium depolama ücret anlık görüntüleri içeren birincil bölgede verilerinizi depolamak için toplam maliyetidir.  Coğrafi olarak yedekli ücret coğrafi yedeklemelerini depolamak için maliyet kapsar.  

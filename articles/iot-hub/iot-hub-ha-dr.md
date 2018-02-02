@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IOT hub'ı yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 Bir Azure hizmeti IOT hub'ı çözümü tarafından gerekli herhangi bir ek iş olmadan Azure bölgesi düzeyinde açarken kullanarak yüksek kullanılabilirlik (HA) sağlar. Microsoft Azure platformu da olağanüstü durum kurtarma (DR) özelliklerini veya çapraz bölge kullanılabilirlik çözümleri oluşturmanıza yardımcı olmak için özellikler içerir. Genel sağlamak istiyorsanız, çapraz bölge yüksek kullanılabilirlik aygıtların veya kullanıcıların, bu Azure DR özelliklerden alın. Makaleyi [Azure iş sürekliliği teknik kılavuz](../resiliency/resiliency-technical-guidance.md) iş sürekliliği ve DR için Azure içinde yerleşik özellikler açıklanmaktadır. [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma] [ Disaster recovery and high availability for Azure applications] kağıt HA ve DR elde etmek Azure uygulamalarını stratejileri hakkında mimari yönergeleri sağlar.
 
-## <a name="azure-iot-hub-dr"></a>Azure IOT hub'ı DR
+## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
 İçi bölge HA ek olarak, IOT hub'ı olağanüstü durum kurtarma için hiçbir kullanıcı müdahalesi gerekli yük devretme mekanizmaları uygular. IOT Hub DR otomatik olarak başlatılır ve bir kurtarma süresi hedefi (RTO) 2-26 saat ve aşağıdaki kurtarma noktası hedefi (RPO'lar) vardır:
 
 | İşlev | RPO |
@@ -34,6 +34,8 @@ Bir Azure hizmeti IOT hub'ı çözümü tarafından gerekli herhangi bir ek iş 
 | İleti izleme işlemleri |Okunmamış iletileri kaybolur |
 | Bulut-cihaz iletilerini |0-5 dakika veri kaybı |
 | Bulut cihaz geri bildirim kuyruğu |Okunmamış iletileri kaybolur |
+| Cihaz çifti verileri |0-5 dakika veri kaybı |
+| Üst ve cihaz işleri |0-5 dakika veri kaybı |
 
 ## <a name="regional-failover-with-iot-hub"></a>IOT Hub ile bölgesel yük devretme
 Dağıtım topolojileri IOT çözümlerinde tam işlenmesi bu makalenin kapsamı dışındadır ' dir. Makalede ele *bölgesel yük devretme* yüksek kullanılabilirlik ve olağanüstü durum kurtarma amacıyla dağıtım modeli.

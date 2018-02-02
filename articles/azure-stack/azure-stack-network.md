@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 43d79a8c14751ee25eaca7a3b50649702d159d76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-## <a name="network-connectivity"></a>Ağ bağlantısı
+# <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makale Azure yığın mevcut ağ ortamınıza en iyi tümleştirmek nasıl karar vermenize yardımcı olacak Azure yığın ağ altyapı bilgileri sağlar. 
 
 > [!NOTE]
@@ -62,10 +62,10 @@ Bu /24 (254 ana bilgisayar IP'ın) ağ (Azure yığın bölgesinin kenarlık ana
 - **İç sanal IP ağ**. A/25-yalnızca iç atanmış VIP'ler yazılım yük dengeleyici için ağ.
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure yığın altyapı ağı
-Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure yığın bileşenleri için ayrılmış. Bu alt ağ olarak yönlendirilebilir IP adreslerinin gerektiriyor, ancak erişim denetim listeleri (ACL'ler) kullanarak çözüme özel tutulur, bir/27 boyutu eşdeğer çok küçük bir aralık dışında kenarlık anahtarları ötesinde yönlendirilecek beklenen değil bunlardan bazıları tarafından kullanılan ağ Dış Kaynaklar ve/veya internet erişimi gerektirdiğinde Hizmetleri. 
+Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure yığın bileşenleri için ayrılmış. Bu alt ağ olarak yönlendirilebilir IP adreslerinin gerektiriyor, ancak erişim denetim listeleri (ACL'ler) kullanarak çözüme özel tutulur. Kenarlık anahtarlar için/27 boyutu eşdeğer küçük bir aralık dışında ötesinde yönlendirilecek beklenen değil dış kaynaklara ve/veya internet erişimi gerektirdiğinde bu hizmetlerden bazılarını tarafından kullanılan ağ. 
 
 ### <a name="public-infrastructure-network"></a>Ortak altyapı ağı
-Bu/27 ağdır daha önce bahsedilen Azure yığın altyapı alt ağdan çok küçük bir aralık, genel IP adresleri gerektirmez, ancak bir NAT veya saydam Proxy üzerinden Internet erişimi gerektirir. Bu ağ Acil Durum Kurtarma Konsolu sistem (ERCS) için ayrılacak, ERCS VM Azure kayıt sırasında Internet erişimi gerektirir ve sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
+Bu/27 ağdır daha önce bahsedilen Azure yığın altyapı alt ağdan küçük bir aralık, genel IP adresleri gerektirmez, ancak bir NAT veya saydam Proxy üzerinden Internet erişimi gerektirir. Bu ağ Acil Durum Kurtarma Konsolu sistem (ERCS) için ayrılacak, ERCS VM Azure kayıt sırasında Internet erişimi gerektirir ve sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
 
 ### <a name="public-vip-network"></a>Ortak VIP ağ
 Ortak VIP ağ Azure yığınında Ağ denetleyicisi atanır. Bir mantıksal ağ anahtarı üzerindeki değil. SLB adres havuzu kullanır ve atar/32 Kiracı İş yükleri için ağları. Geçiş yönlendirme tablosu üzerinde bu 32 IP'leri BGP aracılığıyla kullanılabilir bir yolu olarak bildirildiğini. Bu ağ, dış erişilebilir veya genel IP adresleri içerir. Kalan Kiracı VM'ler tarafından kullanılırken Azure yığın altyapısı bu ortak VIP ağdan en az 8 adres kullanır. Bu alt ağ boyutu en fazla /22 (1022 konakları) için en az /26 (64 konakları) aralığı, bir/24 için planlama öneririz ağ.
@@ -82,12 +82,7 @@ Azure yığın Hizmetleri kullanıcıların dış Azure yığınından kullanıl
 ### <a name="ports-and-urls"></a>Bağlantı noktaları ve URL'leri
 Azure yığın Hizmetleri yapma (portalları gibi Azure Resource Manager, DNS, vb.) kullanılabilir dış ağlara, gelen trafiğe Bu uç noktalar için belirli URL'leri, bağlantı noktalarını ve protokolleri izin vermeniz gerekir.
  
-Bir dağıtımda saydam proxy yukarı burada geleneksel proxy sunucusu belirli bağlantı noktalarını ve URL'ler giden iletişim için izin vermelidir. Bu bağlantı noktaları ve URL'leri kimlik, Market dağıtım, düzeltme ve güncelleştirme, kayıt ve kullanım verilerini içerir.
-
-Daha fazla bilgi için bkz.
-- [Gelen bağlantı noktalarını ve protokolleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [Giden bağlantı noktaları ve URL'leri](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+Bir dağıtımda saydam proxy yukarı bağlantılar burada geleneksel proxy sunucusu belirli bağlantı noktalarını ve URL'leri her ikisi için izin vermelidir [gelen](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) ve [giden](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) iletişim. Bu bağlantı noktaları ve URL'leri kimlik, Market dağıtım, düzeltme ve güncelleştirme, kayıt ve kullanım verilerini içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure yığın kenarlık bağlantısı](azure-stack-border-connectivity.md)
+[Kenarlık bağlantısı](azure-stack-border-connectivity.md)

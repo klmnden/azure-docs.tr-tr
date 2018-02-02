@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IOT hub'ı öğreticileri ile çalışmaya başlama
 
 Nesnelerin interneti (IOT) çözümleri oluşturmak için Azure IOT Hub ve Azure IOT cihaz SDK'ları kullanabilirsiniz:
 
 * Azure IOT Hub, güvenli bir şekilde bağlanır, izler ve IOT cihazları yöneten bulut tam olarak yönetilen bir hizmettir. IOT cihazlarınızı uygulamak için Azure IOT cihaz SDK'ları kullanın.
-* Bir IOT ağ geçidi daha karmaşık IOT senaryolarda kullanın. Örneğin, burada, eski aygıtlar, bant genişliği maliyetlerini, güvenlik ve gizlilik ilkeleri veya edge veri işleme gibi etkenleri göz önünde bulundurmak gerekir. Bu senaryolarda, cihazlarını IOT hub'ınızı bağlayan bir ağ geçidi uygulamak için Azure IOT kenar kullanın.
+* Bir IOT ağ geçidi daha karmaşık IOT senaryolarda kullanın. Örneğin, burada, eski aygıtlar, bant genişliği maliyetlerini, güvenlik ve gizlilik ilkeleri veya edge veri işleme gibi etkenleri göz önünde bulundurmak gerekir. Bu senaryolarda kullanmak [Azure IOT kenar](https://docs.microsoft.com/azure/iot-edge/) cihazlarını IOT hub'ınızı bağlayan bir ağ geçidi uygulamak için.
 
 ## <a name="what-the-tutorials-cover"></a>Ne öğreticileri kapsar
 
@@ -41,9 +41,9 @@ Bir IOT cihaz veya ağ geçidi Azure IOT Hub'ına bağlanın. Başlamak için bi
 | Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
 | IOT DevKit                       | [VSCode Arduino][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
-| Adafruit yumuşatma HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
-| Sparkfun ESP8266 şey geliştirme       | [Arduino][Th_Ard]              |
-| Adafruit yumuşatma M0              | [Arduino][M0_Ard]              |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
+| Adafruit Feather M0              | [Arduino][M0_Ard]              |
 | Sanal cihaz PC'de           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Çevrimiçi aygıt benzeticisi         | [Böğürtlenli Pi (Node.js)][Ol_Sim] |
 

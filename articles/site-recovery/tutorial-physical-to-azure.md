@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarma ayarlama
 
@@ -33,7 +33,7 @@ Bu öğretici, şirket içi fiziksel Windows ve Linux sunucularının Azure ola�
 > * Çoğaltma ilkesi oluşturma
 > * Bir sunucu için çoğaltmayı etkinleştirme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -64,7 +64,7 @@ Azure hesabınız Azure VM'ler, çoğaltma için izinleri olduğundan emin olun.
 
 ### <a name="set-up-an-azure-network"></a>Azure ağı ayarlama
 
-Ayarlanmış bir [Azure ağ](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Ayarlanmış bir [Azure ağ](../virtual-network/quick-create-portal.md).
 
 - Yük devretme sonrasında oluşturulduğunda azure sanal makineleri bu ağda yerleştirilir.
 - Ağın kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir

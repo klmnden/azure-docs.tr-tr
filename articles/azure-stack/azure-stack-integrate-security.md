@@ -2,17 +2,18 @@
 title: "Azure yığın datacenter tümleştirmesi - güvenlik"
 description: "Azure yığın güvenlik, veri merkezi güvenliği tümleştirmek öğrenin"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Azure yığın datacenter tümleştirmesi - güvenlik
 
@@ -74,7 +75,7 @@ Aşağıdaki yordamda Azure yığını için Azure Storage Gezgini yapılandırm
 
 Bir depolama hesabına erişmek için çeşitli programlama dillerini kullanabilirsiniz. Dilinizi eşleşen bir örnek seçmek için aşağıdaki belgeleri kullanın:
 
-[https://Azure.microsoft.com/resources/Samples/?term=Storage+Account](https://azure.microsoft.com/resources/samples/?term=storage+account)
+[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
 
 ## <a name="device-access-auditing"></a>Aygıt erişim denetimi
 
@@ -93,4 +94,4 @@ Syslog hedef adresi için dağıtım toplanan isteğe bağlı bir parametredir, 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure veri merkezi tümleştirme yığın - uç noktalarını yayımlama](azure-stack-integrate-endpoints.md)
+[İlke Bakımı](azure-stack-servicing-policy.md)

@@ -15,24 +15,25 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Şema güncelleştirmeleri Azure Logic Apps için - 1 Haziran 2016
 
-Bu yeni şema ve API sürümü Azure mantıksal uygulamaları için daha güvenilir ve kullanmayı daha kolay logic apps kılmak anahtar iyileştirmeler içerir:
+[Şema güncelleştirilmiş](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) ve Azure Logic Apps için API sürümü logic apps daha güvenilir ve kullanmayı daha kolay hale kilit iyileştirmeler içerir:
 
 * [Kapsamları](#scopes) grup veya eylemler Eylemler koleksiyonu olarak iç içe sağlar.
 * [Koşullar ve döngüler](#conditions-loops) birinci sınıf Eylemler sunulmuştur.
 * Eylemler ile çalıştırmak için daha kesin sıralama `runAfter` özelliğini değiştirme`dependsOn`
 
-Mantıksal uygulamalarınızı 1 Ağustos 2015 preview şemadan 1 Haziran 2016 şemasına yükseltmek için [yükseltme bölümü denetleyin](##upgrade-your-schema).
+Mantıksal uygulamalarınızı 1 Ağustos 2015 preview şemadan 1 Haziran 2016 şemasına yükseltmek için [yükseltme bölümü denetleyin](#upgrade-your-schema).
 
 <a name="scopes"></a>
-## <a name="scopes"></a>Kapsamları
+
+## <a name="scopes"></a>Kapsamlar
 
 Bu şemayı Grup eylem birlikte veya iç içe Eylemler birbirine içinde izin kapsamları içerir. Örneğin, bir koşul başka bir koşul içerebilir. Daha fazla bilgi edinmek [kapsam sözdizimi](../logic-apps/logic-apps-loops-and-scopes.md), ya da bu temel kapsam örnek gözden geçirin:
 
@@ -57,6 +58,7 @@ Bu şemayı Grup eylem birlikte veya iç içe Eylemler birbirine içinde izin ka
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>Koşullar ve döngüler değişiklikleri
 
 Önceki şemada, tek bir eylemle ilişkili parametreler sürümleri, koşulları ve döngüleri yoktu. Koşullar ve döngüler şimdi eylem türleri olarak görünmesi için bu sınırlama, bu şemayı kaldırır. Daha fazla bilgi edinmek [döngüler ve kapsamları](../logic-apps/logic-apps-loops-and-scopes.md), veya bir koşul eylemi temel bu örneğin gözden geçirin:
@@ -86,6 +88,7 @@ Bu şemayı Grup eylem birlikte veya iç içe Eylemler birbirine içinde izin ka
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>'runAfter' özelliği
 
 `runAfter` Özelliğini değiştirir `dependsOn`, Eylemler için çalışma sırasını belirttiğiniz zaman daha yüksek duyarlılık önceki Eylemler durumlarına dayalı sağlanması.
@@ -104,7 +107,7 @@ Bu şemayı Grup eylem birlikte veya iç içe Eylemler birbirine içinde izin ka
 
 ## <a name="upgrade-your-schema"></a>Şemanızı yükseltme
 
-Yeni şemaya yükseltme, yalnızca birkaç adım alır. Yükseltme işlemi yükseltme komut dosyası çalıştıran içeren yeni bir mantıksal uygulama kaydetme ve isterseniz, büyük olasılıkla önceki mantıksal uygulama üzerine.
+Yükseltme için [en son şema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), yalnızca birkaç adım yapması gerekmez. Yükseltme işlemi yükseltme komut dosyası çalıştıran içeren yeni bir mantıksal uygulama kaydetme ve isterseniz, büyük olasılıkla önceki mantıksal uygulama üzerine.
 
 1. Azure portalda mantıksal uygulamanızı açın.
 

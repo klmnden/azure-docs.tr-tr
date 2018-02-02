@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
 
@@ -36,7 +36,7 @@ Bu makalede, oluşturmak, değiştirmek ve Azure Resource Manager dağıtım mod
 
 Bu makalede açıklanan görevler başlamadan önce aşağıdaki önkoşulları tamamlayın:
 
-- Sanal ağlar ile çalışmaya yeniyseniz alıştırmada gözden geçirmenizi öneririz [ilk Azure sanal ağınızı oluşturmak](virtual-network-get-started-vnet-subnet.md). Bu alıştırmada sanal ağlar ile daha öğrenmenize yardımcı olabilir.
+- Sanal ağlar ile çalışmaya yeniyseniz alıştırmada gözden geçirmenizi öneririz [ilk Azure sanal ağınızı oluşturmak](quick-create-portal.md). Bu alıştırmada sanal ağlar ile daha öğrenmenize yardımcı olabilir.
 - Sanal ağlar için sınırları hakkında bilgi edinmek için gözden [Azure sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Azure portalı, Azure komut satırı aracı (Azure CLI) veya Azure PowerShell'i Azure hesabınızı kullanarak oturum açın. Bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
 - Bu makalede açıklanan görevleri tamamlamak için PowerShell komutlarını kullanmayı planlıyorsanız, öncelikle [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure PowerShell cmdlet'lerinin yüklü en son sürümüne sahip olduğunuzdan emin olun. Örneklerde PowerShell komutları için Yardım almak için girin `get-help <command> -full`.
@@ -82,7 +82,7 @@ Bir sanal ağ oluşturmak için:
 |Aracı|Komut|
 |---|---|
 |Azure CLI|[az ağ vnet oluşturma](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Yeni-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>Sanal ağları görüntüle ve ayarları
 
@@ -138,7 +138,7 @@ Eklemek veya bir adres alanı kaldırmak için:
 5. Dikey penceresinde adres alanı, aşağıdaki seçeneklerden birini tamamlayın:
     - **Bir adres alanı Ekle**: yeni bir adres alanı girin. Adres alanı sanal ağ için tanımlı olan bir adres alanı ile örtüşemez.
     - **Bir adres alanı Kaldır**: bir adres alanı sağ tıklatın ve ardından **kaldırmak**. Bir alt ağ adres alanı varsa, adres alanını kaldıramazsınız. Bir adres alanı kaldırmak için hiçbir alt ağ (ve alt ağlara bağlı herhangi bir kaynağa) silmeniz gerekir adres alanında mevcut.
-6. **Kaydet** düğmesine tıklayın.
+6. **Kaydet**’e tıklayın.
 
 **Komutları**
 
@@ -162,7 +162,7 @@ Sanal ağ için belirttiğiniz DNS sunucuları ile sanal ağ kayıt bağlı tüm
         - **Bir adresi kaldırmak**: kaldırmak istediğiniz sunucuyu yanındaki tıklatın **X**. Sunucuyu silmek sunucuya yalnızca bu sanal ağ listesinden kaldırır. DNS sunucusu kullanmak için bir sanal ağlar için Azure kayıtlı kalır.
         - **DNS sunucusu adresleri yeniden sıralamak**: DNS sunucularınızın ortamınız için doğru sırada listesinde doğrulamak önemlidir. DNS sunucusu listeleri belirtildikleri sırada kullanılır. Hepsini ayarı olarak çalışmaz. Listedeki ilk DNS sunucusuna ulaşılabilirse, istemci olup DNS sunucusu düzgün bağımsız olarak, DNS sunucusunu kullanır. Listelenen tüm DNS sunucularına kaldırın ve sonra geri istediğiniz sırayla ekleyin.
         - **Adres değiştirme**: listedeki DNS sunucusunu vurgulayın ve ardından yeni bir ad girin.
-6. **Kaydet** düğmesine tıklayın.
+6. **Kaydet**’e tıklayın.
 7. Yeni DNS sunucusu ayarlarını atanmaları için sanal ağa bağlı sanal makineleri yeniden başlatın. Sanal makineleri yeniden başlatılana kadar geçerli DNS ayarlarını kullanmaya devam edin.
 
 **Komutları**
@@ -194,7 +194,7 @@ Yalnızca ona bağlı hiçbir kaynak varsa, bir sanal ağ silebilirsiniz. Sanal 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir VM oluşturun ve bir sanal ağa bağlanmak için bkz: [bir sanal ağ oluşturmak ve sanal makineleri bağlanmak](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Bir VM oluşturun ve bir sanal ağa bağlanmak için bkz: [bir sanal ağ oluşturmak ve sanal makineleri bağlanmak](quick-create-portal.md#create-virtual-machines).
 - Bir sanal ağ içindeki alt ağlara arasındaki ağ trafiğini filtrelemek için bkz: [ağ güvenlik grupları oluşturma](virtual-networks-create-nsg-arm-pportal.md).
 - Başka bir sanal ağ sanal bir ağa eş için bkz: [bir sanal ağ eşlemesi oluşturma](virtual-network-create-peering.md#portal).
 - Bir sanal ağ bir şirket içi ağa bağlamak için seçenekleri hakkında bilgi edinmek için [VPN Gateway hakkında](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f927aa7a33a650354abd090b6280795875ab693f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: efcfad2834c2d6775c6693f5c705a0531b2650d6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-bus-messaging-exceptions"></a>Hizmet Veri Yolu mesajlaşma özel durumları
 Bu makalede, Microsoft Azure hizmet API'leri ileti veri yolu tarafından oluşturulan bazı özel durumlar listelenir. Bu başvuru değiştirilebilir, bu nedenle geri Güncelleştirmeleri denetle.
 
 ## <a name="exception-categories"></a>Özel durum kategorileri
-Mesajlaşma API'lerini aşağıdaki kategorilere bunları çözmek için uygulayabileceğiniz ilişkili eylem birlikte dönebilir özel durumları oluşturur. Bir özel durum nedenleri ve anlamı Mesajlaşma varlığı (kuyruklar/konular veya olay hub'ları) türüne bağlı olarak değişebilir dikkat edin:
+Mesajlaşma API'lerini aşağıdaki kategorilere bunları çözmek için uygulayabileceğiniz ilişkili eylem birlikte dönebilir özel durumları oluşturur. Bir özel durum nedenleri ve anlamı Mesajlaşma varlık türüne bağlı olarak değişebilir dikkat edin:
 
 1. Kodlama hatası kullanıcı ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [ System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Genel eylem: devam etmeden önce kodu düzeltmeye çalışır.
 2. Kurulum/yapılandırma hatası ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Genel eylem: yapılandırmanızı inceleyin ve gerekirse değiştirin.
@@ -66,7 +66,7 @@ Aşağıdaki tabloda, Mesajlaşma özel durum türleri ve neden olur ve notlar �
 ### <a name="queues-and-topics"></a>Kuyruklar ve konu başlıkları
 Kuyruklar ve konular için bu genellikle sırasının boyutudur. Hata iletisi özelliği ayrıca aşağıdaki örnekteki gibi ayrıntıları içerir:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
 Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
@@ -75,11 +75,11 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 
 İleti durumları, konu, bu örnek 1 GB (varsayılan boyut sınırı) boyut sınırını aştı. 
 
-### <a name="namespaces"></a>ad alanları
+### <a name="namespaces"></a>Ad Alanları
 
 Ad alanları için [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) bir uygulama bir ad alanı için bağlantı sayısını aştı belirtebilirsiniz. Örneğin:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
 <tracking-id-guid>_G12 ---> 
 System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
@@ -93,9 +93,6 @@ Bu hatanın ortak nedenleri vardır: sahipsiz sırayı ve ileti alıcıları ça
    
     Sorunu çözmek için okuma ve diğer herhangi bir sıradan gibi sahipsiz sıraya alınan iletileri tamamlayın. Kullanabileceğiniz [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) sahipsiz sırayı yolunu biçimlendirin yardımcı yöntemi.
 2. **Alıcı durduruldu** bir alıcı bir kuyruk veya abonelik iletileri alma durduruldu. Bu tanımlamak için bakmak için yoludur [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) iletileri tam dökümünü gösterir özelliği. Varsa [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) özelliği yüksek veya artan sonra iletileri yazılmakta kadar hızlı okunan değil.
-
-### <a name="event-hubs"></a>Event Hubs
-Event Hubs olay hub'ı başına 20 tüketici grupları sınırı vardır. Daha fazla oluşturma girişiminde bulunduğunuzda aldığınız bir [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) kullanıcı tarafından başlatılan bir işlem işlem zaman aşımından daha uzun sürüyor gösterir. 

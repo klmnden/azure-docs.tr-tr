@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: fc8e5d34f6423bad6f20d31cc7ee5f484edd72b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 9a0119e0db834f008a1a3999ff546580499e73c3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Bir sanal makine ölçek Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
 
@@ -115,17 +115,6 @@ az vmss create \
 
 ### <a name="install-nginx"></a>NGINX yükleme
 
-Bulut Kabuğu'nda dosya oluşturmak istediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Girin `sensible-editor cloudConfig.json` dosyası oluşturmak için kullanılabilir düzenleyicileri listesini görmek için. Geçerli kabuğunuzu customConfig.json adlı bir dosya oluşturun ve aşağıdaki yapılandırma yapıştırın:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Bu komut kabuğu penceresinde çalıştırın:
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -133,7 +122,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama

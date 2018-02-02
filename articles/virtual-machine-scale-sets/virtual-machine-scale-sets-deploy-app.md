@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri, uygulamanızda dağıtma
 Ölçek kümesindeki sanal makine (VM) örneklerinde uygulamalarını çalıştırmak için önce gerekli dosyaları ve uygulama bileşenleri yüklemeniz gerekir. Bu makalede bir ölçek durumlarda ayarlayın ya da var olan VM örneklerini otomatik olarak yükleme betikleri çalıştırmak için özel bir VM görüntüsü oluşturmak için yollar sağlar. Ayrıca uygulama veya işletim sistemi güncelleştirmelerini ölçek kümesi boyunca yönetmeyi öğrenin.
@@ -43,11 +43,11 @@ Yapılandırma yönetimi ve bir VM sağlayacak süresini azaltmak için bir örn
 
 
 ## <a name="already-provisioned"></a>Uygulama özel betik uzantısı ile yükleme
-Özel betik uzantısının indirir ve Azure Vm'lerinde komut dosyaları çalıştırılır. Bu dağıtım yapılandırmaları, yazılım yükleme veya başka bir yapılandırma için yararlı bir uzantısıdır / yönetim görevi. Komut dosyaları Azure depolama veya GitHub indirilen veya Azure portalı uzantısı çalışma zamanında sağlanan.
+Özel betik uzantısının indirir ve Azure Vm'lerinde komut dosyaları çalıştırılır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Betikler Azure depolama veya GitHub konumlarından indirilebilir ya da Azure portalına uzantı çalışma zamanında iletilebilir.
 
 Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir ve Azure CLI, PowerShell, Azure portalında veya Azure sanal makine REST API'sini kullanarak da çalıştırılabilir. 
 
-Daha fazla bilgi için bkz: [özel betik uzantısının genel bakış](../virtual-machines/windows/extensions-customscript.md).
+Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](../virtual-machines/windows/extensions-customscript.md).
 
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell kullanma
@@ -94,7 +94,7 @@ Update-AzureRmVmss `
 ### <a name="use-azure-cli-20"></a>Azure CLI 2.0 kullanın
 Özel betik uzantısının Azure CLI ile kullanmak için hangi almak için dosyaları ve yürütülecek komut tanımlayan bir JSON dosyası oluşturun. Bu JSON tanımları tutarlı uygulama yüklemelerini uygulamak için ölçek kümesi dağıtımlar arasında yeniden kullanılabilir.
 
-Geçerli kabuğunuzu adlı bir dosya oluşturun *customConfig.json* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Girin `sensible-editor cloudConfig.json` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için.
+Geçerli kabuğunuzu adlı bir dosya oluşturun *customConfig.json* ve aşağıdaki yapılandırma yapıştırın. Örneğin, dosyayı yerel makinenizde değil Cloud Shell’de oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloudConfig.json` adını girin.
 
 ```json
 {
@@ -103,7 +103,7 @@ Geçerli kabuğunuzu adlı bir dosya oluşturun *customConfig.json* ve aşağıd
 }
 ```
 
-Ölçek kümesi VM örnekleri özel betik uzantısı yapılandırma uygulamak [az vmss uzantı kümesi](/cli/azure/vmss/extension#set). Aşağıdaki örnek uygular *customConfig.json* yapılandırmasına *myScaleSet* adlı kaynak grubunu VM örnekleri *myResourceGroup*. Aşağıdaki gibi kendi adlarınızı girin:
+Ölçek kümesi VM örnekleri özel betik uzantısı yapılandırma uygulamak [az vmss uzantı kümesi](/cli/azure/vmss/extension#az_vmss_extension_set). Aşağıdaki örnek uygular *customConfig.json* yapılandırmasına *myScaleSet* adlı kaynak grubunu VM örnekleri *myResourceGroup*. Aşağıdaki gibi kendi adlarınızı girin:
 
 ```azurecli
 az vmss extension set \
@@ -166,13 +166,13 @@ Update-AzureRmVmss `
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Bir Linux VM bulut init ile uygulama yükleme
-[Bulut init](https://cloudinit.readthedocs.io/latest/) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çalışırken, ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.
+[Cloud-init](https://cloudinit.readthedocs.io/latest/), Linux VM’sini ilk kez önyüklendiğinde özelleştirmeyi sağlayan, sık kullanılan bir yaklaşımdır. cloud-init’i paket yükleme, dosyalara yazma ve kullanıcılar ile güvenliği yapılandırma işlemleri için kullanabilirsiniz. cloud-init önyükleme işlemi sırasında çalışırken, yapılandırmanıza uygulayabileceğiniz ek adım veya gerekli aracı yoktur.
 
 Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
 
 Daha fazla bilgi için bir örnek de dahil olmak üzere *bulut init.txt* dosya için bkz: [Azure VM'ler özelleştirmek için bulut init kullanın](../virtual-machines/linux/using-cloud-init.md).
 
-Bir ölçek kümesi oluşturmak ve bir bulut init dosyası kullanmak için add `--custom-data` parametresi [az vmss oluşturma](/cli/azure/vmss#create) komut ve bir bulut init dosyasının adını belirtin. Aşağıdaki örnek, ölçeği adlandırılmış Ayarla oluşturur *myScaleSet* içinde *myResourceGroup* ve VM örneği adlı bir dosya ile yapılandırır *bulut init.txt*. Aşağıdaki gibi kendi adlarınızı girin:
+Bir ölçek kümesi oluşturmak ve bir bulut init dosyası kullanmak için add `--custom-data` parametresi [az vmss oluşturma](/cli/azure/vmss#az_vmss_create) komut ve bir bulut init dosyasının adını belirtin. Aşağıdaki örnek, ölçeği adlandırılmış Ayarla oluşturur *myScaleSet* içinde *myResourceGroup* ve VM örneği adlı bir dosya ile yapılandırır *bulut init.txt*. Aşağıdaki gibi kendi adlarınızı girin:
 
 ```azurecli
 az vmss create \

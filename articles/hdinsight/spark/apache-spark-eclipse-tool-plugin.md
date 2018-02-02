@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -35,7 +35,7 @@ Spark Scala içinde yazılmış uygulamalar geliştirmek ve bunları bir Azure H
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Hdınsight'ta Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
 * Eclipse IDE çalışma zamanı için kullanılan oracle Java Geliştirme Seti 8 sürümü. Buradan indirebilirsiniz [Oracle Web sitesi](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -44,7 +44,7 @@ Spark Scala içinde yazılmış uygulamalar geliştirmek ve bunları bir Azure H
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>Eclipse ve eklenti Scala için Azure araç setindeki Hdınsight araçlarını yükleme
-### <a name="install-hdinsight-toolsazure-toolkit-for"></a>Hdınsight Toolsazure Araç Seti için yükleme
+### <a name="install-azure-toolkit-for-eclipse"></a>Eclipse için Azure Araç Seti yükleyin
 Eclipse için Hdınsight araçları kullanılabilir Eclipse için Azure araç seti bir parçası olarak. Yükleme yönergeleri için bkz: [Eclipse için Azure Araç Seti yükleme](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
 ### <a name="install-the-scala-plug-in"></a>Eklenti Scala yükleyin
 Eclipse açtığınızda, Hdınsight aracı otomatik olarak eklenti Scala yüklü olup olmadığını algılar. Seçin **Tamam** devam ve eklenti Eclipse marketten yüklemek için yönergeleri izleyin.
@@ -145,7 +145,7 @@ Eclipse açtığınızda, Hdınsight aracı otomatik olarak eklenti Scala yükl�
 
 3. İş görünümünden **işleri** düğümü. Sağ bölmede **Spark iş görünümünde** sekmesi, küme üzerinde çalıştırılan tüm uygulamaları görüntüler. Daha fazla ayrıntı görmek istediğiniz uygulamanın adını seçin.
 
-   ![Uygulama Ayrıntıları](./media/apache-spark-eclipse-tool-plugin/view-job-logs.png)
+   ![Uygulama ayrıntıları](./media/apache-spark-eclipse-tool-plugin/view-job-logs.png)
 
    Daha sonra bu eylemlerden herhangi birini alabilir:
 

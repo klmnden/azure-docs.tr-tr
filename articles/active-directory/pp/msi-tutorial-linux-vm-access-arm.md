@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 51e14d0e9130a5a870ed120010508dc5eda125f9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI), Azure Resource Manager erişmek için bir Linux VM üzerinde kullanın.
 
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 MSI kodunuzu Azure AD kimlik doğrulama destekler API'lerini kaynak için kimlik doğrulaması için bir erişim belirteci ile sağlar. Bu öğreticide, Azure Resource Manager API kodunuzu erişir. 
 
-Kodunuzu API ancak erişebilmeniz için önce bir kaynağa Azure Kaynak Yöneticisi'nde MSI kimlik erişim vermeniz gerekir. Bu durumda, kaynak grubu VM yer alır. Değiştirdiğinizden emin olun `<CLIENT ID>`, `<SUBSCRIPTION ID>`, ve `<RESOURCE GROUP>` parametre değerlerini kendi değerlere sahip. Değiştir `<CLIENT ID>` ile `clientId` özellik tarafından döndürülen `az identity create` komutunu [kullanıcı tarafından atanan bir MSI oluşturmak](#create-a-user-assigned-msi): 
+Kodunuzu API ancak erişebilmeniz için önce bir kaynağa Azure Kaynak Yöneticisi'nde MSI kimlik erişim vermeniz gerekir. Bu durumda, kaynak grubu VM yer alır. İçin değerleri güncelleştirmek `<SUBSCRIPTION ID>` ve `<RESOURCE GROUP>` ortamınız için uygun şekilde. Ayrıca, yerine `<MSI PRINCIPALID>` ile `principalId` özellik tarafından döndürülen `az identity create` komutunu [kullanıcı tarafından atanan bir MSI oluşturmak](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 Yanıt oluşturulan, aşağıdaki örneğe benzer şekilde rol ataması ayrıntılarını içerir:
