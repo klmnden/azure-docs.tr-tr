@@ -12,7 +12,7 @@
 ### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## Planlama ve tasarım
 ### [Azure Mobile Apps’te Kimlik Doğrulama ve Yetkilendirme](app-service-mobile-auth.md)
@@ -91,7 +91,7 @@
 #### [App Service Ortamında uygulamaları ölçeklendirme](../app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [App Service Ortamında otomatik ölçeklendirme](../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Yönet
+## Yönetme
 ### [Yapılandırma](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Özel etki alanları
 #### [Özel etki alanı satın alma ve yapılandırma](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -100,7 +100,7 @@
 
 ### [Mevcut bir uygulamayı kopyalama](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Sanal Ağ](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Kaynak grupları](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Kaynak grupları](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [Web İşleri ile arka plan görevleri çalıştırma](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [Yapılandırma](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

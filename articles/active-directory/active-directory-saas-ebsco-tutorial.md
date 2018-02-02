@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 385d3aa356e6f4ec313790321b5b926810a06394
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Öğretici: Azure Active Directory Tümleştirme EBSCO ile
 
@@ -80,13 +80,11 @@ Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adl�
 
 Tekli çalışmaya oturum için Azure AD EBSCO karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının EBSCO ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-EBSCO içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
-
 Yapılandırma ve Azure AD çoklu oturum açma EBSCO ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
 1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[EBSCO test kullanıcısı oluşturma](#create-a-ebsco-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı EBSCO sağlamak için.
+3. **[Bir EBSCO test kullanıcısı oluşturma](#create-an-ebsco-test-user)**  -sağlama EBSCOhost kullanıcı/kişiselleştirme otomatik hale getirebilirsiniz. EBSCO destekleyen zaman içinde sadece kullanıcı hazırlama.
 4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
 5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -128,6 +126,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 5. EBSCO uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
+
+    > [!Note]
+    > **Adı** özniteliği zorunludur ve ile eşlenmiş **kullanıcı tanımlayıcısı** EBSCO uygulamada. Bu el ile eklemeniz gerekmez bu varsayılan olarak eklenir.
     
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
@@ -196,22 +197,14 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="create-an-ebsco-test-user"></a>Bir EBSCO test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon içinde EBSCO adlı bir kullanıcı oluşturmaktır.
-
-EBSCO söz konusu olduğunda, kullanıcı sağlama otomatik olarak yüklenir ancak izlemeniz gereken aşağıdaki uygulama ilk kez oturum adımları.
+EBSCO söz konusu olduğunda, kullanıcı sağlama otomatik olarak yapılır.
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Uygulamaya oturum sonra tıklayın **'oturum aç'** sağ üst köşedeki düğmesini.
+Azure AD gerekli verileri EBSCO uygulamaya geçirir. EBSCO'ın kullanıcı hazırlama, otomatik olarak veya bir kerelik form gerektirir. Bu, istemcinin çok sayıda EBSCOhost hesapları kaydedilen kişisel ayarlar ile önceden varolan olup bağlıdır. Aynı ile açıklanan [EBSCO destek ekibi](mailto:sso@ebsco.com) uygulanması sırasında. Her iki durumda da, sınama önce herhangi bir EBSCOhost hesabı oluşturmak istemci sahip değil.
 
-    ![Uygulamalar listesinde EBSCO oturum açma](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
- 
-2. Kurumsal/SAML oturum açma ile eşleştirin için tek seferlik bir ileti alacaksınız bir **varolan MyEBSCOhost hesabınızı şimdi kurum hesabınıza bağlamak** veya **yeni MyEBSCOhost hesabı oluşturun ve ona bağlayın, Kurum hesap**. Hesap EBSCOhost uygulama kişiselleştirmesini için kullanılır. Seçeneğini **yeni bir hesap oluşturma** ve aşağıdaki ekran görüntüsünde gösterildiği gibi form kişiselleştirme için saml yanıtını değerlerle önceden tamamlanmış olduğunu göreceksiniz. Tıklatın **'Devam'** bu seçimi kaydetmek için.
-    
-     ![Uygulamalar listesinde EBSCO kullanıcı](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
-
-3. Yukarıdaki Kurulum tamamlandıktan sonra tanımlama bilgisi/önbellek ve oturum açma yeniden temizleyin. Oturum açma el ile yeniden olmaz ve kişiselleştirme ayarlarını hatırlanan 
-
+   >[!Note]
+   >Sağlama EBSCOhost kullanıcı/kişiselleştirme otomatik hale getirebilirsiniz. Kişi [EBSCO destek ekibi](mailto:sso@ebsco.com) zaman içinde sadece hakkında kullanıcı hazırlama. 
  
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -247,8 +240,18 @@ Bu bölümde, Britta EBSCO için erişim vererek, Azure çoklu oturum açma kull
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli EBSCO parçasında tıklattığınızda, otomatik olarak EBSCO uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
+1. Erişim paneli EBSCO parçasında tıklattığınızda, otomatik olarak EBSCO uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
+
+2. Uygulamaya oturum sonra tıklayın **oturum** sağ üst köşedeki düğmesini.
+
+    ![Uygulamalar listesinde EBSCO oturum açma](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
+ 
+3. Kurumsal/SAML oturum açma ile eşleştirin için tek seferlik bir ileti alacaksınız bir **varolan MyEBSCOhost hesabınızı şimdi kurum hesabınıza bağlamak** veya **yeni MyEBSCOhost hesabı oluşturun ve ona bağlayın, Kurum hesap**. Hesap EBSCOhost uygulama kişiselleştirmesini için kullanılır. Seçeneğini **yeni bir hesap oluşturma** ve aşağıdaki ekran görüntüsünde gösterildiği gibi form kişiselleştirme için saml yanıtını değerlerle önceden tamamlanmış olduğunu göreceksiniz. Tıklatın **'Devam'** bu seçimi kaydetmek için.
+    
+     ![Uygulamalar listesinde EBSCO kullanıcı](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
+
+4. Yukarıdaki Kurulum tamamlandıktan sonra tanımlama bilgisi/önbellek ve oturum açma yeniden temizleyin. Oturum açma el ile yeniden olmaz ve kişiselleştirme ayarlarını hatırlanan
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

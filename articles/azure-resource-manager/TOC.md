@@ -20,8 +20,6 @@
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
 ### [Birden çok örnek oluşturma](resource-group-create-multiple.md)
 ### [Güncelleştirme kaynağı](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Şablon tasarlamaya yönelik desenler](best-practices-resource-manager-design-templates.md)
-
 
 ## Dağıtma
 ### Azure PowerShell
