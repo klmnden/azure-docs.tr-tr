@@ -41,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: MySQL ile Java
           href: app-service-web-tutorial-java-mysql.md
+        - name: PostgreSQL ile Python
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1 - RESTful API’si oluşturma
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - Özel Etki Alanı Eşleme
@@ -162,7 +164,7 @@
         - name: Uygulama kopyalama
           href: app-service-web-app-cloning.md
         - name: Kaynakları taşıma
-          href: app-service-move-resources.md
+          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: Arka plan görevleri çalıştırma
       items:
         - name: WebJob oluşturma

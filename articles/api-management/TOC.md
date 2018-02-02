@@ -42,7 +42,7 @@
 ## Önbellek
 ### [Performansı iyileştirmek için önbelleğe alma özelliği ekleme](api-management-howto-cache.md)
 ## Arka uç güvenliğini sağlama
-### [AAD ile Web API arka ucunu koruma](api-management-howto-protect-backend-with-aad.md)
+### [Azure AD ile Web API arka ucunu koruma](api-management-howto-protect-backend-with-aad.md)
 ### [Sanal ağa bağlanma](api-management-using-with-vnet.md)
 ### [İç sanal ağa bağlanma](api-management-using-with-internal-vnet.md)
 ### [Application Gateway’i bir iç sanal ağ ile tümleştirme](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## Geliştirici deneyimini özelleştirme
 ### [Sayfa içeriği ve düzenini değiştirme](api-management-modify-content-layout.md)
 ### [Şablonları kullanarak sistem sayfalarını özelleştirme](api-management-developer-portal-templates.md)
-### [AAD ile kimlik doğrulama](api-management-howto-aad.md)
-### [AAD B2C ile kimlik doğrulama](api-management-howto-aad-b2c.md)
+### [Azure AD ile kimlik doğrulaması](api-management-howto-aad.md)
+### [Azure AD B2C ile kimlik doğrulaması](api-management-howto-aad-b2c.md)
 ### [Temsilcili kimlik doğrulama](api-management-howto-setup-delegation.md)
 ### [E-posta bildirimleri ve şablonlar](api-management-howto-configure-notifications.md)
 ### [Konsolda OAuth desteğini etkinleştirme](api-management-howto-oauth2.md)

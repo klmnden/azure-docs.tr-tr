@@ -4,6 +4,8 @@
   items:
     - name: SQL DB hakkında
       href: sql-database-technical-overview.md
+    - name: PaaS veya IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -59,7 +61,7 @@
       href: sql-database-powershell-samples.md
 - name: Kavramlar
   items:
-    - name: Hizmet özellikleri
+    - name: Veritabanı hizmeti
       items:
         - name: Sunucular ve veritabanları
           href: sql-database-servers-databases.md
@@ -73,42 +75,22 @@
           href: sql-database-elastic-pool.md
         - name: Bağlantı mimarisi
           href: sql-database-connectivity-architecture.md
-        - name: Güvenlik duvarı kuralları
-          href: sql-database-firewall-configure.md
-        - name: Güvenlik duvarı sanal ağ kuralları
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU ve eDTU
           href: sql-database-what-is-a-dtu.md
         - name: DTU kıyaslama
           href: sql-database-benchmark-overview.md
-        - name: PaaS veya IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Denetim
-          href: sql-database-auditing.md
-        - name: Tehdit algılama
-          href: sql-database-threat-detection.md
-        - name: Veritabanı yedeklemeleri
-          href: sql-database-automated-backups.md
-        - name: Yedekleri bekletme
-          href: sql-database-long-term-retention.md
-        - name: Yük devretme grupları
-          href: sql-database-geo-replication-overview.md
-        - name: Elastik istemci kitaplığı
-          href: sql-database-elastic-database-client-library.md
-        - name: Esnek sorgular
-          href: sql-database-elastic-query-overview.md
-        - name: Elastik işlemler
-          href: sql-database-elastic-transactions-overview.md
-        - name: Esnek işler
-          href: sql-database-elastic-jobs-overview.md
-        - name: SQL Güvenlik Açığı Değerlendirmesi
-          href: sql-vulnerability-assessment.md
         - name: SQL Server genel özellikleri
           href: sql-database-features.md
+    - name: Yüksek kullanılabilirlik
+      href: sql-database-high-availability.md
     - name: Güvenlik
       items:
         - name: Genel Bakış
           href: sql-database-security-overview.md
+        - name: Güvenlik duvarı kuralları
+          href: sql-database-firewall-configure.md
+        - name: Güvenlik duvarı sanal ağ kuralları
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Erişim denetimi
           href: sql-database-control-access.md
         - name: Azure AD
@@ -117,16 +99,28 @@
           href: sql-database-manage-logins.md
         - name: Multi-Factor Authentication
           href: sql-database-ssms-mfa-authentication.md
+        - name: Denetim
+          href: sql-database-auditing.md
+        - name: Tehdit algılama
+          href: sql-database-threat-detection.md
         - name: Tablo denetimi ve TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Veri maskeleme
+        - name: Dinamik veri maskeleme
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: Yüksek kullanılabilirlik
-      href: sql-database-high-availability.md
+        - name: Güvenlik açığı değerlendirmesi
+          href: sql-vulnerability-assessment.md
+        - name: Veri bulma ve sınıflandırma
+          href: sql-database-data-discovery-and-classification.md
     - name: İş sürekliliği
       items:
         - name: Genel Bakış
           href: sql-database-business-continuity.md
+        - name: Veritabanı yedeklemeleri
+          href: sql-database-automated-backups.md
+        - name: Yedekleri bekletme
+          href: sql-database-long-term-retention.md
+        - name: Yük devretme grupları
+          href: sql-database-geo-replication-overview.md
         - name: Veritabanı kurtarma
           href: sql-database-recovery-using-backups.md
         - name: Güvenliği yapılandırma
@@ -185,6 +179,14 @@
       items:
         - name: Genel Bakış
           href: sql-database-elastic-scale-introduction.md
+        - name: Elastik istemci kitaplığı
+          href: sql-database-elastic-database-client-library.md
+        - name: Esnek sorgular
+          href: sql-database-elastic-query-overview.md
+        - name: Elastik işlemler
+          href: sql-database-elastic-transactions-overview.md
+        - name: Esnek işler
+          href: sql-database-elastic-jobs-overview.md
         - name: Parça eşlemeleri
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Sorgu yönlendirme
@@ -299,6 +301,8 @@
           href: sql-database-advisor-portal.md
         - name: Otomatik ayarlamayı etkinleştirme
           href: sql-database-automatic-tuning-enable.md
+        - name: E-posta bildirimlerini otomatik ayarlama
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: Intelligent Insights performansıyla ilgili sorunları giderme
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Performansı izlemek için DMV’leri kullanma

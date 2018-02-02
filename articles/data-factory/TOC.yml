@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Kullanıcı arabirimi (UI)
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3 - Şirket içi verileri buluta kopyalama
       items:
@@ -90,7 +90,7 @@
       items:
         - name: Kullanıcı arabirimi (UI)
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Örnekler
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Saklı yordam etkinliği kullanarak SSIS paketlerini çağırma
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı zamanlama
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Tetikleyici oluşturma
       items:
         - name: Zamanlama tetikleyicisi oluşturma

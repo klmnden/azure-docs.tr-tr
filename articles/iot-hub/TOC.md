@@ -40,10 +40,11 @@
 
 # Nasıl yapılır kılavuzları
 ## Planlama
-### [IoT Hub ile Event Hubs karşılaştırması](iot-hub-compare-event-hubs.md)
+### [IoT Hub ile Event Hubs’ı karşılaştırma](iot-hub-compare-event-hubs.md)
 ### [Çözümünüzü ölçeklendirme](iot-hub-scaling.md)
 ### [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](iot-hub-ha-dr.md)
 ### [Ek protokollerin desteklenmesi](iot-hub-protocol-gateway.md)
+### [İleti ve olay yönlendirmeyi karşılaştırma](iot-hub-event-grid-routing-comparison.md)
 ## [Geliştirme](iot-hub-how-to.md)
 ### [Geliştirici kılavuzu](iot-hub-devguide.md)
 #### [Cihazdan buluta özellik kılavuzu](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [İleti alma ve gönderme](iot-hub-devguide-messaging.md)
 ##### [IoT Hub’a cihazdan buluta iletileri gönderme](iot-hub-devguide-messages-d2c.md)
 ##### [Cihazdan buluta iletilerini yerleşik uç noktadan okuma](iot-hub-devguide-messages-read-builtin.md)
+##### [IoT Hub olaylarına tepki verme](iot-hub-event-grid.md)
 ##### [Cihazdan buluta iletileri için özel uç noktalar ve yönlendirme kuralları kullanma](iot-hub-devguide-messages-read-custom.md)
 ##### [IoT Hub’dan buluttan cihaza iletileri gönderme](iot-hub-devguide-messages-c2d.md)
 ##### [IoT Hub iletilerini oluşturma ve okuma](iot-hub-devguide-messages-construct.md)
