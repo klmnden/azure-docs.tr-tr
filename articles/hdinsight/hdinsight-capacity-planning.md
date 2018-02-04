@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite Hdınsight kümeleri için planlama
 
@@ -67,9 +67,7 @@ Bir küme farklı depolama hesapları bileşimini erişebilir. Tipik örnekler �
 
 ## <a name="choose-a-cluster-type"></a>Bir küme türü seçin
 
-Küme türü Hdınsight kümenizi, Hadoop, Storm, Kafka veya Spark gibi çalışacak şekilde yapılandırılmış iş yükü belirler. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Her küme türü düğüm sayısı ve boyutu gereksinimlerini içeren bir belirli dağıtım topolojisi sahiptir.
+Küme türü Hdınsight kümenizi, Hadoop, Storm, Kafka veya Spark gibi çalışacak şekilde yapılandırılmış iş yükü belirler. Kullanılabilir küme türleri ayrıntılı bir açıklaması için bkz: [Azure Hdınsight giriş](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Her küme türü düğüm sayısı ve boyutu gereksinimlerini içeren bir belirli dağıtım topolojisi sahiptir.
 
 ## <a name="choose-the-vm-size-and-type"></a>VM boyutunu ve türünü seçin
 
@@ -96,9 +94,7 @@ Yoğun yük taleplerini karşılamak, ardından ölçeklemek aşağıya ek düğ
 
 ### <a name="cluster-lifecycle"></a>Küme yaşam döngüsü
 
-Bir kümenin ömrü için sizden ücret kesilir. Yalnızca yukarı kümenizi gereken belirli saatler ve çalışan varsa, Azure Data Factory kullanarak isteğe bağlı kümeleri oluşturabilirsiniz.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-Ayrıca, sağlamak ve kümenizi sildiğinizden PowerShell komut dosyaları oluşturmak ve bu komut dosyalarını kullanarak zamanlama [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
+Bir kümenin ömrü için sizden ücret kesilir. Yalnızca küme ve çalışan gereken belirli zamanlar varsa, şunları yapabilirsiniz [Azure Data Factory kullanarak isteğe bağlı kümelerini oluşturmak](hdinsight-hadoop-create-linux-clusters-adf.md). Ayrıca, sağlamak ve kümenizi sildiğinizden PowerShell komut dosyaları oluşturmak ve bu komut dosyalarını kullanarak zamanlama [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > Bir küme silindiğinde, kendi varsayılan Hive meta depo de silinir. Sonraki küme yeniden oluşturma meta depo kalıcı hale getirmek için bir dış meta veri deposu Azure veritabanı veya Oozie gibi kullanın.

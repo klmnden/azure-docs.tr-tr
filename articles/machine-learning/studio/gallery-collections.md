@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Bul ve Azure AI galeri koleksiyonlarda paylaşma
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Koleksiyonlara gözatmak için [galerisinde](http://gallery.cortanaintelligence.
 
 ![Galeri giriş sayfasında koleksiyonları seçin](./media/gallery-collections/select-collections-in-gallery.png)
 
- **[Koleksiyonları](https://gallery.cortanaintelligence.com/collections)**  sayfa yakın zamanda eklenen ve popüler koleksiyonları listesini görüntüler. Tüm koleksiyonlar görüntülemek için seçin **tümünü görmek**. Belirli bir koleksiyon için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+**[Koleksiyonları](https://gallery.cortanaintelligence.com/collections)**  sayfa yakın zamanda eklenen ve popüler koleksiyonları listesini görüntüler. Tüm koleksiyonlar görüntülemek için seçin **tümünü görmek**. Belirli bir koleksiyon için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
 
 Koleksiyon Ayrıntıları sayfasında bir koleksiyon hakkında daha fazla bilgi edinebilirsiniz. Bir koleksiyonu Ayrıntılar sayfası açmak için koleksiyon seçin. Bir koleksiyonda Ayrıntıları sayfasında **açıklamaları** bölümünde, açıklama, geri bildirim sağlamak veya için toplanması hakkında sorular sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn koleksiyonu bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek için koleksiyon ayrıntıları sayfasına bağlantı e-posta gönderebilirsiniz.
 

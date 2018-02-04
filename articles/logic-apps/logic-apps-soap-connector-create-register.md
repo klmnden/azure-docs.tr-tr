@@ -1,7 +1,7 @@
 ---
 title: "Oluşturma ve SOAP bağlayıcılar - Azure Logic Apps kaydetme | Microsoft Docs"
-description: "SOAP bağlayıcılar Azure mantıksal uygulamaları kullanmak için ayarlama"
-author: divyaswarnkar
+description: "Azure Logic Apps’te kullanılmak üzere SOAP bağlayıcıları ayarlama"
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,161 +13,161 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: LADocs; estfan
+ms.openlocfilehash: 031762e5639fc52e0b0a6a5bf8d12db25da25e12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps içinde SOAP bağlayıcılar kaydetme
 
-SOAP Hizmetleri mantığı uygulama akışlarında tümleştirmek için oluşturabilir ve Web Hizmetleri Açıklama Dili (SOAP hizmetinizi tanımlayan WSDL) kullanarak özel bir Basit Nesne Erişim Protokolü (SOAP) bağlayıcı kaydedin. SOAP bağlayıcılar, diğer bağlayıcıları aynı şekilde logic apps içinde kullanabilmeniz için önceden oluşturulmuş bağlayıcılar gibi çalışır.
+SOAP hizmetlerini mantıksal uygulama iş akışlarınızla tümleştirmek için Basit Nesne Erişim Protokolü (SOAP) hizmetinizi açıklayan Web Hizmetleri Açıklama Dili’ni (WSDL) kullanarak özel bir SOAP bağlayıcısı oluşturup kaydedebilirsiniz. SOAP bağlayıcıları önceden oluşturulmuş bağlayıcılar gibi çalıştığından, bunları mantıksal uygulamalarınızdaki diğer bağlayıcılarla aynı şekilde kullanabilirsiniz.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-SOAP Bağlayıcınızı kaydetmek için bu öğeler gerekir:
+SOAP bağlayıcınızı kaydetmek için aşağıdaki öğeler gerekir:
 
-* Azure aboneliği. Bir aboneliğiniz yoksa ile başlayabilirsiniz bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/). Aksi takdirde kaydolun bir [Kullandıkça Öde aboneliğine](https://azure.microsoft.com/pricing/purchase-options/).
+* Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) ile başlayabilirsiniz. Aksi takdirde, bir [Kullandıkça Öde aboneliğine](https://azure.microsoft.com/pricing/purchase-options/) kaydolun.
 
-* Herhangi bir öğeyi burada:
-  * SOAP hizmetinizi tanımlayan bir WSDL ve API'ler için bir URL
-  * SOAP hizmetiniz ve API'leri tanımlayan bir WSDL dosyası
+* Buradaki herhangi bir öğe:
+  * SOAP hizmetinizi ve API'leri tanımlayan bir WSDL’nin URL’si
+  * SOAP hizmetinizi ve API'leri tanımlayan bir WSDL dosyası
 
-  Bu öğretici için Bizim örneğimizde kullanabilirsiniz [siparişleri SOAP servis](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl).
+  Bu öğretici için [Siparişler SOAP Hizmeti](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl) örneğimizi kullanabilirsiniz.
 
-* İsteğe bağlı: özel bağlayıcı için bir simgesi olarak kullanılacak bir görüntü
+* İsteğe bağlı: Özel bağlayıcınız için simge olarak kullanılacak bir görüntü
 
 
-## <a name="1-create-your-connector"></a>1. Bağlayıcınızı oluşturun
+## <a name="1-create-your-connector"></a>1. Bağlayıcınızı oluşturma
 
-1. Azure portalında, ana Azure menüsünden seçin **yeni**. Arama kutusuna "logic apps bağlayıcı", filtre olarak girin ve Enter tuşuna basın.
+1. Azure portalında, ana Azure menüsünden **Yeni**’yi seçin. Arama kutusuna filtreniz olarak “logic apps bağlayıcısı” yazın ve Enter tuşuna basın.
 
-   !["Logic apps bağlayıcı" Yeni arama](./media/logic-apps-soap-connector-create-register/create-logic-apps-connector.png)
+   ![Yeni, “logic apps bağlayıcısı” ifadesini aratın](./media/logic-apps-soap-connector-create-register/create-logic-apps-connector.png)
 
-2. Sonuçları listesinden seçin **Logic Apps bağlayıcı** > **oluşturma**.
+2. Sonuç listesinden **Logic Apps Bağlayıcısı** > **Oluştur**’u seçin.
 
-   ![Logic Apps bağlayıcı oluşturun](./media/logic-apps-soap-connector-create-register/choose-logic-apps-connector.png)
+   ![Logic Apps bağlayıcısı oluşturma](./media/logic-apps-soap-connector-create-register/choose-logic-apps-connector.png)
 
-3. Tabloda açıklandığı gibi Bağlayıcınızı kayıt için ayrıntılı bilgiler sağlar. İşiniz bittiğinde seçin **panoya Sabitle** > **oluşturma**.
+3. Bağlayıcınızı kaydetmek için tabloda açıklandığı gibi ayrıntıları sağlayın. İşiniz bittiğinde **Panoya sabitle** > **Oluştur**’u seçin.
 
-   ![Mantıksal uygulama özel bağlayıcı ayrıntıları](./media/logic-apps-soap-connector-create-register/logic-apps-soap-connector-details.png)
+   ![Mantıksal Uygulama özel bağlayıcı ayrıntıları](./media/logic-apps-soap-connector-create-register/logic-apps-soap-connector-details.png)
 
    | Özellik | Önerilen değer | Açıklama | 
    | -------- | --------------- | ----------- | 
-   | **Ad** | *SOAP bağlayıcı adı* | Bağlayıcı için bir ad sağlayın. | 
-   | **Abonelik** | *Azure abonelik adı* | Azure aboneliğinizi seçin. | 
-   | **Kaynak grubu** | *Azure kaynak grubu adı* | Azure kaynaklarınızı düzenlemek için bir Azure grubu seçin veya oluşturun. | 
-   | **Konum** | *Dağıtım bölgesi* | Bağlayıcınızı için dağıtım bölgeyi seçin. | 
+   | **Ad** | *soap-connector-name* | Bağlayıcınıza bir ad verin. | 
+   | **Abonelik** | *Azure-subscription-name* | Azure aboneliğinizi seçin. | 
+   | **Kaynak grubu** | *Azure-resource-group-name* | Azure kaynaklarınızı düzenlemek için bir Azure grubu oluşturun veya seçin. | 
+   | **Konum** | *deployment-region* | Bağlayıcınız için bir dağıtım bölgesi seçin. | 
    |||| 
 
-   Logic apps bağlayıcı menüsü Azure Bağlayıcınızı dağıtıldıktan sonra otomatik olarak açılır. 
-   Aksi durumda, Azure panodan soap Bağlayıcınızı seçin.
+   Azure bağlayıcınızı dağıttıktan sonra Logic Apps bağlayıcı menüsü otomatik olarak açılır. 
+   Aksi takdirde, Azure panosundan bağlayıcınızı seçin.
 
-## <a name="2-define-your-connector"></a>2. Bağlayıcınızı tanımlayın
+## <a name="2-define-your-connector"></a>2. Bağlayıcınızı tanımlama
 
-WSDL dosyaya veya URL'ye Bağlayıcınızı Bağlayıcınızı kullanır, kimlik doğrulama ve eylemleri ve soap Bağlayıcınızı sağlar Tetikleyiciler oluşturmak için şimdi belirtin
+Şimdi, bağlayıcınızı oluşturmak için WSDL dosyasını veya URL’sini, bağlayıcınızın kullandığı kimlik doğrulamasını ve soap bağlayıcınızın sağladığı eylem ve tetikleyicileri belirtin
 
 
-### <a name="2a-specify-the-wsdl-file-or-url-for-your-connector"></a>2a. Bağlayıcı için WSDL dosyası veya URL'yi belirtin
+### <a name="2a-specify-the-wsdl-file-or-url-for-your-connector"></a>2a. Bağlayıcınızın WSDL dosyasını veya URL'sini belirtin
 
-1. Seçili değilse, bağlayıcı'nın menüde seçin **Logic Apps bağlayıcı**. Araç çubuğunda seçin **Düzenle**.
+1. Bağlayıcınızın menüsünde **Logic Apps Bağlayıcısı** zaten seçili değilse bunu seçin. Araç çubuğunda **Düzenle**'yi seçin.
 
    ![Özel bağlayıcısını Düzenle](./media/logic-apps-soap-connector-create-register/edit-soap-connector.png)
 
-2. Seçin **genel** oluşturmak için bu tablolar Ayrıntılar sağlayabilir böylece güvenli hale getirme ve SOAP Bağlayıcınızı tetikleyiciler ve Eylemler tanımlama.
+2. SOAP bağlayıcınızın eylem ve tetikleyicilerini oluşturmak, korumak ve tanımlamak üzere bu tablolarda ayrıntıları sağlayabilmeniz için **Genel**’i seçin.
 
-   1. İçin **özel Bağlayıcılar**seçin **SOAP** için **API uç noktası** API'nizi tanımlayan WSDL dosyasını sağlayabilir.
+   1. **Özel bağlayıcılar** için, API’nizi açıklayan WSDL dosyasını sağlayabilmeniz için **API Uç Noktanıza** yönelik **SOAP**’yi seçin.
 
-      ![API için WSDL dosyası sağlayın](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
+      ![API’nizin WSDL dosyasını sağlama](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
 
       | Seçenek | Biçim |Açıklama | 
       | ------ | ------ | ----------- | 
-      | **WSDL dosya karşıya yükleme** | *WSDL dosyası* | WSDL dosya konumuna göz atın ve bu dosyayı seçin. | 
-      | **URL'den WSDL karşıya yükle** | http://*yol için wsdl dosyası* | URL için hizmetinizin WSDL dosyası sağlar. | 
-      | **KALANLAR SOAP** |   | API SOAP hizmetinde REST API dönüştürün. | 
+      | **Dosyadan karşıya WSDL yükleme** | *WSDL dosyası* | WSDL dosyanızın konumuna göz atın ve bu dosyayı seçin. | 
+      | **URL'den karşıya WSDL yükleme** | http://*path-to-wsdl-file* | Hizmetinizin WSDL dosyasının URL’sini sağlayın. | 
+      | **SOAP'den REST'e** |   | SOAP hizmetindeki API’leri REST API’lere dönüştürme. | 
       |||| 
 
-   2. İçin **genel bilgiler**, Bağlayıcınızı için bir simgeyi karşıya yükleyin. 
-   Genellikle, **açıklama**, **konak**, ve **taban URL** alanları WSDL dosyanızdan otomatik olarak doldurulur. 
-   Ancak değilseniz, bu bilgileri tabloda açıklandığı şekilde ekleyin ve seçin **devam**. 
+   2. **Genel bilgiler** için bağlayıcınıza ait bir simgeyi karşıya yükleyin. 
+   Genellikle **Açıklama**, **Ana Bilgisayar** ve **Temel URL** alanları WSDL dosyanızdan otomatik olarak doldurulur. 
+   Aksi takdirde, bu bilgileri tabloda açıklandığı gibi ekleyin ve **Devam**’ı seçin. 
 
       ![Bağlayıcı ayrıntıları](./media/logic-apps-soap-connector-create-register/add-general-details.png)
 
-      | Seçenek veya ayarı | Biçim | Açıklama | 
+      | Seçenek veya ayar | Biçim | Açıklama | 
       | ----------------- | ------ | ----------- | 
-      | **Simgeyi karşıya yükleyin** | *PNG-or-jpg-File-Under-1-MB* | Bağlayıcınızı temsil eden bir simge <p>Renk: Tercihen beyaz logosu arka plan rengi. <p>Boyutlar: 230 piksel kare içinde ~ 160 piksel logosu bir | 
-      | **Simge arka plan rengi** | *simge-brand-renk-onaltılık-code* | <p>Arka plan rengi, simge dosyanızdaki eşleşen simge arkasındaki rengi. <p>Biçim: onaltılık. Örneğin, #007ee5 mavi rengi temsil eder. | 
-      | **Açıklama** | *Bağlayıcı açıklaması* | Bağlayıcınızı için kısa bir açıklama sağlayın. | 
-      | **Ana bilgisayar** | *Bağlayıcı ana bilgisayar* | Ana bilgisayar etki alanı SOAP hizmetiniz için sağlar. | 
-      | **Temel URL** | *Bağlayıcı taban URL'si* | SOAP hizmetiniz için temel URL sağlayın. | 
+      | **Karşıya Simge Yükleme** | *png-or-jpg-file-under-1-MB* | Bağlayıcınızı temsil eden bir simge <p>Renk: Tercihen renkli bir arka plan üzerine beyaz logo. <p>Boyutlar: 230 piksel bir kare içinde yaklaşık 160 piksel boyutunda logo | 
+      | **Simge arka plan rengi** | *icon-brand-color-hexadecimal-code* | <p>Simgenizin arkasındaki, simge dosyanızın arka plan rengiyle eşleşen renk. <p>Biçim: Onaltılık. Örneğin, #007ee5 mavi rengi temsil eder. | 
+      | **Açıklama** | *connector-description* | Bağlayıcınız için kısa bir açıklama sağlayın. | 
+      | **Ana Bilgisayar** | *connector-host* | SOAP hizmetiniz için ana bilgisayar etki alanını sağlayın. | 
+      | **Temel URL** | *connector-base-URL* | SOAP hizmetiniz için temel URL’yi sağlayın. | 
       |||| 
 
-### <a name="2b-describe-the-authentication-that-your-connector-uses"></a>2B. Bağlayıcınızı kullandığı kimlik doğrulama açıklayın
+### <a name="2b-describe-the-authentication-that-your-connector-uses"></a>2b. Bağlayıcınızın kullandığı kimlik doğrulamasını açıklayın
 
-1. Artık seçim **güvenlik** gözden geçirmek ya da Bağlayıcınızı kullandığı kimlik doğrulama açıklanmaktadır. Kimlik doğrulaması, kullanıcıların kimliklerini hizmetiniz ve istemciler arasında uygun şekilde akış emin olur.
+1. Şimdi bağlayıcınızın kullandığı kimlik doğrulamasını gözden geçirmek veya açıklamak için **Güvenlik**’i seçin. Kimlik doğrulaması, hizmetiniz ile herhangi bir istemci arasında kullanıcılarınızın kimliklerinin uygun şekilde akışının gerçekleştirilmesini sağlar.
 
-   Varsayılan olarak, Bağlayıcınızı 's **kimlik doğrulama türü** ayarlanır **kimlik doğrulaması yok**.
+   Bağlayıcınızın **Kimlik doğrulama türü** varsayılan olarak **Kimlik doğrulaması yok** olarak ayarlanır.
    
-   ![Kimlik doğrulama türü](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
+   ![Kimlik doğrulaması türü](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
 
-   Kimlik doğrulama türünü değiştirmek için tercih **Düzenle**. Seçebileceğiniz **temel kimlik doğrulaması**. Varsayılan değerleri dışında parametre etiketleri kullanmak için bunların altında güncelleştirme **parametre etiket**.
+   Kimlik doğrulama türünü değiştirmek için **Düzenle**’yi seçin. **Temel kimlik doğrulaması**’nı seçebilirsiniz. Varsayılan değerler dışındaki parametre etiketlerini kullanmak için **Parametre etiketi** altında bunları güncelleştirin.
 
    ![Temel kimlik doğrulaması](./media/logic-apps-soap-connector-create-register/security.png)
 
    
-2. Sayfanın üstündeki güvenlik bilgileri girdikten sonra Bağlayıcınızı kaydetmek üzere seçim yapın **güncelleştirme bağlayıcı**, ardından **devam**. 
+2. Güvenlik bilgilerini girdikten sonra bağlayıcınızı kaydetmek için sayfanın üst kısmından **Bağlayıcıyı güncelleştir**’i ve sonra **Devam**’ı seçin. 
 
-### <a name="2c-review-update-or-define-actions-and-triggers-for-your-connector"></a>2c. Gözden geçirin, güncelleştirmeniz ya da eylemleri ve Bağlayıcınızı Tetikleyicileri tanımlayın
+### <a name="2c-review-update-or-define-actions-and-triggers-for-your-connector"></a>2c. Bağlayıcınızın eylem ve tetikleyicilerini gözden geçirme, güncelleştirme veya tanımlama
 
-1. Artık seçim **tanımı** gözden geçirebilmeniz için düzenleyin veya yeni eylemleri ve kullanıcılar kendi iş akışlarına ekleyebilirler tetikleyicilerini tanımlayın.
+1. Şimdi kullanıcılarınızın iş akışlarına ekleyebileceği eylem ve tetikleyicileri gözden geçirmek, düzenlemek veya yenilerini tanımlamak için **Tanım**’ı seçin.
 
-   Eylemler ve tetikleyicileri, otomatik olarak doldurulması WSDL dosyanızda tanımlanan işlemleri üzerinde dayalı **tanımı** sayfasında ve istek ve yanıt değerlerini içerir. Gerekli işlemlerini zaten burada görünüyorsa, bu nedenle, kayıt işleminin sonraki adımına bu sayfada değişiklik yapmadan gidebilirsiniz.
+   Eylem ve tetikleyiciler, **Tanım** sayfasını otomatik olarak dolduran WSDL dosyanızda tanımlanan işlemleri temel alır ve hem istek hem de yanıt değerlerini içerir. Bu nedenle, bu sayfada gerekli işlemler zaten görünüyorsa herhangi bir değişiklik yapmadan kayıt işleminin bir sonraki adımına geçebilirsiniz.
 
    ![Bağlayıcı tanımı](./media/logic-apps-soap-connector-create-register/definition.png)
 
 2. İsteğe bağlı olarak, var olan eylemler ve Tetikleyicileri düzenleme veya yeni bir tane eklemek istiyorsanız, [bu adımlarla devam](logic-apps-custom-connector-register.md#add-action-or-trigger).
 
 
-## <a name="3-finish-creating-your-connector"></a>3. Bağlayıcınızı oluşturmayı tamamlayın
+## <a name="3-finish-creating-your-connector"></a>3. Bağlayıcınızı oluşturmayı tamamlama
 
-Hazır olduğunuzda, seçin **güncelleştirme bağlayıcı** Bağlayıcınızı dağıtabilmek için. 
+Hazır olduğunuzda bağlayıcınızı dağıtmak için **Bağlayıcıyı Güncelleştir**’i seçin. 
 
-Tebrikler! Şimdi mantıksal uygulama oluşturduğunuzda, Bağlayıcınızı Logic Apps Tasarımcısı'nda bulmak ve bu bağlayıcı mantıksal uygulamanızı ekleyin.
+Tebrikler! Artık bir mantıksal uygulama oluşturduğunuzda bağlayıcınızı Logic Apps Tasarımcısı’nda bulabilir ve mantıksal uygulamanıza ekleyebilirsiniz.
 
-![Logic Apps Tasarımcısı'nda Bağlayıcınızı Bul](./media/logic-apps-soap-connector-create-register/soap-connector-created.png)
+![Logic Apps Tasarımcısı’nda bağlayıcınızı bulma](./media/logic-apps-soap-connector-create-register/soap-connector-created.png)
 
-## <a name="share-your-connector-with-other-logic-apps-users"></a>Bağlayıcınızı diğer Logic Apps kullanıcılarla paylaşma
+## <a name="share-your-connector-with-other-logic-apps-users"></a>Bağlayıcınızı diğer Logic Apps kullanıcılarıyla paylaşma
 
-Kayıtlı ancak onaylı olmayan özel bağlayıcılar Microsoft tarafından yönetilen bağlayıcıların gibi çalışır, ancak görünür ve kullanılabilir *yalnızca* bağlayıcı'nın yazar ve aynı Azure Active Directory kiracısına ve Azure aboneliğine sahip kullanıcılar Bu uygulamaları'nın dağıtıldığı bölgede Logic apps için. Paylaşımı isteğe bağlı olsa da, bağlayıcılar diğer kullanıcılarla paylaşmak istediğiniz senaryolar olabilir. 
+Kayıtlı ve sertifikasız özel bağlayıcılar, Microsoft tarafından yönetilen bağlayıcılar gibi çalışır, ancak *yalnızca* bağlayıcının yazarı ve mantıksal uygulamalar için bu uygulamaların dağıtıldığı bölgede aynı Azure Active Directory kiracısına ve Azure aboneliğine sahip olanlar tarafından görüntülenip kullanılabilir. Paylaşım isteğe bağlı olsa da, bağlayıcılarınızı başka kullanıcılarla paylaşmak istediğiniz senaryolarınız olabilir. 
 
 > [!IMPORTANT]
-> Bir bağlayıcı paylaşıyorsanız, diğerlerinin bu bağlayıcıda bağımlı başlayabilir. 
-> ***Bağlayıcınızı silindiğinde, bu bağlayıcı için tüm bağlantılar silinir.***
+> Bir bağlayıcı paylaştığınızda, başkaları da bu bağlayıcıya bağımlı olmaya başlayabilir. 
+> ***Bağlayıcınız silindiğinde, bu bağlayıcıya olan tüm bağlantılar silinir.***
  
 Bağlayıcınızı harici kullanıcılar bu bu gibi bir durumda sınırları dışında tüm Logic Apps kullanıcılarla paylaşmak için [Bağlayıcınızı Microsoft sertifika için gönderme](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>SSS
 
-**S:** SOAP Bağlayıcısı genel olarak kullanılabilir (GA)? </br>
-**Y:** SOAP Bağlayıcıdır içinde **Önizleme**, ve GA hizmeti henüz değil.
+**S:** SOAP bağlayıcısı genel kullanıma sunuldu mu? </br>
+**C:** SOAP bağlayıcısı **Önizleme** aşamasındadır ve henüz genel kullanıma sunulmamıştır.
 
-**S:** tüm kısıtlamaları ve SOAP Bağlayıcısı için bilinen sorunlar vardır? </br>
-**Y:** Evet, bkz: [SOAP bağlayıcı kısıtlamaları ve bilinen sorunlar](../api-management/api-management-api-import-restrictions.md#wsdl).
+**S:** SOAP bağlayıcısı için herhangi bir kısıtlama ve bilinen sorun var mı? </br>
+**C:** Evet, bkz. [SOAP bağlayıcısı ile ilgili kısıtlamalar ve bilinen sorunlar](../api-management/api-management-api-import-restrictions.md#wsdl).
 
-**S:** özel bağlayıcıların herhangi bir sınır vardır? </br>
-**Y:** Evet, bkz: [özel bağlayıcı sınırlar burada](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
+**S:** Özel bağlayıcılar için herhangi bir sınırlama var mı? </br>
+**C:** Evet, bkz. [özel bağlayıcı sınırlamaları](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
 
 ## <a name="get-support"></a>Destek alın
 
-* Geliştirme ve ekleme veya Kayıt Sihirbazı'nda bulunmayan istek özellikleri için destek için iletişim [ condevhelp@microsoft.com ](mailto:condevhelp@microsoft.com). Microsoft developer sorular ve sorunlar için bu hesabı izler ve bunları uygun ekibine yönlendirir.
+* Geliştirme ve ekleme konusunda destek almak ya da kayıt sihirbazında bulunmayan özellikleri istemek için [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com) adresine başvurun. Microsoft, bu hesaba gönderilen geliştirici sorularını ve sorunlarını izleyip bunları uygun ekibe yönlendirir.
 
-* İsteyin veya soruyu yanıtlayın veya diğer Azure mantıksal uygulamaları kullanıcıların ne yaptıklarını bakın, ziyaret [Azure Logic Apps Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Soru sormak veya soruları yanıtlamak ya da diğer Azure Logic Apps kullanıcılarının neler yaptığını görmek için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
 
-* Logic Apps geliştirmeye yardımcı olmak için oy veya fikir gönderme [Logic Apps kullanıcı geri bildirim sitesi](http://aka.ms/logicapps-wish). 
+* Logic Apps’in geliştirilmesine yardımcı olmak için, [Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish) oy kullanın veya fikirlerinizi paylaşın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [İsteğe bağlı: Bağlayıcınızı Onayla](../logic-apps/custom-connector-submit-certification.md)
-* [Özel bağlayıcı SSS](../logic-apps/custom-connector-faq.md)
+* [Özel bağlayıcı hakkında SSS](../logic-apps/custom-connector-faq.md)

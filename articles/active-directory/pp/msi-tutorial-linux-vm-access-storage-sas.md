@@ -3,22 +3,22 @@ title: "Azure Storage SAS kimlik bilgilerini kullanarak erişmek için bir Linux
 description: "Azure depolama, depolama hesabının erişim anahtarı yerine SAS kimlik bilgilerini kullanarak erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanmayı gösterir Öğreticisi."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f947d1c0a26a92e6ec179b82ca5015df5e45a634
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: fc7c5b4ab025666fc7fa1d9073198ec90d8e71c3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Azure Storage bir SAS kimlik bilgisi erişmek için bir Linux VM yönetilen hizmet kimliği kullanın
 

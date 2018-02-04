@@ -3,21 +3,21 @@ title: "Azure Storage erişmek için bir Windows VM MSI kullanın"
 description: "Azure depolama alanına erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 582890820f2d7cfb2ff92be0858d3221fea04fa8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 535906e273b6d36045f5bc56d25b2085b2f71b9d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Azure depolama erişim tuşu erişmek için bir Windows VM yönetilen hizmet kimliği kullanın
 
@@ -31,7 +31,7 @@ Bu öğretici bir Windows sanal makine için Yönetilen hizmet kimliği (MSI) et
 > * Depolama hesabı erişim anahtarlarını Kaynak Yöneticisi'nde, VM erişim 
 > * VM kimliğini kullanarak bir erişim belirteci alın ve Kaynak Yöneticisi'nden depolama erişim tuşlarını almak için kullanın 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -78,7 +78,7 @@ Zaten yoksa, şimdi bir depolama hesabı oluşturacak. Ayrıca, bu adımı atlay
 3. Daha sonra kullanacaksınız depolama hesabı için bir ad girin.  
 4. **Dağıtım modeli** ve **tür hesap** "Resource manager" ve "Genel amaçlı", sırasıyla ayarlanmalıdır. 
 5. Olun **abonelik** ve **kaynak grubu** VM'nizi oluşturduğunuzda önceki adımda belirttiğiniz olanlarla eşleşmesi.
-6. **Oluştur**'a tıklayın.
+6. **Oluştur**’a tıklayın.
 
     ![Yeni depolama hesabı oluştur](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 

@@ -3,7 +3,7 @@ title: "Azure Data Lake Store'a erişmek için Yönetilen hizmet kimliği bir Li
 description: "Yönetilen hizmet kimliği (MSI) bir Linux VM için Azure Data Lake Store'a erişmek için nasıl kullanılacağını gösteren bir öğretici."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 6bc3f893697ba39c3608f0bc866be89da25596ef
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: fdf1c49c644a97ff2f66a8b217ee54896ed54131
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Azure Data Lake Store'a erişmek için Yönetilen hizmet kimliği bir Linux VM için kullan
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure şirket içi veri ağ geçidi ile şirket içi veri kaynaklarına bağlanma
 Şirket içi veri ağ geçidi, şirket içi veri kaynakları ve Azure Analysis Services sunucularınızı bulutta arasında güvenli veri aktarımını sağlayan bir köprü gibi davranır. Aynı bölgede birden çok Azure Analysis Services sunucusu ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, güç uygulamaları ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
@@ -28,11 +28,11 @@ ms.lasthandoff: 11/02/2017
 
 - **Kurulumunu indirin ve çalıştırın** -Bu adım, kuruluşunuzdaki bir bilgisayarda bir ağ geçidi hizmeti yükler. Ayrıca Azure bir hesabı kullanarak oturum, [kiracının](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (konuk) hesapları desteklenmez.
 
-- **Ağ geçidini kaydetmek** - Bu adımda, bir ad belirtin ve kurtarma anahtarı, ağ geçidiniz için ve ağ geçidiniz ağ geçidi bulut hizmeti ile kaydetme bir bölge seçin. Ağ geçidi kaynağı **aynı bölgede kaydedilmelidir** Analysis Services sunucuları olarak. 
+- **Ağ geçidini kaydetmek** - Bu adımda, bir ad belirtin ve kurtarma anahtarı, ağ geçidiniz için ve ağ geçidiniz ağ geçidi bulut hizmeti ile kaydetme bir bölge seçin. Ağ geçidi kaynağı herhangi bir bölgede kaydedilebilir, ancak Analysis Services sunucuları ile aynı bölgede olması önerilir. 
 
 - **Bir ağ geçidi kaynağı oluşturma** -Bu adımda, Azure aboneliğinizde bir ağ geçidi kaynağı oluşturun.
 
-- **Sunucularınız, ağ geçidi kaynağına bağlanma** -aboneliğinizde bir ağ geçidi kaynağına sahip olduktan sonra sunucularınız tarafından bağlanan başlayabilirsiniz. Bölgede olup olmadıklarını sağlanan birden çok sunucu ve diğer kaynakları, bağlayabilirsiniz.
+- **Sunucularınız, ağ geçidi kaynağına bağlanma** -aboneliğinizde bir ağ geçidi kaynağına sahip olduktan sonra sunucularınız tarafından bağlanan başlayabilirsiniz. İçin birden çok sunucu ve diğer kaynaklara bağlanabilir.
 
 Hemen kullanmaya başlamak için bkz: [yüklemek ve şirket içi veri ağ geçidi yapılandırma](analysis-services-gateway-install.md).
 
@@ -69,17 +69,17 @@ Ağ Geçidi tarafından kullanılan tam etki alanı adları şunlardır:
 
 | Etki alanı adları | Giden bağlantı noktaları | Açıklama |
 | --- | --- | --- |
-| *. powerbı.com |80 |Yükleyici indirmek için kullanılan HTTP. |
-| *. powerbı.com |443 |HTTPS |
+| *.powerbi.com |80 |Yükleyici indirmek için kullanılan HTTP. |
+| *.powerbi.com |443 |HTTPS |
 | *. analysis.windows.net |443 |HTTPS |
-| *. login.windows.net |443 |HTTPS |
-| *. servicebus.windows.net |5671-5672 |Gelişmiş Message Queuing Protokolü (AMQP) |
-| *. servicebus.windows.net |443, 9350-9354 |Hizmet veri yolu geçişi (erişim denetimi belirteci alımı için 443'ü gerektirir) TCP üzerinden üzerindeki dinleyicileri |
-| *. frontend.clouddatahub.net |443 |HTTPS |
-| *. core.windows.net |443 |HTTPS |
-| Login.microsoftonline.com |443 |HTTPS |
+| *.login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |5671-5672 |Gelişmiş Message Queuing Protokolü (AMQP) |
+| *.servicebus.windows.net |443, 9350-9354 |Hizmet veri yolu geçişi (erişim denetimi belirteci alımı için 443'ü gerektirir) TCP üzerinden üzerindeki dinleyicileri |
+| *.frontend.clouddatahub.net |443 |HTTPS |
+| *.core.windows.net |443 |HTTPS |
+| login.microsoftonline.com |443 |HTTPS |
 | *. msftncsi.com |443 |Ağ geçidi Power BI hizmeti tarafından erişilemediğinde internet bağlantısı test etmek için kullanılır. |
-| *.microsoftonline p.com |443 |Yapılandırmasına bağlı olarak kimlik doğrulaması için kullanılır. |
+| *.microsoftonline-p.com |443 |Yapılandırmasına bağlı olarak kimlik doğrulaması için kullanılır. |
 
 ### <a name="force-https"></a>Azure Service Bus ile HTTPS iletişimi zorlama
 Doğrudan TCP yerine HTTPS kullanarak Azure Service Bus ile iletişim kurmak için ağ geçidi zorlayabilirsiniz; Ancak, bunun nedenle performansı büyük ölçüde düşürebilir. Değiştirebileceğiniz *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* değerini değiştirerek dosya `AutoDetect` için `Https`. Bu genellikle bir dosyadır *C:\Program Files\On içi veri ağ geçidi*.
@@ -131,7 +131,7 @@ Doğrudan TCP yerine HTTPS kullanarak Azure Service Bus ile iletişim kurmak iç
 **A**: Hayır Windows hizmeti geçerli bir Windows hesabı olması gerekir. Varsayılan olarak, hizmet hizmet SID, NT SERVICE\PBIEgwService çalışır.
 
 **Q**: nasıl yedeklerim devralma bir ağ geçidi? <br/>
-**A**: bir ağ geçidi sipariş için devralma içinde (Denetim Masası'nda Kurulum/Değiştir çalıştırarak > Programlar) Azure ağ geçidi kaynak sahibi olması ve kurtarma anahtarı olması gerekir. Ağ geçidi kaynak sahiplerine erişim denetimi yapılandırılabilir.
+**A**: devralma bir ağ geçidi için (Denetim Masası'nda Kurulum/Değiştir çalıştırarak > Programlar), Azure ağ geçidi kaynak sahibi olması ve kurtarma anahtarı olması gerekir. Ağ geçidi kaynak sahiplerine erişim denetimi yapılandırılabilir.
 
 ### <a name="high-availability"></a>Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 
@@ -144,7 +144,7 @@ Doğrudan TCP yerine HTTPS kullanarak Azure Service Bus ile iletişim kurmak iç
 ## <a name="troubleshooting"></a>Sorunlarını giderme
 
 **Q**: yok görmemin nedeni ağ geçidi örneklerinin listesi my ağ geçidi ağ geçidi kaynağı oluşturmak çalışırken? <br/>
-**A**: iki olası nedeni vardır. Önce bir kaynak zaten ağ geçidi geçerli ya da başka bir abonelik oluşturulur. Bu olasılığını ortadan kaldırmak için türündeki kaynaklar listeleme **şirket içi veri ağ geçidi** portalından. Tüm abonelikleri tüm kaynakları numaralandırılırken seçtiğinizden emin olun. Kaynak oluşturulduktan sonra ağ geçidi ağ geçidi kaynağı oluşturmak portal deneyiminde ağ geçidi örneklerinin listesi görünmez olduğunu unutmayın. İkinci olasılığını ağ geçidi yükleyen kullanıcının Azure AD kimlik Azure portalına açtığınız kullanıcı farklı olmasıdır. Bu sorunu çözmek için aynı hesabı kullanarak ağ geçidini yükleyen kullanıcı portalında oturum açın.
+**A**: iki olası nedeni vardır. Önce bir kaynak zaten ağ geçidi geçerli ya da başka bir abonelik oluşturulur. Bu olasılığını ortadan kaldırmak için türündeki kaynaklar listeleme **şirket içi veri ağ geçidi** portalından. Tüm abonelikleri tüm kaynakları numaralandırılırken seçtiğinizden emin olun. Kaynak oluşturulduktan sonra ağ geçidi ağ geçidi kaynağı oluşturmak portal deneyiminde ağ geçidi örneklerinin listesi görünmez. İkinci olasılığını ağ geçidi yükleyen kullanıcının Azure AD kimlik Azure portalında oturum açtığı kullanıcı farklı olmasıdır. Çözmek için aynı hesabı kullanarak ağ geçidini yükleyen kullanıcı portalında oturum açın.
 
 **Q**: nasıl ı görebilir ne sorguları yükleniyor şirket içi veri kaynağına gönderilen? <br/>
 **A**: gönderilen sorgular sorgu izlemeyi etkinleştirebilirsiniz. Sorgu geri sorun giderme tamamlanınca özgün değeri izleme değiştirmeyi unutmayın. Sorgu izlemesi açık bırakarak daha büyük günlükleri oluşturur.
@@ -158,7 +158,7 @@ Ayrıca, izleme sorguları için veri kaynağınız olan araçlar da bakabilirsi
 
 Ağ geçidi sürümü güncel olmayan hale geldiğinde birçok sorunları ortaya. Genel iyi uygulama olarak, en son sürümünü kullandığınızdan emin olun. Ağ geçidi, bir veya daha uzun bir ay için güncelleştirmediyseniz, ağ geçidinin en son sürümünü yüklemeyi göz önünde bulundurun ve sorunu yeniden bakın.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: kullanıcı gruba eklenemedi. (-2147463168 PBIEgwService performans günlük kullanıcılar)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: kullanıcı gruba eklenemedi. (-2147463168 PBIEgwService Performance Log Users)
 
 Desteklenmeyen bir etki alanı denetleyicisinde ağ geçidini yüklemeye çalıştığınızda bu hatayı alabilirsiniz. Bir etki alanı denetleyicisi olmayan bir makineye ağ geçidi dağıttığınızdan emin olun.
 
@@ -187,7 +187,7 @@ Telemetri, izleme ve sorun giderme için kullanılabilir. Varsayılan olarak
 
 **Telemetriyi etkinleştirmek için**
 
-1.  Şirket içi veri ağ geçidi istemci dizini bilgisayarda denetleyin. Genellikle,. **%SystemDrive%\Program Files\On içi veri ağ geçidi**. Veya, Hizmetler konsolunu açın ve yürütülebilir dosya yolunu denetleyin: şirket içi veri ağ geçidi hizmeti bir özelliğidir.
+1.  Şirket içi veri ağ geçidi istemci dizini bilgisayarda denetleyin. Typically, it is **%systemdrive%\Program Files\On-premises data gateway**. Veya, Hizmetler konsolunu açın ve yürütülebilir dosya yolunu denetleyin: şirket içi veri ağ geçidi hizmeti bir özelliğidir.
 2.  İstemci dizininden Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config dosyasında. SendTelemetry ayarı true olarak değiştirin.
         
     ```

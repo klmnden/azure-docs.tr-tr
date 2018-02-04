@@ -1,6 +1,6 @@
 ---
 title: "Azure yedekleme hatası sorunlarını giderme: Konuk Aracısı durumu kullanılamıyor | Microsoft Docs"
-description: "Belirtiler, nedenleri ve çözümlemeleri ilgili Aracısı, uzantısı, diskler için Azure Backup hatalar"
+description: "Belirtiler, nedenler ve çözümler Aracısı, uzantı ve diskleri ilgili Azure Backup hatalar."
 services: backup
 documentationcenter: 
 author: genlin
@@ -15,119 +15,131 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı ve/veya uzantısı ile ilgili sorunları
+# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı veya uzantısı ile ilgili sorunları
 
-Bu makale, yedekleme hataları iletişim sorunlarını VM aracısı ve uzantısı ile ilgili gidermenize yardımcı olmak için sorun giderme adımlarını sağlar.
+Bu makale, yardımcı olabilecek sorun giderme adımlarını uzantısı ve VM Aracısı ile iletişim için ilgili Azure Backup hataları gidermek sağlar.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM Aracısı Azure yedekleme ile iletişim kuramıyor
 
-> [!NOTE]
-> Azure Linux VM'de Yedeklemelerinizin ve 4 Ocak 2018 sonrasında bu hata ile başarısız başlattıysanız etkilenen VM'ler içinde aşağıdaki komutu çalıştırın ve yedeklemeleri yeniden deneyin
-
-    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
-
-Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık almak için VM Aracısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri olan sırayla yedekleme hatasına neden olabilecek tetiklenen, gelen anlık görüntü engelleyebilir. Sorun giderme adımları verilen sırayla aşağıda izleyin ve işlemi yeniden deneyin.
-
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1. neden: [VM Internet erişim yok](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Neden 2: [aracı VM'yi yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>5. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>6. neden: [Azure Klasik sanal makineleri, kayıt işlemini tamamlamak için ek bir adım gerektirebilir](#azure-classic-vms-may-require-additional-step-to-complete-registration)
-
-## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Sanal makinedeki ağ bağlantısı nedeniyle anlık görüntü işlemi başarısız oldu
-Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri olan sırayla yedekleme hatasına neden olabilecek tetiklenen, gelen anlık görüntü engelleyebilir. Sorun giderme adımları verilen sırayla aşağıda izleyin ve işlemi yeniden deneyin.
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1. neden: [VM Internet erişim yok](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Neden 2: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-3-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>3. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)
-
-## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot uzantısı işlemi başarısız oldu
-
-Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri olan sırayla yedekleme hatasına neden olabilecek tetiklenen, gelen anlık görüntü engelleyebilir. Sorun giderme adımları verilen sırayla aşağıda izleyin ve işlemi yeniden deneyin.
-##### <a name="cause-1-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>1. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-2-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Neden 2: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>3. neden: [VM Internet erişim yok](#the-vm-has-no-internet-access)
-##### <a name="cause-4-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>4. neden: [aracı VM'yi yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-5-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>5. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-
-## <a name="unable-to-perform-the-operation-as-the-vm-agent-is-not-responsive"></a>VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor
-
-Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri olan sırayla yedekleme hatasına neden olabilecek tetiklenen, gelen anlık görüntü engelleyebilir. Sorun giderme adımları verilen sırayla aşağıda izleyin ve işlemi yeniden deneyin.
-##### <a name="cause-1-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>1. neden: [aracı VM'yi yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Neden 2: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>3. neden: [VM Internet erişim yok](#the-vm-has-no-internet-access)
-
-## <a name="backup-failed-with-an-internal-error---please-retry-the-operation-in-a-few-minutes"></a>Yedekleme bir iç hatayla başarısız oldu - Lütfen işlemi birkaç dakika içinde yeniden deneyin
-
-Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri olan sırayla yedekleme hatasına neden olabilecek tetiklenen, gelen anlık görüntü engelleyebilir. Sorun giderme adımları verilen sırayla aşağıda izleyin ve işlemi yeniden deneyin.
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1. neden: [VM Internet erişim yok](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Neden 2: [yanıt vermeyen ancak VM (Windows VM'ler için) yüklü aracı](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>5. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>6. neden: [Backup hizmeti, kaynak grubu kilit nedeniyle eski geri yükleme noktaları silmek için izne sahip değil](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
-
-## <a name="the-specified-disk-configuration-is-not-supported"></a>Belirtilen Disk yapılandırması desteklenmiyor
+Hata iletisi: "VM Aracısı Azure yedekleme ile iletişim kuramıyor"
 
 > [!NOTE]
-> Özel önizleme olan VM'ler için yedeklemeler desteklemek için sahip olduğumuz > 1TB diskler. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Azure Linux VM'de Yedeklemelerinizin 4 Ocak 2018 başlayarak bu hata ile başarısız olursa VM ile aşağıdaki komutu çalıştırın ve yedeklemeleri yeniden deneyin:`sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
+
+Kaydolun ve yedekleme hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık almak için VM Aracısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Bir anlık görüntü değil tetiklendiğinde yedekleme başarısız olabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:
+
+**1. neden: [VM Internet erişimi yok](#the-vm-has-no-internet-access)**  
+**Neden 2: [aracı VM, ancak, yanıt vermeyen (Windows VM'ler için) yüklendi](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**3. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**4. neden: [anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**5. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
+
+## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Sanal makine ağa bağlı değil anlık görüntü işlemi başarısız olur
+
+Hata iletisi: "anlık görüntü işlemi sanal makinedeki ağ bağlantısı nedeniyle başarısız oldu"
+
+Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:    
+**1. neden: [VM Internet erişimi yok](#the-vm-has-no-internet-access)**  
+**Neden 2: [anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**3. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
+
+## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot uzantısı işlemi başarısız
+
+Hata iletisi: "VMSnapshot uzantısı işlemi başarısız oldu"
+
+Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
+**1. neden: [anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Neden 2: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
+**3. neden: [VM Internet erişimi yok](#the-vm-has-no-internet-access)**  
+**4. neden: [aracı VM, ancak, yanıt vermeyen (Windows VM'ler için) yüklendi](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**5. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+
+## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>VM aracısı yanıt vermiyor yedekleme başarısız olur
+
+Hata messagae: "VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor"
+
+Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
+**1. neden: [aracı VM, ancak, yanıt vermeyen (Windows VM'ler için) yüklendi](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Neden 2: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**3. neden: [VM Internet erişimi yok](#the-vm-has-no-internet-access)**  
+
+## <a name="backup-fails-with-an-internal-error"></a>Bir iç hata ile yedekleme başarısız oluyor
+
+Hata iletisi: "Yedekleme bir iç hatayla başarısız oldu - Lütfen işlemi birkaç dakika içinde yeniden deneyin"
+
+Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
+**1. neden: [VM Internet erişimi yok](#the-vm-has-no-internet-access)**  
+**Neden 2: [aracısının VM, ancak bunu yüklü (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**3. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**4. neden: [anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**5. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
+**6. neden: [Backup hizmeti, bir kaynak grubu kilit nedeniyle eski geri yükleme noktaları silmek için izne sahip değil](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+
+## <a name="disk-configuration-is-not-supported"></a>Disk yapılandırması desteklenmiyor
+
+Hata iletisi: "belirtilen Disk yapılandırması desteklenmiyor"
+
+> [!NOTE]
+> 1 TB'den büyük disklere sahip sanal makineleri için yedeklemeleri destekleyecek özel Önizleme sunuyoruz. Ayrıntılar için bkz [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
 >
 >
 
-Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- 1 TB’den büyük diskleriniz varsa, 1 TB’den düşük [yeni diskleri kullanıma açın](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) <br>
-- Ardından 1 TB’den büyük olan diskten verileri kopyalayıp yeni oluşturulan 1 TB’den küçük disklere aktarın. <br>
-- Tüm verilerin kopyalandığından emin olun ve 1 TB’den büyük diskleri kaldırın
-- Yedekleme başlatmak
+Azure Backup disklerinin şu anda desteklemiyor [1,023 GB'den büyük](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 1 TB'den büyük diskiniz varsa:  
+1. [Yeni diskleri ekleme](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) , 1 TB'den küçük.  
+2. Yeni oluşturulan disklere 1 TB'den küçük olan 1 TB'den büyük disklerden verileri kopyalayın.  
+3. Tüm verileri kopyaladığınız emin olun. Ardından, 1 TB'den büyük disklerin kaldırın.  
+4. Yedeklemeyi başlatın.
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler
 
-### <a name="the-vm-has-no-internet-access"></a>VM Internet erişim yok
-Dağıtımı gereksinimi başına VM Internet erişimi yok veya erişim Azure altyapı engelleyen kısıtlamalar yerinde var.
+### <a name="the-vm-has-no-internet-access"></a>VM internet erişimi yok
+Dağıtımı gereksinimi VM Internet erişimi yok. Veya, Azure altyapı erişimi engelleyen kısıtlamalar olabilir.
 
-Doğru çalışması için yedekleme uzantısını Azure genel IP adreslerine bağlantısı gerektirir. Uzantısını komutları bir Azure Storage uç (HTTP VM anlık görüntülerini yönetmek için URL) gönderir. Uzantı genel Internet erişimi varsa, yedekleme sonunda başarısız olur.
+Doğru çalışması için Backup uzantısının Azure genel IP adreslerine bağlantısı gerektirir. Uzantısını komutları VM anlık görüntülerini yönetmek için bir Azure depolama uç nokta için (HTTP URL) gönderir. Uzantı genel internet erişimi yoksa, yedekleme sonunda başarısız olur.
 
 ####  <a name="solution"></a>Çözüm
-Sorunu çözmek için burada listelenen yöntemlerden birini deneyin.
-##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Azure depolama bölgesine karşılık gelen erişmesine izin vermek
+Sorunu çözmek için aşağıdaki yöntemlerden birini deneyin:
 
-Kullanarak belirli bir bölge depolama bağlantılara izin vermek [hizmet etiketleri](../virtual-network/security-overview.md#service-tags). Depolama hesabına erişim izni veren Kuralı Internet erişimi engelleyen kural daha yüksek önceliğe sahip olduğundan emin olun. 
+##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Bölgesine karşılık gelen Azure depolama erişmesine izin vermek
 
-![Bir bölge için depolama etiketlerle NSG](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+Kullanabileceğiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) belirli bölgenin depolama bağlantılara izin vermek için. Depolama hesabına erişim izni veren Kuralı Internet erişimi engeller kural daha yüksek önceliğe sahip olduğundan emin olun. 
+
+![Bir bölge için depolama etiketlerle ağ güvenlik grubu](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Depolama hizmet etiketleri yalnızca belirli bölgelerde kullanılabilir ve önizlemede. Bölgelerin bir listesi için bkz: [etiketler için depolama hizmet](../virtual-network/security-overview.md#service-tags).
+> Depolama hizmet etiketleri önizlemede. Bunlar yalnızca belirli bölgelerde kullanılabilir. Bölgelerin bir listesi için bkz: [hizmet depolama için etiketler](../virtual-network/security-overview.md#service-tags).
 
-##### <a name="create-a-path-for-http-traffic-to-flow"></a>Akış HTTP trafiği için bir yol oluşturma
+##### <a name="create-a-path-for-http-traffic"></a>HTTP trafiği için bir yol oluşturma
 
 1. (Örneğin, bir ağ güvenlik grubu) yerinde ağ kısıtlamalarını varsa, trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın.
-2. Erişim HTTP proxy sunucusundan Internet'e izin vermek için varsa kuralları ağ güvenlik grubuna ekleyin.
+2. Erişim HTTP proxy sunucusundan internet'e izin vermek için varsa kuralları ağ güvenlik grubuna ekleyin.
 
 Bir HTTP proxy VM yedeklemeler için ayarlama hakkında bilgi edinmek için bkz: [Azure sanal makineleri yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-Yönetilen diskleri kullanarak durumunda bir ek bağlantı noktası (8443) açarak güvenlik duvarlarında gerekebilir.
+Azure yönetilen diskleri kullanıyorsanız, güvenlik duvarları hakkında ek bağlantı noktası açma (bağlantı noktası 8443) gerekebilir.
 
-### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Yanıt vermeyen ancak VM (Windows VM'ler için) yüklü aracı
+### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>VM Aracısı yüklenir, ancak (Windows VM'ler için) yanıt vermiyor
 
 #### <a name="solution"></a>Çözüm
-VM Aracısı bozulmuş veya hizmet durdurulmuş. VM aracısı yeniden yüklenmesi, en son sürümünü alın ve iletişim yeniden yardımcı olacaktır.
+VM Aracısı bozulmuş veya hizmet durdurulmuş. VM Aracısı'nı yeniden yüklemek için en son sürümü edinmek yardımcı olur. Ayrıca, hizmeti ile iletişimi yeniden yardımcı olur.
 
-1. Doğrulama olup olmadığını Hizmetleri sanal makine (services.msc) çalıştıran Windows Konuk Aracısı hizmeti. Windows Konuk Aracısı hizmetini yeniden başlatın ve yedekleme başlatmak deneyin<br>
-2. hizmetlerinde görünür durumda değilse, programlar ve özellikler Windows Konuk aracısı yüklü olup olmadığını doğrulayın.
-4. Programlarda görüntüleyemez ve özellikleri Windows Konuk Aracısı'nı kaldırmak istiyorsanız.
-5. İndirme ve yükleme [Aracısı MSI en son sürümünü](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir.
-6. Ardından Windows Konuk Aracısı hizmetlerinin Hizmetleri'nde görmeye olmalıdır
-7. "Yedekleme şimdi" portalda tıklayarak üzerinde-isteğe bağlı/geçici bir yedeklemeyi çalıştırmayı deneyin.
+1. VM Hizmetleri (services.msc) Windows Konuk aracısı hizmetinin çalışıp çalışmadığını belirleyin. Windows Konuk Aracısı hizmetini yeniden başlatın ve yedekleme başlatmak deneyin.    
+2. Windows Konuk Aracısı hizmeti Hizmetleri'nde, Denetim Masası ' nda görünür durumda değilse Git **programlar ve Özellikler** Windows Konuk aracısı yüklü olup olmadığını belirleme.
+4. Windows Konuk Aracısı görünüyorsa **programlar ve Özellikler**, Windows Konuk Aracısı'nı kaldırın.
+5. İndirme ve yükleme [MSI Aracısı en son sürümünü](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için yönetici haklarına sahip olmalıdır.
+6. Windows Konuk Aracısı hizmetlerinin Hizmetleri'nde göründüğünden emin olun.
+7. Bir talep üzerine yedekleme çalıştırın: 
+    * Portalı'nda seçin **Şimdi Yedekle**.
 
-Ayrıca, sanal makinenin doğrulayın  **[.NET 4.5 sistemde yüklü](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Hizmet ile iletişim kurmak VM aracısı için gereklidir
+Ayrıca, doğrulayın [Microsoft .NET 4.5 yüklü](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) VM'deki. Hizmet ile iletişim kurmak VM aracısı için .NET 4.5 gereklidir.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM'yi yüklü Aracı (Linux VM'ler için) güncel değil
 
@@ -136,8 +148,8 @@ Aracı veya uzantı ilgili hataları Linux VM'ler için en güncel olmayan bir V
 
 1. Yönergeleri izleyin [Linux VM Aracısı'nı güncelleştirme](../virtual-machines/linux/update-agent.md).
 
- >[!NOTE]
- >Biz *tavsiye* yalnızca bir dağıtım deposu aracılığıyla aracıyı güncelleştirin. Doğrudan Github'dan aracısı kodu indiriliyor ve güncelleştirmeden önermiyoruz. Dağıtımınız için en son aracı kullanılamıyorsa, nasıl yükleneceği hakkında yönergeler için dağıtım desteğine başvurun. En son aracı için denetlemek için Git [Windows Azure Linux Aracısı](https://github.com/Azure/WALinuxAgent/releases) GitHub deposuna sayfasında.
+ > [!NOTE]
+ > Biz *tavsiye* yalnızca bir dağıtım deposu aracılığıyla aracıyı güncelleştirin. Doğrudan Github'dan aracısı kodu indiriliyor ve güncelleştirmeden önermiyoruz. Dağıtımınız için en son Aracı nasıl yükleneceği hakkında yönergeler için kullanılabilir, ilgili kişi dağıtım desteği değilse. En son aracı için denetlemek için Git [Windows Azure Linux Aracısı](https://github.com/Azure/WALinuxAgent/releases) GitHub deposuna sayfasında.
 
 2. Aşağıdaki komutu çalıştırarak Azure Aracısı VM üzerinde çalıştığından emin olun:`ps -e`
 
@@ -147,7 +159,7 @@ Aracı veya uzantı ilgili hataları Linux VM'ler için en güncel olmayan bir V
  * Diğer dağıtımlar için:`service waagent start`
 
 3. [Otomatik yeniden başlatma Aracısı'nı yapılandırma](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
-4. Yeni bir test yedekleme çalıştırın. Lütfen hata devam ederse, Müşteri'nin VM'den aşağıdaki günlüklerini toplayın:
+4. Yeni bir test yedekleme çalıştırın. Hata devam ederse aşağıdaki günlüklerini sanal makineden toplayın:
 
    * /var/lib/waagent/*.xml
    * /var/log/waagent.log
@@ -157,67 +169,62 @@ Ayrıntılı günlük kaydı için waagent gerekiyorsa, şu adımları izleyin:
 
 1. /Etc/waagent.conf dosyasında aşağıdaki satırı bulun: **ayrıntılı günlük kaydını etkinleştir (y | n)**
 2. Değişiklik **Logs.Verbose** değeri  *n*  için *y*.
-3. Değişikliği kaydetmek ve bu bölümde önceki adımları izleyerek waagent yeniden başlatın.
+3. Değişikliği kaydetmek ve bu bölümde daha önce açıklanan adımları izleyerek waagent yeniden başlatın.
 
-### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntü alınamaz
+###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz
 VM yedekleme, bir anlık görüntü komutu alttaki depolama hesabına veren kullanır. Yedekleme, depolama hesabına erişimi olduğundan veya anlık görüntü görevi yürütme gecikmesi nedeniyle başarısız olabilir.
 
 #### <a name="solution"></a>Çözüm
-Aşağıdaki koşullar anlık görüntü görev başarısız olmasına neden olabilir:
+Aşağıdaki koşullar ve anlık görüntü görevi başarısız olmasına neden olabilir:
 
 | Nedeni | Çözüm |
 | --- | --- |
-| VM yapılandırılmış SQL Server Yedekleme sahiptir. | Varsayılan olarak, bir VM yedeğinin bir VSS tam yedekleme Windows sanal makinelerin çalışır. Hangi SQL Server ve SQL Server tabanlı sunucular çalıştırmakta olan VM'ler üzerinde anlık görüntü yürütme gecikmeler oluşabilir yedekleme yapılandırılır.<br><br>Bir yedekleme hata nedeniyle bir anlık görüntü sorun yaşıyorsanız, aşağıdaki kayıt defteri anahtarını ayarlayın:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
-| RDP VM'yi kapatın olduğundan VM durumu yanlış bildirilir. | Uzak Masaüstü Protokolü (RDP), VM'yi kapatın, VM durumu doğru olup olmadığını belirlemek için portal denetleyin. Doğru değilse, Portalı'nda VM kullanarak kapatmak **kapatma** VM Panoda seçeneği. |
-| VM konak/doku adresi DHCP'den alamaz. | DHCP çalışmaya Iaas VM yedekleme için konuk içinde etkinleştirilmesi gerekir.  VM konak/doku adresi 245 DHCP yanıttan alınamıyor, dosya indirme veya tüm uzantılar çalıştırın. Statik bir özel IP gerekiyorsa platformu ile yapılandırmanız gerekir. VM içindeki DHCP seçeneği sol etkinleştirilmiş olmalıdır. Daha fazla bilgi için bkz: [statik iç özel IP ayarı](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| VM yapılandırılmış SQL Server Yedekleme sahiptir. | Varsayılan olarak, bir VM yedeğinin bir birim gölge kopyası hizmeti (VSS) tam yedekleme Windows sanal makinelerin çalışır. Hangi SQL Server ve SQL Server tabanlı sunucular çalıştırmakta olan VM'ler üzerinde anlık görüntü yürütme gecikmeler oluşabilir yedekleme yapılandırılır.<br><br>Yedekleme hatası nedeniyle bir anlık görüntü sorunla karşılaşırsanız, aşağıdaki kayıt defteri anahtarını ayarlayın:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
+| Uzak Masaüstü Protokolü (RDP) VM'yi kapatın olduğundan VM durumu yanlış bildirilir. | RDP VM'yi kapatın, VM durumu doğru olup olmadığını belirlemek için portal denetleyin. Doğru değilse, Portalı'nda VM kullanarak kapatmak **kapatma** VM Panoda seçeneği. |
+| VM konak veya doku adresi DHCP'den alınamıyor. | DHCP çalışmaya Iaas VM yedekleme için konuk içinde etkinleştirilmesi gerekir. VM konak veya doku adresi 245 DHCP yanıttan alınamıyor, dosya indirme veya tüm uzantılar çalıştırın. Statik bir özel IP gerekiyorsa platformu ile yapılandırın. VM içindeki DHCP seçeneği sol etkinleştirilmiş olmalıdır. Daha fazla bilgi için bkz: [statik iç özel IP ayarlamak](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Backup uzantısı güncelleştirmek veya yüklemek başarısız olur
 Uzantılar yüklenemiyor çünkü bir anlık görüntü alınamaz yedekleme başarısız olur.
 
 #### <a name="solution"></a>Çözüm
 
-**Windows konuklar için:** iaasvmprovider hizmetinin etkin ve bir başlangıç türü doğrulayın *otomatik*. Hizmet bu şekilde yapılandırılmamışsa, sonraki yedekleme başarılı olup olmadığını belirlemek için etkinleştirin.
+**Windows konuklar için:** iaasvmprovider hizmetinin etkin ve bir başlangıç türü doğrulayın *otomatik*. Hizmet bu şekilde yapılandırılmamışsa, sonraki yedekleme başarılı olup olmadığını belirlemek üzere hizmetini etkinleştirin.
 
-**Linux konuklar için:** Linux (Yedekleme tarafından kullanılan uzantılı) 1.0.91.0 için VMSnapshot en son sürümünü doğrulayın.<br>
+**Linux konuklar için:** VMSnapshot Linux (Yedekleme tarafından kullanılan uzantı) için en son sürümünü 1.0.91.0 olduğunu doğrulayın.<br>
 
 
-Backup uzantısı güncelleştirmek veya yüklemek yine başarısız olursa, uzantısı kaldırarak yüklenecek VMSnapshot uzantısı zorlayabilirsiniz. Sonraki yedekleme girişiminde uzantısı yeniden yükleyecektir.
+Backup uzantısı güncelleştirmek veya yüklemek yine başarısız olursa yeniden yüklemek için VMSnapshot uzantısı zorlamak için uzantıyı kaldırın. Sonraki yedekleme girişiminde uzantısı yeniden yükler.
 
-Uzantıyı kaldırmak için aşağıdakileri yapın:
+Uzantıyı kaldırmak için:
 
-1. [Azure Portal](https://portal.azure.com/) gidin.
-2. Yedekleme sorunları olan VM bulun.
-3. Tıklatın **ayarları**.
-4. Tıklatın **uzantıları**.
-5. Tıklatın **Vmsnapshot uzantısı**.
-6. Tıklatın **kaldırma**.
+1. İçinde [Azure portal](https://portal.azure.com/), yedekleme hatasının oluştuğu VM gidin.
+2. Seçin **ayarları**.
+3. Seçin **uzantıları**.
+4. Seçin **Vmsnapshot uzantısı**.
+5. Seçin **kaldırma**.
 
-Bu yordam sonraki yedekleme sırasında yüklenmesi uzantısı neden olur.
+Bu adımları tamamladıktan sonraki yedekleme sırasında yüklenmesi uzantısı neden olur.
 
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Yedekleme hizmeti kaynak grubu kilit nedeniyle eski geri yükleme noktaları silme iznine sahip değil
-Bu sorun olduğu kaynak grubu kullanıcı kilitler ve yedekleme hizmeti eski geri yükleme noktaları silemedi olmadığı yönetilen sanal makineleri için özeldir. Bunun nedeni, yeni yedeklemeler arka ucundan uygulanan en fazla 18 geri yükleme noktaları sınırı olarak başarısız olmaya başlar.
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Yedekleme hizmeti bir kaynak grubu kilit nedeniyle eski geri yükleme noktaları silmek için izne sahip değil
+Bu sorun, kullanıcının kaynak grubu kilitler yönetilen sanal makineleri için özeldir. Bu durumda, yedekleme hizmeti eski geri yükleme noktaları silemiyor. 18 geri yükleme noktası sınırı olduğundan, yeni yedeklemeler başarısız olmaya başlıyor.
 
 #### <a name="solution"></a>Çözüm
 
-Sorunu çözmek için lütfen geri yükleme noktası koleksiyonu kaldırmak için aşağıdaki adımları kullanın: <br>
+Sorunu gidermek için geri yükleme noktası koleksiyonu kaldırmak için aşağıdaki adımları tamamlayın: <br>
  
-1. Kaynak grubu kilitlemek VM bulunduğu Kaldır 
-     
-2. ARMClient Chocolatey kullanarak yükleme <br>
+1. Kilidi VM bulunduğu kaynak grubunu kaldırın. 
+2. ARMClient Chocolatey kullanarak yükleyin: <br>
    https://github.com/projectkudu/ARMClient
-     
-3. ARMClient oturum açma <br>
-             `.\armclient.exe login`
-         
-4. VM karşılık gelen get geri yükleme noktası koleksiyonu <br>
+3. ARMClient için oturum açın: <br>
+    `.\armclient.exe login`
+4. VM karşılık gelen geri yükleme noktası koleksiyonunun alın: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
     Örnek:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-             
-5. Geri yükleme noktası koleksiyonunu silin <br>
-            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+5. Geri yükleme noktası koleksiyonunu silin: <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. Sonraki zamanlanmış yedekleme, geri yükleme noktası koleksiyonu ve yeni geri yükleme noktaları otomatik olarak oluşturur.
+
  
-6. Sonraki zamanlanmış yedekleme geri yükleme noktası toplama ve yeni geri yükleme noktaları otomatik olarak oluştur 
- 
-7. Sorun kaynak grubu olarak yeniden kilitlemek, yalnızca daha sonra yedeklemeler başarısız olmaya başlıyor 18 geri yükleme noktası bir sınırı yoktur yeniden görünür 
+Kaynak grubu yeniden kilitlemek durumunda sorun yeniden. 
 

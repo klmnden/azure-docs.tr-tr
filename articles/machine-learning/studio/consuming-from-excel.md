@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2017
+ms.date: 2/1/2018
 ms.author: tedway
-ms.openlocfilehash: 9a8b39853e1a90815758af1d8fd772db7cc18ac5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb0d02bc580822dcc9451dc6c22bd28d895dbbf7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Bir Azure Machine Learning Web Hizmetini Excel’den kullanma
  Azure Machine Learning Studio, web hizmetleri doğrudan kod yazmaya gerek kalmadan Excel çağırmanıza kolaylaştırır.

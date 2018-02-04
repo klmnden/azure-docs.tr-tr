@@ -6,7 +6,7 @@
 Login-AzureRmAccount
 ```
 
-Kullanmak istediğiniz konumdan emin değilseniz, kullanılabilir konumları listeleyebilirsiniz. Liste görüntülendikten sonra, kullanmak istediğiniz öğeyi bulun. Bu örnekte **eastus**. Bunu bir değişkende depolayın ve tek bir yerde değiştirebilmek için değişkeni kullanın.
+Kullanmak istediğiniz konumdan emin değilseniz, kullanılabilir konumları listeleyebilirsiniz. Liste görüntülendikten sonra, kullanmak istediğiniz öğeyi bulun. Bu örnekte **eastus** kullanılmıştır. Bunu bir değişkende depolayın ve tek bir yerde değiştirebilmek için değişkeni kullanın.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -31,7 +31,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "mystorageaccount" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage `
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 ```

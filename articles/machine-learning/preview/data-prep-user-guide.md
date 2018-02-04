@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 9bcdd539c199086e0f48c1172853ff00cc1617f8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-user-guide"></a>Veriler hazırlıkları Kullanıcı Kılavuzu 
 Azure Machine Learning veriler hazırlıkları deneyimi çok zengin işlevsellik sağlar. Bu makale deneyimi derin bölümlerini içermektedir.

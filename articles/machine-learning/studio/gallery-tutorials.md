@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 9a93a027ed5243496a86efff0d86de7092f44b43
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Bul ve öğreticiler Azure AI Galerisi'nde paylaşma
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Azure AI Galerisi sunar birkaç [öğreticileri](https://gallery.cortanaintellig
 
 ![Galeri giriş sayfasında öğreticileri seçin](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
- **[Öğreticileri](https://gallery.cortanaintelligence.com/tutorials)**  sayfasında yakın zamanda eklenen ve popüler öğreticilerin bir listesi görüntülenir. Tüm öğreticileri görmek için seçin **tümünü görmek** düğmesi. Belirli bir öğretici için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+**[Öğreticileri](https://gallery.cortanaintelligence.com/tutorials)**  sayfasında yakın zamanda eklenen ve popüler öğreticilerin bir listesi görüntülenir. Tüm öğreticileri görmek için seçin **tümünü görmek** düğmesi. Belirli bir öğretici için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
 
 Eğitmen Ayrıntıları sayfasında bir öğretici hakkında daha fazla bilgi edinebilirsiniz. Eğitmen Ayrıntılar sayfasını açmak için öğretici seçin. İçinde **açıklamaları** bölümünde bir öğretici Ayrıntıları sayfasında, yorum yapabileceği geribildirim sağlamak veya öğretici hakkında soru sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn öğretici bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek öğretici ayrıntıları sayfasına bir bağlantı e-posta gönderebilirsiniz.
 

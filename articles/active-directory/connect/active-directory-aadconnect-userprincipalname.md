@@ -1,0 +1,168 @@
+---
+title: Azure AD UserPrincipalName doldurma
+description: "Aşağıdaki belge UserPrincipalName özniteliği nasıl doldurulur açıklar."
+author: billmath
+ms.author: billmath
+ms.date: 02/02/2018
+ms.topic: article
+ms.workload: identity
+ms.service: active-Directory
+manager: mtillman
+ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/03/2018
+---
+# <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName doldurma
+
+Bu makalede, Azure Active Directory (Azure AD) UserPrincipalName özniteliği nasıl doldurulur açıklanmaktadır.
+UserPrincipalName özniteliğinin değeri, kullanıcı hesapları için Azure AD kullanıcı adıdır.
+
+## <a name="upn-terminology"></a>UPN terminolojisi
+Bu makalede aşağıdaki terimler kullanılır:
+
+|Sözleşme Dönemi|Açıklama|
+|-----|-----|
+|İlk etki alanı|Varsayılan etki alanına (onmicrosoft.com) Azure AD Kiracısı. Örneğin, contoso.onmicrosoft.com.|
+|Microsoft çevrimiçi e-posta adresi (MOERA) yönlendirme|Azure AD hesaplar Azure AD MailNickName özniteliği ve Azure AD ilk etki alanı olarak MOERA &lt;MailNickName&gt;&#64;&lt; ilk etki alanı&gt;.|
+|Şirket içi mailNickName özniteliği|Bir öznitelik değeri, Active Directory içinde bir kullanıcı bir Exchange kuruluşunda diğer adı temsil eder.|
+|Şirket içi posta özniteliği|Bir kullanıcının e-posta adresini Active Directory'de değeri bir özniteliği temsil eder|
+|Birincil SMTP adresi|Bir Exchange alıcı nesne birincil e-posta adresi. Örneğin, SMTP:user@contoso.com.|
+|Alternatif oturum açma kimliği|Oturum açma için kullanılan posta öznitelik gibi bir şirket içi özniteliği, UserPrincipalName dışında.|
+
+## <a name="what-is-userprincipalname"></a>UserPrincipalName nedir?
+UserPrincipalName olan bir Internet stil oturum açma adı Internet standardına göre bir kullanıcı için bir öznitelik [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
+
+### <a name="upn-format"></a>UPN biçimi
+UPN UPN önekini (kullanıcı hesabı adı) ve bir UPN soneki (bir DNS etki alanı adı) oluşur. Önek kullanarak soneki ile birleştirilmiş "@" simgesi. Örneğin, "someone@example.com". UPN directory ormanındaki tüm güvenlik sorumlusu nesneleri arasında benzersiz olması gerekir. 
+
+## <a name="upn-in-azure-ad"></a>Azure AD'de UPN 
+UPN oturum açma yapmalarına izin vermek için Azure AD tarafından kullanılır.  Bir kullanıcı kullanabilir, UPN bağlıdır etki alanı desteklemediğini doğrulandı.  Etki alanı doğrulandı, ardından söz konusu sonekine sahip bir kullanıcı Azure AD ile oturum açmak için izin verilir.  
+
+Öznitelik, Azure AD Connect tarafından eşitlenir.  Yükleme sırasında doğrulanan etki alanlarını ve olan değil görüntüleyebilirsiniz.
+
+   ![Doğrulanmamış etki alanları](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) 
+
+## <a name="alternate-login-id"></a>Alternatif oturum açma kimliği
+Şirket ilkesi veya şirket içi iş kolu satır uygulama bağımlılıkları nedeniyle bazı ortamlarda, son kullanıcılar yalnızca kendi e-posta adresi ve bunların UPN duyarlı olabilir.
+
+Alternatif oturum açma kimliği bir öznitelik posta gibi kendi UPN dışındaki oturum nerede kullanıcılar oturum bir oturum açma deneyimi yapılandırmanıza olanak sağlar.
+
+Azure AD ile alternatif oturum açma kimliği etkinleştirmek için Azure AD Connect kullanırken hiçbir ek yapılandırma adımları gereklidir. Alternatif kimlik doğrudan sihirbazından yapılandırılabilir. Eşitleme bölümünde, kullanıcılarınızın Azure AD oturum açma yapılandırması bakın. Altında **kullanıcı asıl adı** açılan listesinde, öznitelik için alternatif oturum açma kimliği seçin.
+
+![Doğrulanmamış etki alanları](./media/active-directory-aadconnect-userprincipalname/altloginid.png)  
+
+Daha fazla bilgi için bkz: [yapılandırma alternatif oturum açma Kimliğini](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) ve [Azure AD oturum açma yapılandırması](active-directory-aadconnect-get-started-custom.md#azure-ad-sign-in-configuration)
+
+## <a name="non-verified-upn-suffix"></a>Doğrulanmamış UPN soneki
+Şirket içi UserPrincipalName özniteliği/alternatif oturum açma kimliği soneki ile Azure AD Kiracı doğrulanamazsa, Azure AD UserPrincipalName öznitelik değeri için MOERA ayarlanır. Azure AD hesaplar Azure AD MailNickName özniteliği ve Azure AD ilk etki alanı olarak MOERA &lt;MailNickName&gt;&#64;&lt; ilk etki alanı&gt;.
+
+## <a name="verified-upn-suffix"></a>Doğrulanmış UPN soneki
+Şirket içi UserPrincipalName özniteliği/alternatif varsa Azure AD UserPrincipalName özniteliği değeri şirket içi UserPrincipalName özniteliği/alternatif oturum açma kimliği değeri ile aynı olacak sonra oturum açma kimliği soneki Azure AD Kiracısı ile doğrulanır.
+
+## <a name="azure-ad-mailnickname-attribute-value-calculation"></a>Azure AD MailNickName öznitelik değeri hesaplama
+Azure AD UserPrincipalName öznitelik değeri için MOERA ayarlanamıyor çünkü MOERA önektir, Azure AD MailNickName öznitelik değeri nasıl hesaplandığını anlamak önemlidir.
+
+Bir kullanıcı nesnesi ilk kez bir Azure AD Kiracısı eşitlendiğinde, Azure AD verilen sırayla aşağıdakileri denetler ve mevcut birinciye MailNickName öznitelik değeri ayarlar:
+
+- Şirket içi mailNickName özniteliği
+- Şirket içi posta özniteliğinin öneki
+- Birincil SMTP adresi öneki
+- Şirket içi userPrincipalName özniteliği/alternatif oturum açma kimliği öneki
+
+Bir kullanıcı nesnesi güncelleştirmeler için Azure AD Kiracı eşitlenirken Azure AD MailNickName öznitelik değeri güncelleştirmeler olduğunda şirket içi mailNickName öznitelik değeri için bir güncelleştirme yalnızca.
+
+>[!IMPORTANT]
+>Şirket içi UserPrincipalName özniteliği/alternatif oturum açma kimliği değeri için bir güncelleştirme için Azure AD Kiracı yalnızca eşitlenmiş durumda azure AD UserPrincipalName özniteliği değeri yeniden hesaplar. 
+>
+>Ayrıca Azure AD UserPrincipalName özniteliği yeniden hesaplar her MOERA yeniden hesaplar. 
+
+## <a name="upn-scenarios"></a>UPN senaryoları
+Nasıl UPN temel alınarak belirli senaryoya hesaplanır örnek senaryolar verilmiştir.
+
+### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>Senaryo 1: Doğrulanmamış UPN soneki – ilk eşitleme
+
+Şirket içi kullanıcı nesnesi:
+- mailNickName: &lt;ayarlı değil&gt;
+- posta:us1@contoso.com
+- proxyAddresses        : {SMTP:us2@contoso.com}
+- userPrincipalName: us3@contoso.com'
+
+İlk olarak Azure AD Kiracı Kullanıcı nesnesine eşitlendi
+- Azure AD MailNickName özniteliği için şirket içi posta özniteliğinin öneki ayarlayın.
+- Kümesine MOERA &lt;MailNickName&gt;&#64;&lt; ilk etki alanı&gt;.
+- Azure AD UserPrincipalName özniteliği için MOERA ayarlayın.
+
+Azure AD Kiracı Kullanıcı nesnesi:
+- MailNickName      : us1           
+- UserPrincipalName:us1@contoso.onmicrosoft.com
+
+
+### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Senaryo 2: Doğrulanmamış UPN soneki – kümesi mailNickName özniteliği şirket içi
+
+Şirket içi kullanıcı nesnesi:
+- mailNickName      : us4
+- posta:us1@contoso.com
+- proxyAddresses        : {SMTP:us2@contoso.com}
+- userPrincipalName:us3@contoso.com
+
+Azure AD Kiracısı için şirket içi mailNickName öznitelikte güncelleştirme Eşitle
+- Azure AD MailNickName özniteliği şirket içi mailNickName özniteliği ile güncelleştirin.
+- Şirket içi userPrincipalName özniteliği için hiçbir güncelleştirme olduğundan, Azure AD UserPrincipalName özniteliği için herhangi bir değişiklik yoktur.
+
+Azure AD Kiracı Kullanıcı nesnesi:
+- MailNickName      : us4
+- UserPrincipalName:us1@contoso.onmicrosoft.com
+
+### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Senaryo 3: Doğrulanmamış UPN soneki – güncelleştirme userPrincipalName özniteliği şirket içi
+
+Şirket içi kullanıcı nesnesi:
+- mailNickName      : us4
+- posta:us1@contoso.com
+- proxyAddresses        : {SMTP:us2@contoso.com}
+- userPrincipalName:us5@contoso.com
+
+Azure AD Kiracısı için şirket içi userPrincipalName özniteliği Update'te Eşitle
+- Şirket içi userPrincipalName özniteliği Update'te MOERA ve Azure AD UserPrincipalName özniteliği hesaplanması tetikler.
+- Kümesine MOERA &lt;MailNickName&gt;&#64;&lt; ilk etki alanı&gt;.
+- Azure AD UserPrincipalName özniteliği için MOERA ayarlayın.
+
+Azure AD Kiracı Kullanıcı nesnesi:
+- MailNickName      : us4
+- UserPrincipalName:us4@contoso.onmicrosoft.com
+
+### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>Senaryo 4: Doğrulanmamış UPN soneki – güncelleştirme posta özniteliğinin ve birincil SMTP adresi şirket içi
+
+Şirket içi kullanıcı nesnesi:
+- mailNickName      : us4
+- posta:us6@contoso.com
+- proxyAddresses        : {SMTP:us7@contoso.com}
+- userPrincipalName:us5@contoso.com
+
+Güncelleştirmeyi şirket içi posta özniteliğinin ve Azure AD Kiracısı için birincil SMTP adresini Eşitle
+- Kullanıcı nesnesinin ilk eşitleme güncelleştirmeleri sonra şirket içi posta özniteliği ve birincil SMTP adresi Azure AD MailNickName ya da UserPrincipalName özniteliği etkilemez.
+
+Azure AD Kiracı Kullanıcı nesnesi:
+- MailNickName      : us4
+- UserPrincipalName:us4@contoso.onmicrosoft.com
+
+### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Senaryo 5: Doğrulanmış UPN soneki – güncelleştirme userPrincipalName özniteliği soneki şirket içi
+
+Şirket içi kullanıcı nesnesi:
+- mailNickName      : us4
+- posta:us6@contoso.com
+- proxyAddresses        : {SMTP:us7@contoso.com}
+- serPrincipalName:us5@verified.contoso.com
+
+Azure AD Kiracısı için şirket içi userPrincipalName özniteliği Update'te Eşitle
+- Şirket içi userPrincipalName özniteliği Tetikleyicileri hesaplanması Azure AD UserPrincipalName özniteliği üzerinde güncelleştirin.
+- UPN soneki olarak şirket içi userPrincipalName özniteliği için kümesi Azure AD UserPrincipalName özniteliği, Azure AD Kiracı ile doğrulanır.
+
+Azure AD Kiracı Kullanıcı nesnesi:
+- MailNickName      : us4     
+- UserPrincipalName:us5@verified.contoso.com
+
+## <a name="next-steps"></a>Sonraki Adımlar
+- [Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
+- [Azure AD Connect özel yüklemesi](active-directory-aadconnect-get-started-custom.md)

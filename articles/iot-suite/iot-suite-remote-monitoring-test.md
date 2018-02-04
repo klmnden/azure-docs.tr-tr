@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Çözümünüzü sanal cihazlar ile test
 
@@ -131,24 +131,24 @@ Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.mic
 1. Sanal makineniz SSH erişimini etkinleştirmek için önceki adımdan ağ güvenlik grubunun adı kullanarak şu komutu çalıştırın:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Ağınız için gelen kuralları listesini görüntülemek için aşağıdaki komutu çalıştırın:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Bildiğiniz bir parola için sanal makine parolasını değiştirmek için aşağıdaki komutu çalıştırın. Daha önce not ettiğiniz sanal makinenin adını ve tercih ettiğiniz bir parola kullanın:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Sanal makinenin IP adresini bulmak için aşağıdaki komutu kullanın ve genel IP adresini not edin:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. Artık, sanal makinenize bağlanmak için SSH kullanabilirsiniz. `ssh` Komuttur bulut Kabuğu'nda önceden yüklenmiş. Önceki adımdan genel IP adresi kullanın ve parola istendiğinde, sanal makine için yapılandırılmış:

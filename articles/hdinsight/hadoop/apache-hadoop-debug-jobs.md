@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashish
-ms.openlocfilehash: 682b73aefff2ac20cbd38f6780b73cde859378ed
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: a5db3848eda2dbb6f117562e059b909575966993
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="analyze-hadoop-logs"></a>Hadoop günlüklerini analiz edin
+# <a name="analyze-hadoop-logs"></a>Hadoop günlüklerini analiz etme
 
 Her Azure Hdınsight Hadoop kümesinde varsayılan dosya sistemi olarak kullanılan bir Azure depolama hesabı vardır. Depolama hesabı varsayılan depolama hesabı olarak adlandırılır. Küme günlüklerinin depolamak için varsayılan depolama hesabında Azure Table depolama ve Blob Depolama kullanır.  Kümeniz için varsayılan depolama hesabı öğrenmek için bkz: [Hdınsight'ta Hadoop yönetmek kümeleri](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Küme bile silindikten sonra günlükleri depolama hesabında korur.
 
@@ -54,7 +54,7 @@ Bu tablolar aşağıdaki alanları içerir:
 * Rol
 * RowIndex
 * Kiracı
-* ZAMAN DAMGASI
+* TIMESTAMP
 * TraceLevel
 
 ### <a name="tools-for-accessing-the-logs"></a>Günlükleri erişmek için Araçlar
@@ -321,7 +321,4 @@ Hdınsight kümeleri yönetmek için kullanıldığında bu hata iletileri bazı
 
 * [Tez işlerinde hdınsight'ta hata ayıklamak için Ambari görünümleri kullanma](../hdinsight-debug-ambari-tez-view.md)
 * [Linux tabanlı hdınsight'ta Hadoop Hizmetleri için yığın dökümleri etkinleştir](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-
-<!--
-TODO  * [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
--->
+* [Ambari Web kullanıcı arabirimini kullanarak Hdınsight kümelerini yönetme](../hdinsight-hadoop-manage-ambari.md)

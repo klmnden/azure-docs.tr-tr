@@ -77,3 +77,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Videolar
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
+    - name: SSS
+      href: faq.md

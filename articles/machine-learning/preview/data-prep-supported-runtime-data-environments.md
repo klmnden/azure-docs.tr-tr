@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 9025982d2a350941ef82733292ebbf15ab48d7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Bu sürüm için desteklenen Matrisi 
 Ne zaman Azure Machine Learning veri kaynakları veya Azure Machine Learning veri ya da bir Pandas alma hazırlıklar, kullanarak verileri kodunuzu yükler veya Spark dataframe, deneme aşağıdaki birleşimlerini işlem ortamlarını ve veri konumlar desteklenir:
 
 |     |Yerel dosyaları  |Azure Blob depolama  |SQL Server veritabanı ***  |
 |---------|---------|---------|---------|---------|
-|Yerel Python    |     Desteklenen    |Desteklenmiyor         | Desteklenmiyor        |         |
+|Local Python    |     Desteklenen    |Desteklenmiyor         | Desteklenmiyor        |         |
 |Docker (Linux VM) Python     |Yalnızca proje dosyalarında desteklenen *         | Desteklenmiyor        |        Desteklenmiyor |         |
 |Docker (Linux VM) PySpark     |Yalnızca proje dosyalarında desteklenen *     |Desteklenen         | Destekleniyor**        |         |
 |Azure veri bilimi sanal makine Python     |Yalnızca proje dosyalarında desteklenen *         |Desteklenmiyor         |Desteklenmiyor         |         |

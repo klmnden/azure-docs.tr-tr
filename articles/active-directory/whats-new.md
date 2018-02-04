@@ -6,21 +6,22 @@ documentationcenter:
 author: MarkusVi
 manager: mtillman
 editor: 
-featureFlags: clicktale
+featureFlags:
+- clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
@@ -74,7 +75,7 @@ Algılanan risk olayı için alma Insight Azure AD aboneliğinizi bağlıdır. A
 
 Azure AD Premium P1 Edition'la lisansınız tarafından kapsanmayan algılamaların ile ek risk algılanan risk olayı olarak oturum açma görünür.
 
-Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](active-directory-reporting-risk-events.md).
+Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 
 ---
@@ -89,7 +90,7 @@ Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](active-direc
 Artık, yeni bir kullanıcı ayarı yoluyla, kullanıcının erişim paneller üzerinde nasıl Office 365 uygulamaları görünmesini daha iyi yönetebilirsiniz. Bu seçenek, yalnızca Office uygulamaları Office portalındaki göstermek tercih ederseniz, bir kullanıcının erişim paneller uygulamalarında miktarını azaltmak için yararlıdır. Ayar bulunan **kullanıcı ayarları** ve etiketli **kullanıcılar yalnızca Office 365 uygulamaları Office 365 portalında görür**.
  
 
-Daha fazla bilgi için bkz: [bir uygulamayı Azure Active Directory'de kullanıcı deneyimini Gizle](active-directory-coreapps-hide-third-party-app.md).
+Daha fazla bilgi için bkz: [bir uygulamayı Azure Active Directory'de kullanıcı deneyimini Gizle](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ---
  
@@ -109,7 +110,7 @@ My uygulamaları tarayıcı uzantısı tarayıcınızda bir kısayol olarak yete
 - Uzantı son kullanılan uygulamalar için kısayollar
 - Uzantı Edge, Chrome ve Firefox için kullanılabilir.
  
-Daha fazla bilgi için bkz: [My uygulamaları güvenli oturum açma uzantısı](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+Daha fazla bilgi için bkz: [My uygulamaları güvenli oturum açma uzantısı](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
 ---
 
@@ -154,9 +155,9 @@ Yeni yönetim konsoludur geçiş işleminin bir parçası olarak, biz yerine Azu
 
 Daha fazla bilgi için bkz.
 
-- [Azure Active raporlama API'si Directory ile çalışmaya başlama](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Azure Active raporlama API'si Directory ile çalışmaya başlama](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama](active-directory-identityprotection-graph-getting-started.md)
+- [Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -226,7 +227,7 @@ Yöneticiler için bir seçenek koşulları kabul etmeden önce Kullanım Koşul
 
 Şunlardan birini seçin **üzerinde** veya **kapalı** kullanıcıların Kullanım Koşulları'nı genişletin. **Üzerinde** ayarı kabul etmeden önce kullanım koşullarını görüntülemek kullanıcıların gerektirir.
 
-Daha fazla bilgi için bkz: [kullanım özelliği (Önizleme) Azure AD koşullarını](active-directory-tou.md).
+Daha fazla bilgi için bkz: [kullanım özelliği (Önizleme) Azure AD koşullarını](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
  
@@ -239,7 +240,7 @@ Daha fazla bilgi için bkz: [kullanım özelliği (Önizleme) Azure AD koşullar
  
 Uygun Azure kaynak rol atamalarını özgün atama varsayılan değerinden daha az otonomisi ile etkinleştirmek için kapsamlı etkinleştirmesini kullanabilirsiniz. Kiracınızda atadığınız bir aboneliğin sahibi bir örnektir. Kapsamlı etkinleştirme ile (örneğin, kaynak gruplarını ve sanal makineler) aboneliği kapsamında yer alan en fazla beş kaynaklar için sahip rolünü de etkinleştirebilirsiniz. Etkinleştirme kapsamı kritik Azure kaynaklarına istenmeyen değişiklikler Yürütülüyor olasılığını azaltabilir.
 
-Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management nedir?](active-directory-privileged-identity-management-configure.md).
+Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure).
  
 ---
  
@@ -342,7 +343,7 @@ Günümüzde, bu koşulu kullandığınızda erişimi engellenir. Önizleme kull
 
 Bu yetenek ve yaklaşan blogları ve sürüm notları hakkında daha fazla bilgi arayın. 
 
-Daha fazla bilgi için bkz: [koşullu erişim Azure AD'de](active-directory-conditional-access-azure-portal.md).
+Daha fazla bilgi için bkz: [koşullu erişim Azure AD'de](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
  
 ---
@@ -357,7 +358,7 @@ Daha fazla bilgi için bkz: [koşullu erişim Azure AD'de](active-directory-cond
 
 
 
-Aşağıdaki uygulamalar listesine eklemek için planlanan [istemci uygulamaları onaylanan](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+Aşağıdaki uygulamalar listesine eklemek için planlanan [istemci uygulamaları onaylanan](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -365,8 +366,8 @@ Aşağıdaki uygulamalar listesine eklemek için planlanan [istemci uygulamalar�
 
 Daha fazla bilgi için bkz.
 
-- [Onaylanmış istemci uygulama gereksinimi](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md)
+- [Onaylanmış istemci uygulama gereksinimi](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD uygulama temelli koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -408,7 +409,7 @@ Artık, şirket içi parola geri yazma istemci durumunu gözden geçirebilirsini
 - Bir bağlantı belgelerine sorunun çözümlenmesinde yardımcı olur. 
 
 
-Daha fazla bilgi için bkz: [şirket içi tümleştirme](active-directory-passwords-how-it-works.md#on-premises-integration).
+Daha fazla bilgi için bkz: [şirket içi tümleştirme](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration).
 
  
 ---
@@ -427,9 +428,9 @@ Daha fazla bilgi için bkz: [şirket içi tümleştirme](active-directory-passwo
 
 
 
-Şimdi Office 365 ve diğer Azure AD bağlı bulut uygulamalarına erişimi kısıtlayabilirsiniz [istemci uygulamaları onaylanan](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) destekleyen Intune uygulama koruma ilkeleri kullanarak [Azure AD uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md). Intune uygulama koruma ilkeleri yapılandırmak ve bu istemci uygulamaları üzerindeki şirket verilerini korumak için kullanılır.
+Şimdi Office 365 ve diğer Azure AD bağlı bulut uygulamalarına erişimi kısıtlayabilirsiniz [istemci uygulamaları onaylanan](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) destekleyen Intune uygulama koruma ilkeleri kullanarak [Azure AD uygulama temelli koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Intune uygulama koruma ilkeleri yapılandırmak ve bu istemci uygulamaları üzerindeki şirket verilerini korumak için kullanılır.
 
-Birleştirme tarafından [uygulama tabanlı](active-directory-conditional-access-mam.md) ile [aygıt tabanlı](active-directory-conditional-access-policy-connected-applications.md) koşullu erişim ilkeleri, kişisel verileri ve şirket cihazları korumak için esnekliğe sahip.
+Birleştirme tarafından [uygulama tabanlı](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) ile [aygıt tabanlı](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) koşullu erişim ilkeleri, kişisel verileri ve şirket cihazları korumak için esnekliğe sahip.
 
 Aşağıdaki koşullar ve denetimleri artık uygulama bağlı olarak koşullu erişim ile kullanılmak üzere kullanılabilir:
 
@@ -447,7 +448,7 @@ Aşağıdaki koşullar ve denetimleri artık uygulama bağlı olarak koşullu er
 - Onaylı istemci uygulaması gerektir
 
 
-Daha fazla bilgi için bkz: [Azure AD uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md).
+Daha fazla bilgi için bkz: [Azure AD uygulama temelli koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
  
 ---
@@ -471,7 +472,7 @@ Tüm cihazlar için Azure AD bağlı artık bulabilirsiniz ve cihaz ilgili etkin
 - Azure AD alanına katılmış cihazlar için BitLocker anahtarları bulmak, Cihazınızı Intune ve daha fazla ile yönetebilirsiniz.
 - Azure AD cihaz ilgili ayarlarını yönetin.
 
-Daha fazla bilgi için bkz: [Azure portalını kullanarak cihazları yönetme](device-management-azure-portal.md).
+Daha fazla bilgi için bkz: [Azure portalını kullanarak cihazları yönetme](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
 
 
 
@@ -496,7 +497,7 @@ Artık içerir (dışlamak macOS cihaz platformu koşul olarak Azure AD koşullu
 Daha fazla bilgi için bkz.
 
 - [Intune ile macOS cihazlar için cihaz uyumluluk ilkesi oluşturma](https://aka.ms/macoscompliancepolicy)
-- [Azure AD'de koşullu erişim](active-directory-conditional-access-azure-portal.md)
+- [Azure AD'de koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -517,7 +518,7 @@ Azure çok faktörlü kimlik doğrulaması için ağ ilkesi sunucusu uzantısı,
 Bu uzantı, sanal özel ağ bağlantıları Azure çok faktörlü kimlik doğrulama sunucusu dağıtmadan korumak istediğiniz kuruluşlar için oluşturuldu. Ağ ilkesi sunucusu arasındaki RADIUS Azure çok faktörlü kimlik doğrulaması bulut tabanlı bir ikinci faktör kimlik doğrulaması sağlamak için bir bağdaştırıcı uzantısı görür federe veya kullanıcılar eşitlenir.
 
 
-Daha fazla bilgi için bkz: [varolan ağ ilkesi sunucusu altyapınızı Azure çok faktörlü kimlik doğrulamasıyla tümleştirmek](../multi-factor-authentication/multi-factor-authentication-nps-extension.md).
+Daha fazla bilgi için bkz: [varolan ağ ilkesi sunucusu altyapınızı Azure çok faktörlü kimlik doğrulamasıyla tümleştirmek](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension).
 
  
 ---
@@ -556,7 +557,7 @@ Azure AD Yönetim merkezinde, şunları yapabilirsiniz:
 **Ürün yetenek:** kimlik güvenlik ve koruma
 
 
-Aşağıdaki uygulamalar listesine eklenen [istemci uygulamaları onaylanan](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+Aşağıdaki uygulamalar listesine eklenen [istemci uygulamaları onaylanan](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - Microsoft Planner
 - Azure Information Protection 
@@ -564,8 +565,8 @@ Aşağıdaki uygulamalar listesine eklenen [istemci uygulamaları onaylanan](act
 
 Daha fazla bilgi için bkz.
 
-- [Onaylanmış istemci uygulama gereksinimi](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md)
+- [Onaylanmış istemci uygulama gereksinimi](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD uygulama temelli koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -580,7 +581,7 @@ Daha fazla bilgi için bkz.
  
 Şimdi kullanabilir "veya" (Seçili denetimleri birini gerektirir) koşullu erişim denetimleri için. Erişim denetimleri arasındaki ile "veya" ilkeleri oluşturmak için bu özelliği kullanın. Örneğin, uyumlu bir cihaz üzerinde olacak şekilde "veya" çok faktörlü kimlik doğrulaması kullanarak oturum açmak için kullanıcının gerektiren bir ilke oluşturmak için bu özelliği kullanabilirsiniz.
 
-Daha fazla bilgi için bkz: [Azure AD koşullu erişim denetimleri](active-directory-conditional-access-controls.md).
+Daha fazla bilgi için bkz: [Azure AD koşullu erişim denetimleri](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
 
  
 ---
@@ -634,7 +635,7 @@ Bu yeni özellikleri nedeniyle raporun API'leri/Reports endpoint altında kullan
 
 
 
-Azure AD, bir HTML kullanıcı adı ve parola alanı işleme uygulamaları için otomatik oturum açma alan algılama destekler. Bu adımları belgelenmiştir [otomatik olarak oturum açma alanları bir uygulama için yakalama](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). Ekleyerek bu yeteneği bulabilirsiniz bir *olmayan galeri* uygulaması **kurumsal uygulamalar** sayfasındaki [Azure portal](http://aad.portal.azure.com). Ayrıca, yapılandırabileceğiniz **çoklu oturum açma** bu yeni uygulama modu **parola tabanlı çoklu oturum açma**, bir web URL'si girin ve sayfayı kaydedin.
+Azure AD, bir HTML kullanıcı adı ve parola alanı işleme uygulamaları için otomatik oturum açma alan algılama destekler. Bu adımları belgelenmiştir [otomatik olarak oturum açma alanları bir uygulama için yakalama](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). Ekleyerek bu yeteneği bulabilirsiniz bir *olmayan galeri* uygulaması **kurumsal uygulamalar** sayfasındaki [Azure portal](http://aad.portal.azure.com). Ayrıca, yapılandırabileceğiniz **çoklu oturum açma** bu yeni uygulama modu **parola tabanlı çoklu oturum açma**, bir web URL'si girin ve sayfayı kaydedin.
  
 Bir hizmet sorunu nedeniyle bu işlevselliği geçici olarak devre dışı bırakıldı. Sorunu Çözümlendi ve otomatik oturum açma alan algılama yeniden kullanılabilir.
 
@@ -656,7 +657,7 @@ Bir hizmet sorunu nedeniyle bu işlevselliği geçici olarak devre dışı bıra
 
 Bu genel önizlemede, MFA yönetim ve raporlama bir tümleşik çekirdek Azure AD yapılandırma deneyimi parçasıdır. Şimdi, Azure AD deneyimi içinde MFA Yönetim Portalı işlevselliğini yönetebilirsiniz.
 
-Daha fazla bilgi için bkz: [MFA Azure portalında raporlama için başvuru](active-directory-reporting-activity-sign-ins-mfa.md). 
+Daha fazla bilgi için bkz: [MFA Azure portalında raporlama için başvuru](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa). 
 
 
 ---
@@ -679,7 +680,7 @@ Azure AD kullanım koşullarını aşağıdaki senaryolarda kullanabilirsiniz:
 - Belirli bir kullanıcının öznitelikleri (örneğin, Doktorlar nurses karşılaştırması) veya yurtiçi ve uluslararası çalışanlar, dinamik grupların tarafından yapılan temel kullanım koşulları
 - Salesforce gibi yüksek etkili iş uygulamalarına erişmek için belirli kullanım koşulları
 
-Daha fazla bilgi için bkz: [kullanım koşullarını Azure AD](active-directory-tou.md).
+Daha fazla bilgi için bkz: [kullanım koşullarını Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
 
 
 ---
@@ -700,7 +701,7 @@ Azure AD Privileged Identity Management'ı yönetin, denetleyin ve (Önizleme) A
 
 Azure portalındaki Azure RBAC işlevselliği kullanan tüm kaynakları tüm sunmak için Azure AD Privileged Identity Management sahip yaşam döngüsü yönetimi özellikleri ve güvenlik yararlanabilir.
 
-Daha fazla bilgi için bkz: [Azure kaynakları için Privileged Identity Management](privileged-identity-management/azure-pim-resource-rbac.md).
+Daha fazla bilgi için bkz: [Azure kaynakları için Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 
 ---
@@ -721,7 +722,7 @@ Kuruluşlar erişim incelemeler (Önizleme), grup üyelikleri ve kurumsal uygula
 
 Erişim gözden geçirmesi denetimlerini kuruluşunuza uygun programlarda toplayarak, uyumluluk veya riske duyarlı uygulamalar için gözden geçirmeleri takip edebilirsiniz.
 
-Daha fazla bilgi için bkz: [Azure AD erişim incelemeleri](active-directory-azure-ad-controls-access-reviews-overview.md).
+Daha fazla bilgi için bkz: [Azure AD erişim incelemeleri](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview).
 
 
 ---
@@ -738,7 +739,7 @@ Daha fazla bilgi için bkz: [Azure AD erişim incelemeleri](active-directory-azu
 
 Şimdi, kullanıcılarınızın portallar aracılığıyla yeni bir görünmesini uygulamaları daha iyi yönetebilirsiniz **uygulama Gizle** özelliği. Arka uç hizmetlerine veya yinelenen kutucukları ve dağınıklığı kullanıcıların uygulama launchers için uygulama kutucuklarına burada görünür durumda yardımcı olmak için uygulamaların gizleyebilirsiniz. İki durumlu bulunduğu **özellikleri** üçüncü taraf uygulama bölümü ve etiketli **kullanıcıya görünür?** Ayrıca, bir uygulamayı programlı olarak PowerShell aracılığıyla gizleyebilirsiniz. 
 
-Daha fazla bilgi için bkz: [Azure AD'de kullanıcı deneyiminde bir üçüncü taraf uygulama Gizle](active-directory-coreapps-hide-third-party-app.md). 
+Daha fazla bilgi için bkz: [Azure AD'de kullanıcı deneyiminde bir üçüncü taraf uygulama Gizle](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app). 
 
 
 **Kullanılabilir nedir?**

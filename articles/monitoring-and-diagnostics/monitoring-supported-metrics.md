@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyicisi ile desteklenen ölçümleri
 Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümleri tam bir listesi ile Azure monitörün ölçüm ardışık düzen şu anda kullanılabilir.
@@ -667,6 +667,14 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |ObservedCapacity|Gözlenen Kapasite|Sayı|Ortalama|Otomatik ölçeklendirme yürütüldüğünde bildirilen kapasite.|Hiç boyut|
 |ScaleActionsInitiated|Başlatılan Ölçeklendirme Eylemleri|Sayı|Toplam|Ölçeklendirme işleminin yönü.|ScaleDirection|
 
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|ServiceApiHit|Hizmet API'si Toplam İsabet|Sayı|Toplam sayı|Hizmet API'si isabetlerinin toplam sayısı|ActivityType, ActivityName|
+|ServiceApiLatency|Hizmet API'si Toplam Gecikme|Milisaniye|Sayısı, ortalama, Minimum, maksimum|Hizmet API'si isteklerinin toplam gecikme süresi|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Hizmet API'si Toplam Sonuç|Sayı|Toplam sayı|Hizmet API'si sonuçlarının toplam sayısı|ActivityType, ActivityName, StatusCode|
+
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
@@ -853,7 +861,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|QueryDuration||Sayı|Ortalama||Hiç boyut|
+|QueryDuration|Sorgu süresi|Sayı|Ortalama|Son aralığı DAX sorgusu süresi|Hiç boyut|
 |QueryPoolJobQueueLength|İş parçacıkları: Sorgu havuzu iş sırası uzunluğu|Sayı|Ortalama|Sorgu iş parçacığı havuzunun sıraya işlerin sayısı.|Hiç boyut|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

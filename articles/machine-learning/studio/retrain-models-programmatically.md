@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye;v-donglo
-ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: raymondl;garye
+ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Machine Learning modellerini programlı olarak yeniden eğitme
 Bu kılavuzda, bir Azure Machine Learning Web hizmeti C# ve makine öğrenme toplu yürütme hizmeti kullanarak program aracılığıyla yeniden eğitme öğreneceksiniz.

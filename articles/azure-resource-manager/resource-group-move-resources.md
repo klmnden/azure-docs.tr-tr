@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
 ---
@@ -190,43 +190,29 @@ Sanal ağ alt ağı kaynak Gezinti bağlantılarıyla içeriyorsa, bir sanal ağ
 
 ## <a name="app-service-limitations"></a>App Service sınırlamalar
 
-Uygulama hizmeti uygulamaları ile çalışırken, yalnızca bir uygulama hizmeti planı taşınamıyor. App Service uygulamalarının taşımak için seçenekleriniz şunlardır:
+Uygulama hizmeti kaynakları taşıma sınırlamalarını taşıdığınız bir abonelik içindeki veya yeni bir abonelik için kaynaklara göre farklılık gösterir.
 
-* Uygulama hizmeti planı ve diğer tüm uygulama hizmeti kaynakları bu kaynak grubunda zaten App Service kaynakları yok yeni bir kaynak grubuna taşıyın. Bu gereksinim, hatta uygulama hizmeti plan ile ilişkili olmayan uygulama hizmeti kaynakları taşımalısınız anlamına gelir.
-* Uygulamalar farklı bir kaynak grubuna taşımak, ancak tüm uygulama hizmeti planları özgün kaynak grubunda tutun.
+### <a name="moving-within-the-same-subscription"></a>Aynı abonelik içinde taşıma
 
-Uygulama hizmeti planı düzgün çalışabilmesi için aynı kaynak grubunda için uygulaması olarak bulunmaları gerekmez.
+Bir Web uygulaması taşınırken _aynı abonelik içindeki_, karşıya yüklenen SSL sertifikalarını taşıyamazsınız. Ancak, karşıya yüklenen SSL sertifikasını taşımadan yeni kaynak grubu için bir Web uygulaması taşıyabilirsiniz ve uygulamanızın SSL işlevselliği hala çalışmaktadır. 
 
-Örneğin, kaynak grubunuz varsa:
+Web uygulaması ile SSL sertifikası taşımak istiyorsanız, aşağıdaki adımları izleyin:
 
-* **Web-a** ile ilişkili **planı-a**
-* **Web b** ile ilişkili **planı b**
+1.  Karşıya yüklenen sertifikanın Web uygulamasından silin.
+2.  Web uygulaması taşıyın.
+3.  Sertifika taşınan Web uygulamasına yükleyin.
 
-Seçenekleriniz şunlardır:
+### <a name="moving-across-subscriptions"></a>Abonelikler arasında taşıma
 
-* Taşıma **web-a**, **planı-a**, **web-b**, ve **planı b**
-* Taşıma **web-a** ve **web-b**
-* Taşıma **web-a**
-* Taşıma **web-b**
+Bir Web uygulaması taşınırken _Aboneliklerdeki_, aşağıdaki sınırlamalar uygulanır:
 
-Diğer tüm birleşimler, bir uygulama hizmeti planı (uygulama hizmeti kaynak türlü) taşırken bırakılamaz arkasındaki bir kaynak türü bırakarak içerir.
-
-Web uygulamanızın farklı bir kaynak grubu, uygulama hizmeti planı daha bulunur, ancak her ikisi de yeni bir kaynak grubuna taşımak istediğiniz iki adımda taşıma gerçekleştirmeniz gerekir. Örneğin:
-
-* **Web-a** bulunan **web grubu**
-* **planı bir** bulunan **planı Grup**
-* İstediğiniz **web-a** ve **planı-a** bulunması için **birleştirilmiş Grup**
-
-Bu taşıma gerçekleştirmek için iki ayrı taşıma işlemi aşağıdaki sırayla gerçekleştirin:
-
-1. Taşıma **web-a** için **planı Grup**
-2. Taşıma **web-a** ve **planı-a** için **Birleştirilmiş grup**.
-
-Yeni kaynak grubu veya abonelik sorunları olmadan, bir uygulama hizmet sertifikası taşıyabilirsiniz. Ancak, web uygulamanızı dışarıdan satın ve uygulamaya karşıya bir SSL sertifikası içeriyorsa, web uygulaması taşımadan önce sertifika silmeniz gerekir. Örneğin, aşağıdaki adımları gerçekleştirebilirsiniz:
-
-1. Karşıya yüklenen sertifikanın web uygulamasından silme
-2. Web uygulaması taşıma
-3. Web uygulaması'na ve sertifikayı karşıya yüklemek
+- Hedef kaynak grubu mevcut tüm uygulama hizmeti kaynaklarına sahip olmamalıdır. Uygulama hizmeti kaynaklar şunlardır:
+    - Web Apps
+    - App Service planları
+    - Karşıya yüklenen veya alınan SSL sertifikaları
+    - App Service ortamları
+- Kaynak grubundaki tüm uygulama hizmeti kaynaklar birlikte taşınmalıdır.
+- Uygulama hizmeti kaynaklar yalnızca bunlar ilk olarak oluşturulduğu kaynak grubundan taşınabilir. Bir uygulama hizmeti kaynak artık kendi özgün kaynak grubunda değilse, bunu geri, özgün kaynak grubuna ilk taşınmalıdır ve ardından abonelikler arasında taşınabilmesi. 
 
 ## <a name="classic-deployment-limitations"></a>Klasik dağıtım sınırlamaları
 

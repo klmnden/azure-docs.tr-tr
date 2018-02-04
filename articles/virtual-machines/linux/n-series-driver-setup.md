@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N-serisi Vm'lerinde NVIDIA GPU sürücüleri yükleyin
 
@@ -101,18 +101,21 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS tabanlı 7.3 veya Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS veya Red Hat Enterprise Linux 7.3 ya da 7.4
 
-1. Hyper-V için en son Linux Tümleştirme hizmetlerini yükleyin.
+1. Çekirdek güncelleştirin.
 
-  > [!IMPORTANT]
-  > CentOS tabanlı HPC görüntü NC24r VM üzerinde yüklü değilse, adım 3'e geçin. Azure RDMA sürücüleri ve Linux Tümleştirme hizmetleri HPC görüntüde önceden yüklenmiş olduğundan, LIS yükseltilmez ve çekirdek güncelleştirmeler varsayılan olarak devre dışıdır.
-  >
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
  
   cd LISISO
  
@@ -124,8 +127,6 @@ sudo reboot
 3. VM yeniden bağlanın ve aşağıdaki komutları yüklemeye devam edin:
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -162,20 +163,22 @@ Sürücü yüklüyse, aşağıdakine benzer bir çıktı görürsünüz. Unutmay
 ![NVIDIA cihaz durumu](./media/n-series-driver-setup/smi.png)
 
 
-
 ## <a name="rdma-network-connectivity"></a>RDMA ağ bağlantısı
 
 RDMA ağ bağlantısı gibi NC24r aynı kullanılabilirlik kümesinde dağıtılan RDMA özellikli N-serisi Vm'lerinde etkinleştirilebilir. RDMA ağ Intel MPI ile çalışan uygulamalar için ileti geçirme arabirimi (MPI) trafiğini destekler 5.x veya sonraki bir sürümü. Ek gereksinimler izleyin:
 
 ### <a name="distributions"></a>Dağıtımlar
 
-RDMA bağlantısı destekleyen Azure Marketi aşağıdaki görüntüleri birinden RDMA özellikli N-serisi VM'ler dağıtın:
+RDMA özellikli N-serisi VM'ler görüntüden RDMA bağlantısı N-serisi Vm'lerinde destekleyen Azure Marketi dağıtın:
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS. RDMA sürücüleri VM yapılandırın ve Intel MPI indirmek için Intel ile kaydedin:
+* **Ubuntu 16.04 LTS** - VM RDMA sürücülerinin yapılandırmak ve Intel MPI indirmek için Intel ile kaydedin:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **CentOS tabanlı HPC** -CentOS tabanlı 7.3 HPC. RDMA sürücüler ve Intel MPI 5.1 VM yüklenir. 
+> [!NOTE]
+> CentOS tabanlı HPC görüntüler şu anda N-serisi vm'lerde RDMA bağlantısı için önerilmez. RDMA NVIDIA GPU destekleyen en son CentOS 7.4 çekirdek desteklenmiyor.
+> 
+
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>NV VM'ler için kılavuz sürücüleri yükleyin
 
@@ -237,7 +240,7 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 9. VM yeniden başlatma ve yüklendiğini doğrulamak için devam edin.
 
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS tabanlı 7.3 veya Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS veya Red Hat Enterprise Linux 
 
 1. Çekirdek ve DKMS güncelleştirin.
  
@@ -262,9 +265,9 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 3. VM yeniden başlatma, yeniden bağlanma ve Hyper-V: için son Linux Tümleştirme hizmetlerini yükleyin
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
 
   cd LISISO
 
@@ -343,8 +346,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 Bu dosya önyüklemede kök olarak içinde için bir giriş oluşturarak çağrılabilir `/etc/rc.d/rc3.d`.
 
 ## <a name="troubleshooting"></a>Sorun giderme
-
-* CUDA sürücüleri 4.4.0-75 Linux çekirdek Ubuntu 16.04 LTS üzerinde çalışan Azure N-serisi vm'lerde bilinen bir sorun yoktur. Çekirdek bir sürümden yükseltme yapıyorsanız, en az yükseltme çekirdek sürüm 4.4.0-77.
 
 * Kalıcılık modunu kullanarak ayarlayabilirsiniz `nvidia-smi` sorgu kartlar gerektiğinde komutunun çıkışını daha hızlı olacak şekilde. Kalıcılık modu ayarlamak için yürütme `nvidia-smi -pm 1`. VM yeniden başlatılırsa, modu ayarı kaybolduktan olduğunu unutmayın. Her zaman modu ayarı başlatma sırasında yürütülecek komut dosyası oluşturabilirsiniz.
 

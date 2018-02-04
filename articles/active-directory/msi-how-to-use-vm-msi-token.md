@@ -3,7 +3,7 @@ title: "Bir erişim belirteci almak için bir Azure VM yönetilen hizmet kimliğ
 description: "Adım adım yönergeler ve bir OAuth almak için bir Azure VM MSI kullanımına ilişkin örnekler belirteci erişin."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: daveba
+ms.openlocfilehash: 3d9d4d682a25d11129e81855a6bf149ac1d5cff0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Belirteç alımı için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
@@ -269,7 +269,7 @@ Bu bölümde, olası hata yanıtları belgeler. A "200 Tamam" durumu başarılı
 | 401 Yetkisiz | unknown_source | Bilinmeyen kaynak  *\<URI\>* | HTTP GET isteği URI doğru biçimlendirildiğinden emin olun. `scheme:host/resource-path` Bölümü olarak belirtilmelidir `http://localhost:50342/oauth2/token`. "Örnek istek" bölümüne bakın [geri KALAN bölümü önceki](#rest) bir örnek.|
 |           | invalid_request | İstek gerekli bir parametre eksik, geçersiz bir parametre değeri içerir, bir parametresi birden çok kez içerir veya aksi halde bozuk. |  |
 |           | unauthorized_client | İstemci bu yöntemi kullanarak bir erişim belirteci istemek için yetkili değil. | Yerel bir geri döngü uzantısı çağırmak için kullanmadı bir istek tarafından ya da doğru şekilde yapılandırılmış bir MSI sahip olmayan bir VM'de neden oldu. Bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](msi-qs-configure-portal-windows-vm.md) VM yapılandırması yardıma ihtiyacınız varsa. |
-|           | ACCESS_DENIED | Kaynak sahibi veya yetkilendirme sunucusu isteğini reddetti. |  |
+|           | access_denied | Kaynak sahibi veya yetkilendirme sunucusu isteğini reddetti. |  |
 |           | unsupported_response_type | Yetkilendirme sunucusu bu yöntemi kullanarak bir erişim belirteci alma desteklemez. |  |
 |           | invalid_scope | İstenen kapsamı geçersiz, bilinmeyen veya hatalı biçimlendirilmiş olabilir. |  |
 | 500 İç sunucu hatası | bilinmiyor | Active Directory'den belirteci alınamadı. Ayrıntılar için günlükleri Bkz  *\<dosya yolu\>* | MSI VM etkin olduğunu doğrulayın. Bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](msi-qs-configure-portal-windows-vm.md) VM yapılandırması yardıma ihtiyacınız varsa.<br><br>Ayrıca, HTTP GET isteği URI özellikle URI sorgu dizesinde belirtilen kaynak doğru biçimlendirildiğinden emin olun. "Örnek istek" bölümüne bakın [geri KALAN bölümü önceki](#rest) bir örnek veya [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](msi-overview.md#azure-services-that-support-azure-ad-authentication) Hizmetleri ve bunların ilgili kaynak kimlikleri listesi.

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
 ---
@@ -146,7 +146,7 @@ Bir cihaz kimlikleri aşağıdaki özelliklerle JSON belgeleri olarak temsil edi
 
 | Özellik | Seçenekler | Açıklama |
 | --- | --- | --- |
-| deviceId |gerekli, güncelleştirmelerinin salt okunur |Büyük küçük harf duyarlı dize (en fazla 128 karakter uzunluğunda) ASCII 7 bit alfasayısal karakterler ve belirli özel karakterler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceId |gerekli, güncelleştirmelerinin salt okunur |Büyük küçük harf duyarlı dize (en fazla 128 karakter uzunluğunda) ASCII 7 bit alfasayısal karakterler ve belirli özel karakterler: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |gerekli, salt okunur |Bir IOT hub tarafından üretilen, büyük küçük harf duyarlı dize en çok 128 karakter uzunluğunda. Bu değer ile aynı cihazları ayırt etmek için kullanılır **DeviceID**, silinmiş ve yeniden oluşturulacak. |
 | ETag |gerekli, salt okunur |Göre zayıf bir ETag cihaz kimliğini temsil eden bir dize [RFC7232][lnk-rfc7232]. |
 | kimlik doğrulama |isteğe bağlı |Kimlik doğrulama bilgileri ve güvenlik malzemeleri içeren bileşik bir nesne. |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage’a ve Azure Storage’da veri taşıma
 Şirket içi verileri Azure Storage (veya tersi) taşımak istiyorsanız, çeşitli yollarla Bunu yapmak için vardır. En uygun bir yaklaşım, senaryoya bağlıdır. Bu makalede farklı senaryolar ve her biri için uygun teklifleri hızlı bir genel bakış sağlar.
@@ -41,9 +41,9 @@ Listemiz denetleyin [Azure depolama gezginleri](../storage-explorers.md) daha fa
 Gerektiren veya bir komut satırı yardımcı programı ile (örneğin, sistem yöneticileri) daha rahat, dikkate almanız gereken bazı seçenekler şunlardır:
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy, verilerin Azure Storage’a ve Azure Storage’dan yüksek performansla kopyalanması için tasarlanmış bir Windows komut satırı yardımcı programıdır. Ayrıca, verileri bir depolama hesabı içinde veya farklı depolama hesapları arasında kopyalayabilirsiniz.
+AzCopy yüksek performans verilerini ve Azure depolama biriminden kopyalama için tasarlanmış bir komut satırı yardımcı programıdır. Ayrıca, verileri bir depolama hesabı içinde veya farklı depolama hesapları arasında kopyalayabilirsiniz. AzCopy edinilebilir [Windows](storage-use-azcopy.md) ve [Linux](storage-use-azcopy-linux.md).
 
-Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) daha fazla bilgi için.
+Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) veya [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md) daha fazla bilgi için.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell, Azure hizmetlerini yönetmek için cmdlet’ler sağlayan bir modüldür. Sistem yönetimi için özel olarak tasarlanan görev tabanlı bir komut satırı kabuğu ve betik dili olarak tanımlanır.

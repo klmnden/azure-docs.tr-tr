@@ -4,7 +4,11 @@
 ### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>NC, NCv2 ve ND örnekleri - NVIDIA CUDA sürücüleri
 | Dağıtım | Sürücü |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS tabanlı 7.3 | NVIDIA CUDA 9.1, sürücüyü dal R387 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ya da 7.4<br/><br/> 7.3 ya da 7.4 centOS | NVIDIA CUDA 9.1, sürücüyü dal R390 |
+
+> [!IMPORTANT]
+> Yükleme veya dağıtım için en son CUDA sürücüleri yükseltme emin olun. Sürücüleri R390 sürümden daha eski güncelleştirilmiş Linux tekrar ile ilgili sorun yaşayabilir.
+>
 
 ### <a name="nv-instances---nvidia-grid-drivers"></a>NV örnekleri - NVIDIA GRID sürücüleri
 

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Saklı yordam etkinliği Azure Data Factory kullanarak bir SSIS paketi çağırma
 Bu makalede, bir saklı yordam etkinliğini kullanarak bir Azure Data Factory işlem hattı SSIS paketinden çağrılacak açıklar. 
@@ -34,7 +34,7 @@ Bu makaledeki Kılavuzu SSIS katalog barındıran Azure SQL veritabanını kulla
 Adım adım yönergeleri izleyerek yoksa, bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma [Öğreticisi: dağıtmak SSIS paketleri](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Veri Fabrikası kullanıcı Arabirimi (Azure portalı)
-Bu bölümde bir SSIS paketi çağıran bir saklı yordam etkinliği ile bir Data Factory işlem hattı oluşturmak için veri fabrikası UI kullanın.
+Bu bölümde, veri fabrikası UI SSIS paketi çağıran bir saklı yordam etkinliği ile bir Data Factory işlem hattı oluşturmak için kullanın.
 
 ### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 Azure Portalı'nı kullanarak data factory oluşturmak ilk adımdır. 
@@ -75,7 +75,7 @@ Bu adımda, bir işlem hattı oluşturmak için veri fabrikası kullanıcı arab
 1. Get başlangıç sayfasını tıklatın **oluşturma ardışık düzen**: 
 
     ![Başlarken sayfası](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. İçinde **etkinlikleri** araç kutusu, genişletin **SQL veritabanı**ve sürükle ve bırak **saklı yordam** ardışık düzen desginer yüzeye etkinlik. 
+2. İçinde **etkinlikleri** araç kutusu, genişletin **SQL veritabanı**ve sürükle ve bırak **saklı yordam** ardışık düzen Tasarımcı yüzeyine etkinlik. 
 
     ![Sürükle ve bırak saklı yordam etkinliği](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. Saklı yordam etkinliği Özellikleri penceresinde geçmek **SQL hesabı** sekmesine ve tıklayın **+ yeni**. SSIS katalog (SSIDB veritabanı) barındıran Azure SQL veritabanına bağlantı oluşturun. 
@@ -94,11 +94,11 @@ Bu adımda, bir işlem hattı oluşturmak için veri fabrikası kullanıcı arab
         ![Azure SQL Veritabanı bağlı hizmeti](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Özellikler penceresinde geçiş **saklı yordam** gelen sekmesinde **SQL hesabı** sekmesini tıklatın ve aşağıdaki adımları uygulayın: 
 
-    1. İçin **saklı yordam adı** alan, Enter `sp_executesql` . 
+    1. İçin **saklı yordam adı** alan, Enter `sp_executesql`. 
     2. Tıklatın **+ yeni** içinde **saklı yordam parametreleri** bölümü. 
     3. İçin **adı** parametresinin girin **stmt**. 
-    4. İçin **türü** parametresinin girin **dize** . 
-    5. İçin **değeri** parametresi, aşağıdaki SQL sorgusunu girin.
+    4. İçin **türü** parametresinin girin **dize**. 
+    5. İçin **değeri** parametresi, aşağıdaki SQL sorgusunu girin:
 
         SQL sorgusu için doğru değerleri belirtin **klasör_adı**, **project_name**, ve **paket_adı** parametreleri. 
 
@@ -133,10 +133,12 @@ Bu bölümde bir ardışık düzen çalıştırma tetikler ve ardından izleyebi
 
     ![Paket yürütmeleri doğrulayın](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-Ardışık Düzen (houly, günlük, vs.) zamanlamaya göre çalışır, zamanlanmış bir tetikleyici için işlem hattınızı oluşturabilirsiniz. Bir örnek için bkz: [data factory - Data Factory UI oluşturma](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+> [!NOTE]
+> Ardışık Düzen (saatlik, günlük, vs.) zamanlamaya göre çalışır, zamanlanmış bir tetikleyici için işlem hattınızı oluşturabilirsiniz. Bir örnek için bkz: [data factory - Data Factory UI oluşturma](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Bu bölümde bir SSIS paketi çağıran bir saklı yordam etkinliği ile bir Data Factory işlem hattı oluşturmak için Azure PowerShell kullanın. 
+Bu bölümde, bir SSIS paketi çağıran bir saklı yordam etkinliği ile bir Data Factory işlem hattı oluşturmak için Azure PowerShell kullanın. 
 
 [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin. 
 
@@ -321,7 +323,7 @@ while ($True) {
     }    
     ```
 2. İçinde **Azure PowerShell**, geçiş **C:\ADF\RunSSISPackage** klasör.
-3. Çalıştırma **kümesi AzureRmDataFactoryV2Trigger** tetikleyici oluşturmak için cmdlet'i. 
+3. Çalıştırma **kümesi AzureRmDataFactoryV2Trigger** cmdlet'ini tetikleyici oluşturur. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"

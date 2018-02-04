@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f314d24250330a4dadf99d98b94c98b3db03f22c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>IOT hub'ı (düğüm) ile ileti yönlendirme
 
@@ -104,6 +104,9 @@ Bu bölümde, oluşturduğunuz cihaz uygulamayı değiştirmek [IOT Hub ile çal
 Bu bölümde, hizmet veri yolu kuyruğu oluşturma, IOT hub'ınıza bağlanın ve ileti özellikte varlığına dayalı kuyruğa ileti göndermek için IOT hub'ınızı yapılandırma. Hizmet veri yolu sıralardan işlem iletileri hakkında daha fazla bilgi için bkz: [kuyruklarla çalışmaya başlama][lnk-sb-queues-node].
 
 1. Service Bus kuyruğuna açıklandığı gibi oluşturmak [kuyruklarla çalışmaya başlama][lnk-sb-queues-node]. Ad alanı ve sıra adını not edin.
+
+    > [!NOTE]
+    > Service Bus kuyrukları ve konularından IOT Hub uç noktaları değil olarak kullanılan **oturumları** veya **yinelenen saptama** etkin. Bu seçeneklerden birini etkinleştirilmişse, uç nokta olarak görünür **ulaşılamıyor** Azure portalında.
 
 2. Azure portalında, IOT hub'ınızı açın ve **uç noktaları**.
 

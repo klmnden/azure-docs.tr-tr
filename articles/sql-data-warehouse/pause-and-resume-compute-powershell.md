@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Hızlı Başlangıç: PowerShell'de Azure SQL Data Warehouse için duraklatma ve sürdürme işlem
 Bir Azure SQL veri ambarı'nın maliyet tasarrufu sağlamak için işlem duraklatmak için PowerShell kullanın. Veri ambarı kullanılmaya hazır olduğunuzda sürdürebilirsiniz.
@@ -59,15 +59,16 @@ Veri ambarınız için konum bilgilerini bulmak için aşağıdaki adımları iz
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Tıklatın **SQL veritabanları** Azure portalının sol sayfasındaki.
-3. Seçin **mySampleDataWarehouse** gelen **SQL veritabanları** sayfası. Bu, veri ambarı açar. 
+3. Seçin **mySampleDataWarehouse** gelen **SQL veritabanları** sayfası. Veri ambarı açar.
 
     ![Sunucu adı ve kaynak grubu](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Veritabanı adı olarak kullanılacak veri ambarı adını yazın. Ayrıca sunucu adını ve kaynak grubunu not alın. Bu Duraklat kullanabilir ve komutları sürdürün.
-5. Sunucunuz foo.database.windows.net ise, PowerShell cmdlet'leri sunucu adı olarak yalnızca ilk bölümü kullanın. Önceki görüntüde newserver 20171113.database.windows.net tam sunucu adıdır. Kullanacağız **newserver 20171113** PowerShell cmdlet sunucu adı olarak.
+4. Veritabanı adı veri ambarı adını yazın. Ayrıca sunucu adını ve kaynak grubunu not alın. , 
+5.  Bu duraklatma ve sürdürme komutlarını.
+6. Sunucunuz foo.database.windows.net ise, PowerShell cmdlet'leri sunucu adı olarak yalnızca ilk bölümü kullanın. Önceki görüntüde newserver 20171113.database.windows.net tam sunucu adıdır. Sonek bırakın ve kullanmak **newserver 20171113** PowerShell cmdlet sunucu adı olarak.
 
 ## <a name="pause-compute"></a>Duraklatma işlem
-Maliyet tasarrufu sağlamak duraklatma ve sürdürme işlem kaynakları isteğe bağlı. Örneğin, veritabanı gece sırasında ve hafta sonları kullandığınız olmaz, bu saatlerde duraklatma ve gün boyunca sürdürün. Veritabanı duraklatıldığında işlem kaynaklarını tahsil olmaz. Ancak, depolama için sizden ücret devam eder. 
+Maliyet tasarrufu sağlamak duraklatma ve sürdürme işlem kaynakları isteğe bağlı. Örneğin, gece sırasında ve hafta sonları veritabanı kullanmıyorsanız, bu saatlerde duraklatma ve gün boyunca sürdürün. Veritabanı durdurulduğunda ücret ödemeden işlem kaynakları yoktur. Ancak, depolama için sizden ücret devam. 
 
 Bir veritabanı duraklatmak için kullanmak [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet'i. Aşağıdaki örnek adlı bir veri ambarı duraklatır **mySampleDataWarehouse** adlı bir sunucuda barındırılan **newserver 20171113**. Adlı bir Azure kaynak grubu içinde sunucusudur **myResourceGroup**.
 

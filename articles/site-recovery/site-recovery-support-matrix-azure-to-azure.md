@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6157ec92433830998c275b3b01b32f25c8d9f758
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure'dan Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -80,8 +80,8 @@ Destek sözü edilen işletim sisteminde çalışan herhangi bir iş yükü içi
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6,8 6.9, 7.0, 7.1, 7.2, 7.3,7.4
-- CentOS 6.5, 6.6, 6.7, 6,8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 LTS Server [ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
@@ -112,7 +112,7 @@ Destek sözü edilen işletim sisteminde çalışan herhangi bir iş yükü içi
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Desteklenen dosya sistemleri ve Linux işletim sistemi çalıştıran Azure sanal makinelerinde Konuk depolama yapılandırmaları
 
 * Dosya sistemleri: ext3, ext4, ReiserFS (Suse Linux Enterprise Server yalnızca), XFS
-* Birim Yöneticisi: LVM2
+* Volume manager: LVM2
 * Çok yollu yazılım: cihaz Eşleyici
 
 ## <a name="region-support"></a>Bölge desteği
@@ -154,8 +154,8 @@ Site Recovery kullanarak sanal makineleri geçişi | Desteklenen | Site Kurtarma
 En yüksek işletim sistemi disk boyutu | 2048 GB | Başvurmak [VM'ler tarafından kullanılan diskler.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 En fazla veri diski boyutu | 4095 GB | Başvurmak [VM'ler tarafından kullanılan diskler.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Veri diski sayısı | Fazla belirli bir Azure VM boyutu tarafından desteklenen gibi 64 | Başvurmak [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md)
-Geçici disk | Her zaman Çoğaltmada hariç | Geçici disk her zaman çoğaltmadan dışlandı. Herhangi bir kalıcı veri Azure Kılavuzu göredir geçici diskteki moduna geçirmelisiniz değil. Başvurmak [Azure vm'lerinde geçici disk](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) daha fazla ayrıntı için.
-Disk üzerinde veri değişiklik oranı | En fazla disk başına 6 MB/sn | Ortalama veri üzerinde oranı değiştirirseniz disk 6 MBps sürekli olduğundan, çoğaltma yakalamaz. Ancak, bazen veri veri bloğu ise ve veri değişikliği hızını süre için 6 MBps büyük olduğundan ve gelir, çoğaltma Yakala. Bu durumda, biraz Gecikmeli kurtarma noktalarını görebilirsiniz.
+Geçici disk | Her zaman Çoğaltmada hariç | Geçici disk her zaman çoğaltmadan dışlandı. Herhangi bir kalıcı veri Azure guida un göredir geçici diskteki moduna geçirmelisiniz değil. Başvurmak [Azure vm'lerinde geçici disk](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) daha fazla ayrıntı için.
+Disk üzerinde veri değişiklik oranı | En fazla 10 MB/sn Premium depolama için disk başına ve standart depolama için disk başına 2 MB/sn | Ortalama veri değişikliği hızını diskteki 10 MB/sn (için Premium) ile 2 MB/sn (için standart) sürekli olarak ise, çoğaltma yakalar değildir. Ancak, bazen veri veri bloğu ise ve veri değişikliği hızını 10 MB/sn (için Premium) ve 2 için MB/sn (standart) belirli bir süre için değerinden daha büyük ve gelir, çoğaltma Yakala. Bu durumda, biraz Gecikmeli kurtarma noktalarını görebilirsiniz.
 Standart depolama hesapları disklerde | Desteklenen |
 Premium depolama hesapları disklerde | Desteklenen | Bir VM premium ve standart depolama hesapları üzerinden yayılan diskler varsa, hedef bölgede aynı depolama yapılandırmasına sahip olmak her disk için farklı bir hedef depolama hesabı seçin
 Standart yönetilen disk | Desteklenmiyor |  
@@ -170,7 +170,7 @@ GRS | Desteklenen |
 RA-GRS | Desteklenen |
 ZRS | Desteklenmiyor |  
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | Sanal makine disklerini seyrek erişimli ve sık erişimli depolama üzerinde desteklenmez.
-Sanal ağ hizmet uç noktaları (Azure Storage güvenlik duvarları ve sanal ağlar)  | Hayır | Çoğaltılan verileri depolamak için kullanılan önbellek depolama hesaplarında erişimine izin belirli Azure sanal ağlar desteklenmez. 
+Sanal ağ hizmet uç noktaları (Azure Storage güvenlik duvarları ve sanal ağlar)  | Hayır | Çoğaltılan verileri depolamak için kullanılan önbellek depolama hesaplarında erişimine izin belirli Azure sanal ağlar desteklenmez.
 Genel amaçlı V2 depolama hesapları (her ikisini de sık erişimli ve seyrek katman) | Hayır | İşlem maliyetleri artış, genel amaçlı önemli ölçüde V1 depolama hesapları ile karşılaştırıldığında.
 
 >[!IMPORTANT]
@@ -187,7 +187,7 @@ NSG üzerinde NIC'ye (Resource Manager)| Desteklenen | NSG'yi bir kurtarma plan�
 NSG alt (Resource Manager ve klasik)| Desteklenen | NSG'yi bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak NIC ilişkilendirmeniz gerekir.
 NSG VM'ye (Klasik)| Desteklenen | NSG'yi bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak NIC ilişkilendirmeniz gerekir.
 Ayrılmış IP (statik IP) / kaynak IP koru | Desteklenen | Statik IP yapılandırması NIC kaynak VM üzerinde varsa ve aynı IP kullanılabilir hedef alt ağa sahip, yük devretme VM atanır. Hedef alt aynı IP yoksa kullanılabilir IP alt ağda biri bu VM için ayrılmıştır. Tercih ettiğiniz bir sabit IP belirtebilirsiniz ' yinelenmiş öğesi > Ayarlar > işlem ve ağ > ağ arabirimleri. NIC seçin ve tercih ettiğiniz IP ve alt ağ belirtin.
-Dinamik IP| Desteklenen | NIC kaynak VM üzerinde dinamik IP yapılandırması varsa, yük devretme NIC'nin VM de varsayılan olarak dinamik bir işlemdir. Tercih ettiğiniz bir sabit IP belirtebilirsiniz ' yinelenmiş öğesi > Ayarlar > işlem ve ağ > ağ arabirimleri. NIC seçin ve tercih ettiğiniz IP ve alt ağ belirtin.
+Dynamic IP| Desteklenen | NIC kaynak VM üzerinde dinamik IP yapılandırması varsa, yük devretme NIC'nin VM de varsayılan olarak dinamik bir işlemdir. Tercih ettiğiniz bir sabit IP belirtebilirsiniz ' yinelenmiş öğesi > Ayarlar > işlem ve ağ > ağ arabirimleri. NIC seçin ve tercih ettiğiniz IP ve alt ağ belirtin.
 Traffic Manager tümleştirmesi | Desteklenen | Önceden, trafik Yöneticisi trafiği düzenli olarak kaynak bölgede uç noktasına ve yük devretme durumunda hedef bölgesi uç yönlendirilir şekilde yapılandırabilirsiniz.
 Azure DNS yönetilen | Desteklenen |
 Özel DNS  | Desteklenen |    

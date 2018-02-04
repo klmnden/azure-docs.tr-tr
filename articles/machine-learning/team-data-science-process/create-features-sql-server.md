@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;fashah;garye
-ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev;garye
+ms.openlocfilehash: df1e658d532dcb23fdf0aa14bfad59e98c8ff7a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL ve Python kullanarak SQL Server’daki verilerin özelliklerini oluşturma
 Bu belgede daha verimli bir şekilde verilerden öğrenmeyi algoritmaları Yardım Azure üzerinde bir SQL Server VM depolanan veriler için özellikleri oluşturmak nasıl gösterir. SQL veya Python gibi bir programlama dili, bu görevi gerçekleştirmek için kullanabilirsiniz. Her iki yaklaşımın burada gösterilmiştir.
@@ -32,7 +32,7 @@ Bu **menü** özellikleri veriler için çeşitli ortamlar oluşturmak nasıl a�
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, sahip olduğunuz varsayılmaktadır:
 
 * Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)

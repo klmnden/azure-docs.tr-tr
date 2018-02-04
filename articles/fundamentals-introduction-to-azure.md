@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure Tanıtımı
 Microsoft Azure Microsoft'un uygulama için genel bulut platformudur.  Bu makalede bulut ilgili herhangi bir şey tanımadığınız olsa bile bir temel Azure, temelleri anlamak için size hedefidir bilgi işlem.
@@ -82,7 +82,7 @@ Geliştirme için Web Apps .NET, PHP, Node.js, Java ve Python birlikte SQL Datab
 Web uygulamaları, şirketler, geliştiriciler ve web tasarımı kurumları için kullanışlı olması için tasarlanmıştır. Şirketler için bu durum Web sitelerini çalıştırmak için bir kolay yönetmek, ölçeklenebilir, yüksek güvenlikli ve yüksek oranda kullanılabilir çözümüdür. Bir Web sitesini ayarlamak gerektiğinde, Azure Web Apps ile başlatmak ve bulut hizmetlerine kullanılabilir olmayan bir özellik ihtiyacınız sonra devam etmek en iyisidir. Sonuna seçenekler arasından seçim yardımcı olabilecek daha fazla bağlantılar için "İşlem" bölümüne bakın.
 
 ### <a name="cloud-services"></a>Cloud Services
-![Azure bulut hizmeti](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
+![Azure Cloud Service](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Şekil: Azure bulut hizmetlerine bir hizmet (PaaS) ortamı olarak bir Platform üzerinde yüksek düzeyde ölçeklenebilir özel kodu çalıştırmak için bir yer sağlar.*
 
 Çok sayıda eşzamanlı kullanıcıyı desteklemek, çok yönetim gerektirmez ve hiçbir zaman arıza bir bulut uygulaması oluşturmak istediğinizi varsayalım. Bir yerleşik yazılım satıcısı olabilir örneğin, karar yazılım (SaaS) hizmet olarak kapsayacak şekilde bulut uygulamalarınızda birinin sürümünü oluşturarak. Veya, hızlı büyümesine beklediğiniz bir tüketici uygulaması oluşturma başlangıç olabilir. Azure üzerinde oluşturuyorsanız, hangi yürütme modeli kullanmalısınız?
@@ -95,7 +95,7 @@ Ancak bu Vm'lere sahip Azure sanal makineler oluşturma gördüğünüzden farkl
 
 Bir örneğini oluştururken seçmek için iki rol vardır, her ikisi de Windows Server tabanlı. İkisi arasındaki temel fark, çalışan rolü örneği çalışmazken bir web rolü örneği IIS çalıştıran ' dir. Ancak, her ikisi de aynı şekilde yönetilir ve her ikisi de kullanmak bir uygulama için yaygın bir durumdur. Örneğin, bir web rolü örneği kullanıcılardan gelen istekleri kabul, sonra işleme için bir çalışan rolü örneği geçirebilirsiniz. Uygulamanızı yukarı veya aşağı ölçeklendirme için Azure her iki rolün daha fazla örneğini oluşturmak veya var olan örneklerini kapatmak isteyebilir. Ve Azure sanal makineler için benzer, yalnızca süredir her web veya çalışan rolü örneğinin çalıştığından ücret ödersiniz.
 
-**Senaryoları bulut Hizmetleri**
+**Cloud Services Scenarios**
 
 Bulut Hizmetleri platform Azure Web uygulamaları tarafından sağlanan daha fazla denetime ihtiyacınız ancak temel işletim sistemi üzerinde denetim gerekmeyen büyük ölçeklendirme desteklemek idealdir.
 
@@ -151,7 +151,7 @@ BLOB storage (sanal makineler dahil) diğer Azure, birçok özellik tarafından 
 Video, büyük dosyalar veya diğer ikili bilgilerini depolayan bir uygulama için basit, ucuz depolama BLOB'ları kullanabilirsiniz. BLOB'ları de yaygın olarak, biz hakkında daha sonra konuşur içerik teslim ağı gibi diğer hizmetler ile birlikte kullanılır.  
 
 ### <a name="import--export"></a>İçeri Aktarmak / Dışarı Aktarmak
-![Azure alma dışarı aktarma hizmeti](./media/fundamentals-introduction-to-azure/ImportExportIntroNew.png)  
+![Azure Import Export Service](./media/fundamentals-introduction-to-azure/ImportExportIntroNew.png)  
 
 *Şekil: Azure alma / verme veya daha hızlı ve ucuz toplu verileri için Azure içeri veya dışarı aktarma için fiziksel bir sabit sürücü sevk olanağı sağlar.*  
 
@@ -236,7 +236,7 @@ Visual Studio Team Services yük test etme hizmeti sağlar. Visual Studio bulut 
 
 Visual Studio Team Services aynı zamanda sürekli tümleştirme derlemeler gibi özellikleri, Kanban panolarına ve sanal takım odaları Çevik Geliştirme desteği sağlar.
 
-**Visual Studio Team Services senaryoları**
+**Visual Studio Team Services Scenarios**
 
 Visual Studio Team Services yoktur ve tüm dünyada işbirliği yapmak için ihtiyaç duyan şirketler için iyi bir seçenek olan altyapı Bunun yerinde zaten sahip. Dakika cinsinden Kurulum alın, kaynak denetim sistemi seçin ve kod yazma ve o gün oluşturmaya başlayın.  Takım araçları yer için eşgüdüm sağlar ve işbirliği ve ek araçlar sınamak ve uygulamanızı hızlı bir şekilde ayarlamak için gereken analiz sağlayın.
 
@@ -287,7 +287,7 @@ Bir müşteri sevkiyat şirketin olur konumlandırma bu veri alma de yararlanabi
 Kimliğine sahip çalışan çoğu uygulamayı bir parçasıdır. Kimin bir kullanıcı bilerek bu kullanıcı ile nasıl etkileşim kurması gerektiğine karar bir uygulama sağlar. Azure kimlik yanı sıra zaten kullanıyor olabileceğiniz kimlik depolarına ile tümleştirmek izlenmesine yardımcı olmak için hizmetleri sağlar.
 
 ### <a name="active-directory"></a>Active Directory
-Çoğu Dizin Hizmetleri gibi Azure Active Directory Kullanıcıları ve ait oldukları kuruluşlar hakkında bilgi depolar. Oturum açmasına olanak sağlar ve ardından bunları kimliğini kanıtlamak için uygulamalarına sunabilir belirteçleri ile sağlar. Ayrıca, Windows Server Active Directory'yle yerel ağınıza çalışan kullanıcı bilgileri eşitleme sağlar. Azure Active Directory tarafından kullanılan veri biçimleri ve mekanizmaları ile Windows Server Active Directory'de kullanılanlarla aynı değildir, ancak gerçekleştirdiği işlevleri oldukça benzer.
+Like most directory services, Azure Active Directory stores information about users and the organizations they belong to. Oturum açmasına olanak sağlar ve ardından bunları kimliğini kanıtlamak için uygulamalarına sunabilir belirteçleri ile sağlar. Ayrıca, Windows Server Active Directory'yle yerel ağınıza çalışan kullanıcı bilgileri eşitleme sağlar. Azure Active Directory tarafından kullanılan veri biçimleri ve mekanizmaları ile Windows Server Active Directory'de kullanılanlarla aynı değildir, ancak gerçekleştirdiği işlevleri oldukça benzer.
 
 Azure Active Directory bulut uygulamaları tarafından birincil olarak kullanılmak üzere tasarlanmış anlamak önemlidir. Örneğin veya diğer bulut platformlarda Azure üzerinde çalışan uygulamalar tarafından kullanılabilir. Ayrıca, Office 365'te olanlar gibi Microsoft'un kendi bulut uygulamaları tarafından kullanılır. Ancak, veri merkeziniz Azure sanal makineler ve Azure Virtual Network kullanarak buluta genişletmek istiyorsanız, Azure Active Directory doğru seçim değildir. Bunun yerine, Windows Server Active Directory sanal makinelerinde çalışan istersiniz.
 
@@ -479,7 +479,7 @@ CDN videosunu dünya çapında elde etmek için Media Services ile kullanmak iç
 
 ## <a name="big-data-and-big-compute"></a>Büyük veri ve Big Compute
 ### <a name="hdinsight-hadoop"></a>HDInsight (Hadoop)
-![Hdınsight](./media/fundamentals-introduction-to-azure/HDInsightIntroNew.png)   
+![HDInsight](./media/fundamentals-introduction-to-azure/HDInsightIntroNew.png)   
  **Şekil: Hdınsight, büyük miktarlarda veri toplu işleme ile yardımcı olur.**
 
 Birçok yıldır ilişkisel verileri ilişkisel DBMS ile oluşturulmuş bir veri ambarında depolanan veri analizi toplu gerçekleştirilmedi. Bu tür bir İş analizi hala çok önemlidir ve gelen için uzun bir süredir olacaktır. Ancak ne verileri analiz etmek istediğiniz ilişkisel veritabanları yalnızca işleyemiyor kadar büyük değil mi? Ve veri ilişkisel olmayan varsayalım? Bir veri merkezinde, örneğin, veya algılayıcılar geçmiş olay verilerden veya başka bir olay günlüklerini olabilir. Bu gibi durumlarda, büyük veri sorun olarak bilinir vardır. Başka bir yaklaşım gerekir.
@@ -500,7 +500,7 @@ Azure, bir aralık VM örneği boyutlarının CPU çekirdekleri, bellek, disk ka
 Azure Big Compute uygulama geliştiricileri ve iş ortakları ayrıca bir kümesini hesaplama özellikleri, hizmetler, mimari seçim ve geliştirme araçları sunar. Azure özel veri iş akışları içeren özel Big Compute iş akışları destekler ve iş ve görev binlerce için ölçeklenebilir desen zamanlama çekirdek işlem.
 
 ## <a name="media"></a>Medya
-![Azure medya Hizmetleri](./media/fundamentals-introduction-to-azure/MediaServicesIntroNew.png)   
+![Azure Media Services](./media/fundamentals-introduction-to-azure/MediaServicesIntroNew.png)   
  **Şekil: Media Services, video ve diğer medya istemcilere dünyanın sağlamak üzere uygulamalar için bir platformdur.**
 
 Video Internet trafiğini büyük bir bölümünü bugün yapar ve söz konusu yüzdesi yarın daha da büyük olacaktır. Henüz video Web'de sağlayan basit değil. Birçok şifreleme algoritması ve kullanıcının ekranının ekran çözünürlüğünü gibi değişkenleri vardır. Video da gibi pek çok kişiyle çevrimiçi bir filmi izlemek istediğiniz karar verdiğinizde bir Cumartesi gece ani talep WINS'e sahip eğilimindedir.
@@ -522,7 +522,7 @@ Media Services nasıl çalıştığını daha görsel görünümünü için kar�
 ## <a name="commerce"></a>Ticaret
 Hizmet olarak yazılım neden uygulamaları nasıl oluşturuyoruz dönüştürme. Bu ayrıca nasıl biz uygulamaları satmak dönüştürme. Bulutta bir SaaS uygulaması yaşadığı olduğundan, olası müşterilerine çevrimiçi çözümleri görünmelidir anlamlı olur. Ve bu değişikliği veri uygulamalar için de geçerlidir. Neden kişiler buluta piyasada veri kümeleri için görünüyor döndürmemelidir? Microsoft bu sorunları ile her ikisi de adresleri [Azure Marketi](https://azure.microsoft.com/marketplace/).
 
-![Azure ticaret](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
+![Azure Commerce](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Şekil: Azure Market ve Azure depolama bulmanıza ve Azure uygulamalarını ve ticari veri kümeleri satın alın ve bunları Azure uygulamalarınızı bir parçası olarak kullanın olanak tanır.**
 
 İkisi arasındaki farkı Market dışında Azure portal olduğu, ancak mağazası portalı içinde erişilebilir olduğunu. Olası müşteriler kendi gereksinimlerini karşılayacak Azure uygulamalarını bulmak için arama yapabilirsiniz. Müşteriler, demografik veriler, finansal verileri, coğrafi veriler ve benzeri ticari veri kümeleri için de arayabilirsiniz. Bunlar bir şey istedikleri bulduğunuzda, bunlar, ya da satıcıdan doğrudan Market veya deposu web konumu veya bazı durumlarda Azure portalından erişebilir. Uygulamaları, web arama sonuçlarını erişim onların Market üzerinden Bing arama API de kullanabilirsiniz.

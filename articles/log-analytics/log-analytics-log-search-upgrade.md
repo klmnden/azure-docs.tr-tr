@@ -13,17 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-<<<<<<< HEAD
-ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Yeni günlük arama Azure günlük analizi yükseltme
 
@@ -37,7 +31,7 @@ Biz, tüm geçiş sorunları yoktur ve biz yalnızca eğlenceli sorgu dilini de�
 - **Arama zaman alan ayıklamaları.**  Yeni dil eski dilinden daha gelişmiş çalışma zamanı hesaplanan alanları destekler.  Karmaşık hesaplamalar için genişletilmiş alanları kullanın ve ardından hesaplanan alanlar birleşimler ve toplamalar dahil olmak üzere ek komutlar için kullanın.
 - **Gelişmiş birleştirmeler.**  Yeni dil birden çok alan tablolarda katılma, iç ve dış birleştirmeler kullanın ve genişletilmiş alanları katılma olanağı dahil olmak üzere eski dilinden daha gelişmiş birleştirmeler sağlar.
 - **İşlevler tarih veya saat.**  Yeni dil tarih/saat işlevleri eski dil daha gelişmiş.
-- **Akıllı çözümlemeleri.**  Yeni dil kümelerindeki desenleri değerlendirmek ve farklı veri kümelerinin karşılaştırmak için algoritmaları Gelişmiş.
+- **Smart Analytics.**  Yeni dil kümelerindeki desenleri değerlendirmek ve farklı veri kümelerinin karşılaştırmak için algoritmaları Gelişmiş.
 - **Gelişmiş Analytics portalı.**  Gelişmiş analizler portal çok satırlı dahil olmak üzere günlük analizi portalında kullanılamaz analiz özellikler sunar sorguları, ek görselleştirmeleri ve Gelişmiş tanılama düzenleme.
 - **Diğer uygulamalarla tutarlılık.**  Zaten yeni dil ve Gelişmiş analizi portalında Application Insights analizleri için kullanılır.  Günlük analizi için uygulama tutarlılığı Azure Hizmetleri genelinde sağlar.
 - **Power BI ile daha iyi tümleştirme.** Zengin veri dönüştürme yeteneklerini kullanabilir şekilde yeni dil sorgularda Power BI Desktop için verilebilir.
@@ -58,7 +52,7 @@ Ardından, çalışma alanı otomatik olarak yükselttiyseniz, herhangi bir soru
 Dönüştürüldüğünde aşağıdaki değişiklikler alanınıza yapılır:
 
 - Tüm kayıtlı aramaları, uyarı kuralları ve Görünüm Tasarımcısı ile oluşturduğunuz görünümler otomatik olarak yeni dil dönüştürülür.  Çözümlerinde dahil aramaları otomatik olarak dönüştürülmez, ancak bunları açtığınızda, bunun yerine anında dönüştürüldüğüne.  
-- [Benim Panom](log-analytics-dashboards.md) şunun için kullanım [Görünüm Tasarımcısı](log-analytics-view-designer.md) ve [Azure panolar](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  My panoya eklenen döşeme hala kullanılabildiği ancak salt okunur.
+- [Benim Panom](log-analytics-dashboards.md) şunun için kullanım [Görünüm Tasarımcısı](log-analytics-view-designer.md) ve [Azure panolar](../azure-portal/azure-portal-dashboards.md).  My panoya eklenen döşeme hala kullanılabildiği ancak salt okunur.
 - [Power BI tümleştirme](log-analytics-powerbi.md) yeni bir işlem ile değiştirilir.  Oluşturduğunuz tüm var olan bir Power BI zamanlamalar devre dışı bırakılır ve yeni işlem ile değiştirdiğinizden gerekiyor.
 - Gelen yanıtları [uyarı eylemleri](log-analytics-alerts-actions.md) Web kancalarını ve runbook'ları kullanarak yeni bir biçime sahiptir ve uyarı kurallarınızı uygun şekilde güncelleştirmeniz gerekebilir.
 - Bakın [günlük arama SSS](log-analytics-log-search-faq.md) yükseltme hakkında sık sorulan sorular için.

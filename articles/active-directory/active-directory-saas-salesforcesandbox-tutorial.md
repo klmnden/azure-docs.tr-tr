@@ -3,7 +3,7 @@ title: "Öğretici: Salesforce korumalı alan Azure Active Directory Tümleştir
 description: "Çoklu oturum açma Azure Active Directory ve Salesforce korumalı alan arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: MarkusVi
 manager: mtillman
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
-ms.author: jeedes
-ms.openlocfilehash: 801088bd63f025ca7cb1f9e4fe66b9c6f7f93453
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: markvi
+ms.openlocfilehash: d5c2b74995e0c0794628e2c79f66969835e0fabb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Öğretici: Azure Active Directory Tümleştirme ile Salesforce korumalı alan
 
@@ -31,7 +31,7 @@ Salesforce korumalı alan Azure AD ile tümleştirme ile aşağıdaki avantajlar
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Salesforce Sandbox ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -168,9 +168,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     h. SAML oturum kapatma SFDC desteklemez.  'Https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0' geçici bir çözüm olarak Yapıştır içine **kimlik sağlayıcısı oturum kapatma URL'si** metin kutusu.
 
-    ı. Olarak **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP POST**. 
+    i. Olarak **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP POST**. 
 
-    j. **Kaydet** düğmesine tıklayın.
+    j. **Kaydet**’e tıklayın.
 
 ### <a name="enable-your-domain"></a>Etki alanınızı etkinleştir
 Bu bölümde, bir etki alanı zaten oluşturduğunuzu varsayar.  Daha fazla bilgi için bkz: [etki alanı adınız tanımlama](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
@@ -225,7 +225,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-salesforce-sandbox-test-user"></a>Salesforce korumalı alan test kullanıcısı oluşturma
 

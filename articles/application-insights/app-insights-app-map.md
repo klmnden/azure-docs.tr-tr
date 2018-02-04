@@ -1,6 +1,6 @@
 ---
 title: "Azure Application Insights uygulama eşlemesinde | Microsoft Docs"
-description: "Uygulama bileşenleri arasındaki bağımlılıkları görsel sunumu KPI'ları ve uyarılarla etiketli."
+description: "Karmaşık bir uygulama topolojileri uygulama eşlemesi ile izleme"
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,23 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-map-in-application-insights"></a>Application ınsights'ta uygulama eşlemesi
-İçinde [Azure Application Insights](app-insights-overview.md), uygulama eşlemesi olan uygulama bileşenlerinizin bağımlılık ilişkilerini visual düzeni. Her bileşen yük, performans, hataları ve Uyarıları gibi bir performans sorunu veya hatası neden herhangi bir bileşeni keşfetmenize yardımcı olmak için KPI'ları gösterir. Aracılığıyla herhangi bir bileşeni Application Insights olaylarını gibi daha ayrıntılı tanılama tıklayabilirsiniz. Uygulamanızı Azure hizmetlerini kullanıyorsa, üzerinden SQL Database Advisor önerileri gibi Azure tanılama tıklatabilirsiniz.
+# <a name="application-map-triage-distributed-applications"></a>Uygulama eşlemesi: Dağıtılmış uygulamalar Önceliklendirme
+Uygulama eşlemesi nokta performans sorunları veya hata etkin, dağıtılmış uygulamanın tüm bileşenleri arasında yardımcı olur. Harita her bir düğümde bir uygulama bileşeni veya bağımlılıklarını temsil eder; durumu KPI sahip ve durum uyarır. Aracılığıyla herhangi bir bileşeni Application Insights olaylarını gibi daha ayrıntılı tanılama tıklayabilirsiniz. Uygulamanızı Azure hizmetlerini kullanıyorsa, üzerinden SQL Database Advisor önerileri gibi Azure tanılama tıklatabilirsiniz.
 
-Diğer grafikler gibi bir uygulama eşlemesi tam olarak işlevsel olduğu Azure panoya sabitleyebilirsiniz. 
+## <a name="what-is-a-component"></a>Bir bileşeni nedir?
 
-## <a name="open-the-application-map"></a>Uygulama eşlemesi açın
-Uygulamanız için genel bakış dikey penceresinden harita açın:
+Dağıtılmış mikro uygulamanızın bağımsız olarak dağıtılabilir parçalarını bileşenleridir. Geliştiriciler ve işlemleri ekipleri kodu düzeyinde görünürlüğe veya bu uygulama bileşenleri tarafından oluşturulan telemetri erişimine sahip. 
 
-![Uygulama Eşlem'i açın](./media/app-insights-app-map/01.png)
+* Bileşenleri "gözlemlenen" dış bağımlılıkları SQL gibi farklı takım/kuruluşunuz olmayabilir EventHub vb. erişim (kod veya telemetri için).
+* Bileşenleri rol/sunucu/kapsayıcı örnekleri herhangi bir sayı üzerinde çalıştırın.
+* Bileşenleri (abonelikler farklı olsa bile) ayrı Application Insights izleme anahtarı olabilir veya tek bir Application Insights izleme anahtarı için raporlama farklı roller oluşturabilirsiniz. Önizleme harita deneyimi bileşenlerini nasıl ayarladıktan bakmaksızın gösterir.
 
-![Uygulama eşleme](./media/app-insights-app-map/02.png)
+## <a name="composite-application-map-preview"></a>Bileşik uygulama eşlemesi (Önizleme)
+*Bu ilk önizleme sürümü ve size daha fazla özellik bu harita ekleme. Yeni deneyimi görüşlerinizi almak memnuniyet duyarız. Önizleme ve klasik deneyimlerini arasında kolayca geçiş yapabilirsiniz.*
+
+"Bileşik uygulama eşlemesi" etkinleştirme başlangıç [önizlemeleri listesi](app-insights-previews.md), veya "Önizleme haritada" sağ üst köşesinde Değiştir'i tıklatın. Bu geçiş, Klasik deneyimine geçiş yapmak için kullanabilirsiniz.
+![Önizleme harita etkinleştir](media/app-insights-app-map/preview-from-classic.png)
+
+>[!Note]
+Bu önizleme önceki "Mult-role uygulama eşlemesi" Önizleme değiştirir. Şu anda bu uygulama bileşeni bağımlılıkları birden çok düzeyi arasında tüm topolojisini görüntülemek için kullanın. Bize geri bildirim verin, biz Klasik harita destekler ne benzer daha fazla yetenekleri ekleme.
+
+Birden çok düzeyde ilgili uygulama bileşenleri arasında tam uygulama topolojisi görebilirsiniz. Bileşenleri farklı Application Insights kaynaklar ya da farklı rollerdeki tek bir kaynak olabilir. Uygulama eşleme bileşenleri yüklü Application Insights SDK'sı ile sunucu arasında yapılan aşağıdaki HTTP bağımlılık çağrıları tarafından bulur. 
+
+Bu deneyim bileşenleri aşamalı bulma ile başlar. Önizleme ilk yüklediğinizde, sorguları bir dizi bu bileşenle ilgili bileşenler bulmak için tetiklenir. Bulundukları bir düğme sol üst köşesinde, uygulamanızda bileşenleri sayısı ile güncelleştirir. 
+![Önizleme eşleme](media/app-insights-app-map/preview.png)
+
+"Güncelleştirme eşleme bileşenleri" tıklatıldığında harita noktasındaki kadar bulunan tüm bileşenlerle yenilenir.
+![Önizleme yüklenen eşleme](media/app-insights-app-map/components-loaded-hierarchical.png)
+
+Tüm bileşenleri tek bir Application Insights kaynağı içindeki roller varsa, bu bulma adım gerekli değildir. Bu tür bir uygulama için ilk yükleme tüm bileşenlerini sahip olur.
+
+Yeni bir deneyim anahtar hedefleri bileşenleri yüzlerce karmaşık topolojiler görselleştirmek için biridir. Yeni deneyimi yakınlaştırma destekler ve, yakınlaştırma bileşenini gibi ayrıntısı ekler. Daha fazla bir bakışta bileşenleri ve daha yüksek başarısızlık oranları hala nokta bileşenleriyle görüntülemek için uzaklaştırma. 
+
+![Yakınlaştırma düzeyleri](media/app-insights-app-map/zoom-levels.png)
+
+Performans ve bu bileşen için hata değerlendirme deneyimi gidin ve ilgili Öngörüler görmek için herhangi bir bileşeni tıklayın.
+
+![Çıkma](media/app-insights-app-map/preview-flyout.png)
+
+
+## <a name="classic-application-map"></a>Klasik uygulama eşlemesi
 
 Harita gösterir:
 
@@ -38,9 +67,11 @@ Harita gösterir:
 * Sunucu tarafı bileşeni
 * İstemci ve sunucu bileşenleri bağımlılıkları
 
+![Uygulama eşleme](./media/app-insights-app-map/02.png)
+
 Genişletme ve bağımlılık bağlantı gruplarına daraltma:
 
-![Daralt](./media/app-insights-app-map/03.png)
+![daralt](./media/app-insights-app-map/03.png)
 
 Bir tür (SQL, HTTP vb.) pek çok bağımlılık varsa, bunlar gruplandırılmış görünebilir. 
 
@@ -80,7 +111,7 @@ Varsayılan olarak, seçilen zaman aralığı için kullanılabilir tüm veriler
 
 ![Filtrelerini ayarlama](./media/app-insights-app-map/11.png)
 
-## <a name="save-filters"></a>Filtreleri Kaydet
+## <a name="save-filters"></a>Filtreleri kaydet
 Filtre uygulanmış bir görünüm üzerine uyguladığınız filtreleri Kaydet sabitlemek bir [Pano](app-insights-dashboards.md).
 
 ![Panoya sabitle](./media/app-insights-app-map/12.png)
@@ -99,22 +130,6 @@ Bazı kaynak türleri için kaynak durumu hata bölmesinin üst kısmında gör�
 
 Bu kaynak için standart genel bakış ölçümlerini görüntülemek için kaynak adı tıklatabilirsiniz.
 
-## <a name="end-to-end-system-app-maps"></a>Uçtan uca sistem uygulama eşlemeleri
-
-*SDK'sı sürüm 2.3 veya üstü gerektirir*
-
-Uygulamanız çeşitli bileşenleri - Örneğin, bir arka uç hizmeti Ayrıca web uygulaması'na - sahip sonra bunları gösterebilir tüm bir tümleşik uygulama harita üzerinde.
-
-![Filtrelerini ayarlama](./media/app-insights-app-map/multi-component-app-map.png)
-
-Uygulama harita yüklü Application Insights SDK'sı ile sunucu arasında yapılan tüm HTTP bağımlılık çağrıları izleyerek sunucu düğümleri bulur. Her bir Application Insights kaynağı, bir sunucu içeren varsayılır.
-
-### <a name="multi-role-app-map-preview"></a>Birden çok rol uygulama eşleme (Önizleme)
-
-Önizleme birden çok rol uygulama eşleme özelliğini uygulama eşlemesi aynı Application Insights kaynağına veri gönderilirken birden fazla sunucuyla sayesinde / izleme anahtarı. Harita sunucuları, telemetri öğeler üzerinde cloud_RoleName özelliği tarafından ayrılmış. Ayarlama *birden çok rol uygulama eşlemesi* için *üzerinde* bu yapılandırmayı etkinleştirmek için önizlemeleri dikey penceresinden.
-
-Bu yaklaşım, bir mikro hizmetler uygulamasındaki ya da tek bir Application Insights kaynağı içinde birden çok sunucudaki olayları ilişkilendirmek istediğiniz diğer senaryolarda istenebilir.
-
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
@@ -127,4 +142,4 @@ Portal geri bildirimi seçeneği aracılığıyla geri bildirim sağlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure portal](https://portal.azure.com)
+* [Azure portalı](https://portal.azure.com)

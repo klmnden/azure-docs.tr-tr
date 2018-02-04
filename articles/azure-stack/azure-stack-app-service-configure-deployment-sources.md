@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Dağıtım kaynaklarını yapılandırma
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
@@ -49,8 +49,7 @@ Bu görevi tamamlamak için GitHub hesabı olması gerekir. Kişisel hesabı yer
 2. Girin bir **uygulama adı** örneğin - Azure yığın uygulama hizmeti.
 3. Girin **giriş sayfası URL'si**. Giriş sayfası URL'si Azure yığın Portal adresi olmalıdır. Örneğin, https://portal.local.azurestack.external.
 4. Girin bir **uygulama açıklaması**.
-5. Girin **yetkilendirme geri çağırma URL'si**.  Etki alanınız azurestack.local için farklı bir etki alanı yerine altında çalıştırıyorsanız, varsayılan Azure yığın dağıtımında, form https://portal.local.azurestack.external/tokenauthorize içinde URL'dir.
-    ![GitHub - kayıt doldurulmuş değerlerle yeni bir uygulama][4]
+5. Girin **yetkilendirme geri çağırma URL'si**.  Etki alanınız local.azurestack.external için farklı bir etki alanı yerine altında çalıştırıyorsanız, varsayılan Azure yığın dağıtımında, form https://portal.local.azurestack.external/tokenauthorize içinde URL'dir ![GitHub - yeni bir kayıt doldurulmuş değerlerle uygulama][4]
 6. Tıklatın **kaydetmek uygulama**.  Artık bir sayfa listeyle sunulur **istemci kimliği** ve **gizli** uygulama için.
     ![GitHub - tamamlanan uygulama kaydı][5]
 7.  Yeni bir tarayıcı sekmesinde veya penceresinde Azure yığın yönetim portalı (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak oturum açın.

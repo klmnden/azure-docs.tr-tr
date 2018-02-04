@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 02/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 88d71510c1d966c3250891eb9a430503959a91ba
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory kullanarak Sybase'den veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Tüm desteklenen havuz veri deposuna Sybase veritabanından veri kopyalayabilirs
 
 Özellikle, bu Sybase bağlayıcı destekler:
 
-- Sybase **sürüm 16 ve yukarıdaki**.
+- SAP Sybase SQL her yerden (ASA) **sürüm 16 ve yukarıdaki**; IQ ve ana desteklenmez.
 - Verileri kullanarak kopyalama **temel** veya **Windows** kimlik doğrulaması.
 
 ## <a name="prerequisites"></a>Önkoşullar

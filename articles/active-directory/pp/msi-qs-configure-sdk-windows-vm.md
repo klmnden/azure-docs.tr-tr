@@ -3,7 +3,7 @@ title: "Bir Azure SDK'yı kullanarak bir Azure VM için bir kullanıcı tarafın
 description: "Azure bir Azure SDK'sını kullanarak VM için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) yapılandırma için adım yönergeler tarafından adım."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 19b6179803b8de4102818c1522b00e6b4881d0f0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 097304162b85599acd1f4591091f986a646ebc2a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-sdk"></a>Bir Azure SDK'yı kullanarak bir VM için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) yapılandırma
 

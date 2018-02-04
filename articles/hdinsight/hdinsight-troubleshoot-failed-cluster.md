@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Yavaş ya da başarısız olan bir Hdınsight kümesi sorun giderme
+# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
 
 Hdınsight kümesi yavaş çalışıyor veya bir hata kodu ile başarısız olursa sorun giderme birkaç seçeneğiniz vardır. İşleriniz çalıştırılması beklenenden uzun sürüyor veya yavaş yanıt sürelerini genel görüyorsanız, küme üzerinde çalışan hizmetleri gibi kümenizi upstream arızasından olabilir. Ancak, en yaygın bu yavaşlamalara yetersiz ölçeklendirme nedenidir. Yeni bir Hdınsight kümesi oluştururken uygun seçin [sanal makine boyutları](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
@@ -87,7 +87,7 @@ Her Hdınsight kümesi çeşitli Azure hizmetlerine ve Apache HBase ve Apache Sp
 
 Apache Ambari yönetimi ve izlenmesi web kullanıcı Arabirimi ile bir Hdınsight kümesi ve bir REST API sağlar. Linux tabanlı Hdınsight kümelerinde Ambari dahil edilir. Seçin **küme Panosu** sayfasında Azure portalı Hdınsight bölmesi.  Seçin **Hdınsight küme Panosu** bölmesinde Ambari kullanıcı arabirimini açın ve küme oturum açma kimlik bilgilerini girin.  
 
-![Ambari kullanıcı Arabirimi](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
 
 Hizmet görünümlerini listesini açmak için seçin **Ambari görünümleri** Azure portal sayfasında.  Bu liste, hangi kitaplıkların yüklü bağlıdır. Örneğin, YARN sıra yöneticisinin, Hive görünümü ve Tez görünümü görebilirsiniz.  Yapılandırma ve hizmet bilgileri görmek için bir hizmet bağlantı seçin.
 
@@ -112,7 +112,7 @@ Kümenizdeki yavaşlamalara karşılaşıyorsanız, hizmetlerinizi Ambari UI vey
 
 Hdınsight kümeleri farklı türde bir sanal makine örnekleri üzerinde çalışan düğümleri oluşur. Her düğüm, kaynak yetersizliğini, ağ bağlantısı sorunları ve kümeyi yavaşlatabilir diğer sorunlar için izlenebilir. Her küme iki baş düğümler ve çoğu küme türleri çalışan ve kenar düğümleri bir birleşimini içerir. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+Her küme türü kullanan çeşitli düğümleri açıklaması için bkz: [Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama](hdinsight-hadoop-provision-linux-clusters.md).
 
 Aşağıdaki bölümlerde, her düğümün ve genel kümesinin durumu Denetim açıklar.
 
@@ -183,7 +183,7 @@ YARN düzeyinde zaman aşımları iki tür vardır:
 
     Aşağıdaki resimde joblauncher sırası 714.4 aşırı kullanılmasına % gösterir. Var olduğu sürece hala boş kapasite gelen ödünç almak için varsayılan sırasındaki bu kabul edilebilir. Ancak, küme tam olarak kullanılan ve YARN bellek % 100 kapasitede olduğunda, yeni işleri, sonunda zaman aşımlarına neden olan beklemeniz gerekir.
 
-    ![Joblauncher sırası](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
+    ![Joblauncher queue](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
 
     Bu sorunu çözmek için iki yolu vardır: ya da gönderilen yeni işleri ya da tüketim hızı eski işleri küme ölçeklendirme tarafından artış hızına azaltın.
 
@@ -255,7 +255,7 @@ Yığın dökümleri değişkenlerin değerleri, çalışma zamanında oluşan s
 
 Hdınsight kümeleri için Hadoop, Hive, HBase vb. gibi ilgili hizmetler varsayılan ayarlarla önceden yapılandırılmış. Küme, donanım yapılandırmasına, düğüm sayısının üst türüne bağlı olarak, işi türlerini çalıştırıyorsanız, birlikte çalıştığınız veri (ve nasıl verileri işleniyor) yapılandırmanızı en iyi duruma getirme gerekebilir.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+Çoğu senaryo için performans yapılandırmaları en iyi duruma getirme hakkında ayrıntılı yönergeler için bkz: [Ambari ile küme yapılandırmaları en iyi duruma](hdinsight-changing-configs-via-ambari.md). Spark kullanırken bkz [performansı en iyi duruma getirme Spark işleri](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>7. adım: farklı bir kümede hatayı yeniden oluşturun
 

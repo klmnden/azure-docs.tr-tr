@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -111,20 +111,21 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 | * / 3443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|Azure portalı ve Powershell yönetim uç noktası |İç |
 | * / 80, 443 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure Storage bağımlılığını**, Azure Service Bus ve Azure Active Directory (uygunsa).|Dış & iç | 
 | * / 1433 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure SQL Uç noktalara erişimi** |Dış & iç |
-| * / 5671, 5672 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Olay hub'ı İlkesi ve İzleme Aracısı günlüğü bağımlılığı |Dış & iç |
+| * / 5672 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Olay hub'ı İlkesi ve İzleme Aracısı günlüğü bağımlılığı |Dış & iç |
 | * / 445 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Azure dosya paylaşımı için GIT bağımlılığı |Dış & iç |
+| * / 1886 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Kaynak durumu için sistem durumu yayımlamak gerekli |Dış & iç |
 | * / 25028 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|E-postaları göndermek için SMTP geçişi Bağlan |Dış & iç |
 | * / 6381 - 6383 |Gelen ve giden |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Erişim Redis önbelleği örnekleri Roleınstances arasında |Dış & iç |
 | * / * | Gelen |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure altyapı yük dengeleyici |Dış & iç |
 
 >[!IMPORTANT]
-> * Hangi bağlantı noktalarını *amacı* olan **kalın** API Management hizmeti başarıyla dağıtılması gereklidir. Diğer bağlantı noktalarının engellenmesi ancak düşüşü kullanın ve çalışan hizmetin izleme yeteneği neden olur.
+> Hangi bağlantı noktalarını *amacı* olan **kalın** API Management hizmeti başarıyla dağıtılması gereklidir. Diğer bağlantı noktalarının engellenmesi ancak düşüşü kullanın ve çalışan hizmetin izleme yeteneği neden olur.
 
 * **SSL işlevselliği**: SSL sertifika zinciri oluşturma ve doğrulama API Management etkinleştirmek için hizmet ocsp.msocsp.com, mscrl.microsoft.com ve crl.microsoft.com giden ağ bağlantısı gerekir. API Management karşıya yüklediğiniz herhangi bir sertifikayı tam zincir CA kök içeriyorsa, bu bağımlılık gerekli değil.
 
 * **DNS erişim**: DNS sunucuları ile iletişim için bağlantı noktası 53 giden erişim gereklidir. Özel bir DNS sunucusu bir VPN ağ geçidi diğer ucundaki varsa, DNS Sunucusu API Management barındıran alt ağdan erişilebilir olması gerekir.
 
-* **Ölçümleri ve sistem durumu izleme**: altında şu etki alanlarına çözmek Azure Monitoring uç noktalarına giden ağ bağlantısı: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com.
+* **Ölçümleri ve sistem durumu izleme**: altında şu etki alanlarına çözmek Azure Monitoring uç noktalarına giden ağ bağlantısı: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com, prod3 black.prod3.metrics.nsatc.net ve prod3 red.prod3.metrics.nsatc.net.
 
 * **Hızlı rota Kurulum**: bir ortak müşteri bunun yerine şirket içi giden Internet akışına zorlar kendi varsayılan yol (0.0.0.0/0) tanımlamak için bir yapılandırmadır. Bu trafik akışı neredeyse şaşmaz biçimde ya da engellenen şirket içi giden trafik olduğundan veya tanınmayan bir artık çeşitli Azure uç noktaları ile çalışma adresleri kümesini NAT ister Azure API Management ile bağlantısını keser. Çözümü bir (veya daha fazla) kullanıcı tanımlı yollar tanımlamaktır ([Udr'ler][UDRs]) Azure API Management içeren alt ağ üzerinde. Bir UDR yerine varsayılan yol uyulacaktır alt özel yollar tanımlar.
   Mümkünse, aşağıdaki yapılandırmayı kullanmak için önerilir:
@@ -132,7 +133,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
  * Azure API Management içeren alt ağa uygulanan UDR Internet sonraki atlama türü olan 0.0.0.0/0 tanımlar.
  Bu adımları etkilerini, alt düzey UDR tünel, zorunlu ExpressRoute böylece Azure API Yönetimi'nden giden Internet erişimi sağlama öncelikli olacağını ' dir.
 
-**Ağ sanal Gereçleri aracılığıyla yönlendirme**: kullanan varsayılan yol (0.0.0.0/0) ile UDR API Management alt ağdan hedefleyen Internet trafiği yönlendirmek için Azure'da çalışan bir ağ sanal gereç aracılığıyla yapılandırmaları tam engeller API Management ve gerekli hizmetler arasındaki iletişim. Bu yapılandırma desteklenmiyor. 
+* **Ağ sanal Gereçleri aracılığıyla yönlendirme**: kullanan varsayılan yol (0.0.0.0/0) ile UDR API Management alt ağdan hedefleyen Internet trafiği yönlendirmek için Azure'da çalışan bir ağ sanal gereç aracılığıyla yapılandırmaları engeller Yönetim trafiği sanal ağ alt içinde dağıtılan API Management hizmet örneği için Internet'ten gelen. Bu yapılandırma desteklenmiyor.
 
 >[!WARNING]  
 >Azure API Management ile ExpressRoute yapılandırmaları desteklenmez, **yanlış arası-özel eşleme yoluna ortak eşleme yolu yolları tanıtma**. Yapılandırılmış, ortak eşleme sahip ExpressRoute yapılandırmaları alacağı Yol tanıtımlarını Microsoft'tan çok sayıda Microsoft Azure IP adres aralıkları için. Bu adres aralıklarını yanlış cross-özel eşleme yoluna üzerinde tanıtılan, sonuç tüm giden ağ paketlerinin Azure API Management örneğinin alt ağdan hatalı zorla bir müşterinin şirket içi ağ tünelli ise Altyapı. Bu ağ akışı Azure API Management keser. Bu sorun için çözüm ortak eşleme yolu arası reklam yolları özel eşleme yoluna önlemektir.
@@ -153,7 +154,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 ## <a name="subnet-size"></a> Alt ağ boyutu gereksinimi
 Her alt ağ içindeki bazı IP adreslerini Azure ayırır ve bu adresleri kullanılamaz. Alt ağlar ilk ve son IP adreslerini Azure Hizmetleri için kullanılan üç daha fazla adres birlikte Protokolü uyum için ayrılmıştır. Daha fazla bilgi için bkz: [bu alt ağ içindeki IP adresleri kullanma kısıtlamaları vardır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Azure sanal ağ altyapısı tarafından kullanılan IP adreslerinin yanı sıra, alt ağ kullanan iki IP adresi birim başına Premium SKU ya da bir 1 her API Management örnek IP adresi Geliştirici SKU için. Her bir örnek dış yük dengeleyici için 1 IP adresi ayırır. İç vnet dağıtırken, iç yük dengeleyici için ek bir IP adresi gerektirir.
+Azure sanal ağ altyapısı tarafından kullanılan IP adreslerinin yanı sıra, alt ağdaki her API Management örneği Geliştirici SKU için Premium SKU birim başına iki IP adresi veya bir IP adresi kullanır. Her bir örnek dış yük dengeleyici için ek bir IP adresi ayırır. İç vnet dağıtırken, iç yük dengeleyici için ek bir IP adresi gerektirir.
 
 API Management dağıtılabilir alt hesaplanması minimum boyut yukarıda verilen 3 IP adreslerini sağlayan /29 olur.
 
