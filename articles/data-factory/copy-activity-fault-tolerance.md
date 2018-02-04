@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b7ca3f6da104da16bd64db042a2a13f593a393b6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Kopya etkinliği Azure Data factory'de hataya dayanıklılık
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,9 +36,17 @@ Azure Data Factory kopyalama etkinliğinde uyumsuz satırları kaynak ve havuz v
  ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 Kopyalama etkinliği algılama, atlanıyor ve uyumsuz verilerini günlüğe kaydetme için üç senaryoları destekler:
 
-- **Kaynak veri türü ve havuz yerel türü arasındaki uyumsuzluk**. <br/><br/> Örneğin: veri kopyalama bir Blob depolamada CSV dosyasından üç INT türü sütunları içeren bir şema tanımı olan bir SQL veritabanına. 123,456,789 gibi sayısal veriler içeren CSV dosyası satırları başarıyla havuz deposuna kopyalanır. Ancak, 123,456 gibi sayısal olmayan değerler içeren satırları abc uyumsuz olarak algılanır ve atlanır.
-- **Kaynak ve havuz arasında sütun sayısı uyuşmazlığı**. <br/><br/> Örneğin: veri kopyalama bir Blob depolamada CSV dosyasından altı sütunları içeren bir şema tanımı olan bir SQL veritabanına. Altı sütunları içeren CSV dosyası satırları başarıyla havuz deposuna kopyalanır. Daha fazla veya az altı sütunları içeren CSV dosyası satırları uyumsuz olarak algılanır ve atlanır.
-- **İlişkisel bir veritabanına yazılırken birincil anahtar ihlali**.<br/><br/> Örneğin: veri kopyalama SQL Server'dan SQL veritabanına. Havuz SQL veritabanında tanımlı bir birincil anahtara, ancak böyle bir birincil anahtar kaynak SQL Server'da tanımlanmadı. Havuz için kaynak olarak mevcut yinelenen satırları kopyalanamaz. Kopyalama etkinliği yalnızca ilk satır kaynak verilerin havuz kopyalar. Yinelenen birincil anahtar değeri içeren sonraki kaynak satırları uyumsuz olarak algılanır ve atlanır.
+- **Kaynak veri türü ve havuz yerel türü arasındaki uyumsuzluk**. 
+
+    Örneğin: veri kopyalama bir Blob depolamada CSV dosyasından üç INT türü sütunları içeren bir şema tanımı olan bir SQL veritabanına. 123,456,789 gibi sayısal veriler içeren CSV dosyası satırları başarıyla havuz deposuna kopyalanır. Ancak, 123,456 gibi sayısal olmayan değerler içeren satırları abc uyumsuz olarak algılanır ve atlanır.
+
+- **Kaynak ve havuz arasında sütun sayısı uyuşmazlığı**.
+
+    Örneğin: veri kopyalama bir Blob depolamada CSV dosyasından altı sütunları içeren bir şema tanımı olan bir SQL veritabanına. Altı sütunları içeren CSV dosyası satırları başarıyla havuz deposuna kopyalanır. Daha fazla veya az altı sütunları içeren CSV dosyası satırları uyumsuz olarak algılanır ve atlanır.
+
+- **İlişkisel bir veritabanına yazılırken birincil anahtar ihlali**.
+
+    Örneğin: veri kopyalama SQL Server'dan SQL veritabanına. Havuz SQL veritabanında tanımlı bir birincil anahtara, ancak böyle bir birincil anahtar kaynak SQL Server'da tanımlanmadı. Havuz için kaynak olarak mevcut yinelenen satırları kopyalanamaz. Kopyalama etkinliği yalnızca ilk satır kaynak verilerin havuz kopyalar. Yinelenen birincil anahtar değeri içeren sonraki kaynak satırları uyumsuz olarak algılanır ve atlanır.
 
 >[!NOTE]
 >Kopyalama etkinliği, dış veri mekanizması dahil olmak üzere yükleme çağırmak için yapılandırıldığında, bu özelliği uygulanmaz [Azure SQL veri ambarı PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) veya [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). PolyBase'nın yerel hataya dayanıklılık destek belirterek kullanmak verileri PolyBase kullanarak SQL Data Warehouse'a veri yüklemek için "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" kopyalama etkinliğinde.

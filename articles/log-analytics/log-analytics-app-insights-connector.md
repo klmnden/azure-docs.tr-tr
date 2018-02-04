@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Uygulama Öngörüler Bağlayıcısı çözümü (Önizleme) Operations Management Suite (OMS)
+# <a name="application-insights-connector-management-solution-preview"></a>Uygulama Öngörüler Bağlayıcısı yönetim çözümü (Önizleme) 
 
 ![Uygulama Öngörüler simgesi](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-Uygulamaları Öngörüler Bağlayıcısı çözüm, performans sorunlarını tanılamak ve ile izlenen kullanıcılar ile uygulamanızı ne anlamanıza yardımcı olur [Application Insights](../application-insights/app-insights-overview.md). Application Insights'ta geliştiriciler bkz aynı uygulama telemetri görünümlerini OMS içinde kullanılabilir. Ancak, Application Insights uygulamalarınızı OMS ile tümleştirdiğinizde, uygulamalarınızı görünürlüğünü işlemi ve uygulama verilerini tek bir yerde sağlayarak artar. Aynı görünümleri olan, uygulama geliştiricilerine işbirliği yardımcı olur. Sık kullanılan görünümleri algılamak ve uygulama ve platform sorunları gidermek için zaman azaltmaya yardımcı olabilir.
+Uygulamaları Öngörüler Bağlayıcısı çözüm, performans sorunlarını tanılamak ve ile izlenen kullanıcılar ile uygulamanızı ne anlamanıza yardımcı olur [Application Insights](../application-insights/app-insights-overview.md). Application Insights'ta geliştiriciler bkz aynı uygulama telemetri görünümlerini günlük analizi içinde kullanılabilir. Ancak, Application Insights uygulamalarınızı günlük analizi ile tümleştirdiğinizde, uygulamalarınızı görünürlüğünü işlemi ve uygulama verilerini tek bir yerde sağlayarak artar. Aynı görünümleri olan, uygulama geliştiricilerine işbirliği yardımcı olur. Sık kullanılan görünümleri algılamak ve uygulama ve platform sorunları gidermek için zaman azaltmaya yardımcı olabilir.
 
 Çözüm kullandığınızda aşağıdakileri yapabilirsiniz:
 
 - Farklı Azure aboneliklerinde olsalar bile tüm Application Insights uygulamaları tek bir yerde görüntüleyin
 - Uygulama verileri ile altyapı verilerin bağıntısını
 - Günlük arama açılardan ile uygulama verileri görselleştirin
-- Application Insights uygulamanızda OMS ve Azure portalları için günlük analizi verilerden Özet
+- Azure portalında Application Insights uygulamanız için günlük analizi verilerden Özet
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
@@ -63,8 +63,8 @@ Yaklaşık 30 dakika içinde veri kullanılabilir hale gelir ve Application Insi
 
 Göz önünde bulundurmanız alınacak diğer noktalar:
 
-- Bu gibi durumlarda, Application Insights uygulamalar yalnızca bir OMS çalışma alanına bağlayabilirsiniz.
-- Yalnızca bağlayabilirsiniz [standart veya Premium Application Insights kaynağı](https://azure.microsoft.com/pricing/details/application-insights) OMS günlük analizi için. Ancak, günlük analizi ücretsiz katmanı kullanabilirsiniz.
+- Bu gibi durumlarda, Application Insights uygulamalar yalnızca bir günlük analizi çalışma alanına bağlayabilirsiniz.
+- Yalnızca bağlayabilirsiniz [standart veya Premium Application Insights kaynağı](https://azure.microsoft.com/pricing/details/application-insights) günlük analizi için. Ancak, günlük analizi ücretsiz katmanı kullanabilirsiniz.
 
 ## <a name="management-packs"></a>Yönetim paketleri
 
@@ -129,7 +129,7 @@ Perspektif bileşenleri arama sorgusu bağlı olarak güncelleştirilir. Başka 
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Azure portalında bir uygulama için Özet
 
-Uygulama Öngörüler Bağlayıcısı Kanatlar, seçili Application Insights uygulama Özet sağlamak için tasarlanmıştır *OMS Portalı'nı kullandığınızda,*. Bir uygulama gidermenize yardımcı olacak üst düzey bir izleme platform çözüm kullanabilirsiniz. Olası bir soruna bağlı uygulamalarınızı hiçbirinde gördüğünüzde, her iki ayrıntıya, OMS arama yapabilir veya doğrudan Application Insights uygulama Özet.
+Uygulama Öngörüler Bağlayıcısı Kanatlar, seçili Application Insights uygulama Özet sağlamak için tasarlanmıştır *OMS Portalı'nı kullandığınızda,*. Bir uygulama gidermenize yardımcı olacak üst düzey bir izleme platform çözüm kullanabilirsiniz. Olası bir soruna bağlı uygulamalarınızı hiçbirinde gördüğünüzde, her iki ayrıntıya, günlük analizi arama yapabilir veya doğrudan Application Insights uygulama Özet.
 
 Özet için üç noktaya tıklayın (**...** ), her satırın sonunda görünür ve seçin **Application Insights Aç**.
 
@@ -140,7 +140,7 @@ Uygulama Öngörüler Bağlayıcısı Kanatlar, seçili Application Insights uyg
 
 ### <a name="sample-corrected-data"></a>Veri örnek düzeltildi
 
-Application Insights sağlar  *[düzeltme örnekleme](../application-insights/app-insights-sampling.md)*  telemetri trafiğini azaltmak için. Application Insights uygulamanıza örnekleme etkinleştirdiğinizde, Application Insights hem de OMS depolanan girişleri azaltılmış sayısını alır. Veri tutarlılığı içinde korunur sırada **uygulama Öngörüler Bağlayıcısı** sayfası ve Perspektifler, örneklenen verileri özel sorgularınızı el ile düzeltmeniz gerekir.
+Application Insights sağlar  *[düzeltme örnekleme](../application-insights/app-insights-sampling.md)*  telemetri trafiğini azaltmak için. Application Insights uygulamanıza örnekleme etkinleştirdiğinizde, Application Insights hem de günlük analizi depolanan girişleri azaltılmış sayısını alır. Veri tutarlılığı içinde korunur sırada **uygulama Öngörüler Bağlayıcısı** sayfası ve Perspektifler, örneklenen verileri özel sorgularınızı el ile düzeltmeniz gerekir.
 
 Örnekleme düzeltme günlük arama sorguda bir örneği burada verilmiştir:
 
@@ -162,7 +162,7 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 - Sayfa görünümleri – sayfa görünümleri almak çalışma alanınız için bu bilgileri toplamak için uygulamalarınızı yapılandırmanız gerekir. Daha fazla bilgi için bkz: [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Özel olaylar – özel olaylarını almak çalışma alanınız için bu bilgileri toplamak için uygulamalarınızı yapılandırmanız gerekir. Daha fazla bilgi için bkz: [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Kullanılabilir olduğunda veri Application Insights gelen OMS tarafından alınır.
+Kullanılabilir olduğunda veri Application Insights gelen günlük analizi tarafından alınır.
 
 ## <a name="output-data"></a>Çıktı verileri
 

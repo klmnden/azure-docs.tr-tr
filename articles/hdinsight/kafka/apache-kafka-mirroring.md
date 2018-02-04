@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Kafka Hdınsight üzerinde Apache Kafka konuları çoğaltmak için MirrorMaker kullanın
 
@@ -120,7 +120,7 @@ Bir Azure sanal ağı oluşturmak ve Kafka el ile kümeleri olsa da, bir Azure R
     export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Değiştir `$CLUSTERNAME` kaynak kümesi adı. İstendiğinde, küme oturum açma (Yönetici) hesabı için parolayı girin.
+    Değiştir `$CLUSTERNAME` kaynak kümesi adı. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin.
 
 3. Adlı bir konu başlığı oluşturmak için `testtopic`, aşağıdaki komutu kullanın:
 
@@ -187,7 +187,7 @@ Bir Azure sanal ağı oluşturmak ve Kafka el ile kümeleri olsa da, bir Azure R
     echo $DEST_BROKERHOSTS
     ```
 
-    Değiştir `$CLUSTERNAME` hedef küme adı. İstendiğinde, küme oturum açma (Yönetici) hesabı için parolayı girin.
+    Değiştir `$CLUSTERNAME` hedef küme adı. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin.
 
     `echo` Komut bilgilerini aşağıdaki metni benzer döndürür:
 
@@ -209,6 +209,41 @@ Bir Azure sanal ağı oluşturmak ve Kafka el ile kümeleri olsa da, bir Azure R
     Değiştir **DEST_BROKERS** önceki adımdan Aracısı bilgilerle.
 
     Daha fazla bilgi üretici yapılandırma için bkz: [üretici yapılandırmalar](https://kafka.apache.org/documentation#producerconfigs) kafka.apache.org adresindeki.
+
+5. Hedef kümenin Zookeeper ana bilgisayarları bulmak için aşağıdaki komutları kullanın:
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Değiştir `$CLUSTERNAME` hedef küme adı. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin.
+
+7. Hdınsight üzerinde Kafka için varsayılan yapılandırma konuları otomatik olarak oluşturulmasını izin vermiyor. Yansıtma işlemini başlatmadan önce aşağıdaki seçeneklerden birini kullanmanız gerekir:
+
+    * **Konular hedef kümede oluşturmak**: Bu seçenek ayrıca, bölümler ve çoğaltma faktörü sayısını ayarlamanızı sağlar.
+
+        Aşağıdaki komutu kullanarak önceden konuları oluşturabilirsiniz:
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Değiştir `testtopic` oluşturmak için konu adı.
+
+    * **Otomatik konu oluşturmak için küme yapılandırma**: bunları bölümlerinin veya çoğaltma faktörü kaynak konu daha farklı bir numarayla oluşturun ancak bu seçenek MirrorMaker konuları, otomatik olarak oluşturmasını sağlar.
+
+        Konular otomatik olarak oluşturmak için hedef küme yapılandırmak için aşağıdaki adımları gerçekleştirin:
+
+        1. Gelen [Azure portal](https://portal.azure.com), Kafka küme hedef seçin.
+        2. Küme genel bakış'tan seçin __küme Panosu__. Ardından __Hdınsight küme Panosu__. İstendiğinde, küme için oturum açma (Yönetici) kimlik bilgilerini kullanarak kimlik doğrulaması.
+        3. Seçin __Kafka__ sayfanın sol taraftaki listeden hizmet.
+        4. Seçin __yapılandırmalar__ sayfasının ortasında.
+        5. İçinde __filtre__ değeri alanına, `auto.create`. Bu özellikler ve görüntüler listesini filtreler `auto.create.topics.enable` ayarı.
+        6. Değerini değiştirme `auto.create.topics.enable` true ve ardından __kaydetmek__. Not ekleyin ve ardından __kaydetmek__ yeniden.
+        7. Seçin __Kafka__ hizmeti, select __yeniden__ve ardından __yeniden etkilenen tüm__. İstendiğinde, seçin __Onayla tüm yeniden__.
 
 ## <a name="start-mirrormaker"></a>MirrorMaker Başlat
 
@@ -243,19 +278,17 @@ Bir Azure sanal ağı oluşturmak ve Kafka el ile kümeleri olsa da, bir Azure R
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Değiştir `$CLUSTERNAME` kaynak kümesi adı. İstendiğinde, küme oturum açma (Yönetici) hesabı için parolayı girin.
+    Değiştir `$CLUSTERNAME` kaynak kümesi adı. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin.
 
      Boş bir satırı bir imleç ile geldiğinde, birkaç metin iletileri yazın. İletiler konu başlığına gönderilen **kaynak** küme. İşiniz bittiğinde, kullanın **Ctrl + C** üretici işlemi sonlandırmak için.
 
-3. SSH bağlantı **hedef** küme, kullanın **Ctrl + C** MirrorMaker işlemi sonlandırmak için. Konu ve iletileri hedefe çoğaltıldığını doğrulamak için aşağıdaki komutları kullanın:
+3. SSH bağlantı **hedef** küme, kullanın **Ctrl + C** MirrorMaker işlemi sonlandırmak için. İşlemi sonlandırmak için birkaç saniye sürebilir. İletileri hedefe çoğaltıldığını doğrulamak için aşağıdaki komutu kullanın:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Değiştir `$CLUSTERNAME` hedef küme adı. İstendiğinde, küme oturum açma (Yönetici) hesabı için parolayı girin.
+    Değiştir `$CLUSTERNAME` hedef küme adı. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin.
 
     Konu listesi şimdi içerir `testtopic`, hedef kaynak kümesinden konuya MirrorMaster yansıtan zaman oluşturuldu. Konusundan alınan iletileri kaynak kümede girilen adıyla aynıdır.
 

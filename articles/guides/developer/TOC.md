@@ -1,7 +1,5 @@
 # Genel Bakış
 ## [Geliştirici kılavuzu](azure-developer-guide.md) 
-## [Azure hizmetlerine genel bakış](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Portala genel bakış](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK’lar ve araçlar](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Hızlı Başlangıç

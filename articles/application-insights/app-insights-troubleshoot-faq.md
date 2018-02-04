@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık sorulan sorular
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/03/2018
 * [Azure bulut Hizmetleri](app-insights-cloudservices.md)
 * [Docker içinde çalışan uygulama sunucuları](app-insights-docker.md)
 * [Tek sayfa web uygulamaları](app-insights-javascript.md)
-* [SharePoint](app-insights-sharepoint.md)
+* [Sharepoint](app-insights-sharepoint.md)
 * [Windows masaüstü uygulaması](app-insights-windows-desktop.md)
 * [Diğer platformlar](app-insights-platforms.md)
 
@@ -68,8 +68,8 @@ Ayrıntıları proje türüne göre değişir. Web uygulaması için:
 
 * Bu dosyaları projenize ekler:
 
-  * Applicationınsights.config.
-  * Ai.js
+  * ApplicationInsights.config.
+  * ai.js
 * Bu NuGet paketlerini yükler:
 
   * *Application Insights API'si* -API çekirdek
@@ -82,7 +82,7 @@ Ayrıntıları proje türüne göre değişir. Web uygulaması için:
 * Öğeleri ekler:
 
   * Web.config
-  * Packages.config
+  * packages.config
 * (Yeni varsa yalnızca - projeleri, [varolan bir projeye Application Insights Ekle][start], bu el ile yapmanız gerekir.) Application Insights kaynak kimliği ile başlatmak için istemci ve sunucu kodu parçacıkları ekler Örneğin, bir MVC uygulamasında kodu ana sayfaya Views/Shared/_Layout.cshtml eklenir
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Eski SDK sürümlerden nasıl yükseltme?
@@ -152,7 +152,7 @@ Bir göz atalım [veri saklama ve gizlilik][data].
 
 Bu, kodunuzu bu tür veri gönderiyorsa mümkün olur. Yığın izlemeleri değişkenlerde PII eklerseniz de oluşabilir. Geliştirme ekibiniz PII düzgün şekilde işlendiğinden emin olmak için risk değerlendirmeleri yürütmeniz gerekir. [Veri saklama ve gizlilik hakkında daha fazla bilgi edinmek](app-insights-data-retention-privacy.md).
 
-İstemci web adresinin son sekizlisi her zaman 0 olarak alım sonra portal tarafından ayarlanır.
+**Tüm** coğrafi konum öznitelikleri aranır sonra istemci web adresi sekizlisinin 0 olarak her zaman ayarlanmış.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>My iKey my web sayfası kaynağında görünür olur. 
 

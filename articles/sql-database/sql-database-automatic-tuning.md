@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 11/08/2017
+ms.date: 11/09/2017
 ms.author: jovanpop
-ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: dcea2c34ab26349c6f937c582bfe35d7a42f24a6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL veritabanı'nda otomatik ayarlama
 
@@ -48,7 +48,7 @@ Otomatik ayarlama mekanizmaları olgun ve yüz binlerce Azure üzerinde çalış
 
 ![Nasıl yapılır otomatik ayarlama iş?](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL veritabanı otomatik ayarlama, çekirdek mantığını SQL Server otomatik ayarlama altyapısı ile paylaşıyor. Yerleşik zekaya mekanizmasını ek teknik bilgiler için bkz: [SQL Server otomatik ayarlama](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL veritabanı otomatik ayarlama, çekirdek mantığını SQL Server otomatik ayarlama altyapısı ile paylaşıyor. Yerleşik zekaya mekanizmasını ek teknik bilgiler için bkz: [SQL Server otomatik ayarlama](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## <a name="use-automatic-tuning"></a>Otomatik ayarlama kullanın
 
@@ -79,5 +79,6 @@ Seçenekleri ayarlama otomatik bağımsız olarak açmak veya kapatmak veritaban
 
 - Otomatik İş yükünüzün yönetmek için Azure SQL veritabanında ayarlamayı etkinleştirmek için bkz: [otomatik ayarlamayı etkinleştirmek](sql-database-automatic-tuning-enable.md).
 - El ile gözden geçirin ve öneriler ayarlama otomatik uygulamak için bkz: [bulmak ve performans önerileri uygulamak](sql-database-advisor-portal.md).
-- Otomatik ayarlamak için kullanılan yerleşik zekaya hakkında daha fazla bilgi için bkz: [yapay zeka ayarladığını Azure SQL veritabanlarını](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- Azure SQL Database ve SQL server 2017'de otomatik ayarlama çalıştığı hakkında daha fazla bilgi edinmek için [SQL Server otomatik ayarlama](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+- Otomatik ayarlama önerileri için e-posta bildirimleri oluşturma hakkında bilgi edinmek için [e-posta bildirimleri otomatik ayarlama](sql-database-automatic-tuning-email-notifications.md)
+- Otomatik ayarlamak için kullanılan yerleşik zekaya hakkında bilgi edinmek için [yapay zeka ayarladığını Azure SQL veritabanlarını](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Azure SQL Database ve SQL server 2017'de otomatik ayarlama çalıştığı hakkında bilgi edinmek için [SQL Server otomatik ayarlama](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

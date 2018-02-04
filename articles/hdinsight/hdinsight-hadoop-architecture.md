@@ -16,20 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 85383cc32e67db1f7e6964dc0b55bf3977311d40
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 49277871026e79b871b0216c05e051a1c93336b3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="hadoop-architecture-in-hdinsight"></a>Hdınsight'ta Hadoop mimarisi
+# <a name="hadoop-architecture-in-hdinsight"></a>HDInsight’ta Hadoop mimarisi
 
 Hadoop iki çekirdek bileşeni, yüksek yoğunluk dosya sistemi (depolama sağlayan HDFS) ve henüz başka bir kaynak Uzlaştırıcı (işleme sağlayan YARN) içerir. Depolama ve işleme özelliklerini bir küme istenen veri işleme gerçekleştirmek için MapReduce programları çalıştırabilen haline gelir.
 
 > [!NOTE]
-> Bir HDFS genellikle depolama sağlamak için Hdınsight küme içinde dağıtılır. Bunun yerine, bir HDFS uyumlu arabirim katmanı Hadoop bileşenleri tarafından kullanılır. Gerçek depolama yeteneği, Azure Storage veya Azure Data Lake Store tarafından sağlanır. Hadoop, Hdınsight kümesinde yürütme MapReduce işleri bir HDFS mevcut değilmiş gibi çalıştırın ve bu nedenle depolama ihtiyaçlarını desteklemek için herhangi bir değişiklik gerektirir. Hdınsight'ta Hadoop, depolama dış kaynaklı ancak çekirdek bileşen YARN işleme kalır. 
-
-<!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
+> Bir HDFS genellikle depolama sağlamak için Hdınsight küme içinde dağıtılır. Bunun yerine, bir HDFS uyumlu arabirim katmanı Hadoop bileşenleri tarafından kullanılır. Gerçek depolama yeteneği, Azure Storage veya Azure Data Lake Store tarafından sağlanır. Hadoop, Hdınsight kümesinde yürütme MapReduce işleri bir HDFS mevcut değilmiş gibi çalıştırın ve bu nedenle depolama ihtiyaçlarını desteklemek için herhangi bir değişiklik gerektirir. Hdınsight'ta Hadoop, depolama dış kaynaklı ancak çekirdek bileşen YARN işleme kalır. Daha fazla bilgi için bkz: [Azure Hdınsight giriş](hadoop/apache-hadoop-introduction.md).
 
 Bu makalede YARN ve nasıl Hdınsight uygulamalarının yürütme koordinatları tanıtır.
 
@@ -56,8 +54,7 @@ Tüm Hdınsight küme türleri YARN dağıtın. ResourceManager, küme içindeki
 
 ![Hdınsight YARN](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Hdınsight'ta Hadoop MapReduce kullanın](hadoop/hdinsight-use-mapreduce.md)
-
-<!--  * [HDInsight Architecture](hdinsight-architecture.md)  -->
+* [Azure Hdınsight giriş](hadoop/apache-hadoop-introduction.md)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Veriler hazırlıkları Python uzantıları
 Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu olarak Azure Machine Learning veriler hazırlıkları birçok düzeyde genişletilebilirlik içerir. Bu belgede, Python komut dosyası aracılığıyla genişletilebilirlik verilmiştir. 
@@ -25,7 +25,7 @@ Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu ola
 Veriler hazırlıkları kullanıcılar kod burada yazabilirsiniz aşağıdaki özel adımlar vardır:
 
 * Dosya okuyucu *
-* Yazıcı *
+* Writer*
 * Sütun ekleme
 * Gelişmiş Filtre
 * Veri akışı dönüştürme
@@ -125,7 +125,7 @@ or
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Özel modüller kullanın
-Dönüştürme veri akışı içinde (komut), python şuna benzer bir kod yazın:
+Dönüştürme veri akışı içinde (komut), aşağıdaki Python kodu yazma
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-Kod bloğunun türü ekleme sütununda (komut) ayarlayın modülü = ve python aşağıdaki kodu yazın:
+Kod bloğunun türü ekleme sütununda (komut) ayarlayın modülü = ve aşağıdaki Python kodu yazma
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Farklı bir yürütme bağlamı (yerel, docker spark) için mutlak yolu doğru yerde işaret eder. "Os.getcwd() + relativePath" bulmak için kullanmak isteyebilirsiniz.
+Farklı bir yürütme bağlamı (yerel, Docker, Spark), mutlak yolu doğru yerde işaret eder. "Os.getcwd() + relativePath" bulmak için kullanmak isteyebilirsiniz.
 
 
 ## <a name="column-data"></a>Sütun verileri 

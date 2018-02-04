@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: bc7df6957c0a8d9d40c5e8e5f9d274e0d1aa40bd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15d23d0ccf816ca355103ad7fd0d6124f1c5c226
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Yeni bir sürüme bir HBase kümesi geçirme
 
@@ -222,4 +222,4 @@ HBase ve Hdınsight kümeleri yükseltme hakkında daha fazla bilgi için aşağ
 * [Hdınsight kümesi daha yeni bir sürüme yükseltin](../hdinsight-upgrade-cluster.md)
 * [İzleme ve Azure Hdınsight Ambari Web kullanıcı arabirimini kullanarak yönetme](../hdinsight-hadoop-manage-ambari.md)
 * [Hadoop bileşenleri ve sürümleri](../hdinsight-component-versioning.md)
-<!--  * [Optimizing configurations using Ambari](hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)  -->
+* [Ambari kullanarak yapılandırmaları en iyi duruma getirme](../hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)

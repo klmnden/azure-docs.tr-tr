@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a35a6adae1eec88b314252ea0e3f2eb86f10c1d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Saydam bir ağ geçidi olarak davranan bir IOT sınır cihazı oluşturma - Önizleme
 
@@ -104,12 +104,12 @@ Bir ağ geçidi olarak IOT kenar Cihazınızı yapılandırmak için yalnızca �
 
 Yukarıdaki örnek komut dosyaları aşağıdaki dosya adlarından varsayıyoruz:
 
-| Çıktı | Bash komut dosyası | PowerShell |
-| ------ | ----------- | ---------- |
-| Cihaz sertifikası | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| Aygıt özel anahtarı | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| Cihaz sertifika zinciri | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| IOT hub sahibi CA | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| Çıktı | Dosya adı |
+| ------ | --------- |
+| Cihaz sertifikası | `certs/new-edge-device.cert.pem` |
+| Aygıt özel anahtarı | `private/new-edge-device.cert.pem` |
+| Cihaz sertifika zinciri | `certs/new-edge-device-full-chain.cert.pem` |
+| IOT hub sahibi CA | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 IOT kenar çalışma zamanı için cihaz ve sertifika bilgileri sağlar. 
  

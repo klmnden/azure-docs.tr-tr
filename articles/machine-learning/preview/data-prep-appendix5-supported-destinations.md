@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 50d2d481b91199630bbfbf3cfdd21a1bf3062ff0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 18db3caf487375252ca50f3942d7bdf538367ba6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Bu önizleme için verileri dışarı aktarma desteklenen 
 Birkaç farklı biçimlerde dışa aktarmak mümkündür. Machine Learning iş akışının geri kalanı sonuçları tümleştirmeden önce veri hazırlığı Ara sonuçlarını korumak için bu biçimlerini kullanabilirsiniz.
@@ -29,7 +29,7 @@ Bir virgülle ayrılmış değer dosyası depolama alanına yazın.
 - Satır sonları
 - Null değerler ile değiştir
 - Hatalarla değiştirin 
-- ayırıcı
+- Ayırıcı
 
 
 ### <a name="parquet"></a>Parquet 

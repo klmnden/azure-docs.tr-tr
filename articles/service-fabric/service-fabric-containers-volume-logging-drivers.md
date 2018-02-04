@@ -14,9 +14,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
 ---
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter eşleme SMB başlatmalar kapsayıcılara desteklemez ([yalnızca sürüm 1709 Windows Server'da desteklenen](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Bu ağ birimi eşlemenin ve Azure dosyaları birim sürücüleri 1709 eski sürümlerinde önler. 
+> Windows Server 2016 Datacenter eşleme SMB başlatmalar kapsayıcılara desteklemez ([yalnızca sürüm 1709 Windows Server'da desteklenen](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Bu sınırlama, ağ birimi eşlemenin ve Azure dosyaları birim sürücülerin 1709 eski sürümlerinde engeller. 
 >   
 
 
@@ -53,8 +53,9 @@ Eklentiler uygulama bildiriminde aşağıdaki gibi belirtilir:
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ Eklentiler uygulama bildiriminde aşağıdaki gibi belirtilir:
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ Eklentiler uygulama bildiriminde aşağıdaki gibi belirtilir:
 
 **Kaynak** etiketinde **birim** öğesi, kaynak klasöre başvuruyor. Kaynak klasör kapsayıcıları ya da kalıcı bir uzak depo barındıran VM bir klasörde olabilir. **Hedef** etiketi konumudur, **kaynak** çalışan kapsayıcıda eşlenir. Bu nedenle, hedefinizi kapsayıcı içinde zaten bir konumu olamaz.
 
+Uygulama parametreler, birimler için desteklenir, önceki bildirim parçacığında gösterildiği gibi (Ara `MyStoreVar` bir örnek için kullanın).
+
 Bir birim eklenti belirtirken, Service Fabric belirtilen parametreleri kullanarak birimi otomatik olarak oluşturur. **Kaynak** etiketi birim adıdır ve **sürücü** etiketi birimin sürücü eklentisi belirtir. Seçenekleri kullanarak belirtilebilir **DriverOption** şu şekilde etiketleyin:
 
 ```xml
@@ -93,4 +96,4 @@ Bir birim eklenti belirtirken, Service Fabric belirtilen parametreleri kullanara
 Docker günlük sürücü belirtilirse, günlükleri işlemek için aracıları (veya kapsayıcıları) kümede dağıtmak zorunda. **DriverOption** etiketi, günlük sürücü seçeneklerini belirtmek için kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Fabric kümesine kapsayıcıları dağıtmak için bkz: [Service Fabric üzerinde bir kapsayıcıyı dağıtmak](service-fabric-deploy-container.md).
+Makale bir Service Fabric kümesi kapsayıcıları dağıtın bakın [Service Fabric üzerinde bir kapsayıcıyı dağıtmak](service-fabric-deploy-container.md).

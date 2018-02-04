@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: c77f31929b7fa8f98d7e30616c6645f79d135a1e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
 ---
@@ -69,7 +69,7 @@ Dışında dosyaları `$Home` ve makine durumunu oturumlar arasında sürdürül
 |Başlayın         |1.7        |
 |Java       |1.8        |
 |Node.js    |6.9.4      |
-|PowerShell |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 ve 3.5 (varsayılan)|
 
 ## <a name="next-steps"></a>Sonraki adımlar

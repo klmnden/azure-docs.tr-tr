@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Kullanıcıları Ambari Views için yetkilendirme
 
-[Etki alanına katılmış Hdınsight kümeleri](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory tabanlı kimlik doğrulaması dahil Kurumsal düzeyde özellikler sunar. Yeni kullanıcılar eşitleyebilirsiniz <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> belirli eylemleri gerçekleştirmek belirli kullanıcılarla izin kümesine erişimi sağlanan Azure AD gruplarına eklenebilir. Kullanıcıları, grupları ve izinleri Ambari içinde çalışmak etki alanına katılmış Hdınsight kümesi ve standart Hdınsight kümesi için desteklenir.
+[Etki alanına katılmış Hdınsight kümeleri](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory tabanlı kimlik doğrulaması dahil Kurumsal düzeyde özellikler sunar. Yapabilecekleriniz [yeni kullanıcılar eşitleme](hdinsight-sync-aad-users-to-cluster.md) belirli eylemleri gerçekleştirmek belirli kullanıcılarla izin kümesine erişimi sağlanan Azure AD gruplarına eklenebilir. Kullanıcıları, grupları ve izinleri Ambari içinde çalışmak etki alanına katılmış Hdınsight kümesi ve standart Hdınsight kümesi için desteklenir.
 
 Active Directory kullanıcıları kendi etki alanı kimlik bilgilerini kullanarak küme düğümlerine oturum açabilir. Küme etkileşimleri ton, Ambari görünümleri, ODBC, JDBC, PowerShell ve REST API'leri gibi diğer onaylı uç noktaları ile kimlik doğrulaması yapmak için etki alanı kimlik bilgilerini de kullanabilirsiniz.
 
@@ -145,5 +145,4 @@ Azure AD etki alanı kullanıcı "hiveuser2" biz atadığınız *küme kullanıc
 * [Etki alanına katılmış Hdınsight'ta Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
 * [Etki alanına katılmış Hdınsight kümelerini yönetme](./domain-joined/apache-domain-joined-manage.md)
 * [Hdınsight'ta Hadoop ile Hive görünümünü kullanın](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Azure AD kullanıcılarının kümeye Eşitle](hdinsight-sync-aad-users-to-cluster.md)

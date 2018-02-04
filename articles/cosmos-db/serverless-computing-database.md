@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri kullanarak sunucusuz veritabanı hesaplama
 
@@ -35,7 +35,7 @@ Azure Cosmos DB ve Azure işlevleri, veritabanları ve sunucusuz uygulamaları a
 * Bir Azure Cosmos DB koleksiyonu kullanılarak için bir işlev bağlama bir **bağlama çıktı**. Bir işlev tamamlandığında, çıkış bağlamaları veri bir kapsayıcıya yazma.
 
 > [!NOTE]
-> Şu anda Azure Cosmos DB tetikleyici, giriş bağlamaları ve çıktı bağlamaları yalnızca SQL API ve grafik API'si hesaplarıyla çalışır.
+> Şu anda Azure Cosmos DB tetikleyicisi, giriş bağlamaları ve çıkış bağlamaları yalnızca SQL API ve Graph API hesaplarıyla çalışır.
 
 Aşağıdaki diyagram bu üç tümleştirmeler her gösterir: 
 
@@ -101,7 +101,7 @@ Bir kullanıcı bir öğeyi sepetine eklediğinde perakende uygulamalarında, ar
 
 **Uygulama:** bir koleksiyona dinleme birden çok Azure Cosmos DB Tetikleyicileri
 
-1. Bunların tümü aynı dinleme Azure Cosmos DB Tetikleyicileri her - alışveriş sepeti veri, akış değiştirmek ekleyerek, birden çok Azure işlevleri oluşturabilirsiniz. Birden çok işlevleri için dinlerken aynı akış değiştirmek, yeni bir kira koleksiyon her işlevi için gerekli dikkat edin.
+1. Bunların tümü aynı dinleme Azure Cosmos DB Tetikleyicileri her - alışveriş sepeti veri, akış değiştirmek ekleyerek, birden çok Azure işlevleri oluşturabilirsiniz. Birden çok işlevleri için dinlerken aynı akış değiştirmek, yeni bir kira koleksiyon her işlevi için gerekli dikkat edin. Kira Koleksiyonlar hakkında daha fazla bilgi için bkz: [değişiklik akış işlemci kitaplığı anlama](change-feed.md#understand-cf).
 2. Alışveriş sepeti kullanıcılara yeni bir öğe eklendiğinde, her işlev bağımsız olarak alışveriş sepeti kapsayıcıdan akış değişiklik tarafından çağrılır.
     * Bir işlev geçerli sepet içeriğini kullanıcı de ilginizi çekiyor diğer öğeleri görünümünü değiştirmek için kullanabilir.
     * Başka bir işlev stok toplamları güncelleştirebilir.

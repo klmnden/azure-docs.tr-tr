@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: 4a716c1934258e687eb48ecb4077c6be7b269c1f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Özel veri akışı Dönüşümler (Python) örneği 
 Menüde dönüştürme adıdır **dönüştürme veri akışı (komut)**. Bu ekte okumadan önce okuma [Python genişletilebilirlik genel bakış](data-prep-python-extensibility-overview.md).
@@ -55,7 +55,7 @@ Aşağı Doldur iki dönüşümler gerektirir. Aşağıdakine benzer veri varsay
 |              |San Diego  |
 |              |San Jose   |
 |Texas         |Dallas     |
-|              |SAN Antonio|
+|              |San Antonio|
 |              |Houston    |
 
 İlk olarak, aşağıdaki kodu içeren bir sütun Ekle (komut) dönüştürme oluşturun:
@@ -79,11 +79,11 @@ Verileri aşağıdaki gibi görünür:
 |              |Kaliforniya    |San Diego  |
 |              |Kaliforniya    |San Jose   |
 |Texas         |Texas         |Dallas     |
-|              |Texas         |SAN Antonio|
+|              |Texas         |San Antonio|
 |              |Texas         |Houston    |
 
 
-### <a name="min-max-normalization"></a>Min Maks normalleştirme
+### <a name="min-max-normalization"></a>Min-max normalleştirme
 ```python
     df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
 ```

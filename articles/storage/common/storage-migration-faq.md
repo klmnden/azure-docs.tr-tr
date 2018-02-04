@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure depolama geçişi hakkında sık sorulan sorular
 
@@ -280,7 +280,7 @@ Diğer kişilerin depolama kaynaklarına erişmesini sağlamak için:
       
     - **AzCopy**: Append **-ikincil** ikincil uç noktasına erişmek için URL'de depolama hesabı adı. Örneğin:  
      
-      https://storageaccountname-Secondary.BLOB.Core.Windows.NET/vhds/BlobName.vhd
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS belirteci**: uç noktasından verilere erişmek için bir SAS belirteci kullanın. Daha fazla bilgi için bkz: [kullanarak paylaşılan erişim imzaları](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -294,6 +294,10 @@ Ancak, HTTPS olmayan özel etki alanlarını kullanabilirsiniz. Daha fazla bilgi
 FTP kullanarak doğrudan bir depolama hesabına erişmek için bir yolu yoktur. Ancak, bir Azure sanal makine kurun ve ardından bir FTP sunucusu sanal makineye yükleyin. Bir Azure dosya paylaşımı veya sanal makine için kullanılabilir bir veri diski dosyaları depolamak FTP sunucusu olabilir.
 
 Yalnızca veri Depolama Gezgini veya benzer bir uygulamada kullanmak zorunda kalmadan indirmek istiyorsanız, bir SAS belirteci kullanmanız mümkün olabilir. Daha fazla bilgi için bkz: [kullanarak paylaşılan erişim imzaları](storage-dotnet-shared-access-signature-part-1.md).
+
+**Nasıl ı BLOB'lar bir depolama hesabından başka bir kümeye geçirmek?**
+
+ Kullanarak bunu yapabilirsiniz bizim [Blob geçiş komut dosyası](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 

@@ -4,7 +4,7 @@ description: "Bu makalede trafik Yöneticisi ile ilgili sık sorulan soruların 
 services: traffic-manager
 documentationcenter: 
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 02/01/2018
 ms.author: kumud
-ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Trafik Yöneticisi sık sorulan sorular (SSS)
 
@@ -321,42 +321,7 @@ Trafik Yöneticisi ana bilgisayar üstbilgisi HTTP ve HTTPS sistem durumu deneti
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>İçinden kaynaklanan sistem denetler IP adresleri nelerdir?
 
-Aşağıdaki listede kaynaklanan, Traffic Manager sistem durumu denetler IP adreslerini içerir. Sistem durumunu denetlemek için bu IP adreslerinden gelen bağlantıları uç noktada izin verilmesini sağlamak için bu listeyi kullanabilir.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
-* 52.173.90.107
-* 52.173.250.232
-* 104.45.149.110
-* 40.114.5.197
-* 52.240.151.125
-* 52.240.144.45
-* 13.65.95.152
-* 13.65.92.252
-* 40.78.67.110
-* 104.42.192.195
+Tıklatın [burada](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) sistem durumu denetimlerinin hangi trafik Yöneticisi'nden kaynaklanan IP adreslerini listeler JSON dosyasını görüntülemek için. Sistem durumunu denetlemek için bu IP adreslerinden gelen bağlantıları uç noktada izin verildiğinden emin olun JSON dosyasında listelenen IP'leri gözden geçirin.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Kaç tane durumu denetimleri için Noktam ı trafik Yöneticisi'nden bekleyebilirsiniz?
 

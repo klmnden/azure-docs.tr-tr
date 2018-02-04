@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Desteklenmeyen Dağıtımlarla ilgili bilgiler
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -75,7 +75,7 @@ VHD görüntüleri Azure üzerinde bir sanal boyutu 1 MB ile hizalı olması ger
 Bu sorunu gidermek için Hyper-V Yöneticisi konsolunu kullanarak VM boyutlandırabilirsiniz veya [yeniden boyutlandırma VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet'i.  Bir Windows ortamında çalıştırmıyorsanız (gerekirse) dönüştürmek için qemu img kullanın ve VHD'yi yeniden boyutlandırmak için önerilir.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 > 
 > 
 
@@ -143,6 +143,7 @@ Bir çok düşük, en aşağıdaki düzeltme ekleri yokluğu bilinen Azure üzer
 * Python v2.6 + Azure Linux Aracısı'nı gerektirir.
 * Aracı ayrıca python pyasn1 modülü gerektirir. Çoğu dağıtımları bu yüklenebilmesi için ayrı bir paket sağlayın.
 * Bazı durumlarda Azure Linux Aracısı'nı NetworkManager ile uyumlu olmayabilir. Birçok dağıtımları tarafından sağlanan RPM/Deb paketleri NetworkManager waagent pakete çakışma olarak yapılandırın ve Linux Aracı paketini yüklediğinizde, bu nedenle NetworkManager kaldırır.
+* Azure Linux Aracısı'nı olmalıdır desteklenen minimum sürümü üzerinde bu makale için bkz: [ayrıntıları](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Genel Linux sistem gereksinimleri
 

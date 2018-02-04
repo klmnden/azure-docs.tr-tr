@@ -3,7 +3,7 @@ title: "Oturum açmak için bir Azure VM yönetilen hizmet kimliği kullanma"
 description: "Adım adım yönergeler ve örnekler kullanarak bir Azure VM MSI hizmet sorumlusu betik istemci için oturum açın ve kaynak için erişim."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,17 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/05/2018
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c5c1be01947dba8b7f4ef8aa54aa6aedfb191d32
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Yönetilen hizmet kimliği (MSI) kullanıcı tarafından atanan bir VM kullanarak oturum açın
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]Bu makale için bir kullanıcı tarafından atanan MSI hizmet sorumlusu ve kılavuz bilgiler hata işleme gibi önemli konularda kullanarak oturum açın CLI komut dosyası örnekleri sağlar.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Bu makale için bir kullanıcı tarafından atanan MSI hizmet sorumlusu ve kılavuz bilgiler hata işleme gibi önemli konularda kullanarak oturum açın CLI komut dosyası örnekleri sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

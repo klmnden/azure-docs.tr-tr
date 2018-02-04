@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
 ---
@@ -43,7 +43,8 @@ Ağ Performans İzleyicisi'ni (NPM) izleme Azure bulut dağıtımları ve şirke
 
 ExpressRoute bağlantı hatları dünya herhangi bir parçası olarak barındırılan bir çalışma alanı aşağıdaki bölgeler birini kullanarak izleyebilirsiniz:
 
-* Batı Avrupa 
+* Batı Avrupa
+* Batı Orta ABD
 * Doğu ABD 
 * Güneydoğu Asya 
 * Güney Doğu Avustralya
@@ -57,14 +58,13 @@ ExpressRoute bağlantı hatları dünya herhangi bir parçası olarak barındır
     * Şirket içi sunucular ve Azure sanal makinelerini izleme aracıları yükleyin.
     * İzleme aracılarıyla iletişim kurmak için izin vermek için izleme Aracısı sunucularında ayarlarını yapılandırın. (Güvenlik Duvarı bağlantı noktaları, vb. açın.)
 3. İzleme Aracısı ile şirket içi iletişim kurmak için Azure vm'lerinde yüklü izin vermek için ağ güvenlik grubu (NSG) kurallarını yapılandırma izleme aracıları.
-4. Beyaz liste ile NPM çalışma alanınızı isteyin.
-5. İzleme işlevini ayarlama: Otomatik bulma ve hangi ağların NPM içinde görünür yönetin.
+4. İzleme işlevini ayarlama: Otomatik bulma ve hangi ağların NPM içinde görünür yönetin.
 
 Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zaten kullanıyorsanız ve çalışma alanı desteklenen bölgelerinden birinde zaten varsa, adım 1 ve 2. adımı atlayın ve yapılandırmanızı 3. adım ile başlayın.
 
-## <a name="configure"></a>1. adım: bir çalışma alanı oluşturma
+## <a name="configure"></a>1. adım: (Abonelikteki sanal ağlar için ExpressRoute Circuit(s)) bağlı olan bir çalışma alanı oluşturma
 
-1. İçinde [Azure portal](https://portal.azure.com), hizmet listesini arama **Market** 'Ağ Performans İzleyicisi'. Return açmak için tıklatın **Ağ Performansı İzleyicisi** sayfası.
+1. İçinde [Azure portal](https://portal.azure.com), sanal ağlar sahip aboneliği seçin, expressroute bağlantı hattı eşlenen. Hizmet listesini arama **Market** 'Ağ Performans İzleyicisi'. Return açmak için tıklatın **Ağ Performansı İzleyicisi** sayfası.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Ana sonundaki **Ağ Performansı İzleyicisi** sayfasında, **oluşturma** açmak için **Ağ Performansı İzleyicisi - oluştur yeni çözüm** sayfası. Tıklatın **OMS çalışma alanı - çalışma alanı seçin** çalışma sayfasını açın. Tıklatın **+ oluştur yeni çalışma** çalışma sayfasını açın.
@@ -105,7 +105,7 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
 
   ![PowerShell betiği](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: İzleme Aracısı her izleme sunucusuna yükleyin
+### <a name="installagent"></a>2.2: İzleme Aracısı her izleme sunucusuna (izlemek istediğiniz her bir VNET'teki) yükleyin
 
 Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağlar) her tarafında en az iki aracı yüklemenizi öneririz. Aracıları yüklemek için aşağıdaki adımları kullanın:
 
@@ -127,6 +127,8 @@ Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağ
 6. Üzerinde **yüklemeye hazır** sayfasında, seçimlerinizi gözden geçirin ve ardından **yükleme**.
 7. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
 8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Vardır, yapılandırmanızı gözden geçirin ve aracı Operational Insights (OMS için) bağlı olduğunu doğrulayın. Bildiren bir ileti aracısı için OMS bağlıyken görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
+
+9. Lütfen bu izlenmesi gereken her sanal ağ için yineleyin.
 
 ### <a name="proxy"></a>2.3: (isteğe bağlı) proxy ayarlarını yapılandır
 
@@ -165,7 +167,7 @@ Bağlantı noktası 8084 varsayılan olarak açılır. Komut dosyası için ' Ba
 >
 >
 
-Aracı sunucularda yönetici ayrıcalıklarıyla bir PowerShell penceresi açın. Çalıştırma [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) (daha önce indirdiğiniz) PowerShell komut dosyası. Herhangi bir parametre kullanmayın.
+Aracı sunucularda yönetici ayrıcalıklarıyla bir PowerShell penceresi açın. Çalıştırma [EnableRules](https://aka.ms/npmpowershellscript) (daha önce indirdiğiniz) PowerShell komut dosyası. Herhangi bir parametre kullanmayın.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ NSG hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-n
 
 ## <a name="setupmonitor"></a>Adım 4: ExpressRoute izleme için NPM yapılandırma
 
->[!WARNING]
->Daha fazla çalışma alanınızı Güvenilenler listesine bırakıldı ve bir onay e-postası kadar devam etmeyin.
->
->
-
-Önceki bölümlerde tamamlamak ve Güvenilenler listesine silinmiş doğruladıktan sonra izleme ayarlayabilirsiniz.
+Önceki bölümlerde tamamladıktan sonra izleme ayarlayabilirsiniz.
 
 1. Ağ Performansı İzleyicisi'ne genel bakış döşemeye giderek gidin **tüm kaynakları** sayfasında ve Güvenilenler listesine NPM çalışma alanı'nı tıklatın.
 

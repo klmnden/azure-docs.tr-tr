@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure AD Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
-Bu konunun amacı, Azure AD Connect eşitleme içinde PreferredDataLocation yapılandırma konusunda size yol sağlamaktır. Bir müşteri Office 365'te birden çok coğrafi özellikleri kullandığında, bu öznitelik kullanıcının Office 365 verilerin coğrafi konumunu belirlemek için kullanılır.
+Bu konunun amacı, Azure AD Connect eşitleme içinde PreferredDataLocation yapılandırma konusunda size yol sağlamaktır. Bir müşteri Office 365'te birden çok coğrafi özellikleri kullandığında, bu öznitelik kullanıcının Office 365 verilerin coğrafi konumunu belirlemek için kullanılır. Koşulları **bölge** ve **coğrafi** birbirinin yerine kullanılır.
 
 > [!IMPORTANT]
 > Birden çok coğrafi şu anda önizlemede değil. Önizleme programına katılma istiyorsanız, lütfen Microsoft temsilcinize başvurun.
@@ -29,36 +29,41 @@ Bu konunun amacı, Azure AD Connect eşitleme içinde PreferredDataLocation yap�
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>PreferredDataLocation eşitlemeyi etkinleştir
-Varsayılan olarak, Office 365 kaynakları kullanıcılarınız için Azure AD kiracınıza ile aynı bölgede yer alır. Örneğin, Kuzey Amerika'da Kiracı bulunuyorsa kullanıcıların Exchange posta kutuları da Kuzey Amerika'da bulunur. Birden çok ulusal bir kuruluş için bu en iyi olmayabilir. Öznitelik preferredDataLocation ayarlayarak kullanıcının bölge tanımlanabilir.
+Varsayılan olarak, Office 365 kaynakları kullanıcılarınız için Azure AD kiracınıza aynı coğrafi bölgede bulunur. Örneğin, Kuzey Amerika'da Kiracı bulunuyorsa kullanıcıların Exchange posta kutuları da Kuzey Amerika'da bulunur. Birden çok ulusal bir kuruluş için bu en iyi olmayabilir. Öznitelik preferredDataLocation ayarlayarak kullanıcının coğrafi tanımlanabilir.
 
-Bu öznitelik ayarları tarafından kullanabilirsiniz posta kutusu ve OneDrive gibi kullanıcının Office 365 kaynaklar kullanıcı ile aynı bölgede olması ve tüm kuruluşunuz için bir kiracı çözümlenmedi.
+Bu öznitelik ayarları tarafından kullanabilirsiniz kullanıcının Office 365 kaynaklarında, posta kutusu ve OneDrive gibi kullanıcı aynı coğrafi bölgede olması ve tüm kuruluşunuz için bir kiracı çözümlenmedi.
 
 > [!IMPORTANT]
 > Birden çok coğrafi için uygun olması için en az 5000 kişilik Office 365 aboneliğinizin olması gerekir
 >
 >
 
-Office 365 çoklu coğrafi için kullanılabilir bölgeleri şunlardır:
+Office 365 için tüm Geos listesini bulunabilir [bulunan, verilerinizin nerede olduğuna](https://aka.ms/datamaps).
 
-| Bölge | Açıklama |
+Office 365 çoklu coğrafi için kullanılabilir bölgelerde şunlardır:
+
+| Coğrafi | preferredDataLocation değeri |
 | --- | --- |
-| ADI | Kuzey Amerika |
-| EUR | Avrupa |
-| APC | Asya Pasifik |
-| JPN | Japonya |
-| AVUSTRALYA | Avustralya |
-| CAN | Kanada |
-| GBR | Büyük Britanya |
-| LAM | Latin Amerika |
+| Asya Pasifik | APC |
+| Avustralya | AVUSTRALYA |
+| Kanada | CAN |
+| Avrupa Birliği | EUR |
+| Hindistan | UL |
+| Japonya | JPN |
+| Güney Kore | KOR |
+| Birleşik Krallık | GBR |
+| Amerika Birleşik Devletleri | ADI |
 
-Tüm Office 365 iş yükleri bir kullanıcının bölge ayarı kullanımını destekler.
+* Ardından bir coğrafi Güney Amerika, bu tabloda listelenmemişse çoklu coğrafi için kullanılamaz.
+* Hindistan ve Güney Kore geos yalnızca fatura adresleri ve bu bölgelerde satın alınan lisans sahip müşteriler için kullanılabilir.
+* Tüm Office 365 iş yükleri bir kullanıcının coğrafi ayarı kullanımını destekler.
 
 Azure AD Connect eşitleme destekleyen **PreferredDataLocation** için öznitelik **kullanıcı** sürüm 1.1.524.0 ve sonra nesneleri. Daha açık belirtmek gerekirse, aşağıdaki değişiklikleri sunulmuştur:
 
 * Nesne türü şeması **kullanıcı** Azure AD Bağlayıcısı türü tek değerli dizesidir PreferredDataLocation özniteliği kapsayacak şekilde genişletilir.
 * Nesne türü şeması **kişi** meta veri deposunda türü dize olan ve tek değerli PreferredDataLocation özniteliği kapsayacak şekilde genişletilir.
 
-Varsayılan olarak, PreferredDataLocation özniteliği için eşitleme etkin değil. Bu özellik, büyük kuruluşlar için tasarlanmıştır ve herkes ondan yararlı. Ayrıca, şirket içi Active Directory'de PreferredDataLocation özniteliği yok olduğundan, kullanıcılar için Office 365 bölge tutmak için bir öznitelik tanımlamanız gerekir. Bu her kuruluş için farklı olacak.
+Varsayılan olarak, PreferredDataLocation özniteliği için eşitleme etkin değil. Bu özellik, büyük kuruluşlar için tasarlanmıştır ve herkes ondan yararlı. Ayrıca, şirket içi Active Directory'de PreferredDataLocation özniteliği yok olduğundan, kullanıcılar için Office 365 coğrafi tutmak için bir öznitelik tanımlamanız gerekir. Bu her kuruluş için farklı olacak.
 
 > [!IMPORTANT]
 > Şu anda Azure AD, Azure AD PowerShell kullanarak doğrudan olacak şekilde yapılandırılmış PreferredDataLocation özniteliği eşitlenmiş kullanıcı nesneleri hem bulut kullanıcı nesneleri sağlar. PreferredDataLocation öznitelik eşitlemesi etkinleştirildiğinde, öznitelik yapılandırmak için Azure AD PowerShell kullanarak durdurmalısınız **kullanıcı nesneleri eşitlenen** Azure AD Connect bunları şirket içi Active Directory'de kaynak öznitelik değerleri temel alarak geçersiz kılar.
@@ -245,13 +250,13 @@ Yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
 ## <a name="step-8-verify-the-result"></a>8. adım: sonucu doğrulayın
 Şimdi yapılandırmasını doğrulayın ve kullanıcılarınız için etkinleştirme zamanı gelmiş demektir.
 
-1. Bir kullanıcı seçili öznitelik için bölge ekleyin. Kullanılabilir bölgelerin listesini bulunabilir [Bu tablo](#enable-synchronization-of-preferreddatalocation).  
+1. Bir kullanıcı seçili öznitelik için coğrafi ekleyin. Kullanılabilir coğrafi listesi bulunabilir [Bu tablo](#enable-synchronization-of-preferreddatalocation).  
 ![Bir kullanıcı için eklenen AD özniteliği](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Azure AD ile eşitlenecek öznitelik bekleyin.
 3. Exchange Online PowerShell kullanarak, posta kutusu bölge doğru ayarlandığını doğrulayın.  
 ![Posta kutusu bölge bir kullanıcı Exchange Online ayarlayın.](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Kiracı bu özelliği kullanabilmek için işaretlenmiş varsayıldığında, posta kutusu doğru bölgesine taşınır. Bu, posta kutusu bulunduğu sunucu adına bakarak doğrulanabilir.
-4. Bu ayar çok sayıda posta kutusunu etkin olduğunu doğrulamak için komut dosyasındaki kullanın [Technet Galerisi](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Bu komut dosyası ayrıca tüm Office 365 veri merkezleri sunucu önekleri ve hangi listesini içeren bölge içinde bulunur. Bu önceki adımda bir başvuru olarak posta kutusunun konumunu doğrulamak için kullanılabilir.
+Kiracı bu özelliği kullanabilmek için işaretlenmiş varsayıldığında, posta kutusu doğru coğrafi taşınır. Bu, posta kutusu bulunduğu sunucu adına bakarak doğrulanabilir.
+4. Bu ayar çok sayıda posta kutusunu etkin olduğunu doğrulamak için komut dosyasındaki kullanın [Technet Galerisi](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Bu komut dosyası ayrıca tüm Office 365 veri merkezleri sunucu önekleri ve hangi listesini içeren coğrafi içinde bulunur. Bu önceki adımda bir başvuru olarak posta kutusunun konumunu doğrulamak için kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

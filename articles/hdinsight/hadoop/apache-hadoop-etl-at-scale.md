@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 47c2d129cb296f6387142e03b14356bcd83ad698
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 8b55bafee83dd43d535f9ebb0488134b5c7b3446
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Ayıklama, dönüştürme ve yükleme (ETL) ölçekte
 
@@ -42,9 +42,7 @@ Orchestration, doğru zamanda uygun işi çalıştırmak için gereklidir.
 
 Apache Oozie, Hadoop işlerini yöneten bir iş akışı koordinasyon sistemidir. Oozie Hdınsight küme içinde çalışır ve Hadoop yığını ile tümleştirilir. Oozie Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler. Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir.
 
-Daha fazla bilgi için bkz: [tanımlamak ve Hdınsight'ta bir iş akışını çalıştırmak için Hadoop ile kullanım Oozie](../hdinsight-use-oozie-linux-mac.md)
-
-<!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
+Daha fazla bilgi için bkz: [kullanmak Oozie tanımlamak ve Hdınsight'ta bir iş akışını çalıştırmak için Hadoop ile](../hdinsight-use-oozie-linux-mac.md) Oozie bir uçtan uca ardışık sürücü için nasıl kullanılacağını gösteren derinlemesine bakış için bkz: [veri ardışık faaliyete](../hdinsight-operationalize-data-pipeline.md). 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
@@ -138,11 +136,11 @@ Apache Flume, verimli bir şekilde toplanması, toplama ve büyük miktarlarda g
 
 Apache Flume Azure Hdınsight ile kullanılamaz.  Bir şirket içi Hadoop yükleme, Flume, Azure Storage Bloblarında veya Azure Data Lake Store için veri göndermek için kullanabilirsiniz.  Daha fazla bilgi için bkz: [kullanarak Apache Flume Hdınsight ile](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
-## <a name="transform"></a>Dönüştürme
+## <a name="transform"></a>Transform
 
 Veriler Seçilen konumda bulunduğunu sonra temizlemesini, onu birleştirmek veya belirli kullanım düzeni için hazırlanması gerekir.  Hive, Pig ve Spark SQL, bu tür bir iş için tüm iyi seçimlerdir.  Hdınsight üzerinde tüm desteklenir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Apache Hive ETL aracı olarak kullanma](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

@@ -9,22 +9,22 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 02/01/2018
 ms.author: markscu
-ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Düşük öncelikli sanal makineleri Batch ile kullanma
 
-Düşük öncelikli sanal makineleri (VM'ler) Batch iş yükü maliyetini azaltmak için Azure Batch sunar. Düşük öncelikli sanal makineleri de ekonomiktir işlem gücü, büyük bir miktarını sağlayarak, toplu iş yüklerinin yeni türleri mümkün kılar.
-
-Düşük öncelikli sanal makineleri Azure'da fazlalık kapasite yararlanın. Düşük öncelikli sanal makineleri, havuzlarınızı belirttiğinizde, Azure Batch bu fazlalık kullanılabilir olduğunda otomatik olarak kullanabilirsiniz.
-
-Düşük öncelikli sanal makineleri kullanma kolaylığını hiçbir fazlalık kapasite Azure içinde kullanılabilir olduğunda bu VM'lerin etkisiz ' dir. Bu nedenle, düşük öncelikli sanal makineleri belirli türde bir iş yükleri için en uygun. Düşük öncelikli sanal makineleri toplu ve burada iş tamamlanma zamanı esnek ve iş üzerinde birçok VM dağıtılmış zaman uyumsuz işleme iş yükleri için kullanın.
-
+Düşük öncelikli sanal makineleri (VM'ler) Batch iş yükü maliyetini azaltmak için Azure Batch sunar. Düşük öncelikli sanal makineleri yeni toplu iş yükleri, büyük bir miktarını sağlayarak olası çok düşük bir maliyetle için kullanılacak güç işlem türlerini olun.
+ 
+Düşük öncelikli sanal makineleri Azure'da fazlalık kapasite yararlanın. Düşük öncelikli sanal makineleri, havuzlarınızı belirttiğinizde, Azure Batch kullanılabilir olduğunda bu fazlalık kullanabilirsiniz.
+ 
+Düşük öncelikli sanal makineleri kullanma kolaylığını bu VM'lerin ayrılacak kullanılabilir durumda olmayabilir veya kullanılabilir kapasite bağlı olarak herhangi bir zamanda etkisiz değil. Bu nedenle, düşük öncelikli sanal makineleri belirli türde bir iş yükleri için en uygun. Düşük öncelikli sanal makineleri toplu ve burada iş tamamlanma zamanı esnek ve iş üzerinde birçok VM dağıtılmış zaman uyumsuz işleme iş yükleri için kullanın.
+ 
 Düşük öncelikli sanal makineleri özel VM'ler ile kıyasla önemli ölçüde azaltılmış fiyatla sunulur. Fiyatlandırma ayrıntıları için bkz: [Batch fiyatlandırması](https://azure.microsoft.com/pricing/details/batch/).
 
 

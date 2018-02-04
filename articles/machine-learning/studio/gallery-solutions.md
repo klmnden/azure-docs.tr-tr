@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 813b431b2e8ee22435e302800b7f707f6ba693b9
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 8e8a6ca078e43f757a4f0eb532af35da97513d17
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Azure AI Galerideki çözümleri Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -30,7 +30,7 @@ Bunları kendi dahil yönergeleri veya özel bir iş ortağı ile yapın.
 ## <a name="discover"></a>Keşif
   Galerideki çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com) tıklatıp **çözümleri** galeri giriş sayfasının üst.
 
-  **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)**  sayfa en son eklenen çözümlerinin listesini görüntüler.
+ **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)**  sayfa en son eklenen çözümlerinin listesini görüntüler.
 Tıklatın **tümünü görmek** tüm çözümleri görüntülemek için.
 Bu sayfadan galerisinde tüm çözümleri göz atabilirsiniz. Ayrıca, sol üst girme arama terimleri ve sayfa filtre ölçütü seçerek arayabilirsiniz.
 

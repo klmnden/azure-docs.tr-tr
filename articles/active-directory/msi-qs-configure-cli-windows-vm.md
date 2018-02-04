@@ -3,7 +3,7 @@ title: "Azure CLI kullanarak bir Azure VM'deki MSI yapılandırma"
 description: "Tarafından yönetilen hizmet kimliği (MSI) Azure Azure CLI kullanarak VM üzerinde yapılandırma için adım yönergeler adım."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 36218c50a7d43cf266459f5cf001350a3ecc84cf
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: daveba
+ms.openlocfilehash: d5fc509efa0437af93326d716c37514be82e8af1
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Bir VM yönetilen hizmet kimliği (Azure CLI kullanarak MSI) yapılandırma
 

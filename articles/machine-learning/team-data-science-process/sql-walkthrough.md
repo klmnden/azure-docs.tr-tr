@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: fashah;bradsev
-ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Eylem takım veri bilimi işleminde: SQL Server kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak bir makine öğrenimi modeline dağıtma işleminde size kılavuzluk-- [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi akışı yordamdan sonraki: alma ve verileri, öğrenme, kolaylaştırmak sonra yapı ve model dağıtmak için mühendislik özellikleri keşfedin.
@@ -111,7 +111,7 @@ Yükleme ve aktarma büyük miktarlarda verinin bir SQL veritabanı ve sonraki s
    
    * Sol bölmede SQL Server adını sağ tıklatıp **özellikleri**.
      
-       ![SQL Server özellikleri][14]
+       ![SQL Server Properties][14]
    * Seçin **veritabanı ayarlarını** gelen **sayfa Seç** sol listesi.
    * Doğrulayın ve/veya değiştirme **veritabanı varsayılan konumları** için **veri diski** tercih ettiğiniz konumları. Yeni veritabanları varsayılan konumu ayarlarını oluşturduysanız bulunduğu budur.
      

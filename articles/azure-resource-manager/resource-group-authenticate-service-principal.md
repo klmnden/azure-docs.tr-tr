@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma
 
@@ -46,7 +46,7 @@ Bir hizmet sorumlusu ayarlamak için kullanın:
 
 | Komut | Açıklama |
 | ------- | ----------- | 
-| [AzureRmADServicePrincipal yeni](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Bir Azure Active Directory Hizmet sorumlusu oluşturur |
+| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Bir Azure Active Directory Hizmet sorumlusu oluşturur |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Belirtilen kapsamda belirtilen asıl belirtilen RBAC rolü atar. |
 
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Örneğin yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 20 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {ID} dizininde yok."
+Örneğin yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 20 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre bekleme durumunda belirten bir hata görürsünüz: "{ID} asıl yok dizin {DIR-ID}."
 
 Aşağıdaki komut dosyası varsayılan abonelik dışında bir kapsam belirtmenize olanak sağlar ve bir hata oluşursa rol atamasını yeniden deneme sayısı:
 
@@ -128,7 +128,7 @@ Komut dosyası hakkında dikkat edilecek bazı öğeler için:
 * Varsayılan abonelik kimliği erişimi vermek için ResourceGroup veya Subscriptionıd parametreleri sağlamak gerekmez.
 * Yalnızca bir kaynak grubu için rol ataması kapsamını sınırlamak istediğinizde ResourceGroup parametresini belirtin.
 *  Bu örnekte, hizmet sorumlusu katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
-* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {ID} dizininde yok."
+* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre bekleme durumunda belirten bir hata görürsünüz: "{ID} asıl yok dizin {DIR-ID}."
 * Daha fazla abonelik veya kaynak grupları için hizmet asıl erişimi vermeniz gerekiyorsa, çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
 
 
@@ -160,7 +160,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Örneğin yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 20 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {ID} dizininde yok."
+Örneğin yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 20 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre bekleme durumunda belirten bir hata görürsünüz: "{ID} asıl yok dizin {DIR-ID}."
 
 Aşağıdaki komut dosyasında varsayılan abonelik dışında bir kapsam belirtmenize olanak sağlar ve bir hata oluşursa rol atamasını yeniden dener. Windows 10 veya Windows Server 2016 Azure PowerShell 2.0 yüklü olmalıdır.
 
@@ -223,7 +223,7 @@ Komut dosyası hakkında dikkat edilecek bazı öğeler için:
 * Varsayılan abonelik kimliği erişimi vermek için ResourceGroup veya Subscriptionıd parametreleri sağlamak gerekmez.
 * Yalnızca bir kaynak grubu için rol ataması kapsamını sınırlamak istediğinizde ResourceGroup parametresini belirtin.
 * Bu örnekte, hizmet sorumlusu katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
-* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {ID} dizininde yok."
+* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre bekleme durumunda belirten bir hata görürsünüz: "{ID} asıl yok dizin {DIR-ID}."
 * Daha fazla abonelik veya kaynak grupları için hizmet asıl erişimi vermeniz gerekiyorsa, çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
 
 Varsa, **Windows 10 veya Windows Server 2016 Technical Preview gerekmez**, karşıdan yüklemek gereken [otomatik olarak imzalanan sertifika Oluşturucu](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) Microsoft Script Center gelen. İçeriğini ayıklayın ve ihtiyacınız cmdlet'i içeri aktarın.
@@ -321,7 +321,7 @@ Komut dosyası hakkında dikkat edilecek bazı öğeler için:
 
 * Erişim aboneliği kapsamlıdır.
 * Bu örnekte, hizmet sorumlusu katkıda bulunan rolü ekleyin. Diğer roller için bkz: [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md).
-* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre beklemez belirten bir hata görürsünüz: "PrincipalNotFound: asıl {ID} dizininde yok."
+* Komut dosyasını yeni hizmet için bir süre Azure Active Directory yaymak için asıl izin vermek 15 saniye için uyku moduna geçer. Kodunuzu yetecek kadar uzun süre bekleme durumunda belirten bir hata görürsünüz: "{ID} asıl yok dizin {DIR-ID}."
 * Daha fazla abonelik veya kaynak grupları için hizmet asıl erişimi vermeniz gerekiyorsa, çalıştırmak `New-AzureRMRoleAssignment` farklı kapsamlar yeniden cmdlet'iyle.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Otomatik PowerShell komut dosyası aracılığıyla sertifikası sağlayın

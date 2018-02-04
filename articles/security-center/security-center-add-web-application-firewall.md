@@ -1,6 +1,6 @@
 ---
 title: "Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi önerileri uygulamak gösterilmiştir ** bir web uygulaması güvenlik duvarı ** ekleyin ve ** uygulama koruma ** sonlandır."
+description: "Bu belgede Azure Güvenlik Merkezi önerileri uygulamak gösterilmiştir **bir web uygulaması güvenlik duvarı ekleme** ve **uygulama korumayı Sonlandır**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 01/31/2018
 ms.author: terrylan
-ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme
 Azure Güvenlik Merkezi bir Microsoft iş ortağı web uygulamalarınızın güvenliğini sağlamak için bir web uygulaması Güvenlik Duvarı (WAF) ekleme önerebilir. Bu belgede bu öneriyi konusunda bir örnek size yol gösterir.
 
 WAF öneri açık gelen web bağlantı noktaları (80,443) içeren bir ilişkili ağ güvenlik grubu olan tüm genel kullanıma yönelik IP'si için (örnek düzeyinde IP veya yük dengeli IP) gösterilir.
 
-Güvenlik Merkezi, uygulama hizmeti ortamı ve sanal makineler üzerinde web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamasını önerir. Uygulama hizmeti ortamı (ana) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, güvenli bir şekilde Azure App Service uygulamalarını çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. Ana hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı belgeleri](../app-service/environment/intro.md).
+Güvenlik Merkezi, sanal makineler ve dış App Service ortamları, web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamasını önerir. Uygulama hizmeti ortamı (ana) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, güvenli bir şekilde Azure App Service uygulamalarını çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. Ana hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı belgeleri](../app-service/environment/intro.md).
 
 > [!NOTE]
 > Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu belge hakkında adım adım kılavuz değildir.
@@ -33,25 +33,25 @@ Güvenlik Merkezi, uygulama hizmeti ortamı ve sanal makineler üzerinde web uyg
 >
 
 ## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. İçinde **önerileri** dikey penceresinde, select **güvenli web uygulaması Güvenlik Duvarı'nı kullanarak web uygulamasına**.
+1. Altında **önerileri**seçin **güvenli web uygulaması Güvenlik Duvarı'nı kullanarak web uygulamasına**.
    ![Güvenli web uygulaması][1]
-2. İçinde **web uygulaması Güvenlik Duvarı'nı kullanarak web uygulamalarınızı güvenli** dikey penceresinde, bir web uygulaması seçin. **Bir Web uygulaması güvenlik duvarı ekleme** dikey pencere açılır.
+2. Altında **web uygulaması Güvenlik Duvarı'nı kullanarak web uygulamalarınızı güvenli**, bir web uygulaması seçin. **Bir Web uygulaması güvenlik duvarı ekleme** açar.
    ![Web uygulaması güvenlik duvarı ekleme][2]
 3. Var olan bir web uygulaması güvenlik duvarı varsa kullanmayı seçebilirsiniz veya yeni bir tane oluşturabilirsiniz. Bu örnekte, yok hiçbir varolan WAFs bir WAF oluşturuyoruz şekilde.
 4. Bir WAF oluşturmak için bir çözüm tümleşik ortakları listesinden seçin. Bu örnekte, biz seçin **Barracuda Web uygulaması güvenlik duvarı**.
-5. **Barracuda Web uygulaması güvenlik duvarı** dikey pencere açılır iş ortağı çözümü hakkında bilgi sağlar. Seçin **oluşturma** bilgi dikey penceresinde.
+5. **Barracuda Web uygulaması güvenlik duvarı** iş ortağı çözümü hakkında bilgi sağlayan açar. **Oluştur**’u seçin.
 
    ![Güvenlik Duvarı bilgileri dikey penceresi][3]
 
-6. **Yeni Web uygulaması güvenlik duvarı** dikey penceresi açılır ve sizi gerçekleştirebileceğiniz **VM Yapılandırması** sağlamak ve adımlarını **WAF bilgi**. Seçin **VM Yapılandırması**.
-7. İçinde **VM Yapılandırması** dikey penceresinde WAF çalıştıran sanal makineyi dönmesi için gereken bilgileri girin.
+6. **Yeni Web uygulaması güvenlik duvarı** açar, burada gerçekleştirebilirsiniz **VM Yapılandırması** sağlamak ve adımlarını **WAF bilgi**. Seçin **VM Yapılandırması**.
+7. Altında **VM Yapılandırması**, WAF çalıştıran sanal makineyi dönmesi için gereken bilgileri girin.
    ![VM yapılandırması][4]
-8. Geri dönüp **yeni Web uygulaması güvenlik duvarı** dikey penceresinde ve select **WAF bilgi**. İçinde **WAF bilgi** dikey penceresinde WAF yapılandırın. Adım 7 yapılandırmanıza olanak sağlayan WAF çalıştırır ve adım 8 sanal makine WAF sağlamanıza imkan sağlar.
+8. Geri dönüp **yeni Web uygulaması güvenlik duvarı** seçip **WAF bilgi**. Altında **WAF bilgi**, WAF yapılandırın. Adım 7 yapılandırmanıza olanak sağlayan WAF çalıştırır ve adım 8 sanal makine WAF sağlamanıza imkan sağlar.
 
-## <a name="finalize-application-protection"></a>Uygulama korumayı Sonlandır
-1. Geri dönüp **önerileri** dikey. Adlı WAF oluşturduktan sonra yeni bir giriş oluşturulan **uygulama korumayı Sonlandır**. Bu giriş, uygulama koruyabilmeniz için gerçekten Azure sanal ağ içinde WAF yukarı bağlantı kabloları işlemini tamamlamak gereken bilmenizi sağlar.
+## <a name="finalize-application-protection"></a>Uygulama korumasını sonlandırma
+1. Geri dönüp **önerileri**. Adlı WAF oluşturduktan sonra yeni bir giriş oluşturulan **uygulama korumayı Sonlandır**. Bu giriş, uygulama koruyabilmeniz için gerçekten Azure sanal ağ içinde WAF yukarı bağlantı kabloları işlemini tamamlamak gereken bilmenizi sağlar.
 
-   ![Uygulama korumayı Sonlandır][5]
+   ![Uygulama korumasını sonlandırma][5]
 
 2. Seçin **uygulama korumayı Sonlandır**. Yeni bir dikey pencere açılır. Yönlendirdi trafik olması gerekiyorsa bir web uygulaması olduğunu görebilirsiniz.
 3. Web uygulaması seçin. Web uygulaması güvenlik duvarı Kurulumu Tamamlanıyor için adımları sağlayan bir dikey pencere açılır. Adımları tamamlayın ve ardından **trafiği kısıtlamak**. Güvenlik Merkezi kablolama yukarı ardından sizin için yapar.

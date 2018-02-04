@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler kümesine atanmış dışarıdan erişilebilir ortak IP adresleri kullanan bir ortak altyapı ağı Azure yığınına sahiptir. Bu Azure yığın ortak altyapısı uç noktalar için uygun DNS adları ile birlikte PKI sertifikalarını Azure yığın dağıtımı sırasında gereklidir. Bu makalede, hakkında bilgi sağlar:
@@ -27,6 +27,8 @@ Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler k�
 - Hangi sertifikaların Azure yığın dağıtmak için gerekli
 - Bu belirtimler eşleşen sertifikalar alma işlemi
 - Hazırlama, doğrulama ve dağıtımı sırasında bu sertifikaları kullanma
+> [!NOTE]
+> Dağıtım sırasında sertifikaları (Azure karşı AD veya AD FS) dağıtıyorsanız kimlik sağlayıcısı eşleşen dağıtım klasörünü kopyalamanız gerekir. Tüm uç noktaları için tek bir sertifika kullanıyorsanız, aşağıdaki tabloda özetlendiği gibi her dağıtım klasörüne bu sertifika dosyasını kopyalamanız gerekir. Klasör yapısı dağıtım sanal makinede önceden oluşturulmuş ve şurada bulunabilir: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksinimleri açıklanmaktadır: 

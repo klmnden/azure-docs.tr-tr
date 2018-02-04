@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -164,13 +164,17 @@ Kısıtlanmamış tümleştirme sistemi güvenlik grubu oluşturun ve kullanıc�
     ![Sistem güvenlik grubu](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "sistem güvenlik grubu")  
 
 ### <a name="configure-security-group-options"></a>Güvenlik grubu seçeneklerini yapılandırın
-Bu adımda, yeni güvenlik grubu izinlerini vermek **almak** ve **Put** aşağıdaki etki alanı güvenlik ilkeleri tarafından güvenliği sağlanan nesneleri işlemleri:
+Bu adımda, etki alanı güvenlik ilkesi aşağıdaki etki alanı güvenlik ilkeleri tarafından güvenliği sağlanan çalışan veriler için izinler:
 
-* Harici hesap sağlama
-* Çalışan verileri: Ortak çalışan raporları
-* Çalışan verileri: Tüm Pozisyonlar
-* Çalışan verileri: Geçerli personel bilgileri
-* Çalışan verileri: Çalışan profilindeki iş başlığı
+
+| İşlem | Etki alanı güvenlik ilkesi |
+| ---------- | ---------- | 
+| Alma ve yerleştirme |  Harici hesap sağlama |
+| Alma ve yerleştirme | Çalışan verileri: Ortak çalışan raporları |
+| Alma ve yerleştirme | Çalışan verileri: Tüm Pozisyonlar |
+| Alma ve yerleştirme | Çalışan verileri: Geçerli personel bilgileri |
+| Alma ve yerleştirme | Çalışan verileri: Çalışan profilindeki iş başlığı |
+| Görüntüleme ve değiştirme | Çalışan verileri: İş e-posta |
 
 **Güvenlik grubu seçeneklerini yapılandırmak için:**
 
@@ -348,7 +352,7 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 | **AddressLineData**    |  streetAddress  |     |   Oluştur + güncelleştir |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Oluştur + güncelleştir |
 | **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "q",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([]) w" harfinin, "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Oluştur + güncelleştir                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "q",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([]) w" harfinin, "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Yazılan üzerinde yalnızca oluştur                                                   
 | **Anahtar (\[belediye\], "OU standart kullanıcılar, OU = Kullanıcılar, OU = varsayılan, OU = konumları, DC = contoso, DC = com =", "Dallas" "OU standart kullanıcılar, OU = Kullanıcılar, OU = Dallas, OU = konumları, DC = contoso, DC = com =", "Ankara'da" "OU standart kullanıcılar, OU = Kullanıcılar, OU = Ankara'da, OU = konumları, DC = contoso, DC = com =", "Seattle", "OU standart kullanıcılar, OU = Kullanıcılar, OU = Seattle, OU = konumları, DC = contoso, DC = com =", "Londra", "OU standart kullanıcılar = OU Kullanıcılar, OU = Londra, OU = konumları, DC = contoso, DC = com = ")**  | parentDistinguishedName     |     |  Oluştur + güncelleştir |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>3. Kısım: şirket içi eşitleme Aracısı'nı yapılandırma
@@ -638,11 +642,121 @@ Bölümleri 1-2 tamamladıktan sonra sağlama hizmeti başlatabilirsiniz.
 
 5. Bir tamamlandı, onu bir denetim özet raporu yazacak **sağlama** sekmesinde, aşağıda gösterildiği gibi.
 
+
+## <a name="customizing-the-list-of-workday-user-attributes"></a>Workday kullanıcı özniteliklerinin listesi özelleştirme
+Active Directory ve her ikisi Workday kullanıcı özniteliklerinin varsayılan listesini içeren Azure AD için uygulamalar sağlama Workday arasından seçim yapabilirsiniz. Ancak, bu listeleri kapsamlı değildir. Workday yüzlerce ya da standart ya da iş günü kiracınız için benzersiz olabilir olası kullanıcı öznitelikleri destekler. 
+
+Hizmet sağlama Azure AD listesi veya de sağlanmaktadır öznitelikler eklemek üzere Workday özniteliği özelleştirme yeteneği destekleyen [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) İnsan Kaynakları API işlemi.
+
+Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workday.com/studio-download) kullanmak istediğiniz özniteliklerini temsil eder ve bunları Azure portalında Gelişmiş Öznitelik Düzenleyicisi'ni kullanarak sağlama yapılandırmanızda Ekle XPath ifadeler ayıklayın.
+
+**Bir XPath ifadesi Workday kullanıcı özniteliği için almak için:**
+
+1. İndirme ve yükleme [Workday Studio](https://community.workday.com/studio-download). Yükleyici erişmek için bir iş günü topluluk hesabınızın olması gerekir.
+
+2. Bu URL'den Workday Human_Resources WDSL indirilemedi: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+
+3. İş günü Studio'yu başlatın.
+
+4. Komut çubuğundan seçin **Workday > Tester Test Web hizmetinde** seçeneği.
+
+5. Seçin **dış**ve 2. adımda indirdiğiniz Human_Resources WSDL dosyası seçin.
+
+    ![İş günü Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. Ayarlama **konumu** alanı `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, ancak "IMPL-CC", gerçek ile değiştirerek örnek türü ve "KİRACI", gerçek Kiracı adı.
+
+7. Ayarlama **işlemi** için **Get_Workers**
+
+8.  Küçük tıklatın **yapılandırma** Workday kimlik bilgilerinizi ayarlamak için istek/yanıt bölmeleri bağlantıya. Denetleme **kimlik doğrulaması**ve ardından Workday entegrasyonu sistem hesabı için kullanıcı adı ve parolayı girin. Kullanıcı adı olarak biçimlendirmek mutlaka name@tenant, bırakıp **WS-güvenlik UsernameToken** seçeneği belirlenmiş.
+
+    ![İş günü Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. **Tamam**’ı seçin.
+
+10. **İsteği** bölmesinde, aşağıdaki ve ayarlanmış XML Yapıştır **Employee_ID** Workday kiracınızda gerçek bir kullanıcının çalışan kimliği. Özniteliğine sahip bir kullanıcı seçin, ayıklamak istediğiniz doldurulur.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. Tıklatın **İsteği Gönder** (komutu yürütmek için yeşil ok). Başarılı yanıt görüntülenmelidir varsa **yanıt** bölmesi. Girdiğiniz kullanıcı kimliği veriler içerdiğinden emin olmak için yanıt ve bir hata denetleyin.
+
+12. Başarılı olursa, XML'den kopyalama **yanıt** bölmesi ve bir XML dosyası olarak kaydedin.
+
+13. Komut çubuğu, Workday Studio'da seçin **Dosya > Dosya Aç...**  ve kaydettiğiniz XML dosyasını açın. Bu, iş günü Studio XML Düzenleyicisi'nde açar.
+
+    ![İş günü Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. Dosya ağacında gezinmek **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** kullanıcı verileri bulmak üzere. 
+
+15. Altında **wd:Worker**eklemek istediğiniz öznitelik bulun ve seçin.
+
+16. Seçili özniteliğinizi dışı XPath ifadesi kopyalama **belgesinin yolu** alan.
+
+17. Remove the **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefix from the copied expression. 
+
+18. Kopyalanan ifade son öğenin bir düğüm olup olmadığını (örnek: "/ wd:Birth_Date"), ardından append **/text()** ifadesinin sonunda. Bu son öğenin bir özniteliği ise gerekli değildir (örnek: "/@wd:type").
+
+19. Sonuç aşağıdakine benzer olmalıdır `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Azure portalında kopyalayacak budur.
+
+
+**Sağlama yapılandırmanızı, özel Workday kullanıcı özniteliği eklemek için:**
+
+1. Başlatma [Azure portal](https://portal.azure.com)ve Bu öğreticide daha önce açıklandığı gibi uygulama, sağlama İş gününüzün hazırlama bölümüne gidin.
+
+2. Ayarlama **sağlama durumu** için **kapalı**seçip **kaydetmek**. Bu, hazır olduğunuzda, yaptığınız değişiklikler etkili olmanıza yardımcı olur.
+
+3. Altında **eşlemeleri**seçin **OnPremises çalışanlarına eşitleme** (veya **Azure ad eşitleme çalışanları**).
+
+4. Sonraki ekranda sonuna kaydırın ve seçin **Gelişmiş Seçenekleri Göster**.
+
+5. Seçin **Workday düzenleme öznitelik listesi**.
+
+    ![İş günü Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. Giriş alanlarının nerede için öznitelik listesi sonuna kaydırın.
+
+7. İçin **adı**, öznitelik için bir görünen ad girin.
+
+8. İçin **türü**, uygun şekilde, özniteliğe karşılık gelen türünü seçin (**dize** yaygın olarak kullanılır).
+
+9. İçin **API ifade**, Workday Studio'dan kopyaladığınız XPath ifadesi girin. Örnek:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. Seçin **öznitelik Ekle**.
+
+    ![İş günü Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. Seçin **kaydetmek** yukarıdaki ve ardından **Evet** iletişim. Eşleme özniteliği ekranı hala açıksa kapatın.
+
+12. Ana üzerinde geri **sağlama** sekmesine **OnPremises çalışanlarına eşitleme** (veya **Azure ad eşitleme çalışanları**) yeniden.
+
+13. Seçin **yeni eklemesi**.
+
+14. Yeni öznitelik şimdi görüntülenmelidir **kaynak özniteliği** listesi.
+
+15. Yeni öznitelik için bir eşleme istendiği gibi ekleyin.
+
+16. Tamamlandığında, ayarlamayı unutmayın **sağlama durumu** başa **üzerinde** ve kaydedin.
+
+
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 * Çalıştırırken **Ekle ADSyncAgentAzureActiveDirectoryConfiguration** Powershell komutu, şu anda özel bir etki alanı kullanıyorsanız çalışmıyor genel yönetici kimlik bilgileri bilinen bir sorun olduğunu (örnek: admin@contoso.com) . Geçici bir çözüm olarak oluşturun ve Azure AD'de bir onmicrosoft.com etki alanı ile bir genel yönetici hesabı kullanın (örnek: admin@contoso.onmicrosoft.com).
 
 * Avrupa Birliği bulunan Azure AD kiracılarıyla görünmeyen denetim günlüklerini önceki bir sorun çözüldü. Ancak, ek Aracısı yapılandırması AB Azure AD kiracıları için gereklidir. Ayrıntılar için bkz [bölümü 3: şirket içi eşitleme Aracısı'nı yapılandırma](#Part 3: Configure the on-premises synchronization agent)
+
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [Öğretici: çoklu oturum açma Workday ve Azure Active Directory arasında yapılandırma](active-directory-saas-workday-tutorial.md)

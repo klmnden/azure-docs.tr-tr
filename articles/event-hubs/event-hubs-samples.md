@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Olay hub'ları örnekleri 
 
@@ -33,7 +33,7 @@ Bu yazma zaman Event Hubs örnekleri birkaç farklı yerlerde bulunur:
 
 Daha fazla örnekleri olacaktır zamanla eklenir, böylece geri burada sık Güncelleştirmeleri denetle.
 
-## <a name="net-standard"></a>.NET standart
+## <a name="net-standard"></a>.NET Standard
 
 Aşağıdaki örnekleri kullanarak olayları alıp göndermek nasıl ekleyebileceğiniz gösterilmektedir [Event Hubs istemcisi](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) için [.NET standart Kitaplığı](/dotnet/articles/standard/library).
 
@@ -45,7 +45,7 @@ Aşağıdaki örnekleri kullanarak olayları alıp göndermek nasıl ekleyebilec
 
 [İle olay işleyicisi konağı almaya başlamak](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) olay işleyicisi konağı kullanarak bir event hub iletileri alan bir .NET Core konsol uygulaması örnektir.
 
-## <a name="net-framework"></a>.NET framework   
+## <a name="net-framework"></a>.NET Framework   
 
 Bu örnekler çeşitli hedefleme Azure Event Hubs özelliklerini göstermek [.NET Framework Kitaplığı](/dotnet/framework/index).
  
@@ -60,10 +60,6 @@ Bu örnekler çeşitli hedefleme Azure Event Hubs özelliklerini göstermek [.NE
 ### <a name="scale-out-event-processing"></a>Olay işleme çıkışı ölçeklendirme 
 
 [Olay işleme genişletme](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) örnek nasıl kullanılacağını gösteren [olay işleyicisi konağı](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) olay hub'ları akış tüketiminin iş yükünü dağıtmak için. Nasıl uygulandığını gösterir **EventProcessor** ve **EventProcessorFactory** olay akışının yönetilecek nesneleri. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Bir olay hub'ına SQL'den veri çekme
-
-[Çekme SQL veri](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) örnek bir SQL tablosundan veri çekmek ve aşağı akış analitik uygulamalarında bir girdi olarak kullanmak için bir olay hub'ına anında nasıl gösterir.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Bir olay hub'ına Web veri çekme 
 

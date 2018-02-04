@@ -1,6 +1,6 @@
 ---
 title: "Azure günlük analizi yönetim çözümleri ekleme | Microsoft Docs"
-description: "Operations Management Suite (OMS) / Log Analytics yönetimi çözümleri belirli sorunu etrafına özetlenebilir ölçümleri sağlayan mantığı, Görselleştirme ve veri alım kurallar topluluğu."
+description: "Azure yönetim çözümlerine kurallarının belirli sorunu etrafına özetlenebilir ölçümleri sağlayan mantığı, Görselleştirme ve veri alım koleksiyonudur."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 6c7d8d6946d89e4c6541636287e3022c444e0eb8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Sunucunuzdan çalışma alanınıza Azure günlük analizi yönetim çözümleri Ekle
 
-Günlük analizi yönetim çözümleri koleksiyonu olan **mantığı**, **görselleştirme**, ve **veri alım kuralları** belirli bir özetlenebilir ölçümleri sağlar sorun alanı. Bu makalede, günlük analizi tarafından desteklenen yönetim çözümleri listeler ve ekleme ve bir çalışma alanı için Azure portal kullanarak kaldırma gösterir. Çözümleri Çözümleri Galerisi kullanarak OMS portalında da ekleyebilirsiniz.
+Günlük analizi yönetim çözümleri koleksiyonu olan **mantığı**, **görselleştirme**, ve **veri alım kuralları** belirli bir özetlenebilir ölçümleri sağlar sorun alanı. Bu makalede, günlük analizi tarafından desteklenen yönetim çözümleri listeler ve ekleme ve bir çalışma alanı için Azure portal kullanarak kaldırma gösterir.
 
 Yönetim çözümleri için daha ayrıntılı Öngörüler izin ver:
 
@@ -34,9 +34,9 @@ Yönetim çözümleri için daha ayrıntılı Öngörüler izin ver:
 > [!NOTE]
 > Etkinleştirmek için bir yönetim çözümü gerek kalmaması günlük analizi günlük arama işlevselliği içerir. Ancak, veri görselleştirmeleri, önerilen arar ve Öngörüler alanınıza yönetim çözümleri ekleyerek alırsınız.
 
-Bu makalede'ı kullanarak yönetim çözümleri Market Azure portalını kullanarak bir çalışma alanına ekleyin. Bir çözüm ekledikten sonra veriler altyapınızı sunuculardan toplanacak ve OMS hizmetine gönderilir. OMS tarafından işleme hizmeti genellikle birkaç dakika bir saat olarak alır. Veri Hizmeti işledikten sonra OMS içinde görüntüleyebilirsiniz.
+Bu makalede'ı kullanarak yönetim çözümleri Market Azure portalını kullanarak bir çalışma alanına ekleyin. Bir çözüm ekledikten sonra veriler altyapınızdaki sunucularından toplanır ve günlük analizi için gönderilir. İşlem genellikle bir saat için birkaç dakika sürer. Veri Hizmeti işledikten sonra günlük analizi görüntüleyebilirsiniz.
 
-Artık gerekli olmadığında bir yönetim çözümü kolayca kaldırabilirsiniz. Bir yönetim çözümü kaldırdığınızda, verileri için OMS gönderilmez. Ücretsiz fiyatlandırma katmanı varsa, bir çözüm kaldırma veri günlük kotası altında olmanıza yardımcı kullanıldığında, veri miktarını azaltır.
+Artık gerekli olmadığında bir yönetim çözümü kolayca kaldırabilirsiniz. Bir yönetim çözümü kaldırdığınızda, verileri için günlük analizi gönderilmez. Ücretsiz fiyatlandırma katmanı varsa, bir çözüm kaldırma veri günlük kotası altında olmanıza yardımcı kullanıldığında, veri miktarını azaltır.
 
 ## <a name="view-available-management-solutions"></a>Görünüm kullanılabilir yönetim çözümleri
 
@@ -126,14 +126,14 @@ Sağlanan topluluk çözümleri web'da [Azure Şablon Galerisi](https://azure.mi
 ## <a name="data-collection-details"></a>Veri toplama ayrıntıları
 Aşağıdaki tablolarda, veri toplama yöntemleri ve günlük analizi yönetim çözümleri ve veri kaynakları için verileri nasıl toplanır ilgili diğer ayrıntıları gösterir. Tablolar için eşitlemek çözümü teklifleri tarafından ayrılır [fiyatlandırma katmanlarına abonelik](https://go.microsoft.com/fwlink/?linkid=827926). Etkinlik günlüğü analiz çözümü tüm fiyatlandırma katmanlarına için ücretsiz olarak kullanılabilir.
 
-Günlük analizi Windows aracısı ve System Center Operations Manager Aracısı temelde aynıdır. Windows Aracısı'nın, OMS çalışma alanına bağlayın ve bir proxy üzerinden yönlendirmek izin vermek için ek işlevler içerir. Bir Operations Manager Aracısı kullanırsanız, OMS ile iletişim kurmak için bir OMS aracısı olarak hedeflenen gerekir. Bu tabloda Operations Manager aracıları Operations Manager'a bağlı OMS aracılardır. Bkz: [Operations Manager'a günlük analizi](log-analytics-om-agents.md) var olan Operations Manager ortamınız için OMS bağlanma hakkında bilgi için.
+Günlük analizi Windows aracısı ve System Center Operations Manager Aracısı temelde aynıdır. Windows Aracısı günlük analizi çalışma alanına bağlayın ve bir proxy üzerinden yönlendirmek izin vermek için ek işlevler içerir. Bir Operations Manager Aracısı kullanırsanız, günlük analizi ile iletişim kurmak için bir OMS aracısı olarak hedeflenen gerekir. Bu tabloda Operations Manager aracıları Operations Manager'a bağlı OMS aracılardır. Bkz: [Operations Manager'a günlük analizi](log-analytics-om-agents.md) günlük analizi için mevcut Operations Manager ortamınızı bağlanma hakkında bilgi için.
 
 > [!NOTE]
-> Kullandığınız aracısının tür veri aşağıdaki koşullarla OMS için nasıl gönderildiğini belirler:
+> Kullandığınız aracısının tür veri aşağıdaki koşullarla günlük analizi için nasıl gönderildiğini belirler:
 > - Ya da Windows aracısı veya Operations Manager bağlı OMS Aracısı kullanın.
-> - Operations Manager gerekli olduğunda, Operations Manager aracısı veri çözüm için her zaman için OMS Operations Manager yönetim grubu kullanılarak gönderilir. Ayrıca, Operations Manager gerekli olduğunda, yalnızca Operations Manager Aracısı çözüm tarafından kullanılıyor.
-> - Ne zaman Operations Manager gerekli değildir ve bu Operations Manager Aracısı verileri tablo gösterir yönetim grubunu kullanarak OMS gönderilir, ardından Operations Manager aracı verileri her zaman için OMS Yönetim grupları kullanılarak gönderilir. Windows aracılarının yönetim grubu atlayabilir ve doğrudan OMS verilerini Gönder.
-> - Bir yönetim grubu kullanarak Operations Manager aracısı veri gönderilmez, verileri doğrudan OMS gönderilir — yönetim grubu atlama.
+> - Operations Manager gerekli olduğunda, Operations Manager aracısı veri çözüm için her zaman için günlük analizi Operations Manager yönetim grubu kullanılarak gönderilir. Ayrıca, Operations Manager gerekli olduğunda, yalnızca Operations Manager Aracısı çözüm tarafından kullanılıyor.
+> - Operations Manager gerekli değildir ve tablo, Operations Manager Aracısı veriler için günlük analizi gönderilir gösterir yönetim grubu ve ardından Operations Manager kullanarak aracı verileri her zaman için günlük analizi Yönetim grupları kullanılarak gönderilir. Windows aracılarının yönetim grubu atlayabilir ve doğrudan günlük analizi verilerini Gönder.
+> - Bir yönetim grubu kullanarak Operations Manager aracısı veri gönderilmez, verileri doğrudan günlük analizi gönderilir — yönetim grubu atlama.
 
 ### <a name="insight--analytics--log-analytics"></a>Insight & Analytics / Log Analytics
 
@@ -242,7 +242,7 @@ Aşağıdaki bilgiler, ortak ve özel Önizleme için geçerlidir:
 * Şeyler düzgün her zaman çalışmayabilir.
   * Aracılığıyla küçük olarak sıkıntı getirir hiç çalışmayan bir şey için engeller aralığı verir.
 * Yoktur sistemleriniz üzerinde olumsuz için Önizleme için olası / ortamı.
-  * Negatif şeyler sistemlere OMS ile kullanıyorsanız, ancak bazen beklenmeyen durumlar ortaya çıkar oluşmasını önlemek deneyin.
+  * Kullanmakta olduğunuz ancak bazen beklenmeyen durumlar ortaya çıkar sistemlere gerçekleştiği negatif şeyler önlemek deneyin.
 * Veri kaybı / Bozulması meydana gelebilir.
 * Tanılama günlüklerini veya sorunlarını gidermenize yardımcı olması için diğer verileri toplamak için sorun.
 * Özellik veya çözüm (geçici veya kalıcı olarak) kaldırılmış olabilir.
