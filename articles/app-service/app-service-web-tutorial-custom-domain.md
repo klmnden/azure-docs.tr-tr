@@ -1,7 +1,7 @@
 ---
-title: "Azure Web uygulamaları için var olan bir özel DNS ad eşleme | Microsoft Docs"
-description: "Bir web uygulaması, mobil uygulama arka ucu veya Azure App Service'teki API uygulamasına varolan özel DNS etki alanı adı (gösterim etki alanında) eklemeyi öğrenin."
-keywords: "uygulama hizmeti, azure uygulama hizmeti, etki alanı eşleme, etki alanı adı, varolan etki alanı, ana bilgisayar adı"
+title: "Mevcut bir özel DNS adını Azure Web Apps ile eşleme | Microsoft Docs"
+description: "Mevcut özel DNS etki alanı adını (gösterim etki alanı) web uygulamasına, mobil uygulama arka ucuna veya Azure App Service'te API uygulamasına eklemeyi öğrenin."
+keywords: "uygulama hizmeti, azure app service, etki alanı eşlemesi, etki alanı adı, mevcut etki alanı, konak adı"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,291 +16,291 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Harita Azure Web uygulamaları için varolan bir özel DNS adı
+# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mevcut bir özel DNS adını Azure Web Apps ile eşleme
 
-[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici, Azure Web uygulamaları için var olan bir özel DNS adını eşleştirmek nasıl gösterir.
+[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, mevcut bir özel DNS adını Azure Web Apps ile nasıl eşleyeceğiniz gösterilir.
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir alt etki alanı eşleme (örneğin, `www.contoso.com`) bir CNAME kaydı kullanılarak
-> * Kök etki alanını eşlemek (örneğin, `contoso.com`) kullanarak bir A kaydı
-> * Joker karakter etki alanını eşlemek (örneğin, `*.contoso.com`) bir CNAME kaydı kullanılarak
-> * Etki alanı eşlemesi komut dosyaları ile otomatikleştirme
+> * CNAME kaydı kullanarak alt etki alanını (örneğin, `www.contoso.com`) eşleme
+> * A kaydı kullanarak kök etki alanını (örneğin, `contoso.com`) eşleme
+> * CNAME kaydı kullanarak joker karakter etki alanını (örneğin, `*.contoso.com`) eşleme
+> * Etki alanı eşlemesini betiklerle otomatikleştirme
 
-Ya da kullanabileceğiniz bir **CNAME kaydı** veya bir **bir kayıt** App Service'e bir özel DNS adını eşleştirmek için. 
+Özel DNS adını App Service'e eşlemek için **CNAME kaydı** veya **A kaydı** kullanabilirsiniz. 
 
 > [!NOTE]
-> Bir kök etki alanı dışındaki tüm özel DNS adları için CNAME kullanmanızı öneririz (örneğin, `contoso.com`).
+> Kök etki alanı (örneğin, `contoso.com`) dışında tüm özel DNS adları için CNAME kullanmanızı öneririz.
 
-Canlı site ve DNS etki alanı adını App Service'e geçirmek için bkz [etkin bir DNS adı Azure App Service'e geçirme](app-service-custom-domain-name-migrate.md).
+Canlı siteyi ve onun DNS etki alanı adını App Service'e geçirmek için, bkz. [Etkin DNS adını Azure App Service'e geçirme](app-service-custom-domain-name-migrate.md).
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
 
-* [Bir App Service uygulaması oluşturma](/azure/app-service/), veya başka bir öğretici için oluşturduğunuz bir uygulama kullanın.
-* Bir etki alanı adı satın alın ve etki alanı sağlayıcınızın (örneğin, GoDaddy) DNS kayıt defterine erişim olduğundan emin olun.
+* [Bir App Service uygulaması oluşturun](/azure/app-service/) veya başka bir öğretici için oluşturduğunuz bir uygulamayı kullanın.
+* Etki alanı adı satın alın ve etki alanı sağlayıcınızın (GoDaddy gibi) DNS kayıt defterine erişebildiğinizden emin olun.
 
-  Örneğin, DNS girişlerini eklemek için `contoso.com` ve `www.contoso.com`, DNS ayarlarını yapılandırın olmalıdır `contoso.com` kök etki alanı.
+  Örneğin, `contoso.com` ve `www.contoso.com` için DNS girdileri eklemek üzere `contoso.com` kök etki alanının DNS ayarlarını yapılandırabilmeniz gerekir.
 
   > [!NOTE]
-  > Ad, göz önünde bulundurun var olan bir etki alanı yoksa [Azure portalını kullanarak bir etki alanı satın alma](custom-dns-web-site-buydomains-web-app.md). 
+  > Mevcut etki alanı adınız yoksa, [Azure Portal'ı kullanarak etki alanı satın almayı](custom-dns-web-site-buydomains-web-app.md) göz önünde bulundurabilirsiniz. 
 
-## <a name="prepare-the-app"></a>Uygulamayı hazırlayın
+## <a name="prepare-the-app"></a>Uygulamayı hazırlama
 
-Özel bir DNS adı bir web uygulamanızın için web uygulaması eşlemek için [uygulama hizmeti planı](https://azure.microsoft.com/pricing/details/app-service/) Ücretli katmanı olmalıdır (**paylaşılan**, **temel**, **standart**, veya  **Premium**). Bu adımda, App Service uygulaması desteklenen fiyatlandırma katmanı olan olduğundan emin olun.
+Özel DNS adını web uygulamasına eşlemek için, web uygulamasının [App Service planı](https://azure.microsoft.com/pricing/details/app-service/) ücretli bir katmanda (**Paylaşılan**, **Temel**, **Standart** veya **Premium** olmalıdır). Bu adımda, App Service uygulamasının desteklenen bir fiyatlandırma katmanında olduğundan emin olursunuz.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Açık [Azure portal](https://portal.azure.com) ve Azure hesabınızla oturum açın.
+[Azure Portal](https://portal.azure.com)'ı açın ve Azure hesabınızla oturum açın.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Azure portalında uygulama gidin
+### <a name="navigate-to-the-app-in-the-azure-portal"></a>Azure Portal'da uygulamaya gitme
 
-Sol menüden seçin **uygulama hizmetleri**ve ardından uygulama adını seçin.
+Sol menüden **Uygulama Hizmetleri**'ni ve ardından uygulamanın adını seçin.
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-Uygulama Hizmeti uygulamasının yönetim sayfasına bakın.  
+App Service uygulamasının yönetim sayfasını görüyorsunuz.  
 
 <a name="checkpricing"></a>
 
-### <a name="check-the-pricing-tier"></a>Fiyatlandırma katmanı denetleyin
+### <a name="check-the-pricing-tier"></a>Fiyatlandırma katmanını denetleme
 
-Uygulama sayfanın sol gezinti bölmesinde kaydırın **ayarları** bölümünde ve seçin **(uygulama hizmeti planı) ölçeklendirme**.
+Uygulama sayfasının sol gezintisini **Ayarlar** bölümüne kaydırın ve **Ölçeği artır (App Service planı)** öğesini seçin.
 
-![Büyütme menüsü](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+![Ölçeği artır menüsü](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Uygulamanın geçerli katmanı mavi kenarlığı ile vurgulanır. Uygulama içinde olmadığından emin olmak için kontrol edin **serbest** katmanı. İçinde özel DNS desteklenmiyor **serbest** katmanı. 
+Uygulamanın geçerli katmanı mavi kenarlıkla vurgulanmıştır. Uygulamanın **Ücretsiz** katmanında olmadığından emin olun. **Ücretsiz** katmanında özel DNS desteklenmez. 
 
-![Fiyatlandırma katmanı denetleyin](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Fiyatlandırma katmanını denetleyin](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Uygulama hizmeti planı değilse **serbest**, Kapat **fiyatlandırma katmanınızı seçin** sayfasında ve geçin [bir CNAME kaydı eşleme](#cname).
+App Service planı **Ücretsiz** değilse, **Fiyatlandırma katmanınızı seçin** sayfasını kapatın ve [CNAME kaydını eşle](#cname)'ye atlayın.
 
 <a name="scaleup"></a>
 
-### <a name="scale-up-the-app-service-plan"></a>Uygulama hizmeti planı ölçeklendirme
+### <a name="scale-up-the-app-service-plan"></a>App Service planının ölçeğini artırma
 
-Boş olmayan katmanları birini seçin (**paylaşılan**, **temel**, **standart**, veya **Premium**). 
+Ücretsiz olmayan katmanlardan birini seçin (**Paylaşılan**, **Temel**, **Standart** veya **Premium**). 
 
 **Seç**'e tıklayın.
 
-![Fiyatlandırma katmanı denetleyin](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Fiyatlandırma katmanını denetleyin](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Aşağıdaki bildirim görürseniz, bir ölçeklendirme işlemi tamamlanır.
+Aşağıdaki bildirimi gördüğünüzde, ölçeklendirme işlemi tamamlanmıştır.
 
-![Ölçek işlemi onayı](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+![Ölçeklendirme işlemi onayı](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 <a name="cname"></a>
 
-## <a name="map-a-cname-record"></a>Harita bir CNAME kaydı
+## <a name="map-a-cname-record"></a>CNAME kaydını eşleme
 
-Eğitmen örnekte için bir CNAME kaydı ekleyin `www` alt etki alanı (örneğin, `www.contoso.com`).
+Öğretici örneğinde, `www` alt etki alanı için CNAME kaydı eklersiniz (örneğin, `www.contoso.com`).
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-cname-record"></a>CNAME kaydı oluşturun.
+### <a name="create-the-cname-record"></a>CNAME kaydı oluşturma
 
-Uygulamanın varsayılan ana bilgisayar adı için bir alt etki alanı eşlemek için bir CNAME kaydı ekleyin (`<app_name>.azurewebsites.net`, burada `<app_name>` , uygulamanızın adıdır).
+Alt etki alanını uygulamanın varsayılan konak adına (`<app_name>.azurewebsites.net`; burada `<app_name>`, uygulamanızın adıdır) eşlemek için bir CNAME kaydı ekleyin.
 
-İçin `www.contoso.com` etki alanı örneği adı eşleyen bir CNAME kaydı ekleyin `www` için `<app_name>.azurewebsites.net`.
+`www.contoso.com` etki alanı örneğinde, `www` adını `<app_name>.azurewebsites.net` ile eşleyen bir CNAME kaydı ekleyin.
 
-CNAME ekledikten sonra DNS kayıtları sayfasında aşağıdaki gibi görünür:
+CNAME kaydını ekledikten sonra, DNS kayıtları sayfası aşağıdaki örnekte gösterildiği gibi görünür:
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a>CNAME kaydı eşleme Azure içinde etkinleştir
+### <a name="enable-the-cname-record-mapping-in-azure"></a>Azure'da CNAME kaydı eşlemesini etkinleştirme
 
-Azure Portalı'nda uygulama sayfası sol gezinti bölmesinde seçin **özel etki alanları**. 
+Azure Portal'daki uygulama sayfasının sol gezintisinde **Özel etki alanları**'nı seçin. 
 
 ![Özel etki alanı menüsü](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-İçinde **özel etki alanları** sayfası uygulama, özel tam DNS adı Ekle (`www.contoso.com`) listesi.
+Uygulamanın **Özel etki alanları** sayfasında, tam özel DNS adını (`www.contoso.com`) listeye ekleyin.
 
-Seçin  **+**  yanındaki simge **ana bilgisayar adını eklemek**.
+**Konak adı ekle**'nin yanındaki **+** simgesini seçin.
 
-![Ana bilgisayar adı ekleyin](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+![Konak adı ekleme](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-İçin bir CNAME kaydı gibi eklenen tam etki alanı adı yazın `www.contoso.com`. 
+CNAME kaydı eklediğiniz tam etki alanı adını (örneğin, `www.contoso.com`) yazın. 
 
-Seçin **doğrulamak**.
+**Doğrula**'yı seçin.
 
-**Ana bilgisayar adını eklemek** düğmesi etkinleştirilir. 
+**Konak adı ekle** düğmesi etkinleştirilir. 
 
-Olduğundan emin olun **ana bilgisayar adı kayıt türü** ayarlanır **CNAME (www.example.com veya herhangi bir alt etki alanı)**.
+**Konak adı kayıt türü**'nün **CNAME (www.example.com veya herhangi bir alt etki alanı)** olarak ayarlandığından emin olun.
 
-Seçin **ana bilgisayar adını eklemek**.
+**Konak adı ekle**'yi seçin.
 
-![DNS adı için uygulama ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+![Uygulamaya DNS adı ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Uygulamanın içinde yansıtılması yeni ana bilgisayar adı için biraz zaman alabilir **özel etki alanları** sayfası. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
+Yeni konak adının uygulamanın **Özel etki alanları** sayfasına yansıtılması biraz zaman alabilir. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
 
-![CNAME kaydı eklendi](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+![CNAME kaydı eklenir](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Bir adımı eksik veya herhangi bir yerde yazmış daha önce sayfanın sonundaki bir doğrulama hatası görürsünüz.
+Daha önce bir adımı atladıysanız veya yazım hatası yaptıysanız, sayfanın en altında bir doğrulama hatası görürsünüz.
 
 ![Doğrulama hatası](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a"></a>
 
-## <a name="map-an-a-record"></a>Bir A kaydı eşleme
+## <a name="map-an-a-record"></a>A kaydını eşleme
 
-Eğitmen örnekte kök etki alanı için bir A kaydı ekleyin (örneğin, `contoso.com`). 
+Öğretici örneğinde, kök etki alanı (örneğin, `contoso.com`) için A kaydı eklersiniz. 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a>Uygulamanın IP adresini kopyalayın
+### <a name="copy-the-apps-ip-address"></a>Uygulamanın IP adresini kopyalama
 
-Bir A kaydı eşlemek için uygulamanın dış IP adresi gerekir. Bu IP adresi uygulamanın içinde bulabilirsiniz **özel etki alanları** Azure portalında sayfası.
+A kaydını eşlemek için, uygulamanın dış IP adresine ihtiyacınız vardır. Bu IP adresini, Azure Portal'da uygulamanın **Özel etki alanları** sayfasında bulabilirsiniz.
 
-Azure Portalı'nda uygulama sayfası sol gezinti bölmesinde seçin **özel etki alanları**. 
+Azure Portal'daki uygulama sayfasının sol gezintisinde **Özel etki alanları**'nı seçin. 
 
 ![Özel etki alanı menüsü](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-İçinde **özel etki alanları** sayfasında, uygulamanın IP adresini kopyalayın.
+**Özel etki alanları** sayfasında, uygulamanın IP adresini kopyalayın.
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-a-record"></a>A kaydını oluşturun
+### <a name="create-the-a-record"></a>A kaydı oluşturma
 
-Bir uygulama için bir A kaydı eşlemek için uygulama hizmeti gerektirir **iki** DNS kayıtları:
+A kaydını bir uygulamaya eşlemek için, App Service **iki** DNS kaydı gerektirir:
 
-- Bir **A** uygulamanın IP adresine eşlemek için kayıt.
-- A **TXT** uygulamanın varsayılan hostname eşlemek için kayıt `<app_name>.azurewebsites.net`. Uygulama hizmeti bu kaydı yalnızca yapılandırması sırasında özel etki alanı sahibi olduğunu doğrulamak için kullanır. Özel etki alanınız doğrulandı ve App Service'te yapılandırdıktan sonra bu TXT kaydı silebilirsiniz. 
+- Uygulamanın IP adresini eşlemek için bir **A** kaydı.
+- Uygulamanın varsayılan konak adını (`<app_name>.azurewebsites.net`) eşlemek için bir **TXT** kaydı. App Service bu kaydı yalnızca yapılandırma sırasında, özel etki alanının sahibi olduğunuzu doğrulamak için kullanır. Özel etki alanınız doğrulandıktan ve App Service'te yapılandırıldıktan sonra, bu TXT kaydını silebilirsiniz. 
 
-İçin `contoso.com` etki alanı örneği aşağıdaki tabloya göre A ve TXT kayıtlarını oluşturun (`@` genellikle kök etki alanını temsil eder). 
+`contoso.com` etki alanı örneğinde, A ve TXT kayıtlarını aşağıdaki tabloda gösterildiği gibi oluşturun (`@` normalde kök etki alanını temsil eder). 
 
 | Kayıt türü | Host | Değer |
 | - | - | - |
-| A | `@` | IP adresinden [uygulamanın IP adresini kopyalayın](#info) |
+| A | `@` | [Uygulamanın IP adresini kopyalama](#info) bölümünden IP adresi |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
-Kayıtları eklendiğinde, DNS kayıtları sayfasında aşağıdaki gibi görünür:
+Kayıtlar eklendiğinde, DNS kayıtları sayfası aşağıdaki örnekte gösterildiği gibi görünür:
 
-![DNS kayıtları sayfasında](./media/app-service-web-tutorial-custom-domain/a-record.png)
+![DNS kayıtları sayfası](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a>Uygulama A kaydı eşleştirmeyi etkinleştir
+### <a name="enable-the-a-record-mapping-in-the-app"></a>Uygulamada A kaydı eşlemesini etkinleştirme
 
-Uygulamanın edilene **özel etki alanları** sayfasında Azure Portalı'nda, özel tam DNS adı ekleyin (örneğin, `contoso.com`) listesi.
+Azure Portal'da uygulamanın **Özel etki alanları** sayfasında dönün ve tam özel DNS adını (örneğin, `contoso.com`) listeye ekleyin.
 
-Seçin  **+**  yanındaki simge **ana bilgisayar adını eklemek**.
+**Konak adı ekle**'nin yanındaki **+** simgesini seçin.
 
-![Ana bilgisayar adı ekleyin](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Konak adı ekleme](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
-A kaydı için aşağıdaki gibi yapılandırılmış tam etki alanı adı yazın `contoso.com`.
+A kaydını yapılandırdığınız tam etki alanı adını (örneğin, `contoso.com`) yazın.
 
-Seçin **doğrulamak**.
+**Doğrula**'yı seçin.
 
-**Ana bilgisayar adını eklemek** düğmesi etkinleştirilir. 
+**Konak adı ekle** düğmesi etkinleştirilir. 
 
-Olduğundan emin olun **ana bilgisayar adı kayıt türü** ayarlanır **bir kayıt (example.com)**.
+**Konak adı kayıt türü**'nün **A kaydı (example.com)** olarak ayarlandığından emin olun.
 
-Seçin **ana bilgisayar adını eklemek**.
+**Konak adı ekle**'yi seçin.
 
-![DNS adı için uygulama ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+![Uygulamaya DNS adı ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Uygulamanın içinde yansıtılması yeni ana bilgisayar adı için biraz zaman alabilir **özel etki alanları** sayfası. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
+Yeni konak adının uygulamanın **Özel etki alanları** sayfasına yansıtılması biraz zaman alabilir. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
 
-![Bir kayıt eklendi](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
+![A kaydı eklenir](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-Bir adımı eksik veya herhangi bir yerde yazmış daha önce sayfanın sonundaki bir doğrulama hatası görürsünüz.
+Daha önce bir adımı atladıysanız veya yazım hatası yaptıysanız, sayfanın en altında bir doğrulama hatası görürsünüz.
 
 ![Doğrulama hatası](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
 
-## <a name="map-a-wildcard-domain"></a>Bir joker karakter etki alanına Eşle
+## <a name="map-a-wildcard-domain"></a>Joker karakter etki alanını eşleme
 
-Eğitmen örnekte, eşleme bir [joker DNS adına](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (örneğin, `*.contoso.com`) için bir CNAME kaydı ekleyerek App Service uygulaması. 
+Öğretici örneğinde, CNAME kaydı ekleyerek [joker karakter DNS adını](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (örneğin, `*.contoso.com`) App Service uygulamasına eşlersiniz. 
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-cname-record"></a>CNAME kaydı oluşturun.
+### <a name="create-the-cname-record"></a>CNAME kaydı oluşturma
 
-Uygulamanın varsayılan ana bilgisayar adı için bir joker karakter ad eşlemek için bir CNAME kaydı ekleyin (`<app_name>.azurewebsites.net`).
+Joker karakterlerden oluşturulmuş bir adı uygulamanın varsayılan konak adıyla (`<app_name>.azurewebsites.net`) eşlemek için bir CNAME kaydı ekleyin.
 
-İçin `*.contoso.com` etki alanı örneği CNAME kaydı adı eşler `*` için `<app_name>.azurewebsites.net`.
+`*.contoso.com` etki alanı örneğinde, CNAME kaydı `*` adını `<app_name>.azurewebsites.net` ile eşler.
 
-CNAME eklendiğinde, DNS kayıtları sayfasında aşağıdaki gibi görünür:
+CNAME eklendiğinde, DNS kayıtları sayfası aşağıdaki örnekte gösterildiği gibi görünür:
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
+![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a>Uygulamasında CNAME kaydı eşleştirmeyi etkinleştir
+### <a name="enable-the-cname-record-mapping-in-the-app"></a>Uygulamada CNAME kaydı eşlemesini etkinleştirme
 
-Uygulama için joker karakter adıyla eşleşen tüm alt etki alanı artık ekleyebilirsiniz (örneğin, `sub1.contoso.com` ve `sub2.contoso.com` eşleşen `*.contoso.com`). 
+Artık joker karakterlerden oluşturulmuş adı uygulamayla eşleşen her alt etki alanını ekleyebilirsiniz (örneğin, `sub1.contoso.com` ve `sub2.contoso.com`, `*.contoso.com` ile eşleşir). 
 
-Azure Portalı'nda uygulama sayfası sol gezinti bölmesinde seçin **özel etki alanları**. 
+Azure Portal'daki uygulama sayfasının sol gezintisinde **Özel etki alanları**'nı seçin. 
 
 ![Özel etki alanı menüsü](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Seçin  **+**  yanındaki simge **ana bilgisayar adını eklemek**.
+**Konak adı ekle**'nin yanındaki **+** simgesini seçin.
 
-![Ana bilgisayar adı ekleyin](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+![Konak adı ekleme](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Joker karakter etki alanıyla eşleşen bir tam etki alanı adı yazın (örneğin, `sub1.contoso.com`) ve ardından **doğrulama**.
+Joker karakter etki alanıyla (örneğin, `sub1.contoso.com`) eşleşen bir tam etki alanı adı yazın ve **Doğrula**'yı seçin.
 
-**Ana bilgisayar adını eklemek** düğmesi etkinleştirilir. 
+**Konak adı ekle** düğmesi etkinleştirilir. 
 
-Olduğundan emin olun **ana bilgisayar adı kayıt türü** ayarlanır **CNAME kaydı (www.example.com veya herhangi bir alt etki alanı)**.
+**Konak adı kayıt türü**'nün **CNAME kaydı (www.example.com veya herhangi bir alt etki alanı)** olarak ayarlandığından emin olun.
 
-Seçin **ana bilgisayar adını eklemek**.
+**Konak adı ekle**'yi seçin.
 
-![DNS adı için uygulama ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+![Uygulamaya DNS adı ekleme](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-Uygulamanın içinde yansıtılması yeni ana bilgisayar adı için biraz zaman alabilir **özel etki alanları** sayfası. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
+Yeni konak adının uygulamanın **Özel etki alanları** sayfasına yansıtılması biraz zaman alabilir. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
 
-Seçin  **+**  yeniden joker karakter etki alanıyla eşleşen başka bir ana bilgisayar adını eklemek için simge. Örneğin, ekleyin `sub2.contoso.com`.
+Joker karakter etki alanıyla eşleşen bir konak adı daha eklemek için **+** simgesini yeniden seçin. Örneğin, `sub2.contoso.com` ekleyin.
 
-![CNAME kaydı eklendi](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
+![CNAME kaydı eklenir](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 ## <a name="test-in-browser"></a>Tarayıcıda test
 
-Daha önce yapılandırılmış DNS adları göz atın (örneğin, `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, ve `sub2.contoso.com`).
+Daha önce yapılandırılmış olan DNS adlarına (örneğin, `contoso.com`,  `www.contoso.com`, `sub1.contoso.com` ve `sub2.contoso.com`) göz atın.
 
-![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-error-web-site-not-found"></a>404 hatası "bulunamadı Web Site" çözümlenemiyor
+## <a name="resolve-404-error-web-site-not-found"></a>404 “Web Sitesi bulunamadı” hatasını çözme
 
-Özel etki alanınızı URL'sine göz atarken bir HTTP 404 (bulunamadı) hata alırsanız, etki alanınız için IP adresini kullanarak uygulamanızın çözümler doğrulayın <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Aksi durumda, aşağıdaki nedenlerden biri olabilir:
+Özel etki alanınızın URL'sine göz atarken HTTP 404 (Bulunamadı) hatası alırsanız, etki alanınızın <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a> kullanılarak uygulamanızın IP adresine çözümlendiğini doğrulayın. Çözümlenmiyorsa, bunun nedeni aşağıdakilerden biri olabilir:
 
-- Yapılandırılmış özel etki alanı, bir A kaydı ve/veya bir CNAME kaydı eksik.
-- Tarayıcı istemci eski IP adresi, etki alanınızın önbelleğe. Önbellek ve test DNS çözümlemesi yeniden temizleyin. Bir Windows makinesinde önbellek ile temizleyin `ipconfig /flushdns`.
+- Yapılandırılan özel etki alanında bir A kaydı ve/veya CNAME kaydı eksiktir.
+- Tarayıcı istemcisi etki alanınızın eski IP adresini önbelleğe almıştır. Önbelleği temizleyin ve DNS çözümlemesini yeniden test edin. Windows makinesinde önbelleği `ipconfig /flushdns` ile temizlersiniz.
 
 <a name="virtualdir"></a>
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Özel bir dizin için doğrudan varsayılan URL
+## <a name="direct-default-url-to-a-custom-directory"></a>Varsayılan URL'yi özel bir dizine yönlendirme
 
-Varsayılan olarak, uygulama hizmeti, uygulama kodunuzun kök dizininin web isteği yönlendirir. Ancak, bazı web çerçeveleri kök dizininde başlatmayın. Örneğin, [Laravel](https://laravel.com/) başlayacağını `public` alt dizin. Devam etmek için `contoso.com` DNS örnek, bu tür bir uygulama olacaktır, erişilebilir `http://contoso.com/public`, ancak doğrudan istediğinizden emin `http://contoso.com` için `public` dizin yerine. Bu adım, DNS çözümlemesi, ancak sanal dizin özelleştirme kullanılmaz.
+Varsayılan olarak, App Service web isteklerini uygulama kodunuzun kök dizinine yönlendirir. Bununla birlikte, bazı web çerçeveleri kök dizinden başlamaz. Örneğin, [Laravel](https://laravel.com/) `public` alt dizininden başlar. `contoso.com` DNS örneğine devam edersek, bu tür bir uygulamaya `http://contoso.com/public` adresinden erişilebilir ama bunun yerine `http://contoso.com` isteğini gerçekten `public` dizinine yönlendirmek isteyebilirsiniz. Bu adın DNS çözümlemesi içermez; sanal dizini özelleştirme işlemi yapılır.
 
-Bunu yapmak için seçin **uygulama ayarları** , web uygulama sayfasının sol gezinti içinde. 
+Bunu yapmak için, web uygulaması sayfanızın sol tarafındaki gezintisinde **Uygulama ayarları**'nı seçin. 
 
-Sayfasında, kök sanal dizini altındaki `/` işaret `site\wwwroot` varsayılan olarak, uygulama kodunuzun kök dizini olan. İşaret edecek şekilde değiştirmeniz `site\wwwroot\public` bunun yerine, örneğin ve değişikliklerinizi kaydedin. 
+Sayfanın en altında, kök sanal dizin `/` varsayılan olarak `site\wwwroot` dizinine (uygulama kodunuzun kök dizini) işaret eder. Bunu, örneğin `site\wwwroot\public` dizinine işaret edecek şekilde değiştirin ve değişikliklerinizi kaydedin. 
 
-![Sanal dizin özelleştirme](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+![Sanal dizini özelleştirme](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-İşlemi tamamlandıktan sonra uygulamayı sağ sayfa (örneğin, http://contoso.com) kök yolundaki döndürmelidir.
+İşlem tamamlandığında, uygulamanız kök yolda (örneğin, http://contoso.com) doğru sayfaya dönmelidir.
 
-## <a name="automate-with-scripts"></a>Komut dosyalarıyla otomatikleştirme
+## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
-Komut dosyaları ile özel etki alanlarını yönetimini kullanarak otomatikleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview). 
+Özel etki alanlarının yönetimini, [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview) kullanarak betiklerle otomatik hale getirebilirsiniz. 
 
 ### <a name="azure-cli"></a>Azure CLI 
 
-Aşağıdaki komutu bir App Service uygulaması için yapılandırılmış bir özel DNS adı ekler. 
+Aşağıdaki komut, App Service uygulamasına özel bir DNS adı yapılandırır. 
 
 ```bash 
 az webapp config hostname add \
@@ -309,11 +309,11 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-Daha fazla bilgi için bkz: [bir web uygulaması için özel bir etki alanı eşleme](scripts/app-service-cli-configure-custom-domain.md). 
+Daha fazla bilgi için bkz. [Özel bir etki alanını web uygulamasıyla eşleme](scripts/app-service-cli-configure-custom-domain.md). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
-Aşağıdaki komutu bir App Service uygulaması için yapılandırılmış bir özel DNS adı ekler. 
+Aşağıdaki komut, App Service uygulamasına özel bir DNS adı yapılandırır. 
 
 ```PowerShell  
 Set-AzureRmWebApp `
@@ -322,19 +322,19 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Daha fazla bilgi için bkz: [bir web uygulaması için özel bir etki alanı Ata](scripts/app-service-powershell-configure-custom-domain.md).
+Daha fazla bilgi için bkz. [Özel bir etki alanını web uygulamasına atama](scripts/app-service-powershell-configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Bir alt etki alanı CNAME kaydı kullanılarak eşleme
-> * Bir A kaydı kullanarak bir kök etki alanına Eşle
-> * Bir CNAME kaydı kullanılarak bir joker karakter etki alanına Eşle
-> * Etki alanı eşlemesi komut dosyaları ile otomatikleştirme
+> * CNAME kaydı kullanarak alt etki alanını eşleme
+> * A kaydı kullanarak kök etki alanını eşleme
+> * CNAME kaydı kullanarak joker karakter etki alanını eşleme
+> * Etki alanı eşlemesini betiklerle otomatikleştirme
 
-Bir web uygulaması için özel bir SSL sertifikası bağlama konusunda bilgi almak için sonraki öğretici ilerleyin.
+Web uygulamasına özel bir SSL sertifikası bağlamayla ilgili bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Web uygulamaları için var olan özel bir SSL sertifikası bağlama](app-service-web-tutorial-custom-ssl.md)
+> [Azure Web Apps’e mevcut özel bir SSL sertifikasını bağlama](app-service-web-tutorial-custom-ssl.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: wesmc
-ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 98750c4f8d2449fb4fdf68b03a00d846e636a93a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache ile Web Uygulaması oluşturma
 > [!div class="op_single_selector"]
@@ -30,19 +30,19 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-Bu öğreticide, ASP.NET web uygulamasının nasıl oluşturulacağını ve Visual Studio 2017 kullanılarak Azure Uygulama Hizmeti’ndeki bir web uygulamasına nasıl dağıtılacağı gösterilmektedir. Örnek uygulama bir veritabanındaki ekip istatistiklerinin listesini görüntüler ve önbellekten veri depolama ve almaya yönelik Azure Redis Cache’i kullanmak için farklı yollar gösterir. Öğreticiyi tamamladığınızda, Azure Redis Cache ile en iyi hale getirilmiş ve Azure’da barındırılan, bir veritabanını okuyan ve yazan çalışan bir web uygulamasına sahip olacaksınız.
+Bu öğreticide, ASP.NET web uygulamasının nasıl oluşturulacağını ve Visual Studio 2017 kullanılarak Azure Uygulama Hizmeti’ndeki bir web uygulamasına nasıl dağıtılacağı gösterilmektedir. Örnek uygulama bir veritabanındaki ekip istatistiklerinin listesini görüntüler ve önbellekten veri depolama ve almaya yönelik Azure Redis Cache’i kullanmak için farklı yollar gösterir. Öğreticiyi tamamladığınızda, Azure Redis Cache ile en iyi hale getirilmiş ve Azure’da barındırılan, bir veritabanını okuyan ve yazan çalışan bir web uygulamasına sahip olursunuz.
 
 Şunları öğreneceksiniz:
 
 * Visual Studio’da ASP.NET MVC 5 web uygulaması oluşturma.
 * Entity Framework’ü kullanarak bir veritabanındaki verilere erişme.
 * Azure Redis Cache’i kullanarak veri depolayarak ve alarak veri işlemeyi iyileştirme ve veritabanı yükünü azaltma.
-* En iyi 5 ekibi almak için bir Redis sıralanmış kümesi kullanma.
+* En iyi beş ekibi almak için bir Redis sıralanmış kümesi kullanma.
 * Resource Manager şablonunu kullanarak uygulama için Azure kaynakları sağlama.
 * Visual Studio kullanarak uygulamayı yayımlama.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiyi tamamlamak için aşağıdaki ön koşullara sahip olmanız gerekir.
+Bu öğreticiyi tamamlamak için aşağıdaki ön koşullara sahip olmanız gerekir:
 
 * [Azure hesabı](#azure-account)
 * [.NET için Azure SDK içeren Visual Studio 2017](#visual-studio-2017-with-the-azure-sdk-for-net)
@@ -75,7 +75,7 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 4. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
 ## <a name="create-the-aspnet-mvc-application"></a>4. Adım: ASP.NET MVC uygulamasını oluşturma
-Öğreticinin bu bölümünde, bir veritabanındaki ekip istatistiklerini okuyan ve görüntüleyen temel uygulamayı oluşturacaksınız.
+Öğreticinin bu bölümünde, bir veritabanındaki ekip istatistiklerini okuyan ve görüntüleyen temel uygulamayı oluşturursunuz.
 
 * [Entity Framework NuGet paketi ekleme](#add-the-entity-framework-nuget-package)
 * [Modeli ekleme](#add-the-model)
@@ -84,8 +84,8 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 
 ### <a name="add-the-entity-framework-nuget-package"></a>Entity Framework NuGet paketi ekleme
 
-1. **Araçlar** menüsünden **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu**’na tıklayın.
-2. **Paket Yöneticisi Konsolu** penceresinde aşağıdaki komutu çalıştırın.
+1. Visual Studio'da, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın.
+2. **Paket Yöneticisi Konsolu** penceresinde aşağıdaki komutu çalıştırın:
     
     ```
     Install-Package EntityFramework
@@ -100,7 +100,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 2. Sınıf adı için `Team` girin ve **Ekle**’ye tıklayın.
    
     ![Model sınıfı ekleme][cache-model-add-class-dialog]
-3. `Team.cs` dosyasının üst tarafındaki `using` deyimini aşağıdaki `using` deyimleriyle değiştirin.
+3. `Team.cs` dosyasının üst tarafındaki `using` deyimini aşağıdaki `using` deyimleriyle değiştirin:
 
     ```csharp
     using System;
@@ -185,15 +185,15 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 1. **Çözüm Gezgini**’nde, **web.config**’i açmak için sağ tıklayın.
    
     ![Web.config][cache-web-config]
-2. Aşağıdaki `connectionStrings` bölümünü ekleyin. Bağlantı dizesinin adını Entity Framework veritabanı bağlamı sınıfının adı olan `TeamContext` ile eşleşmelidir.
+2. Aşağıdaki `connectionStrings` bölümünü `configuration` bölümüne ekleyin. Bağlantı dizesinin adını Entity Framework veritabanı bağlamı sınıfının adı olan `TeamContext` ile eşleşmelidir.
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
-    Aşağıdaki örnekte gösterildiği gibi, yeni `connectionStrings` bölümünü `configSections` bölümünün sonuna ekleyebilirsiniz.
+    Aşağıdaki örnek, `configuration` bölümündeki `configSections` bölümünü izleyen yeni `connectionStrings` bölümünü gösterir:
 
     ```xml
     <configuration>
@@ -224,7 +224,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 5. **Çözüm Gezgini**’nde, **Global.asax** öğesini genişletin ve **Global.asax.cs**’yi açmak için çift tıklayın.
    
     ![Global.asax.cs][cache-global-asax]
-6. Aşağıdaki iki `using` deyimini dosyanın üst tarafındaki diğer `using` deyimlerinin altına ekleyin.
+6. Aşağıdaki iki `using` deyimini dosyanın üst tarafındaki diğer `using` deyimlerinin altına ekleyin:
 
     ```csharp
     using System.Data.Entity;
@@ -232,7 +232,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
     ```
 
 
-1. `Application_Start` yönteminin sonuna aşağıdaki kod satırını ekleyin.
+1. `Application_Start` yönteminin sonuna aşağıdaki kod satırını ekleyin:
 
     ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
@@ -242,7 +242,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 1. **Çözüm Gezgini**’nde, `App_Start` öğesini genişletin ve `RouteConfig.cs` öğesine çift tıklayın.
    
     ![RouteConfig.cs][cache-RouteConfig-cs]
-2. Aşağıdaki örnekte gösterildiği gibi `controller = "Home"` öğesini `RegisterRoutes` yöntemindeki kod `controller = "Teams"` ile değiştirin.
+2. Aşağıdaki örnekte gösterildiği gibi `controller = "Home"` öğesini `RegisterRoutes` yöntemindeki kod `controller = "Teams"` ile değiştirin:
 
     ```csharp
     routes.MapRoute(
@@ -257,7 +257,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 1. **Çözüm Gezgini**’nde, **Görünümler** klasörünü ve ardından **Paylaşılan** klasörünü genişletin ve **_Layout.cshtml** öğesine çift tıklayın. 
    
     ![_Layout.cshtml][cache-layout-cshtml]
-2. `title` öğesinin içeriğini değiştirin ve aşağıdaki örnekte gösterildiği gibi `My ASP.NET Application` öğesini `Contoso Team Stats` ile değiştirin.
+2. `title` öğesinin içeriğini değiştirin ve aşağıdaki örnekte gösterildiği gibi `My ASP.NET Application` öğesini `Contoso Team Stats` ile değiştirin:
 
     ```html
     <title>@ViewBag.Title - Contoso Team Stats</title>
@@ -275,7 +275,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 ![Başlangıç uygulaması][cache-starter-application]
 
 ## <a name="configure-the-application-to-use-redis-cache"></a>Redis Cache’i kullanmak için uygulamayı yapılandırma
-Öğreticinin bu bölümünde, [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) önbellek istemcisini kullanarak bir Azure Redis Cache’ten Contoso ekip istatistiklerini depolamak ve almak için örnek uygulamayı yapılandıracaksınız.
+Öğreticinin bu bölümünde, [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) önbellek istemcisini kullanarak bir Azure Redis Cache’ten Contoso ekip istatistiklerini depolamak ve almak için örnek uygulamayı yapılandırırsınız.
 
 * [StackExchange.Redis kullanmak için uygulamayı yapılandırma](#configure-the-application-to-use-stackexchangeredis)
 * [Önbellek veya veritabanından sonuçları döndürmek için TeamsController sınıfını güncelleştirme](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -283,8 +283,8 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 * [Ekipler Dizini görünümünü önbellek ile çalışacak şekilde güncelleştirme](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>StackExchange.Redis kullanmak için uygulamayı yapılandırma
-1. Visual Studio’da StackExchange.Redis NuGet paketi kullanarak bir istemci uygulamasını yapılandırmak için, **Araçlar** menüsünden **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu**’nu seçin.
-2. `Package Manager Console` penceresinden aşağıdaki komutu çalıştırın.
+1. Visual Studio’da [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet paketi kullanarak bir istemci uygulamasını yapılandırmak için, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’nu seçin.
+2. `Package Manager Console` penceresinden aşağıdaki komutu çalıştırın:
     
     ```
     Install-Package StackExchange.Redis
@@ -294,14 +294,14 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 3. **Çözüm Gezgini**’nde, **Denetleyiciler** klasörünü genişletin ve **TeamsController.cs** öğesini açmak için çift tıklayın.
    
     ![Ekip denetleyicisi][cache-teamscontroller]
-4. **TeamsController.cs** deyimlerini kullanarak aşağıdaki iki `using` deyimini ekleyin.
+4. **TeamsController.cs** deyimlerini kullanarak aşağıdaki iki `using` deyimini ekleyin:
 
     ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
-5. Aşağıdaki iki özelliği `TeamsController` sınıfına ekleyin.
+5. Aşağıdaki iki özelliği `TeamsController` sınıfına ekleyin:
 
     ```csharp   
     // Redis Connection string info
@@ -322,14 +322,15 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 
 6. Bilgisayarınızda `WebAppPlusCacheAppSecrets.config` adlı bir dosya oluşturun ve örnek karar içinde uygulamanızın kaynak kodu ile denetlenmeyecek bir konuma yerleştirin, başka bir yerde denetlemeyi seçmelisiniz. Bu örnekte, `AppSettingsSecrets.config` dosyası `C:\AppSecrets\WebAppPlusCacheAppSecrets.config` konumunda bulunur.
    
-    `WebAppPlusCacheAppSecrets.config` dosyasını düzenleyin ve aşağıdaki içerikleri ekleyin. Uygulamayı yerel olarak çalıştırırsanız, Azure Redis Cache örneğinize bağlanmak için bu bilgiler kullanılır. Öğreticide daha sonra bir Azure Redis Cache örneği hazırlayacak ve önbellek adı ve parolasını güncelleştireceksiniz. Örnek uygulamayı yerel olarak çalıştırmayı düşünmüyorsanız, Azure’a dağıtırken uygulama Web Uygulaması için önbellek bağlantı bilgilerini bu dosya yerine uygulama ayarlarından aldığı için bu dosyayı oluşturma ve sonraki adımları atlayabilirsiniz. `WebAppPlusCacheAppSecrets.config` öğesi uygulamanızla birlikte Azure’a dağıtılmadığı için, uygulamayı yerel olarak çalıştırmayacağınız sürece ihtiyacınız olmayacaktır.
+    `WebAppPlusCacheAppSecrets.config` dosyasını düzenleyin ve aşağıdaki içerikleri ekleyin:
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 
+    Uygulamayı yerel olarak çalıştırırsanız, Azure Redis Cache örneğinize bağlanmak için bu bilgiler kullanılır. Öğreticide daha sonra bir Azure Redis Cache örneği hazırlayacak ve önbellek adı ve parolasını güncelleştireceksiniz. Örnek uygulamayı yerel olarak çalıştırmayı düşünmüyorsanız, Azure’a dağıtırken uygulama Web Uygulaması için önbellek bağlantı bilgilerini bu dosya yerine uygulama ayarlarından aldığı için bu dosyayı oluşturma ve sonraki adımları atlayabilirsiniz. `WebAppPlusCacheAppSecrets.config` öğesi uygulamanızla birlikte Azure’a dağıtılmadığı için, uygulamayı yerel olarak çalıştırmayacağınız sürece ihtiyacınız olmayacaktır.
 
 1. **Çözüm Gezgini**’nde, **web.config**’i açmak için sağ tıklayın.
    
@@ -338,7 +339,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
    
    * Önce: `<appSettings>`
    * Sonra: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-     
+  
    ASP.NET çalışma zamanı, `<appSettings>` öğesindeki biçimlendirmeye sahip harici dosyasının içeriğini birleştirir. Belirtilen dosya bulunamazsa, çalışma zamanı dosya özniteliğini yok sayar. Gizli anahtarlarınız (önbelleğinize bağlantı dizisi) uygulamanız için kaynak kodun bir parçası olarak dahil edilmez. Web uygulamanızı Azure’a dağıtırken, `WebAppPlusCacheAppSecrests.config` dosyası dağıtılmaz (istediğiniz gibi). Bu gizli anahtarları Azure’da belirtmenin birkaç yolu vardır ve bir sonraki öğretici adımında [Azure kaynaklarını hazırlarken](#provision-the-azure-resources) sizin için otomatik olarak yapılandırılır. Azure'daki gizli anahtarlarla çalışma hakkında daha fazla bilgi için, bkz. [Parolaları ve diğer hassas verileri ASP.NET ve Azure App Service’e dağıtmak için en iyi yöntemler](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>Önbellek veya veritabanından sonuçları döndürmek için TeamsController sınıfını güncelleştirme
@@ -349,14 +350,14 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 > 
 > 
 
-1. Aşağıdaki `using` deyimlerini `TeamsController.cs` dosyasının üst tarafındaki diğer `using` deyimleri ile değiştirin.
+1. Aşağıdaki `using` deyimlerini `TeamsController.cs` dosyasının üst tarafındaki diğer `using` deyimleri ile değiştirin:
 
     ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
-2. Geçerli `public ActionResult Index()` yöntemi uygulamasını aşağıdaki uygulama ile değiştirin.
+2. Geçerli `public ActionResult Index()` yöntemi uygulamasını aşağıdaki uygulama ile değiştirin:
 
     ```csharp
     // GET: Teams
@@ -576,7 +577,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 ### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Önbellek ile çalışacak şekilde Oluştur, Düzenle ve Sil yöntemlerini güncelleştirme
 Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, düzenleme ve silme yöntemlerini içerir. Bir ekip her eklendiğinde, düzenlendiğinde veya kaldırıldığında önbellekteki veriler güncel olmayan hale gelir. Bu bölümde, önbelleğin veritabanı ile eşitlenmemiş olmaması için önbelleğe alınan ekipleri temizlemek üzere bu üç yöntemi değiştireceksiniz.
 
-1. `TeamsController` sınıfındaki `Create(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
+1. `TeamsController` sınıfındaki `Create(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin:
 
     ```csharp
     // POST: Teams/Create
@@ -601,7 +602,7 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
     ```
 
 
-1. `TeamsController` sınıfındaki `Edit(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
+1. `TeamsController` sınıfındaki `Edit(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin:
 
     ```csharp
     // POST: Teams/Edit/5
@@ -625,7 +626,7 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
     ```
 
 
-1. `TeamsController` sınıfındaki `DeleteConfirmed(int id)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
+1. `TeamsController` sınıfındaki `DeleteConfirmed(int id)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin:
 
     ```csharp
     // POST: Teams/Delete/5
@@ -648,7 +649,7 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
 1. **Çözüm Gezgini**’nde, **Görünümler** klasörünü ve ardından **Ekipler** klasörünü genişletin ve **Index.cshtml** öğesine çift tıklayın.
    
     ![Index.cshtml][cache-views-teams-index-cshtml]
-2. Dosyanın en üstüne yakın bir yerde, aşağıdaki paragraf öğesini arayın.
+2. Dosyanın en üstüne yakın bir yerde, aşağıdaki paragraf öğesini arayın:
    
     ![Eylem tablosu][cache-teams-index-table]
    
@@ -686,7 +687,7 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
     ```
 
 
-1. **Index.cshtml** dosyasının aşağısına kaydırın ve dosyada bulunan son tablodaki son satır olması için aşağıdaki `tr` öğesini ekleyin.
+1. **Index.cshtml** dosyasının aşağısına kaydırın ve dosyada bulunan son tablodaki son satır olması için aşağıdaki `tr` öğesini ekleyin:
    
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -698,13 +699,13 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
 2. Projeyi derlemek için **F6**’ya basın.
 
 ## <a name="provision-the-azure-resources"></a>Azure kaynaklarını hazırlama
-Uygulamanızı Azure’da barındırmak için önce uygulamanızın gerektirdiği Azure hizmetlerini hazırlamanız gerekir. Bu öğreticideki örnek uygulama aşağıdaki Azure hizmetlerini kullanır.
+Uygulamanızı Azure’da barındırmak için önce uygulamanızın gerektirdiği Azure hizmetlerini hazırlamanız gerekir. öğreticideki örnek uygulama aşağıdaki Azure hizmetlerini kullanır:
 
 * Azure Redis Cache
 * App Service Web Uygulaması
 * SQL Database
 
-Bu hizmetleri yeni veya seçtiğiniz mevcut bir kaynak grubuna dağıtmak için, aşağıdaki **Azure’a Dağıt** düğmesine tıklayın.
+Bu hizmetleri yeni veya seçtiğiniz mevcut bir kaynak grubuna dağıtmak için, aşağıdaki **Azure’a Dağıt** düğmesine tıklayın:
 
 [![Azure’a dağıtma][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
@@ -758,7 +759,7 @@ Hazırlama işlemi tamamlandığında, uygulamanızı Visual Studio’dan Azure�
    
     ![Önbellek eklendi][cache-added-to-application]
 
-Aşağıdaki tablo örnek uygulamadaki her eylem bağlantısını açıklar.
+Aşağıdaki tablo örnek uygulamadaki her eylem bağlantısını açıklar:
 
 | Eylem | Açıklama |
 | --- | --- |
@@ -804,11 +805,11 @@ Uygulamayı makinenizde yerel olarak çalıştırmak için, verilerinizi önbell
 Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalında önbelleğe göz atın ve önbelleğiniz için [konak adı](cache-configure.md#properties) ve [erişim anahtarlarını](cache-configure.md#access-keys) alın. Yönergeler için bkz. [Redis önbelleği ayarlarını yapılandırma](cache-configure.md#configure-redis-cache-settings).
 
 1. İstediğiniz düzenleyiciyi kullanarak bu öğreticinin [Redis Cache’i kullanmak için uygulamayı yapılandırma](#configure-the-application-to-use-redis-cache) adımında oluşturduğunuz `WebAppPlusCacheAppSecrets.config` dosyasını açın.
-2. `value` özniteliğini düzenleyin ve `MyCache.redis.cache.windows.net` öğesini önbelleğinizin [konak adı](cache-configure.md#properties) ile değiştirin ve parola olarak önbelleğinizin [birincil veya ikincil anahtarını](cache-configure.md#access-keys) belirtin.
+2. `value` özniteliğini düzenleyin ve `YourCacheName.redis.cache.windows.net` öğesini önbelleğinizin [konak adı](cache-configure.md#properties) ile değiştirin ve `YourAccessKey` öğesini önbelleğinizin [birincil veya ikincil anahtarıyla](cache-configure.md#access-keys) değiştirin.
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 

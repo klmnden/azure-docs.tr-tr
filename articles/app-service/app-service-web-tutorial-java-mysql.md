@@ -1,6 +1,6 @@
 ---
-title: "Azure'da Java ve MySQL bir web uygulaması oluşturma"
-description: "Azure uygulama hizmeti çalışan Azure MySQL veritabanı hizmeti bağlandığı bir Java uygulaması alma hakkında bilgi."
+title: "Azure'da Java ve MySQL web uygulaması oluşturma"
+description: "Azure uygulama hizmetinde çalışan Azure MySQL veritabanına bağlanacak bir Java uygulaması edinmeyi öğrenin."
 services: app-service\web
 documentationcenter: Java
 author: bbenz
@@ -15,84 +15,75 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: 8b8d7b026973de9dee6c834404f2ed80b2c9ad21
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Azure'da Java ve MySQL bir web uygulaması oluşturma
+# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Azure'da Java ve MySQL web uygulaması oluşturma
 
 > [!NOTE]
-> Bu makalede Windows App Service'e bir uygulama dağıtır. Uygulama hizmeti dağıtım _Linux_, bakın [kapsayıcılı yay önyükleme uygulama Azure'a dağıtma](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+> Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. App Service'i _Linux_ üzerinde dağıtmak için bkz. [Kapsayıcılı bir Spring Boot uygulamasını Azure'a dağıtma](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
 >
 
-Bu öğretici bir Java web uygulaması oluşturma ve MySQL veritabanına bağlanmak nasıl gösterir. İşiniz bittiğinde, olacaktır bir [yay önyükleme](https://projects.spring.io/spring-boot/) veri depolarken uygulama [Azure veritabanı için MySQL](https://docs.microsoft.com/azure/mysql/overview) üzerinde çalışan [Azure App Service Web Apps](app-service-web-overview.md).
+Bu öğreticide size, Azure’da bir Java web uygulaması oluşturma ve bu uygulamayı bir MySQL veritabanına bağlamayla ilgili yönergeler verilmiştir. İşiniz bittiğinde, [Azure App Service Web Apps](app-service-web-overview.md) üzerinde çalıştırılan [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/overview)'nda veri depolayan bir [Spring Boot](https://projects.spring.io/spring-boot/) uygulamanız olacaktır.
 
-![Azure uygulama hizmeti çalışan Java uygulaması](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+![Azure uygulama hizmetinde çalıştırılan Java uygulaması](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure üzerinde MySQL veritabanı oluşturma
-> * Örnek bir uygulama veritabanına bağlan
-> * Uygulamayı Azure'a dağıtma
+> * Azure’da MySQL veritabanı oluşturma
+> * Örnek uygulamayı veritabanına bağlama
+> * Uygulamayı Azure’da dağıtma
 > * Uygulamayı güncelleştirme ve yeniden dağıtma
-> * Azure Stream tanılama günlükleri
-> * Azure portalında uygulamayı izleme
-
-
-## <a name="prerequisites"></a>Ön koşullar
-
-1. [Git yükleyip](https://git-scm.com/)
-1. [Java 7 JDK yükleyip veya üstü](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-1. [İndirme, yükleme ve MySQL Başlat](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+> * Azure’daki tanılama günlüklerinin akışını sağlama
+> * Azure Portal’da uygulamayı izleme
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>Ön koşullar
+
+1. [Git'i indirin ve yükleyin](https://git-scm.com/)
+1. [Java 7 JDK veya üstünü indirin ve yükleyin](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [MySQL'i indirin, yükleyin ve başlatın](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+
 ## <a name="prepare-local-mysql"></a>Yerel MySQL hazırlama 
 
-Bu adımda, yerel bir MySQL Server uygulamayı makinenizde yerel olarak test kullanmak için bir veritabanı oluşturun.
+Bu adımda, uygulamayı makinenizde yerel olarak test ederken kullanmak üzere yerel MySQL sunucusunda bir veritabanı oluşturursunuz.
 
-### <a name="connect-to-mysql-server"></a>MySQL sunucusuna bağlan
+### <a name="connect-to-mysql-server"></a>MySQL sunucusuna bağlanma
 
-Bir terminal penceresi, yerel MySQL sunucusuna bağlanın. Bu öğreticide tüm komutları çalıştırmak için bu bir terminal penceresi kullanabilirsiniz.
+Bir terminal penceresinde yerel MySQL sunucunuza bağlanın. Bu öğreticideki tüm komutları çalıştırmak için bu terminal penceresini kullanabilirsiniz.
 
 ```bash
 mysql -u root -p
 ```
 
-İçin bir parola istenirse parolayı girin `root` hesabı. Kök hesap parolanızı hatırlamıyorsanız bkz [MySQL: kök parolasını sıfırlamak nasıl](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Parola istenirse `root` hesabının parolasını girin. Kök hesap parolanızı hatırlamıyorsanız bkz [MySQL: Kök Parolayı Sıfırlama](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-Komutunuzu başarıyla çalışırsa, MySQL sunucunuzu zaten çalışıyor. Aksi takdirde, yerel MySQL server'ınızdaki izleyerek başlatıldığından emin olun [MySQL yükleme sonrası adımları](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Komutunuz başarıyla çalışırsa, MySQL sunucunuz zaten çalışıyor demektir. Çalışmıyorsa, yerel MySQL sunucunuzun aşağıdaki [MySQL yükleme sonrası adımları](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) kullanılarak başlatıldığından emin olun.
 
 ### <a name="create-a-database"></a>Veritabanı oluşturma 
 
-İçinde `mysql` isteminde, bir veritabanı ve yapılacak iş öğeleri için bir tablo oluşturun.
+`mysql` isteminde, yapılacaklar öğeleri için bir veritabanı ve tablo oluşturun.
 
 ```sql
 CREATE DATABASE tododb;
 ```
 
-Sunucu bağlantısı yazarak çıkmak `quit`.
+`quit` yazarak sunucu bağlantınızdan çıkış yapın.
 
 ```sql
 quit
 ```
 
-## <a name="create-and-run-the-sample-app"></a>Oluşturun ve örnek uygulamayı çalıştırma 
+## <a name="create-and-run-the-sample-app"></a>Örnek uygulamayı oluşturma ve çalıştırma 
 
-Bu adımda, örnek yay önyükleme uygulama kopyalama, yerel MySQL veritabanını kullanacak şekilde yapılandırın ve bilgisayarınızda çalıştırın. 
+Bu adımda, örnek Spring Boot uygulamasını kopyalar, yerel MySQL veritabanını kullanacak şekilde yapılandırır ve bilgisayarınızda çalıştırırsınız. 
 
-### <a name="clone-the-sample"></a>Örnek kopyalama
+### <a name="clone-the-sample"></a>Örneği kopyalama
 
 Terminal penceresinde, bir çalışma dizinine gidin ve örnek depoyu kopyalayın. 
 
@@ -100,60 +91,59 @@ Terminal penceresinde, bir çalışma dizinine gidin ve örnek depoyu kopyalayı
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
 ```
 
-### <a name="configure-the-app-to-use-the-mysql-database"></a>MySQL veritabanını kullanmak üzere uygulamayı yapılandırır
+### <a name="configure-the-app-to-use-the-mysql-database"></a>Uygulamayı MySQL veritabanını kullanacak şekilde yapılandırma
 
-Güncelleştirme `spring.datasource.password` ve değer *spring-boot-mysql-todo/src/main/resources/application.properties* MySQL istemi açmak için kullanılan aynı kök parolayla:
+*spring-boot-mysql-todo/src/main/resources/application.properties* içindeki `spring.datasource.password` ve değeri, MySQL istemini açmak için kullanılan aynı kök parolayla güncelleştirin:
 
 ```
 spring.datasource.password=mysqlpass
 ```
 
-### <a name="build-and-run-the-sample"></a>Derleme ve örnek çalıştırma
+### <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
 
-Derleme ve bağlantıların bulunması dahil Maven sarmalayıcı kullanarak örneği çalıştırın:
+Depoya eklenmiş olan Maven sarmalayıcısını kullanarak örneği derleyin ve çalıştırın:
 
 ```bash
 cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Tarayıcınızı açın `http://localhost:8080` eylem örnekte görmek için. Aşağıdaki SQL komutlarını MySQL isteminde görevleri listeye eklemek gibi MySQL içinde depolanan verileri görüntülemek için kullanın.
+Örneği iş başında görmek için tarayıcınızı `http://localhost:8080` adresinde açın. Listeye görevleri eklerken, MySQL'de depolanan verileri görüntülemek için MySQL komut isteminde aşağıdaki SQL komutlarını kullanın.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-Devreyi tarafından uygulamayı durdurun `Ctrl` + `C` Terminal. 
+Terminalde `Ctrl`+`C` tuşlarına basarak uygulamayı durdurun. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-azure-mysql-database"></a>Bir Azure MySQL veritabanı oluşturma
+## <a name="create-an-azure-mysql-database"></a>Azure MySQL veritabanı oluşturma
 
-Bu adımda, oluşturduğunuz bir [Azure veritabanı için MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) kullanarak örnek [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Örnek uygulama bu veritabanını daha sonra öğreticide kullanmak üzere yapılandırın.
+bu adımda, [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) kullanarak [MySQL için Azure Veritabanı](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) oluşturursunuz. Öğreticinin devamında, örnek uygulamayı bu veritabanını kullanacak şekilde yapılandırırsınız.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Oluşturma bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) ile [az grubu oluşturma](/cli/azure/group#create) komutu. Bir Azure kaynak grubu web uygulamaları, veritabanları ve depolama hesapları gibi ilgili kaynaklar burada dağıtılan ve yönetilen mantıksal bir kapsayıcısıdır. 
+[`az group create`](/cli/azure/group#az_group_create) komutuyla bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Azure kaynak grubu; web uygulamaları, veritabanları ve depolama hesapları gibi ilgili kaynakların dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
-Aşağıdaki örnek Kuzey Avrupa bölgesinde bir kaynak grubu oluşturur:
+Aşağıdaki örnekte Kuzey Avrupa bölgesinde bir kaynak grubu oluşturulmaktadır:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "North Europe"
 ```    
 
-Olası değerler görmek için kullanabileceğiniz `--location`, kullanın [az appservice listesi-konumları](/cli/azure/appservice#list-locations) komutu.
+`--location` için hangi olası değerleri kullanabileceğinizi görmek için [`az appservice list-locations`](/cli/azure/appservice#list-locations)omutunu kullanın.
 
-### <a name="create-a-mysql-server"></a>MySQL sunucusu oluşturun
+### <a name="create-a-mysql-server"></a>MySQL sunucusu oluşturma
 
-Bulut Kabuğu'nda Azure veritabanındaki bir sunucu ile MySQL (Önizleme) oluşturmak [az mysql sunucusu oluşturun](/cli/azure/mysql/server#create) komutu.    
-Burada gördüğünüz kendi benzersiz MySQL sunucu adı yerine `<mysql_server_name>` yer tutucu. Bu ad, MySQL sunucunuzun ana bilgisayar adı, bir parçasıdır `<mysql_server_name>.mysql.database.azure.com`, genel olarak benzersiz olması gerekir. Ayrıca yerine `<admin_user>` ve `<admin_password>` kendi değerlere sahip.
+Cloud Shell’de, MySQL için Azure Veritabanı (Önizleme) içinde [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) komutu ile bir sunucu oluşturun. `<mysql_server_name>` yer tutucusunu gördüğünüz yerde kendi benzersiz MySQL sunucunuzun adıyla değiştirin. Bu ad, MySQL sunucusu konak adınızın (`<mysql_server_name>.mysql.database.azure.com`) bir parçasıdır ve genel olarak benzersiz olması gerekir. Ayrıca `<admin_user>` ve `<admin_password>` değerlerini de kendi değerlerinizle değiştirin.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
 ```
 
-MySQL sunucusu oluşturulduğunda, Azure CLI bilgileri aşağıdaki örneğe benzer şekilde gösterir:
+MySQL sunucusu oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:
 
 ```json
 {
@@ -169,20 +159,20 @@ MySQL sunucusu oluşturulduğunda, Azure CLI bilgileri aşağıdaki örneğe ben
 }
 ```
 
-### <a name="configure-server-firewall"></a>Sunucu Güvenlik Duvarı'nı yapılandırma
+### <a name="configure-server-firewall"></a>Sunucu güvenlik duvarını yapılandırma
 
-Bulut Kabuğu'nda kullanarak istemci bağlantılarına izin verecek şekilde MySQL sunucunuz için bir güvenlik duvarı kuralı oluşturmak [az mysql server güvenlik duvarı kuralı oluşturmak](/cli/azure/mysql/server/firewall-rule#create) komutu. 
+Cloud Shell’de, [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
-> Azure veritabanı için MySQL (Önizleme) Azure Hizmetleri bağlantılarından şu anda otomatik olarak etkinleştirmez. Dinamik olarak atanmış IP adresleri azure'da gibi tüm IP adresleri için şimdi etkinleştirmek daha iyidir. Hizmet önizlemesini devam ettikçe, veritabanınızın güvenliğini sağlamak için daha iyi yöntemleri etkinleştirilecek.
+> MySQL için Azure Veritabanı (Önizleme) şu anda Azure hizmetlerinden gelen bağlantıları otomatik olarak etkinleştirmemektedir. Azure’daki IP adresleri dinamik olarak atandığından, şimdilik tüm IP adreslerinin etkinleştirilmesi daha iyi olur. Hizmet önizlemesi devam ettikçe, veritabanınızı korumaya yönelik daha iyi yöntemler etkinleştirilecektir.
 
-## <a name="configure-the-azure-mysql-database"></a>Azure MySQL veritabanını yapılandırın
+## <a name="configure-the-azure-mysql-database"></a>Azure MySQL veritabanını yapılandırma
 
-Yerel terminal penceresinde Azure MySQL sunucusuna bağlanın. Daha önce için belirttiğiniz değerini kullanmak `<admin_user>` ve `<mysql_server_name>`.
+Yerel terminal penceresinde, Azure’da MySQL sunucusuna bağlanın. Daha önce `<admin_user>` ve `<mysql_server_name>` için belirttiğiniz değeri kullanın.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
@@ -190,36 +180,36 @@ mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.
 
 ### <a name="create-a-database"></a>Veritabanı oluşturma 
 
-İçinde `mysql` isteminde, bir veritabanı ve yapılacak iş öğeleri için bir tablo oluşturun.
+`mysql` isteminde, yapılacaklar öğeleri için bir veritabanı ve tablo oluşturun.
 
 ```sql
 CREATE DATABASE tododb;
 ```
 
-### <a name="create-a-user-with-permissions"></a>İzinleri olan bir kullanıcı oluşturun
+### <a name="create-a-user-with-permissions"></a>İzinleri olan bir kullanıcı oluşturma
 
-Bir veritabanı kullanıcısı oluşturun ve tüm ayrıcalıkları vermek `tododb` veritabanı. Yer tutucuları değiştirmek `<Javaapp_user>` ve `<Javaapp_password>` kendi benzersiz uygulama adıyla.
+Bir veritabanı kullanıcısı oluşturun ve bu kullanıcıya `tododb` veritabanındaki tüm ayrıcalıkları verin. `<Javaapp_user>` ve `<Javaapp_password>` yer tutucularını kendi benzersiz uygulama adınızla değiştirin.
 
 ```sql
 CREATE USER '<Javaapp_user>' IDENTIFIED BY '<Javaapp_password>'; 
 GRANT ALL PRIVILEGES ON tododb.* TO '<Javaapp_user>';
 ```
 
-Sunucu bağlantısı yazarak çıkmak `quit`.
+`quit` yazarak sunucu bağlantınızdan çıkış yapın.
 
 ```sql
 quit
 ```
 
-## <a name="deploy-the-sample-to-azure-app-service"></a>Örnek Azure App Service'e dağıtma
+## <a name="deploy-the-sample-to-azure-app-service"></a>Örneği Azure App Service’e dağıtma
 
-İle bir Azure uygulama hizmeti planı oluştur **serbest** fiyatlandırma katmanı kullanarak [az uygulama hizmeti planı oluşturma](/cli/azure/appservice/plan#create) CLI komutu. Uygulama hizmeti planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Bir uygulama hizmeti planı atanan tüm uygulamalar maliyet birden fazla uygulama barındırdığında kaydetmenize izin vererek, bu kaynakları paylaşır. 
+[`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) CLI komutunu kullanarak **ÜCRETSİZ** fiyatlandırma katmanıyla bir Azure App Service planı oluşturun. Uygulama hizmeti planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Uygulama hizmeti planına atanan tüm uygulamalar bu kaynakları paylaşarak birden çok uygulamayı barındırırken, maliyetten tasarruf etmenize imkan sağlar. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Plan hazır olduğunda, Azure CLI aşağıdaki örneğe benzer çıkış şunları gösterir:
+Plan hazır olduğunda, Azure CLI aşağıdaki örnekte gösterilene benzer bir çıkış görüntüler:
 
 ```json
 { 
@@ -237,17 +227,17 @@ Plan hazır olduğunda, Azure CLI aşağıdaki örneğe benzer çıkış şunlar
 } 
 ``` 
 
-### <a name="create-an-azure-web-app"></a>Bir Azure Web uygulaması oluşturma
+### <a name="create-an-azure-web-app"></a>Azure Web uygulaması oluşturma
 
- Bulut Kabuğu'nda kullanmak [az webapp oluşturma](/cli/azure/appservice/web#create) bir web uygulaması tanımı oluşturmak için CLI komutu `myAppServicePlan` uygulama hizmeti planı. Web uygulaması tanımı uygulamanızla erişmek için bir URL sağlar ve kodunuzu Azure'a dağıtmak için çeşitli seçenekler yapılandırır. 
+Cloud Shell'de, [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) CLI komutunu kullanarak `myAppServicePlan` App Service planında bir web uygulaması tanımı oluşturun. Web uygulaması tanımı, uygulamanıza erişebilmek için bir URL sağlar ve çeşitli seçenekleri yapılandırarak kodunuzu Azure'a dağıtır. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Yedek `<app_name>` kendi benzersiz uygulama adıyla yer tutucu. Adının Azure içinde tüm uygulamalar arasında benzersiz olması gerekir böylece bu benzersiz bir ad web uygulaması için varsayılan etki alanı adı bir parçasıdır. Kullanıcılarınız için kullanıma önce web uygulaması için bir özel etki alanı adı girişi eşleyebilirsiniz.
+`<app_name>` yer tutucusunu kendi benzersiz uygulama adınızla değiştirin. Bu benzersiz ad, web uygulamasının varsayılan etki alanı adının bir parçası olduğundan, adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Uygulamanızı kullanıcılarınızın kullanımına sunmadan önce web uygulamasına bir özel etki alanı adı girdisi eşleyebilirsiniz.
 
-Web uygulaması tanımı hazır olduğunda, Azure CLI bilgileri aşağıdaki örneğe benzer şekilde gösterir: 
+Web uygulaması tanımı hazır olduğunda Azure CLI aşağıda yer alan örnekteki gibi bilgiler gösterir: 
 
 ```json 
 {
@@ -264,21 +254,21 @@ Web uygulaması tanımı hazır olduğunda, Azure CLI bilgileri aşağıdaki ör
 }
 ```
 
-### <a name="configure-java"></a>Java yapılandırın 
+### <a name="configure-java"></a>Java'yı yapılandırma 
 
-İle uygulamanızın gerektiğini Java Çalışma zamanı yapılandırma bulut Kabuğu'nda ayarlama [az appservice web yapılandırma güncelleştirmesi](/cli/azure/appservice/web/config#update) komutu.
+Cloud Shell'de, [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set) komutuyla uygulamanıza gereken Java çalışma zamanı yapılandırmasını ayarlayın.
 
-Aşağıdaki komut, yeni bir Java 8 JDK üzerinde çalıştırmak için web uygulaması yapılandırır ve [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+Aşağıdaki komut web uygulamasını yeni Java 8 JDK ve [Apache Tomcat](http://tomcat.apache.org/) 8.0 üzerinde çalıştırılacak şekilde yapılandırır.
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0
 ```
 
-### <a name="configure-the-app-to-use-the-azure-sql-database"></a>Azure SQL veritabanını kullanmak üzere uygulamayı yapılandırır
+### <a name="configure-the-app-to-use-the-azure-sql-database"></a>Uygulamayı Azure SQL veritabanını kullanacak şekilde yapılandırma
 
-Örnek uygulamayı çalıştırmadan önce Azure üzerinde oluşturulan Azure MySQL veritabanını kullanmak için web uygulaması uygulama ayarları ayarlayın. Bu özellikler web uygulaması ortam değişkenleri olarak sunulur ve paketlenmiş web app içinde application.properties kümesindeki değerlerini geçersiz kılar. 
+Örnek uygulamayı çalıştırmadan önce, web uygulamasında uygulama ayarlarını Azure'da oluşturduğunuz Azure MySQL veritabanını kullanacak şekilde belirleyin. Bu özellikler web uygulamasına ortam değişkenleri olarak gösterilir ve paketli web uygulamasının içindeki application.properties'de ayarlanan değerleri geçersiz kılar. 
 
-Bulut Kabuğu'nda kullanarak uygulama ayarlarını [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) CLI içinde:
+Cloud Shell'de, CLI'de [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) komutunu kullanarak uygulama ayarlarını belirleyin:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -292,10 +282,10 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_USERNAME=Javaapp_u
 az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_password --resource-group myResourceGroup --name <app_name>
 ```
 
-### <a name="get-ftp-deployment-credentials"></a>FTP dağıtımı kimlik bilgileri alma 
-FTP, yerel Git, GitHub, Visual Studio Team Services ve BitBucket gibi çeşitli şekillerde Azure uygulama hizmeti uygulamanızı dağıtabilirsiniz. Dağıtmak için bu örnek için FTP. WAR dosyası daha önce Azure App Service'e yerel makinenizde oluşturuldu.
+### <a name="get-ftp-deployment-credentials"></a>FTP dağıtım kimlik bilgilerini alma 
+Uygulamanızı FTP, yerel Git, GitHub, Visual Studio Team Services ve Bitbucket gibi çeşitli yollarla Azure uygulama hizmetine dağıtabilirsiniz. Bu örnekte, daha önce yerel makinenizde oluşturulan .WAR dosyasını Azure App Service'e dağıtmak için FTP kullanılır.
 
-Bir ftp komutu boyunca Web uygulaması'na iletmek için hangi kimlik bilgileri belirlemek için kullanın [az appservice web dağıtım listesi-yayımlama-profilleri](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) komutunu bulut Kabuğu'nda: 
+Ftp komutunda Web App'e hangi kimlik bilgilerinin geçirileceğini saptamak için, Cloud Shell'de [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) komutunu kullanın: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -311,9 +301,9 @@ az webapp deployment list-publishing-profiles --name <app_name> --resource-group
 ]
 ```
 
-### <a name="upload-the-app-using-ftp"></a>FTP kullanarak uygulamayı karşıya yükle
+### <a name="upload-the-app-using-ftp"></a>FTP kullanarak uygulamayı karşıya yükleme
 
-Sık kullandığınız FTP aracı dağıtmak için kullanın. WAR dosyası */site/wwwroot/webapps* alınan sunucu adresi klasöründe `URL` alanındaki önceki komutu. Var olan varsayılan (kök) uygulama dizini kaldırın ve mevcut ROOT.war ile değiştirin. Öğreticinin önceki yerleşik WAR dosyası.
+Alışkın olduğunuz FTP aracını kullanarak, .WAR dosyasını önceki komutun `URL` alanından alınan sunucu adresindeki */site/wwwroot/webapps* klasöre dağıtın. Mevcut varsayılan (ROOT) uygulama dizinini kaldırın ve mevcut ROOT.war dosyasını öğreticinin önceki bölümlerinde oluşturulan .WAR dosyasıyla değiştirin.
 
 ```bash
 ftp waws-prod-blu-069.ftp.azurewebsites.windows.net
@@ -328,26 +318,26 @@ rmdir ROOT/
 put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
 ```
 
-### <a name="test-the-web-app"></a>Web uygulaması sınama
+### <a name="test-the-web-app"></a>Web uygulamasını test etme
 
-Gözat `http://<app_name>.azurewebsites.net/` ve birkaç görevi listesine ekleyin. 
+`http://<app_name>.azurewebsites.net/` listesine göz atın ve listeye birkaç görev ekleyin. 
 
-![Azure uygulama hizmeti çalışan Java uygulaması](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+![Azure uygulama hizmetinde çalıştırılan Java uygulaması](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
-**Tebrikler!** Azure App Service'te bir veri güdümlü Java uygulaması kullanıyorsunuz.
+**Tebrikler!** Azure App Service’te veri temelli bir Java uygulaması çalıştırıyorsunuz.
 
 ## <a name="update-the-app-and-redeploy"></a>Uygulamayı güncelleştirme ve yeniden dağıtma
 
-Ek bir sütun Yapılacaklar listesinde öğesinin oluşturulduğu hangi gün için içerecek şekilde uygulamayı güncelleştirin. Veritabanı şeması sizin için veri modeli değişiklikleri olarak, var olan veritabanı kayıtlarını değiştirmeden güncelleştirme yay önyükleme işler.
+Uygulamayı güncelleştirerek, yapılacaklar listesine öğenin oluşturulduğu güne ilişkin bir sütun ekleyin. Spring Boot, veri modeli değiştikçe mevcut veritabanı kayıtlarınızda değişiklik yapmadan sizin için veritabanı şemasındaki güncelleştirmeyi işler.
 
-1. Yerel sisteminizde açık *src/main/java/com/example/fabrikam/TodoItem.java* ve sınıfına aşağıdaki içeri aktarmaları ekleyin:   
+1. Yerel sisteminizde, *src/main/java/com/example/fabrikam/TodoItem.java* konumunu açın ve aşağıdaki içeri aktarmaları sınıfa ekleyin:   
 
     ```java
     import java.text.SimpleDateFormat;
     import java.util.Calendar;
     ```
 
-2. Ekleme bir `String` özelliği `timeCreated` için *src/main/java/com/example/fabrikam/TodoItem.java*, nesne oluşturma sırasında bir zaman damgasına sahip başlatılıyor. Alıcıları/ayarlayıcılar için yeni Ekle `timeCreated` bu dosyayı düzenlerken özelliği.
+2. *src/main/java/com/example/fabrikam/TodoItem.java* dosyasına, nesne oluşturma sırasında onu bir zaman damgasıyla başlatacak bir `String` özelliği `timeCreated` ekleyin. Bu dosyayı düzenlerken yeni `timeCreated` özelliği için alıcılar/ayarlayıcılar ekleyin.
 
     ```java
     private String name;
@@ -371,7 +361,7 @@ Ek bir sütun Yapılacaklar listesinde öğesinin oluşturulduğu hangi gün iç
     }
     ```
 
-3. Güncelleştirme *src/main/java/com/example/fabrikam/TodoDemoController.java* bir çizgi `updateTodo` yöntemi zaman damgası ayarlamak için:
+3. *src/main/java/com/example/fabrikam/TodoDemoController.java* dosyasını `updateTodo` yöntemindeki bir satırla güncelleştirerek zaman damgasını ayarlayın:
 
     ```java
     item.setComplete(requestItem.isComplete());
@@ -380,7 +370,7 @@ Ek bir sütun Yapılacaklar listesinde öğesinin oluşturulduğu hangi gün iç
     repository.save(item);
     ```
 
-4. Yeni alan için destek Thymeleaf şablonunda ekleyin. Güncelleştirme *src/main/resources/templates/index.html* zaman damgası ve her tablo veri satırında zaman damgası değerini görüntülemek için yeni bir alan için yeni bir tablo üstbilgiyle.
+4. `Thymeleaf` şablonundaki yeni alan için destek ekleyin. *src/main/resources/templates/index.html* dosyasını zaman damgası için yeni tablo üst bilgisiyle ve her tablo veri satırında zaman damgasının değerini görüntülemek için yeni bir alanla güncelleştirin.
 
     ```html
     <th>Name</th>
@@ -393,23 +383,23 @@ Ek bir sütun Yapılacaklar listesinde öğesinin oluşturulduğu hangi gün iç
     <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
     ```
 
-5. Uygulama yeniden oluşturun:
+5. Uygulamayı yeniden oluşturun:
 
     ```bash
     mvnw clean package 
     ```
 
-6. Güncelleştirilmiş FTP. Varolan kaldırma WAR olarak önce *site/wwwroot/webapps/ROOT* dizin ve *ROOT.war*, sonra da güncelleştirilmiş karşıya yükleme. WAR dosyası olarak ROOT.war. 
+6. Güncelleştirilmiş .WAR dosyasını daha önce olduğu gibi FTP yapın; bunun için mevcut *site/wwwroot/webapps/ROOT* dizinini ve *ROOT.war* dosyasını kaldırın, sonra da güncelleştirilmiş .WAR file dosyasını ROOT.war olarak karşıya yükleyin. 
 
-Uygulama yenilediğinizde bir **saat oluşturulan** sütundur artık görünür. Yeni bir görev eklediğinizde, uygulama zaman damgası otomatik olarak doldurur. Temel alınan veri modeli değişti olsa bile varolan görevlerinizi değişmeden ve uygulama ile çalışmak kalır. 
+Uygulamayı yenilediğinizde, **Oluşturulma Zamanı** sütunu artır görünür durumda olur. Yeni görev eklediğinizde, uygulama zaman damgasını otomatik olarak doldurur. Temelindeki veri modeli değiştirilmiş olsa da, mevcut görevleriniz olduğu gibi kalır ve uygulamayla çalışır. 
 
-![Java uygulaması olan yeni bir sütun güncelleştirildi](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
+![Yeni sütunla güncelleştirilen Java uygulaması](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
       
-## <a name="stream-diagnostic-logs"></a>Akış tanılama günlükleri 
+## <a name="stream-diagnostic-logs"></a>Tanılama günlüklerini akışla aktarma 
 
-Java uygulamanızı Azure App Service'te çalışırken terminalinizde doğrudan yöneltilen konsol günlükleri alabilirsiniz. Böylece, uygulama hatalarını hata ayıklama yardımcı olmak için aynı tanılama iletileri alabilirsiniz.
+Java uygulamanız Azure App Service'te çalışırken, doğrudan terminalinize yönlendirilen konsol günlüklerini alabilirsiniz. Böylece, uygulama hatalarını ayıklamanıza yardımcı olan tanılama iletilerinin aynısını alabilirsiniz.
 
-Günlük akış başlatmak için kullanmak [az webapp günlük tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) bulut Kabuğu'nda komutu.
+Günlük akışını başlatmak için Cloud Shell’de [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) komutunu kullanın.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 
@@ -417,19 +407,17 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-your-azure-web-app"></a>Azure web uygulamanızı yönetme
 
-Oluşturduğunuz web uygulaması görmek için Azure portalına gidin.
-
-Bunu yapmak için [https://portal.azure.com](https://portal.azure.com) sayfasında oturum açın.
+Oluşturduğunuz web uygulamasını görmek için [Azure portalına](https://portal.azure.com) gidin.
 
 Sol menüden **App Service**’e ve ardından Azure web uygulamanızın adına tıklayın.
 
 ![Portaldan Azure web uygulamasına gitme](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
-Varsayılan olarak, web uygulamanızın dikey penceresinde **Genel Bakış** sayfası gösterilir. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Burada, Durdur, Başlat, yeniden başlatma ve silme gibi yönetim görevlerini gerçekleştirebilirsiniz. Dikey pencerenin sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir.
+Varsayılan olarak, web uygulamanızın sayfasında **Genel Bakış** sayfası gösterilir. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca durdurma, başlatma, yeniden başlatma ve silme gibi yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir.
 
-![Azure portalında App Service dikey penceresi](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![Azure portalında App Service sayfası](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
-Dikey penceredeki bu sekmelerde web uygulamanıza ekleyebileceğiniz çok sayıda harika özellik gösterilir. Aşağıdaki listede yalnızca birkaç olasılık sunulmaktadır:
+Sayfadaki bu sekmelerde web uygulamanıza ekleyebileceğiniz çok sayıda harika özellik gösterilir. Aşağıdaki listede yalnızca birkaç olasılık sunulmaktadır:
 * Özel bir DNS adı eşleme
 * Özel bir SSL sertifikası bağlama
 * Sürekli dağıtımı yapılandırma
@@ -438,7 +426,7 @@ Dikey penceredeki bu sekmelerde web uygulamanıza ekleyebileceğiniz çok sayıd
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Başka bir öğretici için bu kaynakları gerekmiyorsa (bkz [sonraki adımlar](#next)), bulut Kabuğu'nda aşağıdaki komutu çalıştırarak silebilirsiniz: 
+Bu kaynaklara başka bir öğretici (bkz. [Sonraki adımlar](#next)) için gereksinim duymuyorsanız, Cloud Shell'de aşağıdaki komutu çalıştırarak bu kaynakları silebilirsiniz: 
   
 ```azurecli-interactive
 az group delete --name myResourceGroup 
@@ -449,14 +437,14 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="checklist"]
-> * Azure üzerinde MySQL veritabanı oluşturma
-> * Örnek bir Java uygulaması Mysql'e bağlanmak
-> * Uygulamayı Azure'a dağıtma
+> * Azure’da MySQL veritabanı oluşturma
+> * Örnek Java uygulamasını MySQL'e bağlama
+> * Uygulamayı Azure’da dağıtma
 > * Uygulamayı güncelleştirme ve yeniden dağıtma
-> * Azure Stream tanılama günlükleri
-> * Azure portalında uygulama yönetme
+> * Azure’daki tanılama günlüklerinin akışını sağlama
+> * Uygulamayı Azure portalında yönetme
 
-Uygulamaya özel bir DNS adı eşleme öğrenmek için sonraki öğretici ilerleyin.
+Uygulamaya özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"] 
 > [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md)

@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 12/16/2015
 ms.author: dwrede
 ms.openlocfilehash: 45decfdec01b7086d1f9d18b31cf01cec1adb34d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="microsoft-azure-portal-overview"></a>Microsoft Azure portalına genel bakış
 Microsoft Azure portalı, Azure kaynaklarınızı sağlayabileceğiniz ve yönetebileceğiniz merkezi bir yerdir.  Bu öğretici, portal hakkında bilgi edinmenizi sağlar ve şu temel özellikleri nasıl kullanacağınızı gösterir:

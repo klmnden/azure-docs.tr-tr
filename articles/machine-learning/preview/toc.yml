@@ -92,7 +92,7 @@
           href: deployment-setup-configuration.md
         - name: Kümeleri ve hizmetleri ölçeklendirme
           href: how-to-scale-clusters.md
-        - name: MLC kümesinde SSL ayarlama
+        - name: MLC kümesinde SSL’i etkinleştirme
           href: how-to-setup-ssl-on-mlc.md
         - name: Bir web hizmetini dağıtma
           href: model-management-service-deploy.md

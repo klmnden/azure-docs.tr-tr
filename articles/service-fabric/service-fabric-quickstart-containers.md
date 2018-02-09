@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Azure’da bir Service Fabric Windows kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -79,24 +79,44 @@ ApplicationManifest.xml dosyasının `ContainerHostPolicies` kısmında bir `Por
 Bu makalenin sonunda tam bir ApplicationManifest.xml örnek dosyası verilmiştir.
 
 ## <a name="create-a-cluster"></a>Küme oluşturma
-Uygulamayı Azure’daki bir kümeye dağıtmak için kendi kümenizi oluşturabilir veya bir grup kümesi kullanabilirsiniz.
+Uygulamayı Azure’daki bir kümeye dağıtmak için bir grup kümesine katılabilir veya [Azure’da kendi kümenizi oluşturabilirsiniz](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Bir grup kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric).  
+Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır. 
 
-Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. Sonraki adımlarda sertifika ve **Bağlantı uç noktası** değeri kullanılır.
 
-Aşağıdaki adımda kullandığınız bağlantı uç noktasını not edin.  
+![PFX ve bağlantı uç noktası](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Bir Windows bilgisayarda PFX’i *CurrentUser\My* sertifika deposuna yükleyin.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Sonraki adım için parmak izini unutmayın.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Visual Studio kullanarak uygulamayı Azure’a dağıtma
 Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıtabilirsiniz.
 
 Çözüm Gezgini'nde **MyFirstContainer**’a sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
 
-![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametreleri**’ne tıklayıp ve aşağıdaki bilgileri doldurun.  *FindValue* ve *ServerCertThumbprint* değerleri önceki adımda yüklenen sertifikanın parmak iziyle eşleşmelidir. 
 
-Kümenin bağlantı uç noktasını **Bağlantı Uç Noktası** alanına girin. Grup kümesine kaydolurken bağlantı uç noktası tarayıcıda sağlanır. Örneğin: `winh1x87d1d.westus.cloudapp.azure.com:19000`.  **Yayımla**'ya tıkladığınızda uygulama dağıtılır.
+![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Bir tarayıcı penceresi açıp http://winh1x87d1d.westus.cloudapp.azure.com:80 adresine gidin. IIS varsayılan web sayfasını görmeniz gerekir: ![IIS varsayılan web sayfası][iis-default]
+**Yayımla**’ta tıklayın.
+
+Kümedeki her uygulamanın benzersiz bir adı olmalıdır.  Bununla birlikte grup kümeleri ortak, paylaşılan bir ortamdır ve mevcut uygulamalardan biriyle çakışma olabilir.  Ad çakışması varsa, Visual Studio projesini yeniden adlandırın ve bir kez daha dağıtın.
+
+Bir tarayıcı penceresi açıp http://zwin7fh14scd.westus.cloudapp.azure.com:80 adresine gidin. IIS varsayılan web sayfasını görmeniz gerekir: ![IIS varsayılan web sayfası][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Tam Service Fabric uygulaması ve hizmet bildirimleri örneği
 Bu hızlı başlangıçta kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiştir.
@@ -167,6 +187,7 @@ Bu hızlı başlangıçta kullanılan tam hizmet ve uygulama bildirimleri aşağ
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

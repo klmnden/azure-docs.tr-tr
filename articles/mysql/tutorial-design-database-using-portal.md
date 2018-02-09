@@ -1,85 +1,85 @@
 ---
-title: "İlk Azure veritabanınızı MySQL veritabanı - Azure Portal için Tasarım | Microsoft Docs"
-description: "Bu öğretici, oluşturma ve MySQL server ve Azure portalını kullanarak veritabanı için Azure veritabanı yönetme açıklanmaktadır."
+title: "İlk MySQL veritabanı için Azure Veritabanınızı tasarlama - Azure Portal | Microsoft Docs"
+description: "Bu öğreticide, Azure Portalı kullanarak MySQL sunucusu ve veritabanı için Azure Veritabanının nasıl oluşturulup yönetileceği açıklanır."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.topic: tutorial
 ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 76cccf9e2ce0a1e59b43646c43ac165d46dade4a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>İlk Azure veritabanınızı MySQL veritabanı için tasarlama
-MySQL için Azure Veritabanı, bulutta yüksek oranda kullanılabilir olan MySQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure Portalı'nı kullanarak, kolayca sunucunuzu yönetin ve bir veritabanı tasarlayın.
+# <a name="design-your-first-azure-database-for-mysql-database"></a>İlk MySQL veritabanı için Azure Veritabanınızı tasarlama
+MySQL için Azure Veritabanı, bulutta yüksek oranda kullanılabilir olan MySQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure portalını kullanarak, sunucunuzu kolayca yönetebilir ve bir veritabanı tasarlayabilirsiniz.
 
-Bu öğreticide, bilgi edinmek için Azure portalını kullanın nasıl yapılır:
+Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
 > [!div class="checklist"]
-> * MySQL için Azure bir veritabanı oluşturun
-> * Sunucu Güvenlik Duvarı'nı yapılandırma
-> * Bir veritabanı oluşturmak için MySQL komut satırı aracını kullanın
+> * MySQL için Azure Veritabanı oluşturma
+> * Sunucu güvenlik duvarını yapılandırma
+> * Veritabanı oluşturmak için mysql komut satırı aracı kullanma
 > * Örnek verileri yükleme
 > * Verileri sorgulama
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
-Sık kullanılan web tarayıcınızı açın ve ziyaret [Microsoft Azure portal](https://portal.azure.com/). Portalda oturum açmak için kimlik bilgilerinizi girin. Varsayılan görünüm hizmet panonuzu içerir.
+Sık kullandığınız web tarayıcınızı açıp [Microsoft Azure portalı](https://portal.azure.com/)’na gidin. Portalda oturum açmak için kimlik bilgilerinizi girin. Varsayılan görünüm hizmet panonuzu içerir.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
-MySQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama kaynağı](./concepts-compute-unit-and-storage.md) ile oluşturulur. Sunucu, [Azure kaynak grubu](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) içinde oluşturulur.
+MySQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama kaynağı](./concepts-compute-unit-and-storage.md) ile oluşturulur. Sunucu, [Azure kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) içinde oluşturulur.
 
-1. Gidin **veritabanları** > **Azure veritabanı için MySQL**. MySQL sunucusu altında bulamazsa **veritabanları** kategori tıklatın **tümünü görmek** tüm kullanılabilir veritabanı hizmetleri göstermek için. Ayrıca yazabilirsiniz **Azure veritabanı için MySQL** hizmeti hızla bulmak için arama kutusuna.
-![MySQL için 2-1 gidin](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
+1. **Veritabanları** > **MySQL için Azure Veritabanı**’na gidin. **Veritabanları** kategorisi altında MySQL Sunucusunu bulamazsanız, kullanılabilir tüm veritabanı hizmetlerini görüntülemek için **Tümünü gör**’e tıklayın. Ayrıca arama kutusuna **MySQL için Azure Veritabanı** yazarak hizmeti hızlıca bulabilirsiniz.
+![2-1 MySQL’ye git](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
 
-2. Tıklatın **Azure veritabanı için MySQL** kutucuğuna ve ardından **oluşturma**.
+2. **MySQL için Azure Veritabanı** kutucuğuna ve ardından **Oluştur**’a tıklayın.
 
-Bu örnekte, Azure veritabanı için MySQL form aşağıdaki bilgilerle doldurun:
+Bu örnekte MySQL için Azure Veritabanı formunu aşağıdaki bilgilerle doldurun:
 
 | **Ayar** | **Önerilen değer** | **Alan Açıklaması** |
 |---|---|---|
 | *Sunucu adı* | myserver4demo  | Sunucu adı genel olarak benzersiz olmalıdır. |
 | *Abonelik* | mysubscription | Açılan listeden aboneliğinizi seçin. |
 | *Kaynak grubu* | myresourcegroup | Bir kaynak grubu oluşturun veya mevcut olanlardan birini kullanın. |
-| *Sunucu yöneticisi oturum açma bilgileri* | myadmin | Kurulum Yönetici hesap adı. |
+| *Sunucu yöneticisi oturum açma bilgileri* | myadmin | Yönetici hesabı adını ayarlayın. |
 | *Parola* |  | Güçlü bir yönetici hesabı parolası belirleyin. |
 | *Parolayı onayla* |  | Yönetici hesabı parolasını onaylayın. |
 | *Konum* |  | Kullanılabilir bir bölge seçin. |
 | *Sürüm* | 5.7 | En son sürümü seçin. |
-| *Performansı yapılandır* | Temel, 50 birimleri, 50 GB işlem  | **Fiyatlandırma katmanı**, **İşlem Birimleri**, **Depolama (GB)** öğelerini seçip **Tamam**’a tıklayın. |
+| *Performansı yapılandır* | Temel, 50 İşlem Birimi, 50 GB  | **Fiyatlandırma katmanı**, **İşlem Birimleri**, **Depolama (GB)** öğelerini seçip **Tamam**’a tıklayın. |
 | *Panoya Sabitle* | İşaretli | Sunucuyu daha sonra kolayca bulabilmeniz için bu kutunun işaretlenmesi önerilir |
-Sonra, **Oluştur**’a tıklayın. Bir veya iki dakika içinde, bulutta MySQL sunucusu için yeni bir Azure Veritabanı çalışmaya başlayacaktır. Tıklayabilirsiniz **bildirimleri** dağıtım işlemi izlemek için araç çubuğunda.
+Sonra, **Oluştur**’a tıklayın. Bir veya iki dakika içinde, bulutta MySQL sunucusu için yeni bir Azure Veritabanı çalışmaya başlayacaktır. Dağıtım işlemini izlemek için araç çubuğunda **Bildirimler** düğmesine tıklayabilirsiniz.
 
 ## <a name="configure-firewall"></a>Güvenlik duvarını yapılandırma
-Azure veritabanları MySQL için bir güvenlik duvarı tarafından korunur. Varsayılan olarak, sunucu ve veritabanları Sunucusu'ndaki tüm bağlantıları reddedilir. Azure veritabanı için MySQL için ilk kez bağlanmadan önce istemci makinenin ortak ağ IP adresi (veya IP adresi aralığı) eklemek için Güvenlik Duvarı'nı yapılandırın.
+MySQL için Azure Veritabanları bir güvenlik duvarı tarafından korunur. Varsayılan olarak, sunucuya ve sunucu içindeki veritabanlarına yönelik tüm bağlantılar reddedilir. MySQL için Azure Veritabanı’na ilk kez bağlanmadan önce, güvenlik duvarını istemcinin genel ağ IP adresini (veya IP adres aralığını) ekleyecek şekilde yapılandırın.
 
-1. Yeni oluşturulan sunucunuz tıklayın ve ardından **bağlantı güvenliği**.
-   ![3 1 bağlantı güvenliği](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
-2. Yapabilecekleriniz **eklemek IP**, veya güvenlik duvarı kurallarını yapılandırın. Kuralları oluşturduktan sonra **Kaydet**’e tıklamayı unutmayın.
-Şimdi, mysql komut satırı aracını veya MySQL çalışma ekranı GUI aracını kullanarak sunucuya bağlanabilir.
+1. Yeni oluşturduğunuz sunucuya ve ardından **Bağlantı güvenliği**’ne tıklayın.
+   ![3-1 Bağlantı güvenliği](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
+2. **IP’mi Ekle** seçeneğini kullanabilir veya güvenlik duvarı kurallarını buradan yapılandırabilirsiniz. Kuralları oluşturduktan sonra **Kaydet**’e tıklamayı unutmayın.
+Artık mysql komut satırı aracını veya MySQL Workbench GUI aracını kullanarak sunucuya bağlanabilirsiniz.
 
 > [!TIP]
-> MySQL sunucusu için Azure veritabanı 3306 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 3306 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. BT departmanınız 3306 bir bağlantı noktası açar sürece bu durumda, Azure MySQL sunucusuna bağlanamıyor.
+> MySQL için Azure Veritabanı sunucusu, 3306 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 3306 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 3306 numaralı bağlantı noktasını açmadığı sürece Azure MySQL sunucusuna bağlanamazsınız.
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
-Tam alma **sunucu adı** ve **sunucu yönetici oturum açma adı** Azure portalından MySQL server için Azure veritabanınızın. Mysql komut satırı aracını kullanarak sunucunuza bağlanmak için tam sunucu adını kullanın. 
+Azure portalından MySQL için Azure Veritabanı sunucunuz için tam **Sunucu adı** ve **Sunucu yöneticisi oturum açma adını** alın. Tam sunucu adını, mysql komut satırı aracı kullanarak sunucunuza bağlanmak için kullanırsınız. 
 
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tüm kaynakları** sol taraftaki menüden bir ad yazın ve arama MySQL server için Azure veritabanınızın. Ayrıntılarını görüntülemek için sunucu adını seçin.
+1. [Azure portalı](https://portal.azure.com/)’nda soldaki menüden **Tüm kaynaklar**’a tıklayın, adı yazın ve MySQL için Azure Veritabanı sunucunuzu arayın. Ayrıntıları görüntülemek için sunucu adını seçin.
 
-2. Ayarlar altında başlığını tıklatın **özellikleri**. Aşağı Not **sunucu adı** ve **sunucu yönetici oturum açma adı**. Panoya kopyalamak için her alanın yanındaki Kopyala düğmesini tıklatabilirsiniz.
+2. Ayarlar üst bilgisi altında, **Özellikler**’e tıklayın. **SUNUCU ADI** ve **SUNUCU YÖNETİCİSİ OTURUM AÇMA ADI** değerlerini not edin. Panoya kopyalamak için her alanın yanındaki kopyala düğmesine tıklayabilirsiniz.
    ![4-2 sunucu özellikleri](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
 
 Bu örnekte sunucu adı *myserver4demo.mysql.database.azure.com*, sunucu yöneticisi oturum açma bilgileri ise *myadmin@myserver4demo* şeklindedir.
 
-## <a name="connect-to-the-server-using-mysql"></a>MySQL kullanarak sunucuya bağlanın
-MySQL sunucusu için Azure Veritabanınız ile bağlantı kurmak üzere [mysql komut satırı aracını](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) kullanın. Tarayıcıda Azure bulut Kabuğu'ndan veya mysql araçlarının yüklü kullanarak yerel olarak kendi makineden mysql komut satırı aracını çalıştırabilirsiniz. Azure bulut Kabuğu'nu başlatmak için tıklatın `Try It` bu makaledeki kod bloğu düğmesine veya Azure portalını ziyaret edin ve `>_` sağ üst araç çubuğunda simge. 
+## <a name="connect-to-the-server-using-mysql"></a>mysql kullanarak sunucuya bağlanma
+MySQL sunucusu için Azure Veritabanınız ile bağlantı kurmak üzere [mysql komut satırı aracını](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) kullanın. mysql komut satırı aracını tarayıcıdaki Azure Cloud Shell’den veya yerel olarak yüklenmiş mysql araçlarını kullanarak kendi makinenizden çalıştırabilirsiniz. Azure Cloud Shell’i başlatmak için bu makaledeki bir kod bloğu üzerinde `Try It` düğmesine tıklayın veya Azure portalını ziyaret ederek sağ üstteki araç çubuğunda `>_` simgesine tıklayın. 
 
 Bağlanma komutunu yazın:
 ```azurecli-interactive
@@ -87,20 +87,20 @@ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
 ## <a name="create-a-blank-database"></a>Boş veritabanı oluşturma
-Bir kez sunucusuna bağlandıktan sonra çalışmak için boş bir veritabanı oluşturun.
+Sunucuya bağlandıktan sonra, birlikte çalışacağınız boş bir veritabanı oluşturun.
 ```sql
 CREATE DATABASE mysampledb;
 ```
 
-İsteminde bağlantı yeni veritabanı oluşturulan bu geçiş yapmak için aşağıdaki komutu çalıştırın:
+İstemde, bağlantıyı bu yeni oluşturulan veritabanına değiştirmek için şu komutu çalıştırın:
 ```sql
 USE mysampledb;
 ```
 
-## <a name="create-tables-in-the-database"></a>Veritabanında tabloları oluşturma
-MySQL veritabanı için Azure veritabanına bağlanmak nasıl bildiğinize göre bazı temel görevleri tamamlayın:
+## <a name="create-tables-in-the-database"></a>Veritabanında tablo oluşturma
+Artık MySQL veritabanı için Azure Veritabanına nasıl bağlanacağınızı bildiğinize göre bazı temel görevleri tamamlayabilirsiniz:
 
-İlk olarak, bir tablo oluşturun ve bazı verilerle yükleyin. Envanter bilgilerini depolayan bir tablo oluşturalım.
+İlk olarak, bir tablo oluşturun ve bu tabloya bazı veriler yükleyin. Envanter bilgilerini depolayan bir tablo oluşturalım.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -109,60 +109,60 @@ CREATE TABLE inventory (
 );
 ```
 
-## <a name="load-data-into-the-tables"></a>Veri tablolarına yükleme
-Bir tablo sahip olduğunuza göre bazı veriler içine ekleyin. Açık komut istemi penceresinde, bazı veri satırı eklemek için aşağıdaki sorguyu çalıştırın.
+## <a name="load-data-into-the-tables"></a>Tablolara veri yükleme
+Bir tablonuz olduğuna göre içine bazı veriler ekleyin. Açık komut istemi penceresinde, birkaç veri satırı eklemek için şu sorguyu çalıştırın.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Şimdi örnek verilerin daha önce oluşturduğunuz tabloya iki satır var.
+Daha önce oluşturduğunuz tabloda artık iki satırlık örnek verileriniz var.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Sorgulamak ve tablolarındaki verileri güncelleyin
-Veritabanı tablosundan bilgi almak için aşağıdaki sorguyu çalıştırın.
+## <a name="query-and-update-the-data-in-the-tables"></a>Tablolardaki verileri sorgulama ve güncelleştirme
+Veritabanı tablosundan bilgi almak için şu sorguyu yürütün.
 ```sql
 SELECT * FROM inventory;
 ```
 
-Ayrıca tablolardaki verileri güncelleştirebilirsiniz.
+Ayrıca tablolardaki verileri de güncelleştirebilirsiniz.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-Veri aldığınızda satır buna göre güncelleştirilir.
+Siz veri aldıkça satır güncelleştirilir.
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Bir veritabanını daha önceki bir noktaya geri yükleme
-Önemli veritabanı tablosu yanlışlıkla sildiyseniz ve verileri kolayca kurtaramazsınız düşünün. Azure veritabanı için MySQL sunucu zaman içinde bir noktaya geri veritabanlarını yeni sunucuyu oluşturulmasını sağlar. Bu yeni sunucu silinen verilerinizi kurtarmak için kullanabilirsiniz. Tablo eklenmeden önce aşağıdaki adımları örnek sunucunun bir noktaya geri yükleme.
+Önemli bir veritabanı tablosunu yanlışlıkla sildiğinizi ve verileri kolayca kurtaramayacağınızı düşünün. MySQL için Azure Veritabanı, sunucuyu bir zaman noktasına geri yükleyerek, veritabanlarının bir kopyasının yeni sunucuda oluşturulmasını sağlar. Bu yeni sunucuyu silinen verilerinizi kurtarmak için kullanabilirsiniz. Şu adımlar, örnek sunucuyu tablo eklenmeden önceki bir noktaya geri yükler.
 
-1. Azure portalında Azure veritabanı için MySQL bulun. Üzerinde **genel bakış** sayfasında, **geri** araç çubuğunda. Geri yükleme sayfası açılır.
+1. Azure portalında MySQL için Azure Veritabanınızı bulun. **Genel bakış** sayfası üzerinde, araç çubuğunda **Geri yükle**’ye tıklayın. Geri Yükle sayfası açılır.
 
-   ![10-1, bir veritabanını geri yükleyin](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
+   ![10-1 veritabanını geri yükleme](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
-2. Doldurmak **geri** form gerekli bilgileri.
+2. **Geri Yükle** formunu gerekli bilgiler ile doldurun.
    
    ![10-2 geri yükleme formu](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
    
-   - **Geri yükleme noktası**: bir noktası için listelenen zaman çerçevesi içinde geri yüklemek istediğiniz zaman seçin. Yerel saat dilimi UTC'ye dönüştürülecek emin olun.
-   - **Yeni bir sunucuya geri**: geri yüklemek istediğiniz yeni bir sunucu adı sağlayın.
-   - **Konum**: bölge kaynak sunucu ile aynı olması ve değiştirilemez.
-   - **Fiyatlandırma katmanı**: fiyatlandırma katmanı kaynak sunucu ile aynıdır ve değiştirilemez.
+   - **Geri yükleme noktası**: Listelenen zaman dilimi içerisindeki geri yüklemek istediğiniz noktayı seçin. Yerel saat diliminizi UTC'ye dönüştürdüğünüzden emin olun.
+   - **Yeni sunucuya geri yükleme**: Geri yüklemek istediğiniz yeni bir sunucu adı sağlayın.
+   - **Konum**: Bölge, kaynak sunucu ile aynıdır ve değiştirilemez.
+   - **Fiyatlandırma katmanı**: Fiyatlandırma katmanı, kaynak sunucu ile aynıdır ve değiştirilemez.
    
-3. Tıklatın **Tamam** sunucuya geri yüklemek için [zaman içinde bir noktaya geri](./howto-restore-server-portal.md) tablo silinmeden önce. Bir sunucuyu geri belirttiğiniz zaman içinde nokta itibariyle sunucunun yeni bir kopyasını oluşturur. 
+3. Sunucuyu, tablo silinmeden önceki [bir zamana geri yüklemek](./howto-restore-server-portal.md) için **Tamam**’a tıklayın. Bir sunucuyu geri yüklemek, belirttiğiniz zamandan itibaren sunucunun yeni bir kopyasını oluşturur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Azure portal öğrenilen için nasıl kullanın:
+Bu öğreticide, Azure portalını şunları yapmayı öğrenmek için kullanırsınız:
 
 > [!div class="checklist"]
-> * MySQL için Azure bir veritabanı oluşturun
-> * Sunucu Güvenlik Duvarı'nı yapılandırma
-> * Bir veritabanı oluşturmak için MySQL komut satırı aracını kullanın
+> * MySQL için Azure Veritabanı oluşturma
+> * Sunucu güvenlik duvarını yapılandırma
+> * Veritabanı oluşturmak için mysql komut satırı aracı kullanma
 > * Örnek verileri yükleme
 > * Verileri sorgulama
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
 > [!div class="nextstepaction"]
-> [MySQL için Azure veritabanı uygulamalara bağlanma](./howto-connection-string.md)
+> [MySQL için Azure Veritabanına nasıl uygulama bağlanır](./howto-connection-string.md)

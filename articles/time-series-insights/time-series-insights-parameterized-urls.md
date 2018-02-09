@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Parametreli URL'yi kullanarak özel görünümü paylaşma
 
@@ -63,14 +63,16 @@ Kabul edilen değerler, Time Series Insights gezgininin **kısa süre** menüsü
 
 `timeSeriesDefinitions=<collection of term objects>` parametresi Time Series Insights görünümünün dönemlerini belirtir; burada:
 
-- `name=<string>`
+- "name":"<string>"
   - *Dönem* adı.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - *Bölme ölçütü* sütunun adı.
-- `measureName=<string>`
+- "measureName":"<string>"
   - *Ölçü* sütununun adı.
-- `predicate=<string>`
+- "predicate":"<string>"
   - Sunucu tarafı filtrelemesi için *where* yan tümcesi.
+-  "useSum":"true"
+  - Bu, ölçümünüz için toplam kullanmayı belirten isteğe bağlı bir parametredir.  Ölçümde “Olaylar” seçiliyse, sayımın varsayılan olarak seçileceğini unutmayın.  “Olaylar” seçili değilse, ortalama varsayılan olarak seçilir.  
 
 'multiChartStack=<true/false>' parametresi grafikte yığın oluşturmayı sağlar, 'multiChartSameScale=<true/false>' parametresi ise isteğe bağlı bir parametre içindeki terimler arasında aynı Y ekseni ölçeğini sağlar.  
 

@@ -58,7 +58,7 @@ Kümenin güvenliği bir küme sertifikası ile sağlanır. Küme sertifikası, 
 Küme sertifikası:
 
 - Özel anahtar içermelidir.
-- Bir Kişisel Bilgi Değişimi (*.pfx) dosyasına aktarılabilen anahtar değişimi için oluşturulmuş olmalıdır.
+- Bir Kişisel Bilgi Değişimi (.pfx) dosyasına aktarılabilen anahtar değişimi için oluşturulmuş olmalıdır.
 - Service Fabric kümesine erişmek için kullandığınız etki alanıyla eşleşen bir konu adına sahip olmalıdır. Kümenin HTTPS yönetim uç noktalarına ve Service Fabric Explorer’a yönelik SSL sağlanması için bu eşleşme gereklidir. Bir sertifika yetkilisinden (CA) .cloudapp.azure.com etki alanı için SSL sertifikası edinemezsiniz. Kümeniz için özel bir etki alanı adı edinmeniz gerekir. CA’dan sertifika istediğinizde sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adıyla eşleşmelidir.
 
 Azure’da Service Fabric kümelerine ait sertifikaları yönetmek için Azure Key Vault kullanılır.  Azure’da bir küme dağıtıldığında, Azure Service Fabric kümeleri oluşturmaktan sorumlu Azure kaynak sağlayıcısı sertifikaları Key Vault’tan çeker ve küme VM’lerine yükler.

@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı hizmeti Öğreticisi - uygulamayı Ölçeklendir"
-description: "Azure kapsayıcı hizmeti Öğreticisi - uygulamayı Ölçeklendir"
+title: "Azure Container Service öğreticisi - Uygulamayı Ölçeklendirme"
+description: "Azure Container Service öğreticisi - Uygulamayı Ölçeklendirme"
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,36 +9,36 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a748e15abbc01f260349fba2678c03a40c4d7713
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Ölçek Kubernetes pod'ları ve Kubernetes altyapısı
+# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes pod’larını ve altyapısını ölçeklendirme
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Öğreticiler takip, Azure kapsayıcı Hizmeti'nde çalışan Kubernetes küme sahip olmanız ve Azure oylama uygulaması dağıtılır. 
+Öğreticileri takip ediyorsanız, Azure Container Service’te çalışan bir Kubernetes kümesine sahipsinizdir ve Azure Voting uygulamasını dağıtmışsınızdır. 
 
-Bu öğreticide parçası beş yedi, uygulama pod'ları ölçeğini ve pod otomatik ölçeklendirmeyi deneyin. Ayrıca iş yüklerini barındırmak için kümenin kapasite değiştirmek için Azure VM Aracısı düğüm sayısının ölçeğini öğrenin. Tamamlanan görevler aşağıdakileri içerir:
+Yedi öğreticinin beşinci parçası olan bu öğreticide, uygulamada pod’ları ölçeklendirirsiniz ve otomatik pod ölçeklendirmeyi denersiniz. Ayrıca, barındırılan iş yükleri için kümenin kapasitesini değiştirmek üzere Azure VM aracı düğümlerinin sayısını ölçeklendirmeyi de öğrenirsiniz. Tamamlanan görevler şunları içerir:
 
 > [!div class="checklist"]
-> * Kubernetes pod'ları el ile ölçeklendirme
-> * Otomatik ölçeklendirme uygulaması ön ucu çalıştıran pod'ları yapılandırma
-> * Kubernetes Azure Aracısı düğümleri ölçeklendirme
+> * Kubernetes pod’larını el ile ölçeklendirme
+> * Uygulama ön ucunda çalışan Otomatik pod ölçeklendirmeyi yapılandırma
+> * Kubernetes Azure aracı düğümlerini ölçeklendirme
 
-Sonraki öğreticilerde, Azure oy uygulama güncelleştirilir ve Kubernetes küme izlemek için Operations Management Suite yapılandırılmış.
+Sonraki öğreticilerde Azure Vote uygulaması güncelleştirilir ve Operations Management Suite, Kubernetes kümesini izlemek için yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine karşıya bu görüntü ve oluşturulan Kubernetes küme paketlenmiştir. Uygulama sonra Kubernetes kümede çalıştırıldı. 
+Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi, bu görüntü Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu. Ardından uygulama Kubernetes kümesinde çalıştırıldı. 
 
-Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md). 
+Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma](./container-service-tutorial-kubernetes-prepare-app.md) konusuna dönün. 
 
-## <a name="manually-scale-pods"></a>Pod'ları el ile ölçeklendirin
+## <a name="manually-scale-pods"></a>Pod’ları el ile ölçeklendirme
 
-Bu nedenle şimdiye kadar Azure oy ön uç ve Redis örnek silinmiş dağıtıldı, her tek bir çoğaltma ile. Doğrulamak için çalıştırın [kubectl almak](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.
+Şu ana kadar hem Azure Vote ön ucu hem de Redis örneği tek bir çoğaltma dağıtıldı. Doğrulamak [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu çalıştırın.
 
 ```azurecli-interactive
 kubectl get pods
@@ -52,13 +52,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-El ile pod'ları içinde sayısını değiştirme `azure-vote-front` dağıtım kullanarak [kubectl ölçek](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) komutu. Bu örnek 5 sayısını artırır.
+[kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) komutunu kullanarak `azure-vote-front` dağıtımında pod’ların sayısını el ile değiştirin. Bu örnek, sayısı 5’e yükseltir.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Çalıştırma [kubectl pod'ları alma](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) Kubernetes pod'ları oluşturmakta olduğunu doğrulayın. Bir dakika veya bunu sonra ek pod'ları çalıştırıyorsanız:
+[kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu çalıştırarak Kubernetes’in pod’ları oluşturduğunu doğrulayın. Yaklaşık bir dakika sonra ek pod’lar çalışır:
 
 ```azurecli-interactive
 kubectl get pods
@@ -76,11 +76,11 @@ azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
 azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
-## <a name="autoscale-pods"></a>Otomatik ölçeklendirme pod'ları
+## <a name="autoscale-pods"></a>Pod’ları otomatik ölçeklendirme
 
-Kubernetes destekleyen [yatay pod otomatik ölçeklendirmeyi](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) ayarlamak için pod'ları CPU kullanımına bağlı olarak bir dağıtımda sayısı veya diğer ölçümleri seçin. 
+Kubernetes, bir dağıtımdaki pod’ların sayısını CPU kullanımı ve diğer seçili ölçümleri temel alarak ayarlamak için [yatay pod otomatik ölçeklendirmeyi](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) destekler. 
 
-Autoscaler kullanmak için pod'ları CPU istekleri ve tanımlanan sınırları olması gerekir. İçinde `azure-vote-front` dağıtım, ön uç kapsayıcı 0,5 sınırına sahip istekleri 0,25 CPU CPU. Ayarları gibi görünür:
+Otomatik ölçeklendiriciyi kullanmak için pod’larınızın CPU istekleri olmalı ve sınırları tanımlanmış olmalıdır. `azure-vote-front` dağıtımında, ön uç kapsayıcısı 0,5 sınırlı, 0,25 CPU kullanımı ister. Ayarları şöyle görünür:
 
 ```YAML
 resources:
@@ -90,14 +90,14 @@ resources:
      cpu: 500m
 ```
 
-Aşağıdaki örnek kullanır [kubectl otomatik ölçeklendirme](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) pod'ları içinde sayısı için otomatik ölçeklendirme komutu `azure-vote-front` dağıtım. Burada, CPU kullanımı % 50 aşarsa, en fazla 10 için pod'ları autoscaler artırır.
+Aşağıdaki örnek, `azure-vote-front` dağıtımındaki pod’ların sayısını otomatik olarak ölçeklendirmek için [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) komutunu kullanır. Burada CPU kullanımı %50’yi aşarsa, otomatik ölçeklendirici, pod’ların sayısını üst sınır olan 10’a yükseltir.
 
 
 ```azurecli-interactive
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Autoscaler durumunu görmek için aşağıdaki komutu çalıştırın:
+Otomatik ölçeklendiricinin durumunu görmek için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 kubectl get hpa
@@ -110,19 +110,19 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Azure oy uygulama üzerinde minimum yük ile birkaç dakika sonra pod çoğaltmaların sayısı 3'e otomatik olarak azaltır.
+Birkaç dakika sonra Azure Vote uygulamasında en az yük ile, pod çoğaltmalarının sayısı otomatik olarak 3’e azalır.
 
 ## <a name="scale-the-agents"></a>Aracıları ölçeklendirme
 
-Önceki öğreticide varsayılan komutlarını kullanarak Kubernetes kümenize oluşturduysanız, üç Aracısı düğüm yok. Daha fazla veya daha az sayıda kapsayıcı iş yükleri kümenizde düşünüyorsanız, aracı sayısı el ile ayarlayabilirsiniz. Kullanım [az acs ölçeklendirme](/cli/azure/acs#scale) komut ve aracılarla sayısını belirtin `--new-agent-count` parametresi.
+Önceki öğreticide Kubernetes kümenizi varsayılan komutları kullanarak oluşturduysanız, burada üç aracı düğümü bulunur. Kümenizde daha fazla veya daha az kapsayıcı iş yükü planlıyorsanız, aracı sayısını el ile ayarlayabilirsiniz. [az acs scale](/cli/azure/acs#az_acs_scale) komutunu kullanın ve `--new-agent-count` parametresi ile aracı sayısını belirtin.
 
-Aşağıdaki örnek 4 adlı Kubernetes kümedeki Aracısı düğüm sayısını artırır *myK8sCluster*. Komut birkaç tamamlamak için dakika sürer.
+Aşağıdaki örnek, *myK8sCluster* adlı Kubernetes kümesinde aracı düğümlerinin sayısını 4’e yükseltir. Komutun tamamlanması birkaç dakika sürer.
 
 ```azurecli-interactive
 az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-count 4
 ```
 
-Komut çıktısı aracı sayısı düğümleri değerinde gösterir `agentPoolProfiles:count`:
+Komut çıktısı, aracı düğüm sayısını `agentPoolProfiles:count` değerinde gösterir:
 
 ```azurecli
 {
@@ -141,15 +141,15 @@ Komut çıktısı aracı sayısı düğümleri değerinde gösterir `agentPoolPr
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, farklı ölçekleme özelliklerini Kubernetes kümenizdeki kullanılır. Görevleri dahil ele:
+Bu öğreticide, Kubernetes kümenizde farklı ölçeklendirme özellikleri kullandınız. Dahil edilen görevler:
 
 > [!div class="checklist"]
-> * Kubernetes pod'ları el ile ölçeklendirme
-> * Otomatik ölçeklendirme uygulaması ön ucu çalıştıran pod'ları yapılandırma
-> * Kubernetes Azure Aracısı düğümleri ölçeklendirme
+> * Kubernetes pod’larını el ile ölçeklendirme
+> * Uygulama ön ucunda çalışan Otomatik pod ölçeklendirmeyi yapılandırma
+> * Kubernetes Azure aracı düğümlerini ölçeklendirme
 
-Kubernetes uygulamada güncelleştirmek hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Kubernetes’te uygulama güncelleştirme hakkında daha fazla bilgi için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Bir uygulamada Kubernetes güncelleştir](./container-service-tutorial-kubernetes-app-update.md)
+> [Kubernetes'te uygulama güncelleştirme](./container-service-tutorial-kubernetes-app-update.md)
 

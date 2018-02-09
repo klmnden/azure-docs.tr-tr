@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: davidmu
-ms.openlocfilehash: b94e879de8136eeaddbf2a277d9634025dc99bc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5d26a603eb1bbe3ce7f8f95b19ba816c32222c2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="url-path-based-routing-overview"></a>URL Yolu Tabanlı Yönlendirmeye genel bakış
 
@@ -30,7 +30,7 @@ Aşağıdaki örnekte, Application Gateway contoso.com için VideoServerPool, Im
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-http://contoso.com/video* istekleri VideoServerPool'a ve http://contoso.com/images* istekleri ImageServerPool'a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
+http://contoso.com/video/* istekleri VideoServerPool'a ve http://contoso.com/images/* istekleri ImageServerPool'a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
 
 > [!IMPORTANT]
 > Kurallar, portalda listelendikleri sırayla işlenir. Temel dinleyiciyi yapılandırmadan önce çok siteli dinleyicileri yapılandırmanız önerilir.  Bu işlem, trafiğin doğru arka uca yönlendirilmesini güvence altına alır. Temel dinleyici listede ilk sıradaysa ve gelen bir istekle eşleşiyorsa, o dinleyici tarafından işlenir.

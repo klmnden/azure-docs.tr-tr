@@ -9,6 +9,10 @@
 ## İşlemi duraklatma ve sürdürme
 ### [Portal](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## Hesaplamayı ölçeklendirme
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Öğreticiler
@@ -113,8 +117,6 @@
 ### [İş yükünüzü çözümleme](analyze-your-workload.md)
 
 ## Ölçeği genişletme
-### [İşlemleri yönetme - portal](sql-data-warehouse-manage-compute-portal.md)
-### [İşlemleri yönetme - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [İşlemleri yönetme - REST API’si](sql-data-warehouse-manage-compute-rest-api.md)
 ### [İşlem düzeylerini otomatik hale getirme](manage-compute-with-azure-functions.md)
 

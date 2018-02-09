@@ -114,7 +114,7 @@ Bu bölümde, oluşturduğunuz cihaz uygulamayı değiştirmek [IOT Hub ile çal
 
 ## <a name="add-queues-to-your-iot-hub-and-route-messages-to-them"></a>IOT hub ve rota iletileri bunlara sıraları ekleyin
 
-Bu bölümde, Service Bus kuyruğuna ve bir depolama hesabı oluşturmak, IOT hub'ınıza bağlanın ve ileti ve tüm iletileri depolama hesabı, bir özellik varlığına dayalı kuyruğa ileti göndermek için IOT hub'ınızı yapılandırma. Hizmet veri yolu sıralardan işlem iletileri hakkında daha fazla bilgi için bkz: [kuyruklarla çalışmaya başlama] [ lnk-sb-queues-node] ve depolama yönetmek için bkz: nasıl [Azure Storage ile çalışmaya başlama] [Azure depolama].
+Bu bölümde, Service Bus kuyruğuna ve bir depolama hesabı oluşturmak, IOT hub'ınıza bağlanın ve ileti ve tüm iletileri depolama hesabı, bir özellik varlığına dayalı kuyruğa ileti göndermek için IOT hub'ınızı yapılandırma. Hizmet veri yolu sıralardan işlem iletileri hakkında daha fazla bilgi için bkz: [kuyruklarla çalışmaya başlama][lnk-sb-queues-node] ve depolama yönetmek için bkz: nasıl [Azure Storage ile çalışmaya başlama][Azure Storage].
 
 1. Service Bus kuyruğuna açıklandığı gibi oluşturmak [kuyruklarla çalışmaya başlama][lnk-sb-queues-node]. Ad alanı ve sıra adını not edin.
 

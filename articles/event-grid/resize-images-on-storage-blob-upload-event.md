@@ -1,6 +1,6 @@
 ---
-title: "Görüntüleri yeniden boyutlandırma otomatikleştirmek için kullanım Azure olay kılavuz karşıya | Microsoft Docs"
-description: "Azure olay kılavuz, Azure Storage blobu yüklemeler üzerinde tetikleyebilir. Yeniden boyutlandırma gibi başka hizmetleri, Azure işlevleri ve diğer geliştirmeler Azure depolama birimine yüklenen görüntü dosyaları göndermek için bunu kullanabilirsiniz."
+title: "Karşıya yüklenen görüntülerin yeniden boyutlandırılmasını otomatikleştirmek için Azure Event Grid kullanma | Microsoft Docs"
+description: "Azure Event Grid, Azure Depolama’da blob yüklemelerini tetikleyebilir. Bu hizmeti kullanarak, Azure Depolama’ya yüklenmiş görüntü dosyalarını, yeniden boyutlandırma ve diğer iyileştirmeler için Azure İşlevleri gibi diğer hizmetlere gönderebilirsiniz."
 services: event-grid
 author: ggailey777
 manager: cfowler
@@ -12,50 +12,50 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Olay kılavuzu kullanarak karşıya yüklenen görüntüleri yeniden boyutlandırma otomatikleştirme
+# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
-[Azure olay kılavuz](overview.md) bulut için bir olay hizmetidir. Olay kılavuz, Azure Hizmetleri veya üçüncü taraf kaynakları tarafından başlatılan olayları abonelikleri oluşturmanıza olanak sağlar.  
+[Azure Event Grid](overview.md), bulut için bir olay oluşturma hizmetidir. Event Grid, Azure hizmetleri veya üçüncü taraf kaynaklar tarafından başlatılan olaylara abonelikler oluşturmanızı sağlar.  
 
-Bu öğretici iki depolama eğitim serileri parçasıdır. Bunu genişletir [önceki depolama öğretici] [ previous-tutorial] sunucusuz otomatik küçük resim oluşturma Azure olay kılavuz ve Azure işlevleri kullanarak eklemek için. Olay kılavuz sağlar [Azure işlevleri](..\azure-functions\functions-overview.md) yanıt verecek şekilde [Azure Blob Depolama](..\storage\blobs\storage-blobs-introduction.md) olayları ve karşıya yüklenen görüntülerin küçük resimleri oluşturur. Bir olay aboneliği karşı Blob oluşturulan depolama olayı oluşturun. Belirli bir Blob Depolama kapsayıcıya bir blob eklendiğinde işlevi uç nokta adı verilir. İşlev bağlama olay kılavuzdan geçirilen verileri blob erişmek ve küçük resim oluşturmak için kullanılır. 
+Bu öğretici, Depolama öğreticileri serisinin ikinci bölümüdür. [Önceki Depolama öğreticisine][previous-tutorial], Azure Event Grid ve Azure İşlevleri’ni kullanarak sunucusuz otomatik küçük resim oluşturma işlemini ekler. Event Grid, [Azure İşlevleri](..\azure-functions\functions-overview.md)’nin [Azure Blob depolama](..\storage\blobs\storage-blobs-introduction.md) olaylarına yanıt vermesini ve karşıya yüklenen görüntülerin küçük resimlerini oluşturmasını sağlar. Blob depolama oluşturma olayına karşı bir olay aboneliği oluşturulur. Belirli bir Blob depolama kapsayıcısına blob eklendiğinde bir işlev uç noktası çağrılır. Event Grid’den işlev bağlamaya geçirilen veriler, bloba erişmek ve küçük resim görüntüsünü oluşturmak için kullanılır. 
 
-Var olan bir görüntüyü karşıya yükleme uygulamaya yeniden boyutlandırma işlevini eklemek için Azure CLI ve Azure Portalı'nı kullanın.
+Var olan bir görüntü yükleme uygulamasına yeniden boyutlandırma işlevini eklemek için Azure CLI ve Azure portalını kullanabilirsiniz.
 
-![Edge tarayıcısında yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Edge tarayıcısında web uygulaması yayımlama](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Genel Azure depolama hesabı oluşturma
-> * Azure işlevleri kullanarak sunucusuz kod dağıtma
-> * Olay kılavuzunda bir Blob Depolama olay aboneliği oluşturma
+> * Genel bir Azure Depolama hesabı oluşturma
+> * Azure İşlevleri’ni kullanarak sunucusuz kod dağıtma
+> * Event Grid’de bir Blob depolama olayı aboneliği oluşturma
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
 
-+ Önceki Blob Depolama öğretici tamamlamış olmanız gerekir: [görüntü verileri Azure Storage ile bulutta yükleme][previous-tutorial]. 
++ Önceki Blob depolama öğreticisini tamamlamış olmanız gerekir: [Azure Storage ile görüntü verilerini buluta yükleme][previous-tutorial]. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu konuda, Azure CLI Sürüm 2.0.14 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0.14 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 Cloud Shell kullanmıyorsanız önce `az login` kullanarak oturum açmanız gerekir.
 
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
-Azure işlevleri, genel depolama hesabı gerektirir. Kullanarak kaynak grubunda ayrı genel depolama hesabı oluşturmak [az depolama hesabı oluşturma](/cli/azure/storage/account#create) komutu.
+Azure İşlevleri, genel bir depolama hesabı gerektirir. Kaynak grubunda [az storage account create](/cli/azure/storage/account#az_storage_account_create) komutunu kullanarak ayrı bir genel depolama hesabı oluşturun.
 
 Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. 
 
-Aşağıdaki komutta, kendi gördüğünüz genel depolama hesabı için genel olarak benzersiz bir ad yerine `<general_storage_account>` yer tutucu. 
+Aşağıdaki komutta, genel depolama hesabına ilişkin kendi genel benzersiz adınızı `<general_storage_account>` yer tutucusunu gördüğünüz yere yerleştirin. 
 
 ```azurecli-interactive
 az storage account create --name <general_storage_account> \
@@ -65,20 +65,20 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma  
 
-İşlevinizi yürütülmesi barındırmak için bir işlev uygulaması olması gerekir. İşlev uygulaması, işlev kodunuzun sunucusuz yürütülmesine yönelik bir ortam sağlar. [az functionapp create](/cli/azure/functionapp#create) komutunu kullanarak bir işlev uygulaması oluşturun. 
+İşlevinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun sunucusuz yürütülmesine yönelik bir ortam sağlar. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) komutunu kullanarak bir işlev uygulaması oluşturun. 
 
-Aşağıdaki komutta, gördüğünüz kendi benzersiz işlevi uygulama adı yerine `<function_app>` yer tutucu. `<function_app>`, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Bu durumda, `<general_storage_account>` oluşturduğunuz genel depolama hesabının adıdır.  
+Aşağıdaki komutta kendi benzersiz işlev uygulamanızın adını `<function_app>` yer tutucusunun yerine ekleyin. `<function_app>`, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Bu durumda `<general_storage_account>`, oluşturduğunuz genel depolama hesabının adıdır.  
 
 ```azurecli-interactive
 az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
 --resource-group myResourceGroup --consumption-plan-location westcentralus
 ```
 
-Şimdi, blob depolama alanına bağlanmak için işlev uygulaması yapılandırmanız gerekir. 
+Şimdi blob depolamaya bağlanmak üzere işlev uygulamasını yapılandırmanız gerekir. 
 
-## <a name="configure-the-function-app"></a>İşlev uygulamayı yapılandırma
+## <a name="configure-the-function-app"></a>İşlev uygulamasını yapılandırma
 
-İşlevi için blob depolama hesabına bağlanmak için bağlantı dizesi gerekiyor. Bu durumda, `<blob_storage_account>` önceki öğreticide oluşturduğunuz Blob Depolama hesabının adıdır. Bağlantı dizesi alma [az depolama hesabı Göster bağlantı dizesi](/cli/azure/storage/account#show-connection-string) komutu. Küçük resim kapsayıcı adı da ayarlanmalıdır `thumbs`. Bu uygulama ayarları işlevi uygulamayla eklemek [az functionapp config appsettings kümesi](/cli/azure/functionapp/config/appsettings#set) komutu.
+İşlevin blob depolama hesabına bağlanması için bağlantı dizesi gerekir. Bu örnekte `<blob_storage_account>`, önceki öğreticide oluşturduğunuz Blob depolama hesabının adıdır. [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string) komutu ile bağlantı dizesini alın. Küçük resim görüntü kapsayıcısının adı da `thumbs` olarak ayarlanmalıdır. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) komutu ile bu uygulama ayarlarını işlev uygulamasına ekleyin.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -91,13 +91,13 @@ az functionapp config appsettings set --name <function_app> \
 myContainerName=thumbs
 ```
 
-Bu gibi durumlarda, işlev kodunu projeyi şimdi bu işlev uygulaması dağıtabilirsiniz.
+Bu işlev uygulamasına bir işlev kodu projesi dağıtabilirsiniz.
 
-## <a name="deploy-the-function-code"></a>İşlev kodu dağıtma 
+## <a name="deploy-the-function-code"></a>İşlev kodunu dağıtma 
 
-Görüntüyü yeniden boyutlandırma gerçekleştirir C# işlevi bu kullanılabilir [örnek GitHub deposunu](https://github.com/Azure-Samples/function-image-upload-resize). Bu işlevler kodunu projeyi kullanarak işlev uygulaması dağıtma [az functionapp dağıtım kaynağı config](/cli/azure/functionapp/deployment/source#config) komutu. 
+Görüntüyü yeniden boyutlandıran C# işlevi, bu [örnek GitHub deposunda](https://github.com/Azure-Samples/function-image-upload-resize) mevcuttur. [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config) komutunu kullanarak bu İşlevler kod projesini işlev uygulamasına dağıtın. 
 
-Aşağıdaki komutta `<function_app>` önceki komut dosyasında oluşturulan aynı işlevi uygulamadır.
+Aşağıdaki komutta `<function_app>`, önceki betikte oluşturduğunuz işlev uygulamasının aynısıdır.
 
 ```azurecli-interactive
 az functionapp deployment source config --name <function_app> \
@@ -105,67 +105,69 @@ az functionapp deployment source config --name <function_app> \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-Görüntüyü yeniden boyutlandırma işlevi, bir Blob oluşturulan olay için olay abonelik tarafından tetiklenir. Tetikleyici geçirilen verileri karşıya yüklenen resim Blob depolama alanından elde etmek için giriş bağlaması sırayla geçirilir blob URL'sini içerir. İşlevi bir küçük resim oluşturur ve elde edilen akış ayrı bir Blob Depolama kapsayıcısını yazar. Bu işlev hakkında daha fazla bilgi için bkz: [örnek depo readme dosyasında](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
- 
-İşlev proje kodunu doğrudan ortak örnek depodan dağıtılır. Azure işlevleri için dağıtım seçenekleri hakkında daha fazla bilgi için bkz: [Azure işlevleri için sürekli dağıtım](../azure-functions/functions-continuous-deployment.md).
+Görüntüyü yeniden boyutlandırma işlevi, Blob ile oluşturulan bir olaya olay aboneliği ile tetiklenir. Tetikleyiciye geçirilen veriler, Blob depolama alanından karşıya yüklenen görüntüyü almak için giriş bağlamasına geçirilen blobun URL’sini içerir. İşlev bir küçük resim görüntüsü oluşturur ve elde edilen akışı Blob depolama içinde ayrı bir kapsayıcıya yazar. Bu işlev hakkında daha fazla bilgi için [örnek depodaki readme dosyasına](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md) bakın.
+
+Bu proje, tetikleyici türü olarak `EventGridTrigger` kullanır. Genel HTTP tetikleyicileri yerine Event Grid tetikleyicisinin kullanılması önerilir. Event Grid, Event Grid İşlevi tetikleyicilerini otomatik olarak doğrular. Genel HTTP tetikleyicileri ile [doğrulama yanıtını](security-authentication.md#webhook-event-delivery) uygulamanız gerekir.
+
+İşlev proje kodu, doğrudan ortak örnek depodan dağıtılır. Azure İşlevleri’ne ilişkin dağıtım seçenekleri hakkında daha fazla bilgi için bkz. [Azure İşlevleri için sürekli dağıtım](../azure-functions/functions-continuous-deployment.md).
 
 ## <a name="create-your-event-subscription"></a>Olay aboneliği oluşturma
 
-Sağlayıcı tarafından oluşturulan olayları istediğiniz belirli bir uç noktası için gönderilen bir olay aboneliği gösterir. Bu durumda, uç nokta işlevi tarafından sunulur. Bir olay abonelik Azure portalında işlevinizi oluşturmak için aşağıdaki adımları kullanın: 
+Olay aboneliği, belirli bir uç noktaya gönderilmesini istediğiniz, sağlayıcı tarafından oluşturulmuş olayları gösterir. Bu örnekte uç nokta, işleviniz tarafından kullanıma sunulur. Azure portalında işlevinizden bir olay aboneliği oluşturmak için aşağıdaki adımları kullanın: 
 
-1. İçinde [Azure portal](https://portal.azure.com), tüm hizmetler genişletmek için sol alt oku yazın tıklatın `functions` içinde **filtre** alan ve ardından **işlev uygulamalarının**. 
+1. [Azure portalında](https://portal.azure.com), sol altta bulunan oka tıklayarak tüm hizmetleri genişletin, **Filtre** alanına `functions` yazın ve **İşlev Uygulamaları**'nı seçin. 
 
-    ![Azure portalında işlevi uygulamalara göz atın](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    ![Azure portalında İşlev Uygulamalarına göz atma](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-2. İşlev uygulaması'nı genişletin, seçin **imageresizerfunc** işlev ve ardından **ekleme olay kılavuz abonelik**.
+2. İşlev uygulamanızı genişletin, **imageresizerfunc** işlevini ve ardından **Event Grid aboneliği ekle**’yi seçin.
 
-    ![Azure portalında işlevi uygulamalara göz atın](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    ![Azure portalında İşlev Uygulamalarına göz atma](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
-3. Tabloda belirtildiği gibi olay abonelik ayarlarını kullanın.
+3. Tabloda belirtilen olay aboneliği ayarlarını kullanın.
 
     ![Azure portalında işlevden olay aboneliği oluşturma](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Ad** | imageresizersub | Yeni olay abonelik tanımlayan ad. | 
-    | **Konu Türü** |  Depolama hesapları | Depolama hesabı Olay sağlayıcısı seçin. | 
-    | **Abonelik** | Aboneliğiniz | Varsayılan olarak, geçerli aboneliğiniz seçilmelidir.   |
-    | **Kaynak grubu** | myResourceGroup | Seçin **var olanı kullan** ve bu konudaki şimdiye kaynak grubunu seçin.  |
-    | **Örneği** |  `<blob_storage_account>` |  Oluşturduğunuz Blob Depolama hesabı seçin. |
-    | **Olay türleri** | Oluşturulan blob | Tüm türleri dışında işaretini **oluşturulan Blob**. Yalnızca olay türlerini `Microsoft.Storage.BlobCreated` işlevine geçirilen.| 
-    | **Abone uç noktası** | otomatik olarak oluşturulur | Sizin için oluşturulan uç nokta URL'sini kullanın. | 
-    | **Önek filtresi** | / blobServices/varsayılan/kapsayıcıları/görüntüleri/BLOB'lar / | Üzerinde yalnızca depolama olayları filtreler **görüntüleri** kapsayıcı.| 
+    | **Ad** | imageresizersub | Yeni olay aboneliğinizi tanımlayan ad. | 
+    | **Konu türü** |  Depolama hesapları | Depolama hesabı olay sağlayıcısını seçin. | 
+    | **Abonelik** | Azure aboneliğiniz | Varsayılan olarak, geçerli Azure aboneliğiniz seçilmelidir.   |
+    | **Kaynak grubu** | myResourceGroup | **Var olanı kullan**’ı seçin ve bu öğreticide kullandığınız kaynak grubunu belirleyin.  |
+    | **Örnek** |  `<blob_storage_account>` |  Oluşturduğunuz Blob depolama hesabını seçin. |
+    | **Olay türleri** | Oluşturulan blob | **Oluşturulan blob** dışındaki tüm türlerin işaretini kaldırın. Yalnızca `Microsoft.Storage.BlobCreated` türündeki olaylar işleve geçirilir.| 
+    | **Abone uç noktası** | otomatik oluşturulmuş | Sizin için oluşturulan uç nokta URL'sini kullanın. | 
+    | **Önek filtresi** | /blobServices/default/containers/images/blobs/ | Depolama olaylarını yalnızca **images** kapsayıcısı üzerindeki olaylarla filtreler.| 
 
-4. Tıklatın **oluşturma** olay aboneliği eklemek için. Bu tetikleyen bir olay aboneliği oluşturur **imageresizerfunc** için blob eklendiğinde **görüntüleri** kapsayıcı. Yeniden boyutlandırılan görüntüleri eklenir **başparmak** kapsayıcı.
+4. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu işlem, **images** kapsayıcısına bir blob eklendiğinde **imageresizerfunc** olayını tetikleyen bir olay aboneliği oluşturur. Yeniden boyutlandırılan görüntüler, **thumbs** kapsayıcısına eklenir.
 
-Arka uç hizmetlerini yapılandırılır, örnek web uygulaması görüntüyü yeniden boyutlandırma işlevselliğini test etmek. 
+Arka uç hizmetleri yapılandırıldıktan sonra, görüntü yeniden boyutlandırma işlevini örnek web uygulamasında test edin. 
 
 ## <a name="test-the-sample-app"></a>Örnek uygulamayı test etme
 
-Web uygulaması yeniden boyutlandırma görüntü test etmek için yayımlanan uygulamanızın URL'ye gidin. Web uygulamasının varsayılan URL'si `https://<web_app>.azurewebsites.net` şeklindedir.
+Web uygulamasında görüntü yeniden boyutlandırmayı test etmek için, yayımlanan uygulamanızın URL'sine gidin. Web uygulamasının varsayılan URL'si `https://<web_app>.azurewebsites.net` şeklindedir.
 
-Tıklatın **karşıya fotoğraf** bölgesini seçin ve bir dosyayı karşıya yüklemek için. Fotoğraf bu bölgeye sürükleyebilirsiniz. 
+**Karşıya fotoğraf yükle** bölgesine tıklayarak bir dosyayı seçip karşıya yükleyin. Ayrıca bu bölgeye fotoğraf sürükleyebilirsiniz. 
 
-Karşıya yüklenen görüntü kaybolur sonra karşıya yüklenen görüntü kopyası görüntülendiğini fark **küçük resimleri oluşturulan** Karusel. Bu görüntü, işlev tarafından yeniden boyutlandırılabilir, başparmak kapsayıcıya eklendi ve web istemcisi tarafından indirilir. 
+Karşıya yüklenen görüntü kaybolduktan sonra **Oluşturulan küçük resimler** döngüsünde karşıya yüklenen görüntünün bir kopyasının gösterildiğine dikkat edin. Bu görüntü, işlev tarafından yeniden boyutlandırılmış, thumbs kapsayıcısına eklenmiş ve web istemcisi tarafından indirilmiştir. 
 
-![Edge tarayıcısında yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Edge tarayıcısında web uygulaması yayımlama](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Genel Azure depolama hesabı oluşturma
-> * Azure işlevleri kullanarak sunucusuz kod dağıtma
-> * Olay kılavuzunda bir Blob Depolama olay aboneliği oluşturma
+> * Genel bir Azure Depolama hesabı oluşturma
+> * Azure İşlevleri’ni kullanarak sunucusuz kod dağıtma
+> * Event Grid’de bir Blob depolama olayı aboneliği oluşturma
 
-Güvenli Depolama hesabı erişim öğrenmek için depolama öğretici seri üç kısmına ilerleyin.
+Depolama hesabına erişimin güvenliğini sağlama hakkında bilgi almak için Depolama öğreticisi serisinin üçüncü bölümüne geçin.
 
 > [!div class="nextstepaction"]
-> [Bulut uygulamaları verilere güvenli erişim](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Bulutta uygulama verilerine erişimin güvenliğini sağlama](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 
-+ Olay kılavuz hakkında daha fazla bilgi için bkz: [Azure olay kılavuzuna giriş](overview.md). 
-+ Azure işlevleri özellikleri başka bir öğretici denemek için bkz: [Azure Logic Apps ile tümleşen bir işlev oluşturun](..\azure-functions\functions-twitter-email.md). 
++ Event Grid hakkında daha fazla bilgi için bkz. [Azure Event Grid’e giriş](overview.md). 
++ Azure İşlevleri’ni ön plana çıkaran başka bir öğretici denemek için bkz. [Azure Logic Apps ile tümleşen işlev oluşturma](..\azure-functions\functions-twitter-email.md). 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Azure kaynakları için performans verilerini veya bir zamanlamayı temel alan bir Otomatik Ölçeklendirme Ayarı oluşturma
 
@@ -35,11 +35,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 [Azure Portal](https://portal.azure.com/)’da oturum açın.
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Web Uygulaması ve App Service Planı oluşturma
-Soldaki gezinti bölmesinden **Yeni** seçeneğine tıklayın
+1. Soldaki gezinti bölmesinden **Yeni** seçeneğine tıklayın.
 
-*Web Uygulaması* öğesini bulup seçin ve **Oluştur**’a tıklayın
+2. *Web Uygulaması* öğesini bulup seçin ve **Oluştur**’a tıklayın.
 
-*MyTestScaleWebApp* gibi bir uygulama adı seçin. *myResourceGroup' adlı yeni bir kaynak grubu oluşturup seçtiğiniz kaynak grubuna ekleyin.
+3. *MyTestScaleWebApp* gibi bir uygulama adı seçin. *myResourceGroup* adlı yeni bir kaynak grubu oluşturup seçtiğiniz kaynak grubuna ekleyin.
 
 Birkaç dakika içinde kaynaklarınız sağlanmalıdır. Bu öğreticinin geri kalanında Web Uygulamasını ve ilgili App Service Planını kullanın.
 

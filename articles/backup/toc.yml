@@ -183,6 +183,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Azure Backup Sunucusu sorunlarını giderme
           href: backup-azure-mabs-troubleshoot.md
+        - name: System Center Data Protection Manager sorunlarını giderme
+          href: backup-azure-scdpm-troubleshooting.md
         - name: Azure Backup Aracısı sorunlarını giderme
           href: backup-azure-mars-troubleshoot.md
 - name: Başvuru

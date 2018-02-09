@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı hizmeti Öğreticisi - güncelleştirme uygulaması"
-description: "Azure kapsayıcı hizmeti Öğreticisi - güncelleştirme uygulaması"
+title: "Azure Container Service öğreticisi - Uygulamayı güncelleştirme"
+description: "Azure Container Service öğreticisi - Uygulamayı güncelleştirme"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,47 +9,47 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5ecaa3a79270e29ac002e91065f7df4f7e8914e7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 34b08111863df99dc05a7b269464ce65a916a171
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="update-an-application-in-kubernetes"></a>Bir uygulamada Kubernetes güncelleştir
+# <a name="update-an-application-in-kubernetes"></a>Kubernetes'te uygulama güncelleştirme
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Bir uygulama içinde Kubernetes dağıtıldıktan sonra yeni kapsayıcı resim veya görüntü sürümü belirterek güncelleştirilebilir. Yalnızca bir kısmını dağıtım eşzamanlı olarak güncelleştirilebilmesi için Bunun yapılması, güncelleştirme hazırlanır. Hazırlanan bu güncelleştirme güncelleştirme sırasında çalışmaya devam uygulama sağlar. Bir dağıtım hatası oluşursa, ayrıca bir geri alma mekanizması sağlar. 
+Bir uygulama Kubernetes’te dağıtıldıktan sonra, yeni bir kapsayıcı görüntüsü veya görüntü sürümü belirtilerek güncelleştirilebilir. Bu yapıldığında, güncelleştirme, dağıtımın yalnızca bir kısmı eşzamanlı olarak güncelleştirilecek şekilde hazırlanılır. Hazırlanan bu güncelleştirme, uygulamanın güncelleştirme sırasında çalışmaya devam etmesini sağlar. Ayrıca bir dağıtım hatası oluşursa, bir geri alma mekanizması sağlar. 
 
-Bu öğreticide, bir parçası altı yedi, örnek Azure oylama uygulaması güncelleştirilir. Tamamlamanız görevler aşağıdakileri içerir:
+Bu yedi parçalı öğreticinin altıncı bölümünde, örnek Azure Vote uygulaması güncelleştirilir. Tamamladığınız görevler şunları içerir:
 
 > [!div class="checklist"]
-> * Ön uç uygulamasındaki kod güncelleştiriliyor
-> * Güncelleştirilmiş kapsayıcı görüntü oluşturma
-> * Azure kapsayıcı kayıt defterine kapsayıcı görüntü iletme
-> * Güncelleştirilmiş kapsayıcı görüntü dağıtma
+> * Ön uç uygulaması kodunu güncelleştirme
+> * Güncelleştirilmiş kapsayıcı görüntüsü oluşturma
+> * Kapsayıcı görüntüsünü Azure Container Registry’ye gönderme
+> * Güncelleştirilmiş kapsayıcı görüntüsünü dağıtma
 
-Sonraki öğreticilerde Kubernetes küme izlemek için Operations Management Suite yapılandırılır.
+Sonraki öğreticilerde Kubernetes kümesini izlemek için Operations Management Suite yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine yüklenen görüntü ve oluşturulan Kubernetes küme paketlenmiştir. Uygulama sonra Kubernetes kümede çalıştırıldı. 
+Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi, görüntü Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu. Ardından uygulama Kubernetes kümesinde çalıştırıldı. 
 
-Bir uygulama havuzu da uygulamanın kaynak koduna ve Bu öğreticide kullanılan önceden oluşturulmuş bir Docker Compose dosya içeren kopyalandı. Depodaki bir kopyasını oluşturduktan ve kopyalanan dizine dizinleri değiştirilmediğini doğrulayın. İç olan adlı bir dizin `azure-vote` ve adlı bir dosya `docker-compose.yml`.
+Bu öğreticide ayrıca uygulama kaynak kodunu içeren bir uygulama deposu da kopyalandı ve önceden oluşturulmuş bir Docker Compose dosyası kullanıldı. Deponun bir kopyasını oluşturduğunuzu ve dizinleri kopyalanmış dizine değiştirdiğinizi doğrulayın. İçeride `azure-vote` adlı bir dizin ve `docker-compose.yml` adlı bir dosya bulunuyor.
 
-Bu adımları tamamladıysanız henüz ve izlemek istediğiniz dönmek [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md). 
+Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma](./container-service-tutorial-kubernetes-prepare-app.md) konusuna dönün. 
 
 ## <a name="update-application"></a>Uygulamayı güncelleştirme
 
-Bu öğreticide, bir değişiklik uygulama ve Kubernetes kümeye dağıtılan güncelleştirilmiş uygulama yapılır. 
+Bu öğreticide, uygulamada bir değişiklik yapıldı ve güncelleştirilmiş uygulama Kubernetes kümesine dağıtıldı. 
 
-Uygulama kaynak koduna içinde bulunabilir `azure-vote` dizin. Açık `config_file.cfg` herhangi bir kod ya da metin düzenleyicisi ile dosya. Bu örnekte `vi` kullanılır.
+Uygulama kaynak kodu `azure-vote` dizininde bulunabilir. `config_file.cfg` dosyasını herhangi bir kod ya da metin düzenleyici ile açın. Bu örnekte `vi` kullanıldı.
 
 ```bash
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-Değerlerini değiştirmek `VOTE1VALUE` ve `VOTE2VALUE`ve ardından dosyayı kaydedin.
+`VOTE1VALUE` ile `VOTE2VALUE` değerlerini değiştirin ve sonra dosyayı kaydedin.
 
 ```bash
 # UI Configurations
@@ -59,11 +59,11 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Dosyasını kaydedin ve kapatın.
+Dosyayı kaydedin ve kapatın.
 
-## <a name="update-container-image"></a>Güncelleştirme kapsayıcı resmi
+## <a name="update-container-image"></a>Kapsayıcı görüntüsünü güncelleştirme
 
-Kullanım [docker compose'u](https://docs.docker.com/compose/) ön uç görüntüyü yeniden oluşturun ve güncelleştirilmiş uygulamayı çalıştırın. `--build` Bağımsız değişkeni uygulama görüntüsünü yeniden oluşturmak için Docker Compose'u istemek için kullanılır.
+Ön uç görüntüsünü yeniden oluşturmak için [docker-compose](https://docs.docker.com/compose/)’u kullanın ve güncelleştirilmiş uygulamayı çalıştırın. `--build` bağımsız değişkeni, uygulama görüntüsünü yeniden oluşturmak üzere Docker Compose'a komut vermek için kullanılır.
 
 ```bash
 docker-compose up --build -d
@@ -71,35 +71,35 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Uygulamayı yerel olarak test etme
 
-Güncelleştirilmiş uygulamayı görmek için http://localhost: 8080 için göz atın.
+Güncelleştirilmiş uygulamayı görüntülemek için http://localhost:8080 konumuna göz atın.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-## <a name="tag-and-push-images"></a>Etiket ve anında iletme görüntüleri
+## <a name="tag-and-push-images"></a>Görüntüleri etiketleme ve gönderme
 
-Etiket `azure-vote-front` kapsayıcı kayıt defteri loginServer görüntüsüyle. 
+`azure-vote-front` görüntüsünü, kapsayıcı kayıt defterinin loginServer’ıyla etiketleyin. 
 
-Oturum açma sunucu adıyla alma [az acr listesi](/cli/azure/acr#list) komutu.
+[az acr list](/cli/azure/acr#az_acr_list) komutuyla oturum açma sunucusu adını alın.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Kullanım [docker etiketi](https://docs.docker.com/engine/reference/commandline/tag/) görüntü etiketlemek için. Değiştir `<acrLoginServer>` Azure kapsayıcı kayıt defteri oturum açma sunucu adı veya ortak kayıt defteri ana bilgisayar adı. Ayrıca Image sürüm için güncelleştirilen bildirim `redis-v2`.
+Görüntüyü etiketlemek için [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)’i kullanın. `<acrLoginServer>` değerini, Azure Container Registry oturum açma sunucu adınız veya genel kayıt defteri ana bilgisayar adınız ile değiştirin. Ayrıca görüntü sürümünün `redis-v2` değerine güncelleştirildiğine dikkat edin.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Kullanım [docker itme](https://docs.docker.com/engine/reference/commandline/push/) kayıt defterine görüntüyü karşıya yüklemek için. Değiştir `<acrLoginServer>` , Azure kapsayıcı kayıt defteri oturum açma sunucu adına sahip.
+Görüntüyü kayıt defterinize yüklemek için [docker push](https://docs.docker.com/engine/reference/commandline/push/)’u kullanın. `<acrLoginServer>` değerini, Azure Container Registry oturum açma sunucu adınız ile değiştirin.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-## <a name="deploy-update-application"></a>Güncelleştirme uygulaması dağıtma
+## <a name="deploy-update-application"></a>Güncelleştirilmiş uygulamayı dağıtma
 
-En fazla çalışma süresi emin olmak için uygulama pod birden çok örneğini çalıştırması gerekir. Bu yapılandırma ile doğrulayın [kubectl alma pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.
+En uzun çalışma süresini sağlamak için uygulama podunun birden çok örneğinin çalıştırılması gerekir. Bu yapılandırmayı [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu ile doğrulayın.
 
 ```bash
 kubectl get pod
@@ -115,20 +115,20 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-Birden çok pod'ları azure oy ön görüntüsünü çalıştıran yoksa ölçeklendirme `azure-vote-front` dağıtım.
+azure-vote-front görüntüsünü çalıştıran birden çok podunuz yoksa, `azure-vote-front` dağıtımını ölçeklendirin.
 
 
 ```azurecli-interactive
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Uygulamayı güncelleştirmek için [kubectl kümesi](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) komutu. Güncelleştirme `<acrLoginServer>` kapsayıcı kaydınız oturum açma sunucusu veya ana bilgisayar adı.
+Uygulamayı güncelleştirmek için [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) komutunu kullanın. `<acrLoginServer>` öğesini, kapsayıcı kayıt defterinizin oturum açma sunucusu veya ana bilgisayar adıyla güncelleştirin.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Dağıtımını izlemek için kullanmak [kubectl alma pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu. Güncelleştirilmiş uygulamayı dağıtılan gibi pod'ları sonlandırıldı ve yeni kapsayıcı görüntüsü ile yeniden oluşturulacak.
+Dağıtımı izlemek için [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu kullanın. Güncelleştirilmiş uygulama dağıtıldığında, podlarınız sonlandırılır ve yeni kapsayıcı görüntüsüyle yeniden oluşturulur.
 
 ```azurecli-interactive
 kubectl get pod
@@ -146,27 +146,27 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 ## <a name="test-updated-application"></a>Güncelleştirilmiş uygulamayı test etme
 
-Dış IP adresi al `azure-vote-front` hizmet.
+`azure-vote-front` hizmetinin dış IP adresini alın.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front
 ```
 
-Güncelleştirilmiş uygulamayı görmek için IP adresine göz atın.
+Güncelleştirilmiş uygulamayı görüntülemek için IP adresine göz atın.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir uygulamanın güncelleştirilmiş ve bu güncelleştirmeyi Kubernetes kümeye alındı. Aşağıdaki görevler tamamlandı:
+Bu öğreticide, bir uygulamayı güncelleştirdiniz ve bu güncelleştirmeyi bir Kubernetes kümesine sundunuz. Şu görevler tamamlandı:
 
 > [!div class="checklist"]
-> * Ön uç uygulamasındaki kod güncelleştirildi
-> * Güncelleştirilmiş kapsayıcı görüntüyü oluşturuldu
-> * Azure kapsayıcı kayıt defterine kapsayıcı görüntü gönderilir
-> * Dağıtılan güncelleştirilmiş uygulama
+> * Ön uç uygulaması kodu güncelleştirildi
+> * Güncelleştirilmiş kapsayıcı görüntüsü oluşturuldu
+> * Kapsayıcı görüntüsü Azure Container Registry’ye gönderildi
+> * Güncelleştirilmiş uygulama dağıtıldı
 
-Operations Management Suite ile Kubernetes izleme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Operations Management Suite ile Kubernetes’in nasıl izlenileceği hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [OMS ile Kubernetes’i izleme](./container-service-tutorial-kubernetes-monitor.md)

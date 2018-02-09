@@ -13,14 +13,17 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 6265c6b72e37f5f25234c03080b2d5e6c5533cd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 37b984229a4be6c8f3ab337ea25820428922a466
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>SQL Server Integration Services paketlerini Azure'a dağıtma
 Bu öğretici, Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma zamanı (IR) sağlama adımlarını sunar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio’yu (SSMS) kullanarak Azure’da bu çalışma zamanına SQL Server Integration Services (SSIS) paketleri dağıtabilirsiniz. Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
+
+> [!NOTE]
+> Bu makale, Azure SSIS IR sağlamak için Azure PowerShell’i kullanır. Azure SSIS IR sağlamak amacıyla Data Factory Kullanıcı Arabirimi (UI) kullanmak için bkz. [Öğretici: Azure SSIS tümleştirme çalışma zamanı oluşturma](tutorial-create-azure-ssis-runtime-portal.md). 
 
 > [!div class="checklist"]
 > * Veri fabrikası oluşturma.
@@ -33,6 +36,7 @@ Bu öğretici, Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma z
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun. Azure-SSIS IR hakkında kavramsal bilgiler için bkz. [Azure SSIS tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md#azure-ssis-integration-runtime).
+
 
 ## <a name="prerequisites"></a>Ön koşullar
 - **Azure SQL Veritabanı sunucusu**. Henüz bir veritabanı sunucunuz yoksa, başlamadan önce Azure portalında bir tane oluşturun. Bu sunucu, SSIS Katalog veritabanını (SSISDB) barındırır. Veritabanı sunucusunu tümleştirme çalışma zamanı ile aynı Azure bölgesinde oluşturmanız önerilir. Bu yapılandırma, tümleştirme çalışma zamanının Azure bölgelerinden geçmeden SSISDB’ye yürütme günlüklerini yazmasına olanak tanır. 
@@ -206,7 +210,7 @@ Bu bölümdeki PowerShell betiği, bulutta SSIS paketlerini çalıştıran bir A
 
 > [!NOTE]
 > - Betik, SSIS Kataloğu veritabanını (SSISDB) hazırlamak için Azure SQL Veritabanına bağlanır. Betik ayrıca belirtilmişse sanal ağınıza ilişkin izin ve ayarları yapılandırır ve yeni Azure SSIS tümleştirme çalışma zamanı örneğini sanal ağa ekler.
-> - SSISDB barındırmak üzere SQL Veritabanı’nın bir örneğini sağladığınızda, SSIS için Azure Feature Pack ve Access Redistributable da yüklenir. Bu bileşenler, Excel ile Access dosyalarıyla ve yerleşik bileşenler tarafından desteklenen veri kaynaklarına ek olarak çeşitli Azure veri kaynaklarıyla bağlantı kurma olanağı sunar. Şimdilik SSIS için üçüncü taraf bileşenler (Attunity tarafından sağlanan Oracle ve Teradata bileşenleri ile SAP BI bileşenleri gibi Microsoft’un üçüncü taraf bileşenleri dahil) yükleyemezsiniz.
+> - Bir Azure-SSIS IR örneğini sağladığınızda, SSIS için Azure Feature Pack ve Access Redistributable da yüklenir. Bu bileşenler, Excel ile Access dosyalarıyla ve yerleşik bileşenler tarafından desteklenen veri kaynaklarına ek olarak çeşitli Azure veri kaynaklarıyla bağlantı kurma olanağı sunar. Şimdilik SSIS için üçüncü taraf bileşenler (Attunity tarafından sağlanan Oracle ve Teradata bileşenleri ile SAP BI bileşenleri gibi Microsoft’un üçüncü taraf bileşenleri dahil) yükleyemezsiniz.
 
 
 Azure SQL Veritabanında desteklenen **fiyatlandırma katmanı** listesi için bkz. [SQL Veritabanı kaynak sınırları](../sql-database/sql-database-resource-limits.md). 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Bağlayıcıların listesi
 Bağlayıcıların Swagger açıklaması tarafından tanımlanan tetikleyicilerin ve eylemlerin yanı sıra bağlayıcı sınırlarını bulmak için bkz. [Bağlayıcı ayrıntıları](/connectors/).
@@ -82,7 +82,7 @@ Enterprise Integration Pack (EIP), BizTalk Server topluluğu tarafından iyi bil
 | --- | --- | --- | --- |
 | [![API Simgesi][as2icon]<br/>**AS2</br> kodunu çözme**][as2decode] | [![API Simgesi][as2icon]<br/>**AS2</br> kodlama**][as2encode] | [![API Simgesi][x12icon]<br/>**EDIFACT</br> kodunu çözme**][EDIFACTdecode] | [![API Simgesi][x12icon]<br/>**EDIFACT</br> kodlama**][EDIFACTencode] |
 [![API Simgesi][flatfileicon]<br/>**Düz dosya</br> kodlama**][flatfiledoc] | [![API Simgesi][flatfiledecodeicon]<br/>**Düz dosya</br> kodunu çözme**][flatfiledecodedoc] | [![API Simgesi][integrationaccounticon]<br/>**Tümleştirme<br/>hesabı**][integrationaccountdoc] | [![API Simgesi][xmltransformicon]<br/>**Dönüştürme<br/>XML**][xmltransformdoc] |
-| [![API Simgesi][x12icon]<br/>**X12</br> kodunu çözme**][x12decode] | [![API Simgesi][x12icon]<br/>**X12</br> kodlama**][x12encode] | [![API Simgesi][xmlvalidateicon]<br/>**XML <br/>doğrulama**][xmlvalidatedoc] | |
+| [![API Simgesi][x12icon]<br/>**X12</br> kodunu çözme**][x12decode] | [![API Simgesi][x12icon]<br/>**X12</br> kodlama**][x12encode] | [![API Simgesi][xmlvalidateicon]<br/>**XML <br/>doğrulama**][xmlvalidatedoc] | [![API Icon][liquidicon]<br/>**Transform <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Kurumsal bağlayıcılar
 
@@ -189,6 +189,7 @@ Bağlayıcılarla ilgili olarak değinmediğimiz bir konu başlığı veya önem
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Enterprise integration EDIFACT kod çözme hakkında bilgi edinin"
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Enterprise integration EDIFACT kodlama hakkında bilgi edinin"
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Tümleştirme hesabınızda şemalar, haritalar, iş ortakları ve daha fazlasını arayın"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Liquid ile JSON dönüştürmeleri hakkında bilgi edinin"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Box’a bağlanın. Dosyalarınızı karşıya yükleyin, silin, listeleyin ve diğer işlemleri yapın"
@@ -328,3 +329,4 @@ Bağlayıcılarla ilgili olarak değinmediğimiz bir konu başlığı veya önem
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

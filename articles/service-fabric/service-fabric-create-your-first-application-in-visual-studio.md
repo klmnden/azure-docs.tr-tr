@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>İlk C# Service Fabric durum bilgisi olan reliable services uygulamanızı oluşturma
 
@@ -81,6 +81,17 @@ Küme hazır olduğunda SDK'da bulunan yerel küme sistem tepsisi yöneticisi uy
 Uygulama başlatıldığında, Visual Studio otomatik olarak **Tanılama Olay Görüntüleyicisi**'ni getirir. Bu görüntüleyicide hizmetlerinizin izleme çıktısını görürsünüz.
    
 ![Tanılama olayları görüntüleyicisi][5]
+
+>[!NOTE]
+>Olaylar, Tanılama Olay Görüntüleyicisi’nde otomatik olarak izlemeye başlamalıdır, ancak el ile yapılandırmanız gerektiği durumlarda önce **MyStatefulService** projesinde bulunan `ServiceEventSource.cs` dosyasını açın. `ServiceEventSource` sınıfının üstündeki `EventSource` özniteliğinin değerini kopyalayın. Aşağıdaki örnekte olay kaynağı `"MyCompany-MyApplication-MyStatefulService"` olarak adlandırılır. Bu, sizin durumunuzda farklılık gösterebilir.
+>
+>![Hizmet Olay Kaynağı Adını Bulma][service-event-source-name]
+>
+>Daha sonra, Tanılama Olay Görüntüleyicisi sekmesinde yer alan dişli simgesine tıklayarak **ETW Providers** iletişimini açın. Az önce kopyaladığınız olay kaynağının adını **ETW Sağlayıcıları** girdi kutusuna yapıştırın. Ardından **Uygula** düğmesine tıklayın. Bu, izleme olaylarını otomatik olarak başlatır.
+>
+>![Tanılama Olay Kaynağı Adını Ayarlama][setting-event-source-name]
+>
+>Artık olaylar Tanılama Olayları penceresinde görüntülenebilmelidir.
 
 Kullandığımız durum bilgisi olan hizmet şablonu, **MyStatefulService.cs**'nin `RunAsync` metodunda artan sayaç değerini gösterir.
 
@@ -146,3 +157,5 @@ Bu seçeneği kullanırsanız, uygulamayı bir sonraki çalıştırışınızda 
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png

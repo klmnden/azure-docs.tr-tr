@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric API Management ile tümleştirme | Microsoft Docs"
-description: "Hızlı bir şekilde Azure API Management ve Service Fabric nasıl başlayacağınızı öğrenin."
+title: "Azure Service Fabric'i API Management ile tümleştirme | Microsoft Docs"
+description: "Azure API Management ve Service Fabric ile çalışmaya hızla nasıl başlayabileceğinizi öğrenin."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,51 +12,51 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="deploy-api-management-with-service-fabric"></a>API Management Service Fabric ile dağıtma
-Bu öğretici dört serinin bir parçasıdır.  Azure API Management Service Fabric ile dağıtma Gelişmiş bir senaryodur.  API Management, arka uç Service Fabric hizmetleriniz için yönlendirme kurallarını zengin bir dizi API yayımlamak gereken yararlıdır. Bulut uygulamalarını genellikle kullanıcılar, aygıtlar veya diğer uygulamalar için tek bir giriş noktası sağlamak için bir ön uç ağ geçidi gerekir. Service Fabric bir ağ geçidi ASP.NET Core uygulama, olay hub'ları, IOT hub'ı veya Azure API Management gibi trafik giriş için tasarlanmış herhangi bir durum bilgisiz hizmeti olabilir. 
+# <a name="deploy-api-management-with-service-fabric"></a>API Management'ı Service Fabric ile dağıtma
+Bu öğretici, bir serinin dördüncü bölümüdür.  Azure API Management'ı Service Fabric'le dağıtmak ileri düzey bir senaryodur.  Arka uç Service Fabric hizmetleriniz için zengin bir yönlendirme kuralları kümesiyle API'ler yayımlamanız gerektiğinde, API Management yararlı olur. Bulut uygulamalarının normalde kullanıcılar, cihazlar ve diğer uygulamalara tek giriş noktası sağlamak için bir ön uç ağ geçidine ihtiyacı vardır. Service Fabric'te, trafik girişi için tasarlanmış durum bilgisi olmayan ASP.NET Core uygulaması, Event Hubs, IoT Hub veya Azure API Management gibi herhangi bir hizmet ağ geçidi olabilir. 
 
-Bu öğretici nasıl ayarlanacağını gösterir [Azure API Management](../api-management/api-management-key-concepts.md) Service Fabric arka uç hizmetinde trafiğini yönlendirmek için Service Fabric ile.  İşlemi tamamladığınızda, bir sanal AĞA API Management dağıtılmış vardır, bir API işlemi arka uç durum bilgisi olmayan hizmetler için trafiği göndermek için yapılandırılmış. Service Fabric ile Azure API Management senaryoları hakkında daha fazla bilgi için bkz: [genel bakış](service-fabric-api-management-overview.md) makalesi.
+Bu öğreticide, Service Fabric'te trafiği bir arka uç hizmetine yönlendirmek için [Azure API Management](../api-management/api-management-key-concepts.md)'ın Service Fabric'le nasıl ayarlandığı gösterilir.  Tamamladığınızda, API Management'ı VNET'e dağıtmış, trafiği durum bilgisi olmayan arka uç hizmetlerine göndermek için API işlemini yapılandırmış olursunuz. Service Fabric ile Azure API Management senaryoları hakkında daha fazla bilgi edinmek için, [genel bakış](service-fabric-api-management-overview.md) makalesine bakın.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * API Management dağıtma
-> * API Management yapılandırın
-> * Bir API işlem oluşturma
-> * Arka uç ilkesini yapılandırma
-> * Bir ürüne API ekleme
+> * API Management'ı dağıtma
+> * API Management'ı yapılandırma
+> * API işlemi oluşturma
+> * Arka uç ilkesi yapılandırma
+> * API'yi ürüne ekleme
 
-Bu öğretici serisinde öğrenin nasıl yapılır:
+Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) bir şablonu kullanarak azure'da
-> * [Bir küme veya ölçeklendirme](/service-fabric-tutorial-scale-cluster.md)
-> * [Yükseltme küme çalışma zamanı](service-fabric-tutorial-upgrade-cluster.md)
-> * API Management Service Fabric ile dağıtma
+> * Şablon kullanarak Azure'da güvenli bir [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturma
+> * [Bir kümenin ölçeğini daraltma veya genişletme](/service-fabric-tutorial-scale-cluster.md)
+> * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
+> * API Management'ı Service Fabric ile dağıtma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce:
-- Bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Yükleme [Azure Powershell modülü sürümü 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) veya [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) Azure ile ilgili
-- Windows Küme dağıtırsanız, bir Windows geliştirme ortamını ayarlama. Yükleme [Visual Studio 2017](http://www.visualstudio.com) ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ve **.NET Core platformlar arası geliştirme**iş yükleri.  Daha sonra ayarlanmış bir [.NET geliştirme ortamı](service-fabric-get-started.md).
-- Linux kümesi dağıtırsanız, üzerinde bir Java geliştirme ortamını ayarlama [Linux](service-fabric-get-started-linux.md) veya [MacOS](service-fabric-get-started-mac.md).  Yükleme [doku CLI hizmet](service-fabric-cli.md). 
+- Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
+- [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ya da [Azure CLI 2.0](/cli/azure/install-azure-cli)'ı yükleme
+- Azure'da güvenli bir [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturma
+- Windows kümesi dağıtıyorsanız, bir Windows dağıtım ortamı ayarlayın. [Visual Studio 2017](http://www.visualstudio.com)'yi ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ayrıca **.NET Core çoklu platform geliştirme** iş yüklerini yükleyin.  Ardından bir [.NET dağıtım ortamı](service-fabric-get-started.md) ayarlayın.
+- Linux kümesi dağıtıyorsanız, [Linux](service-fabric-get-started-linux.md) veya [MacOS](service-fabric-get-started-mac.md) üzerinde bir Java dağıtım ortamı ayarlayın.  [Service Fabric CLI](service-fabric-cli.md)'yı yükleyin. 
 
 ## <a name="network-topology"></a>Ağ topolojisi
-Güvenli sahip olduğunuza [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) Azure üzerinde API Management API yönetimi için tasarlanmış NSG ve alt ağ sanal bir ağa (VNET) dağıtın. Bu öğreticide, API Management Resource Manager şablonu VNET, alt ağ ve önceki ayarladığınız NSG adları kullanmak üzere önceden yapılandırılmıştır [Windows Küme öğretici](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux küme öğretici](service-fabric-tutorial-create-vnet-and-linux-cluster.md). Bu öğretici Azure API Management ve Service Fabric aynı sanal ağ alt ağlarında olan aşağıdaki topoloji dağıtır:
+Artık Azure üzerinde güvenli bir [Windows kümeniz](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümeniz](service-fabric-tutorial-create-vnet-and-linux-cluster.md) olduğuna göre, API Management için belirlenmiş alt ağda ve NSG'de sanal ağa (VNET) API Management dağıtımını yapın. Bu öğreticide, API Management Resource Manager şablonu önceki [Windows kümesi öğreticisinde](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi öğreticisinde](service-fabric-tutorial-create-vnet-and-linux-cluster.md) ayarladığınız VNET, alt ağ ve NSG adlarını kullanacak şekilde önceden yapılandırılmıştır. Bu öğretici Azure'da aşağıdaki topolojinin dağıtımı yapar; bu topolojide API Management ve Service Fabric, aynı Sanal Ağın alt ağlarında yer alır:
 
  ![Resim yazısı][sf-apim-topology-overview]
 
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Azure'da oturum açın ve aboneliğinizi seçin
-Azure komutları çalıştırmadan önce Azure hesabınızda oturum açın, aboneliğinizi seçin.
+## <a name="sign-in-to-azure-and-select-your-subscription"></a>Azure'da oturum açma ve aboneliğinizi seçme
+Azure komutlarını yürütmeden önce Azure hesabınızda oturum açıp aboneliğinizi seçin.
 
 ```powershell
 Login-AzureRmAccount
@@ -69,21 +69,21 @@ az login
 az account set --subscription <guid>
 ```
 
-## <a name="deploy-a-service-fabric-back-end-service"></a>Service Fabric arka uç hizmet dağıtma
+## <a name="deploy-a-service-fabric-back-end-service"></a>Service Fabric arka uç hizmetini dağıtma
 
-API Management'ın bir Service Fabric arka uç hizmetine trafiği yönlendirmek için yapılandırmadan önce ilk isteklerini kabul etmek için çalışan bir hizmete gereksinim duyarsınız.  Daha önce oluşturduğunuz varsa bir [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md), .NET Service Fabric hizmeti dağıtın.  Daha önce oluşturduğunuz varsa bir [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md), Java Service Fabric hizmeti dağıtın.
+API Management'ı trafiği Service Fabric arka uç hizmetine yönlendirecek şekilde yapılandırmadan önce, istekleri kabul edecek, çalışan bir hizmete ihtiyacınız vardır.  Daha önce [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) oluşturduysanız, bir .NET Service Fabric hizmeti dağıtın.  Daha önce [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturduysanız, bir Java Service Fabric hizmeti dağıtın.
 
-### <a name="deploy-a-net-service-fabric-service"></a>.NET Service Fabric hizmet dağıtma
+### <a name="deploy-a-net-service-fabric-service"></a>.NET Service Fabric hizmetini dağıtma
 
-Bu öğreticide, temel bir durum bilgisiz ASP.NET Core güvenilir varsayılan Web API projesi şablonunu kullanarak hizmet oluşturun. Bu, Azure API Management kullanıma hizmetiniz için bir HTTP uç noktası oluşturur.
+Bu öğretici için, varsayılan Web API proje şablonunu kullanarak durum bilgisi olmayan temel bir ASP.NET Core Güvenilir Hizmeti oluşturun. Bu, hizmetiniz için Azure API Management aracılığıyla gösterdiğiniz bir HTTP uç noktası oluşturur.
 
-Visual Studio'yu yönetici olarak başlatın ve ASP.NET Core hizmet oluşturun:
+Visual Studio'yu Yönetici olarak başlatın ve bir ASP.NET Core hizmeti oluşturun:
 
- 1. Visual Studio'da yeni proje dosyası seçin ->.
- 2. Bulut altında Service Fabric uygulaması şablonu seçin ve adlandırın **"ApiApplication"**.
- 3. ASP.NET Core hizmet şablonu seçin ve projeyi adlandırın **"WebApiService"**.
- 4. Web API ASP.NET Core 1.1 proje şablonu seçin.
- 5. Proje oluşturulduktan sonra açmak `PackageRoot\ServiceManifest.xml` kaldırıp `Port` uç nokta kaynak yapılandırması özniteliğinden:
+ 1. Visual Studio'da Dosya -> Yeni Proje'yi seçin.
+ 2. Bulut'un altında Service Fabric Uygulama şablonunu seçin ve bu şablonu **"ApiApplication"** olarak adlandırın.
+ 3. Durum bilgisi olmayan ASP.NET Core hizmet şablonunu seçin ve projeyi **"WebApiService"** olarak adlandırın.
+ 4. Web API ASP.NET Core 2.0 proje şablonunu seçin.
+ 5. Proje oluşturulduktan sonra, `PackageRoot\ServiceManifest.xml` dosyasını açın ve uç nokta kaynak yapılandırmasından `Port` özniteliğini kaldırın:
  
     ```xml
     <Resources>
@@ -93,46 +93,46 @@ Visual Studio'yu yönetici olarak başlatın ve ASP.NET Core hizmet oluşturun:
     </Resources>
     ```
 
-    Bağlantı noktası kaldırma ağ güvenlik grubu için API Management trafiğe izin verme küme Resource Manager şablonunda aracılığıyla açılan dinamik olarak uygulama bağlantı noktası aralığından, bağlantı noktasını belirlemek Service Fabric sağlar.
+    Bağlantı noktasının kaldırılması Service Fabric'in uygulama bağlantı noktası aralığından bağlantı noktasını dinamik olarak atamasına olanak tanır. Bu, kümenin Resource Manager şablonundaki Ağ Güvenlik Grubu aracılığıyla açılır ve trafiğin API Management'tan oraya akmasını sağlar.
  
- 6. Web API doğrulamak için Visual Studio'da F5 tuşuna basarak yerel olarak kullanılabilir. 
+ 6. Web API'nin yerel olarak kullanılabilir olduğunu doğrulamak için Visual Studio'da F5'e basın. 
 
-    Açık Service Fabric Explorer ve ASP.NET Core hizmeti belirli bir örneği inceleyin taban adresi görmek için hizmet üzerinde dinliyor. Ekleme `/api/values` bankasına adres ve Web API şablonunda ValuesController Get yöntemini çağıran bir tarayıcıda açın. Bu şablon tarafından sağlanan varsayılan yanıt, iki dizeyi içeren bir JSON dizisi döndürür:
+    Service Fabric Explorer'ı açın ve hizmetin dinlediği temel adresi görmek için ASP.NET Core hizmetinin belirli bir örneğinde detaya gidin. Temel adrese `/api/values` öğesini ekleyin ve bunu tarayıcıda açın; Web API şablonundaki ValuesController üzerinde Get yöntemi çağrılır. Şablon tarafından sağlanan varsayılan yanıtı döndürür. Bu yanıt iki dize içeren bir JSON dizisidir:
 
     ```json
     ["value1", "value2"]`
     ```
 
-    Bu, Azure API Management'te aracılığıyla kullanıma uç noktadır.
+    Bu, Azure'da API Management aracılığıyla ortaya çıkardığınız uç noktadır.
 
- 7. Son olarak, Azure kümenizdeki uygulamayı dağıtın. Visual Studio'da Uygulama projesine sağ tıklatın ve **Yayımla**. Küme uç noktası sağlayın (örneğin, `mycluster.southcentralus.cloudapp.azure.com:19000`) Azure Service Fabric kümenizdeki uygulamayı dağıtmak için.
+ 7. Son olarak, uygulamayı Azure'da kümenize dağıtın. Visual Studio'da, Uygulama projesine sağ tıklayın ve **Yayımla**'yı seçin. Azure'da uygulamayı Service Fabric kümenize dağıtmak için kümenizin uç noktasını (örneğin, `mycluster.southcentralus.cloudapp.azure.com:19000`) sağlayın.
 
-Adlı bir ASP.NET Core durum bilgisiz hizmeti `fabric:/ApiApplication/WebApiService` artık Azure Service Fabric kümenizdeki çalıştırması gerekir.
+Artık durum bilgisi olmayan `fabric:/ApiApplication/WebApiService` adlı bir ASP.NET Core hizmeti Azure'da Service Fabric kümenizde çalıştırılıyor olmalıdır.
 
 ### <a name="create-a-java-service-fabric-service"></a>Java Service Fabric hizmeti oluşturma
-Bu öğretici dağıtmak için görüntülemektedir bir temel web sunucusu iletileri kullanıcıya yedekleyin. Echo sunucu örnek uygulaması, Azure API Management kullanıma hizmetiniz için bir HTTP uç noktası içerir.
+Bu öğretici için, iletileri kullanıcıya geri yansıtan temel bir web sunucusunun dağıtımını yapın. Yankı sunucusu örnek uygulaması, hizmetiniz için Azure API Management aracılığıyla gösterdiğiniz bir HTTP uç noktası oluşturur.
 
-1. Java Başlarken kopya örnekleri başlatıldı.
+1. Java kullanmaya başlama örneklerini kopyalayın.
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
    cd service-fabric-java-getting-started
    ```
 
-2. Düzen *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Hizmet bağlantı noktasını 8081 dinler şekilde uç noktasını güncelleyin.
+2. *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml* dosyasını düzenleyin. Hizmetin bağlantı noktası 8081'i dinlemesini sağlayacak şekilde uç noktayı güncelleştirin.
 
    ```xml
    <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
    ```
 
-3. Kaydet *ServiceManifest.xml*, EchoServer1.0 uygulamayı oluşturun.
+3. *ServiceManifest.xml* dosyasını kaydedin ve ardından EchoServer1.0 uygulamasını oluşturun.
 
    ```bash
    cd Services/EchoServer/EchoServer1.0/
    gradle
    ```
 
-4. Küme uygulamayı dağıtın.
+4. Uygulamayı kümeye dağıtın.
 
    ```bash
    cd Scripts
@@ -140,65 +140,69 @@ Bu öğretici dağıtmak için görüntülemektedir bir temel web sunucusu ileti
    ./install.sh
    ```
 
-   Adlı bir Java durum bilgisiz hizmette `fabric:/EchoServerApplication/EchoServerService` artık Azure Service Fabric kümenizdeki çalıştırması gerekir.
+   Artık durum bilgisi olmayan `fabric:/EchoServerApplication/EchoServerService` adlı bir Java hizmeti Azure'da Service Fabric kümenizde çalıştırılıyor olmalıdır.
 
-5. Bir tarayıcı açın ve şunu yazın http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, görmeniz gerekir "[sürüm 1.0] Hello World!!!" görüntülenir.
+5. Tarayıcıyı açın ve http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage yazın; "[sürüm 1.0]Merhaba Dünya!!!" ifadesini görmelisiniz.
 
-## <a name="download-and-understand-the-resource-manager-template"></a>İndirme ve Resource Manager şablonu anlama
-Aşağıdaki Resource Manager şablonu ve parametre dosyasını indirip kaydedin:
+## <a name="download-and-understand-the-resource-manager-templates"></a>Resource Manager şablonlarını indirme ve anlama
+Şu Resource Manager şablon ve parametre dosyalarını indirin ve kaydedin:
  
-- [apim.JSON][apim-arm]
-- [apim.Parameters.JSON][apim-parameters-arm]
+- [network-apim.json][network-arm]
+- [network-apim.parameters.json][network-parameters-arm]
+- [apim.json][apim-arm]
+- [apim.parameters.json][apim-parameters-arm]
 
-Aşağıdaki bölümlerde tarafından tanımlanan kaynakları *apim.json* şablonu. Daha fazla bilgi için her bölüm içerisindeki şablon başvurusu belgelere bağlantıları izleyin. Tanımlanan yapılandırılabilir parametreler *apim.parameters.json* parametreler dosyası, bu makalenin sonraki bölümlerinde ayarlanır.
+*network-apim.json* şablonu, Service Fabric kümesinin dağıtıldığı sanal ağda yeni bir alt ağ ve ağ güvenliği grubunun dağıtımını yapar.
+
+Aşağıdaki bölümlerde *apim.json* şablonu tarafından tanımlanan kaynaklar açıklanır. Daha fazla bilgi için, her bölümde verilen şablon başvuru belgelerinin bağlantılarını izleyin. *apim.parameters.json* parametre dosyasında tanımlanan yapılandırılabilir parametreler, bu makalenin devamında ayarlanacaktır.
 
 ### <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
-[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service) API Management hizmet örneği açıklar: ad, SKU veya katmanı, kaynak grubu konumu, yayımcı bilgilerini ve sanal ağ.
+[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service), API Management hizmet örneğini açıklar: ad, SKU ve diğer katman, kaynak grubu konumu, yayımcı bilgileri ve sanal ağ.
 
 ### <a name="microsoftapimanagementservicecertificates"></a>Microsoft.ApiManagement/service/certificates
-[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) API Management güvenliğini yapılandırır. API Management Service Fabric kümeniz kümenizi erişimi olan bir istemci sertifikası kullanılarak hizmet bulma için kimlik doğrulaması gerekir. Bu öğretici oluştururken, daha önce belirtilen aynı sertifikayı kullanan [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor), varsayılan olarak, kümeye erişmek için kullanılabilir. 
+[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates), API Management güvenliğini yapılandırır. API Management'ın kümenize erişimi olan bir istemci sertifikası kullanarak hizmet kurtarma için Service Fabric kümenizle kimlik doğrulaması yapması gerekir. Bu öğretici, daha önce varsayılan olarak kümenize erişirken kullanılabilecek [Windows kümesini](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) veya [Linux kümesini](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor) oluştururken belirtilen sertifikanın aynısını kullanır. 
 
-Bu öğretici, istemci kimlik doğrulaması ve küme düğümü, düğümü güvenlik için aynı sertifikayı kullanır. Bir Service Fabric kümesi erişmek için yapılandırılan yoksa ayrı bir istemci sertifikası kullanabilir. Sağlamak **adı**, **parola**, ve **veri** (base-64 kodlamalı dizesi) oluştururken, belirtilen küme sertifikanın özel anahtar dosyası (.pfx), Service Fabric kümesi.
+Bu öğretici hem istemci kimlik doğrulaması hem de küme düğümler arası güvenliği için aynı sertifikayı kullanır. Service Fabric kümenize erişim için yapılandırılmış ayrı bir istemci sertifikanız varsa, onu da kullanabilirsiniz. Service Fabric kümenizi oluştururken belirttiğiniz küme sertifikası özel anahtar dosyasının (.pfx) **adını**, **parolasını** ve **verilerini** (base-64 kodlama dizesi) sağlayın.
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
-[Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends) trafiği iletilir arka uç hizmetine açıklar. 
+[Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends) trafiğin iletildiği arka uç hizmetini açıklar. 
 
-Service Fabric arka uçlarını için Service Fabric kümesi arka uç yerine belirli bir Service Fabric hizmeti ' dir. Bu, kümedeki birden fazla hizmeti yönlendirmek tek bir ilke sağlar. **Url** burada alandır tam hizmet adı bir hizmetin kümenizdeki bir arka uç ilkesinde hiçbir hizmet adı belirtilmezse, tüm istekleri varsayılan olarak yönlendirilir. Sahte hizmet adı gibi kullanabilir "fabric: / sahte/service" bir geri dönüş hizmetine sahip düşünmüyorsanız. **ResourceId** küme yönetim uç nokta belirtir.  **clientCertificateThumbprint** ve **serverCertificateThumbprints** kümeyle kimliğini doğrulamak için kullanılan sertifikaları tanımlayın.
+Service Fabric arka uçları için, belirli bir Service Fabric hizmeti yerine Service Fabric kümesi arka uçtur. Bu, tek bir ilkenin kümedeki birden çok hizmete yönlendirilmesine olanak tanır. Buradaki **url** alanı, arka uç ilkesinde hiçbir hizmet adı belirtilmezse varsayılan olarak tüm isteklerin yönlendirileceği kümenizdeki bir hizmetin tam hizmet adıdır. Bir geri dönüş hizmetinizin olmasını düşünmüyorsanız, "fabric:/sahte/hizmet" gibi sahte bir hizmet adı da kullanabilirsiniz. **ResourceId**, küme yönetim uç noktasını belirtir.  Kümeyle kimlik doğrulaması yapmak için **clientCertificateThumbprint** ve **serverCertificateThumbprints** kimlik sertifikaları kullanılır.
 
 ### <a name="microsoftapimanagementserviceproducts"></a>Microsoft.ApiManagement/service/products
-[Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products) bir ürün oluşturur. Azure API Management'te bir ürün kullanım kotası ve kullanım koşullarını yanı sıra bir veya daha fazla API'leri içerir. Bir ürün yayımlandığında, geliştiriciler ürüne abone ve ürün API'lerine kullanmaya başlar. 
+[Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products) bir ürün oluşturur. Azure API Management'ta, üründe bir veya birden çok API, ayrıca kullanım kotası ve kullanım koşulları bulunur. Ürün yayımlandığında, geliştiriciler ürüne abone olabilir ve ürünün API'lerini kullanmaya başlayabilir. 
 
-Bir tanımlayıcı girin **displayName** ve **açıklama** ürün için. Bu öğretici için bir abonelik gerekiyor ancak abonelik onayı bir yönetici tarafından değil.  Bu ürün **durumu** "yayımlanır" ve abonelere görünür. 
+Ürün için açıklayıcı bir **displayName** ve **description** girin. Bu öğretici için, abonelik gereklidir ama yönetici tarafından abonelik onayı gerekli değildir.  Bu ürün **durumu** "yayımlanır" ve aboneler tarafından görünür durumda olur. 
 
 ### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
-[Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis) bir API oluşturur. API Management bir API İstemci uygulamaları tarafından çağrılabilen işlemler kümesini temsil eder. Operations eklendikten sonra API bir ürüne eklenebilir ve yayımlanabilir. Bir API yayımlandığında abone ve geliştiriciler tarafından kullanılır.
+[Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis) bir API oluşturur. API Management'taki API, istemci uygulamaları tarafından çağrılabilen bir dizi işlemi temsil eder. İşlemler eklendikten sonra, API ürüne eklenir ve yayımlanabilir. API yayımlandığında, geliştiriciler abone olabilir ve kullanabilir.
 
-- **displayName** API'nizi için herhangi bir ad olabilir. Bu öğretici için "Service Fabric uygulaması" kullanın.
-- **ad** "service fabric uygulama" gibi API için benzersiz ve açıklayıcı bir ad sağlar. Geliştirici ve yayımcı portallarında görüntülenir. 
-- **serviceUrl** API uygulama HTTP hizmeti başvuruyor. API management bu adrese isteklerini iletir. Service Fabric arka uçlarını için bu URL değeri kullanılmaz. Herhangi bir değer buraya koyabilirsiniz. Bu öğreticide, örneğin "http://servicefabric". 
-- **yol** API management hizmeti temel URL'si eklenir. Temel URL bir API Management hizmet örneği tarafından barındırılan tüm API'leri yaygındır. API Management API'leri kendi soneki ayırır ve bu nedenle soneki her API için belirtilen yayımcı için benzersiz olmalıdır. 
-- **protokolleri** API erişmek için hangi protokollerin kullanılabilir belirleyin. Bu öğretici için liste **http** ve **https**.
-- **yol** API'si sonekidir. Bu öğretici için "Uygulamam" kullanın.
+- **displayName**, API'niz için herhangi bir ad olabilir. Bu öğreticide, "Service Fabric Uygulaması" adını kullanın.
+- **name**, API için "service-fabric-app" gibi benzersiz ve açıklayıcı bir ad sağlar. Geliştirici ve yayımcı portallarında görüntülenir. 
+- **serviceUrl**, API'yi gerçekleştiren HTTP hizmetine başvurur. API Management istekleri bu adrese iletir. Service Fabric arka uçları için bu URL değeri kullanılmaz. Buraya herhangi bir değer koyabilirsiniz. Bu öğreticide örneğin "http://servicefabric" olabilir. 
+- **path**, API Management hizmeti için temel URL'nin sonuna eklenir. Temel URL, bir API Management hizmet örneği tarafından barındırılan tüm API'lerde ortaktır. API Management API'leri soneklerine bakarak ayırt eder; dolayısıyla belirli bir yayımcıdaki her API için sonekin benzersiz olması gerekir. 
+- **protocols**, API'ye erişmek için hangi protokollerin kullanılacağını belirler. Bu öğretici için, **http** ve **https**'yi listeleyin.
+- **path**, API için bir sonektir. Bu öğreticide "myapp" kullanın.
 
 ### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
-[Microsoft.ApiManagement/service/apis/operations](/azure/templates/microsoft.apimanagement/service/apis/operations) önce bir API API Management kullanılabilir, işlemleri API'sine eklenmesi gerekiyor.  Dış istemcilere bir Service Fabric kümede çalışan ASP.NET Core durum bilgisiz hizmeti ile iletişim kurmak için kullanın.
+[Microsoft.ApiManagement/service/apis/operations](/azure/templates/microsoft.apimanagement/service/apis/operations) API Management'taki bir API'nin kullanılabilmesi için, API'ye işlemlerin eklenmesi gerekir.  Dış istemciler, Service Fabric kümesinde çalıştırılan, durum bilgisi olmayan bir ASP.NET Core hizmetiyle iletişim kurmak için işlem kullanır.
 
-Bir ön uç API işlemi eklemek için değerlerin doldurun:
+Ön uç API işlemi eklemek için şu değerleri doldurun:
 
-- **displayName** ve **açıklama** işlemini açıklar. Bu öğretici için "Değerler" kullanın.
-- **yöntem** HTTP fiilini belirtir.  Bu öğretici için belirtmek **almak**.
-- **urlTemplate** API temel URL'sine eklenir ve tek bir HTTP işlemi tanımlar.  Bu öğretici için kullanmak `/api/values` .NET arka uç hizmetine eklediyseniz veya `getMessage` Java arka uç hizmetine eklediyseniz.  Varsayılan olarak, Service Fabric hizmeti arka ucuna gönderilen URL yolunu URL yolu burada belirtilen. "/ Api/değerleri gibi" hizmetinizin kullandığı aynı URL yolunu buraya kullanırsanız, işlem daha fazla değişiklik yapılmadan çalışır. Bu durumda, ayrıca yol yeniden yazma işlemi ilkenizde daha sonra belirtmeniz gerekir, arka uç Service Fabric hizmeti tarafından kullanılan URL yolu farklı bir URL yolu buraya de belirtebilir.
+- **displayName** ve **description** işlemi açıklar. Bu öğreticide "Values" kullanın.
+- **method**, HTTP fiilini belirtir.  Bu öğreticide **GET** yöntemini belirtin.
+- **urlTemplate**, API'nin temel URL'sinin sonuna eklenir ve tek bir HTTP işlemini tanımlar.  Bu öğreticide, .NET arka uç hizmeti eklediyseniz `/api/values` veya Java arka uç hizmeti eklediyseniz `getMessage` kullanın.  Varsayılan olarak, burada belirtilen URL yolu arka uç Service Fabric hizmetine gönderilen URL yoludur. Burada hizmetinizin kullandığı URL yolunun aynısını kullanırsanız, ("/api/values" gibi), işlem başka bir değişikliğe gerek kalmadan çalışır. Burada, arka uç Service Fabric hizmetinizin kullandığı URL yolundan farklı bir URL yolu da belirtebilirsiniz. Bu durumda, daha sonra işlem ilkenizde yol yeniden yazma belirtmeniz gerekir.
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
-[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) her şeyi birlikte bağlar, bir arka uç ilkesi oluşturur. İstekleri yönlendirilen arka uç Service Fabric hizmeti yapılandırdığınız budur. Bu ilke için herhangi bir API işlemi uygulayabilirsiniz.  Daha fazla bilgi için bkz: [ilkelerine genel bakış](/azure/api-management/api-management-howto-policies). 
+[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies), her şeyi birbirine bağlayan bir arka uç ilkesi oluşturur. Burası, isteklerin yönlendirildiği arka uç Service Fabric hizmetini yapılandırdığınız yerdir. Bu ilkeyi herhangi bir API işlemine uygulayabilirsiniz.  Daha fazla bilgi için bkz. [İlkelere genel bakış](/azure/api-management/api-management-howto-policies). 
 
-[Service Fabric için arka uç yapılandırması](/azure/api-management/api-management-transformation-policies#SetBackendService) aşağıdaki isteği yönlendirme denetimleri sağlar: 
- - Hizmet örneği seçimi ya da sabit kodlanmış bir Service Fabric hizmeti örnek adı belirterek (örneğin, `"fabric:/myapp/myservice"`) veya HTTP isteğinden oluşturulan (örneğin, `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
- - Tüm Service Fabric bölümleme düzenini kullanarak bir bölüm anahtarı oluşturma tarafından bölüm çözünürlüğü.
+[Service Fabric için arka uç yapılandırması](/azure/api-management/api-management-transformation-policies#SetBackendService) aşağıdaki istek yönlendirme denetimlerini sağlar: 
+ - Sabit kodlanmış (örneğin `"fabric:/myapp/myservice"`) veya HTTP isteğinden oluşturulmuş (örneğin, `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`) bir Service Fabric hizmet örneği adı belirterek hizmet örneği seçimi.
+ - Herhangi bir Service Fabric bölümleme şeması kullanıp bölümleme anahtarı oluşturarak bölümleme çözümlemesi.
  - Durum bilgisi olan hizmetler için çoğaltma seçimi.
- - Bir hizmet konumu yeniden çözümlemeyi ve isteği yeniden göndermeyi koşullarını belirtmenize olanak veren çözümleme yeniden deneme koşulları.
+ - Hizmet konumunu yeniden çözümlemenize ve isteği yeniden göndermenize olanak tanıyan çözümleme yeniden deneme koşulları.
 
-**policyContent** olan Json kaçışlı İlkesi XML içeriği.  Bu öğretici için rota isteklerini daha önce dağıtılan doğrudan .NET veya Java durum bilgisiz hizmet için bir arka uç ilkesi oluşturun. Ekleme bir `set-backend-service` ilkesi gelen ilkeleri altında.  "Hizmet-adı" yerine `fabric:/ApiApplication/WebApiService` .NET arka uç hizmeti daha önce dağıttıysanız veya `fabric:/EchoServerApplication/EchoServerService` Java hizmet dağıttıysanız.
+**policyContent**, ilkenin Json kaçan XML içeriğidir.  Bu öğreticide, istekleri doğrudan daha önce dağıtılmış, durum bilgisi olmayan .NET veya Java hizmetine yönlendirecek bir arka uç ilkesi oluşturun. Gelen ilkelerin altına bir `set-backend-service` ilkesi ekleyin.  *sf-service-instance-name* değerini, daha önce .NET arka uç hizmetini dağıttıysanız `fabric:/ApiApplication/WebApiService` ile veya Java hizmetini dağıttıysanız `fabric:/EchoServerApplication/EchoServerService` ile değiştirin.  *backend-id* bir arka uç kaynağına, bu örnekte *apim.json* şablonunda tanımlanan `Microsoft.ApiManagement/service/backends` kaynağına başvurur. *backend-id*, API Management API'leri kullanılarak oluşturulan başka bir arka uç kaynağına da başvurabilir. Bu öğreticide, *backend-id* öğesini *service_fabric_backend_name* parametresinin değerine ayarlayın.
     
 ```xml
 <policies>
@@ -218,27 +222,27 @@ Bir ön uç API işlemi eklemek için değerlerin doldurun:
 </policies>
 ```
 
-Service Fabric arka uç İlkesi özniteliklerini tam kümesi için başvurmak [API Management arka uç belgeleri](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
+Tüm Service Fabric arka uç ilkesi öznitelikleri için, [API Management arka uç belgelerine](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService) bakın
 
-## <a name="set-parameters-and-deploy-api-management"></a>Parametrelerini ayarlamak ve API Management dağıtma
-Aşağıdaki boş parametre doldurun *apim.parameters.json* dağıtımınız için. 
+## <a name="set-parameters-and-deploy-api-management"></a>Parametreleri ayarlama ve API Management'ı dağıtma
+Dağıtımınız için *apim.parameters.json*'da aşağıdaki boş parametreleri doldurun. 
 
 |Parametre|Değer|
 |---|---|
-|apimInstanceName|BT apim|
+|apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
 |apimSku|Geliştirici|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
-|CertificatePassword|q6D7nN %6ck@6| 
+|certificatePassword|q6D7nN%6ck@6| 
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
-|serviceFabricCertificate|&lt;Base-64 kodlu bir dize&gt;|
-|url_path|/ api/değerleri|
-|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.Azure.com:19080|
+|serviceFabricCertificate|&lt;base-64 kodlama dizesi&gt;|
+|url_path|/api/values|
+|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
 |inbound_policy|&lt;XML dizesi&gt;|
 
-*certificatePassword* ve *serviceFabricCertificateThumbprint* kümesini ayarlamak için kullanılan Küme sertifikanın eşleşmesi gerekir.  
+*certificatePassword* ve *serviceFabricCertificateThumbprint*, kümeyi ayarlamak için kullanılan küme sertifikasıyla eşleşmelidir.  
 
-*serviceFabricCertificate* sertifika aşağıdaki komut dosyası kullanılarak oluşturulan bir base-64 kodlu bir dize, değil:
+*serviceFabricCertificate*, bir base-64 kodlama dizesi olan sertifikadır ve şu betik kullanılarak oluşturulabilir:
 
 ```powershell
 $bytes = [System.IO.File]::ReadAllBytes("C:\mycertificates\sfclustertutorialgroup220171109113527.pfx");
@@ -246,7 +250,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-İçinde *inbound_policy*, "service-name" yerine `fabric:/ApiApplication/WebApiService` .NET arka uç hizmeti daha önce dağıttıysanız veya `fabric:/EchoServerApplication/EchoServerService` Java hizmet dağıttıysanız.
+*inbound_policy*'deki *sf-service-instance-name* değerini, daha önce .NET arka uç hizmetini dağıttıysanız `fabric:/ApiApplication/WebApiService` ile veya Java hizmetini dağıttıysanız `fabric:/EchoServerApplication/EchoServerService` ile değiştirin. *backend-id* bir arka uç kaynağına, bu örnekte *apim.json* şablonunda tanımlanan `Microsoft.ApiManagement/service/backends` kaynağına başvurur. *backend-id*, API Management API'leri kullanılarak oluşturulan başka bir arka uç kaynağına da başvurabilir. Bu öğreticide, *backend-id* öğesini *service_fabric_backend_name* parametresinin değerine ayarlayın.
 
 ```xml
 <policies>
@@ -266,25 +270,32 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 </policies>
 ```
 
-API yönetimi için Resource Manager şablonu ve parametre dosyalarını dağıtmak için aşağıdaki komut dosyasını kullanın:
+API Management'ın Resource Manager şablonunu ve parametre dosyalarını dağıtmak için aşağıdaki betiği kullanın:
 
 ```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"
+$templatepath="C:\clustertemplates"
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
 ```
 
 ```azurecli
 ResourceGroupName="sfclustertutorialgroup"
+az group deployment create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
+
 az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
 ```
 
-## <a name="test-it"></a>test
+## <a name="test-it"></a>Test etme
 
-Artık Service Fabric API Yönetimi yoluyla, arka uç hizmetine bir istek göndermeden deneyebilirsiniz [Azure portal](https://portal.azure.com).
+Artık doğrudan [Azure Portal](https://portal.azure.com)'dan API Management aracılığıyla Service Fabric'teki arka uç hizmetinize istek göndermeyi deneyebilirsiniz.
 
- 1. API Management hizmeti seçin **API**.
- 2. İçinde **Service Fabric uygulaması** önceki adımlarda, select oluşturduğunuz API **Test** sekmesini ve ardından **değerleri** işlemi.
- 3. Tıklatın **Gönder** düğmesi bir test isteği arka uç hizmetine göndermek için.  Benzer şekilde bir HTTP yanıtı görmeniz gerekir:
+ 1. API Management hizmetinde **API**'yi seçin.
+ 2. Önceki adımlarda oluşturduğunuz **Service Fabric Uygulama** API'sinde **Test** sekmesini ve ardından **Values** işlemini seçin.
+ 3. **Gönder** düğmesine tıklayarak test isteğini arka uç hizmetine gönderin.  Şuna benzer bir HTTP yanıtı görmelisiniz:
 
     ```http
     HTTP/1.1 200 OK
@@ -295,28 +306,19 @@ Artık Service Fabric API Yönetimi yoluyla, arka uç hizmetine bir istek gönde
 
     Vary: Origin
 
-    Access-Control-Allow-Origin: https://apimanagement.hosting.portal.azure.net
+    Ocp-Apim-Trace-Location: https://apimgmtstodhwklpry2xgkdj.blob.core.windows.net/apiinspectorcontainer/PWSQOq_FCDjGcaI1rdMn8w2-2?sv=2015-07-08&sr=b&sig=MhQhzk%2FEKzE5odlLXRjyVsgzltWGF8OkNzAKaf0B1P0%3D&se=2018-01-28T01%3A04%3A44Z&sp=r&traceId=9f8f1892121e445ea1ae4d2bc8449ce4
 
-    Access-Control-Allow-Credentials: true
+    Date: Sat, 27 Jan 2018 01:04:44 GMT
 
-    Access-Control-Expose-Headers: Transfer-Encoding,Date,Server,Vary,Ocp-Apim-Trace-Location
-
-    Ocp-Apim-Trace-Location: https://apimgmtstuvyx3wa3oqhdbwy.blob.core.windows.net/apiinspectorcontainer/RaVVuJBQ9yxtdyH55BAsjQ2-1?sv=2015-07-08&sr=b&sig=Ab6dPyLpTGAU6TdmlEVu32DMfdCXTiKAASUlwSq3jcY%3D&se=2017-09-15T05%3A49%3A53Z&sp=r&traceId=ed9f1f4332e34883a774c34aa899b832
-
-    Date: Thu, 14 Sep 2017 05:49:56 GMT
-
-
-    [
-    "value1",
-    "value2"
-    ]
+    
+    ["value1", "value2"]
     ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Küme, küme kaynağının yanı sıra diğer Azure kaynaklarından oluşur. Kümeyi ve kullandığı tüm kaynakları silmenin en basit yolu, kaynak grubunun silinmesidir.
 
-Azure'da oturum açma ve küme kaldırmak istediğiniz abonelik kimliği seçin.  Abonelik Kimliğiniz için oturum açarak bulabileceğiniz [Azure portal](http://portal.azure.com). Kaynak grubu ve kullanarak tüm küme kaynakları silmek [Remove-AzureRMResourceGroup cmdlet'i](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Azure’da oturum açın ve kümeyi kaldırmak istediğiniz abonelik kimliğini seçin.  Abonelik kimliğinizi, [Azure portalında](http://portal.azure.com) oturum açarak öğrenebilirsiniz. [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet’ini kullanarak kaynak grubunu ve tüm küme kaynaklarını silin.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
@@ -332,22 +334,19 @@ az group delete --name $ResourceGroupName
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * API Management dağıtma
-> * API Management yapılandırın
-> * Bir API işlem oluşturma
-> * Arka uç ilkesini yapılandırma
-> * Bir ürüne API ekleme
+> * API Management'ı dağıtma
+> * API Management'ı yapılandırma
+> * API işlemi oluşturma
+> * Arka uç ilkesi yapılandırma
+> * API'yi ürüne ekleme
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-[apim-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.json
-[apim-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.parameters.json
+[apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
+[apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json
 
-[network-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
-[cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+[network-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.json
+[network-parameters-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

@@ -1,6 +1,6 @@
 ---
 title: "Service Fabric için .NET uygulaması oluşturma | Microsoft Docs"
-description: "Bir ASP.NET Core ön uç ve bir güvenilir hizmet durum bilgisi olan arka uç ile uygulama oluşturma ve bir küme için uygulama dağıtma hakkında bilgi edinin."
+description: "ASP.NET Core ön ucuyla ve durum bilgisi olan bir güvenilir hizmet arka ucuyla uygulama oluşturmayı ve uygulamayı kümeye dağıtmayı öğrenin."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,69 +12,69 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2018
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f4b3c766ee46233cd4ec2d195e39d0b68516952f
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Bir ASP.NET çekirdek Web API ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti ile bir uygulama oluşturun ve dağıtın
-Bu öğretici bir dizi birini bir parçasıdır.  Azure Service Fabric uygulaması bir ASP.NET çekirdek Web API ön uç ve verilerinizi depolamak için durum bilgisi olan bir arka uç hizmeti ile nasıl oluşturulacağını öğreneceksiniz. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir ASP.NET Core web ön ucuna sahip oylama uygulaması sağlanır. El ile oylama uygulaması oluşturmak istemiyorsanız, şunları yapabilirsiniz [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) tamamlanan uygulama için ve için İleri atlayabilirsiniz [üzerinden oylama örnek uygulama yol](#walkthrough_anchor).
+# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
+Bu öğretici, bir dizinin birinci bölümüdür.  Verileri depolamak için ASP.NET Core Web API'si ön ucu ve durum bilgisi olan bir arka uç hizmetiyle Azure Service Fabric uygulaması oluşturmayı öğreneceksiniz. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir ASP.NET Core web ön ucuna sahip oylama uygulaması sağlanır. Oylama uygulamasını el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) ve [Oylama örnek uygulamasında izlenecek yol](#walkthrough_anchor) bölümüne atlayabilirsiniz.
 
 ![Uygulama Diyagramı](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Bölümünde bir dizi öğrenin nasıl yapılır:
+Serinin birinci bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Durum bilgisi olan güvenilir bir hizmet olarak bir ASP.NET çekirdek Web API hizmeti oluşturma
-> * Durum bilgisiz web hizmeti olarak bir ASP.NET çekirdek Web uygulaması hizmeti oluşturma
-> * Durum bilgisi olan hizmeti ile iletişim kurmak için ters proxy kullan
+> * ASP.NET Core Web API'si hizmetini durum bilgisi olan güvenilir bir hizmet olarak oluşturma
+> * ASP.NET Core Web Uygulaması hizmetini durum bilgisi olmayan bir web hizmeti olarak oluşturma
+> * Durum bilgisi olan hizmetle iletişim kurmak için ters proxy kullanma
 
-Bu öğretici serisinde öğrenin nasıl yapılır:
+Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * Bir .NET Service Fabric uygulaması oluşturma
-> * [Uzak bir küme için uygulama dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [CI/CD Visual Studio Team Services kullanarak yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [İzleme ve tanılama uygulama için ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
+> * .NET Service Fabric uygulaması oluşturma
+> * [Uygulamayı uzak kümeye dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Visual Studio Team Services'i kullanarak CI/CD'yi yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce:
-- Bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Visual Studio 2017 yükleme](https://www.visualstudio.com/) sürüm 15.3 veya üstü **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
-- [Service Fabric SDK yükleme](service-fabric-get-started.md)
+- Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
+- [Azure geliştirme](https://www.visualstudio.com/) ve **ASP.NET ve Web geliştirme** iş yükleriyle **Visual Studio 2017** sürüm 15.3 veya üstünü yükleyin.
+- [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md)
 
-## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Bir ASP.NET Web API hizmeti güvenilir bir hizmet olarak oluşturma
-İlk olarak, web ön uç ASP.NET Core kullanarak oylama uygulamasının oluşturun. ASP.NET Core API web ve modern web kullanıcı Arabirimi oluşturmak için kullanabileceğiniz bir basit, platformlar arası web geliştirme altyapısıdır. ASP.NET Core Service Fabric ile nasıl tümleşik çalıştığını tam anlamak için okuma tavsiye [Service Fabric Reliable Services ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) makalesi. Şimdilik, hızlı bir şekilde başlamak için bu öğreticiyi izleyebilirsiniz. ASP.NET Çekirdeği hakkında daha fazla bilgi için bkz: [ASP.NET Core belgeleri](https://docs.microsoft.com/aspnet/core/).
+## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>ASP.NET Web API'si hizmetini güvenilir bir hizmet olarak oluşturma
+Başlangıçta, ASP.NET Core kullanarak oylama uygulamasının web ön ucunu oluşturun. ASP.NET Core, modern web kullanıcı arabirimleri ve web API'leri oluşturmak için kullanabileceğiniz basit, platformlar arası bir web geliştirme çerçevesidir. ASP.NET Core'un Service Fabric ile nasıl tümleştirildiğini her yönüyle anlamanız için, [Service Fabric Reliable Services'te ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) makalesini okumanızı kesinlikle öneririz. Şimdilik, hızlı bir başlangıç yapmak için öğreticiyi izleyebilirsiniz. ASP.NET Core hakkında daha fazla bilgi edinmek için [ASP.NET Core Belgelerine](https://docs.microsoft.com/aspnet/core/) bakın.
 
 1. Visual Studio'yu **yönetici** olarak başlatın.
 
-2. Bir proje oluşturun **dosya**->**yeni**->**proje**
+2. **Dosya**->**Yeni**->**Proje**'yi kullanarak bir proje oluşturun
 
 3. **Yeni Proje** iletişim kutusunda **Bulut > Service Fabric Uygulaması**'nı seçin.
 
-4. Uygulama adı **oylama** ve basın **Tamam**.
+4. Uygulamaya **Voting** adını verin ve **Tamam**'a basın.
 
    ![Visual Studio'da yeni proje iletişim kutusu](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. Üzerinde **yeni yapı hizmeti** sayfasında, **durum bilgisiz ASP.NET Core**ve hizmetinizin adını **VotingWeb**.
+5. **Yeni Service Fabric Hizmeti** sayfasında **Durum Bilgisi Olmayan ASP.NET Core** öğesini seçin ve hizmetinize **VotingWeb** adını verin.
    
-   ![ASP.NET web hizmeti yeni hizmet iletişim kutusunda seçme](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
+   ![Yeni hizmet iletişim kutusunda ASP.NET web hizmetini seçme](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. Sonraki sayfanın bir dizi ASP.NET Core proje şablonları sağlar. Bu öğretici için seçin **Web uygulaması (Model-View-Controller)**. 
+6. Sonraki sayfada, bir dizi ASP.NET Core proje şablonu sağlanır. Bu öğretici için, **Web Uygulaması (Model-View-Controller)** seçeneğini kullanın. 
    
-   ![ASP.NET proje türü seçin](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
+   ![ASP.NET proje türünü seçme](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
-   Visual Studio, uygulama ve hizmet projesi oluşturur ve bunları Çözüm Gezgini'nde görüntüler.
+   Visual Studio bir uygulama ve bir hizmet projesi oluşturup bunları Çözüm Gezgini'nde görüntüler.
 
-   ![ASP.NET core Web API hizmeti içeren uygulama oluşturulduktan sonra Çözüm Gezgini]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+   ![ASP.NET Core Web API'si hizmeti içeren uygulama oluşturulduktan sonra Çözüm Gezgini]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### <a name="add-angularjs-to-the-votingweb-service"></a>AngularJS VotingWeb hizmete ekleyin
-Ekleme [AngularJS](http://angularjs.org/) hizmeti kullanmaya [Bower Destek](/aspnet/core/client-side/bower). İlk olarak, bir Bower yapılandırma dosyası projeye ekleyin.  Çözüm Gezgini'nde sağ **VotingWeb** seçip **Ekle -> Yeni öğe**. Seçin **Web** ve ardından **Bower yapılandırma dosyası**.  *Bower.json* dosyası oluşturulur.
+### <a name="add-angularjs-to-the-votingweb-service"></a>VotingWeb hizmetine AngularJS ekleme
+[Bower desteğini](/aspnet/core/client-side/bower) kullanarak hizmetinize [AngularJS](http://angularjs.org/) ekleyin. İlk olarak, projeye bir Bower yapılandırma dosyası ekleyin.  Çözüm Gezgini'nde, **VotingWeb** öğesine sağ tıklayın ve **Ekle->Yeni Öğe**'yi seçin. **Web**'i ve ardından **Bower Yapılandırma Dosyası**'nı seçin.  *Bower.json* dosyası oluşturulur.
 
-Açık *bower.json* ve Açısal ve önyükleme Açısal girişlerini ekleyin, sonra yaptığınız değişiklikleri kaydedin.
+*Bower.json* dosyasını açın, angular ile angular-bootstrap için girişler ekleyin ve sonra da değişikliklerinizi kaydedin.
 
 ```json
 {
@@ -90,10 +90,10 @@ Açık *bower.json* ve Açısal ve önyükleme Açısal girişlerini ekleyin, so
   }
 }
 ```
-Kaydetme sırasında *bower.json* dosya, Angular projenizin içinde yüklü *wwwroot/lib* klasör. Ayrıca, içinde listelenir *bağımlılıkları/Bower* klasör.
+*Bower.json* dosyasının kaydedilmesi üzerine, projenizin *wwwroot/lib* klasörüne Angular yüklenir. Buna ek olarak, *Bağımlılıklar/Bower* klasörünüzde de listelenir.
 
 ### <a name="update-the-sitejs-file"></a>Site.js dosyasını güncelleştirme
-Açık *wwwroot/js/site.js* dosya.  Giriş görünümleri tarafından kullanılan JavaScript ile içeriğini değiştirin:
+*wwwroot/js/site.js* dosyasını açın.  Dosyanın içeriğini Giriş görünümlerinde kullanılan JavaScript ile değiştirin:
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -133,7 +133,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### <a name="update-the-indexcshtml-file"></a>Index.cshtml dosyasını güncelleştirme
-Açık *Views/Home/Index.cshtml* dosya, giriş denetleyiciye belirli görünüm.  Yaptığınız değişiklikleri kaydedin sonra aşağıdaki içeriğini değiştirin.
+Giriş denetleyicisine özgü görünüm olan *Views/Home/Index.cshtml* dosyasını açın.  Dosyanın içeriğini aşağıdakilerle değiştirin ve sonra da değişikliklerinizi kaydedin.
 
 ```html
 @{
@@ -196,7 +196,7 @@ Açık *Views/Home/Index.cshtml* dosya, giriş denetleyiciye belirli görünüm.
 ```
 
 ### <a name="update-the-layoutcshtml-file"></a>_Layout.cshtml dosyasını güncelleştirme
-Açık *Views/Shared/_Layout.cshtml* dosya, ASP.NET uygulaması için varsayılan düzeni.  Yaptığınız değişiklikleri kaydedin sonra aşağıdaki içeriğini değiştirin.
+ASP.NET uygulaması için varsayılan düzen olan *Views/Shared/_Layout.cshtml* dosyasını açın.  Dosyanın içeriğini aşağıdakilerle değiştirin ve sonra da değişikliklerinizi kaydedin.
 
 ```html
 <!DOCTYPE html>
@@ -227,11 +227,11 @@ Açık *Views/Shared/_Layout.cshtml* dosya, ASP.NET uygulaması için varsayıla
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>VotingWeb.cs dosyasını güncelleştirme
-Açık *VotingWeb.cs* WebListener web sunucusu kullanarak durum bilgisi olmayan hizmetin ASP.NET Core WebHost oluşturur dosya.  
+WebListener web sunucusunu kullanarak durum bilgisi olmayan hizmetin içinde ASP.NET Core WebHost'u oluşturan *VotingWeb.cs* dosyasını açın.  
 
-Ekleme `using System.Net.Http;` dosyanın en üstüne yönergesi.  
+Dosyanın en üstüne `using System.Net.Http;` yönergesini ekleyin.  
 
-Değiştir `CreateServiceInstanceListeners()` işlev şununla sonra yaptığınız değişiklikleri kaydedin.
+`CreateServiceInstanceListeners()` işlevini aşağıdakilerle değiştirin, sonra değişikliklerinizi kaydedin.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -264,7 +264,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Ayrıca ekleyin `GetVotingDataServiceName` sorgulanan hizmet adı döndürür yöntemi:
+Ayrıca, yoklama yapıldığında hizmet adını döndüren `GetVotingDataServiceName` yöntemini de ekleyin:
 
 ```csharp
 internal static Uri GetVotingDataServiceName(ServiceContext context)
@@ -273,10 +273,10 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 }
 ```
 
-### <a name="add-the-votescontrollercs-file"></a>VotesController.cs dosyası ekleme
-Oylama eylemleri tanımlar bir denetleyici ekleyin. Sağ tıklayın **denetleyicileri** klasörünü seçip **Ekle -> Yeni öğe sınıfı ->**.  "VotesController.cs" dosya adı ve'ı tıklatın **Ekle**.  
+### <a name="add-the-votescontrollercs-file"></a>VotesController.cs dosyasını ekleme
+Oylama eylemlerini tanımlayan bir denetleyici ekleyin. **Denetleyiciler** klasörüne sağ tıklayın ve **Ekle->Yeni öğe->Sınıf**'ı seçin.  Dosyaya "VotesController.cs" adını verin ve **Ekle**'ye tıklayın.  
 
-Dosya içeriğini yaptığınız değişiklikleri kaydedin sonra aşağıdaki değiştirin.  Daha sonra [VotesController.cs dosyasını güncelleştirme](#updatevotecontroller_anchor), bu dosyayı okuma ve arka uç hizmetinden oylama veri yazma şekilde değiştirilir.  Şimdilik, denetleyici görünümüne statik dize verilerini döndürür.
+Dosyanın içeriğini aşağıdakilerle değiştirin, sonra değişikliklerinizi kaydedin.  Daha sonra, [VotesController.cs dosyasını güncelleştirme](#updatevotecontroller_anchor) bölümünde bu dosya arka uç hizmetinde oylama verilerini okuyacak ve yazacak şekilde değiştirilir.  Şimdilik, denetleyici görünüme statik dize verileri döndürür.
 
 ```csharp
 namespace VotingWeb.Controllers
@@ -318,8 +318,8 @@ namespace VotingWeb.Controllers
 }
 ```
 
-### <a name="configure-the-listening-port"></a>Dinleme bağlantı noktasını yapılandırın
-VotingWeb ön uç hizmeti oluşturulduğunda, Visual Studio bir bağlantı noktası üzerinde dinleme hizmeti için rastgele seçer.  VotingWeb hizmeti bu uygulama için ön uç gibi davranır ve dış trafiği kabul eder, sağlandığından hizmet sabit bir bağlayabilir ve bağlantı noktası iyi biliyor.  [Hizmet bildirimi](service-fabric-application-and-service-manifests.md) hizmet uç noktalarına bildirir. Çözüm Gezgini'nde açık *VotingWeb/PackageRoot/ServiceManifest.xml*.  Bul **Endpoint** kaynak **kaynakları** bölümünde ve değiştirme **bağlantı noktası** 80 veya başka bir bağlantı noktası değeri. Dağıtma ve uygulama yerel olarak çalıştırmak için uygulama dinleme bağlantı noktası açık ve bilgisayarınızdaki kullanılabilir olması gerekir.
+### <a name="configure-the-listening-port"></a>Dinleme bağlantı noktasını yapılandırma
+VotingWeb ön uç hizmeti oluşturulduğunda, Visual Studio hizmetin dinlemesi için rastgele bir bağlantı noktası seçer.  VotingWeb hizmeti bu uygulama için ön uç işlevi görür ve dış trafiği kabul eder; bu nedenle şimdi bu hizmeti sabit ve iyi tanınan bir bağlantı noktasına bağlayalım.  [Hizmet bildirimi](service-fabric-application-and-service-manifests.md) hizmet uç noktalarını bildirir. Çözüm Gezgini'nde *VotingWeb/PackageRoot/ServiceManifest.xml* dosyasını açın.  **Kaynaklar** bölümünde **Uç Nokta** kaynağını bulun ve **Bağlantı Noktası** değerini 80 numaralı veya başka bir bağlantı noktasıyla değiştirin. Uygulamayı yerel olarak dağıtmak ve çalıştırmak için, uygulama dinleme bağlantı noktasının bilgisayarınızda açık ve kullanılabilir olması gerekir.
 
 ```xml
 <Resources>
@@ -332,55 +332,50 @@ VotingWeb ön uç hizmeti oluşturulduğunda, Visual Studio bir bağlantı nokta
   </Resources>
 ```
 
-Ayrıca 'F5' kullanarak hata ayıklamasını yaparken doğru bağlantı noktasına bir web tarayıcısı açar şekilde oylama Proje uygulama URL'si özelliği değeri güncelleştirin.  Çözüm Gezgini'nde seçin **oylama** proje ve güncelleştirme **uygulama URL'si** özelliği.
+Ayrıca Voting projesindeki Uygulama URL'si özellik değerini de güncelleştirin ve 'F5' kullanarak hata ayıklaması yaptığınızda web tarayıcısının doğru bağlantı noktasına açılmasını sağlayın.  Çözüm Gezgini'nde, **Voting** projesini seçin ve **Uygulama URL'si** özelliğini güncelleştirin.
 
 ![Uygulama URL'si](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
-### <a name="deploy-and-run-the-application-locally"></a>Dağıtma ve uygulama yerel olarak çalıştırma
-Şimdi devam edin ve uygulamayı çalıştırın. Hata ayıklama için uygulamayı dağıtmak üzere Visual Studio'da `F5` tuşuna basın. `F5`Visual Studio olarak daha önce açılmazsa başarısız **yönetici**.
+### <a name="deploy-and-run-the-application-locally"></a>Uygulamayı yerel olarak dağıtma ve çalıştırma
+Artık devam edip uygulamayı çalıştırabilirsiniz. Hata ayıklama için uygulamayı dağıtmak üzere Visual Studio'da `F5` tuşuna basın. Daha önce Visual Studio'yu **yönetici** olarak açmadıysanız, `F5` başarısız olur.
 
 > [!NOTE]
-> Uygulamayı yerel olarak ilk kez çalıştırdığınızda ve dağıttığınızda, Visual Studio hata ayıklama için yerel bir küme oluşturur.  Küme oluşturma biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.
+> Uygulamayı yerel olarak ilk kez çalıştırdığınızda ve dağıttığınızda, Visual Studio hata ayıklama için yerel bir küme oluşturur.  Küme oluşturma işlemi biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.
 
-Bu noktada, web uygulamanızı aşağıdaki gibi görünmelidir:
+Bu noktada, web uygulamanız şöyle görünmelidir:
 
-![ASP.NET Core ön uç](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
+![ASP.NET Core ön ucu](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
-Uygulamanın hata ayıklamasını durdurmak için Visual Studio ve tuşuna dön **Shift + F5**.
+Uygulamada hata ayıklamasını durdurmak için, Visual Studio'ya dönün ve **Shift+F5** tuşlarına basın.
 
-## <a name="add-a-stateful-back-end-service-to-your-application"></a>Durum bilgisi olan bir arka uç hizmeti uygulamanıza ekleyin
-Uygulamada bir ASP.NET Web API hizmetinin çalıştığından, bir tane uygulamada bazı verileri depolamak için bir durum bilgisi olan güvenilir hizmetini ekleyin.
+## <a name="add-a-stateful-back-end-service-to-your-application"></a>Uygulamanıza durum bilgisi olan bir arka uç hizmeti ekleme
+Artık uygulamada bir ASP.NET Web API'si hizmeti çalıştırıldığına göre, devam edin ve uygulamadaki bazı verileri depolamak için durum bilgisi olan güvenilir bir hizmet ekleyin.
 
-Service Fabric, güvenilir koleksiyonları kullanarak hizmetinizin içinde veri hak tutarlı ve güvenilir bir şekilde depolamanızı sağlar. C# koleksiyonları kullanan herkes için tanıdık yüksek oranda kullanılabilir ve güvenilir koleksiyon sınıfları kümesi güvenilir koleksiyonlarıdır.
+Service Fabric, güvenilir koleksiyonlar kullanarak verileri doğrudan hizmetinizin içinden tutarlı ve güvenilir bir şekilde depolamanıza olanak tanır. Güvenilir koleksiyonlar, C# koleksiyonlarını kullanmış olan herkesin iyi tanıdığı bir dizi yüksek kullanılabilirliğe sahip ve güvenilir koleksiyon sınıfıdır.
 
-Bu öğreticide, güvenilir bir koleksiyonda bir sayaç değeri depolayan bir hizmet oluşturun.
+Bu öğreticide, güvenilir koleksiyonda sayaç değerini depolayan bir hizmet oluşturursunuz.
 
-1. Çözüm Gezgini'nde sağ **Hizmetleri** uygulama içinde proje ve seçin **Ekle > Yeni yapı hizmeti**.
+1. Çözüm Gezgini'nde, uygulama projesinin içindeki **Hizmetler**'e sağ tıklayın ve **Ekle > Yeni Service Fabric Hizmeti**'ni seçin.
     
-2. İçinde **yeni yapı hizmeti** iletişim kutusunda, seçin **durum bilgisi olan ASP.NET Core**ve ad hizmeti **VotingData** ve basın **Tamam**.
+2. **Yeni Service Fabric Hizmeti** iletişim kutusunda **Durum Bilgisi Olan ASP.NET Core**'u seçin, hizmete **VotingData** adını verin ve **Tamam**'a basın.
 
     ![Visual Studio'da yeni hizmet iletişim kutusu](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
-    Hizmet projeniz oluşturulduktan sonra uygulamanızda iki hizmetler sahiptir. Uygulamanızı yapılandırmaya devam ederken, daha fazla hizmet aynı şekilde ekleyebilirsiniz. Her bağımsız olarak sürümlü hem de yükseltilmiş olabilir.
+    Hizmet projeniz oluşturulduktan sonra, uygulamanızda iki hizmet olacaktır. Uygulamanızı oluşturmaya devam ederken, aynı yöntemle başka hizmetler de ekleyebilirsiniz. Bunlardan her birinin bağımsız olarak sürümü oluşturulabilir ve yükseltilebilir.
 
-3. Sonraki sayfanın bir dizi ASP.NET Core proje şablonları sağlar. Bu öğretici için seçin **Web API**.
+3. Sonraki sayfada, bir dizi ASP.NET Core proje şablonu sağlanır. Bu öğreticide, **Web API'si** seçeneğini kullanın.
 
-    ![ASP.NET proje türü seçin](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
+    ![ASP.NET proje türünü seçme](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
-    Visual Studio hizmet projesi oluşturur ve bunları Çözüm Gezgini'nde görüntüler.
+    Visual Studio bir hizmet projesi oluşturur ve bunları Çözüm Gezgini'nde görüntüler.
 
     ![Çözüm Gezgini](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
-### <a name="add-the-votedatacontrollercs-file"></a>VoteDataController.cs dosyası ekleme
+### <a name="add-the-votedatacontrollercs-file"></a>VoteDataController.cs dosyasını ekleme
 
-İçinde **VotingData** projesine sağ tıklayın **denetleyicileri** klasörünü seçip **Ekle -> Yeni öğe sınıfı ->**. "VoteDataController.cs" dosya adı ve'ı tıklatın **Ekle**. Dosya içeriğini yaptığınız değişiklikleri kaydedin sonra aşağıdaki değiştirin.
+**VotingData** projesinde **Denetleyiciler**'e sağ tıklayın ve ardından **Ekle->Yeni öğe->Sınıf**'ı seçin. Dosyaya "VoteDataController.cs" adını verin ve **Ekle**'ye tıklayın. Dosyanın içeriğini aşağıdakilerle değiştirin, sonra değişikliklerinizi kaydedin.
 
 ```csharp
-// ------------------------------------------------------------
-//  Copyright (c) Microsoft Corporation.  All rights reserved.
-//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
-// ------------------------------------------------------------
-
 namespace VotingData.Controllers
 {
     using System.Collections.Generic;
@@ -410,9 +405,9 @@ namespace VotingData.Controllers
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
+                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
+                Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
                 List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 
@@ -465,17 +460,17 @@ namespace VotingData.Controllers
 ```
 
 
-## <a name="connect-the-services"></a>Hizmetlere bağlanma
-Bu sonraki adımda, iki hizmet bağlanın ve ön uç Web uygulama alma ve arka uç hizmetinden bilgi oylama ayarlama olun.
+## <a name="connect-the-services"></a>Hizmetleri bağlama
+Bu sonraki adımda, iki hizmeti bağlayın ve ön uç Web uygulamasının arka uç hizmetinden oylama bilgilerini almasını ve ayarlamasını sağlayın.
 
-Service Fabric reliable services ile nasıl iletişim kuracağını tam esneklik sağlar. Tek bir uygulama içinde TCP üzerinden erişilebilir Hizmetleri olabilir. Bir HTTP REST API erişilebilir diğer hizmetler ve hala diğer hizmetleri web yuvalarını erişilebilir. Kullanılabilir seçenekler ve söz konusu bileşim arka plan için bkz: [hizmetleriyle iletişim kurmasını](service-fabric-connect-and-communicate-with-services.md).
+Service Fabric, güvenilir hizmetlerle iletişiminize eksiksiz bir esneklik getirir. Tek bir uygulamanın içinde, TCP üzerinden erişilebilen hizmetleriniz olabilir. Diğer hizmetlere HTTP REST API üzerinden erişilebilir ve yine web yuvaları üzerinden erişilebilen başka hizmetler olabilir. Sağlanan seçeneklerin arka planı ve mevcut alışverişler için, bkz. [Hizmetlerle iletişim kurma](service-fabric-connect-and-communicate-with-services.md).
 
-Bu öğreticide kullanmak [ASP.NET çekirdek Web API](service-fabric-reliable-services-communication-aspnetcore.md).
+Bu öğreticide, [ASP.NET Core Web API'si](service-fabric-reliable-services-communication-aspnetcore.md) kullanın.
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
 ### <a name="update-the-votescontrollercs-file"></a>VotesController.cs dosyasını güncelleştirme
-İçinde **VotingWeb** proje, açık *Controllers/VotesController.cs* dosya.  Değiştir `VotesController` sınıf tanımı içeriğini aşağıdakiyle sonra yaptığınız değişiklikleri kaydedin.
+**VotingWeb** projesinde *Controllers/VotesController.cs* dosyasını açın.  `VotesController` sınıf tanımı içeriğini aşağıdakilerle değiştirin, sonra değişikliklerinizi kaydedin.
 
 ```csharp
 public class VotesController : Controller
@@ -604,12 +599,12 @@ Uygulamada oy kullandığınızda aşağıdaki olaylar gerçekleşir:
 3. Arka uç hizmeti gelen isteği alır ve güncelleştirilmiş sonucu güvenilir bir sözlükte depolar. Bu sözlük küme içinde birden çok düğüme çoğaltılır ve diskte kalıcı olur. Uygulamanın tüm verileri kümede depolandığından, veritabanına gerek yoktur.
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio'da hata ayıklama
-Visual Studio'da uygulamada hata ayıklaması yaparken yerel bir Service Fabric geliştirme kümesi kullanırsınız. Hata ayıklama deneyiminizi senaryonuza göre ayarlama seçeneğiniz vardır. Bu uygulamada güvenilir sözlüğünü kullanarak arka uç hizmetinde verileri depolar. Hata ayıklayıcıyı durdurduğunuzda Visual Studio varsayılan olarak uygulamayı kaldırır. Uygulamanın kaldırılması arka uç hizmetindeki verilerin de kaldırılmasına neden olur. Hata ayıklama oturumları arasında verilerin kalıcı olmasını sağlamak için, Visual Studio'da **Oylama** projesindeki bir özellik olarak **Uygulama Hata Ayıklama Modu**'nu değiştirebilirsiniz.
+Visual Studio'da uygulamada hata ayıklaması yaparken yerel bir Service Fabric geliştirme kümesi kullanırsınız. Hata ayıklama deneyiminizi senaryonuza göre ayarlama seçeneğiniz vardır. Bu uygulamada, güvenilir bir sözlük kullanarak verileri arka uç hizmetinde depolayın. Hata ayıklayıcıyı durdurduğunuzda Visual Studio varsayılan olarak uygulamayı kaldırır. Uygulamanın kaldırılması arka uç hizmetindeki verilerin de kaldırılmasına neden olur. Hata ayıklama oturumları arasında verilerin kalıcı olmasını sağlamak için, Visual Studio'da **Oylama** projesindeki bir özellik olarak **Uygulama Hata Ayıklama Modu**'nu değiştirebilirsiniz.
 
 Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
-1. Açık **VotesController.cs** dosya ve web API'ın bir kesme noktası belirleyerek **Put** yöntemi (satır 63) - Visual Studio'daki Çözüm Gezgini'nde dosyayı arayabilirsiniz.
+1. **VotesController.cs** dosyasını açın ve web API'sinin **Put** yönteminde (63. satır) bir kesme noktası ayarlayın. Dosyayı Visual Studio'daki Çözüm Gezgini'nde arayıp bulabilirsiniz.
 
-2. Açık **VoteDataController.cs** dosya ve bu web API'nin bir kesme noktası belirleyerek **Put** yöntemi (satır 53).
+2. **VoteDataController.cs** dosyasını açın ve bu web API'sinin **Put** yönteminde (53. satır) bir kesme noktası ayarlayın.
 
 3. Tarayıcıya dönün ve bir oylama seçeneğine tıklayın veya yeni oylama seçeneği ekleyin. Web ön ucunun api denetleyicisinde ilk kesme noktasına ulaşırsınız.
     
@@ -617,31 +612,31 @@ Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
     
     ![Oy Ön Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. İlk arka uç hizmeti ReverseProxy URL'si oluşturmak **(1)**.
-    3. PUT HTTP isteği göndermek için ReverseProxy **(2)**.
-    4. Son olarak return arka uç hizmetinden gelen yanıt istemciye **(3)**.
+    2. İlk olarak, arka uç hizmeti için ReverseProxy'nin URL'sini oluşturun **(1)**.
+    3. Ardından, HTTP PUT İsteğini ReverseProxy'ye gönderin **(2)**.
+    4. Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)**.
 
 4. Devam etmek için **F5** tuşuna basın
     1. Şimdi arka uç hizmetindeki kesme noktasındasınız.
     
     ![Oy Arka Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. Yönteminin ilk satırında **(1)** kullanmak `StateManager` almak veya adlı güvenilir sözlüğü eklemek için `counts`.
+    2. Yöntemin ilk satırında **(1)** `counts` adlı güvenilir sözlüğü almak veya eklemek için `StateManager` kullanın.
     3. Güvenilir bir sözcükteki değerlerle tüm etkileşimler bir işlem gerektirir; bu using deyimi **(2)** o işlemi oluşturur.
-    4. İşlemde oylama seçeneği için ilgili anahtarının değerini güncelleştirin ve işlemi tamamlar **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
+    4. İşlemde, oylama seçeneği için uygun anahtarın değerini güncelleştirin ve işlemi yürütün **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
 5. Devam etmek için **F5** tuşuna basın
 
 Hata ayıklama oturumunu durdurmak için **Shift+F5** tuşlarına basın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Öğreticinin bu bölümünde, öğrenilen nasıl yapılır:
+Öğreticinin bu bölümünde, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Durum bilgisi olan güvenilir bir hizmet olarak bir ASP.NET çekirdek Web API hizmeti oluşturma
-> * Durum bilgisiz web hizmeti olarak bir ASP.NET çekirdek Web uygulaması hizmeti oluşturma
-> * Durum bilgisi olan hizmeti ile iletişim kurmak için ters proxy kullan
+> * ASP.NET Core Web API'si hizmetini durum bilgisi olan güvenilir bir hizmet olarak oluşturma
+> * ASP.NET Core Web Uygulaması hizmetini durum bilgisi olmayan bir web hizmeti olarak oluşturma
+> * Durum bilgisi olan hizmetle iletişim kurmak için ters proxy kullanma
 
-Sonraki öğretici ilerleyin:
+Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]
-> [Uygulamayı Azure'a dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [Uygulamayı Azure’a dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)

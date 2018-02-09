@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage’a Giriş
 
@@ -131,21 +131,21 @@ Blob Hizmeti, bir kapsayıcıya ve bloblarına veya belirli bir bloba genel eri�
 
 ## <a name="encryption"></a>Şifreleme
 
-Depolama hizmetleri için birkaç temel şifreleme seçeneği vardır.
+Depolama hizmetleri için iki temel şifreleme seçeneği vardır. Güvenlik ve şifreleme hakkında daha fazla bilgi için bkz. [Azure Depolama güvenlik kılavuzu](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
 
-Depolama Hizmeti Şifrelemesini bir Azure depolama hesabının Dosyalar hizmetinde (önizleme) veya Blob hizmetinde (SSE) etkinleştirebilirsiniz. Etkinleştirilirse, ilgili hizmete yazılan tüm veriler yazılmadan önce şifrelenir. Okunmadan önce verilerin şifresi çözülür.
+Azure Bekleyen Veri için Depolama Hizmeti Şifrelemesi (SSE), verilerinizi koruyarak kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine getirmenize yardımcı olur. Bu özellik ile Azure Depolama, verilerinizi depolama alanında kalıcı hale gelmeden önce otomatik olarak şifreler ve alınmadan önce bunların şifresini çözer. Şifreleme, şifre çözme ve anahtar yönetimi, kullanıcılara tamamen şeffaf bir şekilde sunulur.
+
+Depolama Hizmeti Şifreleme’yi (SSE) Blob depolama alanı veya Azure Dosyaları (önizleme) için etkinleştirebilirsiniz. Etkinleştirilirse, ilgili hizmete yazılan tüm veriler yazılmadan önce şifrelenir. Okunmadan önce verilerin şifresi çözülür.
+
+Bekleyen veri için SSE şifrelemesi hakkında daha fazla bilgi için bkz. [Bekleyen Veri için Azure Depolama Hizmeti Şifrelemesi](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>İstemci Tarafında Şifreleme
 
 Depolama istemcisi kitaplıklarında, verileri istemciden Azure'a göndermeden önce programlı olarak şifrelemek için çağırabileceğiniz yöntemler vardır. Şifreli olarak depolandığından, bekleme sırasında da şifrelenmiş olacaktır. Veriler geri okunurken bilgileri aldıktan sonra şifresini çözersiniz.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Azure Dosya paylaşımları ile aktarım sırasında şifreleme
-
-Paylaşılan erişim imzaları ile ilgili daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](../storage-dotnet-shared-access-signature-part-1.md). Depolama hesabınıza güvenli erişim ile ilgili daha fazla bilgi için bkz. [Kapsayıcılar ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md) ve [Azure Storage Hizmetleri için Kimlik Doğrulama](https://msdn.microsoft.com/library/azure/dd179428.aspx) 
-
-Depolama hesabınızın ve verilerinizin güvenliğini sağlama hakkında daha fazla bilgi için bkz. [Azure Depolama güvenlik kılavuzu](storage-security-guide.md).
+İstemci tarafı şifreleme hakkında daha fazla bilgi için bkz. [Microsoft Azure Depolama için .NET ile İstemci Tarafı Şifreleme](storage-client-side-encryption.md).
 
 ## <a name="replication"></a>Çoğaltma
 

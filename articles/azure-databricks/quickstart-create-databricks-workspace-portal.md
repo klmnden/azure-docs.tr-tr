@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
@@ -146,7 +146,7 @@ Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob dep
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Spark kümesini oluştururken **___ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiyseniz, küme belirtilen süre boyunca etkin olmazsa otomatik olarak sona erer.
+Spark kümesini oluştururken **__ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiyseniz, küme belirtilen süre boyunca etkin olmazsa otomatik olarak sona erer.
 
 Onay kutusunu seçmediyseniz kümeyi el ile sonlandırmanız gerekir. Bunu yapmak için Azure Databricks çalışma alanında sol bölmedeki **Kümeler**’e tıklayın. Sonlandırmak istediğiniz küme için imleci **Eylemler** sütunu altındaki üç noktanın üzerine taşıyın ve **Sonlandır** simgesine tıklayın.
 

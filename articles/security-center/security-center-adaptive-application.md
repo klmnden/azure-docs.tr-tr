@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2018
+ms.date: 01/30/2018
 ms.author: yurid
-ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: b1c30b6a0d768f04608c4e46a2e29d20f566964a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Uyarlamalı Uygulama Denetimleri (Önizleme)
 Bu kılavuzu kullanarak Azure Güvenlik Merkezi'ndeki uygulama denetimi özelliklerini yapılandırmayı öğrenebilirsiniz.
@@ -36,42 +36,48 @@ Uyarlamalı uygulama denetimleri, Azure'da yer alan VM'lerinizde çalışabilece
 ## <a name="how-to-enable-adaptive-application-controls"></a>Uyarlamalı uygulama denetimleri nasıl etkinleştirilir?
 Uyarlamalı uygulama denetimleri, yapılandırılmış kaynak gruplarında çalıştırılmasına izin verilen bir uygulama kümesi tanımlamanıza yardımcı olur. Bu özellik yalnızca Windows makinelerde kullanılabilir (tüm sürümler, klasik veya Azure Resource Manager). Güvenlik Merkezi'nde uygulama beyaz listesini yapılandırmak için aşağıdaki adımları kullanabilirsiniz:
 
-1.  **Güvenlik Merkezi** panosunu açın ve sol taraftaki gezinti bölmesinin **Gelişmiş bulut savunması** bölümündeki **Uyarlamalı uygulama denetimleri**'ne tıklayın.
+1. **Güvenlik Merkezi** panosunu açın.
+2. Sol bölmeden **Gelişmiş bulut savunması** altında bulunan **Uyarlamalı uygulama denetimlerini** seçin.
 
     ![Savunma](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-2. **Uyarlamalı uygulama denetimleri** sayfası açılır.
+**Uyarlamalı uygulama denetimleri** sayfası açılır.
 
-    ![denetimler](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
+![denetimler](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
-4. Kaynak Grupları bölümünde üç sekme bulunur:
-    * **Önerilen**:  Uygulama denetiminin önerildiği kaynak grubu listesi. Güvenlik Merkezi makine öğrenimi özelliklerini kullanarak VM'lerin tutarlı bir şekilde aynı uygulamaları çalıştırıp çalıştırmadığına bakar ve uygulama denetimi için uygun olan VM'leri tanımlar.
-    * **Yapılandırılmış**: Uygulama denetimi ile yapılandırılmış olan VM'leri içeren kaynak gruplarının listesi. 
-    * **Öneri yok**: Uygulama denetimi önerisi bulunmayan VM'leri içeren kaynak gruplarının listesi. Örneğin, uygulamaların sürekli değiştiği ve kararlı bir duruma geçmediği VM'ler.
+**Kaynak grupları** bölümünde üç sekme bulunur:
+
+* **Yapılandırılmış**: Uygulama denetimi ile yapılandırılmış olan VM'leri içeren kaynak gruplarının listesi.
+* **Önerilen**:  Uygulama denetiminin önerildiği kaynak grubu listesi. Güvenlik Merkezi makine öğrenimi özelliklerini kullanarak VM'lerin tutarlı bir şekilde aynı uygulamaları çalıştırıp çalıştırmadığına bakar ve uygulama denetimi için uygun olan VM'leri tanımlar.
+* **Öneri yok**: Uygulama denetimi önerisi bulunmayan VM'leri içeren kaynak gruplarının listesi. Örneğin, uygulamaların sürekli değiştiği ve kararlı bir duruma geçmediği VM'ler.
 
 ### <a name="configure-a-new-application-control-policy"></a>Yeni bir uygulama denetim ilkesi yapılandırma
-Uygulama denetimi önerileri bulunan kaynak gruplarının listesi için **Önerilen** sekmesine tıklayın:
+1. Uygulama denetimi önerileri bulunan kaynak gruplarının listesi için **Önerilen** sekmesine tıklayın:
 
-![Önerilen](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+  ![Önerilen](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-Liste aşağıdakileri içerir:
-- **AD**: Aboneliğin ve kaynak grubunun adı
-- **VM'ler**: Kaynak grubu içindeki sanal makine sayısı
-- **DURUM**: Önerilerin durumu, çoğu durumda açık olacaktır
-- **ÖNEM DERECESİ**: Önerilerin önem derecesi
+  Liste aşağıdakileri içerir:
 
-**Uygulama denetimi kuralları oluştur** seçeneğini açmak için bir kaynak grubunu seçin:
+  - **AD**: Aboneliğin ve kaynak grubunun adı
+  - **VM'ler**: Kaynak grubu içindeki sanal makine sayısı
+  - **DURUM**: Önerilerin durumu, çoğu durumda açık olacaktır
+  - **ÖNEM DERECESİ**: Önerilerin önem derecesi
 
-![Uygulama denetimi kuralları](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+2. **Uygulama denetimi kuralları oluştur** seçeneğini açmak için bir kaynak grubunu seçin.
 
-**VM'leri Seç** bölümünde önerilen VM'lerin listesini gözden geçirin ve uygulama denetimi gerçekleştirmek istemediklerinizin yanındaki onay işaretini kaldırın. **Beyaz listeye ekleme kuralları için işlemleri seçin** bölümünde önerilen uygulamaların listesini gözden geçirin ve uygulamak istemediklerinizin yanındaki onay işaretini kaldırın. Liste aşağıdakileri içerir:
+  ![Uygulama denetimi kuralları](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-- **AD**: Uygulamanın tam yolu
-- **İŞLEMLER**: Her yolda bulunan uygulama sayısı
-- **ORTAK**: “Yes” değeri, bu işlemlerin bu kaynak grubundaki VM'lerin çoğunda yürütüldüğünü gösterir.
-- **AÇIKLARDAN YARARLANABİLİR**: Uygulamaların, uygulama beyaz listesini atlamak için bir saldırgan tarafından kullanılma ihtimali olması halinde bir uyarı simgesi görünür. Bu uygulamaları onaylamadan önce gözden geçirmeniz önerilir. 
+3. **VM'leri Seç** bölümünde önerilen VM'lerin listesini gözden geçirin ve uygulama denetimi gerçekleştirmek istemediklerinizin yanındaki onay işaretini kaldırın. **Beyaz listeye ekleme kuralları için işlemleri seçin** bölümünde önerilen uygulamaların listesini gözden geçirin ve uygulamak istemediklerinizin yanındaki onay işaretini kaldırın. Liste aşağıdakileri içerir:
 
-Seçimlerinizi tamamladıktan sonra **Oluştur** düğmesine tıklayın. Güvenlik Merkezi uygulama denetimini her zaman varsayılan olarak *Denetim* modunda çalıştırır. Beyaz listenin iş yükünüzü olumsuz etkilemeyeceği doğrulandıktan sonra *Zorunlu kıl* modunu seçebilirsiniz.
+  - **AD**: Uygulamanın tam yolu
+  - **İŞLEMLER**: Her yolda bulunan uygulama sayısı
+  - **ORTAK**: “Yes” değeri, bu işlemlerin bu kaynak grubundaki VM'lerin çoğunda yürütüldüğünü gösterir.
+  - **AÇIKLARDAN YARARLANABİLİR**: Uygulamaların, uygulama beyaz listesini atlamak için bir saldırgan tarafından kullanılma ihtimali olması halinde bir uyarı simgesi görünür. Bu uygulamaları onaylamadan önce gözden geçirmeniz önerilir.
+  - **KULLANICILAR**: Uygulamayı çalıştırma izni verilen kullanıcılar
+
+4. Seçimlerinizi tamamladıktan sonra **Oluştur**’u seçin.
+
+Güvenlik Merkezi uygulama denetimini her zaman varsayılan olarak *Denetim* modunda çalıştırır. Beyaz listenin iş yükünüzü olumsuz etkilemeyeceği doğrulandıktan sonra *Zorunlu kıl* modunu seçebilirsiniz.
 
 Güvenlik Merkezi, temel yapılandırma oluşturmak ve VM gruplarına benzersiz öneri sunmak için en az iki haftalık veri kullanmaktadır. Güvenlik Merkezi standart katmanının yeni müşterileri başlangıçta VM gruplarının *öneri yok* sekmesi altında olduğunu görebilir.
 
@@ -81,67 +87,80 @@ Güvenlik Merkezi, temel yapılandırma oluşturmak ve VM gruplarına benzersiz 
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Uygulama denetimiyle yapılandırılmış bir grubu düzenleme ve izleme
 
-Uygulama denetimiyle yapılandırılmış bir grubu düzenlemek ve izlemek için **Kaynak Grupları**'nın altındaki **YAPILANDIRILMIŞ** seçeneğine tıklayın:
+1. Uygulama denetimiyle yapılandırılmış grubu düzenleyip izlemek için **Uyarlamalı uygulama denetimleri** sayfasına geri dönüp **Kaynak Grupları** altından **YAPILANDIRILMIŞ** seçeneğini belirleyin:
 
-![Kaynak grupları](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+  ![Kaynak grupları](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-Liste aşağıdakileri içerir:
+  Liste aşağıdakileri içerir:
 
-- **AD**: Aboneliğin ve kaynak grubunun adı
-- **VM'ler**: Kaynak grubu içindeki sanal makine sayısı
-- **MOD**: Denetim modu beyaz listeye alınmamış uygulamaların çalıştırma girişimlerini günlüğe kaydeder; Engelle modu ise beyaz listeye alınmamış uygulamaların çalışmasına izin vermez
-- **ÖNEM DERECESİ**: Önerilerin önem derecesi
+  - **AD**: Aboneliğin ve kaynak grubunun adı
+  - **VM'ler**: Kaynak grubu içindeki sanal makine sayısı
+  - **MOD**: Denetim modu beyaz listeye alınmamış uygulamaların çalıştırma girişimlerini günlüğe kaydeder; Engelle modu ise beyaz listeye alınmamış uygulamaların çalışmasına izin vermez
+  - **SORUNLAR**: Herhangi bir geçerli ihlal
 
-Bir kaynak grubunu seçtikten sonra **Uygulama denetim ilkesini düzenle** sayfasında değişiklik yapabilirsiniz.
+2. Bir kaynak grubunu seçtikten sonra **Uygulama denetim ilkesini düzenle** sayfasında değişiklik yapabilirsiniz.
 
-![Koruma](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+  ![Koruma](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
-**Koruma Modu** altında aşağıdaki seçeneklerden birini belirleyebilirsiniz:
-- **Denetim**: Bu modda uygulama denetimi çözümü kuralları zorunlu kılmaz ve yalnızca korumalı VM'lerdeki etkinliği denetler. Bu, bir uygulamanın hedef VM'de çalışmasını engellemeden önce genel davranışını gözlemlemek istediğiniz senaryolar için önerilir.
-- **Zorunlu kıl**: Bu modda uygulama denetimi çözümü kuralları zorunlu kılar ve çalışmasına izin verilmeyen uygulamaların engellenmesini sağlar. 
+3. **Koruma modu** altında aşağıdakilerden birini seçebilirsiniz:
 
-Yukarıda belirtildiği gibi yeni uygulama denetimi ilkeleri her zaman *Denetim* modunda yapılandırılır. **İlke uzantısı** bölümünde beyaz listeye eklemek istediğiniz uygulamaların yollarını ekleyebilirsiniz. Bu yolları eklediğinizde Güvenlik Merkezi ilgili uygulamalar için uygun kuralları oluşturur ve mevcut kurallara ekler. **Sorunlar** bölümünde geçerli ihlaller listelenir.
+  - **Denetim**: Bu modda uygulama denetimi çözümü kuralları zorunlu kılmaz ve yalnızca korumalı VM'lerdeki etkinliği denetler. Bu, bir uygulamanın hedef VM'de çalışmasını engellemeden önce genel davranışını gözlemlemek istediğiniz senaryolar için önerilir.
+  - **Zorunlu kıl**: Bu modda uygulama denetimi çözümü kuralları zorunlu kılar ve çalışmasına izin verilmeyen uygulamaların engellenmesini sağlar.
 
-![Sorunlar](./media/security-center-adaptive-application/security-center-adaptive-application-fig7.png)
+  Yukarıda belirtildiği gibi yeni uygulama denetimi ilkeleri her zaman *Denetim* modunda yapılandırılır. **İlke uzantısı** bölümünde beyaz listeye eklemek istediğiniz uygulamaların yollarını ekleyebilirsiniz. Bu yolları eklediğinizde Güvenlik Merkezi ilgili uygulamalar için uygun kuralları oluşturur ve mevcut kurallara ekler.
 
-Bu liste aşağıdakileri içerir:
+  **Son Sorunlar** bölümünde geçerli ihlaller listelenir.
 
-- **SORUNLAR**: Günlüğe kaydedilmiş tüm ihlaller burada yer alır ve bunlar aşağıdakiler olabilir:
-    - **ViolationsBlocked**: Çözüm, Zorunlu kıl modunda çalıştırıldığında ve beyaz listede yer almayan bir uygulama yürütülmeye çalıştığında.
-    - **ViolationsAudited**: Çözüm Denetim modunda çalıştırıldığında ve beyaz listede yer almayan bir uygulama yürütüldüğünde.
-    - **RulesViolatedManually**: Bir kullanıcı ASC yönetim portalı yerine VM'lerde el ile kural yapılandırmayı denediğinde.
-- **VM SAYISI**: Bu sorun türündeki sanal makinelerin sayısı.
+  ![Sorunlar](./media/security-center-adaptive-application/security-center-adaptive-application-fig7.png)
 
-Bu satırlardan birine tıkladığınızda açılacak [Azure Etkinlik Günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) sayfasında bu ihlalin bulunduğu tüm VM'ler hakkında bilgi alabilirsiniz. Satır sonundaki üç noktaya tıklayarak ilgili girişi silebilirsiniz. **Yapılandırılmış sanal makineler** bölümünde bu kuralların geçerli olduğu VM'lerin listesi yer alır. 
+  Bu liste aşağıdakileri içerir:
+  - **SORUNLAR**: Günlüğe kaydedilmiş tüm ihlaller burada yer alır ve bunlar aşağıdakiler olabilir:
 
-![Yapılandırılmış sanal makineler](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
+      - **ViolationsBlocked**: Çözüm, Zorunlu kıl modunda çalıştırıldığında ve beyaz listede yer almayan bir uygulama yürütülmeye çalıştığında.
+      - **ViolationsAudited**: Çözüm Denetim modunda çalıştırıldığında ve beyaz listede yer almayan bir uygulama yürütüldüğünde.
+      - **RulesViolatedManually**: Bir kullanıcı ASC yönetim portalı yerine VM'lerde el ile kural yapılandırmayı denediğinde.
 
-**Beyaz listeye yayımcı ekleme kuralları** bölümünde, her bir uygulama için bulunan sertifika bilgileri kullanılarak yayımcı kuralı oluşturulan uygulamalar listelenir. Daha fazla bilgi için bkz. [Applocker'daki Yayımcı Kurallarını Kavrama](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker).
+ - **VM SAYISI**: Bu sorun türündeki sanal makinelerin sayısı.
 
-![Beyaz listeye ekleme kuralları](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
+  Bu satırlardan her birine tıkladığınızda açılan [Azure Etkinlik Günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) sayfasında bu ihlalin bulunduğu tüm VM'ler hakkında bilgi alabilirsiniz. Satır sonundaki üç noktaya tıklayarak ilgili girişi silebilirsiniz. **Yapılandırılmış sanal makineler** bölümünde bu kuralların geçerli olduğu VM'lerin listesi yer alır.
 
-Satır sonundaki üç noktaya tıklayarak ilgili kuralı silebilirsiniz. **Beyaz listeye yol ekleme kuralları** bölümünde, bir dijital sertifika ile imzalanmamış ancak beyaz listeye ekleme kurallarında yer alan uygulamalar için uygulama yolunun tamamı (yürütülebilir dahil) listelenir. 
+  ![Yapılandırılmış sanal makineler](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
 
-> [!NOTE]
-> Varsayılan olarak Güvenlik Merkezi, en iyi güvenlik deneyimini sunmak üzere beyaz listeye alınması gereken EXE dosyaları için her zaman bir yayımcı kuralı oluşturmaya çalışır ve yalnızca yayımcı bilgisi olmayan (imzalanmış olmayan) EXE dosyalarının tam yolu için bir yol kuralı oluşturulur.
+  **Beyaz listeye yayımcı ekleme kuralları** altındaki liste şunları içerir:
 
-![Beyaz listeye yol ekleme kuralları](./media/security-center-adaptive-application/security-center-adaptive-application-fig10.png)
+  - **KURAL**: Her bir uygulama için bulunan sertifika bilgileri kullanılarak yayımcı kuralı oluşturulan uygulamalar listelenir
+  - **KULLANICILAR**: Her uygulamayı çalıştırma izni verilen kullanıcıların sayısı
 
-Liste aşağıdakileri içerir:
-- **AD**: Yürütülebilir dosyanın tam yolu
-- **AÇIKLARDAN YARARLANABİLİR**: Uygulamaların, uygulama beyaz listesini atlamak için bir saldırgan tarafından kullanılma ihtimali olması halinde doğru ifadesi görünecektir.  
+  Daha fazla bilgi için bkz. [Applocker'daki Yayımcı Kurallarını Kavrama](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker).
 
-Satır sonundaki üç noktaya tıklayarak ilgili kuralı silebilirsiniz. Değişiklikleri yaptıktan sonra **Kaydet** düğmesine veya değişiklikleri uygulamak istemezseniz **At**'a tıklayabilirsiniz.
+  ![Beyaz listeye ekleme kuralları](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
+
+  Satır sonundaki üç noktaya tıklayarak ilgili kuralı silebilir veya izin verilen kullanıcıları düzenleyebilirsiniz.
+
+  **Beyaz listeye yol ekleme kuralları** bölümünde, bir dijital sertifika ile imzalanmamış ancak beyaz listeye ekleme kurallarında yer alan uygulamalar için uygulama yolunun tamamı (yürütülebilir dahil) listelenir.
+
+  > [!NOTE]
+  > Varsayılan olarak Güvenlik Merkezi, en iyi güvenlik deneyimini sunmak üzere beyaz listeye alınması gereken EXE dosyaları için her zaman bir yayımcı kuralı oluşturmaya çalışır ve yalnızca yayımcı bilgisi olmayan (imzalanmış olmayan) EXE dosyalarının tam yolu için bir yol kuralı oluşturulur.
+
+  ![Beyaz listeye yol ekleme kuralları](./media/security-center-adaptive-application/security-center-adaptive-application-fig10.png)
+
+  Liste aşağıdakileri içerir:
+  - **AD**: Yürütülebilir dosyanın tam yolu
+  - **KULLANICILAR**: Her uygulamayı çalıştırma izni verilen kullanıcıların sayısı
+
+  Satır sonundaki üç noktaya tıklayarak ilgili kuralı silebilir veya izin verilen kullanıcıları düzenleyebilirsiniz.
+
+4. **Uyarlamalı uygulama denetimleri** sayfasında değişiklik yaptıktan sonra **Kaydet** düğmesine tıklayın. Değişiklikleri uygulamamaya karar verirseniz, **At** seçeneğine tıklayın.
 
 ### <a name="not-recommended-list"></a>Önerilmeyenler listesi
 
-Güvenlik Merkezi uygulama beyaz listeye ekleme özelliğini yalnızca kararlı bir uygulama kümesi çalıştıran sanal makineler için önerir. Bağlantılı VM'lerdeki uygulamalar sürekli değişiyorsa öneriler oluşturulmayacaktır. 
+Güvenlik Merkezi uygulama beyaz listeye ekleme özelliğini yalnızca kararlı bir uygulama kümesi çalıştıran sanal makineler için önerir. Bağlantılı VM'lerdeki uygulamalar sürekli değişiyorsa öneriler oluşturulmayacaktır.
 
 ![Öneri](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 Liste aşağıdakileri içerir:
-- **AD**: Aboneliğin ve kaynak grubunun adı.
-- **VM'ler**: Kaynak grubu içindeki sanal makine sayısı.
+- **AD**: Aboneliğin ve kaynak grubunun adı
+- **VM'ler**: Kaynak grubu içindeki sanal makine sayısı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede, Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimlerini kullanarak Azure VM'lerinde çalışan uygulamaları beyaz listeye eklemeyi öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
@@ -149,7 +168,6 @@ Bu belgede, Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimlerini kul
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Güvenlik Merkezi’nde uyarıları yönetme ve güvenlik olaylarına yanıt vermeyi öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Farklı güvenlik uyarısı türleri hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin. 
+* [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin.
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruları bulun.
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
-

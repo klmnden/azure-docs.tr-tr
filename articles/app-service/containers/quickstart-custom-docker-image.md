@@ -16,17 +16,19 @@ ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: a95a8435e4ecef201ad0f6d9ecda68e94f06ea80
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 7f6ed6d52bea1faec9dbed96a8d7aef020aea5d9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Azure Kapsayıcılar için Web App’te özel Docker Hub görüntüsü çalıştırma
 
 App Service, Linux’ta PHP 7.0 ve Node.js 4.5 gibi belirli sürümleri destekleyen önceden tanımlı uygulama yığınları sağlar. Ayrıca web uygulamanızı Azure’da zaten tanımlı olmayan bir uygulama yığınında çalıştırmak için özel bir Docker görüntüsü de kullanabilirsiniz. Bu hızlı başlangıçta bir web uygulaması oluşturma ve [resmi Nginx Docker görüntüsünü](https://hub.docker.com/r/_/nginx/) bu uygulamaya dağıtma gösterilmektedir. Web uygulamasını [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak oluşturursunuz.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-custom-docker-image/hello-world-in-browser.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +40,7 @@ App Service, Linux’ta PHP 7.0 ve Node.js 4.5 gibi belirli sürümleri destekle
 
 ## <a name="create-a-web-app-for-container"></a>Kapsayıcılar için Web Uygulaması oluşturma
 
-[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../app-service-web-overview.md) oluşturun. `<app name>` değerini benzersiz bir uygulama adıyla değiştirmeyi unutmayın.
+[`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../app-service-web-overview.md) oluşturun. `<app name>` değerini benzersiz bir uygulama adıyla değiştirmeyi unutmayın.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx

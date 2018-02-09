@@ -1,6 +1,6 @@
 ---
-title: "Polybase veri yükleme - Azure Storage Blobuna Azure SQL Data Warehouse | Microsoft Docs"
-description: "New York Taxicab verileri Azure blob depolama alanından Azure SQL Data Warehouse'a yüklemek için Azure portalı ve SQL Server Management Studio kullanan bir öğretici."
+title: "Öğretici: Polybase veri yükleme - Azure Depolama Blobu'ndan Azure SQL Veri Ambarı'na | Microsoft Docs"
+description: "Azure Portal'ı ve SQL Server Management Studio'yu kullanarak New York taksi verilerini Azure blob depolamadan Azure SQL Veri Ambarı'na yükleyen öğretici."
 services: sql-data-warehouse
 documentationcenter: 
 author: ckarst
@@ -17,42 +17,42 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Verileri Azure blob depolama alanından Azure SQL Data Warehouse'a yüklemek için Polybase'i kullanın
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Öğretici: Azure blob depolamadan verileri Azure SQL Veri Ambarı’na yüklemek için PolyBase kullanma
 
-PolyBase verileri SQL Data Warehouse'a almak için teknoloji yüklenirken standardıdır. Bu öğreticide, New York Taxicab verileri Azure blob depolama alanından Azure SQL Data Warehouse'a yüklemek için Polybase'i kullanın. Öğretici kullanır [Azure portal](https://portal.azure.com) ve [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) için: 
+PolyBase, verileri SQL Veri Ambarı'na almaya yönelik standart bir yükleme teknolojisidir. Bu öğreticide, PolyBase kullanarak New York taksi verilerini Azure blob depolamadan Azure SQL Veri Ambarı'na yükleyeceksiniz. Öğreticide aşağıdaki işlemler için [Azure Portal](https://portal.azure.com) ve [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) kullanılır: 
 
 > [!div class="checklist"]
-> * Azure portalında bir data warehouse oluşturma
-> * Azure portalında bir sunucu düzeyinde güvenlik duvarı kuralı ayarlayın
-> * Veri ambarı SSMS ile bağlanma
-> * Verileri yüklemek için atanmış bir kullanıcı oluşturun
-> * Azure blob storage'da verileri için dış tabloları oluşturma
-> * Verileri veri ambarınıza yüklemek için CTAS T-SQL deyimini kullanın
-> * Bu yükleme gibi veri ilerlemesini görüntülemek
+> * Azure Portal'da veri ambarı oluşturma
+> * Azure Portal'da sunucu düzeyinde bir güvenlik duvarı kuralı ayarlama
+> * SSMS ile veri ambarına bağlanma
+> * Verileri yüklemek için belirlenen bir kullanıcı oluşturma
+> * Azure blob depolama alanında veriler için dış tablolar oluşturma
+> * Verileri veri ambarınıza yüklemek için CTAS T-SQL deyimini kullanma
+> * Yüklendikleri sırada verilerin ilerleme durumunu görüntüleme
 > * Yeni yüklenen verilere ilişkin istatistikler oluşturma
 
-Bir Azure aboneliğiniz yoksa [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu öğreticiye başlamadan önce yükleyip en yeni sürümünü [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Bu öğreticiye başlamadan önce, [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md)’nun (SSMS) en yeni sürümünü indirin ve yükleyin.
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
 [Azure Portal](https://portal.azure.com/)’da oturum açın.
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Boş bir SQL data warehouse oluşturma
+## <a name="create-a-blank-sql-data-warehouse"></a>Boş bir SQL veri ambarı oluşturma
 
 Azure SQL veri ambarı bir dizi [işlem kaynağı](performance-tiers.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-features.md) içinde oluşturulur. 
 
-Boş SQL data warehouse oluşturmak için aşağıdaki adımları izleyin. 
+Boş bir SQL veri ambarı oluşturmak için aşağıdaki adımları izleyin. 
 
 1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 
@@ -67,7 +67,7 @@ Boş SQL data warehouse oluşturmak için aşağıdaki adımları izleyin.
    | **Veritabanı adı** | mySampleDataWarehouse | Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](/sql/relational-databases/databases/database-identifiers). | 
    | **Abonelik** | Aboneliğiniz  | Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
    | **Kaynak grubu** | myResourceGroup | Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Kaynak seçme** | Boş veritabanı | Boş bir veritabanı oluşturmak için belirtir. Veri ambarının bir veritabanı türü olduğuna dikkat edin.|
+   | **Kaynak seçme** | Boş veritabanı | Boş bir veritabanı oluşturulacağını belirtir. Veri ambarının bir veritabanı türü olduğuna dikkat edin.|
 
     ![veri ambarı oluşturma](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
@@ -84,14 +84,14 @@ Boş SQL data warehouse oluşturmak için aşağıdaki adımları izleyin.
 
 5. **Seç**'e tıklayın.
 
-6. Tıklatın **performans katmanı** veri ambarı esneklik veya işlem için optimize edilmiştir ve sayısı, veri ambarı birimlerini olup olmadığını belirtmek için. 
+6. **Performans katmanı**'na tıklayarak veri ambarının esneklik veya işlem için iyileştirilip iyileştirilmeyeceğini ve veri ambarı birimlerinin sayısını belirtin. 
 
-7. Bu öğretici için seçin **esneklik için en iyi duruma getirilmiş** hizmet katmanı. Kaydırıcı varsayılan olarak **DW400**’e ayarlanmıştır.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
+7. Bu öğreticide, **Esneklik için İyileştirilmiş** hizmet katmanını seçin. Kaydırıcı varsayılan olarak **DW400**’e ayarlanmıştır.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
 
     ![performansı yapılandırma](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. **Uygula**'ya tıklayın.
-9. SQL veri ambarı sayfasında seçin bir **harmanlama** boş veritabanı için. Bu öğretici için varsayılan değeri kullanın. Harmanlamaları hakkında daha fazla bilgi için bkz: [harmanlamaları](/sql/t-sql/statements/collations.md)
+9. SQL Veri Ambarı sayfasında, boş veritabanı için bir **harmanlama** seçin. Bu öğreticide varsayılan değeri kullanın. Harmanlamalar hakkında daha fazla bilgi için bkz. [Harmanlamalar](/sql/t-sql/statements/collations.md)
 
 11. SQL Veritabanı formunu tamamladıktan sonra veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer. 
 
@@ -111,11 +111,11 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 
 1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adı (örneğin, **mynewserver-20171113.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur. 
 
-2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. Ardından sunucu ayarları'nı açmak için sunucu adına tıklayın.
+2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. Ardından sunucu adına tıklayarak sunucu ayarlarını açın.
 
     ![sunucu adını bulma](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
-3. Sunucu Ayarları'nı açmak için sunucu adına tıklayın.
+3. Sunucu ayarlarını açmak için sunucu adına tıklayın.
 
     ![sunucu ayarları](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
@@ -136,7 +136,7 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 
 ## <a name="get-the-fully-qualified-server-name"></a>Tam sunucu adını alma
 
-SQL sunucunuzun tam sunucu adını Azure portalından alabilirsiniz. Daha sonra tam adı sunucuya bağlanırken kullanacaksınız.
+SQL sunucunuzun tam sunucu adını Azure portalından alabilirsiniz. Daha sonra sunucuya bağlanırken tam adı kullanacaksınız.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
@@ -155,7 +155,7 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
     | Ayar      | Önerilen değer | Açıklama | 
     | ------------ | --------------- | ----------- | 
     | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
-    | Sunucu adı | Tam sunucu adı | Adı, şunun gibi olmalıdır: **mynewserver 20171113.database.windows.net**. |
+    | Sunucu adı | Tam sunucu adı | Ad şunun gibi olmalıdır: **mynewserver-20171113.database.windows.net**. |
     | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
     | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
     | Parola | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
@@ -164,23 +164,23 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
 
 4. **Bağlan**'a tıklayın. SSMS’te Nesne Gezgini penceresi açılır. 
 
-5. Nesne Gezgini’nde, **Veritabanları**’nı genişletin. Ardından **sistem veritabanları** ve **ana** ana veritabanında nesneleri görüntülemek için.  Genişletme **mySampleDatabase** , yeni veritabanı nesneleri görüntülemek için.
+5. Nesne Gezgini’nde, **Veritabanları**’nı genişletin. Ardından **Sistem veritabanları**'nı ve **asıl** öğesini genişleterek asıl veritabanındaki nesneleri görüntüleyin.  Yeni veritabanınızdaki nesneleri görüntülemek için **mySampleDatabase**’i genişletin.
 
     ![veritabanı nesneleri](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
 
-## <a name="create-a-user-for-loading-data"></a>Verileri yüklemek için bir kullanıcı oluşturun
+## <a name="create-a-user-for-loading-data"></a>Verileri yüklemek için kullanıcı oluşturma
 
-Sunucu yönetici hesabı yönetim işlemlerini gerçekleştirmek için tasarlanmıştır ve kullanıcı verilerini sorguları çalıştırmak için uygun değildir. Veri yükleme bellek yoğunluklu bir işlemdir. [Bellek üst sınırlar](performance-tiers.md#memory-maximums) göre tanımlanan [performans katmanı](performance-tiers.md), ve [kaynak sınıfı](resource-classes-for-workload-management.md). 
+Sunucu yöneticisi hesabı yönetim işlemlerini gerçekleştirmeye yöneliktir ve kullanıcı verileri üzerinde sorgu çalıştırmaya uygun değildir. Verileri yükleme, yoğun bellek kullanan bir işlemdir. [Bellek üst sınırları](performance-tiers.md#memory-maximums), [performans katmanına](performance-tiers.md) ve [kaynak sınıfına](resource-classes-for-workload-management.md) göre tanımlanır. 
 
-Bir oturum açma ve verileri yüklemek için ayrılmış kullanıcı oluşturmak en iyisidir. Yükleme kullanıcı eklemek bir [kaynak sınıfı](resource-classes-for-workload-management.md) uygun en fazla bellek ayırma sağlar.
+En iyisi verileri yüklemeye ayrılmış bir oturum açma ve kullanıcı bilgisi oluşturmaktır. Ardından yükleme kullanıcısını uygun bir bellek ayırma üst sınırına olanak tanıyan bir [kaynak sınıfına](resource-classes-for-workload-management.md) ekleyin.
 
-Şu anda sunucu yöneticisi olarak bağlandıktan sonra oturumlar ve kullanıcılar oluşturabilirsiniz. Bir oturum açma ve kullanıcı olarak adlandırılır ve oluşturmak için aşağıdaki adımları kullanın **LoaderRC20**. Kullanıcıya atamak **staticrc20** kaynak sınıfı. 
+Şu anda sunucu yöneticisi olarak bağlandığınız için oturum açma bilgileri ve kullanıcılar oluşturabilirsiniz. Şu adımları kullanarak **LoaderRC20** adlı bir oturum açma bilgisi ve kullanıcı oluşturun. Sonra kullanıcıyı **staticrc20** kaynak sınıfına atayın. 
 
-1.  SSMS, sağ **ana** açılır menü göstermek ve seçmek için **yeni sorgu**. Yeni bir sorgu penceresi açılır.
+1.  SSMS'de, açılan menüyü görüntülemek için **asıl** öğesine sağ tıklayın ve **Yeni Sorgu**'yu seçin. Yeni bir sorgu penceresi açılır.
 
-    ![Ana yeni sorgu](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
+    ![Asıl veritabanında yeni sorgu](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
-2. Sorgu penceresinde, bir oturum açma ve LoaderRC20, adlı kullanıcı 'a123STRONGpassword!' için kendi parolanızı değiştirerek oluşturmak için bu T-SQL komutlarıyla girin. 
+2. Sorgu penceresinde, şu T-SQL komutlarını girerek LoaderRC20 adlı bir oturum açma bilgisi ve kullanıcı oluşturun, 'a123STRONGpassword!' yerine kendi parolanızı girin. 
 
     ```sql
     CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
@@ -189,11 +189,11 @@ Bir oturum açma ve verileri yüklemek için ayrılmış kullanıcı oluşturmak
 
 3. **Yürüt**'e tıklayın.
 
-4. Sağ **mySampleDataWarehouse**ve seçin **yeni sorgu**. Yeni bir sorgu penceresi açılır.  
+4. **mySampleDataWarehouse**’a sağ tıklayıp **Yeni Sorgu**’yu seçin. Yeni bir sorgu penceresi açılır.  
 
-    ![Örnek veri ambarı üzerinde yeni bir sorgu](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
+    ![Örnek veri ambarında yeni sorgu](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
  
-5. LoaderRC20 oturum açma için LoaderRC20 adlı bir veritabanı kullanıcısı oluşturmak için aşağıdaki T-SQL komutlarıyla girin. İkinci satır yeni kullanıcı yeni veri ambarı denetim izinleri verir.  Bu izinler, veritabanının sahibi kullanıcı yapmaya benzerdir. Üçüncü satır staticrc20 bir üyesi olarak yeni kullanıcı ekler [kaynak sınıfı](resource-classes-for-workload-management.md).
+5. Aşağıdaki T-SQL komutlarını girerek LoaderRC20 oturum açma bilgisi için LoaderRC20 adlı bir veritabanı kullanıcısı oluşturun. İkinci satır, yeni kullanıcıya yeni veri ambarı üzerinde DENETİM izinleri verir.  Bu izinler, kullanıcıyı veritabanı sahibi yapmaya benzer. Üçüncü satır, yeni kullanıcı staticrc20 [kaynak sınıfına](resource-classes-for-workload-management.md) üye olarak ekler.
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -203,33 +203,33 @@ Bir oturum açma ve verileri yüklemek için ayrılmış kullanıcı oluşturmak
 
 6. **Yürüt**'e tıklayın.
 
-## <a name="connect-to-the-server-as-the-loading-user"></a>Sunucuya yükleyen kullanıcı olarak bağlanma
+## <a name="connect-to-the-server-as-the-loading-user"></a>Yükleme kullanıcısı olarak sunucuya bağlanma
 
-Veri yükleme doğru ilk adımı LoaderRC20 oturum açma.  
+Verileri yüklemenin ilk adımı LoaderRC20 olarak oturum açmaktır.  
 
-1. Nesne Gezgini'nde tıklatarak **Bağlan** menü ve select aşağı bırakma **veritabanı altyapısı**. **Sunucuya Bağlan** iletişim kutusu görüntülenir.
+1. Nesne Gezgini'nde **Bağlan** açılan menüsüne tıklayın ve **Veritabanı Altyapısı**'nı seçin. **Sunucuya Bağlan** iletişim kutusu görüntülenir.
 
-    ![Yeni oturum açma ile bağlanma](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
+    ![Yeni oturum açma bilgileriyle bağlanma](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Tam sunucu adını girin ve girin **LoaderRC20** olarak oturum açın.  LoaderRC20 için parolanızı girin.
+2. Tam sunucu adını girin ve Oturum Açma bilgisi olarak **LoaderRC20** girin.  LoaderRC20 için parolanızı girin.
 
 3. **Bağlan**'a tıklayın.
 
-4. Bağlantınızı hazır olduğunda, nesne Gezgini'nde iki sunucu bağlantılarını görürsünüz. Bir bağlantı ServerAdmin ve MedRCLogin olarak tek bir bağlantı olarak.
+4. Bağlantınız hazır olduğunda, Nesne Gezgini'nde iki sunucu bağlantısı görürsünüz. Bağlantılardan biri ServerAdmin ve diğeri de MedRCLogin olarak gösterilir.
 
-    ![Bağlantı başarılı olur](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
+    ![Bağlantı başarılı oldu](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
-## <a name="create-external-tables-for-the-sample-data"></a>Örnek veriler için dış tabloları oluşturma
+## <a name="create-external-tables-for-the-sample-data"></a>Örnek veriler için dış tablo oluşturma
 
-Yeni veri ambarına veri yükleme işlemini başlatmaya hazır. Bu öğretici nasıl kullanılacağını gösterir [Polybase](/sql/relational-databases/polybase/polybase-guide.md) bir Azure storage blobundan New York şehrinde ücreti cab verileri yüklenemiyor. [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
+Verileri yeni veri ambarınıza yükleme işlemine başlamaya hazırsınız. Bu öğreticide, [Polybase](/sql/relational-databases/polybase/polybase-guide.md) kullanarak New York taksi verilerini Azure depolama blobundan nasıl yükleyeceğiniz gösterilir. [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
 
-Aşağıdaki SQL Çalıştır komut dosyalarını yüklemek istediğiniz verileri hakkında bilgiler belirtin. Verilerin bulunduğu bu bilgileri içeren veri ve veriler için tablo tanımı içeriğini biçimi. 
+Aşağıdaki SQL betiklerini çalıştırın, yüklemek istediğiniz veriler hakkındaki bilgileri belirtin. Bu bilgiler verilerin konumu, verilerdeki içeriğin biçimi ve verilerin tablo tanımıdır. 
 
-1. Önceki bölümde LoaderRC20 veri ambarınıza günlüğe. SSMS, LoaderRC20 bağlantınızı sağ tıklatın ve seçin **yeni sorgu**.  Yeni bir sorgu penceresi görünür. 
+1. Önceki bölümde veri ambarınızda LoaderRC20 olarak oturum açmıştınız. SSMS'de, LoaderRC20 bağlantınıza sağ tıklayın ve **Yeni Sorgu**'yu seçin.  Yeni bir sorgu penceresi görüntülenir. 
 
-    ![Yeni sorgu penceresi yükleniyor](media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
+    ![Yeni yükleme sorgusu penceresi](media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
 
-2. Önceki görüntüde, sorgu penceresine karşılaştırın.  Yeni Sorgu penceresinde LoaderRC20 çalışan ve MySampleDataWarehouse veritabanınızda sorgular gerçekleştirme doğrulayın. Tüm yükleme adımları gerçekleştirmek için bu sorgu penceresi kullanın.
+2. Sorgu pencerenizi önceki resimle karşılaştırın.  Yeni sorgu pencerenizin LoaderRC20 olarak çalıştırıldığını ve MySampleDataWarehouse veritabanınız üzerinde sorgular gerçekleştirdiğini doğrulayın. Tüm yükleme adımlarını gerçekleştirmek için bu sorgu penceresini kullanın.
 
 3. MySampleDataWarehouse veritabanı için bir ana anahtar oluşturun. Veritabanı başına yalnızca bir kez ana anahtar oluşturmanız gerekir. 
 
@@ -237,7 +237,7 @@ Aşağıdaki SQL Çalıştır komut dosyalarını yüklemek istediğiniz veriler
     CREATE MASTER KEY;
     ```
 
-4. Aşağıdaki komutu çalıştırarak [dış veri kaynağı oluştur](/sql/t-sql/statements/create-external-data-source-transact-sql.md) Azure blob'u konumunu tanımlamak için deyimi. Dış ücreti cab veri konumudur.  Sorgu penceresine eklenen bir komut çalıştırmak için önce çalıştırmak istediğiniz komutları vurgulayın **yürütme**.
+4. Aşağıdaki [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) deyimini çalıştırarak Azure blobunun konumunu tanımlayın. Bu, dış taksi verilerinin konumudur.  Sorgu penceresine eklediğiniz komutları çalıştırmak için, çalıştırmak istediğiniz komutları vurgulayın ve **Yürüt**'e tıklayın.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ Aşağıdaki SQL Çalıştır komut dosyalarını yüklemek istediğiniz veriler
     );
     ```
 
-5. Aşağıdaki komutu çalıştırarak [oluşturmak dış dosya BİÇİMİNİ](/sql/t-sql/statements/create-external-file-format-transact-sql.md) biçimlendirme özellikleri ve dış veri dosyası için seçeneklerini belirtmek için T-SQL ifadesi. Bu deyim dış veriler metin olarak depolanır ve değerleri dikey çubukla ayrılan belirtir ('| ') karakteri. Dış dosya ile Gzip sıkıştırılmış. 
+5. Aşağıdaki [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL deyimini çalıştırarak dış veri dosyasının biçimlendirme özelliklerini ve seçeneklerini belirtin. Bu deyim dış verilerin metin olarak depolandığını ve değerlerin birbirinden dikey çizgi ('|') karakteriyle ayrıldığını belirtir. Dış dosya Gzip ile sıkıştırılır. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,13 +273,13 @@ Aşağıdaki SQL Çalıştır komut dosyalarını yüklemek istediğiniz veriler
     );
     ```
 
-6.  Aşağıdaki komutu çalıştırarak [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) deyimi, dış dosya biçimini için bir şema oluşturun. Şema oluşturmak üzere olduğunuz dış tablolara düzenlemek için bir yol sağlar.
+6.  Aşağıdaki [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) deyimini çalıştırarak dış dosya biçiminiz için bir şema oluşturun. Şema, oluşturmak üzere olduğunuz dış tabloları düzenlemek için bir yol sağlar.
 
     ```sql
     CREATE SCHEMA ext;
     ```
 
-7. Harici tabloları oluşturun. Tablo tanımları SQL veri ambarı'nda depolanır, ancak tabloları Azure blob storage'da depolanan verileri başvuru. Aşağıdaki T-SQL komutlarını çalıştırarak, tamamı dış veri kaynağımızda daha önce tanımladığımız Azure blobunu işaret eden dış tablolar oluşturun.
+7. Harici tabloları oluşturun. Tablo tanımları SQL Veri Ambarı'nda depolanır, ama tablolar Azure blob depolama alanında depolanan verilere başvurur. Aşağıdaki T-SQL komutlarını çalıştırarak, tamamı dış veri kaynağımızda daha önce tanımladığımız Azure blobunu işaret eden dış tablolar oluşturun.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -444,21 +444,21 @@ Aşağıdaki SQL Çalıştır komut dosyalarını yüklemek istediğiniz veriler
     ;
     ```
 
-8. Nesne Gezgini'nde dış tablolara oluşturduğunuz listesini görmek için mySampleDataWarehouse genişletin.
+8. Nesne Gezgini'nde, yeni oluşturduğunuz dış tabloların listesini görmek için mySampleDataWarehouse'u genişletin.
 
-    ![Görünüm dış tablolar](media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
+    ![Dış tabloları görüntüleme](media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
 
-## <a name="load-the-data-into-your-data-warehouse"></a>Veri ambarına veri yükleme
+## <a name="load-the-data-into-your-data-warehouse"></a>Verileri veri ambarınıza yükleme
 
-Bu bölüm yalnızca örnek verileri Azure Storage Blobundan SQL Data Warehouse'a yüklemek için tanımlanan dış tabloları kullanır.  
+Bu bölümde, örnek verileri Azure Depolama Blobu'ndan SQL Veri Ambarı'na yüklemek için az önce tanımladığınız dış tablolar kullanılır.  
 
 > [!NOTE]
-> Bu öğretici, doğrudan son tabloya veri yükler. Bir üretim ortamında genellikle CREATE TABLE AS SELECT hazırlama bir tabloya yüklemek için kullanın. Veri hazırlama tablosunda olsa da, gerekli dönüştürmeler gerçekleştirebilirsiniz. Veri hazırlama tablosunda bir üretim tabloya eklemek için Ekle kullanabilirsiniz... SELECT deyimi. Daha fazla bilgi için bkz: [üretim tabloya veri ekleme](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> Bu öğretici verileri doğrudan son tabloya yükler. Üretim ortamında, genellikle CREATE TABLE AS SELECT kullanarak bir hazırlama tablosuna yüklersiniz. Veriler hazırlama tablosundayken tüm gerekli dönüştürmeleri yapabilirsiniz. Hazırlama tablosundaki verileri üretim tablosuna eklemek için, INSERT...SELECT deyimini kullanabilirsiniz. Daha fazla bilgi için kz. [Üretim tablosuna veri ekleme](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Komut dosyası kullanan [oluşturma tablo AS seçin (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) verileri Azure Storage Blobundan, veri ambarındaki yeni tablolara yüklemek için T-SQL ifadesi. CTAS bir select deyimi sonuçlarına dayalı yeni bir tablo oluşturur. Yeni tablo, select deyiminin sonuçları ile aynı sütunlara ve veri türlerine sahiptir. Select deyimi bir dış tablosundan seçtiğinde, SQL veri ambarı verileri veri ambarındaki ilişkisel bir tabloya alır. 
+Verileri Azure Depolama Blobu'ndan veri ambarınızdaki yeni tablolara yüklemek için, betikte [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL deyimi kullanılır. CTAS bir SELECT deyiminin sonuçlarına göre yeni tablo oluşturur. Yeni tablo, select deyiminin sonuçları ile aynı sütunlara ve veri türlerine sahiptir. SELECT deyimi bir dış tablodan seçim yaptığında, SQL Veri Ambarı verileri veri ambarındaki bir ilişkisel tabloya aktarır. 
 
-1. Verileri veri ambarındaki yeni tablolara yüklemek için aşağıdaki betiği çalıştırın.
+1. Aşağıdaki betiği çalıştırarak verileri veri ambarınızdaki yeni tablolara yükleyin.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -563,15 +563,15 @@ Komut dosyası kullanan [oluşturma tablo AS seçin (CTAS)](/sql/t-sql/statement
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Verilerinizi veri ambarına sorunsuz şekilde yüklenen görmesini keyfini çıkarın.
+4. Veri ambarınıza verilerinizin sorunsuz şekilde yüklenmesinin keyfini çıkarın.
 
-    ![Yüklenen tablolarını görüntüleme](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
+    ![Yüklenen tabloları görüntüleme](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>Yeni yüklenen verilere ilişkin istatistikler oluşturma
 
 SQL Data Warehouse, istatistikleri otomatik olarak oluşturup güncelleştirmez. Bu nedenle yüksek sorgu performansı elde etmek için ilk yükleme işleminden sonra her tablonun her sütunu için istatistik oluşturulması önemlidir. Ayrıca veriler üzerinde önemli değişiklikler yapıldıktan sonra istatistiklerin güncelleştirilmesi de önemlidir.
 
-Birleşimlerde kullanılma olasılığı olan sütunlarda istatistikler oluşturmak için şu komutları çalıştırın.
+Birleştirmelerde kullanılma olasığılı olan sütunların istatistiklerini oluşturmak için şu komutları çalıştırın.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -580,40 +580,40 @@ Birleşimlerde kullanılma olasılığı olan sütunlarda istatistikler oluştur
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-İşlem kaynakları ve veri ambarına yüklenen veriler için ücretlendirilirsiniz. Bunlar ayrı ayrı faturalandırılır. 
+İşlem kaynakları ve veri ambarınıza yüklediğiniz veriler için ücretlendirilirsiniz. Bunlar ayrı faturalandırılır. 
 
-- Verileri depoda tutmak istiyorsanız, veri ambarını kullanmadığınız zamanlarda işlemi duraklatabilirsiniz. Göre işlem duraklatma ücret veri depolama için yalnızca olacaktır ve verilerle çalışmak hazır olduğunda işlem devam edebilirsiniz.
+- Verileri depoda tutmak istiyorsanız, veri ambarını kullanmadığınız zamanlarda işlemi duraklatabilirsiniz. İşlemi duraklattığınızda yalnızca veri depolaması için ücretlendirilirsiniz ve verilerle çalışmaya hazır olduğunuzda işlemi sürdürebilirsiniz.
 - Gelecekteki ücretlendirmeleri kaldırmak istiyorsanız, veri ambarını silebilirsiniz. 
 
 Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 
-1. Oturum [Azure portal](https://portal.azure.com), veri Ambarınızı'ı tıklatın.
+1. [Azure Portal](https://portal.azure.com)'da oturum açın ve veri ambarınıza tıklayın.
 
     ![Kaynakları temizleme](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. İşlemi duraklatmak için, **Duraklat** düğmesine tıklayın. Veri ambarı duraklatıldığında göreceğiniz bir **Başlat** düğmesi.  İşlemi sürdürmek için **Başlat**’a tıklayın.
+2. İşlemi duraklatmak için, **Duraklat** düğmesine tıklayın. Veri ambarı duraklatıldığında, bir **Başlat** düğmesi görürsünüz.  İşlemi sürdürmek için **Başlat**’a tıklayın.
 
-3. Veri ambarı, işlem ya da depolama için sizden ücret olmaz şekilde kaldırmak için tıklatın **silmek**.
+3. İşlem ve depolama için ücretlendirilmemek üzere veri ambarını kaldırmak için **Sil**’e tıklayın.
 
-4. Oluşturduğunuz SQL sunucusunu kaldırmak için, önceki görüntüdeki **mynewserver-20171113.database.windows.net** öğesine tıklayıp **Sil**’e tıklayın.  Bu dikkatli olun sunucuyu silmek sunucuya atanmış tüm veritabanlarını silecek.
+4. Oluşturduğunuz SQL sunucusunu kaldırmak için, önceki görüntüdeki **mynewserver-20171113.database.windows.net** öğesine tıklayıp **Sil**’e tıklayın.  Sunucuyu silmek sunucuyla ilişkili tüm veritabanlarını da sileceğinden bu işlemi gerçekleştirirken dikkatli olun.
 
 5. Kaynak grubunu kaldırmak için, **myResourceGroup**’a tıklayıp daha sonra **Kaynak grubunu sil**’e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar 
-Bu öğreticide, bir veri ambarı ve veri yüklemek için bir kullanıcı oluşturun öğrendiniz. Azure depolama Blob içinde depolanan verilerin yapısını tanımlamak için dış tabloları oluşturduğunuz ve veri ambarına veri yüklemek için PolyBase CREATE TABLE AS SELECT deyimi kullanılır. 
+Bu öğreticide, veri ambarı oluşturmayı ve verileri yüklemek için kullanıcı oluşturmayı öğrendiniz. Azure Depolama Blobu'nda depolanan verilerin yapısını tanımlamak için dış tablolar oluşturdunuz ve sonra da PolyBase CREATE TABLE AS SELECT deyimini kullanarak verileri veri ambarınıza yüklediniz. 
 
-Bu işlemleri yapar:
+Şu işlemleri yaptınız:
 > [!div class="checklist"]
-> * Azure portalında bir veri ambarı oluşturuldu
-> * Azure portalında bir sunucu düzeyinde güvenlik duvarı kuralı ayarlayın
-> * SSMS veri ambarına bağlı
-> * Verileri yüklemek için atanmış bir kullanıcı oluşturuldu
-> * Azure depolama Blob verileri için oluşturulan dış tablolar
-> * CTAS T-SQL deyimi, veri ambarına veri yüklemek için kullanılan
-> * Bu yükleme gibi veri ilerlemesini görüntülenebilir
-> * Yeni yüklenen veriler üzerinde oluşturulan istatistikleri
+> * Azure Portal'da veri ambarı oluşturuldu
+> * Azure Portal'da sunucu düzeyinde bir güvenlik duvarı kuralı ayarlandı
+> * SSMS ile veri ambarına bağlandı
+> * Verileri yüklemek için belirlenen bir kullanıcı oluşturuldu
+> * Azure Depolama Blobu'ndaki veriler için dış tablolar oluşturuldu
+> * Verileri veri ambarınıza yüklemek için CTAS T-SQL deyimi kullanıldı
+> * Yüklendikleri sırada verilerin ilerleme durumu görüntülendi
+> * Yeni yüklenen verilere ilişkin istatistikler oluşturuldu
 
-Varolan bir veritabanını SQL veri ambarına geçirme hakkında bilgi edinmek için geçişine genel bakış için ilerleyin.
+Mevcut veritabanını SQL Veri Ambarı'na geçirmeyi öğrenmek için geçişe genel bakış konusuna ilerleyin.
 
 > [!div class="nextstepaction"]
->[Varolan bir veritabanını SQL veri ambarına geçirme öğrenin](sql-data-warehouse-overview-migrate.md)
+>[Mevcut veritabanını SQL Veri Ambarı'na geçirmeyi öğrenin](sql-data-warehouse-overview-migrate.md)

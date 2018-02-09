@@ -286,6 +286,9 @@
             - name: Ambari REST API’si kullanma
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: HDInsight kümesini ölçeklendirme
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: HDInsight kümesi için günlükleri yönetme
           href: ../hdinsight-log-management.md
           maintainContext: true

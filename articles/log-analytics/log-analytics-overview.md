@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite’te (OMS) Log Analytics nedir? | Microsoft Belgeleri"
-description: "Log Analytics, bulut ve şirket içi ortamınızdaki kaynaklar tarafından oluşturulan işletimsel verileri toplayıp analiz etmenize yardımcı olan bir Operations Management Suite (OMS) hizmetidir.  Log Analytics’in farklı bileşenleri hakkında kısa bir genel fikir veren bu makalede ayrıntılı içerik bağlantıları da vardır."
+title: "Azure’da Log Analytics nedir? | Microsoft Docs"
+description: "Log Analytics, bulut ve şirket içi ortamınızdaki kaynaklar tarafından oluşturulan işletimsel verileri toplayıp analiz etmenize yardımcı olan bir Azure hizmetidir.  Log Analytics’in farklı bileşenleri hakkında kısa bir genel fikir veren bu makalede ayrıntılı içerik bağlantıları da vardır."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2017
+ms.date: 01/24/2018
 ms.author: bwren
-ms.openlocfilehash: 7f12958550738ff465c06d0e5d774d8bffa0b90b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a95528f5bd259a36ea96c7bc0660ca082c09d6e6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-log-analytics"></a>Log Analytics nedir?
-Log Analytics, [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) içindeki bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı sürdürmek amacıyla izleyen bir hizmettir.  Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.  Bu makale, Log Analytics’in sağladığı değere ilişkin kısa bir açıklama, nasıl çalıştığına genel bakış ve daya ayrıntılı içeriklerin bağlantılarını içerir.
+Log Analytics, Azure’daki bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı sürdürmek amacıyla izleyen bir hizmettir.  Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.  Bu makale, Log Analytics’in sağladığı değere ilişkin kısa bir açıklama, nasıl çalıştığına genel bakış ve daya ayrıntılı içeriklerin bağlantılarını içerir.
 
 ## <a name="is-log-analytics-for-you"></a>Log Analytics sizin için uygun mu?
 Azure ortamınız için kullandığınız geçerli bir izleme aracı yoksa, Azure kaynaklarınıza ilişkin izleme verilerini toplayıp çözümleyen [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) ile çalışmaya başlayabilirsiniz.  Log Analytics, diğer verilerle ilişkilendirmek ve ek analiz sağlamak üzere [Azure İzleyici'deki verileri toplayabilir](log-analytics-azure-storage.md).
@@ -30,9 +30,9 @@ Azure ortamınız için kullandığınız geçerli bir izleme aracı yoksa, Azur
 
 
 ## <a name="using-log-analytics"></a>Log Analytics kullanma
-Log Analytics’e, herhangi bir tarayıcıda çalışan ve yapılandırma ayarlarının yanı sıra toplanan verileri analiz edip üzerinde işlem yapmaya yönelik çeşitli araçlara erişmenizi sağlayan OMS portalı veya Azure portalı üzerinden erişebilirsiniz.  Portalda, toplanan verileri analiz etmek için sorgular oluşturabileceğiniz [günlük aramalarını](log-analytics-log-searches.md), en değerli aramalarınızın grafik görünümleriyle özelleştirebileceğiniz [panoları](log-analytics-dashboards.md) ve ek işlevlerle analiz araçları sağlayan [çözümleri](log-analytics-add-solutions.md) kullanabilirsiniz.
+Log Analytics’e, herhangi bir tarayıcıda çalışan ve yapılandırma ayarlarının yanı sıra toplanan verileri analiz edip üzerinde işlem yapmaya yönelik çeşitli araçlara erişmenizi sağlayan Azure portalı üzerinden erişebilirsiniz.  Portalda, toplanan verileri analiz etmek için sorgular oluşturabileceğiniz [günlük aramalarını](log-analytics-log-searches.md), en değerli aramalarınızın grafik görünümleriyle özelleştirebileceğiniz [panoları](log-analytics-dashboards.md) ve ek işlevlerle analiz araçları sağlayan [çözümleri](log-analytics-add-solutions.md) kullanabilirsiniz.
 
-Aşağıdaki görüntü, çalışma alanına yüklenmiş [çözümlere](#add-functionality-with-management-solutions) ilişkin özet bilgileri gösteren panoyu görüntüleyen OMS portalından alınmıştır.  İlgili çözümün daha ayrıntılı verilerine ulaşmak için herhangi bir kutucuğa tıklayabilirsiniz.
+Aşağıdaki görüntü, çalışma alanına yüklenmiş [çözümlere](#add-functionality-with-management-solutions) ilişkin özet bilgileri gösteren Genel bakış ekranından alınmıştır.  İlgili çözümün daha ayrıntılı verilerine ulaşmak için herhangi bir kutucuğa tıklayabilirsiniz.
 
 ![OMS portalı](media/log-analytics-overview/portal.png)
 
@@ -40,25 +40,21 @@ Log Analytics, depodaki verileri hızlı bir şekilde almak ve birleştirmek iç
 
 ![Günlük araması](media/log-analytics-overview/log-search.png)
 
-Genel ortamınızın durumunu hızlı bir grafikte görüntülemek için [panonuza](log-analytics-dashboards.md) kayıtlı günlük aramalarıyla ilgili görselleştirmeler ekleyebilirsiniz.   
-
-![Pano](media/log-analytics-overview/dashboard.png)
-
-Log Analytics dışındaki verileri analiz etmek için OMS deposundaki verileri [Power BI](log-analytics-powerbi.md) veya Excel gibi araçlara aktarabilirsiniz.  Log Analytics verilerini kullanan özel çözümler oluşturmak veya başka sistemlerle tümleştirmek için [Günlük Arama API’sini](log-analytics-log-search-api.md) de kullanabilirsiniz.
+Log Analytics dışındaki verileri analiz etmek için [Power BI](log-analytics-powerbi.md) veya Excel gibi araçlara aktarabilirsiniz.  Log Analytics verilerini kullanan özel çözümler oluşturmak veya başka sistemlerle tümleştirmek için [Günlük Arama API’sini](log-analytics-log-search-api.md) de kullanabilirsiniz.
 
 ## <a name="add-functionality-with-management-solutions"></a>Yönetim çözümleriyle işlevsellik ekleme
-[Yönetim çözümleri](log-analytics-add-solutions.md), Log Analytics’e ek veri ve analiz araçları sağlayarak OMS’e işlevsellik ekler.  Günlük Aramaları veya panodaki çözüm tarafından sağlanan ek kullanıcı arabirimi kullanılarak çözümlenebilecek yeni kayıt türlerinin toplanmasını da belirtebilirler.  Aşağıdaki örnek görüntüde [Değişiklik İzleme çözümü](log-analytics-change-tracking.md) gösterilmektedir
+[Yönetim çözümleri](log-analytics-add-solutions.md), Log Analytics’e ek veri ve analiz araçları sağlayarak Log Analytics’e işlevsellik ekler.  Günlük Aramaları veya panodaki çözüm tarafından sağlanan ek kullanıcı arabirimi kullanılarak çözümlenebilecek yeni kayıt türlerinin toplanmasını da belirtebilirler.  Aşağıdaki örnek görüntüde [Değişiklik İzleme çözümü](log-analytics-change-tracking.md) gösterilmektedir
 
 ![Değişiklik İzleme çözümü](media/log-analytics-overview/change-tracking.png)
 
-Çeşitli işlevlere yönelik çözümler mevcuttur ve sürekli olarak başka çözümler eklenmektedir.  Çözüm Galeri’sinden veya Azure Market’ten mevcut çözümlere kolayca göz atabilir ve [OMS çalışma alanınıza ekleyebilirsiniz](log-analytics-add-solutions.md).  Çoğu çözüm otomatik olarak dağıtılıp hemen çalışmaya başlarken, bazıları biraz yapılandırma gerektirebilir.
+Çeşitli işlevlere yönelik çözümler mevcuttur ve sürekli olarak başka çözümler eklenmektedir.  Azure Market’ten mevcut çözümlere kolayca göz atabilir ve bu çözümleri [çalışma alanınıza ekleyebilirsiniz](log-analytics-add-solutions.md).  Çoğu çözüm otomatik olarak dağıtılıp hemen çalışmaya başlarken, bazıları biraz yapılandırma gerektirebilir.
 
 ![Çözüm Galerisi](media/log-analytics-overview/solution-gallery.png)
 
 ## <a name="log-analytics-components"></a>Log Analytics bileşenleri
-Log Analytics’in merkezinde, Azure bulutunda barındırılan OMS deposu bulunur.  Veriler, veri kaynakları yapılandırılarak ve aboneliğinize çözümler eklenerek bağlı kaynaklardan depoya toplanır.  Veri kaynakları ve çözümler, kendi özellikleri olan, ancak depoya yapılan sorgularda yine de birlikte analiz edilebilen farklı kayıt türleri oluşturacaktır.  Böylece farklı kaynaklar tarafından toplanan farklı veri türleriyle çalışmak için aynı araçları ve yöntemleri kullanabilirsiniz.
+Log Analytics’in merkezi, Azure bulutunda barındırılan verilerin toplandığı bir depodur.  Veriler, veri kaynakları yapılandırılarak ve aboneliğinize çözümler eklenerek bağlı kaynaklardan toplanır.  Veri kaynakları ve çözümler, kendi özellikleri olan, ancak depoya yapılan sorgularda yine de birlikte analiz edilebilen farklı kayıt türleri oluşturacaktır.  Böylece farklı kaynaklar tarafından toplanan farklı veri türleriyle çalışmak için aynı araçları ve yöntemleri kullanabilirsiniz.
 
-![OMS deposu](media/log-analytics-overview/overview.png)
+![Log Analytics bileşenleri](media/log-analytics-overview/overview.png)
 
 Bağlı kaynaklar, Log Analytics tarafından toplanan verileri oluşturan bilgisayarlar ve diğer kaynaklardır.  Bu, doğrudan bağlanan [Windows](log-analytics-windows-agent.md) ve [Linux](log-analytics-linux-agents.md) bilgisayarlarına yüklenmiş aracıları veya [bağlı System Center Operations Manager yönetim grubundaki](log-analytics-om-agents.md) aracıları içerebilir.  Azure kaynakları için Log Analytics, [Azure İzleyici ve Azure Tanılama](log-analytics-azure-storage.md)’dan veri toplar.
 
@@ -69,14 +65,14 @@ Bağlı kaynaklar, Log Analytics tarafından toplanan verileri oluşturan bilgis
 ## <a name="log-analytics-architecture"></a>Log Analytics mimarisi
 Log Analytics’in, merkezi bileşenleri Azure bulutunda barındırıldığı için çok az dağıtım gereksinimi vardır.  Bu bileşenler, deponun yanı sıra toplanan verileri ilişkilendirmenizi ve çözümlemenizi sağlayan hizmetleri içerir.  Portala herhangi bir tarayıcıdan erişilebilir, bu nedenle herhangi bir istemci yazılımı gereksinimi yoktur.
 
-[Windows](log-analytics-windows-agent.md) ve [Linux](log-analytics-linux-agents.md) bilgisayarlarındaki aracıları yüklemeniz gerekir, ancak zaten [bağlı SCOM yönetim grubunun](log-analytics-om-agents.md) üyesi olan bilgisayarlar için ek aracıya gerek yoktur.  SCOM aracıları, verilerini Log Analytics'e yönlendiren yönetim sunucuları ile iletişim kurmaya devam eder.  Ancak bazı çözümler, aracıların doğrudan Log Analytics ile iletişim kurmasını gerektirecektir.  Her çözüme yönelik belgeler, iletişim gereksinimlerini belirtecektir.
+[Windows](log-analytics-windows-agent.md) ve [Linux](log-analytics-linux-agents.md) bilgisayarlarındaki aracıları yüklemeniz gerekir, ancak zaten [bağlı System Center Operations Manager yönetim grubunun](log-analytics-om-agents.md) üyesi olan bilgisayarlar için ek aracıya gerek yoktur.  Operations Manager aracıları, verilerini Log Analytics'e yönlendiren yönetim sunucuları ile iletişim kurmaya devam eder.  Ancak bazı çözümler, aracıların doğrudan Log Analytics ile iletişim kurmasını gerektirecektir.  Her çözüme yönelik belgeler, iletişim gereksinimlerini belirtecektir.
 
-[Log Analytics için kaydolduğunuzda](log-analytics-get-started.md) bir OMS çalışma alanı oluşturursunuz.  Çalışma alanını kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Log Analytics ortamı olarak düşünebilirsiniz. Aboneliğinizde üretim ve test gibi birden fazla ortamı desteklemek için birden fazla çalışma alanı oluşturabilirsiniz.
+[Log Analytics için kaydolduğunuzda](log-analytics-get-started.md) bir çalışma alanı oluşturursunuz.  Çalışma alanını kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Log Analytics ortamı olarak düşünebilirsiniz. Aboneliğinizde üretim ve test gibi birden fazla ortamı desteklemek için birden fazla çalışma alanı oluşturabilirsiniz.
 
 ![Log Analytics mimarisi](media/log-analytics-overview/architecture.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kendi ortamınızda test etmek üzere [ücretsiz bir Log Analytics hesabı için kaydolun](log-analytics-get-started.md).
-* OMS deposuna veri toplayabilen farklı [Veri Kaynaklarını](log-analytics-data-sources.md) görüntüleyin.
+* Log Analytics’e veri toplayabilen farklı [Veri Kaynaklarını](log-analytics-data-sources.md) görüntüleyin.
 * Log Analytics’e işlev eklemek için [Çözüm Galerisi’ndeki mevcut çözümlere göz atın](log-analytics-add-solutions.md).
 

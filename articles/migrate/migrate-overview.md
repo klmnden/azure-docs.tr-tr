@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -37,12 +37,12 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 
 - Tek keşifte en çok 1000 sanal makine ve tek projede en çok 1500 sanal makine bulabilirsiniz. Ayrıca, tek değerlendirmede en çok 400 sanal makineyi değerlendirebilirsiniz. Daha fazla makineyi bulmanız veya değerlendirmeniz gerekiyorsa, keşiflerin veya değerlendirmelerin sayısını artırabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md).
 - Değerlendirmek istediğiniz VM, vCenter Server sürüm 5.5, 6.0 veya 6.5 ile yönetilmelidir.
-- Azure Geçişi projesini yalnızca Batı Orta ABD bölgesinde oluşturabilirsiniz. Ancak, bu kısıtlama farklı bir hedef Azure konumu için geçiş planlamanızı engellemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
+- Azure Geçişi projesini yalnızca Orta Batı ABD bölgesinde oluşturabilirsiniz. Ancak, bu kısıtlama farklı bir hedef Azure konumu için geçiş planlamanızı engellemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Ne için ödeme yapmam gerekiyor?
 
-Azure Geçişi ek ücret ödenmeden kullanılabilir. Ancak genel önizleme sırasında, bağımlılık görselleştirmesi özelliklerinin kullanımı için ek ücret uygulanır. [Bağımlılık görselleştirmesi](concepts-dependency-visualization.md) desteği için Azure Geçişi varsayılan olarak bir Log Analytics çalışma alanı oluşturur. Bağımlılık görselleştirmesi kullanırsanız veya çalışma alanını Azure Geçişi dışında kullanırsanız, çalışma alanı kullanımı için ücretlendirilirsiniz. Ücretler hakkında [daha fazla bilgi edinin](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/). Hizmet genel kullanıma sunulduğunda, bağımlılık görselleştirmesi özelliklerinin kullanımı için herhangi bir ücret ödenmeyecektir.
+Azure Geçişi fiyatlandırması hakkında daha fazla bilgiyi [burada](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/) bulabilirsiniz.
 
 
 ## <a name="whats-in-an-assessment"></a>Bir değerlendirme neleri içerir?
@@ -56,13 +56,13 @@ Değerlendirme, şirket içi VM’lerin Azure uygunluğunu tanımlamanıza yard�
 **Fiyatlandırma planları** | Değerlendirme, yazılım güvencesine kaydolup kaydolmadığınızı ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/)’nı kullanıp kullanamayacağınızı göz önünde bulundurur. Ayrıca, uygulanması gereken Azure tekliflerini göz önünde bulundurur ve teklifle birlikte alacağınız aboneliğe özel indirimler (%) belirtmenize olanak tanır. 
 **Fiyatlandırma katmanı** | Azure VM’lerinin [fiyatlandırma katmanını (temel/standart)](../virtual-machines/windows/sizes-general.md) belirtebilirsiniz. Bunun yapılması, bir üretim ortamında olup olmamanıza bağlı olarak uygun bir Azure VM ailesine geçiş yapmanıza yardımcı olur. Varsayılan olarak [standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.
 **Performans geçmişi** | Varsayılan olarak, Azure Geçişi %95 yüzdebirlik değer ile bir aylık geçmişi kullanarak şirket içi makinelerin performansını değerlendirir. Bu ayarı değiştirebilirsiniz.
-**Konfor katsayısı** | Azure Geçişi, değerlendirme sırasında bir tamponu (konfor katsayısı) göz önünde bulundurur. Bu tampon, VM’lerin makine kullanım verilerinin (CPU, bellek, disk ve ağ) üzerine uygulanır. Konfor katsayısı; sezona özgü kullanım, kısa performans geçmişi ve gelecek kullanımlarda oluşabilecek artışlar gibi konuları hesaba katar.<br/><br/> Örneğin, %20 kullanıma sahip 10 çekirdekli bir VM normalde 2 çekirdekli VM ile sonuçlanır. Ancak, 2.0x konfor katsayısı ile sonuç 4 çekirdekli VM olur. Varsayılan konfor ayarı 1.3x’tir.
+**Konfor katsayısı** | Azure Geçişi, değerlendirme sırasında bir tamponu (konfor katsayısı) göz önünde bulundurur. Bu tampon, VM’lerin makine kullanım verilerinin (CPU, bellek, disk ve ağ) üzerine uygulanır. Konfor katsayısı; sezona özgü kullanım, kısa performans geçmişi ve gelecek kullanımlarda oluşabilecek artışlar gibi konuları hesaba katar.<br/><br/> Örneğin, %20 kullanıma sahip 10 çekirdekli bir VM normalde 2 çekirdekli VM ile sonuçlanır. Ancak, 2.0x konfor katsayısı ile sonuç 4 çekirdekli VM olur. Varsayılan konfor ayarı 1,3x’tir.
 
 
 ## <a name="how-does-azure-migrate-work"></a>Azure Geçişi nasıl çalışır?
 
 1.  Bir Azure Geçişi projesi oluşturursunuz.
-2.  Azure Geçişi, toplayıcı gereci adı verilen bir şirket içi VM kullanarak şirket içi makinelerinize ilişkin bilgileri bulur. Aleti oluşturmak için Open Virtualization Appliance (.ova) biçimindeki kurulum dosyasını indirirsiniz ve şirket içi vCenter Server’ınıza VM olarak aktarırsınız.
+2.  Azure Geçişi, toplayıcı aleti adı verilen bir şirket içi VM kullanarak şirket içi makinelerinize ilişkin bilgileri bulur. Aleti oluşturmak için Open Virtualization Appliance (.ova) biçimindeki kurulum dosyasını indirirsiniz ve şirket içi vCenter Server’ınıza VM olarak aktarırsınız.
 3.  vCenter Server'da konsol bağlantısı kullanarak VM’ye bağlanın, bağlanırken VM için yeni bir parola belirtin ve sonra keşfi başlatmak için VM’deki toplayıcı uygulamasını çalıştırın.
 4.  Toplayıcı, VMware PowerCLI cmdlet’lerini kullanarak VM meta verilerini toplar. Bulma işlemi aracısızdır ve VMware konaklarına ya da VM’lere herhangi bir yükleme yapmaz. Toplanan meta veriler VM bilgilerini (çekirdekler, bellek, diskler, disk boyutları ve ağ bağdaştırıcıları) içerir. Ayrıca, CPU ve bellek kullanımı, disk IOPS, disk aktarım hızı (MB/sn) ve ağ çıktısı (MB/sn) gibi VM’lere ait performans verilerini toplar.
 5.  Meta veriler Azure Geçişi projesine gönderilir. Verileri Azure portalında görüntüleyebilirsiniz.

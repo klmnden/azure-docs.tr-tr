@@ -75,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: Tanılama
       href: app-service-diagnostics.md
+    - name: İşletim sistemi ve çalışma zamanı düzeltme eki uygulama
+      href: app-service-patch-os-runtime.md
 - name: Nasıl Yapılır Kılavuzları
   items:
     - name: Uygulama yapılandırma

@@ -1,36 +1,36 @@
 ---
-title: "İlk Azure veritabanınızı MySQL veritabanı - Azure CLI için Tasarım | Microsoft Docs"
-description: "Bu öğretici, oluşturma ve MySQL server ve Azure CLI 2.0 komut satırından kullanarak veritabanı için Azure veritabanı yönetme açıklanmaktadır."
+title: "İlk MySQL veritabanı için Azure Veritabanınızı tasarlama - Azure CLI | Microsoft Docs"
+description: "Bu öğreticide, MySQL sunucusu ve veritabanı için komut satırından Azure CLI 2.0 kullanarak Azure Veritabanının nasıl oluşturulup yönetileceği açıklanır."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.custom: mvc
-ms.openlocfilehash: f17f2cab39b42341886ed86e1c08569ca8f5eff0
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5f323086ce66a504188c1834d20873a52a990311
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>İlk Azure veritabanınızı MySQL veritabanı için tasarlama
+# <a name="design-your-first-azure-database-for-mysql-database"></a>İlk MySQL veritabanı için Azure Veritabanınızı tasarlama
 
-Azure veritabanı MySQL için bir MySQL Community Edition veritabanı altyapısını temel Microsoft bulut ilişkisel veritabanı hizmetidir. Bu öğreticide, Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları öğrenmek için kullandığınız nasıl yapılır:
+MySQL için Azure Veritabanı, MySQL Community Edition veritabanı altyapısını temel alan, Microsoft bulutunda bulunan ilişkisel bir veritabanı hizmetidir. Bu öğreticide, şunları nasıl yapacağınızı öğrenmek için Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanırsınız:
 
 > [!div class="checklist"]
-> * MySQL için Azure bir veritabanı oluşturun
-> * Sunucu Güvenlik Duvarı'nı yapılandırma
-> * Kullanım [mysql komut satırı aracı](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) bir veritabanı oluşturmak için
+> * MySQL için Azure Veritabanı oluşturma
+> * Sunucu güvenlik duvarını yapılandırma
+> * Veritabanı oluşturmak için [mysql komut satırı aracı](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) kullanma
 > * Örnek verileri yükleme
 > * Verileri sorgulama
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-Tarayıcıda, Azure bulut kabuğunu kullanabilirsiniz veya [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli) bu öğreticideki kod blokları çalıştırmak için kendi bilgisayarınızda.
+Bu öğreticide kod bloklarını çalıştırmak için tarayıcıda Azure Cloud Shell kullanabilir ya da kendi bilgisayarınıza [Azure CLI 2.0 yükleyebilirsiniz]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Oluşturma bir [Azure kaynak grubu](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) ile [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) komutuyla bir [Azure kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
 Aşağıdaki örnek `westus` konumunda `mycliresource` adlı bir kaynak grubu oluşturur.
 
@@ -51,7 +51,7 @@ az group create --name mycliresource --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
-MySQL sunucusu az mysql server ile oluşturmak için komutu bir Azure veritabanı oluşturun. Bir sunucu birden çok veritabanını yönetebilir. Genellikle her proje veya kullanıcı için farklı bir veritabanı kullanılır.
+az mysql server create komutunu kullanarak MySQL için Azure Veritabanı sunucusu oluşturun. Bir sunucu birden çok veritabanını yönetebilir. Genellikle her proje veya kullanıcı için farklı bir veritabanı kullanılır.
 
 Aşağıdaki örnekte, `westus` bölgesinde bulunan `mycliresource` kaynak grubundaki `mycliserver` adlı MySQL sunucusu için bir Azure Veritabanı oluşturulur. Sunucunun `myadmin` şeklinde bir oturum adı ve `Password01!` şeklinde bir parolası vardır. Sunucu **Temel** performans katmanıyla oluşturulmuştur ve sunucudaki tüm veritabanları **50** işlem birimini ortak olarak kullanır. Uygulama gereksinimlerine bağlı olarak işlem ve depolama ölçeğini büyütebilir veya küçültebilirsiniz.
 
@@ -60,9 +60,9 @@ az mysql server create --resource-group mycliresource --name mycliserver --locat
 ```
 
 ## <a name="configure-firewall-rule"></a>Güvenlik duvarı kuralını yapılandırma
-MySQL sunucu düzeyinde güvenlik duvarı kuralı az mysql sunucu güvenlik duvarı kuralı oluşturmak için komutu bir Azure veritabanı oluşturun. Sunucu düzeyinde güvenlik duvarı kuralı gibi bir dış uygulamaya izin verir **mysql** komut satırı aracını veya MySQL Azure MySQL hizmeti güvenlik duvarı aracılığıyla sunucunuza bağlanmak için çalışma ekranı. 
+az mysql server firewall-rule create komutunu kullanarak MySQL için Azure Veritabanı sunucusu düzeyinde bir güvenlik duvarı kuralı oluşturun. Sunucu düzeyindeki bir güvenlik duvarı kuralı, **mysql** komut satırı aracı veya MySQL Workbench gibi bir dış uygulamanın Azure MySQL hizmetinin güvenlik duvarı üzerinden sunucunuza bağlanmasına imkan tanır. 
 
-Aşağıdaki örnek, bir önceden tanımlanmış adres aralığı için bir güvenlik duvarı kuralı oluşturur. Bu örnek, tüm olası IP adresleri aralığı gösterir.
+Şu örnekte, önceden tanımlanmış adres aralığı için bir güvenlik duvarı kuralı oluşturulur. Bu örnek, tüm olası IP adresleri aralığını gösterir.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -100,27 +100,27 @@ Sonuç JSON biçimindedir. **fullyQualifiedDomainName** ve **administratorLogin*
 }
 ```
 
-## <a name="connect-to-the-server-using-mysql"></a>MySQL kullanarak sunucuya bağlanın
-Kullanım [mysql komut satırı aracı](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) Azure veritabanınıza MySQL sunucusu için bağlantı kuramıyor. Bu örnekte, bir komut şöyledir:
+## <a name="connect-to-the-server-using-mysql"></a>mysql kullanarak sunucuya bağlanma
+MySQL sunucusu için Azure Veritabanınız ile bağlantı kurmak üzere [mysql komut satırı aracını](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) kullanın. Bu örnekte, komut şöyledir:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Boş veritabanı oluşturma
-Bir kez sunucusuna bağlandıktan sonra boş bir veritabanı oluşturun.
+Sunucuya bağlandıktan sonra, boş bir veritabanı oluşturun.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
 
-İsteminde bağlantı yeni veritabanı oluşturulan bu geçiş yapmak için aşağıdaki komutu çalıştırın:
+İstemde, bağlantıyı bu yeni oluşturulan veritabanına değiştirmek için şu komutu çalıştırın:
 ```sql
 mysql> USE mysampledb;
 ```
 
-## <a name="create-tables-in-the-database"></a>Veritabanında tabloları oluşturma
-MySQL veritabanı için Azure veritabanına bağlanmak nasıl bildiğinize göre bazı temel görevleri tamamlayın:
+## <a name="create-tables-in-the-database"></a>Veritabanında tablo oluşturma
+Artık MySQL veritabanı için Azure Veritabanına nasıl bağlanacağınızı bildiğinize göre bazı temel görevleri tamamlayın:
 
-İlk olarak, bir tablo oluşturun ve bazı verilerle yükleyin. Envanter bilgilerini depolayan bir tablo oluşturalım.
+İlk olarak, bir tablo oluşturun ve bu tabloya bazı veriler yükleyin. Envanter bilgilerini depolayan bir tablo oluşturalım.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -129,57 +129,57 @@ CREATE TABLE inventory (
 );
 ```
 
-## <a name="load-data-into-the-tables"></a>Veri tablolarına yükleme
-Bir tablo sahip olduğunuza göre bazı veriler içine ekleyin. Açık komut istemi penceresinde, bazı veri satırı eklemek için aşağıdaki sorguyu çalıştırın.
+## <a name="load-data-into-the-tables"></a>Tablolara veri yükleme
+Bir tablonuz olduğuna göre içine bazı veriler ekleyin. Açık komut istemi penceresinde, birkaç veri satırı eklemek için şu sorguyu çalıştırın.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Şimdi örnek verilerin daha önce oluşturduğunuz tabloya iki satır var.
+Daha önce oluşturduğunuz tabloda artık iki satırlık örnek verileriniz var.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Sorgulamak ve tablolarındaki verileri güncelleyin
-Veritabanı tablosundan bilgi almak için aşağıdaki sorguyu çalıştırın.
+## <a name="query-and-update-the-data-in-the-tables"></a>Tablolardaki verileri sorgulama ve güncelleştirme
+Veritabanı tablosundan bilgi almak için şu sorguyu yürütün.
 ```sql
 SELECT * FROM inventory;
 ```
 
-Ayrıca tablolardaki verileri güncelleştirebilirsiniz.
+Ayrıca tablolardaki verileri de güncelleştirebilirsiniz.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-Veri aldığınızda satır buna göre güncelleştirilir.
+Siz veri aldıkça satır güncelleştirilir.
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Bir veritabanını daha önceki bir noktaya geri yükleme
-Bu tablo yanlışlıkla silinmiş düşünün. Bu, kolayca kurtaramazsınız şeydir. Azure veritabanı için MySQL 35 gün için son yukarı zamanda herhangi bir noktaya kadar geri dönün ve bu noktaya zaman yeni bir sunucuya geri izin verir. Bu yeni sunucu silinen verilerinizi kurtarmak için kullanabilirsiniz. Tablo eklenmeden önce aşağıdaki adımları örnek sunucunun bir noktaya geri yükleme.
+Bu tabloyu yanlışlıkla sildiğinizi düşünün. Bu işlemi kolayca geri alamazsınız. MySQL için Azure Veritabanı, son 35 günde zamanın herhangi bir noktasına geri dönmenize ve bu zaman noktasını yeni bir sunucuya geri yüklemenize olanak tanır. Bu yeni sunucuyu silinen verilerinizi kurtarmak için kullanabilirsiniz. Şu adımlar, örnek sunucuyu tablo eklenmeden önceki bir noktaya geri yükler.
 
-Geri yüklemek için aşağıdaki bilgiler gereklidir:
+Geri yüklemek için şu bilgiler gereklidir:
 
-- Geri yükleme noktası: bir nokta sunucu değiştirilmeden önce oluşan zamanında seçin. Kaynak veritabanının en eski yedekleme değerine eşit veya daha büyük olmalıdır.
-- Hedef sunucu: geri yüklemek istediğiniz yeni bir sunucu adı sağlayın
-- Kaynak sunucu: geri yüklemek istediğiniz sunucunun adını belirtin
-- Konumu: Bölge seçemezsiniz, varsayılan olarak kaynak sunucuyla aynı.
+- Geri yükleme noktası: Sunucu değiştirilmeden önce gerçekleşen bir zaman seçin. Kaynak veritabanının En eski yedekleme değerinden daha büyük veya bu değere eşit olmalıdır.
+- Hedef sunucu: Geri yüklemek istediğiniz yeni bir sunucu adı sağlayın
+- Kaynak sunucu: Geri yüklemek istediğiniz sunucunun adını belirtin
+- Konum: Bölgeyi seçemezsiniz, varsayılan olarak kaynak sunucuyla aynıdır
 
 ```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
-Sunucuyu geri yüklemek için ve [geri bir nokta zaman için](./howto-restore-server-portal.md) tablo silinmeden önce. Sunucuyu zamanında farklı bir noktaya geri yükleme oluşturur yinelenen yeni bir sunucu noktası itibariyle özgün sunucusu olarak belirttiğiniz süre için saklama dönemi içinde olmasını sağlanan, [hizmet katmanı](./concepts-service-tiers.md).
+Sunucuyu geri yüklemek için, tablo silinmeden önceki [bir zamana geri yükleyin](./howto-restore-server-portal.md). Sunucunun farklı bir zaman noktasına geri yüklenmesi, [hizmet katmanınızın](./concepts-service-tiers.md) elde tutma dönemi içinde olmak şartıyla, belirttiğiniz zaman noktasından itibaren özgün sunucu ile aynı yeni bir kopya sunucu oluşturur.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu öğreticide için öğrenilen:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
-> * MySQL için Azure bir veritabanı oluşturun
-> * Sunucu Güvenlik Duvarı'nı yapılandırma
-> * Kullanım [mysql komut satırı aracı](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) bir veritabanı oluşturmak için
+> * MySQL için Azure Veritabanı oluşturma
+> * Sunucu güvenlik duvarını yapılandırma
+> * Veritabanı oluşturmak için [mysql komut satırı aracı](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) kullanma
 > * Örnek verileri yükleme
 > * Verileri sorgulama
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
 > [!div class="nextstepaction"]
-> [Azure veritabanı için MySQL - Azure CLI örnekleri](./sample-scripts-azure-cli.md)
+> [MySQL için Azure Veritabanı - Azure CLI örnekleri](./sample-scripts-azure-cli.md)

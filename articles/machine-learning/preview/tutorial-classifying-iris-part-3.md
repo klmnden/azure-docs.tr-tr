@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
@@ -32,7 +32,7 @@ Bu öğretici üç bölümden oluşan bir serinin üçüncü bölümüdür. Öğ
 
  Bu öğreticide zamansız bir [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak Mac OS deneyimi de çok benzerdir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici serisinin ilk iki bölümünü tamamlayın:
 
    * [Veri hazırlama öğreticisi](tutorial-classifying-iris-part-1.md) içindeki talimatları izleyerek Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
@@ -146,6 +146,17 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    
    Küme adından ortamı tanımlayabilirsiniz. Konumun, Azure portalından oluşturduğunuz Model Yönetimi hesabıyla aynı konumda olması gerekir.
 
+   Ortamın başarıyla kurulduğundan emin olmak üzere durumu denetlemek için şu komutu kullanın:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   5. adımda ortamı ayarlamanızdan önce “Hazırlama Durumu”nda “Başarılı” (aşağıda gösterildiği gibi) değerinin olduğundan emin olun.
+
+   ![Hazırlama Durumu](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. Bir Model Yönetimi hesabı oluşturun. (Tek seferlik bir kurulumdur.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -158,7 +169,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
 
 5. Ortamı ayarlayın.
 
-   Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak ortamı çalışır duruma getirmek için gereken ortam değişkenlerini ayarlayın. 2. adımda, daha önce kullandığınız aynı ortam adı kullanın. Kurulum işlemi tamamlandıktan sonra komut penceresinde verilen kaynak grubu adının aynısını kullanın.
+   Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak ortamı çalışır duruma getirmek için gereken ortam değişkenlerini ayarlayın. Daha önce 2. adımda kullandığınız ortam adının aynısını kullanın. Kurulum işlemi tamamlandıktan sonra komut penceresinde verilen kaynak grubu adının aynısını kullanın.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
@@ -258,8 +269,9 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
 
 2. Hizmeti test etmek için döndürülen hizmet çalıştırma komutunu yürütün:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    Çıktı tahmin edilen sınıf olan **"2"** şeklinde olur. (Elde ettiğiniz sonuç farklı olabilir.) 
 

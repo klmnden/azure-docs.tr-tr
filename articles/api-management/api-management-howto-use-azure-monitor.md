@@ -1,6 +1,6 @@
 ---
-title: "İzleyici yayımlanan API'leri Azure API Management'te | Microsoft Docs"
-description: "API'nizi Azure API Management'te izleneceği hakkında bilgi edinmek için Bu öğreticide adımları izleyin."
+title: "Azure API Management’ta yayımlanmış API’leri izleme | Microsoft Docs"
+description: "Azure API Management’ta API’nizi izleme hakkında bilgi edinmek için bu öğreticideki adımları izleyin."
 services: api-management
 documentationcenter: 
 author: juliako
@@ -14,25 +14,25 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="monitor-published-apis"></a>Yayımlanan API izleme
+# <a name="monitor-published-apis"></a>Yayımlanan API’leri izleme
 
-Azure İzleyicisi tüm Azure kaynakları izlemek için tek bir kaynak sağlayan bir Azure hizmetidir. Azure izleme ile görselleştirme, sorgulama yapabilir, yönlendirmek, arşiv ve ölçümleri ve API Management gibi Azure kaynakları'ten gelen günlükleri eylemleri gerçekleştirin. 
+Azure İzleyici, tüm Azure kaynaklarınızı izlemeye yönelik tek bir kaynak sağlayan bir Azure hizmetidir. Azure İzleyici’yi kullanarak, API Management gibi Azure kaynaklarından gelen ölçüm ve günlükleri görüntüleyebilir, sorgulayabilir, yönlendirebilir, arşivleyebilir ve bunlar üzerinde işlem yapabilirsiniz. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Etkinlik günlüklerini görüntüleme
-> * Tanılama günlüklerini görüntüle
-> * API'nizi metrikleri görüntüleyin 
-> * API'nizi yetkisiz çağrıları aldığında bir uyarı kuralı ayarlayın
+> * Tanılama günlüklerini görüntüleme
+> * API'nizin ölçümlerini görüntüleme 
+> * API'niz yetkisiz çağrılar aldığında bir uyarı kuralı ayarlama
 
-Aşağıdaki video Azure İzleyicisi'ni kullanarak API Management izleme gösterir. 
+Aşağıdaki videoda, Azure İzleyici'yi kullanarak API Management’ı izleme işlemi gösterilmektedir. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 >
@@ -40,73 +40,75 @@ Aşağıdaki video Azure İzleyicisi'ni kullanarak API Management izleme göster
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-+ Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Ayrıca, aşağıdaki öğreticiye: [alma ve ilk API'nizi yayımlama](import-and-publish.md).
++ Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
++ Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="diagnostic-logs"></a>Etkinlik günlüklerini görüntüle
+## <a name="diagnostic-logs"></a>Etkinlik günlüklerini görüntüleme
 
-Etkinlik günlükleri, API Management services üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik Günlükleri'ni kullanarak, belirleyebilirsiniz "ne, kimin, ne zaman ve" herhangi bir yazma, API Management hizmetlerde yapılan işlemleri (PUT, POST, DELETE) için. 
+Etkinlik günlükleri, API Management hizmetleriniz üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlüklerini kullanarak, API Management hizmetleriniz üzerinde gerçekleştirilen herhangi bir yazma işlemi (PUT, POST, DELETE) için "ne, kim ve ne zaman" sorularını yanıtlayabilirsiniz. 
 
 > [!NOTE]
-> Etkinlik günlükleri okuma (GET) işlemleri veya Klasik yayımcı portalında gerçekleştirilen veya özgün yönetim API'leri kullanılarak işlemleri içermez.
+> Etkinlik günlükleri, okuma (GET) işlemlerini ya da klasik Yayımcı Portalı içinde veya özgün Yönetim API’leri kullanılarak gerçekleştirilen işlemleri içermez.
 
-API Management hizmetiniz etkinlik günlükleri erişmek veya günlükleri, Azure kaynaklarınızın Azure İzleyicisi'nde erişim. 
+API Management hizmetinizdeki etkinlik günlüklerine veya Azure İzleyici’deki tüm Azure kaynaklarınızın günlüklerine erişebilirsiniz. 
 
-Etkinlik günlükleri görüntülemek için:
+Etkinlik günlüklerini görüntülemek için:
 
-1. Öğesinden, **API Management** örneği, tıklatın **etkinlik günlüğü**.
+1. APIM hizmet örneğinizi seçin.
+2. **Etkinlik günlüğü**’ne tıklayın.
 
-## <a name="view-diagnostic-logs"></a>Tanılama günlüklerini görüntüle
+## <a name="view-diagnostic-logs"></a>Tanılama günlüklerini görüntüleme
 
-Tanılama günlüklerini işlemleri ve denetim yanı sıra sorun giderme amacıyla önemli hataları hakkında zengin bilgi sağlar. Tanılama günlükleri, etkinlik günlükleri farklılık gösterir. Etkinlik günlükleri Azure kaynaklarınızı üzerinde gerçekleştirilen işlemler fikir sağlar. Tanılama günlükleri işlemleri kaynağınız kendisini gerçekleştirilen bir anlayış sağlar.
+Tanılama günlükleri, denetim ve sorun giderme konularında önemli işlem ve hatalar hakkında zengin bilgiler sağlar. Tanılama günlükleri, etkinlik günlüklerinden farklıdır. Etkinlik günlükleri, Azure kaynaklarınız üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, kaynağınızın kendisi tarafından gerçekleştirilen işlemler hakkında bilgi sağlar.
 
 Tanılama günlüklerine erişmek için:
 
-1. Öğesinden, **API Management** örneği, tıklatın **tanılama günlük**.
+1. APIM hizmet örneğinizi seçin.
+2. **Tanılama günlüğü**’ne tıklayın.
 
-## <a name="view-metrics-of-your-apis"></a>Apı'lerinizi metrikleri görüntüleyin
+## <a name="view-metrics-of-your-apis"></a>API'lerinizin ölçümlerini görüntüleme
 
-API Management, Apı'lerinizi durumunu ve durumunu gerçek zamanlı görünürlük yakın vermiş, her dakika ölçümleri yayar. Kullanılabilir ölçümler bazıları bir özeti aşağıda verilmiştir:
+API Management, dakika başı yaydığı ölçümlerle API’lerinizin durumu hakkında neredeyse gerçek zamanlı görünürlük sağlar. Bazı kullanılabilir ölçümlerin özeti aşağıda verilmiştir:
 
-* Kapasite (Önizleme): yükseltme/APIM hizmetlerinizi önceki sürüme indirme hakkında kararlar almanıza yardımcı olur. Ölçüm dakika başına yayılan ve ağ geçidi kapasite raporlama zamanında yansıtır. Ölçüm 0-100'den aralıkları ve ağ geçidi recourses CPU ve bellek kullanımı gibi temel alınarak hesaplanır.
-* : Toplam ağ geçidi API sayısı dönemde istekleri. 
-* Başarılı ağ geçidi istekleri: 304, 307 ve 301 (örneğin, 200) daha küçük bir şey de dahil olmak üzere başarılı HTTP yanıt kodları alınan API istek sayısı. 
-* Başarısız olan ağ geçidi istekleri: Hatalı HTTP yanıt kodu 400 ve 500'den büyük herhangi bir şey de dahil olmak üzere alınan API istek sayısı.
-* Yetkisiz ağ geçidi istekleri: 401, 403 ve 429 dahil olmak üzere HTTP yanıt kodları alınan API istek sayısı. 
-* Diğer ağ geçidi istekleri: önceki kategorileri (örneğin, 418) birine ait değil HTTP yanıt kodları alınan API istek sayısı.
+* Kapasite (önizleme): APIM hizmetlerinizi yükseltme/eski sürüme düşürme hakkında karar vermenize yardımcı olur. Ölçüm, dakika başına yayılır ve raporlama zamanındaki ağ geçidi kapasitesini yansıtır. Ölçüm 0-100 aralığında değişir ve CPU ile bellek kullanımı gibi ağ geçidi kaynakları temel alınarak hesaplanır.
+* Toplam Ağ Geçidi İsteği: dönem içindeki API isteklerinin sayısı. 
+* Başarılı Ağ Geçidi İstekleri: 304, 307 ve 301’den küçük herhangi bir kod (örneğin, 200) dahil olmak üzere başarılı HTTP yanıt kodları almış API isteklerinin sayısı. 
+* Başarısız Ağ Geçidi İstekleri: 400 ve 500’den büyük herhangi bir kod dahil olmak üzere hatalı HTTP yanıt kodları almış API isteklerinin sayısı.
+* Yetkisiz Ağ Geçidi İstekleri: 401, 403 ve 429 dahil olmak üzere HTTP yanıt kodları almış API isteklerinin sayısı. 
+* Diğer Ağ Geçidi İstekleri: Yukarıdaki kategorilerin hiçbirine ait olmayan HTTP yanıt kodları (örneğin, 418) almış API isteklerinin sayısı.
 
-Ölçümleri erişmek için:
+Ölçümlere erişmek için:
 
-1. Seçin **ölçümleri** menüsünde sayfanın yakın.
-2. Açılan listeden, ilgilendiğiniz ölçümleri seçin (birden çok ölçümleri ekleyebilirsiniz). 
+1. Sayfanın alt kısmındaki menüden **Ölçümler**’i seçin.
+2. Açılan listeden, ilgilendiğiniz ölçümleri seçin (birden çok ölçüm ekleyebilirsiniz). 
     
-    Örneğin, seçin **toplam ağ geçidi isteği** ve **başarısız ağ geçidi istekler** kullanılabilir ölçümler listesinden.
-3. Grafik API çağrıları toplam sayısını gösterir. Ayrıca, başarısız API çağrılarının sayısını gösterir. 
+    Örneğin, kullanılabilir ölçümler listesinden **Toplam Ağ Geçidi İsteği** ve **Başarısız Ağ Geçidi İstekleri**’ni seçin.
+3. Grafikte, API çağrılarının toplam sayısı gösterilmektedir. Ayrıca, başarısız olan API çağrılarının sayısı gösterilmiştir. 
 
-## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Yetkisiz isteği için bir uyarı kuralı ayarlayın
+## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Yetkisiz istekler için uyarı kuralı ayarlama
 
-Ölçümleri ve etkinlik açtığında göre uyarıları almak üzere yapılandırabilirsiniz. Azure İzleyici tetikler, aşağıdakileri yapmak için bir uyarı yapılandırmanıza olanak sağlar:
+Ölçümlere ve etkinlik günlüklerine göre uyarı alacak şekilde yapılandırmanızı ayarlayabilirsiniz. Azure İzleyici, tetiklendiğinde aşağıdaki işlemleri yapmak üzere bir uyarı yapılandırmanıza olanak tanır:
 
-* Bir e-posta bildirimi gönder
-* bir Web kancası çağırın
-* Bir Azure mantıksal uygulamayı çağırmak
+* E-posta bildirimi gönderme
+* Web kancası çağırma
+* Bir Azure Mantıksal Uygulamasını çağırma
 
 Uyarıları yapılandırmak için:
 
-1. Seçin **uyarı kuralları** menü çubuğundan sayfanın yakın.
-2. Seçin **ölçüm uyarı Ekle**.
-3. Girin bir **adı** bu uyarı için.
-4. Seçin **yetkisiz ağ geçidi istekleri** izlemek için ölçüm olarak.
-5. Seçin **sahipleri, Katkıda Bulunanlar ve okuyucular e-posta**.
+1. Sayfanın alt kısmındaki menü çubuğundan **Uyarı kuralları**’nı seçin.
+2. **Ölçüm uyarısı ekle**’yi seçin.
+3. Bu uyarı için bir **Ad** girin.
+4. İzlenecek ölçüm için **Yetkisiz Ağ Geçidi İstekleri** seçeneğini belirleyin.
+5. **E-posta sahipleri, katkıda bulunanlar ve okuyucular**’ı seçin.
 6. **Tamam**'a basın.
-7. Bir API anahtarı olmadan bizim konferans API çağırmayı deneyin. Bu API Management hizmeti sahibi olarak e-posta uyarı alın. 
+7. Bir API anahtarı olmadan Konferans API’mizi çağırmayı deneyin. Bu API Management hizmetinin sahibi olarak bir e-posta uyarı alırsınız. 
 
     > [!TIP]
-    > Bunu tetiklendiğinde uyarı kuralı ayrıca bir Web kancası veya bir Azure mantıksal uygulama çağırabilirsiniz.
+    > Uyarı kuralı tetiklendiğinde bir Web Kancası veya Azure Mantıksal Uygulaması da çağırabilir.
 
-    ![Set up Uyarısı](./media/api-management-azure-monitor/set-up-alert.png)
+    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -114,11 +116,11 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Etkinlik günlüklerini görüntüleme
-> * Tanılama günlüklerini görüntüle
-> * API'nizi metrikleri görüntüleyin 
-> * API'nizi yetkisiz çağrıları aldığında bir uyarı kuralı ayarlayın
+> * Tanılama günlüklerini görüntüleme
+> * API'nizin ölçümlerini görüntüleme 
+> * API'niz yetkisiz çağrılar aldığında bir uyarı kuralı ayarlama
 
-Sonraki öğretici ilerleyin:
+Sonraki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
 > [İzleme çağrıları](api-management-howto-api-inspector.md)

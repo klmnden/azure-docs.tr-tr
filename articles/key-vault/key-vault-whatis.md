@@ -1,5 +1,5 @@
 ---
-title: "Azure Anahtar Kasası nedir? | Microsoft Belgeleri"
+title: "Azure Anahtar Kasası nedir? | Microsoft Docs"
 description: "Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Azure Anahtar Kasası'nı kullanarak müşteriler, anahtarları ve gizli anahtarları (kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları, .PFX dosyaları ve parolalar gibi), donanım güvenlik modülleri tarafından korunan anahtarları kullanarak şifreleyebilir."
 services: key-vault
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2017
+ms.date: 01/26/2017
 ms.author: barclayn
-ms.openlocfilehash: f4981996a92abb3ecb4b6b92add8f1a0c7b1cbef
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: d1c7a61522770d5bf590637629ec48ee35151623
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
