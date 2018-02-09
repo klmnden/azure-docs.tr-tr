@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure tümleşik yığını sistemler için veri merkezi tümleştirme konuları
 Bir Azure tümleşik yığını sistemde düşünüyorsanız, bazı önemli planlama konuları dağıtım ve sistem merkeziniz nasıl uyduğunu etrafında anlamanız gerekir. Bu makalede, Azure yığını çok düğümlü sisteminiz için önemli altyapı kararları almanıza yardımcı olmak için bu noktalar üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması veri merkeziniz için Azure yığın dağıtırken OEM donanım satıcınızla çalışırken yardımcı olur.  
@@ -45,7 +45,7 @@ Ya da Azure AD veya AD FS Azure yığın dağıtım için kullanmak istediğiniz
 
 Katılmak bir Active Directory etki alanı, vb. Kimlik sağlayıcısı seçiminizi şifrelemeyle Kiracı sanal makineleri, kimlik sistemi ve kullandıkları, hesapları vardır. Bu ayrıdır.
 
-Bir kimlik sağlayıcısı seçme hakkında daha fazla bilgi edinebilirsiniz [Azure yığın tümleşik sistemleri makale için dağıtım kararları](.\azure-stack-deployment-decisions.md).
+Bir kimlik sağlayıcısı seçme hakkında daha fazla bilgi edinebilirsiniz [Azure yığın tümleşik sistemleri bağlantı modelleri makale](.\azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS ve grafik tümleştirme
 Azure AD FS kimlik sağlayıcısı olarak kullanarak yığın dağıtmak isterseniz var olan bir AD FS örneği bir federasyon güveni üzerinden ile Azure yığında AD FS örneğini tümleştirmeniz gerekir. Bu kaynakları Azure yığınında kimlik doğrulaması yapmak için var olan bir Active Directory ormanında kimlikleri sağlar.
@@ -53,18 +53,25 @@ Azure AD FS kimlik sağlayıcısı olarak kullanarak yığın dağıtmak isterse
 Ayrıca, mevcut Active Directory ile Azure yığın grafik hizmetinde tümleştirebilirsiniz. Bu rol tabanlı erişim denetimi (RBAC) Azure yığınında yönetmenize olanak sağlar. Bir kaynağa erişim yetkisi aktarıldığında LDAP protokolünü kullanarak var olan Active Directory ormanındaki kullanıcı hesabı grafik bileşeni arar.
 
 Aşağıdaki diyagramda tümleşik AD FS ve grafik trafik akışı gösterilmektedir.
-![AD FS ve grafik trafik akışını gösteren diyagram](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![AD FS ve grafik trafik akışını gösteren diyagram](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Lisans modeli
+Kullanmak istediğiniz hangi lisans modeli karar vermeniz gerekir. Kullanılabilir seçenekler, Azure yığın Internet'e bağlı olup olmadığına dağıtmak bağlıdır:
+- İçin bir [bağlı dağıtım](azure-stack-connected-deployment.md), ödeme olarak-size-kullanım ve kapasite tabanlı lisans seçebilirsiniz. Ödeme olarak,-kullanımlı Azure bağlantısı Azure ticaret sonra faturalandırılır rapor kullanımını gerektirir. 
+- Kapasite tabanlı yalnızca lisans desteklenir varsa, [dağıtmak bağlantısı kesilmiş](azure-stack-disconnected-deployment.md) internet'ten. 
 
-Kullanmak istediğiniz hangi lisans modeli karar vermeniz gerekir. Bağlı bir dağıtım için ödeme olarak-size-kullanım ve kapasite tabanlı lisans seçebilirsiniz. Ödeme olarak,-kullanımlı Azure bağlantısı Azure ticaret sonra faturalandırılır rapor kullanımını gerektirir. Yalnızca kapasite tabanlı lisans desteklenir dağıtırsanız internet bağlantısı kesilmiş. Lisans modelleri hakkında daha fazla bilgi için bkz: [Microsoft Azure paketleme ve fiyatlandırma yığını](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Lisans modelleri hakkında daha fazla bilgi için bkz: [Microsoft Azure paketleme ve fiyatlandırma yığını](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## <a name="naming-decisions"></a>Adlandırma kararları
 
-Azure yığın ad alanınız, özellikle bölge adını ve dış etki alanı adını planlama istediğiniz şekli hakkında düşünmek gerekir. Azure yığın dağıtımınız genel kullanıma yönelik uç noktalar için tam etki alanı adını (FQDN) bu iki ad birleşimidir &lt; *bölge*&gt;&lt;*external_FQDN*  &gt;, örneğin, *east.cloud.fabrikam.com*. Bu örnekte, Azure yığın portalları aşağıdaki URL'lere kullanılabilir olur:
+Azure yığın ad alanınız, özellikle bölge adını ve dış etki alanı adını planlama istediğiniz şekli hakkında düşünmek gerekir. Dış tam etki alanı adını (FQDN) Azure yığın dağıtımınız genel kullanıma yönelik uç noktalar için bu iki ad birleşimidir: &lt; *bölge*&gt;.&lt; *fqdn*&gt;. Örneğin, *east.cloud.fabrikam.com*. Bu örnekte, Azure yığın portalları aşağıdaki URL'lere kullanılabilir olur:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> Azure yığın dağıtımınız için seçtiğiniz bölge adı benzersiz olmalıdır ve portal adresler görüntülenir. 
 
 Aşağıdaki tabloda, bu etki alanı adlandırma kararlar özetlenmektedir.
 
@@ -128,14 +135,14 @@ Azure üzerinden Azure yığın bağlanabileceği [ExpressRoute](https://docs.mi
 
 Aşağıdaki diyagramda bir tek Kiracı senaryo için ExpressRoute gösterir (burada "Müşteri'nin bağlantısı" ExpressRoute devresi).
 
-![Gösteren tek Kiracı ExpressRoute senaryosu diyagramı](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Gösteren tek Kiracı ExpressRoute senaryosu diyagramı](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 Aşağıdaki diyagramda bir çok kiracılı senaryo için ExpressRoute gösterir.
 
-![Gösteren çok kiracılı ExpressRoute senaryosu diyagramı](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Gösteren çok kiracılı ExpressRoute senaryosu diyagramı](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Dış izleme
-Azure yığın dağıtımına ve cihazlardan tüm uyarıları, tek bir görünümünü almak için ve raporlama için var olan BT Hizmet Yönetimi iş akışlarını içine uyarıları tümleştirmek için Azure yığın çözümlerini izleme dış veri merkezi ile tümleştirebilirsiniz.
+Azure yığın dağıtımına ve cihazlardan tüm uyarıları, tek bir görünümünü almak için ve raporlama için var olan BT Hizmet Yönetimi iş akışlarını içine uyarıları tümleştirmek için yapabileceğiniz [Azure yığın çözümleriniİzlemedışverimerkeziiletümleştirme](azure-stack-integrate-monitor.md).
 
 Azure yığın çözümüne eklenmiş, donanım yaşam döngüsü konak donanım için OEM satıcı tarafından sağlanan Yönetim Araçları'nı çalıştıran Azure yığın dışında bilgisayardır. Bu araçlar ya da var olan bir izleme çözümü, veri merkezinizdeki doğrudan tümleştirileceğini diğer çözümleri kullanabilirsiniz.
 
@@ -143,15 +150,15 @@ Aşağıdaki tablo şu anda kullanılabilir seçeneklerinin listesini özetler.
 
 | Alan | Dış izleme çözümü |
 | -- | -- |
-| Azure yığın yazılım | - [Operations Manager için Azure yığın yönetim paketi](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios eklentisi](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>-REST tabanlı API çağrıları | 
-| Fiziksel sunucuları (Bmc'ler IPMI aracılığıyla) | -Operations Manager satıcı Yönetim Paketi<br>-OEM donanım satıcısı tarafından sağlanan çözümü<br>-Donanım satıcınızla Nagios eklentileri | OEM ortağı destekli izleme çözümü (dahil) | 
-| Ağ aygıtlarını (SNMP) | -Operations Manager ağ aygıtı bulma<br>-OEM donanım satıcısı tarafından sağlanan çözümü<br>-Nagios anahtar eklentisi |
-| Kiracı abonelik durumunu izleme | - [Windows Azure için System Center Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure yığın yazılım | [Operations Manager için Azure yığın yönetim paketi](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios eklentisi](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST tabanlı API çağrıları | 
+| Fiziksel sunucuları (Bmc'ler IPMI aracılığıyla) | OEM donanım - Operations Manager satıcı Yönetim Paketi<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Donanım satıcısı Nagios eklentileri | OEM ortağı destekli izleme çözümü (dahil) | 
+| Ağ aygıtlarını (SNMP) | Operations Manager ağ aygıtı bulma<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Nagios anahtar eklentisi |
+| Kiracı abonelik durumunu izleme | [Windows Azure için System Center Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Aşağıdaki gereksinimleri dikkate alın:
 - Kullandığınız çözüm aracısız olması gerekir. Azure yığın bileşenleri içindeki üçüncü taraf aracılar yükleyemezsiniz. 
-- System Center Operations Manager kullanmak istiyorsanız, bu Operations Manager 2012 R2 veya Operations Manager 2016 gerektirir.
+- System Center Operations Manager kullanmak istiyorsanız, Operations Manager 2012 R2 veya Operations Manager 2016 gereklidir.
 
 ## <a name="backup-and-disaster-recovery"></a>Yedekleme ve olağanüstü durum kurtarma
 
@@ -159,7 +166,7 @@ Yedekleme ve olağanüstü durum kurtarma için planlama Iaas sanal makineleri v
 
 ### <a name="protect-infrastructure-components"></a>Altyapı bileşenlerine koruma
 
-Azure yığını, belirttiğiniz bir paylaşıma altyapı bileşenlerini yedekler.
+Yapabilecekleriniz [Azure yığın yedekleme](azure-stack-backup-back-up-azure-stack.md) altyapı bileşenlerini bir SMB paylaşımı, belirttiğiniz:
 
 - Bir dış SMB dosya paylaşımında var olan bir Windows tabanlı bir dosya sunucusu veya bir üçüncü taraf cihaz gerekir.
 - Ağ anahtarları ve donanım yaşam döngüsü konak yedekleme için aynı bu paylaşım kullanmanız gerekir. OEM donanım satıcınıza Azure yığınına dış bunlar gibi yedekleme ve geri yükleme bu bileşenlerin kılavuzluk yardımcı olur. OEM satıcının öneriye dayalı yedekleme iş akışları çalıştırmaktan sorumludur.

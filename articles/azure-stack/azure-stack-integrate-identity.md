@@ -5,22 +5,22 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03dc26ba3fcf10b52f6d6b77445de3f6770c4162
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure yığın datacenter tümleştirmesi - kimliği
 Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak Azure yığın kimlik sağlayıcıları olarak dağıtabilirsiniz. Azure yığın dağıtmadan önce seçim yapmanız gerekir. AD FS kullanarak dağıtımı da bağlantısı kesilmiş modunda Azure yığın dağıtma olarak adlandırılır.
 
 Aşağıdaki tabloda iki kimlik seçenekleri arasındaki farklar gösterilmektedir:
 
-||Fiziksel olarak bağlantısı kesildi|Fiziksel olarak bağlı|
+||İnternet bağlantısı kesilmiş|İnternet'e bağlı|
 |---------|---------|---------|
 |Faturalandırma|Kapasite olması gerekir<br> Yalnızca Kurumsal Anlaşma (EA)|Kapasite veya ödeme olarak-size-kullanımı<br>EA veya Bulut çözümü sağlayıcısı (CSP)|
 |Kimlik|AD FS olmalıdır|Azure AD veya AD FS|

@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Dış izleme çözümü Azure yığın ile tümleştirme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+Dış Azure yığın altyapı izleme için Azure yığın yazılım, fiziksel bilgisayarları ve fiziksel ağ anahtarları izlemeniz gerekir. Bu alanların her biri, sistem durumu ve uyarı bilgilerini almak için bir yöntem sunar:
 
-Dış Azure yığın altyapı izleme için Azure yığın yazılım, fiziksel bilgisayarları ve fiziksel ağ anahtarları izlemeniz gerekir. Bu alanların her biri, sistem durumu ve uyarı bilgilerini almak için bir yöntem sunar.
-
-- Azure yığın yazılım sistem durumu ve uyarıları almak için REST tabanlı bir API sunar. (Depolama alanları doğrudan gibi yazılım tanımlı teknolojileri kullanımı ile depolama durumunu ve Uyarıları yazılım izleme bir parçasıdır.)
+- Azure yığın yazılım sistem durumu ve uyarıları almak için REST tabanlı bir API sunar. (Depolama alanları doğrudan gibi yazılım tanımlı teknolojileri kullanımı ile depolama durumunu ve Uyarıları yazılım izleme bir parçasıdır.).
 - Fiziksel bilgisayar sistem durumunu ve uyarı bilgilerini temel kart yönetim denetçileri (BMC) aracılığıyla kullanılabilir hale getirebilirsiniz.
 - Fiziksel ağ aygıtlarını sistem durumu ve uyarı bilgileri SNMP protokolü aracılığıyla kullanılabilir hale getirebilirsiniz.
 
@@ -48,16 +46,16 @@ Operations Manager dış Azure yığınını izlemek için kullanabilirsiniz. Mi
 
 Azure yığını için yönetim paketi aşağıdaki yetenekleri sağlar:
 
-- Birden çok Azure yığın dağıtımlarını yönetebilir.
-- Azure Active Directory (Azure AD) ve Active Directory Federasyon Hizmetleri (AD FS) desteği yoktur.
-- Almak ve Uyarıları kapatın.
-- Bir sistem durumu ve kapasite panodan yoktur.
-- Düzeltme eki ve güncelleştirme (P & U) olduğunda ediyor için otomatik Bakım modu algılama içerir.
-- Dağıtım ve bölge için zorla güncelleştirme görevleri içerir.
+- Birden çok Azure yığın dağıtımlarını yönetebilir
+- Azure Active Directory (Azure AD) ve Active Directory Federasyon Hizmetleri (AD FS) için destek
+- Alabilir ve Uyarıları Kapat
+- Bir sistem durumu ve kapasite Panosu
+- Düzeltme eki ve güncelleştirme (P & U) olduğunda ediyor için otomatik Bakım modu algılama içerir
+- Dağıtım ve bölge için zorla güncelleştirme görevleri içerir
 - Bir bölgeye özel bilgiler ekleyebilirsiniz.
-- Destekler bildirim ve raporlama.
+- Destekler bildirim ve Raporlama
 
-Microsoft Azure yığın ve ilişkili kullanıcı kılavuzu için System Center Yönetim Paketi yükleyebilirsiniz [burada](https://www.microsoft.com/en-us/download/details.aspx?id=55184), ya da Operations Manager'dan doğrudan.
+System Center Yönetim Paketi için Microsoft Azure yığın ve ilişkili indirebilirsiniz [Kullanıcı Kılavuzu](https://www.microsoft.com/en-us/download/details.aspx?id=55184), ya da Operations Manager'dan doğrudan.
 
 Bilet çözümü için Operations Manager System Center Service Manager ile tümleştirebilirsiniz. Tümleşik ürün Bağlayıcısı'nı bir hizmet isteği Hizmet Yöneticisi'nde çözdükten sonra Azure yığını ve Operations Manager bir uyarıyı kapatmak izin veren çift yönlü iletişim sağlar.
 
@@ -140,7 +138,7 @@ REST API çağrıları, uyarıları alma, uyarıları kapatın ve kaynak sağlay
 
 |Yöntem  |İstek URI'si  |
 |---------|---------|
-|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
+|AL     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Bağımsız değişkenler**
@@ -387,7 +385,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |Yöntem  |İstek URI'si  |
 |---------|---------|
-|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
+|AL    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Bağımsız değişkenler**
@@ -458,7 +456,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Yöntem  |İstek URI'si  |
 |---------|---------|
-|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
+|AL     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Bağımsız değişkenler**
 
