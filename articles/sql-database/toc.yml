@@ -237,6 +237,10 @@
           href: sql-database-use-batching-to-improve-performance.md
         - name: Bağlantı kılavuzu
           href: sql-database-connectivity-issues.md
+        - name: DNS diğer adına genel bakış
+          href: dns-alias-overview.md
+        - name: DNS diğer adı PowerShell
+          href: dns-alias-powershell.md
         - name: Bağlantı noktaları - ADO.NET
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Nasıl yapılır kılavuzları

@@ -14,13 +14,17 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 4701d19cf3b10dc42a5df7cbcb82c0d458894247
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 1a60c76b2687e4c6561eabf8a19dbfffffbe8681
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması oluşturma
+
+> [!NOTE]
+> Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service’e dağıtım yapmak için, bkz. [Linux üzerinde Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması oluşturma](./containers/tutorial-dotnetcore-sqldb-app.md).
+>
 
 [App Service](app-service-web-overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, bir .NET Core web uygulaması oluşturma ve bu uygulamayı bir SQL Veritabanı’na bağlamayla ilgili yönergeler verilmiştir. Öğreticiyi tamamladığınızda, App Service’te çalışan bir .NET Core MVC uygulaması oluşturmuş olacaksınız.
 
@@ -36,14 +40,14 @@ Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 > * Azure’daki tanılama günlüklerinin akışını sağlama
 > * Uygulamayı Azure portalında yönetme
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
 
 1. [Git'i yükleyin](https://git-scm.com/)
 1. [.NET Core SDK 1.1.2’yi yükleme](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-local-net-core-app"></a>Yerel .NET Core uygulaması oluşturma
 
@@ -92,9 +96,9 @@ SQL Veritabanı için bu öğreticide [Azure SQL Veritabanı](/azure/sql-databas
 
 ### <a name="create-a-sql-database-logical-server"></a>SQL Veritabanı mantıksal sunucusu oluşturma
 
-Cloud Shell’de, [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) komutuyla SQL Veritabanı mantıksal sunucusu oluşturun.
+Cloud Shell’de, [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) komutuyla SQL Veritabanı mantıksal sunucusu oluşturun.
 
-*\<server_name>* yer tutucusunu benzersiz bir SQL Database adıyla değiştirin. Bu ad, SQL Veritabanı uç noktasının bir parçası olan `<server_name>.database.windows.net` olarak kullanıldığından, adın Azure’daki tüm mantıksal sunucularda benzersiz olması gerekir. Ad yalnızca küçük harf, rakam ve tire (-) karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır. Ayrıca, *\<db_username>* ve *\<db_password>* değerlerini dilediğiniz kullanıcı adı ve parolayla değiştirin. 
+*\<server_name>* yer tutucusunu benzersiz bir SQL Veritabanı adıyla değiştirin. Bu ad, SQL Veritabanı uç noktasının bir parçası olan `<server_name>.database.windows.net` olarak kullanıldığından, adın Azure’daki tüm mantıksal sunucularda benzersiz olması gerekir. Ad yalnızca küçük harf, rakam ve tire (-) karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır. Ayrıca, *\<db_username>* ve *\<db_password>* değerlerini dilediğiniz kullanıcı adı ve parolayla değiştirin. 
 
 
 ```azurecli-interactive
@@ -123,7 +127,7 @@ SQL Veritabanı mantıksal sunucusu oluşturulduğunda Azure CLI, aşağıdaki �
 
 ### <a name="configure-a-server-firewall-rule"></a>Sunucu güvenlik duvarı kurallarını yapılandırma
 
-[az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) komutunu kullanarak [sunucu düzeyinde bir Azure SQL Veritabanı güvenlik duvarı kuralı](../sql-database/sql-database-firewall-configure.md) oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
+[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) komutunu kullanarak [Azure SQL Veritabanı sunucusu düzeyinde güvenlik duvarı kuralı](../sql-database/sql-database-firewall-configure.md) oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -131,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Veritabanı oluşturma
 
-[az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) komutunu kullanarak [S0 performans düzeyine](../sql-database/sql-database-service-tiers.md) sahip bir veritabanı oluşturun.
+[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) komutunu kullanarak sunucuda [S0 performans düzeyine](../sql-database/sql-database-service-tiers.md) sahip bir veritabanı oluşturun.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -165,7 +169,7 @@ Bu adımda, SQL Veritabanı’na bağlı .NET Core uygulamanızı App Service’
 
 ### <a name="configure-an-environment-variable"></a>Ortam değişkeni yapılandırma
 
-Azure uygulamanıza yönelik bağlantı dizeleri oluşturmak için, Cloud Shell’de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Aşağıdaki komutta, *\<app name>* ve *\<connection_string>* parametrelerini, önceden oluşturduğunuz bağlantı dizesiyle değiştirin.
+Azure uygulamanıza yönelik bağlantı dizeleri ayarlamak için, Cloud Shell’de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Aşağıdaki komutta, *\<app name>* ve *\<connection_string>* parametrelerini, önceden oluşturduğunuz bağlantı dizesiyle değiştirin.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -179,7 +183,7 @@ Aşağıdaki örnekte, Azure web uygulamanız için bir `ASPNETCORE_ENVIRONMENT`
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
 
-### <a name="connect-to-sql-database-in-production"></a>Üretimde SQL veritabanına bağlanma
+### <a name="connect-to-sql-database-in-production"></a>Üretimde SQL Veritabanına bağlanma
 
 Yerel deponuzda, Startup.cs dosyasını açın ve aşağıdaki kodu bulun:
 
@@ -360,7 +364,7 @@ Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın
 
 ![Portaldan Azure web uygulamasına gitme](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-Portal, varsayılan olarak web uygulamanızın **Genel Bakış** sayfasını gösterir. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir.
+Portal, varsayılan olarak web uygulamanızın **Genel Bakış** sayfasında görünür. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir.
 
 ![Azure portalında App Service sayfası](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

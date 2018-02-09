@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı hizmeti Öğreticisi - DC/OS yönetme"
-description: "Azure kapsayıcı hizmeti Öğreticisi - DC/OS yönetme"
+title: "Azure Container Service öğreticisi - DC/OS Yönetme"
+description: "Azure Container Service öğreticisi - DC/OS Yönetme"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c58bd764cf0fdacd55675f8343c6e7481a11823
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 04b5d158c636668a726e046e4f471b452e31ff0d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Azure kapsayıcı hizmeti Öğreticisi - DC/OS yönetme
+# <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service öğreticisi - DC/OS Yönetme
 
-DC/OS çalışan modern ve kapsayıcılı uygulamaları için Dağıtılmış bir platform sağlar. Azure kapsayıcı hizmeti ile basit ve hızlı bir üretim hazır DC/OS kümesi sağlama. Bu hızlı başlangıç ayrıntıları için temel adımlar gerekli, DC/OS kümesi ve çalışma temel iş yükü dağıtın.
+DC/OS, modern ve kapsayıcılı uygulamalar çalıştırmak için dağıtılmış bir platform sunar. Azure Container Service ile üretime hazır bir DC/OS kümesinin dağıtımı basit ve hızlıdır. Bu hızlı başlangıçta, DC/OS kümesi dağıtmak ve temel iş yükü çalıştırmak için gerekli temel adımlar ayrıntılı olarak açıklanır.
 
 > [!div class="checklist"]
-> * Bir ACS DC/OS kümesi oluşturma
+> * ACS DC/OS kümesi oluşturma
 > * Kümeye bağlanma
-> * DC/OS CLI'yi yükleyin
-> * Bir uygulamayı kümeye dağıtma
-> * Kümede uygulama ölçeklendirme
-> * DC/OS küme düğümleri ölçeklendirme
-> * Temel DC/OS Yönetimi
-> * DC/OS kümesi Sil
+> * DC/OS CLI’yi yükleme
+> * Kümeye bir uygulama dağıtma
+> * Küme üzerinde bir uygulama ölçeklendirme
+> * DC/OS kümesi düğümlerini ölçeklendirme
+> * Temel DC/OS yönetimi
+> * DC/OS kümesini silme
 
 Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-dcos-cluster"></a>DC/OS kümesi oluşturma
 
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+Öncelikle, [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -41,9 +41,9 @@ Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak gr
 az group create --name myResourceGroup --location westeurope
 ```
 
-Ardından, DC/OS kümesi ile oluşturma [az acs oluşturmak](/cli/azure/acs#create) komutu.
+Sonra, [az acs create](/cli/azure/acs#az_acs_create) komutuyla bir DC/OS kümesi oluşturun.
 
-Aşağıdaki örnek, adlandırılmış bir DC/OS kümesi oluşturur *myDCOSCluster* ve zaten mevcut değilse SSH anahtarları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
+Aşağıdaki örnekte *myDCOSCluster* adlı bir DC/OS kümesi ve henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 
 ```azurecli
 az acs create \
@@ -53,39 +53,39 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Birkaç dakika sonra komut tamamlandıktan ve dağıtım hakkında bilgi döndürür.
+Birkaç dakika sonra komut tamamlanır ve dağıtım hakkında bilgi döndürür.
 
 ## <a name="connect-to-dcos-cluster"></a>DC/OS kümesine bağlanma
 
-DC/OS kümesi oluşturulduktan sonra bir SSH tüneli üzerinden erişimleri olabilir. DC/OS asıl ortak IP adresini döndürmek için aşağıdaki komutu çalıştırın. Bu IP adresi bir değişkende depolanan ve sonraki adımda kullanılır.
+DC/OS kümesi oluşturulduktan sonra bir SSH tüneli üzerinden kümeye erişilebilir. DC/OS ana kümesinin genel IP adresini döndürmek için aşağıdaki komutu çalıştırın. Bu IP adresi bir değişkende depolanır ve bir sonraki adımda kullanılır.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-SSH tüneli oluşturmak için aşağıdaki komutu çalıştırın ve izleyin ekrandaki yönergeleri. Bağlantı noktası 80 kullanımda olduğundan komut başarısız olur. Tünel bağlantı noktası gibi bir içinde değil kullanımına güncelleştirme `85:localhost:80`. 
+SSH tüneli oluşturmak için aşağıdaki komutu çalıştırın ve ekrandaki yönergeleri izleyin. 80 bağlantı noktası zaten kullanımdaysa komut başarısız olur. Tünel oluşturulacak bağlantı noktasını kullanımda olmayan bir bağlantı noktası olarak (`85:localhost:80` gibi) güncelleştirin. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-## <a name="install-dcos-cli"></a>DC/OS CLI'yi yükleyin
+## <a name="install-dcos-cli"></a>DC/OS CLI’yı yükleyin
 
-DC/OS CLI kullanarak yükleme [az acs dcos yükleme-CLI](/azure/acs/dcos#install-cli) komutu. Azure CloudShell kullanıyorsanız, DC/OS CLI zaten yüklü. Azure CLI macOS ya da Linux üzerinde çalıştırıyorsanız, sudo komutu çalıştırmanız gerekebilir.
+[az acs dcos install-cli](/azure/acs/dcos#install-cli) komutunu kullanarak DC/OS CLI’yı yükleyin. Azure CloudShell kullanıyorsanız DC/OS CLI zaten yüklüdür. Azure CLI’yı macOS ya da Linux’ta çalıştırıyorsanız komutu sudo ile çalıştırmanız gerekebilir.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-CLI kümeyle kullanılabilmesi için önce SSH tüneli kullanacak şekilde yapılandırılmalıdır. Bunu yapmak için bağlantı noktası gerekiyorsa ayarlayarak aşağıdaki komutu çalıştırın.
+CLI’nın kümeyle kullanılabilmesi için önce SSH tünelini kullanacak şekilde yapılandırılması gerekir. Bunu yapmak için, gerekirse bağlantı noktasını değiştirerek aşağıdaki komutu çalıştırın.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
 ```
 
-## <a name="run-an-application"></a>Bir uygulamayı çalıştırın
+## <a name="run-an-application"></a>Bir uygulamayı çalıştırma
 
-Bir ACS DC/OS kümesi için mekanizma zamanlama Marathon varsayılandır. Marathon, uygulama başlatma ve DC/OS kümesinde uygulama durumunu yönetmek için kullanılır. Marathon aracılığıyla bir uygulama zamanlamak için adlı bir dosya oluşturun **marathon app.json**ve aşağıdaki içeriği buraya kopyalayın. 
+Bir ACS DC/OS kümesi için varsayılan zamanlama mekanizması Marathon’dur. DC/OS kümesinde bir uygulamayı başlatmak ve uygulamanın durumunu yönetmek için Marathon kullanılır. Marathon aracılığıyla uygulama zamanlamak için **marathon-app.json** adlı bir dosya oluşturun ve aşağıdaki içeriği buna kopyalayın. 
 
 ```json
 {
@@ -119,22 +119,22 @@ Uygulamayı DC/OS kümesinde çalışacak şekilde zamanlamak için aşağıdaki
 dcos marathon app add marathon-app.json
 ```
 
-Uygulama dağıtımı durumunu görmek için aşağıdaki komutu çalıştırın.
+Uygulamanın dağıtım durumunu görmek için aşağıdaki komutu çalıştırın.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Zaman **görevleri** sütun değeri geçer *0/1* için *1/1*, uygulama dağıtımı tamamlandı.
+**TASKS** sütunundaki *0/1* değeri *1/1* olarak değiştiğinde uygulama dağıtımı tamamlanmış olur.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
 
-## <a name="scale-marathon-application"></a>Marathon uygulamayı Ölçeklendir
+## <a name="scale-marathon-application"></a>Marathon uygulamasını ölçeklendirme
 
-Önceki örnekte, bir tek örnek uygulaması oluşturuldu. Uygulamanın üç örneğine kullanılabilir olacak şekilde, bu dağıtımı güncelleştirmek için açık **marathon app.json** dosya ve 3'e örnek özelliğini güncelleştirin.
+Önceki örnekte, bir tek örnek uygulaması oluşturuldu. Bu dağıtımı, uygulamanın üç örneği kullanılabilir olacak şekilde güncelleştirmek için, **marathon-app.json** dosyasını açın ve örnek özelliğini 3’e güncelleştirin.
 
 ```json
 {
@@ -162,32 +162,32 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 }
 ```
 
-Uygulamayı kullanarak güncelleştirme `dcos marathon app update` komutu.
+`dcos marathon app update` komutunu kullanarak uygulamayı güncelleştirin.
 
 ```azurecli
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
-Uygulama dağıtımı durumunu görmek için aşağıdaki komutu çalıştırın.
+Uygulamanın dağıtım durumunu görmek için aşağıdaki komutu çalıştırın.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Zaman **görevleri** sütun değeri geçer *1/3* için *3/1*, uygulama dağıtımı tamamlandı.
+**TASKS** sütunundaki *1/3* değeri *3/1* olarak değiştiğinde uygulama dağıtımı tamamlanmış olur.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
 
-## <a name="run-internet-accessible-app"></a>Internet erişilebilir uygulamayı çalıştırma
+## <a name="run-internet-accessible-app"></a>İnternetten erişilebilir uygulamayı çalıştırma
 
-ACS DC/OS kümesi iki düğüm kümesi, internet üzerinde erişilebilir olan bir ortak ve internet'te erişilemeyen bir özel oluşur. Varsayılan, Son örnekte kullanılan özel düğümleri kümesidir.
+ACS DC/OS kümesi, internet üzerinden erişilebilen bir genel ve internet üzerinden erişilemeyen bir özel küme olmak üzere, iki düğüm kümesinden oluşur. Varsayılan küme, son örnekte kullanılan özel düğümlerdir.
 
-Bir uygulama Internet üzerinden erişilebilir olması için ortak düğüm kümesi dağıtın. Bunu yapmak için vermek `acceptedResourceRoles` değerini nesne `slave_public`.
+Bir uygulamayı internet üzerinden erişilebilir hale getirmek için, genel düğüm kümesine dağıtın. Bunu yapmak için, `acceptedResourceRoles` nesnesine `slave_public` değerini verin.
 
-Adlı bir dosya oluşturun **nginx public.json** ve aşağıdaki içeriği buraya kopyalayın.
+**nginx-public.json** adlı bir dosya oluşturun ve şu içerikleri dosyaya kopyalayın.
 
 ```json
 {
@@ -225,35 +225,35 @@ Uygulamayı DC/OS kümesinde çalışacak şekilde zamanlamak için aşağıdaki
 dcos marathon app add nginx-public.json
 ```
 
-DC/OS ortak küme aracıların genel IP adresi alın.
+DC/OS genel kümesi aracılarının genel IP adresini alın.
 
 ```azurecli 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Bu adrese gözatma varsayılan NGINX site döndürür.
+Bu adrese göz atıldığında varsayılan NGINX sitesi döndürülür.
 
 ![NGINX](./media/container-service-dcos-manage-tutorial/nginx.png)
 
-## <a name="scale-dcos-cluster"></a>Ölçek DC/OS kümesi
+## <a name="scale-dcos-cluster"></a>DC/OS kümesini ölçeklendirme
 
-Önceki örneklerde, bir uygulama için birden çok örneği ölçeklendirilmiş. DC/OS altyapı da fazla veya az işlem kapasitesini sağlamak için genişletilebilir. Bu gerçekleştirilir [az acs ölçeklendirme]() komutu. 
+Önceki örneklerde, bir uygulama birden çok örneğe ölçeklendirilmişti. DC/OS altyapısı ayrıca daha fazla veya daha az işlem kapasitesi sağlayacak şekilde ölçeklendirilebilir. Bu, [az acs scale]() komutuyla sağlanır. 
 
-DC/OS aracıları geçerli sayısını görmek için [acs az göster](/cli/azure/acs#show) komutu.
+DC/OS aracılarının geçerli sayısını görmek için [acs az show](/cli/azure/acs#az_acs_show) komutunu kullanın.
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-5 sayısını artırmak için [az acs ölçeklendirme](/cli/azure/acs#scale) komutu. 
+Sayıyı 5’e artırmak için [az acs scale](/cli/azure/acs#az_acs_scale) komutunu kullanın. 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
 ```
 
-## <a name="delete-dcos-cluster"></a>DC/OS kümesi Sil
+## <a name="delete-dcos-cluster"></a>DC/OS kümesini silme
 
-Artık gerekli olduğunda, kullanabileceğiniz [az grubu Sil](/cli/azure/group#delete) kaynak grubu, DC/OS kümesi kaldırmak için komut ve ilişkili tüm kaynakları.
+Artık gerekli değilse, [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, DC/OS kümesini ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
@@ -261,18 +261,18 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakiler de dahil olmak üzere temel DC/OS yönetim görevle ilgili öğrendiniz. 
+Bu öğreticide, aşağıdakiler de dahil olmak üzere temel DC/OS yönetimi görevini öğrendiniz. 
 
 > [!div class="checklist"]
-> * Bir ACS DC/OS kümesi oluşturma
+> * ACS DC/OS kümesi oluşturma
 > * Kümeye bağlanma
-> * DC/OS CLI'yi yükleyin
-> * Bir uygulamayı kümeye dağıtma
-> * Kümede uygulama ölçeklendirme
-> * DC/OS küme düğümleri ölçeklendirme
-> * DC/OS kümesi Sil
+> * DC/OS CLI’yi yükleme
+> * Kümeye bir uygulama dağıtma
+> * Küme üzerinde bir uygulama ölçeklendirme
+> * DC/OS kümesi düğümlerini ölçeklendirme
+> * DC/OS kümesini silme
 
-Yük Dengeleme DC/OS Azure ile ilgili uygulamada hakkında bilgi almak için sonraki öğretici ilerleyin. 
+Azure üzerinde DC/OS’de yük dengeleme uygulaması hakkında bilgi edinmek için sonraki öğreticiye ilerleyin. 
 
 > [!div class="nextstepaction"]
 > [Uygulamalarda yük dengeleme gerçekleştirme](container-service-load-balancing.md)

@@ -9,7 +9,7 @@
 ## [Azure AD Connect ve Federasyon nedir?](active-directory-aadconnectfed-whatis.md)
 
 
-# Başlarken
+# başlarken
 ## [Önkoşullar](active-directory-aadconnect-prerequisites.md)
 ## [Azure AD Connect'i yükleme](active-directory-aadconnect-select-installation.md)
 ### [Hızlı ayarlar](active-directory-aadconnect-get-started-express.md)
@@ -18,7 +18,7 @@
 ### [Önceki sürümden yükseltme](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Mevcut bir AD Eşitleme veritabanını kullanarak yükleme](active-directory-aadconnect-existing-database.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Tasarım kavramları](active-directory-aadconnect-design-concepts.md)
 ### [Azure AD Connect için topolojiler](active-directory-aadconnect-topologies.md)
@@ -55,6 +55,7 @@
 ### [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD hizmet hesabı](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Yükleme sihirbazı](active-directory-aadconnectsync-installation-wizard.md)
+### [UserPrincipalName nasıl doldurulur?](active-directory-aadconnect-userprincipalname.md)
 ### [Varsayılan yapılandırmayı değiştirme](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Filtrelemeyi Yapılandırma](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)

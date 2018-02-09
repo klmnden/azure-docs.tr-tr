@@ -42,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Yeniden yönlendirmeyi yapılandırma
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Dış yeniden yönlendirmeyi yapılandırma
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Azure CLI](tutorial-external-site-redirect-powershell.md)
 ## Web uygulamalarını arka uç havuzu üyeleri olarak yapılandırma
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Sistem durumu araştırmalarını yapılandırma

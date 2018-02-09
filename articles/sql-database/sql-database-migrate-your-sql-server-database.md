@@ -1,6 +1,6 @@
 ---
-title: "SQL Server DB Azure SQL veritabanına geçirme | Microsoft Docs"
-description: "SQL Server veritabanını Azure SQL veritabanına geçirme öğrenin."
+title: "SQL Server DB'yi Azure SQL Veritabanına geçirme | Microsoft Docs"
+description: "SQL Server veritabanını Azure SQL Veritabanına geçirmeyi öğrenin."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 09/01/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 526222944974c08f92aec2a8418e9b42401bc4d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>SQL Server veritabanını Azure SQL veritabanına geçirme
+# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>SQL Server veritabanını Azure SQL Veritabanına geçirme
 
-SQL Server'ınızdaki taşıma veritabanını Azure SQL veritabanına Azure içinde boş bir SQL veritabanı oluşturma ve ardından kullanma olarak kadar basittir [veri geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595) Azure'da veritabanını almak için (DMA). Bu öğreticide, öğrenin:
+SQL Server veritabanınızı Azure SQL Veritabanına geçirmek çok basittir; Azure'da boş bir SQL veritabanı oluşturmanız ve ardından [Veri Geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)'nı (DMA) kullanarak veritabanını Azure'a aktarmanız yeterli olur. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * (Yeni veya var olan bir Azure SQL Database sunucusu kullanarak) Azure portalında boş bir Azure SQL veritabanı oluşturma
-> * (Daha önce oluşturduysanız) bir sunucu düzeyinde güvenlik duvarı Azure portalında oluşturma
-> * Kullanım [veri geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595) (DMA), SQL Server veritabanınızın boş Azure SQL veritabanına aktarmak için 
-> * Kullanım [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) veritabanı özelliklerini değiştirmek için (SSMS).
+> * Azure Portal'da boş bir Azure SQL veritabanı oluşturma (yeni veya mevcut Azure SQL Veritabanı sunucusunu kullanarak)
+> * Azure portalında sunucu düzeyinde bir güvenlik duvarı oluşturma (daha önce oluşturulmadıysa)
+> * SQL Server veritabanınızı boş Azure SQL veritabanına aktarmak için [Veri Geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)'nı (DMA) kullanma 
+> * Veritabanı özelliklerini değiştirmek için [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)'yu (SSMS) kullanma.
 
-Bir Azure aboneliğiniz yoksa [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
-- En son sürümü yüklü [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
-- En son sürümü yüklü [veri geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- Tanımladınız ve geçirmek için bir veritabanı erişimi. Bu öğretici kullanır [SQL Server 2008R2 AdventureWorks OLTP veritabanını](https://msftdbprodsamples.codeplex.com/releases/view/59211) örneğindeki SQL Server 2008R2 ya da daha yeni, ancak siz tercih ettiğiniz herhangi bir veritabanını kullanabilirsiniz. Uyumluluk sorunlarını gidermek için kullanmak [SQL Server veri araçları](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en yeni sürümü yüklendi.  
+- [Veri Geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)'nın (DMA) en yeni sürümü yüklendi.
+- Geçiş için bir veritabanı tanımladınız ve bu veritabanına erişiminiz var. Bu öğreticide,SQL Server 2008 R2 veya daha yeni sürümünün örneği üzerinde [SQL Server 2008R2 AdventureWorks OLTP veritabanı](https://msftdbprodsamples.codeplex.com/releases/view/59211) kullanılır, ama siz dilediğiniz veritabanını kullanabilirsiniz. Uyumluluk sorunlarını çözmek için [SQL Server Veri Araçları](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)'nı kullanın
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
@@ -56,7 +56,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 
 2. **Yeni** penceresinden **Veritabanları**’nı seçin ve **Yeni** sayfasında **SQL Veritabanı** altından **Oluştur**’u seçin.
 
-   ![Boş veritabanı oluşturma](./media/sql-database-design-first-database/create-empty-database.png)
+   ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. SQL Veritabanı formunu, önceki görüntüde gösterildiği gibi aşağıdaki bilgilerle doldurun:   
 
@@ -65,24 +65,24 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
    | **Veritabanı adı** | mySampleDatabase | Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
    | **Abonelik** | Aboneliğiniz  | Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
    | **Kaynak grubu** | myResourceGroup | Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Kaynak seçin** | Boş veritabanı | Boş bir veritabanı oluşturulması gerektiğini belirtir. |
+   | **Kaynak seçme** | Boş veritabanı | Boş bir veritabanı oluşturulması gerektiğini belirtir. |
 
-4. Yeni veritabanınız için yeni bir sunucu oluşturup yapılandırmak üzere **Sunucu**’ya tıklayın. Doldurmak **yeni sunucu form** aşağıdaki bilgilerle: 
+4. Yeni veritabanınız için yeni bir sunucu oluşturup yapılandırmak üzere **Sunucu**’ya tıklayın. **Yeni sunucu formu**’nu aşağıdaki bilgilerle doldurun: 
 
    | Ayar       | Önerilen değer | Açıklama | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Sunucu adı** | Genel olarak benzersiz bir ad | Geçerli sunucu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Sunucu yöneticisi oturum açma bilgileri** | Geçerli bir ad | Geçerli oturum açma adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Parola** | Geçerli bir parola | Parolanız en az sekiz karakter olmalıdır ve aşağıdaki kategoriden üçünden karakterler içermelidir: büyük harf karakterler, küçük harfler, sayılar ve alfasayısal olmayan karakter. |
+   | **Parola** | Geçerli bir parola | Parolanızda en az 8 karakter bulunmalı ve parolanız şu üç kategoriden karakterler içermelidir: büyük harf karakterler, küçük harf karakterler, sayılar ve alfasayısal olmayan karakterler. |
    | **Konum** | Geçerli bir konum | Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. **Seç**'e tıklayın.
 
-6. Hizmet katmanını, DTU'ların sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Dtu'lar ve her hizmet katmanı için kullanılabilir olan depolama sayısı seçeneklerini araştırın. 
+6. Hizmet katmanını, DTU'ların sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanılabilir DTU sayısı ve depolama alanı seçeneklerini araştırın. 
 
-7. Bu öğretici için seçin **standart** hizmet katmanı ve seçmek için kaydırıcıyı kullanın **100 Dtu'lar (S3)** ve **400** GB depolama alanı.
+7. Bu öğreticide, **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
 
    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -91,12 +91,12 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
    > [!IMPORTANT]
    > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Premium katmanlarda 1 TB’den fazla depolama alanı şu bölgelerde sunulmaktadır: ABD Doğu2, Batı ABD, US Gov Virginia, Batı Avrupa, Almanya Orta, Güneydoğu Asya, Japonya Doğu, Avustralya Doğu, Kanada Orta ve Kanada Doğu. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Premium katmanında, şu anda şu bölgelerde 1 TB'den daha fazla depolama kullanılabilir: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, Birleşik Krallık Güney, Birleşik Krallık Batı, ABD Doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  
 
-10. Seçin bir **harmanlama** boş veritabanı için (Bu öğretici için varsayılan değeri kullanın). Harmanlamaları hakkında daha fazla bilgi için bkz: [harmanlamaları](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Boş veritabanı için bir **harmanlama** seçin (bu öğretici için varsayılan değeri kullanın). Harmanlamalar hakkında daha fazla bilgi için bkz. [Harmanlamalar](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
 11. SQL Veritabanı formunu tamamladıktan sonra veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer. 
 
@@ -118,24 +118,24 @@ SQL Veritabanı hizmeti, güvenlik duvarını belirli IP adreslerine açmaya yö
 
    ![sunucu adı](./media/sql-database-get-started-portal/server-name.png) 
 
-3. Tıklatın **ayarlayın sunucu Güvenlik Duvarı** araç çubuğunda. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
+3. Araç çubuğunda **Sunucu güvenlik duvarını ayarla**’ya tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
 
    ![sunucu güvenlik duvarı kuralı](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 4. Geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda **İstemci IP’si Ekle** öğesine tıklayın. Güvenlik duvarı kuralı, 1433 numaralı bağlantı noktasını tek bir IP adresi veya bir IP adresi aralığı için açabilir.
 
-5. **Kaydet** düğmesine tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
+5. **Kaydet**’e tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
 
 6. **Tamam**’a tıklayın ve sonra **Güvenlik duvarı ayarları** sayfasını kapatın.
 
-Şimdi SQL veritabanı sunucusu ve SQL Server Management Studio, veri geçiş Yardımcısı'nı veya önceki yordamda oluşturduğunuz server yönetici hesabı kullanarak bu IP adresinden tercih ettiğiniz başka bir araç kullanarak veritabanlarını bağlanabilirsiniz.
+Artık SQL Server Management Studio’yu, Veri Geçiş Yardımcısı'nı veya seçtiğiniz başka bir aracı kullanarak, önceki yordamda oluşturduğunuz sunucu yöneticisi hesabıyla bu IP adresinden SQL Veritabanı sunucusuna ve sunucuya ait veritabanlarına bağlanabilirsiniz.
 
 > [!IMPORTANT]
 > Varsayılan olarak, SQL Veritabanı güvenlik duvarı üzerinden erişim tüm Azure hizmetleri için etkindir. Tüm Azure hizmetleri için devre dışı bırakmak isterseniz bu sayfadaki **KAPALI** öğesine tıklayın.
 
 ## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
-Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. Veri geçiş Yardım ve SQL Server Management Studio dahil olmak üzere istemci araçlarını kullanarak, Azure SQL sunucunuza bağlanmak için tam sunucu adını kullanın.
+Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. Veri Geçiş Yardımcısı ve SQL Server Management Studio gibi istemci araçlarını kullanarak Azure SQL sunucunuza bağlanmak için tam sunucu adını kullanırsınız.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
@@ -145,84 +145,84 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 
 ## <a name="migrate-your-database"></a>Veritabanınızın geçişini yapma
 
-Kullanmak için aşağıdaki adımları izleyin  **[veri geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)**  veritabanınız Azure SQL veritabanı geçiş için hazır olup olmadığını değerlendirmek için ve geçiş işlemini tamamlamak için.
+**[Veri Geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)**'nı kullanarak veritabanınızın Azure SQL Veritabanına geçişe hazır olup olmadığını değerlendirmek ve geçişi tamamlamak için bu adımları izleyin.
 
-1. Açık **veri geçiş Yardımcısı**. Geçirmeyi planladığınız veritabanını içeren SQL Server örneği bağlantısı ve internet bağlantısı ile DMA herhangi bir bilgisayarda çalıştırabilirsiniz. Geçirmekte olduğunuz SQL Server örneğini barındıran bilgisayara yüklemeniz gerekmez. Bir önceki yordamda oluşturduğunuz güvenlik duvarı kuralı, veri geçiş Yardımcısı'nı çalıştırdığınız bilgisayarı olması gerekir.
+1. **Veri Geçiş Yardımcısı**'nı açın. Geçirmeyi planladığınız veritabanını içeren SQL Server örneğiyle bağlantısı olan ve ayrıca İnternet bağlantısı da olan herhangi bir bilgisayarda DMA'yı çalıştırabilirsiniz. Bunu, geçirmekte olduğunuz SQL Server örneği barındıran bilgisayara yüklemeniz gerekmez. Önceki yordamda oluşturduğunuz güvenlik duvarı kuralı, Veri Geçiş Yardımcısı'nı çalıştırdığınız bilgisayara yönelik olmalıdır.
 
-     ![açık veri geçiş Yardımcısı](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
+     ![veri geçiş yardımcısını açın](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
-2. Sol menüde tıklatın **+ yeni** oluşturmak için bir **değerlendirme** projesi. İstenen değerleri doldurun ve ardından **oluşturma**:
+2. Sol taraftaki menüde **+ Yeni**'ye tıklayarak **Assessment** projesi oluşturun. İstenen değerleri doldurun ve **Oluştur**'a tıklayın:
 
    | Ayar      | Önerilen değer | Açıklama | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Proje türü | Geçiş | Veritabanınız için geçiş değerlendirmek veya değerlendirmek seçmek üzere seçin ve aynı iş akışının bir parçası olarak geçiş |
-   |Proje adı|Geçiş Öğreticisi| Açıklayıcı bir ad |
-   |Kaynak sunucu türü| SQL Server | Şu anda desteklenen tek kaynak budur |
-   |Hedef sunucu türü| Azure SQL Database| Seçenekler şunlardır: Azure SQL veritabanı, SQL Server, SQL Server üzerinde Azure sanal makineler |
-   |Geçiş kapsamı| Şeması ve verisi| Seçenekler şunlardır: yalnızca şeması ve verisi, yalnızca şema veri |
+   | Proje türü | Geçiş | Veritabanınızı geçiş için değerlendirmeyi veya değerlendirme ile geçişi aynı iş yükünün parçası olarak gerçekleştirmeyi seçin |
+   |Proje adı|Geçiş öğreticisi| Açıklayıcı bir ad |
+   |Kaynak sunucu türü| SQL Server | Bu, şu anda desteklenen tek kaynaktır |
+   |Hedef sunucu türü| Azure SQL Database| Seçenekler şunlardır: Azure SQL Veritabanı, SQL Server, Azure Sanal Makinelerinde SQL Server |
+   |Geçiş Kapsamı| Şema ve veri| Seçenekler şunlardır: Şema ve veri, yalnızca şema, yalnızca veri |
    
-   ![Yeni veri geçiş Yardımcısı projesi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
+   ![yeni veri geçiş yardımcısı projesi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
-3.  Üzerinde **kaynak seçme** sayfasında, istenen değerleri doldurun ve ardından **Bağlan**:
-
-    | Ayar      | Önerilen değer | Açıklama | 
-    | ------------ | ------------------ | ------------------------------------------------- | 
-    | Sunucu adı | Sunucu adı veya IP adresi | Sunucu adı veya IP adresi |
-    | Kimlik doğrulama türü | Tercih edilen kimlik doğrulama türü| Seçimleri: Kimlik doğrulaması, Active Directory parola kimlik doğrulaması Windows kimlik doğrulaması, SQL Server kimlik doğrulaması, Active Directory tümleşik |
-    | Kullanıcı adı | Oturum açma adı | Oturumunuzla olmalıdır **denetim SUNUCUSUNA** izinleri |
-    | Parola| Parolanızı | Parolanızı |
-    | Bağlantı özellikleri| Seçin **bağlantıyı şifrelemek** ve **güven sunucu sertifikası** ortamınız için uygun şekilde. | Sunucunuz için Bağlan uygun Özellikler'i seçin |
-
-    ![Yeni veri geçiş select kaynağı](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
-
-5. Azure SQL veritabanına geçirme ve ardından kaynak sunucunuzdan tek bir veritabanı seçin **sonraki**. Bu öğretici için yalnızca tek bir veritabanı yok.
-
-6. Üzerinde **Select hedef** sayfasında, istenen değerleri doldurun ve ardından **Bağlan**:
+3.  **Kaynak seç** sayfasında, istenen değerleri doldurun ve sonra da **Bağlan**'a tıklayın:
 
     | Ayar      | Önerilen değer | Açıklama | 
     | ------------ | ------------------ | ------------------------------------------------- | 
-    | Sunucu adı | Tam Azure veritabanı sunucunuzun adını | Önceki yordamda tam Azure veritabanı sunucusu adı |
-    | Kimlik doğrulama türü | SQL Server Kimlik Doğrulaması | SQL Server kimlik doğrulaması yalnızca Bu öğretici yazılır, ancak Active Directory tümleşik kimlik doğrulaması ve Active Directory parola kimlik doğrulaması Azure SQL veritabanı tarafından da desteklenir seçenektir |
-    | Kullanıcı adı | Oturum açma adı | Oturumunuzla olmalıdır **denetim veritabanı** kaynak veritabanı izinleri |
-    | Parola| Parolanızı | Parolanızı |
-    | Bağlantı özellikleri| Seçin **bağlantıyı şifrelemek** ve **güven sunucu sertifikası** ortamınız için uygun şekilde. | Sunucunuz için Bağlan uygun Özellikler'i seçin |
+    | Sunucu adı | Sunucu adınız veya IP adresiniz | Sunucu adınız veya IP adresiniz |
+    | Kimlik doğrulaması türü | Tercih ettiğiniz kimlik doğrulama türü| Seçenekler: Windows Kimlik Doğrulaması, SQL Server Kimlik Doğrulaması, Active Directory Tümleşik Kimlik Doğrulaması, Active Directory Parola Kimlik Doğrulaması |
+    | Kullanıcı adı | Oturum açma adınız | Oturum açma bilgilerinizin **SUNUCU DENETLEME** izinleri olmalıdır |
+    | Parola| Parolanız | Parolanız |
+    | Bağlantı özellikleri| Ortamınıza uygun olarak **Bağlantıyı şifrele**'yi ve **Sunucu sertifikasına güven**'i seçin. | Sunucunuza bağlanmak için uygun özellikleri seçin |
 
-    ![Yeni veri geçiş select hedefi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
+    ![yeni veri geçişi kaynağı seçme](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
 
-7. Bir önceki yordamda oluşturduğunuz hedef sunucudan veritabanını seçin ve ardından **sonraki** kaynak veritabanı şeması değerlendirme işlemini başlatmak için. Bu öğretici için yalnızca tek bir veritabanı yok. Bu veritabanı uyumluluk düzeyi 140 için Azure SQL veritabanındaki tüm yeni veritabanları için varsayılan uyumluluk düzeyi olduğu ayarlandığına dikkat edin.
+5. Azure SQL Veritabanı'na geçirmek üzere kaynak sunucunuzdan tek bir veritabanı seçin ve ardından **İleri**'ye tıklayın. Bu öğretici için, yalnızca bir veritabanı vardır.
+
+6. **Hedef seç** sayfasında, istenen değerleri doldurun ve sonra da **Bağlan**'a tıklayın:
+
+    | Ayar      | Önerilen değer | Açıklama | 
+    | ------------ | ------------------ | ------------------------------------------------- | 
+    | Sunucu adı | Tam Azure Veritabanı sunucu adınız | Önceki yordamdan gelen tam Azure Veritabanı sunucu adınız |
+    | Kimlik doğrulaması türü | SQL Server Kimlik Doğrulaması | Bu öğretici yazıldığı sırada SQL Server kimlik doğrulaması tek seçenekti, ama Azure SQL Veritabanı Active Directory Tümleşik Kimlik Doğrulaması ile Active Directory Parola Kimlik Doğrulaması'nı da destekler |
+    | Kullanıcı adı | Oturum açma adınız | Oturum açma bilgilerinizin kaynak veritabanı üzerinde **VERİTABANINI DENETLEME** izinleri olmalıdır |
+    | Parola| Parolanız | Parolanız |
+    | Bağlantı özellikleri| Ortamınıza uygun olarak **Bağlantıyı şifrele**'yi ve **Sunucu sertifikasına güven**'i seçin. | Sunucunuza bağlanmak için uygun özellikleri seçin |
+
+    ![yeni veri geçişi hedefi seçme](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
+
+7. Önceki yordamda oluşturduğunuz hedef sunucudan veritabanını seçin ve ardından **İleri**'ye tıklayarak kaynak veritabanı şemasını değerlendirme işlemini başlatın. Bu öğretici için, yalnızca bir veritabanı vardır. Bu veritabanı için uyumluluk düzeyinin 140 olarak ayarlandığına dikkat edin. Bu, Azure SQL Veritabanı'nda tüm yeni veritabanları için varsayılan uyumluluk düzeyidir.
 
    > [!IMPORTANT] 
-   > Azure SQL veritabanına veritabanınızı geçirdikten sonra geriye dönük uyumluluk amacıyla bir belirtilen uyumluluk düzeyinde veritabanı çalışmaya seçebilirsiniz. Uygulamaları ve belirli bir uyumluluk düzeyinde bir veritabanı işletim seçenekleri hakkında daha fazla bilgi için bkz: [ALTER veritabanı uyumluluk düzeyi](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Ayrıca bkz. [ALTER veritabanı kapsamlı yapılandırma](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) Uyumluluk Düzeyleri ilgili ek veritabanı düzeyi ayarları hakkında bilgi için.
+   > Veritabanınızı Azure SQL Veritabanı'na geçirdikten sonra, veritabanını geriye dönük uyumluluk amacıyla belirtilen uyumluluk düzeyinde çalıştırmayı seçebilirsiniz. Veritabanını belirli bir uyumluluk düzeyinde çalıştırmanın etkileri ve buna yönelik seçenekler hakkında daha fazla bilgi için, bkz. [Veritabanı Uyumluluk Düzeyini Değiştirme](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Uyumluluk düzeyleriyle ilgili ek veritabanı düzeyi ayarları hakkında bilgi için, ayrıca bkz. [VERİTABANI KAPSAMLI YAPILANDIRMAYI DEĞİŞTİRME](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
    >
 
-8. Üzerinde **nesneleri seçin** sayfasında, kaynak veritabanı sonra şema değerlendirmesi işlemi tamamlandığında, geçiş işlemi için seçilen nesneleri gözden geçirin ve sorunları içeren nesneleri gözden geçirin. Örneğin, **dbo.uspSearchCandidateResumes** için nesne **SERVERPROPERTY('LCID')** davranış değişiklikleri ve **HumanResourcesJobCandidate** nesnesi Tam metin araması değiştirir. 
+8. **Nesneleri seçin** sayfasında, kaynak veritabanı şeması değerlendirme işlemi tamamlandıktan sonra, geçiş için seçilen nesneleri ve sorunlu nesneleri gözden geçirin. Örneğin, **SERVERPROPERTY('LCID')** davranış değişiklikleri için **dbo.uspSearchCandidateResumes** nesnesini gözden geçirin ve Tam Metin Arama değişiklikleri için de **HumanResourcesJobCandidate** nesnesini gözden geçirin. 
 
    > [!IMPORTANT] 
-   > Kaynak veritabanınıza geçirdiğinizde veritabanının tasarım ve uygulamanızın tasarım bağlı olarak, ya da değiştirmeniz gerekebilir veya hem veritabanınız veya uygulamanızın geçişten sonra (ve bazı durumlarda, geçiş işleminden önce). Geçişinizi etkileyebilecek Transact-SQL farkları hakkında daha fazla bilgi için bkz: [çözme Transact-SQL farkları SQL veritabanı geçiş sırasında](sql-database-transact-sql-information.md).
+   > Veritabanının tasarımına ve uygulamanızın tasarımına bağlı olarak, kaynak veritabanınızı geçirirken, geçiş sonrasında veritabanınız ve uygulamanızdan birinde veya her ikisinde değişiklik yapmanız gerekebilir (ve bazı durumlarda, geçişten önce de gerekebilir). Geçişinizi etkileyebilecek Transact-SQL farklılıkları hakkında bilgi için bkz. [SQL Veritabanına geçiş sırasında Transact-SQL farklılıklarını çözümleme](sql-database-transact-sql-information.md).
 
-     ![Yeni veri geçiş değerlendirme ve Nesne Seçimi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
+     ![yeni veri geçişi değerlendirme ve nesne seçimi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
 
-9. Tıklatın **oluştur SQL komut dosyası** kaynak veritabanı şema nesnelerindeki komut dosyası için. 
-10. Oluşturulan komut dosyasını gözden geçirin ve ardından **sonraki sorun** tanımlanan değerlendirme sorunları ve önerileri gözden geçirmek için gerektiği gibi. Örneğin, tam metin araması için yükseltme sırasında tam metin özellikleri yararlanarak uygulamalarınızı test önerilir. İsterseniz betiği kopyalayın ya da kaydedin.
+9. Kaynak veritabanında şema nesnelerinin betiğini sağlamak için **SQL betiği oluştur**'a tıklayın. 
+10. Oluşturulan betiği gözden geçirin ve ardından tanımlanan değerlendirme sorunları ve önerilerini gözden geçirmek için gerektiği gibi **Sonraki sorun**'a tıklayın. Örneğin Tam Metin Araması için, yükseltme yaptığınızda uygulamalarınızın Tam Metin özelliklerinden yararlanıp yararlanmadığını test etmeniz önerilir. İsterseniz, betiği kaydedebilir veya kopyalayabilirsiniz.
 
-     ![Yeni veri geçiş oluşturulan komut dosyası](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
+     ![yeni veri geçişi oluşturulan betik](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
 
-11. Tıklatın **dağıtma şema** ve şema geçiş işlemini izleyebilirsiniz.
+11. **Şemayı dağıt**'a tıklayın ve şema geçiş işlemini izleyin.
 
-     ![Yeni veri geçiş şema geçiş](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
+     ![yeni veri geçişi şema geçişi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
 
-12. Şema geçiş tamamlandığında, sonuçları hataları gözden geçirin ve bulunmazlar varsayıldığında, ardından **veri geçişi**.
-13. Üzerinde **tabloları seçme** sayfasında, geçiş işlemi için seçilen tabloları gözden geçirin ve ardından **Başlat veri geçişi**.
+12. Şema geçişi tamamlandığında, hatalar için sonuçları gözden geçirin ve ardından, hata olmadığını varsayarsak, **Verileri geçir**'e tıklayın.
+13. **Tablo seçin** sayfasında, geçiş için seçilen tabloları gözden geçirin ve **Veri geçişini başlat**'a tıklayın.
 
-     ![Yeni veri geçiş veri geçişi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration.png)
+     ![yeni veri geçişi veri geçişi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration.png)
 
-14. Geçiş işlemini izleyebilirsiniz.
+14. Geçiş işlemini izleyin.
 
-     ![Yeni veri geçiş veri geçiş işlemi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
+     ![yeni veri geçişi veri geçiş işlemi](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Veritabanı SSMS ile bağlanma
+## <a name="connect-to-the-database-with-ssms"></a>SSMS ile veritabanına bağlanma
 
-Kullanım [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) Azure SQL Database sunucunuza bağlantı kuramıyor.
+[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)’yu kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun.
 
 1. SQL Server Management Studio’yu açın.
 
@@ -231,7 +231,7 @@ Kullanım [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql
    | Ayar       | Önerilen değer | Açıklama | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
-   | Sunucu adı | Tam sunucu adı | Adı, şunun gibi olmalıdır: **mynewserver20170824.database.windows.net**. |
+   | Sunucu adı | Tam sunucu adı | Ad şunun gibi olmalıdır: **mynewserver20170824.database.windows.net**. |
    | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
    | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
    | Parola | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
@@ -246,15 +246,15 @@ Kullanım [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql
 
 5. Nesne Gezgini’nde **Veritabanları**’nı ve ardından **mySampleDatabase** öğesini genişleterek nesneleri örnek veritabanında görüntüleyin.
 
-   ![Veritabanı nesneleri](./media/sql-database-connect-query-ssms/connected.png)  
+   ![veritabanı nesneleri](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="change-database-properties"></a>Veritabanı özelliklerini değiştir
+## <a name="change-database-properties"></a>Veritabanı özelliklerini değiştirme
 
-Hizmet katmanı, performans düzeyi ve SQL Server Management Studio'yu kullanarak uyumluluk düzeyini değiştirebilirsiniz. İçeri aktarma aşaması sırasında en iyi performans için daha yüksek bir performans katmanı veritabanına aktarmak, ancak içeri aktarılan veritabanını etkin olarak kullanmaya hazır olana kadar tasarruf için alma işlemi tamamlandıktan sonra ölçeklendirmenizi öneririz. Uyumluluk düzeyinin değiştirilmesi, daha iyi performans ve Azure SQL veritabanı hizmetinin en yeni özelliklere erişim elde etmek. Eski bir veritabanını geçirdiğinizde, veritabanı uyumluluk düzeyi düzeyinde içeri aktarılmakta olan veritabanı ile uyumlu olan en düşük desteklenen korunur. Daha fazla bilgi için bkz: [iyileştirilmiş sorgu performansı ile Azure SQL veritabanı uyumluluk düzeyi 130](sql-database-compatibility-level-query-performance-130.md).
+SQL Server Management Studio'yu kullanarak hizmet katmanını, performans düzeyini ve uyumluluk düzeyini değiştirebilirsiniz. İçeri aktarma aşamasında, en iyi performansı elde etmek için daha yüksek bir performans katmanındaki veritabanına aktarmanızı öneririz; ama içeri aktarma tamamlandıktan sonra, içeri aktarılan veritabanını etkin bir şekilde kullanmaya hazır olana kadar paradan tasarruf etmek için ölçeği aşağı çekin. Uyumluluk düzeyinin değiştirilmesi daha iyi bir performans getirebilir ve Azure SQL Veritabanı hizmetinin en yeni özelliklerine erişim sağlar. Daha eski bir veritabanını geçirirken, onun veritabanı uyumluluk düzeyi desteklenen ve içeri aktarılan veritabanıyla uyumlu olan en düşük düzeyde tutulur. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda uyumluluk düzeyi 130 ile geliştirilen sorgu performansı](sql-database-compatibility-level-query-performance-130.md).
 
-1. Nesne Gezgini'nde sağ **mySampleDatabase** ve ardından **yeni sorgu**. Veritabanına bağlı bir sorgu penceresi açılır.
+1. Nesne Gezgini’nde **mySampleDatabase** öğesine sağ tıklayın ve sonra da **Yeni Sorgu**’ya tıklayın. Veritabanınıza bağlı bir sorgu penceresi açılır.
 
-2. Hizmet katmanı ayarlamak için aşağıdaki komutu yürütün **standart** ve performans düzeyine **S1**.
+2. Hizmet katmanını **Standart** ve performans düzeyini **S1** olarak ayarlamak için aşağıdaki komutu yürütün.
 
     ```sql
     ALTER DATABASE mySampleDatabase 
@@ -267,16 +267,16 @@ Hizmet katmanı, performans düzeyi ve SQL Server Management Studio'yu kullanara
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar 
-Bu öğreticide için öğrenilen:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > * Azure portalında boş bir Azure SQL veritabanı oluşturma 
-> * Azure portalında bir sunucu düzeyinde güvenlik duvarı oluşturma 
-> * Kullanım [veri geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595) (DMA), SQL Server veritabanınızın boş Azure SQL veritabanına aktarmak için 
-> * Kullanım [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) veritabanı özelliklerini değiştirmek için (SSMS).
+> * Azure portalında sunucu düzeyinde bir güvenlik duvarı oluşturma 
+> * SQL Server veritabanınızı boş Azure SQL veritabanına aktarmak için [Veri Geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)'nı (DMA) kullanma 
+> * Veritabanı özelliklerini değiştirmek için [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)'yu (SSMS) kullanma.
 
-Veritabanınızın güvenliğini sağlamak öğrenmek için sonraki öğretici ilerleyin.
+Veritabanınızın güvenliğini sağlamayı öğrenmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Azure SQL veritabanınızı güvenli](sql-database-security-tutorial.md).
+> [Azure SQL Veritabanınızın güvenliğini sağlayın](sql-database-security-tutorial.md).
 
 

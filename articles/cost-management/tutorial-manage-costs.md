@@ -1,115 +1,115 @@
 ---
-title: "Azure maliyeti Management kullanarak maliyetlerini yönetme | Microsoft Docs"
-description: "Maliyetleri maliyet ayırma ve giderleri ve geri ödeme raporlarını kullanarak yönetin."
+title: "Azure Maliyet Yönetimi'ni kullanarak maliyetleri yönetme | Microsoft Docs"
+description: "Maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları kullanarak maliyetleri yönetin."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Azure maliyeti Management kullanarak maliyetlerini yönetme
+# <a name="manage-costs-by-using-azure-cost-management"></a>Azure Maliyet Yönetimi'ni kullanarak maliyetleri yönetme
 
-Maliyetleri yönetmek ve etiketlere göre maliyetleri ayırarak Azure maliyeti yönetim Cloudyn tarafından giderleri raporlar üretir. Maliyet ayırma işlemini maliyetleri tüketilen bulut kaynaklarınıza atar. Maliyetleri tam olarak tüm kaynaklarınızı etiketleriyle kategorilere ayrılır. Maliyetleri tahsis sonra giderleri veya geri ödeme kullanıcılarınız için panolar ve raporlar sağlayabilir. Ancak, maliyet Yönetimi'ni kullanma başlattığınızda birçok kaynağa etiketlenmemiş veya untaggable olabilir.
+Maliyetlerin etiketler temelinde dağıtımını yaparak Cloudyn Azure Maliyet Yönetimi'nde maliyetleri yönetir ve ücret hesaplama raporları oluşturursunuz. Maliyet dağıtımı işlemi, maliyetleri tüketilen bulut kaynaklarınıza dağıtır. Kaynaklarınızın tümü etiketler kullanılarak kategorilere ayrıldığında maliyetler tam olarak dağıtılır. Maliyetler dağıtıldıktan sonra, panolar ve raporlarla kullanıcılarınıza ücret hesaplama ve ücret yansıtma raporları sağlayabilirsiniz. Bununla birlikte, Maliyet Yönetimi'ni kullanmaya başladığınızda birçok kaynak etiketsiz veya etiketlenemez durumda olabilir.
 
-Örneğin, mühendislik maliyetlerini giderlerin isteyebilirsiniz. Kaynak maliyetler temelinde belirli bir miktar gerekir, mühendislik ekibi gösterebilmek için gerekir. Etiketlenmiş tüketilen kaynakları için bir rapor Göster *mühendislik*.
+Örneğin, mühendislik maliyetleri için geri ödeme almak isteyebilirsiniz. Mühendislik ekibinize, kaynak maliyetleri temelinde belirli bir miktar almanız gerektiğini gösterebilmelisiniz. Tüm tüketilen *mühendislik* etiketli kaynaklar için onlara bir rapor gösterebilirsiniz.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Maliyetleri ayırmak üzere özel etiketleri kullanın.
-> * Giderleri ve geri ödeme raporları oluşturun.
+> * Maliyetleri dağıtmak için özel etiketler kullanma.
+> * Ücret hesaplama ve ücret yansıtma raporları oluşturma.
 
-## <a name="use-custom-tags-to-allocate-costs"></a>Maliyetleri ayırmak üzere özel etiketleri kullanın
+## <a name="use-custom-tags-to-allocate-costs"></a>Maliyetleri dağıtmak için özel etiketler kullanma
 
-Maliyet ayırma başlattığınızda, bunu ilk maliyet modelini kullanarak kapsamını tanımlamak şeydir. Maliyet modeli maliyetleri değiştirmez, bunları dağıtır. Maliyet modeli oluşturduğunuzda, verilerinizi birden çok etiket ve maliyet varlık, hesabı veya abonelik tarafından kesiminde. Genel örnek etiketler faturalama kodu, maliyet merkezi veya grup adı içeriyor olabilir. Etiketler de giderleri veya geri ödeme, kuruluşunuzun diğer bölümleri gerçekleştirmenize yardımcı olur.
+Maliyet dağıtımına başladığınızda, ilk olarak bir maliyet modeli kullanıp kapsamı tanımlarsınız. Maliyet modeli maliyetleri değiştirmez, bunları dağıtır. Maliyet modeli oluşturduğunuzda, verilerinizi maliyet varlığı, hesap veya aboneliğe göre ya da birden çok etikete göre segmentlere ayırırsınız. Yaygın kullanılan örnek etiketler arasında faturalama kodu, maliyet merkezi veya grup adı sayılabilir. Etiketler, kuruluşunuz diğer bölümlerine ücret hesaplama ve ücret yansıtma işlemleri gerçekleştirmenize de yardımcı olur.
 
-Bir özel maliyet ayırma modeli oluşturmak için seçin **maliyet** &gt; **Yönetimi maliyeti** &gt; **maliyet ayırma 360 derecelik** raporun menüsünde.
+Özel bir maliyet dağıtma modeli oluşturmak için, raporun menüsünde **Maliyet** &gt; **Maliyet Yönetimi** &gt; **360° Maliyet Dağıtma**'yı seçin.
 
-![Maliyet ayırma 360 seçimi](./media/tutorial-manage-costs/cost-allocation-360.png)
+![360 Maliyet Dağıtma seçimi](./media/tutorial-manage-costs/cost-allocation-360.png)
 
-Üzerinde **maliyet ayırma 360** sayfasında, **Ekle** ve bir ad ve maliyet modeliniz için açıklama girin. Tüm hesapları veya bireysel hesaplar seçin. Bireysel hesaplar kullanmak istiyorsanız, birden çok bulut hizmeti sağlayıcılarını birden fazla hesap seçebilirsiniz. Bundan sonra öğesini **kategori** maliyet verilerinizi kategorilere ayırma bulunan etiketler seçmek için. Modelinize eklemek istediğiniz etiketleri (kategori) seçin. Aşağıdaki örnekte, **birim** etiketi seçilidir.
+**360 Maliyet Dağıtma** sayfasında **Ekle**'yi seçin ve ardından maliyet modeliniz için bir ad ve açıklama girin. Tüm hesapları veya tek tek hesapları seçin. Tek tek hesapları kullanmak istiyorsanız, birden çok bulut hizmeti sağlayıcısından birden çok hesap seçebilirsiniz. Sonra, bulunan ve verilerinizi kategorilere ayıracak etiketleri seçmek için **Kategorilere Ayırma**'ya tıklayın. Modelinize eklemek istediğiniz etiketleri (kategorileri) seçin. Aşağıdaki örnekte **Unit** (Birim) etiketi seçilmiştir.
 
-![Maliyet örnek modeli kategorilere ayırma](./media/tutorial-manage-costs/cost-model01.png)
-
-
-
-Aşağıdaki örnekte, $14,444 (etiketsiz) Kategorilere ayrılmamış gösterilir.
-
-Ardından, **Kategorilere ayrılmamış kaynakları** ve maliyetleri ayrılmamış hizmetleri seçin. Ardından, maliyetleri ayırmak için kurallar tanımlar.
-
-Örneğin, Azure storage maliyetleri alın ve maliyetleri eşit olarak Azure sanal makineleri (VM'ler) dağıtmak isteyebilirsiniz. Bunu yapmak için seçin **Azure/depolama** hizmeti, select **kategoriler orantılı**ve ardından **Azure/VM**. Ardından, seçin **oluşturma**.
-
-![Eşit dağıtım için örnek maliyet modeli ayırma kuralı](./media/tutorial-manage-costs/cost-model02.png)
+![Maliyet modeli kategorilere ayırma örneği](./media/tutorial-manage-costs/cost-model01.png)
 
 
 
-Farklı bir örnekte, belirli bir departmana, kuruluşunuzdaki tüm Azure ağ maliyetleri ayırmak isteyebilirsiniz. Bunu yapmak için seçin **Azure/ağ** hizmet ve ardından **açık dağıtım**. Sonra dağıtım yüzde 100'e ayarlayın ve iş birimi seçin —**G&amp;A** aşağıdaki görüntüde:
+Örnekte, 14.444 ABD Doları'nın kategorilere ayrılmadığı (etiket içermediği) gösteriliyor.
 
-![Belirli bir departman için örnek maliyet modeli ayırma kuralı](./media/tutorial-manage-costs/cost-model03.png)
+Ardından, **Kategorilere Ayrılmamış Kaynaklar**'ı seçin ve dağıtılmamış maliyetleri bulunan hizmetleri belirtin. Sonra, maliyetleri dağıtmaya yönelik kuralları tanımlayın.
+
+Örneğin, Azure depolama maliyetlerinizi alıp Azure sanal makineleri (VM) arasında eşit olarak dağıtmak isteyebilirsiniz. Bunu yapmak için, **Azure/Depolama** hizmetini seçin, **Kategorilere Göre Orantılı**'yı ve sonra da **Azure/VM**'yi seçin. Ardından **Oluştur**’u seçin.
+
+![Eşit dağıtım için maliyet modeli dağıtma örneği](./media/tutorial-manage-costs/cost-model02.png)
 
 
 
-Tüm kalan Kategorilere ayrılmamış kaynaklar için ek ayırma kurallar oluşturun.
+Farklı bir örnekte, tüm Azure ağ maliyetlerinizi kuruluşunuzdaki belirli bir iş birimine dağıtmak isteyebilirsiniz. Bunu yapmak için, **Azure/Ağ** hizmetini seçin ve sonra da **Açık Dağıtım**'ı seçin. Ardından, dağıtım yüzdesini 100 olarak ayarlayın ve iş birimini seçin (aşağıdaki resimde **G&amp;A**):
 
-Hiç ayrılmamış Amazon Web Hizmetleri (AWS) ayrılmış örneği varsa, bunları ile etiketli kategoriye atayabilirsiniz **ayrılmış örnekler**.
+![Belirli bir iş birimine yönelik maliyet modeli dağıtma kuralı örneği](./media/tutorial-manage-costs/cost-model03.png)
 
-Maliyetleri ayırmak için yaptığınız seçimler hakkındaki bilgileri görüntülemek için seçin **Özet**. Bilgilerinizi kaydetmek ve daha sonra ek kurallar üzerinde çalışmaya devam etmek için seçin **taslağı olarak Kaydet**. Veya, bilgilerinizi kaydetmek ve maliyet ayırma modelinizi işlemeye başlaması Cloudyn sağlamak için seçin **kaydedin ve etkinleştirme**.
 
-Yeni maliyet modelinizi maliyet modelleri listesini gösterir **durumu işlenirken**. Cloudyn veritabanı maliyet modelinizi güncelleştirilmeden önce biraz zaman alabilir. Durumu güncelleştirilmesi işlem tamamlandığında **tamamlandı**. Altında maliyet analiz raporunda, maliyet modelden sonra verilerini görüntüleyebilir **genişletilmiş filtreleri** &gt; **maliyet modeli**.
+
+Kalan tüm kategorilere ayrılmamış kaynaklar için ek dağıtma kuralları oluşturun.
+
+Dağıtılmamış Amazon Web Services (AWS) ayrılmış örnekleriniz varsa, bunları **Ayrılmış Örnekler** etiketli kategorilere dağıtabilirsiniz.
+
+Kaynakları dağıtmak için yaptığınız seçimler hakkındaki bilgileri görüntülemek için **Özet**'i seçin. Bilgilerinizi kaydetmek ve ek kurallar üzerinde çalışmaya daha sonra devam etmek için **Taslak Olarak Kaydet**'i seçin. İsterseniz, bilgilerinizi kaydetmek ve Cloudyn'in maliyet dağıtma modelinizi işlemeye başlamasını sağlamak için **Kaydet ve Etkinleştir**'i de seçebilirsiniz.
+
+Maliyet modelleri listesinde yeni maliyet modeli **İşleme durumu** ile gösterilir. Cloudyn veritabanının maliyet modelinizi içerecek şekilde güncelleştirilmesi biraz zaman alabilir. İşleme tamamlandığında, durum da **Tamamlandı** olarak güncelleştirilir. Bundan sonra maliyet modelinizdeki verileri **Genişletilmiş Filtreler** &gt; **Maliyet Modeli** altında Maliyet Analizi raporunda görüntüleyebilirsiniz.
 
 ### <a name="category-manager"></a>Kategori Yöneticisi
 
-Kategori Yöneticisi Yeni kampanya oluşturmak için birden çok kategori (etiketleri) değerlerini birleştirme yardımcı olan bir veri temizleme bir araçtır. Burada bir kategori seçin ve mevcut değerleri birleştirmek için kurallar oluşturabilirsiniz bir basit kural tabanlı araçtır. Örneğin, mevcut kategorileri olabilir **R&amp;D** ve **geliştirme** geliştirme grubu temsil eden burada her ikisi de.
+Kategori Yöneticisi, birden çok kategorinin (etiketin ) değerlerini birleştirip yenileri oluşturmanıza yardımcı olan bir veri temizleme aracıdır. Bu, bir kategori seçip mevcut değerleri birleştirecek kuralları oluşturduğunuz, kural tabanlı basit bir araçtır. Örneğin, her ikisi de geliştirme grubunu temsil eden **R&amp;D** ve **dev** için mevcut kategorileriniz olabilir.
 
-Dişli simgesini seçin ve sağ üst Cloudyn Portalı'nda **kategori Yöneticisi**. Yeni bir kategori oluşturmak için artı simgesi seçin (**+**). Kategori için ve ardından altında bir ad girin **anahtarları**, yeni kategoride dahil etmek istediğiniz kategori anahtarları girin.
+Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Kategori Yöneticisi**'ni seçin. Yeni bir kategori oluşturmak için artı simgesini (**+**) seçin. Kategoriye bir ad girin ve ardından **Anahtarlar**'ın altında, yeni kategoriye eklemek istediğiniz kategori anahtarlarını girin.
 
-Bir kural tanımladığınızda, bir veya koşulu birden çok değerle ekleyebilirsiniz. Ayrıca, bazı temel dize işlemleri yapabilirsiniz. Her iki durumda da üç nokta simgesini tıklatın (**...** ) sağındaki **kuralı**.
+Kuralı tanımlarken, VEYA koşuluyla birden çok değer ekleyebilirsiniz. Ayrıca bazı temel dize işlemleri de yapabilirsiniz. Her iki durumda da, **Kural**'ın sağ tarafındaki üç nokta simgesine (**…**) tıklayın.
 
-Yeni bir kural tanımlamak için **kuralları** alan, yeni bir kural oluşturun. Örneğin **geliştirme** altında **kuralları** yazıp enter **R&amp;D** altında **Eylemler**. İşiniz bittiğinde, yeni bir kategori kaydedin.
+Yeni kural oluşturmak için, **Kurallar** alanında yeni kuralı oluşturun. Örneğin, **Kurallar**'ın altına **dev** girin ve ardından **Eylemler**'in altına **R&amp;D** girin. İşiniz bittiğinde yeni kategorinizi kaydedin.
 
-Aşağıdaki resimde adlı yeni bir kategori için oluşturulan kuralların örneği gösterilmektedir **iş yükü**:
+Aşağıdaki resimde, **Work-Load** adlı yeni kategori için oluşturulan örnek kurallar gösterilir:
 
-![Örnek kategorisi](./media/tutorial-manage-costs/category01.png)
+![Örnek kategori](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Etiket kaynakları ve raporlar
 
-Cloudyn raporlarda gördüğünüz etiketi veriler üç yerde gelmektedir:
+Cloudyn raporlarında gördüğünüz etiket verileri üç konumdan kaynaklanır:
 
-- Bulut sağlayıcısı kaynakları API'leri
-- API faturalama bulut sağlayıcısı
-- El ile oluşturulan etiketler aşağıdaki kaynaklardan:
-    - Cloudyn varlık etiketleri - Cloudyn varlıklara uygulanan kullanıcı tanımlı meta veriler
-    - Kategori Yöneticisi - varolan etiketleri uygulanan kurallar temel alınarak yeni etiketler oluşturur aracı temizleme veri
+- Bulut sağlayıcısı kaynak API'leri
+- Bulut sağlayıcısı faturalama API'leri
+- Aşağıdaki kaynaklardan el ile oluşturulan etiketler:
+    - Cloudyn varlık etiketleri - Cloudyn varlıklarına uygulanan kullanıcı tanımlı meta veri etiketleri
+    - Kategori Yöneticisi - mevcut etiketlere uygulanan kurallar temelinde yeni etiketler oluşturan bir veri temizleme aracı
 
-Bulut sağlayıcısı etiketleri Cloudyn maliyet raporlarda görüntüleme için maliyet ayırma 360 kullanarak özel maliyet ayırma modeli oluşturmanız gerekir. Bunu yapmak için şu adrese gidin **maliyet** > **Yönetimi maliyeti** > **maliyet ayırma 360**, istenen etiket seçmek ve işlemek üzere kurallar tanımlamak etiketlenmemiş maliyetleri. Ardından, yeni bir maliyet modeli oluşturun. Daha sonra rapor maliyet ayırma çözümlemede görüntüleme, filtre ve sıralama için Azure kaynak etiketleri görüntüleyebilirsiniz.
+Cloudyn maliyet raporlarında bulut sağlayıcısı etiketlerini görüntülemek için, 360 Maliyet Dağıtma kullanarak özel bir maliyet dağıtma modeli oluşturmalısınız. Bunu yapmak için, **Maliyet** > **Maliyet Yönetimi** > **360 Maliyet Yönetme** öğesine gidin, istenen etiketleri seçin ve ardından etiketlenmemiş maliyetleri işlemek üzere kurallar tanımlayın. Sonra da yeni maliyet modelini oluşturun. Bunun ardından, Maliyet Dağıtma Analizi'nde raporlarınızı görüntüleyerek Azure kaynak etiketleriniz üzerinde görüntüleme, filtreleme ve sıralama işlemleri yapabilirsiniz.
 
-Azure kaynak etiketleri yalnızca görünür **maliyet ayırma analiz** raporlar.
+Azure kaynak etiketleri yalnızca **Maliyet Dağıtma Analizi** raporlarında gösterilir.
 
-Bulut sağlayıcısı fatura etiketler tüm maliyet raporlarında görünür.
+Bulut sağlayıcısı faturalandırma etiketleri tüm maliyet raporlarında gösterilir.
 
-Cloudyn varlık etiketleri ve el ile oluşturmanız etiketleri tüm maliyet raporlarında görüntülenir.
+Cloudyn varlık etiketleri ve el ile oluşturduğunuz etiketler tüm maliyet raporlarında gösterilir.
 
 
-## <a name="create-showback-and-chargeback-reports"></a>Giderleri ve geri ödeme raporları oluşturma
+## <a name="create-showback-and-chargeback-reports"></a>Ücret hesaplama ve ücret yansıtma raporları oluşturma
 
-Kuruluşlar giderleri ve geri ödeme gerçekleştirmek için kullandığınız yöntem büyük ölçüde farklılık gösterir. Ancak, panolar ve raporlar hiçbirini Cloudyn Portalı'nda temel olarak her iki amaçla kullanabilirsiniz. Bunlar panolar ve raporlar isteğe bağlı olarak görüntüleyebilmesi için kuruluşunuzdaki herkes için kullanıcı erişim sağlayabilir. Tüm maliyet analiz raporları desteklemek giderleri çünkü bunlar tükettiği kaynaklar kullanıcıları göster. Ve kuruluşunuzdaki kullanıcıların gruba özgü maliyet veya kullanım verileri incelemek kullanıcıların sağlarlar.
+Kuruluşların ücret hesaplama ve ücret yansıtma işlemlerini yapmak için kullandıkları yöntemler büyük farklılık gösterir. Bununla birlikte, Cloudyn portalındaki panolar ve raporlardan herhangi birini her iki amaçla da kullanabilirsiniz. Kuruluşunuzdaki herkese kullanıcı erişimi verebilirsiniz; böylelikle, istedikleri zaman panoları ve raporları görüntüleyebilirler. Tüm Maliyet Analizi raporları ücret hesaplamayı destekler, çünkü kullanıcılara tükettikleri kaynakları gösterir. Ayrıca, kuruluşunuzdaki kullanıcıların kendi gruplarına özgü maliyet ve kullanım verilerinde detaya gitmelerine de olanak tanır.
 
-Maliyet ayırma sonuçlarını görüntülemek için maliyet analiz raporu açın ve oluşturduğunuz maliyet modeli seçin. Ardından, bir veya daha fazla maliyet modelinde seçili etiketleri gruplandırarak ekleyin.
+Maliyet dağıtma sonuçlarını görüntülemek için, Maliyet Analizi raporunu açın ve oluşturduğunuz maliyet modelini seçin. Ardından, maliyet modelinde seçilen bir veya birden çok etiketle bir gruplandırma ekleyin.
 
-![Maliyet analizi raporu](./media/tutorial-manage-costs/cost-analysis.png)
+![Maliyet Analizi raporu](./media/tutorial-manage-costs/cost-analysis.png)
 
-Kolayca oluşturabilir ve raporları odaklanan belirli grupları tarafından kullanılan belirli hizmetleri kaydedin. Örneğin, Azure Vm'leri yaygın kullanan bir bölüm olabilir. Kullanım ve maliyetleri göstermek için Azure Vm'lerinde filtrelenmiş bir rapor oluşturabilirsiniz.
+Kolaylıkla belirli gruplar tarafından tüketilen belirli hizmetlere odaklanmış raporlar oluşturabilir ve kaydedebilirsiniz. Örneğin, Azure sanal makinelerini yaygın olarak kullanan bir bölümünüz olabilir. Tüketimi ve maliyetleri göstermek için Azure sanal makinelerine göre filtrelenmiş bir rapor oluşturabilirsiniz.
 
-Diğer ekipler için anlık görüntü verilerini sağlamak gerekiyorsa, herhangi bir rapordaki PDF veya CSV biçiminde dışarı aktarabilirsiniz.
+Diğer takımlara anlık veriler sağlamanız gerekiyorsa, herhangi bir raporu PDF veya CSV biçiminde dışarı aktarabilirsiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -117,12 +117,12 @@ Diğer ekipler için anlık görüntü verilerini sağlamak gerekiyorsa, herhang
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Maliyetleri ayırmak üzere özel etiketleri kullanın.
-> * Giderleri ve geri ödeme raporları oluşturun.
+> * Maliyetleri dağıtmak için özel etiketler kullanma.
+> * Ücret hesaplama ve ücret yansıtma raporları oluşturma.
 
 
 
-Cloudyn ile çalışmaya başlama hakkında daha fazla bilgi edinin ve onun özelliklerini kullanarak Cloudyn belgelere ilerletmek için.
+Cloudyn'le çalışmaya başlama ve özelliklerini kullanma hakkında daha fazla bilgi edinmek için, Cloudyn belgelerine ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Cloudyn belgeleri](https://support.cloudyn.com/hc/)

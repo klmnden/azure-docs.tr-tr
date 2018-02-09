@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>API Management nedir?
 
@@ -30,7 +30,7 @@ Azure API Management’e genel bakış için aşağıdaki videoyu izleyin ve eri
 > 
 > 
 
-Bu konu, APIM içeren yaygın senaryolara genel bakış sağlar.  Ayrıca, APIM sisteminin ana bileşenlerine de kısa bir genel bakış sağlar. Böylece konu, her bir bileşene daha ayrıntılı bir genel bakış sunmuş olur.
+Bu makale, APIM içeren yaygın senaryolara genel bakış sağlar.  Ayrıca, APIM sisteminin ana bileşenlerine de kısa bir genel bakış sağlar. Böylece makale, her bir bileşene daha ayrıntılı bir genel bakış sunmuş olur.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -50,7 +50,7 @@ Sistem aşağıdaki bileşenlerden oluşur:
   * Kod değişiklikleri olmadan API'nizi anında dönüştürür.
   * Ayarlandığında arka uç yanıtlarını önbelleğe kaydeder.
   * Analiz amaçlı çağrı meta verilerini günlüğe kaydeder.
-* **Yayımcı portalı** API programınızı ayarladığınız yönetim arabirimidir. Bunu şunlar için kullanın:
+* **Azure portal**, API programınızı ayarladığınız yönetim arabirimidir. Bunu şunlar için kullanın:
   
   * API şeması tanımlama ya da içeri aktarma.
   * API'leri ürünler halinde paketleme.
@@ -104,7 +104,7 @@ Bir ürüne abone olan geliştiricilere ürün için birincil ve ikincil anahtar
 Daha fazla bilgi için bkz. [Geliştirici oluşturma ve davet etme][How to create or invite developers] ve [Grupları geliştiricilerle ilişkilendirme][How to associate groups with developers].
 
 ## <a name="policies"> </a> İlkeler
-İlkeler, yayımcının API’nin davranışını yapılandırma yoluyla değiştirmesini sağlayan güçlü API Management özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. Sık kullanılan deyimler, XML’den JSON’a biçim dönüştürmeyi ve bir geliştiriciden gelen çağrıların sayısını sınırlamak üzere çağrı hızını sınırlamayı ve çeşitli ilkeleri içerir.
+İlkeler, Azure portalın API’nin davranışını yapılandırma yoluyla değiştirmesini sağlayan güçlü API Management özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. Sık kullanılan deyimler, XML’den JSON’a biçim dönüştürmeyi ve bir geliştiriciden gelen çağrıların sayısını sınırlamak üzere çağrı hızını sınırlamayı ve çeşitli ilkeleri içerir.
 
 İlke ifadeleri herhangi bir API Management ilkesinde, ilke aksini belirtmedikçe, öznitelik değerleri ya da metin değerleri olarak kullanılabilir. [Akışı denetle](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) ve [Değişken ayarla](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) gibi bazı ilkeler ilke ifadelerini temel alır. Daha fazla bilgi için bkz. [Gelişmiş ilkeler](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) ve [İlke ifadeleri](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

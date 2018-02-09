@@ -1,78 +1,78 @@
 ---
-title: "Azure maliyeti yönetim erişimi atayın | Microsoft Docs"
-description: "Varlıklara erişim düzeyleri tanımlamak kullanıcı hesapları ile yönetim verilerini maliyet erişimi atayın."
+title: "Azure Maliyet Yönetimi’nde erişim atama | Microsoft Docs"
+description: "Varlıklara erişim düzeylerini tanımlayan kullanıcı hesapları ile maliyet yönetimi verilerine erişim atayın."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Maliyet yönetim verileri için erişimi atayın
+# <a name="assign-access-to-cost-management-data"></a>Maliyet yönetimi verilerine erişim atama
 
-Maliyet yönetim verilerine erişim, kullanıcı veya varlık yönetimi tarafından sağlanır. Cloudyn kullanıcı hesaplarını belirlemek için erişim *varlıklar* ve yönetim işlevleri. Burada iki tür erişimi: Yönetici ve kullanıcı. Kullanıcı başına değiştirilmediği sürece yönetici erişimi tüm işlevleri Kısıtlanmamış kullanıcı kullanımına Cloudyn Portalı'nda izin verir. dahil olmak üzere: kullanıcı yönetimi, alıcı listeleri yönetimi ve kök varlık erişim tüm varlık verileri. Kullanıcı erişimi raporları görüntülemek ve bir varlığın verilerinin sahip oldukları erişim kullanarak raporları oluşturmak son kullanıcılar için tasarlanmıştır.
+Maliyet yönetimi verilerine erişim, kullanıcı ya da varlık yönetimi tarafından sağlanır. Cloudyn kullanıcı hesapları, *varlıklara* ve yönetim işlevlerine erişimi belirler. İki tür erişim vardır: yönetici ve kullanıcı. Kullanıcı özelinde değiştirilmediği sürece yönetici, bir kullanıcıya Cloudyn portalındaki kullanıcı yönetimi, alıcı listesi yönetimi ve tüm varlık verilerine kök varlık erişimi dahil olmak üzere tüm işlevlerin sınırsız kullanımı için erişim izni verir. Kullanıcı erişimi, son kullanıcıların varlık verileri üzerinde sahip oldukları erişimi kullanarak raporları görüntülemesine ve rapor oluşturmasına yöneliktir.
 
-Varlıkları, iş kuruluşunuzun hiyerarşik bir yapı yansıtmak için kullanılır. Bunlar, Departmanlar, bölümler ve Cloudyn kuruluşunuzda ekiplerde tanımlar. Varlık hiyerarşisi varlıklar tarafından harcama doğru bir şekilde izlemenize yardımcı olur.
+Varlıklar, kuruluşunuzun hiyerarşik yapısını yansıtmak için kullanılır. Bunlar Cloudyn’de, kuruluşunuzdaki departmanları, bölümleri ve takımları tanımlar. Varlık hiyerarşisi, harcamaları varlıklara göre doğru şekilde izlemenize yardımcı olur.
 
-Azure sözleşmesi veya hesap kaydolurken tüm adımları Bu öğreticinin gerçekleştirebilmek için yönetici izni olan bir hesap Cloudyn içinde oluşturuldu. Bu öğretici, kullanıcı ve varlık yönetimi dahil olmak üzere maliyet yönetim verilerine erişim kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Azure sözleşmenizi veya hesabınızı kaydettiğinizde, bu öğreticideki tüm adımları uygulayabilmeniz için Cloudyn’de yönetici iznine sahip bir hesap oluşturulmuştur. Bu öğretici, kullanıcı yönetimi ve varlık yönetimi dahil olmak üzere maliyet yönetimi verilerine erişimi ele almaktadır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Yönetici erişimi olan bir kullanıcı oluşturma
 > * Kullanıcı erişimi olan bir kullanıcı oluşturma
-> * Varlıklar oluşturma
+> * Varlık oluşturma
 
 
 
 ## <a name="create-a-user-with-admin-access"></a>Yönetici erişimi olan bir kullanıcı oluşturma
 
-Yönetici erişimi zaten sahip olsa da, kuruluşunuzda iş arkadaşlarınızla de yönetici erişimi gerekebilir. Dişli simgesini seçin ve sağ üst Cloudyn Portalı'nda **kullanıcı yönetimi**. Tıklatın **yeni kullanıcı Ekle** yeni bir kullanıcı eklemek için.
+Siz zaten yönetici erişimine sahip olsanız da, kuruluşunuzdaki iş arkadaşlarınızın da yönetici erişimine sahip olması gerekebilir. Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Kullanıcı Yönetimi**'ni seçin. Yeni bir kullanıcı eklemek için **Yeni Kullanıcı Ekle**’ye tıklayın.
 
-Kullanıcı hakkında gerekli bilgileri girin. Kullanıcının ilk oturum açma üzerinde yeni bir parola ayarlayabilirsiniz parola alanı boş bırakabilirsiniz. Seçtiğinizde oturum açma bilgilerini içeren bir bağlantı kullanıcıya e-posta yoluyla Cloudyn gönderilir **e-posta ile bildir kullanıcı**. Böylece kullanıcı oluşturmak ve diğer kullanıcıları değiştiren kullanıcı yönetimi izin vermek için İzinler'i seçin. Alıcı listeler alıcı listeleri düzenlemek izin vermek için yönetim.
+Kullanıcı hakkında gerekli bilgileri girin. Kullanıcının ilk oturum açma sırasında yeni bir parola ayarlayabilmesi için parola alanını boş bırakabilirsiniz. **Kullanıcıya e-posta ile bildir**’i seçtiğinizde, kullanıcıya Cloudyn’den oturum açma bilgilerini içeren bir bağlantı e-posta ile gönderilir. Kullanıcının başka kullanıcılar oluşturabilmesi ve diğer kullanıcıları değiştirebilmesi için Kullanıcı Yönetimi’ne izin vermek üzere izinleri seçin. Alıcı Listesi Yönetimi, kullanıcının alıcı listelerini düzenlemesine olanak tanır.
 
-Altında **kullanıcı yönetici erişimi olan**, kuruluşunuzun kök varlık seçilir. Seçilen kök bırakın ve ardından kullanıcı bilgilerini kaydedin. Kök varlık seçerek kullanıcının yönetici izni yalnızca ağacındaki kök varlığa, aynı zamanda altında bulunan tüm varlıklar için sahip olmasını sağlar.  
-  ![Yönetici erişimi olan yeni kullanıcı Ekle](.\media\tutorial-user-access\new-admin-access.png)
+**Kullanıcının yönetici erişimi var** altında, kuruluşunuzun kök varlığı seçilidir. Kökü seçili durumda bırakın ve sonra kullanıcı bilgilerini kaydedin. Kök varlığın seçilmesi, kullanıcının yalnızca ağaçtaki kök varlıkta değil, aynı zamanda onun içinde bulunan tüm varlıklarda da yönetici iznine sahip olmasını sağlar.  
+  ![yönetici erişimi olan yeni kullanıcı oluşturma](.\media\tutorial-user-access\new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Kullanıcı erişimi olan bir kullanıcı oluşturma
-Maliyet yönetim verilerine erişmesi gereken kullanıcılar panoları gibi ve raporları görüntüleyebilmesi için kullanıcı erişimi olmalıdır. Yeni bir kullanıcı kullanıcı erişimi ile aşağıdaki farklarla birlikte yönetici erişimi ile oluşturulan benzer oluşturun:
+Pano ve raporlar gibi maliyet yönetimi verilerine erişmesi gereken tipik kullanıcılar, bunları görüntüleme erişimine sahip olmalıdır. Aşağıdaki farklılıklar dışında, yönetici erişimi ile oluşturduğunuz kullanıcıya benzer şekilde kullanıcı erişimi olan yeni bir kullanıcı oluşturun:
 
-- Clear **kullanıcı yönetimine izin ver**, **izin alıcı Yönetimi listeler**ve tüm temizleyin **kullanıcı yönetici erişimi olduğundan** listesi.
-- Kullanıcı Giriş erişmesi gereken varlıkları seçin **kullanıcının sahip kullanıcı erişim** listesi.
-- Ayrıca, gerektiği gibi belirli varlıklara erişim için yönetici izin verebilirsiniz.
+- **Kullanıcı Yönetimine İzin Ver**, **Alıcı Listesi Yönetimine İzin Ver** seçeneklerinin işaretini kaldırın ve **Kullanıcının yönetici erişimi var** listesinin tümünü temizleyin.
+- **Kullanıcının kullanıcı erişimi var** listesinde kullanıcının erişmesi gereken varlıkları seçin.
+- Ayrıca, gerektiğinde yöneticinin belirli varlıklara erişmesine izin verebilirsiniz.
 
-![Kullanıcı erişimi olan yeni kullanıcı Ekle](.\media\tutorial-user-access\new-user-access.png)
+![kullanıcı erişimi olan yeni kullanıcı oluşturma](.\media\tutorial-user-access\new-user-access.png)
 
-Kullanıcı ekleme hakkında öğretici bir video izlemek için bkz: [Azure maliyeti Yönetimi Cloudyn tarafından ekleme kullanıcılara](https://youtu.be/Nzn7GLahx30).
+Kullanıcı ekleme hakkında öğretici bir video izlemek için bkz. [Cloudyn Azure Maliyet Yönetimi’ne Kullanıcı Ekleme](https://youtu.be/Nzn7GLahx30).
 
-## <a name="create-entities"></a>Varlıklar oluşturma
+## <a name="create-entities"></a>Varlık oluşturma
 
-Maliyet varlık hiyerarşisi tanımladığınızda, en iyi uygulama kurumunuzun yapısını belirlemektir.
+Maliyet varlığı hiyerarşinizi tanımlarken en iyi uygulama, kuruluşunuzun yapısını tanımlamaktır.
 
-Ağaç yapısı olarak nasıl istediğiniz veya Maliyet merkezleri, ortamları ve satış Departmanlar iş birimleri tarafından yinelenmeli maliyetlerini gereken göz önünde bulundurun. Cloudyn varlık ağacında varlık devralma nedeniyle esnektir. Bulut hesaplarınız için bireysel abonelikleri belirli varlıklara bağlanır. Bu nedenle, çok kiracılı varlıklardır. Belirli kullanıcıları yalnızca kendi işinizi varlıklar segment erişim atayabilirsiniz. Bunun yapılması, yan kuruluşlarının gibi bir iş büyük bölümünü hatta üzerinden yalıtılmış verileri tutar. Ve veri yalıtımı ile idare yardımcı olur.  
+Ağacı oluştururken, maliyetlerin iş birimi, maliyet merkezi, ortam ve satış bölümlerine göre nasıl ayrılmasını istediğinizi veya nasıl ayrılması gerektiğini düşünün. Cloudyn’deki varlık ağacı, varlık devralma nedeniyle esnektir. Bulut hesaplarınız için bireysel abonelikler belirli varlıklarla bağlantılıdır. Bu nedenle, varlıklar çok kiracılıdır. Belirli kullanıcılara yalnızca işletmenizin varlıkları kullanan kesimlerine erişim hakkı atayabilirsiniz. Bunun yapılması, bir işletmenin yan kuruluşlar gibi büyük bölümlerinde bile verilerin yalıtılmış olarak kalmasını sağlar. Ayrıca, veri yalıtımı idareye yardımcı olur.  
 
-Cloudyn ile Azure sözleşmesi veya hesap kaydolurken kullanım, performans, faturalama ve aboneliklerinizi etiket verileri de dahil olmak üzere, Azure kaynak verilerinizi Cloudyn hesabınıza kopyalandı. Bununla birlikte, varlık ağaç el ile oluşturmanız gerekir. Azure Resource Manager kayıt atladıysanız sonra Fatura veriler yalnızca ve birkaç varlık raporları Cloudyn Portalı'nda kullanılabilir.
+Azure sözleşmenizi veya hesabınızı Cloudyn’e kaydettiğinizde, aboneliklerinizdeki kullanım, performans, faturalandırma ve etiket verileri gibi Azure kaynak verileri Cloudyn hesabınıza kopyalanmıştır. Ancak, varlık ağacınızı el ile oluşturmanız gerekir. Azure Resource Manager kaydını atladıysanız, Cloudyn portalında yalnızca fatura verileri ve birkaç varlık raporu gösterilir.
 
-Cloudyn Portalı'nda tıklatın **ayarları** seçin ve sağ üst **bulut hesapları**. Tek bir varlık (kök) ile başlatmak ve, varlık Ağaç kökü altındaki oluşturun. Ağaç tamamlandıktan sonra birçok BT kuruluşları şuna benzeyebilir bir varlık hiyerarşisi bir örneği burada verilmiştir:
+Cloudyn portalında, sağ üst kısımdaki **Ayarlar**’a tıklayın ve **Bulut Hesapları**’nı seçin. Tek bir varlık (kök) ile başlayıp kök altında varlık ağacınızı oluşturabilirsiniz. Ağaç tamamlandıktan sonra birçok BT kuruluşunun benzeyebileceği bir varlık hiyerarşisi örneği aşağıda verilmiştir:
 
-![Varlık ağacı](.\media\tutorial-user-access\entity-tree.png)
+![varlık ağacı](.\media\tutorial-user-access\entity-tree.png)
 
-Yanına **varlıklar**, tıklatın **varlık Ekle**. Kişi veya eklemek istediğiniz departmanı hakkındaki bilgileri girin. **Tam adı** ve **e-posta** alanları mevcut kullanıcıları eşleşmesi gerekmez. Erişim düzeyleri listesini görmek isterseniz, Yardım için arama *varlık ekleme*.
+**Varlıklar**’ın yanındaki **Varlık Ekle** öğesine tıklayın. Eklemek istediğiniz kişi veya departmana ilişkin bilgileri girin. **Tam Ad** ve **E-posta** alanları, mevcut kullanıcılarla aynı olmamalıdır. Erişim düzeylerinin bir listesini görüntülemek isterseniz *Varlık ekleme* yardımını arayın.
 
-![Varlık ekleme](.\media\tutorial-user-access\add-entity.png)
+![varlık ekleme](.\media\tutorial-user-access\add-entity.png)
 
-İşiniz bittiğinde, **kaydetmek** varlık.
+İşiniz bittiğinde varlığı **Kaydedin**.
 
 
-Maliyet varlık hiyerarşisi oluşturma hakkında daha fazla öğretici bir video izlemek için bkz: [Cloudyn tarafından Yönetimi Azure maliyeti, maliyet varlık hiyerarşisi oluşturmayı](https://youtu.be/dAd9G7u0FmU).
+Maliyet varlık hiyerarşisi oluşturma hakkında öğretici bir video izlemek için bkz. [Cloudyn Azure Maliyet Yönetimi’nde Maliyet Varlık Hiyerarşisi Oluşturma](https://youtu.be/dAd9G7u0FmU).
 
-Bir Azure Kurumsal anlaşmasına kullanıcı varsa, hesapları ve varlıkları abonelikleri ilişkilendirme hakkında öğretici bir video izlemek [için Azure Resource Manager ile Azure maliyeti Yönetimi Cloudyn tarafından bağlanma](https://youtu.be/oCIwvfBB6kk).
+Azure Kurumsal Anlaşma kullanıcısıysanız, [Cloudyn Azure Maliyet Yönetimi ile Azure Resource Manager’a bağlanma](https://youtu.be/oCIwvfBB6kk) bölümünde hesap ve abonelikleri varlıklarla ilişkilendirme hakkında öğretici bir video izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -81,9 +81,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Yönetici erişimi olan bir kullanıcı oluşturma
 > * Kullanıcı erişimi olan bir kullanıcı oluşturma
-> * Varlıklar oluşturma
+> * Varlık oluşturma
 
-Geçmiş verileri kullanarak Harcamaları tahmin etmenize öğrenmek için sonraki öğretici ilerleyin.
+Geçmiş verileri kullanarak harcamaları tahmin etme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Gelecek harcamaları tahmin etme](tutorial-forecast-spending.md)

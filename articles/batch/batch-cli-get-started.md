@@ -3,8 +3,8 @@ title: "Batch için Azure CLI kullanmaya başlama | Microsoft Docs"
 description: "Azure Batch hizmet kaynaklarını yönetmek üzere Azure CLI’daki Batch komutlarına hızlı bir giriş yapın"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch kaynaklarını Azure CLI ile yönetme
 
@@ -40,7 +40,7 @@ Azure CLI'yı yüklemek için [Azure CLI'yı yükleme](https://docs.microsoft.co
 
 ## <a name="command-help"></a>Komut yardımı
 
-Komuttan sonra `-h` ekleyerek Azure CLI'daki her komut için yardım metni görüntüleyebilirsiniz. Diğer seçenekleri atın. Örneğin:
+Komuttan sonra `-h` ekleyerek Azure CLI'daki her komut için yardım metni görüntüleyebilirsiniz. Diğer seçenekleri atın. Örnek:
 
 * `az` komutuyla ilgili yardım almak için şunu girin: `az -h`
 * CLI’daki tüm Batch komutlarının listesini almak için şunu kullanın: `az batch -h`
@@ -69,7 +69,7 @@ Azure'da oturum açmanın birkaç farklı yolu vardır ve hepsi [Azure CLI 2.0 i
 1. [Etkileşimli olarak oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Azure CLI komutlarını komut satırından çalıştırmak için etkileşimli olarak oturum açın.
 2. [Hizmet sorumlusu ile oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Azure CLI komutlarını bir betikten veya uygulamadan çalıştırdığınızda hizmet sorumlusuyla oturum açın.
 
-Bu makalede Azure'da etkileşimli oturum açmayı göstereceğiz. Komut satırına [az login](https://docs.microsoft.com/cli/azure/#login) yazın:
+Bu makalede Azure'da etkileşimli oturum açmayı göstereceğiz. Komut satırına [az login](https://docs.microsoft.com/cli/azure/#az_login) yazın:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,20 +120,13 @@ Batch hesabınızla kimlik doğrulamasından geçmek için kullanabileceğiniz i
 
 Azure CLI, Batch işlerini kod yazmadan uçtan uca çalıştırmak için kullanılabilir. Batch şablon dosyaları Azure CLI’da havuz, iş ve görev oluşturmayı destekler. Azure CLI, Batch hesabıyla ilişkilendirilmiş Azure Depolama hesabına işin giriş dosyalarını yüklemek ve bu hesaptan iş çıkış dosyalarını indirmek için de kullanılabilir. Daha fazla bilgi için bkz. [Azure Batch CLI Şablonlarını ve Dosya Aktarımı (Önizleme) özelliğini kullanma](batch-cli-templates.md).
 
-## <a name="sample-shell-scripts"></a>Örnek kabuk betikleri
+## <a name="script-examples"></a>Betik örnekleri
 
-Aşağıdaki tabloda yer alan örnek betikler, sık kullanılan görevleri gerçekleştirmek için Azure CLI komutlarını Batch ve Batch Management hizmetiyle birlikte nasıl kullanacağınızı göstermektedir. Bu örnek betikler Batch için Azure CLI'da yer alan birçok komutu kapsamaktadır. 
-
-| Betik | Notlar |
-|---|---|
-| [Batch hesabı oluşturma](./scripts/batch-cli-sample-create-account.md) | Bir Batch hesabı oluşturur ve depolama hesabınızla ilişkilendirir. |
-| [Uygulama ekleme](./scripts/batch-cli-sample-add-application.md) | Bir uygulama ekler ve paketlenmiş ikili dosyalarını karşıya yükler.|
-| [Batch havuzlarını yönetme](./scripts/batch-cli-sample-manage-pool.md) | Havuzlar için oluşturma, yeniden boyutlandırma ve yönetme işlemlerini gösterir. |
-| [Batch ile bir iş ve görevlerini çalıştırma](./scripts/batch-cli-sample-run-job.md) | Bir işi çalıştırmayı ve görev eklemeyi gösterir. |
+Ortak görevleri gerçekleştirmek üzere Batch için [CLI betik örneklerini](cli-samples.md) görüntüleyin. Bu örnekler, Batch için Azure CLI’da hesapları, havuzları, işleri ve görevleri oluşturup yönetmeye yönelik kullanılabilir komutların birçoğunu kapsar. 
 
 ## <a name="json-files-for-resource-creation"></a>Kaynak oluşturmak için JSON dosyaları
 
-Havuzlar ve işler gib Batch kaynakları oluşturduğunuzda parametrelerini komut satırı seçenekleri olarak geçirmek yerine yeni kaynağın yapılandırmasını içeren bir JSON dosyası belirtebilirsiniz. Örneğin:
+Havuzlar ve işler gib Batch kaynakları oluşturduğunuzda parametrelerini komut satırı seçenekleri olarak geçirmek yerine yeni kaynağın yapılandırmasını içeren bir JSON dosyası belirtebilirsiniz. Örnek:
 
 ```azurecli
 az batch pool create my_batch_pool.json

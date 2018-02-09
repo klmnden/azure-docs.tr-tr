@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 804294e91375e0fb5b11190ae969710bbd4c15b1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te .NET Core ve SQL Veritabanı uygulaması oluşturma
+
+> [!NOTE]
+> Bu makalede bir uygulamanın Linux üzerinde App Service'e dağıtımı yapılır. _Windows_ üzerinde App Service’e dağıtım yapmak için, bkz. [Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması oluşturma](../app-service-web-tutorial-dotnetcore-sqldb.md).
+>
 
 [Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu öğreticide, bir .NET Core web uygulaması oluşturma ve bu uygulamayı bir SQL Veritabanı’na bağlamayla ilgili yönergeler verilmiştir. Öğreticiyi tamamladığınızda, Linux’ta App Service üzerinde çalışan bir .NET Core MVC uygulaması oluşturmuş olacaksınız.
 
@@ -37,6 +41,8 @@ Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 > * Azure’daki tanılama günlüklerinin akışını sağlama
 > * Uygulamayı Azure portalında yönetme
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
@@ -44,11 +50,9 @@ Bu öğreticiyi tamamlamak için:
 1. [Git'i yükleyin](https://git-scm.com/)
 1. [.NET Core SDK 1.1.2’yi yükleme](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## <a name="create-local-net-core-app"></a>Yerel .NET Core uygulaması oluşturma
 
-## <a name="create-local-net-core-app"></a>Yerel bir .NET Core uygulaması oluşturma
-
-Bu adımda, yerel .NET Core projesini ayarlayacaksınız.
+Bu adımda, yerel .NET Core projesini ayarlarsınız.
 
 ### <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
@@ -73,7 +77,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Bir tarayıcıda `http://localhost:5000` sayfasına gidin. **Yeni Oluştur** bağlantısını seçin ve _yapılacak_ birkaç öğe oluşturun.
+Bir tarayıcıda `http://localhost:5000` sayfasına gidin. **Yeni Oluştur** bağlantısını seçin ve _yapılacak_ birkaç iş oluşturun.
 
 ![SQL Veritabanı’na başarıyla bağlanır](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -83,7 +87,7 @@ Bir tarayıcıda `http://localhost:5000` sayfasına gidin. **Yeni Oluştur** ba�
 
 ## <a name="create-production-sql-database"></a>Üretim SQL Veritabanı oluşturma
 
-Bu adımda, Azure’da SQL Veritabanı oluşturacaksınız. Uygulamanız Azure’da dağıtıldığında şu bulut veritabanını kullanır.
+Bu adımda, Azure’da bir SQL Veritabanı oluşturursunuz. Uygulamanız Azure’da dağıtıldığında bu bulut veritabanını kullanır.
 
 SQL Veritabanı için bu öğreticide [Azure SQL Veritabanı](/azure/sql-database/) kullanılır.
 
@@ -93,7 +97,7 @@ SQL Veritabanı için bu öğreticide [Azure SQL Veritabanı](/azure/sql-databas
 
 ### <a name="create-a-sql-database-logical-server"></a>SQL Veritabanı mantıksal sunucusu oluşturma
 
-Cloud Shell’de, [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) komutuyla SQL Veritabanı mantıksal sunucusu oluşturun.
+Cloud Shell’de, [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) komutuyla SQL Veritabanı mantıksal sunucusu oluşturun.
 
 *\<server_name>* yer tutucusunu benzersiz bir SQL Veritabanı adıyla değiştirin. Bu ad, SQL Veritabanı uç noktasının bir parçası olan `<server_name>.database.windows.net` olarak kullanıldığından, adın Azure’daki tüm mantıksal sunucularda benzersiz olması gerekir. Ad yalnızca küçük harf, rakam ve tire (-) karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır. Ayrıca, *\<db_username>* ve *\<db_password>* değerlerini dilediğiniz kullanıcı adı ve parolayla değiştirin. 
 
@@ -124,7 +128,7 @@ SQL Veritabanı mantıksal sunucusu oluşturulduğunda Azure CLI, aşağıdaki �
 
 ### <a name="configure-a-server-firewall-rule"></a>Sunucu güvenlik duvarı kurallarını yapılandırma
 
-[az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) komutunu kullanarak [sunucu düzeyinde bir Azure SQL Veritabanı güvenlik duvarı kuralı](../../sql-database/sql-database-firewall-configure.md) oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
+[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) komutunu kullanarak [Azure SQL Veritabanı sunucusu düzeyinde güvenlik duvarı kuralı](../../sql-database/sql-database-firewall-configure.md) oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +136,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Veritabanı oluşturma
 
-[az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) komutunu kullanarak [S0 performans düzeyine](../../sql-database/sql-database-service-tiers.md) sahip bir veritabanı oluşturun.
+[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) komutunu kullanarak sunucuda [S0 performans düzeyine](../../sql-database/sql-database-service-tiers.md) sahip bir veritabanı oluşturun.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -146,7 +150,7 @@ Aşağıdaki dizeyi daha önce kullandığınız *\<server_name>*, *\<db_usernam
 Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-Bu, .NET Core uygulamanız için bağlantı dizesidir. Dizeyi daha sonra kullanmak üzere kopyalayın.
+Bu, .NET Core uygulamanızın bağlantı dizesidir. Dizeyi daha sonra kullanmak üzere kopyalayın.
 
 ## <a name="deploy-app-to-azure"></a>Uygulamayı Azure’da dağıtma
 
@@ -164,9 +168,9 @@ Bu adımda, Linux’ta App Service üzerinde SQL Veritabanı’na bağlı .NET C
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Bir ortam değişkenini yapılandırma
+### <a name="configure-an-environment-variable"></a>Ortam değişkeni yapılandırma
 
-Azure uygulamanıza yönelik bağlantı dizeleri oluşturmak için, Cloud Shell’de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Aşağıdaki komutta, *\<app name>* ve *\<connection_string>* parametrelerini, önceden oluşturduğunuz bağlantı dizesiyle değiştirin.
+Azure uygulamanıza yönelik bağlantı dizeleri ayarlamak için, Cloud Shell’de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Aşağıdaki komutta, *\<app name>* ve *\<connection_string>* parametrelerini, önceden oluşturduğunuz bağlantı dizesiyle değiştirin.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -206,7 +210,7 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 
 Bu kod, üretimde (Azure ortamını belirtir) çalıştığını algılarsa SQL Veritabanı’na bağlanmak için yapılandırdığınız bağlantı dizesini kullanır.
 
-`Database.Migrate()` çağrısı, Azure’da çalıştırıldığında, geçiş yapılandırmasına bağlı olarak .NET Core uygulamanızın gereksinim duyduğu veritabanlarını otomatik olarak oluşturduğundan, işlemleri gerçekleştirmenize yardımcı olur. 
+`Database.Migrate()` çağrısı, Azure’da çalıştırıldığında geçiş yapılandırmasına bağlı olarak .NET Core uygulamanızın gereksinim duyduğu veritabanlarını otomatik olarak oluşturduğundan, işlemleri gerçekleştirmenize yardımcı olur. 
 
 Değişikliklerinizi kaydedin ve Git deponuza işleyin. 
 
@@ -246,7 +250,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ### <a name="browse-to-the-azure-web-app"></a>Azure web uygulamasına göz atma
 
-Web tarayıcınızı kullanarak, dağıtılan web uygulamasına göz atın.
+Web tarayıcınızı kullanarak dağıtılan web uygulamasına göz atın.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -264,7 +268,7 @@ Bu adımda, veritabanı şemanızda bir değişiklik yapacak ve bunu Azure’da 
 
 ### <a name="update-your-data-model"></a>Veri modelinizi güncelleştirme
 
-Kod düzenleyicide_Models\Todo.cs_ dosyasını açın. `ToDo` sınıfına aşağıdaki özelliği ekleyin:
+Kod düzenleyicide _Models\Todo.cs_ dosyasını açın. `ToDo` sınıfına aşağıdaki özelliği ekleyin:
 
 ```csharp
 public bool Done { get; set; }
@@ -286,7 +290,7 @@ dotnet ef database update
 
 ### <a name="use-the-new-property"></a>Yeni özelliği kullanma
 
-`Done` özelliğini kullanarak kodunuzda değişiklik yapın. Bu öğreticide, daha kolay uygulama için, işlemin nasıl çalıştığını görmek üzere yalnızca `Index` ve `Create` görünümlerini değiştireceksiniz.
+`Done` özelliğini kullanarak kodunuzda birkaç değişiklik yapın. Bu öğreticide, daha kolay uygulama için, işlemin nasıl çalıştığını görmek üzere yalnızca `Index` ve `Create` görünümlerini değiştireceksiniz.
 
 _Controllers\TodosController.cs_ dosyasını açın.
 
@@ -298,7 +302,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 
 _Views\Todos\Create.cshtml_ dosyasını açın.
 
-Razor kodunda, `Description` için `<div class="form-group">` öğesi ve `CreatedDate` için başka bir `<div class="form-group">` öğesi görürsünüz. Aşağıdaki iki öğeyi takip eden `Done` için başka bir `<div class="form-group">` öpesi ekleyin:
+Razor kodunda, `Description` için `<div class="form-group">` öğesi ve `CreatedDate` için başka bir `<div class="form-group">` öğesi görürsünüz. Aşağıdaki iki öğeyi takip eden `Done` için başka bir `<div class="form-group">` öğesi ekleyin:
 
 ```csharp
 <div class="form-group">
@@ -328,9 +332,9 @@ Boş `<th></th>` öğesini arayın. Bu öğenin hemen üstüne aşağıdaki Razo
 </td>
 ```
 
-`Index` ve `Create` görünümlerindeki değişiklikleri görmek için yapmanız gerekenler bunlardır.
+`Index` ve `Create` görünümlerindeki değişiklikleri görmek için yapmanız gerekenler bu kadardır.
 
-### <a name="test-your-changes-locally"></a>Değişikliklerinizi yerel olarak sınama
+### <a name="test-your-changes-locally"></a>Değişikliklerinizi yerel olarak test etme
 
 Uygulamayı yerel olarak çalıştırın.
 
@@ -338,7 +342,7 @@ Uygulamayı yerel olarak çalıştırın.
 dotnet run
 ```
 
-Tarayıcınızda `http://localhost:5000/` adresine gidin. Artık yapılacak öğe ekleyip öğeyi **Bitti** olarak işaretleyebilirsiniz. Daha sonra öğe, ana sayfanızda tamamlanmış bir öğe olarak görünür. `Edit` görünümünü değiştirmediğinizden, `Edit` görünümünün `Done` alanında görünmediğini göz önünde bulundurun.
+Tarayıcınızda `http://localhost:5000/` adresine gidin. Artık yapılacak bir öğe ekleyip öğeyi **Bitti** olarak işaretleyebilirsiniz. Daha sonra öğe, ana sayfanızda tamamlanmış bir öğe olarak görünmelidir. `Edit` görünümünü değiştirmediğinizden, `Edit` görünümünün `Done` alanında görünmediğini göz önünde bulundurun.
 
 ### <a name="publish-changes-to-azure"></a>Değişiklikleri Azure’da yayımlama
 
@@ -352,7 +356,7 @@ git push azure master
 
 ![Code First Migration’dan sonra Azure web uygulaması](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
-Mevcut yapılacak öğeleriniz görüntülenmeye devam eder. .NET Core uygulamanızı yeniden yayımladığınızda, SQL Veritabanı’nızdaki mevcut veriler kaybolmaz. Ayrıca, Entity Framework Code Migrations, yalnızca veri şemasını değiştirir; mevcut verilerinizde herhangi bir değişiklik yapmaz.
+Mevcut yapılacak öğeleriniz görüntülenmeye devam eder. .NET Core uygulamanızı yeniden yayımladığınızda, SQL Veritabanı’nızdaki mevcut veriler kaybolmaz. Ayrıca, Entity Framework Code Migrations yalnızca veri şemasını değiştirir ve mevcut verilerinizde herhangi bir değişiklik yapmaz.
 
 ## <a name="manage-your-azure-web-app"></a>Azure web uygulamanızı yönetme
 

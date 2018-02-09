@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL veri ambarı oluşturma - Azure Portal | Microsoft Docs"
+title: "Hızlı başlangıç: Azure SQL veri ambarı oluşturma - Azure Portal | Microsoft Docs"
 description: "Azure SQL Veri Ambarı için, bir SQL sunucusu, sunucu düzeyi güvenlik kuralı ve Azure portalında bir veri ambarı oluşturun. Ardından sorgulayın."
 keywords: "sql veri ambarı öğreticisi, SQL veri ambarı oluşturma"
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Azure portalında Azure SQL veri ambarı oluşturma ve sorgulama
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Azure SQL veri ambarı oluşturma ve sorgulama
 
 Azure portalını kullanarak hızla bir Azure SQL veri ambarı oluşturun ve sorgulayın.
 
@@ -113,7 +113,7 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 
 4. Geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda **İstemci IP’si Ekle** öğesine tıklayın. Güvenlik duvarı kuralı, 1433 numaralı bağlantı noktasını tek bir IP adresi veya bir IP adresi aralığı için açabilir.
 
-5. **Kaydet** düğmesine tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
+5. **Kaydet**’e tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
 
 6. **Tamam**’a tıklayın ve sonra **Güvenlik duvarı ayarları** sayfasını kapatın.
 
@@ -167,7 +167,7 @@ SQL Veri Ambarı sorgu dili olarak T-SQL kullanır. Bir sorgu penceresi açıp T
     SELECT * FROM sys.databases
     ```
 
-3. **Yürüt**’e tıklayın.  Sorgu sonuçları iki veritabanı gösterir: **master** ve **mySampleDataWarehouse**.
+3. **Yürüt**'e tıklayın.  Sorgu sonuçları iki veritabanı gösterir: **master** ve **mySampleDataWarehouse**.
 
     ![Sorgu veritabanları](media/create-data-warehouse-portal/query-databases.png)
 

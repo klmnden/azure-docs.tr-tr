@@ -1,6 +1,6 @@
 ---
-title: "ACR Azure DC/OS kümesi ile kullanma"
-description: "Azure kapsayıcı hizmeti DC/OS kümesinde ile bir Azure kapsayıcı kayıt defteri kullanma"
+title: "ACR’yi bir Azure DC/OS kümesi ile kullanma"
+description: "Azure Container Service’te DC/OS kümesi ile Azure Container Registry kullanma"
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,39 +9,39 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>ACR DC/OS kümesi ile uygulamanızı dağıtmak için kullanın.
+# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Uygulamanızı dağıtmak için ACR’yi DC/OS kümesi ile kullanma
 
-Bu makalede, Azure kapsayıcı kayıt defteri ile DC/OS kümesi kullanma keşfedin. ACR kullanarak özel olarak depolamak ve kapsayıcı görüntüleri yönetmenize olanak sağlar. Bu öğretici, aşağıdaki görevleri içerir:
+Bu makalede, Azure Container Registry’yi bir DC/OS kümesi ile kullanma işlemi araştırılmaktadır. ACR kullanarak, kapsayıcı görüntülerinizi özel olarak depolayıp yönetebilirsiniz. Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Azure kapsayıcı kayıt defteri (gerekirse) dağıtın
-> * DC/OS kümesinde ACR kimlik doğrulamasını yapılandırma
-> * Azure kapsayıcı kayıt defterine görüntüyü karşıya
-> * Azure kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü çalıştırın
+> * Azure Container Registry’yi dağıtma (gerekirse)
+> * Bir DC/OS kümesinde ACR kimlik doğrulamasını yapılandırma
+> * Azure Container Registry’ye görüntü yükleme
+> * Azure Container Registry’den görüntü çalıştırma
 
-Bu öğreticide adımları tamamlamak için bir ACS DC/OS kümesi gerekir. Gerekirse, [bu komut dosyası örneği](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) sizin için bir tane oluşturabilirsiniz.
+Bu öğreticideki adımları tamamlamak için bir ACS DC/OS kümesi gerekir. Gerekirse, [bu betik örneği](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) sizin için bir tane oluşturabilir.
 
 Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-azure-container-registry"></a>Azure kapsayıcı kayıt defteri dağıtın
+## <a name="deploy-azure-container-registry"></a>Azure Container Registry’yi dağıtma
 
-Gerekirse, Azure kapsayıcı kayıt defteri ile oluşturma [az acr oluşturmak](/cli/azure/acr#create) komutu. 
+Gerekirse, [az acr create](/cli/azure/acr#az_acr_create) komutuyla Azure Container Registry oluşturun. 
 
-Aşağıdaki örnek, bir kayıt defteri ile oluşturur bir rastgele adı oluşturmak. Kayıt defteri aynı zamanda bir yönetici hesabı kullanarak ile yapılandırılmış olan `--admin-enabled` bağımsız değişkeni.
+Aşağıdaki örnek, rastgele oluşturulmuş bir ad ile kayıt defteri oluşturur. Kayıt defteri aynı zamanda `--admin-enabled` bağımsız değişkeni kullanılarak bir yönetici hesabı ile yapılandırılır.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
-Kayıt defteri oluşturulduktan sonra Azure CLI aşağıdakine benzer veri çıkarır. Not edin `name` ve `loginServer`, bunlar daha sonraki adımlarda kullanılır.
+Kayıt defteri oluşturulduktan sonra, Azure CLI aşağıdakine benzer veriler çıkarır. `name` ve `loginServer` değerlerini not edin; bunlar daha sonraki adımlarda kullanılacaktır.
 
 ```azurecli
 {
@@ -64,59 +64,59 @@ Kayıt defteri oluşturulduktan sonra Azure CLI aşağıdakine benzer veri çık
 }
 ```
 
-Kapsayıcı kullanarak kayıt defteri kimlik bilgilerini almak [az acr kimlik bilgisi Göster](/cli/azure/acr/credential) komutu. Yedek `--name` son adımda not ettiğiniz bir. Not bir parola bir sonraki adımda gereklidir.
+[az acr credential show](/cli/azure/acr/credential) komutunu kullanarak kapsayıcı kayıt defteri kimlik bilgilerini alın. `--name` değerini son adımda not ettiğiniz değerle değiştirin. Bir parolayı not alın, sonraki bir adımda gerekli olacaktır.
 
 ```azurecli-interactive
 az acr credential show --name myContainerRegistry23489
 ```
 
-Azure kapsayıcı kayıt defteri hakkında daha fazla bilgi için bkz: [özel Docker kapsayıcısı kayıt defterleri giriş](../../container-registry/container-registry-intro.md). 
+Azure Container Registry hakkında daha fazla bilgi için bkz. [Özel Docker kapsayıcı kayıt defterlerine giriş](../../container-registry/container-registry-intro.md). 
 
-## <a name="manage-acr-authentication"></a>ACR kimlik doğrulamasını yönetmek
+## <a name="manage-acr-authentication"></a>ACR kimlik doğrulamasını yönetme
 
-Geleneksel anında iletme ve çekme görüntüsüne özel bir kayıt defteri önce kayıt defteri ile kimlik doğrulaması yoludur. Bunu yapmak için kullanacağınız `docker login` özel kayıt defteri erişmesi gereken herhangi bir istemci üzerinde komutu. DC/OS kümesi her biri ile ACR kimliğinizin doğrulanması gerekiyor, birçok düğümleri içerebileceğinden her düğüm üzerinde bu işlemi otomatikleştirmek yararlıdır. 
+Özel bir kayıt defterinden görüntü gönderme ve almanın geleneksel yolu, ilk olarak kayıt defterinde kimlik doğrulaması yapmaktır. Bunu yapmak için, özel kayıt defterine erişmesi gereken her istemci üzerinde `docker login` komutunu kullanın. Bir DC/OS kümesinde kimliği ACR ile doğrulanması gereken çok sayıda düğüm olabildiği için, bu işlemi her bir düğümde otomatik hale getirmek yararlıdır. 
 
-### <a name="create-shared-storage"></a>Paylaşılan depolama alanı oluşturma
+### <a name="create-shared-storage"></a>Paylaşılan depolama oluşturma
 
-Bu işlem, kümedeki her düğümde takıldıktan bir Azure dosya paylaşımı kullanır. Paylaşılan depolama alanı zaten ayarlamadıysanız bkz [bir DC/OS küme içindeki bir dosya paylaşımı Kurulum](container-service-dcos-fileshare.md).
+Bu işlem, kümedeki her bir düğümde bağlanmış bir Azure dosya paylaşımı kullanır. Paylaşılan depolamayı henüz ayarlamadıysanız bkz. [Bir DC/OS kümesi içinde dosya paylaşımı ayarlama](container-service-dcos-fileshare.md).
 
 ### <a name="configure-acr-authentication"></a>ACR kimlik doğrulamasını yapılandırma
 
-İlk olarak, DC/OS asıl FQDN'sini almak ve bir değişkende saklayın.
+İlk olarak, DC/OS ana şablonunun FQDN'sini alın ve bir değişkende depolayın.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Bir SSH bağlantısı asıl (veya ilk ana) DC/OS tabanlı kümenizin ile oluşturun. Varsayılan olmayan bir değer kümesi oluştururken kullanılan kullanıcı adını güncelleştirin.
+DC/OS tabanlı kümenizin ana şablonuyla (veya ilk ana şablonuyla) bir SSH bağlantısı oluşturun. Küme oluşturulurken varsayılan olmayan bir değeri kullanıldıysa kullanıcı adını güncelleştirin.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Azure kapsayıcı kayıt oturum açmak için aşağıdaki komutu çalıştırın. Değiştir `--username` kapsayıcı kayıt defteri adını ve `--password` girilen parolalar biriyle. Son bağımsız değişken Değiştir *mycontainerregistry.azurecr.io* loginServer adla örnekte kapsayıcı kayıt defteri. 
+Azure Container Registry’de oturum açmak için aşağıdaki komutu çalıştırın. `--username` değerini kapsayıcı kayıt defterinin adı ile, `--password` değerini ise belirtilen parolalardan biri ile değiştirin. Örnekteki son *mycontainerregistry.azurecr.io* bağımsız değişkenini kapsayıcı kayıt defterinin loginServer adıyla değiştirin. 
 
-Bu komut kimlik doğrulaması değerleri yerel olarak altında depolayan `~/.docker` yolu.
+Bu komut, kimlik doğrulama değerlerini `~/.docker` yolu altında yerel olarak depolar.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
 ```
 
-Kapsayıcı kayıt defteri kimlik doğrulama değerleri içeren sıkıştırılmış bir dosya oluşturun.
+Kapsayıcı kayıt defteri kimlik doğrulama değerlerini içeren sıkıştırılmış bir dosya oluşturun.
 
 ```azurecli-interactive
 tar czf docker.tar.gz .docker
 ```
 
-Bu dosya, Küme Paylaşılan depolama alanına kopyalayın. Bu adım, dosyayı DC/OS kümenin tüm düğümlerinde kullanılabilir hale getirir.
+Bu dosyayı küme paylaşılan depolama alanına kopyalayın. Bu adım, dosyayı DC/OS kümesinin tüm düğümlerinde kullanılabilir hale getirir.
 
 ```azurecli-interactive
 cp docker.tar.gz /mnt/share/dcosshare
 ```
 
-## <a name="upload-image-to-acr"></a>Görüntü için ACR karşıya yükle
+## <a name="upload-image-to-acr"></a>Görüntüyü ACR’ye yükleme
 
-Şimdi bir geliştirme makine ya da herhangi bir yüklü Docker sistemiyle, bir görüntü oluşturun ve Azure kapsayıcı kayıt defterine yükleyin.
+Şimdi bir geliştirme makinesinden ya da Docker’ın yüklü olduğu herhangi bir sistemden görüntü oluşturun ve Azure Container Registry’ye yükleyin.
 
 Ubuntu görüntüsünden bir kapsayıcı oluşturun.
 
@@ -124,27 +124,27 @@ Ubuntu görüntüsünden bir kapsayıcı oluşturun.
 docker run ubuntu --name base-image
 ```
 
-Şimdi kapsayıcının yeni bir görüntüsünü yakalayın. Görüntü adı içermesi gerekir `loginServer` biçimlerinin bir kapsayıcı registrywith adını `loginServer/imageName`.
+Şimdi kapsayıcıyı yeni bir görüntüye yakalayın. Görüntü adı, kapsayıcı kayıt defterinin `loginServer` adını `loginServer/imageName` biçiminde içermelidir.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ````
 
-Azure kapsayıcı kayıt defterine oturum açın. Adı loginServer adıyla--kullanıcıadı kapsayıcı kayıt defteri adını değiştirin ve girilen parolalar biriyle parola.
+Azure Container Registry’de oturum açın. Adı loginServer adıyla, --username değerini kapsayıcı kayıt defterinin adıyla ve --password değerini sağlanan parolalardan biriyle değiştirin.
 
 ```azurecli-interactive
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
-Son olarak, görüntünün ACR kayıt defterine karşıya yükleyin. Bu örnek dcos demo adlı bir resim yükler.
+Son olarak, görüntüyü ACR kayıt defterine yükleyin. Bu örnek dcos-demo adlı bir görüntüyü karşıya yükler.
 
 ```azurecli-interactive
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
-## <a name="run-an-image-from-acr"></a>Bir görüntü ACR çalıştırın
+## <a name="run-an-image-from-acr"></a>ACR’den görüntü çalıştırma
 
-Bir görüntü ACR kayıt defterinden kullanmak için bir dosya adları oluşturun *acrDemo.json* ve aşağıdaki metni buraya kopyalayın. Görüntü adı kapsayıcı kayıt defteri loginServer adı ve görüntü adı ile örnek yerine `loginServer/imageName`. Not edin `uris` özelliği. Bu özellik, bu durumda DC/OS kümedeki her düğümde takılı Azure dosya paylaşımının olduğundan kapsayıcı kayıt defteri kimlik doğrulaması dosyasının konumu tutar.
+ACR kayıt defterinden bir görüntüyü kullanmak için *acrDemo.json* adlı bir dosya oluşturun ve içine aşağıdaki metni kopyalayın. Görüntü adını, kapsayıcı kayıt defterinin loginServer adı ve görüntü adı ile değiştirin; örneğin `loginServer/imageName`. `uris` özelliğini not edin. Bu özellik, bu örnekte DC/OS kümesindeki her bir düğüme bağlanan Azure dosya paylaşımı olan kapsayıcı kayıt defteri kimlik doğrulama dosyasının konumunu içerir.
 
 ```json
 {
@@ -192,10 +192,10 @@ dcos marathon app add acrDemo.json
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide sahip yapılandırdığınız Azure kapsayıcı aşağıdaki görevler de dahil olmak üzere kayıt defterini kullanmak için DC/OS:
+Bu öğreticide, aşağıdaki görevlerle birlikte DC/OS’yi Azure Container Registry kullanacak şekilde yapılandırdınız:
 
 > [!div class="checklist"]
-> * Azure kapsayıcı kayıt defteri (gerekirse) dağıtın
-> * DC/OS kümesinde ACR kimlik doğrulamasını yapılandırma
-> * Azure kapsayıcı kayıt defterine görüntüyü karşıya
-> * Azure kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü çalıştırın
+> * Azure Container Registry’yi dağıtma (gerekirse)
+> * Bir DC/OS kümesinde ACR kimlik doğrulamasını yapılandırma
+> * Azure Container Registry’ye görüntü yükleme
+> * Azure Container Registry’den görüntü çalıştırma

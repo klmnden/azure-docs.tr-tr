@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 70167322f1576b4a9cbd5f499edfc934b8a9a799
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0ba6cf4532e5bcd86c53a63349241509bfc941ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Azure'da .NET Service Fabric uygulaması oluşturma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -123,9 +123,27 @@ Hata ayıklama oturumunu durdurmak için **Shift+F5** tuşlarına basın.
 Uygulamayı Azure'a dağıtmak için, uygulamayı çalıştıran bir Service Fabric kümesine ihtiyacınız vardır. 
 
 ### <a name="join-a-party-cluster"></a>Grup kümesine katılma
-Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. 
+Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır. 
 
-Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). Aşağıdaki adımlarda kullanılan **Bağlantı uç noktası** değerini unutmayın.
+Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. Sonraki adımlarda sertifika ve **Bağlantı uç noktası** değeri kullanılır.
+
+![PFX ve bağlantı uç noktası](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
+
+Bir Windows makinede PFX’i *CurrentUser\My* sertifika deposuna yükleyin.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Sonraki adım için parmak izini unutmayın.
 
 > [!Note]
 > Varsayılan olarak, web ön uç hizmeti 8080 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırılmıştır. Grup Kümesinde bağlantı noktası 8080 açıktır.  Uygulama bağlantı noktasını değiştirmeniz gerekiyorsa, bunu Grup Kümesinde açık olan bağlantı noktalarından biriyle değiştirin.
@@ -136,24 +154,29 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıt
 
 1. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
 
-    ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın ve **Yayımla**’ya tıklayın. Örneğin, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametreleri**’ne tıklayıp ve aşağıdaki bilgileri doldurun.  *FindValue* ve *ServerCertThumbprint* değerleri bir önceki adımda yüklenen sertifikanın parmak iziyle eşleşmelidir. 
+
+    ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
     Kümedeki her uygulamanın benzersiz bir adı olmalıdır.  Bununla birlikte grup kümeleri ortak, paylaşılan bir ortamdır ve mevcut uygulamalardan biriyle çakışma olabilir.  Ad çakışması varsa, Visual Studio projesini yeniden adlandırın ve bir kez daha dağıtın.
 
-3. Tarayıcıyı açın, küme adresini yazın ve kümedeki uygulamaya gelmek için arkasına ':8080' ekleyin; örneğin, `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Artık Azure'da kümede çalıştırılan uygulamayı görüyor olmalısınız.
+3. **Yayımla**’ta tıklayın.
+
+4. Tarayıcıyı açın, küme adresini yazın ve kümedeki uygulamaya gelmek için arkasına ':8080' ekleyin; örneğin, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Artık Azure'da kümede çalıştırılan uygulamayı görüyor olmalısınız.
 
 ![Uygulama ön ucu](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme
 Hizmet yükündeki bir değişikliği karşılamak için kümedeki Service Fabric hizmetleri kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizi ölçeklendirmenin birçok yolu vardır; PowerShell veya Service Fabric CLI'den (sfctl) betikler veya komutlar kullanabilirsiniz. Bu örnekte, Service Fabric Explorer'ı kullanın.
 
-Service Fabric Explorer tüm Service Fabric kümelerinde çalıştırılır ve tarayıcıdan kümelerin HTTP yönetim bağlantı noktasına (19080) göz atarak (örneğin, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`) erişilebilir.
+Service Fabric Explorer tüm Service Fabric kümelerinde çalıştırılır ve tarayıcıdan kümelerin HTTP yönetim bağlantı noktasına (19080) göz atarak (örneğin, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`) erişilebilir. 
+
+Konumun güvenilir olmadığına dair bir tarayıcı uyarısı alabilirsiniz. Bunun sebebi, sertifikanın otomatik olarak imzalanmasıdır. Uyarıyı yoksayıp devam etmeyi seçebilirsiniz. Tarayıcı tarafından istendiğinde, bağlanmak için yüklü sertifikayı seçin. 
 
 Web ön uç hizmetini ölçeklendirmek için aşağıdaki adımları gerçekleştirin:
 
-1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 2. Ağaç görünümünde **fabric:/Voting/VotingWeb** düğümünün yanındaki üç noktaya tıklayın ve **Hizmeti Ölçeklendir**'i seçin.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -185,7 +208,7 @@ Uygulamayı yükseltmek için aşağıdakileri yapın:
 7. **Service Fabric Uygulamasını Yayımla** iletişim kutusunda Uygulamayı Yükselt onay kutusunu işaretleyin ve **Yayımla**'ya tıklayın.
 
     ![Yayımla İletişim Kutusu Yükseltme Ayarı](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. Tarayıcınızı açın ve bağlantı noktası 19080'de küme adresine göz atın; örneğin, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+8. Tarayıcınızı açın ve bağlantı noktası 19080'de küme adresine göz atın; örneğin, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Ağaç görünümünde **Uygulamalar** düğümüne tıklayın ve ardından sağ bölmede **Devam Eden Yükseltmeler**'e tıklayın. Güncelleştirmenin kümenizdeki yükseltme etki alanlarında nasıl ilerlediğini görür, bir sonrakine geçmeden önce her etki alanının iyi durumda olduğundan emin olursunuz. Durumu doğrulanan yükseltme etki alanı, ilerleme çubuğunda yeşil gösterilir.
     ![Service Fabric Explorer'da Yükseltme Görünümü](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

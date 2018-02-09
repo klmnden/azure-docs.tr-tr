@@ -2,17 +2,17 @@
 title: "Azure Batch Rendering hizmeti - bulut ölçekli işleme | Microsoft Docs"
 description: "İşleri, doğrudan Maya üzerinden veya kullanım başına ödeme temelinde Azure sanal makinelerinde işleyin."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering hizmetini kullanmaya başlama
 
@@ -25,12 +25,8 @@ Maya ve 3ds Max ile [BatchLabs](https://github.com/Azure/BatchLabs) masaüstü u
 
 Batch Rendering hizmeti şu anda aşağıdaki uygulamaları desteklemektedir:
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Autodesk Arnold for Maya
-- Autodesk Arnold for 3ds Max
-- Chaos Group V-Ray for Maya
-- Chaos Group V-Ray for 3ds Max
+• Autodesk Maya I/O 2017 Güncelleştirme 4 (sürüm 17.4.5459) •   Autodesk 3ds Max I/O 2018 Güncelleştirme 1 (sürüm 20.1.0.238) •   Autodesk Arnold for Maya (sürüm 5.0.1.1) •   Autodesk Arnold for 3ds Max (sürüm 1.0.836) •   Chaos Group V-Ray for Maya (sürüm 3.52.03) •   Chaos Group V-Ray for 3ds Max (sürüm 3.60.02)
+
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -72,7 +68,7 @@ Gerekli olması halinde bir işi işlemek için Maya ve Arnold veya 3ds Max ve V
 
 Azure, her birine Maya, 3ds Max, Arnold, ve V-Ray uygulamalarının önceden yüklenmiş olduğu kullanıma hazır Windows ve Linux görüntüleri sunar. Bu görüntüleri havuz oluştururken [Azure portalı](https://portal.azure.com), Maya eklentisi veya [BatchLabs](https://azure.github.io/BatchLabs) içinden seçebilirsiniz.
 
-Azure portalı ve BatchLabs içine önceden yüklenmiş uygulamalara sahip VM görüntülerinden birini şu şekilde yükleyebilirsiniz: Batch hesabınızın Havuzlar bölümünde **Yeni**'yi seçin ve **Havuz Ekle** bölümündeki **Görüntü türü** açılır listesinden **Grafik ve Oluşturma (Linux/Windows)** girişini seçin:
+Azure portalı ve BatchLabs içine önceden yüklenmiş uygulamalara sahip VM görüntülerinden birini şu şekilde yükleyebilirsiniz: Batch hesabınızın Havuzlar bölümünde **Yeni**'yi seçin ve **Havuz Ekle** bölümündeki **Görüntü türü** açılır listesinden **Graf ve Oluşturma (Linux/Windows)** girişini seçin:
 
 ![Batch hesabı için görüntü türü seçimi](./media/batch-rendering-service/add-pool.png)
 

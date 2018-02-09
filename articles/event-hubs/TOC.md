@@ -7,12 +7,10 @@
 ## [Olay Hub’ı oluşturma](event-hubs-create.md)
 ## Olayları gönderme
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Olayları alma
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Olayları yakalama
@@ -20,7 +18,7 @@
 ### [Event Hubs Capture’ı etkinleştirmek için bir Resource Manager şablonu kullanma](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Programlama kılavuzu](event-hubs-programming-guide.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Yönetilen Hizmet Kimliği (önizleme)](event-hubs-managed-service-identity.md)
 ### [Rol Tabanlı Erişim Denetimi (önizleme)](event-hubs-role-based-access-control.md)
@@ -30,12 +28,14 @@
 ### [Kullanılabilirlik ve tutarlılık](event-hubs-availability-and-consistency.md)
 ### [İşleme birimlerini otomatik ölçeklendirme](event-hubs-auto-inflate.md)
 ## Geliştirme
+### [.NET Framework kullanarak olayları gönderme](event-hubs-dotnet-framework-getstarted-send.md)
+### [.NET Framework kullanarak olayları alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Kullanılabilir API’ler](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Tanılama günlükleri](event-hubs-diagnostic-logs.md)
 ### [AMQP 1.0 protokol kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## Yönet
+## Yönetme
 ### [Azure İzleme ile Event Hubs’ı izleme](event-hubs-metrics-azure-monitor.md)
 ### [Event Hubs yönetim kitaplıkları](event-hubs-management-libraries.md)
 ### Capture
@@ -57,7 +57,7 @@
 ### [Microsoft.ServiceBus.Messaging.EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
 ## [REST](/rest/api/eventhub)
-## [Özel Durumlar](event-hubs-messaging-exceptions.md)
+## [Özel durumlar](event-hubs-messaging-exceptions.md)
 ## [Kotalar](event-hubs-quotas.md)
 
 # Kaynaklar
