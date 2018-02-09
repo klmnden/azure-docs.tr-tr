@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure yığınında ayrıcalıklı uç noktası kullanma
 
@@ -78,8 +78,6 @@ Sizin için CESARETLENDİRİCİ yalnızca donanım yaşam döngüsü ana bilgisa
       - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
     
 3.  Bağlandıktan sonra istemi değiştirir **[*IP adresi veya ERCS VM adı*]: PS >** veya **[azs-ercs01]: PS >**ortamına bağlı olarak. Buradan, çalıştırmak `Get-Command` kullanılabilir cmdlet'lerinin listesini görüntülemek için.
-
-    ![Get-Command cmdlet'i çıkış gösteren kullanılabilecek komutların listesi](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     Bu cmdlet'lerin çoğu yalnızca tümleşik sistemi ortamları (örneğin, veri merkezi tümleştirmesiyle ilgili cmdlet'leri) yöneliktir. Aşağıdaki cmdlet ASDK içinde doğrulandı:
 

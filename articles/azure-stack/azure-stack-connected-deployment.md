@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planlama kararları Azure yığınının azure bağlı dağıtım sistemleri tümleşik
-Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-deployment-decisions.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
+Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-connection-models.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
 
 Azure'a bağlı dağıtma Azure yığın kimliği deponuz için Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) olabilir anlamına gelir. Fatura ya da modelden de seçebilirsiniz: ödeme olarak-size-kullanım ve kapasite tabanlı. Bağlı bir dağıtım varsayılan seçeneği çünkü müşterilerin hem Azure hem de Azure yığın ile ilgili özellikle karma bulut senaryosu için en çok değer Azure yığın dışında get olanak tanır. 
 
@@ -45,7 +45,7 @@ Kullandığınızda, Azure AD kimlik deposu iki Azure AD hesapları gerektirir: 
 Şirket, Active Directory gibi kendi kimlik deposu hizmet yönetici hesapları için kullanmak istiyorsanız bu seçeneği belirleyin.  
 
 ## <a name="choose-a-billing-model"></a>Faturalama modelini seçin
-Ya da seçebilirsiniz **ödeme olarak,-kullanımlı** veya **kapasite** faturalama modeli. Bir bağlantı üzerinden Azure 30 günde en az bir kez rapor kullanım için ödeme olarak,-kullanımlı faturalama modeli dağıtımlarını çözümleyebilmeleri gerekir, bağlantı kullanılamaz olur, bu nedenle, kapasite fatura modelini tek seçenektir. 
+Ya da seçebilirsiniz **ödeme olarak,-kullanımlı** veya **kapasite** faturalama modeli. Ödeme olarak,-kullanımlı faturalama modeli dağıtımları için bir bağlantı üzerinden Azure 30 günde en az bir kez rapor kullanımına sahip olması gerekir. Bu nedenle, ödeme olarak,-kullanımlı fatura modelini yalnızca bağlı dağıtımlar için kullanılabilir.  
 
 ### <a name="pay-as-you-use"></a>Ödeme olarak-size-kullanımı
 Ödeme olarak,-kullanımlı fatura modeliyle bir Azure aboneliğine kullanım ücretlendirilir. Yalnızca Azure yığın Hizmetleri kullandığınızda ücret ödersiniz. Bu, karar modeli ise, bir Azure aboneliği ve bu abonelikle ilişkili hesap kimliği gerekir (örneğin, serviceadmin@contoso.onmicrosoft.com). EA, CSP ve CSL abonelikleri desteklenir. Kullanım raporlaması sırasında yapılandırılır [Azure yığın kayıt](azure-stack-registration.md).

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure yığın güvenlik duvarı tümleştirmesi
 Güvenli Azure yığın yardımcı olmak için bir güvenlik duvarı cihazı kullanmanız önerilir. Güvenlik duvarları ile dağıtılmış hizmet engelleme (DDOS) saldırıları, izinsiz giriş algılama ve içerik denetimi gibi yardımcı olmakla birlikte, aynı zamanda BLOB'lar, tablolar ve Kuyruklar gibi Azure storage Hizmetleri için bir işleme ayak haline gelebilir.
@@ -41,7 +41,7 @@ Bazı ortak VIP için NAT kullanarak olumsuzlukları şunlardır:
 - Azure ile karma bulut senaryosu için Azure VPN tüneli için NAT'ı kullanarak bir uç nokta ayarlamayı desteklemiyor göz önünde bulundurun.
 
 ### <a name="ssl-decryption"></a>SSL şifre çözme
-Şu anda SSL şifre çözme üzerinde Bizim önerimiz tüm Azure yığın trafiği devre dışı bırakmak için gelecekte biz SSL şifre çözme için Azure yığınına etkinleştirme hakkında kılavuzluk sağlar.
+Şu anda tüm Azure yığın trafiği SSL şifre çözme devre dışı bırakmak için önerilir. Gelecekteki güncelleştirmeleri destekleniyorsa, SSL şifre çözme Azure yığınının etkinleştirme hakkında yönergeler sağlanacaktır.
 
 ## <a name="edge-firewall-scenario"></a>Sınır güvenlik duvarı senaryosu
 Bir sınır dağıtımında Azure yığın doğrudan sınır yönlendiricisi veya güvenlik duvarının arkasındaysa dağıtılır. Bu senaryolarda, kenarlığın ya da eşit maliyet çoklu yol (ECMP) BGP veya statik yönlendirme ile destekliyorsa, sınır cihazı olarak işlev gören üstünde olacak şekilde Güvenlik Duvarı'nda desteklenmiyor.

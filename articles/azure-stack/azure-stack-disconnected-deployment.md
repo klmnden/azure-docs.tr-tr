@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planlama kararları Azure yığınının azure bağlantısı kesilmiş dağıtım sistemleri tümleşik
-Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-deployment-decisions.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
+Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-connection-models.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
 
 Bağlantısı kesilmiş olan Azure dağıtım seçeneği, dağıtmak ve Internet bağlantısı olmadan Azure yığın kullanın. Ancak, bağlantısı kesilmiş bir dağıtım ile bir AD FS kimlik deposu ve kapasite tabanlı faturalama modeli sınırlıdır. 
 
@@ -34,7 +34,7 @@ Gerekirse bu seçeneği belirleyin:
 > [!TIP]
 > Bazı durumlarda, bu tür bir ortamda aynı zamanda "Denizaltı senaryo" olarak adlandırılır.
 
-Bağlantısı kesilmiş bir dağıtım kesinlikle, daha sonra Azure yığın Örneğiniz için Azure karma Kiracı VM senaryoları için bağlanamadığınızı anlamına gelmez. Dağıtım sırasında Azure bağlantısı yoksa veya Azure Active Directory kimlik deposu olarak kullanmak istemediğiniz anlamına gelir. Ancak, Azure, kimlik deposu olarak kullanmak istediğiniz bağımsız olarak dağıtımdan sonra bağlantınız istiyorsanız Azure dağıtım seçeneği Bağlan seçmeniz gerekir. 
+Bağlantısı kesilmiş bir dağıtım kesinlikle, daha sonra Azure yığın Örneğiniz için Azure karma Kiracı VM senaryoları için bağlanamadığınızı anlamına gelmez. Dağıtım sırasında Azure bağlantısı yoksa veya Azure Active Directory kimlik deposu olarak kullanmak istemediğiniz anlamına gelir.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Engelli veya kullanılamaz durumda bağlantısı kesilmiş dağıtımları özellikleri 
 Azure yığın bazı özellikleri ve işlevleri engelli ya da bağlantısı kesilmiş modunda tamamen kullanılamaz olduğunu dikkate almak önemlidir Azure'a bağlıyken en iyi çalışacak şekilde tasarlanmıştır. 

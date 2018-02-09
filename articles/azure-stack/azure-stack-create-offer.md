@@ -3,8 +3,8 @@ title: "Bir teklifi Azure yığınında oluşturun | Microsoft Docs"
 description: "Bulut Yöneticisi olarak, kullanıcılarınız için bir teklif Azure yığınında oluşturmayı öğrenin."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
-ms.author: erikje
-ms.openlocfilehash: 269a6106f657536ba74be366f842b2f9cd86c5dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/06/2018
+ms.author: brenduns
+ms.openlocfilehash: 2666aacbbaf44ae9b3bcf2df480e835457e6f449
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack'te teklif oluşturma
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 10/11/2017
 1. Azure yığın Yönetici portalı (https://adminportal.local.azurestack.external) oturum açma > tıklatın **yeni** > **Kiracı sunar + planları**  >   **Teklif**.
 
    ![](media/azure-stack-create-offer/image01.png)
-2. İçinde **yeni teklif** dikey penceresinde, doldurun **görünen adı** ve **kaynak adı**ve ardından yeni veya varolan bir seçin **kaynak grubu**. Görünen ad teklif ait kolay ad ve abone olurken kullanıcıların göreceği teklif hakkında bilgiler. Bu nedenle, hangi teklifi geldiğini anlamak kullanıcı yardımcı olan bir sezgisel adı kullandığınızdan emin olun. Kaynak Adını yalnızca yönetici görebilir. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
+2. İçinde **yeni teklif** bölmesinde, doldurun **görünen adı** ve **kaynak adı**ve ardından yeni veya varolan bir seçin **kaynak grubu**. Görünen ad, teklifin kolay addır. Abone olurken kullanıcıları görmek teklif hakkında bilgiler yalnızca bu kolay addır. Bu nedenle, hangi teklifi geldiğini anlamak kullanıcı yardımcı olan bir sezgisel adı kullandığınızdan emin olun. Kaynak Adını yalnızca yönetici görebilir. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
 
    ![](media/azure-stack-create-offer/image01a.png)
-3. **Base plans** (Temel planlar) seçeneğine tıklayın ve **Plan** dikey penceresinde teklife eklemek istediğiniz planları seçip **Select** (Seç) öğesine tıklayın. Teklifi oluşturmak için **Create** (Oluştur) seçeneğine tıklayın.
+3. Tıklatın **temel planları** açmak için **planlama** bölmesinde teklife dahil ve ardından istediğiniz planı seçin **seçin**. Teklifi oluşturmak için **Create** (Oluştur) seçeneğine tıklayın.
 
    ![](media/azure-stack-create-offer/image02.png)
 4. Tıklatın **tüm kaynakları**, arama yeni teklifiniz için yeni teklifini tıklatın, **durum değiştirme**ve ardından **ortak**.
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 Teklifler, kullanıcıların abone olurken tam görünümünü almak için genel yapılmalıdır. Teklifler olabilir:
 
 * **Ortak**: kullanıcılar için görünür.
-* **Özel**: Bulut yöneticileri yalnızca görünür. Plan veya teklif taslağı oluşturma sırasında kullanışlı veya Bulut Yöneticisi her abonelik onaylanacak isterse.
+* **Özel**: Bulut yöneticileri yalnızca görünür. Plan veya teklif taslağı oluşturma sırasında kullanışlı veya Bulut Yöneticisi istiyorsa, [kullanıcılar için her Abonelik Oluştur](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
 * **Yetkisi Alınmış**: Yeni abonelere kapalıdır. Bulut yöneticisine kullanabilirsiniz gelecekteki abonelikleri engellemek, ancak geçerli aboneleri dokunulmadan bırakmak için yetkisi alınmış.
 
 Teklif değişiklikleri kullanıcıya hemen görünür değildir. Değişiklikleri görmek için "abonelik Seçici" Yeni Abonelik görmek için oturum kapatma/oturum açma gerekebilir kaynakları/kaynak grupları oluştururken.
@@ -53,4 +53,5 @@ Teklif değişiklikleri kullanıcıya hemen görünür değildir. Değişiklikle
 
 
 ### <a name="next-steps"></a>Sonraki adımlar
-[Teklife abone ve bir VM sağlama](azure-stack-subscribe-plan-provision-vm.md)
+[Abonelikleri oluşturma](azure-stack-subscribe-plan-provision-vm.md)      
+[Sanal makine sağlama](azure-stack-provision-vm.md)
