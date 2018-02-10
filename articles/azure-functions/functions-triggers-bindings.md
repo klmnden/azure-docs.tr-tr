@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -483,6 +483,12 @@ C# ve diğer .NET dilleri bildirim temelli bağlamaları aksine bir kesinlik tem
 ## <a name="functionjson-file-schema"></a>Function.JSON dosyası şeması
 
 *Function.json* dosyası şeması şu adreste [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="handling-binding-errors"></a>Bağlama hataları işleme
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
+İşlevleri tarafından desteklenen çeşitli hizmetler için tüm ilgili hata konulara bağlantılar için bkz: [hata kodları bağlama](functions-bindings-error-pages.md#binding-error-codes) bölümünü [Azure işlevleri hata işleme](functions-bindings-error-pages.md) genel bakış konusunun.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

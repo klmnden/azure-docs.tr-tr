@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>OpenShift azure'da dağıtmak için ortak önkoşulları
 
@@ -52,14 +52,14 @@ Bu kılavuz Önkoşullar ile ilişkilendirilmiş yapıların oluşturmayı açı
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
-Oturum açtığınızda, Azure aboneliğinizle [az oturum açma](/cli/azure/#login) komut ve izleyin ekrandaki yönergeleri veya tıklatın **deneyin** bulut Kabuğu'nu kullanmak için.
+Oturum açtığınızda, Azure aboneliğinizle [az oturum açma](/cli/azure/#az_login) komut ve izleyin ekrandaki yönergeleri veya tıklatın **deneyin** bulut Kabuğu'nu kullanmak için.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Anahtar kasası barındırmak için adanmış bir kaynak grubu kullanın. Bu grubun içine OpenShift küme kaynaklarını dağıtma kaynak grubundan ayrıdır. 
+[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Anahtar kasası barındırmak için adanmış bir kaynak grubu kullanın. Bu grubun içine OpenShift küme kaynaklarını dağıtma kaynak grubundan ayrıdır. 
 
 Aşağıdaki örnek, bir kaynak grubu oluşturur *keyvaultrg* içinde *eastus* konumu:
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
-Küme için SSH anahtarları depolamak için bir anahtar kasası oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) komutu. Anahtar kasası adı genel olarak benzersiz olmalıdır.
+Küme için SSH anahtarları depolamak için bir anahtar kasası oluşturma [az keyvault oluşturma](/cli/azure/keyvault#az_keyvault_create) komutu. Anahtar kasası adı genel olarak benzersiz olmalıdır.
 
 Aşağıdaki örnek adlı bir anahtar kasası oluşturur *keyvault* içinde *keyvaultrg* kaynak grubu:
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma 
 OpenShift, bir kullanıcı adı ve parola veya bir hizmet sorumlusu kullanarak Azure ile iletişim kurar. Bir Azure hizmet sorumlusu uygulamaları, hizmetleri ve OpenShift gibi Otomasyon araçları ile birlikte kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hangi işlemleri için hizmet sorumlusu Azure'da gerçekleştirebilirsiniz izinleri tanımlayın. Yalnızca bir kullanıcı adı ve parola sağlayarak ötesinde güvenliğini artırmak için bu örnek temel bir hizmet sorumlusu oluşturur.
 
-Bir hizmet sorumlusu ile oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) ve OpenShift gereken kimlik bilgilerini çıktı.
+Bir hizmet sorumlusu ile oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) ve OpenShift gereken kimlik bilgilerini çıktı.
 
 Aşağıdaki örnek, bir hizmet sorumlusu oluşturur ve katkıda bulunan izinleri myResourceGroup adlı bir kaynak grubuna atar. Windows kullanıyorsanız, yürütme ```az group show --name myResourceGroup --query id``` ayrı ayrı ve çıkış akışı kapsam seçeneği.
 

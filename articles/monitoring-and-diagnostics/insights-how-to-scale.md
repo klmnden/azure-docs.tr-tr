@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Örnek sayısı el ile veya otomatik olarak ölçeklendirme
 İçinde [Azure Portal](https://portal.azure.com/), hizmetiniz örnek sayısını elle ayarlayabilirsiniz veya, parametreleri sağlamak için talebe göre ölçeklendirin otomatik olarak ayarlayabilirsiniz. Bu tipik olarak adlandırılır *ölçeğini* veya *içinde ölçeklendirmek*.
@@ -30,7 +30,7 @@ Portalda ölçeklendirebilirsiniz ve aynı zamanda [REST API](https://msdn.micro
 ## <a name="scaling-manually"></a>El ile ölçeklendirme
 1. İçinde [Azure Portal](https://portal.azure.com/), tıklatın **Gözat**, gibi ölçeklendirmek istediğiniz kaynak gidin bir **uygulama hizmeti planı**.
 2. Tıklatın **ayarlar > Ölçek genişletme (uygulama hizmeti planı).**
-3. Üstündeki **ölçek** dikey hizmetinin otomatik ölçeklendirme eylemleri geçmişini görebilirsiniz.
+3. Üstündeki **ölçek** dikey penceresinde, **çalıştırma geçmişi** sekmesinde otomatik ölçeklendirme eylemleri hizmetinin geçmişini görebilirsiniz.
    
     ![Ölçek dikey penceresi](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Portalda ölçeklendirebilirsiniz ve aynı zamanda [REST API](https://msdn.micro
    > Otomatik ölçeklendirme tarafından gerçekleştirilen eylemler Bu grafikte gösterir. Örnek sayısı el ile ayarlarsanız bu grafikte değişiklik yansıtılmaz.
    > 
    > 
-4. Sayı el ile ayarlayabilirsiniz **örnekleri** kaydırıcı ile.
+4. Sayı el ile ayarlayabilirsiniz **örnekleri** içinde **yapılandırma** sekmesi.
 5. Tıklatın **kaydetmek** komutunu ölçeklendirilmiş bu sayıda örneğe hemen.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Üzerinde önceden ayarlanmış bir ölçümü tabanlı ölçeklendirme
@@ -97,7 +97,7 @@ Ancak, daha katı gün veya hafta sırasında daha hafta sonlarında Ölçeklend
 3. Daytime sırasında geçerli bir profil olacak şekilde ayarlanmış **başlangıç zamanı** başlangıç istediğiniz saati için.
    
     ![Varsayılan yineleme](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 5. Ardından, diğer saatlerde uygulamak istediğiniz profili eklemeniz gerekir. Tıklatın **eklemek profili** satır.
     ![İş devre dışı](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 6. Yeni, ikinci, profil adı, örneğin çağırabilirsiniz **kapalı iş**.
@@ -108,7 +108,7 @@ Ancak, daha katı gün veya hafta sırasında daha hafta sonlarında Ölçeklend
    > Otomatik ölçeklendirme Yaz Saati kuralları hangisi için kullanacağınız **saat dilimi** seçin. UTC uzaklığı temel saat dilimi konumu, gün ışığından yararlanma tasarrufları UTC uzaklığı gösterir ancak günışığından sırasında.
    > 
    > 
-9. **Tamam** düğmesine tıklayın.
+9. **Tamam**’a tıklayın.
 10. Şimdi, ikinci profilinizi sırasında uygulamak istediğiniz her kuralları eklemeniz gerekir. Tıklatın **Kuralı Ekle**, ve ardından varsayılan profil sırasında sahip aynı kuralı oluşturabilir.
     
     ![İş kapalı Kuralı Ekle](./media/insights-how-to-scale/Insights_RuleOffWork.png)

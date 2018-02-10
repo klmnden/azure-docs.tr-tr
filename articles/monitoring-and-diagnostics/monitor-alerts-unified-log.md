@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Azure İzleyicisi'nde - günlük uyarıları uyarılar (Önizleme)
 Bu makalede Azure Uyarıları'ni (Önizleme) analiz sorguları işlerinde nasıl uyarı kurallarında ayrıntılarını sağlar ve günlük uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır.
-Azure uyarıları (Önizleme), yalnızca destekler sorgularından uyarılar şu anda oturum [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) yazılmış [yeni günlük analizi sorgu dili](../log-analytics/log-analytics-log-search-upgrade.md)
+
+Azure uyarıları (Önizleme), destekler sorgularından uyarılar şu anda oturum [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) ve [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Azure uyarıları (Önizleme) - günlük uyarıları, şu anda desteklemiyor arası çalışma alanında ya da uygulama içi sorgular. 
+
+> Şu anda Azure Uyarıları'ni (Önizleme) günlük uyarıları arası çalışma alanında ya da uygulama içi sorguları desteklemez.
 
 ## <a name="log-alert-rules"></a>Günlük uyarı kuralları
 
@@ -70,7 +72,16 @@ Bazı durumlarda, bir olay olmaması durumunda bir uyarı oluşturmak isteyebili
 
 **Toplama işlevi**: belirler gerçekleştirilir hesaplama ve büyük olasılıkla bir sayısal toplama alanı.  Örneğin, **count()** sorguda, kayıt sayısını döndürür **avg(CounterValue)** aralığı içinde CounterValue alanının ortalamasını döndürür.
 
+> [!NOTE]
+
+> Sorgu toplama işlevinde adlı/adlı olmalıdır: AggregatedValue ve sayısal bir değer sağlayın.
+
+
 **Alan grup**: Bu alan her örneği için bir toplu değeri olan bir kayıt oluşturulur ve her biri için bir uyarı oluşturulabilir.  Örneğin, her bilgisayar için bir uyarı oluşturmak istiyorsanız, kullanacağınız **bilgisayar tarafından**   
+
+> [!NOTE]
+
+> Application Insights dayalı ölçüm ölçüm uyarı kuralları için verileri gruplandırmak için alan belirtebilirsiniz. Bunu yapmak için kullanın **üzerinde toplama** kural tanımı seçeneği.   
 
 **Aralığı**: üzerinden verileri toplanır zaman aralığını tanımlar.  Örneğin, belirttiğiniz **beş dakika**, bir kayıt her örneği için uyarı belirtilen zaman penceresi üzerinden 5 dakikalık aralıklarla toplanan grup alanının oluşturulması.
 
@@ -93,6 +104,6 @@ Bunlar % 90 eşiği 3 kez zaman penceresi ihlal beri bu örnekte, ayrı uyarıla
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Uyarıları'ni (Önizleme) göz atın](monitoring-overview-unified-alerts.md) 
+* [Azure Uyarıları'ni (Önizleme) göz atın](monitoring-overview-unified-alerts.md)
 * Hakkında bilgi edinin [kullanarak Azure uyarıları (Önizleme)](monitor-alerts-unified-usage.md)
 * Daha fazla bilgi edinmek [günlük analizi](../log-analytics/log-analytics-overview.md).    

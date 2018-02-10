@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ce44a5e4db080822aaec0b50a265b863059bd45a
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 2fd7be23c4146051197c4b6d7db6deb06dfa416d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM uzantısı kullanarak Azure'da bir Docker ortam oluşturma
 Docker popüler kapsayıcı yönetimi ve hızlı bir şekilde ile kapsayıcıları Linux üzerinde çalışmanıza olanak sağlar görüntüleme platform ' dir. Azure'da, sizin ihtiyaçlarınıza göre Docker dağıtabilirsiniz çeşitli yolları vardır. Bu makalede, Docker VM uzantısı ve Azure Resource Manager şablonları ile Azure CLI 2.0 kullanarak odaklanır. Bu adımları [Azure CLI 1.0](dockerextension-nodejs.md) ile de gerçekleştirebilirsiniz.
@@ -33,15 +33,15 @@ Docker makine ve Azure kapsayıcı hizmetlerini kullanma dahil farklı dağıtı
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Bir şablonu Azure Docker VM uzantısı ile dağıtma
-Şimdi yüklemek ve Docker ana yapılandırmak için Azure Docker VM uzantısını kullanan bir Ubuntu VM oluşturmak için var olan bir hızlı başlangıç şablonunu kullanın. Şablon burada görüntüleyebilirsiniz: [basit bir Ubuntu VM docker'la dağıtımını](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). En son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
+Şimdi yüklemek ve Docker ana yapılandırmak için Azure Docker VM uzantısını kullanan bir Ubuntu VM oluşturmak için var olan bir hızlı başlangıç şablonunu kullanın. Şablon burada görüntüleyebilirsiniz: [basit bir Ubuntu VM docker'la dağıtımını](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). En son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login).
 
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Ardından, bir VM'yi dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create) Azure Docker VM uzantısını içeren [github'daki bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). İstendiğinde, kendi benzersiz değerler sağlayın *newStorageAccountName*, *adminUsername*, *Admınpassword*, ve *dnsNameForPublicIP*:
+Ardından, bir VM'yi dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create) Azure Docker VM uzantısını içeren [github'daki bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). İstendiğinde, kendi benzersiz değerler sağlayın *newStorageAccountName*, *adminUsername*, *Admınpassword*, ve *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -52,7 +52,7 @@ Tamamlamak için dağıtım için birkaç dakika sürer.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>İlk NGINX kapsayıcısı dağıtma
-DNS adı dahil olmak üzere, VM ayrıntılarını görüntülemek için kullanın [az vm Göster](/cli/azure/vm#show):
+DNS adı dahil olmak üzere, VM ayrıntılarını görüntülemek için kullanın [az vm Göster](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

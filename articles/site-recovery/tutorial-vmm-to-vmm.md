@@ -1,26 +1,20 @@
 ---
-title: "Azure Site Recovery ile şirket içi siteleriniz arasında Hyper-V VM'ler için olağanüstü durum kurtarma ayarlama | Microsoft Docs"
+title: "Azure Site Recovery ile şirket içi siteler arasında Hyper-V VM'ler için olağanüstü durum kurtarma ayarlama | Microsoft Docs"
 description: "Olağanüstü durum kurtarma Hyper-V VM'ler için Azure Site Recovery ile şirket içi siteleriniz arasında öğrenin."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 65eda71c-3ca3-41bc-b02d-00fecc1557d7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 1647e9d69da3e991bec4e00b3a1083a254fa9550
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 90c0d8c4f03fab3c3932723eeed0a37cd5112615
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Olağanüstü durum kurtarma için Hyper-V Vm'lerini ikincil şirket içi sitenize ayarlayın.
+# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Olağanüstü durum kurtarma için Hyper-V sanal makineleri bir ikincil şirket içi siteye ayarlayın.
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti yönetme ve çoğaltma, yük devretme ve yeniden çalışma şirket içi makineler ve Azure sanal makineleri (VM'ler) yönetme olağanüstü durum kurtarma stratejiniz katkıda bulunur.
 
@@ -34,7 +28,7 @@ System Center Virtual Machine Manager (VMM) bulutlarında yönetilen şirket iç
 > * Çoğaltma ilkesi oluşturma
 > * Bir sanal makine için çoğaltmayı etkinleştirme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 

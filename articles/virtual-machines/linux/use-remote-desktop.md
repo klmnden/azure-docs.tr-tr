@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Yükleme ve azure'da bir Linux VM bağlanmak için Uzak Masaüstü yapılandırma
 Azure'daki Linux sanal makineleri (VM'ler) genellikle bir güvenli Kabuk (SSH) bağlantısı kullanarak komut satırından yönetilir. Linux veya hızlı sorun giderme senaryoları için yeni, Uzak Masaüstü kullanımını daha kolay olabilir. Bu makalede yüklemek ve bir masaüstü ortamını yapılandırma ayrıntıları ([xfce](https://www.xfce.org)) ve Uzak Masaüstü'nü ([xrdp](http://www.xrdp.org)) Resource Manager dağıtım modeli kullanarak, Linux VM için.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, azure'da var olan bir Linux VM gerektirir. Bir VM oluşturmanız gerekiyorsa, aşağıdaki yöntemlerden birini kullanın:
 
 - [Azure CLI 2.0](quick-create-cli.md)
@@ -85,7 +85,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Uzak Masaüstü trafiği için ağ güvenlik grubu kural oluşturma
 Grup Kuralı gereksinimlerini, oluşturulacak Linux VM, ağ güvenliği ulaşmak Uzak Masaüstü trafiğine izin vermek için VM ulaşmak TCP bağlantı noktası 3389 sağlar. Ağ güvenlik grubu kuralları hakkında daha fazla bilgi için bkz: [bir ağ güvenlik grubu nedir?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Ayrıca [bir ağ güvenlik grubu kural oluşturmak için Azure portal'ı kullanmanızı](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Aşağıdaki örnek, bir ağ güvenlik grubu kural ile oluşturur [az vm Aç-port](/cli/azure/vm#open-port) bağlantı noktasında *3389*.
+Aşağıdaki örnek, bir ağ güvenlik grubu kural ile oluşturur [az vm Aç-port](/cli/azure/vm#az_vm_open_port) bağlantı noktasında *3389*.
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

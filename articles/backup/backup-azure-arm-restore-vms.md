@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineler geri yüklemek için Azure portalını kullanın
 Verilerinizin anlık görüntüleri tanımlanan aralıklarla gerçekleştirerek verilerinizi koruyun. Bu anlık görüntüleri kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarının depolandıkları. Onarmak veya bir sanal makine (VM) yeniden oluşturmak gerekliyse, kaydedilmiş kurtarma noktaları hiçbirini VM geri yükleyebilirsiniz. Bir kurtarma noktası geri yüklediğinizde, şunları yapabilirsiniz:
@@ -104,7 +104,7 @@ Geri yükleme noktası seçtikten sonra bir VM geri yükleme yapılandırması s
 
    * **Disklerini geri yükle**
 
-Portal sağlayan bir **hızlı Oluştur** geri yüklenen VM için seçeneği. VM yapılandırması veya yeni bir VM seçenek oluşturulmasının parçası olarak oluşturulan kaynakların adları özelleştirmek için yedeklenen diskleri geri yüklemek için PowerShell veya portal'ı kullanın. İçin tercih ettiğiniz bir VM yapılandırmasına eklemek için PowerShell komutlarını kullanın. Veya, geri yüklenen VM özelleştirmek için geri yüklenen disklerle gelen şablonu kullanabilirsiniz. Bir yük dengeleyici veya birden çok NIC sahip bir VM geri yükleme hakkında daha fazla bilgi için bkz: [özel ağ yapılandırmaları olan bir VM geri](#restore-a vm-with-special-network-configurations). Windows VM kullanıyorsa [HUB lisans](../virtual-machines/windows/hybrid-use-benefit-licensing.md), diskleri geri yükleme ve VM oluşturmak için bu makalede belirtilen PowerShell/şablonu kullanın. Belirttiğinizden emin olun **lisans türü** "HUB faydaları geri yüklenen VM üzerine kullanılabilir kredi VM oluştururken Windows_Server" olarak. 
+Portal sağlayan bir **hızlı Oluştur** geri yüklenen VM için seçeneği. VM yapılandırması veya yeni bir VM seçenek oluşturulmasının parçası olarak oluşturulan kaynakların adları özelleştirmek için yedeklenen diskleri geri yüklemek için PowerShell veya portal'ı kullanın. İçin tercih ettiğiniz bir VM yapılandırmasına eklemek için PowerShell komutlarını kullanın. Veya, geri yüklenen VM özelleştirmek için geri yüklenen disklerle gelen şablonu kullanabilirsiniz. Bir yük dengeleyici veya birden çok NIC sahip bir VM geri yükleme hakkında daha fazla bilgi için bkz: [özel ağ yapılandırmaları olan bir VM geri](#restore-vms-with-special-network-configurations). Windows VM kullanıyorsa [HUB lisans](../virtual-machines/windows/hybrid-use-benefit-licensing.md), diskleri geri yükleme ve VM oluşturmak için bu makalede belirtilen PowerShell/şablonu kullanın. Belirttiğinizden emin olun **lisans türü** "HUB faydaları geri yüklenen VM üzerine kullanılabilir kredi VM oluştururken Windows_Server" olarak. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Bir geri yükleme noktasından yeni bir VM oluşturun
 1. Zaten orada değilseniz [bir geri yükleme noktası seçin](#restore-a vm-with-special-network-configurations) bir geri yükleme noktasından yeni bir VM oluşturmaya başlamadan önce. Bir geri yükleme noktası seçtikten sonra **geri yükleme yapılandırmasını** dikey penceresinde girin veya seçin değerleri aşağıdaki alanların her biri için:

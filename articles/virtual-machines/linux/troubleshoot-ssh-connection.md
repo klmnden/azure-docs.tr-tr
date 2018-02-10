@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: edf21d59bf3916a014706c2a298536262906fbf7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Bir Azure Linux VM, hatalar, başarısız olur veya reddedilir SSH bağlantı sorunlarını giderme
 Güvenli Kabuk (SSH), SSH bağlantı hataları hatalarla veya bir Linux sanal makine (VM) bağlanmaya çalıştığınızda SSH reddetti çeşitli nedenleri vardır. Bu makalede bulmanıza ve sorunları düzeltin yardımcı olur. Azure portalı, Azure CLI ya da Linux VM erişim uzantısını ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -70,20 +70,20 @@ Mevcut bir kullanıcının kimlik bilgilerini sıfırlamak için ya da seçin `R
 Bu menüden VM sudo ayrıcalıklarına sahip bir kullanıcı da oluşturabilirsiniz. Yeni kullanıcı adı ve ilişkili parolayı veya SSH anahtarını girin ve ardından **sıfırlama** düğmesi.
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
-Henüz yapmadıysanız, en son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login).
+Henüz yapmadıysanız, en son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login).
 
 Oluşturulan ve özel Linux disk görüntü karşıya emin olun [Microsoft Azure Linux Aracısı](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sürüm 2.0.5 veya üstü yüklü. Galeri görüntüleri kullanılarak oluşturulan VM'ler için bu erişim uzantısı zaten yüklenmiş ve sizin için yapılandırılmış.
 
 ### <a name="reset-ssh-configuration"></a>SSH yapılandırmasını sıfırlayın
 Başlangıçta yapabilecekleriniz SSH yapılandırmasını varsayılan değerlere sıfırlanıyor ve VM SSH sunucusunda yeniden deneyin. Bu kullanıcı hesabı adı, parola veya SSH anahtarları değiştirmez olduğunu unutmayın.
-Aşağıdaki örnek kullanır [az vm kullanıcı sıfırlama-ssh](/cli/azure/vm/user#reset-ssh) adlı VM üzerinde SSH yapılandırmasını sıfırlamak için `myVM` içinde `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
+Aşağıdaki örnek kullanır [az vm kullanıcı sıfırlama-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) adlı VM üzerinde SSH yapılandırmasını sıfırlamak için `myVM` içinde `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Bir kullanıcının SSH kimlik bilgilerini sıfırlama
-Aşağıdaki örnek kullanır [az vm kullanıcı güncelleştirme](/cli/azure/vm/user#update) kimlik bilgilerini sıfırlamak için `myUsername` belirtilen değere `myPassword`, adlı VM üzerinde `myVM` içinde `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
+Aşağıdaki örnek kullanır [az vm kullanıcı güncelleştirme](/cli/azure/vm/user#az_vm_user_update) kimlik bilgilerini sıfırlamak için `myUsername` belirtilen değere `myPassword`, adlı VM üzerinde `myVM` içinde `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -109,7 +109,7 @@ Adlı bir dosya oluşturun `settings.json` aşağıdaki içeriğe sahip:
 }
 ```
 
-Azure CLI kullanarak, ardından çağırırsınız `VMAccessForLinux` json dosyanız belirterek SSHD bağlantınızı sıfırlamaya uzantısı. Aşağıdaki örnek kullanır [az vm uzantısı kümesi](/cli/azure/vm/extension#set) SSHD adlı VM üzerinde sıfırlamak için `myVM` içinde `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
+Azure CLI kullanarak, ardından çağırırsınız `VMAccessForLinux` json dosyanız belirterek SSHD bağlantınızı sıfırlamaya uzantısı. Aşağıdaki örnek kullanır [az vm uzantısı kümesi](/cli/azure/vm/extension#az_vm_extension_set) SSHD adlı VM üzerinde sıfırlamak için `myVM` içinde `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Aşağıdaki örnek kullanır [az vm yeniden başlatma](/cli/azure/vm#restart) adlı VM'yi yeniden başlatmak için `myVM` kaynak grubunda adlı `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
+Aşağıdaki örnek kullanır [az vm yeniden başlatma](/cli/azure/vm#az_vm_restart) adlı VM'yi yeniden başlatmak için `myVM` kaynak grubunda adlı `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -219,7 +219,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Aşağıdaki örnek kullanım [az vm dağıtın](/cli/azure/vm#redeploy) adlı VM yeniden dağıtmak için `myVM` kaynak grubunda adlı `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
+Aşağıdaki örnek kullanım [az vm dağıtın](/cli/azure/vm#az_vm_redeploy) adlı VM yeniden dağıtmak için `myVM` kaynak grubunda adlı `myResourceGroup`. Kendi değerlerinizi aşağıdaki şekilde kullanın:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

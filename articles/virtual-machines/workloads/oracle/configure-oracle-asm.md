@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinede Oracle ASM ayarlayın  
 
@@ -35,13 +35,13 @@ Azure sanal makineler tam olarak yapılandırılabilir ve esnek bir bilgi işlem
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Ortamı hazırlama
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bir kaynak grubu oluşturmak için kullanın [az grubu oluşturma](/cli/azure/group#create) komutu. Bir Azure kaynak grubu hangi Azure kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. Bu örnekte, bir kaynak grubu adında *myResourceGroup* içinde *eastus* bölge.
+Kaynak grubu oluşturmak için [az group create](/cli/azure/group#az_group_create) komutunu kullanın. Bir Azure kaynak grubu hangi Azure kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. Bu örnekte, bir kaynak grubu adında *myResourceGroup* içinde *eastus* bölge.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>VM oluşturma
 
-Oracle veritabanı görüntüyü temel alarak bir sanal makine oluşturun ve Oracle ASM kullanacak şekilde yapılandırmak için kullanın [az vm oluşturma](/cli/azure/vm#create) komutu. 
+Oracle veritabanı görüntüyü temel alarak bir sanal makine oluşturun ve Oracle ASM kullanacak şekilde yapılandırmak için kullanın [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
 
 Aşağıdaki örnek, bir Standard_DS2_v2 boyutu 50 GB dört eklenen veri disklerini ile myVM adlı VM oluşturur. Varsayılan anahtar konumunda Bunlar zaten yoksa, ayrıca SSH anahtarları oluşturur.  Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0107c0e02e7158ad73671ae8e4599e1e998f20fc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2682b6d149fc9a8b1a1a70351ea90fbd701dd4ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Azure Data Factory kullanarak Spark'tan veri kopyalama 
 
@@ -52,7 +52,7 @@ Aşağıdaki özellikleri, bağlantılı Spark hizmeti için desteklenir:
 | thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, ** HTTP ** | Hayır |
 | authenticationType | Spark sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler: **anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | kullanıcı adı | Spark sunucusuna erişmek için kullandığınız kullanıcı adı.  | Hayır |
-| password | Bu alan ADF, içinde güvenli bir şekilde depolamak veya Azure anahtar kasası Parolada depolamak ve veri kopyalama - gerçekleştirirken buradan kopyalama etkinliği çekme izin vermek için bir SecureString olarak işaretlemek seçebilirsiniz kullanıcı adı alanında sağlanan kullanıcı adı için karşılık gelen parola ö Daha fazla kaydırmayı [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
+| password | Kullanıcıya karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | httpPath | Spark sunucuya karşılık gelen kısmi URL'si.  | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanılarak şifrelenir olup olmadığını belirtir. Varsayılan değer false.  | Hayır |
 | trustedCertPath | Sunucu SSL üzerinden bağlanırken doğrulamak için güvenilen CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik yalnızca SSL üzerinde kendini barındıran IR kullanırken ayarlanabilir Varsayılan değer ile IR yüklü cacerts.pem dosyasıdır  | Hayır |
@@ -104,7 +104,7 @@ Spark'tan veri kopyalamak için veri kümesi için tür özelliği ayarlamak **S
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Spark kaynak tarafından desteklenen özellikler listesini sağlar.
 

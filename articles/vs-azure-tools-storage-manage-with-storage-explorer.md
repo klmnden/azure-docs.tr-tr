@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile çalışmaya başlama
 ## <a name="overview"></a>Genel Bakış
@@ -239,6 +239,20 @@ Bir bağlantı dizesi kullanmak için bir Azure Cosmos DB bağlayan alternatif b
 
     ![bağlantı dizesi][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Azure Data Lake Store URI tarafından bağlanın
+Aboneliğinizde var olmadığından kaynaklar için erişim almak istiyorsanız. Ancak, diğerleri URI kaynaklarını almanızı verin. Bu durumda, oturum açtıktan sonra URI'ı kullanarak Data Lake Store'a bağlanabilir. Adımları bakın.
+1. Depolama Gezgini’ni (Önizleme) açın.
+2. Sol bölmede **yerel ve iliştirildiği**.
+3. Sağ **Data Lake Store**ve - bağlam menüsünden - seçin **Data Lake Store Bağlan...** .
+
+    ![Data Lake Store bağlam menüsü Bağlan](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Girdiğiniz URL konumuna aracı gider sonra URI girin.
+
+    ![Data Lake Store bağlam iletişim kutusuna bağlanın](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![Data Lake Store sonucu Bağlan](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Depolama hesapları arama
 Depolama kaynağı bulmanız gerekiyorsa ve olduğu bilmiyorsanız, kaynağı aramak için sol bölmenin en üstünde arama kutusunu kullanabilirsiniz.
 
@@ -254,6 +268,7 @@ Arama kutusuna yazarken sol bölmede, bu noktaya kadar girdiğiniz arama değeri
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Depolama Gezgini (Önizleme) ile Azure Blob Depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
 * [Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme](./cosmos-db/storage-explorer.md)
+* [Depolama Gezgini (Önizleme) ile Azure Data Lake Store kaynaklarını yönetme](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png
