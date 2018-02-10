@@ -3,7 +3,7 @@
 ## [Event Hubs özellikleri](event-hubs-features.md)
 ## [SSS](event-hubs-faq.md)
 
-# Başlarken
+# Hızlı Başlangıçlar
 ## [Olay Hub’ı oluşturma](event-hubs-create.md)
 ## Olayları gönderme
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)

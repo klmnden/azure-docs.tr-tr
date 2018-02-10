@@ -359,6 +359,8 @@
           items:
             - name: Örnek uygulamayı dağıtma
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Kiracı sağlama
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Kiracı başına veritabanı
           href: saas-dbpertenant-wingtip-app-overview.md
           items:

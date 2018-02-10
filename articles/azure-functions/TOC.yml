@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Visual Studio geliştirme
           href: functions-develop-vs.md
+        - name: Hata işleme
+          href: functions-bindings-error-pages.md
     - name: Dağıtma
       items:
         - name: Sürekli dağıtım

@@ -2,7 +2,7 @@
 ## [Geçiş Nedir?](relay-what-is-it.md)
 ## [SSS](relay-faq.md)
 
-# Kullanmaya Başlama
+# Hızlı Başlangıçlar
 ## [Ad alanı oluşturma](relay-create-namespace-portal.md)
 ## [Karma şirket içi/bulut uygulaması oluşturma](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Karma Bağlantılar
@@ -12,7 +12,7 @@
 ## [WCF Geçişi öğreticisi](service-bus-relay-tutorial.md)
 ## [WCF Geçişi REST öğreticisi](service-bus-relay-rest-tutorial.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Kimlik doğrulama ve güvenlik](relay-authentication-and-authorization.md)
 #### [ACS’den SAS’ye geçiş](relay-migrate-acs-sas.md)
@@ -21,14 +21,14 @@
 ### [Kullanılabilir API’ler](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
-## Yönet
+## Yönetme
 ### [Azure İzleyici ile Azure Geçişi’ni izleme](relay-metrics-azure-monitor.md)
 
 # Başvuru
 ## .NET
 ### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 ### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
-## [Özel Durumlar](relay-exceptions.md)
+## [Özel durumlar](relay-exceptions.md)
 ## [Bağlantı noktası ayarları](relay-port-settings.md)
 
 # Kaynaklar

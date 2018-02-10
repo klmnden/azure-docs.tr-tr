@@ -360,6 +360,7 @@
           href: spark-connector-graph.md
         - name: HDInsight üzerinde Kafka ve Spark ile akış yapma
           href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Azure Uygulama Hizmeti ile web sitesi dağıtma
           href: create-website.md
         - name: Logic Apps ile uygulama günlüğü kaydı
