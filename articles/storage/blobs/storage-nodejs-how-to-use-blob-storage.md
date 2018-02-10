@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Node.js’den Blob Storage kullanma
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,7 +33,7 @@ Bu makalede, Blob storage kullanarak yaygın senaryolar gerçekleştirme göster
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
-Bir Node.js uygulaması oluşturma hakkında daha fazla yönerge için bkz. [oluşturma Azure App Service'te Node.js web uygulamasına] [derleme ve Azure bulut hizmeti bir Node.js uygulamasını dağıtma](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) --Windows PowerShell kullanarak veya [derleme ve Web Matrix Azure'u Node.js web uygulamasına dağıtma](https://www.microsoft.com/web/webmatrix/).
+Bir Node.js uygulaması oluşturma hakkında daha fazla yönerge için bkz: [Azure App Service'te bir Node.js web uygulaması oluşturma](../../app-service/app-service-web-get-started-nodejs.md), [derleme ve Azure bulut hizmeti bir Node.js uygulamasını dağıtma](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) --Windows PowerShell kullanarak veya [derleme ve Web Matrix Azure'u Node.js web uygulamasına dağıtma](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Depolama alanına erişmek için uygulamanızı yapılandırın
 Azure depolama kullanmak için bir dizi depolama REST Hizmetleri ile iletişim kolaylık kitaplıkları içerir Node.js için Azure depolama SDK'sı gerekir.
@@ -90,7 +90,7 @@ blobSvc.createContainerIfNotExists('mycontainer', function(error, result, respon
 
 Kapsayıcı yeni oluşturduysanız, `result.created` doğrudur. Kapsayıcı zaten varsa, `result.created` false olur. `response`kapsayıcı ETag bilgiler dahil olmak üzere işlemi hakkında bilgiler içerir.
 
-### <a name="container-security"></a>Kapsayıcı güvenlik
+### <a name="container-security"></a>Kapsayıcı güvenliği
 Varsayılan olarak yeni kapsayıcı özeldir ve anonim olarak erişilemez. Böylece anonim olarak erişebilir kapsayıcı genel hale getirmek üzere, kapsayıcının erişim düzeyini ayarlayabilir **blob** veya **kapsayıcı**.
 
 * **BLOB** -blob içeriğinin ve bu kapsayıcı içindeki meta verileri, ancak bir kapsayıcıdaki tüm blob'lara listeleme gibi değil kapsayıcı meta verileri için anonim okuma erişimi sağlar
@@ -212,7 +212,7 @@ Bir sayfa blob'u verileri yüklemek için aşağıdakileri kullanın:
 * **createPageBlob** -belirli bir uzunlukta yeni bir sayfa blob'u oluşturur
 * **createPageBlobFromLocalFile** - yeni bir sayfa blob'u oluşturur ve bir dosyanın içeriğini yükler
 * **createPageBlobFromStream** - yeni bir sayfa blob'u oluşturur ve bir akış içeriğini yükler
-* **createWriteStreamToExistingPageBlob** -mevcut bir sayfa blobu yazma akışına sağlar
+* **createWriteStreamToExistingPageBlob** - provides a write stream to an existing page blob
 * **createWriteStreamToNewPageBlob** - yeni bir sayfa blob'u oluşturur ve ardından ona yazmak için bir akış sağlar
 
 Aşağıdaki kod örneğinde yükleyen içeriğini **sınama.txt** içine dosya **mypageblob**.
@@ -423,6 +423,6 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın.
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
-[Derleme ve Azure bulut hizmeti bir Node.js uygulamasını dağıtma](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Bir Node.js uygulaması derleme ve Azure Bulut Hizmeti’ne dağıtma](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Azure depolama ekibi blogu]: http://blogs.msdn.com/b/windowsazurestorage/  
 [Azure Depolama düğümü API Başvurusu için SDK]: http://dl.windowsazure.com/nodestoragedocs/index.html  
