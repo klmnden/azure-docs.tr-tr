@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyumluluk düzeyi
  
@@ -46,18 +46,21 @@ Uyumluluk düzeyi 1.1 aşağıdaki önemli değişiklikler yapılmıştır:
 
   * **Önceki sürümler:** Azure akış analizi DataContractSerializer, ileti içeriği XML etiketleri dahil şekilde kullanılır. Örneğin:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{"SensorId": "1", "Sıcaklık": 64\}\u0001 
+   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
 
   * **Geçerli sürüm:** ileti içeriği ek etiket ile doğrudan bir akış içeriyor. Örneğin:
   
-   {"SensorId": "1", "Sıcaklık": 64} 
+   { “SensorId”:”1”, “Temperature”:64} 
  
 * **Kalıcı büyük küçük harf duyarlılığı bir alan adları**  
 
   * **Önceki sürümler:** alan adları için Azure Stream Analytics altyapısı tarafından işlendiğinde küçük harflere değiştirildi. 
 
   * **Geçerli sürüm:** Azure akış analizi altyapısı tarafından işlendiğinde alan adları için büyük küçük harf duyarlılığı kalıcıdır. 
- 
+
+  > [!NOTE] 
+  > Kalıcı duyarlılık henüz Edge ortamı kullanarak barındırılan akış analitik işleri için kullanılamaz. Sonuç olarak, işinizi kenarına barındırılıyorsa tüm alan adlarının küçük harflere dönüştürülür. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **Önceki sürümler:** CREATE TABLE komutu NaN (bir sayı değil olaylarla değil filtre. Örneğin, sonsuzluk, - sonsuz) FLOAT sütunda bu sayılar için belgelenen aralık dışında olduğundan yazın.

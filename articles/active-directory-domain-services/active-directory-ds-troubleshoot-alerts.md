@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD etki alanı Hizmetleri - sorun giderme uyarıları
 Bu makalede, yönetilen etki alanınızda karşılaşabileceğiniz herhangi bir uyarı için sorun giderme kılavuzları sağlar.
@@ -75,6 +75,11 @@ Hizmetinizi geri yüklemek için aşağıdaki adımları izleyin:
 
 Başlamadan önce okuyun **özel IP v4 adresi alanı** bölümüne [bu makalede](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
+Sanal ağ içinde makineler istekleri aynı IP adresi aralığında bu alt ağ için yapılandırılmış olarak Azure kaynaklarına kalmasına neden olabilir. Ancak, sanal ağ bu aralık için yapılandırıldıktan sonra bu istekleri sanal ağ içindeki yönlendirilir ve hedeflenen web kaynakları ulaşmaz. Bu, Azure AD etki alanı Hizmetleri ile beklenmeyen hatalara yol açabilir.
+
+**Sanal ağınızda yapılandırılmış internet IP adresi aralığında sahipseniz, bu uyarıyı göz ardı edilebilir. Ancak, Azure AD etki alanı Hizmetleri için gönderilemiyor [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] beklenmeyen hatalara yol açabilir beri bu yapılandırmaya sahip.**
+
+
 1. [Yönetilen etki alanınızı silme](active-directory-ds-disable-aadds.md) dizininizden.
 2. Alt ağ için IP adresi aralığı Düzelt
   1. Gidin [sanal ağlar Azure portal sayfasında](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
@@ -86,7 +91,7 @@ Başlamadan önce okuyun **özel IP v4 adresi alanı** bölümüne [bu makalede]
   7. Adres aralığı güncelleştirin ve değişikliklerinizi kaydedin.
 3. İzleyin [alma başlatıldı kullanarak Azure AD etki alanı Hizmetleri Kılavuzu](active-directory-ds-getting-started.md) yönetilen etki alanınızı yeniden oluşturmak için. Bir sanal ağ bir özel IP adres aralığı ile çekme emin olun.
 4. Etki alanına katılma için yeni etki alanı, sanal makinelerinizin izleyin [bu kılavuzda](active-directory-ds-admin-guide-join-windows-vm-portal.md).
-8. Etki alanınızın sistem durumunu adımlarını doğru tamamladığınızdan emin olmak için iki saat içinde denetleyin.
+8. Uyarı çözümlendiğinde emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.
 
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun

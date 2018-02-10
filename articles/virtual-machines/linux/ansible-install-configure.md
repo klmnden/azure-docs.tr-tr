@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Yükleme ve Azure sanal makineleri yönetmek için Ansible yapılandırma
 Bu makalede Ansible ve gerekli Azure Python SDK'sını modüllerini bazı yaygın Linux distro'lar için yükleme ayrıntılarını verir. Yüklü paketler belirli platformunuz uyacak şekilde ayarlayarak diğer distro'lar üzerinde Ansible yükleyebilirsiniz. Azure kaynaklarını güvenli bir şekilde oluşturmak için de oluşturmak ve kullanmak Ansible için kimlik bilgilerini tanımlamak nasıl öğrenin. 
@@ -28,7 +28,7 @@ Daha fazla yükleme seçenekleri ve ek platformlar için adımları için bkz: [
 
 
 ## <a name="install-ansible"></a>Ansible yükleyin
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAnsible* içinde *eastus* konumu:
+İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAnsible* içinde *eastus* konumu:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -41,7 +41,7 @@ az group create --name myResourceGroupAnsible --location eastus
 - [SLES 12 SP2](#sles-12-sp2)
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-[az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
+[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -72,7 +72,7 @@ pip install ansible[azure]
 
 
 ### <a name="centos-73"></a>CentOS 7.3
-[az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
+[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ sudo pip install ansible[azure]
 
 
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
-[az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
+[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -157,7 +157,7 @@ az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: te
 }
 ```
 
-Azure için kimlik doğrulaması için Azure abonelik Kimliğinizi elde etmeniz [az hesabı Göster](/cli/azure/account#show):
+Azure için kimlik doğrulaması için Azure abonelik Kimliğinizi elde etmeniz [az hesabı Göster](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"

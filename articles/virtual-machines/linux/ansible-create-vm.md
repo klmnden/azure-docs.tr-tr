@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80406994402b488f4172069b13dca593c470efe4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Azure Ansible ile temel bir sanal makine oluşturun
 Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikleştirmenizi sağlar. Azure, aynı herhangi bir kaynağa olduğu gibi sanal makineleri (VM'ler) yönetmek için Ansible kullanabilirsiniz. Bu makalede Ansible ile temel bir VM oluşturulacağını gösterir. Ayrıca öğrenebilirsiniz nasıl [Ansible ile eksiksiz bir VM ortamı oluşturma](ansible-create-complete-vm.md).
@@ -37,13 +37,13 @@ Ansible ile Azure kaynaklarınızı yönetmek için aşağıdakiler gerekir:
 
 
 ## <a name="create-supporting-azure-resources"></a>Azure kaynaklarını destekleyen oluşturma
-Bu örnekte, var olan bir altyapısının bir VM dağıtır bir runbook oluşturun. İlk olarak, kaynak grubu ile oluşturma [az grubu oluşturma](/cli/azure/vm#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+Bu örnekte, var olan bir altyapısının bir VM dağıtır bir runbook oluşturun. İlk olarak, kaynak grubu ile oluşturma [az grubu oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-İle VM için sanal ağ oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#create). Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* ve adlı bir alt ağ *mySubnet*:
+İle VM için sanal ağ oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#az_network_vnet_create). Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* ve adlı bir alt ağ *mySubnet*:
 
 ```azurecli
 az network vnet create \

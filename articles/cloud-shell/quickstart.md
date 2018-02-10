@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure bulut Kabuk Bash'te için hızlı başlangıç
 
@@ -59,7 +59,7 @@ Bir Ubuntu VM, yeni kaynak grubu oluşturun. Azure CLI 2.0 SSH anahtarları olu�
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> VM kimliğini doğrulamak için kullanılan ortak ve özel anahtarlar yerleştirilir `/User/.ssh/id_rsa` ve `/User/.ssh/id_rsa.pub` varsayılan olarak Azure CLI 2.0 tarafından. .Ssh klasörü, bağlı Azure dosya paylaşımının 5 GB görüntüde kalıcıdır.
+> VM kimliğini doğrulamak için kullanılan ortak ve özel anahtarlar yerleştirilir `/home/<user>/.ssh/id_rsa` ve `/home/<user>/.ssh/id_rsa.pub` varsayılan olarak Azure CLI 2.0 tarafından. .Ssh klasörü, bağlı Azure dosya paylaşımının 5 GB görüntüde kalıcıdır.
 
 Bulut Kabuğu'nda kullanılan kullanıcı adı, kullanıcı adı bu VM'de olacaktır ($User@Azure:).
 

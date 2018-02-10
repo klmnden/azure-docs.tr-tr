@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 34942a079d4ae132535806a11db4476bf28aa55c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 13d1b497ffbe2e5b4b9810acbcd36ef238f9967f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Azure Data Factory kullanarak MariaDB verilerini 
 
@@ -47,7 +47,7 @@ Aşağıdaki özellikler MariaDB bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **MariaDB** | Evet |
-| connectionString | İçin MariaDB bağlanmak için bir ODBC bağlantı dizesi. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| connectionString | İçin MariaDB bağlanmak için bir ODBC bağlantı dizesi. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -92,7 +92,7 @@ MariaDB verileri kopyalamak için kümesine tür özelliği ayarlamak **MariaDBT
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde MariaDB kaynak tarafından desteklenen özellikler listesini sağlar.
 

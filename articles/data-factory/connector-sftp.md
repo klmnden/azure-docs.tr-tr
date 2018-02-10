@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 046172d8c4cff880c8e5d59834f5753927fb90c2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d90bafebcd942454b31d0f62b0daf3f01ad6926
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SFTP sunucusundan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Temel kimlik doğrulaması kullanmak için "authenticationType" özelliğini aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | Kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. Bu alan bir SecureString işaretleyin. | Evet |
+| password | (Kullanıcı adı) kullanıcının parolası. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Örnek:**
 
@@ -104,8 +104,8 @@ SSH ortak anahtar kimlik doğrulaması kullanmak üzere ayarlanmış "authentica
 |:--- |:--- |:--- |
 | Kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı |Evet |
 | privateKeyPath | Tümleştirme çalışma zamanı erişmek için özel anahtar dosyasının mutlak yolu belirtin. Yalnızca kendi kendini barındıran türü Integration zamanının "connectVia" belirtildiğinde geçerlidir. | Belirtin `privateKeyPath` veya `privateKeyContent`.  |
-| privateKeyContent | Base64 olarak kodlanmış SSH özel anahtar içeriği. SSH özel anahtarı, OpenSSH biçiminde olmalıdır. Bu alan bir SecureString işaretleyin. | Belirtin `privateKeyPath` veya `privateKeyContent`. |
-| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. Bu alan bir SecureString işaretleyin. | Evet, özel anahtar dosyası bir parola deyimi tarafından korunuyorsa. |
+| privateKeyContent | Base64 olarak kodlanmış SSH özel anahtar içeriği. SSH özel anahtarı, OpenSSH biçiminde olmalıdır. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Belirtin `privateKeyPath` veya `privateKeyContent`. |
+| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet, özel anahtar dosyası bir parola deyimi tarafından korunuyorsa. |
 
 > [!NOTE]
 > SFTP Bağlayıcısı yalnızca OpenSSH anahtarını destekler. Anahtar dosyası doğru biçimde olduğundan emin olun. .ppk OpenSSH biçimine dönüştürmek için Putty aracını kullanabilirsiniz.

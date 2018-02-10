@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 7bd08a838bef504e41f7aa63516a1b54ba497441
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,10 +82,10 @@ Azure Data Lake store ayrıca hesapta depolanan veriler için şifreleme sağlar
 Azure Blob Depolama ve Azure Table storage depolama hizmeti şifreleme (otomatik olarak depolama birimine devam ettirmeden önce verilerinizi şifreler ve alma önce şifresini çözer SSE), destekler. Daha fazla bilgi için bkz: [bekleyen veri için Azure depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 REST verilerin istemci ve sunucu şifrelenmesini destekler. Daha fazla bilgi için bkz: [koruma verileri kullanarak şifreleme](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Şu anda, veri fabrikası sanal özel bulut (VPC) içinde Amazon S3 desteklemiyor.
+Amazon S3 REST verilerin istemci ve sunucu şifrelenmesini destekler. Daha fazla bilgi için bkz: [koruma verileri kullanarak şifreleme](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift küme şifreleme bekleyen veri için destekler. Daha fazla bilgi için bkz: [Amazon Redshift veritabanı şifreleme](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Şu anda, veri fabrikası Amazon Redshift bir VPC içinde desteklemiyor. 
+Amazon Redshift küme şifreleme bekleyen veri için destekler. Daha fazla bilgi için bkz: [Amazon Redshift veritabanı şifreleme](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce Shield Platform şifreleme'de, tüm dosyaları ekler, özel alanlar şifrelemeye izin destekler. Daha fazla bilgi için bkz: [Web sunucusu OAuth kimlik doğrulama akışı anlama](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  

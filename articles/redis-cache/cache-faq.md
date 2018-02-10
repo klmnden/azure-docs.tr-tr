@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache SSS
 Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin.
@@ -119,36 +119,36 @@ Her Azure Redis önbelleği teklifini farklı düzeylerde sağlar **boyutu**, **
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Azure Redis önbelleği performansı
-Aşağıdaki tablo standart çeşitli boyutlarda test ederken görülen en yüksek bant genişliği değerleri gösterir ve Premium önbellekleri kullanarak `redis-benchmark.exe` bir Iaas VM'den Azure Redis önbelleği uç noktası. 
+Aşağıdaki tablo standart çeşitli boyutlarda test ederken görülen en yüksek bant genişliği değerleri gösterir ve Premium önbellekleri kullanarak `redis-benchmark.exe` bir Iaas VM'den Azure Redis önbelleği uç noktası. SSL işleme için redis Kıyaslama stunnel ile Azure Redis önbelleği bitiş noktasına bağlanmak için kullanılır.
 
 >[!NOTE] 
 >Bu değerleri yıkıcıları ve bunlar için hiçbir SLA numaraları ancak tipik olması gerekir. Yüklemesi gerektiğini uygulamanız için doğru önbellek boyutunu belirlemek için kendi uygulamanızı test edin.
->
+>Biz düzenli aralıklarla yeni sonuçlara sonrası gibi bu numaralarını değiştirebilirsiniz.
 >
 
 Bu tablodan biz aşağıdaki sonuçları çizebilirsiniz:
 
-* Üretilen iş aynı boyuttadır önbellekler için standart katmana karşılaştırıldığında Premium katmanındaki yüksektir. Örneğin, bir 6 GB ile P1 verimini 180.000 RPS C3 49,000 karşılaştırıldığında önbelleğidir.
+* Üretilen iş aynı boyuttadır önbellekler için standart katmana karşılaştırıldığında Premium katmanındaki yüksektir. Örneğin, bir 6 GB ile P1 verimini 180.000 RPS C3 100.000 karşılaştırıldığında önbelleğidir.
 * Kümedeki parça (düğümlerin) sayısını artırmak kümeleme Redis ile üretilen işi doğrusal olarak artar. 10 parça P4 kümesi oluşturursanız, örneğin, kullanılabilir verimlilik 400.000 ise * 10 = 4 milyon RPS.
 * Üretilen iş büyük anahtar boyutları için standart katmana karşılaştırıldığında Premium katmanındaki yüksektir.
 
-| Fiyatlandırma katmanı | Boyut | CPU çekirdekleri | Kullanılabilir bant genişliği | 1 KB değer boyutu |
-| --- | --- | --- | --- | --- |
-| **Standart önbellek boyutu** | | |**Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**(RPS) saniye başına istek sayısı** |
-| C0 |250 MB |Paylaşılan |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2,5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62.5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150,000 |
-| **Premium önbellek boyutu** | |**Parça başına CPU çekirdekleri** | **Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**Parça (RPS) saniyede istekleri** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |
+| Fiyatlandırma katmanı | Boyut | CPU çekirdekleri | Kullanılabilir bant genişliği | 1 KB değer boyutu | 1 KB değer boyutu |
+| --- | --- | --- | --- | --- | --- |
+| **Standart önbellek boyutu** | | |**Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RPS) SSL olmayan başına istek sayısı** |**İkinci (RPS) SSL başına istek sayısı** |
+| C0 |250 MB |Paylaşılan |100 / 12.5 |15,000 |7,500 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| **Premium önbellek boyutu** | |**Parça başına CPU çekirdekleri** | **Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RPS) SSL olmayan, parça başına başına istek sayısı** |**Parça başına ikinci (RPS) SSL başına istek sayısı** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
 
-Redis araçları gibi yükleme yönergeleri için `redis-benchmark.exe`, bkz: [nasıl ı çalıştırabilirsiniz Redis komutları?](#cache-commands) bölümü.
+Stunnel ayarlama veya Redis araçları gibi yükleme yönergeleri için `redis-benchmark.exe`, bkz: [nasıl ı çalıştırabilirsiniz Redis komutları?](#cache-commands) bölümü.
 
 <a name="cache-region"></a>
 

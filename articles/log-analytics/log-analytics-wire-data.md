@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2ce9491f7c16baa7805bdb35defc57645b73d18f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kablo verileri 2.0 (Önizleme) çözümüne günlük analizi
 
@@ -387,7 +387,7 @@ OMS Portalı'nda tıklatın **kablo verileri 2.0** döşeme kablo verileri panos
 | Yerel alt ağları | Aracıları bulunmuş yerel alt ağları sayısını gösterir.  Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> , listeleriyle tüm alt ağların her biri gönderilen bayt sayısı. Alt ağ gönderilen bayt sayısı toplam döndüren bir günlük arama çalıştırmak için listedeki bir alt ağ'ı tıklatın. |
 | Uygulama düzeyi protokolleri | Uygulama düzeyi protokolleri sayısını kullanımda, aracıları tarafından bulunan olarak gösterir. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Toplam protokolü kullanılarak gönderilen bayt sayısı döndüren bir günlük arama çalıştırmak için bir iletişim kuralı'ı tıklatın. |
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Kablo verileri Panosu](./media/log-analytics-wire-data/wire-data-dash.png)
 

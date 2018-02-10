@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Bir Azure depolama kesinti oluşursa yapmanız gerekenler
 Microsoft, biz sabit hizmetlerimizle her zaman kullanılabilir olduğundan emin olmak için çalışır. Bazen bizim denetim etkisi bize bir veya daha fazla bölgelerde planlanmayan hizmet kesintileri neden yolla zorlar. Bu nadir örnekleri işlemenize yardımcı olmak için Azure depolama hizmetleri için aşağıdaki üst düzey Kılavuzu sunuyoruz.
@@ -26,10 +26,10 @@ Microsoft, biz sabit hizmetlerimizle her zaman kullanılabilir olduğundan emin 
 ## <a name="how-to-prepare"></a>Hazırlama
 Her müşterinin kendi olağanüstü durum kurtarma planını hazırlaması kritik öneme sahiptir. Genellikle bir depolama kesintisinden kurtarma çaba çalışır duruma uygulamalarınızda yeniden etkinleştirmek için işlem personeli ve otomatik yordamları içerir. Lütfen kendi olağanüstü durum kurtarma planınızı oluşturmak için aşağıdaki Azure belgelerine bakın:
 
-* [Azure uygulamaları için olağanüstü durum kurtarma ve yüksek kullanılabilirlik](/azure/architecture/resiliency/disaster-recovery-high-availability-azure-applications.md)
-* [Azure dayanıklılık teknik kılavuzu](/azure/architecture/resiliency.md)
+* [Kullanılabilirlik denetim listesi](https://docs.microsoft.com/azure/architecture/checklist/availability)
+* [Azure için dayanıklı uygulamalar tasarlama](/azure/architecture/resiliency)
 * [Azure Site Recovery hizmeti](https://azure.microsoft.com/services/site-recovery/)
-* [Azure Depolama çoğaltması](storage-redundancy.md)
+* [Azure Depolama çoğaltması](storage-redundancy)
 * [Azure yedekleme hizmeti](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Nasıl algılanacağını

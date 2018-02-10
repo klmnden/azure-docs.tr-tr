@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama Azure Data Factory kullanarak hizmetinden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,9 +37,9 @@ Azure Data Lake Store için tüm desteklenen kaynak veri deposundan veri kopyala
 Amazon S3'ten verileri kopyalamak için aşağıdaki izinleri verilmiş olan emin olun:
 
 - `s3:GetObject`ve `s3:GetObjectVersion` Amazon S3 nesne işlemleri için.
-- `s3:ListBucket`Amazon S3 Demetini işlemleri için. Data Factory Kopyalama Sihirbazı'nı kullanıyorsanız `s3:ListAllMyBuckets` de gereklidir.
+- `s3:ListBucket`veya `s3:GetBucketLocation` Amazon S3 Demetini işlemleri için. Data Factory Kopyalama Sihirbazı'nı kullanıyorsanız `s3:ListAllMyBuckets` de gereklidir.
 
-Amazon S3 izinlerin tam listesi hakkında daha fazla ayrıntı için bkz: [belirleyen izinleri bir ilke](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
+Amazon S3 izinlerin tam listesi hakkında daha fazla ayrıntı için bkz: [belirleyen izinleri bir ilke](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -55,7 +55,7 @@ Aşağıdaki özellikler, Amazon S3 bağlantılı hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlamak **AmazonS3**. | Evet |
 | accessKeyId | Gizli erişim anahtarı kimliği. |Evet |
-| secretAccessKey | Gizli erişim anahtar kendisi. Bu alan bir SecureString işaretleyin. |Evet |
+| secretAccessKey | Gizli erişim anahtar kendisi. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 >[!NOTE]

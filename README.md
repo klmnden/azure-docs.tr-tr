@@ -38,7 +38,7 @@ Bir veya daha fazla makaleye dahil etmek üzere oluşturduğunuz yeniden kullan�
 Bu depodaki tüm makaleler GitHub’a uygun markdown kullanır.  Gerekli bilgileri aşağıdaki kaynaklardan edinebilirsiniz.
 
 * [Markdown temel bilgileri](https://help.github.com/articles/markdown-basics/)
-* [Yazdırılabilir markdown başvuru sayfası](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+* [Yazdırılabilir markdown başvuru sayfası](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 
 ## <a name="labels"></a>Etiketler

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 14f654979f004186e81b2f18578ced3c9aab3815
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ab29338b5ce2090166e75f3860744562aa9f6b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>İlk ve son Azure Data Factory kullanarak ODBC veri depolarını veri Kopyala
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,10 +55,10 @@ Aşağıdaki özellikler ODBC bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Odbc** | Evet |
-| connectionString | Kimlik bilgisi bölümü hariç bağlantı dizesi. LIKE desen ile bağlantı dizesini belirtin `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, veya sistem ayarladığınız tümleştirmesi çalışma zamanı makinede DSN (veri kaynağı adı) kullanmak `"DSN=<name of the DSN on IR machine>;"` (hala kimlik bilgisi bölümü bağlantılı hizmetteki buna uygun olarak belirttiğiniz).| Evet |
+| connectionString | Kimlik bilgisi bölümü hariç bağlantı dizesi. LIKE desen ile bağlantı dizesini belirtin `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, veya sistem ayarladığınız tümleştirmesi çalışma zamanı makinede DSN (veri kaynağı adı) kullanmak `"DSN=<name of the DSN on IR machine>;"` (hala kimlik bilgisi bölümü bağlantılı hizmetteki buna uygun olarak belirttiğiniz).<br>Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md).| Evet |
 | authenticationType | ODBC veri deposuna bağlanmak için kullanılan kimlik doğrulama türü.<br/>İzin verilen değerler: **temel** ve **anonim**. | Evet |
 | Kullanıcı adı | Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. | Hayır |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan bir SecureString işaretleyin. | Hayır |
+| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | kimlik bilgisi | Sürücü özgü özellik değer biçiminde belirtilen bağlantı dizesi erişim kimlik bilgisi bölümü. Örnek: `"RefreshToken=<secret refresh token>;"`. Bu alan bir SecureString işaretleyin. | Hayır |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Bölümünde belirtildiği gibi bir Self-hosted tümleştirmesi çalışma zamanı gereklidir [Önkoşullar](#prerequisites). |Evet |
 

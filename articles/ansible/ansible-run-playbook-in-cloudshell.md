@@ -1,22 +1,22 @@
 ---
-title: "Azure bulut Kabuğu'nda Ansible çalıştırın"
-description: "Azure bulut Kabuğu'nda çeşitli Ansible görevleri öğrenin"
+title: "Azure bulut Kabuğu'nda Bash ile Ansible çalıştırın"
+description: "Azure bulut Kabuğu'nda Bash çeşitli Ansible görevleri gerçekleştirmek öğrenin"
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: d5a818616d382954d0880bcae58bb13b632ad757
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-ansible-in-the-azure-cloud-shell"></a>Azure bulut Kabuğu'nda Ansible çalıştırın
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Azure bulut Kabuğu'nda Bash ile Ansible çalıştırın
 
-Bu öğreticide, Azure bulut Kabuğu'nda çeşitli Ansible görevleri öğrenin. Bu görevler, bir sanal makineye bağlanma ve oluşturmak ve bir Azure kaynak grubu silmek için Ansible playbooks oluşturma içerir.
+Bu öğretici kapsamında, bulut Kabuk Bash'te çeşitli Ansible görevleri gerçekleştirmek nasıl öğrenin. Bu görevler, bir sanal makineye bağlanma ve oluşturmak ve bir Azure kaynak grubu silmek için Ansible playbooks oluşturma içerir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -24,12 +24,14 @@ Bu öğreticide, Azure bulut Kabuğu'nda çeşitli Ansible görevleri öğrenin.
 
 - **Azure kimlik** - [oluşturma Azure kimlik bilgilerini ve Ansible yapılandırın](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Azure bulut Kabuk yapılandırma** - Azure bulut Kabuk, makaleyi yeniyseniz [Bash Azure bulut kabuğu için Hızlı Başlangıç](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) başlatmak ve bulut Kabuk yapılandırmak nasıl gösterir.
+- **Azure bulut Kabuk yapılandırma** - Azure bulut Kabuk, makaleyi yeniyseniz [Bash Azure bulut kabuğu için Hızlı Başlangıç](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) başlatmak ve bulut Kabuk yapılandırmak nasıl gösterir. Ayrılmış bir Web sitesi bulut kabuğu için burada başlatın:
+
+[![Bulut Kabuk başlatma](https://shell.azure.com/images/launchcloudshell.png "bulut Kabuğu'nu başlatın")](https://shell.azure.com)
 
 ## <a name="use-ansible-to-connect-to-a-vm"></a>Bir VM'ye bağlanmak için Ansible kullanın
 Ansible adlı bir Python komut dosyası oluşturduğu [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) oluşturan dinamik stok Azure kaynaklarınızın API istekleri için Azure Resource Manager yaparak. Aşağıdaki adımlar kullanılarak yol `azure_rm.py` bir Azure sanal makineye bağlanmak için komut dosyası:
 
-1. Azure bulut Kabuğu'nu açın.
+1. Bulut Kabuğu'nda Bash'i açın. Kabuk türü bulut Kabuk pencerenin sol tarafında gösterilir.
 
 1. Kullanmak için bir sanal makine yoksa, hangi test etmek bir sanal makine oluşturmak için bulut Kabuğu'nu içine aşağıdaki komutları girin:
 
@@ -78,7 +80,7 @@ Ansible adlı bir Python komut dosyası oluşturduğu [azure_rm.py](https://gith
   az group delete -n <resourceGroup>
   ```
 
-## <a name="run-a-playbook-in-cloud-shell"></a>Bulut Kabuğu'nda bir playbook Çalıştır
+## <a name="run-a-playbook-in-cloud-shell"></a>Cloud Shell'de playbook çalıştırma
 [Ansible playbook](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) komutu Ansible playbooks, hedeflenen konak üzerinde çalışan görevleri yürütür. Bu bölümde, oluşturma ve - bir kaynak grubu ve kaynak grubunu silmek için ikinci bir oluşturmak için iki playbooks yürütme için bulut Kabuğu'nu kullanarak aracılığıyla açıklanmaktadır. 
 
 1. Adlı bir dosya oluşturun `rg.yml` gibi:

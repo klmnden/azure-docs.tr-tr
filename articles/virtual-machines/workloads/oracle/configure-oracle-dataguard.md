@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3eff4a396c2fd0b52a50a201ceb1a91bae710dc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinede Oracle veri koruma uygulama 
 
@@ -39,7 +39,7 @@ Oracle: Oracle VM oluşturmak için kullandığınız Market görüntüdür-veri
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 
-Azure aboneliğinizi kullanarak oturum [az oturum açma](/cli/azure/#login) komut ve izleyin ekrandaki yönergeleri.
+Azure aboneliğinizi kullanarak oturum [az oturum açma](/cli/azure/#az_login) komut ve izleyin ekrandaki yönergeleri.
 
 ```azurecli
 az login
@@ -47,7 +47,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Kullanarak bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#create) komutu. Bir Azure kaynak grubu hangi Azure kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. 
+Kullanarak bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create) komutu. Bir Azure kaynak grubu hangi Azure kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. 
 
 Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `westus` konumu:
 
@@ -69,7 +69,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#create) komutu. 
+Kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
 
 Aşağıdaki örnek adlı iki VM'ler oluşturur `myVM1` ve `myVM2`. Zaten bir varsayılan anahtar konumda yoksa, ayrıca SSH anahtarları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
 

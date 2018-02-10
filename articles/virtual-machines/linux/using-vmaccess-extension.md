@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fb3941e0b55f8b5d79c9fc794ec984e074caafe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya Azure CLI 2.0 ile VMAccess uzantısını kullanarak Linux VM'ler disklerde onarın
 Linux VM diskte hata gösteriliyor. Şekilde Linux VM için kök parola sıfırlama veya yanlışlıkla SSH özel anahtarınızı silinemez. Veri Merkezi gün sonra yeniden oluştuysa, sürücü vardır ve sunucu konsolunda almak için KVM açmak gerekir. Azure VMAccess uzantısını erişim için Linux sıfırlamak veya disk düzeyinde bakım gerçekleştirmek için konsol erişmenize olanak tanır, KVM anahtar düşünün.
@@ -33,7 +33,7 @@ Linux Vm'leriniz VMAccess uzantısını kullanmanın iki yolu vardır:
 * Azure CLI 2.0 ve gerekli parametreleri kullanır.
 * [VMAccess uzantısını işlemek ham JSON dosyaları kullanmak](#use-json-files-and-the-vmaccess-extension) ve ardından hareket.
 
-Aşağıdaki örneklerde [az vm kullanıcı](/cli/azure/vm/user) komutları. Bu adımları gerçekleştirmek için en son gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
+Aşağıdaki örneklerde [az vm kullanıcı](/cli/azure/vm/user) komutları. Bu adımları gerçekleştirmek için en son gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login).
 
 ## <a name="reset-ssh-key"></a>SSH anahtarını Sıfırla
 Aşağıdaki örnekte kullanıcı için SSH anahtarı sıfırlar `azureuser` adlı VM üzerinde `myVM`:
@@ -91,7 +91,7 @@ az vm user delete \
 
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>JSON dosyaları ve VMAccess uzantısını kullanır
-Aşağıdaki örnekler ham JSON dosyaları kullanın. Kullanım [az vm uzantısı kümesi](/cli/azure/vm/extension#set) , JSON dosyalarınızın çağırmak için. Bu JSON dosyaları da Azure şablonlardan çağrılabilir. 
+Aşağıdaki örnekler ham JSON dosyaları kullanın. Kullanım [az vm uzantısı kümesi](/cli/azure/vm/extension#az_vm_extension_set) , JSON dosyalarınızın çağırmak için. Bu JSON dosyaları da Azure şablonlardan çağrılabilir. 
 
 ### <a name="reset-user-access"></a>Kullanıcı erişimi sıfırlama
 Linux VM üzerinde kök dizinine erişim kaybettiyseniz, bir kullanıcının SSH anahtarı veya parolayı sıfırlamak için VMAccess betik başlatabilirsiniz.

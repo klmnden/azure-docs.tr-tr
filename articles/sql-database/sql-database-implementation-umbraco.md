@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco, kiracılar bulutta binlerce için hızlı sağlama ve ölçek Hizmetleri için Azure SQL veritabanı kullanır.
-![Umbraco logosu](./media/sql-database-implementation-umbraco/umbracologo.png)
+![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco herhangi bir şey küçük kampanya ya da broşür sitelerinden karmaşık uygulamaları için Fortune 500 şirketleri ve genel medya Web siteleri için çalıştırılabilir bir popüler açık kaynaklı içerik yönetim sistemidir (CMS) ' dir. 
 
@@ -124,7 +124,6 @@ Azure, bulut iş ortağı olarak seçerek bu yana Umbraco UaaS müşterilerin en
 ## <a name="more-information"></a>Daha fazla bilgi
 * Azure esnek havuzları hakkında daha fazla bilgi için bkz: [esnek havuzlar](sql-database-elastic-pool.md).
 * Azure Service Bus hakkında daha fazla bilgi için bkz: [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
-* Web rolleri ve çalışan rolleri hakkında daha fazla bilgi için bkz: [çalışan rolleri](../fundamentals-introduction-to-azure.md#compute).    
 * Sanal ağlar hakkında daha fazla bilgi için bkz: [sanal ağ](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Yedekleme ve kurtarma hakkında daha fazla bilgi için bkz: [iş sürekliliği](sql-database-business-continuity.md).    
 * Ppols izleme hakkında daha fazla bilgi için bkz: [havuzları izleme](sql-database-elastic-pool-manage-portal.md).    

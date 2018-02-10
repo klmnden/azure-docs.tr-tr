@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: fcc7e1cbacc7889c9525207b238162e6caa6b00b
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 20115897bb5ae2638588e79d80700fa8ece06104
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus ölçümlerini Azure İzleyicisi'ni (Önizleme)
 
@@ -28,7 +28,7 @@ Azure İzleyicisi, çeşitli Azure Hizmetleri genelinde izleme için birleştiri
 
 ## <a name="access-metrics"></a>Erişim ölçümleri
 
-Azure monitör, erişim ölçümleri için birden çok yollar sağlar. Ya da erişim ölçümleri aracılığıyla yapabilecekleriniz [Azure portal](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve analiz çözümleri operasyon Management Suite ve Event Hubs gibi kullanın. Daha fazla bilgi için bkz: [Azure İzleyici ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure monitör, erişim ölçümleri için birden çok yollar sağlar. Ya da erişim ölçümleri aracılığıyla yapabilecekleriniz [Azure portal](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve analiz çözümleri işlemi Yönetim Paketi (OMS) ve Event Hubs gibi kullanın. Daha fazla bilgi için bkz: [Azure İzleyici ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Ölçümleri varsayılan olarak etkindir ve en son 30 gün veri erişebilir. Uzun bir süre için verileri korumak gerekiyorsa, ölçüm verilerini bir Azure depolama hesabı arşivleyebilirsiniz. Bu yapılandırılan [tanılama ayarlarını](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) Azure İzleyicisi'nde.
 
@@ -46,7 +46,7 @@ Boyutlar destekleyen ölçümleri için istenen boyut değeriyle filtre gerekir.
 
 ## <a name="billing"></a>Faturalandırma
 
-Azure İzleyicisi'nde ölçümleri kullanarak Önizleme'de şu anda çalışırken ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Gelişmiş analiz için OMS ölçümleri veri akış sahipse işlemi Yönetim Paketi (OMS) tarafından ayrıca faturalandırılır.
+Azure İzleyicisi'nde ölçümleri kullanarak Önizleme'de çalışırken ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Gelişmiş analiz için OMS ölçümleri veri akış sahipse işlemi Yönetim Paketi (OMS) tarafından ayrıca faturalandırılır.
 
 Aşağıdaki ölçümleri, hizmeti genel bir bakış sağlar. 
 
@@ -59,7 +59,7 @@ Tüm ölçüm değerleri dakikada Azure İzleyicisi için gönderilir. Ölçüm 
 
 Verileri ve yönetim işlemleri isteklerinin sayısını sayar.
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | Gelen istekleri (Önizleme) | Belirtilen süre içinde Service Bus hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Başarılı istekler (Önizleme)|Belirtilen süre içinde Service Bus hizmetine iletilen başarılı istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
@@ -69,14 +69,14 @@ Verileri ve yönetim işlemleri isteklerinin sayısını sayar.
 
 ## <a name="message-metrics"></a>İleti ölçümleri
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |Gelen iletileri (Önizleme)|Olay veya hizmet veri yolu için belirtilen süre içinde gönderilen ileti sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Giden iletiler (Önizleme)|Olay veya hizmet yolundan belirtilen süre içinde alınan iletilerin sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
 ## <a name="connection-metrics"></a>Bağlantı ölçümleri
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |ActiveConnections (Önizleme)|Bir varlık yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Bağlantılar açık (Önizleme)|Açık bağlantıları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
@@ -84,7 +84,7 @@ Verileri ve yönetim işlemleri isteklerinin sayısını sayar.
 
 ## <a name="resource-usage-metrics"></a>Kaynak kullanım ölçümleri
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |Ad alanı (Önizleme) başına CPU kullanımı|Yüzde CPU kullanımı ad.<br/><br/> Birim: yüzde <br/> Toplama türü: en fazla <br/> Boyut: EntityName|
 |Ad alanı (Önizleme) başına bellek boyutu kullanımı|Ad alanı bellek kullanım yüzdesi.<br/><br/> Birim: yüzde <br/> Toplama türü: en fazla <br/> Boyut: EntityName|

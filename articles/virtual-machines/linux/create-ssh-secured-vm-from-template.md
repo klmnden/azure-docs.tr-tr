@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7bd5b8c0534a51c6b6c9e8871be513194d38788
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 2750bed40707872bb120a7cb7130d8be01aabf7d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile Linux sanal makine oluşturma
 Bu makalede Azure Resource Manager şablonları ve Azure CLI 2.0 ile Linux sanal makine (VM) hızlı bir şekilde dağıtma gösterilmektedir. Bu adımları [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md) ile de gerçekleştirebilirsiniz.
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
-Aşağıdaki örnek, bir VM'den oluşturur [bu Azure Resource Manager şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) ile [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). Yalnızca SSH kimlik doğrulaması izin verilir. İstendiğinde, içeriği gibi kendi SSH ortak anahtarı değerini sağlamalısınız *~/.ssh/id_rsa.pub*. SSH anahtar çifti oluşturmanız gerekiyorsa, bkz: [nasıl oluşturulacağı ve Linux VM'ler için Azure'da SSH anahtar çifti kullanılmaya](mac-create-ssh-keys.md).
+Aşağıdaki örnek, bir VM'den oluşturur [bu Azure Resource Manager şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) ile [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create). Yalnızca SSH kimlik doğrulaması izin verilir. İstendiğinde, içeriği gibi kendi SSH ortak anahtarı değerini sağlamalısınız *~/.ssh/id_rsa.pub*. SSH anahtar çifti oluşturmanız gerekiyorsa, bkz: [nasıl oluşturulacağı ve Linux VM'ler için Azure'da SSH anahtar çifti kullanılmaya](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -49,7 +49,7 @@ az group deployment create --resource-group myResourceGroup \
 
 
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
-VM için SSH için ortak IP adresi ile elde [az vm Göster](/cli/azure/vm#show):
+VM için SSH için ortak IP adresi ile elde [az vm Göster](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

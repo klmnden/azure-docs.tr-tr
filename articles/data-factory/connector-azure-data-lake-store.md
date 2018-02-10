@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake Store bilgisayardan veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Hizmet asıl kimlik doğrulaması kullanmak için Azure Active Directory (Azure 
 
 >[!IMPORTANT]
 > Hizmet asıl uygun Azure Data Lake Store'da izni olduğundan emin olun:
->- **Kaynak olarak**, en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
->- **Havuz olarak**, en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopyalamak için Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi:
+>- **Kaynak olarak**, veri Explorer'da erişim ->, en az izni **okuma + yürütme** listelemek ve alt klasör/klasör, dosyaları kopyalamak için izni veya **okuma** tek bir dosya; kopyalamak için izni ve olarak eklemek için **bir erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
+>- **Havuz olarak**, veri Explorer'da erişim ->, en az izni **yazma + yürütme** alt klasöründe öğeleri oluşturma ve olarak eklemek için izni **bir erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), erişim denetimi (IAM), en az izni **okuyucu** Data Factory Data Lake Store'nın bölge algılamak izin için rol. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi.
 
 Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet |
-| servicePrincipalKey | Uygulamanın anahtarını belirtin. Bu alan bir SecureString işaretleyin. | Evet |
+| servicePrincipalKey | Uygulamanın anahtarını belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Örnek:**
 
@@ -114,12 +114,12 @@ Data factory ile ilişkilendirilebilir bir [yönetilen hizmet kimliği](data-fac
 Yönetilen hizmet (MSI) kimlik doğrulama kullanmak için:
 
 1. [Veri Fabrikası hizmet kimliği alma](data-factory-service-identity.md#retrieve-service-identity) "Hizmeti kimliği uygulama Fabrikanızda birlikte oluşturulan kimliği" değerini kopyalayarak.
-2. Data Lake Store'a hizmet sorumlusu için yaptığınız gibi hizmet kimliği erişim verin. Ayrıntılı adımlar için bkz: [hizmeti için kimlik doğrulama - Azure Data Lake Store hesabına dosya veya klasöre Ata Azure AD uygulama](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Hizmet kimlik Data Lake Store için hizmet asıl aşağıdaki notları aşağıda için yaptığınız gibi erişim.
 
 >[!IMPORTANT]
 > Veri Fabrikası hizmet kimlik uygun Azure Data Lake Store'da izni olduğundan emin olun:
->- **Kaynak olarak**, en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
->- **Havuz olarak**, en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopyalamak için Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi:
+>- **Kaynak olarak**, veri Explorer'da erişim ->, en az izni **okuma + yürütme** listelemek ve alt klasör/klasör, dosyaları kopyalamak için izni veya **okuma** tek bir dosya; kopyalamak için izni ve olarak eklemek için **bir erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
+>- **Havuz olarak**, veri Explorer'da erişim ->, en az izni **yazma + yürütme** alt klasöründe öğeleri oluşturma ve olarak eklemek için izni **bir erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), erişim denetimi (IAM), en az izni **okuyucu** Data Factory Data Lake Store'nın bölge algılamak izin için rol. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi.
 
 Azure Data Factory bağlantılı hizmetteki genel Data Lake Store bilgilerin yanı sıra tüm özelliklerini belirtmeniz gerekmez.
 
@@ -186,7 +186,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri t
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Azure Data Lake kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
 

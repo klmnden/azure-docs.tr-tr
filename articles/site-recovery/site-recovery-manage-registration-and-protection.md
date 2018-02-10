@@ -2,25 +2,20 @@
 title: "Sunucuları kaldırın ve koruma devre dışı bırakma | Microsoft Docs"
 description: "Bu makalede Site Recovery kasası sunucularından kaydı ve sanal makineleri ve fiziksel sunucuları için korumayı devre dışı bırakmak için açıklar."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/3/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 471d68742668e2b1b1c72579cee9dd493f1bd042
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b26766ec26cc5afd82ec86c21e52d2737512fe8a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
+
 Bu makalede, bir kurtarma Hizmetleri kasası sunucularından kaydı etme ve Site Recovery tarafından korunan makineler için korumayı devre dışı bırakma açıklanmaktadır.
 
 
@@ -165,7 +160,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarının, Hyper-V sitesi toplanır. 
 
 
     
-    $vmName "SQLVM1" = $vm = Get-WmiObject - Namespace "root\virtualization\v2"-sorgu "seçin * Msvm_ComputerSystem gelen burada ElementName '$vmName' =" $replicationService Get-WmiObject - Namespace "root\virtualization\v2" =-sorgu "seçin * gelen Msvm_ ReplicationService"$replicationService.RemoveReplicationRelationship($vm.__PATH)
+    $vmName = "SQLVM1"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  $replicationService.RemoveReplicationRelationship($vm.__PATH)
     
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>System Center VMM Azure senaryosuna kullanarak çoğaltma bir Hyper-V sanal makine için korumayı devre dışı bırak
@@ -185,7 +180,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarının, Hyper-V sitesi toplanır. 
 4. Yukarıdaki adımları VMM sunucusundaki çoğaltma ayarları temizleyin. Hyper-V ana bilgisayar sunucusunda çalışan sanal makine için çoğaltma durdurmak için bu komut dosyasını çalıştırın. SQLVM1 adıyla bir sanal makine ve host01.contoso.com Hyper-V konak sunucusu adını değiştirin.
 
     
-    $vmName "SQLVM1" = $hostName "host01.contoso.com" $vm = Get-WmiObject - Namespace "root\virtualization\v2" =-sorgu "seçin * Msvm_ComputerSystem gelen burada ElementName '$vmName' =" - computername $hostName $replicationService Get-WmiObject - = Namespace "root\virtualization\v2"-"Seçin * gelen Msvm_ReplicationService" - computername $hostName $replicationService.RemoveReplicationRelationship($vm.__PATH) sorgulama
+    $vmName = "SQLVM1"  $hostName  = "host01.contoso.com"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName  $replicationService.RemoveReplicationRelationship($vm.__PATH)
     
        
  

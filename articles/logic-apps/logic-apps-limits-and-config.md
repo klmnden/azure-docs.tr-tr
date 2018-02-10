@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps sınırları ve yapılandırma
 
-Bu konuda, Azure mantıksal uygulamaları için geçerli sınırlarını ve yapılandırma ayrıntılarını açıklanmaktadır.
+Bu makalede, Azure mantıksal uygulamaları için geçerli sınırlarını ve yapılandırma ayrıntılarını açıklanmaktadır.
 
 ## <a name="limits"></a>Sınırlar
 
@@ -66,7 +66,7 @@ Bu sınırlar çalıştıran tek bir mantıksal uygulama için geçerlidir.
 | En fazla yineleme aralığı | 500 gün | 
 ||| 
 
-Çalışma süresi veya depolama bekletme, normal işlem akışında sınırları aşan [Bize Ulaşın](mailto://logicappsemail@microsoft.com) böylece gereksinimlerinizle yardımcı olabiliriz.
+Çalışma süresi veya depolama bekletme, normal işlem akışında sınırları aşan [ürün ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi Yardım almak için.
 
 ### <a name="looping-and-debatching-limits"></a>Döngü ve sınırları debatching
 
@@ -82,18 +82,18 @@ Bu sınırlar çalıştıran tek bir mantıksal uygulama için geçerlidir.
 
 ### <a name="throughput-limits"></a>İşleme sınırları
 
-Bu sınırlar bir tek mantığı uygulama örneği için geçerlidir.
+Bu sınırları tek mantığı uygulama kaynak uygulayın.
 
 | Ad | Sınır | Notlar | 
 | ----- | ----- | ----- | 
-| Eylemler yürütmeleri 5 dakika başına | 100,000 |<p>Bir mantıksal uygulama çalıştırarak 300000 kadar artırılabilir sınırı `High Througput` modu ve bu ayarlayarak yapılabilir `operationOptions` altında özellik`runtimeConfiguration` için iş akışı kaynağının `OptimizedForHighThroughput`. <p>Lütfen bu yüksek verimlilik modu önizlemede olduğuna dikkat edin. Ayrıca bir iş yükü gerektiği gibi birden çok uygulama arasında dağıtılabilir. | 
+| Eylemler yürütmeleri 5 dakika başına | 100,000 |<p>Bir mantıksal uygulama çalıştırarak 300000 için sınır artırılabilir `High Througput` modu. Yüksek verimlilik modu ayarlanarak yapılandırılabilir `operationOptions` altında özellik`runtimeConfiguration` için iş akışı kaynağının `OptimizedForHighThroughput`. <p>Bu yüksek verimlilik modu önizlemede olduğuna dikkat edin. Ayrıca bir iş yükü gerektiği gibi birden çok uygulama arasında dağıtılabilir. | 
 | Eylemler eşzamanlı giden çağrıları | ~2,500 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: eşzamanlı gelen çağrıları |~1,000 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma  | 60,000 | İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
 | Çalışma zamanı uç noktası: 5 dakika başına çağrı çağırma| 45,000 |İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
 |||| 
 
-Bu sınırlar aşabilir bu sınırları normal işleme veya çalıştırılan bir yük testi aşmayı [Bize Ulaşın](mailto://logicappsemail@microsoft.com) böylece gereksinimlerinizle yardımcı olabiliriz.
+Bu sınırlar aşabilir bu sınırları normal işleme veya çalıştırılan bir yük testi aşmayı [ürün ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi Yardım almak için.
 
 ### <a name="logic-app-definition-limits"></a>Mantıksal uygulama tanımını sınırları
 

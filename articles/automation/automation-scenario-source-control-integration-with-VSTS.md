@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure otomasyonu senaryosu - Visual Studio Team Services ile Otomasyon kaynak denetimi tümleştirme
 
@@ -33,17 +33,17 @@ Bu senaryo, doğrudan aktarabilirsiniz iki PowerShell runbook'ların oluşur [Ru
 
 Runbook | Açıklama| 
 --------|------------|
-Eşitleme VSTS | Runbook'ları veya yapılandırmaları bir iade yapıldığında VSTS kaynak denetiminden içeri aktarın. El ile çalıştırırsanız, içeri aktarma ve tüm runbook'ları veya Otomasyon hesabı yapılandırmaları yayımlayın.| 
-Eşitleme VSTSGit | Bir iade yapıldığında VSTS Git kaynak denetimi altında yok veya yapılandırmalarını içeri aktarın. El ile çalıştırırsanız, içeri aktarma ve tüm runbook'ları veya Otomasyon hesabı yapılandırmaları yayımlayın.|
+Sync-VSTS | Runbook'ları veya yapılandırmaları bir iade yapıldığında VSTS kaynak denetiminden içeri aktarın. El ile çalıştırırsanız, alır ve tüm runbook'ları veya Otomasyon hesabı yapılandırmaları yayımlar.| 
+Sync-VSTSGit | Bir iade yapıldığında VSTS Git kaynak denetimi altında yok veya yapılandırmalarını içeri aktarın. El ile çalıştırırsanız, alır ve tüm runbook'ları veya Otomasyon hesabı yapılandırmaları yayımlar.|
 
 ### <a name="variables"></a>Değişkenler
 
 Değişken | Açıklama|
 -----------|------------|
-VSToken | Güvenli değişken varlığı VSTS kişisel erişim belirteci içeren oluşturur. VSTS kişisel erişim belirteci oluşturmak nasıl öğrenebilirsiniz [VSTS kimlik doğrulaması sayfası](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview). 
+VSToken | Güvenli değişken varlığı VSTS kişisel erişim belirteci içeren oluşturun. VSTS kişisel erişim belirteci oluşturmak nasıl öğrenebilirsiniz [VSTS kimlik doğrulaması sayfası](/vsts/accounts/use-personal-access-tokens-to-authenticate).
 ## <a name="installing-and-configuring-this-scenario"></a>Bu senaryoyu yükleme ve yapılandırma
 
-Oluşturma bir [kişisel erişim belirteci](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) runbook'ları veya automation hesabınız yapılandırmaları eşitlemek için kullanacağınız VSTS içinde.
+Oluşturma bir [kişisel erişim belirteci](/vsts/accounts/use-personal-access-tokens-to-authenticate) runbook'ları veya automation hesabınız yapılandırmaları eşitlemek için kullandığınız VSTS içinde.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
@@ -51,23 +51,23 @@ Oluşturma bir [güvenli değişkeni](automation-variables.md) runbook VSTS kiml
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Runbook'ları ya da Otomasyon hesabı yapılandırmaları eşitlenecek runbook içeri aktarın. Kullanabileceğiniz [VSTS örnek runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) veya [VSTS] Git örnek runbook ile (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) PowerShellGallery.com IF bağlı olarak gelen VSTS kaynak denetimi veya VSTS Git ile kullanın ve automation hesabınız dağıtın.
+Runbook'ları ya da Otomasyon hesabı yapılandırmaları eşitlenir runbook içeri aktarın. Kullanabileceğiniz [VSTS örnek runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) veya [VSTS] Git örnek runbook ile (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) PowerShellGallery.com IF bağlı olarak gelen VSTS kaynak denetimi veya VSTS Git ile kullanın ve automation hesabınız dağıtın.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
 Artık [yayımlama](automation-creating-importing-runbook.md#publishing-a-runbook) bir Web kancası oluşturabilmesi için bu runbook. 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
-Oluşturma bir [Web kancası](automation-webhooks.md) bu Eşitleme VSTS runbook ve aşağıda gösterildiği gibi parametrelerini doldurun. VSTS içinde bir hizmet kancası için ihtiyacınız şekilde Web kancası URL'si kopyaladığınızdan emin olun. VSAccessTokenVariableName (VSToken) kişisel erişim belirteci tutmak için daha önce oluşturduğunuz güvenli değişkeninin adıdır. 
+Oluşturma bir [Web kancası](automation-webhooks.md) bu Eşitleme VSTS runbook ve aşağıda gösterildiği gibi parametrelerini doldurun. VSTS içinde bir hizmet kancası için gerek duyduğunuz Web kancası URL'si kopyaladığınızdan emin olun. VSAccessTokenVariableName (VSToken) kişisel erişim belirteci tutmak için daha önce oluşturduğunuz güvenli değişkeninin adıdır. 
 
-VSTS (Eşitleme-VSTS.ps1) ile tümleştirme aşağıdaki parametreleri olur.
+VSTS (Eşitleme-VSTS.ps1) ile tümleştirme aşağıdaki parametreleri alır:
 ### <a name="sync-vsts-parameters"></a>Eşitleme VSTS parametreleri
 
 Parametre | Açıklama| 
 --------|------------|
-WebhookData | Bu VSTS hizmet kanca gönderilen iade bilgiler içerir. Bu parametre boş bırakmanız gerekir.| 
+WebhookData | VSTS hizmet kanca gönderilen iade bilgiler içerir. Bu parametre boş bırakmanız gerekir.| 
 ResourceGroup | Otomasyon hesabının bulunduğu kaynak grubunun adıdır.|
-AutomationAccountName | VSTS ile eşitlenecek Otomasyon hesabının adı.|
+AutomationAccountName | VSTS ile eşitlenen Otomasyon hesabının adı.|
 VSFolder | Runbook'ları ve yapılandırmaları var olduğu VSTS klasöründe adı.|
 VSAccount | Visual Studio Team Services hesabı adı.| 
 VSAccessTokenVariableName | VSTS kişisel erişim belirtecine güvenli değişkeni (VSToken) adı.| 
@@ -80,7 +80,7 @@ VSTS GIT (Sync-VSTSGit.ps1) ile kullanıyorsanız, aşağıdaki parametreleri s�
 Parametre | Açıklama|
 --------|------------|
 WebhookData | Bu VSTS hizmet kanca gönderilen iade bilgiler içerir. Bu parametre boş bırakmanız gerekir.| ResourceGroup | Bu Otomasyon hesabı bulunduğu kaynak grubunun adı.|
-AutomationAccountName | VSTS ile eşitlenecek Otomasyon hesabının adı.|
+AutomationAccountName | VSTS ile eşitlenen Otomasyon hesabının adı.|
 VSAccount | Visual Studio Team Services hesabı adı.|
 VSProject | Runbook'ları ve yapılandırmaları var olduğu VSTS projesinde adı.|
 GitRepo | Git deposu adı.|
@@ -90,10 +90,10 @@ VSAccessTokenVariableName | VSTS kişisel erişim belirtecine güvenli değişke
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 
-Bir hizmet kancası VSTS içinde bu Web kancası kod girişinde tetikler klasörüne iadeler oluşturun. Yeni bir abonelik oluşturduğunuzda ile tümleştirmek için hizmet olarak Web Kancalarını'ı seçin. Üzerindeki hizmet kancaları hakkında daha fazla bilgiyi [VSTS hizmet kancaları belgelerine](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
+Bir hizmet kancası VSTS içinde bu Web kancası kod girişinde tetikler klasörüne iadeler oluşturun. Seçin **Web Kancalarını** yeni bir abonelik oluşturduğunuzda ile tümleştirmek için hizmet olarak. Üzerindeki hizmet kancaları hakkında daha fazla bilgiyi [VSTS hizmet kancaları belgelerine](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
-Şimdi tüm onay bileşenler runbook'lardan ve VSTS yapılandırmaları yapın ve bu otomatik olarak sahip olmanız gerekir eşitleme 'd Otomasyon hesabınızda.
+Artık tüm onay bileşenler runbook'lardan ve VSTS yapılandırmaları yapın ve bu otomatik olarak synched Otomasyon hesabınızda sahip olması gerekir.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 

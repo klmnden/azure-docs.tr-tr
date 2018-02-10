@@ -1,5 +1,5 @@
 ---
-title: "OMS’de Güncelleştirme Yönetimi çözümü | Microsoft Belgeleri"
+title: "Azure yönetim çözümüne güncelleştirme | Microsoft Docs"
 description: "Bu makale, Windows ve Linux bilgisayarlarınızın güncelleştirmelerini yönetmek için bu çözümün nasıl kullanılacağına yönelik bilgiler verir."
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5156beb82e1ca8aeb9817badc4fcb38971143d4f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
+# <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
 ![Güncelleştirme Yönetimi sembolü](./media/oms-solution-update-management/update-management-symbol.png)
 
-OMS’deki Güncelleştirme Yönetimi çözümü, Azure’da, şirket içi ortamlarda veya diğer bulut sağlayıcılarında dağıtılmış Windows ve Linux bilgisayarlarınızın işletim sistemi güvenlik güncelleştirmelerini yönetmenize olanak sağlar.  Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
+Güncelleştirme yönetimi çözümü Azure, Azure, şirket içi ortamları veya diğer bulut sağlayıcıları dağıtılmış, Windows ve Linux bilgisayarlar için işletim sistemi güvenlik güncelleştirmeleri yönetmenize olanak sağlar.  Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
 
 ## <a name="update-management-in-azure-automation"></a>Azure Otomasyonu'nda güncelleştirme yönetimi
 
@@ -48,13 +48,13 @@ Aşağıdaki diyagramlarda, çözümün çalışma alanındaki tüm bağlı Wind
 #### <a name="linux"></a>Linux
 ![Linux güncelleştirme yönetimi işlem akışı](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
-Bilgisayar güncelleştirme uyumluluğu için bir tarama yaptıktan sonra, OMS aracısı bilgileri toplu olarak OMS’ye iletir. Window bilgisayarında, uyumluluk taraması varsayılan olarak her 12 saatte bir gerçekleştirilir.  Tarama zamanlamasına ek olarak, Microsoft Monitoring Agent’ın (MMA) yeniden başlatılması durumunda, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.  Linux bilgisayarıyla, uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir ve MMA aracısının yeniden başlatılması durumunda 15 dakika içinde uyumluluk taraması başlatılır.  
+Bilgisayar güncelleştirme uyumluluğu için tarama gerçekleştirir sonra OMS aracısı için günlük analizi toplu bilgi iletir. Window bilgisayarında, uyumluluk taraması varsayılan olarak her 12 saatte bir gerçekleştirilir.  Tarama zamanlamasına ek olarak, Microsoft Monitoring Agent’ın (MMA) yeniden başlatılması durumunda, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.  Linux bilgisayarıyla, uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir ve MMA aracısının yeniden başlatılması durumunda 15 dakika içinde uyumluluk taraması başlatılır.  
 
 Ardından uyumluluk bilgileri çözüme eklenmiş olan panolarda işlenir ve özetlenir ya da kullanıcı tanımlı veya önceden tanımlanmış sorgular kullanılarak aranabilir.  Çözüm, eşitlenmek üzere yapılandırdığınız kaynağa dayanarak bilgisayarınızın ne düzeyde güncel olduğunu raporlar.  Windows bilgisayarı WSUS’a raporlayacak şekilde yapılandırıldıysa, WSUS’un Microsoft Update ile en son ne zaman eşitlendiğine bağlı olarak, sonuçlar Microsoft Update tarafından gösterilenlerden farklı olabilir.  Genel depo yerine bir yerel depoya raporlayacak şekilde yapılandırılan Linux bilgisayarları için de aynı durum geçerlidir.   
 
 Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin gerekli olduğu bilgisayarlara güncelleştirmeleri dağıtabilir ve yükleyebilirsiniz.  *İsteğe Bağlı* olarak sınıflandırılmış güncelleştirmeler Windows bilgisayarları için dağıtım kapsamına alınmaz; yalnızca gerekli güncelleştirmeler alınır.  Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya belirli bir bilgisayar kümesinin günlük aramaları temelinde bir [bilgisayar grubu](../log-analytics/log-analytics-computer-groups.md) seçerek, uygun güncelleştirmeleri hangi hedef bilgisayarların alacağını tanımlar.  Ayrıca, güncelleştirmelerin yüklenmesine izin verilen zaman aralığını onaylamak ve belirlemek için bir zamanlama da belirtebilirsiniz.  Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir.  Bu runbook’ları görüntüleyemezsiniz ve bunlar için herhangi bir yapılandırma gerekmez.  Bir Güncelleştirme Dağıtımı oluşturulduğunda, dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook’unu başlatan bir zamanlama oluşturur.  Bu ana runbook, gerekli güncelleştirmelerin yüklemesini gerçekleştiren her aracıda bir alt runbook başlatır.       
 
-Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütür.  İlk olarak güncelleştirmelerin hala gerekli olduğunu doğrulamak için bir tarama yapılır ve bunlar yüklenir.  WSUS istemci bilgisayarları için, güncelleştirmelerin WSUS’ta onaylanmaması durumunda güncelleştirme dağıtımının başarısız olacağı unutulmamalıdır.  Uygulanan güncelleştirmelerin sonuçları, panolarda veya olayları arama yoluyla işlenmek ve özetlenmek üzere OMS’ye iletilir.     
+Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütür.  İlk olarak güncelleştirmelerin hala gerekli olduğunu doğrulamak için bir tarama yapılır ve bunlar yüklenir.  WSUS istemci bilgisayarları için, güncelleştirmelerin WSUS’ta onaylanmaması durumunda güncelleştirme dağıtımının başarısız olacağı unutulmamalıdır.  Uygulanan güncelleştirmeleri sonuçlarını işlenir ve panolar ya da olaylar arayarak özetlenen için günlük analizi iletilir.     
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Çözüm, Windows Server 2008 ve sonraki sürümlerine yönelik güncelleştirme değerlendirmelerinin yanı sıra Windows Server 2008 R2 SP1 ve sonraki sürümlerine yönelik güncelleştirme dağıtımları gerçekleştirilmesini destekler.  Nano Sunucu desteklenmiyor.
@@ -78,7 +78,7 @@ Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar
 * Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.  
 
     > [!NOTE]
-    > Birden çok OMS çalışma alanına raporlayacak şekilde yapılandırılmış bir Linux için OMS Aracısı, bu çözümde desteklenmez.  
+    > Rapor birden fazla günlük analizi çalışma alanları için yapılandırılmış Linux için bir OMS Aracısı bu çözüm ile desteklenmiyor.  
     >
 
 Linux için OMS Aracısı’nı yükleme ve en son sürümü indirme hakkında ek bilgi için, [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux) konusuna bakın.  Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agent.md) konusunu gözden geçirin.  
@@ -90,7 +90,7 @@ Güncelleştirme dağıtımları oluşturmak için hem Otomasyon hesabınızda h
 Bu çözüm, Otomasyon hesabınıza eklenen aşağıdaki kaynaklardan ve doğrudan bağlanılan aracılardan veya Operations Manager bağlantılı yönetim grubundan oluşur.
 
 ### <a name="management-packs"></a>Yönetim paketleri
-System Center Operations Manager yönetim grubunuz OMS çalışma alanına bağlıysa, Operation Manager’a aşağıdaki yönetim paketleri yüklenir.  Bu çözüm eklendikten sonra bu yönetim paketleri doğrudan bağlı Windows bilgisayarlarına da yüklenir. Bu yönetim paketlerinde yapılandırılacak veya yönetilecek hiçbir şey yoktur.
+System Center Operations Manager yönetim grubunuzu günlük analizi çalışma alanına bağlıysa, aşağıdaki yönetim paketleri Operations Manager'da yüklenir.  Bu çözüm eklendikten sonra bu yönetim paketleri doğrudan bağlı Windows bilgisayarlarına da yüklenir. Bu yönetim paketlerinde yapılandırılacak veya yönetilecek hiçbir şey yoktur.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -99,34 +99,31 @@ System Center Operations Manager yönetim grubunuz OMS çalışma alanına bağl
 Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../log-analytics/log-analytics-om-agents.md).
 
 ### <a name="hybrid-worker-groups"></a>Karma Çalışanı grupları
-Bu çözümü etkinleştirdikten sonra çözümde yer alan runbook'ların desteklenmesi için OMS çalışma alanınıza doğrudan bağlı tüm Windows bilgisayarları otomatik olarak bir Karma Runbook Çalışanı olarak yapılandırılır.  Çözüm tarafından yönetilen her Windows bilgisayarı için, Otomasyon hesabının Karma Runbook Çalışan Grupları dikey penceresinde, *Hostname FQDN_GUID* adlandırma kuralının ardından listelenir.  Hesabınızdaki runbook’larla bu grupları hedefleyemezsiniz, aksi takdirde başarısız olur. Bu gruplar yalnızca yönetim çözümünü desteklemeye yöneliktir.   
+Bu çözüm etkinleştirdikten sonra bu çözümde bulunan runbook'ları desteklemek için bir karma Runbook çalışanı olarak doğrudan günlük analizi çalışma alanına bağlı herhangi bir Windows bilgisayarı otomatik olarak yapılandırılır.  Çözüm tarafından yönetilen her Windows bilgisayarı için, Otomasyon hesabının Karma Runbook Çalışan Grupları dikey penceresinde, *Hostname FQDN_GUID* adlandırma kuralının ardından listelenir.  Hesabınızdaki runbook’larla bu grupları hedefleyemezsiniz, aksi takdirde başarısız olur. Bu gruplar yalnızca yönetim çözümünü desteklemeye yöneliktir.   
 
 Bununla birlikte, Çözüm ve Karma Runbook Çalışanı grup üyeliği için aynı hesabı kullandığınız sürece Otomasyon gruplarını desteklemek için Windows bilgisayarlarını Otomasyon hesabınızdaki bir Karma Runbook Çalışanı grubuna ekleyebilirsiniz.  Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.  
 
 ## <a name="configuration"></a>Yapılandırma
-Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve aracıların raporladığını doğrulamak için aşağıdaki adımları uygulayın. Çalışma alanınıza zaten bağlı olan Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir.
+Güncelleştirme yönetimi çözümü için günlük analizi çalışma alanınızı ekleyin ve aracıları raporlama onaylamak için aşağıdaki adımları gerçekleştirin. Çalışma alanınıza zaten bağlı olan Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir.
 
-Aşağıdaki yöntemleri kullanarak çözümü dağıtabilirsiniz:
+Otomasyon ve denetim teklifi ya da güncelleştirme yönetimi çözümü seçerek Azure portalında Azure Marketi'nden çözüm dağıtabilirsiniz
 
-* Azure portalında Azure Market’ten Otomasyon ve Denetim teklifini veya Güncelleştirme Yönetimi çözümünü seçerek
-* OMS çalışma alanınızdaki OMS Çözüm Galerisi’nden
+Bir Otomasyon hesabı ve günlük analizi çalışma alanı aynı kaynak grubunu ve bölge birbirine zaten varsa, otomasyon ve denetim seçme yapılandırmanızı doğrulayın ve yalnızca çözüm yükleyecek ve her iki hizmet yapılandırın.  Azure Market’ten Güncelleştirme Yönetimi çözümünün seçilmesi de aynı davranışa yol açar.  Aboneliğinizde iki hizmet de dağıtılmamışsa, **Yeni Çözüm Oluştur** dikey penceresindeki adımları izleyin ve önceden seçilmiş diğer önerilen çözümleri yüklemek istediğinizi onaylayın.  İsteğe bağlı olarak, güncelleştirme yönetimi çözümü içinde açıklanan adımları kullanarak günlük analizi çalışma alanınız ekleyebileceğiniz [eklemek OMS çözümleri](../log-analytics/log-analytics-add-solutions.md).  
 
-Zaten aynı kaynak grubunda ve bölgede birbiriyle bağlantılı bir Otomasyon hesabınız ve OMS çalışma alanınız varsa, Otomasyon ve Denetim’in seçilmesi yapılandırmanızı doğrular ve yalnızca çözümü yükleyip her iki hizmette de yapılandırır.  Azure Market’ten Güncelleştirme Yönetimi çözümünün seçilmesi de aynı davranışa yol açar.  Aboneliğinizde iki hizmet de dağıtılmamışsa, **Yeni Çözüm Oluştur** dikey penceresindeki adımları izleyin ve önceden seçilmiş diğer önerilen çözümleri yüklemek istediğinizi onaylayın.  İsteğe bağlı olarak, Çözüm Galerisi’ndeki [OMS çözümü ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde açıklanan adımlarla Güncelleştirme Yönetimi çözümünü OMS çalışma alanına ekleyin.  
+### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-log-analytics"></a>OMS aracıları ve Operations Manager yönetim grubu için günlük analizi bağlı onaylayın
 
-### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>OMS aracılarını ve OMS’ye bağlı Operations Manager yönetim grubunu doğrulama
-
-Doğrudan bağlı Linux ve Windows için OMS Aracı’nın OMS ile iletişim kurduğunu doğrulamak için, birkaç dakika sonra aşağıdaki günlük aramasını çalıştırabilirsiniz:
+Doğrudan onaylamak için Linux için OMS aracısının bağlı ve Windows günlük analizi ile iletişim kuran birkaç dakika sonra aşağıdaki günlük arama çalıştırabilirsiniz:
 
 * Linux - `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
 
 * Windows - `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
 
-Windows bilgisayarında, OMS ile aracı bağlantısını doğrulamak için aşağıdakileri gözden geçirebilirsiniz:
+Bir Windows bilgisayarda günlük analizi ile Aracısı bağlanabilirliği doğrulamak için aşağıdakileri gözden geçirebilirsiniz:
 
 1.  Denetim Masası’nda Microsoft Monitoring Agent’i açın; **Azure Log Analytics (OMS)** sekmesinde aracı şöyle bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.   
-2.  Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın.  Bu olaylar bilgisayarın OMS çalışma alanına kaydolduğunu ve yapılandırmayı aldığını gösterir.  
+2.  Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın.  Bu olaylar, bilgisayar günlük analizi çalışma alanı ile kayıtlı ve yapılandırmayı almayı gösterir.  
 
-Aracı, OMS hizmetiyle iletişim kuramıyorsa ve İnternet ile güvenlik duvarı veya ara sunucu üzerinden iletişim kuracak şekilde yapılandırıldıysa [Windows aracısı için ağ yapılandırması](../log-analytics/log-analytics-windows-agent.md) ya da [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md) konu başlığını gözden geçirerek güvenlik duvarının ve ara sunucunun düzgün yapılandırıldığını doğrulayın.
+Aracı günlük analizi ile iletişim kurabildiğinden değil ve bir güvenlik duvarı veya proxy sunucu üzerinden internet ile iletişim kuracak şekilde yapılandırıldı, güvenlik duvarı veya proxy sunucusu düzgün yapılandırılmış gözden geçirerek onaylayın [için ağ yapılandırması Windows Aracısı](../log-analytics/log-analytics-windows-agent.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Linux sistemleriniz bir ara sunucu veya OMS Ağ Geçidi ile iletişim kuracak şekilde yapılandırıldıysa ve bu çözümü ekliyorsanız lütfen şu komutları kullanarak *proxy.conf* izinlerini, omi kullanıcı grubuna dosyada okuma izni verilecek şekilde güncelleştirin:  
@@ -136,7 +133,7 @@ Aracı, OMS hizmetiyle iletişim kuramıyorsa ve İnternet ile güvenlik duvarı
 
 Yeni eklenen Linux aracılarında, değerlendirme yapıldıktan sonra **Güncelleştirildi** durumu gösterilir.  Bu işlem 6 saat kadar sürebilir.
 
-Operations Manager yönetim grubunun OMS’yle iletişim kurduğunu onaylamak için bkz. [OMS ile Operations Manager Tümleştirmesini Doğrulama](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+Bir Operations Manager yönetim grubu günlük analizi ile iletişim onaylamak için bkz: [OMS ile Operations Manager tümleştirmesini doğrulama](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Veri toplama
 ### <a name="supported-agents"></a>Desteklenen aracılar
@@ -146,7 +143,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | --- | --- | --- |
 | Windows aracıları |Evet |Çözüm, Windows aracılarından sistem güncelleştirme bilgilerini toplar ve gerekli güncelleştirmelerin yüklemesini başlatır. |
 | Linux aracıları |Evet |Çözüm, Linux aracılarından sistem güncelleştirme bilgilerini toplar ve desteklenen dağıtımlarda gerekli güncelleştirmelerin yüklemesini başlatır. |
-| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br>Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Veriler yönetim grubundan OMS deposuna iletilir. |
+| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br>Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Veri yönetim grubu için günlük analizi çalışma alanına iletilir. |
 | Azure depolama hesabı |Hayır |Azure Storage, sistem güncelleştirmeleri hakkında bilgi içermez. |
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
@@ -155,7 +152,7 @@ Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştiril
 Yönetilen bilgisayarlardan gelen güncelleştirilmiş verilerin panoda görüntülenmesi 30 dakika ile 6 saat arasında bir zaman alabilir.   
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
-Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklediğinizde OMS panonuza **Güncelleştirme Yönetimi** kutucuğu eklenir. Bu kutucukta, ortamınızdaki bilgisayarların sayısına ve güncelleştirme uyumluluğuna ilişkin bir sayı ve grafik gösterimi görüntülenir.<br><br>
+Güncelleştirme yönetimi çözümü, günlük analizi çalışma alanına eklediğinizde **güncelleştirme yönetimi** döşeme günlük analizi panonuz eklenir. Bu kutucukta, ortamınızdaki bilgisayarların sayısına ve güncelleştirme uyumluluğuna ilişkin bir sayı ve grafik gösterimi görüntülenir.<br><br>
 ![Güncelleştirme Yönetimi Özet Kutucuğu](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
@@ -220,7 +217,7 @@ Varsayılan olarak, Güncelleştirme Yönetimi çözümünde analiz edilen veril
 Verileri zaman aralığını değiştirmek için panonun üst kısmındaki **Veri temeli**’ni seçin. Son 7 gün, 1 gün veya 6 saat içinde oluşturulan veya güncelleştirilen kayıtları seçebilirsiniz. Ya da **Özel**’i seçip özel bir tarih aralığı belirtebilirsiniz.
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
-Güncelleştirme Yönetimi çözümü, OMS deposunda iki tür kayıt oluşturur.
+Güncelleştirme yönetimi çözümü kayıtları iki tür günlük analizi çalışma alanında oluşturur.
 
 ### <a name="update-records"></a>Güncelleştirme kayıtları
 Her bilgisayara yüklenen veya gerekli olan her bir güncelleştirme için **Güncelleştirme** türünde bir kayıt oluşturulur. Güncelleştirme kayıtları aşağıdaki tabloda gösterilen özelliklere sahiptir.
@@ -317,7 +314,7 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 PC, sunucu ve mobil cihazları yönetmek için System Center Configuration Manager'a yatırım yapmış müşteriler aynı zamanda yazılım güncelleştirme yönetimi (SUM) döngüsünün bir parçası olarak yazılım güncelleştirmelerini yönetme gücünden ve olgunluğundan yararlanmaktadır.
 
-OMS Güncelleştirme Yönetimi çözümünü Sytem Center Configuration Manager ile nasıl tümleştireceğinizi öğrenmek için bkz. [System Center Configuration Manager'ı OMS Güncelleştirme Yönetimi ile tümleştirme](../automation/oms-solution-updatemgmt-sccmintegration.md).
+OMS güncelleştirme yönetimi çözümü System Center Configuration Manager ile tümleşik öğrenmek için bkz: [OMS güncelleştirme yönetimi ile System Center Configuration Manager tümleştirme](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -335,7 +332,7 @@ Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları giderme
 | Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---><br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının<br>klasöre okuma erişiminin olduğunu doğrulayın:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Güncelleştirme dağıtımlarının sorunlarını nasıl giderebilirim?
-Bu çözümü destekleyen OMS çalışma alanıyla bağlantı Otomasyon hesabınızın İşler dikey penceresindeki zamanlanmış güncelleştirme dağıtımına dahil olan güncelleştirmeleri dağıtmaktan sorumlu runbook’un sonuçlarını görüntüleyebilirsiniz.  **Patch-MicrosoftOMSComputer** runbook’u, belirli bir yönetilen bilgisayarı hedefleyen bir alt runbook’tur; ayrıntılı Akışın gözden geçirilmesi bu dağıtımla ilgili ayrıntılı bilgileri sağlar.  Çıkışta, hangi gerekli güncelleştirmelerin uygulanabilir olduğu, indirme durumu, yükleme durumu ve ek ayrıntılar gösterilir.<br><br> ![Güncelleştirme Dağıtımı iş durumu](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+Runbook'un zamanlanmış güncelleştirme günlük analizi çalışma alanı bu çözüm destekleme bağlı Otomasyon hesabınızın işler dikey penceresinden dağıtımdaki güncelleştirmeleri dağıtmak için sorumlu sonuçlarını görüntüleyebilirsiniz.  **Patch-MicrosoftOMSComputer** runbook’u, belirli bir yönetilen bilgisayarı hedefleyen bir alt runbook’tur; ayrıntılı Akışın gözden geçirilmesi bu dağıtımla ilgili ayrıntılı bilgileri sağlar.  Çıkışta, hangi gerekli güncelleştirmelerin uygulanabilir olduğu, indirme durumu, yükleme durumu ve ek ayrıntılar gösterilir.<br><br> ![Güncelleştirme Dağıtımı iş durumu](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Daha fazla bilgi için bkz. [Otomasyon runbook’u çıkışı ve iletileri](../automation/automation-runbook-output-and-messages.md).   
 

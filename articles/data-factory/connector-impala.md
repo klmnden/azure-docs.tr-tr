@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e1f745fc70395f06d2eb3d98644d54c314a0ef26
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Azure Data Factory (beta) kullanarak Impala verileri kopyalama
 
@@ -52,7 +52,7 @@ Hizmeti Impala bağlı aşağıdaki özellikleri desteklenir.
 | port | İstemci bağlantılarını dinlemek için Impala sunucusunun kullandığı TCP bağlantı noktası. 21050 varsayılan değerdir.  | Hayır |
 | authenticationType | Kullanılacak kimlik doğrulama türü. <br/>İzin verilen değerler **anonim**, **SASLUsername**, ve **UsernameAndPassword**. | Evet |
 | kullanıcı adı | Impala sunucuya erişmek için kullanılan kullanıcı adı. Varsayılan değer anonim olduğunda SASLUsername kullanın.  | Hayır |
-| password | UsernameAndPassword kullandığınızda, kullanıcı adına karşılık gelen parola. Bu alan, veri fabrikasında güvenli bir şekilde depolamak için SecureString olarak işaretleyebilirsiniz. Ayrıca Azure anahtar kasası parolayı depolamak ve veri kopyalama gerçekleştirdiğinizde buradan kopyalama etkinliği çekme olanak tanır. Daha fazla bilgi için bkz: [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
+| password | UsernameAndPassword kullandığınızda, kullanıcı adına karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenir olup olmadığını belirtir. Varsayılan değer **false**.  | Hayır |
 | trustedCertPath | Sunucu SSL üzerinden bağlandığında doğrulamak için kullanılan güvenilir CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik, yalnızca SSL Self-hosted tümleştirmesi Çalışma Zamanı Modülü kullandığınızda ayarlayabilirsiniz. Varsayılan değer ile tümleştirme çalışma zamanının yüklü cacerts.pem dosyasıdır.  | Hayır |
 | useSystemTrustStore | Bir CA sertifikası sistem güven deposundan veya belirtilen PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer **false**.  | Hayır |

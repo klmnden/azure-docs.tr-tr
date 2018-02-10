@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
@@ -130,10 +130,14 @@ Konuk/sunucu RDM | Evet<br/><br/> Fiziksel sunucuları için yok
 Konuk/sunucu diski > 1 TB | Evet<br/><br/>4095 GB'a kadar 
 Konuk/sunucu diski 4 K mantıksal ve 4 k fiziksel kesim boyutu | Evet
 4K mantıksal Konuk/sunucu diskle ve 512 bayt fiziksel kesim boyutu | Evet 
-Şeritli disk > 1 TB Konuk/sunucu birimle<br/><br/> Konuk/sunucu LVM mantıksal birim yönetimi - depolama alanları | Konuk/sunucu sık kullanılan Ekle/Kaldır disk | / Sunucu - Konuk hariç disk | Konuk/sunucu çok yollu (MPIO) Evet | YOK
+Şeritli disk > 4 TB Konuk/sunucu birimle <br><br/>LVM mantıksal birim yönetimi | Evet
+Konuk/sunucu - depolama alanları | Hayır 
+Konuk/sunucu sık kullanılan Ekle/Kaldır disk | Hayır 
+Konuk/sunucu - exclude disk | Evet 
+Konuk/sunucu çok yollu (MPIO) | Yok
 
 > [!NOTE]
-> ** UEFI VMware sanal makineleri veya fiziksel sunucular Windows Server 2012 çalıştıran önyükleme veya daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
+> ** UEFI ** VMware sanal makineleri veya fiziksel sunucular Windows Server 2012 çalıştıran önyükleme ya da daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
 > - Yalnızca azure'a geçişini destekler. Yeniden çalışma için şirket içi VMware sitesi desteklenmiyor.
 > - Sunucu, 4'ten fazla bölümleri işletim sistemi disk üzerinde olmalıdır.
 > - Azure Site Recovery Mobility hizmeti sürümü 9.13 veya üstü gerektirir.

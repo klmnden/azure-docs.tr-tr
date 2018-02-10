@@ -81,7 +81,7 @@ ACU: 180 - 240
 
 <sup>1</sup> GS serisi VM ile (IOPS veya MB/sn) mümkün sayısı ile sınırlı en fazla disk verimlilik boyutu ve bağlı diskler şeritleme. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>2</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış.
+<sup>2</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış. 
 
 <sup>3</sup> kısıtlı çekirdek boyutları kullanılabilir 
 
@@ -117,7 +117,7 @@ ACU: 210 - 250
 
 <sup>1</sup> DSv2 serisi VM ile (IOPS veya MB/sn) mümkün sayısı ile sınırlı en fazla disk verimlilik boyutu ve bağlı diskler şeritleme.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
 
-<sup>2</sup> VM'nizi bizim Intel Haswell düğümde yalnızca VM olmasını garanti eder yalıtılmış bir düğüm örneğidir.
+<sup>2</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış. 
 
 <sup>3</sup> hızlandırılmış ağ ile 25000 MB/sn.
 
@@ -133,9 +133,9 @@ ACU: 210 - 250
 | Standard_D12_v2   | 4         | 28          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 3000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 6000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000/750/375                                        | 64 / 64 x 500                       | 8 / 12000          |
-| İçin Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1000          | 60000/937/468                                        | 64 / 64 x 500                       | 8 / 25000 <sup>2</sup> |
+| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1000          | 60000/937/468                                        | 64 / 64 x 500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> VM'nizi bizim Intel Haswell düğümde yalnızca VM olmasını garanti eder yalıtılmış bir düğüm örneğidir.
+<sup>1</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış. 
 
 <sup>2</sup> hızlandırılmış ağ ile 25000 MB/sn.
 

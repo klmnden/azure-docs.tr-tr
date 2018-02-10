@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6e03f47d2262b089528c7cf54825a114daa65579
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bb273460f8b659d302cd81d2e99cf4e853f1a069
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Greenplum verilerini
 
@@ -48,7 +48,7 @@ Aşağıdaki özellikler Greenplum bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Greenplum** | Evet |
-| connectionString | İçin Greenplum bağlanmak için bir ODBC bağlantı dizesi. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretle ve veri kopyalama gerçekleştirirken buradan kopyalama etkinliği çekme-'dan daha fazla bilgi edinin DF izin seçebilirsiniz [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| connectionString | İçin Greenplum bağlanmak için bir ODBC bağlantı dizesi. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -93,7 +93,7 @@ Greenplum verileri kopyalamak için kümesine tür özelliği ayarlamak **Greenp
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Greenplum kaynak tarafından desteklenen özellikler listesini sağlar.
 

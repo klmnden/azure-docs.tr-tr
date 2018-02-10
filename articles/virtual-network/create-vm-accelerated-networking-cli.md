@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 908d81c363a556917d211e0bcc92188f849fb690
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile Linux sanal makine oluşturma
 
@@ -68,9 +68,9 @@ Bu özelliği kullanırken aşağıdaki sınırlamalar bulunmaktadır:
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *myNic*, ve *myVm*.
+En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *myNic*, ve *myVm*.
 
-[az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *centralus* konumu:
+[az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *centralus* konumu:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Listelenen desteklenen bir Linux bölge seçmelisiniz [Linux hızlandırılmış ağ](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Bir sanal ağ ile oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#create). Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* bir alt ağ ile:
+Bir sanal ağ ile oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#az_network_vnet_create). Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* bir alt ağ ile:
 
 ```azurecli
 az network vnet create \
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
-Bir ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup*:
+Bir ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -125,7 +125,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Bir ağ arabirimi oluştur [az ağ NIC oluşturmak](/cli/azure/network/nic#create) etkin hızlandırılmış ağ ile. Aşağıdaki örnek adlı ağ arabirimi oluşturur *myNic* içinde *mySubnet* alt *myVnet* sanal ağ ile ilişkilendirilmiş bir  *myNetworkSecurityGroup* ağ arabirimi için ağ güvenlik grubu:
+Bir ağ arabirimi oluştur [az ağ NIC oluşturmak](/cli/azure/network/nic#az_network_nic_create) etkin hızlandırılmış ağ ile. Aşağıdaki örnek adlı ağ arabirimi oluşturur *myNic* içinde *mySubnet* alt *myVnet* sanal ağ ile ilişkilendirilmiş bir  *myNetworkSecurityGroup* ağ arabirimi için ağ güvenlik grubu:
 
 ```azurecli
 az network nic create \
@@ -141,7 +141,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nic"></a>Bir VM oluşturun ve NIC ekleme
 NIC belirtin VM oluşturduğunuzda ile oluşturulan `--nics`. Bir boyut seçin ve dağıtım listelenen [Linux hızlandırılmış ağ](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-[az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* UbuntuLTS görüntü ve hızlandırılmış ağ destekleyen boyutu (*Standard_DS4_v2*):
+[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* UbuntuLTS görüntü ve hızlandırılmış ağ destekleyen boyutu (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

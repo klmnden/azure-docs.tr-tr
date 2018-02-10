@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Öğretici: Google Apps otomatik kullanıcı sağlamayı yapılandırın
 
@@ -157,9 +157,9 @@ Bu bölümde, Google API uygulamaları sağlama kullanıcı hesabı için Azure 
 
 20. **Kaydet**’i seçin.
 
-Bu işlem, herhangi bir kullanıcı veya kullanıcılar ve Gruplar bölümünde Google Apps atanan grupları ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek yaklaşık 20 dakikada hizmet çalışırken oluşan sonraki eşitlemeler uzun sürer. 
+Bu işlem, herhangi bir kullanıcı veya kullanıcılar ve Gruplar bölümünde Google Apps atanan grupları ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada hizmet çalışırken oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlükleri sağlamak için bağlantıları izleyin. Bu günlükler Google Apps uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
-Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik raporları sağlamak için bağlantıları izleyin. Bu raporlar yapılan Google Apps uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

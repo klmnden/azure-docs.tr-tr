@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services platformunda medya analizi
 ## <a name="overview"></a>Genel Bakış
@@ -50,6 +50,8 @@ Video özetleme otomatik olarak kaynak video ilginç parçacıkları'i seçerek 
 Azure Media ORC (optik karakter tanıma) ile video dosyaları metin içeriği düzenlenebilir, aranabilir dijital metne dönüştürebilirsiniz. Ardından, medya video sinyali anlamlı meta veri ayıklama otomatik hale getirebilirsiniz.
 ### <a name="scalable-face-redaction"></a>Ölçeklenebilir yüz Redaksiyon
 Azure Media Redactor ölçeklenebilir yüz Redaksiyon bulutta sunan medya analizi medya işlemcisi ' dir. Yüz Redaksiyon kullanarak videonuzu seçili kişiler yüzeyleri ölçeklendirilmelidir değiştirebilirsiniz. Haber ortamda veya ortak güvenlik söz konusu olduğunda yüz Redaksiyon hizmetini kullanmak isteyebilirsiniz. Birden çok yüzeyleri içeren çekimi birkaç dakika el ile Redaksiyon saat sürebilir, ancak bu hizmetle yüz Redaksiyon birkaç basit adımla alır. Daha fazla bilgi için bkz: [Redaksiyon yüzeyleri Azure medya Analizi ile](media-services-face-redaction.md) makalesi.
+### <a name="content-moderation"></a>İçerik Denetleme
+Azure içerik denetleyici videolarınızı için makine destekli yönetimini kullanmanıza olanak sağlar. Örneğin, videoları olası yetişkin ve saldırganlardan içerikleri algılama ve işaretli içerik İnsan yönetimini ekipleriniz tarafından gözden geçirmek isteyebilirsiniz. El ile yönetme videolar istenmeyen içerik için bir zaman alabilir ve pahalı bir görevdir. Bu hizmeti ve ilişkili gözden geçirme araçları ile verimli ve uygun maliyetli bir şekilde en iyi sonuçlar için İnsan-içinde--döngü özellikleriyle makine destekli yönetimini birleştirin. Daha fazla bilgi için bkz: [Azure içerik Denetleyici ile kullanarak videolarınızı işleyin](media-services-content-moderation.md) makalesi.
 
 ## <a name="common-scenarios"></a>Genel senaryolar
 Medya analizi kuruluşlara yardımcı olur ve işletmelerin video ilişkin yeni bilgiler glean ve daha etkili bir şekilde video içeriği büyük miktarda yönetin. Burada, çeşitli senaryolar vardır:
@@ -69,6 +71,7 @@ Bu bölümde, medya analizi medya işlemcileri listeler ve .NET veya REST medya 
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 Aşağıdaki işlevi, belirtilen MP adlarından birini alır ve bir MP nesnesi döndürür.
@@ -123,11 +126,6 @@ Yanıtı:
 ## <a name="demos"></a>Gösterileri
 Bkz: [Azure medya analizi gösterileri](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="next-steps"></a>Sonraki adımlar
-Media Services öğrenme yollarını gözden geçirin.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ Bkz: [medya Hizmetleri analizi duyuru](https://azure.microsoft.com/blog/introduc
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>Sonraki adımlar
+Media Services öğrenme yollarını gözden geçirin.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

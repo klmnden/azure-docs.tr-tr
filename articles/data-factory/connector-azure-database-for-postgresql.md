@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: adc8ebe282fa4e4b242924bf1fea9b62d704835e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 13be3144455e36b19871d68982b1e9ec40d05d89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL için Azure veritabanından veri kopyalama 
 
@@ -45,7 +45,7 @@ Aşağıdaki özellikler PostgreSQL bağlantılı hizmeti için Azure veritaban�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzurePostgreSql** | Evet |
-| connectionString | PostgreSQL için Azure veritabanına bağlanmak için bir ODBC bağlantı dizesi. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| connectionString | PostgreSQL için Azure veritabanına bağlanmak için bir ODBC bağlantı dizesi. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -86,7 +86,7 @@ PostgreSQL için Azure veritabanından veri kopyalamak için veri kümesi için 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölüm için PostgreSQL kaynağı Azure veritabanı tarafından desteklenen özellikler listesini sağlar.
 

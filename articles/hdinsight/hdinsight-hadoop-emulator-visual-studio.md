@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox ile Visual Studio için Azure Data Lake araçları kullanın
 
@@ -27,7 +27,7 @@ Azure Data Lake genel Hadoop kümeleri ile çalışma araçları içerir. Bu bel
 
 Hortonworks Sandbox kullanarak Hadoop ile yerel olarak geliştirme ortamınızı üzerinde çalışmanıza olanak sağlar. Bir çözümü geliştirilmiştir ve ölçekte dağıtmak istediğiniz sonra bir Hdınsight kümesine taşıyabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Hortonworks geliştirme ortamınızı bir sanal makinede çalışan korumalı alan. Bu belge yazılmış ve Oracle VirtualBox çalıştıran korumalı alan ile test. Korumalı alan ayarlama hakkında daha fazla bilgi için bkz: [Hortonworks sandbox ile başlayın.](hadoop/apache-hadoop-emulator-get-started.md) Belge.
 
@@ -53,13 +53,13 @@ Hortonworks Sandbox çalıştığından emin olun. Ardından adımları [Hortonw
 
     ![Vurgulanan parola metin kutusu ile iletişim kutusunun ekran görüntüsü](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
-    Seçin **sonraki** devam etmek için.
+    Devam etmek için **İleri**’yi seçin.
 
 4. Kullanım **parola** için yapılandırılmış parola girmesini alan `root` hesabı. Diğer alanları varsayılan değeri bırakın.
 
     ![Vurgulanan parola metin kutusu ile iletişim kutusunun ekran görüntüsü](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    Seçin **sonraki** devam etmek için.
+    Devam etmek için **İleri**’yi seçin.
 
 5. Bitirmek için Hizmetleri doğrulamasının tamamlanmasını bekleyin. Bazı durumlarda, doğrulama başarısız ve yapılandırmasını güncelleştirmek ister. Doğrulama başarısız olursa, seçin **güncelleştirme**ve yapılandırma ve doğrulama hizmeti tamamlanması için bekleyin.
 
@@ -84,7 +84,7 @@ Hive yapılandırılmış verilerle çalışmak için bir SQL benzeri sorgu dili
 
     ![Ekran görüntüsü, Sunucu Gezgini, yazma vurgulanmış Hive sorgusu ile](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    Yeni bir sorgu penceresi görünür. Burada hızla yapabilecekleriniz yazma ve yerel küme için bir sorgu gönderin.
+    Yeni bir sorgu penceresi görüntülenir. Burada hızla yapabilecekleriniz yazma ve yerel küme için bir sorgu gönderin.
 
 2. Yeni Sorgu penceresinde aşağıdaki komutu girin:
 

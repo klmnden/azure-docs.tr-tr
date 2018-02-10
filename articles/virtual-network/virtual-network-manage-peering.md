@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e4f1d24da2a775007bf9172bc9267952d0a9bf48
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesi silme
 
@@ -110,7 +110,7 @@ Aynı veya farklı aboneliklerde, aynı veya farklı dağıtım modelleriyle olu
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ vnet eşleme listesi](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#list) sanal bir ağ için liste eşlemeleri için [az ağ vnet eşleme Göster](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#show) bir özel eşliği için ayarları göstermek için ve [az ağ vnet eşleme güncelleştirmesi](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#update) eşleme ayarlarını değiştirmek için.|
+|CLI|[az ağ vnet eşleme listesi](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_list) sanal bir ağ için liste eşlemeleri için [az ağ vnet eşleme Göster](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_show) bir özel eşliği için ayarları göstermek için ve [az ağ vnet eşleme güncelleştirmesi](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_update) eşleme ayarlarını değiştirmek için.|
 |PowerShell|[Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) görünüm eşleme ayarlarını almak için ve [kümesi AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) ayarlarını değiştirmek için.|
 
 ## <a name="delete-a-peering"></a>Bir eşleme Sil
@@ -129,7 +129,7 @@ Bazen iletişim kurmak için sanal ağlar istiyor, ancak her zaman, bir eşleme 
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ vnet eşleme Sil](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[az ağ vnet eşleme Sil](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="requirements-and-constraints"></a>Gereksinimleri ve kısıtlamaları 

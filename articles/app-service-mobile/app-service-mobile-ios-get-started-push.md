@@ -14,19 +14,19 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
-ms.openlocfilehash: 063926a5a98aeab62e191d372831a00c29b9f6d7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 1fd90df3b6935d35834e1f571e80b945716b55ff
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>İOS uygulamasına anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide, anında iletme bildirimleri ekleme [iOS Hızlı Başlat] proje böylece bir kayda eklenen her zaman bir anında iletme bildirimi cihaza gönderilir.
+Bu öğreticide, anında iletme bildirimleri ekleme [iOS quickstart] proje böylece bir kayda eklenen her zaman bir anında iletme bildirimi cihaza gönderilir.
 
-İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantısı paketi gerekir. Bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) daha fazla bilgi için.
+İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantısı paketi gerekir. Daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Kılavuzu.
 
 [İOS simülatörü anında iletme bildirimlerini desteklemiyor](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Fiziksel bir iOS cihazına gerekir ve bir [Apple Developer Program üyeliği](https://developer.apple.com/programs/ios/).
 
@@ -56,4 +56,4 @@ Bu öğreticide, anında iletme bildirimleri ekleme [iOS Hızlı Başlat] proje 
 <!-- Images. -->
 
 <!-- URLs. -->
-[iOS Hızlı Başlat]: app-service-mobile-ios-get-started.md
+[iOS quickstart]: app-service-mobile-ios-get-started.md

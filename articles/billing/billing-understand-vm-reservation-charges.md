@@ -13,17 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-<<<<<<< HEAD
-ms.openlocfilehash: 3fd12bd3c51eeef57c896da030a83e447dc3e8ff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
-=======
-ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama
 Ayrılmış bir VM örnek satın sonra ayırma indirim öznitelikleri ve ayırma miktarı ile eşleşen sanal makinelere otomatik olarak uygulanır. Bir ayırma sanal makinelerinizi altyapı maliyetinden kapsar. Bir ayırma satın aldıktan sonra sanal makine maliyetlerini aşağıdaki tabloda gösterilmektedir. Her durumda, depolama ve ağ aygıtları için ücretlendirilirsiniz normal hızlarında.
@@ -37,7 +31,7 @@ Ayrılmış bir VM örnek satın sonra ayırma indirim öznitelikleri ve ayırma
 |Windows VM ile birlikte [Azure karma avantajı](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Ayırma altyapı maliyetlerini kapsar. Windows yazılım maliyetleri Azure karma avantajı tarafından ele alınmıştır. Ek yazılım ayrı olarak ücretlendirilir.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Uygulama Windows olmayan VM'ler için ayırma indirim
- Saatlik olarak başka bir VM örnekleri çalıştırmak için ayırma indirim uygulanır. Satın aldığınız ayırmaları ayırma indirimi uygulamak için çalışan VM'ler tarafından gösterilen kullanımı eşleştirilir. Aşağıdaki grafikte Faturalanabilir VM kullanımı için bir ayırma uygulama gösterilmektedir. Çizimde, bir ayırma satın alma ve eşleşen iki VM örneğini dayanır.
+ Saatlik olarak başka bir VM örnekleri çalıştırmak için ayırma indirim uygulanır. Satın aldığınız ayırmaları ayırma indirimi uygulamak için çalışan VM'ler tarafından gösterilen kullanımı eşleştirilir. Tam saat çalışmayabilir VM'ler için ayırma Vm'leri eşzamanlı olarak çalışan dahil olmak üzere bir ayırma kullanmayan diğer VM'lerin doldurulur. Saat sonunda saat VM'ler için ayırma uygulamada kilitlendi. Bir VM için bir saat çalışmaz veya saat içinde eşzamanlı VM'ler ayırma saat doldurmayın durumunda, ayırma için bu saat gereğinden az. Aşağıdaki grafikte Faturalanabilir VM kullanımı için bir ayırma uygulama gösterilmektedir. Çizimde, bir ayırma satın alma ve eşleşen iki VM örneğini dayanır.
 
 ![Ayrılmış VM örnek uygulaması](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
@@ -50,6 +44,16 @@ Anlamak ve kullanım raporları faturalama, rezervasyonları uygulama görüntü
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Windows VM ayırma indirim uygulamaya
 Windows VM örnekleri çalışırken ayırma altyapı maliyetlerini karşılamak üzere uygulanır. VM altyapı maliyetlerini Windows VM'ler için ayırma uygulamasının Windows olmayan VM'ler için aynıdır. Ayrıca, Windows yazılım vCPU başına temelinde ücretlendirilirsiniz. Bkz: [Windows yazılım maliyetleri ayırmaları ile](https://go.microsoft.com/fwlink/?linkid=862756). Windows lisans maliyetleriniz [karma avantajı Windows Server için Azure] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) ile ele.
+
+## <a name="next-steps"></a>Sonraki adımlar
+Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+
+- [Ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ayrılmış sanal makine örneklerini yönetme](billing-manage-reserved-vm-instance.md)
+- [Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
+- [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
+- [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
+- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 

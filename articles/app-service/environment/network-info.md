@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Uygulama hizmeti ortamı için ağ konuları #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Bir uygulama hizmeti ortamı için ağ konuları #
 
 ## <a name="overview"></a>Genel Bakış ##
 
@@ -41,13 +41,13 @@ Bir dış ana varsa, genel VIP ana uygulamalarınız için çözümlemek uç nok
 * Web dağıtımı.
 * Uzaktan hata ayıklama.
 
-![ILB ANA][2]
+![ILB ASE][2]
 
 Bir ILB ana varsa, ILB'nin IP adresini HTTP/S, FTP/sn, web dağıtımı ve uzaktan hata ayıklama için uç noktadır.
 
 Normal uygulama erişim bağlantı noktaları şunlardır:
 
-| Kullanım | Başlangıç | Alıcı |
+| Kullanım | Kaynak | Alıcı |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Kullanıcı tarafından yapılandırılabilir |  80, 443 |
 |  FTP/FTPS    | Kullanıcı tarafından yapılandırılabilir |  21, 990, 10001-10020 |
@@ -55,11 +55,18 @@ Normal uygulama erişim bağlantı noktaları şunlardır:
 
 Bu, bir dış ana ya da bir ILB ana iseniz geçerlidir. Bir dış ana üzerinde değilseniz, bu bağlantı noktalarına genel VIP ulaştı. Bir ILB ana değilseniz, bu bağlantı noktalarına ILB ulaştı. Bağlantı noktası 443 kilitlemek portalda kullanıma bazı özellikler üzerinde bir etkisi olabilir. Daha fazla bilgi için bkz: [Portal bağımlılıkları](#portaldep).
 
+## <a name="ase-subnet-size"></a>ANA alt ağ boyutu ##
+
+Ana dağıtıldıktan sonra bir ana barındırmak için kullanılan alt ağ boyutunu değiştirilemez.  Ana her altyapı rolü için de her yalıtılmış uygulama hizmeti plan örneği için bir adres kullanır.  Ayrıca, Azure ağ tarafından oluşturulan her alt ağ için kullanılan 5 adresleri vardır.  Bir uygulamayı oluşturmadan önce bir ana uygulama hizmeti planı ile hiç 12 adreslerini kullanır.  Bir ILB ana ise, o ana bir uygulamayı oluşturmadan önce sonra onu 13 adreslerini kullanır. Uygulama hizmeti planlarınızı ölçeklendirirken her ön eklenen uç için ek adresleri gerektirecektir.  Varsayılan olarak, her 15 toplam uygulama hizmeti planı örnek için ön uç sunucularına eklenir. 
+
+   > [!NOTE]
+   > Hiçbir şey alt ancak ana olabilir. Gelecekteki büyümeyi de izin veren bir adres alanı seçtiğinizden emin olun. Bu ayarı daha sonra değiştiremezsiniz. Dosya boyutu öneririz `/25` 128 adreslerine sahip.
+
 ## <a name="ase-dependencies"></a>Ana bağımlılıkları ##
 
 Bir ana gelen erişim bağımlılık:
 
-| Kullanım | Başlangıç | Alıcı |
+| Kullanım | Kaynak | Alıcı |
 |-----|------|----|
 | Yönetim | App Service management adresleri | ANA alt: 454, 455 |
 |  ANA iç iletişim | ANA alt: tüm bağlantı noktaları | ANA alt: tüm bağlantı noktaları
@@ -76,12 +83,12 @@ Atanmış IP adresleri uygulamalarınızı ana alt ağa atanan IP gelen trafiğe
 
 Giden erişim için bir ana birden çok dış sistemlerde bağlıdır. Bu sistem bağımlılıkların DNS adları ile tanımlanır ve sabit bir IP adresleri kümesini eşleme yok. Bu nedenle, ana çeşitli bağlantı noktaları tüm dış IP ana alt ağdan giden erişim gerektirir. Bir ana aşağıdaki giden bağımlılıklara sahiptir:
 
-| Kullanım | Başlangıç | Alıcı |
+| Kullanım | Kaynak | Alıcı |
 |-----|------|----|
-| Azure Storage | ANA alt ağ | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 yalnızca gereklidir ASEv1 için.) |
-| Azure SQL Database | ANA alt ağ | Database.Windows.NET: 1433 11000 11999, 14000 14999 (daha fazla bilgi için bkz: [SQL Database V12 bağlantı noktası kullanımı](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Azure Yönetimi | ANA alt ağ | Management.Core.Windows.NET, management.azure.com: 443 
-| SSL sertifika doğrulama |  ANA alt ağ            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Azure Storage | ANA alt ağ | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1.) |
+| Azure SQL Database | ANA alt ağ | database.windows.net: 1433, 11000-11999, 14000-14999 (For more information, see [SQL Database V12 port usage](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
+| Azure Yönetimi | ANA alt ağ | management.core.windows.net, management.azure.com: 443 
+| SSL sertifika doğrulama |  ANA alt ağ            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | ANA alt ağ            |  Internet: 443
 | Uygulama Hizmeti Yönetimi        | ANA alt ağ            |  Internet: 443
 | Azure DNS                     | ANA alt ağ            |  Internet: 53
@@ -150,7 +157,7 @@ ASE'de, ana barındırmak için kullanılan sanal makineleri erişimi yok. Bunla
 
 Nsg'ler, Azure portal veya PowerShell aracılığıyla yapılandırılabilir. Burada yer alan bilgiler Azure Portalı'nı gösterir. Oluşturma ve Nsg'ler altında en üst düzey bir kaynak olarak portalda yönetme **ağ**.
 
-Gelen ve giden gereksinimlerini dikkate alınır, Nsg'ler Bu örnekte gösterilen Nsg'ler benzemelidir. VNet adres aralığı _192.168.250.0/16_, ve ana bulunduğu alt ağ _192.168.251.128/25_.
+Gelen ve giden gereksinimlerini dikkate alınır, Nsg'ler Bu örnekte gösterilen Nsg'ler benzemelidir. VNet adres aralığı _192.168.250.0/23_, ve ana bulunduğu alt ağ _192.168.251.128/25_.
 
 Bu örnekte liste üstündeki ana işlevi ilk iki gelen gereksinimlerini gösterilmektedir. Bunlar ana yönetimini etkinleştirme ve ana kendisiyle iletişim kurmasına izin verin. Diğer girişler tüm Kiracı yapılandırılabilir ve ana barındırılan uygulamalar için ağ erişimi yönetebilirler. 
 
@@ -168,13 +175,13 @@ Nsg'lerinizi tanımlandıktan sonra ana açıktır alt ağa atayın. Ana sanal a
 
 ## <a name="routes"></a>Yollar ##
 
-Azure ExpressRoute ile ağınızı yapılandırırken yollara en yaygın olarak sorunlu dönüşür. Üç türde bir sanal ağda yollar vardır:
+Yollar, zorlamalı tünelin ne olduğu ve nasıl ele alınması gerektiğiyle ilgili önemli bir unsurdur. Bir Azure sanal ağında yönlendirme, en uzun ön ek eşleşmesi (LPM) temel alınarak yapılır. Aynı LPM eşleşmesine sahip birden fazla yol bulunuyorsa yol aşağıdaki sırayla ve kaynağına göre seçilir:
 
--   Sistem yolları
--   BGP yolları
--   Kullanıcı tanımlı yollar (Udr'ler)
+- Kullanıcı tanımlı yol (UDR)
+- BGP yolu (ExpressRoute kullanıldığında)
+- Sistem yolu
 
-BGP yolları sistem yolları geçersiz kılar. BGP yolları Udr'ler geçersiz. Azure sanal ağlar yollar hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar genel bakış][UDRs].
+Sanal ağ içinde yönlendirme hakkında daha fazla bilgi için [Kullanıcı tanımlı yollar ve IP iletme][UDRs] makalesini okuyun.
 
 Sistem yönetmek için ana kullanan Azure SQL veritabanı güvenlik duvarı vardır. Ana genel VIP kaynaklanacak şekilde iletişim gerektirir. ExpressRoute bağlantısı aşağı ve başka bir IP adresi çıkış gönderilirse ana gelen SQL veritabanına bağlantıları reddedilir.
 
@@ -182,15 +189,15 @@ Gelen yönetim isteklerini yanıtlar ExpressRoute gönderirse yanıt adresini ö
 
 Ana ağınızı bir ExpressRoute ile yapılandırılırken çalışmaya yapmak için kolay şeydir:
 
--   Tanıtmak için ExpressRoute yapılandırma _0.0.0.0/0_. Varsayılan olarak, zorla tünel giden tüm trafiği şirket içi.
--   Bir UDR oluşturun. Bir adres öneki ile ana içeren alt ağ geçerli _0.0.0.0/0_ ve bir sonraki atlama türü _Internet_.
+-   Tanıtmak için ExpressRoute yapılandırma _0.0.0.0/0_. Varsayılan olarak, giden tüm şirket içi trafiğe zorlamalı tünel uygular.
+-   UDR oluşturun. Bir adres öneki ile ana içeren alt ağ geçerli _0.0.0.0/0_ ve bir sonraki atlama türü _Internet_.
 
 Bu iki değişiklik yaparsanız, ana alt ağdan kaynaklanan Internet hedefleyen trafiğe works ExpressRoute ve ana aşağı zorlanmaz. 
 
 > [!IMPORTANT]
-> Bir UDR tanımlanan rotalar ExpressRoute yapılandırma tarafından tanıtılan rotaları önceliklidir için belirli olması gerekir. Yukarıdaki örnek, geniş 0.0.0.0/0 adres aralığını kullanır. Bu büyük olasılıkla yanlışlıkla daha belirli adres aralıkları Yol tanıtımlarını tarafından geçersiz kılınabilir.
+> Bir UDR’de tanımlanan yollar, ExpressRoute yapılandırması tarafından tanıtılan herhangi bir yoldan öncelikli olacak kadar spesifik olmalıdır. Önceki örnekte geniş 0.0.0.0/0 adres aralığı kullanılır. Bu aralık, daha spesifik adres aralıkları kullanan yol tanıtımları tarafından yanlışlıkla geçersiz kılınabilir.
 >
-> ASEs ortak eşleme yolu yolları özel eşleme yoluna arası tanıtma ExpressRoute yapılandırmalarla desteklenmez. Microsoft'tan Yol tanıtımlarını ilgili yapılandırılmış ortak eşleme ile ExpressRoute yapılandırmaları. Reklam çok sayıda Microsoft Azure IP adres aralıklarını içerir. Özel eşliği yolda arası tanıtılan adres aralıklarını, tüm giden ağ paketlerinin ana'nın alt ağdan bir müşterinin şirket içi ağ altyapısına tünelli zorla demektir. Bu ağ akışı ASEs ile şu anda desteklenmiyor. Bu sorun için bir çözüm, ortak eşleme yolu arası reklam yolları özel eşleme yoluna önlemektir.
+> ASEs ortak eşleme yolu yolları özel eşleme yoluna arası tanıtma ExpressRoute yapılandırmalarla desteklenmez. Genel eşlemesi yapılandırılmış ExpressRoute yapılandırmaları, Microsoft’tan yol tanıtımları almaz. Reklamlar çok sayıda Microsoft Azure IP adresi aralığı içerir. Özel eşliği yolda arası tanıtılan adres aralıklarını, tüm giden ağ paketlerinin ana'nın alt ağdan bir müşterinin şirket içi ağ altyapısına tünelli zorla demektir. Bu ağ akışı ASEs ile şu anda desteklenmiyor. Bu sorunun bir çözümü, genel eşleme yolundan özel eşleme yoluna yolların çapraz tanıtımını durdurmaktır.
 
 Bir UDR oluşturmak için aşağıdaki adımları izleyin:
 

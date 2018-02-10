@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 00b608f36caf51e27a1751560df0ffb1308695c4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 509c702054961c9d9fa525242ce0542059e32d81
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage ile Azure CLI 2.0 kullanma
 
@@ -196,10 +196,10 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
-```
 
-### Set default Azure storage account environment variables
-You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
+
+### <a name="set-default-azure-storage-account-environment-variables"></a>Varsayılan Azure depolama hesabı ortam değişkenlerini ayarlama
+Azure aboneliğinizde birden çok depolama hesabı olabilir. Tüm sonraki depolama komutlarını kullanmak için bunlardan birini seçmek için bu ortam değişkenleri ayarlayabilirsiniz:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>

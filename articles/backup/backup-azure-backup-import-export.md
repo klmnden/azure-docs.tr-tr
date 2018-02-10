@@ -12,45 +12,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/18/2017
+ms.date: 2/6/2018
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 306c4c7498601cf3ab7e918ba6ce6bfef173236a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure yedekleme verileri azure'a ilk tam yedeklemesi sırasında ağ ve depolama maliyet tasarrufu birkaç yerleşik verimliliği sahiptir. İlk tam yedekleme tipik olarak büyük miktarlarda veri aktarır ve yalnızca farkları/incrementals aktarım sonraki yedeklemeleri karşılaştırıldığında daha fazla ağ bant genişliği gerektirir. Azure yedekleme ilk yedekleme sıkıştırır. Çevrimdışı dengeli sürecinde, Azure yedekleme disklerini sıkıştırılmış ilk yedek verileri çevrimdışı Azure'a yüklemek için kullanabilirsiniz.  
 
-Azure Backup dengeli çevrimdışı işlemi ile tümleşiktir [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md) diskleri kullanarak Azure'a veri aktarımı olanak sağlar. Yüksek gecikmeli ve düşük bant genişlikli ağ üzerinden aktarılması gereken ilk yedek verileri terabayt (TBs) varsa, ilk yedek kopyayı Azure veri merkezi için bir veya daha fazla sabit sürücülerde sevk etmek dengeli çevrimdışı iş akışı kullanabilirsiniz. Bu makalede, bu iş akışını tamamlama adımları genel bir bakış sağlar.
+Azure Backup dengeli çevrimdışı işlemi ile tümleşiktir [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md) diskleri kullanarak Azure'a veri aktarımı olanak sağlar. Yüksek gecikmeli ve düşük bant genişlikli ağ üzerinden aktarılması gereken ilk yedek verileri terabayt (TBs) varsa, ilk yedek kopyayı Azure veri merkezi için bir veya daha fazla sabit sürücülerde sevk etmek dengeli çevrimdışı iş akışı kullanabilirsiniz. Bu makalede, genel bir bakış ve daha fazla bu iş akışını tamamlamak ayrıntıları adımları sağlar.
+
 
 ## <a name="overview"></a>Genel Bakış
-Azure Backup ve Azure içeri/dışarı aktarma dengeli çevrimdışı özelliğiyle, verileri çevrimdışı diskleri kullanarak Azure'a yükleyin basittir. İlk tam kopyayı ağ üzerinden aktarılması yerine yedekleme verilerini yazılan bir *hazırlama konumuna*. Azure içeri/dışarı aktarma aracını kullanarak hazırlama konumu için kopyalama tamamlandıktan sonra bu verileri bir veya daha fazla SATA sürücülerini, verilerin miktarına bağlı olarak yazılır. Bu sürücüler sonunda en yakın Azure veri merkezine gönderilir.
+Azure Backup ve Azure içeri/dışarı aktarma dengeli çevrimdışı özelliğiyle, verileri çevrimdışı diskleri kullanarak Azure'a yükleyin basittir. Çevrimdışı Yedekleme işlemi aşağıdaki adımları içerir:
 
-[Azure Yedekleme'nin (ve daha sonra) güncelleştirme Ağustos 2016](http://go.microsoft.com/fwlink/?LinkID=229525) içeren *Azure Disk Hazırlama aracı*, AzureOfflineBackupDiskPrep, adlı:
+> [!div class="checklist"]
+> * Ağ üzerinden gönderilen yerine yedekleme verilerini yazılan bir *hazırlama*
+> * Verileri *hazırlama konumuna* sonra kullanarak bir veya daha fazla SATA diskleri için yazılmış *AzureOfflineBackupDiskPrep* yardımcı programı
+> * Bir Azure alma işi yardımcı programı tarafından otomatik olarak oluşturulur
+> * SATA sürücülerini daha sonra en yakın Azure veri merkezine gönderilir
+> * Azure yedekleme veri yükleme tamamlandıktan sonra Azure Backup yedekleme verileri yedekleme Kasası'na kopyalar ve artımlı yedeklemeler zamanlanır.
 
-* Azure içeri/dışarı aktarma aracını kullanarak sürücülerinizin Azure alma için hazırlanmanıza yardımcı olur.
-* Otomatik olarak Azure içeri/dışarı aktarma hizmeti için bir Azure içe aktarma işi oluşturur [Azure portal](https://ms.portal.azure.com).
+## <a name="supported-configurations"></a>Desteklenen yapılandırmalar 
+Çevrimdışı Yedekleme Azure, şirket dışı yedekleme verileri Microsoft Cloud şirket içi yedekleme, tüm dağıtım modelleri için desteklenir. Bu içerir
 
-Azure yedekleme veri yükleme tamamlandıktan sonra Azure Backup yedekleme verileri yedekleme Kasası'na kopyalar ve artımlı yedeklemeler zamanlanır.
+> [!div class="checklist"]
+> * Dosya ve klasörlerin Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nı veya Azure Backup Aracısı ile yedekleme. 
+> * Yedekleme, tüm iş yükleri ve dosyalar ile System Center Data Protection Manager (SC DPM) 
+> * Microsoft Azure yedekleme sunucusu ile tüm iş yükleri ve dosyalarını yedekleme <br/>
 
-> [!NOTE]
-> Azure Disk hazırlığı aracını kullanmak için Ağustos 2016 güncelleştirmenin Azure Yedekleme'nin (veya üstü) yüklü olduğu ve onunla iş akışının tüm adımları gerçekleştirin emin olun. Azure Backup eski bir sürümünü kullanıyorsanız, Azure içeri/dışarı aktarma aracı ayrıntılı, bu makalenin sonraki bölümlerinde kullanarak SATA sürücü hazırlayabilirsiniz.
->
->
+   > [!NOTE]
+   > Çevrimdışı Yedekleme Azure Backup Aracısı kullanılarak gerçekleştirilen sistem durumu yedeklemeleri için desteklenmiyor. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* [Azure içeri/dışarı aktarma iş akışı ile öğrenmeniz](../storage/common/storage-import-export-service.md).
-* İş akışı başlatmadan önce aşağıdakilerden emin olun:
-  * Bir Azure yedekleme kasası oluşturuldu.
-  * İndirilen kasa kimlik bilgileri.
-  * Azure Backup aracısını Windows Server/Windows istemci veya System Center Data Protection Manager sunucu üzerinde yüklü ve bilgisayar Azure yedekleme kasasına kayıtlı.
-* [Dosya Azure yayımlama ayarları indirme](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) içinden planladığınız geri verilerinizi bilgisayarda.
-* Bir ağ paylaşımına veya bilgisayarda ek sürücüye olabilir bir hazırlama konumu hazırlayın. Hazırlama konumu geçici depolama ve geçici olarak bu iş akışı sırasında kullanılır. Hazırlama konumuna ilk kopyanızı tutmak için yeterli disk alanı olduğundan emin olun. Örneğin, 500 GB dosya sunucusunu yedeklemek çalışıyorsanız, hazırlama alanı en az 500 GB olduğundan emin olun. (Daha küçük miktarda sıkıştırma nedeniyle kullanılır.)
-* Desteklenen bir sürücü kullandığınızdan emin olun. Yalnızca 2,5 inç SSD veya 2.5 veya 3,5 inç SATA II/III dahili sabit sürücüler içeri/dışarı aktarma hizmeti ile kullanım için desteklenir. Sabit disk sürücüleri kullanan 10 TB'a kadar. Denetleme [Azure içeri/dışarı aktarma hizmeti belgeleri](../storage/common/storage-import-export-service.md#hard-disk-drives) hizmetini destekleyen sürücüler son kümesi için.
-* BitLocker SATA sürücü yazan bağlandığı bilgisayarda etkinleştirin.
-* [Azure içeri/dışarı aktarma Aracı'nı indirme](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) SATA sürücü yazan bağlı bilgisayara. İndirilen ve Ağustos 2016 güncelleştirme Azure Yedekleme'nin (veya üstü) yüklü, bu adım gerekli değildir.
+Çevrimdışı Yedekleme iş akışı başlatmadan önce aşağıdaki önkoşulların karşılandığından emin olun
+* A [kurtarma Hizmetleri kasası](backup-azure-recovery-services-vault-overview.md) oluşturuldu. ' Ndaki adımları başvurmak oluşturmak için [bu makalede](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
+* Azure Backup aracısı veya Azure yedekleme sunucusu veya SC DPM yüklü olduğu geçerli ya da Windows Server/Windows istemci ve bilgisayarı kurtarma Hizmetleri kasasına kayıtlı. Yalnızca olun [Azure Backup en son sürümünü](https://go.microsoft.com/fwlink/?linkid=229525) kullanılır. 
+* [Azure yayımlama ayarları dosyasını indirme](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) içinden planladığınız geri verilerinizi bilgisayarda. Yayımlama ayarları dosyasını indirme abonelik kurtarma Hizmetleri kasası içeren abonelikten farklı olabilir. Aboneliğiniz Azure Bulutları sovereign üzerinde ise, aşağıdaki bağlantıları Azure yayımlama ayarları dosyasını karşıdan yüklemek uygun şekilde kullanın.
+
+    | Sovereign bulut bölge | Azure yayımlama ayarları dosyası bağlantısı |
+    | --- | --- |
+    | Amerika Birleşik Devletleri | [Bağlantı](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Çin | [Bağlantı](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+
+* Bir Azure depolama hesabıyla *Klasik* dağıtım modeli, indirdiğiniz yayımlama ayarları dosyası aşağıda gösterildiği gibi abonelik oluşturuldu: 
+
+ ![Klasik depolama hesabı oluşturma](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+
+* Bir ağ paylaşımına veya bilgisayarda, iç veya dış, ek herhangi sürücü ilk kopyanızı tutmak için yeterli disk alanına sahip olabilen bir hazırlama konumu oluşturulur. Örneğin, 500 GB dosya sunucusunu yedeklemek çalışıyorsanız, hazırlama alanı en az 500 GB olduğundan emin olun. (Daha küçük miktarda sıkıştırma nedeniyle kullanılır.)
+* Azure'a gönderilen diskleri göre yalnızca 2,5 inç SSD veya 2,5 inç veya 3,5 inç SATA II/dahili sabit sürücüler kullanılan III emin olun. Sabit disk sürücüleri kullanan 10 TB'a kadar. Denetleme [Azure içeri/dışarı aktarma hizmeti belgeleri](../storage/common/storage-import-export-service.md#hard-disk-drives) hizmetini destekleyen sürücüler son kümesi için.
+* SATA sürücülerini bir bilgisayara bağlı olması gerekir (olarak adlandırılan bir *kopya bilgisayar*) nerede gelen yedekleme verilerinin kopyasını *hazırlama konumuna* SATA sürücülerini yapılır. BitLocker'ı üzerinde etkinleştirildiğinden emin olun *kopya bilgisayar* 
 
 ## <a name="workflow"></a>İş akışı
 Bu bölümdeki bilgiler, verilerinizi Azure veri merkezi için teslim ve Azure depolama alanına karşıya Çevrimdışı Yedekleme iş akışı tamamlamanıza yardımcı olur. İçeri aktarma hizmeti veya herhangi bir değişiklik işlemi, hakkında sorularınız varsa bkz [alma hizmetine genel bakış](../storage/common/storage-import-export-service.md) daha önce başvurulan belgeleri.
@@ -61,50 +75,51 @@ Bu bölümdeki bilgiler, verilerinizi Azure veri merkezi için teslim ve Azure d
     ![İçeri aktarma ekran](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
     System Center Data Protection Manager içinde karşılık gelen ekran şöyledir: <br/>
-    ![DPM içeri aktarma ekran](./media/backup-azure-backup-import-export/dpmoffline.png)
+    ![SC DPM ve Azure yedekleme sunucusu ekran Al](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     Girdi açıklaması aşağıdaki gibidir:
 
-    * **Hazırlama konumu**: ilk yedek kopyanın yazılır geçici depolama konumu. Bu, bir ağ paylaşımına veya yerel bilgisayarda olabilir. Kaynak bilgisayar ve kopya bilgisayar farklıysa, hazırlama konumu tam ağ yolunu belirtin önerilir.
+    * **Hazırlama konumu**: ilk yedek kopyanın yazılır geçici depolama konumu. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayarda olabilir. Kaynak bilgisayar ve kopya bilgisayar farklıysa, hazırlama konumu tam ağ yolunu belirtin önerilir.
     * **Azure içeri aktarma iş adı**: hangi Azure alma tarafından hizmet ve Azure yedekleme izlemek gönderilen veri aktarımını disklerde Azure için benzersiz bir ad.
-    * **Azure yayımlama ayarları**: Abonelik profilinizi hakkında bilgi içeren bir XML dosyası. Ayrıca, aboneliğinizle ilişkili güvenli kimlik bilgileri içerir. Yapabilecekleriniz [dosya indirme](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Yayımlama ayarları dosyası yerel yolu sağlar.
-    * **Azure abonelik kimliği**: Azure Alma işinin başlatmak planladığınız abonelik için Azure abonelik kimliği. Birden çok Azure aboneliğiniz varsa, içe aktarma işi ile ilişkilendirmek istediğiniz abonelik Kimliğini kullanın.
-    * **Azure depolama hesabı**: Azure içe aktarma işi ile ilişkili Azure abonelik depolama hesabında.
-    * **Azure depolama kapsayıcısının**: Bu işin veriler alınırken burada Azure depolama hesabındaki hedef depolama blob adı.
+    * **Azure yayımlama ayarları**: yayımlama ayarları dosyası yerel yolunu girin.
+    * **Azure abonelik kimliği**: Azure abonelik kimliği için Azure yayımlama ayarları dosyasını indirdiğiniz gelen abonelik. 
+    * **Azure depolama hesabı**: Azure yayımlama ayarları dosyası ile ilişkili Azure Abonelikteki depolama hesabının adı.
+    * **Azure depolama kapsayıcısının**: yedekleme verileri nerede alınır Azure depolama hesabındaki hedef depolama blob adı.
 
-    > [!NOTE]
-    > Sunucunuz için bir Azure kurtarma Hizmetleri Kasası'nı kaydettiğiniz varsa [Azure portal](https://portal.azure.com) değil ve yedeklemeler için bir bulut çözümü sağlayıcısı (CSP) abonelik depolama hesabı Azure portalından oluşturabilirsiniz ve Çevrimdışı Yedekleme iş akışı için kullanın.
-    >
-    >
-
-     Aşağıdaki adımlarda yeniden girmeniz gerekir çünkü bu bilgileri kaydedin. Yalnızca *hazırlama konumuna* diskleri hazırlamak için Azure Disk hazırlığı aracını kullandıysanız gereklidir.    
-2. İş akışı tamamlayın ve ardından **Şimdi Yedekle** çevrimdışı yedekleme kopyasını başlatmak için Azure Yedekleme Yönetimi konsolunda. İlk yedekleme için bu adımı bir parçası olarak hazırlama alanına yazılır.
+     Kaydet *hazırlama konumuna* ve *Azure içeri aktarma iş adı* diskler hazırlamak için gerektiği şekilde sağladığınız.  
+     
+2. İş akışını tamamlamak ve çevrimdışı yedekleme kopyasını başlatmak için tıklatın **Şimdi Yedekle** Azure Yedekleme aracısı Yönetim Konsolu'nda. İlk yedekleme için bu adımı bir parçası olarak hazırlama alanına yazılır.
 
     ![Şimdi Yedekle](./media/backup-azure-backup-import-export/backupnow.png)
 
-    System Center Data Protection Manager karşılık gelen iş akışını tamamlamak için sağ **koruma grubu**ve ardından **kurtarma noktası oluşturma** seçeneği. Daha sonra seçtiğiniz **çevrimiçi koruma** seçeneği.
+    System Center Data Protection Manager veya Azure yedekleme sunucusu karşılık gelen iş akışında tamamlamak için sağ **koruma grubu**ve ardından **kurtarma noktası oluşturma** seçeneği. Daha sonra seçtiğiniz **çevrimiçi koruma** seçeneği.
 
-    ![Şimdi DPM yedekleme](./media/backup-azure-backup-import-export/dpmbackupnow.png)
+    ![SC DPM ve Azure Backup sunucusu Şimdi Yedekle](./media/backup-azure-backup-import-export/dpmbackupnow.png)
 
     İşlemi tamamlandıktan sonra hazırlama konumu disk hazırlığı için kullanılmak üzere hazırdır.
 
     ![Yedekleme ilerleme durumu](./media/backup-azure-backup-import-export/opbackupnow.png)
 
-### <a name="prepare-a-sata-drive-and-create-an-azure-import-job-by-using-the-azure-disk-preparation-tool"></a>SATA sürücü hazırlamak ve Azure Disk hazırlığı aracını kullanarak bir Azure alma işi oluşturma
-Azure Disk Hazırlık Aracı kurtarma Hizmetleri Aracısı'nı yükleme dizininde kullanıma hazır (Ağustos 2016 güncelleştirin ve daha sonra) aşağıdaki yolundaki.
+### <a name="prepare-sata-drives-and-ship-to-azure"></a>SATA sürücülerini hazırlamak ve Azure'a sevk
+*AzureOfflineBackupDiskPrep* yardımcı programı, en yakın Azure veri merkezine gönderilir SATA sürücülerini hazırlamak için kullanılır. Bu yardımcı program yolunda kurtarma Hizmetleri Aracısı'nın yükleme dizininde bulunur:
 
-   *\Microsoft* *azure* *kurtarma* *Hizmetleri* * Agent\Utils\*
+   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
 
-1. Dizin ve kopyalama gidin **AzureOfflineBackupDiskPrep** üzerinde hazırlıklı olmak için bağlı sürücüler kopyalama bilgisayara dizin. Kopya bilgisayar açısından için aşağıdakilerden emin olun:
+1. Dizin ve kopyalama gidin **AzureOfflineBackupDiskPrep** hazırlıklı olmak için SATA sürücülerini bağlı bir kopya bilgisayarı için dizin. Aşağıdaki kopya bilgisayar yapılmadığından emin olun:
 
     * Kopya bilgisayar çevrimdışı dengeli dağıtımı iş akışı için hazırlama konumu olarak sağlanan aynı ağ yolunu kullanarak erişebilirsiniz **başlatmak Çevrimdışı Yedekleme** iş akışı.
-    * BitLocker'ı bilgisayarda etkin.
-    * Bilgisayar Azure portalına erişebilir.
+    * BitLocker kopyalama bilgisayarda etkin.
+    * Kopya bilgisayar Azure portalına erişebilir.
 
-    Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir.
-2. Azure Disk Hazırlık Aracı dizini geçerli dizin olarak kopyalama bilgisayarda yükseltilmiş bir komut istemi açın ve aşağıdaki komutu çalıştırın:
+    Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir. 
+    
+    > [!IMPORTANT] 
+    > Kaynak bilgisayarda bir sanal makine ise, ardından onu farklı bir fiziksel sunucu veya istemci makine kopya bilgisayar olarak kullanmak üzere zorunludur.
+    
+    
+2. Kopya bilgisayarda yükseltilmiş bir komut istemi açın *AzureOfflineBackupDiskPrep* yardımcı programı dizini olarak geçerli dizinin ve aşağıdaki komutu çalıştırın:
 
-    `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]`
+    `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
     | Parametre | Açıklama |
     | --- | --- |
@@ -112,99 +127,89 @@ Azure Disk Hazırlık Aracı kurtarma Hizmetleri Aracısı'nı yükleme dizinind
     | p:&lt;*PublishSettingsFile yolu*&gt; |Yolunu sağlamak için kullanılan isteğe bağlı giriş **Azure yayımlama ayarları** girdiğiniz dosya **başlatmak Çevrimdışı Yedekleme** iş akışı. |
 
     > [!NOTE]
-    > &lt;PublishSettingFile yoluna&gt; değeri, kaynak bilgisayar ve kopya bilgisayar farklı olduğunda zorunludur.
+    > &lt;AzurePublishSettingFile yoluna&gt; değeri, kaynak bilgisayar ve kopya bilgisayar farklı olduğunda zorunludur.
     >
     >
 
-    Komutu çalıştırdığınızda, araç hazırlanması gerekir sürücülere karşılık gelen Azure Alma işinin seçimi ister. Yalnızca bir tek alma işi sağlanan hazırlama konumu ile ilişkili olan, izleyen bir gibi bir ekran görürsünüz.
+    Komutu çalıştırdığınızda, yardımcı program seçimi hazırlanması gerekir sürücülere karşılık gelen Azure Alma işinin ister. Yalnızca bir tek alma işi sağlanan hazırlama konumu ile ilişkili olan, izleyen bir gibi bir ekran görürsünüz.
 
     ![Azure Disk Hazırlık Aracı giriş](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
+    
 3. Transfer Azure için hazırlamak istediğiniz bağlı diski için sürücü harfini izleyen iki nokta üst üste olmadan girin. İstendiğinde sürücüsünü biçimlendirmek için onay sağlayın.
 
-    Yedekleme verilerini diskle hazırlamak aracı sonra başlar. Sağlanan disk yedekleme verileri için yeterli alanı yok durumunda aracı tarafından istendiğinde ilave diskler eklemeniz gerekebilir. <br/>
+    Aracı, disk ve yedekleme verileri kopyalayarak hazırlamak sonra başlar. Sağlanan disk yedekleme verileri için yeterli alanı yok durumunda aracı tarafından istendiğinde ilave diskler eklemeniz gerekebilir. <br/>
 
-    Aracının başarılı yürütme sonunda, sağladığınız bir veya daha fazla disk Azure dağıtımına için hazırlanır. Ayrıca, ada sahip bir alma işi sırasında sağladığınız **başlatmak Çevrimdışı Yedekleme** iş akışı, Azure portalında oluşturulur. Son olarak, aracı diskleri burada sevk gerek Azure veri merkezi için teslimat adresi ve içe aktarma işi Azure Portalı'nda bulmak için bağlantı görüntüler.
+    Aracının başarılı yürütme sonunda, sağladığınız bir veya daha fazla disk Azure dağıtımına için hazırlanır. Ayrıca, ada sahip bir alma işi sırasında sağladığınız **başlatmak Çevrimdışı Yedekleme** iş akışı, Azure içinde oluşturulur. Son olarak, aracı diskleri burada sevk gerek Azure veri merkezi için teslimat adresi görüntüler.
 
     ![Azure disk hazırlığı tamamlandı](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
+    
+4. Komut yürütme sonunda da aşağıda gösterildiği gibi sevkiyat bilgilerini güncelleştirme seçeneğini bakın:
 
-4. Aracı sağlanan adres disklere sevk ve gelecekte başvurmak için izleme numarası tutun.<br/>
+    ![Güncelleştirme bilgilerini seçeneği aktarma](./media/backup-azure-backup-import-export/updateshippingutility.png)<br/>
 
-5. Aracı görüntülenen bağlantısını olduğunuzda, belirttiğiniz Azure depolama hesabı bkz **başlatmak Çevrimdışı Yedekleme** iş akışı. Burada, yeni oluşturulan alma işi görebilirsiniz **İÇERİ/dışarı aktarma** depolama hesabının sekmesi.
+5. Ayrıntıları hemen girebilirsiniz. Aracı bir dizi girişleri içeren işleminde size rehberlik eder. Ancak izleme numarası veya dağıtımına ilgili diğer ayrıntılar gibi bilgiler yoksa, oturumu sonlandırabilir. Bu makalede daha sonra güncelleştirme Sevkiyat ayrıntıları için adımları sağlanır. 
 
-    ![Oluşturulan alma işi](./media/backup-azure-backup-import-export/ImportJobCreated.png)<br/>
+6. Aracı sağlanan adres disklere sevk ve gelecekte başvurmak için izleme numarası tutun.
 
-6. Tıklatın **Sevkiyat bilgisi** aşağıdaki ekran görüntüsünde gösterildiği gibi iletişim bilgilerinizi güncelleştirmek için sayfanın altındaki. Microsoft bu bilgileri alma işi tamamlandıktan sonra geri için disklerinizi sevk etmek için kullanır.
+   > [!IMPORTANT] 
+   > İki Azure içeri aktarma işi aynı izleme numarasına sahip olabilir. Tek bir Azure içe aktarma işi altında yardımcı programı tarafından hazırlanan sürücüleri tek bir paket birlikte gönderilir ve paketi için tek benzersiz izleme numarası olduğundan emin olun. Bir parçası olarak hazırlanan sürücüleri birleştirmeyin **farklı** Azure içe aktarma işlerinin tek bir pakette. 
 
-    ![İletişim bilgileri](./media/backup-azure-backup-import-export/contactInfoAddition.PNG)<br/>
+5. Sayı bilgileri, alma işinin tamamlanması bekleniyor kaynak bilgisayara gidin ve aşağıdaki komutu yükseltilmiş bir komut istemi ile çalıştırın izleme olduğunda *AzureOfflineBackupDiskPrep* yardımcı programı dizini olarak Geçerli dizin: 
 
-7. Sonraki ekranda sevkiyat ayrıntılarını girin. Sağlamak **teslim taşıyıcı** ve **izleme numarası** Azure veri merkezine sevk diskleri karşılık ayrıntıları.
+   `*.\AzureOfflineBackupDiskPrep.exe*  u:`
 
-    ![Sevkiyat bilgileri](./media/backup-azure-backup-import-export/shippingInfoAddition.PNG)<br/>
+   İsteğe bağlı olarak aşağıdaki komutu farklı bir bilgisayardan aşağıdaki gibi çalıştırabilirsiniz *kopya bilgisayar*, ile *AzureOfflineBackupDiskPrep* yardımcı programı dizini geçerli dizin olarak:
+   
+   `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-### <a name="complete-the-workflow"></a>İş akışını tamamla
-İçe aktarma işi tamamlandıktan sonra ilk yedek verileri depolama hesabınızdaki kullanılabilir. Kurtarma Hizmetleri aracısını ardından kopya yedekleme kasası ya da kurtarma Hizmetleri bu hesabı verilerden içeriğini kasa, bunlardan hangisi söz konusuysa. Sonraki zamanlanmış yedekleme süre içinde Azure Yedekleme aracısı ilk yedek kopyayı artımlı yedekleme gerçekleştirir.
+    | Parametre | Açıklama |
+    | --- | --- |
+    | u: | Bir Azure alma işi sevkiyat ayrıntılarını güncelleştirmek için kullanılan Zorunlu giriş |
+    | s:&lt;*hazırlama konumu yolu*&gt; | Komutu kaynak bilgisayarda çalıştırdığınızda değil, Zorunlu giriş. Girdiğiniz hazırlama konumu yolunu sağlamak için kullanılan **başlatmak Çevrimdışı Yedekleme** iş akışı. |
+    | p:&lt;*PublishSettingsFile yolu*&gt; | Komutu kaynak bilgisayarda çalıştırdığınızda değil, Zorunlu giriş. Yolunu sağlamak için kullanılan **Azure yayımlama ayarları** girdiğiniz dosya **başlatmak Çevrimdışı Yedekleme** iş akışı. |
+    
+    Yardımcı programı, kaynak bilgisayar bekliyor veya farklı bir bilgisayarda komutu çalıştırdığınızda, içeri aktarma işi hazırlama konumu ile ilişkili alma işi otomatik olarak algılar. Ardından, aşağıda gösterildiği gibi bir dizi girişleri üzerinden sevkiyat bilgilerini güncelleştirme seçeneği sağlar: 
+    
+    ![Sevkiyat bilgileri girme](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
 
-> [!NOTE]
-> Aşağıdaki bölümlerde Azure Disk Hazırlama aracı erişimi olmayan önceki sürümlerinden Azure Yedekleme'nin kullanıcılar için geçerlidir.
->
->
+6. Tüm girişleri sağlanan sonra ayrıntıları dikkatle gözden geçirin ve sağlanan yazarak Sevkiyat bilgisi kaydedilmesi *Evet*. 
 
-### <a name="prepare-a-sata-drive"></a>SATA sürücüyü hazırlama
-1. Karşıdan [Microsoft Azure içeri/dışarı aktarma aracı](http://go.microsoft.com/fwlink/?linkid=301900&clcid=0x409) kopya bilgisayarı için. Hazırlama konumu sonraki komut kümesini çalıştırmayı planladığınız bilgisayardan erişilebilir olduğundan emin olun. Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir.
+    ![Sevkiyat bilgileri gözden geçirin](./media/backup-azure-backup-import-export/reviewshippinginformation.png)<br/>
 
-2. WAImportExport.zip dosyanın sıkıştırmasını açın. SATA sürücü biçimleri, yedekleme verilerini SATA sürücüye yazar ve bunu şifreler WAImportExport aracını çalıştırın. Aşağıdaki komutu çalıştırmadan önce BitLocker'ı bilgisayarda etkinleştirildiğinden emin olun. <br/>
+7. Sevkiyat bilgisi başarıyla güncelleştirme üzerinde yardımcı programı tarafından girdiğiniz sevkiyat Ayrıntılar aşağıda gösterildiği gibi depolandığı yerel bir konum sağlar 
 
-    `*.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*`
+    ![Bilgi Kargo depolanması](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
-    > [!NOTE]
-    > Ağustos 2016 güncelleştirme Azure Yedekleme'nin (veya üstü) yüklü değilse, girdiğiniz hazırlama konumu aynı üzerinde olduğundan emin olun **Şimdi Yedekle** ekranında ve AIB ve temel Blob dosyalarını içerir.
-    >
-    >
+   > [!IMPORTANT] 
+   > Sürücüleri Sevkiyat bilgileri kullanarak sağlama iki hafta içinde Azure veri merkezi ulaştığından emin olmak *AzureOfflineBackupDiskPrep* yardımcı programı. Bunun Sağlanamaması işlenmeyen sürücüleri neden olabilir.  
 
-| Parametre | Açıklama |
-| --- | --- |
-| /j: <*JournalFile*> |Günlük dosyası yolu. Her bir sürücü tam olarak bir günlük dosyası olmalıdır. Günlük dosyası hedef sürücüde olmaması gerekir. Günlük dosyası uzantısının .jrn ve bu komutu çalıştıran bir parçası olarak oluşturulur. |
-| /ID: <*SessionID*> |Oturum kimliği kopyalama oturumu tanımlar. Kesintiye uğramış kopyalama oturumu doğru kurtarma sağlamak için kullanılır. Bir kopyalama oturumda kopyalanır dosyaları hedef sürücüde oturum kimliği sonra adlı bir dizinde depolanır. |
-| /SK: <*StorageAccountKey*> |Verilerin içe aktarıldığı depolama hesabı için hesap anahtarı. Anahtarı yedekleme İlkesi/koruma grubu oluşturma sırasında girilen aynı olması gerekir. |
-| / BlobType |Blob türü. Yalnızca bu iş akışı başarılı **PageBlob** belirtilir. Bu varsayılan seçeneği değildir ve bu komutta belirtilen. |
-| / t: <*TargetDriveLetter*> |Sürücü harfini izleyen iki nokta geçerli kopyalama oturumu için hedef sabit disk olmadan. |
-| Format |Sürücüyü biçimlendirmek için seçeneği. Sürücünün biçimlendirilmesi gerektiğinde bu parametreyi belirtin; Aksi takdirde yok sayın. Aracı sürücü biçimleri önce konsoldan onay ister. Onay gizlemek için /silentmode parametresini belirtin. |
-| / şifrele |Sürücü Şifreleme seçeneği. Sürücü henüz BitLocker ile şifrelenmiş değil ve aracı tarafından şifrelenmiş gerektiğinde bu parametreyi belirtin. Sürücünün BitLocker ile şifrelenmiş, bu parametreyi, /bk parametresini belirtin ve varolan BitLocker anahtarını girin. De belirtmeniz gerekir Format parametresini belirtirseniz, / parametre şifreleyin. |
-| /srcdir: <*SourceDirectory*> |Hedef sürücüye kopyalanması için dosyaları içeren kaynak dizini. Belirtilen dizin adı bir tam yerine göreli yol olduğundan emin olun. |
-| /dstdir: <*DestinationBlobVirtualDirectory*> |Azure depolama hesabınızdaki hedef sanal dizin yolu. Hedef sanal dizinleri ve blobları belirttiğinizde geçerli kapsayıcı adları kullandığınızdan emin olun. Kapsayıcı adları küçük harfli olması gerektiğini unutmayın.  Bu kapsayıcı adı yedekleme İlkesi/koruma grubu oluşturma sırasında girilen biri olması gerekir. |
+Yukarıdaki adımları tamamladıktan sonra Azure veri merkezi sürücüleri almak ve bunları oluşturduğunuz Klasik türü Azure depolama hesabı sürücülerden yedekleme verilerini aktarmak için daha fazla işlemek hazırdır. 
 
-> [!NOTE]
-> Bir günlük dosyası, iş akışının tamamı bilgilerini yakalar WAImportExport klasöründe oluşturulur. Azure portalında bir alma işi oluşturduğunuzda bu dosya gerekir.
->
->
+### <a name="time-to-process-the-drives"></a>Sürücüleri işlemek için süre 
+Gereken bir Azure alma işi değişir Sevkiyat Zamanı gibi farklı etkenlere bağlı olarak işlenecek süreyi iş türü, türü ve kopyalanan verilerin boyutunu ve sağlanan disk boyutu. Azure içeri/dışarı aktarma hizmeti bir SLA yok ancak diskleri alındıktan sonra hizmet 7-10 gün içinde Azure storage hesabınıza yedek veri kopyalama tamamlamak için çalışır. Sonraki bölümde, Azure Alma işinin durumunu nasıl izleyeceğiniz ayrıntıları. 
 
-  ![PowerShell çıkışı](./media/backup-azure-backup-import-export/psoutput.png)
+### <a name="monitoring-azure-import-job-status"></a>Azure Alma işinin durumunu izleme
+Sürücülerinizin aktarımda veya depolama hesabına kopyalanacak Azure veri merkezindeki olsa da, Azure Backup aracısını veya SC DPM veya Azure Yedekleme Sunucusu konsolu kaynak bilgisayarda zamanlanmış yedeklemeler için aşağıdaki iş durumunu gösterir. 
 
-### <a name="create-an-import-job-in-the-azure-portal"></a>Azure portalında bir içeri aktarma işi oluşturma
-1. Depolama hesabınıza gidin [Azure portal](https://ms.portal.azure.com/), tıklatın **içeri/dışarı aktarma**ve ardından **alma işi oluştur** görev bölmesinde.
+  `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
 
-    ![Azure portalında içeri/dışarı aktarma sekmesi](./media/backup-azure-backup-import-export/azureportal.png)
+İçeri aktarma işi durumunu denetlemek için aşağıdaki adımları izleyin. 
+1. Kaynak bilgisayarda yükseltilmiş bir komut istemi açın ve aşağıdaki komutu çalıştırın:
+    
+     `AzureOfflineBackupDiskPrep.exe u:`
+    
+2.  Çıkış, aşağıda gösterildiği gibi Alma işinin geçerli durumunu gösterir: 
 
-2. 1. adımda Sihirbazı'nın sürücünüze hazırladıktan ve sürücü günlük dosyasının kullanılabilir olduğunu gösterir.
+    ![Alma işi durumunu denetleme](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
-3. 2. adımda sihirbazın, bu içeri aktarma işi için sorumlu kişi için kişi bilgilerini sağlayın.
-
-4. 3. adımda, önceki bölümde edindiğiniz sürücü günlük dosyalarını karşıya yükleyin.
-
-5. 4. adımda, yedekleme İlkesi/koruma grubu oluşturma sırasında girilen içe aktarma işi için açıklayıcı bir ad girin. Girdiğiniz ad içerebilir yalnızca küçük harfler, sayılar, tire ve alt çizgi, bir harf ile başlamalı ve boşluk içermemelidir. Seçtiğiniz ad ilerleme ve tamamlandıktan sonra çalışırken işlerinizi izlemek için kullanılır.
-
-6. Ardından, veri merkezi bölgenizi listeden seçin. Veri Merkezi bölge datacenter ve paketinizi hazırlamalısınız adresini gösterir.
-
-    ![Veri Merkezi bölgeyi seçin](./media/backup-azure-backup-import-export/dc.png)
-
-7. 5. adım, dönüş taşıyıcı listeden seçin ve taşıyıcı hesap numaranızı girin. Microsoft, içe aktarma işi tamamlandıktan sonra sürücülerinizin sizin sevk etmek için bu hesabı kullanır.
-
-8. Disk sevk ve sevkiyat durumunu izlemek için izleme numarası girin. Disk veri merkezinde ulaştıktan sonra depolama hesabına kopyalanır ve durumu güncelleştirilir.
-
-    ![Tamamlanma durumu](./media/backup-azure-backup-import-export/complete.png)
+Azure Alma işinin çeşitli durumları hakkında daha fazla bilgi için bkz: [bu makalede](../storage/common/storage-import-export-service.md#how-does-the-azure-importexport-service-work)
 
 ### <a name="complete-the-workflow"></a>İş akışını tamamla
-İlk yedek verileri depolama hesabınızdaki kullanılabilir olduktan sonra Microsoft Azure kurtarma Hizmetleri Aracısı'nı veri içeriğini bu hesaptan yedekleme Kasası'na kopyalar veya kurtarma Hizmetleri kasası, bunlardan hangisi söz konusuysa. Sonraki yedekleme zaman içinde Azure Yedekleme aracısı ilk yedek kopyayı artımlı yedekleme gerçekleştirir.
+İçe aktarma işi tamamlandıktan sonra ilk yedek verileri depolama hesabınızdaki kullanılabilir. Sonraki zamanlanmış yedekleme zaman Azure yedekleme verileri içeriğini depolama hesabından kurtarma Hizmetleri Kasası'na aşağıda gösterildiği gibi kopyalar: 
+
+   ![Veri kurtarma Hizmetleri Kasası'na kopyalama](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
+
+Sonraki zamanlanmış yedekleme zaman Azure yedekleme artımlı yedekleme ilk yedek kopyayı gerçekleştirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Azure içeri/dışarı aktarma iş akışı üzerinde herhangi bir sorunuz için başvurmak [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma](../storage/common/storage-import-export-service.md).

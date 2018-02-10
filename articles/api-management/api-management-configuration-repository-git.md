@@ -6,25 +6,22 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: mattfarm
-ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmeti yapılandırmanızı yapılandırma
-> 
-> 
 
-Her API Management hizmet örneği yapılandırma ve hizmet örneği için meta veriler hakkında bilgi içeren bir yapılandırma veritabanı tutar. Yayımcı Portalı'ndaki bir ayarı değiştirmek, bir PowerShell cmdlet'ini kullanarak veya bir REST API çağrısı yapma değişiklikleri hizmet örneği için yapılabilir. Bu yöntemleri ek olarak, Git kullanarak, hizmet yönetim senaryoları gibi etkinleştirme örneği hizmetinizi yönetebilirsiniz:
+Her API Management hizmet örneği yapılandırma ve hizmet örneği için meta veriler hakkında bilgi içeren bir yapılandırma veritabanı tutar. Değişiklikleri hizmet örneği için Azure Portalı'ndaki bir ayarı değiştirmek, bir PowerShell cmdlet'ini kullanarak veya bir REST API çağrısı yapma yapılabilir. Bu yöntemleri ek olarak, Git kullanarak, hizmet yönetim senaryoları gibi etkinleştirme örneği hizmetinizi yönetebilirsiniz:
 
 * Yapılandırma sürüm oluşturma - karşıdan yüklemek ve hizmetinizi farklı sürümlerini depolamak
 * Yapılandırma değişiklikleri toplu - hizmetinizi yerel deponuzun birden fazla bölümü değişiklik ve değişikliklerin sunucu tek bir işlem ile tümleştirme
@@ -34,7 +31,7 @@ Aşağıdaki diyagram, API Management hizmet örneği yapılandırmak için çe�
 
 ![Git yapılandırın][api-management-git-configure]
 
-Yayımcı portalı, PowerShell cmdlet'leri ve REST API kullanarak hizmetinize değişiklikler yaptığınızda, hizmet yapılandırma veritabanı kullanarak yönettiğiniz `https://{name}.management.azure-api.net` diyagram sağ tarafta gösterildiği gibi endpoint. Diyagram sol tarafındaki hizmeti yapılandırmanızı Git kullanarak nasıl yönetebileceğinizi gösterir ve hizmetiniz için Git deposu bulunan `https://{name}.scm.azure-api.net`.
+Azure portalı, PowerShell cmdlet'leri ve REST API kullanarak hizmetinize değişiklikler yaptığınızda, hizmet yapılandırma veritabanı kullanarak yönettiğiniz `https://{name}.management.azure-api.net` diyagram sağ tarafta gösterildiği gibi endpoint. Diyagram sol tarafındaki hizmeti yapılandırmanızı Git kullanarak nasıl yönetebileceğinizi gösterir ve hizmetiniz için Git deposu bulunan `https://{name}.scm.azure-api.net`.
 
 Aşağıdaki adımlarda, Git kullanarak, API Management hizmet örneğinizin yönetimine genel bir bakış sunulmaktadır.
 
@@ -47,11 +44,8 @@ Aşağıdaki adımlarda, Git kullanarak, API Management hizmet örneğinizin yö
 Bu makalede etkinleştirmek ve hizmet yapılandırmasını yönetmek için Git nasıl kullanılacağını açıklar ve dosya ve klasörleri Git deposu için bir başvuru sağlar.
 
 ## <a name="access-git-configuration-in-your-service"></a>Hizmet erişim Git yapılandırması
-Yayımcı portalının sağ üst köşesinde Git simge görüntüleyerek hızla Git yapılandırmanızı durumunu görüntüleyebilirsiniz. Bu örnekte, kaydedilmemiş değişiklikler var. deponuza durum iletisi gösterir. API Management hizmeti yapılandırma veritabanına depoya henüz kaydedilmedi olmasıdır.
 
-![Git durumu][api-management-git-icon-enable]
-
-Git yapılandırma ayarlarını görüntülemek ve yapılandırmak için Git simgesine tıklayın veya tıklatın **güvenlik** menü gidin **yapılandırma deposu** sekmesi.
+Git yapılandırma ayarlarını görüntülemek ve yapılandırmak için tıklayabilirsiniz **güvenlik** menü gidin **yapılandırma deposu** sekmesi.
 
 ![GIT etkinleştir][api-management-enable-git]
 
@@ -63,43 +57,30 @@ Git yapılandırma ayarlarını görüntülemek ve yapılandırmak için Git sim
 Etkinleştirme veya REST API kullanarak Git erişimini devre dışı bırakma hakkında daha fazla bilgi için bkz: [etkinleştirmek veya devre dışı REST API kullanarak Git erişim](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Git deposuna hizmet yapılandırmasını kaydetmek için
-Depoyu kopyalama önce ilk adımı, hizmet yapılandırması geçerli durumunu depoya tasarruf etmektir. Tıklatın **Kaydet yapılandırma deposu için**.
 
-![Yapılandırmayı kaydedin][api-management-save-configuration]
+Depoyu kopyalama önce ilk adımı, hizmet yapılandırması geçerli durumunu depoya tasarruf etmektir. Tıklatın **depoya kaydedin**.
 
 Onay ekranda istediğiniz değişiklikleri yapın ve tıklatın **Tamam** kaydetmek için.
 
-![Yapılandırmayı kaydedin][api-management-save-configuration-confirm]
-
 Birkaç dakika sonra yapılandırma kaydedilir ve son yapılandırma değişikliği ve hizmet yapılandırmasını ve depo arasındaki son eşitleme saati ve tarihi dahil olmak üzere depo yapılandırma durumu görüntülenir.
-
-![Yapılandırma durumu][api-management-configuration-status]
 
 Yapılandırma deposu kaydedildikten sonra kopyalanabilir.
 
 REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [REST API kullanarak anlık görüntü yürütme yapılandırma](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Depoyu yerel makinenize kopyalamak için
-Bir depo kopyalamak için URL deponuz, bir kullanıcı adı ve parola gerekir. Kullanıcı adı ve URL en üstüne yakın görüntülenir **yapılandırma deposu** sekmesi.
 
-![Git kopyalama][api-management-configuration-git-clone]
-
-En altında oluşturulan parola **yapılandırma deposu** sekmesi.
-
-![Parola oluştur][api-management-generate-password]
-
-Bir parola oluşturmak için öncelikle emin **süre sonu** istenen sona erme tarihini ve saatini ayarlayın ve ardından **belirteç Oluştur**.
-
-![Parola][api-management-password]
+Bir depo kopyalamak için URL deponuz, bir kullanıcı adı ve parola gerekir. Kullanıcı adı ve diğer kimlik bilgilerini almak için tıklayın **erişim kimlik bilgilerini** sayfanın üstüne yakın.  
+ 
+Bir parola oluşturmak için öncelikle emin **süre sonu** istenen sona erme tarihini ve saatini ayarlayın ve ardından **Generate**.
 
 > [!IMPORTANT]
 > Bu parolayı not edin. Bu sayfayı çıktıktan sonra parolayı yeniden görüntülenmez.
 > 
-> 
 
 Aşağıdaki örnekler Git Bash aracından kullanmak [Windows için Git](http://www.git-scm.com/downloads) ancak bilginiz herhangi bir Git aracını kullanabilirsiniz.
 
-Git aracınızı istenen klasöründe açın ve yayımcı portalı tarafından sağlanan komutunu kullanarak uygulamanızı yerel makinenizde git deposuna kopyalamak için aşağıdaki komutu çalıştırın.
+Git aracınızı istenen klasöründe açın ve Azure portalı tarafından sağlanan komutunu kullanarak uygulamanızı yerel makinenizde git deposuna kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
@@ -116,7 +97,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 Bu bir hata sağlıyorsa, URL komutun parola bölümü kodlama deneyin. Bunu yapmak için bir hızlı yoludur Visual Studio'yu açın ve aşağıdaki komutu yürütün **komut penceresi**. Açmak için **komut penceresi**, herhangi bir çözüm veya proje Visual Studio'da açın (veya yeni bir boş konsol uygulaması oluşturun) ve seçin **Windows**, **hemen** gelen **hata ayıklama** menüsü.
 
 ```
-?System.NetWebUtility.UrlEncode("password from publisher portal")
+?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Kodlanmış parolayı git komutu oluşturmak için kullanıcı adını ve depo konumu ile birlikte kullanın.
@@ -128,7 +109,8 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 Depo klonlanmış sonra görüntülemek ve, yerel dosya sistemi ile çalışır. Daha fazla bilgi için bkz: [dosya ve klasör yapısı yerel Git deposu başvuru](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>En güncel hizmet örneği yapılandırmasıyla yerel deponuza güncelleştirmek için
-API Management hizmet örneği yayımcı portalı veya REST API kullanarak değişiklik yaparsanız, en son değişikliklerle yerel deponuza güncelleştirme yapabilmeniz için önce bu değişiklikleri depoya kaydetmeniz gerekir. Bunu yapmak için tıklatın **Kaydet yapılandırma deposu için** üzerinde **yapılandırma deposu** yayımcı portalında sekmesini tıklatın ve ardından yerel deponuza aşağıdaki komutu yürütün.
+
+API Management hizmet örneği Azure portalında veya REST API kullanarak değişiklik yaparsanız, en son değişikliklerle yerel deponuza güncelleştirme yapabilmeniz için önce bu değişiklikleri depoya kaydetmeniz gerekir. Bunu yapmak için tıklatın **Kaydet yapılandırma deposu için** üzerinde **yapılandırma deposu** Azure portalında sekmesini tıklatın ve ardından yerel deponuza aşağıdaki komutu yürütün.
 
 ```
 git pull
@@ -155,13 +137,13 @@ git push
 ```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>API Management hizmet örneği için hizmet yapılandırma değişikliklerini dağıtmak için
+
 Yerel değişikliklerinizi kaydedilen ve sunucu havuzuna gönderilen sonra API Management hizmet örneğiniz dağıtabilirsiniz.
 
-![Dağıtma][api-management-configuration-deploy]
-
-REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [dağıtmak Git değişiklikleri REST API kullanarak yapılandırma veritabanına](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [dağıtmak Git değişiklikleri REST API kullanarak yapılandırma veritabanına](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Yerel Git deposu dosya ve klasör yapısı başvurusu
+
 Dosya ve klasörlerin yerel git deposu içinde hizmet örneği hakkında yapılandırma bilgileri içerir.
 
 | Öğe | Açıklama |
@@ -179,7 +161,7 @@ Her klasör bir veya daha fazla içerebilir ve bazı durumlarda bir veya daha fa
 | Dosya türü | Amaç |
 | --- | --- |
 | json |İlgili varlık hakkında yapılandırma bilgileri |
-| HTML |Genellikle Geliştirici Portalı'nda görüntülenen varlık hakkında açıklamaları |
+| html |Genellikle Geliştirici Portalı'nda görüntülenen varlık hakkında açıklamaları |
 | xml |İlke deyimleri |
 | CSS |Geliştirici Portalı özelleştirme için stil sayfaları |
 
@@ -192,7 +174,6 @@ Bu dosyalar oluşturulabilir, silinen, düzenlenemez ve yerel dosya sisteminde y
 > * Abonelikler
 > * Özellikler
 > * Geliştirici Portalı varlıkları stilleri dışında
-> 
 > 
 
 ### <a name="root-api-management-folder"></a>Kök API management klasörü
@@ -223,8 +204,6 @@ Kök `api-management` klasörünü içeren bir `configuration.json` şu biçimde
 | UserRegistrationTermsEnabled |**Kullanım koşulları kaydolma sayfasında göster** onay kutusu |
 | UserRegistrationTermsConsentRequired |**Onay gerektiren** onay kutusu |
 
-![Kimlik ayarları][api-management-identity-settings]
-
 Sonraki dört ayarları (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, ve `DelegationValidationKey`) eşlemek için aşağıdaki ayarları **temsilci** sekmesinde **güvenlik** bölümü.
 
 | Temsilci ayarı | Eşler |
@@ -233,8 +212,6 @@ Sonraki dört ayarları (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscri
 | DelegationUrl |**Temsilci uç nokta URL'si** metin kutusu |
 | DelegatedSubscriptionEnabled |**Temsilci ürün aboneliği** onay kutusu |
 | DelegationValidationKey |**Doğrulama anahtarı temsilci** metin kutusu |
-
-![Temsilci ayarları][api-management-delegation-settings]
 
 Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimleri dosyası eşleştirir.
 
@@ -271,7 +248,7 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimleri dosyası eşl
 * `products\<product name>\configuration.json`-Bu ürün için bir yapılandırmadır. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir ürün almak](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) işlemi.
 * `products\<product name>\product.description.html`-Bu ürünün açıklaması ve karşılık gelen `description` özelliği [ürün varlığı](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) REST API'sindeki.
 
-### <a name="templates"></a>şablonları
+### <a name="templates"></a>templates
 `templates` İçeren klasör için yapılandırma [e-posta şablonları](api-management-howto-configure-notifications.md) hizmet örneği.
 
 * `<template name>\configuration.json`-Bu e-posta şablonu için bir yapılandırmadır.
@@ -283,15 +260,9 @@ Hizmet örneğinizi yönetmenin başka yolları hakkında daha fazla bilgi için
 * Hizmet örneğinizi aşağıdaki PowerShell cmdlet'lerini kullanarak yönetme
   * [Hizmet dağıtımı PowerShell cmdlet başvurusu](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Hizmet Yönetimi PowerShell cmdlet başvurusu](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* Hizmet örneğinizi yayımcı portalında Yönet
-  * [İlk API'nizi yönetme](import-and-publish.md)
 * Hizmet örneğinizi REST API kullanarak yönetme
   * [API Management REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## <a name="watch-a-video-overview"></a>Video genel izleyin
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]
-> 
-> 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png

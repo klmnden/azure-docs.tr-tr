@@ -14,22 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: c7d2b68d2b523a04c38881d53747adfbb8b295cc
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a6cdff68d63859c6a6612b606664d3e1fbaae375
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.Android Hızlı Başlangıç](app-service-mobile-windows-store-dotnet-get-started.md) proje böylece bir kayda eklenen her zaman bir anında iletme bildirimi cihaza gönderilir.
+Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.Android quickstart](app-service-mobile-windows-store-dotnet-get-started.md) proje böylece bir kayda eklenen her zaman bir anında iletme bildirimi cihaza gönderilir.
 
-İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantısı paketi gerekir. Bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) daha fazla bilgi için.
+İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantısı paketi gerekir. Daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Kılavuzu.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğretici için aşağıdakiler gereklidir:
+Bu öğretici Kurulum gerektirir:
 
 * Etkin bir Google hesabı. Bir Google hesabı için kaydolabilirsiniz [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging istemci bileşeni](http://components.xamarin.com/view/GCMClient/).
@@ -55,7 +55,7 @@ Bu öğretici için aşağıdakiler gereklidir:
 ## <a name="test"></a>Test, uygulamanızda anında iletme bildirimleri
 Öykünücüde sanal cihazı kullanarak uygulamayı test edebilirsiniz. Bir öykünücü üzerinde çalışırken gerekli ek yapılandırma adımları vardır.
 
-1. Dağıtma ve Google API'leri hedef olarak ayarlanmış Android sanal cihazı (AVD) Yöneticisi'nde aşağıda gösterildiği gibi sanal cihaza hata ayıklama emin olun.
+1. Sanal cihaz Google API'leri Android sanal cihazı (AVD) Yöneticisi'ni hedef olarak ayarlanmış olması gerekir.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 2. Tıklayarak Android aygıtına bir Google hesabı ekleyin **uygulamaları** > **ayarları** > **hesabı eklemek**, ardından yönergeleri izleyin.

@@ -12,50 +12,44 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/5/2018
 ms.author: subramar;chackdan
-ms.openlocfilehash: 8d3b922f3d50b645ac9db2cc879a319df1262e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b0ca553fb96b0a54f3b76d306ed98d95026dcd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric uygulama yükseltme: Gelişmiş konular
-## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Ekleme veya uygulama yükseltme sırasında hizmetleri kaldırılıyor
-Yeni bir hizmet zaten dağıtılmış ve bir yükseltme olarak yayımlanan uygulamaya eklenirse, dağıtılan bir uygulama için yeni hizmet eklenir.  Bu tür yükseltme zaten uygulamanın parçası olan hizmetleri etkilemez. Ancak, yeni hizmetinin etkin olması için eklendi Hizmeti'nin bir örneğini başlatılmalıdır (kullanarak `New-ServiceFabricService` cmdlet'i).
+## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Ekleme veya uygulama yükseltme sırasında hizmet türleri kaldırma
+Yükseltme işleminin bir parçası olarak yayımlanan uygulama için yeni bir hizmet türünün eklediyseniz, yeni hizmet türü için dağıtılmış uygulamanın eklenir. Bu tür yükseltme zaten uygulamanın parçası olan hizmet örnekleri etkilemez, ancak eklenmiş olan hizmet türü örneği etkin olması yeni hizmet türü için oluşturulmuş olması gerekir (bkz [yeni ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-Hizmetleri, yükseltme işleminin bir parçası olarak uygulamadan de kaldırılabilir. Ancak, geçerli hizmetin tüm örneklerine ait to-edilecek silinmiş yükseltmeye devam etmeden önce durdurulması gerekir (kullanarak `Remove-ServiceFabricService` cmdlet'i).
+Benzer şekilde, yükseltme işleminin bir parçası olarak bir uygulamadan hizmet türleri kaldırılabilir. Ancak, to-edilecek kaldırmış hizmet türünün tüm hizmet örneklerini yükseltmeye devam etmeden önce kaldırılması gerekir (bkz [Kaldır ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="manual-upgrade-mode"></a>El ile yükseltme moduna
 > [!NOTE]
-> İzlenmeyen el ile modu yalnızca başarısız veya askıya alınmış yükseltme için dikkate alınmalıdır. Service Fabric uygulamaları için önerilen yükseltme modu izlenen moddur.
+> *İzlenen* yükseltme modu için tüm Service Fabric yükseltmelerinin önerilir.
+> *UnmonitoredManual* yükseltme modu başarısız veya askıya alınmış yükseltmeleri için yalnızca sayılacağı. 
 >
 >
 
-Azure Service Fabric geliştirme ve üretim kümeleri desteklemek için birden fazla yükseltme modu sağlar. Seçilen dağıtım seçenekleri farklı ortamlar için farklı olabilir.
+İçinde *izlenen* modunu, Service Fabric uygulama yükseltme ilerledikçe sağlıklı olduğundan emin olmak için sistem durumu ilkeleri uygular. Sistem durumu ilkeleri ihlal sonra yükseltme askıya alındı veya otomatik olarak belirtilen bağlı olarak geri *FailureAction*.
 
-İzlenen uygulama yükseltme, üretim ortamında kullanmak için en tipik bir yükseltmedir. Yükseltme İlkesi belirtildiğinde, Service Fabric yükseltme devam etmeden önce uygulama sağlıklı olmasını sağlar.
+İçinde *UnmonitoredManual* modu, uygulama Yöneticisi yükseltmenin ilerleyişini toplam denetime sahiptir. Bu mod kullanışlıdır özel sistem durumu değerlendirme ilkeleri uygulayarak veya durum tamamen izleme atlamak için geleneksel olmayan yükseltme gerçekleştirme (örn. uygulama veri kaybına zaten). Bu modda çalışan bir yükseltme kendisini her UD tamamladıktan sonra askıya alınır ve açıkça kullanarak devam ettirilebilir gerekir [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Ne zaman yükseltme askıya alınır ve kullanıcı tarafından devam etmeye hazır, yükseltme durumu gösterecektir *RollforwardPending* (bkz [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
- Uygulama Yöneticisi tarafından el ile çalışırken uygulama yükseltme modu çeşitli yükseltme etki alanları arasında yükseltme işlemi ilerleme durumu üzerinde toplam denetime sahip olmasını kullanabilirsiniz. Bu mod özelleştirilmiş veya karmaşık sistem durumu değerlendirme İlkesi gereklidir veya Geleneksel olmayan yükseltme gerçekleştiği yararlıdır (örneğin, uygulama veri kaybına zaten).
-
-Son olarak, geliştirme veya hızlı yineleme döngüsü hizmeti geliştirme sırasında sağlamak için sınama ortamları için otomatik uygulama yükseltme kullanışlıdır.
-
-## <a name="change-to-manual-upgrade-mode"></a>El ile yükseltme moduna geçin
-**El ile**--geçerli UD uygulama yükseltmeyi durdurun ve yükseltme modu izlenmeyen el ile olarak değiştirin. Yönetici el ile çağırmayı gerektiren **MoveNextApplicationUpgradeDomainAsync** yükseltme işlemine devam veya yeni bir yükseltme başlatarak bir geri alma tetiklemek için. El ile moduna yükseltme girdikten sonra yeni bir yükseltme başlatılana kadar el ile modunda kalır. **GetApplicationUpgradeProgressAsync** komut döndürür DOKU\_uygulama\_yükseltme\_durumu\_çalışırken\_İleri\_BEKLEMEDE.
+Son olarak, *UnmonitoredAuto* modu hızlı yükseltme yineleme hizmeti geliştirme veya test sırasında hiçbir kullanıcı girişi gerekmez ve hiçbir uygulama sistem durumu ilkeleri değerlendirilir beri gerçekleştirmek için yararlıdır.
 
 ## <a name="upgrade-with-a-diff-package"></a>Diff paketi ile yükseltme
-Service Fabric uygulaması, tam ve müstakil uygulama paketiyle sağlama tarafından yükseltilebilir. Yalnızca güncelleştirilmiş uygulama dosyaları, güncelleştirilmiş uygulama bildirimi ve hizmet bildirim dosyalarını içeren bir fark paketi kullanarak bir uygulama da yükseltilebilir.
+Bir tam uygulama paketi sağlama yerine yükseltme Ayrıca hizmet bildirimlerini tamamlamak ve yalnızca güncelleştirilmiş kod/config/veri paketleri tam uygulama bildirimi birlikte içeren fark paketleri sağlama tarafından gerçekleştirilebilir. Tam uygulama paketleri, yalnızca ilk kümeye bir uygulamanın yüklenmesi için gerekli. Sonraki yükseltmeleri, tam uygulama paketleri veya fark paketleri ya da olabilir.  
 
-Bir tam uygulama paketi başlatmak ve Service Fabric uygulaması çalıştırmak gereken tüm dosyaları içerir. Bir fark paketi son sağlamak ve geçerli yükseltme arasında değişen dosyaları içerir ve ayrıca dosyaları tam uygulama bildirimi ve hizmet bildirimi. Uygulama bildirimini veya yapı düzende bulunamıyor hizmet bildirimi herhangi başvurusu için görüntü deposunda aranır.
+Uygulama bildirimi veya uygulama paketinde bulunan bir fark paketin hizmet bildirimlerini herhangi başvurusu şu anda sağlanan sürümüyle otomatik olarak değiştirilir.
 
-Tam uygulama paketleri ilk kümeye bir uygulamanın yüklenmesi için gereklidir. Sonraki güncelleştirmeler tam uygulama paketi veya bir fark paket olabilir.
+Kullanarak bir fark paketi için senaryolar şunlardır:
 
-Durumlar fark paket iyi bir seçimdir kullanırken:
+* Büyük uygulama paketine sahip olduğunda, birkaç hizmet bildirim dosyaları ve/veya birkaç kod paketler, yapılandırma paketleri veya veri paketleri başvuruda bulunuyor.
+* Varsa doğrudan uygulamanızdan yapı düzeni oluşturur bir dağıtım sistemi yapı işlemi. Bu durumda, kod değişmediğinden olsa bile, yeni oluşturulan derlemeleri farklı bir sağlama toplamı alın. Bir tam uygulama paketini kullanarak tüm kod paketler sürümüne güncelleştirmenizi gerektirir. Fark paketini kullanarak, yalnızca değiştirilen dosyaların ve sürüm değiştiği bildirim dosyaları sağlar.
 
-* Birkaç hizmet bildirim dosyaları ve/veya birkaç kod paketler, yapılandırma paketleri veya veri paketleri başvuruda bulunan bir geniş Uygulama paketiniz varsa, bir fark paket tercih edilir.
-* Yapı düzeni doğrudan, uygulama derleme işlemini oluşturan bir dağıtım sistemi olduğunda bir fark paket tercih edilir. Bu durumda, kod değişmediğinden olsa bile, yeni oluşturulan derlemeleri farklı bir sağlama toplamı alın. Bir tam uygulama paketini kullanarak tüm kod paketler sürümüne güncelleştirmenizi gerektirir. Fark paketini kullanarak, yalnızca değiştirilen dosyaların ve sürüm değiştiği bildirim dosyaları sağlar.
-
-Visual Studio kullanarak bir uygulama yükseltildiğinde, fark paketini otomatik olarak yayımlanır. Bir fark paketi el ile oluşturmak için uygulama bildirimi ve hizmet bildirimlerini güncelleştirilmesi gerekir, ancak yalnızca değiştirilen paket son uygulama paketinde eklenmelidir.
+Visual Studio kullanarak bir uygulama yükseltildiğinde, bir fark paketi otomatik olarak yayımlanır. Bir fark paketi el ile oluşturmak için uygulama bildirimi ve hizmet bildirimlerini güncelleştirilmesi gerekir, ancak yalnızca değiştirilen paket son uygulama paketinde eklenmelidir.
 
 Örneğin, aşağıdaki uygulama (sürüm numaraları anlama kolaylığı için sağlanan) ile başlayalım:
 
@@ -69,7 +63,7 @@ app1           1.0.0
     config     1.0.0
 ```
 
-Şimdi, PowerShell kullanarak bir fark paketini kullanarak yalnızca kod paketi service1 güncelleştirmek istediğiniz varsayalım. Şimdi, güncelleştirilmiş uygulamanızı aşağıdaki klasör yapısını sahiptir:
+Diff paketini kullanarak yalnızca kod paketi service1 güncelleştirmek istediğinizi varsayalım. Güncelleştirilmiş uygulamanızı aşağıdaki sürüm değişiklikler vardır:
 
 ```text
 app1           2.0.0      <-- new version
@@ -88,6 +82,16 @@ app1/
   service1/
     code/
 ```
+
+Diğer bir deyişle, bir tam uygulama paketi normalde oluşturun, sonra sürüm değişmediğini kod/config/veri paketi klasörleri kaldırın.
+
+## <a name="rolling-back-application-upgrades"></a>Uygulama yükseltme geri alınıyor
+
+Yükseltmeler İleri üç modlarından birini alınabilir sırada (*izlenen*, *UnmonitoredAuto*, veya *UnmonitoredManual*), bunlar yalnızca geri ya da alınabilmesiiçin*UnmonitoredAuto* veya *UnmonitoredManual* modu. Çalışırken geri *UnmonitoredAuto* modu İleri şu özel durum ile çalışırken olarak aynı şekilde çalışır, varsayılan değeri *UpgradeReplicaSetCheckTimeout* farklı - bkz [uygulama Yükseltme parametreleri](service-fabric-application-upgrade-parameters.md). Çalışırken geri *UnmonitoredManual* modu İleri alma olarak aynı şekilde çalışır - geri kendisini her UD tamamladıktan sonra askıya alınır ve açıkça kullanarak devam ettirilebilir gerekir [ Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) geri alma işlemine devam etmek için.
+
+Geri alma tetiklenen otomatik olarak zaman sistem durumu ilkeleri yükseltme işleminin *izlenen* moduyla bir *FailureAction* , *geri alma* ihlal ( bakın[Uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md)) veya açıkça kullanarak [başlangıç ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+
+Geri alma, değerini sırasında *UpgradeReplicaSetCheckTimeout* ve modu hala kullanarak her zaman değiştirilebilir [güncelleştirme ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Uygulama kullanarak Visual Studio yükseltme](service-fabric-application-upgrade-tutorial.md) Visual Studio kullanarak bir uygulama yükseltme yol gösterir.

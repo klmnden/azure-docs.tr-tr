@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Sanal Ağ
 
@@ -44,7 +44,7 @@ Her Azure birden çok sanal ağ uygulayabilirsiniz [abonelik](../azure-glossary-
 - Azure tarafından sağlanan ad çözümlemesi kullanın veya sanal ağ kaynaklarında tarafından kullanılmak üzere kendi DNS sunucusu belirtin. Sanal ağlar ad çözümleme hakkında daha fazla bilgi için bkz: [sanal ağlarda bulunan kaynaklar için ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md) makalesi.
 
 ## <a name = "internet"></a>Internet iletişimi
-Bir sanal ağdaki tüm kaynakları giden internet iletişim kurabilir. Varsayılan olarak, özel IP adresi kaynağının çevrilmiş kaynak ağ adresine (SNAT) Azure altyapısı tarafından seçilen genel bir IP adresi ' dir. Giden Internet bağlantısı hakkında daha fazla bilgi için okuma [azure'da giden bağlantılar anlama](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) makalesi. Giden Internet bağlantısı engellemek için özel yollar veya trafik filtreleme uygulayabilirsiniz.
+Bir sanal ağdaki tüm kaynakları giden internet iletişim kurabilir. Varsayılan olarak, özel IP adresi kaynağının çevrilmiş kaynak ağ adresine (SNAT) Azure altyapısı tarafından seçilen genel bir IP adresi ' dir. Giden Internet bağlantısı hakkında daha fazla bilgi için okuma [azure'da giden bağlantılar anlama](..\load-balancer\load-balancer-outbound-connections.md) makalesi. Giden Internet bağlantısı engellemek için özel yollar veya trafik filtreleme uygulayabilirsiniz.
 
 Azure kaynaklarına Internet'ten gelen bağlantı kurmak veya SNAT olmadan Internet'e giden iletişim kurmak için bir kaynak genel bir IP adresi atanması gerekir. Genel IP adresleri hakkında daha fazla bilgi için okuma [ortak IP adresleri](virtual-network-public-ip-address.md) makalesi.
 

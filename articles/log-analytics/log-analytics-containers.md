@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kapsayıcı izleme çözümüne günlük analizi
 
@@ -46,7 +46,7 @@ Başlamadan önce önkoşulları karşılaması doğrulamak için aşağıdaki a
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Kapsayıcı izleme çözümü desteklemek için Docker Orchestrator ve işletim sistemi platformu
 Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanter, performans ve günlükleri günlük analizi ile izleme ve Docker orchestration özetlenmektedir.   
 
-| | ACS | Linux | Windows | Kapsayıcı<br>Stok | Görüntü<br>Stok | Node<br>Stok | Kapsayıcı<br>Performans | Kapsayıcı<br>Olay | Olay<br>Günlük | Kapsayıcı<br>Günlük |
+| | ACS | Linux | Windows | Kapsayıcı<br>Envanter | Görüntü<br>Envanter | Node<br>Envanter | Kapsayıcı<br>Performans | Kapsayıcı<br>Olay | Olay<br>Günlük | Kapsayıcı<br>Günlük |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -557,7 +557,7 @@ Aşağıdaki tablo kapsayıcı izleme çözümü ve günlük arama sonuçlarınd
 Etiketleri eklenmiş için *PodLabel* veri türleridir kendi özel etiketler. Tabloda gösterilen eklenmiş PodLabel etiketleri verilebilir. Bu nedenle, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` ortamınızı ait veri kümesinde farklı ve genel benzer `PodLabel_yourlabel_s`.
 
 
-## <a name="monitor-containers"></a>İzleyici kapsayıcıları
+## <a name="monitor-containers"></a>Kapsayıcıları izleme
 OMS Portalı'nda etkin çözüm sonra **kapsayıcıları** döşeme kapsayıcı konaklarınızın ve ana bilgisayarlarda çalışan kapsayıcıları hakkında özet bilgileri gösterir.
 
 ![Kapsayıcıları döşeme](./media/log-analytics-containers/containers-title.png)
@@ -653,7 +653,7 @@ Tek bir kapsayıcı için toplanan performans ölçümleri listesini gösterir.
 ## <a name="example-log-search-queries"></a>Örnek günlük arama sorguları
 Genellikle, bir örnek veya iki ile başlayan ve bunları ortamınıza uygun değiştirme sorgular oluşturmak kullanışlıdır. Bir başlangıç noktası olarak deneme yapabileceğiniz **örnek sorgular** daha gelişmiş sorgular oluşturmanıza yardımcı olmak için alanı.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Kapsayıcıları sorguları](./media/log-analytics-containers/containers-queries.png)
 

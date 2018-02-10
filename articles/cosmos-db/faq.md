@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
 ### <a name="what-is-azure-cosmos-db"></a>Azure Cosmos DB nedir?
-Azure Cosmos DB, şemasız verilerde zengin sorgulama sunan yapılandırılabilir ve güvenilir performans sağlanmasına yardımcı olan bir genel çoğaltılmış, birden çok model veritabanı hizmetidir ve hızlı geliştirme sağlar. Tüm güç tarafından yedeklenir ve Microsoft Azure'nın bir yönetilen platform sağlanır. 
+Azure Cosmos DB şemasız verilerde zengin sorgulama sunan, yapılandırılabilir ve güvenilir performans sağlanmasına yardımcı olan ve hızlı geliştirme sağlayan bir genel çoğaltılmış, birden çok model veritabanı hizmetidir. Tüm güç tarafından yedeklenir ve Microsoft Azure'nın bir yönetilen platform sağlanır. 
 
 Azure Cosmos DB web, mobil, oyun için doğru çözümdür ve tahmin edilebilir iş çıkarma, yüksek kullanılabilirlik, düşük gecikme süresi ve şemasız veri modeli IOT uygulamaları anahtar gereksinimleridir. Şema esnekliği ve zengin dizin oluşturma sağlar ve tümleşik JavaScript ile çok belgeli işlem desteğini içerir. 
 
@@ -217,7 +217,7 @@ REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen u�
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [Tablo hizmeti özelliklerini ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç noktaya CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını belirlemek için kullanılır. CORS şu anda desteklenmiyor ve analizi ve günlüğe kaydetme Azure Cosmos veritabanı Azure depolama tabloları daha farklı bir şekilde ele |
 | SEÇENEKLER | /<table-resource-name> | [Ön uçuş CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB şu anda desteklemediği CORS parçasıdır. |
-| GET | /?restype=service@comp=stats | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
+| AL | /?restype=service@comp=stats | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
 | GET, PUT | /mytable?comp=acl | [Tablo ACL alma](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [tablo ACL ayarlayın](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan depolanmış erişim ilkeleri ayarlar. SAS desteklenmesine karşın, bunların ayarlayın ve farklı şekilde yönetilir. |
 
 Ayrıca Azure Cosmos DB tablo API, yalnızca değil ATOM JSON biçimini destekler.

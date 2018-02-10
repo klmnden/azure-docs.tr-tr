@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b110fd4f9eb70644a6fcb66198113af2ec685142
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9c8b352194e3a624097a48b5d312356a0ead4276
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma
 
-Bu konu Azure CLI 2.0 Resource Manager şablonları ile kaynakları Azure'a dağıtmak için nasıl kullanılacağını açıklar. Dağıtma ile ilgili kavramları hakkında bilgi sahibi değilseniz ve Azure çözümlerinizi bkz [Azure Resource Manager'a genel bakış](resource-group-overview.md).  
+Bu makalede Azure CLI 2.0 Resource Manager şablonları ile kaynakları Azure'a dağıtmak için nasıl kullanılacağı açıklanmaktadır. Dağıtma ile ilgili kavramları hakkında bilgi sahibi değilseniz ve Azure çözümlerinizi bkz [Azure Resource Manager'a genel bakış](resource-group-overview.md).  
 
 Resource Manager şablonu ya da makinenizde yerel bir dosya ya da GitHub gibi bir havuzda bulunan dış dosyası dağıtabilirsiniz. Bu makalede dağıttığınız şablonu kullanılabilir [örnek şablonu](#sample-template) bölümünde, ya da farklı bir [depolama hesabı şablonu github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -86,6 +86,10 @@ Bulut Kabuğu'nda aşağıdaki komutları kullanın:
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
+
+## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Birden fazla kaynak grubuna veya aboneliğe dağıtma
+
+Genellikle, tüm kaynakları tek bir kaynak grubu için şablonunuzdaki dağıtın. Ancak, bir kaynak kümesi birlikte dağıtmasını ancak bunları farklı kaynak grupları ya da abonelik yerleştirmek istediğiniz senaryolar vardır. Tek bir dağıtımda yalnızca beş kaynak gruplarına dağıtabilirsiniz. Daha fazla bilgi için bkz: [birden fazla abonelik veya kaynak grubu dağıtma Azure kaynaklarına](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="parameter-files"></a>Parametre dosyaları
 
@@ -183,7 +187,7 @@ az group deployment create \
 
 ## <a name="sample-template"></a>Örnek şablonu
 
-Aşağıdaki şablonu, bu konudaki örnekler için kullanılır. Kopyalayın ve storage.json adlı bir dosya kaydedin. Bu şablonun nasıl oluşturulacağını anlamak için bkz: [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).  
+Aşağıdaki şablonu, bu makaledeki örnekler için kullanılır. Kopyalayın ve storage.json adlı bir dosya kaydedin. Bu şablonun nasıl oluşturulacağını anlamak için bkz: [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).  
 
 ```json
 {

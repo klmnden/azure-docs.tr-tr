@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Görünüm dağıtım işlemlerini Azure Resource Manager ile
 
 
 Azure Portalı aracılığıyla bir dağıtım için işlemleri görüntüleyebilirsiniz. Başarısız olan işlemleri görüntülemek için bu makalede odaklanır şekilde dağıtımı sırasında bir hata aldınız zaman işlemleri içinde görüntüleme en ilgi çekici olabilir. Portal, kolayca hataları bulma ve olası düzeltmeleri belirlemek sağlayan bir arabirim sağlar.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+Denetim günlüklerini ya da dağıtım işlemlerini bakarak dağıtımınızı giderebilirsiniz. Bu konuda, her iki yöntem gösterilmektedir. Belirli dağıtım hatalarını çözme konusunda daha fazla yardım için bkz: [kaynakları Azure Azure Resource Manager ile dağıtırken sık karşılaşılan hataları gidermek](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
@@ -42,7 +42,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
     ![başarısız dağıtım görüntüleyin](./media/resource-manager-deployment-operations/view-error.png)
    
     Bu hata iletisi, sorun giderme başlatmak yeterli olmalıdır. Ancak, hakkında daha fazla ayrıntı gerekiyorsa hangi görevlerin tamamlandığını, aşağıdaki adımlarda gösterildiği gibi işlemleri görüntüleyebilirsiniz.
-4. İçindeki tüm dağıtım işlemlerini görüntüleyebilirsiniz **dağıtım** dikey. Daha fazla ayrıntı için herhangi bir işlem seçin.
+4. Tüm dağıtım işlemlerini görüntüleyebilirsiniz. Daha fazla ayrıntı için herhangi bir işlem seçin.
    
     ![Görünüm işlemleri](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
 5. Dağıtım için olayları seçerek görüntüleyebilirsiniz **olayları**.
    
     ![olaylarını görüntüle](./media/resource-manager-deployment-operations/view-events.png)
-6. Dağıtımı için tüm olayları görmek ve daha fazla ayrıntı için herhangi bir tanesini seçin. Çok fark bağıntı kimlikleri. Bu değer, bir dağıtım gidermek için teknik destek ile çalışırken yararlı olabilir.
+6. Dağıtımı için tüm olayları görmek ve daha fazla ayrıntı için herhangi bir tanesini seçin. Bağıntı kimlikleri dikkat edin. Bu değer, bir dağıtım gidermek için teknik destek ile çalışırken yararlı olabilir.
    
     ![olaylara bakın](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -121,7 +121,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Her dağıtım işlem Azure, istek ve yanıt içeriği içerir. Ne, dağıtım sırasında Azure'a gönderilen istek içeriği olduğu (örneğin, bir VM oluşturma işletim sistemi diski ve diğer kaynakları). Azure yanıt içeriği ne geri dağıtımı isteğinden sayısıdır. Dağıtım sırasında kullandığınız **DeploymentDebugLogLevel** paramenter isteğin ve/veya yanıt günlüğüne korunur belirtin. 
+4. Her dağıtım işlem Azure, istek ve yanıt içeriği içerir. Ne, dağıtım sırasında Azure'a gönderilen istek içeriği olduğu (örneğin, bir VM oluşturma işletim sistemi diski ve diğer kaynakları). Azure yanıt içeriği ne geri dağıtımı isteğinden sayısıdır. Dağıtım sırasında kullandığınız **DeploymentDebugLogLevel** isteğin ve/veya yanıt günlüğüne korunur belirtmek için parametre. 
 
   Günlükteki bu bilgileri almak ve aşağıdaki PowerShell komutlarını kullanarak yerel olarak kaydedin:
 
@@ -178,7 +178,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
   }
   ```
 
-2. Dağıtım işlemleri ile ilgili bilgi almak [tüm şablon dağıtım işlemlerini listelemek](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) işlemi. 
+2. Dağıtımlar hakkında bilgi almak [tüm şablon dağıtım işlemlerini listelemek](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

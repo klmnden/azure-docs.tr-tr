@@ -3,7 +3,7 @@ title: "Kiracı yönetici yükseltmesine erişim - Azure AD | Microsoft Docs"
 description: "Bu konu için rol tabanlı erişim denetimi (RBAC) rollerdeki yerleşik açıklar."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Rol tabanlı erişim denetimi ile bir kiracı Yöneticisi olarak erişimini yükseltme
 
@@ -28,7 +28,7 @@ Bu özellik, bir kuruluşta mevcut tüm abonelikleri görmek Kiracı yönetici i
 
 ## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Azure AD Yönetim Merkezi ile Kiracı erişim elevateAccess kullanın
 
-1. Git [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) ve oturum, kimlik bilgileri.
+1. Git [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) ve kimlik bilgilerinizi oturum.
 
 2. Seçin **özellikleri** Azure AD'den menü sol.
 
@@ -40,7 +40,7 @@ Bu özellik, bir kuruluşta mevcut tüm abonelikleri görmek Kiracı yönetici i
     > Seçtiğinizde **Hayır**, kaldırır **kullanıcı erişimi Yöneticisi** rol kökünde "/" (kök kapsamı) ile şu anda oturum Portalı'na kullanıcı için.
 
 > [!TIP] 
-> İzlenim bu Azure Active Directory için genel bir özellik olan, ancak şu anda oturum açmış kullanıcı için kullanıcı başına temelinde işlevleri olur. Azure Active Directory'de genel yönetici haklarına sahip olduğunuzda, Azure Active Directory Yönetim Merkezi açmış kullanıcı elevateAccess özelliğini çağırabilirsiniz.
+> İzlenim bu Azure Active Directory için genel bir özellik olan, ancak şu anda oturum açmış kullanıcı için kullanıcı başına temelinde işlevleri olur. Azure Active Directory'de genel yönetici haklarına sahip olduğunuzda, Azure Active Directory Yönetim Merkezi şu anda kaydedilir kullanıcı elevateAccess özelliğini çağırabilirsiniz.
 
 ![Azure AD Yönetim Merkezi - özellikleri - Globaladmin Azure aboneliği - ekran görüntüsü yönetebilirsiniz](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
@@ -56,10 +56,10 @@ Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Admin
 RoleAssignmentId: /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
 Kapsam: /    
 DisplayName: kullanıcı adı    
-SignInName:username@somedomain.com    
+SignInName         : username@somedomain.com    
 RoleDefinitionName: Kullanıcı erişimi Yöneticisi    
-Roledefinitionıd: 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
-ObjectID: d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
 ObjectType: kullanıcı    
 
 ## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Rol atamasının Sil "/" Powershell kullanarak kapsam:
@@ -101,8 +101,8 @@ Temel işlem aşağıdaki adımlarla çalışır:
 
 Çağırdığınızda *elevateAccess* atama silmeniz gerekiyorsa bu ayrıcalıkları iptal etmek için bir rol ataması kendiniz için oluşturun.
 
-1.  GET rol tanımları çağırma olduğu roleName GUID kullanıcı erişimi yöneticisi rolünün adını belirlemek için kullanıcı erişimi Yöneticisi =.
-    1.  Alma *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$ Filtre roleName + eq + =' Kullanıcı + Erişim + Yöneticisi*
+1.  GET roleDefinitions çağırma olduğu roleName GUID kullanıcı erişimi yöneticisi rolünün adını belirlemek için kullanıcı erişimi Yöneticisi =.
+    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
         {"value":[{"properties":{
@@ -124,12 +124,12 @@ Temel işlem aşağıdaki adımlarla çalışır:
         GUID değerinden Kaydet *adı* parametresi, bu durumda **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
 2. Kiracı yönetici Kiracı kapsamda rol ataması listesi gerekir. Çağrı yükseltme erişim yapan TenantAdmin Principalıd için Kiracı kapsamındaki tüm atamaları listeler. Bu Kiracı için objectID tüm atamalarını listeler. 
-    1. Alma *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$ Filtre = Principalıd + eq + '{objectID}'*
+    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >Tüm atamaları yalnızca Kiracı kapsam düzeyinde sonra sonuçlara filtre uygulamak için yukarıdaki sorgu çok fazla atamaları, sorgu da döndürürse, birçok atamaları, Kiracı yönetici sahip olmamalıdır: GET *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
+        >Tüm atamaları yalnızca Kiracı kapsam düzeyinde, ardından sonuçları filtrelemek için önceki sorgu çok fazla atamaları, sorgu da döndürürse birçok atamaları, Kiracı yönetici sahip olmamalıdır: GET *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
         
-    2. Yukarıdaki çağrıları rol atamalarını listesini döndürür. Rol ataması kapsam olduğu Bul "/" 1. adımda bulduğunuz GUID'i rol adı Roledefinitionıd biter ve Principalıd eşleşen objectID Kiracı yönetici Rol ataması şöyle görünür:
+    2. Önceki çağrılar rol atamalarını listesini döndürür. Rol ataması kapsam olduğu Bul "/" 1. adımda bulduğunuz GUID'i rol adı Roledefinitionıd biter ve Principalıd eşleşen objectID Kiracı yönetici Rol ataması şöyle görünür:
 
         ```
         {"value":[{"properties":{
@@ -150,7 +150,7 @@ Temel işlem aşağıdaki adımlarla çalışır:
 
     3. Son olarak, vurgulanan kullanmak **RoleAssignment kimliği** yükseltmesine erişim tarafından eklenen atamasını silmek için:
 
-        Https://Management.Azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01 Sil
+        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

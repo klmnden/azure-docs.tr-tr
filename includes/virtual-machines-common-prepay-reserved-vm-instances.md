@@ -30,8 +30,15 @@ Ayrılmış sanal makine örnekleri satın alabileceğiniz [Azure portal](https:
 
     ![Ayırma satın alma göndermeden önce ekran görüntüsü](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Bir ayırma satın sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar 
 Ayırma indirim ayırma kapsamı ve öznitelikleri eşleşen sanal makinelerde çalışan sayısı için otomatik olarak uygulanır. Kapsam ayırma güncelleştirebilirsiniz [Azure portal](https://portal.azure.com), PowerShell'i, CLI veya API'si aracılığıyla. 
 
 Bir ayırma yönetme konusunda bilgi almak için bkz: [yönetmek Azure ayrılmış sanal makine örnekleri](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+
+- [Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [İşletme kaydı için ayrılmış örnek kullanım anlama](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](../articles/billing/billing-reserved-instance-windows-software-costs.md)

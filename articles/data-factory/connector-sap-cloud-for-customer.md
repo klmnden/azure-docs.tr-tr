@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>SAP bulut müşteri (C4C) için Azure Data Factory kullanarak verilerden kopyalama
 
@@ -47,7 +47,7 @@ Aşağıdaki özellikler için SAP bulut bağlı müşteri hizmetleri için dest
 | type | Type özelliği ayarlanmalıdır: **SapCloudForCustomer**. | Evet |
 | url | SAP C4C OData hizmeti URL'si. | Evet |
 | kullanıcı adı | SAP C4C bağlanmak için kullanıcı adını belirtin. | Evet |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan bir SecureString işaretleyin. | Evet |
+| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Kaynak havuzu için Evet için Hayır'ı |
 
 >[!IMPORTANT]
@@ -105,7 +105,7 @@ Müşteri için SAP Buluttan verileri kopyalamak için veri kümesi türü özel
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölüm için müşteri kaynağı SAP bulut tarafından desteklenen özellikler listesini sağlar.
 
@@ -159,7 +159,7 @@ Müşteri için SAP buluta verileri kopyalamak için kopyalama etkinliği Havuz 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapCloudForCustomerSink**  | Evet |
-| WriteBehavior | İşlemi yazma davranışını. "Ekle", "Güncelleştir" olabilir. | Hayır. Varsayılan "Ekle". |
+| writeBehavior | İşlemi yazma davranışını. "Ekle", "Güncelleştir" olabilir. | Hayır. Varsayılan "Ekle". |
 | writeBatchSize | Yazma işlemi toplu iş boyutu. En iyi performansı elde etmek için toplu iş boyutu farklı bir tablo veya sunucu için farklı olabilir. | Hayır. Varsayılan olarak 10. |
 
 **Örnek:**
@@ -208,7 +208,7 @@ Veriler müşteri için SAP Buluttan kopyalarken, aşağıdaki eşlemelerini SAP
 | SAP C4C OData veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | Edm.Binary | Byte] |
-| Edm.Boolean | bool |
+| Edm.Boolean | Bool |
 | Edm.Byte | Byte] |
 | Edm.DateTime | Tarih Saat |
 | Edm.Decimal | Ondalık |

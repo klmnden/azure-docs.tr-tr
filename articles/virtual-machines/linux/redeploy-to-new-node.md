@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 48b4e5f2429ce2bd8a875b084694f83e467b5575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Yeni Azure düğüme Linux sanal makineyi yeniden dağıtın
 SSH sorunlarını giderme zorluklarla yüz veya VM dağıtarak azure'da bir Linux sanal makine (VM) uygulama erişimi yardımcı olabilir. Bir VM yeniden dağıtırken VM Azure altyapısı içinde yeni bir düğüme taşır ve yeniden çalıştırır. Tüm yapılandırma seçenekleri ve ilişkili kaynakları korunur. Bu makalede Azure CLI veya Azure portalını kullanarak bir VM'i yeniden gösterilmiştir.
@@ -33,9 +33,9 @@ Aşağıdaki seçeneklerden birini kullanarak bir VM'i yeniden dağıtabilirsini
 - [Azure portalı](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
-En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve kullanarak hesap oturum açma Azure [az oturum açma](/cli/azure/#login).
+En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve kullanarak hesap oturum açma Azure [az oturum açma](/cli/azure/#az_login).
 
-VM ile dağıtmanız [az vm dağıtın](/cli/azure/vm#redeploy). Aşağıdaki örnek adlı VM yeniden dağıtır *myVM* kaynak grubunda adlı *myResourceGroup*:
+VM ile dağıtmanız [az vm dağıtın](/cli/azure/vm#az_vm_redeploy). Aşağıdaki örnek adlı VM yeniden dağıtır *myVM* kaynak grubunda adlı *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

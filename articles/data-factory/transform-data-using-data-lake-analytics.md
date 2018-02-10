@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betiklerini çalıştırarak veri dönüştürme 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +47,12 @@ Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açı
 
 ### <a name="service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması
 Azure Data Lake Analytics bağlı hizmeti Azure Data Lake Analytics Hizmeti'ne bağlanmak için bir hizmet asıl kimlik doğrulaması gerektirir. Hizmet asıl kimlik doğrulaması kullanmak için Azure Active Directory (Azure AD) bir uygulama varlığı kaydetmek ve Data Lake Analytics ve Data Lake Store kullandığı erişim. Ayrıntılı adımlar için bkz: [hizmeti için kimlik doğrulama](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Bağlantılı hizmet tanımlamak için kullandığınız aşağıdaki değerleri not edin:
+
 * Uygulama Kimliği
 * Uygulama anahtarı 
 * Kiracı Kimliği
+
+Azure Data Lake Anatlyics kullanarak hizmet asıl iznini [Kullanıcı Ekleme Sihirbazı](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Hizmet asıl kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 

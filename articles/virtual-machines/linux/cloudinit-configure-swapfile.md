@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: a8ccec0dc8ff100c5d067cd50f2a6fa8cb4871fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7f9defc1f414819cf856fc92f5eb51eafdc67be9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Bir Linux VM üzerinde bir takas yapılandırmak için bulut init kullanın
 Bu makalede nasıl kullanılacağı gösterilmektedir [bulut init](https://cloudinit.readthedocs.io) swapfile üzerinde çeşitli Linux dağıtımları yapılandırmak için. Takas tarafından Linux Aracısı (bir hangi dağıtımları gerekli temel WALA) geleneksel olarak yapılandırıldı.  Bu belge, bulut init kullanarak sağlama süresi sırasında isteğe bağlı swapfile oluşturma işlemi özetler.  Bulut init yerel olarak Azure ve desteklenen Linux distro'lar işleyişi hakkında daha fazla bilgi için bkz: [bulut init genel bakış](using-cloud-init.md)
@@ -28,7 +28,7 @@ Azure üzerinde varsayılan olarak, Ubuntu galeri görüntüleri takas dosyalar�
 
 ## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>Takas RedHat ve CentOS tabanlı görüntüleri oluşturma
 
-Bir dosya adı, geçerli Kabuğu'nda oluşturma *cloud_init_swapfile.txt* ve aşağıdaki yapılandırma yapıştırın. Bu örnekte, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Girin `sensible-editor cloud_init_swapfile.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. # 1'ı kullanmayı seçin **nano** Düzenleyici. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı.  
+Bir dosya adı, geçerli Kabuğu'nda oluşturma *cloud_init_swapfile.txt* ve aşağıdaki yapılandırma yapıştırın. Bu örnekte, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloud_init_swapfile.txt` adını girin. # 1'ı kullanmayı seçin **nano** Düzenleyici. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı.  
 
 ```yaml
 #cloud-config
@@ -47,13 +47,13 @@ mounts:
 - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Bu görüntü dağıtmadan önce sahip bir kaynak grubu oluşturmak ihtiyacınız [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Bu görüntü dağıtmadan önce sahip bir kaynak grubu oluşturmak ihtiyacınız [az grubu oluşturma](/cli/azure/group#az_group_create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Şimdi, bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create) ve bulut init dosyasıyla belirtin `--custom-data cloud_init_swapfile.txt` gibi:
+Şimdi, bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#az_vm_create) ve bulut init dosyasıyla belirtin `--custom-data cloud_init_swapfile.txt` gibi:
 
 ```azurecli-interactive 
 az vm create \

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
 Aşağıdaki videoda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  Bu makale, genel bir bakış ve video yer alan adımlar için ek bilgiler sağlar. Bu 24 dakikalık videoyu şunların nasıl yapıldığını gösterir için:
@@ -33,7 +33,7 @@ Aşağıdaki videoda, bir Web API arka ucu oluşturmak ve Azure Active Directory
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Azure AD dizini oluşturma
-İlk olmalıdır Azure Active Directory'yi kullanarak, Web API güvenliğini sağlamak için desteklenen bir AAD kiracısı. Bu videoda adlı bir kiracı **APIMDemo** kullanılır. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
+İlk olmalıdır Azure Active Directory'yi kullanarak Web API'si arka güvenli hale getirmek için bir AAD kiracısı. Bu videoda adlı bir kiracı **APIMDemo** kullanılır. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -192,7 +192,7 @@ API'leri, Azure Portalı aracılığıyla erişilen API yayımcı portalında ya
 
 İşlemleri olabilir [API'leri için el ile eklenen](api-management-howto-add-operations.md), veya içeri aktarılabilir. Bu videoda, Swagger biçiminde 6:40 başlangıç işlemleri alınır.
 
-Adlı bir dosya oluşturun `calcapi.json` aşağıdaki içeriğe sahip ve bilgisayarınıza kaydedin. Emin `host` , Web API uç noktaları özniteliği. Bu örnekte `"host": "apimaaddemo.azurewebsites.net"` kullanılır.
+Adlı bir dosya oluşturun `calcapi.json` aşağıdaki içeriğe sahip ve bilgisayarınıza kaydedin. Emin `host` , Web API uç noktaları özniteliği. Bu örnekte `"host": "apimaaddemo.azurewebsites.net"` kullanıldı.
 
 ```json
 {
@@ -387,7 +387,7 @@ Seçin **Web uygulaması ve/veya Web API**, bir ad girin ve İleri okuna tıklay
 
 ![Yeni uygulama][api-management-aad-new-application-devportal-1]
 
-İçin **oturum açma URL'si** API Management hizmetiniz URL'sini girin ve ilave `/signin`. Bu örnekte `https://contoso5.portal.azure-api.net/signin` kullanılır.
+İçin **oturum açma URL'si** API Management hizmetiniz URL'sini girin ve ilave `/signin`. Bu örnekte `https://contoso5.portal.azure-api.net/signin` kullanıldı.
 
 İçin **uygulama kimliği URL'si** API Management hizmetiniz URL'sini girin ve bazı benzersiz karakterler ekleyin. Bunlar istenen herhangi bir karakter olabilir ve bu örnekte `https://contoso5.portal.azure-api.net/dp` kullanılır. Zaman istenen **uygulama özellikleri** olan yapılandırılmış, uygulama oluşturmak için onay işaretine tıklayın.
 

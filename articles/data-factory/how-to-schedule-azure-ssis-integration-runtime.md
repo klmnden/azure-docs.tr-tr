@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
 Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
@@ -44,8 +44,9 @@ Bu bölümde, aşağıdaki adımları gerçekleştirin:
 ### <a name="create-an-azure-automation-account"></a>Azure Otomasyonu hesabı oluşturma
 Bir Azure Otomasyonu hesabı yoksa, bu adımı'ndaki yönergeleri izleyerek oluşturun. Ayrıntılı adımlar için bkz: [Azure Automation hesabı oluşturma](../automation/automation-quickstart-create-account.md). Bu adım bir parçası olarak, oluşturduğunuz bir **Azure Farklı Çalıştır** hesabı (hizmet Azure Active Directory'yi sorumlusu) ve ekleyin **katkıda bulunan** Azure aboneliğinizin rol. Azure SSIS IR sahip veri fabrikası içeren abonelik aynı olduğundan emin olun Azure Otomasyonu, Azure Resource Manager kimliğini doğrulamak ve kaynaklarınızı üzerinde çalıştırmak için bu hesabı kullanır. 
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.    
-2. Seçin **yeni** soldaki menüden seçin **izleme + Yönetim**seçip **Otomasyon**. 
+1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+2. [Azure Portal](https://portal.azure.com/)’da oturum açın.    
+3. Seçin **yeni** soldaki menüden seçin **izleme + Yönetim**seçip **Otomasyon**. 
 
     ![Yeni İzleme -> + Yönetimi Otomasyonu ->](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. İçinde **Automation hesabı Ekle** penceresinde, aşağıdaki adımları uygulayın: 

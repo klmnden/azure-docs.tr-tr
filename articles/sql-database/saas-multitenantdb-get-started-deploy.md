@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
 
-Bu öğreticide dağıtın ve Wingtip biletleri adlı örnek bir SaaS çok Kiracı veritabanı uygulama keşfedin. Wingtip uygulama SaaS senaryoları uyarlamasını basitleştirmek Azure SQL veritabanı özelliklerini göstermek için tasarlanmıştır.
+Bu öğreticide dağıtın ve Wingtip biletleri adlı örnek bir çok kiracılı SaaS uygulama keşfedin. Wingtip biletleri uygulama SaaS senaryoları uyarlamasını basitleştirmek Azure SQL veritabanı özelliklerini göstermek için tasarlanmıştır.
 
-Bu uygulaması, Wingtips parçalı çok Kiracı veritabanı desen kullanır. Parçalama tarafından Kiracı tanımlayıcısıdır. Kiracı veri Kiracı tanımlayıcı değerlerini göre belirli bir veritabanına dağıtılır. Verilen bir veritabanı içeren kaç kiracılar olursa olsun tüm, tablo şemalarını bir kiracı tanımlayıcı dahil anlamda çok kiracılı veritabanlarıdır. 
+Bu uygulama Wingtip biletleri uygulamanın parçalı çok Kiracı veritabanı desen kullanır. Parçalama tarafından Kiracı tanımlayıcısıdır. Kiracı veri Kiracı tanımlayıcı değerlerini göre belirli bir veritabanına dağıtılır. 
 
 Bu veritabanı deseni her parça veya veritabanında bir veya daha fazla Kiracı depolamanıza olanak sağlar. Birden çok kiracılar tarafından paylaşılan her veritabanı sağlayarak için en düşük maliyeti en iyi duruma getirebilirsiniz. Veya, yalıtım için yalnızca bir kiracı depolamak her veritabanı sağlayarak en iyi duruma getirebilirsiniz. En iyi duruma getirme tercih ettiğiniz bağımsız olarak her belirli bir kiracı için yapılabilir. Tercih ettiğiniz Kiracı ilk depolanan ya da daha sonra fikrinizi değiştirirseniz yapılabilir. Uygulama ya da düzgün şekilde çalışmak üzere tasarlanmıştır.
 
 #### <a name="app-deploys-quickly"></a>Uygulamayı hızlı bir şekilde dağıtır
 
-Aşağıdaki dağıtım mavi bölümde **Azure'a Dağıt** düğmesi. Düğmeye basıldığında Wingtip uygulaması beş dakika sonra tam olarak dağıtılır. Wingtip uygulama Azure bulutunda çalışır ve Azure SQL veritabanı kullanır. Wingtip Azure aboneliğinize dağıtılır. Tek tek uygulama bileşenleri ile çalışmak için tam erişime sahip.
+Uygulama Azure bulutunda çalışır ve Azure SQL veritabanı kullanır. Aşağıdaki dağıtım mavi bölümde **Azure'a Dağıt** düğmesi. Düğmeye basıldığında uygulaması Azure aboneliğinize beş dakika içinde tam olarak dağıtılır. Tek tek uygulama bileşenleri ile çalışmak için tam erişime sahip.
 
 Uygulama verileri üç örnek kiracılar için dağıtılır. Kiracılar birlikte bir çok kiracılı veritabanında depolanır.
 
@@ -40,7 +40,7 @@ C# ve PowerShell kaynak kodu herkes için Wingtip anahtarlarından indirebilirsi
 #### <a name="learn-in-this-tutorial"></a>Bu öğreticide öğrenin
 
 > [!div class="checklist"]
-> - Wingtip SaaS uygulamasının nasıl.
+> - Wingtip biletleri SaaS uygulamasının nasıl.
 > - Uygulama kaynak koduna ve yönetim komut dosyaları nereden.
 > - Sunucular ve veritabanları hakkında uygulaması olun.
 > - Kiracıların kendi veri ile nasıl eşlendiğini *katalog*.
@@ -127,7 +127,7 @@ Bunların olaylarını listelemek ve bilet satabilir için kişiselleştirilmiş
 Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kiracıların bağlantıların listesini sağlar. Denemek için aşağıdaki adımları kullanın **olay hub'ı** Web sayfası ve tek tek web uygulaması:
 
 1. Açık **olay hub'ı** web tarayıcınızda:
-    - http://Events.Wingtip. &lt;Kullanıcı&gt;. trafficmanager.net &nbsp; *(Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)*
+    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(Replace &lt;USER&gt; with your deployment's user value.)*
 
     ![olay hub’ı](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kirac
 
 Gelen istekleri dağıtımını denetlemek için Wingtip uygulamanın kullandığı [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Her bir kiracı için olayları sayfası, URL'de Kiracı adını içerir. Her URL Ayrıca belirli, kullanıcı değeri içerir. Her URL, aşağıdaki adımları kullanarak gösterilen biçimde obeys:
 
-- http://Events.Wingtip. &lt;Kullanıcı&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Olayları uygulama URL'den Kiracı adı ayrıştırır. Kiracı adı *fabrikamjazzclub* önceki örnek URL.
 2. Uygulama Kataloğu'nu kullanarak erişmek için bir anahtar oluşturmak için Kiracı adı sonra karmaları [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md).

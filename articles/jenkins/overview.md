@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: daa202ddf0dc934c491ead3951ddc4fdc3dd819c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69bb79a1f02e601b9ed0104dde00211612473adc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure ve Jenkins
 
@@ -29,7 +29,7 @@ Ana bilgisayar Jenkins yapı automation'ınızı merkezileştirmek ve yazılım 
  
 - [Jenkins çözüm şablonu](install-jenkins-solution-template.md) Azure markette.
 - [Azure sanal makineleri](/azure/virtual-machines/linux/overview). Bkz: bizim [öğretici](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) Jenkins örneği üzerinde bir VM oluşturmak için.
-- Üzerinde bir Kubernetes kümesinin [Azure kapsayıcı hizmeti](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), bkz: bizim [nasıl yapılır](/azure/container-service/kubernetes/container-service-kubernetes-jenkin).
+- Üzerinde bir Kubernetes kümesinin [Azure kapsayıcı hizmeti](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), bkz: bizim [nasıl yapılır](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
 İzleme ve Azure Jenkins kullanarak dağıtımı yönetme [günlük analizi](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview)ve [Azure CLI] (/ CLI/azure/genel bakış).
 

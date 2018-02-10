@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: b0afbd54ddad4cc4be2b35c85d81abe90c717692
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 88a61467a79a424670d49e662315cab59ab52d13
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning Web Hizmetleri: Dağıtım ve kullanım
 Machine learning iş akışları ve modelleri web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, tahminlerin gerçek zamanlı veya toplu iş modunda yapmak için Internet üzerinden uygulamalardan machine learning modellerini çağrılacak sonra kullanılabilir. Web hizmetleri RESTful olduğundan, bunları çeşitli programlama dillerini ve .NET ve Java gibi platformları ve Excel gibi uygulamalardan çağırabilirsiniz.
@@ -66,7 +66,7 @@ Uygulama çalıştıran bir web hizmeti JSON şablonu oluşturur. Bir web hizmet
 
 JSON şablonunu alt olarak eklemediğiniz *özellikleri* düğüm aynı düzeyde *MachineLearningWorkspace* düğümü.
 
-Örnek aşağıda verilmiştir:
+Bir örneği aşağıda verilmiştir:
 
     "StorageAccount": {
             "name": "YourStorageAccountName",

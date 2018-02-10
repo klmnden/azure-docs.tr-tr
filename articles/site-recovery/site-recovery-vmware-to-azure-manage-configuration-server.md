@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>Yapılandırma sunucusunu yönetme
 
@@ -72,6 +72,22 @@ Gerekirse aynı kasada yapılandırma sunucusunu yeniden kaydettirin. yapıland�
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Yapılandırma sunucusu yükseltme
+
+Yapılandırma sunucusu güncelleştirmek için güncelleştirme paketleri çalıştırın. Güncelleştirmeleri kadar N-4 sürümleri için uygulanabilir. Örneğin:
+
+- 9.7, 9.8, 9.9 veya 9.10 - çalıştırıyorsanız, doğrudan 9.11 yükseltebilirsiniz.
+- 9.6 veya önceki bir sürümünü çalıştırıyorsanız ve 9.11 için yükseltme yapmak isterseniz, 9.7 sürümüne yükseltmeniz gerekir. 9.11 önce.
+
+Güncelleştirme paketleri tüm yapılandırma sunucusu sürümlerine yükseltme için bağlantıları kullanılabilir [wiki güncelleştirmeleri sayfası](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Sunucu gibi yükseltin:
+
+1. Güncelleştirme yükleyicisi dosya yapılandırma sunucusuna yükleyin.
+2. Yükleyiciyi çalıştırmak için çift tıklayın.
+3. Yükleyici, makinede çalışan geçerli sürümü algılar.
+4. Tıklatın **Tamam** doğrulayın ve yükseltmeyi çalıştırın. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Silme veya yapılandırma sunucusunun kaydı silinemedi
 

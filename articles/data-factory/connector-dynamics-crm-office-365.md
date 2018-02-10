@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bcf80fe8f10ae8c81b5eea94137bd62558a6447a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Dynamics 365 veya Dynamics CRM veri kopyalama
 
@@ -66,7 +66,7 @@ Aşağıdaki özellikler Dynamics bağlantılı hizmeti için desteklenir.
 | Kuruluş adı | Dynamics örneğinin kuruluş adı. | Kullanıcıyla ilişkili birden fazla Dynamics örnekleri olduğunda Hayır, belirtmeniz gerekir |
 | authenticationType | Dynamics sunucusuna bağlanmak için kimlik doğrulama türü. Belirtin **"Office365"** Dynamics Çevrimiçi. | Evet |
 | kullanıcı adı | Dynamics bağlanmak için kullanıcı adını belirtin. | Evet |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Kaynak bağlanmışsa Hayır kaynak için Evet havuz için hizmet tümleştirmesi çalışma zamanı yok |
 
 >[!IMPORTANT]

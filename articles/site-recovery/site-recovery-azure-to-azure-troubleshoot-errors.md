@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/05/2017
 ms.author: sujayt
-ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8f9ff8332f33972489721e0d16717d1d6fe15fcd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure Azure VM çoğaltma sorunlarını giderme
 
@@ -61,34 +61,93 @@ SuSE Linux sertifika listesini korumak için simgesel bağlantı kullandığınd
 
 1.  Kök kullanıcı olarak oturum açın.
 
-2.  Şu komutu çalıştırın:
+2.  Dizini değiştirmek için bu komutu çalıştırın.
 
       ``# cd /etc/ssl/certs``
 
-3.  Symantec kök CA sertifikası mevcut olup olmadığını görmek için şu komutu çalıştırın:
+3. Symantec kök CA sertifikası mevcut olup olmadığını denetleyin.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4.  Dosya bulunamazsa, şu komutları çalıştırın:
+4. Symantec kök CA sertifika bulunmazsa, dosyayı yüklemek için aşağıdaki komutu çalıştırın. Hatalar için denetleyin ve ağ hataları için önerilen eylemi izleyin.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-      ``# c_rehash``
+5. Baltimore kök CA sertifikası mevcut olup olmadığını denetleyin.
 
-5.  Bir simgesel b204d74a.0 ile oluşturmak için VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem ->, bu komutu çalıştırın:
+      ``# ls Baltimore_CyberTrust_Root.pem``
 
-      ``# ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+6. Baltimore kök CA sertifika bulunmazsa, sertifikayı indirin.  
 
-6.  Bu komutu aşağıdaki çıkış olup olmadığını denetleyin. Aksi halde, bir simgesel oluşturmanız gerekir:
+    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-      ``# ls -l | grep Baltimore
-      -rw-r--r-- 1 root root   1303 Apr  7  2016 Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 04:47 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem``
+7. DigiCert_Global_Root_CA cert mevcut olup olmadığını denetleyin.
 
-7. Simgesel 653b494a.0 yoksa, bir simgesel oluşturmak için bu komutu kullanın:
+    ``# ls DigiCert_Global_Root_CA.pem``
 
-      ``# ln -s Baltimore_CyberTrust_Root.pem 653b494a.0``
+8. DigiCert_Global_Root_CA bulunmazsa sertifika indirmek için aşağıdaki komutları çalıştırın.
+
+    ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
+
+    ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
+
+9. Rehash komut dosyasını bir sertifikayı güncelleştirmek için yeni yüklenen sertifikaların konu karmaları çalıştırın.
+
+    ``# c_rehash``
+
+10. Simgesel bağlantı için sertifikaları oluşturuldukça konu karmaları olmadığını denetleyin.
+
+    - Komut
+
+      ``# ls -l | grep Baltimore``
+
+    - Çıktı
+
+      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+
+    - Komut
+
+      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    - Çıktı
+
+      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+      lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+
+    - Komut
+
+      ``# ls -l | grep DigiCert_Global_Root``
+
+    - Çıktı
+
+      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+
+11. Filename b204d74a.0 ile VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem dosyasının bir kopyasını oluşturun
+
+    ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+
+12. Filename 653b494a.0 ile Baltimore_CyberTrust_Root.pem dosyasının bir kopyasını oluşturun
+
+    ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
+
+13. Filename 3513523f.0 ile DigiCert_Global_Root_CA.pem dosyasının bir kopyasını oluşturun
+
+    ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
+
+
+14. Dosyaları mevcut olup olmadığını denetleyin.  
+
+    - Komut
+
+      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+
+    - Çıktı
+
+      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Site kurtarma URL'lerini veya IP aralıkları (hata kodu 151037 veya 151072) için giden bağlantı
@@ -131,6 +190,20 @@ Azure VM'nizi seçilmek üzere göremeyebilirsiniz [çoğaltmasını etkinleşti
 
 Kullanabileceğiniz [kaldırmak eski ASR yapılandırma komut dosyası](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) ve eski Site kurtarma yapılandırması Azure VM'de kaldırın. VM'yi görmelisiniz [çoğaltmasını etkinleştir: 2. adım](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) sonra eski yapılandırma kaldırılıyor.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Sanal makinenin sağlama durumu geçerli değil (hata kodu 150019)
+
+VM çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **başarılı**. Aşağıdaki adımları izleyerek VM durumunu kontrol edebilirsiniz.
+
+1.  Seçin **kaynak Gezgini** gelen **tüm hizmetleri** Azure portalında.
+2.  Genişletme **abonelikleri** listesinde ve aboneliğinizi seçin.
+3.  Genişletme **ResourceGroups** listesinde ve VM kaynak grubunu seçin.
+4.  Genişletme **kaynakları** listesinde ve sanal makine seçin
+5.  Denetleme **provisioningState** sağ taraftaki örneği görünümünde alan.
+
+### <a name="fix-the-problem"></a>Sorunu gidermek
+
+- Varsa **provisioningState** olan **başarısız**, sorun giderme ayrıntılarla desteğine başvurun.
+- Varsa **provisioningState** olan **güncelleştirme**, başka bir uzantı dağıtılamıyor. Bunları ve başarısız Site kurtarma işlemini yeniden denemeniz için bekleme VM üzerinde devam eden tüm işlemler olup olmadığını kontrol **çoğaltmasını etkinleştir** işi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure sanal makinelerini çoğaltma](site-recovery-replicate-azure-to-azure.md)

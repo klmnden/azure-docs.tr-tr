@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim denetimleri 
 
-İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. ("Bu durumda") bir koşullu erişim ilkesi ("bunu") yanıt belirli bir koşulun tanımlarsınız. Koşullu erişim bağlamında 
+İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bir koşullu erişim ilkesi ("bunu") yanıt ("Bu durumda") ilkeniz tetikleme nedenini tanımlayın. 
 
-- "**Bu durumda**" olarak adlandırılır **koşul deyimi**
+![Denetim](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Sonra bunu**" olarak adlandırılır **denetimleri**
 
-![Denetim](./media/active-directory-conditional-access-controls/11.png)
+Koşullu erişim bağlamında 
+
+- "**Bu durumda**" olarak adlandırılır **koşulları**
+
+- "**Sonra bunu**" olarak adlandırılır **erişim denetimleri**
+
 
 Bir koşul deyimi, denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
 
-![Denetim](./media/active-directory-conditional-access-controls/12.png)
+![Denetim](./media/active-directory-conditional-access-controls/61.png)
 
 Her denetimidir kişi tarafından yerine getirilmesi gereken bir gereksinim veya sistem oturum açma veya bir kısıtlama hangi kullanıcı oturum açtıktan sonra yapabilirsiniz. 
 

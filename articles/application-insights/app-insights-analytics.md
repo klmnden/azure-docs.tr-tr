@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights analizleri
 Analytics araçtır güçlü arama ve sorgu, [Application Insights](app-insights-overview.md). Kurulum nedenle analytics web aracıdır. Zaten Application Insights uygulamalarınızı biri için yapılandırdıktan sonra uygulamanızın analizi açarak uygulamanızın verileri çözümleyebilir [genel bakış dikey penceresinde](app-insights-dashboards.md).
@@ -47,9 +47,9 @@ Biz sonra ülke başına kayıt sayısı (veri sütunu bulunduğunda *client_Cou
 
 Dil çok çekici özelliklere sahiptir:
 
-* [Filtre](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) ölçümleri ve özel özellikler de dahil olmak üzere herhangi bir sorgu tarafından ham uygulama telemetrinizi.
-* [Katılma](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) birden çok tabloları – sayfa görünümleri, bağımlılık çağrıları, özel durumlar ve günlük izlemelerini ile ilişkilendirmek ister.
-* Güçlü istatistiksel [toplamalar](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
+* [Filtre](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) ölçümleri ve özel özellikler de dahil olmak üzere herhangi bir sorgu tarafından ham uygulama telemetrinizi.
+* [Katılma](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) birden çok tabloları – sayfa görünümleri, bağımlılık çağrıları, özel durumlar ve günlük izlemelerini ile ilişkilendirmek ister.
+* Güçlü istatistiksel [toplamalar](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 * Anında ve güçlü görselleştirmeler.
 * [REST API](https://dev.applicationinsights.io/) sorguları program aracılığıyla, örneğin Powershell'den çalıştırmak için kullanabilirsiniz.
 

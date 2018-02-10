@@ -2,29 +2,23 @@
 title: "Yük devri ve başarısız geri Hyper V sanal makinelerini Site Recovery ile ikincil veri merkezine çoğaltılmasını | Microsoft Docs"
 description: "Hyper-V sanal makineleri üzerinde ikincil şirket içi sitenize başarısız ve Azure Site Recovery ile birincil siteye geri başarısız öğrenin"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 44a662fa-2e7a-4996-86df-fdd6d6f5dedf
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb282a18efe2e3c7435377e02fa8c4d97a85ac63
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Yük devri ve başarısız ikincil şirket içi siteye çoğaltılan Hyper-V Vm'lerini yedekleme
 
 [Azure Site Recovery](site-recovery-overview.md) hizmet yöneten ve çoğaltma, yük devretme ve yeniden çalışma şirket içi makineler ve Azure sanal makineleri (VM'ler) yönetir.
 
-Bu öğretici, bir ikincil VMM sitesi için bir System Center Virtual Machine Manager (VMM) bulutta yönetilen bir Hyper-V VM yük devri açıklar. Devredilir sonra kullanılabilir olduğunda, şirket içi sitenize başarısız. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu makalede, bir ikincil VMM sitesi için bir System Center Virtual Machine Manager (VMM) bulutta yönetilen bir Hyper-V VM yük devri açıklar. Devredilir sonra kullanılabilir olduğunda, şirket içi sitenize başarısız. Bu makalede, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * Birincil VMM Bulutu bir Hyper-V VM ikincil VMM Bulutu yük devri

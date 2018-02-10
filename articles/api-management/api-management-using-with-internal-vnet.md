@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağları ile Azure API Management API'leri Internet üzerinden erişilebilir yönetebilirsiniz. VPN teknolojileri çeşitli bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -26,7 +26,7 @@ Azure sanal ağları ile Azure API Management API'leri Internet üzerinden eriş
 * İç
 
 
-API Management iç sanal ağ modunda dağıtırken, tüm hizmet uç noktalarına (ağ geçidi, Geliştirici Portalı, yayımcı portalında, doğrudan yönetim ve Git) yalnızca erişimini denetleyen bir sanal ağ içinde görünür. Hizmet uç noktalarına hiçbiri genel DNS sunucusunda kayıtlı.
+API Management iç sanal ağ modunda dağıtırken, tüm hizmet uç noktalarına (ağ geçidi, Geliştirici Portalı, Azure portal, doğrudan yönetim ve Git) yalnızca erişimini denetleyen bir sanal ağ içinde görünür. Hizmet uç noktalarına hiçbiri genel DNS sunucusunda kayıtlı.
 
 İç modunda API Yönetimi'ni kullanarak aşağıdaki senaryolar elde edebilirsiniz:
 * Siteden siteye veya Azure ExpressRoute VPN bağlantıları kullanarak, özel veri merkezinizde güvenli bir şekilde erişilebilir dışında üçüncü taraflar tarafından barındırılan API'ler olun.
@@ -34,7 +34,7 @@ API Management iç sanal ağ modunda dağıtırken, tüm hizmet uç noktalarına
 * Bir tek ağ geçidi uç noktası kullanarak birden çok coğrafi konumda barındırılan Apı'lerinizi yönetin. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmalısınız:
 
@@ -72,14 +72,14 @@ PowerShell cmdlet'lerini kullanarak sanal ağ bağlantısı daha da etkinleştir
 API Management dış sanal ağ modunda olduğunda DNS Azure tarafından yönetilir. İç sanal ağ modu için kendi yönlendirme yönetmeniz gerekir.
 
 > [!NOTE]
-> API Management hizmeti, IP adreslerinden gelen isteklerini dinlemez. Bunu yalnızca kendi hizmet uç noktaları üzerinde yapılandırılmış ana bilgisayar adı isteklerine yanıt verir. Bu uç noktaları, ağ geçidi, Geliştirici Portalı, yayımcı portalında, doğrudan yönetim uç noktası ve Git içerir.
+> API Management hizmeti, IP adreslerinden gelen isteklerini dinlemez. Bunu yalnızca kendi hizmet uç noktaları üzerinde yapılandırılmış ana bilgisayar adı isteklerine yanıt verir. Bu uç noktaları, ağ geçidi, Geliştirici Portalı, Azurethe portal, doğrudan yönetim uç noktası ve Git içerir.
 
 ### <a name="access-on-default-host-names"></a>Varsayılan ana bilgisayar adlarını erişimi
 Örneğin, "contoso" adlı bir API Management hizmeti oluşturduğunuzda, aşağıdaki hizmet uç noktaları varsayılan olarak yapılandırılır:
 
    * Ağ geçidi veya proxy: contoso.azure api.net
 
-   * Yayımcı portalı ve Geliştirici Portalı: contoso.portal.azure api.net
+   * Azure portalı ve Geliştirici Portalı: contoso.portal.azure api.net
 
    * Doğrudan yönetim uç noktası: contoso.management.azure api.net
 
@@ -87,13 +87,13 @@ API Management dış sanal ağ modunda olduğunda DNS Azure tarafından yönetil
 
 Bu API Management hizmet uç noktalarına erişmek için API Management dağıtıldığı sanal ağa bağlı bir alt ağda bir sanal makine oluşturabilirsiniz. Hizmetiniz için iç sanal IP adresi 10.0.0.5 olduğunu varsayarak, ana bilgisayarlar dosyası, % SystemDrive%\drivers\etc\hosts, aşağıdaki gibi eşleyebilirsiniz:
 
-   * 10.0.0.5 contoso.azure-api.net
+   * 10.0.0.5     contoso.azure-api.net
 
-   * 10.0.0.5 contoso.portal.azure-api.net
+   * 10.0.0.5     contoso.portal.azure-api.net
 
-   * 10.0.0.5 contoso.management.azure-api.net
+   * 10.0.0.5     contoso.management.azure-api.net
 
-   * 10.0.0.5 contoso.scm.azure-api.net
+   * 10.0.0.5     contoso.scm.azure-api.net
 
 Daha sonra oluşturduğunuz sanal makineden tüm hizmet uç noktalarına erişebilirsiniz. Sanal bir ağa özel bir DNS sunucusu kullanıyorsanız, ayrıca bir DNS kayıtları oluşturmak ve bu uç noktaların her yerden erişim sanal ağınızda. 
 

@@ -16,11 +16,11 @@ ms.date: 01/23/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: de26452dfb32438ef56fa0c9a31a24b05987b48c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -64,7 +64,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **Konuk davet eden**: Bu roldeki kullanıcılar, Azure Active Directory B2B Konuk kullanıcı davetleri yönetebilir, "Üyeleri davet edebilirsiniz" Kullanıcı ayarı Hayır olarak ayarlandığında geçerlidir B2B işbirliğinin hakkında daha fazla bilgi [hakkında Azure AD B2B işbirliği Önizleme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Diğer izinler içermez.
 
-* **Bilgi Koruma Yöneticisi**: Bu rolüne sahip kullanıcılar, Azure portalında Azure Information Protection erişebilir. Azure Information Protection ilkesi için etiket yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirin.
+<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
 
 * **Intune hizmet yöneticisinin**: Bu rolü olan kullanıcılar hizmet mevcut olduğunda Microsoft Intune çevrimiçi içinde genel izinlere sahiptir. Ayrıca, bu rol İlkesi ilişkilendirme yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme becerisini içerir.
 
@@ -128,11 +128,11 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar ve diğer Yardım Masası yöneticileri için parolaları değiştirme</p>|<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Raporları görüntüleme</p>|
 
-### <a name="information-protection-administrator"></a>Bilgi Koruma Yöneticisi 
-İçinde | Yapabilirsiniz
+<!--### Information Protection Administrator 
+In | Can do
 -------- | ---------
-Azure Information Protection | * Genel, kapsamlı ilkeler ve etiketleri yapılandırın<br>* Yönetmek, yapılandırmak, koruma şablonları güncelleştirme<br>* Kullanmak için koruma etkinleştirme etkinleştir 
-Privileged Identity Management | * Okuma izinleri<br>* Azure AD rol üyeliklerini veya ayarları yönetemezsiniz.
+Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
+Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
  
 ### <a name="reports-reader"></a>Raporları okuyucusu 
 Yapabilirsiniz | Yapamaz

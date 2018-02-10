@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma Twitter hesaplarıyla tüketicileri sağlayın
-
-> [!NOTE]
-> Bu özelliğin önizlemede değil.
-> 
 
 ## <a name="create-a-twitter-application"></a>Bir Twitter uygulaması oluşturma
 Twitter Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için bir Twitter uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Twitter Geliştirici hesabınızın olması gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [https://dev.twitter.com/](https://dev.twitter.com/).
@@ -46,3 +42,6 @@ Twitter Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak 
 6. Tıklatın **bu kimlik sağlayıcısı'nı ayarlama** ve Twitter girin **tüketici anahtarı** için **istemci kimliği** ve Twitter **tüketici gizli** için **gizli**.
 7. Tıklatın **Tamam**ve ardından **oluşturma** Twitter yapılandırmanızı kaydetmek için.
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+Oluşturma veya düzenleme bir [yerleşik ilke](active-directory-b2c-reference-policies.md) ve Twitter kimlik sağlayıcısı olarak ekleyin.

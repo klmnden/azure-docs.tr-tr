@@ -3,7 +3,7 @@ title: "Azure Data Lake Store'a sanal ağlara bağlanma | Microsoft Docs"
 description: "Azure sanal ağları Azure Data Lake Store'a bağlama"
 services: data-lake-store,data-catalog
 documentationcenter: 
-author: nitinme
+author: esung22
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: 029939eabc7283d7591576fa1b14731a9e626a88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/31/2018
+ms.author: elsung
+ms.openlocfilehash: c1bb9d8f5759ece8fe6384441c692adea190aba8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Erişim Azure Data Lake Store bir Azure sanal içinde vm'lerden
 Azure Data Lake Store genel Internet IP adresleri üzerinde çalışan bir PaaS hizmetidir. Genel Internet'e bağlanabilir herhangi bir sunucu genellikle de Azure Data Lake Store Uç noktalara bağlanabilir. Varsayılan olarak, Azure Vnet'lerde olan tüm sanal makineleri Internet erişebilir ve bu nedenle Azure Data Lake Store erişebilir. Ancak, Internet erişimi için bir VNET içindeki sanal makineleri yapılandırmak mümkündür. Bu tür VM'ler için Azure Data Lake Store erişimi de sınırlıdır. Azure sanal ağlar VM'ler için genel Internet erişimi engelleme yapılabilir aşağıdaki yaklaşımlardan birini kullanarak.

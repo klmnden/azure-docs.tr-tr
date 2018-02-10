@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında eylem gruplarını oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -58,10 +58,10 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullan
 
     b. **Eylem türü**: SMS seçin, e-posta, Web kancası, Azure uygulaması, ITSM veya Otomasyon Runbook.
 
-    c. **Ayrıntılar**: eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi, Web kancası URI, Azure uygulaması, ITSM bağlantı ya da Otomasyon runbook'u girin. ITSM eylem için ayrıca belirtin **iş öğesi** ve diğer alanlar ITSM aracınızı gerektirir. 
+    c. **Ayrıntılar**: eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi, Web kancası URI, Azure uygulaması, ITSM bağlantı ya da Otomasyon runbook'u girin. ITSM eylem için ayrıca belirtin **iş öğesi** ve diğer alanlar ITSM aracınızı gerektirir.
 
    > [!NOTE]
-   > ITSM eylemi ITSM bağlantı gerektirir. Oluşturmayı öğrenin bir [ITSM bağlantı](../log-analytics/log-analytics-itsmc-overview.md). ITSM eylem şu anda yalnızca etkinlik günlüğü uyarıları için çalışır. Diğer uyarı türleri için bu şu anda Hayır op eylemdir.
+   > ITSM eylemi ITSM bağlantı gerektirir. Oluşturmayı öğrenin bir [ITSM bağlantı](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Seçin **Tamam** eylem grubu oluşturmak için.
 
@@ -75,6 +75,6 @@ Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü
 * Daha fazla bilgi edinmek [SMS uyarı davranış](monitoring-sms-alert-behavior.md).  
 * Geçirmesine bir [etkinlik günlüğü uyarı Web kancası şeması anlama](monitoring-activity-log-alerts-webhook.md).  
 * Daha fazla bilgi edinmek [ITSM bağlayıcı](../log-analytics/log-analytics-itsmc-overview.md)
-* Daha fazla bilgi edinmek [hız sınırlaması](monitoring-alerts-rate-limiting.md) uyarılar hakkında. 
+* Daha fazla bilgi edinmek [hız sınırlaması](monitoring-alerts-rate-limiting.md) uyarılar hakkında.
 * Alma bir [etkinlik günlüğü uyarıları genel bakış](monitoring-overview-alerts.md)ve uyarıların nasıl alınacağını öğrenin.  
 * Bilgi edinmek için nasıl [hizmeti sistem durumu bildirimi gönderilen her uyarıları yapılandırmak](monitoring-activity-log-alerts-on-service-notifications.md).

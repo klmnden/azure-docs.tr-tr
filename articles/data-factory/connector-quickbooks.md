@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9c3a725d0d0c5091a280c3fb99279757f1e014f1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9151647e29251b627db605d1f1c6c5809bd67269
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak QuickBooks verilerini
 
@@ -52,8 +52,8 @@ Aşağıdaki özellikler QuickBooks bağlantılı hizmeti için desteklenir:
 | type | Type özelliği ayarlanmalıdır: **QuickBooks** | Evet |
 | endpoint | QuickBooks sunucusu uç noktası. (diğer bir deyişle, quickbooks.api.intuit.com)  | Evet |
 | Companyıd | Yetkilendirmek için QuickBooks şirket şirket kimliği.  | Evet |
-| accessToken | OAuth 1.0 kimlik doğrulaması için erişim belirteci. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
-| accessTokenSecret | Erişim belirteci gizli anahtarı OAuth 1.0 kimlik doğrulaması için. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| accessToken | OAuth 1.0 kimlik doğrulaması için erişim belirteci. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
+| accessTokenSecret | Erişim belirteci gizli anahtarı OAuth 1.0 kimlik doğrulaması için. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 
 **Örnek:**
@@ -101,7 +101,7 @@ QuickBooks verileri kopyalamak için kümesine tür özelliği ayarlamak **Quick
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde QuickBooks kaynak tarafından desteklenen özellikler listesini sağlar.
 

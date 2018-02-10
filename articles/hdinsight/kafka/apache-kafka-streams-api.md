@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Apache Kafka streams API
 
@@ -100,6 +100,12 @@ Derleme ve Hdınsight kümesinde, Kafka projeyi dağıtmak için aşağıdaki ad
     * Yazar bir üretici Başlat `test` konu.
     * Yazılan çıkış görmenize olanak tanıyan bir tüketici Başlat `wordcounts` konu
 
+    > [!NOTE]
+    > Doğrulamak gereken `auto.create.topics.enable` özelliği ayarlanmış `true` Kafka Aracısı Yapılandırma dosyasında. Bu özellik görüntülenebilir ve Gelişmiş Kafka Aracısı Yapılandırma dosyasında Ambari Web kullanıcı Arabirimi kullanılarak değiştirilebilir. Aksi takdirde, Ara konu oluşturmak için gereken `RekeyedIntermediateTopic` aşağıdaki komutu kullanarak bu örneği çalıştırmadan önce el ile:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     Bu işlemleri gerçekleştirmek için üç SSH oturum açarak. Ancak, ardından ayarlamanız gerekir `$KAFKABROKERS` ve `$KAFKAZKHOSTS` her çalıştırarak bu bölümünden her SSH oturumunda adım 4. Daha kolay bir çözüm kullanmaktır `tmux` birden çok bölümlere geçerli SSH görüntü bölebilirsiniz yardımcı programı. Akış, üretici ve tüketici kullanarak başlatmak için `tmux`, aşağıdaki komutu kullanın:
 
     ```bash
@@ -143,9 +149,9 @@ Bu belgede, hdınsight'ta Kafka ile Kafka akışları API kullanma hakkında bil
 
 * [Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
 * [Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)
-* [Hdınsight ile Kafka üretici ve tüketici API](apache-kafka-producer-consumer-api.md)
+* [HDInsight ile Kafka Üretici ve Tüketici API’si](apache-kafka-producer-consumer-api.md)
 * [Apache Spark akışını (DStream) HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-spark-with-kafka.md)
 * [Apache Spark Yapılandırılmış Akışını HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Veriler Kafka Hdınsight'ta Cosmos DB taşımak için Apache Spark yapılandırılmış akış kullanın](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [HDInsight üzerinde verileri Kafka’dan Cosmos DB’ye taşımak için Apache Spark Yapılandırılmış Akış’ı kullanma](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-storm-with-kafka.md)
 * [Azure Sanal Ağ üzerinden Kafka’ya bağlanma](apache-kafka-connect-vpn-gateway.md)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -297,7 +297,7 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 
          * **İfade** – bir veya daha fazla iş günü özniteliklerini temel alarak AD özniteliği için özel bir değer yazmanızı sağlar. [Daha fazla bilgi için bu makalede ifadeleri bkz](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Kaynak özniteliği** -Workday kullanıcı özniteliği.
+      * **Kaynak özniteliği** -Workday kullanıcı özniteliği. Aradığınız özniteliği mevcut değilse, bkz: [Workday kullanıcı özniteliklerinin listesi özelleştirme](#customizing-the-list-of-workday-user-attributes).
 
       * **Varsayılan değer** – isteğe bağlıdır. Eşleme kaynak özniteliği boş bir değer varsa, bu değer yerine yazacaksınız.
             Bu alanı boş bırakın en yaygın yapılandırmadır.
@@ -549,7 +549,7 @@ Bu bölümde, kullanıcı verilerini Workday'deki Azure Active Directory'ye yaln
 
       * **İfade** – bir veya daha fazla iş günü özniteliklerini temel alarak AD özniteliği için özel bir değer yazmanızı sağlar. [Daha fazla bilgi için bu makalede ifadeleri bkz](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Kaynak özniteliği** -Workday kullanıcı özniteliği.
+   * **Kaynak özniteliği** -Workday kullanıcı özniteliği. Aradığınız özniteliği mevcut değilse, bkz: [Workday kullanıcı özniteliklerinin listesi özelleştirme](#customizing-the-list-of-workday-user-attributes).
 
    * **Varsayılan değer** – isteğe bağlıdır. Eşleme kaynak özniteliği boş bir değer varsa, bu değer yerine yazacaksınız.
             Bu alanı boş bırakın en yaygın yapılandırmadır.
@@ -646,7 +646,7 @@ Bölümleri 1-2 tamamladıktan sonra sağlama hizmeti başlatabilirsiniz.
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Workday kullanıcı özniteliklerinin listesi özelleştirme
 Active Directory ve her ikisi Workday kullanıcı özniteliklerinin varsayılan listesini içeren Azure AD için uygulamalar sağlama Workday arasından seçim yapabilirsiniz. Ancak, bu listeleri kapsamlı değildir. Workday yüzlerce ya da standart ya da iş günü kiracınız için benzersiz olabilir olası kullanıcı öznitelikleri destekler. 
 
-Hizmet sağlama Azure AD listesi veya de sağlanmaktadır öznitelikler eklemek üzere Workday özniteliği özelleştirme yeteneği destekleyen [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) İnsan Kaynakları API işlemi.
+Hizmet sağlama Azure AD listesi veya de sağlanmaktadır öznitelikler eklemek üzere Workday özniteliği özelleştirme yeteneği destekleyen [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) İnsan Kaynakları API işlemi.
 
 Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workday.com/studio-download) kullanmak istediğiniz özniteliklerini temsil eder ve bunları Azure portalında Gelişmiş Öznitelik Düzenleyicisi'ni kullanarak sağlama yapılandırmanızda Ekle XPath ifadeler ayıklayın.
 
@@ -654,7 +654,7 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
 
 1. İndirme ve yükleme [Workday Studio](https://community.workday.com/studio-download). Yükleyici erişmek için bir iş günü topluluk hesabınızın olması gerekir.
 
-2. Bu URL'den Workday Human_Resources WDSL indirilemedi: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+2. Bu URL'den Workday Human_Resources WDSL indirilemedi: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. İş günü Studio'yu başlatın.
 
@@ -680,12 +680,23 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>

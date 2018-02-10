@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: abd6f05e9b9ce711ce55e88f07aa13287c76ebc2
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 58c0f5b0ac8e96c2457db4b86dcf2483f68289c6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Web Hizmetini birden fazla bölgeye dağıtma
 Yeni Azure Web Hizmetleri kolayca birden fazla abonelikleri veya çalışma alanları gerek kalmadan bir web hizmeti için birden çok bölgeye dağıtmanıza izin verin. 
@@ -34,7 +34,7 @@ Fiyatlandırma belirli, bu nedenle, web hizmeti dağıtacağınız her bölge i�
 6. Gelen **kaynak grubu** bir kaynak grubu plan için açılan listesinde, seçin. Kaynak grupları hakkında daha fazla bilgi [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md).
 7. İçinde **Plan adı** planın adını yazın.
 8. Altında **planı seçenekleri**, yeni plan için fatura düzeyi'ı tıklatın.
-9. **Oluştur**'a tıklayın.
+9. **Oluştur**’a tıklayın.
 
 ## <a name="deploying-the-web-service-to-another-region"></a>Web hizmeti başka bir bölgeye dağıtmayı
 1. Tıklatın **Web Hizmetleri** menü seçeneği.

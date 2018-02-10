@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Şablonları kullanarak Azure API Management Geliştirici Portalı nasıl özelleştireceğinizi
 
@@ -28,16 +28,10 @@ Azure API Management'ta geliştirici portalını özelleştirmek için kullanıl
 * [Geliştirici portalının tamamında sayfa öğeleri için kullanılan stilleri güncelleştirme][customize-styles]
 * [Portal tarafından oluşturulan sayfalar için kullanılan şablonları değiştirmek] [ portal-templates] (Bu kılavuzda açıklanan)
 
-Şablonlar, sistem tarafından oluşturulan Geliştirici portal sayfalarına (örneğin API belgeleri, ürünler, kullanıcı kimlik doğrulaması, vb.) içeriğini özelleştirmek için kullanılır. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve yerelleştirilmiş dize kaynakları, simgeler ve sayfa denetimleri, sağlanan bir dizi sayfaların içeriğini uygun gördüğünüz şekilde yapılandırmak için büyük esneklik vardır.
+Şablonlar, sistem tarafından oluşturulan Geliştirici portal sayfalarına (örneğin, API belgeleri, ürünler, kullanıcı kimlik doğrulaması, vb.) içeriğini özelleştirmek için kullanılır. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve yerelleştirilmiş dize kaynakları, simgeler ve sayfa denetimleri, sağlanan bir dizi sayfaların içeriğini uygun gördüğünüz şekilde yapılandırmak için büyük esneklik vardır.
 
 ## <a name="developer-portal-templates-overview"></a>Geliştirici Portalı şablonlarına genel bakış
-Şablonları düzenleme gelen yapılır **Geliştirici Portalı** yönetici olarak oturum açmış oluştu. Var. Azure Portalı'nı Aç almak ilk ve tıklatın için **yayımcı portalına** , API Management örneğinin hizmet araç çubuğundan.
-
-![Yayımcı portalı][api-management-management-console]
-
-Ardından sağ üst köşedeki **Geliştirici portalı**'na tıklayın. 
-
-![Geliştirici portal menüsü][api-management-developer-portal-menu]
+Şablonları düzenleme gelen yapılır **Geliştirici Portalı** yönetici olarak oturum açmış oluştu. Var. Azure Portalı'nı Aç almak ilk ve tıklatın için **Geliştirici Portalı** , API Management örneğinin hizmet araç çubuğundan.
 
 Geliştirici Portalı şablonları erişmek için Özelleştir özelleştirme menüsünü görüntüleme ve'ı tıklatın soldaki simgesini **şablonları**.
 
@@ -47,7 +41,7 @@ Geliştirici Portalı'nda farklı sayfaları kapsayan şablonları çeşitli kat
 
 ![Geliştirici Portalı şablonları][api-management-templates-menu]
 
-Bir şablon tıklamak Bu şablon tarafından özelleştirilebilir Geliştirici Portalı sayfasına götürür. Bu örnekte **ürün listesi** şablonu görüntülenir. **Ürün listesi** şablonu kırmızı dikdörtgeni tarafından belirtilen ekran alanının denetler. 
+Bir şablon tıklamak Bu şablon tarafından özelleştirilebilir Geliştirici Portalı sayfasına götürür. Bu örnekte, **ürün listesi** şablonu görüntülenir. **Ürün listesi** şablonu kırmızı dikdörtgeni tarafından belirtilen ekran alanının denetler. 
 
 ![Ürün şablonu listesi][api-management-developer-portal-templates-overview]
 
@@ -65,7 +59,7 @@ Her Geliştirici Portalı şablonu Düzenleyicisi sayfasının en altında gör�
 
 ![Şablon veri modeli][api-management-template-data]
 
-Önceki örnekte içinde görüntülenen verileri alındı Geliştirici Portalı'nda görüntülenen iki ürün yok **şablon verileri** bölmesinde, aşağıdaki örnekte gösterildiği gibi.
+Önceki örnekte içinde görüntülenen verileri alındı Geliştirici Portalı'nda görüntülenen iki ürün yok **şablon verileri** bölmesinde, aşağıdaki örnekte gösterildiği gibi:
 
 ```json
 {

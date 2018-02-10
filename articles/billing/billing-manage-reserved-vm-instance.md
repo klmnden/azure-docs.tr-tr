@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Ayrılmış sanal makine örneklerini yönetme
 
@@ -75,6 +75,16 @@ Erişim yönetimi bir ayırma için temsilci atamak için:
 5.  Seçin **Ekle** > **rol** > **sahibi** (veya sınırlı erişim vermek istiyorsanız, farklı bir rol). 
 6. Sahibi olarak eklemek istediğiniz kullanıcının e-posta adresini yazın. 
 7. Kullanıcıyı seçin ve ardından **kaydetmek**.
+
+## <a name="next-steps"></a>Sonraki adımlar
+Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+
+- [Ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
+- [Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
+- [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
+- [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
+- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 

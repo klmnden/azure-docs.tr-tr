@@ -1,26 +1,20 @@
 ---
-title: "Azure Site Recovery ile ikincil şirket içi sitenizi bir olağanüstü durum kurtarma ayrıntıya çalıştırmayı | Microsoft Docs"
+title: "Azure Site Recovery ile ikincil şirket içi siteye bir olağanüstü durum kurtarma ayrıntıya çalıştırma | Microsoft Docs"
 description: "Azure Site Recovery ile ikincil şirket içi sitenize bir olağanüstü durum kurtarma ayrıntıya çalıştırma hakkında bilgi edinin"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 445878e2-6682-49ba-914d-4c6824ab08a6
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e5f8dce1ca2f728d15161622fb9ff2afb4b6c86
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Bir olağanüstü durum kurtarma ayrıntıya Hyper-V VM'ler için ikincil şirket içi sitenize çalıştırın.
+# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Bir olağanüstü durum kurtarma ayrıntıya Hyper-V VM'ler için bir ikincil şirket içi siteye çalıştırın.
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti yönetme ve çoğaltma, yük devretme ve yeniden çalışma şirket içi makineler ve Azure sanal makineleri (VM'ler) yönetme olağanüstü durum kurtarma stratejiniz katkıda bulunur.
 
@@ -31,7 +25,7 @@ Bu öğretici bir olağanüstü durum kurtarma ayrıntıya ikincil şirket içi 
 > * Bir yük devretme sınaması için tek bir makineye çalıştırın
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - İkincil sitede ağ seçeneklerini birkaç yük devretme testi çalıştırabilirsiniz. Mevcut bir ağ ile bir ağı olmadan yük devretme çalıştırmak veya Site Recovery otomatik olarak bir test ağı oluşturmak istiyorum. 
 **Yük devretme sınaması için var olan bir üretim ağı kullanmak isterseniz:**:

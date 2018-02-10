@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2018
+ms.date: 02/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Oluşturun ve yerel Azure sertifika kimlik doğrulaması P2S yapılandırmaları için VPN istemcisi yapılandırma dosyalarını yükleyin
 
@@ -72,8 +72,9 @@ Sertifika kimlik doğrulaması için yerel Windows VPN istemcisi yapılandırmak
 1. Windows bilgisayarın mimarisiyle karşılık gelen VPN istemcisi yapılandırma dosyalarını seçin. 64-bit işlemci mimarisi için 'VpnClientSetupAmd64' Yükleyici paketi seçin. 32-bit işlemci mimarisi için 'VpnClientSetupX86' Yükleyici paketi seçin. 
 2. Paketi yüklemek için çift tıklatın. Bir SmartScreen açılır penceresi görürseniz **Daha fazla bilgi**’ye ve ardından **Yine de çalıştır**’a tıklayın.
 3. İstemci bilgisayarda **Ağ Ayarları**’na gidin ve **VPN** öğesine tıklayın. VPN bağlantısı, bağlandığı sanal ağın adını gösterir. 
+4. Bağlanma, doğrulamak, denemeden önce bir istemci sertifikası istemci bilgisayara yüklediniz. Yerel Azure sertifika kimlik doğrulama türü kullanılırken bir istemci sertifikası kimlik doğrulaması için gereklidir. Sertifika oluşturma hakkında daha fazla bilgi için bkz: [sertifikalar oluşturmak](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Bir istemci sertifikası yükleme hakkında daha fazla bilgi için bkz: [bir istemci sertifikası yüklemek](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="installmac"></a>VPN istemci yapılandırması üzerinde Mac'ler (OSX)
+## <a name="installmac"></a>VPN istemcisi yapılandırmasına Mac'ler (OS X)
 
 Azure mobileconfig dosyası yerel Azure sertifika kimlik doğrulaması sağlamaz. Azure'a bağlanır her Mac üzerinde yerel Ikev2 VPN istemcisi el ile yapılandırmanız gerekir. **Genel** klasör yapılandırmak gereken tüm bilgileri içerir. Genel klasör karşıdan yüklemenizi görmüyorsanız, Ikev2 tünel türü olarak seçilmeyen olasıdır. Ikev2 seçildikten sonra genel klasör yeniden almak için zip dosyası oluşturun. Genel klasör aşağıdaki dosyaları içerir:
 
@@ -90,27 +91,28 @@ Tıklatın **Ekle** almak için.
     >[!NOTE]
     >Sertifikayı çift görüntülenmeyebilir **Ekle** iletişim ancak sertifika doğru depoya yüklenir. Sertifikaları kategorisi altında oturum açma Anahtarlık sertifika için kontrol edebilirsiniz.
   
-2. Açık **ağ** altında iletişim **ağ tercihlerini** tıklatıp **'+'** Azure VNet P2S bağlantısı için yeni bir VPN istemci bağlantı profili oluşturmak için.
+2. P2S ayarlarını yapılandırdığınız zaman, Azure'a karşıya kök sertifika tarafından verilmiş bir istemci sertifikası yüklü olduğunu doğrulayın. Bu önceki adımda yüklediğiniz VPNServerRoot farklıdır. İstemci sertifikası kimlik doğrulaması için kullanılır ve gereklidir. Sertifika oluşturma hakkında daha fazla bilgi için bkz: [sertifikalar oluşturmak](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Bir istemci sertifikası yükleme hakkında daha fazla bilgi için bkz: [bir istemci sertifikası yüklemek](point-to-site-how-to-vpn-client-install-azure-cert.md).
+3. Açık **ağ** altında iletişim **ağ tercihlerini** tıklatıp **'+'** Azure VNet P2S bağlantısı için yeni bir VPN istemci bağlantı profili oluşturmak için.
 
   **Arabirimi** 'VPN' bir değerdir ve **VPN türü** değer 'IKEv2' dir. Profil için bir ad belirtin **hizmet adı** alan ve ardından **oluşturma** VPN istemci bağlantı profili oluşturmak için.
 
   ![Ağ](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-3. İçinde **genel** klasörü, gelen **VpnSettings.xml** dosya, kopya **VpnServer** etiket değeri. Bu değeri yapıştırın **sunucu adresi** ve **Uzak Kimliği** profilinin alanları.
+4. İçinde **genel** klasörü, gelen **VpnSettings.xml** dosya, kopya **VpnServer** etiket değeri. Bu değeri yapıştırın **sunucu adresi** ve **Uzak Kimliği** profilinin alanları.
 
   ![Sunucu bilgisi](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-4. Tıklatın **kimlik doğrulama ayarlarını** seçip **sertifika**. 
+5. Tıklatın **kimlik doğrulama ayarlarını** seçip **sertifika**. 
 
   ![kimlik doğrulama ayarları](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Tıklatın **seçin...** kimlik doğrulaması için kullanmak istediğiniz istemci sertifikası seçmek için. Bir istemci sertifikası makinede yüklü olması (bkz. Adım #2 **P2S iş akışı** yukarıdaki bölümde).
+6. Tıklatın **seçin...** kimlik doğrulaması için kullanmak istediğiniz istemci sertifikası seçmek için. Bu adım 2'de yüklü olan sertifikadır.
 
   ![sertifika](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-6. **Bir kimlik seçin** aralarından seçim yapabileceğiniz sertifikaların listesini görüntüler. Doğru sertifikayı seçin ve ardından **devam**.
+7. **Bir kimlik seçin** aralarından seçim yapabileceğiniz sertifikaların listesini görüntüler. Doğru sertifikayı seçin ve ardından **devam**.
 
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. İçinde **yerel kimliği** alanında, sertifika (6. adım) adını belirtin. Bu örnekte, "ikev2Client.com" dir. Ardından **Uygula** değişiklikleri kaydetmek için düğmesi.
+8. İçinde **yerel kimliği** alanında, sertifika (6. adım) adını belirtin. Bu örnekte, "ikev2Client.com" dir. Ardından **Uygula** değişiklikleri kaydetmek için düğmesi.
 
   ![uygula](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-8. Üzerinde **ağ** iletişim kutusunda, tıklatın **Uygula** tüm değişiklikleri kaydetmek için. Ardından **Bağlan** Azure VNet P2S bağlantısı başlatmak için.
+9. Üzerinde **ağ** iletişim kutusunda, tıklatın **Uygula** tüm değişiklikleri kaydetmek için. Ardından **Bağlan** Azure VNet P2S bağlantısı başlatmak için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>İşletme kaydı için ayrılmış örnek kullanım anlama
 Ayrılmış örnek kullanımını gelen Reservationıd kullanarak anlayın [ayırma sayfası](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) ve kullanım dosyasından [EA portal.](https://ea.azure.com) Kullanım Özeti bölümünde ayırma kullanım de görebilirsiniz [EA portal.](https://ea.azure.com)
@@ -56,6 +56,16 @@ Ayrılmış kullanım ayrıca görüntülenir Kullanım Özeti EA portalı böl�
 
 1. Ayrılmış örnek tarafından kapsanan olarak VM donanım bileşeni için ücretlendirilirsiniz değil. 
 2. Azure karma avantajı kullanılmaz gibi Windows yazılım için sizden ücret kesilir. 
+
+## <a name="next-steps"></a>Sonraki adımlar
+Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+
+- [Ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ayrılmış sanal makine örneklerini yönetme](billing-manage-reserved-vm-instance.md)
+- [Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
+- [Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
+- [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
+- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 

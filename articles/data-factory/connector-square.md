@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1988d293c78e7fb51f08d040ab96a6d7a3abbb87
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 65eab09a1fcf7e1c2411ee4b96d21ba22e3519b2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak kare verilerini
 
@@ -50,7 +50,7 @@ Aşağıdaki özellikler kare bağlantılı hizmeti için desteklenir:
 | type | Type özelliği ayarlanmalıdır: **kare** | Evet |
 | konak | Kare örneği URL'si. (i.e. mystore.mysquare.com)  | Evet |
 | clientId | Kare uygulamanızla ilişkili istemci kimliği.  | Evet |
-| clientSecret | Kare uygulamanızla ilişkili istemci gizli anahtarı. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| clientSecret | Kare uygulamanızla ilişkili istemci gizli anahtarı. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | redirectUri | Kare uygulama panosunda atanan yeniden yönlendirme URL'si. (i.e. http://localhost:2500)  | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için sunucunun sertifikası ana bilgisayar adlarında istenip istenmeyeceğini belirtir. Varsayılan değer true olur.  | Hayır |
@@ -97,7 +97,7 @@ Kare verileri kopyalamak için kümesine tür özelliği ayarlamak **SquareObjec
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde kare kaynak tarafından desteklenen özellikler listesini sağlar.
 

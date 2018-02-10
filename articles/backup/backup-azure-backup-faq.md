@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -132,7 +132,8 @@ Aşağıdaki tabloda, her bir veri kaynağı boyutunun nasıl belirlendiği aç�
 | Microsoft Exchange |Yedeklenmekte olan bir Exchange sunucusundaki tüm Exchange veritabanlarının toplamı |
 | BMR/Sistem Durumu |Yedeklenmekte olan makinenin BMR'sinin veya sistem durumunun her ayrı kopyası |
 
-Azure VM yedeklemesi için, her VM'nin en çok 16 veri diski olabilir ve her veri diskinin boyutu 1023 GB veya daha azdır. 
+Azure VM yedekleme için her bir VM boyutu 1024 GB veya daha az olan her veri diski ile en fazla 16 veri diski olabilir. <br>
+Sahip olduğumuz bir [özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) diskleri fazla 4 TB desteklemek için. 
 
 ## <a name="retention-policy-and-recovery-points"></a>Bekletme ilkesi ve kurtarma noktaları
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM ve Windows Server'a/istemcisine yönelik bekletme ilkesi (DPM olmadan Windows Server'da) arasında bir fark var mıdır?<br/>

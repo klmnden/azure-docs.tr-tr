@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 47f72fcfe2a4c9ab6e89314a64dae0027ef76924
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -60,8 +60,8 @@ Kadar ekleyebilirsiniz [özel](#private) ve [ortak](#public) [IPv4](#ipv4) adres
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP-config oluşturma](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Ekleme AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az ağ NIC IP-config oluşturma](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_create)|
+|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-ip-address-settings"></a>IP adresi ayarlarını değiştirme
 
@@ -81,7 +81,7 @@ Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 a
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP yapılandırmasını güncelleştir](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-ip-addresses"></a>IP adreslerini kaldırın
@@ -99,7 +99,7 @@ Kaldırabileceğiniz [özel](#private) ve [ortak](#public) IP adresleri bir ağ 
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP-config Sil](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[az ağ NIC IP-config Sil](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-configurations"></a>IP yapılandırması

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 455de7bc0bca86ad542b6606181b0daf146a5e6a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Bir VM üzerinde Azure Linux Aracısı güncelleştirme
 
@@ -29,6 +29,9 @@ Güncelleştirmek için [Azure Linux Aracısı](https://github.com/Azure/WALinux
 - SSH kullanarak, Linux VM bağlantı.
 
 Her zaman Linux distro depodaki bir paket için ilk denetlemelisiniz. Kullanılabilir paketi otomatik güncelleştirme'yi etkinleştirme en son sürümü, ancak, Linux Aracısı'nı her zaman en son güncelleştirmeleri al sağlayacak olmayabilir mümkündür. Paket yöneticileri yüklerken sorunlarla olmalıdır, destek distro satıcıdan arama.
+
+## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Azure'da minimum sanal makine Aracısı desteği
+Doğrulama [azure'da sanal makine aracılar için en düşük sürüm Destek](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) devam etmeden önce.
 
 ## <a name="updating-the-azure-linux-agent"></a>Azure Linux Aracısı'nı güncelleştirme
 
@@ -158,7 +161,7 @@ sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="redhat--centos"></a>RedHat / CentOS
+## <a name="redhat--centos"></a>Redhat / CentOS
 
 ### <a name="rhelcentos-6"></a>RHEL/CentOS 6
 

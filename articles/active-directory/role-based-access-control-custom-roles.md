@@ -3,7 +3,7 @@ title: "Azure RBAC için özel roller oluşturmanızı | Microsoft Docs"
 description: "Azure aboneliğinizde daha kesin kimlik yönetimi için Azure rol tabanlı erişim denetimi ile özel rolleri tanımlama öğrenin."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/11/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için özel roller oluşturma
 Yerleşik roller hiçbiri belirli erişim gereksinimlerinizi karşılıyorsa özel bir rol Azure rol tabanlı erişim denetimi (RBAC) oluşturun. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure komut satırı arabirimi](role-based-access-control-manage-access-azure-cli.md) (CLI) ve [REST API](role-based-access-control-manage-access-rest.md). Yalnızca yerleşik roller gibi kullanıcılar, gruplar ve uygulamalar abonelik, kaynak grubu ve kaynak kapsamları özel roller atayabilirsiniz. Özel roller Azure AD kiracısı içinde depolanır ve abonelikler arasında paylaşılabilir.
@@ -96,9 +96,9 @@ Kullanım **NotActions** izin vermek istediğiniz işlem kümesi daha kolay kıs
 
 Geçerli atanabilir kapsamların örnekleri şunlardır:
 
-* "/ subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/ subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624" - rolü iki Aboneliklerde atama için kullanılabilir hale getirir.
-* "/ subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e" - kullanılabilir hale getirir rol ataması tek bir abonelik.
-* "/ abonelikleri/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/ağ" - yalnızca ağ kaynak grubunda rol ataması için kullanılabilir hale getirir.
+* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624” - makes the role available for assignment in two subscriptions.
+* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e” - makes the role available for assignment in a single subscription.
+* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network” - makes the role available for assignment only in the Network resource group.
 
 > [!NOTE]
 > En az bir kullanmalısınız abonelik, kaynak grubu veya kaynak kimliği

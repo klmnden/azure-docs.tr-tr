@@ -2,23 +2,17 @@
 title: "Test sonuçları Azure Site Recovery ile siteler arasında Hyper-V çoğaltma için | Microsoft Docs"
 description: "Bu makale, Azure Site RECOVERY'yi kullanarak şirket içi çoğaltma, Hyper-V sanal makineleri için performans testleri hakkında bilgi sağlar."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: tysonn
-ms.assetid: 96ff404f-0d88-43fa-a00b-2dffde93d192
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: c221fe94c5301b0a36882d5ae1c57e523002ecc4
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f25bbca86fdbb480a4db7623d4ee8d296415a4be
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Şirket içi Site Recovery ile şirket içi Hyper-V çoğaltma için test sonuçları
 
@@ -109,10 +103,10 @@ Azure Site Recovery, Hyper-V çoğaltma ile birlikte ek yükü büyük bir küme
 
 ![Birincil donanım gereksinimleri](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
-| Sunucu | RAM | modeli | İşlemci | İşlemci sayısı | NIC | Yazılım |
+| Sunucu | RAM | Model | İşlemci | İşlemci sayısı | NIC | Yazılım |
 | --- | --- | --- | --- | --- | --- | --- |
-| Kümede Hyper-V sunucuları: <br />ESTLAB HOST11<br />ESTLAB HOST12<br />ESTLAB HOST13<br />ESTLAB HOST14<br />ESTLAB HOST25 |256 128ESTLAB HOST25 sahip |Dell™ PowerEdge™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 |I x 4 GB/sn |Windows Server Datacenter 2012 R2 (x64) + Hyper-V rolü |
-| VMM sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
+| Kümede Hyper-V sunucuları: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |256 128ESTLAB HOST25 sahip |Dell ™ PowerEdge ™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| VMM Sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="secondary-recovery-site"></a>İkincil (Kurtarma) sitesi
 
@@ -121,12 +115,12 @@ Azure Site Recovery, Hyper-V çoğaltma ile birlikte ek yükü büyük bir küme
 
 ![Birincil donanım belirtimi](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
 
-| Sunucu | RAM | modeli | İşlemci | İşlemci sayısı | NIC | Yazılım |
+| Sunucu | RAM | Model | İşlemci | İşlemci sayısı | NIC | Yazılım |
 | --- | --- | --- | --- | --- | --- | --- |
-| Kümede Hyper-V sunucuları: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(r) Xeon(R) CPU E5-2630 0 @ 2.30GHz |2 |I x 4 GB/sn |Windows Server Datacenter 2012 R2 (x64) + Hyper-V rolü |
-| ESTLAB HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V rolü |
-| ESTLAB HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 @ 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V rolü |
-| VMM sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
+| Kümede Hyper-V sunucuları: <br />ESTLAB-HOST07<br />ESTLAB HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(r) Xeon(R) CPU E5-2630 0 @ 2.30GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 @ 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| VMM Sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Sunucu iş yükleri
 
@@ -134,9 +128,9 @@ Azure Site Recovery, Hyper-V çoğaltma ile birlikte ek yükü büyük bir küme
 * Kullanırız [IOMeter](http://www.iometer.org) benzetimi için tablodaki özetlenen iş yükü özelliği ile.
 * Tüm IOMeter profilleri modellerini iş yükleri için en kötü durum benzetmek için rastgele bayt yazma yazmak için ayarlanır.
 
-| İş yükü | G/ç boyutu (KB) | % Erişim | % Okuma | Bekleyen g/ç | G/ç düzeni |
+| İş yükü | G/ç boyutu (KB) | % Erişim | %Read | Bekleyen g/ç | G/ç düzeni |
 | --- | --- | --- | --- | --- | --- |
-| Dosya sunucusu |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |% Rastgele tüm 100 |
+| Dosya Sunucusu |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |% Rastgele tüm 100 |
 | SQL Server (birim 1) SQL Server (2 birimi) |864 |100%100% |70%0% |88 |% 100 random100% sıralı |
 | Exchange |32 |100% |67% |8 |% 100 rastgele |
 | İş istasyonu/VDI |464 |66%34% |70%95% |11 |Her iki % 100 rastgele |
@@ -148,11 +142,11 @@ Azure Site Recovery, Hyper-V çoğaltma ile birlikte ek yükü büyük bir küme
 * Tüm sanal makinelerle VHDX disk.
 * Tabloda özetlenen iş yüklerini çalıştıran sanal makineler. Tüm VMM şablonları ile oluşturulmuş.
 
-| İş yükü | # VM'ler | En düşük RAM (GB) | En fazla RAM (GB) | VM başına mantıksal disk boyutu (GB) | Maksimum IOPS |
+| İş yükü | # VM'ler | Minimum RAM (GB) | En fazla RAM (GB) | VM başına mantıksal disk boyutu (GB) | Maksimum IOPS |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
-| Dosya sunucusu |50 |1 |2 |552 |22 |
+| Dosya Sunucusu |50 |1 |2 |552 |22 |
 | VDI |149 |.5 |1 |80 |6 |
 | Web sunucusu |149 |.5 |1 |80 |6 |
 | TOPLAM |470 | | |96.83 TB |4108 |
@@ -164,10 +158,10 @@ Azure Site Recovery, Hyper-V çoğaltma ile birlikte ek yükü büyük bir küme
 
 | Birincil VMM Bulutu | Buluttaki korunan sanal makineler | Çoğaltma sıklığı | Ek kurtarma noktaları |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15 dakika |None |
-| PrimaryCloudRpo30s |47 |30 saniye |None |
+| PrimaryCloudRpo15m |142 |15 dakika |Hiçbiri |
+| PrimaryCloudRpo30s |47 |30 saniye |Hiçbiri |
 | PrimaryCloudRpo30sArp1 |47 |30 saniye |1 |
-| PrimaryCloudRpo5m |235 |5 dakika |None |
+| PrimaryCloudRpo5m |235 |5 dakika |Hiçbiri |
 
 ### <a name="performance-metrics"></a>Performans ölçümleri
 

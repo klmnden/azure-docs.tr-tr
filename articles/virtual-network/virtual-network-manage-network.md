@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6a4a4d29cbfa8a695ed1ad3f007e6ff3e859bda4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
 
@@ -81,7 +81,7 @@ Bir sanal ağ oluşturmak için:
 
 |Aracı|Komut|
 |---|---|
-|Azure CLI|[az ağ vnet oluşturma](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|Azure CLI|[az ağ vnet oluşturma](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_create)|
 |PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>Sanal ağları görüntüle ve ayarları
@@ -115,7 +115,7 @@ Sanal ağlar ve ayarlarını görüntülemek için:
 
 |Aracı|Komut|
 |---|---|
-|Azure CLI|[az ağ vnet Göster](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|Azure CLI|[az ağ vnet Göster](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -144,7 +144,7 @@ Eklemek veya bir adres alanı kaldırmak için:
 
 |Aracı|Komut|
 |---|---|
-|Azure CLI|Yalnızca Kaynak Yöneticisi|[az ağ vnet güncelleştirme](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|Yalnızca Kaynak Yöneticisi|[az ağ vnet güncelleştirme](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>Ekleme, değiştirme veya bir DNS sunucusunu kaldırma
@@ -169,7 +169,7 @@ Sanal ağ için belirttiğiniz DNS sunucuları ile sanal ağ kayıt bağlı tüm
 
 |Aracı|Komut|
 |---|---|
-|Azure CLI|[az ağ vnet güncelleştirme](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|[az ağ vnet güncelleştirme](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>Bir sanal ağı silme
@@ -188,7 +188,7 @@ Yalnızca ona bağlı hiçbir kaynak varsa, bir sanal ağ silebilirsiniz. Sanal 
 
 |Aracı|Komut|
 |---|---|
-|Azure CLI|[Azure ağı vnet Sil](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Azure CLI|[Azure ağı vnet Sil](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 

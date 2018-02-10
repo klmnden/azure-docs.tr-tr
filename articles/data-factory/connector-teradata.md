@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 905a2bf1b42819a531bc4b16dd1e6f5539e80068
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 6af955b456a00fa90a9e49701fef6318e51bbd4b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory kullanarak Teradata verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +61,7 @@ Aşağıdaki özellikler Teradata bağlantılı hizmeti için desteklenir:
 | sunucu | Teradata sunucunun adıdır. | Evet |
 | authenticationType | Teradata veritabanına bağlanmak için kullanılan kimlik doğrulama türü.<br/>İzin verilen değerler: **temel**, ve **Windows**. | Evet |
 | kullanıcı adı | Teradata veritabanına bağlanmak için kullanıcı adını belirtin. | Evet |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan bir SecureString işaretleyin. | Evet |
+| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Bölümünde belirtildiği gibi bir Self-hosted tümleştirmesi çalışma zamanı gereklidir [Önkoşullar](#prerequisites). |Evet |
 
 **Örnek:**

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2cc40388c77dec68966a8914197d072db38f6eb0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS altyapınızın DNS Analytics Önizleme çözümü ile ilgili Öngörüler toplayın
 
@@ -145,7 +145,7 @@ Bilgileri belirlemenize yardımcı olabilir:
 
 **Örnek DDI analitik sorguları**. Ham analiz verileri doğrudan fetch en yaygın arama sorguları listesini içerir.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Örnek sorgular](./media/log-analytics-dns/queries.png)
 

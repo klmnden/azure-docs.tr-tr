@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ac0c78c09b30c1a9cc698f5e78166a2b64240d7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Öğretici: Kutusunu otomatik kullanıcı sağlamayı yapılandırın
 
@@ -108,9 +108,9 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının kutusu sağlam
 
 14. Tıklatın **kaydedin.**
 
-Herhangi bir kullanıcı ve/veya grupları kullanıcılar ve Gruplar bölümünde kutusunda atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve kutusunu uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
+Herhangi bir kullanıcı ve/veya grupları kullanıcılar ve Gruplar bölümünde kutusunda atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve kutusunu uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
 
-Şimdi sınama hesabı oluşturabilirsiniz. Hesap eşitlendiğinden emin doğrulamak için en çok 20 dakika bekleyin kutusu.
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](active-directory-saas-provisioning-reporting.md).
 
 Altında listelenen kutusunu kiracınızda eşitlenmiş kullanıcıları **yönetilen kullanıcılara** içinde **Yönetici Konsolu**.
 

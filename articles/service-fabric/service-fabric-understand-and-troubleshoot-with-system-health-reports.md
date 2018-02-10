@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Sorun gidermek için sistem durum raporlarını kullanma
 Azure Service Fabric bileşenleri kutunun sağ dışında kümedeki tüm varlıklar üzerinde sistem durumu raporları sağlar. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) oluşturur ve sistem raporlarına dayalı varlıklar siler. Bu da onları varlık etkileşimleri yakalayan bir hiyerarşide düzenler.
@@ -630,13 +630,28 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.ChangeRole (S)** ve **IStatefulServiceReplica.ChangeRole(N)**: en yaygın çalışması için geçirilen iptal belirteci uygularken değil bir hizmettir `RunAsync`.
 
-- **IStatefulServiceReplica.ChangeRole(P)**: en yaygın durumdur hizmet görevden döndürmedi `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(P)**: The most common case is that the service has not returned a task from `RunAsync`.
 
 Takılmış diğer API çağrıları bulunan **IReplicator** arabirimi. Örneğin:
 
 - **IReplicator.CatchupReplicaSet**: Bu uyarı ikisinden birini gösterir. Ya da vardır çoğaltmaları bölüm veya System.FM sistem durumu raporu takılmış yeniden yapılandırılması için çoğaltma durumunu bakarak belirlenebilir çoğaltmaları yukarı yetersiz. Veya çoğaltmaları işlemleri aktarımının değil. PowerShell command-let `Get-ServiceFabricDeployedReplicaDetail` tüm çoğaltmaların ilerlemesini belirlemek için kullanılabilir. Sorun yinelemelerle özelliği arasındadır `LastAppliedReplicationSequenceNumber` birincil 's `CommittedSequenceNumber`.
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: Bu uyarı oluşturma işlemindeki bir sorun olduğunu gösterir. Daha fazla bilgi için bkz: [çoğaltma yaşam döngüsü](service-fabric-concepts-replica-lifecycle.md). Çoğaltıcı adresi yanlış yapılandırma nedeniyle olabilir. Daha fazla bilgi için bkz: [durum bilgisi olan güvenilir hizmetler yapılandırma](service-fabric-reliable-services-configuration.md) ve [hizmet bildiriminde kaynakları belirtme](service-fabric-service-manifest-resources.md). Uzak düğümün bir sorun da olabilir.
+
+### <a name="replicator-system-health-reports"></a>Çoğaltıcı sistem durumu raporları
+**Çoğaltma kuyruğu dolu:**
+**System.Replicator** çoğaltma sırası dolu olduğunda bir uyarı bildirir. Bir veya daha fazla ikincil çoğaltmaları işlemleri onaylamak yavaş olduğu için birincil, çoğaltma sırası genellikle tam haline gelir. Hizmet işlemleri uygulamak yavaş olduğunda ikincil, bu genellikle gerçekleşir. Sıra dolu olduğunda uyarı temizlenir.
+
+* **SourceId**: System.Replicator
+* **Özellik**: **PrimaryReplicationQueueStatus** veya **SecondaryReplicationQueueStatus**çoğaltma rolü bağlı olarak.
+* **Sonraki adımlar**: rapor birincil ise, kümedeki düğümler arasındaki bağlantıyı denetleyin. Tüm bağlantılar sağlıklı işlemleri uygulamak için yüksek disk gecikme süresi ile en az bir yavaş ikincil olabilir. Rapor ikincil ise, düğümü üzerindeki performans ve disk kullanımı kontrol ilk ve ardından birincil yavaş düğümünden giden bağlantı.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** ikincil (uzak) çoğaltıcı bağlantısı iyi durumda değil birincil Çoğaltmada bir uyarı bildirir. Uzak çoğaltıcı'nın adres yanlış yapılandırma, geçirilen veya Çoğaltıcılar arasında ağ sorunları olan algılamak daha kullanışlı hale getirme raporun iletisi gösterilir.
+
+* **SourceId**: System.Replicator
+* **Özellik**: **RemoteReplicatorConnectionStatus**
+* **Sonraki adımlar**: hata iletisini denetleyin ve uzak çoğaltıcı adresi doğru şekilde yapılandırıldığından emin olun (Uzak çoğaltıcı "localhost" dinleme adresiyle açıldıysa, örneğin, bu dışarıdan ulaşılabilir değil). Adresi doğru görünüyorsa, birincil düğüm ve olası ağ sorunları bulmak için uzak adres arasındaki bağlantıyı denetleyin.
 
 ### <a name="replication-queue-full"></a>Çoğaltma kuyruğu dolu
 **System.Replicator** çoğaltma sırası dolu olduğunda bir uyarı bildirir. Bir veya daha fazla ikincil çoğaltmaları işlemleri onaylamak yavaş olduğu için birincil, çoğaltma sırası genellikle tam haline gelir. Hizmet işlemleri uygulamak yavaş olduğunda ikincil, bu genellikle gerçekleşir. Sıra dolu olduğunda uyarı temizlenir.
@@ -747,7 +762,7 @@ HealthEvents                       :
 Uygulama paketi yükleme başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting
-* **Özellik**: **indirin:***RolloutVersion*.
+* **Özellik**: **indirin: *** RolloutVersion*.
 * **Sonraki adımlar**: indirme düğümde neden başarısız araştırın.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage sistem durumu raporları
@@ -764,7 +779,7 @@ System.Hosting olarak Tamam düğümde hizmet paketi etkinleştirme başarılı 
 System.Hosting Tamam için her kod paketi etkinleştirme başarılı olup olmadığını bildirir. Etkinleştirme başarısız olursa, yapılandırılan bir uyarı bildirir. Varsa **CodePackage** etkinleştirilemiyor veya yapılandırılmış büyük bir hata ile sona erer **CodePackageHealthErrorThreshold**, barındırma bir hata bildirir. Bir hizmet paketi birden çok kod paketler içeriyorsa, bir etkinleştirme raporu her biri için oluşturulur.
 
 * **SourceId**: System.Hosting
-* **Özellik**: öneki kullanan **CodePackageActivation** ve kod paketi ve giriş noktası olarak adını içeren **CodePackageActivation:***CodePackageName* :*SetupEntryPoint/EntryPoint*. Örneğin, **CodePackageActivation:Code:SetupEntryPoint**.
+* **Özellik**: öneki kullanan **CodePackageActivation** ve kod paketi ve giriş noktası olarak adını içeren **CodePackageActivation: *** CodePackageName*: *SetupEntryPoint/EntryPoint*. Örneğin, **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Hizmet türü kayıt
 System.Hosting Tamam hizmet türü başarıyla kayıtlı olup olmadığını bildirir. Hata raporları kayıt, zaman içindeki kullanılarak yapılandırılan değildi yapıldığında **ServiceTypeRegistrationTimeout**. Çalışma zamanı kapattıysanız, hizmet türü düğümden kaydettirilmemiş ve barındırma bir uyarı bildirir.
@@ -825,7 +840,7 @@ HealthEvents               :
 Hizmet paketi indirme işlemi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting
-* **Özellik**: **indirin:***RolloutVersion*.
+* **Özellik**: **indirin: *** RolloutVersion*.
 * **Sonraki adımlar**: indirme düğümde neden başarısız araştırın.
 
 ### <a name="upgrade-validation"></a>Yükseltme doğrulaması

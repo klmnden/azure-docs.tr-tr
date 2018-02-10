@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/31/2018
-ms.author: genemi
-ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/05/2018
+ms.reviewer: genemi
+ms.author: dmalik
+ms.openlocfilehash: 90c9aeac46240466bc28cf4c32bb5ff7ef443455
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 

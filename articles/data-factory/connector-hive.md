@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8842adcc00a1230f252411d64c22d497faeec5b2
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory kullanarak kovanından veri kopyalama 
 
@@ -54,7 +54,7 @@ Aşağıdaki özellikler Hive bağlantılı hizmeti için desteklenir:
 | zooKeeperNameSpace | Hangi altında Hive Server 2 düğümler eklenir, ZooKeeper ad.  | Hayır |
 | useNativeQuery | Sürücünün yerel HiveQL sorgularını kullanır veya bunları HiveQL eşdeğer bir formda dönüştürür olup olmadığını belirtir.  | Hayır |
 | kullanıcı adı | Hive sunucusuna erişmek için kullandığınız kullanıcı adı.  | Hayır |
-| password | Bu alan ADF, içinde güvenli bir şekilde depolamak veya Azure anahtar kasası Parolada depolamak ve veri kopyalama - gerçekleştirirken buradan kopyalama etkinliği çekme izin vermek için bir SecureString olarak işaretlemek seçebilirsiniz kullanıcı adı alanında sağlanan kullanıcı adı için karşılık gelen parola ö Daha fazla kaydırmayı [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
+| password | Kullanıcıya karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | httpPath | Hive sunucuya karşılık gelen kısmi URL'si.  | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanılarak şifrelenir olup olmadığını belirtir. Varsayılan değer false.  | Hayır |
 | trustedCertPath | Sunucu SSL üzerinden bağlanırken doğrulamak için güvenilen CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik yalnızca SSL üzerinde kendini barındıran IR kullanırken ayarlanabilir Varsayılan değer ile IR yüklü cacerts.pem dosyasıdır  | Hayır |
@@ -106,7 +106,7 @@ Kovanından verileri kopyalamak için kümesine tür özelliği ayarlamak **Hive
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Hive kaynak tarafından desteklenen özellikler listesini sağlar.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Linux sanal makine görüntülerini oluşturmak için Packer kullanma
 Her sanal makine (VM) Azure Linux dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Gereksinimlerinize göre tasarlanmıştır, kendi özel görüntülerinizi oluşturmak veya en yaygın dağıtımları ve uygulama ortamları için Azure Marketi birçok ilk ve üçüncü taraf görüntüleri sağlar. Bu makalede açık kaynak aracının nasıl kullanılacağını ayrıntıları [Packer](https://www.packer.io/) tanımlamak ve Azure özel görüntülerinizi oluşturmak için.
@@ -28,7 +28,7 @@ Her sanal makine (VM) Azure Linux dağıtım ve işletim sistemi sürümü tanı
 ## <a name="create-azure-resource-group"></a>Azure kaynak grubu oluşturun
 Kaynak VM oluştururken oluşturma işlemi sırasında geçici Azure kaynaklarını Packer oluşturur. Bir görüntü olarak kullanmak için bu kaynak VM yakalamak için bir kaynak grubu tanımlamanız gerekir. Çıktısı Packer oluşturma işlemi, bu kaynak grubunda depolanır.
 
-[az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+[az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -54,7 +54,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 }
 ```
 
-Azure için kimlik doğrulaması için Azure abonelik Kimliğinizi elde etmeniz [az hesabı Göster](/cli/azure/account#show):
+Azure için kimlik doğrulaması için Azure abonelik Kimliğinizi elde etmeniz [az hesabı Göster](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -73,7 +73,7 @@ Adlı bir dosya oluşturun *ubuntu.json* ve aşağıdaki içeriği yapıştırı
 | *client_id*                         | İlk satırı çıktısı `az ad sp` Oluştur komutu - *AppID* |
 | *client_secret*                     | İkinci satır çıktısı `az ad sp` Oluştur komutu - *parola* |
 | *tenant_id*                         | Üçüncü satır çıktısı `az ad sp` Oluştur komutu - *Kiracı* |
-| *ABONELİK_KİMLİĞİ*                   | Çıktı `az account show` komutu |
+| *subscription_id*                   | Çıktı `az account show` komutu |
 | *managed_image_resource_group_name* | İlk adımda oluşturduğunuz kaynak grubunun adı |
 | *managed_image_name*                | Oluşturulan yönetilen disk görüntüsü için adı |
 
@@ -200,7 +200,7 @@ VM oluşturmak için provisioners çalıştırıp dağıtım temizlemek Packer b
 
 
 ## <a name="create-vm-from-azure-image"></a>Azure görüntüden VM oluşturma
-Artık bir VM ile görüntüden oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm#create). Oluşturduğunuz görüntüsünü belirtin `--image` parametresi. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* gelen *myPackerImage* ve zaten mevcut değilse SSH anahtarları oluşturur:
+Artık bir VM ile görüntüden oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm#az_vm_create). Oluşturduğunuz görüntüsünü belirtin `--image` parametresi. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* gelen *myPackerImage* ve zaten mevcut değilse SSH anahtarları oluşturur:
 
 ```azurecli
 az vm create \
@@ -223,7 +223,7 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Test VM ve NGINX
-Bir web tarayıcısı açın ve girin artık `http://publicIpAddress` adres çubuğundaki. Kendi ortak sağlamak VM IP adresinden oluşturma işlemi. Varsayılan NGINX sayfası aşağıdaki örnekte olduğu gibi görüntülenir:
+Bir web tarayıcısı açın ve girin artık `http://publicIpAddress` adres çubuğundaki. VM oluşturma işleminden kendi herkese açık IP adresinizi sağlayın. Varsayılan NGINX sayfası aşağıdaki örnekte olduğu gibi görüntülenir:
 
 ![Varsayılan NGINX sitesi](./media/build-image-with-packer/nginx.png) 
 

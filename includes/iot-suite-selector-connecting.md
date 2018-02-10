@@ -8,7 +8,7 @@
 Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdaki telemetri gönderen aygıt [önceden yapılandırılmış çözüm](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
 
 * Sıcaklık
-* Basınç
+* baskısı
 * Nem oranı
 
 Kolaylık olması için örnek telemetri değerleri için kod oluşturur **Soğutucu**. Örnek gerçek algılayıcılar aygıtınıza bağlanma ve gerçek telemetri göndermesini genişletebilirsiniz.
@@ -36,13 +36,13 @@ Uzaktan izleme çözümü için sağlama işlemi tamamlandıktan sonra çözüm 
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Cihazınızı uzaktan izleme çözümünde sağlama
 
 > [!NOTE]
-> Çözümünüzde önceden bir cihaz hazırladıysanız bu adımı atlayabilirsiniz. İstemci uygulaması oluşturduğunuzda cihaz kimlik bilgileri gerekir.
+> Çözümünüzde önceden bir cihaz hazırladıysanız bu adımı atlayabilirsiniz. İstemci uygulaması oluşturduğunuzda, Azure portalından aldığınız cihaz bağlantı dizesi gerekiyor.
 
-Bir cihazın önceden yapılandırılmış çözüme bağlanabilmesi için geçerli kimlik bilgileriyle kendini IoT Hub üzerinde tanıtması gerekir. Aygıt kimlik bilgisi çözümden alabilir **aygıtları** sayfası. Cihaz kimlik bilgilerini bu öğreticinin sonraki adımlarında istemci uygulamanıza ekleyebilirsiniz.
+Bir cihazın önceden yapılandırılmış çözüme bağlanabilmesi için geçerli kimlik bilgileriyle kendini IoT Hub üzerinde tanıtması gerekir. Çözüm cihazı eklediğinizde, kimlik bilgilerini içeren cihaz bağlantı dizesini kaydedin bildirme fırsatı bulabilirsiniz. Bu öğreticide daha sonra istemci uygulamanızda cihaz bağlantı dizesini içerir.
 
 Uzaktan izleme çözümünüz için bir aygıt eklemek için aşağıdaki adımları tamamlayın **aygıtları** çözümü sayfasında:
 
-1. Seçin **sağlama**ve ardından **fiziksel** olarak **aygıt türü**:
+1. Seçin **+ yeni cihaz**ve ardından **fiziksel** olarak **aygıt türü**:
 
     ![Bir fiziksel cihaz sağlama](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ Uzaktan izleme çözümünüz için bir aygıt eklemek için aşağıdaki adıml
 
     ![Aygıt seçenekleri seçin](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Seçin **uygulamak**. Not edin **cihaz kimliği**, **birincil anahtar**, ve **bağlantı dize birincil anahtarı** değerler:
+
+    ![Kimlik bilgilerini alma](media/iot-suite-selector-connecting/credentials.png)
+
 Cihazınızı önceden yapılandırılmış çözümü bağlanmak için kullanmaları gereken kimlik bilgilerini bulmak için tarayıcınızı Azure Portalı'na gidin. Aboneliğiniz için oturum açın.
-
-1. Uzaktan izleme çözümünüz kullandığı Azure hizmetleri içeren kaynak grubunu bulun. Kaynak grubu sağladığınız Uzaktan izleme çözümü ile aynı ada sahiptir.
-
-1. Bu kaynak grubundaki IOT hub'ına gidin. Ardından **IOT cihazları**:
-
-    ![Cihaz Gezgini](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Seçin **cihaz kimliği** üzerinde oluşturduğunuz **aygıtları** Uzaktan izleme çözümü sayfasında.
-
-1. Not **cihaz kimliği** ve **birincil anahtar** değerleri. Çözüme Cihazınızı bağlamak için kod eklediğinizde, bu değerleri kullanın.
 
 Çözüm Uzaktan izleme fiziksel bir aygıtı sağlanan artık önceden yapılandırılmış. Aşağıdaki bölümlerde, çözümünüz için bağlanmak için cihaz kimlik bilgilerini kullanan istemci uygulaması yürütürsünüz.
 
@@ -68,4 +62,4 @@ Cihazınızı önceden yapılandırılmış çözümü bağlanmak için kullanma
 
 * Çözüme raporları cihazı özellikleri. Örneğin, bir **Soğutucu** aygıt, bellenim ve konumu hakkında bilgi raporlar.
 * Telemetri türlerini cihaz çözüme gönderir. Örneğin, bir **Soğutucu** cihaz sıcaklık ve nem baskısı değerleri gönderir.
-* Yöntemleri cihazda çalıştırmak için çözümden zamanlayabilirsiniz. Örneğin, bir **Soğutucu** aygıt uygulanmalı **yeniden**, **FirmwareUpdate**, **EmergencyValveRelease**, ve  **IncreasePressuree** yöntemleri.
+* Yöntemleri cihazda çalıştırmak için çözümden zamanlayabilirsiniz. Örneğin, bir **Soğutucu** aygıt uygulanmalı **yeniden**, **FirmwareUpdate**, **EmergencyValveRelease**, ve  **IncreasePressure** yöntemleri.

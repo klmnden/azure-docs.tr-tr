@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: b454720dd5bd2df036a400c8bfc1c383de5af542
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>PowerShell Azure bulut Kabuğu (Önizleme) için hızlı başlangıç
 
@@ -41,7 +41,7 @@ Bu belge PowerShell bulut Kabuğu'nda kullanmak nasıl ayrıntıları [Azure por
 
 Normal PowerShell komutlarını bulut Kabuğu'nda aşağıdaki gibi çalıştırın:
 
-```Powershell
+```PowerShell
 PS Azure:\> Get-Date
 Monday, September 25, 2017 08:55:09 AM
 
@@ -58,13 +58,13 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
  1. Aboneliklerinizi listesi
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> dir
     ```
 
  2. `cd`tercih edilen aboneliğinizi
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
@@ -184,20 +184,20 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Lütfen [Azure VM'ler, uzaktan yönetimi sorunlarını giderme](troubleshooting.md#powershell-resolutions).
 
-  Bir VM MyVM1, sahip olduğunuz varsayılarak kullanalım `Invoke-AzureRmVMCommand` uzak makinede PowerShell scriptblock çağırmak için.
+  Bir VM MyVM1, sahip olduğunuz varsayılarak kullanalım `Invoke-AzureRmVMCommand` uzak makinede PowerShell betik bloğu çağırmak için.
 
   ``` Powershell
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
-  Ayrıca ilk virtualMachines dizinine gidin ve çalıştırın `Invoke-AzureRmVMCommand` gibi.
+  Ayrıca ilk VirtualMachines dizinine gidin ve çalıştırın `Invoke-AzureRmVMCommand` gibi.
 
-  ``` Powershell
+  ``` PowerShell
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
   ```
   Aşağıdakine benzer bir çıktı görürsünüz:
 
-  ``` Powershell
+  ``` PowerShell
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -215,13 +215,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 Kullanabileceğiniz `Enter-AzureRmVM` için Azure'da çalışan VM etkileşimli olarak oturum açın.
 
-  ``` Powershell
+  ``` PowerShell
   Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-Ayrıca gidebilirsiniz `virtualMachines` ilk ve çalışma dizinini `Enter-AzureRmVM` gibi
+Ayrıca gidebilirsiniz `VirtualMachines` ilk ve çalışma dizinini `Enter-AzureRmVM` gibi
 
-  ``` Powershell
+  ``` PowerShell
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
@@ -266,20 +266,20 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) PowerShell CloudShell kullanılabilir.
-Sunucular veya VM'ler SSH kullanarak kimlik doğrulaması için CloudShell genel-özel anahtar çifti oluşturmalı ve ortak anahtara yayımlama `authorized_keys` uzak makinede gibi `/home/user/.ssh/authorized_keys`.
+[Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) PowerShell bulut Kabuğu'nda kullanılabilir.
+Sunucular veya VM'ler SSH kullanarak kimlik doğrulaması için bulut Kabuğu'nda genel-özel anahtar çifti oluşturmalı ve ortak anahtara yayımlayın `authorized_keys` uzak makinede gibi `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]
-> SSH ortak olmayan özel anahtarlarını kullanarak oluşturabileceğiniz `ssh-keygen` ve onlara yayımlamak `$env:USERPROFILE\.ssh` CloudShell içinde.
+> SSH ortak olmayan özel anahtarlarını kullanarak oluşturabileceğiniz `ssh-keygen` ve onlara yayımlamak `$env:USERPROFILE\.ssh` bulut Kabuğu'nda.
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>GIT ve SSH ayarlarını sürdürmek için özel bir profil kullanma
 
-Oturumları bağlı kalmaz beri oturum kapatma, kaydetme, `$env:USERPROFILE\.ssh` klasörüne `CloudDrive` veya CloudShell başlatıldığında bir simgesel oluşturun.
-Aşağıdaki CloudDrive için simgesel oluşturmak için profile.ps1 içinde kırpılmış kodu ekleyin.
+Oturumları bağlı kalmaz beri oturum kapatma, kaydetme, `$env:USERPROFILE\.ssh` klasörüne `CloudDrive` veya Bulut Kabuk başlatıldığında bir simgesel oluşturun.
+Aşağıdaki kod parçacığında simgesel CloudDrive için oluşturmak için profile.ps1 ekleyin.
 
-``` Powershell
-# Check if the ssh folder exists
-if( -not (Test-Path $home\CloudDrive\.ssh){
+``` PowerShell
+# Check if the .ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
 
@@ -298,24 +298,24 @@ if(Test-Path $script:sshFolderPath){
 ### <a name="using-ssh"></a>SSH kullanma
 
 Yönergeleri izleyerek [burada](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) AzureRM cmdlet'lerini kullanarak yeni bir VM yapılandırması oluşturmak için.
-Önce çağırma içine `New-AzureRMVM` dağıtım başlangıcı, SSH ortak anahtarı VM yapılandırmasına ekleyin.
-Yeni oluşturulan VM ortak anahtar içerecek `~\.ssh\authorized_keys` konumu, böylelikle kimlik bilgisi serbest ssh etkinleştirme VM oturumuna.
+Önce çağırma içine `New-AzureRmVM` dağıtım başlangıcı, SSH ortak anahtarını VM yapılandırmasına ekleyin.
+Yeni oluşturulan VM ortak anahtar içerecek `~\.ssh\authorized_keys` konumu, böylelikle kimlik bilgisi serbest SSH oturumu VM etkinleştirme.
 
-``` Powershell
+``` PowerShell
 
 # Create VM config object - $vmConfig using instructions on linked page above
 
-# Generate SSH Keys in CloudShell
+# Generate SSH keys in Cloud Shell
 ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
 
-# Ensure VM config is updated with SSH Keys
+# Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
 New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
-# ssh to the VM
+# SSH to the VM
 ssh azureuser@MyVM.Domain.Com
 
 ```
@@ -335,13 +335,13 @@ Alternatif olarak, her zaman kullanabilirsiniz `Get-Command *azurerm* -Module Az
 
 Tür `Get-Help` Azure bulut Kabuğu'nda PowerShell hakkında bilgi almak için.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help
 ```
 
-Belirli bir komut için Get-Help cmdlet'i tarafından izlenen hala yapabilirsiniz.
+Belirli bir komut için hala yapabileceğiniz `Get-Help` cmdlet tarafından izlenen.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
@@ -349,7 +349,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 Bir komut dosyası deyin oluşturabilirsiniz `helloworld.ps1`ve kaydetmesi, `CloudDrive` Kabuk oturumlarında kullanmak için.
 
-``` Powershell
+``` PowerShell
 cd C:\users\ContainerAdministrator\CloudDrive
 PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
@@ -367,7 +367,7 @@ Profil oluşturma, başvurmak için [hakkında profilleri][profile].
 
 ## <a name="use-git"></a>Git kullanın
 
-Oluşturmanıza gerek bulut Kabuğu'nda bir git deposuna kopyalamak için bir [kişisel erişim belirteci] [ githubtoken] ve kullanıcı adı olarak kullanın. Bir kez, belirteç, kopya deposu gibi vardır:
+Oluşturmanıza gerek bulut Kabuğu'nda bir Git deposuna kopyalamak için bir [kişisel erişim belirteci] [ githubtoken] ve kullanıcı adı olarak kullanın. Bir kez, belirteç, kopya deposu gibi vardır:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
@@ -383,7 +383,7 @@ $script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
 # Create a symlink to .gitconfig in user's $home
 if(Test-Path $script:gitconfigPath){
 
-    if(-not (Test-Path (Join-Path $Home .gitconfig ))){
+    if(-not (Test-Path (Join-Path $home .gitconfig ))){
          New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
     }
 }

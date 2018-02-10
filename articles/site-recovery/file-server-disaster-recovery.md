@@ -9,14 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 779ec70a3b45a0ac3e766c956aac94932d4d126b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Azure Site Recovery kullanarak bir dosya sunucusu koruma 
 
@@ -32,7 +32,7 @@ Açık bir dağıtılmış dosya sistemi paylaşımı amacı, coğrafi olarak da
 
 Aşağıdaki topoloji uygulanan DFSR ile dosya sunucusu ortamı gösterir.
                 
-![DFSR architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
+![dfsr-architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 Yukarıdaki başvurusunda birden çok dosya sunucuları arasında bir çoğaltma grubu dosyaları çoğaltmasında üye olarak etkin olarak katılmayı ifade. Çoğaltılmış klasörün içeriğini istekleri ya da üyelerinin biri bile çevrimdışına üyeleri durumunda gönderme tüm istemciler için kullanılabilir.
 
@@ -145,7 +145,7 @@ Azure Site Recovery ile Azure dosya eşitleme tümleştirme önerilen yaklaşım
 
 Azure dosya eşitleme hizmetini kullanarak adımları ayrıntı altında:
 
-1. [Bir depolama hesabı oluşturma](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). (Depolama hesapları için önerilir) okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) seçerseniz, okuma erişimi verilerinizi ikincil bölge kaybedildiği bir olağanüstü durumda vardır. Başvurmak [Azure dosya paylaşımı olağanüstü durum kurtarma stratejilerini](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) daha fazla bilgi için.
+1. [Bir depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). (Depolama hesapları için önerilir) okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) seçerseniz, okuma erişimi verilerinizi ikincil bölge kaybedildiği bir olağanüstü durumda vardır. Başvurmak [Azure dosya paylaşımı olağanüstü durum kurtarma stratejilerini](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) daha fazla bilgi için.
 2. [Bir dosya paylaşımı oluşturmak](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Azure dosya eşitleme dağıtmak](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) , şirket içi dosya sunucusunda.
 4. Bir eşitleme grubu oluşturun: bir eşitleme grubundaki uç noktaları korunur birbirleri ile eşitlenmiş. Eşitleme grubu, Azure dosya paylaşımı temsil eder, en az bir bulut Endpoint ve şirket içi Windows Server bilgisayarında bir yolu temsil eden bir sunucu uç içermesi gerekir.

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc4e8b8682e686abc77f43427615c7069585f327
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 58ae292514a1f5c98218d7a879beb9c15cb25f60
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Marketo'dan veri kopyalama
 
@@ -50,7 +50,7 @@ Aşağıdaki özellikler Marketo bağlantılı hizmeti için desteklenir:
 | type | Type özelliği ayarlanmalıdır: **Marketo** | Evet |
 | endpoint | Marketo sunucusu uç noktası. (i.e. 123-ABC-321.mktorest.com)  | Evet |
 | clientId | İstemci kimliği Marketo hizmetinizin.  | Evet |
-| clientSecret | Marketo hizmetinizi istemci gizli anahtarı. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretle ve veri kopyalama gerçekleştirirken etkinliklere çekme buradan kopyalama-'dan daha fazla bilgi edinin ADF izin seçebilirsiniz [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| clientSecret | Marketo hizmetinizi istemci gizli anahtarı. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için sunucunun sertifikası ana bilgisayar adlarında istenip istenmeyeceğini belirtir. Varsayılan değer true olur.  | Hayır |
 | usePeerVerification | SSL üzerinden bağlanırken sunucusunun kimliğini doğrulamak belirtir. Varsayılan değer true olur.  | Hayır |
@@ -95,7 +95,7 @@ Marketo'dan verileri kopyalamak için kümesine tür özelliği ayarlamak **Mark
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Marketo kaynak tarafından desteklenen özellikler listesini sağlar.
 

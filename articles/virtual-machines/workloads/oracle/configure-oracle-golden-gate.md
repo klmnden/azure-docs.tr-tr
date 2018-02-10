@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Bir Azure Linux VM'de Oracle Golden kapısı uygulama 
 
@@ -44,13 +44,13 @@ Ortam yapılandırma özetini verilmiştir:
 > | **İşletim Sistemi** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle SID** |CDB1 |CDB1 |
 > | **Çoğaltma şeması** |TEST|TEST |
-> | **Golden kapısı sahibi/çoğaltılır** |C ##GGADMIN |REPUSER |
+> | **Golden kapısı sahibi/çoğaltılır** |C##GGADMIN |REPUSER |
 > | **Golden kapısı işlemi** |EXTORA |REPORA|
 
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 
-Oturum açtığınızda, Azure aboneliğinizle [az oturum açma](/cli/azure/#login) komutu. Ardından izleyin ekrandaki yönergeleri.
+Oturum açtığınızda, Azure aboneliğinizle [az oturum açma](/cli/azure/#az_login) komutu. Ardından izleyin ekrandaki yönergeleri.
 
 ```azurecli
 az login
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Bir Azure kaynak grubu bir mantıksal hangi Azure kaynaklarını dağıtılan içine ve hangi bunlar yönetilebilir bir kapsayıcısıdır. 
+[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Bir Azure kaynak grubu bir mantıksal hangi Azure kaynaklarını dağıtılan içine ve hangi bunlar yönetilebilir bir kapsayıcısıdır. 
 
 Aşağıdaki örnek `westus` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur.
 
@@ -80,7 +80,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-[az vm create](/cli/azure/vm#create) komutuyla bir sanal makine oluşturun. 
+[az vm create](/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. 
 
 Aşağıdaki örnek adlı iki VM'ler oluşturur `myVM1` ve `myVM2`. Zaten bir varsayılan anahtar konumda yoksa, SSH anahtarları oluşturma. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
 
@@ -436,7 +436,7 @@ Oracle Golden kapısı yüklemek için aşağıdaki adımları tamamlayın:
 
   ![Yükleyici seçin yükleme sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Yazılım konumunu değiştirebilirsiniz. Ardından **Yöneticisi'ni başlatın** kutusunda ve veritabanı konumu girin. Seçin **sonraki** devam etmek için.
+3. Yazılım konumunu değiştirebilirsiniz. Ardından **Yöneticisi'ni başlatın** kutusunda ve veritabanı konumu girin. Devam etmek için **İleri**’yi seçin.
 
   ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_02.png)
 

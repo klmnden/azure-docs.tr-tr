@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 70973684445416d715c5b26d06613b31e0001395
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Azure PowerShell kullanarak URL yolu tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
@@ -352,7 +352,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Temel uygulama ağ geçidi URL'de test](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Temel URL sonuna http://<ip-address>:8080/video/test.htm için URL'yi değiştirin ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
+URL IP adresiniz < IP adresi >, için değiştirerek http://<ip-address>:8080/video/test.htm değiştirin ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
 ![Uygulama ağ geçidi görüntüleri URL Sına](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 

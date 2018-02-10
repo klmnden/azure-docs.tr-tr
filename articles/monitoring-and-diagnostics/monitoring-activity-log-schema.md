@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
 **Azure etkinlik günlüğü** Azure'da oluşan herhangi bir abonelik düzeyi olayı bir anlayış sağlar günlüktür. Bu makalede veri kategorisi başına olay şema açıklanmaktadır.
@@ -27,94 +27,107 @@ Bu kategorideki tüm kaydını içerir oluşturma, güncelleştirme, silme ve ey
 ### <a name="sample-event"></a>Örnek olayı
 ```json
 {
-  "authorization": {
-    "action": "microsoft.support/supporttickets/write",
-    "role": "Subscription Admin",
-    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-  },
-  "caller": "admin@contoso.com",
-  "channels": "Operation",
-  "claims": {
-    "aud": "https://management.core.windows.net/",
-    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-    "iat": "1421876371",
-    "nbf": "1421876371",
-    "exp": "1421880271",
-    "ver": "1.0",
-    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-    "puid": "20030000801A118C",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-    "name": "John Smith",
-    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-    "appidacr": "2",
-    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-  },
-  "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "description": "",
-  "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-  "eventName": {
-    "value": "EndRequest",
-    "localizedValue": "End request"
-  },
-  "httpRequest": {
-    "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-    "clientIpAddress": "192.168.35.115",
-    "method": "PUT"
-  },
-  "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-  "level": "Informational",
-  "resourceGroupName": "MSSupportGroup",
-  "resourceProviderName": {
-    "value": "microsoft.support",
-    "localizedValue": "microsoft.support"
-  },
-  "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-  "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "operationName": {
-    "value": "microsoft.support/supporttickets/write",
-    "localizedValue": "microsoft.support/supporttickets/write"
-  },
-  "properties": {
-    "statusCode": "Created"
-  },
-  "status": {
-    "value": "Succeeded",
-    "localizedValue": "Succeeded"
-  },
-  "subStatus": {
-    "value": "Created",
-    "localizedValue": "Created (HTTP Status Code: 201)"
-  },
-  "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-  "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-  "subscriptionId": "s1"
+    "authorization": {
+        "action": "Microsoft.Network/networkSecurityGroups/write",
+        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+    },
+    "caller": "rob@contoso.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "_claim_names": "{\"groups\":\"src1\"}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+        "appid": "355249ed-15d9-460d-8481-84026b065942",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "10845a4d-ffa4-4b61-a3b4-e57b9b31cdb5",
+        "e_exp": "262800",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Robertson",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Rob",
+        "ipaddr": "111.111.1.111",
+        "name": "Rob Robertson",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "onprem_sid": "S-1-5-21-4837261184-168309720-1886587427-18514304",
+        "puid": "18247BBD84827C6D",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "rob@contoso.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "rob@contoso.com",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
+    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "level": "Informational",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Network/networkSecurityGroups/write",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups/write"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Network",
+        "localizedValue": "Microsoft.Network"
+    },
+    "resourceType": {
+        "value": "Microsoft.Network/networkSecurityGroups",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups"
+    },
+    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
+    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "properties": {
+        "statusCode": "Created",
+        "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
+        "responseBody": "",
+        "requestbody": ""
+    },
+    "relatedEvents": []
 }
+
 ```
 
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
 | Yetkilendirme |BLOB olay RBAC özelliklerinin. Genellikle "eylem", "rol" ve "scope" özellikleri içerir. |
-| Arayan |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep yürüttü kullanıcının e-posta adresi. |
-| Kanalları |Aşağıdaki değerlerden birini: "Yönetici", "İşlem" |
+| çağıran |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep yürüttü kullanıcının e-posta adresi. |
+| kanallar |Aşağıdaki değerlerden birini: "Yönetici", "İşlem" |
 | Talepleri |Kullanıcı veya Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için uygulama kimliğini doğrulamak için Active Directory tarafından kullanılan JWT belirteci. |
 | correlationId |Genellikle bir GUID dize biçiminde. Bir correlationıd değeri paylaşan olayları aynı uber eyleme ait. |
 | açıklama |Olay açıklaması statik metin. |
 | eventDataId |Bir olay benzersiz tanımlayıcısı. |
 | httpRequest |Http isteği açıklayan blob. Genellikle "clientRequestId", "clientIpAddress" ve "yöntemi" (HTTP yöntemi. içerir For example, PUT). |
-| düzeyi |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
 | resourceGroupName |Etkilenen kaynak kaynak grubu adı. |
 | resourceProviderName |Etkilenen kaynak için kaynak sağlayıcısının adı |
 | resourceId |Etkilenen kaynağının kaynak kimliği. |
-| Operationıd |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
+| operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
 | durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
@@ -185,14 +198,14 @@ Bu kategori, Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir.
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 Öğe adı | Açıklama
 -------- | -----------
-Kanalları | Aşağıdaki değerlerden biridir: "Yönetici", "İşlem"
+kanallar | Aşağıdaki değerlerden biridir: "Yönetici", "İşlem"
 correlationId | Genellikle bir GUID dize biçiminde değil. Olaylar, ile ait aynı uber eylemi genellikle aynı correlationıd değeri paylaşın.
 açıklama | Olay açıklaması.
 eventDataId | Bir olay benzersiz tanımlayıcısı.
 EventName | Olay başlığı.
-düzeyi | Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı"
+düzey | Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı"
 resourceProviderName | Etkilenen kaynak için kaynak sağlayıcısının adı. Bilinmiyor, bu boş olacaktır.
-Kaynak türü| Etkilenen kaynağın kaynak türü. Bilinmiyor, bu boş olacaktır.
+resourceType| Etkilenen kaynağın kaynak türü. Bilinmiyor, bu boş olacaktır.
 alt durum | Genellikle hizmet sistem durumu olayları için null.
 eventTimestamp | Günlük olayı oluşturulur ve etkinlik günlüğü gönderilen zaman damgası.
 submissionTimestamp |   Olay etkinlik günlüğünde kullanılabilir duruma zaman damgası.
@@ -201,8 +214,8 @@ durum | İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır: 
 operationName | İşlemin adı. Genellikle Microsoft.ServiceHealth/incident/action.
 category | "ServiceHealth"
 resourceId | Etkilenen kaynağının biliniyorsa kaynak kimliği. Abonelik kimliği aksi sağlanır.
-Properties.Title | Bu iletişim için yerelleştirilmiş başlık. İngilizce varsayılan dildir.
-Properties.Communication | HTML biçimlendirmesi iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
+Properties.title | Bu iletişim için yerelleştirilmiş başlık. İngilizce varsayılan dildir.
+Properties.communication | HTML biçimlendirmesi iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
 Properties.incidentType | Olası değerler: AssistedRecovery, ActionRequired, bilgi, olay, bakım, güvenlik
 Properties.trackingId | Bu olay ile ilişkili olay tanımlar. Bir olaya ilgili olayları ilişkilendirmek için bunu kullanın.
 Properties.impactedServices | Hizmetlerin ve olaydan etkilenen bölgeler açıklar bir kaçış karakterli JSON blobu. Her biri bir ServiceName ve her biri bir RegionName sahip ImpactedRegions listesini sahip hizmetlerin listesini.
@@ -278,17 +291,17 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategori
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| Arayan | Her zaman Microsoft.Insights/alertRules |
-| Kanalları | Her zaman "Yönetici, işlemi" |
+| çağıran | Always Microsoft.Insights/alertRules |
+| kanallar | Her zaman "Yönetici, işlemi" |
 | Talepleri | JSON blob uyarı altyapısı SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
 | correlationId | Dize biçimindeki bir GUID. |
 | açıklama |Uyarı Olay açıklaması statik metin. |
 | eventDataId |Uyarı olay benzersiz tanımlayıcısı. |
-| düzeyi |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
 | resourceGroupName |Ölçüm uyarı ise etkilenen kaynak kaynak grubu adı. Diğer uyarı türleri için uyarıyı içeren kaynak grubunun adını budur. |
 | resourceProviderName |Etkilenen kaynak ölçüm uyarı ise kaynak sağlayıcısı adı. Diğer uyarı türleri için bu kaynak sağlayıcısı uyarının adıdır. |
 | resourceId | Etkilenen kaynak ölçüm uyarı ise kaynak kimliği adı. Diğer uyarı türleri için bu kaynak uyarı kaynak kimliğidir. |
-| Operationıd |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
+| operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
 | durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
@@ -309,20 +322,20 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategori
 | properties.resourceId | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay kaynağı kimliği. |
 | properties.eventTimestamp | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olayı olay zaman damgası. |
 | properties.operationName | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olayı işlem adı. |
-| Properties.Status | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay durumu.|
+| properties.status | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay durumu.|
 
 #### <a name="properties-for-metric-alerts"></a>Ölçüm uyarıların özellikleri
 | Öğe adı | Açıklama |
 | --- | --- |
-| Özellikler. RuleUri | Ölçüm uyarı kuralı kendisini kaynak kimliği. |
-| Özellikler. RuleName | Ölçüm uyarı kuralı adı. |
-| Özellikler. RuleDescription | (Uyarı kuralı tanımlanan) ölçüm uyarı kuralı açıklaması. |
+| properties.RuleUri | Ölçüm uyarı kuralı kendisini kaynak kimliği. |
+| properties.RuleName | Ölçüm uyarı kuralı adı. |
+| properties.RuleDescription | (Uyarı kuralı tanımlanan) ölçüm uyarı kuralı açıklaması. |
 | Özellikler. Eşik | Ölçüm uyarı kuralı hesaplanmasında kullanılan eşik değeri. |
-| Özellikler. WindowSizeInMinutes | Ölçüm uyarı kuralı hesaplanmasında kullanılan pencere boyutu. |
-| Özellikler. Toplama | Ölçüm uyarı kuralda tanımlanan toplama türü. |
-| Özellikler. İşleci | Ölçüm uyarı kuralı hesaplanmasında kullanılan koşullu işleç. |
-| Özellikler. MetricName | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçüm adı. |
-| Özellikler. MetricUnit | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçü birimi. |
+| properties.WindowSizeInMinutes | Ölçüm uyarı kuralı hesaplanmasında kullanılan pencere boyutu. |
+| properties.Aggregation | Ölçüm uyarı kuralda tanımlanan toplama türü. |
+| properties.Operator | Ölçüm uyarı kuralı hesaplanmasında kullanılan koşullu işleç. |
+| properties.MetricName | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçüm adı. |
+| properties.MetricUnit | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçü birimi. |
 
 ## <a name="autoscale"></a>Otomatik Ölçeklendirme
 Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçeklendirme ayarı göre otomatik ölçeklendirme altyapısı işlemi ile ilgili olayları kaydını içerir. Bu kategorideki görür olayın türünü, "Otomatik ölçeklendirme ölçek büyütme eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme'ni kullanarak, otomatik olarak ölçeğini veya ölçeklendirin desteklenen kaynak türü örneği sayısı bir otomatik ölçeklendirme ayarı kullanarak gün ve/veya yük (ölçüm) verileri zamanında temel. Ne zaman koşulları Ölçekle yukarı veya aşağı, başlangıç sınamadan ve başarılı veya başarısız olayları bu kategorideki kaydedilmez.
@@ -387,24 +400,24 @@ Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçekle
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| Arayan | Her zaman Microsoft.Insights/autoscaleSettings |
-| Kanalları | Her zaman "Yönetici, işlemi" |
+| çağıran | Her zaman Microsoft.Insights/autoscaleSettings |
+| kanallar | Her zaman "Yönetici, işlemi" |
 | Talepleri | JSON blob otomatik ölçeklendirme altyapısı SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
 | correlationId | Dize biçimindeki bir GUID. |
 | açıklama |Otomatik ölçeklendirme Olay açıklaması statik metin. |
 | eventDataId |Otomatik ölçeklendirme olay benzersiz tanımlayıcısı. |
-| düzeyi |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
 | resourceGroupName |Otomatik ölçeklendirme ayarında kaynak grubunun adı. |
 | resourceProviderName |Otomatik ölçeklendirme ayarında kaynak sağlayıcısı adı. |
 | resourceId |Otomatik ölçeklendirme ayarında kaynak kimliği. |
-| Operationıd |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
+| operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
-| Özellikler. Açıklama | Otomatik ölçeklendirme altyapısı yapmakta olduğu ayrıntılı açıklaması. |
-| Özellikler. ResourceName | Etkilenen kaynağının kaynak kimliği (kaynak üzerinde ölçek eylemi gerçekleştirilir) |
-| Özellikler. OldInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü önce örneği sayısı. |
-| Özellikler. NewInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü sonra örneği sayısı. |
-| Özellikler. LastScaleActionTime | Otomatik ölçeklendirme eylemi gerçekleştiği damgası. |
+| properties.Description | Otomatik ölçeklendirme altyapısı yapmakta olduğu ayrıntılı açıklaması. |
+| properties.ResourceName | Etkilenen kaynağının kaynak kimliği (kaynak üzerinde ölçek eylemi gerçekleştirilir) |
+| properties.OldInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü önce örneği sayısı. |
+| properties.NewInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü sonra örneği sayısı. |
+| properties.LastScaleActionTime | Otomatik ölçeklendirme eylemi gerçekleştiği damgası. |
 | durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
 | alt durum | Genellikle otomatik ölçeklendirme için null. |
 | eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
@@ -477,21 +490,21 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları k
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| Kanalları | Her zaman "işlem" |
+| kanallar | Her zaman "işlem" |
 | correlationId | Dize biçimindeki bir GUID. |
 | açıklama |Güvenlik Olay açıklaması statik metin. |
 | eventDataId |Güvenlik olayı benzersiz tanımlayıcısı. |
 | EventName |Güvenlik olayı kolay adı. |
 | id |Güvenlik olayı benzersiz kaynak tanımlayıcısı. |
-| düzeyi |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" veya "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" veya "Ayrıntılı" |
 | resourceGroupName |Kaynak için kaynak grubunun adı. |
 | resourceProviderName |Azure Güvenlik Merkezi için kaynak sağlayıcısının adı. Her zaman "Microsoft.Security". |
-| Kaynak türü |"Microsoft.Security/locations/alerts" gibi güvenlik olayı oluşturulan kaynak türü |
+| resourceType |"Microsoft.Security/locations/alerts" gibi güvenlik olayı oluşturulan kaynak türü |
 | resourceId |Güvenlik Uyarısı kaynak kimliği. |
-| Operationıd |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
+| operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). Bu özellikler, güvenlik uyarısı türüne bağlı olarak değişir. Bkz: [bu sayfayı](../security-center/security-center-alerts-type.md) gelen güvenlik Merkezi'nden uyarı türlerini açıklaması. |
-| Özellikler. Önem derecesi |Önem düzeyi. Olası değerler şunlardır: "Yüksek" "Orta" veya "Düşük." |
+| properties.Severity |Önem düzeyi. Olası değerler şunlardır: "Yüksek" "Orta" veya "Düşük." |
 | durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
 | alt durum | Genellikle güvenlik olayları için null. |
 | eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |

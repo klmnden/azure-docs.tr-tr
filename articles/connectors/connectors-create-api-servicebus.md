@@ -1,9 +1,9 @@
 ---
-title: "Mantıksal uygulamalarınızı Azure Service Bus Bağlayıcısı'nı kullanmayı öğrenin | Microsoft Docs"
-description: "Logic apps ile Azure uygulama hizmeti oluşturun. İleti gönderme ve alma için Azure Service Bus hizmetine bağlanın. Kuyruk, konu başlığına göndermek, kuyruktan alma ve abonelikten almak için gönderme gibi eylemleri gerçekleştirebilirsiniz."
+title: "Azure mantıksal uygulamaları için Azure Service Bus Mesajlaşma yukarı ayarlama | Microsoft Docs"
+description: "İleti gönderme ve logic apps ile Azure Service Bus kullanarak alma"
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+documentationcenter: 
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -12,43 +12,109 @@ ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/02/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 89bf0ffec759fca4af5f99af1b6a2dd8d641ff6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.workload: logic-apps
+ms.date: 02/06/2018
+ms.author: ladocs
+ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="get-started-with-the-azure-service-bus-connector"></a>Azure Service Bus Bağlayıcısı ile çalışmaya başlama
-İleti gönderme ve alma için Azure Service Bus hizmetine bağlanın. Kuyruk, konu başlığına göndermek, kuyruktan alma ve abonelikten almak için gönderme gibi eylemleri gerçekleştirebilirsiniz.
+# <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Azure Service Bus Bağlayıcısı ile ileti gönderme ve alma
 
-Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Mantıksal uygulamanız ile ileti gönderme ve alma için bağlanın [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). Bir kuyruk gönderme gibi eylemleri gerçekleştirmek için bir konu, bir kuyruktan alma, gönderip bir abonelik. Daha fazla bilgi edinmek [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) ve [nasıl çalışır Logic Apps için fiyatlandırma tetikler](../logic-apps/logic-apps-pricing.md).
 
-## <a name="connect-to-service-bus"></a>Hizmet veri yoluna bağlayın
-Mantıksal uygulamanızı herhangi bir hizmet erişmeden önce ilk hizmetine bir bağlantı oluşturmanız gerekir. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar.  
+## <a name="prerequisites"></a>Önkoşullar
 
-> [!INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
-> 
-> 
+Hizmet veri yolu Bağlayıcısı'nı kullanmadan önce bu öğeler aynı Azure aboneliğindeki mevcut olması gerekir ve böylece birbirlerine görünür olması gerekir:
 
-## <a name="use-a-service-bus-trigger"></a>Hizmet veri yolu tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+* A [Service Bus ad alanı ve bir sıraya gibi Mesajlaşma varlığı](../service-bus-messaging/service-bus-create-namespace-portal.md)
+* A [mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-> [!INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]
-> 
-> 
+<a name="permissions-connection-string"></a>
 
-## <a name="use-a-service-bus-action"></a>Bir hizmet veri yolu eylemi kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="connect-to-azure-service-bus"></a>Azure hizmet veri yoluna bağlayın
 
-[!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]
+Oluşturmak zorunda mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce bir [ *bağlantı* ](./connectors-overview.md) mantıksal uygulamanızı ve henüz yapmadıysanız hizmetin arasında. Bu bağlantı verilere erişmek için mantıksal uygulamanızı yetkilendirir. Mantıksal uygulamanızı Service Bus hesabınıza erişmek izinleri denetleyin.
+
+1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın. 
+
+2. Hizmet veri yolu gidin *ad alanı*, bir özel "Mesajlaşma varlıkla değil". Ad alanı sayfasında altında **ayarları**, seçin **paylaşılan erişim ilkeleri**. Altında **talep**, sahip olduğunuz onay **Yönet** bu ad alanı için izinleri.
+
+   ![Hizmet veri yolu ad alanınız için izinleri yönetme](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
+
+3. Daha sonra el ile bağlantı bilgilerinizi girmek isterseniz, bağlantı dizesi için hizmet veri yolu ad alanınız alın. Seçin **RootManageSharedAccessKey**. Birincil anahtar bağlantı dizenizi yanındaki Kopyala düğmesini seçin. Daha sonra kullanmak için bağlantı dizesini kaydedin.
+
+   ![Hizmet veri yolu ad alanı bağlantı dizesini kopyalayın](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
+
+   > [!TIP]
+   > Bağlantı dizenizi hizmet veri yolu ad alanınız ile veya belirli bir varlık ile ilişkili olup olmadığını doğrulamak için bağlantı dizesini kontrol `EntityPath` parametresi. Bu parametre bulursanız, bağlantı dizesi için belirli bir varlık ve mantıksal uygulamanızı ile kullanılacak doğru dizesi değil.
+
+## <a name="trigger-workflow-when-your-service-bus-gets-new-messages"></a>Hizmet veri yolu yeni iletiler aldığında iş akışını tetikleyen
+
+A [ *tetikleyici* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) mantıksal uygulamanızı bir iş akışı başlatır bir olaydır. Yeni iletiler, Service Bus hizmetine gönderildiğinde bir iş akışını başlatmak için bu iletiler algılar tetikleyici eklemek için aşağıdaki adımları izleyin.
+
+1. İçinde [Azure portal](https://portal.azure.com "Azure portal"), var olan mantıksal uygulamanızı Git veya boş mantıksal uygulama oluşturma.
+
+2. Logic Apps Tasarımcısı'nda, "service bus" arama kutusuna, filtre olarak girin. Seçin **Service Bus** bağlayıcı. 
+
+   ![Hizmet veri yolu bağlayıcıyı seçin](./media/connectors-create-api-azure-service-bus/select-service-bus-connector.png) 
+
+3. Kullanmak istediğiniz Tetikleyici seçin. Örneğin, yeni bir öğe için Service Bus kuyruğuna gönderilen, bir mantıksal uygulama çalıştırmak için bu Tetikleyici seçin: **(Otomatik Tamamlama) sıraya bir ileti alındığında, Service Bus -**
+
+   ![Hizmet veri yolu Tetikleyici seçin](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
+
+   1. Hizmet veri yolu ad alanınıza bağlantı sahip değilseniz, bu bağlantı artık oluşturmanız istenir. Bağlantınızı bir ad verin ve kullanmak istediğiniz hizmet veri yolu ad alanını seçin.
+
+      ![Hizmet veri yolu bağlantı oluşturma](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
+
+      Veya el ile bağlantı dizesini girmek için seçin **bağlantı bilgilerini el ile girebilirsiniz**. 
+      Bilgi [bağlantı dizenizi bulmak nasıl](#permissions-connection-string).
+
+   2. Şimdi kullanın ve seçmek için Service Bus ilkesini seçin **oluşturma**.
+
+      ![Hizmet veri yolu bağlantı, bölüm 2 oluşturun](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-2.png)
+
+4. Kullanın ve aralığı ve sıra denetlemek ne zaman sıklığını ayarlamak için hizmet veri yolu kuyruğu seçin.
+
+   ![Hizmet veri yolu kuyruğu seçin, yoklama aralığını ayarlayın](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+5. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin.
+
+Şimdi, mantıksal uygulamanızı seçilen sıra denetler ve yeni bir ileti bulduğunda tetikleyici bulundu iletisi için mantığı uygulamanızda eylemleri çalıştırır.
+
+## <a name="send-messages-from-your-logic-app-to-your-service-bus"></a>Mantıksal uygulamanızı, hizmet veri yolu ileti gönderme
+
+[*Eylem*](../logic-apps/logic-apps-overview.md#logic-app-concepts), mantıksal uygulama iş akışınız tarafından gerçekleştirilen bir görevdir. Mantıksal uygulamanıza bir tetikleyici ekledikten sonra, bu tetikleyici tarafından oluşturulan işlemleri gerçekleştirmek için bir eylem ekleyebilirsiniz. Mantıksal uygulamanızı varlıktan Mesajlaşma, Service Bus ileti göndermek için aşağıdaki adımları izleyin.
+
+1. Logic Apps Tasarımcısı'nda, tetikleyici altında seçin **+ yeni adım** > **Eylem Ekle**.
+
+2. Arama kutusuna "service bus", filtre olarak girin. Bu bağlayıcıyı seçin: **hizmet veri yolu**
+
+   ![Hizmet veri yolu bağlayıcıyı seçin](./media/connectors-create-api-azure-service-bus/select-service-bus-connector-for-action.png) 
+
+3. Bu eylem seçin: **Service Bus - ileti gönderir**
+
+   ![Select "Service Bus - Send message"](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
+
+4. İletiyi göndermek nereye için kuyruk veya konu adı Mesajlaşma varlığı seçin. Ardından, ileti içeriği ve başka ayrıntılar girin.
+
+   ![Mesajlaşma varlığı seçin ve ileti ayrıntılarını sağlayın](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)    
+
+5. Mantıksal uygulamanızı kaydedin. 
+
+Şimdi mantıksal uygulamanızı iletileri gönderen bir eylem kurdu. 
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/servicebus/). 
+Tetikleyiciler ve Eylemler Swagger dosyası ve herhangi bir sınır tarafından tanımlanan hakkında daha fazla bilgi edinmek için gözden [Bağlayıcısı ayrıntıları](/connectors/servicebus/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+* Daha fazla bilgi edinmek [Azure mantıksal uygulamaları için diğer bağlayıcıları](../connectors/apis-list.md)

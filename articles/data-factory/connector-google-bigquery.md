@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Azure Data Factory (beta) kullanarak Google BigQuery veri kopyalama
 
@@ -52,7 +52,7 @@ Google BigQuery bağlantılı hizmetinin aşağıdaki özellikleri desteklenir.
 | additionalProjects | Ortak proje kimliklerinin virgülle ayrılmış bir listesini BigQuery erişimi projeleri.  | Hayır |
 | requestGoogleDriveScope | Google sürücüye erişim istenip istenmeyeceğini belirtir. Google sürücü erişimine Google sürücüsünden verilerle BigQuery verileri birleştirmek birleştirilmiş tablolar için destek sağlar. Varsayılan değer **false**.  | Hayır |
 | authenticationType | Kimlik doğrulaması için kullanılan OAuth 2.0 kimlik doğrulama mekanizması. ServiceAuthentication yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir. <br/>İzin verilen değerler **ServiceAuthentication** ve **UserAuthentication**. | Evet |
-| refreshToken | Google UserAuthentication için BigQuery erişim yetkisi vermek için kullanılan alınan yenileme belirteci. Bu alan, veri fabrikasında güvenli bir şekilde depolamak için SecureString olarak işaretleyebilirsiniz. Ayrıca Azure anahtar kasası parolayı depolamak ve veri kopyalama gerçekleştirdiğinizde buradan kopyalama etkinliği çekme olanak tanır. Daha fazla bilgi için bkz: [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
+| refreshToken | Google UserAuthentication için BigQuery erişim yetkisi vermek için kullanılan alınan yenileme belirteci. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | e-posta | ServiceAuthentication için kullanılan hizmet hesabı e-posta kimliği. Yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir.  | Hayır |
 | keyFilePath | Hizmet hesabı e-posta adresini doğrulamak için kullanılan .p12 anahtar dosyasının tam yolu. Yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir.  | Hayır |
 | trustedCertPath | Sunucu SSL üzerinden bağlandığında doğrulamak için kullanılan güvenilir CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik, yalnızca SSL Self-hosted tümleştirmesi Çalışma Zamanı Modülü kullandığınızda ayarlayabilirsiniz. Varsayılan değer ile tümleştirme çalışma zamanının yüklü cacerts.pem dosyasıdır.  | Hayır |

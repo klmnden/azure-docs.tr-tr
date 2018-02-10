@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -48,7 +48,7 @@ Yeni veya güncelleştirilmiş bir blob algılandığında bir işlev başlatmak
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# betik (.csx)](#trigger---c-script-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
@@ -148,7 +148,7 @@ module.exports = function(context) {
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
-  Özniteliğin Oluşturucusu izlemek için kapsayıcıyı belirten bir yol dizesini alır ve isteğe bağlı olarak bir [blob adı deseni](#trigger---blob-name-patterns). Örnek aşağıda verilmiştir:
+  Özniteliğin Oluşturucusu izlemek için kapsayıcıyı belirten bir yol dizesini alır ve isteğe bağlı olarak bir [blob adı deseni](#trigger---blob-name-patterns). Bir örneği aşağıda verilmiştir:
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -323,7 +323,7 @@ BLOB'ları okumak için bir Blob Depolama giriş bağlama kullanın.
 Dile özgü örneğe bakın:
 
 * [C#](#input---c-example)
-* [C# betik (.csx)](#input---c-script-example)
+* [C# script (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-example"></a>Giriş - C# örnek
@@ -518,7 +518,7 @@ BLOB'ları yazmak için BLOB Depolama çıkış bağlamaları kullanın.
 Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
-* [C# betik (.csx)](#output---c-script-example)
+* [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Çıktı - C# örnek
@@ -720,6 +720,14 @@ Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *fun
 Metin BLOB'ları okuyorsanız bağlayabilirsiniz bir `string` türü. Bu tür yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu küçüktür önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü.
 
 JavaScript'te, blob verileri kullanarak erişim `context.bindings.<name>`.
+
+## <a name="exceptions-and-return-codes"></a>Özel durumlar ve dönüş kodları
+
+| Bağlama |  Başvuru |
+|---|---|
+| Blob | [BLOB hata kodları](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| BLOB, tablo, kuyruk |  [Depolama hata kodları](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| BLOB, tablo, kuyruk |  [Sorun giderme](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

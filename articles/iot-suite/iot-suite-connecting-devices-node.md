@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: b88ed25e4f434e32423be122569070d896ef7c68
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: df89150867a3c95116ba8ca8cd684af4b32a36de
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Cihazınızı Uzaktan izleme önceden yapılandırılmış çözümü (Node.js) bağlanma
 
@@ -31,32 +31,31 @@ Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme önceden yapılandır�
 
 Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinenize yüklü. Çalıştırabilirsiniz `node --version` sürümünü denetlemek için komut satırında.
 
-1. Adlı bir klasör oluşturun `RemoteMonitoring` geliştirme makinenizde. Komut satırı ortamınızda bu klasöre gidin.
+1. Adlı bir klasör oluşturun `remotemonitoring` geliştirme makinenizde. Komut satırı ortamınızda bu klasöre gidin.
 
 1. Karşıdan yüklemek ve örnek uygulaması tamamlamanız gereken paketleri yüklemek için aşağıdaki komutları çalıştırın:
 
     ```cmd/sh
     npm init
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. İçinde `RemoteMonitoring` klasörünü adlı bir dosya oluşturun **remote_monitoring.js**. Bu dosyayı bir metin düzenleyicisinde açın.
+1. İçinde `remotemonitoring` klasörünü adlı bir dosya oluşturun **remote_monitoring.js**. Bu dosyayı bir metin düzenleyicisinde açın.
 
 1. İçinde **remote_monitoring.js** dosya, aşağıdaki ekleyin `require` deyimleri:
 
     ```nodejs
-    'use strict';
-
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var ConnectionString = require('azure-iot-device').ConnectionString;
     var Message = require('azure-iot-device').Message;
+    var async = require('async');
     ```
 
-1. `require` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. Yer tutucu değerlerini değiştirmek `{Device Id}` ve `{Device Key}` aygıt için not ettiğiniz değerlerle Uzaktan izleme çözümünde sağlandı. Değiştirmek için IOT Hub ana bilgisayar adına çözümden kullanmak `{IoTHub Name}`. Örneğin, IOT Hub ana bilgisayar adı ise `contoso.azure-devices.net`, yerine `{IoTHub Name}` ile `contoso`:
+1. `require` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. Yer tutucu değerini değiştirin `{device connection string}` Uzaktan izleme çözümünde sağladığınız cihaz için not ettiğiniz değere sahip:
 
     ```nodejs
-    var connectionString = 'HostName={IoTHub Name}.azure-devices.net;DeviceId={Device Id};SharedAccessKey={Device Key}';
+    var connectionString = '{device connection string}';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
@@ -84,6 +83,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
     var deviceLocation = "Building 44";
     var deviceLatitude = 47.638928;
     var deviceLongitude = -122.13476;
+    var deviceOnline = true;
     ```
 
 1. Çözüme göndermek için bildirilen özelliklerini tanımlamak için aşağıdaki değişkeni ekleyin. Bu özellikler yöntemleri açıklamak için meta verileri içerir ve telemetri aygıt kullanır:
@@ -135,7 +135,8 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
       "FirmwareUpdateStatus": deviceFirmwareUpdateStatus,
       "Location": deviceLocation,
       "Latitude": deviceLatitude,
-      "Longitude": deviceLongitude
+      "Longitude": deviceLongitude,
+      "Online": deviceOnline
     }
     ```
 
@@ -157,7 +158,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
     }
     ```
 
-1. Çözümden doğrudan yöntem çağrıları işlemek için aşağıdaki işlevi ekleyin. Çözüm cihazlarda yapması doğrudan yöntemleri kullanır:
+1. Çözümden doğrudan yöntem çağrıları işlemek için aşağıdaki genel işlevi ekleyin. İşlev çağrıldı, ancak bu örnekte herhangi bir yolla cihaz değiştirmez doğrudan yöntemi hakkında bilgi görüntüler. Çözüm cihazlarda yapması doğrudan yöntemleri kullanır:
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -166,14 +167,116 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
 
       // Complete the response
       response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (!!err) {
-          console.error('An error ocurred when sending a method response:\n' +
-            err.toString());
+        if (err) console.error('Error sending method response :\n' + err.toString());
+        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+      });
+    }
+    ```
+
+1. İşlemek için aşağıdaki işlevi ekleyin **FirmwareUpdate** doğrudan çözümden yöntem çağrıları. İşlev doğrudan yöntemi yükünde geçirilen parametreler doğrular ve bellenim güncelleştirme benzetimi zaman uyumsuz olarak çalışır:
+
+    ```node.js
+    function onFirmwareUpdate(request, response) {
+      // Get the requested firmware version from the JSON request body
+      var firmwareVersion = request.payload.Firmware;
+      var firmwareUri = request.payload.FirmwareUri;
+      
+      // Ensure we got a firmware values
+      if (!firmwareVersion || !firmwareUri) {
+        response.send(400, 'Missing firmware value', function(err) {
+          if (err) console.error('Error sending method response :\n' + err.toString());
+          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+        });
+      } else {
+        // Respond the cloud app for the device method
+        response.send(200, 'Firmware update started.', function(err) {
+          if (err) console.error('Error sending method response :\n' + err.toString());
+          else {
+            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+
+            // Run the simulated firmware update flow
+            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+          }
+        });
+      }
+    }
+    ```
+
+1. İlerleme durumu geri çözüme raporları bir uzun süre çalışan bellenim güncelleştirme akış benzetimini yapmak için aşağıdaki işlevi ekleyin:
+
+    ```node.js
+    // Simulated firmwareUpdate flow
+    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+      console.log('Simulating firmware update flow...');
+      console.log('> Firmware version passed: ' + firmwareVersion);
+      console.log('> Firmware URI passed: ' + firmwareUri);
+      async.waterfall([
+        function (callback) {
+          console.log("Image downloading from " + firmwareUri);
+          var patch = {
+            FirmwareUpdateStatus: 'Downloading image..'
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(10000, callback);
+        },
+        function (callback) {
+          console.log("Downloaded, applying firmware " + firmwareVersion);
+          deviceOnline = false;
+          var patch = {
+            FirmwareUpdateStatus: 'Applying firmware..',
+            Online: false
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(8000, callback);
+        },
+        function (callback) {
+          console.log("Rebooting");
+          var patch = {
+            FirmwareUpdateStatus: 'Rebooting..'
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(10000, callback);
+        },
+        function (callback) {
+          console.log("Firmware updated to " + firmwareVersion);
+          deviceOnline = true;
+          var patch = {
+            FirmwareUpdateStatus: 'Firmware updated',
+            Online: true,
+            Firmware: firmwareVersion
+          };
+          reportUpdateThroughTwin(patch, callback);
+          callback(null);
+        }
+      ], function(err) {
+        if (err) {
+          console.error('Error in simulated firmware update flow: ' + err.message);
         } else {
-          console.log('Response to method \'' + request.methodName +
-            '\' sent successfully.');
+          console.log("Completed simulated firmware update flow");
         }
       });
+
+      // Helper function to update the twin reported properties.
+      function reportUpdateThroughTwin(patch, callback) {
+        console.log("Sending...");
+        console.log(JSON.stringify(patch, null, 2));
+        client.getTwin(function(err, twin) {
+          if (!err) {
+            twin.properties.reported.update(patch, function(err) {
+              if (err) callback(err);
+            });      
+          } else {
+            if (err) callback(err);
+          }
+        });
+      }
+
+      function sleep(milliseconds, callback) {
+        console.log("Simulate a delay (milleseconds): " + milliseconds);
+        setTimeout(function () {
+          callback(null);
+        }, milliseconds);
+      }
     }
     ```
 
@@ -181,15 +284,19 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
 
     ```node.js
     function sendTelemetry(data, schema) {
-      var d = new Date();
-      var payload = JSON.stringify(data);
-      var message = new Message(payload);
-      message.properties.add('$$CreationTimeUtc', d.toISOString());
-      message.properties.add('$$MessageSchema', schema);
-      message.properties.add('$$ContentType', 'JSON');
+      if (deviceOnline) {
+        var d = new Date();
+        var payload = JSON.stringify(data);
+        var message = new Message(payload);
+        message.properties.add('$$CreationTimeUtc', d.toISOString());
+        message.properties.add('$$MessageSchema', schema);
+        message.properties.add('$$ContentType', 'JSON');
 
-      console.log('Sending device message data:\n' + payload);
-      client.sendEvent(message, printErrorFor('send event'));
+        console.log('Sending device message data:\n' + payload);
+        client.sendEvent(message, printErrorFor('send event'));
+      } else {
+        console.log('Offline, not sending telemetry');
+      }
     }
     ```
 
@@ -204,7 +311,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
     * Bağlantıyı açın.
     * İstenen özellikleri için bir işleyici ayarlayın.
     * Bildirilen özellikleri gönderin.
-    * Doğrudan yöntemleri için işleyiciler kaydedin.
+    * Doğrudan yöntemleri için işleyiciler kaydedin. Örnek, bellenim güncelleştirme doğrudan yöntemi için ayrı bir işleyici kullanır.
     * Telemetri göndermeye başlayın.
 
     ```nodejs
@@ -228,13 +335,13 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üstü dağıtım makinen
             // Send reported properties
             twin.properties.reported.update(reportedProperties, function (err) {
               if (err) throw err;
-              console.log('twin state reported');
+              console.log('Twin state reported');
             });
 
             // Register handlers for all the method names we are interested in.
             // Consider separate handlers for each method.
             client.onDeviceMethod('Reboot', onDirectMethod);
-            client.onDeviceMethod('FirmwareUpdate', onDirectMethod);
+            client.onDeviceMethod('FirmwareUpdate', onFirmwareUpdate);
             client.onDeviceMethod('EmergencyValveRelease', onDirectMethod);
             client.onDeviceMethod('IncreasePressure', onDirectMethod);
           }

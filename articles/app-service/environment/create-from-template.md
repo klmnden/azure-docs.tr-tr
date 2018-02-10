@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir ana oluşturma
 
@@ -40,7 +40,7 @@ Ana oluşturmayı otomatikleştirmek için:
 
 2. ILB ana oluşturulduktan sonra ILB ana etki alanı ile eşleşen bir SSL sertifikası yüklenir.
 
-3. Karşıya yüklenen SSL sertifikası ILB ana "varsayılan" SSL sertifikasını atanır.  (Örneğin, https://someapp.mycustomrootcomain.com) ana için atanan ortak kök etki alanı kullanırken bu sertifikayı SSL trafiği ILB ana uygulamalar için kullanılır.
+3. Karşıya yüklenen SSL sertifikası ILB ana "varsayılan" SSL sertifikasını atanır.  (Örneğin, https://someapp.mycustomrootdomain.com) ana için atanan ortak kök etki alanı kullanırken bu sertifikayı SSL trafiği ILB ana uygulamalar için kullanılır.
 
 
 ## <a name="create-the-ase"></a>Ana oluşturma
@@ -69,7 +69,7 @@ Uygulamalar için SSL bağlantıları kurmak için kullanılan "varsayılan" SSL
 * **Konu**: Bu öznitelik ayarlamak **kök etki alanı here.com .your*.
 * **Konu alternatif adı**: Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your* ve **.scm.your-kök-etki-here.com*. SSL bağlantıları her uygulamayla ilişkili SCM/Kudu siteye kullanma biçiminde bir adresi *your-app-name.scm.your-root-domain-here.com*.
 
-Elle içinde geçerli bir SSL sertifikası ile iki ek hazırlık adımları gereklidir. Convert/SSL sertifikası bir .pfx dosyası olarak Kaydet. .Pfx dosyasını gerekir ve dahil tüm ara sertifikaların kök unutmayın. Bir parola ile güvenli hale getirin.
+Elle içinde geçerli bir SSL sertifikası ile iki ek hazırlık adımları gereklidir. SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .Pfx dosyasını gerekir ve dahil tüm ara sertifikaların kök unutmayın. Bir parola ile güvenli hale getirin.
 
 .Pfx dosyasını SSL sertifikası bir Resource Manager şablonu kullanarak yüklendiği bir base64 dizeye dönüştürülmesi gerekiyor. Resource Manager şablonları metin dosyaları olduğundan, .pfx dosyasını bir base64 dizeye dönüştürülmesi gerekir. Bu şekilde bir şablon parametresi olarak dahil edilebilir.
 
@@ -146,11 +146,11 @@ Değişikliği uygulamak için ana ön uç başına kabaca 40 dakika sürer. Ör
 Ancak, ortak çok müşterili hizmeti Çalıştır yalnızca gibi uygulamalar, geliştiriciler özel ana bilgisayar adları tek tek uygulamalar için yapılandırabilirsiniz. Bunlar benzersiz SNI SSL sertifikası bağlamaları tek tek uygulamalar için de yapılandırabilirsiniz.
 
 ## <a name="app-service-environment-v1"></a>App Service Ortamı v1 ##
-Uygulama hizmeti ortamı iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilgiler üzerinde ASEv2 dayanır. Bu bölümde ASEv1 ASEv2 arasındaki farkları gösterilmiştir.
+App Service Ortamının iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilgiler ASEv2’yi temel alır. Bu bölümde ASEv1 ile ASEv2 arasındaki farklar gösterilmektedir.
 
-ASEv1 içinde tüm kaynakları el ile yönetin. Ön Uçları, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. Uygulama hizmeti planınızı ölçeklendirebilirsiniz önce da barındırmak istediğiniz çalışan havuzunda Ölçeklendirmesi gerekir.
+ASEv1 içinde tüm kaynakları el ile yönetin. Buna ön uçlar, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. Uygulama hizmeti planınızı ölçeklendirebilirsiniz önce da barındırmak istediğiniz çalışan havuzunda Ölçeklendirmesi gerekir.
 
-ASEv1 ASEv2 öğesinden farklı bir fiyatlandırma modelini kullanır. ASEv1 içinde ayrılmış her vCPU için ücret ödersiniz. Ön Uçları veya tüm iş yükleri barındıran olmayan çalışanlar için kullanılan Vcpu'lar dahildir. ASEv1 içinde varsayılan en büyük ölçekli bir ana 55 toplam konaklar boyutudur. Bu, çalışanlar ve ön uçlar içerir. ASEv1 bir avantajı, onu bir Klasik sanal ağı ve Resource Manager sanal ağ içinde dağıtılabilir ' dir. ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş][ASEv1Intro].
+ASEv1, ASEv2’den farklı bir fiyatlandırma modeli kullanır. ASEv1’de ayrılmış her vCPU için ücret ödersiniz. Ön Uçları veya tüm iş yükleri barındıran olmayan çalışanlar için kullanılan Vcpu'lar dahildir. ASEv1’de bir ASE’nin varsayılan en büyük ölçek boyutu toplam 55 konaktır. Buna çalışanlar ve ön uçlar dahildir. ASEv1’in bir avantajı, klasik bir sanal ağa ve bir Resource Manager sanal ağına dağıtılabilmesidir. ASEv1 hakkında daha fazla bilgi için bkz. [App Service Ortamı v1’e giriş][ASEv1Intro].
 
 Resource Manager şablonu kullanarak bir ASEv1 oluşturmak için bkz: [Resource Manager şablonu ile bir ILB ana v1 oluşturma][ILBASEv1Template].
 

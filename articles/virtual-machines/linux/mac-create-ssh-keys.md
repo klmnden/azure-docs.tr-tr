@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 4b677a4063ebef84dbd2fa476b5f633b859f90ed
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma
 Güvenli kabuk (SSH) anahtar çiftiyle Azure’da sanal makineler (VM) oluşturabilirsiniz. Bu sayede kimlik doğrulaması için SSH anahtarlarını kullanarak oturum açmak için parolalara duyulan gereksinimi ortadan kaldırırsınız. Bu makalede Linux VM’ler için bir SSH protokolü sürüm 2 RSA ortak ve özel anahtar dosyası çiftini hızlı bir şekilde oluşturma ve kullanma adımları anlatılmaktadır. Bu adımları Azure Cloud Shell, macOS veya Linux ana bilgisayarı ya da Linux için Windows Alt Sistemi ile yapabilirsiniz. Daha ayrıntılı adımlar ve başka örnekler için bkz. [SSH anahtar çiftleri ve sertifikaları oluşturmaya yönelik ek adımlar](create-ssh-keys-detailed.md).
@@ -32,7 +32,7 @@ ssh-keygen -t rsa -b 2048
 ```
 
 ## <a name="use-the-ssh-key-pair"></a>SSH anahtar çiftini kullanma
-Azure’da Linux VM’nize yerleştirdiğiniz ortak anahtar, oluştururken zaman konumu değiştirmediğiniz sürece varsayılan olarak `~/.ssh/id_rsa.pub` içinde depolanır. VM’nizi oluşturmak için [Azure CLI 2.0](/cli/azure) kullanırsanız, `--ssh-key-path` seçeneği ile [az vm create](/cli/azure/vm#create) kullanırken bu ortak anahtarın konumunu belirtin. Azure portalında veya bir Resource Manager şablonunda kullanmak üzere ortak anahtar dosyasının içeriğini kopyalar ve yapıştırırsanız, fazladan boşluk kopyalamadığınızdan emin olun. Örneğin, OS X kullanıyorsanız, ortak anahtar dosyası (varsayılan olarak, **~/.ssh/id_rsa.pub**) içeriklerini kopyalamak için **pbcopy**’e iletebilirsiniz (bunu yapmak için `xclip` gibi diğer Linux programları da kullanılabilir).
+Azure’da Linux VM’nize yerleştirdiğiniz ortak anahtar, oluştururken zaman konumu değiştirmediğiniz sürece varsayılan olarak `~/.ssh/id_rsa.pub` içinde depolanır. VM’nizi oluşturmak için [Azure CLI 2.0](/cli/azure) kullanırsanız, `--ssh-key-path` seçeneği ile [az vm create](/cli/azure/vm#az_vm_create) kullanırken bu ortak anahtarın konumunu belirtin. Azure portalında veya bir Resource Manager şablonunda kullanmak üzere ortak anahtar dosyasının içeriğini kopyalar ve yapıştırırsanız, fazladan boşluk kopyalamadığınızdan emin olun. Örneğin, OS X kullanıyorsanız, ortak anahtar dosyası (varsayılan olarak, **~/.ssh/id_rsa.pub**) içeriklerini kopyalamak için **pbcopy**’e iletebilirsiniz (bunu yapmak için `xclip` gibi diğer Linux programları da kullanılabilir).
 
 SSH ortak anahtarları hakkında bilgi sahibi değilseniz, aşağıdaki gibi `~/.ssh/id_rsa.pub` öğesini kendi ortak anahtar dosyası konumunuz ile değiştirip `cat` çalıştırarak ortak anahtarınızı görebilirsiniz:
 

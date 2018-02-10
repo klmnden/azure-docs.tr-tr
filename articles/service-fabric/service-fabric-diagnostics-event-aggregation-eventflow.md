@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Olay toplama ve EventFlow kullanarak koleksiyonu
 
@@ -43,6 +43,9 @@ Tüm paketler yüklendikten sonra sıradaki adım yapılandırın ve hizmeti Eve
 
 ## <a name="configure-and-enable-log-collection"></a>Yapılandırma ve oturum toplamayı etkinleştir
 Günlükleri göndermek için sorumlu EventFlow ardışık düzen yapılandırma dosyasında depolanan belirtiminden oluşturulur. `Microsoft.Diagnostics.EventFlow.ServiceFabric` Paketi yükler altında başlangıç EventFlow yapılandırma dosyası `PackageRoot\Config` adlı Çözüm klasörü `eventFlowConfig.json`. Bu yapılandırma dosyası varsayılan hizmet verilerini yakalamak için değiştirilmesi gereken `EventSource` sınıfı ve yapılandırmak ve uygun bir konuma veri göndermek istediğiniz girdi.
+
+>[!NOTE]
+>Proje dosyası Visual Studio 2017 biçimi varsa `eventFlowConfig.json` dosyası değil otomatik olarak eklenir. Düzeltmek için dosyasında oluşturma `Config` klasörü ve yapı eylemi kümesine `Copy if newer`. 
 
 Örnek bir işte *eventFlowConfig.json* yukarıda belirtilen NuGet paketlerini göre:
 ```json

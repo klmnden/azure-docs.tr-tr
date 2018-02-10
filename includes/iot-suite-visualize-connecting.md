@@ -16,7 +16,7 @@ Cihazınızı gönderilen telemetriyi görüntüleyebilir **aygıtları** çöz�
 
 ## <a name="act-on-your-device"></a>Cihazınızda hareket
 
-Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme çözümü sayfasında. Örneğin, Uzaktan izleme çözümü içinde **Soğutucu** aygıtları uygulayan bir **yeniden** yöntemi.
+Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme çözümü sayfasında. Örneğin, Uzaktan izleme çözümü içinde **Soğutucu** aygıtları uygulayan bir **FirmwareUpdate** yöntemi.
 
 1. Seçin **aygıtları** gitmek için **aygıtları** çözümdeki sayfası.
 
@@ -26,11 +26,15 @@ Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme ç
 
 1. Cihazınızda çağırabilir yöntemlerinin listesini görüntülemek için seçin **zamanlama**. Birden fazla cihazda çalıştırmak için bir yöntem zamanlamak için listede birden çok aygıt seçebilirsiniz. **Zamanlama** paneli yöntemi türlerini seçtiğiniz tüm cihazların ortak gösterir.
 
-1. Seçin **yeniden**, iş adı ayarlamak **RebootPhysicalChiller**ve seçin **Uygula**:
+1. Seçin **FirmwareUpdate**, iş adı ayarlamak **UpdatePhysicalChiller**. Ayarlama **bellenim sürümü** için **2.0.0**ayarlayın **bellenim URI** için **http://contoso.com/updates/firmware.bin**ve ardından seçin **Uygulama**:
 
-    ![Zamanlama yeniden başlatma](media/iot-suite-visualize-connecting/deviceschedule.png)
+    ![Zamanlama bellenimi güncelleştirme](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. Bir ileti, cihaz yöntemi işlediğinde aygıt kodunuzu çalıştırmaya görüntülemez.
+1. İleti sırası, sanal cihaz yöntemi işlerken aygıt kodunuzu çalıştırmaya görüntülemez.
+
+1. Güncelleştirme tamamlandığında, yeni bellenim sürümü görüntüler **aygıtları** sayfa:
+
+    ![Güncelleştirme tamamlandı](media/iot-suite-visualize-connecting/complete.png)
 
 > [!NOTE]
 > Çözümdeki işinin durumunu izlemek için tercih **Görünüm**.

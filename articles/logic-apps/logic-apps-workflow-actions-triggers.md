@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 981bf5555d1941509e787adf656fe6310dd43cb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Tetikleyiciler ve Eylemler mantığı uygulama iş akışları için
 
-Tüm mantıksal uygulamalar eylemleri tarafından izlenen bir tetikleyici ile başlayın. Bu konuda, tetikleyiciler ve sistem tümleştirmeler oluşturma ve logic apps oluşturarak iş iş akışları veya işlemleri otomatikleştirmek için kullanabileceğiniz eylemleri türleri açıklanmaktadır. 
+Tüm mantıksal uygulamalar eylemleri tarafından izlenen bir tetikleyici ile başlayın. Bu makalede, tetikleyiciler ve sistem tümleştirmeler oluşturma ve logic apps oluşturarak iş iş akışları veya işlemleri otomatikleştirmek için kullanabileceğiniz eylemleri türleri açıklanmaktadır. 
   
 ## <a name="triggers-overview"></a>Tetikleyiciler genel bakış 
 
@@ -191,13 +191,13 @@ HTTP Tetikleyicileri belirtilen uç nokta yoklamak ve iş akışı çalıştır�
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| Yöntemi | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
-| URI | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
+| yöntem | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
+| uri | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
 | retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
-| Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
+| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
 ||||| 
  
 İyi mantığı uygulamanızın üzerinde çalışmak için belirli bir desen ile uygun olması HTTP API HTTP tetikleyicisi gerektirir. Tetikleyici bu özellikleri tanır:  
@@ -254,13 +254,13 @@ API bağlantı tetikleyici temel işlevselliğini HTTP tetikleyicinin benzer. Bu
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| ana bilgisayar | Evet | Nesne | Barındırılan ağ geçidi ve API uygulaması için kimliği | 
-| Yöntemi | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
+| konak | Evet | Nesne | Barındırılan ağ geçidi ve API uygulaması için kimliği | 
+| yöntem | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
 | retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
-| Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). | 
+| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
 İçin `host` nesne özellikleri şunlardır:  
@@ -278,7 +278,9 @@ Bir API bağlantısı tetikleyicisi çıktıların şunlardır:
 | headers | Nesne | HTTP yanıtı üstbilgileri | 
 | body | Nesne | HTTP yanıt gövdesi | 
 |||| 
-  
+
+Daha fazla bilgi edinmek [nasıl çalışır API bağlantısı için fiyatlandırma tetikler](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook tetikleyici  
 
 Bir uç nokta, istek tetikleyiciye benzer HTTPWebhook tetikleyici sağlar ancak HTTPWebhook tetikleyici de kaydetme ve kaydını kaldırmak için belirtilen URL çağırır. Bir HTTPWebhook tetikleyicisi aşağıdaki gibi görünmelidir örneği şöyledir:  
@@ -374,7 +376,7 @@ Bu durumda, rapor yalnızca Tetikleyicileri iş akışı çalışırken `sendRep
 ```  
   
 > [!NOTE]  
-> Tetikleyici yalnızca 200 "Tamam" olan varsayılan davranışı, herhangi bir ifade herhangi bir şekilde bir tetikleyicinin durum kodu başvurduğunda değiştirilir. Durum kodu 200 hem 201 durum kodunu tetiklemek istiyorsanız, örneğin, dahil etmek zorunda: `@or(equals(triggers().code, 200),equals(triggers().code,201))` koşulunuz olarak.
+> Yalnızca 200 "Tamam üzerinde" tetiklenir varsayılan davranışı, herhangi bir ifade herhangi bir şekilde bir tetikleyicinin durum kodu başvurduğunda değiştirilir. Durum kodu 200 hem 201 durum kodunu tetiklemek istiyorsanız, örneğin, dahil etmek zorunda: `@or(equals(triggers().code, 200),equals(triggers().code,201))` koşulunuz olarak.
   
 ## <a name="start-multiple-runs-for-a-request"></a>Bir istek için birden çok çalışmalarını Başlat
 
@@ -469,7 +471,7 @@ Eylemler, her benzersiz davranışına sahip birçok tür vardır. Her eylem tü
 | **İşlevi** | Bir Azure işlevi temsil eder. | 
 | **Bekleme** | Sabit bir tutar saat veya belirli bir süre kadar bekler. | 
 | **İş akışı** | İç içe geçmiş iş akışını temsil eder. | 
-| **Oluştur** | Eylemin girişleri arbitary nesnesinden oluşturur. | 
+| **Oluştur** | Eylemin girişleri rasgele bir nesneden oluşturur. | 
 | **Sorgu** | Bir koşula göre bir dizi filtreler. | 
 | **Seç** | Her öğe bir dizi yeni bir değer projeleri. Örneğin, bir dizi sayının nesnelerinin bir dizisi dönüştürebilirsiniz. | 
 | **Tablo** | Öğeleri bir dizi bir CSV ya da HTML tabloya dönüştürür. | 
@@ -504,14 +506,14 @@ Burada, `inputs` nesnesini bir HTTP çağrısıyla oluşturmak için gereken bu 
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| Yöntemi | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
-| URI | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
+| yöntem | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
+| uri | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
 | retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
-| Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
+| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
 ||||| 
 
 Bu örnek HTTP eylemi üç yürütmeleri ve 30 saniyelik gecikme her denemesi arasındaki toplam aralıklı hatalar varsa, en son haberleri iki kez getirme yeniden deneme sayısı:
@@ -531,7 +533,7 @@ Bu örnek HTTP eylemi üç yürütmeleri ve 30 saniyelik gecikme her denemesi ar
 }
 ```
 
-Yeniden deneme aralığını belirtilen [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601). En büyük değer bir saat olsa da bu aralığı 20 saniye varsayılan ve en az değerine sahip. Varsayılan ve en fazla yeniden deneme sayısı dört saattir. Yeniden deneme ilkesi tanımı belirtmediyseniz bir `fixed` stratejisi varsayılan yeniden deneme sayısı ve aralığı değerlerle kullanılır. Yeniden deneme ilkesi devre dışı bırakmak için türünü ayarlamak `None`.
+Yeniden deneme aralığını belirtilen [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601). En büyük değer bir saat olsa da bu aralığı 20 saniye varsayılan ve en az değerine sahip. Varsayılan ve en fazla yeniden deneme sayısı dört saattir. Yeniden deneme ilkesi tanımı belirtmezseniz bir `fixed` stratejisi varsayılan yeniden deneme sayısı ve aralığı değerlerle kullanılır. Yeniden deneme ilkesi devre dışı bırakmak için türünü ayarlamak `None`.
 
 ### <a name="asynchronous-patterns"></a>Zaman uyumsuz desenleri
 
@@ -596,15 +598,15 @@ APIConnection eylemi örneği aşağıdadır:
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| ana bilgisayar | Evet | Nesne | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
-| Yöntemi | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
-| Yol | Evet | Dize | API işlem için yolu | 
+| konak | Evet | Nesne | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
+| yöntem | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
+| yol | Evet | Dize | API işlem için yolu | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
 | retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
-| Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
+| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="apiconnection-webhook-action"></a>APIConnection Web kancası eylemi
@@ -640,14 +642,14 @@ Microsoft tarafından yönetilen bir bağlayıcı APIConnectionWebhook eylem ba�
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| ana bilgisayar | Evet | Nesne | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
-| Yol | Evet | Dize | API işlem için yolu | 
+| konak | Evet | Nesne | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
+| yol | Evet | Dize | API işlem için yolu | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
 | retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
-| Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
+| kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Yanıt eylemi  
@@ -709,7 +711,7 @@ Bu eylemi temsil eder ve çağrı sağlayan bir [Azure işlevi](../azure-functio
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- |  
 | İşlev kimliği | Evet | Dize | Aramak istediğiniz Azure işlevi için kaynak kimliği. | 
-| Yöntemi | Hayır | Dize | Bir işlevi çağırmak için kullanılan HTTP yöntemi. Belirtilmezse, "POST" varsayılan yöntemdir. | 
+| yöntem | Hayır | Dize | Bir işlevi çağırmak için kullanılan HTTP yöntemi. Belirtilmezse, "POST" varsayılan yöntemdir. | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
@@ -758,7 +760,7 @@ Alternatif olarak, zaman içinde belirli bir süre kadar beklemek için bu örne
   
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| kadar | Hayır | Nesne | Zaman içinde bir noktadaki dayalı bekleme süresi | 
+| geçerliliği: | Hayır | Nesne | Zaman içinde bir noktadaki dayalı bekleme süresi | 
 | zaman damgası kadar | Evet | Dize | Zamanda nokta [UTC tarih saat biçimini](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) bekleme süresi dolduğunda | 
 | interval | Hayır | Nesne | Aralığı birimi ve sayısı bağlı bekleme süresi | 
 | aralığı birimi | Evet | Dize | Zaman birimi. Bu değerlerden yalnızca birini kullanın: "ikinci", "dakika", "saat", "gün", "hafta" veya "ay" | 
@@ -842,7 +844,7 @@ Bu eylem, yeni bir değer dizideki her öğe proje olanak tanır.
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
 | başlangıç | Evet | Dizi | Kaynak dizi |
-| seçin | Evet | Herhangi biri | Kaynak dizideki her öğe için uygulanan projeksiyonu |
+| seç | Evet | Herhangi biri | Kaynak dizideki her öğe için uygulanan projeksiyonu |
 ||||| 
 
 Çıktısını `select` giriş dizisi olarak aynı kardinalite sahip bir dizi eylemdir. Her öğe tarafından tanımlandığı şekilde dönüştürülmüş `select` özelliği. Girdi boş bir dizi çıkışı da boş bir dizi ise.

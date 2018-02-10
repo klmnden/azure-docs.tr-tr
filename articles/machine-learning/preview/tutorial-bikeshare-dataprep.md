@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e4bcf7ec2a18f6068554c2eb85b72ffc36dcc4fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Bisiklet paylaşımı öğreticisi: Azure Machine Learning Workbench ile gelişmiş veri hazırlama
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
@@ -27,15 +27,17 @@ Bu öğreticide Azure Machine Learning hizmetlerini (önizleme) kullanarak aşa�
 > * Veri Hazırlama paketi oluşturma
 > * Python kullanarak Veri Hazırlama Paketini çalıştırma
 > * Ek girdi dosyaları için Veri Hazırlama paketini yeniden kullanarak bir eğitim veri kümesi oluşturma
+> * Betikleri yerel bir Azure CLI penceresinde yürütme.
+> * Betikleri bulut üzerindeki Azure HDInsight ortamında yürütme.
 
-> [!IMPORTANT]
-> Bu öğretici yalnızca verileri hazırlar; tahmin modeli oluşturmaz.
->
-> Hazırlanan verileri, kendi tahmin modellerinizi eğitmek için kullanabilirsiniz. Örneğin, 2 saatlik bir zaman aralığındaki bisiklet talebini tahmin etmeye yönelik bir model oluşturabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure Machine Learning Workbench’in yerel olarak yüklü olması gerekir. Daha fazla bilgi için [Yükleme Hızlı Başlangıç](quickstart-installation.md) makalesindeki yönergeleri izleyin.
+* Yüklü Azure CLI yoksa [en son Azure CLI sürümünü yüklemek için] yönergeleri izleyin. (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Bir [Hdınsights Spark kümesi](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) Azure içinde oluşturulması gerekir.
+* Bir Azure depolama hesabı.
 * Workbench’te yeni proje oluşturma bilgisi.
+* Gerekli olmamasına rağmen sağlamak yararlı [Azure Storage Gezgini](https://azure.microsoft.com/features/storage-explorer/) karşıya yüklediğiniz şekilde yüklü, indirin ve depolama hesabınızda BLOB'ları görüntüleyin. 
 
 ## <a name="data-acquisition"></a>Veri alma
 Bu öğreticide [Boston Hubway veri kümesi](https://s3.amazonaws.com/hubway-data/index.html) ve [NOAA](http://www.noaa.gov/)’daki Boston hava durumu verileri kullanılır.
@@ -53,6 +55,22 @@ Bu öğreticide [Boston Hubway veri kümesi](https://s3.amazonaws.com/hubway-dat
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
 2. İndirdiğiniz her .zip dosyasını açın.
+
+## <a name="upload-data-files-to-azure-blob-storage"></a>Azure Blob depolama alanına veri dosyalarını karşıya yükleme
+Blob depolama, veri dosyalarını barındırmak için kullanabilirsiniz.
+
+1. Kullanmakta olduğunuz Hdınsight kümesi için kullanılan aynı Azure depolama hesabı kullanın.
+
+    ![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
+
+2. Adlı yeni bir kapsayıcı oluşturmak '**veri dosyalarını**' BikeShare veri dosyalarını depolamak için.
+
+3. Veri dosyalarını karşıya yükleyin. Karşıya yükleme `BostonWeather.csv` adlı bir klasöre `weather`ve adlı bir klasör seyahat veri dosyalarına `tripdata`.
+
+    ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
+
+> [!TIP]
+> De kullanabilirsiniz **Azure Storage Gezgini** BLOB karşıya yüklemek için. Bu araç, öğreticide oluşturulan dosyalardan birini içeriğini görüntülemek istediğinizde kullanılabilir.
 
 ## <a name="learn-about-the-datasets"></a>Veri kümeleri hakkında bilgi edinme
 1. __Boston weather__ adlı dosya, hava durumu ile ilgili aşağıdaki alanlarda saatlik olarak bildirilen verileri içerir:
@@ -78,7 +96,7 @@ Bu öğreticide [Boston Hubway veri kümesi](https://s3.amazonaws.com/hubway-dat
 1. Başlangıç menüsünden veya başlatıcıdan **Azure Machine Learning Workbench**’i başlatın.
 
 2. Yeni bir Azure Machine Learning projesi oluşturun.  **Projeler** sayfasındaki **+** düğmesine veya **Dosya** > **Yeni** öğesine tıklayın.
-   - **Boş Proje** şablonunu kullanın.
+   - Kullanım **bisiklet paylaşımı** şablonu.
    - Projenizi **BikeShare** olarak adlandırın. 
 
 ## <a id="newdatasource"></a>Yeni veri kaynağı oluşturma
@@ -97,9 +115,9 @@ Bu öğreticide [Boston Hubway veri kümesi](https://s3.amazonaws.com/hubway-dat
 
    ![Dosyalar/Dizin girdisinin görüntüsü](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Dosya Seçimi**: Hava durumu verilerini ekleyin. Daha önce indirdiğiniz `BostonWeather.csv` dosyasına gözatıp bu dosyayı seçin. **İleri**’ye tıklayın.
+2. **Dosya Seçimi**: Hava durumu verilerini ekleyin. Göz atın ve seçim `BostonWeather.csv` için karşıya dosya __Azure Blob Storage__ daha önce. **İleri**’ye tıklayın.
 
-   ![BostonWeater.csv dosyasının seçili olduğu dosya seçimi görüntüsü](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
+   ![BostonWeater.csv dosyasının seçili olduğu dosya seçimi görüntüsü](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
 3. **Dosya Ayrıntıları**: Algılanan dosya şemasını doğrulayın. Azure Machine Learning Workbench, dosyadaki verileri analiz eder ve kullanılacak şemayı algılar.
 
@@ -136,9 +154,9 @@ Bu öğreticide [Boston Hubway veri kümesi](https://s3.amazonaws.com/hubway-dat
 
    Devam etmek için __İleri__’yi seçin. 
 
-5. **Örnekleme**: Bir örnekleme şeması oluşturmak için **+ Yeni** düğmesini seçin. Yeni eklenen __İlk 10000__ satırını ve sonra __Düzenle__’yi seçin. __Örnek Stratejisi__’ni **Tam Dosya** olarak ayarladıktan sonra **Uygula**’yı seçin.
+5. **Örnekleme**: örnekleme düzeni oluşturmak için seçin **Düzenle** düğmesi. Yeni eklenen __İlk 10000__ satırını ve sonra __Düzenle__’yi seçin. __Örnek Stratejisi__’ni **Tam Dosya** olarak ayarladıktan sonra **Uygula**’yı seçin.
 
-   ![Yeni bir örnekleme stratejisi ekleme görüntüsü](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
+   ![Yeni bir örnekleme stratejisi ekleme görüntüsü](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
    __Tam Dosya__ stratejisini kullanmak için __Tam Dosya__ girdisini ve sonra __Etkin Olarak Ayarla__’yı seçin. Bunun etkin strateji olduğunu göstermek üzere __Tam Dosya__’nın yanında bir yıldız görünür.
 
@@ -223,6 +241,8 @@ __REPORTTYPE__ sütunu artık gerekli değildir. Sütun üst bilgisine sağ tık
 
    Hata içeren satırları kaldırmak için **HOURLYDRYBULBTEMPF** sütun üst bilgisine sağ tıklayın. **Sütunu Filtrele**’yi seçin. Varsayılan **İstiyorum** değerini **Satırları Tutmak** olarak kullanın. **Koşullar** açılır listesini değiştirerek **hata değil**’i seçin. Filtreyi uygulamak için **Tamam**’ı seçin.
 
+    ![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
+
 4. Diğer sütunlarda kalan hata satırlarını kaldırmak için, bu filtreleme işlemini **HOURLYRelativeHumidity** ve **HOURLYWindSpeed** sütunlarında tekrarlayın.
 
 ## <a name="use-by-example-transformations"></a>Örnek dönüşümlere göre kullanma
@@ -261,7 +281,10 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
 
    > [!NOTE]
    > Azure ML Workbench, sizin sağladığınız örnekleri temel alan bir programı sentezler ve aynı programı kalan satırlara uygular. Diğer tüm satırlar, sağladığınız örneğe göre otomatik olarak doldurulur. Workbench ayrıca verilerinizi analiz eder ve istisnai durumları tanımlamaya çalışır. 
-  
+
+   > [!IMPORTANT]
+   > Edge durumlarda tanımlaması Mac ekranının geçerli sürümde çalışmayabilir. Atla __3. adım__ ve __4. adım__ aşağıda Mac üzerinde Bunun yerine, basın __Tamam__ tüm satırları türetilmiş değerlerle doldurulmuş sonra.
+   
 3. Kılavuzun üzerindeki **Veriler Analiz Ediliyor** iletisi, Workbench’in istisnai durumları algılamaya çalıştığını belirtir. İşlem bittiğinde, durum **Önerilen sonraki satırı gözden geçirin** veya **Öneri yok** olarak değişir. Bu örnekte, **Önerilen sonraki satırı gözden geçirin** durumu döndürülür.
 
 4. Önerilen değişiklikleri gözden geçirmek için **Önerilen sonraki satırı gözden geçirin** öğesini seçin. Gözden geçirmeniz ve (gerekirse) düzeltmeniz gereken hücre ekranda vurgulanır.
@@ -287,10 +310,15 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
 
    Birinci satırın karşısına örnek olarak `Jan 01, 2015 12AM-2AM` yazın ve **Enter** tuşuna basın.
 
-   Workbench, sağladığınız örneği temel alarak dönüşümü belirler. Bu örnekte sonuç olarak tarih biçimi değiştirilir ve iki saatlik zaman penceresi ile birleştirilir.
+   Workbench, sağladığınız örneği temel alarak dönüşümü belirler. Bu örnekte, sonuç tarih biçimi değişti ve iki saatlik bir aralık ile birleştirilmiş olmasıdır.
 
    ![`1 Ocak 2015 12.00-02.00 örneğinin görüntüsü](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
+   > [!IMPORTANT]
+   > Mac üzerinde yerine aşağıdaki adımı izleyin __adım 8__ aşağıda.
+   >
+   > * İçeren ilk hücrenin gidin `Feb 01, 2015 12AM-2AM`. Olmalıdır __satır 15__. Değerine düzeltmek `Jan 02, 2015 12AM-2AM`ve basın __Enter__. 
+   
 
 8. **Veriler Analiz Ediliyor** durumunun **Önerilen sonraki satırı gözden geçirin** olarak değişmesini bekleyin. Bu işlem birkaç saniye sürebilir. Önerilen satıra gitmek için durum bağlantısını seçin. 
 
@@ -306,6 +334,7 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
 
    > [!TIP]
    > **Adımlar** bölmesindeki aşağı oka tıklayarak bu adım için **Sütunu örneğe göre türet** gelişmiş modunu kullanabilirsiniz. Veri kılavuzunda, **DATE\_1** ve **Hour Range** sütun adlarının yanında onay kutuları bulunur. Bu işlemin çıktıyı nasıl değiştirdiğini görmek için **Hour Range** sütununun yanındaki onay kutusunun işaretini kaldırın. Girdi olarak **Hour Range** sütunu mevcut olmadığında, **12.00-2.00** sabit olarak kabul edilir ve türetilmiş değerlere eklenir. Değişikliklerinizi uygulamadan ana kılavuza geri dönmek için **İptal**’i seçin.
+   ![derivedcolumnadvancededitdeselectcolumn.png](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. Sütunu yeniden adlandırmak için üst bilgiye çift tıklayın. Adı **Date Hour Range** olarak değiştirip **Enter** tuşuna basın.
 
@@ -331,7 +360,7 @@ Sonraki adımda, değerlerin saat aralığına göre gruplandırılmış ortalam
 
 Sayısal sütunlardaki verilerin 0-1 aralığında olacak şekilde değiştirilmesi, bazı modellerin hızla yakınsanmasını sağlar. Şu anda bu dönüşümü genel olarak yapmak için yerleşik bir dönüşüm bulunmamaktadır, ancak bu işlemi gerçekleştirmek için bir Python betiği kullanılabilir.
 
-1. **Dönüşüm** menüsünde **Dönüşüm Veri Akışı**’nı seçin.
+1. Gelen **dönüştürme** menüsünde, select **dönüştürme veri akışı (komut)**.
 
 2. Açılan metin kutusuna aşağıdaki kodu girin. Sütun adlarını kullandıysanız, kod değişiklik yapılmadan çalışabilir. Python’da basit bir min-maks normalleştirme mantığı yazıyorsunuz.
 
@@ -372,6 +401,7 @@ Hava durumu verilerini hazırlamayı tamamladınız. Şimdi seyahat verilerini h
 
 1. `201701-hubway-tripdata.csv` dosyasını içeri aktarmak için [Yeni Veri Kaynağı Oluşturma](#newdatasource) bölümündeki adımları kullanın. İçeri aktarma işlemi sırasında aşağıdaki seçenekleri kullanın:
 
+    * __Dosya Seçimi__: seçin **Azure Blob** dosyasını seçmek için göz atarken.
     * __Örnekleme şeması__: **Tam Dosya** örnekleme şemasını seçin, örneği etkin hale getirin ve 
     * __Veri Türü__: Varsayılanları kabul edin.
 
@@ -505,7 +535,12 @@ Seyahat verilerinde her satır bir bisiklet alma olayını temsil eder. Bu öğr
     > Satırların herhangi birine göre bir örnek verebilirsiniz. Bu örnekte, birinci veri satırı için `Jan 01, 2017 12AM-2AM` değeri geçerlidir.
 
     ![Örnek verilerin görüntüsü](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-   
+
+   > [!IMPORTANT]
+   > Mac üzerinde yerine aşağıdaki adımı izleyin __3. adım__ aşağıda.
+   >
+   > * İçeren ilk hücrenin gidin `Jan 01, 2017 1AM-2AM`. Olmalıdır __satır 14__. Değerine düzeltmek `Jan 01, 2017 12AM-2AM`, yerleştirip __Enter__. 
+
 3. Uygulamanın değerleri tüm satırlara göre hesaplamasını bekleyin. Bu işlem birkaç saniye sürebilir. Analiz tamamlandıktan sonra verileri gözden geçirmek için __Önerilen sonraki satırı gözden geçirin__ bağlantısını kullanın.
 
    ![Gözden geçirme bağlantıyla birlikte tamamlanmış analizin görüntüsü](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -586,19 +621,95 @@ Bu öğreticide dosyanın adı `BikeShare Data Prep.py` şeklindedir. Bu dosya �
 
 ## <a name="save-test-data-as-a-csv-file"></a>Test verilerini CSV dosyası olarak kaydetme
 
-**Birleştirme Sonucu** Veri Akışını bir .CSV dosyasına kaydetmek için `BikeShare Data Prep.py` betiğini değiştirmeniz gerekir. Aşağıdaki kodu kullanarak Python betiğini güncelleştirin:
+**Birleştirme Sonucu** Veri Akışını bir .CSV dosyasına kaydetmek için `BikeShare Data Prep.py` betiğini değiştirmeniz gerekir. 
 
-```python
-from azureml.dataprep.package import run
+1. Proje içinde VSCode düzenlemek için açın.
 
-# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
-df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    ![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTest.csv
-df.to_csv('Your Test Data File Path here')
-```
+2. Python betiği güncelleştirme `BikeShare Data Prep.py` aşağıdaki kodu kullanarak dosya:
 
-Ekranın üst kısmından **Çalıştır**’ı seçin. Betik, yerel makine üzerindeki bir **İş** olarak gönderilir. İş durumu __Tamamlandı__ olarak değiştikten sonra dosya belirtilen konuma yazılmıştır.
+    ```python
+    import pyspark
+
+    from azureml.dataprep.package import run
+    from pyspark.sql.functions import *
+
+    # start Spark session
+    spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
+    # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
+    df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    df.show(n=10)
+    row_count_first = df.count()
+
+    # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
+    # 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+    blobfolder = 'Your Azure Storage blob path'
+
+    df.write.csv(blobfolder, mode='overwrite') 
+
+    # retrieve csv file parts into one data frame
+    csvfiles = "<Your Azure Storage blob path>/*.csv"
+    df = spark.read.option("header", "false").csv(csvfiles)
+    row_count_result = df.count()
+    print(row_count_result)
+    if (row_count_first == row_count_result):
+        print('counts match')
+    else:
+        print('counts do not match')
+    print('done')
+    ```
+
+3. Değiştir `Your Azure Storage blob path` oluşturulacak çıkış dosyası yoluyla. Her ikisi için değiştirme `blobfolder` ve `csvfiles` değişkenleri.
+
+## <a name="create-hdinsight-run-configuration"></a>Hdınsight Çalıştır yapılandırması oluştur
+
+1. Azure Machine Learning Workbench'te komut satırı penceresini açın, **Dosya** menüsünü ve sonra **Komut İstemini Aç**'ı seçin. Komut isteminiz `C:\Projects\BikeShare>` istemiyle proje klasöründe başlatılır.
+
+ ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
+
+   >[!IMPORTANT]
+   >Aşağıdaki adımları gerçekleştirmek için komut satırı penceresini (Workbench'ten açılan) kullanmanız gerekir.
+
+2. Komut istemini kullanarak Azure'da oturum açın. 
+
+   Workbench uygulaması ve CLI, Azure kaynaklarında kimlik doğrulaması gerçekleştirmek için bağımsız kimlik bilgisi önbelleği kullanır. Bu işlemi yalnızca bir kez yapmanız gerekir ve önbelleğe alınan belirteç süresi dolana kadar geçerli olacaktır. `az account list` Komutu, oturum açma için kullanılabilir Aboneliklerin listesini döndürür. Birden fazla varsa, istenen abonelikteki kimlik değerini kullanın. Bu abonelik ile kullanılacak varsayılan hesap olarak ayarlamanız `az account set -s` komutunu ve ardından abonelik kimliği değeri sağlayın. Ardından hesabını kullanarak ayar onaylayın `show` komutu.
+
+   ```azurecli
+   REM login by using the aka.ms/devicelogin site
+   az login
+   
+   REM lists all Azure subscriptions you have access to 
+   az account list -o table
+   
+   REM sets the current Azure subscription to the one you want to use
+   az account set -s <subscriptionId>
+   
+   REM verifies that your current subscription is set correctly
+   az account show
+   ```
+
+3. Config çalıştırmak Hdınsight oluşturun. Adı, küme ve sshuser parola gerekir.
+    ```azurecli
+    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml experiment prepare -c hdinsight
+    ```
+> [!NOTE]
+> Boş bir proje oluşturduğunuzda, çalışması varsayılan yapılandırmaları olan **yerel** ve **docker**. Bu adım kullanılabilir yeni bir çalışma yapılandırması oluşturur **Azure Machine Learning çalışma ekranı** çalıştırdığınızda, komut dosyaları. 
+
+## <a name="run-in-hdinsight-cluster"></a>Hdınsight kümesinde çalıştırın
+
+Geri dönüp **Azure Machine Learning çalışma ekranı** Hdınsight kümesinde kodunuzu çalıştırmak için uygulama.
+
+1. Dönüş projenizin giriş ekranına tıklayarak **ev** soldaki simgesi.
+
+2. Seçin **hdınsight** Hdınsight kümesinde kodunuzu çalıştırmak için aşağı açılan listeden.
+
+3. Ekranın üst kısmından **Çalıştır**’ı seçin. Komut dosyası olarak gönderilen bir **iş**. İş durumu değişikliklerini sonra __tamamlandı__, dosyanın belirtilen konumda yazılmış, **Azure depolama kapsayıcısının**.
+
+    ![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
+
 
 ## <a name="substitute-data-sources"></a>Yedek veri kaynakları
 
@@ -608,7 +719,7 @@ Ekranın üst kısmından **Çalıştır**’ı seçin. Betik, yerel makine üze
 
     * __Dosya Seçimi__: Dosya seçerken, kalan altı seyahat tripdata .CSV dosyasını birlikte seçin.
 
-        ![Kalan altı dosyayı yükleme](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![Kalan altı dosyayı yükleme](media/tutorial-bikeshare-dataprep/browseazurestoragefortripdatafiles.png)
 
         > [!NOTE]
         > __+5__ girdisi, listelenen dosyaya ek olarak beş dosyanın daha bulunduğunu belirtir.
@@ -619,11 +730,13 @@ Ekranın üst kısmından **Çalıştır**’ı seçin. Betik, yerel makine üze
 
    Sonraki adımlarda kullanılmak üzere bu veri kaynağının adını kaydedin.
 
-2. Dosyaları projenizde görüntülemek için klasör simgesini seçin. __aml\_config__ dizinini genişletip `local.runconfig` dosyasını seçin.
+2. Dosyaları projenizde görüntülemek için klasör simgesini seçin. __aml\_config__ dizinini genişletip `hdinsight.runconfig` dosyasını seçin.
 
-    ![Local.runconfig konumunun görüntüsü](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
+    ![Hdinsight.runconfig konumunu görüntüsü](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. `local.runconfig` dosyasının sonuna aşağıdaki satırları ekleyin ve sonra disk simgesini seçerek dosyayı kaydedin.
+3. İçinde VSCode dosyayı açmak için Düzenle düğmesini tıklatın.
+
+4. `hdinsight.runconfig` dosyasının sonuna aşağıdaki satırları ekleyin ve sonra disk simgesini seçerek dosyayı kaydedin.
 
     ```yaml
     DataSourceSubstitutions:
@@ -637,15 +750,41 @@ Ekranın üst kısmından **Çalıştır**’ı seçin. Betik, yerel makine üze
 Daha önce oluşturduğunuz `BikeShare Data Prep.py` adlı Python dosyasına gidin ve Eğitim Verilerini kaydetmek için farklı bir Dosya Yolu belirtin.
 
 ```python
+import pyspark
+
 from azureml.dataprep.package import run
+from pyspark.sql.functions import *
+
+# start Spark session
+spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
 # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+df.show(n=10)
+row_count_first = df.count()
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTrain.csv
-df.to_csv('Your Training Data File Path here')
+# Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/traindata'
+# 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+blobfolder = 'Your Azure Storage blob path'
+
+df.write.csv(blobfolder, mode='overwrite') 
+
+# retrieve csv file parts into one data frame
+csvfiles = "<Your Azure Storage blob path>/*.csv"
+df = spark.read.option("header", "false").csv(csvfiles)
+row_count_result = df.count()
+print(row_count_result)
+if (row_count_first == row_count_result):
+    print('counts match')
+else:
+    print('counts do not match')
+print('done')
 ```
 
-Yeni bir iş göndermek için sayfanın üstündeki **Çalıştır** simgesini kullanın. Yeni yapılandırma ile bir **İş** gönderilir. Bu işin çıktısı Eğitim Verileridir. Bu veriler daha önce oluşturduğunuz veri hazırlama adımlarının aynısı kullanılarak oluşturulur. İşin tamamlanması birkaç dakika sürebilir.
+1. Klasör adını kullanmak `traindata` eğitim veri çıkışı için.
+
+2. Yeni bir iş göndermek için sayfanın üstündeki **Çalıştır** simgesini kullanın. Emin olun **hdınsight** seçilir. Yeni yapılandırma ile bir **İş** gönderilir. Bu işin çıktısı Eğitim Verileridir. Bu veriler daha önce oluşturduğunuz veri hazırlama adımlarının aynısı kullanılarak oluşturulur. İşin tamamlanması birkaç dakika sürebilir.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bisiklet Paylaşımı Veri Hazırlama öğreticisini tamamladınız. Bu öğreticide Azure Machine Learning hizmetlerini (önizleme) kullanarak aşağıdakileri yapmayı öğrendiniz:

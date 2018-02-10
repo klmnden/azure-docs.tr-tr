@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9f750f0e2764e7753c9d6c62de60ab27df9620c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Azure Data Factory kullanarak OData kaynağından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Aşağıdaki özellikleri, bağlantılı OData hizmeti için desteklenir:
 | url | OData hizmet kök URL'si. |Evet |
 | authenticationType | OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü.<br/>İzin verilen değerler: **anonim**, **temel**, ve **Windows**. Not OAuth desteklenmiyor. | Evet |
 | Kullanıcı adı | Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. | Hayır |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan SecureString işaretleyin. | Hayır |
+| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek 1: Anonim kimlik doğrulamasını kullanma**
