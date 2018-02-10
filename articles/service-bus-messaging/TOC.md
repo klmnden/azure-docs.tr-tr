@@ -4,7 +4,7 @@
 ## [Service Bus mimarisi](service-bus-architecture.md)
 ## [SSS](service-bus-faq.md)
 
-# Başlarken
+# Hızlı Başlangıçlar
 ## [Ad alanı oluşturma](service-bus-create-namespace-portal.md)
 ## Kuyrukları kullanma
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
