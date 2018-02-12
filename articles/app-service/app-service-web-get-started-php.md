@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 200178b37fde89cbbdd81ef539451988aa26a472
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e38c8e7d6211c7c7b6bbf3a501ce53c2808ee0fc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure’da PHP web uygulaması oluşturma
 
@@ -67,8 +67,6 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
-
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
@@ -105,15 +103,17 @@ Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini be
 http://<app name>.azurewebsites.net
 ```
 
+Yeni web uygulamanız aşağıdaki gibi görünmelidir:
+
 ![Boş web uygulaması sayfası](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
 Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
 
@@ -141,13 +141,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-[ZIP dosyasını karşıya yükleme](#upload-the-zip-file) altında verilen adımları kullanarak bu yeni ZIP dosyasını Cloud Shell'e yükleyin.
-
-Ardından, Cloud Shell'de karşıya yüklenen ZIP dosyanızı yeniden dağıtın.
-
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
-```
+[ZIP dosyasını karşıya yükleme](#upload-the-zip-file) altında verilen adımları kullanarak bu yeni ZIP dosyasını App Service'e dağıtın.
 
 **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
 

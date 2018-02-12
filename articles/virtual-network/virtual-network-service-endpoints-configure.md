@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Sanal Ağ Hizmet Uç Noktalarını Yapılandırma
 
@@ -67,7 +67,7 @@ Azure hesabınızı kullanarak Azure'da oturum açın. Azure hesabınız yoksa �
 
 Ayar | Değer
 ------- | -----
-Ad    | myVnet
+Adı    | myVnet
 Adres alanı | 10.0.0.0/16
 Alt ağ adı|mySubnet
 Alt ağ adres aralığı|10.0.0.0/24
@@ -75,7 +75,7 @@ Kaynak grubu|Yeni oluştur'u seçili bırakın ve bir ad girin.
 Konum|Avustralya Doğu gibi desteklenen bir bölge seçin
 Abonelik|Aboneliğinizi seçin.
 __ServiceEndpoints__|Etkin
-__Hizmetler__ | Kullanılabilir hizmetlerin birini veya tümünü seçin. Önizleme sırasında desteklenen hizmetler: __"Microsoft.Storage", "Microsoft.Sql"__.
+__Hizmetler__ | Kullanılabilir hizmetlerin birini veya tümünü seçin. Desteklenen hizmetler: __"Microsoft.Storage", "Microsoft.Sql"__.
 
 Uç noktalar için hizmetleri seçin: ![Hizmet Uç Noktası Hizmetlerini Seçin](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Çıktı: 
-Ad | Kimlik | Tür
+Adı | Kimlik | Tür
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -385,9 +385,9 @@ Hizmet uç noktaları sanal ağda yazma erişimine sahip bir kullanıcı tarafı
 
 Azure hizmet kaynaklarını bir sanal ağ ile sınırlamak için kullanıcının eklenen alt ağlarda "Microsoft.Network/JoinServicetoaSubnet" iznine sahip olması gerekir. Bu izin varsayılan olarak yerleşik hizmet yöneticisi rollerinde mevcuttur ve özel roller oluşturularak değiştirilebilir.
 
-[Yerleşik roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) ve [özel rollere](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles) belirli izinlerin atanması hakkında daha fazla bilgi edinin.
+[Yerleşik roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) ve [özel rollere](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) belirli izinlerin atanması hakkında daha fazla bilgi edinin.
 
-Sanal ağlar ve Azure hizmet kaynakları aynı ağda veya farklı aboneliklerde olabilir. Bunların farklı aboneliklerde olması halinde kaynakların bu önizleme boyunca aynı Active Directory (AD) kiracısı altında olması gerekir.
+Sanal ağlar ve Azure hizmet kaynakları aynı ağda veya farklı aboneliklerde olabilir. Bunların farklı aboneliklerde olması halinde kaynakların aynı Active Directory (AD) kiracısı altında bulunması gerekir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
