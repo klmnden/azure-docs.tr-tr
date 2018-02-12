@@ -1,6 +1,6 @@
 ---
-title: ".NET standart kitaplığı kullanılarak Azure Event Hubs'tan gelen olayları alma | Microsoft Docs"
-description: "EventProcessorHost bulunan iletiler alma standart .NET içinde kullanmaya başlama"
+title: ".NET Standard kitaplığı kullanarak Azure Event Hubs’dan olay alma | Microsoft Belgeleri"
+description: ".NET Standard'da EventProcessorHost ile iletiler almaya başlama"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -9,66 +9,66 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: MT
+ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Olay işleyicisi konağı iletilerle .NET standart alma kullanmaya başlama
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard'da Olay İşlemcisi Konağı ile iletiler almaya başlama
 
 > [!NOTE]
-> Bu örnek edinilebilir [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
+> Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)'da sağlanır.
 
-Bu öğretici kullanarak bir event hub'ından iletileri alan bir .NET Core konsol uygulamasının nasıl yazılacağını gösterir **olay işleyicisi konağı** kitaplığı. Çalıştırabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) çözümü olarak-olduğundan, olay hub'ı ve depolama hesabı değerleriniz ile dizeleri değiştirme. Veya, kendi oluşturmak için Bu öğreticide adımları izleyebilirsiniz.
+Bu öğreticide, **Olay İşlemcisi Konağı** kitaplığını kullanarak bir olay hub’ından iletiler alan .NET Core konsol uygulamasını yazma işlemi gösterilmektedir. [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) çözümünü olduğu gibi, dizeleri kendi olay hub'ı ve depolama hesabı değerlerinizle değiştirerek kullanabilirsiniz. Öte yandan, bu öğreticideki adımları izleyerek kendi çözümünüzü de oluşturabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğretici kullanım Visual Studio 2017 ancak Visual Studio 2015 örneklerde de desteklenir.
-* [.NET core Visual Studio 2015 veya 2017 Araçları](http://www.microsoft.com/net/core).
+* [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır, ama Visual Studio 2015 de desteklenir.
+* [.NET Core Visual Studio 2015 veya 2017 araçları](http://www.microsoft.com/net/core).
 * Azure aboneliği.
-* Bir Azure Event Hubs ad alanı.
-* Bir Azure depolama hesabı.
+* Azure Event Hubs ad alanı.
+* Azure Depolama hesabı.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma  
 
-İlk adım kullanmaktır [Azure portal](https://portal.azure.com) olay hub'ları türü için bir ad alanı oluşturmak ve event hub ile iletişim kurması için uygulamanız gereken yönetim kimlik bilgilerini elde etmek için. Bir ad alanı ve olay hub'ı oluşturmak için yordamı izleyin [bu makalede](event-hubs-create.md)ve ardından Bu öğretici ile devam edin.  
+İlk adımda [Azure Portal](https://portal.azure.com) kullanılarak Event Hubs türünde bir ad alanı oluşturulur, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgileri alınır. Ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin ve ardından bu öğreticiyle devam edin.  
 
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma  
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.  
-2. Portalın sol gezinti bölmesinde tıklatın **yeni**, tıklatın **depolama**ve ardından **depolama hesabı**.  
-3. Depolama hesabı penceresindeki alanları doldurun ve ardından **oluşturma**.
+2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Depolama**'ya ve **Depolama Hesabı**'na tıklayın.  
+3. Depolama hesabı penceresindeki alanları doldurun ve **Oluştur**'a tıklayın.
 
     ![Depolama hesabı oluştur][1]
 
-4. Gördükten sonra **dağıtımları başarılı** ileti, yeni depolama hesabı adını tıklatın. İçinde **Essentials** penceresinde tıklatın **BLOB'lar**. Zaman **Blob hizmeti** iletişim kutusunu açar, tıklatın **+ kapsayıcı** üstünde. Kapsayıcı bir ad verin ve ardından kapatın **Blob hizmeti**.  
-5. Tıklatın **erişim anahtarları** sol pencere kopyalayıp adını depolama kapsayıcısı, depolama hesabı ve değerini **key1**. Bu değerleri Not Defteri'nde veya başka bir geçici konuma kaydedin.  
+4. **Dağıtımlar Başarılı** iletisini gördükten sonra, yeni depolama hesabının adına tıklayın. **Temel Bileşenler** penceresinde **Bloblar**'a tıklayın. **Blob hizmeti** iletişim kutusu açıldığında, en üstteki **+ Kapsayıcı**'ya tıklayın. Kapsayıcıya bir ad verin ve sonra da **Blob hizmeti** penceresini kapatın.  
+5. Sol taraftaki pencerede **Erişim tuşları**'na tıklayın ve depolama kapsayıcısının adını, depolama hesabını ve **key1** öğesinin değerini kopyalayın. Bu değerleri Not Defteri'ne veya başka bir geçici konuma kaydedin.  
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
-Visual Studio’yu çalıştırın. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın. .NET Core konsol uygulaması oluşturun.
+Visual Studio’yu çalıştırın. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın. Bir .NET Core konsol uygulaması oluşturun.
 
 ![Yeni proje][2]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Olay hub'ları NuGet paketi ekleme
+## <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet paketini ekleme
 
-Ekleme [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) ve [ **Microsoft.Azure.EventHubs.Processor** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET standart kitaplığı NuGet paketleri için Aşağıdaki adımları izleyerek, projenizin: 
+Aşağıdaki adımları izleyerek [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) ve [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET Standard library NuGet paketlerini projenize ekleyin: 
 
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. Tıklatın **Gözat** sekmesinde, arama **Microsoft.Azure.EventHubs**ve ardından **Microsoft.Azure.EventHubs** paket. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
-3. 1 ve 2. adımları yineleyin ve yükleme **Microsoft.Azure.EventHubs.Processor** paket.
+2. **Gözat** sekmesine tıklayın, **Microsoft.Azure.EventHubs** için arama yapın ve **Microsoft.Azure.EventHubs** paketini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+3. 1. ve 2. adımları yineleyin, **Microsoft.Azure.EventHubs.Processor** paketini yükleyin.
 
-## <a name="implement-the-ieventprocessor-interface"></a>Ieventprocessor arabirimini uygulama
+## <a name="implement-the-ieventprocessor-interface"></a>IEventProcessor arabirimini gerçekleştirme
 
-1. Çözüm Gezgini'nde projeye sağ tıklayın, **Ekle**ve ardından **sınıfı**. Yeni sınıf **SimpleEventProcessor**.
+1. Çözüm Gezgini'nde projeye sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Sınıf**'a tıklayın. Yeni sınıfa **SimpleEventProcessor** adını verin.
 
-2. SimpleEventProcessor.cs dosyasını açın ve aşağıdakileri ekleyin `using` deyimlerini dosyanın en üstüne ekleyin.
+2. SimpleEventProcessor.cs dosyasını açın ve aşağıdaki `using` deyimlerini dosyanın en üstüne ekleyin.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -76,7 +76,7 @@ Ekleme [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsof
     using System.Threading.Tasks;
     ```
 
-3. Uygulama `IEventProcessor` arabirimi. Tüm içeriğini değiştirin `SimpleEventProcessor` aşağıdaki kodla sınıfı:
+3. `IEventProcessor` arabirimini gerçekleştirin. `SimpleEventProcessor` sınıfının tüm içeriğini aşağıdaki kodla değiştirin:
 
     ```csharp
     public class SimpleEventProcessor : IEventProcessor
@@ -112,7 +112,7 @@ Ekleme [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsof
     }
     ```
 
-## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>SimpleEventProcessor sınıfı iletileri almak için kullandığı bir ana Konsolu yöntemi yazma
+## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>İletileri almak için SimpleEventProcessor sınıfını kullanan bir ana konsol yöntemi yazma
 
 1. Aşağıdaki `using` deyimlerini Program.cs dosyasının üst kısmına ekleyin.
 
@@ -122,7 +122,7 @@ Ekleme [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsof
     using System.Threading.Tasks;
     ```
 
-2. Sabitlere eklemek `Program` olay hub bağlantı dizesine, olay hub'ı adı, depolama hesabı kapsayıcı adı, depolama hesabı adı ve depolama hesabı anahtarı için sınıf. Yer tutucuları bunlara karşılık gelen değerler ile değiştirerek aşağıdaki kodu ekleyin.
+2. `Program` sınıfına olay hub'ı bağlantı dizesi, olay hub'ı adı, depolama hesabı kapsayıcı adı, depolama hesabı adı ve depolama hesabı anahtarı için sabitleri ekleyin. Aşağıdaki kodu ekleyin (yer tutucular yerine ilgili değerleri kullanın).
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -134,7 +134,7 @@ Ekleme [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsof
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
     ```   
 
-3. Adlı yeni bir yöntem ekleyin `MainAsync` için `Program` sınıfı, şu şekilde:
+3. `Program` sınıfına aşağıda gösterildiği gibi `MainAsync` adlı yeni bir yöntem ekleyin:
 
     ```csharp
     private static async Task MainAsync(string[] args)
@@ -159,7 +159,7 @@ Ekleme [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsof
     }
     ```
 
-3. Aşağıdaki kod satırını ekleyin `Main` yöntemi:
+3. Aşağıdaki kod satırını `Main` yöntemine ekleyin:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -212,7 +212,7 @@ Ekleme [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsof
 
 4. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
 
-Tebrikler! İletilerin bir event hub'ından olay işleyicisi konağı kullanarak şimdi aldınız.
+Tebrikler! Olay İşlemcisi Konağı'nı kullanarak bir olay hub’ından iletiler aldınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:

@@ -19,6 +19,7 @@
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Web uygulamaları
 ### [Genel Bakış](active-directory-b2c-reference-oidc.md)
+### [ASP.NET’te kullanıcıların kimliklerini doğrulama](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
@@ -27,10 +28,11 @@
 ### [MSAL kullanarak JavaScript ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [Hello kullanarak JavaScript ](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web API'leri
+### [ASP.NET API’sini koruma](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
-### [.NET web API’si çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [.NET web API'si çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Kılavuzlar
 ## Kimlik sağlayıcılarını yapılandırma
@@ -40,13 +42,14 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
 ## [Self servis parola sıfırlamayı ayarlama](active-directory-b2c-reference-sspr.md)
 ## [Kullanıcı arabirimini özelleştirme](active-directory-b2c-reference-ui-customization.md)
 ### [Özelleştirme için yardımcı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md)
-## [Azure AD Grafik API’sini kullanma](active-directory-b2c-devquickstarts-graph-dotnet.md)
+## [Azure AD Graph API’sini kullanma](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Erişim belirteci alma](active-directory-b2c-access-tokens.md)
 ## [E-posta doğrulamayı devre dışı bırakma](active-directory-b2c-reference-disable-ev.md)
 ## [Belirteçleri yapılandırma](active-directory-b2c-token-session-sso.md)

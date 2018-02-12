@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: İç içe geçmiş sanallaştırma kullanımı
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: Çevrimdışı modda VM aracısını yükleme
+          href: install-vm-agent-offline.md
 - name: Başvuru
   items:
     - name: Azure CLI

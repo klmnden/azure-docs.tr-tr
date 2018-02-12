@@ -5,11 +5,11 @@ title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ SQL Araçları </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Bulut uygulamaları için önerilen mimari kümesi. Her mimaride; önerilen yöntemler, belirleyici adımlar ve önerileri şekillendiren yürütülebilir bileşenler bulunur.
+Azure Mimari Merkezi, Microsoft Azure’da uçtan uca çözüm oluşturmaya yönelik kılavuzlar içerir. Burada başvuru mimarilerini, en iyi yöntemleri, tasarım düzenlerini, senaryo kılavuzlarını ve başvuru uygulamalarını bulabilirsiniz.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ Bulut uygulamaları için önerilen mimari kümesi. Her mimaride; önerilen yön
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Azure Mimari Merkezi</h3>
+                                                    <p>Microsoft Azure’da uçtan uca çözüm oluşturmaya yönelik kılavuzlar.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Azure Uygulama Mimarisi Kılavuzu</h3>
-                                                    <p>Bulutta başarılı olmaya yönelik temel bilgiler. Bulutta veya Azure'da yeniyseniz buradan başlayın.</p>
+                                                    <p>Bu kılavuz, Azure’da ölçeklenebilir, dayanıklı ve yüksek oranda kullanılabilir uygulamalar tasarlamak için yapılandırılmış bir yaklaşım sunmaktadır. Müşterilerle yaşadığımız deneyimlerden edindiğimiz, kendini kanıtlamış uygulamaları temel alır.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ Bulut uygulamaları için önerilen mimari kümesi. Her mimaride; önerilen yön
                                                 <div class="cardText">
                                                     <h3>Bulut Tasarımı Desenleri</h3>
                                                     <p>Buluta yönelik tasarım desenleri. Her desen; bir sorunu, sorunu ele alan bir deseni ve Azure'ı temel alan bir örneği açıklar.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Bulut Uygulamalarına yönelik En İyi Yöntemler</h3>
-                                                    <p>
-Otomatik ölçeklendirme, önbelleğe alma, veri bölümleme, API tasarımı ve izleme gibi özellikleri kapsayan; bulut uygulamalarına yönelik en iyi yöntem kümesi.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

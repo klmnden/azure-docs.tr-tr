@@ -34,6 +34,7 @@
 ### P2S VPN yapılandırma
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [VPN istemcisi yapılandırma dosyalarını oluşturma ve yükleme](point-to-site-vpn-client-configuration-radius.md)
+### [P2S VPN RADIUS kimlik doğrulamasını NPS sunucusu ile tümleştirme](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## VNet-VNet bağlantıları yapılandırma
 ### [Azure portalı](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

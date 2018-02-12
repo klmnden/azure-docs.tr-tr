@@ -171,6 +171,7 @@
 #### [Face Redactor kılavuzu](media-services-redactor-walkthrough.md)
 ### [Video Thumbnails ile işleme](media-services-video-summarization.md)
 ### [OCR ile işleme](media-services-video-optical-character-recognition.md)
+### [Content Moderator ile işleme](media-services-content-moderation.md)
 
 ## [Telemetri yapılandırma](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

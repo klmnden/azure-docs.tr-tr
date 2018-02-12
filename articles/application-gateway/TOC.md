@@ -40,11 +40,19 @@
 ## Birden çok site barındırmayı yapılandırma
 ### [Azure portalı](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Yeniden yönlendirmeyi yapılandırma
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
 ## Dış yeniden yönlendirmeyi yapılandırma
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Azure CLI](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## İç yeniden yönlendirmeyi yapılandırma
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## HTTP’den HTTPS’ye yönlendirmeyi yapılandırma
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
+## URL yeniden yönlendirmesini yapılandırma
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## Web uygulamalarını arka uç havuzu üyeleri olarak yapılandırma
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Sistem durumu araştırmalarını yapılandırma

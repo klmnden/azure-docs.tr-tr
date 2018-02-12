@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Etkinlik günlüğü
           href: monitoring-overview-activity-logs.md
+        - name: Etkinlik günlüğü uyarıları (Önizleme)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Eylem grupları
           href: monitoring-action-groups.md
         - name: Tanılama günlükleri
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Azure PowerShell ile uyarıları yapılandırma
           href: insights-alerts-powershell.md
-        - name: Bir ölçüm uyarısının bir web kancasını çağırmasını sağlama
-          href: insights-webhooks-alerts.md
+        - name: Günlük uyarıları için web kancası eylemleri
+          href: monitor-alerts-unified-log-webhook.md
         - name: Resource Manager şablonu ile ölçüm uyarısı oluşturma
           href: monitoring-enable-alerts-using-template.md
     - name: Otomatik ölçeklendirmeyi kullanma

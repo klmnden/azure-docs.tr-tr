@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Azure İşlevleri’nde hata ayıklama
           href: how-to-vscode-debug-azure-function.md
+    - name: Uçta veri depolama
+      href: sql-storage.md
     - name: Sorun giderme
       href: troubleshoot.md
 - name: Kavramlar

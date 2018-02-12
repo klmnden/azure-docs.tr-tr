@@ -236,6 +236,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Pazarlama blogu](http://blogs.technet.com/b/cis/)
 ## [Pazarlama blogu](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [StorSimple Desteği seçenekleri](storsimple-8000-support-options.md)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
