@@ -1,6 +1,6 @@
 ---
-title: "Azure şeması Otomasyon - FedRAMP için Web uygulamaları"
-description: "Azure şeması Otomasyon - FedRAMP için Web uygulamaları"
+title: "Azure güvenlik ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme"
+description: "Azure güvenlik ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Azure şeması Otomasyon - FedRAMP için Web uygulamaları
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure güvenlik ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme
 
 ## <a name="overview"></a>Genel Bakış
 
-[Federal Risk ve yetkilendirme yönetimi programı (FedRAMP)](https://www.fedramp.gov), bulut ürünleri için güvenlik değerlendirmesi, yetkilendirme ve sürekli izleme için standartlaştırılmış bir yaklaşım sağlayan bir ABD devlet genelinde program ve Hizmetler. Azure bu şeması Otomasyon - Web uygulamaları FedRAMP için basit bir Internet'e yönelik web uygulaması için uygun bir hizmet (Iaas) ortamı olarak FedRAMP uyumlu bir altyapı dağıtımı için yönergeler sağlar. Bu çözüm dağıtımını ve yapılandırmasını, müşteriler karşılamak belirli güvenlik ve uyumluluk gereksinimleri ve görevi görür müşterilerin için bir temel olarak yolları gösteren bir ortak başvuru mimarisi için Azure kaynaklarını otomatikleştirir ve kendi çözümleri Azure üzerinde yapılandırın. Çözüm NIST SP 800 53 tabanlı FedRAMP yüksek taban çizgisi denetimleri kümesini uygular. FedRAMP yüksek gereksinimleri ve bu çözüm hakkında daha fazla bilgi için bkz: [FedRAMP yüksek gereksinimleri - yüksek düzey genel bakış](fedramp-controls-overview.md). ***Not: Bu çözüm için Azure kamu dağıtır.***
+[Federal Risk ve yetkilendirme yönetimi programı (FedRAMP)](https://www.fedramp.gov), bulut ürünleri için güvenlik değerlendirmesi, yetkilendirme ve sürekli izleme için standartlaştırılmış bir yaklaşım sağlayan bir ABD devlet genelinde program ve Hizmetler. Bu Azure güvenliği ve uyumluluk şeması Otomasyon basit bir Internet'e yönelik web uygulaması için uygun bir hizmet (Iaas) ortamı olarak FedRAMP uyumlu bir altyapı dağıtımı için yönergeler sağlar. Bu çözüm dağıtımını ve yapılandırmasını, müşteriler karşılamak belirli güvenlik ve uyumluluk gereksinimleri ve görevi görür müşterilerin için bir temel olarak yolları gösteren bir ortak başvuru mimarisi için Azure kaynaklarını otomatikleştirir ve kendi çözümleri Azure üzerinde yapılandırın. Çözüm NIST SP 800 53 tabanlı FedRAMP yüksek taban çizgisi denetimleri kümesini uygular. FedRAMP yüksek gereksinimleri ve bu çözüm hakkında daha fazla bilgi için bkz: [FedRAMP yüksek gereksinimleri - yüksek düzey genel bakış](fedramp-controls-overview.md). ***Not: Bu çözüm için Azure kamu dağıtır.***
 
 Bu mimari müşterilerin belirli gereksinimlerine ayarlamak bir temel olarak hizmet için tasarlanmıştır ve olarak kullanılmamalıdır-bir üretim ortamında. Bir uygulama değişiklik yapmadan bu ortamına dağıtma tamamen FedRAMP yüksek temel gereksinimlerini karşılamak için yeterli değil. Lütfen şunlara dikkat edin:
 - Bu mimari, müşterilerin Azure FedRAMP uyumlu bir biçimde kullanmalarını sağlamak için bir temel sağlar.
@@ -36,17 +36,17 @@ Tıklatın [burada](https://aka.ms/fedrampblueprintrepo) dağıtım yönergeleri
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 
-Bu Azure şeması Otomasyonu Iaas web uygulama başvuru mimarisinin FedRAMP gereksinimleri ile uyumluluk elde müşterilere yardımcı olmak için önceden yapılandırılmış güvenlik denetimleri ile otomatik olarak dağıtır. Çözüm, Azure Resource Manager şablonları ve kaynak dağıtım ve Yapılandırma Kılavuzu PowerShell betikleri oluşur. Azure şeması eşlik [uyumluluk belgelerine](#compliance-documentation) , Azure ve dağıtılan kaynakları ve NIST SP ile 800 53 güvenlik denetimleri, böylece hizalama yapılandırmaları güvenlik denetiminin devralmadan belirten sağlanır kuruluşların Fast track uyumluluk yükümlülüklerin etkinleştiriliyor.
+Bu Azure güvenliği ve uyumluluk şeması Otomasyon Iaas web uygulama başvuru mimarisinin FedRAMP gereksinimleri ile uyumluluk elde müşterilere yardımcı olmak için önceden yapılandırılmış güvenlik denetimleri ile otomatik olarak dağıtır. Çözüm, Azure Resource Manager şablonları ve kaynak dağıtım ve Yapılandırma Kılavuzu PowerShell betikleri oluşur. Eşlik eden [uyumluluk belgelerine](#compliance-documentation) sağlanır, Azure ve dağıtılan kaynakları ve NIST SP ile 800 53 güvenlik denetimleri hizalama yapılandırmaları güvenlik denetiminin devralmadan belirten, böylece etkinleştirme Fast track uyumluluk yükümlülüklerin kuruluşların.
 
 ## <a name="architecture-diagram"></a>Mimari diyagramı
 
 Bu çözüm, bir veritabanı arka ucu ile bir Iaas web uygulaması için bir başvuru mimarisi dağıtır. Web katmanı mimarisi içerir, veri katmanı, Active Directory altyapısını, uygulama ağ geçidi ve yük dengeleyici. İçin web ve veri katmanlarını dağıtılan sanal makinelerin bir kullanılabilirlik kümesine yapılandırılır ve SQL Server örneklerinin bir AlwaysOn Kullanılabilirlik grubu yüksek kullanılabilirlik için yapılandırılır. Sanal makinelerin etki alanına katılan ve Active Directory grup ilkeleri, işletim sistemi düzeyinde güvenlik ve uyumluluk yapılandırmaları uygulamak için kullanılır. Yönetim jumpbox (savunma ana bilgisayarı) kaynaklara dağıtılan erişmek için Yöneticiler için güvenli bir bağlantı sağlar.
 
-![Alternatif metin](images/fedramp-architectural-diagram.png?raw=true "Iaas web uygulama şeması Otomasyon FedRAMP uyumlu ortamlar için")
+![Alternatif metin](images/fedramp-architectural-diagram.png?raw=true "Azure güvenliği ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme")
 
 Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayrıntılarını içinde bulunur [dağıtım mimarisi](#deployment-architecture) bölümü.
 
-* **Azure sanal makineler**
+* **Azure Sanal Makineler**
     - (1) yönetim/savunma (Windows Server 2016 Datacenter)
     - (2) active Directory etki alanı denetleyicisi (Windows Server 2016 Datacenter)
     - (2) SQL Server küme düğümü (Windows Server 2012 R2'de SQL Server 2016)
@@ -55,7 +55,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayr�
 * **Kullanılabilirlik Kümeleri**
     - (1) active Directory etki alanı denetleyicileri
     - (1) SQL küme düğümlerini ve Tanık
-    - (1) web/IIS
+    - (1) Web/IIS
 * **Azure Sanal Ağ**
     - (1) /16 sanal ağlar
     - (5) /24 alt ağlar
@@ -91,7 +91,7 @@ Aşağıdaki bölümde geliştirme ve uygulama öğeleri ayrıntılarını verir
 
 Mimari web uygulaması Güvenlik Duvarı (WAF) sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Ek özellikler şunları içerir:
 
-- [SSL uç bitiş](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Etkinleştirme [SSL boşaltma](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Devre dışı [TLS v1.0 ve v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web uygulaması güvenlik duvarı](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (WAF mod)
@@ -118,7 +118,7 @@ Alt ağlar, ayrılmış bir ağ güvenlik grubu (NSG) sahiptir:
 
 Her alt ağ, karşılık gelen NSG ile ilişkilidir.
 
-### <a name="data-at-rest"></a>Rest verileri
+### <a name="data-at-rest"></a>Bekleyen veriler
 
 Mimari, çeşitli şifreleme ölçüleri kullanarak rest verileri korur.
 
@@ -126,7 +126,7 @@ Mimari, çeşitli şifreleme ölçüleri kullanarak rest verileri korur.
 
 Bekleyen sırasında veri şifreleme gereksinimlerini karşılamak üzere tüm depolama hesapları kullanmak [depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-#### <a name="sql-database"></a>SQL Veritabanı
+#### <a name="sql-database"></a>SQL Database
 
 SQL veritabanını kullanacak şekilde yapılandırılmış [saydam veri şifreleme (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), gerçek zamanlı şifreleme ve şifre çözme REST bilgileri korumak için veri ve günlük dosyalarının gerçekleştirir. TDE, depolanan verileri güvence yetkisiz erişim ayarlanmadı sağlar. 
 
@@ -138,8 +138,8 @@ Azure Disk şifrelemesi şifrelenmiş Windows Iaas sanal makine disklerini kulla
 
 [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) , sistem ve kullanıcı etkinliğini ve bunun yanı sıra sistem durumu ayrıntılı günlük kaydını sağlar. 
 
-- **Etkinlik günlükleri:**[etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.  
-- **Tanılama günlüklerini:**[tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri.   Bu günlükler Windows olayı sistem günlükleri, Azure depolama günlükleri, anahtar kasası denetim günlüklerini ve uygulama ağ geçidi erişimi ve güvenlik duvarı günlüklerini içerir.
+- **Etkinlik günlükleri:**[etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.
+- **Tanılama günlüklerini:**[tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri. Bu günlükler Windows olayı sistem günlükleri, Azure depolama günlükleri, anahtar kasası denetim günlüklerini ve uygulama ağ geçidi erişimi ve güvenlik duvarı günlüklerini içerir.
 - **Günlük arşivleme:** Azure etkinlik ve tanılama günlükleri bağlanması için Azure günlük analizi işleme, depolama ve dashboarding için. Bekletme kuruluşa özgü bekletme gereksinimlerini karşılamak için kullanıcı tarafından 730 gününe yapılandırılabilen ayarlama.
 
 ### <a name="secrets-management"></a>Gizlilik Yönetimi
@@ -157,7 +157,7 @@ Aşağıdaki teknolojileri kimlik Azure ortamı yönetim yetenekleri sağlar.
 - [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) tam olarak Azure için odaklı erişim yönetimi sağlar. Abonelik erişim Abonelik Yöneticisi sınırlıdır ve kullanıcı rolüne bağlı kaynaklara erişimi sınırlı olabilir.
 - Dağıtılan bir Iaas Active Directory örneğine dağıtılan Iaas sanal makineleri için işletim sistemi düzeyinde kimlik yönetimi sağlar.
    
-### <a name="compute-resources"></a>İşlem kaynaklarını
+### <a name="compute-resources"></a>İşlem kaynakları
 
 #### <a name="web-tier"></a>Web Katmanı
 
@@ -182,7 +182,7 @@ Yönetim jumpbox (savunma ana bilgisayarı) kaynaklara dağıtılan erişmek iç
 
 ### <a name="patch-management"></a>Düzeltme Eki Yönetimi
 
-Bu şeması Otomasyon tarafından dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm Ayrıca güncelleştirme dağıtımları düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabileceği OMS Azure Otomasyon çözümünü dağıtır.
+Bu Azure güvenliği ve uyumluluk şeması Otomasyon tarafından dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm Ayrıca güncelleştirme dağıtımları düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabileceği OMS Azure Otomasyon çözümünü dağıtır.
 
 ### <a name="operations-management"></a>İşlem yönetimi
 
@@ -211,11 +211,11 @@ Aşağıdaki OMS çözümleri bu çözümün bir parçası önceden yüklenir:
 
 ### <a name="control-implementation-matrix"></a>Denetim uygulama Matrisi
 
-[Denetim uygulama matris](https://aka.ms/blueprintwacim) (Excel çalışma kitabı) FedRAMP yüksek temeli tarafından gerekli tüm güvenlik denetimleri listeler. Matris gösterir, her denetim (veya denetim Altbölüm) için tasarlanmış bir Matristeki şeması Otomasyon denetimi ve uygulama ile nasıl hizalandığını 2) bir açıklama 1) uyguluyorsa müşteri-sorumlu bir şekilde müşteri sorumlulukları, requirement(s) denetler. Bu içerik da kullanılabilir [burada](fedramp-controls-overview.md).
+[Denetim uygulama matris](https://aka.ms/blueprintwacim) (Excel çalışma kitabı) FedRAMP yüksek temeli tarafından gerekli tüm güvenlik denetimleri listeler. Matris gösterir, her denetim (veya denetim Altbölüm) için tasarlanmış bir müşteri-sorumlu bir şekilde müşteri sorumlulukları matris şeması Otomasyon denetimi 1) uyguluyorsa ve 2) bir açıklamasını nasıl uygulaması ile hizalar requirement(s) denetler. Bu içerik da kullanılabilir [burada](fedramp-controls-overview.md).
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
-Bu Azure şeması çözüm JSON yapılandırma dosyaları ve kaynakları Azure içinde dağıtmak için Azure Resource Manager'ın API hizmeti tarafından işlenen PowerShell betikleri oluşur. Ayrıntılı dağıtım yönergeleri kullanılabilir [burada](https://aka.ms/fedrampblueprintrepo). ***Not: Bu çözüm için Azure kamu dağıtır.***
+Bu Azure güvenliği ve uyumluluk şeması Otomasyon den oluşur JSON yapılandırma dosyaları ve kaynakları Azure içinde dağıtmak için Azure Resource Manager'ın API hizmeti tarafından işlenen PowerShell komut dosyaları. Ayrıntılı dağıtım yönergeleri kullanılabilir [burada](https://aka.ms/fedrampblueprintrepo). ***Not: Bu çözüm için Azure kamu dağıtır.***
 
 #### <a name="quickstart"></a>Hızlı Başlangıç
 1. Kopyalama veya indirme [bu](https://aka.ms/fedrampblueprintrepo) yerel iş istasyonunuzu GitHub deposuna.

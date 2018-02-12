@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1cadec240dc7f6e3ac5b8932d66c3d55c76e42
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Medya Kodlayıcısı Premium iş akışı biçimleri ve codec bileşenleri
 > [!NOTE]
-> Premium Kodlayıcı sorular için mepd adresindeki Microsoft.com e-posta.
+> Premium Kodlayıcı sorular için e-posta mepd@microsoft.com.
 > 
 > Bu konuda tartışılan Medya Kodlayıcısı Premium iş akışı medya işlemcisi Çin'de kullanılamaz. 
 > 
@@ -51,8 +51,8 @@ Aşağıdaki bölümde bu medya işlemcisi giriş olarak destekleyen codec bile�
 
 ### <a name="input-video-codecs"></a>Görüntü codec bileşenleri giriş
 * AVC 8 bit/10-en fazla 4 bit: AVCIntra dahil olmak üzere 2:2
-* Hırslı DNxHD (içinde MXF)
-* DVCPro/DVCProHD (içinde MXF)
+* Avid DNxHD (in MXF)
+* DVCPro/DVCProHD (in MXF)
 * JPEG2000
 * MPEG-2 (422 profili ve yüksek düzey kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil)
 * MPEG-1
@@ -61,9 +61,9 @@ Aşağıdaki bölümde bu medya işlemcisi giriş olarak destekleyen codec bile�
 ### <a name="input-audio-codecs"></a>Giriş ses codec bileşenleri
 * AES (SMPTE 331 M ve 302 M, AES3 2003)
 * Dolby® E
-* Dolby® dijital (AC3)
+* Dolby® Digital (AC3)
 * AAC (AAC-LC, HE AAC ve AAC-HEv2; kadar 5.1)
-* MPEG Katman 2
+* MPEG Layer 2
 * MP3 (MPEG-1 ses Katman 3)
 * Windows Media Ses
 * WAV/PCM
@@ -74,7 +74,7 @@ Aşağıdaki bölümde bu medya işlemcisi çıktısı olarak desteklenen codec 
 ### <a name="output-containerfile-formats"></a>Çıktı kapsayıcı/dosya biçimleri
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM ve AS02)
-* DPP (AS11 dahil)
+* DPP (including AS11)
 * GXF
 * MPEG-4/MP4
 * Windows Media/ASF
@@ -84,8 +84,8 @@ Aşağıdaki bölümde bu medya işlemcisi çıktısı olarak desteklenen codec 
 
 ### <a name="output-video-codecs"></a>Çıktı görüntü codec bileşenleri
 * AVC (H.264; 8 bit; yüksek profili kadar 5.2; 4 K Ultra HD; düzey AVC içi)
-* Hırslı DNxHD (içinde MXF)
-* DVCPro/DVCProHD (içinde MXF)
+* Avid DNxHD (in MXF)
+* DVCPro/DVCProHD (in MXF)
 * MPEG-2 (422 profili ve yüksek düzey kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil)
 * MPEG-1
 * Windows Media Video/VC-1
@@ -93,10 +93,10 @@ Aşağıdaki bölümde bu medya işlemcisi çıktısı olarak desteklenen codec 
 
 ### <a name="output-audio-codecs"></a>Çıktı ses codec bileşenleri
 * AES (SMPTE 331 M ve 302 M, AES3 2003)
-* Dolby® dijital (AC3)
+* Dolby® Digital (AC3)
 * Dolby® dijital Plus (E-AC3) 7.1 kadar
 * AAC (AAC-LC, HE AAC ve AAC-HEv2; kadar 5.1)
-* MPEG Katman 2
+* MPEG Layer 2
 * MP3 (MPEG-1 ses Katman 3)
 * Windows Media Ses
 

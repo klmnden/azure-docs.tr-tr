@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/25/2017
+ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: dd78b1a8703f2e6aaa7854a7b3cb774d014e7270
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Veritabanı özellikleri
 
@@ -38,7 +38,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli özellikleri listeler ve her belirl
 | **SQL Server özelliği** | **Azure SQL veritabanı'nda desteklenen** | 
 | --- | --- |  
 | [Her zaman şifreli](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Evet - bkz [sertifika deposu](sql-database-always-encrypted.md) ve [anahtar kasası](sql-database-always-encrypted-azure-key-vault.md)|
-| [AlwaysOn Kullanılabilirlik grupları:](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Yüksek kullanılabilirlik ile her veritabanı dahil edilir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-geo-replication-overview.md) |
+| [AlwaysOn Kullanılabilirlik grupları:](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Yüksek kullanılabilirlik ile her veritabanı dahil edilir. Bkz: [yüksek kullanılabilirlik ve Azure SQL veritabanı](sql-database-high-availability.md). Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-geo-replication-overview.md) |
 | [Bir veritabanı ekleme](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Hayır |
 | [Uygulama rolleri](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Evet |
 |[Denetim](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Evet](sql-database-auditing.md)|
@@ -69,7 +69,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli özellikleri listeler ve her belirl
 | [DDL Tetikleyicileri](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Yalnızca veritabanı |
 | [Dağıtılmış işlemler - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Hayır - bkz [esnek işlemleri](sql-database-elastic-transactions-overview.md) |
 | [DML deyimleri](https://docs.microsoft.com/sql/t-sql/queries/queries) | Evet |
-| [DML Tetikleyicileri](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | Çoğu - tek tek deyimleri bakın | 
+| [DML Tetikleyicileri](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Çoğu - tek tek deyimleri bakın | 
 | [DMV’ler](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Bazı - tek tek Dmv'leri bakın |
 |[Dinamik veri maskeleme](/sql/relational-databases/security/dynamic-data-masking)|[Evet](sql-database-dynamic-data-masking-get-started.md)|
 | [Olay bildirimleri](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Hayır - bkz [uyarıları](sql-database-insights-alerts-portal.md) |
@@ -102,7 +102,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli özellikleri listeler ve her belirl
 | [Satır düzeyi güvenlik](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Evet |
 | [Anlam arama](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | Hayır |
 | [Sıra numaraları](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) | Evet |
-| [Hizmet Aracısı](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | Hayır |
+| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | Hayır |
 | [Sunucu Yapılandırma ayarları](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | Hayır |
 | [Set deyimleri](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Çoğu - tek tek deyimleri bakın 
 | [Uzamsal](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Evet |

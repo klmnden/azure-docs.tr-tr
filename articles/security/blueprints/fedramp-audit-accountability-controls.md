@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - denetim ve Sorumluluk"
-description: "Denetim ve Sorumluluk FedRAMP için-Web uygulamaları"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - denetim ve Sorumluluk"
+description: "FedRAMP Web uygulamaları Otomasyon - denetim ve Sorumluluk"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Denetim ve Sorumluluk (AU)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için denetim özelliğini Azure İzleyici ve OMS günlük analizi hizmeti tarafından sağlanır. Azure İzleyicisi dağıtılan kaynaklarla ilgili etkinliği hakkında ayrıntılı denetim günlüklerini sağlar. Bunlar ve işletim sistemi düzeyinde günlükleri günlük analizi tarafından toplanır ve OMS deposunda saklanır. Günlük analizi bu çözümü tarafından dağıtılmış kaynaklar genelinde karşılık gelen denetim verilerini ve müşteri tarafından dağıtılan web uygulamasına genişletilebilir. |
+| **Müşteri** | Bu ayrıntılı denetim özelliği Azure İzleyici ve OMS günlük analizi hizmeti tarafından sağlanır. Azure İzleyicisi dağıtılan kaynaklarla ilgili etkinliği hakkında ayrıntılı denetim günlüklerini sağlar. Bunlar ve işletim sistemi düzeyinde günlükleri günlük analizi tarafından toplanır ve OMS deposunda saklanır. Günlük analizi bu çözümü tarafından dağıtılmış kaynaklar genelinde karşılık gelen denetim verilerini ve müşteri tarafından dağıtılan web uygulamasına genişletilebilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından denetlenen olayları, olaylar meydana geldiğinde belirlemek yeterli bilgi, olay kaynağı, olay ve güvenlik olaylarını incelenmesi destekleyen diğer ayrıntılı bilgilerden sonucunu içerir. |
+| **Müşteri** | Bu şeması tarafından denetlenen olayları, olaylar meydana geldiğinde belirlemek yeterli bilgi, olay kaynağı, olay ve güvenlik olaylarını incelenmesi destekleyen diğer ayrıntılı bilgilerden sonucunu içerir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından denetlenen olayları Azure etkinlik günlükleri dağıtılan kaynakları, işletim sistemi düzeyinde günlükleri, Active Directory günlükleri için bu denetlenen vardır ve SQL Server günlüğe kaydeder. Müşteriler, iş gereksinimlerini karşılamak için denetlenecek ek olaylar seçebilirsiniz. |
+| **Müşteri** | Azure etkinlik günlükleri dağıtılan kaynakları, işletim sistemi düzeyinde günlükleri, Active Directory günlükleri tarafından denetlenen bu şeması tarafından denetlenen olayları içerir ve SQL Server günlüğe kaydeder. Müşteriler, iş gereksinimlerini karşılamak için denetlenecek ek olaylar seçebilirsiniz. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması yerleşik denetim yeteneklerine Azure, Windows Server ve SQL Server kullanır. Bu çözümleri yakalama denetim kayıtlarının bu denetim gereksinimlerini karşılamak için yeterli ayrıntılarla denetim. |
+| **Müşteri** | Bu ayrıntılı yerleşik denetim yeteneklerine Azure, Windows Server ve SQL Server kullanır. Bu çözümleri yakalama denetim kayıtlarının bu denetim gereksinimlerini karşılamak için yeterli ayrıntılarla denetim. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Azure etkinlik günlüğü olaylarını denetim bilgilerini 20'den fazla türleri için alanları içeren ayrıntılı bir şema kullanın. Etkinlik günlüğü ek olarak, bu Azure şeması Windows günlükleri, Linux günlükleri, Azure tanılama günlüklerini ve müşteri günlükleri de dahil olmak üzere veri kaynakları, farklı bir kümesini destekler OMS günlük analizi çözümde dağıtır.  |
+| **Müşteri** | Azure etkinlik günlüğü olaylarını denetim bilgilerini 20'den fazla türleri için alanları içeren ayrıntılı bir şema kullanın. Etkinlik günlüğü yanı sıra bu şeması Windows günlükleri, Linux günlükleri, Azure tanılama günlüklerini ve müşteri günlükleri de dahil olmak üzere veri kaynakları, farklı bir kümesini destekler OMS günlük analizi çözümde dağıtır.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan tüm sanal makineleri dağıtılan Active Directory etki alanına eklenir. Etki alanına katılmış tüm sanal makinelerin işletim sistemi düzeyinde denetim sistem yapılandırmasını merkezi olarak yönetmek üzere yapılandırılmış bir Grup İlkesi uygulayın. |
+| **Müşteri** | Bu şeması tarafından dağıtılan tüm sanal makineleri dağıtılan Active Directory etki alanına eklenir. Etki alanına katılmış tüm sanal makinelerin işletim sistemi düzeyinde denetim sistem yapılandırmasını merkezi olarak yönetmek üzere yapılandırılmış bir Grup İlkesi uygulayın. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması denetim kayıtlarının bir yıl boyunca korumak için yeterli depolama kapasitesi ayırır. Tüm denetim kayıtlarının bir yıllık bekletme için yapılandırılmış olan günlük analizi tarafından toplanır. |
+| **Müşteri** | Bu ayrıntılı denetim kayıtlarının bir yıl boyunca korumak için yeterli depolama kapasitesi ayırır. Tüm denetim kayıtlarının bir yıllık bekletme için yapılandırılmış olan günlük analizi tarafından toplanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynaklar tarafından oluşturulan tüm denetim kayıtlarının günlük analizi tarafından toplanan ve bir yıl boyunca tutulur. Bu denetim kaydı depolama için depolama ayırma dinamik olarak ayrılan yeterli kapasitesi sağlama kullanılabilir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynaklar tarafından oluşturulan tüm denetim kayıtlarının günlük analizi tarafından toplanan ve bir yıl boyunca tutulur. Bu denetim kaydı depolama için depolama ayırma dinamik olarak ayrılan yeterli kapasitesi sağlama kullanılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynaklar tarafından oluşturulan tüm denetim kayıtlarının günlük analizi tarafından toplanan ve bir yıl boyunca tutulur. Bu denetim kaydı depolama için depolama ayırma dinamik olarak ayrılan yeterli kapasitesi sağlama kullanılabilir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynaklar tarafından oluşturulan tüm denetim kayıtlarının günlük analizi tarafından toplanan ve bir yıl boyunca tutulur. Bu denetim kaydı depolama için depolama ayırma dinamik olarak ayrılan yeterli kapasitesi sağlama kullanılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması kuruluş genelinde situational tanıma destekleyici denetim verilerini dağıtılan kaynaklar arasında merkezileştirmek için OMS içinde günlük analizi çözüm uygular. Daha fazla günlük analizi diğer sistemlerle tümleştirmek için müşteriler may seçerseniz. |
+| **Müşteri** | Bu ayrıntılı günlük analizi çözümü kuruluş genelinde situational tanıma destekleme dağıtılan kaynaklar arasında denetim verilerini merkezileştirmek için OMS içinde uygular. Daha fazla günlük analizi diğer sistemlerle tümleştirmek için müşteriler may seçerseniz. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi çözüm dağıtılan kaynaklar, Destek Merkezi gözden geçirme, çözümleme ve raporlama arasında denetim verilerini merkezileştirmek için OMS içinde uygular. |
+| **Müşteri** | Bu ayrıntılı günlük analizi çözüm dağıtılan kaynaklar, Destek Merkezi gözden geçirme, çözümleme ve raporlama arasında denetim verilerini merkezileştirmek için OMS içinde uygular. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu kullanılabilir veri taban çizgisi ve düzeltme eki değerlendirmesi güvenlik açığı verileri ve günlük verilerini tümleştirme dağıtılan OMS çözümleri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu kullanılabilir veri taban çizgisi ve düzeltme eki değerlendirmesi güvenlik açığı verileri ve günlük verilerini tümleştirme dağıtılan OMS çözümleri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan Windows sanal makineleri bir kullanıcı saygı denetim bilgilerle gerçekleştirebileceğiniz eylemleri kısıtlamak işletim sistemi düzeyinde izinler uygulayın. Azure içinde kullanıcılar ya da kullanıcı grupları (örn., sahibi, katkıda bulunan, okuyucu veya özel bir rol) rollere göre herhangi bir kaynağa kullanılabilir eylemleri kısıtlamak için atanabilir veya günlük analizi dahil olmak üzere çözümleri, dağıtılan.  |
+| **Müşteri** | Bu şeması tarafından dağıtılan Windows sanal makineleri bir kullanıcı saygı denetim bilgilerle gerçekleştirebileceğiniz eylemleri kısıtlamak işletim sistemi düzeyinde izinler uygulayın. Azure içinde kullanıcılar ya da kullanıcı grupları (örn., sahibi, katkıda bulunan, okuyucu veya özel bir rol) rollere göre herhangi bir kaynağa kullanılabilir eylemleri kısıtlamak için atanabilir veya günlük analizi dahil olmak üzere çözümleri, dağıtılan.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi çözüm içinde OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. |
+| **Müşteri** | Bu ayrıntılı günlük analizi çözüm içinde OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi çözüm içinde OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. İçerik ve Denetim kayıtlarını zaman sıralama günlük analizi tarafından toplanan zaman değiştirilmiş değil. |
+| **Müşteri** | Bu ayrıntılı günlük analizi çözüm içinde OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. İçerik ve Denetim kayıtlarını zaman sıralama günlük analizi tarafından toplanan zaman değiştirilmiş değil. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi çözüm içinde OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. Log Analytics, depoda saklanan verilerin ayıklanması için güçlü bir sorgu dili içerir. |
+| **Müşteri** | Bu ayrıntılı günlük analizi çözüm içinde OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. Log Analytics, depoda saklanan verilerin ayıklanması için güçlü bir sorgu dili içerir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynak iç sistem saatlerinin zaman damgalarını denetim kaydı oluşturmak için kullanın. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynak iç sistem saatlerinin zaman damgalarını denetim kaydı oluşturmak için kullanın. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynak iç sistem saatlerinin zaman damgalarını denetim kaydı oluşturmak için kullanın. Zaman damgaları UTC olarak kaydedilir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynak iç sistem saatlerinin zaman damgalarını denetim kaydı oluşturmak için kullanın. Zaman damgaları UTC olarak kaydedilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynak iç sistem saatlerinin zaman damgalarını denetim kaydı oluşturmak için kullanın. İç sistem saatleri yapılandırılmış olan bir yetkili saat kaynağı ile eşitleme. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynak iç sistem saatlerinin zaman damgalarını denetim kaydı oluşturmak için kullanın. İç sistem saatleri yapılandırılmış olan bir yetkili saat kaynağı ile eşitleme. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynak iç sistem saatlerinin zaman damgalarını denetim kaydı oluşturmak için kullanın. İç sistem saatleri yapılandırılmış olan bir yetkili saat kaynağı ile eşitleme. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynak iç sistem saatlerinin zaman damgalarını denetim kaydı oluşturmak için kullanın. İç sistem saatleri yapılandırılmış olan bir yetkili saat kaynağı ile eşitleme. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Mantıksal erişim denetimleri denetim bilgileri ve bu Azure şeması içinde araçları yetkisiz erişim, değiştirilmesi ve silinmesini korumak için kullanılır. Azure Active Directory rol tabanlı Grup üyeliklerini kullanma onaylanan mantıksal erişimini zorunlu kılar. Denetim bilgilerini görüntülemek ve denetleme araçları kullanmak için özelliği bu izni gerektiren kullanıcılar sınırlı olabilir. |
+| **Müşteri** | Mantıksal erişim denetimleri denetim bilgileri ve bu şeması içinde araçları yetkisiz erişim, değiştirilmesi ve silinmesini korumak için kullanılır. Azure Active Directory rol tabanlı Grup üyeliklerini kullanma onaylanan mantıksal erişimini zorunlu kılar. Denetim bilgilerini görüntülemek ve denetleme araçları kullanmak için özelliği bu izni gerektiren kullanıcılar sınırlı olabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi hizmeti OMS uygular. Dağıtılan VM'ler ve Azure tanılama depolama hesapları günlük analizi için bağlı kaynaklar ve bunların kaynaktan ayrı olarak korunur. Verileri, içinde OMS tarafından yakın gerçek zamanlı olarak toplanır. |
+| **Müşteri** | Bu ayrıntılı günlük analizi hizmeti OMS uygular. Dağıtılan VM'ler ve Azure tanılama depolama hesapları günlük analizi için bağlı kaynaklar ve bunların kaynaktan ayrı olarak korunur. Verileri, içinde OMS tarafından yakın gerçek zamanlı olarak toplanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi hizmeti OMS uygular. Günlük analizi gelen verilerin güvenilir bir kaynaktan sertifikalar ve Azure kimlik doğrulaması ile veri bütünlüğünü doğrulayarak olmasını sağlar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi hizmeti OMS uygular. Günlük analizi gelen verilerin güvenilir bir kaynaktan sertifikalar ve Azure kimlik doğrulaması ile veri bütünlüğünü doğrulayarak olmasını sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Mantıksal erişim denetimleri denetim bilgileri ve bu Azure şeması içinde araçları yetkisiz erişim, değiştirilmesi ve silinmesini korumak için kullanılır. Azure Active Directory rol tabanlı Grup üyeliklerini kullanma onaylanan mantıksal erişimini zorunlu kılar. Denetim bilgilerini görüntülemek ve denetleme araçları kullanmak için özelliği bu izni gerektiren kullanıcılar sınırlı olabilir.
+| **Müşteri** | Mantıksal erişim denetimleri denetim bilgileri ve bu şeması içinde araçları yetkisiz erişim, değiştirilmesi ve silinmesini korumak için kullanılır. Azure Active Directory rol tabanlı Grup üyeliklerini kullanma onaylanan mantıksal erişimini zorunlu kılar. Denetim bilgilerini görüntülemek ve denetleme araçları kullanmak için özelliği bu izni gerektiren kullanıcılar sınırlı olabilir.
  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için denetim özelliğini Azure İzleyici ve OMS günlük analizi hizmeti tarafından sağlanır. Azure İzleyicisi dağıtılan kaynaklarla ilgili etkinliği hakkında ayrıntılı denetim günlüklerini sağlar. Bunlar ve işletim sistemi düzeyinde günlükleri günlük analizi tarafından toplanır ve OMS deposunda saklanır. Bu günlükler, bilgileri sistem olayları ayrıntılı kayıtlar içeriyordu ve inkar karşı korunmasına yardımcı olabilir. Ayrıca, verileri günlüğe kaydetmek için erişim unauthored değişiklik ya da günlük verilerinin silinmesini önlemek için rol tabanlı erişim denetimini kullanarak sınırlıdır. |
+| **Müşteri** | Bu ayrıntılı denetim özelliği Azure İzleyici ve OMS günlük analizi hizmeti tarafından sağlanır. Azure İzleyicisi dağıtılan kaynaklarla ilgili etkinliği hakkında ayrıntılı denetim günlüklerini sağlar. Bunlar ve işletim sistemi düzeyinde günlükleri günlük analizi tarafından toplanır ve OMS deposunda saklanır. Bu günlükler, bilgileri sistem olayları ayrıntılı kayıtlar içeriyordu ve inkar karşı korunmasına yardımcı olabilir. Ayrıca, verileri günlüğe kaydetmek için erişim unauthored değişiklik ya da günlük verilerinin silinmesini önlemek için rol tabanlı erişim denetimini kullanarak sınırlıdır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi hizmeti OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. Toplandığında, günlük analizi yapılandırması başına bir yıl için veriler korunur. |
+| **Müşteri** | Bu ayrıntılı günlük analizi hizmeti OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. Toplandığında, günlük analizi yapılandırması başına bir yıl için veriler korunur. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından denetlenen olayları Azure etkinlik günlükleri dağıtılan kaynakları, işletim sistemi düzeyinde günlükleri, Active Directory günlükleri için bu denetlenen vardır ve SQL Server günlüğe kaydeder. Müşteriler, iş gereksinimlerini karşılamak için denetlenecek ek olaylar seçebilirsiniz. |
+| **Müşteri** | Azure etkinlik günlükleri dağıtılan kaynakları, işletim sistemi düzeyinde günlükleri, Active Directory günlükleri tarafından denetlenen bu şeması tarafından denetlenen olayları içerir ve SQL Server günlüğe kaydeder. Müşteriler, iş gereksinimlerini karşılamak için denetlenecek ek olaylar seçebilirsiniz. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | İşlevler denetlenecek erişim, rol tabanlı erişim denetimini Azure içinde ve sanal makinede işletim sistemi düzeyinde kullanarak sınırlıdır. Bu Azure şeması tarafından dağıtılan kaynaklar tarafından denetlenmesi için seçilen olayları yapılandırmasını uygun rol tabanlı yetkilendirme sahip kullanıcılar tarafından yapılandırılabilir. |
+| **Müşteri** | İşlevler denetlenecek erişim, rol tabanlı erişim denetimini Azure içinde ve sanal makinede işletim sistemi düzeyinde kullanarak sınırlıdır. Bu şeması tarafından dağıtılan kaynaklar tarafından denetlenmesi için seçilen olayları yapılandırmasını uygun rol tabanlı yetkilendirme sahip kullanıcılar tarafından yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından denetlenen olayları Azure etkinlik günlükleri dağıtılan kaynakları, işletim sistemi düzeyinde günlükleri, Active Directory günlükleri için bu denetlenen vardır ve SQL Server günlüğe kaydeder. Müşteriler, iş gereksinimlerini karşılamak için denetlenecek ek olaylar seçebilirsiniz. |
+| **Müşteri** | Azure etkinlik günlükleri dağıtılan kaynakları, işletim sistemi düzeyinde günlükleri, Active Directory günlükleri tarafından denetlenen bu şeması tarafından denetlenen olayları içerir ve SQL Server günlüğe kaydeder. Müşteriler, iş gereksinimlerini karşılamak için denetlenecek ek olaylar seçebilirsiniz. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi hizmeti OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. Denetim kaydı zaman damgaları değiştirilmediğini, bu nedenle denetim izi zaman bağıntılı. |
+| **Müşteri** | Bu ayrıntılı günlük analizi hizmeti OMS uygular. Günlük analizi, merkezi bir depoya yönetilen kaynaklarından veri toplayarak OMS için izleme hizmetleri sağlar. Denetim kaydı zaman damgaları değiştirilmediğini, bu nedenle denetim izi zaman bağıntılı. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -596,5 +596,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | İşlevler denetlenecek erişim, rol tabanlı erişim denetimini Azure içinde ve sanal makinede işletim sistemi düzeyinde kullanarak sınırlıdır. Bu Azure şeması tarafından dağıtılan kaynaklar tarafından denetlenmesi için seçilen olayları yapılandırmasını uygun rol tabanlı yetkilendirme sahip kullanıcılar tarafından yapılandırılabilir. |
+| **Müşteri** | İşlevler denetlenecek erişim, rol tabanlı erişim denetimini Azure içinde ve sanal makinede işletim sistemi düzeyinde kullanarak sınırlıdır. Bu şeması tarafından dağıtılan kaynaklar tarafından denetlenmesi için seçilen olayları yapılandırmasını uygun rol tabanlı yetkilendirme sahip kullanıcılar tarafından yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |

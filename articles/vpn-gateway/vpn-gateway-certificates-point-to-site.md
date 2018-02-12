@@ -1,6 +1,6 @@
 ---
 title: "Oluştur ve noktası Site için sertifikalar verme: PowerShell: Azure | Microsoft Docs"
-description: "Bu makale, otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve Windows 10'PowerShell kullanarak istemci sertifikalarını oluşturmak için adımlar içerir."
+description: "Bu makale, otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve Windows 10 veya Windows Server 2016 PowerShell kullanarak istemci sertifikalarını oluşturmak için adımlar içerir."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Oluşturma ve PowerShell kullanarak Windows 10 noktadan siteye bağlantıları için sertifikaları verme
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Oluşturma ve Windows 10 veya Windows Server 2016 PowerShell kullanarak noktadan siteye bağlantıları için sertifikaları verme
 
-Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan sertifika oluşturmak ve Windows 10'PowerShell kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Kök sertifikalarını yüklemek nasıl gibi noktadan siteye yapılandırma adımlarını arıyorsanız ' yapılandırma noktası siteye ' makaleleri birini aşağıdaki listeden seçin:
+Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan sertifika oluşturmak ve Windows 10 veya Windows Server 2016 PowerShell kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Kök sertifikalarını yüklemek nasıl gibi noktadan siteye yapılandırma adımlarını arıyorsanız ' yapılandırma noktası siteye ' makaleleri birini aşağıdaki listeden seçin:
 
 > [!div class="op_single_selector"]
 > * [Otomatik olarak imzalanan sertifikalar - PowerShell oluşturma](vpn-gateway-certificates-point-to-site.md)
@@ -35,15 +35,15 @@ Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullan�
 > 
 
 
-Windows 10 çalıştıran bir bilgisayarda bu makaledeki adımları uygulamanız gerekir. Sertifikalarını oluşturmak için kullandığınız PowerShell cmdlet'leri Windows 10 işletim sisteminin bir parçası olan ve diğer Windows sürümlerinde çalışmaz. Windows 10 bilgisayarını, yalnızca sertifikalarını oluşturmak için gereklidir. Sertifikaları oluşturduktan sonra bunları karşıya yükleyebilir veya tüm desteklenen istemci işletim sistemine yükleyin. 
+Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda bu makaledeki adımları uygulamanız gerekir. Sertifikalarını oluşturmak için kullandığınız PowerShell cmdlet'leri işletim sisteminin bir parçasıdır ve diğer Windows sürümlerinde çalışmaz. Windows 10 veya Windows Server 2016 bilgisayar yalnızca sertifikalarını oluşturmak için gereklidir. Sertifikaları oluşturduktan sonra bunları karşıya yükleyebilir veya tüm desteklenen istemci işletim sistemine yükleyin. 
 
-Bir Windows 10 bilgisayara erişiminiz yoksa kullanabileceğiniz [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) sertifikalarını oluşturmak için. Her iki yöntemi kullanarak oluşturduğunuz sertifikalar herhangi yüklenebilir [desteklenen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) istemci işletim sistemi.
+Windows 10 veya Windows Server 2016 bir bilgisayara erişiminiz yoksa kullanabileceğiniz [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) sertifikalarını oluşturmak için. Her iki yöntemi kullanarak oluşturduğunuz sertifikalar herhangi yüklenebilir [desteklenen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) istemci işletim sistemi.
 
 ## <a name="rootcert"></a>Otomatik olarak imzalanan sertifika oluştur
 
 Bir otomatik olarak imzalanan sertifika oluşturmak için New-SelfSignedCertificate cmdlet'ini kullanın. Ek parametre bilgi için bkz: [yeni SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Windows 10 çalıştıran bir bilgisayarda, yükseltilmiş ayrıcalıklarla bir Windows PowerShell konsolu açın.
+1. Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda, yükseltilmiş ayrıcalıklarla bir Windows PowerShell konsolu açın.
 2. Otomatik olarak imzalanan sertifika oluşturmak için aşağıdaki örneği kullanın. Aşağıdaki örnek, '' Sertifikalar-Geçerli User\Personal\Certificates' otomatik olarak yüklenen P2SRootCert' adlı otomatik olarak imzalanan bir sertifika oluşturur. Sertifika açarak görüntüleyebileceğiniz *certmgr.msc*, veya *kullanıcı sertifikaları yönetme*.
 
   ```powershell

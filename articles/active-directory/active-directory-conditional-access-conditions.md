@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 22cc43a861e2a9d1d0c508da362a5f0b48d0c268
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları 
 
 İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bir koşullu erişim ilkesi ("bunu") yanıt ("Bu durumda") ilkeniz tetikleme nedenini tanımlayın. 
 
-![Denetim](./media/active-directory-conditional-access-conditions/10.png)
+![denetimi](./media/active-directory-conditional-access-conditions/10.png)
 
 
 Koşullu erişim bağlamında:
@@ -36,7 +36,7 @@ Koşullu erişim bağlamında:
 
 Koşullarınızı erişim denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
 
-![Denetim](./media/active-directory-conditional-access-conditions/61.png)
+![denetimi](./media/active-directory-conditional-access-conditions/61.png)
 
 Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldıkları hakkında genel bir bakış sağlar. 
 
@@ -45,7 +45,7 @@ Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldıklar�
 
 Kullanıcılar ve gruplar bir koşullu erişim ilkesi zorunlu bir durumdur. Ya da seçim yapabileceğiniz ilkenizde, **tüm kullanıcıların** veya belirli kullanıcılar ve Gruplar'ı seçin.
 
-![Denetim](./media/active-directory-conditional-access-conditions/02.png)
+![denetimi](./media/active-directory-conditional-access-conditions/02.png)
 
 Seçtiğinizde:
 
@@ -67,7 +67,7 @@ Web siteleri bir bulut uygulamasıdır veya hizmet. Azure uygulama ara sunucusu 
 
 Bulut uygulamaları bir koşullu erişim ilkesi zorunlu bir durumdur. Ya da seçim yapabileceğiniz ilkenizde, **tüm bulut uygulamaları** veya belirli uygulamaları seçin.
 
-![Denetim](./media/active-directory-conditional-access-conditions/03.png)
+![denetimi](./media/active-directory-conditional-access-conditions/03.png)
 
 Şunları seçebilirsiniz:
 

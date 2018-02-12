@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - erişim denetimi"
-description: "Web uygulamaları için FedRAMP - erişim denetimi"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - erişim denetimi"
+description: "FedRAMP Web uygulamaları Otomasyon - erişim denetimi"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="access-control-ac"></a>Erişim denetimi (AC)
+# <a name="access-control-ac"></a>Access Control (AC)
 
 > [!NOTE]
-> Bu denetimler NIST ve ABD tarafından tanımlanır Ticaret Bakanlığı NIST özel yayını 800-53 düzeltme 4 bir parçası olarak. NIST 800 53 düzeltme 4 yordamları ve yönergeler her denetim için test etme hakkında bilgi için lütfen bakın.
+> Bu denetimler NIST ve ABD tarafından tanımlanır Ticaret Bakanlığı NIST özel yayını 800-53 düzeltme 4 bir parçası olarak. Yordamlar ve yönergeler her denetim için test etme hakkında bilgi için NIST 800 53 düzeltme 4 bakın.
 
 ## <a name="nist-800-53-control-ac-1"></a>NIST 800 53 denetim AC-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması kullanır ve aşağıdaki sistem hesabı türleri uygulayan: (çözümü dağıtmak ve Azure kaynaklarına erişimi yönetmek için kullanılan) Azure Active Directory Kullanıcıları, Windows işletim sistemi kullanıcıları (Active Directory tarafından yönetilen), SQL Server hizmet hesabı. |
+| **Müşteri** | Bu şeması kullanır ve aşağıdaki sistem hesabı türleri uygulayan: (çözümü dağıtmak ve Azure kaynaklarına erişimi yönetmek için kullanılan) Azure Active Directory Kullanıcıları, Windows işletim sistemi kullanıcıları (Active Directory tarafından yönetilen), SQL Server hizmet hesabı. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri etkinleştirin. OMS alışılmadık etkinliği şüpheli veya diğer önceden tanımlanmış olaylarından uyarıları göndermek üzere yapılandırılabilir. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. OMS alışılmadık etkinliği şüpheli veya diğer önceden tanımlanmış olaylarından uyarıları göndermek üzere yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması, geçici veya Acil Durum hesapları dağıtmayı değil. El ile devre dışı bırakılırsa, dağıtılan etki alanı denetleyicisi otomatik olarak tüm etkin olmayan hesaplar 35 gün sonra devre dışı bırakır. |
+| **Müşteri** | Bu şeması, geçici veya Acil Durum hesapları dağıtmayı değil. El ile devre dışı bırakılırsa, dağıtılan etki alanı denetleyicisi otomatik olarak tüm etkin olmayan hesaplar 35 gün sonra devre dışı bırakır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan etki alanı denetleyicisi, işlem yapılmadan geçen süre 35 gün sonra tüm kullanıcı hesapları devre dışı bırakmak için yapılandırılır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan etki alanı denetleyicisi, işlem yapılmadan geçen süre 35 gün sonra tüm kullanıcı hesapları devre dışı bırakmak için yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Aşağıdaki sistem hesap türleri bu Azure şeması uygulayan: Azure Active Directory kullanıcılarını, Windows işletim sistemi kullanıcılar, SQL Server hizmet hesabı. Azure Active Directory hesabı yönetim eylemleri bir olayı Azure etkinlik günlüğü oluşturur; İşletim sistemi düzeyinde bir hesap yönetimi eylemleri sistem günlüğüne bir olay oluşturur. Bu günlükler günlük analizi tarafından toplanan ve OMS deposunda saklanır. OMS önceden tanımlanmış olaylar meydana geldiğinde uyarıları göndermek üzere yapılandırılabilir.  |
+| **Müşteri** | Aşağıdaki sistem hesap türleri bu şeması uygulayan: Azure Active Directory kullanıcılarını, Windows işletim sistemi kullanıcılar, SQL Server hizmet hesabı. Azure Active Directory hesabı yönetim eylemleri bir olayı Azure etkinlik günlüğü oluşturur; İşletim sistemi düzeyinde bir hesap yönetimi eylemleri sistem günlüğüne bir olay oluşturur. Bu günlükler günlük analizi tarafından toplanan ve OMS deposunda saklanır. OMS önceden tanımlanmış olaylar meydana geldiğinde uyarıları göndermek üzere yapılandırılabilir.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -273,11 +273,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Aşağıdaki sistem hesap türleri bu Azure şeması uygulayan: Azure Active Directory kullanıcılarını, Windows işletim sistemi kullanıcılar, SQL Server hizmet hesabı. Azure Active Directory hesap ayrıcalığı kullanıcıları rollere atama tarafından rol tabanlı erişim denetimini kullanarak uygulanır; Active Directory hesap ayrıcalığı kullanıcıları güvenlik gruplarına atayarak rol tabanlı erişim denetimini kullanarak uygulanır. Bu rol tabanlı düzenleri iş gereksinimlerini karşılamak üzere müşteri tarafından genişletilebilir. |
+| **Müşteri** | Aşağıdaki sistem hesap türleri bu şeması uygulayan: Azure Active Directory kullanıcılarını, Windows işletim sistemi kullanıcılar, SQL Server hizmet hesabı. Azure Active Directory hesap ayrıcalığı kullanıcıları rollere atama tarafından rol tabanlı erişim denetimini kullanarak uygulanır; Active Directory hesap ayrıcalığı kullanıcıları güvenlik gruplarına atayarak rol tabanlı erişim denetimini kullanarak uygulanır. Bu rol tabanlı düzenleri iş gereksinimlerini karşılamak üzere müşteri tarafından genişletilebilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ### <a name="nist-800-53-control-ac-2-7b"></a>NIST 800 53 AC-2 (7) .b denetleme
+ ### <a name="nist-800-53-control-ac-2-7b"></a>NIST 800-53 Control AC-2 (7).b
 
 #### <a name="account-management--role-based-schemes"></a>Hesap Yönetimi | Rol tabanlı düzenleri
 
@@ -287,11 +287,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. Bu çözüm, ayrıcalıklı rol atamaları bildirmek için sorgulanabilir. |
+| **Müşteri** | Bu şeması OMS güvenlik denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. Bu çözüm, ayrıcalıklı rol atamaları bildirmek için sorgulanabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ### <a name="nist-800-53-control-ac-2-7c"></a>NIST 800 53 AC-2 (7) .c denetleme
+ ### <a name="nist-800-53-control-ac-2-7c"></a>NIST 800-53 Control AC-2 (7).c
 
 #### <a name="account-management--role-based-schemes"></a>Hesap Yönetimi | Rol tabanlı düzenleri
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Hiç paylaşılan grubu hesabı bu Azure şeması tarafından dağıtılan kaynak üzerinde etkindir. |
+| **Müşteri** | Hiç paylaşılan grubu hesabı bu şeması tarafından dağıtılan kaynak üzerinde etkindir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Hiç paylaşılan grubu hesabı bu Azure şeması tarafından dağıtılan kaynak üzerinde etkindir. |
+| **Müşteri** | Hiç paylaşılan grubu hesabı bu şeması tarafından dağıtılan kaynak üzerinde etkindir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi Active Directory'de oluşturulan ve gün saat kısıtlamaları veya diğer hesap kullanım koşulları uygulamak için yapılandırılır. |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi Active Directory'de oluşturulan ve gün saat kısıtlamaları veya diğer hesap kullanım koşulları uygulamak için yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoya erişim denemesi dağıtılan kaynaklara karşı izlemek hesap yöneticileri sağlar. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoya erişim denemesi dağıtılan kaynaklara karşı izlemek hesap yöneticileri sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoya erişim denemesi dağıtılan kaynaklara karşı izlemek hesap yöneticileri etkinleştirin. Bu çözüm, alışılmadık etkinliği şüpheli veya diğer önceden tanımlanmış olaylarından uyarıları göndermek üzere yapılandırılabilir. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoya erişim denemesi dağıtılan kaynaklara karşı izlemek hesap yöneticileri sağlar. Bu çözüm, alışılmadık etkinliği şüpheli veya diğer önceden tanımlanmış olaylarından uyarıları göndermek üzere yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması roller, kullanıcılar güvenlik gruplarına atayarak Active Directory Kullanıcıları atayarak Azure Active Directory tarafından zorlanan rol tabanlı erişim denetimini kullanarak mantıksal erişimi yetkilerini zorunlu kılan ve Windows işletim sistemi düzeyinde denetler. Azure Active Directory rolleri kullanıcılara atanan veya grupları mantıksal kaynak, Grup veya abonelik düzeyinde Azure içindeki kaynaklara erişimi denetler. Active Directory güvenlik grupları, işletim sistemi düzeyinde kaynakları ve işlevleri mantıksal erişimi denetler. |
+| **Müşteri** | Roller, kullanıcılar güvenlik gruplarına atayarak Active Directory Kullanıcıları atayarak Azure Active Directory tarafından zorlanan rol tabanlı erişim denetimini kullanarak mantıksal erişimi yetkilerini bu şeması zorlar ve Windows işletim sistemi düzeyinde denetler. Azure Active Directory rolleri kullanıcılara atanan veya grupları mantıksal kaynak, Grup veya abonelik düzeyinde Azure içindeki kaynaklara erişimi denetler. Active Directory güvenlik grupları, işletim sistemi düzeyinde kaynakları ve işlevleri mantıksal erişimi denetler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması ağ güvenlik grupları, kaynaklar dağıtılır, alt ağlar için uygulama ağ geçidi, uygulanan kullanımı ile bilgi akışını kısıtlamaları zorunlu kılar ve yük dengeleyici. Ağ güvenlik grupları, onaylanan kurallara göre kaynakları arasındaki bilgi akışını denetlenir emin olun. Uygulama ağ geçidi ve yük dengeleyici, belirli kaynaklara trafiği yönlendirme onaylanan rollerine dinamik olarak bağlı. |
+| **Müşteri** | Bu ayrıntılı bilgi akışını kısıtlamaları hangi kaynaklara dağıtılır, alt ağlar için uygulama ağ geçidi, uygulanan ağ güvenlik grupları kullanılarak uygular ve yük dengeleyici. Ağ güvenlik grupları, onaylanan kurallara göre kaynakları arasındaki bilgi akışını denetlenir emin olun. Uygulama ağ geçidi ve yük dengeleyici, belirli kaynaklara trafiği yönlendirme onaylanan rollerine dinamik olarak bağlı. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması görevlerini kuruluş gereksinimlerine göre ayırmak için yapılandırılan rol tabanlı erişim denetimi uygular. Azure Active Directory hesap ayrıcalığı kullanıcıları rollere atama tarafından rol tabanlı erişim denetimini kullanarak uygulanır; Active Directory hesap ayrıcalığı kullanıcıları güvenlik gruplarına atayarak rol tabanlı erişim denetimini kullanarak uygulanır. |
+| **Müşteri** | Bu şeması görevlerini kuruluş gereksinimlerine göre ayırmak için yapılandırılmış rol tabanlı erişim denetimlerini uygular. Azure Active Directory hesap ayrıcalığı kullanıcıları rollere atama tarafından rol tabanlı erişim denetimini kullanarak uygulanır; Active Directory hesap ayrıcalığı kullanıcıları güvenlik gruplarına atayarak rol tabanlı erişim denetimini kullanarak uygulanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması kullanıcıların yalnızca açıkça atanan ayrıcalıkları sınırlamak için rol tabanlı erişim denetimi uygular. Azure Active Directory hesap ayrıcalığı kullanıcıları rollere atama tarafından rol tabanlı erişim denetimini kullanarak uygulanır; Active Directory hesap ayrıcalığı kullanıcıları güvenlik gruplarına atayarak rol tabanlı erişim denetimini kullanarak uygulanır.  |
+| **Müşteri** | Bu şeması kullanıcıların yalnızca açıkça atanan ayrıcalıkları sınırlamak için rol tabanlı erişim denetimi uygular. Azure Active Directory hesap ayrıcalığı kullanıcıları rollere atama tarafından rol tabanlı erişim denetimini kullanarak uygulanır; Active Directory hesap ayrıcalığı kullanıcıları güvenlik gruplarına atayarak rol tabanlı erişim denetimini kullanarak uygulanır.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -571,7 +571,7 @@ ms.lasthandoff: 11/23/2017
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ### <a name="nist-800-53-control-ac-6-7b"></a>NIST 800 53 AC-6 (7) .b denetleme
+ ### <a name="nist-800-53-control-ac-6-7b"></a>NIST 800-53 Control AC-6 (7).b
 
 #### <a name="least-privilege--review-of-user-privileges"></a>En az ayrıcalık | Kullanıcı ayrıcalıkları, gözden geçirme
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması kullanıcıların yalnızca açıkça atanan ayrıcalıkları sınırlamak için rol tabanlı erişim denetimi uygular. Sanal makine işletim sistemi düzeyinde korumaları yazılım yürütme kullanıcıların daha yüksek bir ayrıcalık düzeyinde çalıştırmak yazılım izin vermez. |
+| **Müşteri** | Bu şeması kullanıcıların yalnızca açıkça atanan ayrıcalıkları sınırlamak için rol tabanlı erişim denetimi uygular. Sanal makine işletim sistemi düzeyinde korumaları yazılım yürütme kullanıcıların daha yüksek bir ayrıcalık düzeyinde çalıştırmak yazılım izin vermez. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi hizmeti OMS uygular. Dağıtılan VM'ler ve Azure tanılama depolama hesaplarıdır ayrıcalıklı işlevleri yürütmesini denetlenir günlük analizi sağlamak için bağlı kaynaklar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi hizmeti OMS uygular. Dağıtılan VM'ler ve Azure tanılama depolama hesaplarıdır ayrıcalıklı işlevleri yürütmesini denetlenir günlük analizi sağlamak için bağlı kaynaklar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -623,7 +623,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması kullanıcıların yalnızca açıkça atanan ayrıcalıkları sınırlamak için rol tabanlı erişim denetimi uygular.  |
+| **Müşteri** | Bu şeması kullanıcıların yalnızca açıkça atanan ayrıcalıkları sınırlamak için rol tabanlı erişim denetimi uygular.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -637,7 +637,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Azure portal sınırları ardışık geçersiz oturum açma kullanıcılar tarafından çalışır. Bir Grup İlkesi, bu Azure şeması tarafından dağıtılan tüm sanal makineleri için işletim sistemi düzeyinde uygulanır. İlke ardışık geçersiz oturum açma girişimlerinin en çok üç 15 dakikalık süre içinde kullanıcılar tarafından sınırlar. |
+| **Müşteri** | Azure portal sınırları ardışık geçersiz oturum açma kullanıcılar tarafından çalışır. Bir Grup İlkesi, bu şeması tarafından dağıtılan tüm sanal makineleri için işletim sistemi düzeyinde uygulanır. İlke ardışık geçersiz oturum açma girişimlerinin en çok üç 15 dakikalık süre içinde kullanıcılar tarafından sınırlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Kullanıcılar tarafından ardışık geçersiz oturum açma denemesinden sonra Azure portalı hesapları kilitler. Bir Grup İlkesi, bu Azure şeması tarafından dağıtılan tüm sanal makineleri için işletim sistemi düzeyinde uygulanır. İlke hesapları üç saat sonra kullanıcılar tarafından üç ardışık geçersiz oturum açma girişimleri için kilitler. |
+| **Müşteri** | Kullanıcılar tarafından ardışık geçersiz oturum açma denemesinden sonra Azure portalı hesapları kilitler. Bir Grup İlkesi, bu şeması tarafından dağıtılan tüm sanal makineleri için işletim sistemi düzeyinde uygulanır. İlke hesapları üç saat sonra kullanıcılar tarafından üç ardışık geçersiz oturum açma girişimleri için kilitler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi oturum açma öncesinde kullanıcılara görüntülenen bir sistem kullanımı bildirimi uygular. Not: Örnek sistem kullanımı bildirim Azure şeması uygular. Müşteri kuruluş ve/veya yasal gövde gereksinimlerini karşılamak için bu metni düzenlemeniz gerekir. |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi oturum açma öncesinde kullanıcılara görüntülenen bir sistem kullanımı bildirimi uygular. Not: Bu ayrıntılı bir örnek sistem kullanımı bildirimi uygular. Müşteri kuruluş ve/veya yasal gövde gereksinimlerini karşılamak için bu metni düzenlemeniz gerekir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi oturum açma öncesinde kullanıcılara görüntülenen bir sistem kullanımı bildirimi uygular. Kullanıcı oturum açma için bildirim kabul gerekir. |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi oturum açma öncesinde kullanıcılara görüntülenen bir sistem kullanımı bildirimi uygular. Kullanıcı oturum açma için bildirim kabul gerekir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bir işletim sistemi İlkesi, bu Azure şeması tarafından dağıtılan sanal makineleri için uygulanır. İlke eşzamanlı oturum kısıtlamaları (iki oturumları) uygular. |
+| **Müşteri** | Bir işletim sistemi İlkesi bu şeması tarafından dağıtılan sanal makineleri için uygulanır. İlke eşzamanlı oturum kısıtlamaları (iki oturumları) uygular. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi RDP oturumları için bir etkinlik kilidi uygular. Kullanıcılar, kilit el ile başlatabilir. |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi RDP oturumları için bir etkinlik kilidi uygular. Kullanıcılar, kilit el ile başlatabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi RDP oturumları için bir etkinlik kilidi uygular. Kullanıcılar oturum kilidini açmak için sağlamalarını gerekir.  |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi RDP oturumları için bir etkinlik kilidi uygular. Kullanıcılar oturum kilidini açmak için sağlamalarını gerekir.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi RDP oturumları için bir etkinlik kilidi uygular. Oturum kilidi önceden görülebilir bilgi gizler. |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi RDP oturumları için bir etkinlik kilidi uygular. Oturum kilidi önceden görülebilir bilgi gizler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan Windows sanal makineleri için Uzak Masaüstü Oturumu Ana Bilgisayar Yapılandırması kuruluş oturum sonlandırma gereksinimlerini karşılamak için yapılandırılabilir. |
+| **Müşteri** | Uzak Masaüstü Oturumu Ana bilgisayar yapılandırması bu şeması tarafından dağıtılan Windows sanal makineleri için kuruluş oturum sonlandırma gereksinimlerini karşılamak için yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Azure portal ve sanal makine bu Azure şeması tarafından dağıtılan işletim sistemleri, bir oturum kapatma başlatmak kullandığı etkinleştirin. |
+| **Müşteri** | Azure portal ve sanal makine bu şeması tarafından dağıtılan işletim sistemleri, bir oturum kapatma başlatmak kullandığı etkinleştirin. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -805,7 +805,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Azure portal ve sanal makine bu Azure şeması tarafından dağıtılan işletim sistemleri, bir oturum kapatma başlatmak kullandığı etkinleştirin. Oturum kapatma işlemi kullanıcılar oturum sonlandırıldı sağlar. |
+| **Müşteri** | Azure portal ve sanal makine bu şeması tarafından dağıtılan işletim sistemleri, bir oturum kapatma başlatmak kullandığı etkinleştirin. Oturum kapatma işlemi kullanıcılar oturum sonlandırıldı sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir müşteri uygulanan web uygulaması ve bir jumpbox aracılığıyla Uzak Masaüstü bağlantısı üzerinden Azure Portalı aracılığıyla bilgi sisteme uzaktan erişim sağlar. Azure portal ve Uzaktan Yardım oturumları aracılığıyla erişir denetlenir ve OMS izlenebilir. Müşteri web uygulaması için gereken uzaktan erişim denetimleri uygulamalıdır. |
+| **Müşteri** | Bu ayrıntılı bilgi sistemi bir müşteri uygulanan web uygulaması ve bir jumpbox aracılığıyla Uzak Masaüstü bağlantısı üzerinden Azure Portalı aracılığıyla uzak erişim sağlar. Azure portal ve Uzaktan Yardım oturumları aracılığıyla erişir denetlenir ve OMS izlenebilir. Müşteri web uygulaması için gereken uzaktan erişim denetimleri uygulamalıdır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure Azure portalı, Uzak Masaüstü Bağlantısı ve web uygulama ağ geçidi, şeması tarafından dağıtılan kaynaklara uzaktan erişim güvenli TLS kullanarak. |
+| **Müşteri** | Azure portalı, Uzak Masaüstü Bağlantısı ve web uygulama ağ geçidi dahil olmak üzere bu şeması tarafından dağıtılan kaynaklara uzaktan erişim güvenli TLS kullanarak. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -903,7 +903,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Uzaktan erişim bu Azure şeması tarafından dağıtılan notional web uygulaması için bir uygulama ağ geçidi üzerinden ' dir. Tüm diğer kaynaklara uzaktan erişim jumpbox ' dir. Genel olarak erişilebilen herhangi bir uç vardır. |
+| **Müşteri** | Uzaktan erişim bu şeması tarafından dağıtılan notional web uygulaması için bir uygulama ağ geçidi üzerinden ' dir. Tüm diğer kaynaklara uzaktan erişim jumpbox ' dir. Genel olarak erişilebilen herhangi bir uç vardır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -945,7 +945,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması Azure portalı, bir jumpbox aracılığıyla Uzak Masaüstü Bağlantısı ve bir web uygulaması aracılığıyla bilgi sisteme uzaktan erişim sağlar. Bir Azure Active Directory hesabı devre dışı veya kaldırılmış Azure portal erişim hemen kesilir. Benzer şekilde, bir sanal makine işletim sistemi düzeyinde bir hesap devre dışı veya kaldırılmış jumpbox aracılığıyla uzak masaüstü erişimi hemen kesilir. Müşteriler, uzaktan erişim uygulanmalı web uygulamasının bağlantısını kesin. |
+| **Müşteri** | Bu ayrıntılı bilgileri sistem Azure portalı, bir jumpbox aracılığıyla Uzak Masaüstü Bağlantısı ve bir web uygulaması aracılığıyla uzak erişim sağlar. Bir Azure Active Directory hesabı devre dışı veya kaldırılmış Azure portal erişim hemen kesilir. Benzer şekilde, bir sanal makine işletim sistemi düzeyinde bir hesap devre dışı veya kaldırılmış jumpbox aracılığıyla uzak masaüstü erişimi hemen kesilir. Müşteriler, uzaktan erişim uygulanmalı web uygulamasının bağlantısını kesin. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -1159,7 +1159,7 @@ ms.lasthandoff: 11/23/2017
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ## <a name="nist-800-53-control-ac-22a"></a>NIST 800 53 denetim AC-22.a
+ ## <a name="nist-800-53-control-ac-22a"></a>NIST 800-53 Control AC-22.a
 
 #### <a name="publicly-accessible-content"></a>Genel olarak erişilebilir içerik
 
@@ -1187,7 +1187,7 @@ ms.lasthandoff: 11/23/2017
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ## <a name="nist-800-53-control-ac-22c"></a>NIST 800 53 denetim AC-22.c
+ ## <a name="nist-800-53-control-ac-22c"></a>NIST 800-53 Control AC-22.c
 
 #### <a name="publicly-accessible-content"></a>Genel olarak erişilebilir içerik
 
@@ -1201,7 +1201,7 @@ ms.lasthandoff: 11/23/2017
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ## <a name="nist-800-53-control-ac-22d"></a>NIST 800 53 denetim AC-22.d
+ ## <a name="nist-800-53-control-ac-22d"></a>NIST 800-53 Control AC-22.d
 
 #### <a name="publicly-accessible-content"></a>Genel olarak erişilebilir içerik
 

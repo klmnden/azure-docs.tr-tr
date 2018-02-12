@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Azure Windows sanal makine etkinleştirme sorunlarını giderme
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Özel bir görüntüden oluşturulan Azure Windows sanal makine (VM) etkinleştirirken konusunda sorun yaşıyorsanız, sorunu gidermek için bu belgede sağlanan bilgileri kullanabilirsiniz. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Windows ürün etkinleştirme, Azure sanal makineler için Azure KMS uç noktaları anlama
+Azure farklı uç noktalar VM'nin bulunduğu bulut bölge bağlı olarak KMS etkinleştirme için kullanır. Bu sorun giderme kılavuzu kullanırken, bölgeye uygulanır uygun KMS uç noktası kullan.
+
+* Azure ortak bulut bölgeleri: kms.core.windows.net:1688
+* Azure Çin Ulusal bulut bölgeleri: kms.core.chinacloudapi.cn:1688
+* Azure Almanya Ulusal bulut bölgeleri: kms.core.cloudapi.de:1688
+* Azure kamu için BİZE Ulusal bulut bölgeleri: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Belirti
 

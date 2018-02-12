@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - bakım"
-description: "Web uygulamaları FedRAMP - bakım için"
+title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - bakım şeması"
+description: "FedRAMP Web uygulamaları Otomasyon - bakım"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a0546f6e10b04bbfdb5b02e5c0bbe6d907c76e72
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="maintenance-ma"></a>Bakım (MA)
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="controlled-maintenance"></a>Denetimli bakım
 
-**MA 2.e** Kuruluş düzgün Bakım veya onarım eylemleri aşağıdaki denetimleri hala çalıştığını doğrulamak için tüm olası etkilenen güvenlik denetimleri denetler.
+**MA-2.e** Kuruluş düzgün Bakım veya onarım eylemleri aşağıdaki denetimleri hala çalıştığını doğrulamak için tüm olası etkilenen güvenlik denetimleri denetler.
 
 **Sorumlulukları:**`Customer Only`
 
@@ -267,7 +267,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="nonlocal-maintenance"></a>Yerel olmayan bakım
 
-**MA 4.e** Yerel olmayan bakım tamamlandığında, kuruluşun oturum ve ağ bağlantılarını sonlandırır.
+**MA-4.e** Yerel olmayan bakım tamamlandığında, kuruluşun oturum ve ağ bağlantılarını sonlandırır.
 
 **Sorumlulukları:**`Customer Only`
 

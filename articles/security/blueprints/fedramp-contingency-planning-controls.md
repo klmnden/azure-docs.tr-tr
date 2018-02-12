@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - yedek planlama"
-description: "Web uygulamaları için FedRAMP - yedek planlama"
+title: "Azure güvenliği ve uyumluluğu şeması FedRAMP Web uygulamaları, Otomasyon - yedek planlama"
+description: "FedRAMP Web uygulamaları Otomasyon - yedek planlama"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>Yedek (CP) planlama
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800 53 CP-4 (2) .b denetleme
+ ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800-53 Control CP-4 (2).b
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Yedek planı sınama | Alternatif işleme sitesi
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan tüm depolama hesaplarında coğrafi olarak yedekli depolama (GRS) kullanarak yüksek kullanılabilirlik için çoğaltılır. GRS, verileri bir ikincil bölge'ye çoğaltılır sağlar; tüm verileri altı kopyasını ayrı düğümlerinde iki veri merkezi arasında saklanır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan tüm depolama hesaplarında coğrafi olarak yedekli depolama (GRS) kullanarak yüksek kullanılabilirlik için çoğaltılır. GRS, verileri bir ikincil bölge'ye çoğaltılır sağlar; tüm verileri altı kopyasını ayrı düğümlerinde iki veri merkezi arasında saklanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan tüm depolama hesaplarında coğrafi olarak yedekli depolama (GRS) kullanarak yüksek kullanılabilirlik için çoğaltılır. Fiziksel güvenlik denetimleri, Azure veri merkezi arasında aynı şekilde uygulanır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan tüm depolama hesaplarında coğrafi olarak yedekli depolama (GRS) kullanarak yüksek kullanılabilirlik için çoğaltılır. Fiziksel güvenlik denetimleri, Azure veri merkezi arasında aynı şekilde uygulanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan tüm depolama hesaplarında coğrafi olarak yedekli depolama (GRS) kullanarak yüksek kullanılabilirlik için çoğaltılır. GRS, verileri bir ikincil bölge'ye çoğaltılır sağlar. Bir alanı genelinde kesinti veya olağanüstü durum durumunda kullanılabilirliğini sağlamak için veri merkezleri arasında gerekli uzaklığı emin olmak için birincil ve ikincil bölgeler eşleştirilmelidir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan tüm depolama hesaplarında coğrafi olarak yedekli depolama (GRS) kullanarak yüksek kullanılabilirlik için çoğaltılır. GRS, verileri bir ikincil bölge'ye çoğaltılır sağlar. Bir alanı genelinde kesinti veya olağanüstü durum durumunda kullanılabilirliğini sağlamak için veri merkezleri arasında gerekli uzaklığı emin olmak için birincil ve ikincil bölgeler eşleştirilmelidir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan tüm depolama hesaplarında coğrafi olarak yedekli depolama (GRS) kullanarak yüksek kullanılabilirlik için çoğaltılır. GRS, verileri bir ikincil bölge'ye çoğaltılır sağlar. Müşteriler için Azure veri çoğaltma modelin yedek hedefleri ile uyumlu olduğundan emin olmalısınız. |
+| **Müşteri** | Bu şeması tarafından dağıtılan tüm depolama hesaplarında coğrafi olarak yedekli depolama (GRS) kullanarak yüksek kullanılabilirlik için çoğaltılır. GRS, verileri bir ikincil bölge'ye çoğaltılır sağlar. Müşteriler için Azure veri çoğaltma modelin yedek hedefleri ile uyumlu olduğundan emin olmalısınız. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. |
+| **Müşteri** | Bu şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Alternatif bir Azure bölgesine dağıtırken ekipman sağlama Azure tarafından saydam olarak yönetilir. |
+| **Müşteri** | Bu şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Alternatif bir Azure bölgesine dağıtırken ekipman sağlama Azure tarafından saydam olarak yönetilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Güvenlik önlemleri Azure veri merkezleri aynı şekilde uygulanır. |
+| **Müşteri** | Bu şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Güvenlik önlemleri Azure veri merkezleri aynı şekilde uygulanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Azure veri merkezleri coğrafi olarak ayrılır. |
+| **Müşteri** | Bu şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Azure veri merkezleri coğrafi olarak ayrılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Alternatif bir Azure bölgesine dağıtırken, kaynak kullanılabilirliğini saydam Azure tarafından yönetilir. |
+| **Müşteri** | Bu şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Alternatif bir Azure bölgesine dağıtırken, kaynak kullanılabilirliğini saydam Azure tarafından yönetilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -525,7 +525,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Alternatif bir Azure bölgesine dağıtırken fiziksel kaynak hazırlık saydam Azure tarafından yönetilir. |
+| **Müşteri** | Bu şeması nasıl Bu çözüm aynı anda birden çok bölgede dağıtılabilir ve diğer işleme sitesinde tam artıklık sağlamak üzere yapılandırılmış konusunda yönergeler içerir. Alternatif bir Azure bölgesine dağıtırken fiziksel kaynak hazırlık saydam Azure tarafından yönetilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -613,7 +613,7 @@ ms.lasthandoff: 11/23/2017
 | **Sağlayıcı (Microsoft Azure)** | Microsoft Azure, Azure security tarafından korunan Microsoft Güvenlik İlkesi ' nin yayın ilkesiyle planlama olasılığına uyguladı. Dış müşterileri ve dahili Microsoft iş hizmeti ve abone olunan Hizmetleri ve iş çekirdek geri yüklemek için bir kurtarma özelliği birlikte işlevsel dayanıklılık sağlayarak korumak için Azure sürekliliği yönetim ilkesi hedefi olan yetkinlikleri önemli bir kesinti sırasında önceden belirlenmiş bir zaman çerçevesi içinde. |
 
 
- ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800 53 CP-8 (4) .b denetleme
+ ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800-53 Control CP-8 (4).b
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telekomünikasyon hizmetlerini | Sağlayıcı Yedek planı
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir kurtarma Hizmetleri kasası dağıtır. Kullanıcı düzeyinde bilgileri dağıtılan SQL veritabanında SQL VM Iaas uzantısı kullanılarak uygulanır. |
+| **Müşteri** | Bu ayrıntılı bir kurtarma Hizmetleri kasası dağıtır. Kullanıcı düzeyinde bilgileri dağıtılan SQL veritabanında SQL VM Iaas uzantısı kullanılarak uygulanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir kurtarma Hizmetleri kasası dağıtır. Azure yedekleme İlkesi, bir günlük, haftalık, aylık ve yıllık Yedekleme görüntüsü bekletme uygulama tüm sanal makineler için oluşturulur.  |
+| **Müşteri** | Bu ayrıntılı bir kurtarma Hizmetleri kasası dağıtır. Azure yedekleme İlkesi, bir günlük, haftalık, aylık ve yıllık Yedekleme görüntüsü bekletme uygulama tüm sanal makineler için oluşturulur.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Tüm veri çalışmıyorken-için 256 bit AES şifreleme kullanan Azure SSE kullanımı aracılığıyla gizliliği ve bütünlük bu Azure şeması tarafından dağıtılan tüm depolama BLOB korumalı. |
+| **Müşteri** | Tüm veri çalışmıyorken-için 256 bit AES şifreleme kullanan Azure SSE kullanımı aracılığıyla gizliliği ve bütünlük bu şeması tarafından dağıtılan tüm depolama BLOB korumalı. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu kullanılan tüm veri altı kopyasını sağlayarak yedekleme için uygulama coğrafi olarak yedekli depolama gibi bu Azure şeması içindeki tüm dağıtılan depolama hesaplarını ayrı düğümlerinde iki veri merkezleri arasında saklanır. |
+| **Müşteri** | Bu kullanılan tüm veri altı kopyasını sağlayarak yedekleme için uygulama coğrafi olarak yedekli depolama gibi bu şeması içindeki tüm dağıtılan depolama hesaplarını ayrı düğümlerinde iki veri merkezleri arasında saklanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir her zaman üzerindeki kullanılabilirlik grubu SQL Server dağıtır. SQL Server bir sistem hatası durumunda işlem kurtarma destekleyen işlem günlüğünü tutar. |
+| **Müşteri** | Bu ayrıntılı bir her zaman üzerindeki kullanılabilirlik grubu SQL Server dağıtır. SQL Server bir sistem hatası durumunda işlem kurtarma destekleyen işlem günlüğünü tutar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 

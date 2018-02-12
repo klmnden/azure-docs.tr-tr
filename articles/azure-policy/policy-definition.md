@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -21,7 +21,7 @@ Azure ilke tarafından kullanılan kaynak ilke tanımı zaman İlkesi uygulandı
 
 Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğeleri içerir:
 
-* mode
+* Modu
 * parametreler
 * Görünen ad
 * açıklama
@@ -66,14 +66,11 @@ Tüm Azure ilke şablonu örnekleri altındadır [Azure ilke şablonları](json-
 
 ## <a name="mode"></a>Mod
 
-Ayarlamanızı öneririz `mode` için `all` atama bir ilke olması için tüm kaynak grupları ve türleri değerlendirin. Bir anda bir kaynak grubunda etiketleri zorlayan bir ilke tanımı örneği görebilirsiniz [izin özel VM görüntüsü bir kaynak grubundan](scripts/allow-custom-vm-image.md).
+**Modu** hangi kaynak türlerinin için bir ilke değerlendirilir belirler. Desteklenen modları şunlardır:
+* `all`: kaynak grupları ve tüm kaynak türleri değerlendir 
+* `indexed`: yalnızca etiketlerini ve konumunu destekleyen kaynak türleri değerlendir
 
-Ayarladığınızda bu **tüm**, kaynak grupları ve tüm kaynak türleri için ilke değerlendirilir. Portal kullanır **tüm** tüm ilkeler. PowerShell veya Azure CLI kullanıyorsanız, belirtmek zorunda `mode` parametre ve ayarlamak **tüm**.
-
-Portal kullanılarak oluşturulan tüm ilke tanımları kullanın bir `all` modu, PowerShell veya Azure CLI kullanmak istiyorsanız, ancak belirtmek ihtiyacınız `mode` parametre ve ayarlamak `all`.
-
-Modu ayarlamak, `indexed`, ilke ataması etiketlerini ve konumunu destekleyen kaynak türleri üzerinde değerlendirilir.
-
+Ayarlamanızı öneririz **modu** için `all`. Portal kullanımı oluşturulan tüm ilke tanımları `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtmek zorunda **modu** parametre ve ayarlamak `all`. 
 
 ## <a name="parameters"></a>Parametreler
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Azure portalını kullanarak Data Lake Store ile Hdınsight kümeleri oluşturma
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Bu bölümde, varsayılan veya ek depolama alanı olarak Data Lake Store hesapla
 
     ![Bir Hdınsight kümesine Ekle hizmet sorumlusu](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "hizmet sorumlusuna Hdınsight kümesi Ekle")
 
-    - **Select Data Lake Store hesabı**: mevcut bir Data Lake Store hesabını seçin. Mevcut bir Data Lake Store hesabı gereklidir.  Bkz: [Önkoşullar](#prereuisites).
+    - **Select Data Lake Store hesabı**: mevcut bir Data Lake Store hesabını seçin. Mevcut bir Data Lake Store hesabı gereklidir.  Bkz: [Önkoşullar](#prerequisites).
     - **Kök yolu**: kümeye özgü dosyaların depolanması olduğu bir yol girin. Ekran görüntüsü üzerinde olduğu __/ / myhdiadlcluster/kümeleri__, burada __/kümeleri__ klasör var olmalıdır ve Portal oluşturur *myhdicluster* klasör.  *Myhdicluster* küme adıdır.
     - **Data Lake Store erişim**: Data Lake Store hesabı ve Hdınsight kümesi arasında erişim yapılandırın. Yönergeler için bkz: [yapılandırma Data Lake Store erişim](#configure-data-lake-store-access).
     - **Ek depolama hesapları**: ek depolama alanı olarak Azure Storage hesapları eklemek için küme hesapları. Ek eklemek için Data Lake depoları küme izinleri daha fazla Data Lake Store hesapları veriler üzerinde bir Data Lake Store hesabı birincil depolama türü olarak yapılandırılırken verilerek yapılır. Bkz. [Data Lake Store erişimini yapılandırma](#configure-data-lake-store-access).

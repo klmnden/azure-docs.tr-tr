@@ -1,6 +1,6 @@
 ---
-title: "Web uygulamaları için FedRAMP - olay yanıtlama"
-description: "Web uygulamaları için FedRAMP - olay yanıtlama"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - olay yanıtlama"
+description: "FedRAMP Web uygulamaları Otomasyon - olay yanıtlama"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="incident-response-ir"></a>Olay yanıtlama (IR)
 
@@ -432,7 +432,7 @@ ms.lasthandoff: 11/23/2017
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ## <a name="nist-800-53-control-ir-8d"></a>NIST 800 53 denetim IR-8.d
+ ## <a name="nist-800-53-control-ir-8d"></a>NIST 800-53 Control IR-8.d
 
 #### <a name="incident-response-plan"></a>Olay yanıtlama planı
 
@@ -450,7 +450,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="incident-response-plan"></a>Olay yanıtlama planı
 
-**IR 8.e** Kuruluşunuzun olay yanıtlama plan değişiklikleri iletişim kurar [atama: kuruluş tarafından tanımlanan olay yanıtlama personel (Ada göre ve/veya rol tarafından tanımlanan) ve kuruluş öğeleri].
+**IR-8.e** Kuruluşunuzun olay yanıtlama plan değişiklikleri iletişim kurar [atama: kuruluş tarafından tanımlanan olay yanıtlama personel (Ada göre ve/veya rol tarafından tanımlanan) ve kuruluş öğeleri].
 
 **Sorumlulukları:**`Customer Only`
 
@@ -534,7 +534,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-spillage-response"></a>Bilgi Spillage yanıt
 
-**IR 9.e** Kuruluş için bilgi sıvı sıçraması diğer bilgi systems veya sonradan contaminated sistem bileşenleri belirleyerek yanıt verir.
+**IR-9.e** Kuruluş için bilgi sıvı sıçraması diğer bilgi systems veya sonradan contaminated sistem bileşenleri belirleyerek yanıt verir.
 
 **Sorumlulukları:**`Customer Only`
 

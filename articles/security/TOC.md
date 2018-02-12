@@ -90,7 +90,6 @@
 ### [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md)
 #### [Azure günlük tümleştirmesini kullanmaya başlama](security-azure-log-integration-get-started.md)
 #### [Azure Active Directory denetim günlüklerini tümleştirme](security-azure-log-integration-ad.md)
-#### [Güvenlik Merkezi uyarılarını tümleştirme](security-azure-log-integration-security-center.md)
 #### [Event Hubs kullanarak Key Vault’tan günlükleri tümleştirme](security-azure-log-integration-keyvault-eventhub.md)
 #### [SSS](security-azure-log-integration-faq.md)
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b32997f9a936b73a08b367ca69341da24f31f3a8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services Topluluğu
 Bu Azure Media Services (AMS) Topluluk sayfası AMS ilgili güncelleştirmeler alabilirsiniz farklı yolları açıklanmaktadır. Ayrıca yeni videolar ve pod yayınları görüntülemek, da soru sorun ve geri bildirim verin.   
@@ -59,4 +59,6 @@ Aşağıdaki tabloda, e-posta özelliği alt takım listelenmektedir:
 | Azure Media Player |ampinfo@microsoft.com |
 | Azure Media Explorer |amse@microsoft.com |
 | İş Akışı Tasarımcısı |mepd@microsoft.com |
+| Dosya akışı ve paketleme |amsstreaming@microsoft.com |
+| Canlı akış ve paketleme |amslived@microsoft.com |
 

@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - genel bakış"
-description: "FedRAMP genel bakış"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - genel bakış"
+description: "FedRAMP Web uygulamaları Otomasyon - genel bakış"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 505a2fdc90abfcdd269b5e30537ea338b8c3774b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 968f9013dcf438ccb3a97f0bbc291b1c58a392ea
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="fedramp-overview"></a>FedRAMP genel bakış
 
 [Federal Risk ve yetkilendirme yönetimi programı (FedRAMP)](https://www.fedramp.gov), bulut ürünleri için güvenlik değerlendirmesi, yetkilendirme ve sürekli izleme için standartlaştırılmış bir yaklaşım sağlayan bir ABD devlet genelinde program ve Hizmetler. FedRAMP tanımlar türetilmiş gereksinim standartlaştırılmış bir dizi dayalı güvenlik değerlendirmesi işlemi [Ulusal Standartlar ve Enstitüsü Technology (NIST) özel yayın SP 800 53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) güvenlik denetimleri.
 
-Bu şeması Otomasyon denetim gereksinimleriyle nasıl hizalandığını görmek için Denetim aileleri aşağıdaki göz atın.
+Nasıl bu Azure güvenliği ve uyumluluk şeması Otomasyon hizalar denetim gereksinimleriyle görmek için Denetim aileleri aşağıdaki göz atın.
 
 | | |
 |---|---|

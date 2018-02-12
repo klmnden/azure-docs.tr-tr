@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - tanımlama ve kimlik doğrulama"
-description: "Web uygulamalarında FedRAMP - tanımlama ve kimlik doğrulama"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - tanımlama ve kimlik doğrulama"
+description: "FedRAMP Web uygulamaları Otomasyon - tanımlama ve kimlik doğrulama"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Tanımlama ve kimlik doğrulama (IA)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından oluşturulan hesapların benzersiz tanımlayıcıları vardır. Benzersiz olmayan tanımlayıcılarına sahip yerleşik hesapları devre dışı veya kaldırılır. |
+| **Müşteri** | Bu şeması tarafından oluşturulan hesapların benzersiz tanımlayıcıları vardır. Benzersiz olmayan tanımlayıcılarına sahip yerleşik hesapları devre dışı veya kaldırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Hiç paylaşılan grubu hesabı bu Azure şeması tarafından dağıtılan kaynak üzerinde etkindir. |
+| **Müşteri** | Hiç paylaşılan grubu hesabı bu şeması tarafından dağıtılan kaynak üzerinde etkindir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynaklarına erişimi yeniden yürütme saldırılara karşı yerleşik Kerberos işlevselliğini Azure Active Directory, Active Directory ve Windows işletim sistemi tarafından korunur. Kerberos kimlik doğrulaması, istemci tarafından gönderilen Doğrulayıcı şifrelenmiş IP listesi, istemci zaman damgaları ve bilet yaşam süresi gibi ek veriler içerir. Bir paket tekrarlanır, zaman damgası denetlenir. Zaman damgası daha önceki ise veya önceki bir Doğrulayıcı, paket ile aynı reddedilir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynaklarına erişimi yeniden yürütme saldırılara karşı yerleşik Kerberos işlevselliğini Azure Active Directory, Active Directory ve Windows işletim sistemi tarafından korunur. Kerberos kimlik doğrulaması, istemci tarafından gönderilen Doğrulayıcı şifrelenmiş IP listesi, istemci zaman damgaları ve bilet yaşam süresi gibi ek veriler içerir. Bir paket tekrarlanır, zaman damgası denetlenir. Zaman damgası daha önceki ise veya önceki bir Doğrulayıcı, paket ile aynı reddedilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynaklarına erişimi yeniden yürütme saldırılara karşı yerleşik Kerberos işlevselliğini Azure Active Directory, Active Directory ve Windows işletim sistemi tarafından korunur. Kerberos kimlik doğrulaması, istemci tarafından gönderilen Doğrulayıcı şifrelenmiş IP listesi, istemci zaman damgaları ve bilet yaşam süresi gibi ek veriler içerir. Bir paket tekrarlanır, zaman damgası denetlenir. Zaman damgası daha önceki ise veya önceki bir Doğrulayıcı, paket ile aynı reddedilir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynaklarına erişimi yeniden yürütme saldırılara karşı yerleşik Kerberos işlevselliğini Azure Active Directory, Active Directory ve Windows işletim sistemi tarafından korunur. Kerberos kimlik doğrulaması, istemci tarafından gönderilen Doğrulayıcı şifrelenmiş IP listesi, istemci zaman damgaları ve bilet yaşam süresi gibi ek veriler içerir. Bir paket tekrarlanır, zaman damgası denetlenir. Zaman damgası daha önceki ise veya önceki bir Doğrulayıcı, paket ile aynı reddedilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bireysel hesaplar için müşteri tarafından belirtilen tanımlayıcıları dağıtımı sırasında bu Azure şeması ister.  |
+| **Müşteri** | Bireysel hesaplar için müşteri tarafından belirtilen tanımlayıcıları dağıtımı sırasında bu şeması ister.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması Active Directory hesapları kaldıktan 35 gün sonra otomatik olarak devre dışı bırakmak için zamanlanmış bir görev uygular. |
+| **Müşteri** | Bu şeması Active Directory hesapları kaldıktan 35 gün sonra otomatik olarak devre dışı bırakmak için zamanlanmış bir görev uygular. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından oluşturulan hesaplar için tüm ilk kimlik doğrulayıcı içeriği IA-müşteri tarafından dağıtımı sırasında belirtildiğinde doğrulandı 5 (1) belirtilen gereksinimleri karşılar.  |
+| **Müşteri** | Bu şeması tarafından oluşturulan hesaplar için tüm ilk kimlik doğrulayıcı içeriği IA-müşteri tarafından dağıtımı sırasında belirtildiğinde doğrulandı 5 (1) belirtilen gereksinimleri karşılar.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Doğrulayıcı gücü FedRAMP gerektirdiği için bu Azure şeması karşılayan gereksinimleri tarafından kullanılır. |
+| **Müşteri** | Doğrulayıcı gücü FedRAMP gerektirdiği için bu şeması karşılayan gereksinimleri tarafından kullanılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bileşenleri için tüm Doğrulayıcı varsayılanlarına değiştirildi. Doğrulayıcı, bu çözüm dağıtımı sırasında müşteri tanımlı. |
+| **Müşteri** | Tüm Doğrulayıcısı bu şeması bileşenleri için varsayılan değiştirildi. Doğrulayıcı, bu çözüm dağıtımı sırasında müşteri tanımlı. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi kurulmuş ve parola ömrü kısıtlamaları (60 gün) uygulamak için yapılandırılmış. |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi kurulmuş ve parola ömrü kısıtlamaları (60 gün) uygulamak için yapılandırılmış. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması yetkisiz olarak ifşa ve değişikliği Doğrulayıcı içeriği korumak için anahtar kasası uygular. Aşağıdaki kimlik doğrulayan anahtar kasasında depolanan: Azure parolasını dağıtma hesabı, sanal makine yönetici parolası, SQL Server hizmet hesabı parolası. |
+| **Müşteri** | Bu şeması yetkisiz olarak ifşa ve değişikliği Doğrulayıcı içeriği korumak için anahtar kasası uygular. Aşağıdaki kimlik doğrulayan anahtar kasasında depolanan: Azure parolasını dağıtma hesabı, sanal makine yönetici parolası, SQL Server hizmet hesabı parolası. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması yetkisiz olarak ifşa ve değişikliği Doğrulayıcı içeriği korumak için anahtar kasası uygular. Aşağıdaki kimlik doğrulayan anahtar kasasında depolanan: Azure parolasını dağıtma hesabı, sanal makine yönetici parolası, SQL Server hizmet hesabı parolası. Anahtar kasası anahtarları ve gizli anahtarları (örneğin, kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları ve parolaları), donanım güvenlik modülleri (HSM'ler) tarafından korunan anahtarları kullanarak şifreler. |
+| **Müşteri** | Bu şeması yetkisiz olarak ifşa ve değişikliği Doğrulayıcı içeriği korumak için anahtar kasası uygular. Aşağıdaki kimlik doğrulayan anahtar kasasında depolanan: Azure parolasını dağıtma hesabı, sanal makine yönetici parolası, SQL Server hizmet hesabı parolası. Anahtar kasası anahtarları ve gizli anahtarları (örneğin, kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları ve parolaları), donanım güvenlik modülleri (HSM'ler) tarafından korunan anahtarları kullanarak şifreler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Hiç paylaşılan grubu hesabı bu Azure şeması tarafından dağıtılan kaynak üzerinde etkindir. |
+| **Müşteri** | Hiç paylaşılan grubu hesabı bu şeması tarafından dağıtılan kaynak üzerinde etkindir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi oluşturulmuş ve sanal makine yerel hesaplar ve AD hesaplar için parola karmaşıklığı gereksinimlerini zorunlu kılmak üzere yapılandırılmış.  |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi oluşturulmuş ve sanal makine yerel hesaplar ve AD hesaplar için parola karmaşıklığı gereksinimlerini zorunlu kılmak üzere yapılandırılmış.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi oluşturulur ve en küçük (1 gün) ve (60 gün) en fazla ömrü zorunlu parolaları kısıtlamaları zorunlu kılmak üzere yapılandırılmış ve yerel AD hesapları için kısıtlamalar. |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi oluşturulur ve en küçük (1 gün) ve (60 gün) en fazla ömrü zorunlu parolaları kısıtlamaları zorunlu kılmak üzere yapılandırılmış ve yerel AD hesapları için kısıtlamalar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi kurulmuş ve yeniden koşullarını (24 parolalar) yerel ve AD hesaplarının kısıtlamaları zorunlu kılmak üzere yapılandırılmış. |
+| **Müşteri** | Bu şeması için tüm dağıtılan sanal makinelerin katıldığı bir etki alanı denetleyicisi dağıtır. Bir Grup İlkesi kurulmuş ve yeniden koşullarını (24 parolalar) yerel ve AD hesaplarının kısıtlamaları zorunlu kılmak üzere yapılandırılmış. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Kullanıcı hesaplarını bu Azure şeması ile dağıtılan AD ekleyin ve yerel kullanıcı hesapları. Bunların her ikisi de uyumluluk ilk bir parola oluşturmak için oluşturulan parola gereksinimleri ve parola değişiklikleri sırasında zorla mekanizmaları sağlar. Azure Active Directory Parola doğrulayıcı parola uzunluğu, karmaşıklık, döndürme ve yaşam süresi kısıtlamaları IA-5'te (1) oluşturulmuş karşılamak için yeterince güçlü olup olmadığını belirlemek için işe otomatik bir araçtır. Azure Active Directory parola kimlik doğrulayıcı gücünü oluşturulurken bu standartları karşılar sağlar. Bu çözümü dağıtmak için kullanılan müşteri belirtilen parolalar, parola gücü gereksinimlerini karşılamak için denetlenir. |
+| **Müşteri** | Kullanıcı hesaplarını bu şeması ile dağıtılan AD ekleyin ve yerel kullanıcı hesapları. Bunların her ikisi de uyumluluk ilk bir parola oluşturmak için oluşturulan parola gereksinimleri ve parola değişiklikleri sırasında zorla mekanizmaları sağlar. Azure Active Directory Parola doğrulayıcı parola uzunluğu, karmaşıklık, döndürme ve yaşam süresi kısıtlamaları IA-5'te (1) oluşturulmuş karşılamak için yeterince güçlü olup olmadığını belirlemek için işe otomatik bir araçtır. Azure Active Directory parola kimlik doğrulayıcı gücünü oluşturulurken bu standartları karşılar sağlar. Bu çözümü dağıtmak için kullanılan müşteri belirtilen parolalar, parola gücü gereksinimlerini karşılamak için denetlenir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Şifrelenmemiş statik Doğrulayıcı hiçbir kullanımını yoktur uygulamalarda katıştırılmış, erişim komut dosyaları veya işlev bu Azure şeması tarafından dağıtılan anahtarları. Herhangi bir komut dosyası veya bir kimlik doğrulayıcı kullanan uygulamayı bir Azure anahtar kasası kapsayıcısına her kullanım önce bir çağrı yapar. Azure anahtar kasası kapsayıcı karşılık gelen çağrıyı olmadan bir sisteme erişmek için bir hizmet hesabı kullanılıyorsa bu Yasak ihlalleri algılanması sağlayan Azure anahtar kasası kapsayıcıları erişimi denetlenir. |
+| **Müşteri** | Şifrelenmemiş statik Doğrulayıcı hiçbir kullanımını yoktur uygulamalarda katıştırılmış, erişim komut dosyaları veya işlev bu şeması tarafından dağıtılan anahtarları. Herhangi bir komut dosyası veya bir kimlik doğrulayıcı kullanan uygulamayı bir Azure anahtar kasası kapsayıcısına her kullanım önce bir çağrı yapar. Azure anahtar kasası kapsayıcı karşılık gelen çağrıyı olmadan bir sisteme erişmek için bir hizmet hesabı kullanılıyorsa bu Yasak ihlalleri algılanması sağlayan Azure anahtar kasası kapsayıcıları erişimi denetlenir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynak yok önbelleğe alınmış kimlik doğrulayan kullanılmasına izin verecek şekilde yapılandırılmıştır. Bir kimlik doğrulayıcı kimlik doğrulama aynı anda girilir dağıtılan sanal makineler için kimlik doğrulaması gerektirir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynak yok önbelleğe alınmış kimlik doğrulayan kullanılmasına izin verecek şekilde yapılandırılmıştır. Bir kimlik doğrulayıcı kimlik doğrulama aynı anda girilir dağıtılan sanal makineler için kimlik doğrulaması gerektirir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynaklara erişimi Uzak Masaüstü ve Windows kimlik doğrulaması kullanır. Windows kimlik doğrulama oturumları varsayılan davranışını ne zaman bir kimlik doğrulama oturumu sırasında giriş parolaları maskeleri.  |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynaklara erişimi Uzak Masaüstü ve Windows kimlik doğrulaması kullanır. Windows kimlik doğrulama oturumları varsayılan davranışını ne zaman bir kimlik doğrulama oturumu sırasında giriş parolaları maskeleri.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Windows kimlik doğrulaması, Uzak Masaüstü'nü ve BitLocker tarafından bu Azure şeması görevli olduğu. Bu bileşenler, FIPS 140 doğrulanmış şifreleme modüllerinde yararlanmayı yapılandırılabilir. |
+| **Müşteri** | Windows kimlik doğrulaması, Uzak Masaüstü'nü ve BitLocker tarafından bu şeması görevli olduğu. Bu bileşenler, FIPS 140 doğrulanmış şifreleme modüllerinde yararlanmayı yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 

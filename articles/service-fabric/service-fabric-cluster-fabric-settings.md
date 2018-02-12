@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric kümesi ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli doku ayarlarını özelleştirmek anlatır ve yapı Service Fabric kümesi için ilke yükseltin. Aralarında özelleştirebilirsiniz [Azure portal](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
@@ -80,10 +80,10 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ### <a name="section-name-setup"></a>Bölüm adı: Kurulumu
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-| FabricDataRoot |Dize | İzin verilmiyor |Service Fabric veri kök dizini. Varsayılan Azure d:\svcfab için |
-| FabricLogRoot |Dize | İzin verilmiyor |Service fabric günlük kök dizini. BT günlüklerine ve izlemelere yerleştirildiği budur. |
-| ServiceRunAsAccountName |Dize | İzin verilmiyor |Hesap adı altında doku ana bilgisayar hizmeti çalıştırmak için. |
-| SkipFirewallConfiguration |Bool, varsayılan false | İzin verilmiyor |Güvenlik Duvarı ayarlarını veya sistem tarafından ayarlanması gerekip gerekmediğini belirtir. Bu, yalnızca windows güvenlik duvarı kullanıyorsanız geçerlidir. Ardından üçüncü taraf güvenlik duvarları kullanıyorsanız, sistem ve uygulama kullanmak için bağlantı noktalarını açmanız gerekir |
+| FabricDataRoot |Dize | İzin Verilmiyor |Service Fabric veri kök dizini. Varsayılan Azure d:\svcfab için |
+| FabricLogRoot |Dize | İzin Verilmiyor |Service fabric günlük kök dizini. BT günlüklerine ve izlemelere yerleştirildiği budur. |
+| ServiceRunAsAccountName |Dize | İzin Verilmiyor |Hesap adı altında doku ana bilgisayar hizmeti çalıştırmak için. |
+| SkipFirewallConfiguration |Bool, varsayılan false | İzin Verilmiyor |Güvenlik Duvarı ayarlarını veya sistem tarafından ayarlanması gerekip gerekmediğini belirtir. Bu, yalnızca windows güvenlik duvarı kullanıyorsanız geçerlidir. Ardından üçüncü taraf güvenlik duvarları kullanıyorsanız, sistem ve uygulama kullanmak için bağlantı noktalarını açmanız gerekir |
 |NodesToBeRemoved|dize, varsayılan değer ""| Dinamik |Yapılandırma yükseltmesinin bir parçası kaldırılmalıdır düğümleri. (Yalnızca için tek başına dağıtımlarında)|
 |ContainerNetworkSetup|bool, varsayılan FALSE olur| Statik |Bir kapsayıcı ağ ayarlanıp ayarlanmayacağını belirtir.|
 |ContainerNetworkName|Varsayılan L dizesidir""| Statik |Bir kapsayıcı ağı kurma sırasında kullanmak için ağ adı.|
@@ -102,13 +102,13 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | MaxSecondaryReplicationQueueSize |Uint, 16384 varsayılandır | Statik |Bu ikincil çoğaltma sırası mevcut işlemlerinin maksimum sayıdır. 2'in üssü olması gerektiğini unutmayın. |
 | MaxSecondaryReplicationQueueMemorySize |Uint, varsayılan 0'dır | Statik |İkincil çoğaltma sırası bayt cinsinden en büyük değerini budur. |
 | SecondaryClearAcknowledgedOperations |Bool, varsayılan false | Statik |İkincil çoğaltma işlemleri (diske) birincil için onaylanan sonra kaldırdıysanız, denetimleri Bool. Ayarları için TRUE, yük devretme sonrasında çoğaltmaları yedeklemek yakalama sırasında ek disk okuma yeni birincil sonuçlanabilir. |
-| MaxMetadataSizeInKB |Int, varsayılan 4'tür |İzin verilmiyor|Günlük akışı meta verisi en büyük boyutu. |
-| MaxRecordSizeInKB |Uint, varsayılan 1024'tür. |İzin verilmiyor| Bir günlük akışı kaydı en büyük boyutu. |
+| MaxMetadataSizeInKB |Int, varsayılan 4'tür |İzin Verilmiyor|Günlük akışı meta verisi en büyük boyutu. |
+| MaxRecordSizeInKB |Uint, varsayılan 1024'tür. |İzin Verilmiyor| Bir günlük akışı kaydı en büyük boyutu. |
 | CheckpointThresholdInMB |Int, varsayılan 50'dir |Statik|Günlük kullanımı bu değeri aştığında bir denetim noktası başlatılmayacak. |
 | MaxAccumulatedBackupLogSizeInMB |Int, 800 varsayılandır |Statik|En büyük boyutunu (MB) verilen yedek günlüğü zinciri yedekleme günlüklerinde toplanan. Artımlı yedekleme birikmiş yedekleme günlüklerini bu boyuttan büyük olacak şekilde ilgili tam yedekleme sonrasındaki neden olacak bir yedekleme günlüğü oluşturur bir artımlı yedekleme istekleri başarısız olur. Böyle durumlarda, kullanıcı, tam yedek almak için gereklidir. |
-| MaxWriteQueueDepthInKB |Int, varsayılan 0'dır |İzin verilmiyor| Int maksimum çekirdek Günlükçü kilobayt cinsinden belirtildiği için bu çoğaltma ile ilişkili günlük kullanabilmeniz için sıra derinliği yazma. Bu değer en fazla çekirdek Günlükçü güncelleştirmeleri sırasında bekleyen bayt sayısı olur. Uygun bir değeri hesaplamak çekirdek Günlükçü için 0 veya 4 birden fazla olabilir. |
-| SharedLogId |Dize |İzin verilmiyor|Paylaşılan günlük tanımlayıcısı. Bu bir GUID ve paylaşılan her oturum için benzersiz olmalıdır. |
-| SharedLogPath |Dize |İzin verilmiyor|Paylaşılan günlük yolu. Bu değer boş ise varsayılan paylaşılan günlüğü kullanılır. |
+| MaxWriteQueueDepthInKB |Int, varsayılan 0'dır |İzin Verilmiyor| Int maksimum çekirdek Günlükçü kilobayt cinsinden belirtildiği için bu çoğaltma ile ilişkili günlük kullanabilmeniz için sıra derinliği yazma. Bu değer en fazla çekirdek Günlükçü güncelleştirmeleri sırasında bekleyen bayt sayısı olur. Uygun bir değeri hesaplamak çekirdek Günlükçü için 0 veya 4 birden fazla olabilir. |
+| SharedLogId |Dize |İzin Verilmiyor|Paylaşılan günlük tanımlayıcısı. Bu bir GUID ve paylaşılan her oturum için benzersiz olmalıdır. |
+| SharedLogPath |Dize |İzin Verilmiyor|Paylaşılan günlük yolu. Bu değer boş ise varsayılan paylaşılan günlüğü kullanılır. |
 | SlowApiMonitoringDuration |Zaman içinde varsayılan 300 saniyedir |Statik| Uyarı sistem durumu olayı tetiklenir önce API için süreyi belirtin.|
 | MinLogSizeInMB |Int, varsayılan 0'dır |Statik|İşlem günlüğü minimum boyutu. Günlük bu ayarı aşağıda boyuta bir kesecek şekilde izin verilmiyor. Çoğaltıcı diğer ayarlara göre en küçük günlük boyutu belirleyecek 0 gösterir. Bu değer artırıldığında kısmi kopyalar ve artımlı yedeklemeler kesilmesine azaltıldığı ilgili günlük kayıtları olasılığını itibaren yapmanın olasılığı artar. |
 
@@ -178,7 +178,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ### <a name="section-name-paas"></a>Bölüm adı: Paas
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-| ClusterId |dize, varsayılan değer "" |İzin verilmiyor|X509 sertifika deposunu yapılandırma koruması fabric tarafından kullanılır. |
+| ClusterId |dize, varsayılan değer "" |İzin Verilmiyor|X509 sertifika deposunu yapılandırma koruması fabric tarafından kullanılır. |
 
 ### <a name="section-name-fabrichost"></a>Bölüm adı: FabricHost
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
@@ -202,11 +202,11 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | UserMaxStandByReplicaCount |Int, varsayılan 1. |Dinamik|Varsayılan en fazla kullanıcı Hizmetleri için sistem tutan StandBy çoğaltmalarının sayısı. |
 | ExpectedClusterSize|Int, varsayılan 1.|Dinamik|Kümenin ilk kez başlatıldığında; FM bu diğer hizmetler yerleştirme başlamadan önce Yukarı kendilerini bildirmek için çok sayıda düğüm bekleyin; adlandırma gibi sistem hizmetleri dahil olmak üzere.  Bu değer artırıldığında başlamak için bir küme süresinin artmasına neden olur; Aşırı yüklenmiş haline gelen erken düğümleri ve ayrıca daha fazla düğüm çevrimiçine gibi gerekli ek taşır, ancak önler.  Bu değer genellikle ilk küme boyutu için bazı küçük kesir ayarlamanız gerekir. |
 |ClusterPauseThreshold|Int, varsayılan 1.|Dinamik|Sistem düğümlerin sayısı bu değeri sonra yerleştirme giderseniz; Yük Dengeleme; ve yük devretme durdurulur. |
-|TargetReplicaSetSize|Int, 7 varsayılandır|İzin verilmiyor|Windows Fabric tutacağı FM çoğaltmaları hedef sayısıdır.  Daha yüksek bir sayı FM veri yüksek güvenilirliğini olur; küçük performans kolaylığını ile. |
-|MinReplicaSetSize|Int, varsayılan 3.|İzin verilmiyor|FM için en küçük çoğaltma kümesi boyutu budur.  Etkin FM çoğaltmaların sayısı bu değerin altına düşerse; FM değişiklikleri en az kadar kümeye reddeder çoğaltmaların min sayısı kurtarıldı |
-|ReplicaRestartWaitDuration|TimeSpan, Common::TimeSpan::FromSeconds(60.0 * 30) varsayılandır|İzin verilmiyor|TimeSpan saniye cinsinden belirtin. FMService ReplicaRestartWaitDuration budur |
-|StandByReplicaKeepDuration|TimeSpan, Common::TimeSpan::FromSeconds(3600.0 * 24 * 7) varsayılandır|İzin verilmiyor|TimeSpan saniye cinsinden belirtin. FMService StandByReplicaKeepDuration budur |
-|PlacementConstraints|Varsayılan L dizesidir""|İzin verilmiyor|Yük Devretme Yöneticisi çoğaltmalar için yerleştirme kısıtlamalar |
+|TargetReplicaSetSize|Int, 7 varsayılandır|İzin Verilmiyor|Windows Fabric tutacağı FM çoğaltmaları hedef sayısıdır.  Daha yüksek bir sayı FM veri yüksek güvenilirliğini olur; küçük performans kolaylığını ile. |
+|MinReplicaSetSize|Int, varsayılan 3.|İzin Verilmiyor|FM için en küçük çoğaltma kümesi boyutu budur.  Etkin FM çoğaltmaların sayısı bu değerin altına düşerse; FM değişiklikleri en az kadar kümeye reddeder çoğaltmaların min sayısı kurtarıldı |
+|ReplicaRestartWaitDuration|TimeSpan, Common::TimeSpan::FromSeconds(60.0 * 30) varsayılandır|İzin Verilmiyor|TimeSpan saniye cinsinden belirtin. FMService ReplicaRestartWaitDuration budur |
+|StandByReplicaKeepDuration|TimeSpan, Common::TimeSpan::FromSeconds(3600.0 * 24 * 7) varsayılandır|İzin Verilmiyor|TimeSpan saniye cinsinden belirtin. FMService StandByReplicaKeepDuration budur |
+|PlacementConstraints|Varsayılan L dizesidir""|İzin Verilmiyor|Yük Devretme Yöneticisi çoğaltmalar için yerleştirme kısıtlamalar |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, Common::TimeSpan::FromSeconds(60.0 * 30) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. Yükseltilecek bir düğüm için beklenen süre budur Windows Fabric yükseltmesi sırasında. |
 |ExpectedReplicaUpgradeDuration|TimeSpan, Common::TimeSpan::FromSeconds(60.0 * 30) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. Uygulama yükseltme sırasında bir düğümde yükseltilecek tüm çoğaltmalar için beklenen süre budur. |
 |ExpectedNodeDeactivationDuration|TimeSpan, Common::TimeSpan::FromSeconds(60.0 * 30) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. Beklenen süre içinde devre dışı bırakma işlemini tamamlamak bir düğüm için budur. |
@@ -219,12 +219,12 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ### <a name="section-name-namingservice"></a>Bölüm adı: NamingService
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, 7 varsayılandır |İzin verilmiyor|Yineleme sayısını adlandırma hizmeti deposunun her bölüm için ayarlar. Çoğaltma kümeleri sayısını artırmayı adlandırma hizmeti deposundaki bilgiler güvenilirliği düzeyini artırır; düğüm hatası sonucunda bilgiler kaybolur değişiklik azalan; Windows Fabric ve süreyi artan iş yükünün maliyetle adlandırma veri güncelleştirmeleri gerçekleştirmek için gereken.|
-|MinReplicaSetSize | Int, varsayılan 3. |İzin verilmiyor| Adlandırma Hizmeti çoğaltmaları güncelleştirmesini tamamlamak içine yazmak için gerekli minimum sayısı. Bu daha az çoğaltmaları varsa çoğaltmaları geri yüklenene kadar sisteminde active güvenilirlik sistem güncelleştirmeleri adlandırma hizmeti deposuna reddeder. Bu değer hiçbir zaman birden çok TargetReplicaSetSize olmalıdır. |
-|ReplicaRestartWaitDuration | Saat (60,0 * 30) saniye cinsinden varsayılandır|İzin verilmiyor| TimeSpan saniye cinsinden belirtin. Adlandırma Hizmeti çoğaltma gittiğinde; Bu süreölçer başlatır.  Süresi dolduğunda, FM aşağı olan çoğaltmaları değiştirmek başlar (Bu henüz bunları kayıp dikkate almaz). |
-|QuorumLossWaitDuration | Zamanı saniye cinsinden MaxValue varsayılandır |İzin verilmiyor| TimeSpan saniye cinsinden belirtin. Ne zaman bir adlandırma hizmeti çekirdek kayıp alır; Bu süreölçer başlatır.  Süresi dolduğunda, FM aşağı çoğaltmaları kayıp olarak kabul eder; ve çekirdek kurtarmayı deneyin. Bu veri kaybına neden olabilir değil. |
-|StandByReplicaKeepDuration | Zamanı saniye cinsinden varsayılan 3600.0 * 2'dir |İzin verilmiyor| TimeSpan saniye cinsinden belirtin. Ne zaman bir adlandırma hizmeti çoğaltma gelen geri aşağı durumundan; zaten değiştirilmiş.  Bu zamanlayıcı FM bekleme çoğaltma atılmadan önce ne kadar tutacağını belirler. |
-|PlacementConstraints | dize, varsayılan değer "" |İzin verilmiyor| Adlandırma Hizmeti yerleştirme kısıtlaması. |
+| TargetReplicaSetSize |Int, 7 varsayılandır |İzin Verilmiyor|Yineleme sayısını adlandırma hizmeti deposunun her bölüm için ayarlar. Çoğaltma kümeleri sayısını artırmayı adlandırma hizmeti deposundaki bilgiler güvenilirliği düzeyini artırır; düğüm hatası sonucunda bilgiler kaybolur değişiklik azalan; Windows Fabric ve süreyi artan iş yükünün maliyetle adlandırma veri güncelleştirmeleri gerçekleştirmek için gereken.|
+|MinReplicaSetSize | Int, varsayılan 3. |İzin Verilmiyor| Adlandırma Hizmeti çoğaltmaları güncelleştirmesini tamamlamak içine yazmak için gerekli minimum sayısı. Bu daha az çoğaltmaları varsa çoğaltmaları geri yüklenene kadar sisteminde active güvenilirlik sistem güncelleştirmeleri adlandırma hizmeti deposuna reddeder. Bu değer hiçbir zaman birden çok TargetReplicaSetSize olmalıdır. |
+|ReplicaRestartWaitDuration | Saat (60,0 * 30) saniye cinsinden varsayılandır|İzin Verilmiyor| TimeSpan saniye cinsinden belirtin. Adlandırma Hizmeti çoğaltma gittiğinde; Bu süreölçer başlatır.  Süresi dolduğunda, FM aşağı olan çoğaltmaları değiştirmek başlar (Bu henüz bunları kayıp dikkate almaz). |
+|QuorumLossWaitDuration | Zamanı saniye cinsinden MaxValue varsayılandır |İzin Verilmiyor| TimeSpan saniye cinsinden belirtin. Ne zaman bir adlandırma hizmeti çekirdek kayıp alır; Bu süreölçer başlatır.  Süresi dolduğunda, FM aşağı çoğaltmaları kayıp olarak kabul eder; ve çekirdek kurtarmayı deneyin. Bu veri kaybına neden olabilir değil. |
+|StandByReplicaKeepDuration | Zamanı saniye cinsinden varsayılan 3600.0 * 2'dir |İzin Verilmiyor| TimeSpan saniye cinsinden belirtin. Ne zaman bir adlandırma hizmeti çoğaltma gelen geri aşağı durumundan; zaten değiştirilmiş.  Bu zamanlayıcı FM bekleme çoğaltma atılmadan önce ne kadar tutacağını belirler. |
+|PlacementConstraints | dize, varsayılan değer "" |İzin Verilmiyor| Adlandırma Hizmeti yerleştirme kısıtlaması. |
 |ServiceDescriptionCacheLimit | Int, varsayılan 0'dır |Statik| Giriş sayısı üst sınırı adlandırma deposu (sınırsız için 0 olarak ayarlayın) hizmetine LRU hizmet açıklaması önbellekte saklanır. |
 |RepairInterval | Zamanı saniye cinsinden varsayılan 5'tir |Statik| TimeSpan saniye cinsinden belirtin. Adlandırma tutarsızlık onarım yetkilisi sahibi ve ad sahibi arasında başlayacağı aralığı. |
 |MaxNamingServiceHealthReports | Int, varsayılan 10'dur |Dinamik|Adlandırma depolamak yavaş işlemlerinin maksimum sayısı raporları sağlıksız bir kerede hizmet. 0; Tüm yavaş işlemleri gönderilir. |
@@ -236,7 +236,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | MaxOutstandingNotificationsPerClient |Int, varsayılan 1000'dir |Dinamik|Bir istemci kaydı yapmadan önce bekleyen bildirimleri sayısı ağ geçidi tarafından zorla kapatıldı. |
 | MaxIndexedEmptyPartitions |Int, varsayılan 1000'dir |Dinamik|Yeniden bağlanan istemciler eşitlemek için bildirim önbelleğinde, dizine alınan kalacak boş bölümler maksimum sayısı. Bu sayı yukarıda boş bölümler, arama sürüm artan dizinden kaldırılır. İstemcileri yeniden bağlanmayı hala eşitlemek ve kaçırılan boş bölüm güncelleştirmeleri almak; ancak eşitleme protokolü daha pahalı hale gelir. |
 | GatewayServiceDescriptionCacheLimit |Int, varsayılan 0'dır |Statik|Giriş sayısı üst sınırı ağ geçidinde adlandırma (sınırsız için 0 olarak ayarlayın) LRU hizmet açıklaması önbellekte saklanır. |
-| bölüm sayısı |Int, varsayılan 3. |İzin verilmiyor|Oluşturulacak bölüm adlandırma hizmetinin depolar. Her bölüm için dizinini karşılık gelen bir tek bölüm anahtarı sahibi; Bu bölüm anahtarlarını [0; Bölüm sayısı) yok. Adlandırma Hizmeti, herhangi bir yedekleme çoğaltma tarafından tutulan verileri ortalama miktarını azaltarak gerçekleştirebilirsiniz ölçek adlandırma hizmeti bölümleri artar sayısını artırmayı ayarlayın; kaynakların artan kullanımı maliyetle (PartitionCount itibaren * ReplicaSetSize hizmet çoğaltmaları saklanabilir).|
+| bölüm sayısı |Int, varsayılan 3. |İzin Verilmiyor|Oluşturulacak bölüm adlandırma hizmetinin depolar. Her bölüm için dizinini karşılık gelen bir tek bölüm anahtarı sahibi; Bu bölüm anahtarlarını [0; Bölüm sayısı) yok. Adlandırma Hizmeti, herhangi bir yedekleme çoğaltma tarafından tutulan verileri ortalama miktarını azaltarak gerçekleştirebilirsiniz ölçek adlandırma hizmeti bölümleri artar sayısını artırmayı ayarlayın; kaynakların artan kullanımı maliyetle (PartitionCount itibaren * ReplicaSetSize hizmet çoğaltmaları saklanabilir).|
 
 ### <a name="section-name-runas"></a>Bölüm adı: RunAs
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
@@ -426,10 +426,10 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ### <a name="section-name-upgradeservice"></a>Bölüm adı: UpgradeService
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-| PlacementConstraints |dize, varsayılan değer "" |İzin verilmiyor|Yükseltme hizmeti için PlacementConstraints. |
-| TargetReplicaSetSize | Int, varsayılan 3. |İzin verilmiyor| UpgradeService için TargetReplicaSetSize. |
-| MinReplicaSetSize | Int, varsayılan 2'dir |İzin verilmiyor| MinReplicaSetSize UpgradeService için. |
-| CoordinatorType | Varsayılan "WUTest" dizesidir|İzin verilmiyor|UpgradeService için CoordinatorType. |
+| PlacementConstraints |dize, varsayılan değer "" |İzin Verilmiyor|Yükseltme hizmeti için PlacementConstraints. |
+| TargetReplicaSetSize | Int, varsayılan 3. |İzin Verilmiyor| UpgradeService için TargetReplicaSetSize. |
+| MinReplicaSetSize | Int, varsayılan 2'dir |İzin Verilmiyor| MinReplicaSetSize UpgradeService için. |
+| CoordinatorType | Varsayılan "WUTest" dizesidir|İzin Verilmiyor|UpgradeService için CoordinatorType. |
 | BaseUrl | dize, varsayılan değer "" |Statik|UpgradeService BaseUrl. |
 | ClusterId | dize, varsayılan değer "" |Statik|UpgradeService ClusterId. |
 | X509StoreName | dize, varsayılan değer "Benim"|Dinamik|UpgradeService X509StoreName. |
@@ -443,7 +443,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ### <a name="section-name-security"></a>Bölüm adı: güvenlik
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-|ClusterCredentialType|Varsayılan dizesidir L "Hiçbiri"|İzin verilmiyor|Küme güvenli hale getirmek için kullanılacak güvenlik kimlik bilgileri türünü belirtir. Geçerli değerler "Hiçbiri/X509/Windows" |
+|ClusterCredentialType|Varsayılan dizesidir L "Hiçbiri"|İzin Verilmiyor|Küme güvenli hale getirmek için kullanılacak güvenlik kimlik bilgileri türünü belirtir. Geçerli değerler "Hiçbiri/X509/Windows" |
 |ServerAuthCredentialType|Varsayılan dizesidir L "Hiçbiri"|Statik|FabricClient ve küme arasındaki iletişimin güvenliğini sağlamak için kullanılacak güvenlik kimlik bilgileri türünü belirtir. Geçerli değerler "Hiçbiri/X509/Windows" |
 |ClientRoleEnabled|bool, varsayılan FALSE olur|Statik|İstemci rolü etkin olup olmadığını gösterir; ayarlandığında true; istemciler kendi kimliği temel rol atanır. V2 için; Etkinleştirme bu istemci AdminClientCommonNames/AdminClientIdentities değil, yalnızca salt okunur işlemler yürütme anlamına gelir. |
 |ClusterCertThumbprints|Varsayılan L dizesidir""|Dinamik|Kümeye katılmak için izin verilen sertifikaların parmak izleri; bir adı virgülle ayrılmış listesi. |
@@ -460,7 +460,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |ClientClaimAuthEnabled|bool, varsayılan FALSE olur|Statik|Talep tabanlı kimlik doğrulaması istemcilerde etkin olup olmadığını gösterir; Bu örtülü olarak doğru ayarı ClientRoleEnabled ayarlar. |
 |ClientClaims|Varsayılan L dizesidir""|Dinamik|Tüm olası talepler istemcilerinden gelen ağ geçidine bağlanmak için bekleniyor. Bu 'Veya' listesidir: ClaimsEntry || ClaimsEntry || ClaimsEntry... her ClaimsEntry "Ve" listesidir: ClaimType ClaimValue = & & ClaimType ClaimValue = & & ClaimType ClaimValue =... |
 |AdminClientClaims|Varsayılan L dizesidir""|Dinamik|Tüm olası talepler yönetici istemcilerden beklenen; ClientClaims ile aynı biçimi; Bu liste ClientClaims için dahili olarak eklenen; Ayrıca aynı girdiler için ClientClaims eklemek için bu nedenle gerekmez. |
-|ClusterSpn|Varsayılan L dizesidir""|İzin verilmiyor|Hizmet asıl adı küme; ne zaman doku tek etki alanı kullanıcısı (gMSA/etki alanı kullanıcı hesabı) olarak çalışır. Kira dinleyicileri ve fabric.exe dinleyicileri SPN'sini olduğu: Federasyon dinleyicileri; İç çoğaltma dinleyicileri; çalışma zamanı hizmet dinleyici ve adlandırma ağ geçidi dinleyicisi. Doku makine hesabı olarak çalıştığında bu boş bırakılmalıdır; yan bağlanma ve bu durumda dinleyicisi SPN dinleyicisi aktarım adresinden işlem. |
+|ClusterSpn|Varsayılan L dizesidir""|İzin Verilmiyor|Hizmet asıl adı küme; ne zaman doku tek etki alanı kullanıcısı (gMSA/etki alanı kullanıcı hesabı) olarak çalışır. Kira dinleyicileri ve fabric.exe dinleyicileri SPN'sini olduğu: Federasyon dinleyicileri; İç çoğaltma dinleyicileri; çalışma zamanı hizmet dinleyici ve adlandırma ağ geçidi dinleyicisi. Doku makine hesabı olarak çalıştığında bu boş bırakılmalıdır; yan bağlanma ve bu durumda dinleyicisi SPN dinleyicisi aktarım adresinden işlem. |
 |ClusterIdentities|Varsayılan L dizesidir""|Dinamik|Küme düğümlerinin Windows kimliklerini; Küme üyeliği yetkilendirme için kullanılır. Virgülle ayrılmış bir liste olduğu; Her bir etki alanı hesabı veya grup adı bir giriştir |
 |ClientIdentities|Varsayılan L dizesidir""|Dinamik|FabricClient kimliklerini Windows; adlandırma ağ geçidi bu gelen bağlantıları yetkilendirmek için kullanır. Virgülle ayrılmış bir liste olduğu; Her bir etki alanı hesabı veya grup adı girişidir. Kolaylık olması için; fabric.exe çalıştıran hesabı otomatik olarak izin verilir; Bu nedenle Grup ServiceFabricAllowedUsers ve ServiceFabricAdministrators'dır. |
 |AdminClientIdentities|Varsayılan L dizesidir""|Dinamik|Yönetici rolü doku istemcilerin Windows kimliklerini; Ayrıcalıklı doku işlemleri yetkilendirmek için kullanılır. Virgülle ayrılmış bir liste olduğu; Her bir etki alanı hesabı veya grup adı girişidir. Kolaylık olması için; fabric.exe çalıştıran hesabı otomatik olarak yönetici rolü atanır; Bu nedenle olduğu ServiceFabricAdministrators grup. |
@@ -482,17 +482,32 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ### <a name="section-name-securityclientx509names"></a>Bölüm adı: Güvenlik/ClientX509Names
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
+|PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 
 ### <a name="section-name-securityclusterx509names"></a>Bölüm adı: Güvenlik/ClusterX509Names
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
+|PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 
 ### <a name="section-name-securityserverx509names"></a>Bölüm adı: Güvenlik/ServerX509Names
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
+|PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>Bölüm adı: Güvenlik/ClientCertificateIssuerStores
+| **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, varsayılan, Yok'tur |Dinamik|X509 veren sertifika depoları için istemci sertifikaları; Adı = clientIssuerCN; Değer = depoları virgülle ayrılmış listesi |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>Bölüm adı: Güvenlik/ClusterCertificateIssuerStores
+| **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, varsayılan, Yok'tur |Dinamik|X509 veren sertifika depoları için küme sertifikaları; Adı = clusterIssuerCN; Değer = depoları virgülle ayrılmış listesi |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>Bölüm adı: Güvenlik/ServerCertificateIssuerStores
+| **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, varsayılan, Yok'tur |Dinamik|X509 veren sertifika depoları için sunucu sertifikaları; Adı = serverIssuerCN; Değer = depoları virgülle ayrılmış listesi |
 
 ### <a name="section-name-securityclientaccess"></a>Bölüm adı: Güvenlik/ClientAccess
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
@@ -555,35 +570,35 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 | StartClusterConfigurationUpgrade |Varsayılan "Yönetici" dizesidir |Dinamik| StartClusterConfigurationUpgrade bir bölüme uygulanmasını. |
 | GetUpgradesPendingApproval |Varsayılan "Yönetici" dizesidir |Dinamik| GetUpgradesPendingApproval bir bölüme uygulanmasını. |
 | StartApprovedUpgrades |Varsayılan "Yönetici" dizesidir |Dinamik| StartApprovedUpgrades bir bölüme uygulanmasını. |
-| Ping |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| İstemci ping için güvenlik yapılandırma. |
-| Sorgu |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Sorgular için güvenlik yapılandırma. |
-| NameExists |Varsayılan "Admin\ dizesidir|\|Kullanıcı" | Dinamik|Güvenlik yapılandırma adlandırma URI'si varlığı denetler. |
-| EnumerateSubnames |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Adlandırma URI'si numaralandırması için güvenlik yapılandırma. |
-| EnumerateProperties |Varsayılan "Admin\ dizesidir|\|Kullanıcı" | Dinamik|Özellik numaralandırma Adlandırma Güvenlik Yapılandırması'nı tıklatın. |
-| PropertyReadBatch |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Güvenlik yapılandırma adlandırma özelliği okuma işlemlerini. |
-| GetServiceDescription |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Uzun yoklama hizmet bildirimleri ve hizmeti açıklamaları okumak için güvenlik yapılandırma. |
-| ResolveService |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Hizmet uyumlu tabanlı çözümlemesi için güvenlik yapılandırması. |
-| ResolveNameOwner |Varsayılan "Admin\ dizesidir|\|Kullanıcı" | Dinamik|Adlandırma URI'si sahibi çözmek için Güvenlik Yapılandırması'nı tıklatın. |
-| ResolvePartition |Varsayılan "Admin\ dizesidir|\|Kullanıcı" | Dinamik|Sistem Hizmetleri çözmek için Güvenlik Yapılandırması'nı tıklatın. |
-| ServiceNotifications |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Olay tabanlı hizmet bildirimleri için güvenlik yapılandırma. |
-| PrefixResolveService |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Hizmet uyumlu tabanlı ön ek çözümleme için güvenlik yapılandırma. |
-| GetUpgradeStatus |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Uygulama yükseltme durumunu yoklama için Güvenlik Yapılandırması'nı tıklatın. |
-| GetFabricUpgradeStatus |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Küme yükseltme durumunu yoklama için Güvenlik Yapılandırması'nı tıklatın. |
-| InvokeInfrastructureQuery |Varsayılan "Admin\ dizesidir|\|Kullanıcı" | Dinamik|Altyapı görevleri sorgulamak için Güvenlik Yapılandırması'nı tıklatın. |
-| Liste |Varsayılan "Admin\ dizesidir|\|Kullanıcı" | Dinamik|Görüntü için Güvenlik Yapılandırması istemci dosya listesi işlemi depolar. |
-| ResetPartitionLoad |Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Bir failoverUnit sıfırlama yük için güvenlik yapılandırma. |
-| ToggleVerboseServicePlacementHealthReporting | Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Ayrıntılı ServicePlacement HealthReporting geçiş için güvenlik yapılandırma. |
-| GetPartitionDataLossProgress | Varsayılan "Admin\ dizesidir|\|Kullanıcı" | Dinamik|Bir Invoke veri kaybı API çağrısı için ilerleme getirir. |
-| GetPartitionQuorumLossProgress | Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Bir Invoke çekirdek kayıp API çağrısı için ilerleme getirir. |
-| GetPartitionRestartProgress | Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Bir yeniden başlatma bölüm API çağrısı için ilerleme getirir. |
-| GetChaosReport | Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Belirli bir zaman aralığı içinde karmaşık dünyada durum getirir. |
-| GetNodeTransitionProgress | Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| Bir düğüm geçiş komutunda ilerleme durumunu almak için Güvenlik Yapılandırması'nı tıklatın. |
-| GetClusterConfigurationUpgradeStatus | Varsayılan "Admin\ dizesidir|\|Kullanıcı" |Dinamik| GetClusterConfigurationUpgradeStatus bir bölüme uygulanmasını. |
-| GetClusterConfiguration | Varsayılan "Admin\ dizesidir|\|Kullanıcı" | Dinamik|GetClusterConfiguration bir bölüme uygulanmasını. |
+| Ping |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| İstemci ping için güvenlik yapılandırma. |
+| Sorgu |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Sorgular için güvenlik yapılandırma. |
+| NameExists |dize, varsayılan değer "yönetici\|\|kullanıcı" | Dinamik|Güvenlik yapılandırma adlandırma URI'si varlığı denetler. |
+| EnumerateSubnames |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Adlandırma URI'si numaralandırması için güvenlik yapılandırma. |
+| EnumerateProperties |dize, varsayılan değer "yönetici\|\|kullanıcı" | Dinamik|Özellik numaralandırma Adlandırma Güvenlik Yapılandırması'nı tıklatın. |
+| PropertyReadBatch |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Güvenlik yapılandırma adlandırma özelliği okuma işlemlerini. |
+| GetServiceDescription |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Uzun yoklama hizmet bildirimleri ve hizmeti açıklamaları okumak için güvenlik yapılandırma. |
+| ResolveService |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Hizmet uyumlu tabanlı çözümlemesi için güvenlik yapılandırması. |
+| ResolveNameOwner |dize, varsayılan değer "yönetici\|\|kullanıcı" | Dinamik|Adlandırma URI'si sahibi çözmek için Güvenlik Yapılandırması'nı tıklatın. |
+| ResolvePartition |dize, varsayılan değer "yönetici\|\|kullanıcı" | Dinamik|Sistem Hizmetleri çözmek için Güvenlik Yapılandırması'nı tıklatın. |
+| ServiceNotifications |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Olay tabanlı hizmet bildirimleri için güvenlik yapılandırma. |
+| PrefixResolveService |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Hizmet uyumlu tabanlı ön ek çözümleme için güvenlik yapılandırma. |
+| GetUpgradeStatus |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Uygulama yükseltme durumunu yoklama için Güvenlik Yapılandırması'nı tıklatın. |
+| GetFabricUpgradeStatus |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Küme yükseltme durumunu yoklama için Güvenlik Yapılandırması'nı tıklatın. |
+| InvokeInfrastructureQuery |dize, varsayılan değer "yönetici\|\|kullanıcı" | Dinamik|Altyapı görevleri sorgulamak için Güvenlik Yapılandırması'nı tıklatın. |
+| Liste |dize, varsayılan değer "yönetici\|\|kullanıcı" | Dinamik|Görüntü için Güvenlik Yapılandırması istemci dosya listesi işlemi depolar. |
+| ResetPartitionLoad |dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Bir failoverUnit sıfırlama yük için güvenlik yapılandırma. |
+| ToggleVerboseServicePlacementHealthReporting | dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Ayrıntılı ServicePlacement HealthReporting geçiş için güvenlik yapılandırma. |
+| GetPartitionDataLossProgress | dize, varsayılan değer "yönetici\|\|kullanıcı" | Dinamik|Bir Invoke veri kaybı API çağrısı için ilerleme getirir. |
+| GetPartitionQuorumLossProgress | dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Bir Invoke çekirdek kayıp API çağrısı için ilerleme getirir. |
+| GetPartitionRestartProgress | dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Bir yeniden başlatma bölüm API çağrısı için ilerleme getirir. |
+| GetChaosReport | dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Belirli bir zaman aralığı içinde karmaşık dünyada durum getirir. |
+| GetNodeTransitionProgress | dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| Bir düğüm geçiş komutunda ilerleme durumunu almak için Güvenlik Yapılandırması'nı tıklatın. |
+| GetClusterConfigurationUpgradeStatus | dize, varsayılan değer "yönetici\|\|kullanıcı" |Dinamik| GetClusterConfigurationUpgradeStatus bir bölüme uygulanmasını. |
+| GetClusterConfiguration | dize, varsayılan değer "yönetici\|\|kullanıcı" | Dinamik|GetClusterConfiguration bir bölüme uygulanmasını. |
 |CreateComposeDeployment|Varsayılan L "Yönetici" dizesidir| Dinamik|Oluşturma dosyaları tarafından açıklanan Oluştur dağıtımı oluşturur |
 |DeleteComposeDeployment|Varsayılan L "Yönetici" dizesidir| Dinamik|Oluşturma dağıtım siler |
 |UpgradeComposeDeployment|Varsayılan L "Yönetici" dizesidir| Dinamik|Oluşturma dağıtım yükseltir |
-|ResolveSystemService|Varsayılan L "Admin\ dizesidir|\|Kullanıcı"|Dinamik| Sistem Hizmetleri çözmek için güvenlik yapılandırması |
+|ResolveSystemService|Varsayılan dizesidir L "yönetici\|\|kullanıcı"|Dinamik| Sistem Hizmetleri çözmek için güvenlik yapılandırması |
 |GetUpgradeOrchestrationServiceState|Varsayılan L "Yönetici" dizesidir| Dinamik|Bir bölüme GetUpgradeOrchestrationServiceState uygulanmasını |
 |SetUpgradeOrchestrationServiceState|Varsayılan L "Yönetici" dizesidir| Dinamik|Bir bölüme SetUpgradeOrchestrationServiceState uygulanmasını |
 
@@ -615,8 +630,8 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 |DetailedPartitionListLimit | Int, varsayılan değer 15 dakikadır. |Dinamik| Tanılama kesilmesi önce dahil etmek bir kısıtlama için tanı girdisi başına bölüm sayısını tanımlar. |
 |DetailedDiagnosticsInfoListLimit | Int, varsayılan değer 15 dakikadır. |Dinamik| Tanılama kesilmesi önce eklenecek kısıtlaması başına (ayrıntılı bilgilerle) tanı girdisi sayısını tanımlar.|
 |PLBRefreshGap | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. PLB durumu yeniden yeniler önce geçmesi gereken en düşük süreyi tanımlar. |
-|Minplacementınterval | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. İki ardışık yerleştirme yuvarlar önce geçmesi gereken en düşük süreyi tanımlar. |
-|Minconstraintcheckınterval | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. Denetim iki ardışık kısıtlaması önce yuvarlar geçmesi gereken en düşük süreyi tanımlar. |
+|MinPlacementInterval | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. İki ardışık yerleştirme yuvarlar önce geçmesi gereken en düşük süreyi tanımlar. |
+|MinConstraintCheckInterval | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. Denetim iki ardışık kısıtlaması önce yuvarlar geçmesi gereken en düşük süreyi tanımlar. |
 |MinLoadBalancingInterval | Zamanı saniye cinsinden varsayılan 5'tir |Dinamik| TimeSpan saniye cinsinden belirtin. İki ardışık karşı yuvarlar önce geçmesi gereken en düşük süreyi tanımlar. |
 |BalancingDelayAfterNodeDown | Zamanı saniye cinsinden varsayılan 120'dir |Dinamik|TimeSpan saniye cinsinden belirtin. Bir düğüm aşağı olayını bu süre içinde etkinlikleri Dengeleme başlatmayın. |
 |BalancingDelayAfterNewNode | Zamanı saniye cinsinden varsayılan 120'dir |Dinamik|TimeSpan saniye cinsinden belirtin. Yeni bir düğüm ekledikten sonra bu süre içinde etkinlikleri Dengeleme başlatmayın. |
@@ -691,7 +706,7 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 ### <a name="section-name-federation"></a>Bölüm adı: Federasyon
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-| Kirasüresi |Zamanı saniye cinsinden varsayılan 30'dur |Dinamik|Bir düğüm ile komşularına arasında bir kira süresi süresi. |
+| LeaseDuration |Zamanı saniye cinsinden varsayılan 30'dur |Dinamik|Bir düğüm ile komşularına arasında bir kira süresi süresi. |
 | LeaseDurationAcrossFaultDomain |Zamanı saniye cinsinden varsayılan 30'dur |Dinamik|Hata etki alanlarında bir düğüm ile komşularına arasında bir kira süresi süresi. |
 
 ### <a name="section-name-clustermanager"></a>Bölüm adı: ClusterManager
@@ -702,12 +717,12 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 | FabricUpgradeStatusPollInterval |Zaman içinde varsayılan 60 saniyedir |Dinamik|Fabric yükseltme durumu için yoklama sıklığı. Bu değer, herhangi bir GetFabricUpgradeProgress çağrısına güncelleştirmesi oranını belirler. |
 | FabricUpgradeHealthCheckInterval |Zaman içinde varsayılan 60 saniyedir |Dinamik|Sistem durumu sıklığını izlenen bir Fabric yükseltmesi sırasında denetleyin |
 |InfrastructureTaskProcessingInterval | Zamanı saniye cinsinden varsayılan 10'dur |Dinamik|TimeSpan saniye cinsinden belirtin. Durum makinesinin işleme altyapısı görev tarafından kullanılan işleme aralığı. |
-|TargetReplicaSetSize |Int, 7 varsayılandır |İzin verilmiyor|ClusterManager için TargetReplicaSetSize. |
-|MinReplicaSetSize |Int, varsayılan 3. |İzin verilmiyor|MinReplicaSetSize ClusterManager için. |
-|ReplicaRestartWaitDuration |Saat (60,0 * 30) saniye cinsinden varsayılandır|İzin verilmiyor|TimeSpan saniye cinsinden belirtin. ClusterManager için ReplicaRestartWaitDuration. |
-|QuorumLossWaitDuration |Zamanı saniye cinsinden MaxValue varsayılandır |İzin verilmiyor| TimeSpan saniye cinsinden belirtin. ClusterManager için QuorumLossWaitDuration. |
-|StandByReplicaKeepDuration | Zamanı saniye cinsinden varsayılan (3600.0 * 2).|İzin verilmiyor|TimeSpan saniye cinsinden belirtin. ClusterManager için StandByReplicaKeepDuration. |
-|PlacementConstraints | dize, varsayılan değer "" |İzin verilmiyor|ClusterManager için PlacementConstraints. |
+|TargetReplicaSetSize |Int, 7 varsayılandır |İzin Verilmiyor|ClusterManager için TargetReplicaSetSize. |
+|MinReplicaSetSize |Int, varsayılan 3. |İzin Verilmiyor|MinReplicaSetSize ClusterManager için. |
+|ReplicaRestartWaitDuration |Saat (60,0 * 30) saniye cinsinden varsayılandır|İzin Verilmiyor|TimeSpan saniye cinsinden belirtin. ClusterManager için ReplicaRestartWaitDuration. |
+|QuorumLossWaitDuration |Zamanı saniye cinsinden MaxValue varsayılandır |İzin Verilmiyor| TimeSpan saniye cinsinden belirtin. ClusterManager için QuorumLossWaitDuration. |
+|StandByReplicaKeepDuration | Zamanı saniye cinsinden varsayılan (3600.0 * 2).|İzin Verilmiyor|TimeSpan saniye cinsinden belirtin. ClusterManager için StandByReplicaKeepDuration. |
+|PlacementConstraints | dize, varsayılan değer "" |İzin Verilmiyor|ClusterManager için PlacementConstraints. |
 |SkipRollbackUpdateDefaultService | Bool, varsayılan false |Dinamik|CM uygulaması yükseltme geri alma sırasında dönüştürülüyor güncelleştirilmiş varsayılan Hizmetleri atlar. |
 |EnableDefaultServicesUpgrade | Bool, varsayılan false |Dinamik|Uygulama yükseltme sırasında yükseltme varsayılan hizmetleri sağlar. Varsayılan hizmet açıklamaları yükseltme sonrasında üzerine. |
 |InfrastructureTaskHealthCheckWaitDuration |Zamanı saniye cinsinden varsayılan 0'dır|Dinamik| TimeSpan saniye cinsinden belirtin. Bir altyapı görevi sonrası işledikten sonra sistem durumu başlatmadan önce beklenecek süre miktarını denetler. |
@@ -721,8 +736,6 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 |MaxDataMigrationTimeout |Zamanı saniye cinsinden 600 varsayılandır |Dinamik|TimeSpan saniye cinsinden belirtin. Fabric yükseltmesi gerçekleştikten sonra veri geçiş kurtarma işlemleri için en büyük zaman aşımı. |
 |MaxOperationRetryDelay |Zamanı saniye cinsinden varsayılan 5'tir|Dinamik| TimeSpan saniye cinsinden belirtin. Hataları karşılaştığında iç deneme en büyük gecikme. |
 |ReplicaSetCheckTimeoutRollbackOverride |Zamanı saniye cinsinden varsayılan 1200'dür |Dinamik| TimeSpan saniye cinsinden belirtin. ReplicaSetCheckTimeout DWORD en büyük değere ayarlarsanız; geri alma amaçları doğrultusunda bu yapılandırma değeri ile geçersiz kılındı sonra. İleri alma için kullanılan değer hiçbir zaman geçersiz kılındı. |
-|ImageBuilderJobQueueThrottle |Int, varsayılan 10'dur |Dinamik|Uygulama isteklerinden Image Builder proxy işi sıra sayısı azaltma iş parçacığı. |
-|MaxExponentialOperationRetryDelay|TimeSpan, Common::TimeSpan::FromSeconds(30) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. Hataları sürekli karşılaşılan iç yeniden deneme maksimum üstel gecikmesi |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>Bölüm adı: DefragmentationEmptyNodeDistributionPolicy
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa bir açıklama** |
@@ -743,7 +756,7 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, varsayılan FALSE olur|Statik| |
-|Instancecount|int, varsayılan -1'dir|Statik|  |
+|InstanceCount|int, varsayılan -1'dir|Statik|  |
 
 ### <a name="section-name-metricactivitythresholds"></a>Bölüm adı: MetricActivityThresholds
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa bir açıklama** |
@@ -775,7 +788,7 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 |MaxSecondaryReplicationQueueMemorySize|Uint, varsayılan 0'dır|Statik|İkincil çoğaltma sırası bayt cinsinden en büyük değerini budur.|
 |QueueHealthMonitoringInterval|TimeSpan, Common::TimeSpan::FromSeconds(30) varsayılandır|Statik|TimeSpan saniye cinsinden belirtin. Bu değer, çoğaltma işlemi sıralardaki uyarı/hata sistem durumu olaylarını izlemek için çoğaltıcı tarafından kullanılan süreyi belirler. '0' değeri, sistem durumu izleme devre dışı bırakır. |
 |QueueHealthWarningAtUsagePercent|uint, varsayılan 80'dir|Statik|Bu değer daha sonra size yüksek sıra kullanımı hakkında uyarı rapor çoğaltma kuyruğu kullanımı (yüzde) belirler. Biz bunu QueueHealthMonitoringInterval yetkisiz aralığından sonra yapın. Sıranın kullanım yetkisiz aralığa bu yüzdenin altında kalırsa|
-|Retryınterval|TimeSpan, Common::TimeSpan::FromSeconds(5) varsayılandır|Statik|TimeSpan saniye cinsinden belirtin. Ne zaman bir işlem kaybolur veya bu Zamanlayıcı reddedilen işlemi gönderme çoğaltıcı ne sıklıkta deneyecek belirler.|
+|RetryInterval|TimeSpan, Common::TimeSpan::FromSeconds(5) varsayılandır|Statik|TimeSpan saniye cinsinden belirtin. Ne zaman bir işlem kaybolur veya bu Zamanlayıcı reddedilen işlemi gönderme çoğaltıcı ne sıklıkta deneyecek belirler.|
 
 ### <a name="section-name-transport"></a>Bölüm adı: taşıma
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi** |**Kılavuz veya kısa bir açıklama** |

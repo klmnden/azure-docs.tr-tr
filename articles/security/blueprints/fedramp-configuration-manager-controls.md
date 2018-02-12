@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - yapılandırma yönetimi"
-description: "FedRAMP - yapılandırma yönetimi için Web uygulamaları"
+title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - yapılandırma yönetimi şeması"
+description: "FedRAMP Web uygulamaları Otomasyon - yapılandırma yönetimi"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Yapılandırma Yönetimi (CM)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması oluşturan eşlik eden kaynakları ve Azure Resource Manager şablonları "yapılandırma kod olarak" temel dağıtılmış mimarisi için temsil eder. Çözüm, ancak yapılandırma denetimi için kullanılabilen GitHub sağlanır. Çözüm dağıtılan her sanal makine için istenen durum Yapılandırması'nı (DSC) temel içerir. |
+| **Müşteri** | Bu şeması oluşturan eşlik eden kaynakları ve Azure Resource Manager şablonları "yapılandırma kod olarak" temel dağıtılmış mimarisi için temsil eder. Çözüm, ancak yapılandırma denetimi için kullanılabilen GitHub sağlanır. Çözüm dağıtılan her sanal makine için istenen durum Yapılandırması'nı (DSC) temel içerir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması oluşturan eşlik eden kaynakları ve Azure Resource Manager şablonları "yapılandırma kod olarak" temel dağıtılmış mimarisi için temsil eder. Çözüm, ancak yapılandırma denetimi için kullanılabilen GitHub sağlanır. Azure portalında bir Otomasyon betiğini dağıtılan tüm kaynaklar için kullanılabilir ve bu kaynakları her zaman güncel bir gösterimini sağlar.  |
+| **Müşteri** | Bu şeması oluşturan eşlik eden kaynakları ve Azure Resource Manager şablonları "yapılandırma kod olarak" temel dağıtılmış mimarisi için temsil eder. Çözüm, ancak yapılandırma denetimi için kullanılabilen GitHub sağlanır. Azure portalında bir Otomasyon betiğini dağıtılan tüm kaynaklar için kullanılabilir ve bu kaynakları her zaman güncel bir gösterimini sağlar.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/23/2017
 | **Sağlayıcı (Microsoft Azure)** | Microsoft Azure müşteri içerik hiçbir zaman fiziksel olarak ABD'de continental içinde bulunduğu Microsoft Azure dışında depolanır. Microsoft Azure personel, Microsoft Azure stok içinde yer alan aygıtlarla seyahat değil. Bu nedenle, bu denetim Microsoft Azure için geçerli değildir. |
 
 
- ### <a name="nist-800-53-control-cm-2-7b"></a>NIST 800 53 CM-2 (7) .b denetleme
+ ### <a name="nist-800-53-control-cm-2-7b"></a>NIST 800-53 Control CM-2 (7).b
 
 #### <a name="baseline-configuration--configure-systems-components-or-devices-for-high-risk-areas"></a>Taban çizgisi yapılandırmasını | Sistemler, bileşenleri ya da aygıtları için yüksek riskli alanlar yapılandırın
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control"></a>Yapılandırma değişikliği denetimi
 
-**CM 3.e** Kuruluş için bilgi sistemde yapılan değişiklikleri yapılandırma denetimli kayıtlarının korur [atama: kuruluş tanımlı süre].
+**CM-3.e** Kuruluş için bilgi sistemde yapılan değişiklikleri yapılandırma denetimli kayıtlarının korur [atama: kuruluş tanımlı süre].
 
 **Sorumlulukları:**`Customer Only`
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Yapılandırma değişikliği denetimi | Belge otomatik / bildirim / Yasak değişiklikleri
 
-**CM-3 (1) .e** Kuruluş bilgileri sistemde yapılan tüm değişiklikleri belgelemek için otomatik mekanizmaları kullanır.
+**CM-3 (1).e** Kuruluş bilgileri sistemde yapılan tüm değişiklikleri belgelemek için otomatik mekanizmaları kullanır.
 
 **Sorumlulukları:**`Customer Only`
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makinelerin hangi kullanıcıların ve/veya yükleme belirli uygulamaları çalıştıran belirtmek için Windows AppLocker uygulayın. Daha fazla, tüm Windows işletim sistemi güncelleştirmeleri dijital olarak singed. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makinelerin hangi kullanıcıların ve/veya yükleme belirli uygulamaları çalıştıran belirtmek için Windows AppLocker uygulayın. Daha fazla, tüm Windows işletim sistemi güncelleştirmeleri dijital olarak singed. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması dağıtılan her sanal makine için istenen durum Yapılandırması'nı (DSC) temel içerir. Bu bildirim temelli PowerShell komut dosyalarını tanımlayabilir ve uygulanmış kaynaklarını yapılandırın. Bu çözümü tarafından dağıtılmış kaynaklar için dahil DSC temel iş gereksinimlerini karşılamak üzere müşteri tarafından genişletilebilir. |
+| **Müşteri** | Bu şeması dağıtılan her sanal makine için istenen durum Yapılandırması'nı (DSC) temel içerir. Bu bildirim temelli PowerShell komut dosyalarını tanımlayabilir ve uygulanmış kaynaklarını yapılandırın. Bu çözümü tarafından dağıtılmış kaynaklar için dahil DSC temel iş gereksinimlerini karşılamak üzere müşteri tarafından genişletilebilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması dağıtılan her sanal makine için istenen durum Yapılandırması'nı (DSC) temel içerir. Taban çizgileri otomatik olarak uygulanan sanal makineler için özel bir komut dosyası sanal makine uzantısını kullanarak dağıtım sırasında. |
+| **Müşteri** | Bu şeması dağıtılan her sanal makine için istenen durum Yapılandırması'nı (DSC) temel içerir. Taban çizgileri otomatik olarak uygulanan sanal makineler için özel bir komut dosyası sanal makine uzantısını kullanarak dağıtım sırasında. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması Automation DSC dağıtır. Automation DSC makine yapılandırmaları belirli bir kuruluş tarafından tanımlanan yapılandırma ile hizalar. |
+| **Müşteri** | Bu şeması Automation DSC dağıtır. Automation DSC makine yapılandırmaları belirli bir kuruluş tarafından tanımlanan yapılandırma ile hizalar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması Azure Otomasyonu DSC dağıtır. Automation DSC makine yapılandırmaları belirli bir kuruluş tarafından tanımlanan yapılandırma ile hizalanan ve değişiklikleri sürekli olarak izler. |
+| **Müşteri** | Bu şeması Azure Otomasyonu DSC dağıtır. Automation DSC makine yapılandırmaları belirli bir kuruluş tarafından tanımlanan yapılandırma ile hizalanan ve değişiklikleri sürekli olarak izler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması Azure Otomasyonu DSC dağıtır. Bölümü Azure'nın Operations Management Suite (OMS), otomasyonu DSC bir uyarı oluşturmak için veya algılandığında yapılandırma hataları düzeltmek için yapılandırılabilir. |
+| **Müşteri** | Bu şeması Azure Otomasyonu DSC dağıtır. Bölümü Azure'nın Operations Management Suite (OMS), otomasyonu DSC bir uyarı oluşturmak için veya algılandığında yapılandırma hataları düzeltmek için yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynakları amaçlarının için en az işlevselliği sağlayacak şekilde yapılandırılır. İstenen durum Yapılandırması'nı (DSC) temel dağıtılan her sanal makine için dahil edilmiştir. Bu bildirim temelli PowerShell komut dosyalarını tanımlayabilir ve uygulanmış kaynaklarını yapılandırın. Bu çözümü tarafından dağıtılmış kaynaklar için dahil DSC temel daha fazla iş gereksinimlerini karşılayacak şekilde işlevselliği sınırlamak için müşteri tarafından genişletilebilir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynakları amaçlarının için en az işlevselliği sağlayacak şekilde yapılandırılır. İstenen durum Yapılandırması'nı (DSC) temel dağıtılan her sanal makine için dahil edilmiştir. Bu bildirim temelli PowerShell komut dosyalarını tanımlayabilir ve uygulanmış kaynaklarını yapılandırın. Bu çözümü tarafından dağıtılmış kaynaklar için dahil DSC temel daha fazla iş gereksinimlerini karşılayacak şekilde işlevselliği sınırlamak için müşteri tarafından genişletilebilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması yalnızca için gerekli bağlantı noktalarını ve protokolleri kullanımını kısıtlamak için Azure uygulama ağ geçidi ve ağ güvenlik grupları dağıtır. Daha fazla uygulama ağ geçidi, ağ güvenlik gruplarını ve sanal makineler için DSC temelleri İşlevler, bağlantı noktaları, protokoller ve yalnızca hedeflenen işlevleri sağlamak için hizmetlerin kullanımını kısıtlamak için müşteri tarafından yapılandırılabilir. |
+| **Müşteri** | Bu şeması yalnızca için gerekli bağlantı noktalarını ve protokolleri kullanımını kısıtlamak için Azure uygulama ağ geçidi ve ağ güvenlik grupları dağıtır. Daha fazla uygulama ağ geçidi, ağ güvenlik gruplarını ve sanal makineler için DSC temelleri İşlevler, bağlantı noktaları, protokoller ve yalnızca hedeflenen işlevleri sağlamak için hizmetlerin kullanımını kısıtlamak için müşteri tarafından yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure Resource Manager dağıtılan kaynakların her zaman güncel bir listesini sağlar ve envanter yönetimi için etiket ve Grup kaynaklar için özelleştirilebilir. Bu çözümü tarafından dağıtılmış kaynaklar sistem sınır ile ilişkilendirilebilir bir belirli kaynak etiketi verilir. |
+| **Müşteri** | Bu şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure Resource Manager dağıtılan kaynakların her zaman güncel bir listesini sağlar ve envanter yönetimi için etiket ve Grup kaynaklar için özelleştirilebilir. Bu çözümü tarafından dağıtılmış kaynaklar sistem sınır ile ilişkilendirilebilir bir belirli kaynak etiketi verilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure Resource Manager dağıtılan kaynaklar gözden geçirme için Azure portalında her zaman güncel bir listesini sunar. |
+| **Müşteri** | Bu şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure Resource Manager dağıtılan kaynaklar gözden geçirme için Azure portalında her zaman güncel bir listesini sunar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure portalındaki kaynakları dikey kaynakları dağıtılan kaldırılır ve gibi her zaman güncel envanterini sağlayarak tüm dağıtılan kaynakları listeler. |
+| **Müşteri** | Bu şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure portalındaki kaynakları dikey kaynakları dağıtılan kaldırılır ve gibi her zaman güncel envanterini sağlayarak tüm dağıtılan kaynakları listeler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure portalındaki kaynakları dikey kaynakları dağıtılan kaldırılır ve gibi her zaman güncel envanterini sağlayarak tüm dağıtılan kaynakları listeler. |
+| **Müşteri** | Bu şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure portalındaki kaynakları dikey kaynakları dağıtılan kaldırılır ve gibi her zaman güncel envanterini sağlayarak tüm dağıtılan kaynakları listeler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure kaynak etiketleri anahtar / sorumluluk ve/veya yönetim amaçları için kaynakları kategorilere ayırmak için işe çiftleri değeri. |
+| **Müşteri** | Bu şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure kaynak etiketleri anahtar / sorumluluk ve/veya yönetim amaçları için kaynakları kategorilere ayırmak için işe çiftleri değeri. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure Resource Manager dağıtılan kaynakların her zaman güncel bir listesini sunar. Bu çözümü tarafından dağıtılmış kaynaklar sistem sınır ile ilişkilendirilebilir bir belirli kaynak etiketi verilir. |
+| **Müşteri** | Bu şeması tüm kaynakların bir Azure Resource Manager kaynak grubuna dağıtır. Azure Resource Manager dağıtılan kaynakların her zaman güncel bir listesini sunar. Bu çözümü tarafından dağıtılmış kaynaklar sistem sınır ile ilişkilendirilebilir bir belirli kaynak etiketi verilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Windows ve SQL Server lisansları bu Azure şeması tarafından dağıtılan kaynaklar için dahil edilmiştir. Bu, Azure, yerleşik bir özelliğidir. Mevcut yazılım lisansı anlaşmaları kuruluşlarla alternatif lisans modelleri dağıtma düşünebilirsiniz. |
+| **Müşteri** | Windows ve SQL Server lisansları bu şeması tarafından dağıtılan kaynaklar için dahil edilmiştir. Bu, Azure, yerleşik bir özelliğidir. Mevcut yazılım lisansı anlaşmaları kuruluşlarla alternatif lisans modelleri dağıtma düşünebilirsiniz. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Windows ve SQL Server lisansları bu Azure şeması tarafından dağıtılan kaynaklar için dahil edilmiştir. Kullanıcı lisansları ayrı ayrı izlemek için gerekli değildir. |
+| **Müşteri** | Windows ve SQL Server lisansları bu şeması tarafından dağıtılan kaynaklar için dahil edilmiştir. Kullanıcı lisansları ayrı ayrı izlemek için gerekli değildir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan yetenek paylaşımı eşler arası dosya yok. |
+| **Müşteri** | Bu şeması tarafından dağıtılan yetenek paylaşımı eşler arası dosya yok. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 

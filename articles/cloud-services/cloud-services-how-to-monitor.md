@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 9b94d9c66f69fac7c73a70618f782b811d4c9e62
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Bulut hizmeti izleme giriş
 
@@ -76,7 +76,7 @@ Etkinleştirilmesi Gelişmiş tanılama değiştirmelisiniz iki yapılandırma d
 
 Bu her eklenmelidir yeni bir ayar tanımlar **ServiceConfiguration.cscfg** dosya. 
 
-İki büyük olasılıkla sahip **.cscfg** dosyaları, bir adlı **ServiceConfiguration.cloud.cscfg** Azure ve adlı bir dağıtmak için **ServiceConfiguration.local.cscfg** Bu adres benzetilmiş ortamında yerel dağıtımları için kullanılır. Açın ve her değişiklik **.cscfg** dosya. Adlı bir ayar Ekle `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ya da değeri **birincil bağlantı dizesi** Klasik depolama hesabının. Geliştirme makinenizde yerel depolama kullanmak istiyorsanız, kullanmak `UseDevelopmentStorage=true`.
+İki büyük olasılıkla sahip **.cscfg** dosyaları, bir adlı **ServiceConfiguration.cloud.cscfg** Azure ve adlı bir dağıtmak için **ServiceConfiguration.local.cscfg** Bu adres benzetilmiş ortamında yerel dağıtımları için kullanılır. Açın ve her değişiklik **.cscfg** dosya. Adlı bir ayar Ekle `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Değer kümesine **birincil bağlantı dizesi** Klasik depolama hesabının. Geliştirme makinenizde yerel depolama kullanmak istiyorsanız, kullanmak `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

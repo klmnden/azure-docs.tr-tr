@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Paket yakalama Portalı'nı kullanarak Azure Ağ İzleyicisi ile yönetme
 
@@ -61,7 +61,10 @@ Gidin [Azure portal](https://portal.azure.com) tıklatıp **ağ** > **Ağ İzley
 Genel bakış sayfasında, tüm paket listesini olsun durumu mevcut yakalar gösterir.
 
 > [!NOTE]
-> Paket yakalama bağlantı noktası 443 üzerinden depolama hesabı bağlantı gerektirir.
+> Paket yakalama conectivity gerektirir.
+> * Depolama hesabı bağlantı noktası 443 üzerinden giden bağlantı.
+> * 169.254.169.254 gelen ve giden bağlantı
+> * 168.63.129.16 gelen ve giden bağlantı
 
 ![Paket yakalama genel bakış ekranı][1]
 
