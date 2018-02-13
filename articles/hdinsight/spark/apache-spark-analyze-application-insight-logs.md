@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8534fefc863a6cb04c43e81a4bea459844e58d91
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Application Insights telemetri günlüklerini hdınsight'ta Spark ile çözümleme
 
@@ -27,7 +27,7 @@ Uygulama Insight telemetri verileri çözümlemek için Hdınsight'ta Spark kull
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) web uygulamalarınızın izleyen bir analiz hizmetidir. Application Insights tarafından oluşturulan telemetri verileri Azure depolama alanına aktarılabilir. Verileri Azure depolama alanında olduğunda, Hdınsight incelemek üzere kullanılabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Application Insights kullanmak üzere yapılandırılmış bir uygulama.
 

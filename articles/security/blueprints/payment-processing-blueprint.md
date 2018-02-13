@@ -1,6 +1,6 @@
 ---
-title: "PCI DSS uyumlu ortamlar için ödeme işleme şeması"
-description: PCI DSS gereksinimi
+title: "Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları"
+description: "Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure şeması Otomasyon: PCI DSS uyumlu ortamlar için işleme ödeme
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -43,7 +43,7 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 - **Dağıtım şablonları**. Bu dağıtımda [Azure Resource Manager şablonları](/azure/azure-resource-manager/resource-group-overview#template-deployment) Kurulum sırasında yapılandırma parametrelerini belirterek mimarisinin bileşenlerine Microsoft Azure otomatik olarak dağıtmak için kullanılan.
 - **Dağıtım betikleri otomatik**. Bu komut dosyaları, uçtan uca çözüm dağıtımına yardımcı olur. Komut dosyaları oluşur:
     - Bir modül yükleme ve [genel yönetici](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) Kurulum komut dosyası yükleyin ve gerekli PowerShell modülleri ve genel yönetici rolleri doğru şekilde yapılandırıldığını doğrulamak için kullanılır.
-    - PowerShell komut dosyası yüklemesi bir .zip dosyası ve önceden derlenmiş demo web uygulamasıyla içeren bir .bacpac dosyasına aracılığıyla sağlanan uçtan uca çözümü dağıtmak için kullanılan [SQL veritabanı örnek](https://github.com/Microsoft/azure-sql-security-sample). İçerik. Bu çözüm için kaynak kodunu Gözden Geçirilmeye hazır olduğunu [ödeme işleme şeması kod deposu][code-repo]. 
+    - PowerShell komut dosyası yüklemesi bir .zip dosyası ve önceden derlenmiş demo web uygulamasıyla içeren bir .bacpac dosyasına aracılığıyla sağlanan uçtan uca çözümü dağıtmak için kullanılan [SQL veritabanı örnek](https://github.com/Microsoft/azure-sql-security-sample). İçerik. Bu çözüm için kaynak kodunu Gözden Geçirilmeye hazır olduğunu [ şeması kod deposu][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Mimari diyagramı
 
@@ -66,7 +66,7 @@ Yönetici, cloud doğacak çözüm içinde kendi hedeflerinize ulaşmak için h�
 
 Temel mimari aşağıdaki kurgusal öğeleriyle tasarlanmıştır:
 
-Etki alanı site`contosowebstore.com`
+Etki alanı site `contosowebstore.com`
 
 Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak için kullanılan kullanıcı rolleri.
 
@@ -95,7 +95,7 @@ Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak i
 - Sqladmin hesabı filtrelenmemiş kredi kartı bilgileri görüntüleyemez. Tüm Eylemler günlüğe kaydedilir.
 - SQL veritabanı sqladmin hesabını yönetebilir.
 
-#### <a name="role-clerk"></a>Rol: yazıcısı
+#### <a name="role-clerk"></a>Role: Clerk
 
 |Öğe      |Örnek|
 |----------|------|
@@ -111,8 +111,6 @@ Edna Benson resepsiyonist ve iş yöneticisidir. Aynen, müşteri bilgileri doğ
 - Edna müşteri bilgilerini değiştirebilirsiniz.
 - Edna üzerine veya kredi kartı numarası, sona erme ve kart doğrulama bilgileri ile değiştirin.
 
-> Contoso Webstore'un otomatik olarak kullanıcıdır **Edna** dağıtılan ortam özelliklerini test etmek için kullanıcı.
-
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso tahmini Webstore fiyatlandırma-
 
 Bu temel mimarisini ve örnek web uygulaması aylık bir ücret yapısı ve kullanım maliyeti çözümü boyutlandırma göz önünde bulundurulması gereken saatte sahiptir. Kullanarak bu maliyetleri tahmin edilebilir [Azure maliyetlendirme hesaplayıcı](https://azure.microsoft.com/pricing/calculator/). Bu çözüm için aylık tahmini maliyet Eylül 2017 itibariyle olduğu ~ $2500 bu 1000 ABD Doları/iletilerin kullanım ücret ana v2 içerir. Bu maliyetleri kullanım miktarına göre değişir ve değiştirilebilir. Dağıtım zaman daha doğru bir tahmin için tahmini aylık maliyetlerini hesaplamak için müşteri incumbent. 
@@ -122,7 +120,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanılır. Dağıtım mimarisi a
 >- Application Gateway
 >- Azure Active Directory
 >- Uygulama hizmeti ortamı v2
->- OMS günlük analizi
+>- OMS Log Analytics
 >- Azure Key Vault
 >- Ağ Güvenlik Grupları
 >- Azure SQL DB
@@ -151,7 +149,7 @@ Aşağıdaki bölümde geliştirme ve uygulama öğeleri ayrıntılarını verir
 
 Temel mimari web uygulaması Güvenlik Duvarı (WAF) sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Ek özellikler şunları içerir:
 
-- [SSL uç bitiş](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Etkinleştirme [SSL boşaltma](/azure/application-gateway/application-gateway-ssl-portal)
 - Devre dışı [TLS v1.0 ve v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web uygulaması güvenlik duvarı](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (WAF mod)
@@ -183,7 +181,7 @@ Her Nsg'ler sahip belirli bağlantı noktalarını ve protokolleri çözümü i�
 #### <a name="custom-domain-ssl-certificates"></a>Özel etki alanı SSL sertifikaları
  Özel etki alanı SSL sertifikası kullanarak HTTPS trafiği etkinleştirilir.
 
-### <a name="data-at-rest"></a>Rest verileri
+### <a name="data-at-rest"></a>Bekleyen veriler
 
 Mimari, şifreleme, veritabanı denetimi ve diğer ölçülere kullanarak rest verileri korur.
 
@@ -207,8 +205,8 @@ Azure SQL veritabanı örneğinde aşağıdaki veritabanı güvenlik önlemleri 
 
 [Operations Management Suite (OMS)](/azure/operations-management-suite/) tüm sistemi ve kullanıcı etkinliğini kapsamlı günlük kaydıyla Contoso Webstore sağlamak, kart sahibi veri günlük kaydı içerir. Değişiklikleri gözden ve doğruluk doğrulandı. 
 
-- **Etkinlik günlükleri:**[etkinlik günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.
-- **Tanılama günlüklerini:**[tanılama günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri. Bu günlükler Windows olayı sistem günlükleri, Azure Blob Depolama, tablo ve kuyruk günlükleri içerir.
+- **Etkinlik günlükleri:**[etkinlik günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.  
+- **Tanılama günlüklerini:**[tanılama günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri.   Bu günlükler Windows olayı sistem günlükleri, Azure Blob Depolama, tablo ve kuyruk günlükleri içerir.
 - **Güvenlik Duvarı günlüklerini:** uygulama ağ geçidi tanılama tam ve günlükleri erişim sağlar. Güvenlik Duvarı günlüklerini etkin WAF sahip uygulama ağ geçidi kaynakları için kullanılabilir.
 - **Günlük arşivleme:** tüm tanılama günlüklerini merkezi ve şifrelenmiş Azure depolama hesabı için tanımlanan bekletme süresi (2 gün) ile arşivleme yazmak için yapılandırılır. Günlükleri işleme, depolama ve dashboarding için Azure günlük Analizi'ne bağlanmıştır. [Günlük analizi](https://azure.microsoft.com/services/log-analytics) ve şirket içi ortamları toplamak ve bulut kaynakları tarafından oluşturulan verileri çözümlemek yardımcı olan bir OMS hizmetidir.
 
@@ -357,7 +355,7 @@ PowerShell temiz bir yüklemesini çözümü dağıtmak için kullanılması ön
     
 ## <a name="threat-model"></a>Tehdit modeli
 
-Bir veri akış diyagramı (DFD) ve örnek tehdit modeli Contoso Webstore için [ödeme işleme şeması tehdit modeli](https://aka.ms/pciblueprintthreatmodel).
+Bir veri akış diyagramı (DFD) ve örnek tehdit modeli Contoso Webstore için [şeması tehdit modeli](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -373,7 +371,7 @@ Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris
 
 ## <a name="disclaimer-and-acknowledgements"></a>Vazgeçme ve bildirimleri
 
-*Eylül 2017*
+Eylül 2017
 
 - Bu belgede yalnızca bilgilendirme amaçlıdır. MICROSOFT VE AVYAN SARİH, ZIMNİ VEYA NİZAMİ BU BELGEDEKİ BİLGİLER HİÇBİR GARANTİ VERMEZ HALE GETİRİR. Bu belgede sağlanan "olarak-değil." URL ve diğer Internet Web sitesi başvuruları dahil olmak üzere bu belgede belirtilen bilgiler ve görüntüler bildirim yapılmadan değiştirilebilir. Bu belgeyi okuma müşterilerin kullanım riski size aittir.  
 - Bu belge müşterilerle herhangi bir Microsoft veya Avyan ürün veya çözümleri üzerinde hiçbir fikri mülkiyet hakkı sağlamaz.  
@@ -390,7 +388,7 @@ Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris
 ### <a name="document-authors"></a>Belge yazarları
 
 - *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan danışmanlık)*
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Kod deposu"

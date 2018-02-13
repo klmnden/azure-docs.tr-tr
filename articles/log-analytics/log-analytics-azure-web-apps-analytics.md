@@ -3,7 +3,7 @@ title: "Azure Web Apps analitik verileri görüntüleme | Microsoft Docs"
 description: "Tüm Azure Web uygulaması kaynaklar arasında farklı ölçümleri toplayarak, Azure Web Apps hakkında Öngörüler elde etmek için Azure Web Apps analiz çözümü kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: 6662fee875d44f88781be51443d48e86c1bf2d46
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Tüm Azure Web uygulaması kaynaklarına arasında ölçümleri ilişkin analitik verileri görüntüle
 
@@ -95,14 +95,14 @@ Tıklatın **Azure Web Apps Analytics** açmak için kutucuğa **Azure Web Apps 
 | Sütun | Açıklama |
 | --- | --- |
 | Azure Webapps |   |
-| Web uygulamaları istek eğilimleri | Web uygulamaları istek eğilim seçtiğiniz tarih aralığı için bir çizgi grafiği gösterir ve üst on web isteklerinin listesini gösterir. Günlük aramasını çalıştırmak için çizgi grafiği tıklatın<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>İstek web isteği ölçüm eğilim için günlük arama çalıştırmak için bir web isteği öğesini tıklatın. |
-| Web uygulamaları yanıt süresi | Bir çizgi grafiği, seçtiğiniz tarih aralığı için Web Apps yanıt süresini gösterir. Ayrıca bir listesini üst listesini gösterir on Web Apps yanıt süreleri. Günlük aramasını çalıştırmak için grafiği tıklatın<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Web uygulaması için yanıt sürelerini döndüren bir günlük arama çalıştırmak için bir Web uygulaması'i tıklatın. |
-| Web Apps Traffic | MB cinsinden Web Apps trafiği için bir çizgi grafiği gösterir ve Web uygulamaları trafiği üst listeler. Günlük aramasını çalıştırmak için grafiği tıklatın<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Bu trafiği ile tüm Web uygulamaları için son dakika gösterir. Web uygulaması için gönderilen ve alınan bayt gösteren bir günlük arama çalıştırmak için bir Web uygulaması'ı tıklatın. |
+| Web uygulamaları istek eğilimleri | Web uygulamaları istek eğilim seçtiğiniz tarih aralığı için bir çizgi grafiği gösterir ve üst on web isteklerinin listesini gösterir. Günlük aramasını çalıştırmak için çizgi grafiği tıklatın <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>İstek web isteği ölçüm eğilim için günlük arama çalıştırmak için bir web isteği öğesini tıklatın. |
+| Web uygulamaları yanıt süresi | Bir çizgi grafiği, seçtiğiniz tarih aralığı için Web Apps yanıt süresini gösterir. Ayrıca bir listesini üst listesini gösterir on Web Apps yanıt süreleri. Günlük aramasını çalıştırmak için grafiği tıklatın <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Web uygulaması için yanıt sürelerini döndüren bir günlük arama çalıştırmak için bir Web uygulaması'i tıklatın. |
+| Web Apps Traffic | MB cinsinden Web Apps trafiği için bir çizgi grafiği gösterir ve Web uygulamaları trafiği üst listeler. Günlük aramasını çalıştırmak için grafiği tıklatın <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Bu trafiği ile tüm Web uygulamaları için son dakika gösterir. Web uygulaması için gönderilen ve alınan bayt gösteren bir günlük arama çalıştırmak için bir Web uygulaması'ı tıklatın. |
 | Azure uygulama hizmeti planları |   |
-| Uygulama hizmeti planları CPU kullanımı ile &gt; % 80 | CPU kullanımı % 80'den büyük olan App Service planları toplam sayısını gösterir ve CPU kullanımı üst 10 App Service planları listeler. Toplam alan için bir günlük arama çalıştırmak için tıklatın<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> App Service planları ve ortalama CPU kullanımlarını listesini gösterir. Bir App Service, ortalama CPU kullanımını gösteren bir günlük arama çalıştırmayı planladığınız'ı tıklatın. |
-| Uygulama hizmeti planları bellek kullanımı ile &gt; % 80 | App Service bellek kullanımı % 80'den büyük olan planları toplam sayısını gösterir ve bellek kullanımı üst 10 App Service planları listeler. Toplam alan için bir günlük arama çalıştırmak için tıklatın<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> App Service planları ve bunların ortalama bellek kullanımı listesini gösterir. Bir App Service, ortalama bellek kullanımı gösteren bir günlük arama çalıştırmayı planladığınız'ı tıklatın. |
+| Uygulama hizmeti planları CPU kullanımı ile &gt; % 80 | CPU kullanımı % 80'den büyük olan App Service planları toplam sayısını gösterir ve CPU kullanımı üst 10 App Service planları listeler. Toplam alan için bir günlük arama çalıştırmak için tıklatın <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> App Service planları ve ortalama CPU kullanımlarını listesini gösterir. Bir App Service, ortalama CPU kullanımını gösteren bir günlük arama çalıştırmayı planladığınız'ı tıklatın. |
+| Uygulama hizmeti planları bellek kullanımı ile &gt; % 80 | App Service bellek kullanımı % 80'den büyük olan planları toplam sayısını gösterir ve bellek kullanımı üst 10 App Service planları listeler. Toplam alan için bir günlük arama çalıştırmak için tıklatın <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> App Service planları ve bunların ortalama bellek kullanımı listesini gösterir. Bir App Service, ortalama bellek kullanımı gösteren bir günlük arama çalıştırmayı planladığınız'ı tıklatın. |
 | Azure Web Apps etkinlik günlükleri |   |
-| Azure Web Apps etkinlik denetim | Web uygulamaları ile toplam sayısını gösterir [etkinlik günlükleri](log-analytics-activity.md) ve ilk 10 etkinlik günlüğü işlemleri listeler. Toplam alan için bir günlük arama çalıştırmak için tıklatın<code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Etkinlik günlüğü işlemleri listesini gösterir. Kayıt işlemi için listeler günlük arama çalıştırmak için bir etkinlik günlüğü işlemi'ı tıklatın. |
+| Azure Web Apps etkinlik denetim | Web uygulamaları ile toplam sayısını gösterir [etkinlik günlükleri](log-analytics-activity.md) ve ilk 10 etkinlik günlüğü işlemleri listeler. Toplam alan için bir günlük arama çalıştırmak için tıklatın <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Etkinlik günlüğü işlemleri listesini gösterir. Kayıt işlemi için listeler günlük arama çalıştırmak için bir etkinlik günlüğü işlemi'ı tıklatın. |
 
 
 

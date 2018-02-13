@@ -3,7 +3,7 @@ title: "Günlük analizi Azure SQL analizi çözümde | Microsoft Docs"
 description: "Azure SQL analiz çözümü Azure SQL veritabanlarınızın yönetmenize yardımcı olur."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 2a363f663677eb7078b7ae06fde374cdbe083fd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL veritabanı günlük analizi Azure SQL analizi (Önizleme) kullanarak izleme
 
@@ -31,7 +31,7 @@ Azure günlük analizi Azure SQL analizi çözümde toplar ve önemli SQL Azure 
 Günlük analizi için bulunan diğerleri gibi Azure SQL analiz çözümü izlemenize ve Azure kaynaklarınızı durumu hakkında bildirim almak yardımcı olur; bu durumda, Azure SQL veritabanı. Microsoft Azure SQL veritabanı Azure bulutta çalışan uygulamalar için tanıdık SQL Server gibi özellikleri sağlayan bir ölçeklenebilir ilişkisel veritabanı hizmetidir. Günlük analizi toplamak, bağıntılı ve yapılandırılmış ve yapılandırılmamış verileri görselleştirmek için yardımcı olur.
 
 Gömülü video Azure SQL analiz çözümü kullanarak uygulamalı bir genel bakış ve tipik kullanım senaryoları için bkz:
-          
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -47,7 +47,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Doğrudan Linux aracılarını çözümü tarafından kullanılmaz. |
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | Günlük analizi SCOM Aracısı'nı arasında doğrudan bağlantı çözümü tarafından kullanılmaz. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Günlük analizi depolama hesabından veri okuma değil. |
-| [Azure Tanılama](log-analytics-azure-storage.md) | Evet | Azure ölçüm ve günlük verileri için günlük analizi doğrudan Azure tarafından gönderilir. |
+| [Azure Tanılama](log-analytics-azure-storage.md) | Evet | Ölçüm ve günlük verilerini Azure günlük analizi için doğrudan Azure tarafından gönderilir. |
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -63,11 +63,11 @@ Azure SQL analiz çözümü, çalışma alanına eklemek için aşağıdaki adı
 2. Azure portalında tıklatın **yeni** (+ simgesi), ardından kaynak listesinde seçin **izleme + Yönetim**.  
     ![İzleme + Yönetim](./media/log-analytics-azure-sql/monitoring-management.png)
 3. İçinde **izleme + Yönetim** listesine **tümünü görmek**.
-4. İçinde **önerilen** tıklatın **daha fazla** ve ardından yeni liste bulmak **Azure SQL analizi (Önizleme)** ve seçin.  
+4. İçinde **önerilen** tıklatın **daha fazla**ve ardından yeni liste bulmak **Azure SQL analizi (Önizleme)** ve seçin.  
     ![Azure SQL analiz çözümü](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. İçinde **Azure SQL analizi (Önizleme)** dikey penceresinde tıklatın **oluşturma**.  
+5. İçinde **Azure SQL analizi (Önizleme)** alanında tıklatın **oluşturma**.  
     ![Oluşturma](./media/log-analytics-azure-sql/portal-create.png)
-6. İçinde **yeni çözüm oluşturmak** dikey penceresinde, çözüme eklemek istediğiniz çalışma alanını seçin ve ardından **oluşturma**.  
+6. İçinde **yeni çözüm oluşturmak** alanı çözüme eklemek istediğiniz çalışma alanını seçin ve ardından **oluşturma**.  
     ![Çalışma alanıma Ekle](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,15 +97,15 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Azure SQL analizi verileri görüntüleme
 
-Tıklayın **Azure SQL analizi** döşeme Azure SQL analizi panosunu açın. Pano farklı perspektiflerini izlenen tüm veritabanları bakış içerir. İş farklı perspektiflerini için Azure günlük analizi çalışma alanına akışını SQL kaynaklarınız uygun ölçümleri veya günlükleri etkinleştirmelisiniz. 
+Tıklayın **Azure SQL analizi** döşeme Azure SQL analizi panosunu açın. Pano farklı perspektiflerini izlenen tüm veritabanları bakış içerir. İş farklı perspektiflerini için Azure günlük analizi çalışma alanına akışını SQL kaynaklarınız uygun ölçümleri veya günlükleri etkinleştirmelisiniz.
 
 ![Azure SQL analizi genel bakış](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Döşeme birini seçerek, belirli bir perspektife ayrıntıya rapor açılır. Perspektif seçildikten sonra detaya gitme rapor açılır.
+Döşeme birini seçerek, belirli bir perspektife ayrıntıya rapor açılır. Perspektif seçildikten sonra ayrıntıya rapor açılır.
 
 ![Azure SQL analizi zaman aşımları](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
-Her bir perspektif abonelik, sunucu, esnek havuz ve veritabanı düzeyi özetleri sağlar. Ayrıca, her bir perspektif sağ tarafta perspektif belirli rapor gösterir. Abonelik, sunucu, havuzu veya veritabanı listeden seçerek aşağı ayrıntıya devam eder.
+Her bir perspektif abonelik, sunucu, esnek havuz ve veritabanı düzeyi özetleri sağlar. Ayrıca, her bir perspektif bir perspektif sağ tarafta raporu belirli gösterir. Abonelik, sunucu, havuzu veya veritabanı listeden seçerek ayrıntıya devam eder.
 
 | Perspektifi | Açıklama |
 | --- | --- |
@@ -134,13 +134,13 @@ Esnek havuzlar ve veritabanları kaynak için belirtilen süre içinde toplanan 
 
 ### <a name="query-reports"></a>Sorgu raporları
 
-Sorgu süresi ve sorgu bekler perspektif aracılığıyla, sorgu rapor aracılığıyla herhangi bir sorgu performansını ilişkilendirebilirsiniz. Bu rapor, farklı veritabanlarındaki sorgu performansını karşılaştırır ve iyi yavaş olanları karşı seçili sorgulaması veritabanları sabitleme kolay hale getirir.
+Sorgu süresi ve sorgu bekler Perspektifler aracılığıyla, sorgu rapor aracılığıyla herhangi bir sorgu performansını ilişkilendirebilirsiniz. Bu rapor, farklı veritabanlarındaki sorgu performansını karşılaştırır ve iyi yavaş olanları karşı seçili sorgulaması veritabanları sabitleme kolay hale getirir.
 
 ![Azure SQL analitik sorguları](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Verileri çözümlemek ve uyarı oluşturma
 
-Uyarılar, Azure SQL veritabanı kaynaklardan gelen veriler ile kolayca oluşturabilirsiniz. İşte birkaç faydalı [günlük arama](log-analytics-log-searches.md) uyarmak için kullanabileceğiniz sorgular:
+Uyarılar, Azure SQL veritabanı kaynaklardan gelen veriler ile kolayca oluşturabilirsiniz. İşte bazı yararlı [günlük arama](log-analytics-log-searches.md) uyarmak için kullanabileceğiniz sorgular:
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-with-power-bi"></a>Power BI ile bağlanma
 
@@ -38,7 +38,9 @@ Azure üzerinde bir sunucu oluşturulur ve bir tablo modeline dağıtılmış so
 
 3. İçinde **veritabanı**, burada yapıştırmak için bağlanmak istediğiniz Perspektif veya tablolu model veritabanı adını biliyorsanız. Aksi takdirde, bu alanı boş bırakın ve daha sonra bir veritabanı veya perspektif seçin.
 
-4. Varsayılan adı bırakın **Bağlan canlı** seçeneğini ve ardından basın **Bağlan**. İçeri aktarma bağlantıları şu anda desteklenmiyor.
+4. Bağlantı seçeneği seçin ve sonra basın **Bağlan**. 
+
+    Her ikisi de **Bağlan canlı** ve **alma** seçenek desteklenmez. Ancak, bazı sınırlamalar içe aktarma moduna sahip olmadığından Canlı bağlantıları kullanmak önerilir; Özellikle, sunucu performansını alma işlemi sırasında etkilenebilir. Ayrıca, Power BI hizmetinde yenilenmesi modeli ise, **Power BI'dan erişime izin** ayar uygulanır yalnızca seçerken **Bağlan canlı**.
 
 5. İstenirse, oturum açma kimlik bilgilerinizi girin. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure şeması Otomasyon - düzenlenen iş yükleri için finansal hizmetler"
-description: "Düzenlenen iş yükleri için finansal hizmetler şeması"
+title: "Azure güvenlik ve uyumluluk şeması - FFIEC finansal hizmetler düzenlenen iş yükleri"
+description: "Azure güvenlik ve uyumluluk şeması - FFIEC finansal hizmetler düzenlenen iş yükleri"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Azure şeması Otomasyon: Düzenlenen iş yükleri finansal hizmetler şeması
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure güvenlik ve uyumluluk şeması - FFIEC finansal hizmetler düzenlenen iş yükleri
 
 ## <a name="overview"></a>Genel Bakış
 
-Finansal Hizmetler şeması düzenlenen iş yükleri için güvenli ve uyumlu bir platform bulutta hassas verileri işlemek üzere tasarlanmış bir hizmet (PaaS) web uygulaması olarak dağıtın yardımcı olur. Şeması otomatik betikler ve basit başvuru mimarisi ve Microsoft Azure çözümleri benimsenmesi basitleştirmeye yardımcı olan bir tasarım sergiler Kılavuzu oluşur. Bu şeması yükünü ve buluta dağıtma maliyetini azaltma yolları arayan kuruluşlar ihtiyaçlarını karşılamak üzere bir uçtan uca çözüm gösterilmektedir.
+Azure güvenlik ve uyumluluk şeması - FFIEC finansal hizmetler Regulated iş yükleri yardımcı güvenli ve uyumlu bir platform bulutta hassas verileri işlemek üzere tasarlanmış bir hizmet (PaaS) web uygulaması olarak dağıtın. Şeması otomatik betikler ve basit başvuru mimarisi ve Microsoft Azure çözümleri benimsenmesi basitleştirmeye yardımcı olan bir tasarım sergiler Kılavuzu oluşur. Bu şeması yükünü ve buluta dağıtma maliyetini azaltma yolları arayan kuruluşlar ihtiyaçlarını karşılamak üzere bir uçtan uca çözüm gösterilmektedir.
 
 Bu şeması tarafından American Institute, Onaylı Ortak muhasebe gibi - SOC 1, SOC 2, ödeme kartı sektör veri güvenliği standartları council'ın DSS 3.2 ve FFIEC için ayarlanmış sıkı uyumlu standartları gereksinimlerini karşılamak üzere tasarlanmıştır Toplama, depolama ve hassas finansal verileri alma. Bu tür veriler uygun işlenmesini güvenli, uyumlu, çok katmanlı ortamında finansal verileri yöneten bir çözümü gösterir. Çözümü bir uçtan uca Azure tabanlı PaaS çözüm dağıtılır. 
 
@@ -52,7 +52,7 @@ Mimari aşağıdaki bileşenlerden oluşur ve Azure PCI DSS uyumluluk çözüm d
 
 Aşağıdaki şeması adresleri aşağıdaki kullanım örneği.
 
-> Bu senaryo, bir PaaS içine hassas verileri Azure tabanlı çözüm bulut kurgusal webstore nasıl taşınır gösterilmektedir. Örnek bir çözüm işleme ve temel kullanıcı bilgileri ve seçili hassas verileri topluluğunu gösterir. Bu iş Azure şeması Otomasyon taşır: ödeme işleme ödeme kartı işleme için PCI DSS uyumlu ortamlar için. Bu iş üzerinde genişletme hakkında daha fazla bilgi için ["Gözden geçirin ve yönergeler için uygulama"](https://aka.ms/pciblueprintprocessingoverview) kağıt PCI DSS uyumlu ortamları gözden sağlar.
+> Bu senaryo, bir PaaS içine hassas verileri Azure tabanlı çözüm bulut kurgusal webstore nasıl taşınır gösterilmektedir. Örnek bir çözüm işleme ve temel kullanıcı bilgileri ve seçili hassas verileri topluluğunu gösterir. Bu iş Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları taşır. Bu iş üzerinde genişletme hakkında daha fazla bilgi için ["Gözden geçirin ve yönergeler için uygulama"](https://aka.ms/pciblueprintprocessingoverview) kağıt PCI DSS uyumlu ortamları gözden sağlar.
 
 ### <a name="use-case"></a>Kullanım örneği
 Küçük webstore adlı *Contoso Webstore* Müşteri ödeme bilgileri buluta içeren finansal verileri taşımak hazırdır. 
@@ -65,7 +65,7 @@ Contoso Webstore yönetici için kendi hedeflerinize ulaşmak için hızlı bir 
 
 Temel mimari aşağıdaki kurgusal öğeleriyle tasarlanmıştır:
 
-Etki alanı site`contosowebstore.com`
+Etki alanı site `contosowebstore.com`
 
 Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak için kullanıcı rolleri çalışan.
 
@@ -94,7 +94,7 @@ Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak i
 - Sqladmin hesabı filtrelenmemiş finansal bilgi görüntüleyemezsiniz. Tüm Eylemler günlüğe kaydedilir.
 - SQL veritabanı sqladmin hesabını yönetebilir.
 
-#### <a name="role-clerk"></a>Rol: yazıcısı
+#### <a name="role-clerk"></a>Role: Clerk
 
 |Öğe      |Örnek|
 |----------|------|
@@ -111,7 +111,7 @@ Edna Benson resepsiyonist ve iş yöneticisidir. Aynen, müşteri bilgileri doğ
 - Edna finansal bilgi üzerine yazabilirsiniz.
 - Edna hesabı filtrelenmemiş finansal bilgi görüntüleyemezsiniz.
 
-> Contoso Webstore'un otomatik olarak kullanıcıdır **Edna** dağıtılan ortam özelliklerini test etmek için kullanıcı.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso tahmini Webstore fiyatlandırma-
 
@@ -122,7 +122,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanılır. Dağıtım mimarisi a
 >- Application Gateway
 >- Azure Active Directory
 >- Uygulama hizmeti ortamı v2
->- OMS günlük analizi
+>- OMS Log Analytics
 >- Azure Key Vault
 >- Ağ Güvenlik Grupları
 >- Azure SQL DB
@@ -151,7 +151,7 @@ Aşağıdaki bölümde geliştirme ve uygulama öğeleri ayrıntılarını verir
 
 Temel mimari bir uygulama ağ geçidi kullanarak bir web uygulaması Güvenlik Duvarı (WAF) ve etkin OWASP ruleset güvenlik açıkları riskini azaltır. Ek özellikler şunları içerir:
 
-- [SSL uç bitiş](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [SSL boşaltma](/azure/application-gateway/application-gateway-ssl-portal) etkin
 - [TLS v1.0 ve v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) devre dışı
 - [Web uygulaması güvenlik duvarı](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (WAF mod)
@@ -172,7 +172,7 @@ Her ağ katmanı ayrılmış bir ağ güvenlik grubu (NSG) vardır:
 - Yönetim jumpbox (savunma ana bilgisayarı) için bir NSG
 - Uygulama hizmeti ortamı için bir NSG
 
-Her Nsg'ler sahip belirli bağlantı noktalarını ve protokolleri çözümü güvenli ve doğru çalışması için açıldı. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](#network-security-groups).
+Her Nsg'ler sahip belirli bağlantı noktalarını ve protokolleri çözümü güvenli ve doğru çalışması için açıldı. 
 
 Ayrıca, aşağıdaki yapılandırmalar her NSG için etkinleştirilir:
 
@@ -186,7 +186,7 @@ Ayrıca, aşağıdaki yapılandırmalar her NSG için etkinleştirilir:
 #### <a name="custom-domain-ssl-certificates"></a>Özel etki alanı SSL sertifikaları
  Özel etki alanı SSL sertifikası kullanarak HTTPS trafiği etkinleştirilir.
 
-### <a name="data-at-rest"></a>Rest verileri
+### <a name="data-at-rest"></a>Bekleyen veriler
 
 Mimari, şifreleme, veritabanı denetimi ve diğer ölçülere kullanarak rest verileri korur.
 
@@ -305,7 +305,7 @@ Varsayılan dağıtım güvenli ve sağlam yapılandırma durumunu belirten Güv
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
-Bu çözümü dağıtmak için kullanılabilir bileşenleridir [ödeme işleme şeması kod deposu][code-repo]. Temel mimari dağıtımını Microsoft PowerShell v5 yürütülen birkaç adımı gerektirir. Web sitesine bağlanmak için bir özel etki alanı adı (örneğin, contoso.com) sağlamanız gerekir. Bu kullanılarak belirtilir `-customHostName` 2. adımda geçiş yapın. Daha fazla bilgi için bkz: [Azure Web uygulamaları için özel etki alanı adı satın](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Özel etki alanı adı başarıyla dağıtmak ve çözümü çalıştırmak için gerekli değildir, ancak tanıtım amacıyla Web sitesine bağlanamadı olacaktır.
+Bu çözümü dağıtmak için kullanılabilir bileşenleridir [şeması kod deposu][code-repo]. Temel mimari dağıtımını Microsoft PowerShell v5 yürütülen birkaç adımı gerektirir. Web sitesine bağlanmak için bir özel etki alanı adı (örneğin, contoso.com) sağlamanız gerekir. Bu kullanılarak belirtilir `-customHostName` 2. adımda geçiş yapın. Daha fazla bilgi için bkz: [Azure Web uygulamaları için özel etki alanı adı satın](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Özel etki alanı adı başarıyla dağıtmak ve çözümü çalıştırmak için gerekli değildir, ancak tanıtım amacıyla Web sitesine bağlanamadı olacaktır.
 
 Komut dosyalarını belirttiğiniz Azure AD Kiracı etki alanı kullanıcıları ekleyin. Bir test olarak kullanmak için yeni bir Azure AD oluşturma Microsoft önerir Kiracı.
 
@@ -361,7 +361,7 @@ Microsoft, yüksek oranda PowerShell temiz bir yüklemesini çözümü dağıtma
     
 ## <a name="threat-model"></a>Tehdit modeli
 
-Bir veri akış diyagramı (DFD) ve örnek tehdit modeli Contoso Webstore için [ödeme işleme şeması tehdit modeli](https://aka.ms/pciblueprintthreatmodel).
+Bir veri akış diyagramı (DFD) ve örnek tehdit modeli Contoso Webstore için [şeması tehdit modeli](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -375,7 +375,7 @@ Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris
 
 ## <a name="disclaimer-and-acknowledgments"></a>Vazgeçme ve ilgili kaynaklar
 
-*Eylül 2017*
+Eylül 2017
 
 - Bu belgede yalnızca bilgilendirme amaçlıdır. MICROSOFT VE AVYAN SARİH, ZIMNİ VEYA NİZAMİ BU BELGEDEKİ BİLGİLER HİÇBİR GARANTİ VERMEZ HALE GETİRİR. Bu belgede sağlanan "olarak-değil." URL ve diğer internet Web sitesi başvuruları dahil olmak üzere bu belgede belirtilen bilgiler ve görüntüler bildirim yapılmadan değiştirilebilir. Bu belgeyi okuma müşterilerin kullanım riski size aittir.  
 - Bu belge müşterilerle herhangi bir Microsoft veya Avyan ürün veya çözümleri üzerinde hiçbir fikri mülkiyet hakkı sağlamaz.  

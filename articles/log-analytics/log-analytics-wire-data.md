@@ -3,7 +3,7 @@ title: "Günlük analizi veri çözümde wire | Microsoft Docs"
 description: "Kablo verileri birleştirilmiş ağ ve performans OMS aracısının, Operations Manager ve Windows bağlı aracılar dahil olmak üzere bilgisayar verilerdir. Ağ verileri verilerin bağıntısını yardımcı olması için günlük verilerinizi birleştirilir."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: magoedte;banders
-ms.openlocfilehash: 2ce9491f7c16baa7805bdb35defc57645b73d18f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kablo verileri 2.0 (Önizleme) çözümüne günlük analizi
 
@@ -115,7 +115,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| **İşletim sistemi sürümü** | **Çekirdek sürümü** |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 | --- | --- |
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -124,7 +124,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| **İşletim sistemi sürümü** | **Çekirdek sürümü** |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 | --- | --- |
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -138,7 +138,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 
-| **İşletim sistemi sürümü** | **Çekirdek sürümü** |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 | --- | --- |
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -149,7 +149,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 
-| **İşletim sistemi sürümü** | **Çekirdek sürümü** |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 | --- | --- |
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -159,7 +159,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| **İşletim sistemi sürümü** | **Çekirdek sürümü** |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 | --- | --- |
 | 5.8 | Oracle 2.6.32-300 (UEK R1) |
 | 5.9 | Oracle 2.6.39-300 (UEK R2) |
@@ -170,7 +170,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 
-| **İşletim sistemi sürümü** | **Çekirdek sürümü** |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 | --- | --- |
 | 11 | 2.6.27 |
 | 11 SP1 | 2.6.32 |
@@ -180,7 +180,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="suse-linux-10"></a>SUSE Linux 10
 
-| **İşletim sistemi sürümü** | **Çekirdek sürümü** |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 | --- | --- |
 | 10 SP4 | 2.6.16.60 |
 
@@ -209,7 +209,7 @@ Bağımlılık Aracısı'nı InstallDependencyAgent Windows.exe Windows çalış
 Windows çalıştıran her bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
 1. İçindeki adımları izleyerek OMS Aracısı [ortamınızda barındırılan Windows bilgisayarlarından verileri toplama](log-analytics-windows-agent.md).
-2. Önceki bölümde bağlantıyı kullanarak Windows bağımlılık aracısı yükleyin ve sonra aşağıdaki komutu kullanarak çalıştırın:`InstallDependencyAgent-Windows.exe`
+2. Önceki bölümde bağlantıyı kullanarak Windows bağımlılık aracısı yükleyin ve sonra aşağıdaki komutu kullanarak çalıştırın: `InstallDependencyAgent-Windows.exe`
 3. Aracıyı yüklemek için sihirbazı izleyin.
 4. Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracılar için %Programfiles%\Microsoft bağımlılık Agent\logs günlük dizindir.
 
@@ -219,7 +219,7 @@ Bir komut satırından yüklemek için aşağıdaki tablodaki seçenekleri kulla
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Bayrağı** | **Açıklama** |
+| Bayrağı | **Açıklama** |
 | --- | --- |
 | <code>/?</code> | Komut satırı seçeneklerinin listesini alın. |
 | <code>/S</code> | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
@@ -244,7 +244,7 @@ Yükleme bayrakları listesini görmek için yükleme programla çalıştırma `
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Bayrağı** | **Açıklama** |
+| Bayrağı | **Açıklama** |
 | --- | --- |
 | <code>-help</code> | Komut satırı seçeneklerinin listesini alın. |
 | <code>-s</code> | Kullanıcı etkileşimi ile sessiz bir yükleme gerçekleştirin. |
@@ -252,7 +252,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Bağımlılık aracısı için dosyalar aşağıdaki dizinlerindeki yerleştirilir:
 
-| **Dosyaları** | **Konum** |
+| Dosyaları | **Konum** |
 | --- | --- |
 | Çekirdek dosyaları | /OPT/Microsoft/Dependency-Agent |
 | Günlük dosyaları | /var/OPT/Microsoft/Dependency-Agent/log |
@@ -364,7 +364,7 @@ Yönetim Paketi Microsoft.IntelligencePacks.ApplicationDependencyMonitor olarak 
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
 
-**Yükleme ve çözüm yapılandırılıyor**
+Yükleme ve çözüm yapılandırılıyor
 
 Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
@@ -381,7 +381,7 @@ Aracıları yüklü olan ve çözüm yükledikten sonra çalışma alanınızda 
 
 OMS Portalı'nda tıklatın **kablo verileri 2.0** döşeme kablo verileri panosunu açın. Pano Kanatlar aşağıdaki tabloda içerir. Her dikey penceresinde belirtilen kapsam ve zaman aralığı için o dikey 's ölçütlerle eşleşen en fazla 10 öğeleri listeler. Tıklayarak tüm kayıtları döndüren bir günlük arama çalıştırabilirsiniz **tümünü görmek** alt dikey veya dikey başlığını tıklatarak.
 
-| **Dikey penceresi** | **Açıklama** |
+| Dikey penceresi | **Açıklama** |
 | --- | --- |
 | Ağ trafiğini yakalayan aracılar | Ağ trafiğini yakalayan aracılar sayısını gösterir ve trafiği yakalama üst 10 bilgisayarları listeler. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Toplam Yakalanan bayt sayısı döndüren bir günlük arama çalıştırmak için listedeki bir bilgisayar'ı tıklatın. |
 | Yerel alt ağları | Aracıları bulunmuş yerel alt ağları sayısını gösterir.  Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> , listeleriyle tüm alt ağların her biri gönderilen bayt sayısı. Alt ağ gönderilen bayt sayısı toplam döndüren bir günlük arama çalıştırmak için listedeki bir alt ağ'ı tıklatın. |

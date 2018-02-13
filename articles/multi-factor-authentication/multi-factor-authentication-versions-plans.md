@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 67456fa865a7bc1057194d577cd79ce6378a7ac9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication alma
 
@@ -67,6 +67,9 @@ Aşağıdaki tabloda, çeşitli Azure multi-Factor Authentication'ın sürümler
 | Güvenilen cihazlar için MFA hatırlama |● |● |● |
 | MFA SDK | | |● (kullanım dışı) | 
 | MFA için şirket içi uygulamalar | | |● |
+
+## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Azure AD Yöneticiler için Azure çok faktörlü kimlik doğrulaması devre dışı bırakma
+Azure AD kiracılarıyla genel Yönetici rolüne atanan kullanıcılar, Azure AD genel yönetici hesaplarını hiçbir ek ücret ödemeden için iki aşamalı doğrulamayı etkinleştirebilirsiniz. Microsoft Account kullanıyorsanız, çok faktörlü kimlik doğrulamasını kaydedebilirsiniz [burada](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Genel Yöneticiler için multi-Factor authentication Microsoft Account kullanmıyorsanız Aç [burada](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication alma
 Azure multi-Factor Authentication tarafından sunulan tam işlevselliği istiyorsanız, birkaç seçeneğiniz vardır:

@@ -3,7 +3,7 @@ title: "Configuration Manager günlük Analizi'ne bağlamak | Microsoft Docs"
 description: "Bu makalede, Configuration Manager günlük Analizi'ne bağlayın ve veri çözümleme başlatmak için gereken adımları gösterir."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: banders
-ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.author: magoedte
+ms.openlocfilehash: 5acf2ad27a55684a8cb42ed646c54d1ec91a5625
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager günlük Analizi'ne bağlayın
 System Center Configuration Manager OMS günlük analizi aygıt koleksiyonu veri eşitlemesine bağlanabilir. Bu veri, Configuration Manager hiyerarşisinden OMS kullanılabilir hale getirir.
@@ -73,12 +73,12 @@ Aşağıdaki yordam, OMS erişmek için gerekli izinlere sahip Azure portalı sa
 8. İçinde **erişim Ekle**, tıklatın **bir rol seçin**ve ardından **katkıda bulunan** rol.  
    ![bir rol seçin](./media/log-analytics-sccm/sccm-azure05.png)  
 9. Tıklatın **kullanıcıları eklemek**, Configuration Manager kullanıcısını seçin, **seçin**ve ardından **Tamam**.  
-   ![kullanıcıları ekleme](./media/log-analytics-sccm/sccm-azure06.png)  
+   ![Kullanıcıları ekleme](./media/log-analytics-sccm/sccm-azure06.png)  
 
 ## <a name="add-an-oms-connection-to-configuration-manager"></a>Configuration Manager'a bir OMS bağlantısı ekleme
 Bir OMS bağlantısı eklemek için Configuration Manager ortamınızı içermelidir bir [hizmet bağlantı noktası](https://technet.microsoft.com/library/mt627781.aspx) çevrimiçi modu için yapılandırılmış.
 
-1. İçinde **Yönetim** çalışma Configuration Manager, select **OMS bağlayıcı**. Bu açılır **OMS Bağlantısı Ekleme Sihirbazı'nı**. Seçin **sonraki**.
+1. İçinde **Yönetim** çalışma Configuration Manager, select **OMS bağlayıcı**. Bu açılır **OMS Bağlantısı Ekleme Sihirbazı'nı**. **İleri**’yi seçin.
 2. Üzerinde **genel** aşağıdaki eylemleri yaptıktan ve her öğeye ilişkin ayrıntıları sahip sonra seçin onaylayın **sonraki**.
 
    1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması Configuration Manager kaydınız ve sahip olduğunuz [kayıt istemci kimliği](../active-directory/active-directory-integrating-applications.md).

@@ -3,7 +3,7 @@ title: "Active Directory ortamınızı Azure günlük analizi ile en iyi duruma 
 description: "Düzenli bir aralıkta risk ve ortamlarınızın durumunu değerlendirmek için Active Directory sistem durumu denetimi çözüm kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Active Directory ortamınızı günlük analizi Active Directory sistem durumu denetimi çözümde ile en iyi duruma getirme
 
@@ -41,7 +41,7 @@ Kuruluşunuz için en önemli ve ücretsiz ve sağlam bir risk ortam çalıştı
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Active Directory sistem durumu denetimi çözüm .NET Framework 4.5.2 desteklenen bir sürümünü gerektirir veya yukarıdaki Microsoft İzleme Aracısı (yüklenmiş MMA) olan her bilgisayarda yüklü.  MMA Aracısı System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ile günlük analizi hizmeti tarafından kullanılır. 
+* Active Directory sistem durumu denetimi çözüm .NET Framework 4.5.2 desteklenen bir sürümünü gerektirir veya yukarıdaki Microsoft İzleme Aracısı (yüklenmiş MMA) olan her bilgisayarda yüklü.  MMA Aracısı System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ile günlük analizi hizmeti tarafından kullanılır.
 * Çözüm, Windows Server 2008 ve 2008 R2, Windows Server 2012 ve 2012 R2 ve Windows Server 2016 çalıştıran etki alanı denetleyicilerini destekler.
 * Azure portalında Azure Marketi'nden Active Directory sistem durumu denetimi çözümü eklemek için bir günlük analizi çalışma alanı.  Başka bir yapılandırma işlemi gerekmez.
 
@@ -62,13 +62,13 @@ Bir Operations Manager yönetim grubu için hangi raporların toplar, etki alan�
 
 Active Directory sistem durumu denetimi etkinleştirdiğiniz aracısını kullanarak aşağıdaki kaynaklardan toplar:
 
-- Kayıt Defteri 
-- LDAP 
+- Kayıt Defteri
+- LDAP
 - .NET Framework
-- Olay günlüğü 
+- Olay günlüğü
 - Active Directory Hizmeti Arabirimleri (ADSI)
 - Windows PowerShell
-- Dosya verileri 
+- Dosya verileri
 - Windows Management Instrumentation (WMI)
 - DCDIAG aracı API'si
 - Dosya Çoğaltma Hizmeti (NTFRS) API'si
@@ -109,7 +109,7 @@ Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk de
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
 3. Tıklatın **genel bakış** döşeme Azure portalında günlük analizi çalışma alanınız için.
-4. Üzerinde **genel bakış** sayfasında, **Active Directory sistem durumu denetimi** döşeme. 
+4. Üzerinde **genel bakış** sayfasında, **Active Directory sistem durumu denetimi** döşeme.
 5. Üzerinde **sistem durumu denetimi** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.
 6. Odak alanı sayfaları hiçbirinde ortamınız için öncelikli önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneleri** öneri neden yapılan hakkında ayrıntıları görüntülemek için.<br><br> ![Sistem durumu denetimi önerileri görüntüsü](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele önerilen eylemleri sonraki değerlendirmeleri kayıtları gerçekleştirilen ve uyumluluk puan artmasına neden olur. Düzeltilmiş öğeler görünür olarak **geçirilen nesneleri**.
@@ -133,7 +133,7 @@ Yoksay istediğiniz önerileri varsa, günlük analizi önerileri değerlendirme
 2. Her Recommendationıd ayrı bir satırda yoksay ve sonra dosyayı kaydedip kapatın için günlük analizi istediğiniz her bir öneri için yazın veya yapıştırın.
 3. Dosya aşağıdaki klasörde önerileri yoksaymak için günlük analizi istediğiniz her bilgisayara yerleştirin.
    * Microsoft Monitoring (doğrudan veya Operations Manager aracılığıyla bağlı) Agent - olan bilgisayarlarda *SystemDrive*: \Program izleme Agent\Agent
-   * Operations Manager 2012 R2 yönetim sunucusundaki - *SystemDrive*: \Program System Center 2012 R2\Operations Manager\Server 
+   * Operations Manager 2012 R2 yönetim sunucusundaki - *SystemDrive*: \Program System Center 2012 R2\Operations Manager\Server
    * Operations Manager 2016 yönetim sunucusundaki - *SystemDrive*: \Program System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Öneriler göz ardı edilir doğrulamak için

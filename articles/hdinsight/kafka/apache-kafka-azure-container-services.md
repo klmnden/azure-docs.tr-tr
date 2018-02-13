@@ -14,35 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 8074797e2d37f98cc3b219dbf3e51f558bbee8c7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Hdınsight üzerinde Kafka ile Azure kapsayıcı hizmetlerini kullanma
 
-Azure kapsayıcı hizmeti (AKS) ile Kafka Hdınsight kümesinde kullanmayı öğrenin.
+Azure kapsayıcı Hizmetleri (AKS) ile Kafka Hdınsight kümesinde kullanmayı öğrenin. Bu belgede yer alan adımlar AKS içinde barındırılan bir Node.js uygulaması Kafka bağlantılarını doğrulamak için kullanın. Bu uygulamanın kullandığı [kafka düğümlü](https://www.npmjs.com/package/kafka-node) Kafka ile iletişim kurmak için paket. Kullandığı [Socket.IO](https://socket.io/) tarayıcı istemci AKS içinde barındırılan arka uç arasındaki ileti güdümlü olayı için.
 
 [Apache Kafka](https://kafka.apache.org), gerçek zamanlı akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılabilen, açık kaynak dağıtılmış akış platformudur. Azure kapsayıcı hizmeti barındırılan Kubernetes ortamınıza yönetir ve kapsayıcılı uygulamaları dağıtmak kolay ve hızlı hale getirir. Bir Azure sanal ağı kullanarak, iki hizmet bağlanabilir.
 
-> [!IMPORTANT]
-> Bu belge, oluşturma ve aşağıdaki Azure hizmetlerini kullanma konusunda bilgi sahibi olduğunuzu varsayar:
->
-> * HDInsight üzerinde Kafka
-> * Azure Container Service
-> * Azure Sanal Ağları
->
-> Bu belgede ayrıca, gitti olduğunu varsayar [Azure kapsayıcı hizmetlerini Öğreticisi](../../aks/tutorial-kubernetes-prepare-app.md). Bu öğretici bir kapsayıcı hizmeti oluşturur, bir kapsayıcı kayıt defteri Kubernetes bir küme oluşturur ve yapılandırır `kubectl` yardımcı programı.
-
 > [!NOTE]
-> Bu belgede yer alan adımlar AKS içinde barındırılan bir Node.js uygulaması Kafka bağlantılarını doğrulamak için kullanın. Bu uygulamanın kullandığı [kafka düğümlü](https://www.npmjs.com/package/kafka-node) Kafka ile iletişim kurmak için paket. Kullandığı [Socket.IO](https://socket.io/) tarayıcı istemci AKS içinde barındırılan arka uç arasındaki ileti güdümlü olayı için.
+> Hdınsight üzerinde Kafka ile iletişim kurmak Azure kapsayıcı hizmetlerini etkinleştirmek için gereken adımlar bu belgenin odak noktasıdır. Örnek Yapılandırması çalıştığını göstermek için yalnızca bir temel Kafka istemcidir.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Bir Azure aboneliği
+
+Bu belge, oluşturma ve aşağıdaki Azure hizmetlerini kullanma konusunda bilgi sahibi olduğunuzu varsayar:
+
+* HDInsight üzerinde Kafka
+* Azure Container Service
+* Azure Sanal Ağları
+
+Bu belgede ayrıca, gitti olduğunu varsayar [Azure kapsayıcı hizmetlerini Öğreticisi](../../aks/tutorial-kubernetes-prepare-app.md). Bu öğretici bir kapsayıcı hizmeti oluşturur, bir kapsayıcı kayıt defteri Kubernetes bir küme oluşturur ve yapılandırır `kubectl` yardımcı programı.
 
 ## <a name="architecture"></a>Mimari
 
 ### <a name="network-topology"></a>Ağ topolojisi
 
-Hdınsight ve AKS bir Azure sanal ağı işlem kaynakları için bir kapsayıcı olarak kullanın. Hdınsight AKS arasındaki iletişimi etkinleştirmek için kendi ağları arasındaki iletişimi etkinleştirmeniz gerekir. Bu belgede yer alan adımlar ağlara sanal ağ eşlemesi kullanın. Eşleme ile ilgili daha fazla bilgi için bkz: [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md) belge.
+Hdınsight ve AKS bir Azure sanal ağı işlem kaynakları için bir kapsayıcı olarak kullanın. Hdınsight AKS arasındaki iletişimi etkinleştirmek için kendi ağları arasındaki iletişimi etkinleştirmeniz gerekir. Bu belgede yer alan adımlar ağlara sanal ağ eşlemesi kullanın. Örneğin, VPN, diğer bağlantılar de çalışması gerekir. Eşleme ile ilgili daha fazla bilgi için bkz: [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md) belge.
+
 
 Aşağıdaki diyagram, bu belgede kullanılan ağ topolojisini gösterir:
 
@@ -51,11 +56,6 @@ Aşağıdaki diyagram, bu belgede kullanılan ağ topolojisini gösterir:
 > [!IMPORTANT]
 > Ad çözümlemesi IP adresleme kullanılmak üzere eşlenmiş ağlar arasında etkin değil. Varsayılan olarak, hdınsight'ta Kafka, istemciler bağlandığında IP adresi yerine ana bilgisayar adlarını döndürmek için yapılandırılır. Bu belgede yer alan adımlar IP'nin Kafka değiştirmek yerine reklam.
 
-## <a name="prerequisites"></a>Önkoşullar
-
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* Bir Azure aboneliği
-
 ## <a name="create-an-azure-container-service-aks"></a>Bir Azure kapsayıcı hizmeti (AKS) oluşturma
 
 Bir AKS kümesi zaten yoksa, bir oluşturmayı öğrenmek için aşağıdaki belgeler birini kullanın:
@@ -63,7 +63,10 @@ Bir AKS kümesi zaten yoksa, bir oluşturmayı öğrenmek için aşağıdaki bel
 * [Bir Azure kapsayıcı hizmeti (AKS) kümeyi - Portal dağıtma](../../aks/kubernetes-walkthrough-portal.md)
 * [Bir Azure kapsayıcı hizmeti (AKS) kümeyi - CLI dağıtma](../../aks/kubernetes-walkthrough.md)
 
-## <a name="configure-the-virtual-networks"></a>Sanal ağları yapılandırma
+> [!NOTE]
+> AKS yükleme sırasında bir sanal ağ oluşturur. Bu ağ, sonraki bölümde Hdınsight için oluşturulan bir eşlenen.
+
+## <a name="configure-virtual-network-peering"></a>Sanal ağ eşlemesini yapılandırın
 
 1. Gelen [Azure portal](https://portal.azure.com)seçin __kaynak grupları__ve ardından sanal ağ AKS kümeniz için içeren kaynak grubunu bulun. Kaynak grubu adı `MC_<resourcegroup>_<akscluster>_<location>`. `resourcegroup` Ve `akscluster` girişler kümede oluşturduğunuz kaynak grubunun adını ve küme adı. `location` Küme oluşturulduğu konum.
 

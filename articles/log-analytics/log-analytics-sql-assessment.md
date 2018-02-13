@@ -3,7 +3,7 @@ title: "SQL Server ortamınızın Azure günlük analizi ile en iyi duruma getir
 description: "Azure günlük analizi ile risk ve ortamlarınızın durumunu düzenli aralıklarla değerlendirmek için SQL sistem durumu denetimi çözüm kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71caf0e1d58107376888ae454713703d845101eb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>SQL ortamınızı günlük analizi SQL Server sistem durumu denetimi çözümde ile en iyi duruma getirme
 
@@ -43,7 +43,7 @@ Kuruluşunuz için en önemli ve ücretsiz ve sağlam bir risk ortam çalıştı
 
 * SQL sistem durumu denetimi çözüm Microsoft İzleme Aracısı (yüklenmiş MMA) olan her bilgisayarda yüklü .NET Framework 4'ün desteklenen bir sürüm gerektirir.  MMA Aracısı System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ile günlük analizi hizmeti tarafından kullanılır.  
 * SQL Server 2012, 2014 ve 2016 sürüm çözümünü destekler.
-* Azure portalında Azure Marketi'nden SQL sistem durumu denetimi çözümü eklemek için bir günlük analizi çalışma alanı.  Çözümü yüklemek için bir yönetici veya katkıda bulunan Azure aboneliğiniz olmalıdır. 
+* Azure portalında Azure Marketi'nden SQL sistem durumu denetimi çözümü eklemek için bir günlük analizi çalışma alanı.  Çözümü yüklemek için bir yönetici veya katkıda bulunan Azure aboneliğiniz olmalıdır.
 
   > [!NOTE]
   > Çözüm ekledikten sonra aracıları sunucularıyla AdvisorAssessment.exe dosyası eklenir. Yapılandırma verileri okumak ve işlemek için günlük analizi hizmet olarak bulutta sonra gönderilir. Mantığı alınan verilere uygulanır ve bulut hizmeti verilerini kaydeder.
@@ -61,12 +61,12 @@ Hangi raporları bir Operations Manager yönetim grubu için veri toplar, SQL Se
 SQL Server Operations Manager tarafından izlenen, bir Operations Manager farklı çalıştır hesabı yapılandırmanız gerekir. Bkz: [Operations Manager Çalıştır hesapları için günlük analizi](#operations-manager-run-as-accounts-for-log-analytics) altında daha fazla bilgi için.
 
 ## <a name="sql-health-check-data-collection-details"></a>Veri toplama ayrıntıları SQL sistem durumunu denetleyin
-SQL sistem durumu denetimi etkinleştirdiğiniz aracısını kullanarak aşağıdaki kaynaklardan toplar: 
+SQL sistem durumu denetimi etkinleştirdiğiniz aracısını kullanarak aşağıdaki kaynaklardan toplar:
 
-* Windows Management Instrumentation (WMI) 
-* Kayıt Defteri 
+* Windows Management Instrumentation (WMI)
+* Kayıt Defteri
 * Performans sayaçları
-* SQL Server dinamik yönetim görünümünü sonuçları 
+* SQL Server dinamik yönetim görünümünü sonuçları
 
 Veri SQL Server'da toplanır ve günlük analizi için her yedi günde iletilir.
 
@@ -163,10 +163,10 @@ Günlük analizi değerlendirme çözümünü kullanmadan önce çözümü yükl
 Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk değerlendirmesi görüntüleyin.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
-1. [https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın. 
+1. [https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın.
 2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 3. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **genel bakış** döşeme.  
-4. Üzerinde **genel bakış** sayfasında, **SQL sistem durumu denetimi** döşeme. 
+4. Üzerinde **genel bakış** sayfasında, **SQL sistem durumu denetimi** döşeme.
 5. Üzerinde **sistem durumu denetimi** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.
 6. Odak alanı sayfaları hiçbirinde ortamınız için öncelikli önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneleri** öneri neden yapılan hakkında ayrıntıları görüntülemek için.<br><br> ![SQL sistem durumu denetimi önerileri görüntüsü](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele, önerilen eylemler gerçekleştirilen ve uyumluluk puan artıracaktır sonraki değerlendirmeleri kaydeder. Düzeltilmiş öğeler görünür olarak **geçirilen nesneleri**.

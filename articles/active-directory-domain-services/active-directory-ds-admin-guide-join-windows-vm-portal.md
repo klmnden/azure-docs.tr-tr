@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory etki alanı Hizmetleri: bir Windows Server VM yönetilen bir etki alanına katılın. | Microsoft Docs"
-description: "Azure AD etki alanı Hizmetleri için Windows Server sanal makine birleştirme"
+description: Windows Server sanal makinesini Azure AD DS'ye ekleme
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,117 +14,138 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 1ea3f7271bd165bf42d520e4a0267a80dcca58d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b5c23f1f4b6180d8b664f1371ccfd8a075572e6
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server sanal makinesini yönetilen bir etki alanına ekleme
-Bu makalede Azure portal kullanarak bir Windows Server sanal makine dağıtma gösterilmektedir. Ardından, sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılmak nasıl gösterir.
+Bu makalede Azure portalını kullanarak bir Windows Server sanal makine dağıtma gösterilmektedir. Ardından, sanal makine bir Azure Active Directory etki alanı Hizmetleri (Azure AD DS) yönetilen etki alanına katılmak nasıl gösterir.
 
-## <a name="step-1-create-the-windows-server-virtual-machine"></a>1. adım: Windows Server sanal makine oluşturma
-Azure AD Etki Alanı Hizmetleri'ni etkinleştirdikten sanal ağa katılmış bir Windows sanal makine oluşturmak için aşağıdaki adımları gerçekleştirin.
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>1. adım: bir Windows Server sanal makine oluşturma
+Azure AD DS etkinleştirdikten sanal ağa katılmış bir Windows sanal makine oluşturmak için aşağıdakileri yapın:
 
-1. [http://portal.azure.com](http://portal.azure.com) sayfasından Azure portalda oturum açın.
-2. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+2. Sol bölmenin en üstünde seçin **yeni**.
 3. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin.
 
-    ![Görüntüyü seçin](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
-4. Sanal makine için temel ayarları yapılandırın **Temelleri** Sihirbazı sayfası.
+    ![Windows Server 2016 Datacenter bağlantı](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 
-    ![VM için temel ayarlarını yapılandırın](./media/active-directory-domain-services-admin-guide/create-windows-vm-basics.png)
+4. İçinde **Temelleri** bölmesinde Sihirbazı'nın sanal makine için temel ayarlarını yapılandırın.
+
+    ![Temel kavramları bölmesi](./media/active-directory-domain-services-admin-guide/create-windows-vm-basics.png)
 
     > [!TIP]
     > Sanal makinede oturum açmak için kullanılan bir yerel yönetici hesabının kullanıcı adı ve parola buraya girdiğiniz içindir. Sanal makineyi parola yanılma saldırılarına karşı korumak için güçlü bir parola seçin. Burada etki alanı kullanıcı hesabının kimlik bilgilerini girmeyin.
     >
 
-5. Seçin bir **boyutu** sanal makine için. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin.
+5. Seçin bir **boyutu** sanal makine için. Daha fazla boyutları görüntülemek için seçin **tüm görüntüle** veya değiştirme **desteklenen disk türü** Filtresi.
 
-    ![VM boyutunu seçin](./media/active-directory-domain-services-admin-guide/create-windows-vm-size.png)
+    !["Bir boyutu seçin" bölmesi](./media/active-directory-domain-services-admin-guide/create-windows-vm-size.png)
 
-6. Üzerinde **ayarları** sayfasında, Azure AD etki alanı Hizmetleri etki alanı yönetilen sanal ağ dağıtılırken Sihirbazı'nı seçin. Yönetilen etki alanınızı içine dağıtılan fazla farklı bir alt ağ seçin. Diğer ayarlar için varsayılanları tutun ve **Tamam**.
+6. İçinde **ayarları** bölmesinde, Azure AD DS tarafından yönetilen etki alanı dağıtıldığı sanal ağı seçin. Yönetilen etki alanınızı içine dağıtılan olandan farklı bir alt ağ seçin. Diğer ayarlar için varsayılanları tutun ve ardından **Tamam**.
 
-    ![Sanal makine için sanal ağ seçin](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
+    ![Sanal makine için sanal ağ ayarları](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
 
     > [!TIP]
     > **Doğru sanal ağ ve alt ağ seçin.**
-    > Yönetilen etki alanınızı dağıtıldığı sanal ağı seçin veya sanal kullanarak kendisine bağlı bir sanal ağ ağ eşlemesi. Bağlantısız bir sanal ağ seçerseniz, sanal makineyi yönetilen bir etki alanına katılamaz.
+    >
+    > Yönetilen etki alanınızı dağıtıldığı sanal ağı seçin veya sanal kullanarak bağlı olduğu bir sanal ağ ağ eşlemesi. Bağlantısız bir sanal ağ seçerseniz, sanal makineyi yönetilen bir etki alanına katılamaz.
+    >
     > Ayrılmış bir alt ağ, yönetilen etki alanı dağıtma öneririz. Bu nedenle, yönetilen etki alanınızı etkinleştirdikten alt çekme değil.
 
-7. Üzerinde **satın alma** sayfasında, ayarları gözden geçirin ve tıklayın **Tamam** sanal makine dağıtılamıyor.
-8. VM dağıtımı Azure portal panosuna sabitlendi.
+7. Diğer ayarlar için varsayılanları tutun ve ardından **Tamam**.
+8. Üzerinde **satın alma** sayfasında, ayarları gözden geçirin ve ardından **Tamam** sanal makine dağıtılamıyor.
+9. VM dağıtımı Azure portal panosuna sabitlendi.
 
     ![Bitti](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
-9. Dağıtım tamamlandıktan sonra VM ile ilgili bilgileri görebilirsiniz **genel bakış** sayfası.
+10. Dağıtım tamamlandıktan sonra üzerinde VM hakkındaki bilgileri görüntüleyebilirsiniz **genel bakış** sayfası.
 
 
-## <a name="step-2-connect-to-the-windows-server-virtual-machine-using-the-local-administrator-account"></a>2. adım: yerel yönetici hesabını kullanarak Windows Server sanal makineye bağlanma
-Artık, yeni oluşturulan Windows Server sanal etki alanına katılmak için makine bağlayın. Sanal makine oluşturulurken belirtilen yerel yönetici kimlik bilgilerini kullanın.
+## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>2. adım: yerel yönetici hesabını kullanarak Windows Server sanal makineye bağlanma
+Ardından, yeni oluşturulan Windows Server sanal makine etki alanına bağlayın. Sanal makineyi oluşturduğunuzda belirttiğiniz yerel yönetici kimlik bilgilerini kullanın.
 
-Sanal makineye bağlanmak için aşağıdaki adımları gerçekleştirin.
+Sanal makineye bağlanmak için aşağıdakileri yapın:
 
-1. Tıklatın **Bağlan** düğmesini **genel bakış** sayfası. Bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur ve indirilir.
+1. İçinde **genel bakış** bölmesinde, **Bağlan**.  
+    Bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur ve indirilir.
 
     ![Windows sanal makineye bağlanma](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. VM'nize bağlanmak için indirilen RDP dosyasını açın. İstenirse, **Bağlan**’a tıklayın.
-3. Oturum açma isteminde girin, **yerel yönetici kimlik bilgilerini**, sanal makine oluşturulurken belirtilen. Bu örnekte, örneğin, 'localhost\mahesh' kullandığımız.
-4. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Evet'i tıklatın veya bağlantı ile devam etmek devam edin.
 
-Bu noktada, yerel yönetici kimlik bilgilerini kullanarak yeni oluşturulan Windows sanal makine için oturum açmanız. Sanal Makine etki alanına katılmak için sonraki adım olacaktır.
+2. VM'nize bağlanmak için indirilen RDP dosyasını açın. İstenirse, seçin **Bağlan**.
+3. Oturum açma isteminde girin, **yerel yönetici kimlik bilgilerinin**, sanal makineyi oluşturduğunuzda belirttiğiniz (örneğin, *localhost\mahesh*).
+4. Oturum açma işlemi sırasında bir sertifika uyarısı alırsanız, bağlantıya seçerek devam **Evet** veya **devam**.
+
+Bu noktada, yeni oluşturulan Windows sanal makine için yerel yönetici kimlik bilgilerinizle oturum açmanız. Sanal Makine etki alanına katılmak için sonraki adım olacaktır.
 
 
-## <a name="step-3-join-the-windows-server-virtual-machine-to-the-aad-ds-managed-domain"></a>3. adım: Katılım AAD DS yönetilen etki alanına Windows Server sanal makine
-Windows Server sanal makine AAD DS yönetilen etki alanına eklemek için aşağıdaki adımları gerçekleştirin.
+## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>3. adım: Windows Server sanal makine Azure AD DS tarafından yönetilen etki alanına katılın.
+Windows Server sanal makine Azure AD DS tarafından yönetilen etki alanına eklemek için aşağıdakileri yapın:
 
-1. Adım 2'de gösterildiği gibi Windows sunucuya bağlanın. Başlangıç ekranından açmak **Sunucu Yöneticisi'ni**.
-2. Tıklatın **yerel sunucu** Sunucu Yöneticisi'ni penceresinin sol bölmesinde.
+1. "2. adımda." gösterildiği gibi Windows Server VM Bağlan Üzerinde **Başlat** ekran, açık **Sunucu Yöneticisi'ni**.
+2. Sol bölmesinde **Sunucu Yöneticisi'ni** penceresinde, seçin **yerel sunucu**.
 
-    ![Sanal makine üzerinde Sunucu Yöneticisi'ni başlatın](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
-3. Tıklatın **çalışma grubu** altında **özellikleri** bölümü. İçinde **Sistem Özellikleri** özellik sayfası, tıklatın **değişiklik** etki alanına katılamaz.
+    ![Sanal makine üzerinde Sunucu Yöneticisi penceresi](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-    ![Sistem Özellikleri Sayfası](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
-4. Azure AD etki alanı Hizmetleri yönetilen etki alanında etki alanı adını belirtin **etki alanı** textbox tıklatıp **Tamam**.
+3. Altında **özellikleri**seçin **çalışma grubu**. 
+4. İçinde **Sistem Özellikleri** penceresinde, seçin **değişiklik** etki alanına katılamaz.
+
+    ![Sistem Özellikleri penceresi](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
+
+5. İçinde **etki alanı** kutusunda DS tarafından yönetilen Azure AD etki alanınızın adını belirtin ve ardından **Tamam**.
 
     ![Birleştirilecek etki alanını belirtin](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
-5. Etki alanına katılmak için kimlik bilgilerinizi girmeniz istenir. Sağlamak sizin **AAD DC yöneticilere ait olan bir kullanıcı kimlik bilgilerini belirtin** grubu. Yalnızca bu grubun üyeleri makinelere yönetilen etki alanına katılmak için izinleri yönetme izinleri var.
 
-    ![Etki alanına katılma kimlik bilgilerini belirtin](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
-6. Kimlik bilgileri aşağıdaki yollardan birini belirtebilirsiniz:
+6. Etki alanına katılmak için kimlik bilgilerinizi girmeniz istenir. Kimlik bilgilerini belirttiğinizden emin olun bir *Azure AD DC Yöneticiler grubuna ait kullanıcı*. Yalnızca bu grubun üyeleri makinelere yönetilen etki alanına katılmak için izinleri yönetme izinleri var.
 
-   * **UPN biçimi: (önerilen)** Azure AD içinde yapılandırıldığı gibi kullanıcı hesabı için UPN sonekini belirtin. Bu örnekte, kullanıcı 'bob' UPN soneki eklenir 'bob@domainservicespreview.onmicrosoft.com'.
-   * **SAMAccountName biçimi:** SAMAccountName biçiminde hesap adını belirtebilirsiniz. Bu örnekte, kullanıcı 'bob' 'CONTOSO100\bob' girmeniz gerekir.
+    ![Kimlik bilgileri belirtmek için Windows Güvenlik penceresinde](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
+
+7. Kimlik bilgileri aşağıdaki yollardan birini belirtebilirsiniz:
+
+   * **UPN biçimini**: Azure AD içinde yapılandırıldığı gibi kullanıcı hesabı için kullanıcı asıl adı (UPN) soneki (önerilen) belirtin. Bu örnekte, Kullanıcı UPN sonekinin *bob* olan  *bob@domainservicespreview.onmicrosoft.com* .
+
+   * **SAMAccountName biçimi**: SAMAccountName biçiminde hesap adını belirtebilirsiniz. Bu örnekte, kullanıcı *bob* girmesi *CONTOSO100\bob*.
 
      > [!TIP]
      > **Kimlik bilgileri belirtmek için UPN biçimini kullanmanızı öneririz.**
-     > Bir kullanıcının UPN önek aşırı uzun (örneğin, 'joehasareallylongname') ise, otomatik olarak oluşturulan SAMAccountName olabilir. Birden çok kullanıcı aynı UPN önek (örneğin, ' bob'), Azure AD kiracınızda varsa, bunların SAMAccountName biçimi hizmeti tarafından otomatik olarak oluşturulan olabilir. Bu durumlarda, UPN biçimini güvenilir etki alanında oturum açmak için kullanılabilir.
+     >
+     > Bir kullanıcının UPN önek aşırı uzun olması durumunda (örneğin, *joehasareallylongname*), otomatik olarak oluşturulan SAMAccountName olabilir. Birden çok kullanıcı aynı UPN sonekine varsa (örneğin, *bob*), Azure AD kiracınızda hizmeti tarafından otomatik olarak oluşturulan kendi SAMAccountName biçimi olabilir. Bu durumlarda, UPN biçimini güvenilir etki alanında oturum açmak için kullanılabilir.
      >
 
-7. Etki alanına katılma başarılı olduktan sonra etki alanına davet eder aşağıdaki iletiyi görürsünüz. Sanal Makine etki alanına katılma işlemi tamamlanması için yeniden başlatın.
+8. Başarılı bir şekilde bir etki alanına katıldıktan sonra aşağıdaki ileti etki alanına memnuniyetle karşılamaktadır.
 
     ![Etki alanına Hoş Geldiniz](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
+9. Etki alanına katılma tamamlamak için sanal makineyi yeniden başlatın.
 
-## <a name="troubleshooting-domain-join"></a>Sorun giderme etki alanına katılma
+## <a name="troubleshoot-joining-a-domain"></a>Bir etki alanına katılma sorunlarını giderme
 ### <a name="connectivity-issues"></a>Bağlantı sorunları
-Sanal Makine etki alanı bulamıyor ise, aşağıdaki sorun giderme adımlarını bakın:
+Sanal Makine etki alanı bulamıyor ise, bir veya daha fazlasını deneyin:
 
-* Sanal Makine etki alanı Hizmetleri'nde etkinleştirdikten, aynı sanal ağa bağlı olduğundan emin olun. Aksi durumda, sanal makine etki alanına bağlanamıyor ve bu nedenle etki alanına katılma alamıyor.
-* Buna karşılık etki alanı Hizmetleri'ni etkinleştirdikten sanal ağa bağlı bir sanal ağ üzerindeki sanal makine olduğundan emin olun.
-* Yönetilen etki alanı (örneğin, ' ping contoso100.com') etki alanı adını kullanarak etki alanına ping işlemi yapmayı deneyin. Bunu yapamıyorsanız, IP adreslerini Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz sayfada görüntülenen etki alanı için ping işlemi yapmayı deneyin (örneğin, ' 10.0.0.4 ping'). IP adresi, ancak etki alanı değil ping bağlanabiliyorsanız, DNS hatalı yapılandırılmış olabilir. Etki alanının IP adresleri sanal ağ için DNS sunucuları olarak yapılandırılıp yapılandırılmadığını denetleyin.
-* Sanal makinedeki (' ipconfig/flushdns") DNS çözümleyicisi önbelleği temizleme deneyin.
+* Sanal makine için Azure AD DS'de etkinleştirdikten biri aynı sanal ağa bağlı olduğundan emin olun. Bu bağlı değilse, sanal makine etki alanına bağlanamıyor ve bu nedenle etki alanına katılma alamıyor.
 
-Etki alanına katılmak kimlik bilgilerini ister iletişim kutusuna alırsanız, bağlantı sorunları yok.
+* Sanal makine sırayla Azure AD DS etkinleştirdikten sanal ağa bağlı bir sanal ağ olduğundan emin olun.
+
+* Yönetilen etki alanının etki alanı adını kullanarak etki alanına ping işlemi yapmayı deneyin (örneğin, *contoso100.com ping*). Bunu yapamıyorsanız, IP adreslerini Azure AD DS etkinleştirdiğiniz sayfada görüntülenen etki alanı için ping işlemi yapmayı deneyin (örneğin, *10.0.0.4 ping*). IP adresi, ancak etki alanı değil ping bağlanabiliyorsanız, DNS hatalı yapılandırılmış. Sanal ağ için DNS sunucuları olarak yapılandırılmış IP adresleri etki alanının olup olmadığını denetleyin.
+
+* Sanal makinedeki DNS çözümleyicisi önbelleği temizleme deneyin (*ipconfig/flushdns*).
+
+Etki alanına katılmak kimlik bilgilerini ister bir pencere gösterilirse, bağlantı sorunları yok.
 
 ### <a name="credentials-related-issues"></a>Kimlik bilgileri ile ilgili sorunlar
-Eğer kimlik bilgileriyle konusunda sorun yaşıyoruz ve etki alanına katılamıyor için aşağıdaki adımları bakın.
+Kimlik bilgileriyle konusunda sorun yaşıyoruz ve etki alanına katılamıyor, bir veya daha fazlasını deneyin:
 
 * Kimlik bilgileri belirtmek için UPN biçimini kullanmayı deneyin. Kiracınızda aynı UPN sonekine sahip birden çok kullanıcı varsa veya UPN önek aşırı uzun olması durumunda, SAMAccountName, hesabınız için otomatik olarak oluşturulan olabilir. Bu nedenle, hesabınız için SAMAccountName biçimi ne, beklediğiniz veya şirket içi etki alanınızda kullanmayı farklı olabilir.
-* 'AAD DC Yöneticiler' grubuna ait bir kullanıcı hesabının kimlik bilgilerini kullanmayı deneyin.
-* Başlarken kılavuzunda açıklanan adımlara uygun olarak [parola eşitlemesini etkinleştirdiğinizden](active-directory-ds-getting-started-password-sync.md) emin olun.
-* Azure AD içinde yapılandırıldığı gibi kullanıcı UPN kullandığınızdan emin olun (örneğin, 'bob@domainservicespreview.onmicrosoft.com') oturum açmak için.
-* Başlarken Kılavuzu'nda belirtildiği gibi tamamlamak yeterince uzun parola eşitleme için beklenen olun.
 
-## <a name="related-content"></a>İlgili İçerik
-* [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)
-* [Azure AD Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
+* Ait olduğu bir kullanıcı hesabının kimlik bilgilerini kullanmayı deneyin *AAD DC Yöneticiler* grubu.
+
+* Sahip olduğundan emin olun [parola eşitleme etkin](active-directory-ds-getting-started-password-sync.md) alma Başlarken Kılavuzu'nda açıklanan adımları uygun olarak.
+
+* Azure AD içinde yapılandırıldığı gibi kullanıcı UPN kullandığınızdan emin olun (örneğin,  *bob@domainservicespreview.onmicrosoft.com* ) oturum açmak için.
+
+* Tamamlanması yeterince uzun parola eşitlemesi için beklenen olun başlangıç kılavuzuna belirtilmiş.
+
+## <a name="related-content"></a>İlgili içerik
+* [Azure AD DS Başlarken Kılavuzu](active-directory-ds-getting-started.md)
+* [Bir Azure AD DS tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)

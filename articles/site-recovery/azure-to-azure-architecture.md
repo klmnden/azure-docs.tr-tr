@@ -10,10 +10,10 @@ ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure için Azure çoğaltma mimarisi
 

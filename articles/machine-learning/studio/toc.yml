@@ -1,5 +1,5 @@
 - name: Machine Learning Studio Belgeleri
-  href: index.md
+  href: index.yml
 - name: Genel Bakış
   expanded: true
   items:

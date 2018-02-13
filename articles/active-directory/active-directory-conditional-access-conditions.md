@@ -16,17 +16,17 @@ ms.workload: identity
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları 
 
 İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bir koşullu erişim ilkesi ("bunu") yanıt ("Bu durumda") ilkeniz tetikleme nedenini tanımlayın. 
 
-![denetimi](./media/active-directory-conditional-access-conditions/10.png)
+![Denetim](./media/active-directory-conditional-access-conditions/10.png)
 
 
 Koşullu erişim bağlamında:
@@ -36,7 +36,7 @@ Koşullu erişim bağlamında:
 
 Koşullarınızı erişim denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
 
-![denetimi](./media/active-directory-conditional-access-conditions/61.png)
+![Denetim](./media/active-directory-conditional-access-conditions/61.png)
 
 Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldıkları hakkında genel bir bakış sağlar. 
 
@@ -45,13 +45,13 @@ Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldıklar�
 
 Kullanıcılar ve gruplar bir koşullu erişim ilkesi zorunlu bir durumdur. Ya da seçim yapabileceğiniz ilkenizde, **tüm kullanıcıların** veya belirli kullanıcılar ve Gruplar'ı seçin.
 
-![denetimi](./media/active-directory-conditional-access-conditions/02.png)
+![Denetim](./media/active-directory-conditional-access-conditions/02.png)
 
 Seçtiğinizde:
 
 - **Tüm kullanıcılar**, ilkenizi dizininde ile tüm kullanıcılara uygulanır. Bu, Konuk kullanıcılar içerir.
 
-- **Kullanıcıları ve grupları seçin**, ik uygulamaya oturum açtığınızda belirli kullanıcı kümeleri için örneğin, tüm ik departmanı üyeleri hedefleyebilirsiniz. 
+- **Kullanıcıları ve grupları seçin**, kullanıcıların belirli kümelerini hedefleyebilirsiniz. Örneğin, tüm üyeleri ik departmanı, bulut uygulaması seçilen bir HR uygulama olduğunda içeren bir grup seçebilirsiniz. 
 
 - Bir grup, dinamik ya da atanan güvenlik ve dağıtım grupları dahil olmak üzere Azure AD'de Grup herhangi bir türde olabilir.
 
@@ -67,7 +67,7 @@ Web siteleri bir bulut uygulamasıdır veya hizmet. Azure uygulama ara sunucusu 
 
 Bulut uygulamaları bir koşullu erişim ilkesi zorunlu bir durumdur. Ya da seçim yapabileceğiniz ilkenizde, **tüm bulut uygulamaları** veya belirli uygulamaları seçin.
 
-![denetimi](./media/active-directory-conditional-access-conditions/03.png)
+![Denetim](./media/active-directory-conditional-access-conditions/03.png)
 
 Şunları seçebilirsiniz:
 
@@ -90,7 +90,7 @@ Bu koşulu kullanmak için gerek [Azure Active Directory kimlik koruması](activ
 Bu koşul için ortak kullanım durumları olan ilkeler:
 
 - Potansiyel olarak yasal olmayan kullanıcıların, bulut uygulamalarınızı erişimini engellemek için bir yüksek oturum açma riski kullanıcılarla engelleyin. 
-- Orta bir oturum açma riski sahip olan kullanıcıların, çok faktörlü kimlik doğrulaması gerektirir. Çok faktörlü kimlik doğrulamasını zorunlu tutarak, oturum açma yasal bir hesap sahibi tarafından gerçekleştirildiğinden ek güvenirlik sağlayabilirsiniz.
+- Orta bir oturum açma riski olan kullanıcılar için çok faktörlü kimlik doğrulaması gerektirir. Çok faktörlü kimlik doğrulamasını zorunlu tutarak, oturum açma yasal bir hesap sahibi tarafından gerçekleştirildiğinden ek güvenirlik sağlayabilirsiniz.
 
 Daha fazla bilgi için bkz. [Riskli oturum açma işlemleri](active-directory-identityprotection.md#risky-sign-ins).  
 
@@ -99,7 +99,7 @@ Daha fazla bilgi için bkz. [Riskli oturum açma işlemleri](active-directory-id
 Cihaz platformu, Cihazınızda çalıştırılan işletim sistemi tarafından belirlenir. Azure AD kullanıcı aracısı gibi bir aygıt tarafından sağlanan bilgileri kullanarak platform tanımlar. Bu bilgiler doğrulanmamış olduğundan, tüm platformlar bunları, erişimi engelleme, Intune ilkeleriyle uyumluluğunu gerektiren veya cihaz etki alanına katılmış olması gerektiren tarafından uygulanan bir ilke olması önerilir. Tüm cihaz platformları için ilkeyi uygulamak için varsayılandır. 
 
 
-![Koşullar](./media/active-directory-conditional-access-conditions/02.png)
+![Koşullar](./media/active-directory-conditional-access-conditions/24.png)
 
 Desteklenen cihaz platformlarının tam bir listesi için bkz: [cihaz platformu koşul](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
@@ -111,7 +111,7 @@ Bu durum, bulut uygulamalarınızı erişimi kısıtlayan bir ilke için bir ort
 
 Konumları ile bir bağlantı girişimini gelen başlatıldığı üzerinde temel koşullarını tanımlamak için seçeneğiniz vardır. 
      
-![Koşullar](./media/active-directory-conditional-access-conditions/03.png)
+![Koşullar](./media/active-directory-conditional-access-conditions/25.png)
 
 Bu koşul için ortak kullanım durumları olan ilkeler:
 

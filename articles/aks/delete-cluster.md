@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 2/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fd5d3bd7cb2ce5d8f0999710bfeb6a9514231d8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 78056288f45616eda427f8e708efc679f8a5202c
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="delete-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) küme silme
 
@@ -45,4 +45,4 @@ Azure portalında karşın, Gözat Azure kapsayıcı hizmeti (AKS) kaynağını 
 ![AKS küme portal Sil](media/container-service-delete-cluster/delete-aks-portal.png)
 
 <!-- LINKS - internal -->
-[az-aks-delete]: azure-files-dynamic-pv.md
+[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az_aks_delete

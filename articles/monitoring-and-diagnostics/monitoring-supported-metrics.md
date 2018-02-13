@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 97dca282bd7bbf00ce1d03899f6de0444a41163a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyicisi ile desteklenen ölçümleri
 Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümleri tam bir listesi ile Azure monitörün ölçüm ardışık düzen şu anda kullanılabilir.
@@ -395,7 +395,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |DCIProfilesCount|Profil örnek sayısı|Sayı|Son||Hiç boyut|
 |DCIInteractionsPerMonthCount|Etkileşimleri başına ay sayısı|Sayı|Son||Hiç boyut|
 |DCIKpisCount|KPI sayısı|Sayı|Son||Hiç boyut|
-|DCISegmentsCount|Segment Sayısı|Sayı|Son||Hiç boyut|
+|DCISegmentsCount|Segment sayısı|Sayı|Son||Hiç boyut|
 |DCIPredictiveMatchPoliciesCount|Tahmine dayalı eşleşme sayısı|Sayı|Son||Hiç boyut|
 |DCIPredictionsCount|Tahmin sayısı|Sayı|Son||Hiç boyut|
 
@@ -861,7 +861,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|QueryDuration|Sorgu süresi|Sayı|Ortalama|Son aralığı DAX sorgusu süresi|Hiç boyut|
+|QueryDuration|Sorgu süresi|Milisaniye|Ortalama|Son aralığı DAX sorgusu süresi|Hiç boyut|
 |QueryPoolJobQueueLength|İş parçacıkları: Sorgu havuzu iş sırası uzunluğu|Sayı|Ortalama|Sorgu iş parçacığı havuzunun sıraya işlerin sayısı.|Hiç boyut|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

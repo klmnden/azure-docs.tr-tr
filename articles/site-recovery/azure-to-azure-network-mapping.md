@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 12/15/2017
 ms.author: manayar
 ms.openlocfilehash: d7dd35a8382f4a99ababbe804c5c71b29148c44a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Farklı Azure bölgelerinde sanal ağları Eşle
 

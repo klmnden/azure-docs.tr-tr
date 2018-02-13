@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Windows tek başına kümede X.509 sertifikaları kullanarak güvenli hale getirme
 Bu makalede, tek başına Windows kümenizi çeşitli düğümleri arasındaki iletişimin güvenliğini sağlamak açıklar. Ayrıca, bu kümeye X.509 sertifikalarını kullanarak bağlanan istemcilerin kimliğini doğrulamak nasıl açıklanır. Kimlik doğrulaması, yalnızca yetkili kullanıcılar küme ve dağıtılan uygulamalar erişim ve yönetim görevlerini gerçekleştirme sağlar. Küme oluşturulduğunda sertifika güvenliği kümede etkinleştirilmelidir.  
@@ -48,6 +48,12 @@ Düğümü düğümü güvenlik, istemci düğümü güvenlik ve rol tabanlı er
             ],
             "X509StoreName": "My"
         },
+        "ClusterCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -62,6 +68,12 @@ Düğümü düğümü güvenlik, istemci düğümü güvenlik ve rol tabanlı er
             ],
             "X509StoreName": "My"
         },
+        "ServerCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ClientCertificateThumbprints": [
             {
                 "CertificateThumbprint": "[Thumbprint]",
@@ -79,6 +91,12 @@ Düğümü düğümü güvenlik, istemci düğümü güvenlik ve rol tabanlı er
                 "IsAdmin": true
             }
         ],
+        "ClientCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames": "Root"
+            }
+        ]
         "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -110,10 +128,13 @@ Aşağıdaki tabloda, Küme kurulumu gereken sertifikaları listelenmektedir:
 | --- | --- |
 | ClusterCertificate |Bir test ortamı için önerilir. Bu sertifika, bir küme düğümlerinde arasındaki iletişimin güvenliğini sağlamak için gereklidir. İki farklı sertifikaları, birincil ve ikincil bir yükseltme için kullanabilirsiniz. Parmak izi bölüm ve ikincil ThumbprintSecondary değişkenlerine sertifikanın parmak izi birincil ayarlayın. |
 | ClusterCertificateCommonNames |Bir üretim ortamı için önerilir. Bu sertifika, bir küme düğümlerinde arasındaki iletişimin güvenliğini sağlamak için gereklidir. Bir veya iki küme sertifika ortak adları kullanabilirsiniz. Bu sertifika verenin parmak izi için CertificateIssuerThumbprint karşılık gelir. Aynı ortak ada sahip birden fazla sertifika kullandıysanız, birden çok sertifikayı verenin parmak izleri belirtebilirsiniz.|
+| ClusterCertificateIssuerStores |Bir üretim ortamı için önerilir. Bu sertifika için küme sertifikayı veren karşılık gelir. Ortak ad ve karşılık gelen depolama adı vereninin parmak izi ClusterCertificateCommonNames altında belirtme yerine bu bölümünde, veren sağlayabilirsiniz.  Bu geçiş küme veren sertifikaları kolaylaştırır. Birden çok verenler birden fazla küme sertifika kullanılır belirtilebilir. Boş bir IssuerCommonName whitelists tüm sertifikaların karşılık gelen mağazalarındaki X509StoreNames altında belirtilen.|
 | ServerCertificate |Bir test ortamı için önerilir. Bu kümeye bağlanmaya çalıştığında bu sertifikayı istemciye sunulur. Kolaylık olması için ClusterCertificate ve ServerCertificate için aynı sertifika kullanmayı seçebilirsiniz. İki farklı sunucu sertifikaları, birincil ve ikincil bir yükseltme için kullanabilirsiniz. Parmak izi bölüm ve ikincil ThumbprintSecondary değişkenlerine sertifikanın parmak izi birincil ayarlayın. |
 | ServerCertificateCommonNames |Bir üretim ortamı için önerilir. Bu kümeye bağlanmaya çalıştığında bu sertifikayı istemciye sunulur. Bu sertifika verenin parmak izi için CertificateIssuerThumbprint karşılık gelir. Aynı ortak ada sahip birden fazla sertifika kullandıysanız, birden çok sertifikayı verenin parmak izleri belirtebilirsiniz. Kolaylık olması için ClusterCertificateCommonNames ve ServerCertificateCommonNames için aynı sertifika kullanmayı seçebilirsiniz. Bir veya iki sunucu sertifika ortak adları kullanabilirsiniz. |
+| ServerCertificateIssuerStores |Bir üretim ortamı için önerilir. Bu sertifika, sunucu sertifikasını veren için karşılık gelir. Ortak ad ve karşılık gelen depolama adı vereninin parmak izi ServerCertificateCommonNames altında belirtme yerine bu bölümünde, veren sağlayabilirsiniz.  Bu geçiş sertifikaları veren kolaylaştırır. Birden çok verenler olabilir birden fazla sunucu sertifikası kullandıysanız belirtildi. Boş bir IssuerCommonName whitelists tüm sertifikaların karşılık gelen mağazalarındaki X509StoreNames altında belirtilen.|
 | ClientCertificateThumbprints |Bu sertifikalar kümesini kimliği doğrulanmış istemcilerde yükleyin. Bir dizi farklı istemci sertifikaları, küme erişmesine izin vermek istediğiniz makinelerde yüklü olabilir. Her sertifikanın parmak izi CertificateThumbprint değişkeninde ayarlayın. IsAdmin ayarlarsanız *doğru*, istemcinin yüklü bu sertifikayla yönetici küme yönetimi etkinliklerini yapabilirsiniz. IsAdmin ise *yanlış*, bu sertifika ile istemci kullanıcı erişim haklarını, salt okunur genellikle yalnızca izin verilen eylemleri gerçekleştirebilirsiniz. Rolleri hakkında daha fazla bilgi için bkz: [rol tabanlı erişim denetimi (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |İlk istemci sertifikasının ortak adı için CertificateCommonName ayarlayın. Bu sertifika verenin parmak izini CertificateIssuerThumbprint olur. Ortak adları ve veren hakkında daha fazla bilgi için bkz: [iş sertifikalarla](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateIssuerStores |Bir üretim ortamı için önerilir. Bu sertifika (Yönetici ve yönetici olmayan rolleri) istemci sertifikası veren için karşılık gelir. Ortak ad ve karşılık gelen depolama adı vereninin parmak izi ClientCertificateCommonNames altında belirtme yerine bu bölümünde, veren sağlayabilirsiniz.  Bu geçiş istemci veren sertifikaları kolaylaştırır. Birden çok verenler olabilir belirtilen birden fazla istemci sertifikası kullanılır. Boş bir IssuerCommonName whitelists tüm sertifikaların karşılık gelen mağazalarındaki X509StoreNames altında belirtilen.|
 | ReverseProxyCertificate |Bir test ortamı için önerilir. Bu isteğe bağlı sertifika olabilir, güvenli hale getirmek istiyorsanız belirtilen, [ters proxy](service-fabric-reverseproxy.md). Bu sertifika kullanıyorsanız bu reverseProxyEndpointPort nodeTypes ayarlandığından emin olun. |
 | ReverseProxyCertificateCommonNames |Bir üretim ortamı için önerilir. Bu isteğe bağlı sertifika olabilir, güvenli hale getirmek istiyorsanız belirtilen, [ters proxy](service-fabric-reverseproxy.md). Bu sertifika kullanıyorsanız bu reverseProxyEndpointPort nodeTypes ayarlandığından emin olun. |
 
@@ -123,7 +144,7 @@ Burada küme, sunucu ve istemci sertifikalarını sağlanmış olan bir örnek k
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "10-2017",
     "nodes": [{
         "nodeName": "vm0",
         "metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -162,12 +183,21 @@ Burada küme, sunucu ve istemci sertifikalarını sağlanmış olan bir örnek k
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
+                      "CertificateCommonName": "myClusterCertCommonName"
                     }
                   ],
                   "X509StoreName": "My"
                 },
+                "ClusterCertificateIssuerStores": [
+                    {
+                        "IssuerCommonName": "ClusterIssuer1",
+                        "X509StoreNames" : "Root"
+                    },
+                    {
+                        "IssuerCommonName": "ClusterIssuer2",
+                        "X509StoreNames" : "Root"
+                    }
+                ],
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
@@ -221,6 +251,7 @@ Burada küme, sunucu ve istemci sertifikalarını sağlanmış olan bir örnek k
 
 ## <a name="certificate-rollover"></a>Sertifika aktarma
 Sertifika ortak adı yerine parmak izi kullandığınızda, sertifika geçişine küme yapılandırması yükseltme gerektirmez. Verenin parmak izi yükseltmeler için yeni parmak izi listesi eski listesiyle kesiştiğinden emin olun. İlk yeni verenin parmak izleri config yükseltmeye yapmak zorunda ve ardından yeni bir sertifika (küme/sunucu sertifikası ve veren sertifikaları) deposuna yükleyin. Eski sertifikayı sertifika deposuna yeni sertifikayı yükledikten sonra en az iki saat için tutun.
+Veren depoları kullanıyorsanız, hiçbir yapılandırma yükseltme, sertifikayı veren sertifika geçişine gerçekleştirilmesi gerekir. Yeni sertifikayı ikinci sona erme tarihi ile ilgili sertifika deposuna yükleyin ve birkaç saat sonra eski sertifikayı Kaldır.
 
 ## <a name="acquire-the-x509-certificates"></a>X.509 sertifikaları alma
 Küme içindeki iletişimin güvenliğini sağlamak için önce Küme düğümlerinizi X.509 sertifikalarını edinmeniz gerekir. Ek olarak, yetkili makineler/kullanıcıların bu kümeye bağlantı sınırlamak için edinilir ve istemci makineleri için sertifikalar gerekir.

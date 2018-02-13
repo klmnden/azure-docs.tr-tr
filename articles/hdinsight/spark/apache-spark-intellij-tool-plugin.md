@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 077805cedb7895c8c59b650b3ec691244168a9f5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Intellij için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -36,11 +36,11 @@ Projenizi oluşturmak için görüntülemek [Intellij için Azure araç seti ile
 > Bu eklenti oluşturmak ve yalnızca Linux'ta Hdınsight Spark kümesinde uygulamalar göndermek amacıyla kullanabilirsiniz.
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Hdınsight Linux üzerinde Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
 - Oracle Java Geliştirme Seti. Şuradan yükleyebilirsiniz [Oracle Web sitesi](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Intellij Idea. Bu makalede sürümünü 2017.1 kullanır. Şuradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
+- IntelliJ IDEA. Bu makalede sürümünü 2017.1 kullanır. Şuradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Intellij için Azure Araç Seti yükleyin
 Yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti yüklemek](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
@@ -69,6 +69,27 @@ Yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti yüklemek](htt
    
     ![Genişletilmiş bir küme adı düğümü](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Bir küme bağlantı
+Yönetilen Ambari kullanıcı adı kullanarak normal bir küme bağlama, ayrıca güvenlik hadoop kümesi etki alanı kullanıcı adı kullanarak bağlantı (örneğin: user1@contoso.com). 
+1. Tıklatın **bir küme bağlantı** gelen **Azure Gezgini**.
+
+   ![bağlantı küme bağlam menüsü](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Girin **küme adı**, **depolama hesabı**, **depolama anahtarı**, bir kapsayıcı seçin **depolama kapsayıcısı**, en son olarak, kullanıcı adı girin ve parolası. Kullanıcı adı ve parola denetlemek gereken kimlik doğrulama hatası alır.
+   
+   ![bağlantı küme iletişim](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlantılı depolama anahtarı, kullanıcı adı ve parola kullanın. 
+   
+3. Bir bağlı kümede görebilirsiniz **Hdınsight** giriş bilgilerin doğru olup olmadığını düğümü. Şimdi bu bağlantılı küme uygulamaya gönderebilirsiniz.
+
+   ![bağlantılı küme](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Bir kümeden bağlantısını kaldırabilirsiniz **Azure Gezgini**.
+   
+   ![bağlantısız küme](./media/apache-spark-intellij-tool-plugin/unlink.png)
+
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Hdınsight Spark kümesi üzerinde Spark Scala uygulamayı çalıştırın
 
 1. Intellij Idea başlatın ve bir proje oluşturun. İçinde **yeni proje** iletişim kutusunda, aşağıdakileri yapın: 
@@ -82,7 +103,7 @@ Yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti yüklemek](htt
 
     ![Yeni Proje iletişim kutusu](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. Seçin **sonraki**.
+2. **İleri**’yi seçin.
 
 3. Scala Proje Oluşturma Sihirbazı'nı otomatik olarak eklenti Scala yüklediğiniz olup olmadığını algılar. Seçin **yükleme**.
 
@@ -164,12 +185,14 @@ Yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti yüklemek](htt
 
    c. **Spark gönderme** pencerenin altındaki sekmesi, ilerleme durumunu görüntüleme başlamalıdır. Kırmızı düğmesini seçerek uygulama durdurabilirsiniz **Spark gönderme** penceresi.
       
-      ![Spark gönderme penceresi](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![Spark gönderme penceresi](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       İş çıktısı erişmek öğrenmek için bkz: "erişim ve Intellij için Azure Araç Seti kullanarak Hdınsight Spark kümeleri yönetmek" bölümünde bu makalenin sonraki bölümlerinde yer.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Spark uygulamalarında Hdınsight kümesi üzerinde yerel olarak veya uzaktan hata ayıklama 
-Küme Spark uygulamaya gönderilmesi bir başka yolu da öneririz. Ayrıca parametreleri ayarlayarak yapabilirsiniz **Çalıştır/hata ayıklama yapılandırmaları** IDE. Daha fazla bilgi için bkz: [Spark uygulamalarında yerel olarak veya uzaktan Hdınsight kümesinde Azure araç seti ile SSH aracılığıyla Intellij için hata ayıklama](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Küme Spark uygulamaya gönderilmesi bir başka yolu da öneririz. Parametreleri ayarlayarak yapabilirsiniz **Çalıştır/hata ayıklama yapılandırmaları** IDE. Daha fazla bilgi için bkz: [Spark uygulamalarında yerel olarak veya uzaktan Hdınsight kümesinde Azure araç seti ile SSH aracılığıyla Intellij için hata ayıklama](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Erişim ve Hdınsight Spark kümeleri Intellij için Azure Araç Seti kullanarak yönetme
 Intellij için Azure Araç Seti kullanarak çeşitli işlemler gerçekleştirebilirsiniz.
@@ -181,7 +204,9 @@ Intellij için Azure Araç Seti kullanarak çeşitli işlemler gerçekleştirebi
 
 2. Sağ bölmede **Spark iş görünümünde** sekmesi, küme üzerinde çalıştırılan tüm uygulamaları görüntüler. Daha fazla ayrıntı görmek istediğiniz uygulamanın adını seçin.
 
-    ![Uygulama Ayrıntıları](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    ![Uygulama ayrıntıları](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >Not
+    >
 
 3. Temel çalışan iş bilgilerini görüntülemek için iş grafiğinin getirin. Aşamaları grafik ve her iş oluşturur bilgilerini görüntülemek için iş grafiği bir düğüm seçin.
 
@@ -256,7 +281,7 @@ Yığın boyutu çalıştırmak Spark için yeterince büyük olduğundan bu hat
 ## <a name="faq"></a>SSS
 Azure Data Lake Store uygulamaya göndermek için tercih **etkileşimli** Azure oturum açma işlemi sırasında modu. Seçerseniz **otomatik** modu, bir hata alabilirsiniz.
 
-![signın etkileşim](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
 
 Şimdi, biz bunu çözümlendi. Uygulamanız herhangi bir oturum açma yöntemi göndermek için bir Azure Data Lake küme seçebilirsiniz.
 

@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısını kullanarak VPN altyapınız Azure MFA ile tümleştirme
 
@@ -93,7 +93,7 @@ Bu bölümde, MFA Uzak Masaüstü Ağ geçidi ile tümleştirebilirsiniz önce t
 * Windows Server yazılımı
 * Kitaplıkları
 * Azure Active Directory (Azure AD) ile eşitlenen şirket içi Active Directory 
-* Azure Active Directory GUID kimliği
+* Azure Active Directory GUID ID
 
 ### <a name="vpn-infrastructure"></a>VPN altyapısı
 Bu makalede, Microsoft Windows Server 2016 kullanan bir çalışma VPN altyapısına sahip ve VPN sunucunuzun şu anda bağlantı isteklerini iletmek için bir RADIUS sunucusuna yapılandırılmadığını varsayar. Makalede, merkezi bir RADIUS sunucusu kullanmak üzere VPN altyapıyı yapılandırın.
@@ -129,7 +129,7 @@ NPS uzantısını kullanmak için şirket içi kullanıcıları Azure Active Dir
 
 Azure AD Connect hakkında daha fazla bilgi için bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../active-directory/connect/active-directory-aadconnect.md). 
 
-### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID kimliği 
+### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID ID 
 
 NPS uzantıyı yüklemek için Azure Active Directory GUID bilmeniz gerekir. Sonraki bölümde Azure Active Directory GUID bulmak için yönergeler sağlanmaktadır.
 
@@ -186,7 +186,7 @@ Standart (Sihirbaz tabanlı) kullanabilirsiniz veya gelişmiş yapılandırma se
 
     ![Kullanıcı gruplarını belirtmek penceresi](./media/nps-extension-vpn/image7.png)
 
-9. Seçin **sonraki**.
+9. **İleri**’yi seçin.
 
 10. İçinde **belirtin IP filtreleri** penceresinde, seçin **sonraki**.
 
@@ -376,7 +376,7 @@ Betik kullanmak için Azure Active Directory yönetici kimlik bilgilerinizi ve d
 
 1. Windows PowerShell'i yönetici olarak çalıştırın.
 
-2. PowerShell komut isteminde girin **cd c:\Program Files\Microsoft\AzureMfa\Config**ve ardından Enter seçin.
+2. PowerShell komut isteminde girin **cd "c:\Program Files\Microsoft\AzureMfa\Config"**ve ardından Enter seçin.
 
 3. Sonraki komut isteminde girin **.\AzureMfsNpsExtnConfigSetup.ps1**ve ardından Enter seçin. Azure AD PowerShell Modülü yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklenmemişse, betik modülü yükler.
  
@@ -398,7 +398,7 @@ Betik kullanmak için Azure Active Directory yönetici kimlik bilgilerinizi ve d
 
 6. Sunucuyu yeniden başlatın.
 
-### <a name="verify-the-configuration"></a>yapılandırıldığını doğrulayın
+### <a name="verify-the-configuration"></a>Yapılandırmayı doğrulama
 Yapılandırmasını doğrulamak için VPN sunucusu ile yeni bir VPN bağlantısı oluşturmanız gerekir. Birincil kimlik doğrulaması için kimlik bilgileriniz başarıyla girdikten sonra VPN bağlantısı ikincil kimlik doğrulama bağlantı kurulmadan önce aşağıda gösterildiği gibi başarılı olması bekler. 
 
 ![Windows ayarlarını VPN penceresi](./media/nps-extension-vpn/image42.png)
@@ -454,7 +454,7 @@ Ek sorun giderme işlemleri yapmak için Wireshark gibi bir iletişim kuralı ç
 Daha fazla bilgi için bkz: [varolan NPS altyapınızı Azure çok faktörlü kimlik doğrulamasıyla tümleştirmek](multi-factor-authentication-nps-extension.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure çok faktörlü kimlik doğrulama Al](multi-factor-authentication-versions-plans.md)
+[Get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
 
 [RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu](multi-factor-authentication-get-started-server-rdg.md)
 

@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: ce37cfdd70f95822a912f6ea71b9e4a3f9a30a14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Azure dosyaları - dinamik kalıcı birimlerle sağlama
+# <a name="persistent-volumes-with-azure-files"></a>Azure dosyaları ile kalıcı birimleri
 
 Kalıcı bir birim Kubernetes kümesinde kullanmak için sağlanan depolama parçasını temsil eder. Kalıcı bir birim bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Bu belgede bir AKS kümesindeki Kubernetes kalıcı birim olarak dinamik bir Azure dosya paylaşımı sağlama ayrıntıları verilmektedir. 
 
@@ -125,10 +125,10 @@ Varsayılan fileMode ve dirMode değerler aşağıdaki tabloda açıklandığı 
 
 | sürüm | değer |
 | ---- | ---- |
-| V1.6.x, v1.7.x | 0777 |
-| V1.8.0 v1.8.5 | 0700 |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 veya üstü | 0755 |
-| V1.9.0 | 0700 |
+| v1.9.0 | 0700 |
 | V1.9.1 veya üstü | 0755 |
 
 Sürüm 1.8.5 oluşan bir küme kullanıyorsanız veya büyük, bağlama seçenekleri depolama sınıfı nesnesinde belirtilebilir. Aşağıdaki örnek kümeleri `0777`. 

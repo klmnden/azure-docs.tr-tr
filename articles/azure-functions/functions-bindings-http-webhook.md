@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
@@ -383,11 +383,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-| **türü** | yok| Gerekli - kümesine olmalıdır `httpTrigger`. |
-| **yönü** | yok| Gerekli - kümesine olmalıdır `in`. |
-| **adı** | yok| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. |
+| **Türü** | yok| Gerekli - kümesine olmalıdır `httpTrigger`. |
+| **Yönü** | yok| Gerekli - kümesine olmalıdır `in`. |
+| Adı | yok| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Anahtarlar, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Yetki düzeyini aşağıdaki değerlerden biri olabilir: <ul><li><code>anonymous</code>&mdash;API anahtarı gereklidir.</li><li><code>function</code>&mdash;Bir işlev özgü API anahtarı gereklidir. Bu, hiçbiri sağlanmazsa varsayılan değerdir.</li><li><code>admin</code>&mdash;Ana anahtar gereklidir.</li></ul> Daha fazla bilgi için, bkz [yetkilendirme anahtarları](#authorization-keys). |
-| **yöntemleri** |**Yöntemleri** | İşlev yanıt vereceği HTTP yöntemlerinin dizisi. Belirtilmezse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktası özelleştirme](#trigger---customize-the-http-endpoint). |
+| **Yöntemleri** |**Yöntemleri** | İşlev yanıt vereceği HTTP yöntemlerinin dizisi. Belirtilmezse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktası özelleştirme](#trigger---customize-the-http-endpoint). |
 | **route** | **Rota** | İçin işlevinizin yanıt URL'leri isteği denetlemek için rota şablonu tanımlar. Varsayılan değer hiçbiri sağlanmazsa `<functionname>`. Daha fazla bilgi için bkz: [http uç noktası özelleştirme](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |HTTP tetikleyici olarak görev yapması için yapılandırır bir [Web kancası](https://en.wikipedia.org/wiki/Webhook) belirtilen sağlayıcı için alıcı. Ayarlamazsanız `methods` bu özelliği ayarlarsanız özelliği. Web kancası türü aşağıdaki değerlerden biri olabilir:<ul><li><code>genericJson</code>&mdash;Genel amaçlı Web kancası uç noktası için belirli bir sağlayıcıyı mantığı olmadan. Bu ayar, yalnızca HTTP POST ve ile kullanmak için istekleri sınırlar `application/json` içerik türü.</li><li><code>github</code>&mdash;İşlev yanıtlar [GitHub Web kancası](https://developer.github.com/webhooks/). Kullanmayın _authLevel_ GitHub Web kancası özellik. Daha fazla bilgi için bu makalenin sonraki bölümlerinde GitHub Web kancası bölümüne bakın.</li><li><code>slack</code>&mdash;İşlev yanıtlar [Slack kancalarını](https://api.slack.com/outgoing-webhooks). Kullanmayın _authLevel_ Slack Web kancası özellik. Daha fazla bilgi için bu makalenin sonraki bölümlerinde Slack Web kancalarını bölümüne bakın.</li></ul>|
 
@@ -494,6 +494,9 @@ Varsayılan olarak, tüm işlevi yollar ile önek *API*. Ayrıca özelleştirme 
 
 HTTP Tetikleyicileri ek güvenlik için anahtarları kullanmanıza olanak tanır. Standart bir HTTP tetikleyicisi istekte bulunması için anahtar gerektiren bir API anahtarı olarak kullanabilirsiniz. Web kancası bir ne sağlayıcının desteklediği bağlı olarak, çeşitli şekillerde isteklerinde yetkilendirmek için tuşlarını kullanabilirsiniz.
 
+> [!NOTE]
+> İşlevler yerel olarak çalıştırırken, yetkilendirme bağımsız devre dışı `authLevel` kümesinde `function.json`. Azure işlevleri için yayımlama hemen `authLevel` hemen, etkili olur.
+
 Anahtarları azure'da işlevi uygulamanız bir parçası olarak depolanır ve bekleyen şifrelenir. Anahtarlarınızı görüntülemek için yeni kampanya oluşturmak veya anahtarları alma yeni değerler, işlevlerinizi portalında birine gidin ve "Manage" seçin 
 
 Anahtarların iki tür vardır:
@@ -559,9 +562,9 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Özellik  |Açıklama  |
 |---------|---------|
-| **türü** |ayarlanmalıdır `http`. |
-| **yönü** | ayarlanmalıdır `out`. |
-|**adı** | Yanıt için işlevi kod içinde kullanılan değişken adı. |
+| **Türü** |ayarlanmalıdır `http`. |
+| **Yönü** | ayarlanmalıdır `out`. |
+|Adı | Yanıt için işlevi kod içinde kullanılan değişken adı. |
 
 ## <a name="output---usage"></a>Çıktı - kullanım
 

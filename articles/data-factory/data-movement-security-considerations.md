@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: 7bd08a838bef504e41f7aa63516a1b54ba497441
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,9 +56,6 @@ Bu makalede, aşağıdaki iki veri taşıma senaryolarda güvenlik konuları inc
 - Kimlik bilgilerini Azure Key Vault’ta depolama 
 
    Şimdi veri deposunun kimlik bilgisi depolamayı seçebilirsiniz [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/), bir etkinlik yürütme sırasında almak için Azure Data Factory olanak tanır. Daha fazla bilgi için bkz: [Azure anahtar kasası kimlik bilgisi deposu](store-credentials-in-key-vault.md).
-
-   > [!NOTE]
-   > Şu anda yalnızca [Dynamics Bağlayıcısı](connector-dynamics-crm-office-365.md) bu özelliğini destekler. 
 
 ### <a name="data-encryption-in-transit"></a>Aktarımdaki verileri şifreleme
 Bulut veri deposu HTTPS veya TLS destekliyorsa, tüm veri aktarımlarını veri fabrikasında veri taşıma hizmetleri arasında ve bir bulut veri deposu olan güvenli kanal HTTPS veya TLS.

@@ -3,7 +3,7 @@ title: "Azure günlük analizi ile değişiklikleri izle | Microsoft Docs"
 description: "Günlük analizi değişiklik izleme çözümünde yazılım ve ortamınızda ortaya Windows hizmet değişiklikleri belirlemenize yardımcı olur."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümü ile ortamınızdaki yazılım değişiklikleri izle
 
@@ -41,7 +41,7 @@ Linux bilgisayarları izlemek için dosyaları yapılandırmak için aşağıdak
 1. OMS Portalı'nda tıklatın **ayarları** (dişli symbol).
 2. Üzerinde **ayarları** sayfasında, **veri**ve ardından **Linux dosya izleme**.
 3. Linux dosya değişiklik izleme altında izlemek ve ardından istediğiniz dosyasının dosya adı dahil olmak üzere tüm yol yazın **Ekle** simgesi. Örneğin: "/etc/*.conf"
-4. **Kaydet** düğmesine tıklayın.  
+4. **Kaydet**’e tıklayın.  
 
 > [!NOTE]
 > Linux dosya izleme dizini izleme, dizinler ve izleme joker aracılığıyla özyineleme dahil olmak üzere ek özellikleri vardır.
@@ -52,7 +52,7 @@ Windows bilgisayarlarda izlemek için dosyaları yapılandırmak için aşağıd
 1. OMS Portalı'nda tıklatın **ayarları** (dişli symbol).
 2. Üzerinde **ayarları** sayfasında, **veri**ve ardından **Windows dosya izleme**.
 3. Windows dosya değişiklik izleme altında izlemek ve ardından istediğiniz dosyasının dosya adı dahil olmak üzere tüm yol yazın **Ekle** simgesi. Örneğin: C:\Program Files (x86) \Internet Explorer\iexplore.exe veya C:\Windows\System32\drivers\etc\hosts.
-4. **Kaydet** düğmesine tıklayın.  
+4. **Kaydet**’e tıklayın.  
    ![Windows dosya değişiklik izleme](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Windows kayıt defteri anahtarlarını izlemek için
@@ -61,7 +61,7 @@ Windows bilgisayarlarda izlemek için kayıt defteri anahtarlarını yapılandı
 1. OMS Portalı'nda tıklatın **ayarları** (dişli symbol).
 2. Üzerinde **ayarları** sayfasında, **veri**ve ardından **Windows kayıt defteri izleme**.
 3. Windows kayıt defteri değişikliği izleme altında izlemek ve ardından istediğiniz anahtarın tamamının yazın **Ekle** simgesi.
-4. **Kaydet** düğmesine tıklayın.  
+4. **Kaydet**’e tıklayın.  
    ![Windows kayıt defteri değişiklik izleme](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="explanation-of-linux-file-collection-properties"></a>Linux dosya koleksiyonu özellikleri açıklaması
@@ -96,7 +96,7 @@ Diğer sınırlamaları:
 * Ağ trafiği yüksek olduğunda, değişikliği kayıtları en fazla altı saat için görüntülenecek kadar sürebilir.
 * Bilgisayar, bir bilgisayar kapalıyken yapılandırmasını değiştirirseniz, önceki yapılandırmaya ait dosya değişiklikleri sonrasında.
 
-### <a name="known-issues"></a>Bilinen sorunlar
+### <a name="known-issues"></a>Bilinen Sorunlar
 Değişiklik izleme çözümü şu anda aşağıdaki sorunları yaşıyor:
 * Windows 10 oluşturucuları Update ve Windows Server 2016 çekirdek RS3 makineleri için düzeltme güncelleştirmelerini toplanmadı.
 
@@ -112,11 +112,11 @@ Aşağıdaki tabloda, veri toplama yöntemleri ve değişiklik izleme verileri n
 
 Aşağıdaki tabloda değişiklik türleri için veri toplama sıklığını gösterir.
 
-| **türünü değiştirme** | **Sıklık** | **Mu****Aracısı****bulunduğunda farklar Gönder?**  |
+| **Değişiklik türü** | **frequency** | **Mu****Aracısı****bulunduğunda farklar Gönder?**  |
 | --- | --- | --- |
 | Windows kayıt defteri | 50 dakika | Hayır |
 | Windows dosya | 30 dakika | Evet. 24 saat içindeki herhangi bir değişiklik varsa, bir anlık görüntü gönderilir. |
-| Linux dosya | 15 dakika | Evet. 24 saat içindeki herhangi bir değişiklik varsa, bir anlık görüntü gönderilir. |
+| Linux file | 15 dakika | Evet. 24 saat içindeki herhangi bir değişiklik varsa, bir anlık görüntü gönderilir. |
 | Windows hizmetleri | 30 dakika | Evet, değişiklikler bulunduğunda 30 dakikada. 24 saatte bir anlık görüntü, değişiklik bağımsız olarak gönderilir. Bu nedenle, anlık görüntü bile gönderilen hiçbir değişiklik olduğu. |
 | Linux Daemon | 5 dakika | Evet. 24 saat içindeki herhangi bir değişiklik varsa, bir anlık görüntü gönderilir. |
 | Windows yazılım | 30 dakika | Evet, değişiklikler bulunduğunda 30 dakikada. 24 saatte bir anlık görüntü, değişiklik bağımsız olarak gönderilir. Bu nedenle, anlık görüntü bile gönderilen hiçbir değişiklik olduğu. |
@@ -126,39 +126,39 @@ Aşağıdaki tabloda değişiklik türleri için veri toplama sıklığını gö
 
 Günlük analizi izleme ve değişiklik izleme çözümü ile izleme Windows kayıt defteri gerçekleştirir. Kayıt defteri anahtarlarını yapılan değişiklikleri izleme amacı, burada etkinleştirebilir üçüncü taraf kodu ve kötü amaçlı yazılım genişletilebilirlik noktaları sabitleme olmaktır. Aşağıdaki liste, çözümü tarafından izlenen ve her neden izlenen kayıt defteri anahtarlarının varsayılan gösterir.
 
-- HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
     - Başlangıçta çalıştırılmasını izleyiciler betikler.
-- HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - İzleyiciler kapatma sırasında çalışan komutlar.
-- HKEY\_yerel\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
     - Kendi Windows hesabı kullanıcı işaretlerine önce yüklenen anahtarları izler. Anahtarı, 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için kullanılır.
-- HKEY\_yerel\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed bileşenleri
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
     - Uygulama ayarlarına değişiklikleri izler.
-- HKEY\_yerel\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
     - Windows Gezgini ve genellikle çalışma işlemdeki Explorer.exe ile doğrudan kanca izleyiciler ortak autostart girişleri.
-- HKEY\_yerel\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
     - Windows Gezgini ve genellikle çalışma işlemdeki Explorer.exe ile doğrudan kanca izleyiciler ortak autostart girişleri.
-- HKEY\_yerel\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
     - Windows Gezgini ve genellikle çalışma işlemdeki Explorer.exe ile doğrudan kanca izleyiciler ortak autostart girişleri.
-- HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - İzleyici simgesi için işleyici kaydı kaplama.
-- HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - İzleyici simgesi için 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için işleyici kaydı kaplama.
-- HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser yardımcı nesneleri
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
     - Internet Explorer için yeni tarayıcı Yardımcısı nesnesi eklentilerin izleyiciler. Geçerli sayfanın belge nesne modeli (DOM) erişmek için ve gezinti denetlemek için kullanılır.
-- HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser yardımcı nesneleri
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
     - Internet Explorer için yeni tarayıcı Yardımcısı nesnesi eklentilerin izleyiciler. Geçerli sayfanın belge nesne modeli (DOM) erişmek için ve 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için Gezinti denetlemek için kullanılır.
-- HKEY\_yerel\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Özel araç menüleri ve özel araç çubuğu düğmeleri gibi yeni Internet Explorer uzantıları için İzleyici.
-- HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
     - Özel araç menüleri ve 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için özel araç çubuğu düğmeleri gibi yeni Internet Explorer uzantıları için İzleyici.
-- HKEY\_yerel\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     - Wavemapper, wave1 ve wave2, msacm.imaadpcm, .msadpcm, .msgsm610 ve vidc ile ilişkili 32-bit sürücüleri izler. SİSTEM [drivers] bölümünde benzer. INI dosyası.
-- HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     - İzleyiciler 32-bit sürücüleri wavemapper, wave1 ve wave2, msacm.imaadpcm, .msadpcm, .msgsm610 ve 64-bit bilgisayarlar üzerinde çalışan 32-bit programlar için vidc ile ilişkili. SİSTEM [drivers] bölümünde benzer. INI dosyası.
 - HKEY\_yerel\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
     - Bilinen veya sık kullanılan sistem DLL'leri listesi izler; Bu sistem, sistem DLL'leri Truva atı sürümlerinde bırakarak zayıf uygulama dizin izinlerini yararlanmasını kişilerin engeller.
-- HKEY\_yerel\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
     - Winlogon, Windows işletim sistemi için etkileşimli oturum açma desteği modeli olay bildirimleri almak mümkün olan paketlerin listesini izler.
 
 
