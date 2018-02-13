@@ -29,8 +29,6 @@
       href: apache-kafka-mirroring.md
     - name: Kafka günlüklerini çözümleme
       href: apache-kafka-log-analytics-operations-management.md
-    - name: Kafka’yı Azure Container Service ile kullanma
-      href: apache-kafka-azure-container-services.md
     - name: Akış işlem hatları oluşturma
       items:
         - name: Kafka ve Spark (Structured Streaming)
@@ -45,6 +43,10 @@
         - name: Kafka ve Storm
           href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
+        - name: Kafka’yı Azure Container Service ile kullanma
+          href: apache-kafka-azure-container-services.md
+        - name: Kafka ve Azure İşlevleri
+          href: apache-kafka-azure-functions.md
     - name: Geliştirme
       items:
         - name: Kafka Üretici ve Tüketici API’sini kullanma

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure yığın depolama kapasitesi yönetme
 
@@ -130,7 +130,7 @@ Geçiş yeni paylaşımındaki tüm kapsayıcıları blob birleştirir.
 - Bir kaynak grubu için izinler yetersiz ve PowerShell taşma veriler için ek birimler sorgulamak için kullanamaz, bu kaynak gruplarını ve kapsayıcıları verilerin toplam boyutu anlamak için bu verileri geçirmeden önce geçirmek için sahibi ile çalışır.  
 
 > [!IMPORTANT]
-> Geçiş BLOB kapsayıcı için PowerShell kullanılmasını gerektiren çevrimdışı bir işlemdir. Geçiş tamamlanana kadar geçirdiğiniz kapsayıcısı için tüm BLOB'lar çevrimdışı kalır ve kullanılamaz.
+> Geçiş BLOB kapsayıcı için PowerShell kullanılmasını gerektiren çevrimdışı bir işlemdir. Geçiş tamamlanana kadar geçirdiğiniz kapsayıcısı için tüm BLOB'lar çevrimdışı kalır ve kullanılamaz. Ayrıca, tüm devam eden Geçiş tamamlanana kadar Azure yığını yükseltmeden kaçınmalısınız.
 
 #### <a name="to-migrate-containers-using-powershell"></a>PowerShell kullanarak kapsayıcıları geçirmek için
 1. Sahip olduğunuzu onaylamak [Azure PowerShell yüklenmiş ve yapılandırılmış](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Daha fazla bilgi için bkz. [Azure PowerShell'i Azure Resource Manager ile kullanma](http://go.microsoft.com/fwlink/?LinkId=394767).

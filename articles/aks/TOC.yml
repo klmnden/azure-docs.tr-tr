@@ -37,6 +37,8 @@
   items:
     - name: Küm işlemleri
       items:
+        - name: AKS kümesi oluşturma
+          href: create-cluster.md
         - name: AKS kümesini ölçeklendirme
           href: scale-cluster.md
         - name: AKS kümesini yükseltme
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Veri hacimlerini yapılandırma
       items:
-        - name: Azure Diskleri - Kalıcı Hacim
+        - name: Azure Diskleri
           href: azure-disks-dynamic-pv.md
-        - name: Azure Dosyaları - Kalıcı Hacim
+        - name: Azure Dosyaları
           href: azure-files-dynamic-pv.md
+    - name: Ağ yapılandırması
+      items:
+        - name: Statik IP adresi
+          href: static-ip.md
     - name: Güvenlik ve kimlik doğrulaması
       items:
         - name: Hizmet sorumlusu oluşturma
