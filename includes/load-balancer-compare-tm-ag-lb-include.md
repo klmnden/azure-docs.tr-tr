@@ -21,10 +21,10 @@ Azure Load Balancer ve Application Gateway, ağ trafiğini uç noktalara yönlen
 | Tür | Azure Load Balancer | Application Gateway |
 | --- | --- | --- |
 | Protokoller |UDP/TCP |HTTP, HTTPS ve WebSockets |
-| IP ayırma |Destekleniyor |Desteklenmiyor |
+| IP ayırma |Desteklenen |Desteklenmiyor |
 | Yük dengeleme modu |5’li demet (kaynak IP, kaynak bağlantı noktası, hedef IP, hedef bağlantı noktası, protokol türü) |Hepsini Bir Kez Deneme<br>URL'ye dayalı yönlendirme |
 | Yük dengeleme modu (kaynak IP/yapışkan oturumlar) |2’li demet (kaynak IP ve hedef IP), 3’lü demet (kaynak IP, hedef IP ve bağlantı noktası). Sanal makine sayısına bağlı olarak ölçeği artırabilir veya azaltılabilir |Tanımlama bilgisi tabanlı benzeşim<br>URL'ye dayalı yönlendirme |
 | Sistem durumu araştırmaları |Varsayılan: araştırma aralığı - 15 saniye Yönlendirme dışına çıkarma: Arka arkaya 2 hata. Kullanıcı tanımlı araştırmaları destekler |Boşta araştırma aralığı 30 saniye. Arka arkaya 5 canlı trafik hatasından veya boşta modunda tek bir araştırma hatasından sonra çıkarılır. Kullanıcı tanımlı araştırmaları destekler |
-| SSL aktarma |Desteklenmiyor |Destekleniyor |
-| URL tabanlı yönlendirme | Desteklenmiyor | Destekleniyor|
-| SSL İlkesi | Desteklenmiyor | Destekleniyor|
+| SSL aktarma |Desteklenmiyor |Desteklenen |
+| URL tabanlı yönlendirme | Desteklenmiyor | Desteklenen|
+| SSL İlkesi | Desteklenmiyor | Desteklenen|
