@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Veritabanı Özelliklerine Genel Bakış | Microsoft Belgeleri"
-description: "Bu sayfada Azure SQL Veritabanı mantıksal sunucuları ve veritabanları için bir genel bakış sunulmakta ve her özellik için bağlantılara yer verilen bir özellik destek tablosuna yer verilmektedir."
+title: "Azure SQL veritabanı özellik karşılaştırması | Microsoft Docs"
+description: "Bu makalede, SQL Server ve Azure SQL veritabanı özelliklerini karşılaştırır ve farklılıkları gösterir."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: dc9a7fa0a7fa0e029f71510cc516496ed12a6274
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-sql-database-features"></a>Azure SQL Veritabanı özellikleri
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: SQL Server ile Azure SQL veritabanı 
 
 Azure SQL veritabanı, SQL Server ile temel bir ortak kodun paylaşır ve veritabanı düzeyinde aynı özelliklerin çoğunu destekler. Azure SQL Database ve SQL Server önemli özellik farklarını kaynağı örneği düzeyindedir. 
 
@@ -75,7 +75,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli özellikleri listeler ve her belirl
 | [Olay bildirimleri](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Hayır - bkz [uyarıları](sql-database-insights-alerts-portal.md) |
 | [İfadeler](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Evet |
 | [Genişletilmiş olaylar](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Bazı - bkz [SQL veritabanında olaylar genişletilmiş](sql-database-xevent-db-diff-from-svr.md) |
-| [Genişletilmiş saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Hayır |
+| [genişletilmiş saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Hayır |
 | [Dosyalar ve dosya grupları](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Yalnızca birincil dosya grubu |
 | [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Hayır |
 | [Tam metin araması](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | Üçüncü taraf sözcük ayırıcı desteklenmez. |

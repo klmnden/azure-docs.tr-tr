@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlevleri proxy ile çalışma
 
@@ -50,13 +50,13 @@ Azure işlevleri proxy'leriyle isteklerini ve yanıtlarını arka ucundan deği�
 
 Varsayılan olarak, arka uç isteği özgün istek bir kopyası olarak başlatılır. Arka uç URL'si ayarlamaya ek olarak, HTTP yöntemi, üst bilgiler ve sorgu dizesi parametreleri değişiklik yapabilirsiniz. Değiştirilen değerleri başvurabilir [uygulama ayarları] ve [özgün istemci istek parametrelerinden].
 
-Şu anda arka uç istekleri değiştirmek için hiçbir portal deneyimi yoktur. Bu özellikten uygulamak öğrenmek için *proxies.json*, bkz: [requestOverrides nesnesi tanımlayın].
+Arka uç istekleri değiştirilebilir portalda tarafından expading *geçersiz kılma isteği* proxy ayrıntı sayfasının bölümünde. 
 
 ### <a name="modify-response"></a>Yanıtı değiştirebilir
 
 Varsayılan olarak, istemci yanıt arka uç yanıtının kopya olarak başlatılır. Yanıtın durum kodu, neden ifadesini, üstbilgiler ve gövde değişiklik yapabilirsiniz. Değiştirilen değerleri başvurabilir [uygulama ayarları], [özgün istemci istek parametrelerinden], ve [arka uç yanıt parametrelerinden].
 
-Şu anda, yanıtları değiştirmek için hiçbir portal deneyimi yoktur. Bu özellikten uygulamak öğrenmek için *proxies.json*, bkz: [responseOverrides nesnesi tanımlayın].
+Arka uç istekleri değiştirilebilir portalda tarafından expading *yanıt geçersiz kılma* proxy ayrıntı sayfasının bölümünde. 
 
 ## <a name="using-variables"></a>Değişkenleri kullanma
 
@@ -65,7 +65,11 @@ Bir proxy sunucu yapılandırmasını statik olması gerekmez. Değişkenleri ö
 ### <a name="reference-localhost"></a>Başvuru yerel işlevler
 Kullanabileceğiniz `localhost` aynı işlev uygulaması işlevinde bir gidiş dönüş proxy isteği bu olmadan doğrudan başvurmak için.
 
-`"backendurl": "localhost/api/httptriggerC#1"`bir yerel yol tetiklenen HTTP işlevini başvurur.`/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` bir yerel yol tetiklenen HTTP işlevini başvurur. `/api/httptriggerC#1`
+
+ 
+>[!Note]  
+>İşlevinizi kullanıyorsa *işlevi, yönetici veya sys* yetkilendirme düzeyleri, kod ve ClientID, özgün işlevi URL'nin başına sağlamak gerekir. Bu durumda başvurusu gibi görünür: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>Başvuru İstek parametreleri
 
@@ -114,7 +118,7 @@ Ekleyerek izlemeleri tamamen devre dışı `"debug":false` herhangi belirli prox
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
 
-Yapılandırdığınız proxy depolanmış bir *proxies.json* bir işlev uygulaması dizin kökünde bulunan dosya. El ile bu dosyasını düzenleyin ve herhangi birini kullandığınızda, uygulamanızın bir parçası olarak dağıtmanız [dağıtım yöntemleri](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) bu işlevleri destekler. Azure işlevleri proxy'leri özellik olmalıdır [etkin](#enable) işlenecek dosya için. 
+Yapılandırdığınız proxy depolanmış bir *proxies.json* bir işlev uygulaması dizin kökünde bulunan dosya. El ile bu dosyasını düzenleyin ve herhangi birini kullandığınızda, uygulamanızın bir parçası olarak dağıtmanız [dağıtım yöntemleri](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) bu işlevleri destekler. 
 
 > [!TIP] 
 > Bir dağıtım yöntemleri ayarlamadıysanız ayrıca çalışabileceğiniz *proxies.json* portal dosyasında. Select, işlev uygulaması Git **Platform özellikleri**ve ardından **App Service Düzenleyicisi**. Bunu yaparak, tüm dosya yapısı işlevi uygulamanızın görüntülemek ve ardından değişiklikleri yapın.
@@ -229,16 +233,6 @@ Uygulama ayarları, özgün istemci İstek parametreleri ve parametreleri değer
 ```
 > [!NOTE] 
 > Bu örnekte, yanıt gövdesi doğrudan, böylece Hayır ayarlanmış `backendUri` özelliği gereklidir. Örnek API mocking için Azure işlevleri proxy'leri nasıl kullanacağınızı gösterir.
-
-## <a name="enable"></a>Azure işlevleri proxy'leri etkinleştir
-
-Proxy'leri artık varsayılan olarak etkin olan! Proxy'leri Önizleme daha eski bir sürümü kullanan ve proxy'ler devre dışı, el ile bir kez çalıştırılacak proxy'leri için sırayla proxy'leri etkinleştirmeniz gerekir.
-
-1. Açık [Azure portal]ve ardından işlevi uygulamanıza gidin.
-2. Seçin **işlev uygulaması ayarları**.
-3. Anahtar **etkinleştirmek Azure işlevleri proxy'leri (Önizleme)** için **üzerinde**.
-
-Ayrıca burada yeni özellikleri kullanılabilir duruma geldiğinde proxy çalışma zamanı güncelleştirmesi dönebilirsiniz.
 
 [Azure portal]: https://portal.azure.com
 [HTTP Tetikleyicileri]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

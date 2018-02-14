@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar izler. Ayrıca denetleme:
@@ -39,8 +39,10 @@ SQL veritabanı için denetimi kullanabilirsiniz:
 
 Farklı türlerde olay kategorisi için Denetim açıklandığı şekilde yapılandırabilirsiniz [veritabanınız için denetimi ayarlamanız](#subheading-2) bölümü.
 
-Denetim günlükleri, Azure aboneliğinizde Azure Blob depolama alanına yazılır.
-
+> [!IMPORTANT]
+> Denetim günlükleri için yazılır **ek Bloblarını** , Azure aboneliğinizin üzerinde bir Azure Blob storage'da.
+>
+> **VNet içinde depolama** şu anda **desteklenmiyor**.
 
 ## <a id="subheading-8"></a>Sunucu düzeyinde ve veritabanı düzeyi denetim ilkesi tanımlayın
 
@@ -80,7 +82,7 @@ Aşağıdaki bölümde denetim Azure Portalı'nı kullanarak yapılandırmayı a
    >En iyi denetim raporları şablonları almak için denetlenen tüm veritabanları için aynı depolama hesabı kullanın.
 
     <a id="storage-screenshot"></a>![Gezinti Bölmesi][4]
-6. Denetlenen olayları özelleştirmek istiyorsanız, PowerShell veya REST API bunu yapabilirsiniz. 
+6. Denetlenen olayları özelleştirmek istiyorsanız, PowerShell veya REST API bunu yapabilirsiniz.
 7. Denetim ayarlarını yapılandırdıktan sonra yeni tehdit algılama özelliğini açmak ve güvenlik uyarıları almak için e-postaları yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini öngörülü uyarılar alırsınız. Daha fazla bilgi için bkz: [tehdit algılama ile çalışmaya başlama](sql-database-threat-detection-get-started.md).
 8. **Kaydet**’e tıklayın.
 

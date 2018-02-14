@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2fc2b07189994206c8465ed24374489eefd45966
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı sağlamayı için Facebook ile çalışma alanına yapılandırın
 
 Bu öğreticide adımları Azure Active Directory (Azure AD) için çalışma alanına Facebook tarafından otomatik olarak sağlama ve devre dışı bırakma sağlama kullanıcı hesapları için gerekli da gösterilir.
+
+>[!NOTE]
+>Bu öğretici Azure AD kullanıcı sağlama hizmeti üstünde oluşturulmuş bir bağlayıcı açıklar. Bu hizmet ne yaptığını, nasıl çalıştığı ve sık sorulan sorular önemli ayrıntılar için lütfen bkz. [otomatikleştirmek kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına etkinleştirmektir](active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
